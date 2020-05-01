@@ -1,0 +1,17 @@
+<div class="cpr-stat-area">
+  <svg height="300" width="480" >
+    <polygon points='0,0
+                    450,0
+                    480,30
+                    480,300
+                    30,300
+                    0,270'
+          fill='#f00'/>
+    <text x="20" y="150" fill="white" font-family="Verdana" font-size="20px" font-weight="bold">SKILLS</text>
+    <g *ngFor="let skill of skills; let i = index">
+      <rect [attr.x]="getX(i)" [attr.y] ="getY(i)" height="60" width="110" fill="white"></rect>
+      <text [attr.x]="getX(i) + 5" [attr.y] ="getY(i) + 20" fill="black" font-family="Verdana" font-size="12px">{{skill.name}}</text>
+      <text [attr.x]="getX(i) + 10" [attr.y] ="getY(i) + 45" fill="black" font-family="Verdana" font-size="12px">({{skill.stat}}) + {{skill.value}}</text>
+    </g>
+  </svg>
+</div>

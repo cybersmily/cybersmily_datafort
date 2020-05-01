@@ -1,0 +1,78 @@
+{
+  "name" : "Shitoraki",
+  "logo" : "shitoraki",
+  "slogan" : "Where electronics is just the beginning.",
+  "history" : "The history of Shitoraki starts in Osaka Japan in 2003. They started in entertainment electronics. They revolutionized the music format by added a new compressed chip. The encoding was able to prevent piracy of these new chips. This was the stepping stone for Shitoraki Electronics. The profits they soon gained were quickly used to acquire various companies, each with some electronic product that Shitoraki put their name on. With this growth came attention. Several larger multi-nats started paying close attention to Shitoraki's success. A small shark, compared to EBM or IEC, was looking to gobble Shitoraki before they became to large. The company was BGH, who's CEO, Hugh Marcus, thought Shitoraki was ripe for the taking. In 2011, terrorist attacks against various Shitoraki facilities started happening. Ujimori Kikiwasi, CEO of Shitoraki, wasn't going to allow his company to fall into another hands. He assembled a team of \"investigators\" to find out who was behind these attacks. Within a week, Kikiwasi-san was given the name, Hugh Marcus. There are unconfirmed rumors that the disappearance of Mr. Marcus was Kikiwasi-san's, but Hugh had pissed off many people. Whoever the culprit was, BGH was attacked in all directions. Media started revealing scandal after scandal. Lawsuits were bought against BGH by many organizations for vary things from faulty electronic goods to sexual harassment. Also criminal charges were bought up involving illegal disposal of toxic waste in several different countries. BGH soon died and the scavengers started feasting off it's corporate carcass, which included Shitoraki. With BGH's demise, the other corporation who were looking to take Shitoraki, looked else where. <br/>The following years went well for Shitoraki. The company started making in roads into media and cyberware. With Kikiwasi-san at the helm, Shitoraki  has prosperd for the last decade. It is rumored that the \"Investigative\" team of Shitoraki might be the reason for this. ",
+  "resources" : {
+    "value": "",
+    "stock": {
+      "shares" : 0,
+      "price" : 0.00
+    },
+    "majorityholder": {
+      "name": "Ujimori Kikiwasi",
+      "title": "CEO",
+      "location": "Okinawa, Japan",
+      "file": "",
+      "profile": "CEO and major owner of Shitoraki Electronics.",
+      "stockpercent": 47
+    },
+    "resources" : "",
+    "subsidaries" : [ { "name" : "", "lob":  "", "description":  "" }]
+  },
+  "employees" : {
+    "workers": 100000,
+    "troops": 2000,
+    "covert": 200,
+    "notable": [
+      { "name": "Ujimori Kikiwasi", "title": "CEO", "location": "Osaka","file": "", "profile": "Founder of the company.", "stockpercent": 0 },
+      { "name": "Okiyama Kikiwasi", "title": "CFO", "location": "Osaka","file": "", "profile": "Son and heir to Kikiwasi's dynasty.", "stockpercent": 0 },
+      { "name": "Hiro Takawa", "title": "CE of Entertainment", "location": "Osaka","file": "", "profile": "A member of the board of director", "stockpercent": 11 },
+      { "name": "Nomi Kame", "title": "CE of Electronics", "location": "Osaka","file": "", "profile": "A member of the board of director", "stockpercent": 11 },
+      { "name": "Tohomija Wanbe", "title": "VP of marketing and strategy", "location": "","file": "", "profile": "", "stockpercent": 0 },
+      { "name": "Kimi", "title": "", "location": "","file": "kimi", "profile": "The major performing artist signed to Shitoraki Music", "stockpercent": 0 },
+      { "name": "Thomas Marshalls", "title": "Chief Director of North American division", "location": "Night City","file": "", "profile": "", "stockpercent": 1.8 },
+      { "name": "Sarah Yamaki", "title": "Assistant Director of American SouthWest Region", "location": "Dallas","file": "", "profile": "Sarah is Thomas Marshalls right hand and works with him drive Shitoraki America", "stockpercent": 0 },
+      { "name": "Namura Ijoma", "title": "Head of Security", "location": "Night City","file": "", "profile": "", "stockpercent": 0 }
+    ]
+  },
+  "offices" : {
+    "headquarters":"Osaka, Japan",
+    "regionaloffices": {
+      "description": "",
+      "locations": ["Tokyo","Beijing","Moscow","Paris","London","Berin","Rome","Vienna","Melbourne","Atlanta","Boston","Night City","Dallas","Vancouver","Montreal","Rio de Janeiro","Mexico City","Rabat"]
+    },
+    "coporatehq": "",
+    "location": "",
+    "architecture": "",
+    "interiorsandfacilities": "",
+    "personnel": "",
+    "security": "",
+    "specialfacilities": "",
+    "rd": "",
+    "labs": "",
+    "factories": "",
+    "stores": "",
+    "spacefacilities": ""
+  },
+  "intent" : {
+    "goal": "",
+    "longterm": "",
+    "products": [
+      { "name": "Personal Electtronics", "description": "" },
+      { "name": "Computers", "description": "" },
+      { "name": "Musical Instruments", "description": "" },
+      { "name": "Music Production", "description": "" }],
+    "allies": [""],
+    "enemies": [""]
+  },
+  "equipment" : {
+    "executive": "",
+    "employees": "",
+    "staff": "",
+    "guards": "",
+    "vehicles": "",
+    "equipment": "",
+    "weapons": ""
+  }
+}

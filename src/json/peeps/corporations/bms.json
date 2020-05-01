@@ -1,0 +1,80 @@
+{
+  "name" : "BMS",
+  "logo" : "bms",
+  "slogan" : "Life.Chemistry.Innovation.",
+  "history" : "BMS was formed back at the turn of the century. Jeff Terlin was CEO of a large pharmaceutical corporation. During the chaos of the collapse he saw an opportunity to take control of other medical and pharmaceutical companies in the area. He quickly merge with several in attempt for those companies to survive. The other companies thought it was in their best interest to band together, but they soon realized that Terlin was in it for control. Through underlings Terlin was able to acquire controlling interest in all the companies. Now in 2020 BMS has started a more aggressive business plan. This has caused Biotechnica and Petrochem to take notice.<br/>A few years back the main AI for BMS headquarters, named Prometheus, went rogue. A elite team of BMS Black Ops, named Team Alpha, broke into the facility and stole the core programming of Prometheus. Apparently Prometheus hired the team away from BMS and was able to help with their controling implants that BMS had installed on the Operatives. BMS has sent a team after Prometheus only to have them killed. Netwatch has been informed and Prometheus is now on the top ten most wanted Rogue AIs.",
+  "resources" : {
+    "value": "",
+    "stock": {
+      "shares" : 0,
+      "price" : 0.00
+    },
+    "majorityholder": {
+      "name": "Jeff Terlin",
+      "title": "CEO",
+      "location": "Windsor, CT USA",
+      "file": "",
+      "profile": "Jeff is the Founder of the corporation.",
+      "stockpercent": 35.8
+    },
+    "resources" : "",
+    "subsidaries" : [ { "name" : "", "lob":  "", "description":  "" }]
+  },
+  "employees" : {
+    "workers": 80000,
+    "troops": 1000,
+    "covert": 100,
+    "notable": [
+      { "name": "Kevin Hillard", "title": "Head of the board of directors", "location": "","file": "", "profile": "", "stockpercent": 16.2 },
+      { "name": "Maghon O'Reilly", "title": "Director of Research and Development", "location": "","file": "", "profile": "Member of the board.", "stockpercent": 9.3 },
+      { "name": "Xavier Untman", "title": "Head of Pharmaceutical Research", "location": "","file": "", "profile": "", "stockpercent": 0 },
+      { "name": "Rose Lumbra-Terlin", "title": "Director of Marketing and Communications", "location": "","file": "", "profile": "Rose is a board member and the daughter of the CEO, Jeff Terlin", "stockpercent": 3.2 },
+      { "name": "David Cross", "title": "Head of Security", "location": "","file": "", "profile": "", "stockpercent": 0 },
+      { "name": "Collen Mathews", "title": "VP of Cyberware division", "location": "","file": "", "profile": "", "stockpercent": 0 },
+      { "name": "Prometheus", "title": "", "location": "","file": "", "profile": "Rogue A.I. of BMS's mainframe.", "stockpercent": 0 },
+      { "name": "IO", "title": "", "location": "","file": "", "profile": "Rogue A.I. hunter on contract from BMS to track down and eliminate Prometheus", "stockpercent": 0 }
+    ]
+  },
+  "offices" : {
+    "headquarters":"Hartford, CT USA",
+    "regionaloffices": {
+      "description": "",
+      "locations": ["Night City","Rio de Janeiro","Vancouver","Austin","Sydney","Paris","Tokyo","Beijing","Berlin"]
+    },
+    "coporatehq": "",
+    "location": "",
+    "architecture": "",
+    "interiorsandfacilities": "",
+    "personnel": "",
+    "security": "",
+    "specialfacilities": "",
+    "rd": "",
+    "labs": "",
+    "factories": "",
+    "stores": "",
+    "spacefacilities": ""
+  },
+  "intent" : {
+    "goal": "BMS is a corporation gear toward the medical community. Their goal is to be the exclusive supplier to hospitals and other medical facilities for surgical and medical equipment in the northern hemisphere.",
+    "longterm": "MS wish to expand more and take control of Biotechnica territory. They also wish to have better cyberware in all fields.",
+    "products": [
+      { "name": "Pharmaceuticals", "description": "BMS is the second largest corporation in this business next to Biotechnica. They produce most of the medical drugs that are used in all hospitals. They also produce many over the counter drugs that people use today. They were also the first company to find a cure for some cancers. Their main market in the begin was toward the professional medical market. Since 2018 they have expanded into the commercial market. They have also produced recreational drugs from some country that have less strict laws on the subject." },
+      { "name": "Medical and Surgical Equipment", "description": "" },
+      { "name": "Cyberware", "description": "" },
+      { "name": "Bioware and Genetics", "description": "" },
+      { "name": "Medical Research", "description": "" },
+      { "name": "", "description": "" }
+    ],
+    "allies": [""],
+    "enemies": ["Biotechnica is at the top of the list. Although there hasn't been any violent confrontation"]
+  },
+  "equipment" : {
+    "executive": "",
+    "employees": "",
+    "staff": "",
+    "guards": "",
+    "vehicles": "",
+    "equipment": "",
+    "weapons": ""
+  }
+}

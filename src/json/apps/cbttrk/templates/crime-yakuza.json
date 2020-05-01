@@ -1,0 +1,55 @@
+{ "handle": "Yakuza Hitter",
+  "role": "Solo",
+  "int": 6,
+  "ref": 8,
+  "tech": 3,
+  "cool": 9,
+  "attr": 7,
+  "luck": 6,
+  "ma": 8,
+  "body":7,
+  "emp": 5,
+  "armor": {
+    "head": 0,
+    "torso": 0,
+    "arms": 0,
+    "legs": 0
+  },
+  "sa": {"name":"Combat Sense", "stat": "", "value": 4},
+  "skills": [
+    {"name":"Wardrobe \\& Style", "stat": "attr", "value": 8},
+    {"name":"Intimidate", "stat": "cool", "value": 6},
+    {"name":"Motorcycle", "stat": "ref", "value": 5},
+    {"name":"Streetwise", "stat": "cool", "value": 5},
+    {"name":"Handgun", "stat": "ref", "value": 9},
+    {"name":"Hide/Evade", "stat": "int", "value": 5},
+    {"name":"Martial Arts: Karate", "stat": "ref", "value": 7},
+    {"name":"Shadow/Track", "stat": "int", "value": 6},
+    {"name":"Melee", "stat": "ref", "value": 6},
+    {"name":"Dodge/Escape", "stat": "ref", "value": 7},
+    {"name":"Stealth", "stat": "ref", "value": 5},
+    {"name":"Awareness/Notice", "stat": "int", "value": 7},
+    {"name":"Social", "stat": "emp", "value": 4},
+    {"name":"Fencing", "stat": "ref", "value": 6}
+  ],
+  "cyberware": [
+    {"name":"Pain Editor"},
+    {"name":"Interface Plugs"},
+    {"name":"Neuralware", "options":"Smargun Link"},
+    {"name":"Cyberoptics", "options":"Target Scope, Time Square, Low LIte"},
+    {"name":"Adrenal Booster"}
+
+  ],
+  "weapons": [
+    {"name": "Arasaka WSA", "type": "P", "wa": 0, "conc": "J", "damage":"2D6+3", "shots":15, "rof": 2, "rel": "VR", "range": 50,
+      "notes":"Speedholster, DUD Smartgun Controller, Digital Weappon Link"},
+    {"name": "Kendachi M-33 Powersword", "type": "MEL", "wa": 0, "conc": "L", "damage":"4D6", "notes":"Soft Armor SPx1/4; Hard armor SPx1/2"}
+  ],
+  "gear": [
+    "Cell phone",
+    "Credchip account",
+    "Kundalini Roadworks Shiva bike"
+  ],
+  "source": "PS",
+  "notes": ""
+}

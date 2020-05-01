@@ -1,0 +1,4 @@
+.csd-sm-input { width: 50px; }
+.csd-sm-input:disabled { background-color: lightgray;}
+.csd-input-label {position: relative;}
+

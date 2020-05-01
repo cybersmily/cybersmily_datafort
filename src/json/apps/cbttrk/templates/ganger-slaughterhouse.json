@@ -1,0 +1,32 @@
+{ "handle": "Ganger - Slaughterhouse",
+  "role": "Streetpunk",
+  "int": 5,
+  "ref": 9,
+  "body":8,
+  "luck": 5,
+  "tech": 7,
+  "cool": 7,
+  "attr": 5,
+  "ma": 8,
+  "emp": 2,
+  "armor": {
+    "head": 0,
+    "torso": 0,
+    "arms": 0,
+    "legs": 0
+  },
+  "sa": {"name":"", "stat": "", "value": 0},
+  "skills": [
+    {"name":"Melee", "stat": "ref", "value": 9},
+    {"name":"Stealth", "stat": "ref", "value": 4},
+    {"name":"intimidate", "stat": "cool", "value": 9},
+    {"name":"Awareness/Notice", "stat": "int", "value": 5},
+    {"name":"Endurance", "stat": "body", "value": 6},
+    {"name":"Martial Arts: Karate", "stat": "ref", "value": 5}
+  ],
+  "cyberware": [],
+  "weapons": [],
+  "gear": [],
+  "source": "NC",
+  "notes": "Boostergang. Use mostly implant cyberware. Blades are the main choice of weapons."
+}

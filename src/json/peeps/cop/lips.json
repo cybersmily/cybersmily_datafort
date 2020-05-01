@@ -1,0 +1,76 @@
+{"name":"Lt Samuel Lipwich",
+	"handle":"Lips",
+	"aliases":"Sammy",
+	"age":31,
+	"img":"lips",
+	"career":{"name":"Cop","specialability":"Authority","value":7},
+	"stats":{
+		"ref":7,
+		"int":6,
+		"tech":4,
+		"cool":8,
+		"attr":5,
+		"luck":4,
+		"ma":7,
+		"body":6,
+		"emp":5,
+		"hc":5,
+    "rep":3},
+	"skills":{
+		"cool":[
+			{"name":"Interrogation","value":6},
+			{"name":"Intimidate","value":2},
+			{"name":"Streetwise","value":7}
+		],
+		"emp":[
+			{"name":"Human Perception","value":5},
+			{"name":"Interview","value":4}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":6},
+			{"name":"Education/Gen. Know","value":3},
+			{"name":"Expert: Law","value":7},
+			{"name":"Language: English","value":8},
+			{"name":"Language: Russian","value":4},
+			{"name":"Library Search","value":2},
+			{"name":"Shadow/Track","value":5}
+		],
+		"ref":[
+			{"name":"Athletics","value":4},
+			{"name":"Brawling","value":6},
+			{"name":"Driving","value":6},
+			{"name":"Handgun","value":8},
+			{"name":"Melee","value":4},
+			{"name":"Rifle","value":3},
+			{"name":"Submachinegun","value":6}
+		],
+		"tech":[
+			{"name":"Elect. Security","value":3},
+			{"name":"First Aid","value":1},
+			{"name":"Pick Lock","value":4},
+			{"name":"Weaponsmith","value":2}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Picky, fussy and nervous",
+			"valuedperson":"Mentor/partner when he first became a homicide detective",
+			"valuemost":"Honesty",
+			"feelaboutpeople":"People are untrustworthy. Don't depend on them",
+			"valuedpossession":"Book, "
+		},
+		"style":{
+			"clothes":"Corporate Suit",
+			"hair":"Tinted",
+			"affectations":"Fingerless gloves",
+			"ethnicity":"Anglo-american",
+			"languages":"English"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":["Biomonitor"],
+	"gear":["Various plains clothes cop stuff."],
+  "history":"Lt Lipwich has been with the force for the past 13 years. He is a homicide detective working in the Precinct 2. He is known for his anti-corp stance and has disobeyed orders from his superior while investigating members of senior management of some of the mega-corporation in Night City.",
+  "playerinfo":"<strong>For &quot;NCPD Blues&quot; scenario</strong><h6>Lt Samuel &quot;Lips&quot; Lipwich, Homicide Detective</h6><br>15 years on the force and now I have to hunt a 'borg. This city is going to hell in a can. I wish there was a little semblance of truth in the NCPD. Too many officers are corrupted by those damn corporations. The mega-corps think they can do as they damn well please. That's crap if you ask me. Something needs to be done. Just like Operation Big Stick when the U.S. Military kick that corp's ass down to the last insignificant bug of an employee. That's what needs to be done again. Clean up this freakin' city and you won't have so many pyschos anymore.<br>Now the Captain wants me to work with the jerks! It's goin' to be a hell of aweek.<br><br><strong>Lady J</strong> - She's alright for a C-SWAT. Doesn't seem to be too out of it. I think she'll be the only one I can trust.<br><strong>Tin</strong> - He's exactly what I'm talking about. Corrupted. A pyscho who no doubt works for some corp under the table. What a grunt. Doubt he has any thoughts in that metallic head of his.<br><strong>Mum</strong> - What a bit... Probably thinks she'll be running this investigation. But I have to give her my 'full cooperation'. My ass. She and her bosses are the ones who made this killer. If you ask me she should be thrown in jail along with the rest of her corporation. Arasaka is the worst of those scum bags. They made a killing machine and it's LEGAL for them to do it. That's b.s.<br><strong>Egg</strong> - What a toady. Talk about a corporate stooge. No doubt he'll be a problem when the borg needs to be put down.<br><strong>Shade</strong> - The corporate killer. I'm sure his orders are to clean up after we're done. That ain't going to happen my friend. One wrong move and POW! No more killer."
+}

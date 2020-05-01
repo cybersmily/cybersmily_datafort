@@ -1,0 +1,74 @@
+{"name":"Lt. Miruku Yamazi",
+	"handle":"Miz Ya",
+	"aliases":"Da Missy",
+	"img":"myamazi",
+	"career":{"name":"Cop","specialability":"Authority","stat":"cool","value":6},
+	"age":26,
+	"stats":{
+		"ref":6,
+		"int":7,
+		"tech":4,
+		"cool":9,
+		"attr":7,
+		"luck":5,
+		"ma":6,
+		"body":8,
+		"emp":6,
+		"hc":22,
+    "rep":5},
+	"skills":{
+		"cool":[
+			{"name":"Interrogation","value":4},
+			{"name":"Streetwise","value":5}
+		],
+		"emp":[
+			{"name":"Human Perception","value":5},
+			{"name":"Interview","value":2}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":4},
+			{"name":"Education/Gen. Know","value":2},
+			{"name":"Expert: Law","value":2},
+			{"name":"Language: English","value":8},
+			{"name":"Language: Japanese","value":5},
+			{"name":"Language: Spanish","value":4},
+			{"name":"Library Search","value":3},
+			{"name":"Shadow/Track","value":4}
+		],
+		"ref":[
+			{"name":"Athletics","value":2},
+			{"name":"Brawling","value":3},
+			{"name":"Driving","value":3},
+			{"name":"Handgun","value":6},
+			{"name":"MA: Tai Chi Chuan","value":2},
+			{"name":"Melee","value":3},
+			{"name":"Pilot: VTV","value":2}
+		],
+		"tech":[
+			{"name":"First Aid","value":2}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Moody, rash, and headstrong",
+			"valuedperson":"No one",
+			"valuemost":"Knowledge",
+			"feelaboutpeople":"People are tools.",
+			"valuedpossession":"Her grandmother's scarf"
+		},
+		"style":{
+			"clothes":"Biker Leathers",
+			"hair":"Tinted",
+			"affectations":"Earrings",
+			"ethnicity":"Japanese",
+			"languages":"English"
+		}
+	},
+	"cyberware":["Neural Processor [WLNK, PGS, Boost +2]",
+		"Chip Sockets",
+		"Muscle and Bone Lace",
+		"Nasal Filters",
+		"Miss Midnight"],
+	"gear":["Glock 30, Armalite 44, both with speedholster", "Armor jumpsuit (SP12)", "VMW Cohort"],
+	"history":"Special Investigator Miruku has worked for NCPD for the past 8 years. She currently undercover within the yakuza and has been following the connection with them to Arasaka and other Japanese multi-nationals."
+}

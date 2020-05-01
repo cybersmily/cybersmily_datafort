@@ -1,0 +1,10 @@
+  <div [ngClass]="{'chargen-wound-title':true, 'chargen-damaged': (damage > 0)}">{{title}}</div>
+  <div class="chargen-wound-boxes">
+    <input [(ngModel)]="wounds[0]" type="checkbox" (change)="onWound(0)">
+    <input [(ngModel)]="wounds[1]" type="checkbox" (change)="onWound(1)">
+    <input [(ngModel)]="wounds[2]" type="checkbox" (change)="onWound(2)">
+    <input [(ngModel)]="wounds[3]" type="checkbox" (change)="onWound(3)">
+  </div>
+  <div class="chargen-wound-stun">
+    Stun={{stunSaveMod}}
+  </div>

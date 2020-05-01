@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="small">Last updated 2014-09</div>
+  <h2>Proteus Decks, Cyberware, and Gear</h2>
+  <div>
+    This is the gear that I converted from the Netrunner CCG expansion pack.
+    These are by no means official, just doing my part to get some stats on them.
+  </div>
+  <accordion #accordion>
+    <!-- Cyberdecks -->
+    <accordion-group *ngFor="let n of programList; let i = index">
+        <div accordion-heading>
+          <h3 style="display:inline-block">{{n.groupName}}</h3>
+          <fa-icon [icon]="accordion.groups[i].isOpen?faAngleDoubleDown:faAngleDoubleRight" size="2x"></fa-icon>
+        </div>
+      <div class="card-columns">
+        <div class="card" *ngFor="let program of n.programs" >
+          <div class="card-block csd-box csd-rounded">
+            <h4 class="card-title">{{program.name}}</h4>
+            <div class="csd-card-holder card-text">
+              <div class="csd-card-img">
+                <img src="/img/data/proteus/{{program.img}}.png" alt="{{program.name}} - {{program.imgCredit}} for Cyberpunk 2020" class="csd-rounded-corners"/>
+                <br>
+                <i>{{program.imgCredit}}</i>
+              </div>
+              <div>STR: {{program.str}}; MU: {{program.mu}}; Cost: {{program.cost | number}} eb.</div>
+              <div>Options:<span *ngFor="let opt of program.options"> {{opt}};</span></div>
+              <div>Icon: {{program.icon}}</div>
+              <div>Description: {{program.desc}}</div>
+              <div><i>{{program.flavor}}</i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </accordion-group>
+  </accordion>
+</div>

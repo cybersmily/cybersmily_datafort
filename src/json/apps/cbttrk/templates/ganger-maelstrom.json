@@ -1,0 +1,38 @@
+{ "handle": "Maelstrom",
+  "role": "Streetpunk",
+  "int": 5,
+  "ref": 8,
+  "tech": 4,
+  "cool": 6,
+  "attr": 4,
+  "luck": 6,
+  "ma": 6,
+  "body": 9,
+  "emp": 3,
+  "armor": {
+    "head": 0,
+    "torso": 0,
+    "arms": 0,
+    "legs": 0
+  },
+  "sa": {"name":"", "stat": "", "value": 0},
+  "skills": [
+    {"name":"Handgun", "stat": "ref", "value": 6},
+    {"name":"Rifle", "stat": "ref", "value": 6},
+    {"name":"Submachinegun", "stat": "ref", "value": 6},
+    {"name":"Brawling", "stat": "ref", "value": 5},
+    {"name":"Melee", "stat": "ref", "value": 5},
+    {"name":"Weaponsmith", "stat": "ref", "value": 5},
+    {"name":"Endurance", "stat": "body", "value": 5},
+    {"name":"Strength Feat", "stat": "body", "value": 4},
+    {"name":"Streetwise", "stat": "cool", "value": 5},
+    {"name":"Heavy Weapons", "stat": "ref", "value": 4},
+    {"name":"Cyber Tech", "stat": "tech", "value": 2}
+
+  ],
+  "cyberware": [],
+  "weapons": [],
+  "gear": [],
+  "source": "NC",
+  "notes": ""
+}

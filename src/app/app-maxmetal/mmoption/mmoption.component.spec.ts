@@ -1,0 +1,33 @@
+import { MaxMetalOption } from '../../shared/models/maxmetal';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { MmoptionComponent } from './mmoption.component';
+
+describe('MmoptionComponent', () => {
+  let component: MmoptionComponent;
+  let fixture: ComponentFixture<MmoptionComponent>;
+  let option: MaxMetalOption;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ MmoptionComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(MmoptionComponent);
+    component = fixture.componentInstance;
+    option = new MaxMetalOption();
+    option.name = 'test';
+    option.spaces = '0';
+    option.cost = '';
+    component.item = option;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+
+    expect(component).toBeTruthy();
+  });
+});

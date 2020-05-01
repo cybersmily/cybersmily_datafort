@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-12 col-md-11">
+    <div class="row">
+      <div class="col-12">TYPE: <span>{{currClothing.clothes.name}}</span>
+        <input type="button" title="Buy" class="pull-right btn-secondary csd-rounded csd-fash-btn" value="Buy"
+          (click)="purchase($event)" [disabled]="!isPurchaseable()" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-5">Locations: <span>{{currClothing.clothes.loc}}</span></div>
+      <div class="col-4">Weight: <span>{{currClothing.clothes.wt}}</span></div>
+      <div class="col-3">EV: <span>{{currClothing.ev}}</span></div>
+    </div>
+    <div class="row">
+      <div class="col-12">Total Cost: <span>{{currClothing.totalCost | number}}</span>eb</div>
+    </div>
+    <div>
+      <cs-fashion-clothes-selector [clothing]="clothes" (selectClothing)="changeClothing($event)"
+        (selectLeather)="selectLeather($event)"></cs-fashion-clothes-selector>
+      <cs-fashion-selector [label]="'Style'" [data]="styleList"
+        [selectedValue]="currClothing.style"
+        [isRequired]="true"
+        (selectOption)="selectStyle($event)">
+      </cs-fashion-selector>
+      <cs-fashion-selector [label]="'Quality'" [data]="qualityList"
+        [selectedValue]="currClothing.quality"
+        [isRequired]="true"
+        (selectOption)="selectQuality($event)"></cs-fashion-selector>
+      <cs-fashion-selector [label]="'SP Rating'" [data]="spRatingsList"
+        [selectedValue]="currClothing.spRating"
+        [isRequired]="false"
+        (selectOption)="selectSPRating($event)"></cs-fashion-selector>
+      <cs-fashion-options-selector
+        [options]="optionsList"
+        (checkOption)="selectOptions($event)"
+        [currWeight]="currClothing.clothes.wt"></cs-fashion-options-selector>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+﻿{"name":"",
+	"handle":"Kestrel",
+	"aliases":"",
+	"age":23,
+	"img":"kestrel",
+	"career":{"name":"Fixer (sniffer)","specialability":"Streetdeal","value":8},
+	"stats":{
+		"ref":7,
+		"int":8,
+		"tech":7,
+		"cool":8,
+		"attr":5,
+		"luck":6,
+		"ma":5,
+		"body":5,
+		"emp":10,
+    "hc":8.5,
+    "rep":2
+  },
+	"skills":{
+		"attr":[
+			{"name":"Personal Grooming","value":3},
+			{"name":"Wardrobe/Style","value":3}
+		],
+		"body":[
+			{"name":"Endurance","value":2},
+			{"name":"Swimming","value":2}
+		],
+		"cool":[
+			{"name":"Intimidate","value":5}
+		],
+		"emp":[
+			{"name":"Human Perception","value":6},
+			{"name":"Social","value":5},
+			{"name":"Persuasion/Fast Talk","value":7}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":6},
+			{"name":"Education/Gen. Know","value":3},
+			{"name":"Hide/Evade","value":3},
+			{"name":"Language: English","value":8},
+			{"name":"Shadow/Track","value":2},
+			{"name":"Stock Market","value":2},
+			{"name":"Wilderness Survival","value":2}
+		],
+		"ref":[
+			{"name":"Handgun","value":2},
+			{"name":"MA: Aikido","value":1},
+			{"name":"Stealth","value":1}
+		],
+		"tech":[
+			{"name":"Demolitions","value":1},
+			{"name":"Disguise","value":3},
+			{"name":"Elect. Security","value":6},
+			{"name":"Forgery","value":7},
+			{"name":"Pick Lock","value":7},
+			{"name":"Pick Pocket","value":6}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Sneaky & Deceptive",
+			"valuedperson":"Mother",
+			"valuemost":"Money",
+			"feelaboutpeople":"Neutral",
+			"valuedpossession":"Grandfather's fountain pen"
+		},
+		"style":{
+			"clothes":"High fashion",
+			"hair":"Short, spikey",
+			"affectations":"Tattoos",
+			"ethnicity":"Anglo-american",
+			"languages":"English"
+		},
+		"family":"Combat zone poor - Family cursed with hereditary feud that has lasted for generations. Childhood environment was in the heart of the combat zone.",
+		"siblings":"none"
+	},
+	"cyberware":["Neuralware Processor[PLG, Chip Socket]"],
+	"gear":["Colt 2000, chopped barrel and silencer", "Mini-cell, fully loaded", "Hybrid wearable computer", "holo-mask", "Smart mirrorshadeds [TS+]", "Bug jammer", "Bug detector"],
+	"history":"Kestrel had a hard life growing up in the combat zone. The one thing he was good at was sneaking and getting into places. Eventually he saw an oppurtunity to make a career of getting stuff people wanted for a fee. He is now a sniffer. He hangs out in and around bars in south-central night city."
+}

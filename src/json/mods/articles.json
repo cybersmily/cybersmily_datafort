@@ -1,0 +1,89 @@
+{
+  "articles":{
+    "money":{
+      "name":"Alt Money",
+      "title":"Alternative Money Rules",
+      "html":"altmoney",
+      "updated":"2001",
+      "description":"An alternative money system for starting characters."
+    },
+    "ip":
+    {
+      "name":"IP Rules",
+      "title":"IP Rules for INT",
+      "html":"ipmodifiers",
+      "updated":"1999",
+      "description":"Rules for INT stat modifying the IP rate."
+    },
+    "cbp":{
+      "name":"Character Building Points",
+      "title":"Character Building Points",
+      "html":"cbp",
+      "updated":"1999",
+      "description":"This is a character generation systems using points instead of random rolls."
+    },
+    "fumble":{
+      "name":"Fumble",
+      "title":"Fumble Rules",
+      "html":"fumble",
+      "updated":"2001",
+      "description":"These are some alternative fumble rules using LUCK"
+    },
+    "actions":{
+      "name":"init./Actoins",
+      "title":"Initiative and Actions",
+      "html":"actions",
+      "updated":"1999",
+      "description":"These are some alternative initiative and actions rules."
+    },
+    "luck":{
+      "name":"LUCK",
+      "title":"LUCK Rules",
+      "html":"luck",
+      "updated":"2001",
+      "description":"These are some modificatoins to how to use LUCK in the game."
+    },
+    "medtechs":{
+      "name":"Medtechs",
+      "title":"Alternative MedTech Careers",
+      "html":"medtechs",
+      "updated":"2001",
+      "description":"Here are some additional careers that fall within the MedTech career."
+    },
+    "nr":{
+      "name":"Quick NR",
+      "title":"Quick Netrunning Rules",
+      "html":"qnrr",
+      "updated":"2001",
+      "description":"These are some rules to do a quick netrun based on a skill roll."
+    },
+    "skills":{
+      "name":"Skills",
+      "title":"Skills Broken down",
+      "html":"skills",
+      "updated":"1999",
+      "description":"Worked on getting some DIFF and how to use a skill. WIP."
+    },
+    "sa":{
+      "name":"Special Abilities",
+      "title":"Special Abilities Alternative Rules",
+      "html":"sa",
+      "updated":"1999",
+      "description":"Article on expand the use of Special ABilities."
+    },
+    "careers":{
+      "name":"Career Stats",
+      "title":"careers with Focused Stats",
+      "html":"careers",
+      "updated":"1999",
+      "description":"Different focus stats for careers and opposing stats."
+    },
+    "youth":{
+      "name":"Youth Path",
+      "title":"Youth Path",
+      "html":"youth",
+      "updated":"2001",
+      "description":"This is pre-life path for getting some skills for how a character spent their childhood."
+    }
+  }
+}

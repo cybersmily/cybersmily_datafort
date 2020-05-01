@@ -1,0 +1,113 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">{{npcProfile.handle}}</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-12 col-md-5 col-lg-4 csdProfilePic">
+      <img class="rounded" src="{{imgFile}}" alt="{{npcProfile.handle}} - NPC for Cyberpunk 2020"/>
+    </div>
+    <div class="col-12 col-md-7 col-lg-8">
+      <div *ngIf="npcProfile.name"><strong>Name:</strong> {{npcProfile.name}}</div>
+      <div *ngIf="npcProfile.aliases"><strong>Aliases:</strong> {{npcProfile.aliases}}</div>
+      <div><strong>Age:</strong> {{npcProfile.age}}</div>
+      <br>
+      <div class="row">
+          <div class="col-4">
+              <div><strong>INT-</strong>{{npcProfile.stats.int}}</div>
+              <div><strong>REF-</strong>{{npcProfile.stats.ref}}</div>
+              <div><strong>TECH-</strong>{{npcProfile.stats.tech}}</div>
+              <div><strong>REP-</strong>{{npcProfile.stats.rep}}</div>
+          </div>
+          <div class="col-4">
+              <div><strong>COOL-</strong>{{npcProfile.stats.cool}}</div>
+              <div><strong>ATTR-</strong>{{npcProfile.stats.attr}}</div>
+              <div><strong>LUCK-</strong>{{npcProfile.stats.luck}}</div>
+          </div>
+          <div class="col-4">
+              <div><strong>MA-</strong>{{npcProfile.stats.ma}}</div>
+              <div><strong>BODY-</strong>{{npcProfile.stats.body}}</div>
+              <div><strong>EMP-</strong>{{npcProfile.stats.emp}}/{{adjustedEmp()}}</div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <br>
+  <div class="row csdProfile skills">
+    <div class="col-0 col-md-1"></div>
+    <div class="col-12 col-sm-3 col-lg-2">
+        <h5>Skills:</h5>
+    </div>
+    <div class="col-12 col-sm-8 col-lg-9">
+        <span>{{npcProfile.career.specialability}}-{{npcProfile.career.value}}</span>
+        <span *ngFor="let skill of npcSkills">{{skill.name}}-{{skill.value}}({{skill.total}}); </span>
+    </div>
+  </div>
+  <br>
+  <div class="row csdProfile cyberware">
+    <div class="col-0 col-md-1"></div>
+    <div class="col-12 col-sm-3 col-lg-2">
+      <h5>Cyberware:</h5>
+    </div>
+    <div class="col-12 col-sm-8 col-lg-9">
+      <span *ngFor="let cyberware of npcProfile.cyberware">{{cyberware}}; </span>
+    </div>
+  </div>
+  <br>
+  <div class="row csdProfile gear">
+    <div class="col-0 col-md-1"></div>
+    <div class="col-12 col-sm-3 col-lg-2">
+        <h5>Gear:</h5>
+    </div>
+    <div class="col-12 col-sm-8 col-lg-9">
+      <span *ngFor="let gear of npcProfile.gear">{{gear}}; </span>
+    </div>
+  </div>
+  <br>
+  <div class="row csdProfile profile">
+    <div class="col-0 col-md-1"></div>
+    <div class="col-12 col-sm-3 col-lg-2">
+      <h5>Profile</h5>
+    </div>
+    <div class="col-12 col-sm-8 col-lg-9">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <h6>Motivations</h6>
+          <ul class="csdProfileList">
+            <li><strong>Traits:</strong> {{npcProfile.background.motivations.traits}}</li>
+            <li><strong>Valued Person:</strong> {{npcProfile.background.motivations.valuedperson}}</li>
+            <li><strong>Value Most:</strong> {{npcProfile.background.motivations.valuemost}}</li>
+            <li><strong>Feel About People:</strong> {{npcProfile.background.motivations.feelaboutpeople}}</li>
+            <li><strong>Valued Possession:</strong> {{npcProfile.background.motivations.valuedpossession}}</li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-6">
+          <h6>Style</h6>
+          <ul class="csdProfileList">
+            <li><strong>Clothes:</strong> {{npcProfile.background.style.clothes}}</li>
+            <li><strong>Hair:</strong> {{npcProfile.background.style.hair}}</li>
+            <li><strong>Affectations:</strong> {{npcProfile.background.style.affectations}}</li>
+            <li><strong>Ethnicity:</strong> {{npcProfile.background.style.ethnicity}}</li>
+            <li><strong>Language:</strong> {{npcProfile.background.style.languages}}</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <h6>History:</h6> {{npcProfile.history}}
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row" *ngIf="npcProfile.playerinfo">
+    <div class="col-12">
+      <div><h5>Player Info:</h5></div>
+       <div>(Only read if you plan to Referee one of the gigs from the site)</div>
+      <div [innerHTML]="npcProfile.playerinfo"></div>
+    </div>
+  </div>
+
+</div>
+<div class="modal-footer">
+</div>

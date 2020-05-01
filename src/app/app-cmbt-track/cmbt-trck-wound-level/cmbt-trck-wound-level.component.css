@@ -1,0 +1,46 @@
+
+.chargen-wound-cell {
+  margin-top: 0px;
+  border: none;
+  padding: 0;
+  width: 60px;
+}
+
+.chargen-wound-title {
+  font-style: italic;
+  display: block;
+  font-size: 10px;
+  height: 12px;
+  padding: 0px 0px;
+  margin: 0px 0px;
+}
+
+.chargen-wound-boxes {
+  display: block;
+  padding: 0px 0px;
+  margin: 0px 0px;
+  height: 16px;
+  line-height: 14px;
+}
+
+.chargen-wound-boxes input {
+  display: inline;
+  padding: 0px 0px;
+  margin: 0px 0px;
+}
+
+.chargen-wound-stun {
+  display: block;
+  color: white;
+  background-color: black;
+  font-style: italic;
+  font-size: 8px;
+  text-align: center;
+  margin: 0px 0px;
+  padding: 2px 3px;
+}
+
+.chargen-damaged {
+  color: red;
+  font-weight: bold;
+}

@@ -1,0 +1,95 @@
+﻿{"name":"",
+	"handle":"Big Man",
+	"aliases":"Henry Stark, Alfred Ramirez, and countless others",
+	"age":29,
+	"img":"bigman",
+	"career":{"name":"Fixer (Talent Agent)","specialability":"Streetdeal","value":9},
+	"stats":{
+		"ref":6,
+		"int":8,
+		"tech":6,
+		"cool":7,
+		"attr":6,
+		"luck":7,
+		"ma":6,
+		"body":5,
+		"emp":9,
+    "hc":9,
+    "rep":6
+  },
+	"skills":{
+		"attr":[
+			{"name":"Personal Grooming","value":2},
+			{"name":"Wardrobe/Style","value":3}
+		],
+		"body":[
+		],
+		"cool":[
+			{"name":"Interrogation","value":5},
+			{"name":"Intimidate","value":7}
+		],
+		"emp":[
+			{"name":"Human Perception","value":6},
+			{"name":"Leadership","value":5},
+			{"name":"Seduction","value":3},
+			{"name":"Social","value":4},
+			{"name":"Persuasion/Fast Talk","value":7}
+		],
+		"int":[
+			{"name":"Accounting","value":2},
+			{"name":"Awareness/Notice","value":4},
+			{"name":"Education/Gen. Know","value":3},
+			{"name":"Hide/Evade","value":6},
+			{"name":"Library Search","value":3}
+		],
+		"ref":[
+			{"name":"Brawling","value":4},
+			{"name":"Handgun","value":5},
+			{"name":"Melee","value":6},
+			{"name":"Stealth","value":4}
+		],
+		"tech":[
+			{"name":"Basic Tech","value":2},
+			{"name":"Disguise","value":5},
+			{"name":"Elect. Security","value":4},
+			{"name":"Forgery","value":6},
+			{"name":"Pick Lock","value":3},
+			{"name":"Pick Pocket","value":4}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Friendly and outgoing",
+			"valuedperson":"Himself",
+			"valuemost":"His word",
+			"feelaboutpeople":"Neutral",
+			"valuedpossession":"His father's ring"
+		},
+		"style":{
+			"clothes":"High fashion",
+			"hair":"Short, spiked",
+			"affectations":"Long fingernails",
+			"ethnicity":"Anglo-american",
+			"languages":"English"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":[
+    "Neural Processor [DLNK, WLNK, PLG]",
+    "Chip Socket []",
+    "Opti-Shield [AD, TS+]",
+    "Cyber Audio [PS, RL]",
+    "Mr. Studd",
+    "Forked Tongue"
+  ],
+	"gear":[
+    "Mustang Arms 'Mark II', Smart (P/+3/J/C/3D6 DP/12-20/3/VR)",
+    "Kendachi Monoknife (MEL/+1/P/-/2D6/-/-/VR)",
+    "Cellphone w/ privacy+",
+    "Several false identifications",
+    "fully loaded E-book",
+    "High fashion armored clothes (SP12)"
+  ],
+	"history":"Big Man was a major player in the Boston area. He was a talent agent working for one of the big bosses of the city. He was well known for leading the teams he assembled. Never afraid to get his hands dirty. This is where his handle came from. Other fixers would tease him and say \"Look at the big man going on ops...\" BMS heard of his exploits and offered him a position he couldn't refuse, to be the leader of Team Alpha, their elite ops team. Big Man loved the resources that were thrown at him. Growing up on the streets was rough, but now he was on the top of his game. He went about hiring other members for Team Alpha. Several assassinations, sabotage work, and extractions were allegedly theirs. They were one of the best. One day the BMS main AI, Prometheus, came to Big Man with an offer. It is unknown what Prometheus offerd Big Man to help free it from the BMS mainframes, but whatever it was Big Man accepted. Big Man with Team Alpha stole Prometheus from the main BMS HQ Office building and fled. BMS started contracting teams to find them. It was by luck that Dango was located in Night City, far cross the country from the BMS headquarters in Boston. They quickly sent an ops team to hunt them down. Dango and Mars were killed before the BMS was stopped by Team Alpha. Big Man sent a message to BMS with the final hitmen. An apartment on the 27th floor in downtown Night City exploded destroying the entire floor. BMS was implicated with the hitmen as traction, memos, and other records surfaced on the whole incident. This was forwarded to the Feds. BMS has called off the hunt for Team Alpha for now, but the security at all BMS facilities have double since then. Big Man was believed to be in that explosion. Bits of bone and teeth were found that matches Big Man's DNA. Whether he's dead or not is still unknown."
+}

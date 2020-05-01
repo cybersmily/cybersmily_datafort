@@ -1,0 +1,11 @@
+<div class="chargen-section">
+  <div class="chargen-cp-logo chargen-label chargen-fill">Cyberpunk 2020</div>
+  <!--
+  <div class="hidden-print">
+    Image URL: <input [(ngModel)]="image" class="chargen-pc-pic-url" type="text" (change)="onChangeImage()"/>
+  </div>
+  -->
+  <div class="chargen-pc-pic csd-rounded">
+    <img *ngIf="hasImage" [src]="image" class="chargen-pc-img csd-rounded"/>
+  </div>
+</div>

@@ -1,0 +1,106 @@
+﻿{
+	"name":"Tom Yokonu",
+	"handle":"Shade",
+	"aliases":"",
+	"age":26,
+	"img":"shade",
+	"career":{"name":"Solo","specialability":"Combat Sense","value":8},
+	"stats":{
+		"ref":12,
+		"int":6,
+		"tech":4,
+		"cool":8,
+		"attr":5,
+		"luck":6,
+		"ma":5,
+		"body":7,
+		"emp":6,
+    "hc":34,
+    "rep":3
+  },
+	"skills":{
+		"attr":[
+			{"name":"Personal Grooming","value":2},
+			{"name":"Wardrobe/Style","value":2}
+		],
+		"body":[
+			{"name":"Endurance","value":3}
+		],
+		"cool":[
+			{"name":"Intimidate","value":4},
+			{"name":"Streetwise","value":4}
+		],
+		"emp":[
+			{"name":"Human Perception","value":3}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":6},
+			{"name":"Hide/Evade","value":5},
+			{"name":"Language: Japanese","value":8},
+			{"name":"Language: English","value":8},
+			{"name":"Shadow/Track","value":7}
+		],
+		"ref":[
+			{"name":"Athletics","value":5},
+			{"name":"Dodge/Escape","value":5},
+			{"name":"Driving","value":4},
+			{"name":"Handgun","value":8},
+			{"name":"Heavy Weapons","value":6},
+			{"name":"MA: Tae Kwon Do","value":5},
+			{"name":"Melee","value":8},
+			{"name":"Motorcycle","value":3},
+			{"name":"Pilot: Gyro","value":3},
+			{"name":"Pilot: VTV","value":3},
+			{"name":"Rifle","value":6},
+			{"name":"Stealth","value":8},
+			{"name":"Submachinegun","value":6}
+		],
+		"tech":[
+			{"name":"Basic Tech","value":4},
+			{"name":"Demolitions","value":6},
+			{"name":"Disguise","value":4},
+			{"name":"Electronics","value":3},
+			{"name":"Elect. Security","value":6},
+			{"name":"First Aid","value":3},
+			{"name":"Forgery","value":2},
+			{"name":"Pick Lock","value":6},
+			{"name":"Weaponsmith","value":5}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Arrogant & quiet",
+			"valuedperson":"Mentor",
+			"valuemost":"Power",
+			"feelaboutpeople":"Obstacles",
+			"valuedpossession":"A watch"
+		},
+		"style":{
+			"clothes":"Businesswear",
+			"hair":"Bald",
+			"affectations":"Earrings",
+			"ethnicity":"Japanese",
+			"languages":"Japanese"
+		},
+		"family":"Grew up on the streets. Parents are dead.",
+		"siblings":""
+	},
+	"cyberware":[
+    "Right Cyberarm [EMP Shield, Armored, Smartgun link 2]",
+    "Kiroshi Optishield [AD, LL, TA]",
+    "Neural Processor [RFB2, WLNK, PE, CS]",
+    "Nasal Filters"
+  ],
+	"gear":[
+    "Nova City Hunter, Smart (P/+2/J/P/3D6/18/2/ST)",
+    "HEP Pistol Grenades (4D6)",
+    "EMP Grenades",
+    "Pulse Rifle, Smart (RIF/0/N/P/EMP/8/.5/ST)",
+    "Armored Businesswear suit (SP18)",
+    "E-book computer (Bugjammer & detector)",
+    "Datatel's Mapmaker",
+    "Cellphone w/ privacy plus"
+  ],
+	"history":"Shade is an operative for Arasaka corporation. He works with Elizabeth Mumaki (Mum) in the Night City office. He is cool and calculating. Often sent on black op assignments throughout the city.",
+  "playerinfo":"<strong>For &quot;NCPD Blues&quot; scenario</strong><h6>Tom Yokonu a.k.a Shade</h6><br>Cool and quiet that's me. This better be an important op. Why are we working with the cops? I could take care of the whole thing with a select  black-ops team. Arasaka better know what their doing, because I'm not going down alone if this op goes sour. I've trained too hard and too long for a high profile, simple job like this to go wrong. I hope Arasaka doesnt plan on retiring me. This job could be the start of my downward spiral. I know there are other jobs out there, ones that will appreciate my skills and quality. I think I might need to contact the Vulture, the fixer I know. Especially if Arasaka is planning on getting rid of me.<br><br><strong>Lips</strong> - Seems like a decent police officer. Maybe trouble if we need to do anything illegal. Hopefully Mum can buy him off.<br><strong>Lady J</strong> - I think she's on the take. I don't know why I think it but something about her. Definitely watch her.<br><strong>Tin</strong> - Borg wannabe. He'll be the first to die if the crap hits the helo. Whether it be by Diamond or me.<br><strong>Mum</strong> - She's nervous about something. No doubt Arasaka is putting a hell of a lot of pressure on her to succeed. Hope I don't have to delete her, she's kinda cute.<br><strong>Egg</strong> - Looks to be O.K. Too much of a toady tough."
+}

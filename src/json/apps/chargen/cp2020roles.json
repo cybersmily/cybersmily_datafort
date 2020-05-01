@@ -1,0 +1,243 @@
+{
+  "roles": [{
+      "name": "Cop",
+      "base": "",
+      "specialAbility": {
+        "name": "Authority",
+        "descritpion": "",
+        "stat": "COOL",
+        "ipMod": 1,
+        "ip": 0
+      },
+      "skills": [
+        "Awareness/Notice",
+        "Handgun",
+        "Human Perception",
+        "Athletics",
+        "Education \\& Gen. Know.",
+        "Brawling",
+        "Melee",
+        "Interrogation",
+        "Streetwise"
+      ],
+      "source": "CP2020",
+      "page": 16
+    },
+    {
+      "name": "Corporate",
+      "base": "",
+      "specialAbility": {
+        "name": "Resources",
+        "descritpion": "",
+        "stat": "INT",
+        "ipMod": 1,
+        "ip": 0
+      },
+      "skills": [
+        "Awareness/Notice",
+        "Human Perception",
+        "Education \\& Gen. Know.",
+        "Library Search",
+        "Social",
+        "Persuasion \\& Fast Talk",
+        "Stock Market",
+        "Wardrobe \\& Style",
+        "Personal Grooming"
+      ],
+      "source": "CP2020",
+      "page": 18
+    },
+    {
+      "name": "Fixer",
+      "base": "",
+      "specialAbility": {
+        "name": "Streetdeal",
+        "descritpion": "",
+        "stat": "COOL",
+        "ipMod": 1,
+        "ip": 0
+      },
+      "skills": [
+        "Awareness/Notice",
+        "Forgery",
+        "Handgun",
+        "Brawling",
+        "Melee",
+        "Pick Lock",
+        "Pick Pocket",
+        "Intimidate",
+        "Persuasion \\& Fast Talk"
+      ],
+      "source": "CP2020",
+      "page": 20
+    },
+    {
+      "name": "Media",
+      "base": "",
+      "specialAbility": {
+        "name": "Credibility",
+        "descritpion": "",
+        "stat": "INT",
+        "ipMod": 1,
+        "ip": 0
+      },
+      "skills": [
+        "Awareness/Notice",
+        "Composition",
+        "Education \\& Gen. Know.",
+        "Persuasion \\& Fast Talk",
+        "Human Perception",
+        "Social",
+        "Streetwise",
+        "Photo \\& Film",
+        "Interview"
+      ],
+      "source": "CP2020",
+      "page": 14
+    },
+    {
+      "name": "Medical Tech",
+      "base": "",
+      "specialAbility": {
+        "name": "Medical Tech",
+        "descritpion": "",
+        "stat": "TECH",
+        "ipMod": 1,
+        "ip": 0
+      },
+      "skills": [
+        "Awareness/Notice",
+        "Basic Tech",
+        "Diagnose Illness",
+        "Education \\& Gen. Know.",
+        "Cryotank Operation",
+        "Library Search",
+        "Pharmaceuticals",
+        "Zoology",
+        "Human Perception"
+      ],
+      "source": "CP2020",
+      "page": 12
+    },
+    {
+      "name": "Netrunner",
+      "base": "",
+      "specialAbility": {
+        "name": "Interface",
+        "descritpion": "",
+        "stat": "INT",
+        "ipMod": 1,
+        "ip": 0
+      },
+      "skills": [
+        "Awareness/Notice",
+        "Basic Tech",
+        "Education \\& Gen. Know.",
+        "System Knowledge",
+        "CyberTech",
+        "Cyberdeck Design",
+        "Composition",
+        "Electronics",
+        "Programming"
+      ],
+      "source": "CP2020",
+      "page": 10
+    },
+    {
+      "name": "Nomad",
+      "base": "",
+      "specialAbility": {
+        "name": "Family",
+        "descritpion": "",
+        "stat": "INT",
+        "ipMod": 1,
+        "ip": 0
+      },
+      "skills": [
+        "Awareness/Notice",
+        "Endurance",
+        "Melee",
+        "Rifle",
+        "Driving",
+        "Basic Tech",
+        "Wilderness Survival",
+        "Brawling",
+        "Athletics"
+      ],
+      "source": "CP2020",
+      "page": 22
+    },
+    {
+      "name": "Rockerboy",
+      "base": "",
+      "specialAbility": {
+        "name": "Charismatic Leadership",
+        "descritpion": "",
+        "stat": "COOL",
+        "ipMod": 1,
+        "ip": 0
+      },
+      "skills": [
+        "Awareness/Notice",
+        "Perform",
+        "Wardrobe \\& Style",
+        "Composition",
+        "Brawling",
+        "Play Instrument",
+        "Streetwise",
+        "Persuasion \\& Fast Talk",
+        "Seduction"
+      ],
+      "source": "CP2020",
+      "page": 6
+    },
+    {
+      "name": "Solo",
+      "base": "",
+      "specialAbility": {
+        "name": "Combat Sense",
+        "descritpion": "",
+        "stat": "",
+        "ipMod": 1,
+        "ip": 0
+      },
+      "skills": [
+        "Awareness/Notice",
+        "Handgun",
+        "Melee",
+        "Weaponsmith",
+        "Rifle",
+        "Athletics",
+        "Submachinegun",
+        "Stealth",
+        ["Brawling", "Martial Art"]
+      ],
+      "source": "CP2020",
+      "page": 8
+    },
+    {
+      "name": "Techie",
+      "base": "",
+      "specialAbility": {
+        "name": "Jury Rig",
+        "descritpion": "",
+        "stat": "TECH",
+        "ipMod": 1,
+        "ip": 0
+      },
+      "skills": [
+        "Awareness/Notice",
+        "Basic Tech",
+        "CyberTech",
+        "Teaching",
+        "Education \\& Gen. Know.",
+        "Electronics",
+        ["Gyro Tech", "Aero Tech", "Weaponsmith", "Elect. Security"],
+        ["Gyro Tech", "Aero Tech", "Weaponsmith", "Elect. Security"],
+        ["Gyro Tech", "Aero Tech", "Weaponsmith", "Elect. Security"]
+      ],
+      "source": "CP2020",
+      "page": 12
+    }
+  ]
+}

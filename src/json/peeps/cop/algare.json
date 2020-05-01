@@ -1,0 +1,94 @@
+{"name":"Simon Algare",
+	"handle":"Sniff",
+	"aliases":"None",
+	"img":"algare",
+	"career":{"name":"Cop","specialability":"Authority","stat":"cool","value":7},
+	"age":41,
+	"stats":{
+		"ref":7,
+		"int":6,
+		"tech":3,
+		"cool":8,
+		"attr":5,
+		"luck":8,
+		"ma":8,
+		"body":6,
+		"emp":8,
+		"hc":22,
+    "rep":4},
+	"skills":{
+		"attr":[
+			{"name":"*Personal Grooming","value":3},
+			{"name":"*Wardrobe/Style","value":3}
+		],
+		"cool":[
+			{"name":"Interrogation","value":7},
+			{"name":"Intimidate","value":5},
+			{"name":"Streetwise","value":4}
+		],
+		"emp":[
+			{"name":"Human Perception","value":6},
+			{"name":"Leadership","value":5},
+			{"name":"Social","value":3},
+			{"name":"Persuasion/Fast Talk","value":3}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":4},
+			{"name":"Education/Gen. Know","value":5},
+			{"name":"Expert: ELINT","value":4},
+			{"name":"Expert: EBM Policy","value":3},
+			{"name":"Language: English","value":7},
+			{"name":"Language: Russian","value":8},
+			{"name":"Language: German","value":4},
+			{"name":"*Language: Japanese","value":3},
+			{"name":"*Language: French","value":3},
+			{"name":"Library Search","value":2},
+			{"name":"Shadow/Track","value":2}
+		],
+		"ref":[
+			{"name":"Athletics","value":2},
+			{"name":"*Dance","value":3},
+			{"name":"Driving","value":4},
+			{"name":"Handgun","value":6},
+			{"name":"MA: Kenpo","value":7},
+			{"name":"MA: Aikido","value":4},
+			{"name":"*Melee","value":3},
+			{"name":"Rifle","value":7}
+		],
+		"tech":[
+			{"name":"Disguise","value":3},
+			{"name":"Electronics","value":9},
+			{"name":"Pick Lock","value":3},
+			{"name":"Pick Pocket","value":4}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Intellectual and detached",
+			"valuedperson":"Brother",
+			"valuemost":"Friendship",
+			"feelaboutpeople":"People are wonderful",
+			"valuedpossession":"mp3 collection of KMFDM"
+		},
+		"style":{
+			"clothes":"Corporate Suits",
+			"hair":"Bald",
+			"affectations":"Tattoos",
+			"ethnicity":"Russian",
+			"languages":"Russian"
+		}
+	},
+	"cyberware":["Neural Processor [ DLNK,WLNK,VLNK,PLGS ]",
+		"Chip Socket[Personal Grooming +3, Wardrobe/Style +3, Lang:Japanese +3, Lang:French +3, Melee +3, Dance +3, Fish'n'chips, Adrenal Chip]",
+		"Independant Air",
+		"Mr Studd",
+		"Contraceptive Implant",
+		"Nanosurgeons",
+		"Nano-Groomers",
+		"Muscle and Bone Lace",
+		"Secondary Gut",
+		"Ileocecal Siphon",
+		"Nano-Optical Upgrade" ],
+	"gear":[],
+	"history":"Simmon grew up in Prague. His childhood was spent in Russia before his family moved to the USA when he was 12. Simmon always loved america culture. Especially their TV shows. Cop shows (drama or reality TV) were always his favorites. When he became 18, he join the police academy in California. He was a average cadet and soon became a beat cop. He worked th streets of Night City until he meet his cousin, Vladmir Puchenka. Vlad was a lieutenant for the Russian Mafia in NC andn Simmon was on a bust when he ran into him. Simmon had a gun pointing at his cousin but couldn't bring himself to shoot. Vlad on the other hand had didn't want to get thrown in the clinker, but didn't shoot Simmon either. However Vlad had to shoot and kill 2 other officiers before he could get away. Simmon was dismissed from the police force due to his reckless behavior. Simmon found work where he could, mainly as security for various corporation, but never held a steady one. Soon Simmon was working the streets as an edgerunner. After a few years he sold out to EBM and was part of an ops team. This team was directed by the then head of NC EBM Security, Gerald Walsh. Walsh used the team for his own agenda. Walsh had a plan to assassin the CEO of EBM, Dr Rudolf Muller, who was to be visiting Night City. This didn't bode well with Simmon. He single handedly was able to stop Walsh and his team during the assassination. Dr Muller was pleased with Simmon's daring rescue and offered him the Walsh's former position as head of security in Night City. Simmon now runs security for the Night City branch of EBM. He is methodical with his work and keeps a sharp eye on his subordinates. Though he maintains a good relationship with all of them. He makes sure everything runs smooth for them and himself and has been know to butt heads with senior management at times. He also still has a grudge against his cousin, Vlad, and will never allow himself to put family in the way of doing his job."
+}

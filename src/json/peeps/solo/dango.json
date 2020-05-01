@@ -1,0 +1,96 @@
+﻿{"name":"Jonathan Dangolia",
+	"handle":"Dango",
+	"aliases":"Richard Crenshaw, Vicotr marshal, John Smith",
+	"age":"27",
+	"img":"dango",
+	"career":{"name":"Solo","specialability":"Combat Sense","value":9},
+	"stats":{
+		"ref":11,
+		"int":6,
+		"tech":7,
+		"cool":9,
+		"attr":3,
+		"luck":3,
+		"ma":9,
+		"body":15,
+		"emp":7,
+		"hc":58},
+	"skills":{
+		"attr":[
+		],
+		"body":[
+			{"name":"Endurance","value":3},
+			{"name":"Strength Feat","value":5}
+		],
+		"cool":[
+			{"name":"Interrogation","value":2},
+			{"name":"Intimidate","value":5},
+			{"name":"Streetwise","value":3}
+		],
+		"emp":[
+			{"name":"Social","value":2}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":7},
+			{"name":"Hide/Evade","value":5},
+			{"name":"Shadow/Track","value":3},
+			{"name":"Wilderness Survival","value":3}
+		],
+		"ref":[
+			{"name":"Athletics","value":6},
+			{"name":"Driving","value":3},
+			{"name":"Handgun","value":8},
+			{"name":"Heavy Weapons","value":7},
+			{"name":"MA: Sambo","value":7},
+			{"name":"Melee","value":3},
+			{"name":"Rifle","value":6},
+			{"name":"Stealth","value":7},
+			{"name":"Submachinegun","value":8}
+		],
+		"tech":[
+			{"name":"Basic Tech","value":3},
+			{"name":"Demolitions","value":7},
+			{"name":"Elect. Security","value":3},
+			{"name":"First Aid","value":4},
+			{"name":"Pick Lock","value":4},
+			{"name":"Weaponsmith","value":6}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"",
+			"valuedperson":"",
+			"valuemost":"",
+			"feelaboutpeople":"",
+			"valuedpossession":""
+		},
+		"style":{
+			"clothes":"",
+			"hair":"",
+			"affectations":"",
+			"ethnicity":"",
+			"languages":""
+		},
+		"family":"",
+		"siblings":""
+	},
+  "cyberware":["Neural Processor [WLNK, RFB+2, BM]",
+  "Chip Socket [Stress Chip, Adrenal Chip]",
+  "Sudermal Armor chest[SP18]",
+  "Subdermal Armor skull[SP14]",
+  "Pacesetter 2000 heart",
+  "Nasal filters",
+  "Adrenal Booster",
+  "Mr Studd",
+  "Grafted Muscles",
+  "Adv Muscle & Bone Lace",
+  "Lifesaver",
+  "Beta Skeletal Enhancement",
+  "Skinweave [SP16]",
+  "Pair Cyberlegs [Adv Corvette]",
+  "Pair of Cyberarm [Wolvers, HRAM, MSR, Smartplate in each hand]",
+  "Cyber Optics [AD, TA, LL, IE]"
+],
+	"gear":[],
+	"history":"Dango grew up in the combat zone. It was a rough life but he eventually escaped it by joining the army. He love it. He used all the skills he learned on the street to get into the special cyber squad. After the army enhanced him, he wanted more metal. He became a devastating weapon for the army. Unfortunately things didn't work out. In a bar brawl, Dango beat up a general's son and put the kid into the hospital for a couple weeks. Dango was dishonorable discharged. But he didn't stay on the streets for long. Big Man approached him. Told him about an Ops team he was creating. Dango was totally into it. A bio corp, named BMS, which produced cyber! He signed up and got the best cyber he could. Dango was the best at what he did. A lot of people disappeared when he was around. But working for BMS soon ended. The BMS main AI, Prometheus, approached the team with an offer. Whatever was offered Dango was definitely into it. During Prometheus' extraction Dango took out at least 20 guards at the BMS Offices before the team fled. The team went to Night City. There Dango hooked up with a couple of friends that were in Maelstrom gang. Unfortunately this is how the team was found by BMS. Dango was the first one who died. The BMS team was following him. Unfortunately for the team Dango was onto them. He killed 2, and critically wounded another 2 before he was dropped."
+}

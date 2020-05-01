@@ -1,0 +1,30 @@
+.opp-skill-new {
+  font-size: 12px;
+}
+
+.opp-skill-val {
+  width: 40px;
+  text-align: center;
+  display: inline-block;
+}
+
+.opp-skill {
+  font-size: 13px;
+}
+
+.opp-skill-delete, .opp-sa-delete {
+  display: none;
+}
+.opp-skill-name {
+  padding-right: 0px;
+  padding-left: 8px;
+}
+.opp-sa:hover .opp-sa-delete, .opp-skill-name:hover .opp-skill-delete {
+  display: inline-block;
+}
+
+.opp-pop-skill {
+  width: 120px;
+}
+
+

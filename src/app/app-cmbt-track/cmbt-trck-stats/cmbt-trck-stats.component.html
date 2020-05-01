@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-12">
+    <h6>STATS &nbsp;<fa-icon [icon]="faDice" (click)="generateStats()" class="csd-dice" title="Randomly roll all stats."></fa-icon></h6>
+  </div>
+</div>
+<div class="row">
+  <cs-cmbt-trck-stat [statName]="'INT'" [stat]="statBlock.INT" (changeStat)="changeStat($event, 'INT')" class="col-auto"></cs-cmbt-trck-stat>
+  <cs-cmbt-trck-stat [statName]="'REF'" [stat]="statBlock.REF" (changeStat)="changeStat($event, 'REF')" class="col-auto"></cs-cmbt-trck-stat>
+  <cs-cmbt-trck-stat [statName]="'TECH'" [stat]="statBlock.TECH" class="col-auto"></cs-cmbt-trck-stat>
+  <cs-cmbt-trck-stat [statName]="'COOL'" [stat]="statBlock.COOL" class="col-auto"></cs-cmbt-trck-stat>
+  <cs-cmbt-trck-stat [statName]="'ATTR'" [stat]="statBlock.ATTR" class="col-auto"></cs-cmbt-trck-stat>
+  <cs-cmbt-trck-stat [statName]="'LUCK'" [stat]="statBlock.LUCK" class="col-auto"></cs-cmbt-trck-stat>
+  <cs-cmbt-trck-stat [statName]="'MA'" [stat]="statBlock.MA" class="col-auto"></cs-cmbt-trck-stat>
+  <cs-cmbt-trck-stat [statName]="'BODY'" [stat]="statBlock.BODY" class="col-auto"></cs-cmbt-trck-stat>
+  <cs-cmbt-trck-stat [statName]="'EMP'" [stat]="statBlock.EMP" class="col-auto"></cs-cmbt-trck-stat>
+</div>

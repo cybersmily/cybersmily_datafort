@@ -1,0 +1,71 @@
+﻿{"name":"Tony Long",
+	"handle":"Stack",
+	"aliases":"",
+	"age":23,
+	"img":"stack",
+	"career":{"name":"Solo","specialability":"Combat Sense","value":7},
+	"stats":{
+		"ref": 9,
+		"int": 5,
+		"tech": 7,
+		"cool": 7,
+		"attr": 6,
+		"luck": 4,
+		"ma": 6,
+		"body": 12,
+		"emp": 7 ,
+		"hc": 30 },
+	"skills":{
+		"attr":[
+		],
+		"body":[
+		],
+		"cool":[
+			{"name":"Intimidate","value": 3 },
+			{"name":"Resist Torture/Drugs","value": 3 },
+			{"name":"Streetwise","value": 3 }
+		],
+		"emp":[
+			{"name":"Social","value": 3}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":3},
+			{"name":"Shadow/Track","value": 2}
+		],
+		"ref":[
+			{"name":"Athletics","value": 2},
+			{"name":"Driving","value": 3},
+			{"name":"Handgun","value": 6},
+			{"name":"MA: Sambo","value": 6},
+			{"name":"Melee","value": 6},
+			{"name":"Rifle","value": 2},
+			{"name":"Stealth","value": 2},
+			{"name":"Submachinegun","value": 4}
+		],
+		"tech":[
+			{"name":"First Aid","value": 3},
+			{"name":"Weaponsmith","value": 2}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Stable serious",
+			"valuedperson":"his mentor, Ming(solo)",
+			"valuemost":"Vengeance",
+			"feelaboutpeople":"most people are untrustworthy",
+			"valuedpossession":"a photograph of his family"
+		},
+		"style":{
+			"clothes":"Leathers",
+			"hair":"bald",
+			"affectations":"tattoos",
+			"ethnicity":"African American",
+			"languages":"English"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":["Grafted Muscles", "Muscle & Bone Lace", "Right Cyberarm", "Skinweave(SP 14)", "Neural Processor[WLNK2, Speedware]", "Cyberoptic Left-[AD,LL,TA], Right-[AD,LL,TH]"],
+	"gear":["Armored Leather Jacket(SP 18)", "Armored Leather Pants(SP 14)", "Mini-Cell Phone", "Image Wallet", "2 room Apartment in Moderate Zone", "Smart Malorian 3516(P -1 J R 6D6 6 1 ST 50m)", "Smart Minami 10(SMG 0 J E 2D6+3 40 20 VR 150m)", "Spawn Blade(MEL 0 J P 1D6/1D6+4 NA NA ST)", "Taser(P -1 J C Stun 10 1 VR)"],
+	"history":"Stacks grew up on the streets and did the only thing he could to escape, joined the army. They feed him and gave him a place to crash which helped a lot. After learning how to take care of himself, he hit the streets. The streets weren't great. Stacks found a couple of jobs being a bouncer but nothing exciting. That's when he met Cory. She was in charge of a band called Dy'n'Lyte. The pay sounded good so he became their bodyguard. The members of the group are Dy, Lyte, BD, and Splice. Life is starting to look up for him and the band is starting to make a name for themselves. Life is good when your part of a rock band."
+}

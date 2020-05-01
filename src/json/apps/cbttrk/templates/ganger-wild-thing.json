@@ -1,0 +1,33 @@
+{ "handle": "Ganger - Wild Thing",
+      "role": "streetpunk",
+      "int": 5,
+      "ref": 4,
+      "body":5,
+      "luck": 8,
+      "tech": 6,
+      "cool": 6,
+      "attr": 6,
+      "ma": 7,
+      "emp": 6,
+      "armor": {
+        "head": 0,
+        "torso": 0,
+        "arms": 0,
+        "legs": 0
+      },
+      "sa": {"name":"", "stat": "", "value": 0},
+      "skills": [
+        {"name":"Locate Drugs", "stat": "int", "value": 9},
+        {"name":"Handgun", "stat": "ref", "value": 3},
+        {"name":"Rifle", "stat": "ref", "value": 2},
+        {"name":"Melee", "stat": "ref", "value": 2},
+        {"name":"Streetwise", "stat": "cool", "value": 6},
+        {"name":"Persuasion \\& Fast Talk", "stat": "emp", "value": 2},
+        {"name":"Stealth", "stat": "ref", "value": 1}
+      ],
+      "cyberware": [],
+      "weapons": [],
+      "gear": [],
+      "source": "NC",
+      "notes": "Dorpher gang. Choose any weapon and 20% chance to have an implant cyberware."
+    }

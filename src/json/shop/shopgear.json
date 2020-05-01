@@ -1,0 +1,165 @@
+﻿{
+    "title": "New Gear",
+    "desc": "",
+    "updated": "2001",
+    "geartype": "gear",
+    "items": [
+        {            
+            "name": "Nanite Weave",
+            "type": "CLOTHES",
+            "cost": "clothing x 50-100",
+            "desc": "Tire of mending bullet holes in your fav suit? Input complaining about sewing up those cuts in your Gibson jeans? Then, if you've got the ching, take looking at upgrading to Nano-weave. Through the marvels of today, Horus-Re Fashions has combine the wondeful world of nanite to their fabrics. Now you may be wondering exactly what it does. Well you should ask what it doesn't do. The new synthetic weave will mend small rips and tears. It will keep your clothes smell new and keeping them clean. It's a miracle to the fashion conscious. Now you can get this wonderful fabric in any style of clothing you want for a meer 5,000%-10,000% price increase. But know this, these clothes will last a lot longer than anything you've worn before.",
+            "notes": "This fabric will only mend small tears. A monthly treatment for the clothes (which costs 100eb/Month) keeps the nanites active. If a treatment is missed the nanites will loose 25% of their efficience/month. This weave will also repair SP damage at a rate of 1SP/day."
+
+        },
+        {            
+            "name": "Portable Holo-Phone",
+            "type": "COMMUNICATION",
+            "cost": "900eb",
+            "desc": "Yes, Shitoraki does it again with the modern marvels. The portable holo-phone is the size of a softball but who cares when you are able to bring a holo any where! Impress your friends and be the first one to use a Holo-Phone by Shitoraki.",
+            "notes": "The holo phone has an image scanner that the person must point at themselves if they wish for the person at the other end to see them. The recorder just takes the image of the users face and computer alters the back. As an option (200eb) the user can have a preprogramed image sent to the other holo phone. So when the other person picks up they could be looking at the head of a pit bull dog talking to them."
+
+        },
+        {            
+            "name": "Momeka by Shitoraki",
+            "type": "COMMUNICATION",
+            "cost": "300eb plus options",
+            "desc": "The new Momeka is the best in personal communication. This phone comes with several features, plus it's upgradable. The phone measures 6cm wide and 12 long, thickness varies with options but starts at 2cm. The standard features are a 3cm x 4cm display screen, voice activated, alphanumeric keypad, check your e-mail, pager option, and stores up to 300 numbers. Also with caller ID service the phone announces, vocalily who, what number, and whether you want to take the call. Has a 60 hour battery and is satellite-linked. Options included a datalink for computer hook up (50eb, no netrunning), vid option (adds a small camera for vid conferencing) 100eb, micro computer (adds 5MUs to the phone and can be used like a E-Book. Adds 1cm of thickness), Cybernetic control (if you don't want the cyberaudio option and have plugs) 60eb, solar battery (just set it under the UVs and unlimited power) 60eb.",
+            "notes": ""
+        },
+        {            
+            "name": "The Word Wand by Shitoraki",
+            "type": "COMMUNICATION",
+            "cost": "50eb",
+            "desc": "This little device is a bit old tech, but great if you're in an ECM area. All you do is punch in a message, then wave the wand right to left. The letters will appear in a readable formatand and can be read from a distance of 200 meters. The wand also comes with an optional IR or UV setting, so only people equiped with devices that can see in those spectrums will be the only ones able to read the message. Lo-tech is better than no-tech!",
+            "notes": "In also comes in a cyberhand option (+150eb SURG: NA HC: 1)"
+        },
+        {            
+            "name": "Shitoraki's SupraK HUB",
+            "type": "COMPUTER",
+            "cost": "1,000eb",
+            "desc": "Now you can link multiple computers together an gain all of their processing power! That's right, start making runs like the professionals but at a cheaper cost. The HUB allows up to 6 PCs to be linked, plus the all important cybermodem. This gives you the power of 6 CPUs at your control! No longer do you need to worry about that AI because now your just as fast as him. No longer do you have to work for The Man to get access to the sweet power of multiple CPUs. Now it's in your hands!",
+            "notes": "Yes you can hook up 6 PCs together, but the power is only half of what mainframe would have. If you connect all the PCs you would have the equivalent of 3 CPUs. Which still gets you multiple action if you run Multi-Tasker program. Also if you use any of the MUs of these PCs there will be a lag of a -1 on your deck speed for every 3 PCs hooked to the HUB (1-3 PCs gives you a -1, 4-6 PCs gives a -2)."
+        },
+        {            
+            "name": "Shitoraki's Palm Buddy",
+            "type": "COMPUTER",
+            "cost": "400eb",
+            "desc": "The Palm Buddy is better, more advanced, and will kick the e-book's ass anyday of the week! It's smaller(measuring 12cm x 6cm x 1cm), more durable, and packs the computing power of a PC right in your hand. The Palm Buddy is a stylist/screen interface with net access and a chip slot. It has the same features an e-book offers plus adaptablity to the ever changing face of technology. When you buy one, Shitoraki guarantees you won't need to upgrade for at least 5 years! The Palm Buddy is you one stop for handheld computers.",
+            "notes": "Same as E-book with some additional features and improvements. First off, with nanotechnology Shitoraki was able to cram a full CPU into it (1 CPU, INT 3, 20 MU). It comes hardened against EMP and other microwave effects. If you REALLY want to netrun with it you can. It's equal to a deck with Speed: -3, Datawall:+1, 25 MU. It can be upgraded easily with any packages availble for computers."
+        },
+        {            
+            "name": "Shitoraki's RCK Buffer",
+            "type": "COMPUTER",
+            "cost": "3,000eb",
+            "desc": "Tired of trying to hack into a system that's off the net, having to risk your meat body by infiltrating into the building to find a terminal you can crack? Shitoraki wants to make it easier. The news has been full of stories about hackers getting into a computer that was completely off the net and no one could possible get into the building because of all the guards. So how they do it? They hacked through the remote systems, that's how. You see cameras all over the outside of a facility right. Well those cameras usually go to a monitoring computer of some sort. Now all you have to do is ride that dataline into the system. The only problem was those lines are made for only images etc. With the RCK buffer you are able to use your cybermodem to hack into the system causing as much mayhem as you wish. Note: the RCK Buffer is illegal in several countries and states.",
+            "notes": "With an Electronics roll vs a DIFF of 20 the netrunner would be able to use the dataline as a backdoor to the system. The buffer allows the runner to be able to work in the system. There are some draw backs. First the runner has a -5 deckspeed. Also there's a 5% per net round that the runners is lagged up. This will freeze the runner for 1d6 rds, in which they may do nothing."
+        },
+        {            
+            "name": "Hold 48",
+            "type": "DRUG",
+            "cost": "30eb/dose",
+            "desc": "A new drug from BMS. Need to do a 2-day stake out by yourself and if you leave to take care of business even for a second you may miss your target? Now nature wouldn't be calling for a full 48 hours. The drug causes all material to be reabsorbed and retained while also giving you sustenance for a full 48 hours. Granted at the end you'll be sitting on the can for quite a while. Warning: use of this product may cause internal injury if taken more than once in a one month period. BMS is not responsible for individuals who abuse this drug.",
+            "notes": ""
+        },
+        {            
+            "name": "Einstein RX",
+            "type": "DRUG",
+            "cost": "100eb/dose",
+            "desc": "The faster you learn, the more you earn. This credo is the main reason Einstein RX was invented. This drug boost chemicals in the brain to help with concentration, memorization, and problem solving. In the end you will learn twice as fast as someone not on the drug. It a revolution in education. Now it you only need two years to finish high school, or 4 years to get a doctorate! Note: some side effects include insomina, hunger, and hemophilia.",
+            "notes": "This drug needs to be taken for at least a month before it's effects are felt. One dose needs to be taken on a daily. The drug will reduce the IP cost of a skill by 40%. So to go from a +4 to a +5 would cost 24IP. However, the sleeplessness will reduce a characters Humanity by 1d10. The player needs to eat twice the amount they normally do. Finally the player has a 10% chance/week (not cumlative) of use of developing hemophilia. When they do, all damage taken is doubled, and a player will bleed for 1 wound point per minute if they are Seriously wounded or worst. There are drugs and treatments to help with all these side-effects. Referee should determine the cost."
+        },
+        {            
+            "name": "Shitoraki's Full Sim/Stim Body Suit",
+            "type": "ENTERTAINMENT",
+            "cost": "1,000eb",
+            "desc": "If you don't like trodes or don't have plugs then this suit is for you! Developed in the early days of Sim/Stim, these suits made you feel all the things a braindance would, but without wiring. These suits are obsolete with the advent of plugs, but they're still being sold, and some people prefer them over trodes and plugs. So suit up and enjoy virtuality at it's best!",
+            "notes": ""
+        },
+        {            
+            "name": "BMS Rejuvenator Treatments",
+            "type": "MEDICAL",
+            "cost": "1,000eb/treatment",
+            "desc": "Age is the most destructive thing that affects a human body. We all suffer from it. However BMS has made great breakthroughs in anti-aging. BMS can guarantee your youth and age expectancy to double by having their treatments done on a monthly basis. Think about it, living longer so you can do the things you want. Have the vigor of a 15 year old in a 30 year old body. It can be yours. Come down to any BMS medical facility and start getting your treatments today for a longer, healther life.",
+            "notes": "Player  must have these treatments at least once per month to be affective. These treatments will prevent any stat lose from aging. Skipping one treatment has a 10% cumulative chance of reversing the effects i.e. stat lose comes back. Also 20% of the population is unaffected by the treatments. "
+        },
+        {            
+            "name": "The Orb",
+            "type": "MUSIC INSTRUMENT",
+            "cost": "200-10,000eb",
+            "desc": "The Orb is a new instrument hitting the seen. When you see it, you proably will be frighten at learning how to play it. It is a ball sitting on a flat round base. Sizes vary between 6 in. to 6 feet! The Orb combines various insturments (drums, turn-tables, synthesizer) into a unique and different musical experience. To play the Orb, a musician simply touches any part of it. The lighter the touch the softer the sound. The harder the touch, the louder the sound. Each point, a point being the size of a fingertip, on the Orb generates a sound that can be programmed by the musician. You can play the Orb with either your fingers or Orb-sticks. Also you can added different effects with the base, which has many effects ready to use, just hit the buttons you want. The Orb is completely programmable and easily hooks up to any PC. You can also added any pedal to it or jack into and editing system to expand the sound even more. You mind is the limit when playing the Orb.",
+            "notes": ""
+        },
+        {            
+            "name": "Sonic Washer",
+            "type": "PERSONAL ELECTRONICS",
+            "cost": "400eb",
+            "desc": "Get your clothes clean and smelling fresh in just under 20 minutes. The Sonic Washer cleans with ultrasound causing no damage to the garment but removing any and all stains. Why use water, it's polluted and sound isn't.",
+            "notes": ""
+        },
+        {            
+            "name": "Shitoraki Cyber Assisted &amp; Control Helmet (AKA CACHe)",
+            "type": "PERSONAL ELECTRONICS",
+            "cost": "3,000eb",
+            "desc": "Researchers worked night and day to bring the benefits of a vehicle link to the un-cybered enchanced. Yes, today you no longer need plugs or a processor to gain the benefits of those spit second benefits a link would give. With 'trode technology the helmet is able to link the driver with the vehicle as a vehicle link would. The micro computer helps assist the driving too. You can click on auto pilot and take a nap! (Caution: do not try this option on crowded streets or winding roads. Flat, straight road are the most advisible). Not only that but you can keep adding on the benefits that a CACHe can give you! The visor can except any cyberoptic feature you can think of (up to 5 options). If you want audio, you got it. Think of the possiblities this system can give you. Anything you want install in a helmet can be. Just say the word and Shitoraki will custiomize an CACHe for you within a day's time!",
+            "notes": "The helmet has an SP rating of 25. It takes about 30-60 seconds to put on because of the 'trodes the user must wear. The CACHe gives the user a +1 to vehicle rolls. If the auto pilot is actived, it drives the vehicle with a skill of 1. Any sharp turns, quick stops, or any maneuvering should require a roll. You may add any cyber optic option at a +10% of the cost for said opton (total of 5 options). You may add any cyber audio option at +10% of the cost for said option (up to 6 options). The helmet can be hooked to any computer. There's a cyber version of this helmet which gives a link person an additional +1 to vehicle rolls (a total of +3, +2 for the vlink and +1 for the CACHe)."
+        },
+        {            
+            "name": "Holo-Mask",
+            "type": "SURVEILLANCE",
+            "cost": "1,250 eb",
+            "desc": "Want to change your looks but don't want to have surgery? Holo-Mask is a skin tight mask that fits over your face. It comes with a chip reader to load in facial images. Scare your friends, attract lovers, and fool everyone else with Holo-Mask.",
+            "notes": "This adds a +5 Disguise to rolls for it. IR and UV imaging can see through this disguise."
+        },
+        {            
+            "name": "Tapper",
+            "type": "SURVEILLANCE",
+            "cost": "1,000 eb",
+            "desc": "Aim and shoot. This compact unit is the size of a flash light. The Tapper will find and acquire the frequency of a cell phone it's pointed at. Listen in on that secret conversation you've just targeted with out anyone knowing. Note that Privacy Plus options for cell phones prevents the tapper from listening. There is an advanced model that is able to crack most encrypted and scrambled signals(70% of working). This advanced model is the size of a handgun and cost 10 times as much. Warning: possession of the Advanced Tapper is illegal in most states and countries, only authorized personnel may use them. If caught with one it is a Priority 3 crime.",
+            "notes": ""
+        },
+        {            
+            "name": "Laser Frequency Finder-MCU-3(LaFF-MaCU-3)",
+            "type": "SURVEILLANCE",
+            "cost": "2,000 eb",
+            "desc": "This hand held unit is about the size of a large flashlight. The sensor end is put close to a laser beam. The sensor will detect the frequency, heat, and all other properties of that laser light. With this information you would be able to figure out a way of deactivating a laser lens sensor or bring a false laser to fool the sensor.",
+            "notes": "In order to use this device the person needs to see the laser. The sensor needs to be within 2 inches of the beam to work. Takes a few seconds, but the person can then use the data any way they want."
+        },
+        {            
+            "name": "Laser Deceiving Module(AKA the Laser Tree)",
+            "type": "SURVEILLANCE",
+            "cost": "3,000 eb",
+            "desc": "This device has a base about 6 inches in diameter, and 2 feet high. From the base are 10 stalks about 10 inches long, each with a laser at the end of them. The stalks maybe bent any way and will remain that way until moved. The base contains micro processors that will adjust the laser to a specific frequency, strobe, heat, etc to match any that are programed into it. The Laser Tree works best with a LaFF Macu3. With this device you will be able to deceive the laser lens of any laser lens.",
+            "notes": ""
+        },
+        {            
+            "name": "Thermal Netting",
+            "type": "SURVEILLANCE",
+            "cost": "200eb/sq.yrd",
+            "desc": "This netting contain tubes with a gas that when electrified freezes. This allows whatevers underneath to be masked from thermal sensors. Of course the sensors will pick up the cool area but when they're looking for heat they won't find any. You can hide anything under it. Customs size and tailoring is including in the price.",
+            "notes": "Has the effect of +5 to the DIFF number for Awareness/Notice"
+        },
+        {            
+            "name": "HH5 RF Emissions Reader",
+            "type": "SURVEILLANCE",
+            "cost": "2,000eb",
+            "desc": "New from Shitoraki Electronics. This little device is able to read the RF emmisions from a vid screen 100m away! It the size of a 1 liter bottle with plugs to attach to any system, including interface plugs. Want to know what that corp has on his vid display? Just aim and shoot, and you'll know everything that's on that screen. This also works for holo projectors too. Computer vid screens can be hardened so no RF emissions will be emitted. To have a screen hardened it costs an extra 15% of the vids cost. Holo projectors can't be hardened against the HH5.",
+            "notes": "First off I like to give credit to GURPS:CYBERPUNK by Steve Jackson Games for this little piece of equipment(even though they took it from real life). Second the user must have a line of sight to the computer screen. Other obstructions in the way might interfer with the reader. GMs call on any penalties."
+        },
+        {            
+            "name": "Hunter Survival Gear Sanitizers",
+            "type": "SURVIVAL",
+            "cost": "50eb per pellet",
+            "desc": "When you need fresh water to drink, just reach for a HSG sanitizer. These pellets are compacted nanites, that when wet, will start seperating and combining non HO molecules. these particles will float to the bottom as they are combined into larger chunks of matter.",
+            "notes": ""
+        },
+        {
+            "name": "Todake Nanite Manufacturer",
+            "type": "TOOLS",
+            "cost": "200,000eb",
+            "desc": "The cutting edge in technology is opening up to the common man. Nanotechnology was limited to Mega corporation and costs were astronomical. With this machine, anyone with training in nanotechnology can produce nanites. Impress your friends, start a small business, or just have fun with Todake Nanite Manufacturer.",
+            "notes": "First, the machine takes up about 40 sq.ft. of area. Second, a person needs at least a Expert:Nanites skill of +3 to operate it. And third, this machine doesn't produce biological-grade nanites i.e. use for cyberware. However, with a little tinkering by a techie and medtechie (Jury-rig vs. DIFF 30 and a Medtech roll vs. 25), a player may be able to produce nanites to inject into a person. As a Referee, you and players should determine what kind of nanites it can produce."
+        } 
+    ]
+
+}

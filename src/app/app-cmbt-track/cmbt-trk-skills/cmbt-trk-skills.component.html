@@ -1,0 +1,83 @@
+  <div class='row'>
+    <div class='col-12'>
+      <h6>
+        SKILLS
+        <fa-icon *ngIf="!isCollapsed" [icon]="dice" class="csd-btn csd-dice" (click)="generateSkillLevels()"
+          title="Randomly set all the skill levels to 1-10.{{(opponent.skills.length &lt; 1)?' Need to add some skills first.':''}}">
+        </fa-icon>
+      </h6>
+    </div>
+  </div>
+  <div id="oppCollapseSkills" class="row">
+    <div class="col-12">
+      <div class="row opp-sa">
+        <div class="col-auto">
+          <h6>Special Ability</h6>
+        </div>
+        <div class="col-auto">
+          <select *ngIf="(!opponent.sa || opponent.sa.name === ''); else hasSA" [(ngModel)]="selectSA"
+            (change)="changeSA()">
+            <option [ngValue]="null">Choose...</option>
+            <option *ngFor="let sa of specialAbilites" [ngValue]="sa">
+              {{sa.name}}{{((sa.stat && sa.stat !== '')? ' (' + sa.stat + ')': '')}}</option>
+          </select>
+          <ng-template #hasSA>
+            <fa-icon [icon]="faTrash" (click)="deleteSA()" class="csd-btn opp-sa-delete"></fa-icon>
+            <span>{{opponent.sa.name}}</span>
+          </ng-template>
+        </div>
+        <div class="col-auto">
+          <input class="opp-skill-val" [(ngModel)]="opponent.sa.value" type="number" min="0" max="10" />
+        </div>
+        <div class="col-auto">
+          <fa-icon *ngIf="opponent.sa.stat || opponent.sa.stat !==''" [icon]="dice" class="csd-dice"
+            (click)="rollSkill(opponent.sa)" title="Roll special ability."
+            popoverTitle="SKill Results" [popover]="skillResults" [outsideClick]="true"
+            containerClass="csd-rounded csd-popover"
+            ></fa-icon>
+        </div>
+      </div>
+      <div class='row'>
+        <div *ngFor="let skill of opponent.skills; let i = index" class='col-12 col-md-6 col-xl-4 opp-skill'>
+          <div class="row">
+            <div class="col-8 opp-skill-name">
+              <fa-icon [icon]="faTrash" class="opp-skill-delete csd-btn" title="Remove skill" (click)="deleteSkill(i)">
+              </fa-icon>
+              {{(skill.roleChoice)?'@':''}}{{skill.name|parse}} [{{skill.stat|uppercase}}]
+
+            </div>
+            <div class="col-2">
+              <input class="opp-skill-val" [(ngModel)]="skill.value" type="number" min="0" max="10" />
+            </div>
+            <div class="col-1">
+              <fa-icon *ngIf="skill.stat || skill.stat !==''" [icon]="dice"
+              popoverTitle="SKill Results" [popover]="skillResults"
+              containerClass="csd-rounded csd-popover" [outsideClick]="true"
+               class="csd-dice" (click)="rollSkill(skill)"
+                title="Roll skill."></fa-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 opp-skill-new">
+          <button class="btn btn-secondary btn-sm csd-rounded" (click)="addSKill()" [disabled]="newSkill.name === ''">
+            <fa-icon [icon]="faPlus"></fa-icon>
+          </button>
+          &nbsp;
+          <span>
+            <select [(ngModel)]="selectSkill" (change)="changeSkill()">
+              <option [ngValue]="null" selected>Choose Skill</option>
+              <option *ngFor="let skill of skills" [ngValue]="skill" title="{{skill.source}} pg.{{skill.page}}">
+                {{skill.name | parse}} ({{skill.stat}})
+              </option>
+            </select>
+          </span>
+          <span>
+            <input [(ngModel)]="newSkill.value" class="opp-skill-val" type="number" min="0" max="10"
+              placeholder="value">
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>

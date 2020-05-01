@@ -1,0 +1,89 @@
+﻿{"name":"Victor Stafford",
+	"handle":"Vulture",
+	"aliases":"Da Vulch",
+	"age":28,
+	"img":"vulture",
+	"career":{"name":"Fixer (Info Broker)","specialability":"Streetdeal","value":6},
+	"stats":{
+		"ref":5,
+		"int":7,
+		"tech":6,
+		"cool":8,
+		"attr":6,
+		"luck":4,
+		"ma":6,
+		"body":5,
+		"emp":7,
+    "hc":21,
+    "rep":4
+  },
+	"skills":{
+		"attr":[
+			{"name":"Personal Grooming","value":2},
+			{"name":"Wardrobe/Style","value":2}
+		],
+		"body":[
+		],
+		"cool":[
+			{"name":"Intimidate","value":2},
+			{"name":"Resist Torture/Drugs","value":3}
+		],
+		"emp":[
+			{"name":"Human Perception","value":4},
+			{"name":"Leadership","value":2},
+			{"name":"Social","value":4},
+			{"name":"Persuasion/Fast Talk","value":6}
+		],
+		"int":[
+			{"name":"Accounting","value":2},
+			{"name":"Awareness/Notice","value":5},
+			{"name":"Gamble","value":2},
+			{"name":"Language: English","value":8},
+			{"name":"Shadow/Track","value":""},
+			{"name":"Stock Market","value":2}
+		],
+		"ref":[
+			{"name":"Brawling","value":2},
+			{"name":"Driving","value":2},
+			{"name":"Handgun","value":3},
+			{"name":"Melee","value":2},
+			{"name":"Stealth","value":2}
+		],
+		"tech":[
+			{"name":"Forgery","value":4},
+			{"name":"Pharmacuticals","value":2},
+			{"name":"Pick Lock","value":2},
+			{"name":"Pick Pocket","value":5}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Picky, fussy and nervous",
+			"valuedperson":"Father",
+			"valuemost":"Money",
+			"feelaboutpeople":"Every person is a valuable individual.",
+			"valuedpossession":"His ChainKnife"
+		},
+		"style":{
+			"clothes":"Generic Chic",
+			"hair":"Short, spiked",
+			"affectations":"Earrings",
+			"ethnicity":"Anglo-american",
+			"languages":"English"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":[
+    "Nerual Processor [DLNK, PLG, CS]",
+    "Optishield [AD, TS+]"
+  ],
+	"gear":[
+    "cellphone w/ privacy+",
+    "Body computer w/ lie detector, bug jammer/detector",
+    "Trenchcoat (SP18)",
+    "IMI 'Chainknife' (MEL/0/P/-/2D6+1*/-/-/VR)",
+    "Goncz-Taurus Pistol (P/0/E/J/2D6+1/15/2/ST)"
+  ],
+	"history":"Vulture trades in secrets and connecting the right people to each other. He works out of the Northside district of Night City. He has worked with several corporate clients and always keeps discresion. His friend and companion at most times is the solo Motabu. He often is rattling off and talking to Motabu, who will sit there in silence."
+}

@@ -1,0 +1,12 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "baseUrl": "./",
+    "types": ["bootstrap"]
+  },
+  "exclude": [
+    "tests/*.ts",
+    "**/*.spec.ts"
+  ]
+}

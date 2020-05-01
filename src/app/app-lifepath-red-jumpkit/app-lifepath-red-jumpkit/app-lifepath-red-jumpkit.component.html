@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>Cyberpunk Red Jumpkit LifePath Generator</h2>
+      <p>
+      This is my version of the CP red jumpkit lifepath generator.
+      </p>
+      <p>
+        You can purchase Cyberpunk Red Jumpstart Kit from <a href="https://talsorianstore.com/collections/cyberpunk/products/cyberpunk-red-jumpstart-kit" alt="R. Talsorian" target="_blank">R. Talsorian Games here</a>
+        or the PDF from <a href="https://www.drivethrurpg.com/product/279014/Cyberpunk-Red-Jumpstart-Kit"  target="_blank" alt="Drive Thru RPG">Drive Thru RPG here</a>.
+        </p>
+      <p>
+      Click on GENERATE to have randomly selected entries in that section.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <button class="btn-secondary csd-rounded" (click)="generate()">Generate</button>
+    </div>
+    <div class="col-6">
+      <input type="button" title="Save" class="pull-right btn-secondary csd-rounded csd-fash-btn" value="Save"
+        (click)="saveFile()" />
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-12">
+      <div class="csd-rounded csd-lifepath-sect">
+        <div class="row">
+          <div class="col-12">
+            <h6>Background:</h6>
+            <div class="cpred-lp-value">{{LifePath.background}}</div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-12">
+            <h6>Motivations:</h6>
+            <div class="cpred-lp-value">
+              {{LifePath.motivation}}
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-12">
+            <h6>Goals:</h6>
+            <div class="cpred-lp-value">
+              {{LifePath.goals}}
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-12">
+            <h6>Friends ({{LifePath.friends.length}}):</h6>
+            <div *ngFor="let friend of LifePath.friends" class="cpred-lp-value">{{friend}}</div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-12">
+            <h6>Enemies ({{LifePath.enemies.length}}):</h6>
+            <div *ngFor="let enemy of LifePath.enemies" class="cpred-lp-value">{{enemy}}</div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-12">
+            <h6>Romance:</h6>
+            <div class="cpred-lp-value">
+              {{LifePath.romance}}
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-12">
+            <h6>Personality:</h6>
+            <div class="cpred-lp-value">{{LifePath.personality}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

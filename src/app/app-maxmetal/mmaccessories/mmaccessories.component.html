@@ -1,0 +1,26 @@
+<h4 >WEAPONS</h4>
+<accordion>
+  <accordion-group #group [isOpen] *ngFor="let cat of weapons">
+    <div accordion-heading>
+      {{cat.value.name}}
+      <fa-icon [icon]="group?.isOpen?faChevronDown:faChevronRight"></fa-icon>
+    </div>
+    <div>
+      <cs-mmweapon [item]="optionHeader" ></cs-mmweapon>
+      <cs-mmweapon *ngFor="let item of cat.value.items" [item]="item" ></cs-mmweapon>
+    </div>
+  </accordion-group>
+</accordion>
+<h4 >OPTIONS</h4>
+<accordion>
+  <accordion-group #group [isOpen] *ngFor="let cat of options">
+    <div accordion-heading>
+      {{cat.value.name}}
+      <fa-icon [icon]="group?.isOpen?faChevronDown:faChevronRight"></fa-icon>
+    </div>
+    <div>
+      <cs-mmoption [item]="optionHeader" ></cs-mmoption>
+      <cs-mmoption *ngFor="let item of cat.value.items" [item]="item" ></cs-mmoption>
+    </div>
+  </accordion-group >
+</accordion>

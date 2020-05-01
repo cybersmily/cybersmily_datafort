@@ -1,0 +1,201 @@
+<div class="card csd-corporation-card">
+  <div class="card-block csd-box csd-rounded" (click)="openModal(corpTemplate)">
+    <img [src]="corporateLogo" style="height:100px;" />
+    <h2>{{corp.name}}</h2>
+    <div><i>{{corp.slogan}}</i></div>
+  </div>
+</div>
+
+<ng-template #corpTemplate>
+  <div class="modal-header">
+    <button type="button" class="close pull-right" (click)="bsModalRef.hide()" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body csd-corp-profile">
+    <div class="row csd-corp-header">
+      <div class="col-12 col-md-4 csd-corp-img">
+          <img alt="{{corp.name}}" [src]="corporateLogo" />
+      </div>
+      <div class="col-12 col-md-6">
+        <h1>{{corp.name}}</h1>
+        <div><i>{{corp.slogan}}</i></div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+          <div class="csd-corp-detail csd-rounded">
+              <h5>Corporate Details</h5>
+              <ul class="list-unstyled">
+                <li>
+                  <strong>Headuqarters: </strong>
+                  <span>{{corporateProfile.offices.headquarters}}</span>
+                </li>
+                <li>
+                  <strong>Regional Offices:</strong>
+                  <span *ngFor="let off of corporateProfile.offices.regionaloffices.locations">{{off}}; </span>
+                </li>
+                <li>
+                  <strong>Major Shareholders:</strong>
+                  <span> {{corporateProfile.resources.majorityholder.name}},
+                    {{corporateProfile.resources.majorityholder.location}},
+                    {{corporateProfile.resources.majorityholder.stockpercent}}%</span>
+                </li>
+                <li>
+                  <strong>Employees:</strong>
+                  <span> {{corporateProfile.employees.workers|number}} (worldwide)</span>
+                </li>
+                <li>
+                  <strong>Troops:</strong>
+                  <span> {{corporateProfile.employees.troops|number}}</span>
+                </li>
+                <li>
+                  <strong>Special Ops:</strong>
+                  <span> {{corporateProfile.employees.covert|number}}</span>
+                </li>
+              </ul>
+            </div>
+        <h4>History</h4>
+        <div class="csd-corp-section" [innerHTML]="corporateProfile.history"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <h4>MAIN PRODUCTS AND INTENT</h4>
+        <ul class="csd-corp-section list-unstyled">
+          <li *ngFor="let prod of corporateProfile.intent.products">{{prod.name}} - {{prod.description}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <h4>KEY PEOPLE</h4>
+        <div class="row csd-corp-section" *ngFor="let person of corporateProfile.employees.notable">
+          <div class="col-4 col-lg-3"><strong>{{person.name}}</strong></div>
+          <div class="col-8 col-lg-9">{{person.profile}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <h4>UNIFORMS, EQUIPMENT, AND PERSONNEL</h4>
+        <ul class="list-unstyled csd-corp-section">
+          <li>
+            <h6>Executives</h6>
+            <div>{{corporateProfile.equipment.executive}}</div>
+          </li>
+          <li>
+            <h6>Service Employees</h6>
+            <div>{{corporateProfile.equipment.employees}}</div>
+          </li>
+          <li>
+            <h6>Staff</h6>
+            <div>{{corporateProfile.equipment.staff}}</div>
+          </li>
+          <li>
+            <h6>Guards</h6>
+            <div>{{corporateProfile.equipment.guards}}</div>
+          </li>
+          <li>
+            <h6>Vehicles, Equipment and Weapons</h6>
+            <div>{{corporateProfile.equipment.equipment}}</div>
+            <div>{{corporateProfile.equipment.weapons}}</div>
+            <div>{{corporateProfile.equipment.vehicles}}</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <h4>OFFICES AND KEY FACILITIES</h4>
+        <ul class="csd-corp-section list-unstyled">
+          <li>
+            <h6>The Coporate Headquarters Tower</h6>
+            <div>{{corporateProfile.offices.coporatehq}}</div>
+          </li>
+          <li>
+            <h6>Location</h6>
+            <div>{{corporateProfile.offices.location}}</div>
+          </li>
+          <li>
+            <h6>Architecture</h6>
+            <div>{{corporateProfile.offices.architecture}}</div>
+          </li>
+          <li>
+            <h6>Interiors and Facilities</h6>
+            <div>{{corporateProfile.offices.interiorsandfacilities}}</div>
+          </li>
+          <li>
+            <h6>Personnel</h6>
+            <div>{{corporateProfile.offices.personnel}}</div>
+          </li>
+          <li>
+            <h6>Security</h6>
+            <div>{{corporateProfile.offices.security}}</div>
+          </li>
+          <li>
+            <h6>Regional Offices</h6>
+            <div>{{corporateProfile.offices.regionaloffices.description}}</div>
+          </li>
+          <li>
+            <h6>Special Facilities</h6>
+            <div>{{corporateProfile.offices.specialfacilities}}</div>
+          </li>
+          <li>
+            <h6>Research and Developement</h6>
+            <div>{{corporateProfile.offices.rd}}</div>
+          </li>
+          <li>
+            <h6>Lab Facilities</h6>
+            <div>{{corporateProfile.offices.labs}}</div>
+          </li>
+          <li>
+            <h6>Factories</h6>
+            <div>{{corporateProfile.offices.factories}}</div>
+          </li>
+          <li>
+            <h6>Stores</h6>
+            <div>{{corporateProfile.offices.stores}}</div>
+          </li>
+          <li>
+            <h6>Space Facilities and Workshacks</h6>
+            <div>{{corporateProfile.offices.spacefacilities}}</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <h4>RESOURCES AND STOCK</h4>
+        <div class="csd-corp-section">
+          <div class="csd-corp-stocks csd-rounded">
+            <div class="row">
+              <div class="col-4">
+                <h6>Stock</h6>
+              </div>
+              <div class="col-8">
+                <div>Shares: {{corporateProfile.resources.stock.shares|number}}</div>
+                <div>price: {{corporateProfile.resources.stock.price|number}}</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h6>Value of the Corporation</h6>
+            <div>{{corporateProfile.resources.value}}</div>
+          </div>
+          <div>
+              <h6>Resources</h6>
+              <div>{{corporateProfile.resources.resources}}</div>
+            </div>
+            <div>
+              <h6>Subsidiaries</h6>
+              <ul class="list-unstyled">
+                <li *ngFor="let sub of corporateProfile.resources.subsidaries">{{sub.name}} - {{sub.description}}</li>
+              </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

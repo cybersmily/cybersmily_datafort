@@ -1,0 +1,8 @@
+.csd-corporation-card {text-align: center; cursor: pointer;}
+.csd-box { padding:8px 8px;}
+.csd-corp-header {text-align: center;}
+.csd-corp-img img {height:150px;}
+.csd-corp-detail { float:right; display:inline-block; width: 250px; padding:8px 8px; font-size: .65em;}
+.csd-corp-section {padding-left: 15px; font-size: .9em;}
+.csd-corp-stocks { float:left; display:inline-block; width: 125px; padding:5px 5px; font-size: .65em; margin-right:8px;}
+.csd-corp-stocks div {}

@@ -1,0 +1,71 @@
+﻿{"name":"Yelagin Vitalievich",
+	"handle":"Splice",
+	"aliases":"Yela",
+	"age":26,
+	"img":"splice",
+	"career":{"name":"Techie","specialability":"Jury Rig","value": 8},
+	"stats":{
+		"ref": 6,
+		"int": 8,
+		"tech": 10,
+		"cool": 6,
+		"attr": 6,
+		"luck": 6,
+		"ma": 6,
+		"body": 7,
+		"emp": 7,
+    "hc": 8,
+    "rep":3
+  },
+	"skills":{
+		"attr":[
+		],
+		"body":[
+		],
+		"cool":[
+		],
+		"emp":[
+			{"name":"Perform","value": 3}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value": 6},
+			{"name":"Education/Gen. Know","value": 1},
+			{"name":"Library Search","value": 4},
+			{"name":"Teaching","value": 1}
+		],
+		"ref":[
+			{"name":"Brawling","value": 2},
+			{"name":"Driving","value": 3},
+			{"name":"Melee","value": 2}
+		],
+		"tech":[
+			{"name":"Basic Tech","value": 8},
+			{"name":"Cyber Tech","value": 2},
+			{"name":"Electronics","value": 8},
+			{"name":"Elect. Security","value": 4},
+			{"name":"Play Instrument","value": 3},
+			{"name":"Weaponsmith","value": 3}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Moody & rash",
+			"valuedperson":"himself",
+			"valuemost":"knowledge ",
+			"feelaboutpeople":"Likes almost everyone",
+			"valuedpossession":"his tools"
+		},
+		"style":{
+			"clothes":"Jumpsuit",
+			"hair":"Wild and unkept",
+			"affectations":"Mirrorshades",
+			"ethnicity":"Russian",
+			"languages":"English"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":["Neural Processor[PLGs, MLNK]"],
+	"gear":["Armored Jumpsuit (SP 14)", "Tech Scanner", "Tech Tools", "Drum set", "Old beat-up Ford Van", "Mini-Cell Phone", "Smart Mirrorshades(Anti-dazzle & Lowlite)", "2 room Apartment in Moderate Zone", "Chainknife(MEL 0 J P 2D6+1 NA NA VR NA)"],
+	"history":"Made a couple of friends ( Lyte and Jonesy{netrunner}). Splice grew up on the sea. His family were pirates and he learned how to repair things through them. One day Splice's life at sea came to an end. The government finally captured his family and put them away for a long while. Now on the streets of Night City Splice met a guy by the name of Lyte. Lyte was pretty cool and helped splice out. Lyte and his sister Dy formed a band and he was into it. Dy's boyfriend also joined. Splice played in the band but is more of the tech support the band needed. Soon after they met a chic by the name of Cory Stevens who became their manager. The group started playing small gigs and made a name for themselves in the bar scene. For protection Cory hired a guy named Stacks who helps the band get paid by unscrupulous bar owners. The band is starting to come together and Splice can't wait for the big time."
+}

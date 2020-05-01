@@ -1,0 +1,16 @@
+<div>
+  <h4 style="display:inline-block;">Life Events</h4>&nbsp;&nbsp;
+  <button class="btn-secondary csd-rounded" (click)="generateLifeEvents()">Generate</button>
+</div>
+<div style="margin-left: 20px;">
+    <input [(ngModel)]="hasEventful" type="checkbox" id="csdHasEvents" name="No uneventful years" />
+  <label for="csdHasEvents"> Check to have all years eventful.</label>
+</div>
+<div class="csd-rounded csd-lifepath-sect">
+    <h6 style="display:inline-block;">Years: </h6>
+    <input type="text" [(ngModel)]="InputYear" style="width:50px;display:inline-block;text-align: center;margin-left: 5px;"
+      class="ng-pristine ng-untouched ng-valid">
+  <ul class="csd-lifeevent-lst">
+    <li *ngFor="let event of levents.Events">{{event.age}} - {{event.event}}</li>
+  </ul>
+</div>

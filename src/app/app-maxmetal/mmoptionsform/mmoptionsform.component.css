@@ -1,0 +1,9 @@
+#cs-mm-opt-details th {
+  margin-left: 4px;
+  margin-right: 4px;;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+#cs-mm-opt-details th, #cs-mm-opt-details td {
+  text-align: center;
+}

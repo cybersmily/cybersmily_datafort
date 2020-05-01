@@ -1,0 +1,46 @@
+<div class="chargen-section chargen-border">
+  <div class="hidden-print">
+    <fa-icon [icon]="faDice" class="chargen-lifepath-dice" (click)="roll()" title="Randomly generate lifepath"></fa-icon>
+    <select [(ngModel)]="selectedSource">
+        <option value="?" selected="selected"></option>
+        <option *ngFor="let opt of sources" value="{{opt.value}}">{{opt.title}}</option>
+    </select>
+    <input class="chargen-always-event" type="checkbox" title="check if you want to have an event for each year of Life Events"> always an event
+    <input [(ngModel)]="years" class="chargen-years-event text-center" type="number" min="0" max="12"
+    title="Enter the number of years to roll, 0-12. 0 will be randomly determined."
+    (change)="changeYear()"> years
+  </div>
+  <div>
+    <span class="chargen-label">Style</span>
+    &nbsp;
+  </div>
+  <div class="chargen-lifepath-attr">Clothes <input [(ngModel)]="lifepath.appearance.clothes" (change)="onChangeLifePath()" type="text" class="pull-right"/></div>
+  <div class="chargen-lifepath-attr">Hair <input [(ngModel)]="lifepath.appearance.hairstyle" (change)="onChangeLifePath()" type="text" class="pull-right"/></div>
+  <div class="chargen-lifepath-attr">Affectations <input [(ngModel)]="lifepath.appearance.affectations" (change)="onChangeLifePath()" type="text" class="pull-right"/></div>
+  <div class="chargen-lifepath-attr">Ethnicity <input [(ngModel)]="lifepath.ethnicity.name" (change)="onChangeLifePath()" type="text" class="pull-right"/></div>
+  <div class="chargen-lifepath-attr">Language <input [(ngModel)]="lifepath.ethnicity.language" (change)="onChangeLifePath()" type="text" class="pull-right"/></div>
+  <div><span class="chargen-label">Family Background</span></div>
+  <textarea [(ngModel)]="lifepath.family.familyBackground" (change)="onChangeLifePath()" class="chargen-lifepath-family"></textarea>
+  <div>
+    <span class="chargen-label">#Siblings</span>
+    <span class="chargen-sibling"> <fa-icon [icon]="faMars" style="font-size:20px;"></fa-icon>[<input [(ngModel)]="brothers" (change)="onChangeSiblings()" min="0" max="20" type="number"/>]</span>
+    <span class="chargen-sibling"> <fa-icon [icon]="faVenus" style="font-size:20px;"></fa-icon>[<input [(ngModel)]="sisters" (change)="onChangeSiblings()" min="0" max="20" type="number" />]</span>
+  </div>
+  <div><span class="chargen-label">Motivations</span></div>
+  <div class="chargen-lifepath-attr">Traits <input [(ngModel)]="lifepath.motivations.personality" (change)="onChangeLifePath()" type="text" class="pull-right"/></div>
+  <div class="chargen-lifepath-attr">Valued Person <input [(ngModel)]="lifepath.motivations.valuedperson" (change)="onChangeLifePath()" type="text" class="pull-right"/></div>
+  <div class="chargen-lifepath-attr">Value Most <input [(ngModel)]="lifepath.motivations.valuemost" (change)="onChangeLifePath()" type="text" class="pull-right"/></div>
+  <div class="chargen-lifepath-attr">Feel About People <input [(ngModel)]="lifepath.motivations.feelaboutpeople" (change)="onChangeLifePath()" type="text" class="pull-right"/></div>
+  <div class="chargen-lifepath-attr">Valued Possesion <input [(ngModel)]="lifepath.motivations.valuedpossession" (change)="onChangeLifePath()" type="text" class="pull-right"/></div>
+  <div><span class="chargen-label">Life Events</span> One event for each year after age 16</div>
+  <table class="chargen-lifepath-events-table">
+    <tr class="chargen-lifepath-events-header">
+      <td>Year</td>
+      <td></td>
+    </tr>
+    <tr *ngFor="let event of lifepath.events" class="chargen-lifepath-event-row">
+      <td><input [(ngModel)]="event.age" type="number" min="0" max="150"/></td>
+      <td><textarea [(ngModel)]="event.event" class="chargen-life-event" rows="2" maxlength="140"></textarea></td>
+    </tr>
+  </table>
+</div>

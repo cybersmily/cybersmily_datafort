@@ -1,0 +1,84 @@
+﻿{"name":"Tabitha Joyce",
+	"handle":"Tabi",
+	"aliases":"itty Kitty",
+	"age":26,
+	"img":"tabi",
+	"career":{"name":"Netrunner","specialability":"Interface","value":8},
+	"stats":{
+		"ref":7,
+		"int":9,
+		"tech":8,
+		"cool":6,
+		"attr":9,
+		"luck":5,
+		"ma":6,
+		"body":5,
+		"emp":7,
+		"hc":32},
+	"skills":{
+		"attr":[
+			{"name":"Personal Grooming","value":4},
+			{"name":"Wardrobe/Style","value":4}
+		],
+		"body":[
+		],
+		"cool":[
+		],
+		"emp":[
+			{"name":"Seduction","value":3},
+      {"name":"Persuasion/Fast Talk","value":5},
+      {"name":"Perform","value":3}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":7},
+			{"name":"Composition","value":3},
+			{"name":"Education/Gen. Know","value":3},
+			{"name":"Library Search","value":7},
+			{"name":"Programming","value":6},
+			{"name":"System Knowledge","value":7}
+		],
+		"ref":[
+			{"name":"Handgun","value":4},
+			{"name":"MA: Sambo","value":3},
+			{"name":"Submachinegun","value":2}
+		],
+		"tech":[
+			{"name":"Basic Tech","value":3},
+			{"name":"Cyberdeck Design","value":7},
+			{"name":"Cyber Tech","value":2},
+			{"name":"Electronics","value":4},
+			{"name":"Elect. Security","value":5},
+			{"name":"Photo/Film","value":5}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Friendly, outgoing",
+			"valuedperson":"Mentor",
+			"valuemost":"Money",
+			"feelaboutpeople":"Untrustworthy, Don't depend on them.",
+			"valuedpossession":"Grandmother's ring"
+		},
+		"style":{
+			"clothes":"Leathers",
+			"hair":"Long, curly",
+			"affectations":"Fingerless gloves",
+			"ethnicity":"Dutch",
+			"languages":"English"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":[
+    "BigKatt",
+    "Playbeing",
+    "Neural Processor [PE,PLG,CS,WLNK]"
+  ],
+	"gear":[
+    "Leather jacket (SP16)",
+    "Leather pants (SP12)",
+    "Raven Micro Eagle (Spd+3;MU20;DataWall+5;Cell)",
+    "Techtronica Volt Pistol (P/+2/R/J/3D6*/6/1/ST/25m)"
+  ],
+	"history":"Tabi is a freelancer netrunner that specializes in falsifying videos and images. She started her online life doing cosplay on streams and getting quick chop. With that money she was able to afford the Big Katt with Playbeing addition. Then she got an addiction to hacking into systems. Still doing some streaming on the side, her main fun was breaking into dataforts and inserting/modifying images and video feeds. She learned she could make better money at doing this work then streaming to slags wanting to watch her. She hooked up with the fixer Silent Su and now has a constant steam of work coming her way."
+}

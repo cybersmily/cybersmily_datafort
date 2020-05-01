@@ -1,0 +1,103 @@
+.chargen-border {
+  border: 1px solid black;
+}
+
+.chargen-lifepath-events-table {
+  width: 100%;
+}
+
+.chargen-lifepath-event-row td {
+  border: 1px solid black;
+  height: 20px;
+  padding: 0px 0px;
+  vertical-align: top;
+  position: relative;
+  height: 54px;
+}
+
+tr.chargen-lifepath-event-row td .chargen-life-event {
+  position: absolute;
+  width: 100%;
+  height: 54px;
+  resize: none;
+  line-height: 14px;
+  margin: 0px 0px;
+  font-size: 10px;
+}
+
+.chargen-lifepath-event-row td:first-child {
+  width: 30px;
+}
+
+.chargen-lifepath-events-header td {
+  border: 1px solid black;
+  height: 20px;
+  padding: 0px 0px;
+  font-size: 14px;
+}
+
+.chargen-lifepath-events-table input[type=number] {
+  width: 24px;
+  height: 20px;
+  text-align: right;
+  margin-left: 2px;
+}
+
+.chargen-lifepath-attr {
+  margin-left: 10px;
+}
+
+.chargen-lifepath-attr input {
+  height: 18px;
+  font-size: 10px;
+  margin-right: 8px;
+  width: 300px;
+}
+
+.chargen-lifepath-family {
+  width: 95%;
+  height: 250px;
+  margin-right: 8px;
+  margin-left: 8px;
+  resize: none;
+}
+
+.chargen-sibling {
+  margin-left: 8px;
+}
+
+.chargen-sibling input {
+  width: 45px;
+  text-align: center;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.chargen-sibling input::-webkit-outer-spin-button,
+.chargen-sibling input::-webkit-inner-spin-button,
+.chargen-lifepath-events-table tr td:first-child input::-webkit-outer-spin-button ,
+.chargen-lifepath-events-table tr td:first-child input::-webkit-inner-spin-button
+ {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.chargen-sibling input[type=number],
+.chargen-lifepath-events-table input[type=number]{
+  -moz-appearance:textfield;
+}
+
+.chargen-always-event {
+  margin-left: 10px;
+}
+
+.chargen-lifepath-dice {
+  margin: 10px 10px;
+  font-size: 30px;
+  color: red;
+  cursor: pointer;
+}
+
+.chargen-years-event {
+  width: 40px;
+}

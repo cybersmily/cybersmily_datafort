@@ -1,0 +1,36 @@
+:host {
+  height: 100%;
+  width: 100%;
+}
+.csdNRCell {
+  display: inline-block;
+  padding: 0 0;
+  margin: 0 0;
+  position: absolute;
+  z-index: 100;
+  opacity: .99;
+}
+
+.csdCityGrid {border-color: black;}
+
+.csdNRCell.csdHasVisited {background-color:rgba(80,80,80,0.8);
+  border: thin solid white;}
+.csdNRCell.csdNRSelectable { cursor: pointer;}
+.csdNRSelectable:hover {
+  background-color:rgba(238,232,170,0.5);
+}
+.csdNRCell.csdNRSelectable.csdNRSelected:hover {
+  background-color:rgba(100,100,100,0.8);
+}
+.csdNRSelectable:hover {
+  background-color:rgba(238,232,170,0.8);
+}
+.csdNRCell.csdCityGrid.csdNRSelectable.csdNRSelected:hover {
+  background-color:rgba(100,100,100,0.8);
+}
+
+.csdNRCell.csdNRSelected {
+  cursor: pointer;
+  border: thin solid red;
+  z-index: 250;
+}

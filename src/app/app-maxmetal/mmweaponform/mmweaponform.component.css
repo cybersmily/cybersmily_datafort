@@ -1,0 +1,13 @@
+#cs-mm-wpn-details th {
+  margin-left: 4px;
+  margin-right: 4px;;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+#cs-mm-wpn-details th, #cs-mm-wpn-details td {
+  text-align: center;
+}
+
+.mm-wpn-attr {
+  font-weight: bold;
+}

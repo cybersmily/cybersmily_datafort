@@ -1,0 +1,16 @@
+{
+	"sources":[
+		{"title":"CP 2020","value":"CP2020"},
+		{"title":"NeoTribe","value":"NeoTribe"},
+		{"title":"Eurosource Plus","value":"EuroPlus"},
+		{"title":"Home of the Brave","value":"HoB"},
+		{"title":"Protect and Serve","value":"ProtectServe"},
+		{"title":"PacRim - Japan","value":"PacRimJapan"},
+		{"title":"PacRim - Japan (student)","value":"PacRimJapan-Student"},
+		{"title":"PacRim - Japan (Pu-Taro)","value":"PacRimJapan-PuTaro"},
+		{"title":"PacRim - Korea","value":"PacRimJapan-Korea"},
+		{"title":"PacRim - Korea (MP)","value":"PacRimJapan-ProtectServe-KoreaMP"},
+		{"title":"PacRim - China","value":"PacRimChina"},
+		{"title":"PacRim - Southeast Asia","value":"PacRimSEAsia"}
+  ]
+}

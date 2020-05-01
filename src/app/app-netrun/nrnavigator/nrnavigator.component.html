@@ -1,0 +1,15 @@
+<div>
+    <span class="lead">Choose Region:</span>
+    <select [(ngModel)]="region" (change)="onChangeRegion()">
+      <option *ngFor="let r of regions" [ngValue]="r">{{r.name}}</option>
+    </select>
+
+</div>
+
+<div *ngIf="cities.length > 0">
+    <span class="lead">Or Choose City:</span>
+    <select [(ngModel)]="city">
+      <option *ngFor="let c of cities" [ngValue]="c">{{c.name}}</option>
+    </select>
+</div>
+<button id="btnGoToCity" class="btn btn-secondary csd-rounded" (click)="onGo()" >GO</button>

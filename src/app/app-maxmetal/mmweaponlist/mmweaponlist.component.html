@@ -1,0 +1,28 @@
+<div class="row csd-rounded">
+  <h4>Weapon List</h4>
+  <div class="col-11">
+    <div class="row">
+      <div class="col-7">Name</div>
+      <div class="col-2">Spaces</div>
+      <div class="col-2">Cost</div>
+    </div>
+    <div *ngFor="let wpn of weaponList.weapons" class="row">
+      <div class="col-7">{{wpn.toString()}}</div>
+      <div class="col-2">{{wpn.totalSpaces() | number:'1.0'}}</div>
+      <div class="col-2">{{wpn.totalCost() | number:'1.00'}}eb</div>
+      <div class="col-1">
+        <button class="btn btn-secondary btn-sm"
+         (click)="removeWpn(wpn)"
+        >X</button>
+      </div>
+
+    </div>
+    <br>
+  <div class="row">
+    <div class="col-7">Total:</div>
+    <div class="col-2">{{spaces()| number:'1.0'}}</div>
+    <div class="col-2">{{cost() | number:'1.00'}}eb</div>
+  </div>
+  <br>
+  </div>
+</div>

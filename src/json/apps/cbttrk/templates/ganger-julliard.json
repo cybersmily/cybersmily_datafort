@@ -1,0 +1,38 @@
+{ "handle": "Julliard",
+  "role": "Streetpunk",
+  "int": 7,
+  "ref": 7,
+  "tech": 8,
+  "cool": 6,
+  "attr": 5,
+  "luck": 6,
+  "ma": 6,
+  "body":5,
+  "emp": 4,
+  "armor": {
+    "head": 0,
+    "torso": 0,
+    "arms": 0,
+    "legs": 0
+  },
+  "sa": {"name":"", "stat": "", "value": 0},
+  "skills": [
+    {"name":"Perform", "stat": "emp", "value": 7},
+    {"name":"Play Instrument", "stat": "tech", "value": 7},
+    {"name":"Social", "stat": "emp", "value": 6},
+    {"name":"Human Perception", "stat": "emp", "value": 5},
+    {"name":"Awareness/Notice", "stat": "int", "value": 4},
+    {"name":"Personal Grooming", "stat": "attr", "value": 3},
+    {"name":"Wardrobe \\& Style", "stat": "attr", "value": 4},
+    {"name":"Submachinegun", "stat": "ref", "value": 5},
+    {"name":"Persuasion \\& Fast Talk", "stat": "emp", "value": 5},
+    {"name":"Dance", "stat": "ref", "value": 3},
+    {"name":"Martial Arts:", "stat": "ref", "value": 6},
+    {"name":"Dodge \\& Escape", "stat": "ref", "value": 4}
+  ],
+  "cyberware": [],
+  "weapons": [],
+  "gear": [],
+  "source": "NC",
+  "notes": ""
+}

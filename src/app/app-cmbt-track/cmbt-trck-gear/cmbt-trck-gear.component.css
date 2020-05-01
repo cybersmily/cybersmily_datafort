@@ -1,0 +1,7 @@
+.opp-gear-delete {
+  display: none;
+}
+
+.opp-gear:hover .opp-gear-delete {
+  display: inline-block;
+}

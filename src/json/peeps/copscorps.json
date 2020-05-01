@@ -1,0 +1,11 @@
+﻿{"npcs":[
+	{ "name":"Sniff", "img":"algare", "career": "Cop"},
+	{ "name":"Miz Ya", "img":"myamazi", "career": "Cop"},
+	{"name":"Lynx", "img":"lynx", "career":"Cop" },
+	{"name":"Rabbit", "img":"rabbit", "career":"Cop"},
+	{"name":"Lips", "img":"lips", "career":"Cop"},
+	{"name":"Lady J", "img":"ladyj", "career":"Cop" },
+	{"name":"Tin", "img":"tin", "career":"Cop"},
+	{"name":"Hari-Kari", "img":"harikari", "career":"Corp"},
+	{"name":"Mum", "img":"mum", "career":"Corp"}
+]}

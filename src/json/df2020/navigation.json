@@ -1,0 +1,57 @@
+﻿{
+"Equipment":{
+	"volume":1,
+	"title":"CYBERPUNK 2020 EQUIPMENT",
+	"homepage":"eqphome.htm",
+	"links":[],
+	"listItems":["*=Edgedweapons treatSP as half.","RPA=Revised Personal Armor, AP defeating"
+],
+	"pdf":"http://datafortress2020forums.110mb.com/filegallery/4images/details.php?image_id=544"},
+"Weapons":{
+	"volume":2,
+	"title":"CYBERPUNK 2020 WEAPONS",
+	"homepage":"wpnhome.htm",
+	"links":[],
+	"listItems":["*: Blade 1/2 soft armor, full penetrating damage.",
+	             "#: Monoblade 1/3 soft armor, 2/3 hard armor, full penetrating damage.",
+				 "@: Standard Armor Piercing 1/2 soft and hard armor, 1/2 penetrating damage.",
+                "~: Arrow 1/2 hard and soft armor, full penetrating damage.",
+				"HEAT: High Explosive Anti-tank 1/2 armor, full penetrating damage. Composite Armour halves the damage.",
+                "EAP: Extra Armor Penetration 1/4 armor, 1/2 penetrating damage.",
+				"FF: Fragmentation Flechettes 1/2 soft armor, full damage.",
+				"ET: Electrothermal Enhancement +50% damage and range, already accounted for in description.",
+                "G: Gyrojet Ammo Damage increases when used at longer ranges.",
+				"r: Radar Guided Active Missile Skill +20. Affected by jamming, stealth + chaff.",
+				"t: Thermal Guided Active Missile Skill +15. Affected by flares and IR smoke.",
+                "o: Optical Guided Active Missile Skill +15. Affected by smoke + darkness."
+	],
+	"pdf":"http://datafortress2020forums.110mb.com/filegallery/4images/details.php?image_id=546"	
+},
+"Cyberware":{
+	"volume":3,
+	"title":"CYBERPUNK 2020 CYBERNETICS",
+	"homepage":"cyberhome.htm",
+	"links":[],
+	"listItems":[],
+	"pdf":"http://datafortress2020forums.110mb.com/filegallery/4images/details.php?image_id=543"},
+"Vehicles":{
+	"volume":4,
+	"title":"CYBERPUNK 2020 VEHICLES",
+	"homepage":"vehhome.htm",
+	"links":["HOME","MOTORCYCLES","CARS","PICK-UPS","TRUCKS","APC/IFV/TANKS","HOVERS","AERODYNES/SPINNERS","HELICOPTERS/GLIDERS","AIRCRAFT","SNOWMOBILES","NAVAL","ACPA/WAD","CYBERWALKS","REMOTES/ROBOTS/CYBERFORMS","SPACE SURFACE VEHICLES","SPACECRAFT","VEHICLE OPTIONS","SOURCEBOOK KEYS"],
+	"listItems":["DRIVE TYPES:",
+"C - Chemical engines",
+"I - Ion engines",
+"N - Nuclear engines",
+"S - Solar dynamic drives",
+"L - Lightsails",
+"A - Anti-matter engines",
+"POWER TYPES:",
+"N - Nuclear reactors",
+"S - Solar power",
+"BS - Brayton solar dynamic generators",
+"FC - Fuel cells",
+"B - Batteries"
+],
+	"pdf":"http://datafortress2020forums.110mb.com/filegallery/4images/details.php?image_id=545"}
+}

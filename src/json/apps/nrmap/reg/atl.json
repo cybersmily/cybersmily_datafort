@@ -1,0 +1,33 @@
+﻿{   "name": "Atlantis",
+    "type": "r",
+    "w": 1005,
+    "h": 1031,
+    "nx": 20,
+    "ny": 21,
+    "gridsize": 51,
+    "offsetx": 38,
+    "offsety": 38,
+    "lx": 47,
+    "ly": 27,
+    "img": "img/apps/regionmaps/atlantis.png",
+    "dforts":[
+      { "img":"city", "top":10, "left":20, "align":"r", "row": 2, "column": 1, "name":"Monterrey" },
+      { "img":"city", "top":35, "left":20, "align":"t", "row": 2, "column": 5, "name":"Havanna" },
+      { "img":"city", "top":35, "left": 0, "align":"r", "row": 3, "column": 2, "name":"Mexico City" },
+      { "img":"city", "top": 5, "left":25, "align":"l", "row": 4, "column":18, "name":"Dakar" },
+      { "img":"city", "top":30, "left":25, "align":"r", "row": 5, "column": 5, "name":"Panama City" },
+      { "img":"city", "top":25, "left":25, "align":"r", "row": 5, "column": 8, "name":"Caracas" },
+      { "img":"city", "top":15, "left":20, "align":"l", "row": 6, "column": 6, "name":"Bogota" },
+      { "img":"city", "top":30, "left":30, "align":"l", "row": 7, "column": 5, "name":"Quito" },
+      { "img":"city", "top": 0, "left": 0, "align":"l", "row": 9, "column":19, "name":"Ascension" },
+      { "img":"city", "top": 0, "left":20, "align":"l", "row":10, "column": 6, "name":"Lima" },
+      { "img":"city", "top":25, "left":30, "align":"l", "row":10, "column":12, "name":"Brasilia" },
+      { "img":"city", "top": 0, "left": 0, "align":"l", "row":11, "column": 8, "name":"La Paz" },
+      { "img":"city", "top":20, "left":15, "align":"l", "row":12, "column":10, "name":"Asuncion" },
+      { "img":"city", "top": 5, "left":10, "align":"l", "row":12, "column":13, "name":"Rio De Janeiro" },
+      { "img":"city", "top":35, "left":30, "align":"l", "row":14, "column":10, "name":"Montevideo" },
+      { "img":"city", "top": 5, "left":10, "align":"l", "row":15, "column": 7, "name":"Santiago" },
+      { "img":"city", "top":10, "left":10, "align":"l", "row":15, "column":10, "name":"Buenos Aires" }
+
+    ]
+    }

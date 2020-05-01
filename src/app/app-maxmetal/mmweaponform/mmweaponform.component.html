@@ -1,0 +1,87 @@
+<div class="csd-rounded">
+  <h4>Weapons</h4>
+    <div>
+      <span class="csd-required">Category</span>
+      <select [(ngModel)]="selectedCategory" (change)="changeCategory()" class="form-control form-control-sm" >
+        <option *ngIf="!selectedCategory" [ngValue]="null" disabled>Choose a Weapon Category</option>
+        <option *ngFor="let category of weapons" [ngValue]="category">{{category.key}}</option>
+      </select>
+    </div>
+    <div>
+      <span class="csd-required">Weapon</span>
+      <select [(ngModel)]="selectedWeapon" (change)="changeWeapon()" class="form-control form-control-sm">
+        <option *ngIf="!selectedWeapon"  [ngValue]="null" disabled selected>Choose a Weapon</option>
+        <option *ngFor="let weapon of Weapons" [ngValue]="weapon">{{weapon.name}}</option>
+      </select>
+    </div>
+    <div *ngIf="selectedWeapon" id="cs-mm-wpn-details">
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-5"><span>type:</span> {{selectedWeapon.wpntype}}</div>
+        <div class="col-5"><span>wa:</span> {{selectedWeapon.wa}}</div>
+      </div>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-5"><span>con:</span> {{selectedWeapon.con}}</div>
+        <div class="col-5"><span>avail:</span> {{selectedWeapon.avail}}</div>
+      </div>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-5"><span>shots:</span> {{selectedWeapon.shots}}</div>
+        <div class="col-5"><span>rof:</span> {{selectedWeapon.rof}}</div>
+      </div>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-5"><span>rel:</span> {{selectedWeapon.rel}}</div>
+        <div class="col-5"><span>range:</span> {{selectedWeapon.range | number}}m</div>
+      </div>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-5"><span>spaces:</span> {{selectedWeapon.spaces}}</div>
+        <div class="col-5"><span>cost:</span> {{selectedWeapon.cost | number}}eb.</div>
+      </div>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class=col-11>
+          <span>Ammo:</span> {{selectedWeapon.ammo.name}}
+        </div>
+      </div>
+        <div class="row">
+          <div class="col-2"></div>
+          <div class="col-8">
+          PEN: {{selectedWeapon.ammo.pen}},
+          Burst: {{selectedWeapon.ammo.burst}},
+          Cost Per Load: {{selectedWeapon.ammo.costPerLoad}}eb,
+          Space Per Load: {{selectedWeapon.ammo.spacePerLoad}}
+        </div>
+      </div>
+    </div>
+    <div>
+      <span class="csd-required">Mount</span>
+      <select [(ngModel)]="currWeapon.mounting" (change)="changeMount()" class="form-control form-control-sm">
+        <option *ngIf="!currWeapon.mounting" [ngValue]="null" disabled selected>Choose a Weapon Mounting</option>
+        <option *ngFor="let mount of mounts" [ngValue]="mount">{{mount.name}}</option>
+      </select>
+    </div>
+  <div>
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <div><span>Auto Loader</span> - <input type="checkbox" [(ngModel)]="currWeapon.isAutoLoad"/></div>
+        <div><span>Weapon Stablizer</span> - <input type="checkbox" [(ngModel)]="currWeapon.isStablized"/></div>
+        <div>
+          <span>Extra Magazine</span> -
+          <input type="number" [(ngModel)]="currWeapon.extraLoads"
+                style="max-width: 40px;"
+                name="ExtraLoads" maxlength="2" placeholder="0"
+                oninput="javascript: if (this.value.length > this.maxlength) { this.value = this.value.slice(0,this.maxlength); } if( this.value < 0 ) { this.value = 0; }">
+        </div>
+      </div>
+    </div>
+<div>
+  <button
+  class="btn btn-secondary btn-sm"
+  (click)="addWeapon()"
+  [disabled] = "addDisabled"
+  >ADD</button>
+</div>
+  </div>

@@ -1,0 +1,100 @@
+<div class="row">
+  <button id="btn-nrmap-instruct" class="btn btn-secondary csd-rounded" (click)="openModal(template)">Instructions</button>
+</div>
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Netrun Navigator Instructions</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div id="nrinstructions" class="csd-rounded csd-section">
+      <ul class="list-unstyled">
+        <li>
+          <h5>Grid Square</h5>
+          Clicking on a grid square will shade/unshade it to mark the path of a run.
+          You may click anywhere on the map for an initial location, then you must click on an adjacent
+          square to track your movement.
+          <br>
+          <br>
+        </li>
+        <li>
+          <h5>LDLS <img src="../../../img/apps/nricons/city.png" style="width: 20px;"> <img src="../../../img/apps/nricons/df_ldl.png" style="width: 20px;"></h5>
+          To use this map hover over icon for the name of the city. Clicking on the city icon
+          <img src="../../../img/apps/nricons/city.png" style="width: 20px;">/<img src="../../../img/apps/nricons/df_ldl.png" style="width: 20px;">
+          will get more information about the LDL. If the current space is is selected (highlight in red) then option to HACK it will appear.
+          <br>
+          <br>
+        </li>
+        <li>
+          <h5>DATAFORTS
+            <img src="../../../img/apps/nricons/df_blk.png" style="width: 20px;" alt="Black Datafort">
+            <img src="../../../img/apps/nricons/df_lv1.png" style="width: 20px;" alt="Level 1 Datafort">
+            <img src="../../../img/apps/nricons/df_lv2.png" style="width: 20px;" alt="Level 2 Datafort">
+            <img src="../../../img/apps/nricons/df_lv3.png" style="width: 20px;" alt="Level 3 Datafort">
+            <img src="../../../img/apps/nricons/df_pbc.png" style="width: 20px;" alt="Public Datafort">
+            <img src="../../../img/apps/nricons/df_bbs.png" style="width: 20px;" alt="BBS">
+            <img src="../../../img/apps/nricons/df_pvt.png" style="width: 20px;" alt="Private BBS">
+          </h5>
+          These represent an actual datafort the runner will hack into.
+          The DIFF is given for the Quick Netrun Rules from this site (go to Mods > Quick NR).
+          The info will also indicate if an AI and/or Sysop is in the fort.
+          <br>
+          <br>
+        </li>
+        <li>
+          <button class="csd-rounded text-light bg-secondary">Total Trace</button><br>
+          Clicking on "Total Trace" will show the LDLs that have been hacked. This includes the name, region, city, and the trace value. The total will also be displayed.
+          <br>
+          <br>
+        </li>
+        <li>
+          <button class="csd-rounded text-light bg-secondary">Hack</button><br>
+          Click on "Hack" button to try and use the LDL's trace value. The current total
+          trace appears in the Total Trace button above.
+          When hacking, a roll for security will be done. Some events will clear your traces
+          as it dumps you from the NET. If successful, the trace for that LDL will be added.<br>
+          NOTE: Security has change to have a 1d10 roll higher than the security number. So
+          1 is no longer an automatic success.
+          <br>
+          <br>
+        </li>
+        <li>
+          <span class="csd-rounded text-light bg-secondary" style="margin-right:3px;">Region</span>
+          <span class="csd-rounded text-light bg-secondary" style="margin-right:3px;">City</span>
+          <span class="csd-rounded text-light bg-secondary" style="margin-right:3px;">World</span>
+          <br>
+          Click on one of these buttons will open the next map.
+          <br>
+          <br>
+        </li>
+        <li>
+          <button class="csd-rounded text-light bg-secondary">REFRESH</button><br>
+          This button will reset all the maps and trace values.
+          <br>
+          <br>
+        </li>
+        <li>
+          <h5>Enhancement/Bugs/Updates</h5>
+          This is still a work in progress. Some LDLs are misbehaving. Maps for cities and
+          orbitville haven't been create yet. Stay tuned for those...
+          <br>
+          <br>
+        </li>
+        <li>
+          <h5>Resources</h5>
+          For more information consult <a href="http://rpg.drivethrustuff.com/product/50354/Cyberpunk-2020-The-Second-Edition-Version-201">
+            Cyberpunk 2020 mainbook
+          </a> and <a href="http://rpg.drivethrustuff.com/product/591/Rache-Bartmoss-Guide-to-the-Net">
+            Rache Bartmoss' Guide to the Net
+          </a> available from DriveThru RPG. I strongly
+          suggest picking up a copy of both, especially the guide as it has a lot of info
+          about the regions.
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="modal-footer">
+  </div>
+</ng-template>

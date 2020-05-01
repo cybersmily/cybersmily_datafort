@@ -1,0 +1,81 @@
+﻿{"name":"Antonio Rizza",
+	"handle":"Hood",
+	"aliases":"Rizzie",
+	"age":24,
+	"img":"hood",
+	"career":{"name":"Solo","specialability":"Combat Sense","value":7},
+	"stats":{
+		"ref":10,
+		"int":6,
+		"tech":6,
+		"cool":7,
+		"attr":6,
+		"luck":4,
+		"ma":6,
+		"body":9,
+		"emp":6,
+		"hc":17},
+	"skills":{
+		"attr":[
+		],
+		"body":[
+		],
+		"cool":[
+			{"name":"Streetwise","value":2}
+		],
+		"emp":[
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":2},
+			{"name":"Gamble","value":2},
+			{"name":"Hide/Evade","value":2}
+		],
+		"ref":[
+			{"name":"Athletics","value":2},
+			{"name":"Handgun","value":6},
+			{"name":"MA: Sambo","value":6},
+			{"name":"Melee","value":3},
+			{"name":"Rifle","value":3},
+			{"name":"Stealth","value":4},
+			{"name":"Submachinegun","value":4}
+		],
+		"tech":[
+			{"name":"Demolitions","value":4},
+			{"name":"Elect. Security","value":3},
+			{"name":"First Aid","value":3},
+			{"name":"Weaponsmith","value":2}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Stable, serious",
+			"valuedperson":"Himself",
+			"valuemost":"Friendship",
+			"feelaboutpeople":"They're tools to be used",
+			"valuedpossession":"Monoknife"
+		},
+		"style":{
+			"clothes":"Businesswear",
+			"hair":"Short, spiked",
+			"affectations":"Mirror shades",
+			"ethnicity":"Italian",
+			"languages":"English"
+		},
+		"family":"Parents were part of the Mafia. They were killed and he was the only survivor. He grew up on teh streets with no adult supervision.",
+		"siblings":""
+	},
+	"cyberware":[
+    "Neural Processor [Boosterware +2, Smartgun link, Plugs, Chipsocket]"
+  ],
+	"gear":[
+    "Businesswear",
+    "Good Edgerunner Armor Trenchcoat (SP16)",
+    "Mustang Arms Mk II, Smart (P/+1/L/C/3D6(DP)/20/3/VR)",
+    "Monoknife (MEL/+1/P/P/2D6/-/-/VR)",
+    "FN-RAL (RIF/-1/N/P/6D6+2/30/30/VR)",
+    "Speedholster",
+    "Cellphone",
+    "Smartgoogle Mirrorshades w/ Anti-dazzler + IR"
+  ],
+	"history":"Hood is a low level mafia enforcer. He works with the family in the west side of Night City. He has been known to take on some ops for corporation, with the boss's permission of course."
+}

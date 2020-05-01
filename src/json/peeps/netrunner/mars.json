@@ -1,0 +1,94 @@
+﻿{"name":"Mark Jikomura",
+	"handle":"Mars",
+	"aliases":"Iruka Mumasa, Tom Aika, Ares",
+	"age":29,
+	"img":"mars",
+	"career":{"name":"Netrunner","specialability":"Interface","value":8},
+	"stats":{
+		"ref":9,
+		"int":10,
+		"tech":7,
+		"cool":6,
+		"attr":5,
+		"luck":4,
+		"ma":6,
+		"body":5,
+		"emp":8,
+		"hc":27},
+	"skills":{
+		"attr":[
+			{"name":"Personal Grooming","value":4},
+			{"name":"Wardrobe/Style","value":4}
+		],
+		"body":[
+			{"name":"Endurance","value":3}
+		],
+		"cool":[
+			{"name":"Streetwise","value":3}
+		],
+		"emp":[
+			{"name":"Seduction","value":3},
+			{"name":"Social","value":2},
+			{"name":"Perform","value":6}
+		],
+		"int":[
+			{"name":"Accounting","value":2},
+			{"name":"Awareness/Notice","value":5},
+			{"name":"Composition","value":6},
+			{"name":"Education/Gen. Know","value":8},
+			{"name":"Hide/Evade","value":4},
+			{"name":"Language: Japanese","value":6},
+			{"name":"Language: English","value":8},
+			{"name":"Library Search","value":4},
+			{"name":"Mathematics","value":2},
+			{"name":"Programming","value":7},
+			{"name":"Shadow/Track","value":2},
+			{"name":"System Knowledge","value":7}
+		],
+		"ref":[
+			{"name":"Handgun","value":3},
+			{"name":"MA: Tae Kwon Do","value":3},
+			{"name":"Stealth","value":3},
+			{"name":"Submachinegun","value":4}
+		],
+		"tech":[
+			{"name":"Basic Tech","value":3},
+			{"name":"Cyberdeck Design","value":7},
+			{"name":"Cyber Tech","value":3},
+			{"name":"Electronics","value":4},
+			{"name":"Elect. Security","value":4},
+			{"name":"ELINT","value":3},
+			{"name":"First Aid","value":3},
+			{"name":"Play Instrument","value":5}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"",
+			"valuedperson":"",
+			"valuemost":"",
+			"feelaboutpeople":"",
+			"valuedpossession":""
+		},
+		"style":{
+			"clothes":"",
+			"hair":"",
+			"affectations":"",
+			"ethnicity":"Japanese",
+			"languages":"Japanese"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":[
+    "Neural Processor [RFB2, PE, PLG, BstMstr, CLNK, WLNK,MLNK, DLNK]",
+    "Chipsocket []",
+    "Cyber Optics [Right: AD, TS+; left: AD, IE, TA, IR]",
+    "Cyber Audio [AH, RL, PS, BD, SE, EH, VSA]",
+    "Nasal Filters",
+    "Life Saver [VP]",
+    "Adrenal Boost"
+  ],
+	"gear":[],
+	"history":"Mars grew up in Tokyo. His parents were middle class management. Mars spent all of his youth in schools learning to become a programmer. His family had to move to America when he was 15. By then he was already pretty good 'runner. After graduating he spent a few years with his father's company. An incident happened with his father and the corporation had his father imprisoned, and later killed. Mars found out that there was another manager who had set up his father and was the one who had him murdered. Mars wanted revenge and soon got it. While this manager was in a virtual conference, Mars hacked into the system and unleashed a Zombie program on all who were there. Several high ranking official were killed. This turned Mars into a wanted criminal. Mars quickly went underground with the help of a few of his friends. One in particular was Pup-Pup. Pup-Pup was on the run too. Both of them were approached by Big Man and were hired onto Team Alpha. Mars and Prometheus had a friendship going for a while before the AI went rogue. Mars and Joy-Joy started up a band when they fled to Night City. Both of them have always had a passion for music and thought it would be safe to start a band. Unfortunately, a team from BMS was sent to find Prometheus and found the band. Soon Mars was sent to kill one of those team members. He was about to kill the girl when he was surprised by another team member and was killed. Team Alpha was able to get their revenge but at a cost of Mars life."
+}

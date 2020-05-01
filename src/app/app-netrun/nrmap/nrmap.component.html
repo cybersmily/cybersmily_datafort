@@ -1,0 +1,27 @@
+
+<div class="row">
+  <div class="col-12">
+    <h2 class="csdRegionName">
+        Current Region - <span>{{currMap.name}}</span>
+    </h2>
+    <span class="btn btn-secondary csdRefeshMap" (click)="refreshMap()">REFRESH</span>
+  </div>
+</div>
+<ngx-ui-loader fgsSize="150" [fgsType]="spinner.cubeGrid" hasProgessBar="false" fgsColor="#ffffff"></ngx-ui-loader>
+<div id="csdLDLMap" class="row csd-rounded"[ngStyle]="containerSize">
+    <img *ngIf="hasMap()" class="csd-reg-map" [src]="mapImage" [ngStyle]="imgSize"/>
+    <div *ngIf="!hasMap()" class="csd-city-map" [ngStyle]="imgSize"></div>
+    <table id="csdLDLMapTable" [ngClass]="gridClasses">
+      <tr *ngFor="let row of currGrid"
+          [ngStyle]="{'height':row.height + 'px'}">
+        <td *ngFor="let column of row.cells"
+            [ngStyle]="{'height':column.height + 'px','width':column.width + 'px'}"
+            [ngClass]="cellClass">
+          <cs-nrgridbox [cell]="column" [mapType]="currMap.type"></cs-nrgridbox>
+        </td>
+      </tr>
+    </table>
+    <div id="csdDFMapGrid" class="csd-datafort-map" [ngStyle]="imgSize">
+      <cs-nr-datafort *ngFor="let df of currMap.dforts" [dataFort]="df"></cs-nr-datafort>
+    </div>
+  </div>

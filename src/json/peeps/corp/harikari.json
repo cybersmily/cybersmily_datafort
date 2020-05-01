@@ -1,0 +1,82 @@
+{"name":"Harold Sopong",
+	"handle":"Hari-Kari",
+	"aliases":"Harry",
+	"age":25,
+	"img":"harikari",
+	"career":{"name":"Corp","specialability":"Resources","value":7},
+	"stats":{
+		"ref":9,
+		"int":9,
+		"tech":4,
+		"cool":8,
+		"attr":7,
+		"luck":10,
+		"ma":7,
+		"body":6,
+		"emp":9,
+		"hc":0,
+    "rep":4},
+	"skills":{
+		"attr":[
+			{"name":"Personal Grooming","value":3},
+			{"name":"Wardrobe/Style","value":2}
+		],
+		"cool":[
+			{"name":"Streetwise","value":2}
+		],
+		"emp":[
+			{"name":"Human Perception","value":4},
+			{"name":"Leadership","value":3},
+			{"name":"Social","value":4},
+			{"name":"Persuasion/Fast Talk","value":5},
+			{"name":"Perform","value":1}
+		],
+		"int":[
+			{"name":"Awareness/Notice",   "value":6},
+			{"name":"Education/Gen. Know","value":3},
+			{"name":"Language: Japanese", "value":3},
+			{"name":"Language: English",  "value":8},
+			{"name":"Language: Korean",   "value":5},
+			{"name":"Library Search",     "value":2},
+			{"name":"Stock Market",       "value":5}
+		],
+		"ref":[
+			{"name":"Athletics",      "value":1},
+			{"name":"Driving",        "value":3},
+			{"name":"Fencing",        "value":4},
+			{"name":"Handgun",        "value":4},
+			{"name":"MA: Tae Kwon Do","value":3},
+			{"name":"Melee",          "value":2}
+		],
+		"tech":[
+			{"name":"First Aid","value":4},
+			{"name":"Forgery",  "value":2}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Sneak and deceptive",
+			"valuedperson":"No one",
+			"valuemost":"His Word",
+			"feelaboutpeople":"People are untrustworthy. Don't depend on anyone.",
+			"valuedpossession":"Harmonica"
+		},
+		"style":{
+			"clothes":"Corporate suits",
+			"hair":"Short,spiky",
+			"affectations":"Mirrorshades",
+			"ethnicity":"Korean",
+			"languages":"Korean"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":["None"],
+  "gear":[
+    "Colt AMT 2000 with speed holster, dozen pistol grenades",
+    "Tanaka suits (SP12)",
+    "Hybrid wearable computer",
+    "Cell with all the options"
+  ],
+	"history":"Harold works for Arasaka gathering teams for various operations. His name came from him joining these teams on their missions and, not having any augamentation, many believe he's sucidal. Harold will try to lead any team during the mission, but will listen to members if they have better options. "
+}

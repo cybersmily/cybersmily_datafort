@@ -1,0 +1,97 @@
+﻿{"name":"Elizabeth Mumaki",
+	"handle":"Mum",
+	"aliases":"Liz",
+	"age":28,
+	"img":"mum",
+	"career":{"name":"Corp","specialability":"Resources","value":7},
+	"stats":{
+		"ref":6,
+		"int":7,
+		"tech":4,
+		"cool":8,
+		"attr":7,
+		"luck":6,
+		"ma":6,
+		"body":5,
+		"emp":7,
+		"hc":14,
+    "rep":5},
+	"skills":{
+		"attr":[
+			{"name":"Personal Grooming","value":3},
+			{"name":"Wardrobe/Style","value":3}
+		],
+		"body":[
+		],
+		"cool":[
+			{"name":"Interrogation","value":3},
+			{"name":"Intimidate","value":2},
+			{"name":"Oratory","value":2},
+			{"name":"Streetwise","value":5}
+		],
+		"emp":[
+			{"name":"Human Perception","value":3},
+			{"name":"Interview","value":3},
+			{"name":"Leadership","value":5},
+			{"name":"Seduction","value":4},
+			{"name":"Social","value":4},
+			{"name":"Persuasion/Fast Talk","value":3}
+		],
+		"int":[
+			{"name":"Accounting","value":6},
+			{"name":"Awareness/Notice","value":8},
+			{"name":"Education/Gen. Know","value":6},
+			{"name":"Expert: Arasaka Corporation","value":4},
+			{"name":"Language: Japanese","value":8},
+			{"name":"Language: ","value":8},
+			{"name":"Library Search","value":7},
+			{"name":"Mathematics","value":3},
+			{"name":"Stock Market","value":3},
+			{"name":"System Knowledge","value":3}
+		],
+		"ref":[
+			{"name":"Athletics","value":4},
+			{"name":"Handgun","value":5},
+			{"name":"Heavy Weapons","value":3},
+			{"name":"MA: Karate","value":3},
+			{"name":"Stealth","value":4}
+		],
+		"tech":[
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Shy & secretive",
+			"valuedperson":"Parents",
+			"valuemost":"Power",
+			"feelaboutpeople":"Tools to be used",
+			"valuedpossession":"cellphone"
+		},
+		"style":{
+			"clothes":"Businesswear",
+			"hair":"Long & pulled back",
+			"affectations":"Stiletto heels",
+			"ethnicity":"Japanese",
+			"languages":"Japanese"
+		},
+		"family":"Parents were corporates and lived in the corporate zone.",
+		"siblings":"2"
+	},
+	"cyberware":[
+    "Neural Processor [WLNK, CS]",
+    "Contraceptive Implant",
+    "Cyberoptics Right [AD, TH, IE, TA] Left [AD, LL, IE, TA]",
+    "Interface Plugs",
+    "Decentralized Heart"
+  ],
+	"gear":[
+    "Glock 30, Smart (P/+5/J/C/2D6+3 DP/20/1-3/VR)",
+    "Businesswear, armored (SP 16)",
+    "Cellphone w/ privacy+",
+    "Bodycomputer w/ voice recognition, lie detector, bug jammer and detector.",
+    "Mirroshade HUD for computer",
+    "Chipware - Secretarial chip, Karate3, Hvy Weapons3"
+  ],
+  "history":"Elizabeth grew up in the corporate zone and her parents worked for the Arasaka company in Night City. When she graduate from college with a master in business she signed a contract with Arasaka. There she grew in the ranks eventually joining the Strategic Acquisition department of the Night City branch. She now works with contract edgerunners for the company to deal with situations outside of corporate policy. She works with several fixers throughout the city.",
+  "playerinfo":"<strong>For &quot;NCPD Blues&quot; scenario</strong><h6>Elizabeth Mumaki, assistant manger of Strategic Acquisitions</h6><br>Damn Jikosi-san! He's setting me up for a fall. &quot;Take the borg alive, no matter what!&quot; He's crazy. That killing machine will not just come along like a fido-bot. It has a grudge againt us and will kill me without thinking. And what's with the cops? Jikosi-san making assurances that my team captures it alive or I'll be blamed. He needs witnesses to take me down. I worked to hard for him to ruin me. This op will succeed. If not then I better make sure Jikosi-san takes the fall.<br><strong>Lips</strong> - Seems to be above board cop. Looks competent enough. I hope he's not one of those anti-corp cops.<br><strong>Tin</strong> - I don't like the looks of HIM. He's definitely over the edge. This is a prime example of how screwed up the NCPD is, letting cyber pyschos wear badges.<br><strong>Lady J</strong> - I never met a female C-SWAT, usually we are too smart to join it. She seems to be with it compared to most pyschos on that force. Looks professional as well.<br><strong>Egg</strong> - I like him. He seems to want to keep the thing intact. That's good news for me. Hope he can deactivate Diamond, because if he doesn't, I think the C-SWAT will do it.<br><strong>Shade</strong> - I have read about him before. Nice resume for a solo. Why the hell is he working this job. I hope Jikosi-san didn't send him to clean house when the op is done. God help me if he is."
+}

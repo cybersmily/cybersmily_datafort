@@ -1,0 +1,92 @@
+﻿{"name":"Mackenzie O'connor",
+	"handle":"Mac V",
+	"aliases":"Mac Attack",
+	"age":26,
+	"img":"macv",
+	"career":{"name":"Media (Action Reporter)","specialability":"Credibility","value":5},
+	"stats":{
+		"ref":6,
+		"int":7,
+		"tech":7,
+		"cool":8,
+		"attr":7,
+		"luck":6,
+		"ma":6,
+		"body":7,
+		"emp":8,
+		"hc":31,
+    "rep":4
+  },
+	"skills":{
+		"attr":[
+		],
+		"body":[
+			{"name":"Endurance","value":3}
+		],
+		"cool":[
+			{"name":"Intimidate","value":3},
+			{"name":"Streetwise","value":4}
+		],
+		"emp":[
+			{"name":"Human Perception","value":2},
+			{"name":"Interview","value":3},
+			{"name":"Persuasion/Fast Talk","value":2}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":4},
+			{"name":"Composition","value":4},
+			{"name":"Education/Gen. Know","value":4},
+			{"name":"Library Search","value":5},
+			{"name":"Shadow/Track","value":3}
+		],
+		"ref":[
+			{"name":"Brawling","value":3},
+			{"name":"Driving","value":2},
+			{"name":"Handgun","value":3},
+			{"name":"Melee","value":4},
+			{"name":"Motorcycle","value":3},
+			{"name":"Stealth","value":4}
+		],
+		"tech":[
+			{"name":"Basic Tech","value":2},
+			{"name":"Photo/Film","value":5}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Shy and secretive",
+			"valuedperson":"No one",
+			"valuemost":"Honor",
+			"feelaboutpeople":"Neutral",
+			"valuedpossession":"A multi-tool"
+		},
+		"style":{
+			"clothes":"Blue jeans",
+			"hair":"Short, spiked",
+			"affectations":"Tattoos",
+			"ethnicity":"Anglo-American",
+			"languages":"English"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":[
+    "Neural Processor[DLNK,MLNK,PLGs]",
+    "ChipSocket[]",
+    "Right Cyberoptic[TH,TE,IE,LL]",
+    "Left Cyberoptic[VideoCam/Transmitter]",
+    "Super Compact Braindance",
+    "BraindanceAdapter",
+    "Skinweave SP12",
+    "Mr Studd",
+    "Contraceptive Implant",
+    "Adrenal Booster"
+  ],
+	"gear":[
+    "Armored Jacket (SP18)",
+    "Mustang Arms \"Mark II\"",
+    "Militech Electronics Taser 2",
+    "Various visual/audio recording devices"
+  ],
+	"history":"Mac V does the street report on channel WNS-7, Night City News force Team. He is currently being mentored by Harden Torres, but finds his journalistic integrity a little overbearing. Mac has no illusions on how the media works these days and is looking to make a name for himself, as well as the cash that comes with it."
+}

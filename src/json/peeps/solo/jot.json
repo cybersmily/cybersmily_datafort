@@ -1,0 +1,84 @@
+﻿{"name":"Johnathan Dexter",
+	"handle":"Jot",
+	"aliases":"Jo",
+	"age":27,
+	"img":"jot",
+	"career":{"name":"Solo","specialability":"Combat Sense","value":6},
+	"stats":{
+		"ref":8,
+		"int":6,
+		"tech":5,
+		"cool":7,
+		"attr":7,
+		"luck":4,
+		"ma":7,
+		"body":7,
+		"emp":6,
+		"hc":46},
+	"skills":{
+		"attr":[
+		],
+		"body":[
+			{"name":"Endurance","value":1},
+			{"name":"Swimming","value":1}
+		],
+		"cool":[
+			{"name":"Interrogation","value":2}
+		],
+		"emp":[
+			{"name":"Leadership","value":3}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":5},
+			{"name":"Expert: Tactics","value":3},
+			{"name":"Wilderness Survival","value":1}
+		],
+		"ref":[
+			{"name":"Brawling","value":1},
+			{"name":"Driving","value":3},
+			{"name":"Handgun","value":5},
+			{"name":"Heavy Weapons","value":1},
+			{"name":"MA: Karate","value":5},
+			{"name":"Melee","value":1},
+			{"name":"Rifle","value":2},
+			{"name":"Stealth","value":1}
+		],
+		"tech":[
+			{"name":"Basic Tech","value":2},
+			{"name":"First Aid","value":1},
+			{"name":"Weaponsmith","value":3}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Friendly and outgoing",
+			"valuedperson":"Lover",
+			"valuemost":"Having a good time",
+			"feelaboutpeople":"Like almost everyone",
+			"valuedpossession":"the novel, Rainbow Six"
+		},
+		"style":{
+			"clothes":"Urban Flash",
+			"hair":"Dreds",
+			"affectations":"nose rings",
+			"ethnicity":"Black American",
+			"languages":"English"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":[
+    "Neural Processor [Plugs, Weapon Link, Chip socket, Boostware +2, BoostMaster]",
+    "Cyberoptics Right[IE, TA, TH, TE] Left[IE, TA, TH, LL]",
+    "Optishield [AD, TS+]"
+  ],
+	"gear":[
+    "Colt Apha Omega smart w/ Nikon COT [P/+2/J/C/2D6+2/30/2/VR]",
+    "Volt Pistol (P/+2/J/R/3d6+/6/1/ST/25m)",
+    "Urbanflash",
+    "Cell phone",
+    "E-book",
+    "Gibson Battlegear"
+  ],
+	"history":"Jot started out in teh USMC. Upon leaving he joined up with Silent Su and is her driver. He also works as an 'interviewer' of new edgerunners that Su is looking to hire. This usually entails him following the possible candidate and getting into a fight with them. He will use non-lethal combat, usually get in close to have a brawl. Several times he has been shot, but usually recovers and doesn't hold it against the person, unless they are too much of an a-hole. If that's the case, he'll pay a visit to them one day in the future to give them some payback."
+}

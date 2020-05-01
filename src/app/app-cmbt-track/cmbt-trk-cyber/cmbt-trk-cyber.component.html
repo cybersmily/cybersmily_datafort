@@ -1,0 +1,33 @@
+  <div class='row'>
+    <div class='col-12'>
+      <h6>
+        CYBERWARE &nbsp;
+        <fa-icon [icon]="faDice" class="csd-btn csd-dice" (click)="generate()" title="Roll for cyberware"></fa-icon>
+      </h6>
+    </div>
+  </div>
+  <div class="row" id="oppCyberSection">
+    <div class="col-12">
+  <div class='row'>
+    <div *ngFor="let cyber of cyberware; let i = index" class='col-4 opp-cyber' title="{{cyber.notes}}">
+      <fa-icon [icon]="faTrash" class="csd-btn cyber-delete" (click)="delete(i)"></fa-icon>
+      {{cyber.name}} <span *ngIf="cyber.options && cyber.options !== ''">[{{cyber.options}}]</span>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-12 opp-skill-new">
+      <button class="btn btn-secondary btn-sm csd-rounded" (click)="addCyber()" [disabled]="newCyber.name === ''">
+        <fa-icon [icon]="faPlus"></fa-icon>
+      </button>
+      &nbsp;
+      <span>
+        <input type="text" [(ngModel)]="newCyber.name" placeholder="Enter name"/>
+      </span>
+      <span>
+        <input [(ngModel)]="newCyber.options" class="opp-skill-val" type="text" placeholder="options">
+      </span>
+    </div>
+  </div>
+</div>
+</div>

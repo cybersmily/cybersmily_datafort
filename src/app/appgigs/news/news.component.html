@@ -1,0 +1,19 @@
+<div class="container">
+  <accordion #accordion>
+    <accordion-group *ngFor="let report of newsItems; let i = index">
+      <div accordion-heading>
+        <h3 style="display:inline-block">{{report.title}}</h3>
+        <fa-icon [icon]="accordion.groups[i].isOpen?faAngleDoubleDown:faAngleDoubleRight" size="2x"></fa-icon>
+      </div>
+      <div class="csd-box csd-rounded" *ngFor="let comment of report.reports" style="position:relative">
+        <div class="float-left">
+          <img src="/img/peeps/th/th_{{comment.img}}.png" alt="{{comment.reporter}}" />
+          <h5>{{comment.reporter}}</h5>
+        </div>
+        <div style="display:block;min-height:150px;" [innerHTML]="comment.commentary"></div>
+      </div>
+    </accordion-group>
+    <br />
+    <br />
+  </accordion>
+</div>

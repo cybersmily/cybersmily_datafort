@@ -1,0 +1,20 @@
+<div class="chargen-section">
+  <div class="chargen-label">GEAR</div>
+  <table class="chargen-gear-table">
+    <tr>
+      <td>Type</td>
+      <td>Cost</td>
+      <td>Wt (kg)</td>
+    </tr>
+    <tr *ngFor="let row of gear.items">
+      <td><input [(ngModel)]="row.gear" min="0" type="text"/></td>
+      <td><input [(ngModel)]="row.cost" class="text-right" min="0" type="number" step="0.01"/></td>
+      <td><input [(ngModel)]="row.weight" class="text-right" min="0" type="number" step="0.01"/></td>
+    </tr>
+    <tr>
+      <td>Total Cost and weight</td>
+      <td class="text-right">{{gear.totalCost | number}}</td>
+      <td class="text-right">{{gear.totalWeight | number}}</td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <button class="btn btn-secondary btn-sm csd-rounded pull-right" (click)="save()">Save</button>
+    <h2>CYBERWARE LIST</h2>
+  </div>
+  </div>
+  <div class="row">
+    <table class="cyber-data-table">
+      <tr>
+        <th>TYPE</th>
+        <th>SUBTYPE</th>
+        <th>NAME</th>
+        <th>DESCRIPTION</th>
+        <th>COST</th>
+        <th>HC</th>
+        <th>SURGERY</th>
+        <th>SOURCE</th>
+        <th>PAGE</th>
+      </tr>
+      <tr>
+        <td>
+          <input [(ngModel)]="newCyber.type" type="text" />
+        </td>
+        <td><input [(ngModel)]="newCyber.subtype" type="text" /></td>
+        <td><input [(ngModel)]="newCyber.name" type="text" class="cyber-data-name" /></td>
+        <td><input [(ngModel)]="newCyber.notes" type="text" /></td>
+        <td><input [(ngModel)]="newCyber.cost" type="text" /></td>
+        <td><input [(ngModel)]="newCyber.hc"  class="cyber-data-sm" type="text" /></td>
+        <td><input [(ngModel)]="newCyber.surgery"  class="cyber-data-sm" type="text" /></td>
+        <td><input [(ngModel)]="newCyber.source.book" class="cyber-data-source cyber-data-sm" type="text" /></td>
+        <td>
+          <input [(ngModel)]="newCyber.source.page" class="cyber-data-sm" type="number" />
+          <fa-icon [icon]="faPlus" class="cyber-data-sm csd-btn" (click)="add()"></fa-icon>
+        </td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><input [(ngModel)]="searchFilter.type" type="text" /></td>
+        <td><input [(ngModel)]="searchFilter.subtype" type="text" /></td>
+        <td><input [(ngModel)]="searchFilter.name" type="text" class="cyber-data-name" /></td>
+        <td><input [(ngModel)]="searchFilter.desc" type="text" /></td>
+        <td></td>
+        <td><input [(ngModel)]="searchFilter.hc"  class="cyber-data-sm" type="text" /></td>
+        <td><input [(ngModel)]="searchFilter.surg"  class="cyber-data-sm" type="text" /></td>
+        <td><input [(ngModel)]="searchFilter.source" class="cyber-data-source cyber-data-sm" type="text" /></td>
+        <td></td>
+      </tr>
+      <tr *ngFor="let cyber of cyberwareList
+      |filter:'type':searchFilter.type
+      |filter:'subtype':searchFilter.subtype
+      |contains:'name':searchFilter.name
+      |contains:'notes':searchFilter.desc
+      |contains:'hc':searchFilter.hc
+      |contains:'surgery':searchFilter.surg
+      |sourcebookFilter:searchFilter.source">
+        <td><input type="text" [(ngModel)]="cyber.type"></td>
+        <td><input type="text" [(ngModel)]="cyber.subtype"></td>
+        <td><input type="text" [(ngModel)]="cyber.name"></td>
+        <td><input type="text" [(ngModel)]="cyber.notes" title="{{cyber.notes}}"></td>
+        <td><input type="text" class="cyber-data-sm" [(ngModel)]="cyber.cost"></td>
+        <td><input type="text" class="cyber-data-sm" [(ngModel)]="cyber.hc"></td>
+        <td><input type="text" [(ngModel)]="cyber.surgery"></td>
+        <td><input type="text"  class="cyber-data-sm" [(ngModel)]="cyber.source.book" title="{{cyber.source.book | sourcebook}}"></td>
+        <td><input type="number" class="text-center cyber-data-sm" [(ngModel)]="cyber.source.page"></td>
+        <td><fa-icon [icon]="faTrash" class="csd-btn" (click)="delete(cyber.name)"></fa-icon></td>
+      </tr>
+    </table>
+  </div>
+
+</div>

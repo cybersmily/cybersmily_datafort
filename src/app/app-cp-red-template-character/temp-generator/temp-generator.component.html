@@ -1,0 +1,44 @@
+<div class="container">
+
+  <div class="row hidden-print">
+    <div class="col-12">
+      <h2>Cyberpunk Red Jumpstart Kit Quick Pre-generator Characters</h2>
+      <p>
+      This utility is for creating a random PC/NPC based on Cyberpunk Red Jumpstart Kit templates.
+      The character the gets generate will have the random name, role, stats, and lifepath as per the jumpstart kit templates.
+      You can print this sheet, currently there is no save mechanism.
+      </p>
+      <p>
+      You can purchase Cyberpunk Red Jumpstart Kit from <a href="https://talsorianstore.com/collections/cyberpunk/products/cyberpunk-red-jumpstart-kit" alt="R. Talsorian" target="_blank">R. Talsorian Games here</a>
+      or the PDF from <a href="https://www.drivethrurpg.com/product/279014/Cyberpunk-Red-Jumpstart-Kit" alt="Drive Thru RPG" target="_blank">Drive Thru RPG here</a>.
+      </p>
+      <p>
+        Click on Generate button below to get started.
+      </p>
+    </div>
+  </div>
+  <div class="row hidden-print">
+    <div class="col-12">
+      <button class="btn pull-left csd-rounded btn-secondary" (click)="generate()">GENERATE</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <cs-temp-generator-stats [stats]="character.stats" [role]="character.role" [name]="character.name"></cs-temp-generator-stats>
+    </div>
+  </div>
+  <div class="row">
+    <div class="pull-right" style="width:500px;padding-right:30px;">
+      <cs-temp-generator-skills [skills]="character.skills"></cs-temp-generator-skills>
+      <br>
+      <cs-temp-generator-lifepath [lifepath]="character.lifepath"></cs-temp-generator-lifepath>
+    </div>
+    <div class="pull-left">
+      <cs-temp-generator-armor [armor]="character.armor"></cs-temp-generator-armor>
+      <br>
+      <cs-temp-generator-weapons [weapons]="character.weapons"></cs-temp-generator-weapons>
+      <br>
+      <cs-temp-generator-gear [gear]="character.gear" [cyberware]="character.cyberware"></cs-temp-generator-gear>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /img/
+Disallow: /json/
+
+Sitemap: http://cybersmily.net/sitemap.xml 

@@ -1,0 +1,50 @@
+<div class="chargen-section">
+  <div>
+    <span class="chargen-label">CHARACTER POINTS</span>
+    <input [(ngModel)]="stats.BasePoints" (change)="onStatChange()" type="number" min="0" max="90" class="chargen-input chargen-charpoint-input "/>
+    <span *ngIf="stats.CurrentPoints !== 0" [ngClass]="{'chargen-stats-over':isOver, 'chargen-stats-current':true}">{{stats.CurrentPoints}}</span>
+    <span class="hidden-print">
+      <fa-icon [icon]="faDice" class="chargen-point-dice"
+        (click)="rollCharacterPoints()"
+        title="Roll for character points. Rolls 9d10, rerolling 1s."></fa-icon>
+        rolls: [{{rolls}}]
+    </span>
+  </div>
+</div>
+<div class="chargen-section">
+  <div class="chargen-label chargen-stats">STATS</div>
+</div>
+<div class="chargen-stat-section">
+  <span [ngClass]="{'chargen-stat-dmged': (stats.Damage > 8)}">INT</span>
+  [<input [(ngModel)]="stats.INT.Base" (change)="onStatChange()" min="0" max="15" class="chargen-stat-input" type="number">
+  /<span [ngClass]="{'chargen-stat-dmged': (stats.Damage > 8)}">{{stats.INT.Adjusted}}</span>]
+
+  <span [ngClass]="{'chargen-stat-dmged': (stats.Damage > 4)}">REF</span>
+  [<input [(ngModel)]="stats.REF.Base" (change)="onStatChange()" min="0" max="25" class="chargen-stat-input" type="number">
+  /<span [ngClass]="{'chargen-stat-dmged': (stats.Damage > 4)}">{{stats.REF.Adjusted}}</span>]
+
+  TECH [<input [(ngModel)]="stats.TECH.Base" (change)="onStatChange()" min="0" max="15" class="chargen-stat-input" type="number">
+  /{{stats.TECH.Adjusted}}]
+
+  <span [ngClass]="{'chargen-stat-dmged': (stats.Damage > 8)}">COOL</span>
+  [<input [(ngModel)]="stats.COOL.Base" (change)="onStatChange()" min="0" max="15" class="chargen-stat-input" type="number">
+  /<span [ngClass]="{'chargen-stat-dmged': (stats.Damage > 8)}">{{stats.COOL.Adjusted}}</span>]
+
+</div>
+<div class="chargen-stat-section">
+  ATTR [<input [(ngModel)]="stats.ATTR.Base" (change)="onStatChange()" min="0" max="15" class="chargen-stat-input" type="number">
+  /{{stats.ATTR.Adjusted}}]
+  LUCK [<input [(ngModel)]="stats.LUCK.Base" (change)="onStatChange()" min="0" max="10" class="chargen-stat-input" type="number">
+  /{{stats.LUCK.Adjusted}}]
+  MA [<input [(ngModel)]="stats.MA.Base" (change)="onStatChange()"  min="0" max="30" class="chargen-stat-input" type="number">
+  /{{stats.MA.Adjusted}}]
+  BODY[<input [(ngModel)]="stats.BODY.Base" (change)="onStatChange()" min="0" max="60" class="chargen-stat-input" type="number">
+  /{{stats.BODY.Adjusted}}]
+</div>
+<div class="chargen-stat-section">
+  EMP [<input [(ngModel)]="stats.EMP.Base" (change)="onStatChange()" min="0" max="10" class="chargen-stat-input" type="number">
+  /{{stats.EMP.Adjusted}}]
+  Run [{{stats.Run}}]
+  Leap [{{stats.Leap}}]
+  Lift[{{stats.Lift}}]
+</div>

@@ -1,0 +1,47 @@
+{ "handle": "Mafia Hitter",
+  "role": "Solo",
+  "int": 5,
+  "ref": 8,
+  "tech": 4,
+  "cool": 8,
+  "attr": 6,
+  "luck": 6,
+  "ma": 8,
+  "body": 9,
+  "emp": 6,
+  "armor": {
+    "head": 0,
+    "torso": 0,
+    "arms": 0,
+    "legs": 0
+  },
+  "sa": {"name":"Combat Sense", "value": 5},
+  "skills": [
+    {"name":"Awareness/Notice", "stat": "int", "value": 8},
+    {"name":"Personal Grooming", "stat": "attr", "value": 7},
+    {"name":"Hide/Evade", "stat": "int", "value": 2},
+    {"name":"Wardrobe \\& Style", "stat": "attr", "value": 8},
+    {"name":"Shade/Track", "stat": "int", "value": 2},
+    {"name":"Intimidate", "stat": "cool", "value": 9},
+    {"name":"Brawling", "stat": "ref", "value": 7},
+    {"name":"Streetwise", "stat": "cool", "value": 7},
+    {"name":"Dodge/Escape", "stat": "ref", "value": 4},
+    {"name":"Human Perception", "stat": "emp", "value": 5},
+    {"name":"Handgun", "stat": "ref", "value": 7},
+    {"name":"Social", "stat": "emp", "value": 2},
+    {"name":"Melee", "stat": "ref", "value": 6},
+    {"name":"Drive", "stat": "ref", "value": 7},
+    {"name":"Submachinegun", "stat": "ref", "value": 9},
+    {"name":"Stealth", "stat": "ref", "value": 5}
+  ],
+  "cyberware": [],
+  "weapons": [
+    {"name": "Colt AMT M2000", "type": "P", "wa": 0, "conc":"J", "damage":"4D6", "shots":8, "rof": 1, "rel": "VR", "range": 50, "notes":"Silenced"},
+    {"name": "Beretta M-24 SMG", "type": "SMG", "wa": 2, "conc":"L", "damage":"2D6+1", "shots":50, "rof": 25, "rel": "VR", "range": 200, "notes":"Silenced"}
+  ],
+  "gear": [
+    "SPM-1 Battleglove, Mirrorshades, Cell Phone, Credchip account, Countach replica sports car"
+  ],
+  "source": "PS",
+  "notes": ""
+}

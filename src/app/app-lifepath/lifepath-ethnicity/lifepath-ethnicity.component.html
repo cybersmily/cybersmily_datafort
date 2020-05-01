@@ -1,0 +1,55 @@
+<div>
+  <h4 style="display:inline-block;">Ethnicity</h4>&nbsp;&nbsp;
+  <button class="btn-secondary csd-rounded" (click)="generateRandom()">Generate</button>
+</div>
+<div class="csd-rounded csd-lifepath-sect">
+  <div class="cs-title-heading">
+    <h6>Ethnicity: </h6>
+    <input type="checkbox" id="csisPolygot" [(ngModel)]="isPolygot" *ngIf="lifepathSource === 'NeoTribe'" class="cs-inline" />
+    <label for="csisPolygot"*ngIf="lifepathSource === 'NeoTribe'">Is Polygot</label>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <select
+          [(ngModel)]="selectedEthnicityOne"
+          (change)="onSelectEthnicity($event)"
+          class="cs-ethnicity-input"
+          >
+        <option value="?" selected="selected"></option>
+        <option *ngFor="let opt of chartData" [ngValue]='opt'>{{opt.name}}</option>
+      </select>
+    </div>
+    <div class="col-4">
+      <select
+          *ngIf="isPolygot"
+          [(ngModel)]="selectedEthnicityTwo"
+          (change)="onSelectEthnicity($event)"
+          class="cs-ethnicity-input"
+          >
+        <option value="?" selected="selected"></option>
+        <option *ngFor="let opt of chartData" [ngValue]='opt'>{{opt.name}}</option>
+      </select>
+    </div>
+  </div>
+  <h6>Language: </h6>
+  <div class="row">
+    <div class="col-4">
+    <select [(ngModel)]="selectedLanguageOne"
+      (change)="onSelectEthnicity($event)"
+      class="cs-ethnicity-input">
+      <option value="?" selected="selected"></option>
+      <option *ngFor="let opt of selectedEthnicityOne.languages">{{opt}}</option>
+    </select>
+  </div>
+  <div class="col-4">
+    <select
+      *ngIf="isPolygot"
+      [(ngModel)]="selectedLanguageTwo"
+      (change)="onSelectEthnicity($event)"
+      class="cs-ethnicity-input">
+      <option value="?" selected="selected"></option>
+      <option *ngFor="let opt of selectedEthnicityTwo.languages">{{opt}}</option>
+    </select>
+    </div>
+  </div>
+</div>

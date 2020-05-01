@@ -1,0 +1,153 @@
+{
+  "styles":{
+			"clothes":{
+		    	"CP2020": [
+					"Biker leathers",
+					"Blue Jeans",
+					"Corporate Suits",
+					"Jumpsuits",
+					"Miniskirts",
+					"High Fashion",
+					"Cammos",
+					"Normal Clothes",
+					"Nude",
+					"Bag Lady Chic"
+				],
+		    	"NeoTribe":[
+					"Tribal Dress",
+					"Paramilitary",
+					"Leathers",
+					"Denim",
+					"Generic",
+					"Coveralls",
+					"Ethnic Dress",
+					"Short, Open",
+					"Normal Clothes",
+					"Roll 2"
+				],
+		    	"PacRimJapan":[
+					"Biker leathers/Boso style",
+					"Jeans",
+					"Corporate Suits",
+					"Leaisure wear",
+					"High Fashion",
+					"Urban Flash/Yakuza style",
+					"Cammos/Jumpsuits",
+					"Normal Clothes",
+					"Lingerie",
+					"Historical Fashion"
+				],
+				"PacRimChina":[
+					"Jeans",
+					"Corp suits",
+					"Big suits",
+					"Jumpsuits",
+					"Miniskirts",
+					"High fashion",
+					"Camos",
+					"Kung fu pj's",
+					"HS Uniforms",
+					"SovUtilitarian"
+				]
+			},
+		  "hairstyle":{
+		    	"CP2020":[
+					"Mohawk",
+					"Long, ratty",
+					"Short, spiked",
+					"Wild, all over",
+					"Bald",
+					"Striped",
+					"Tinted",
+					"Neat, short",
+					"Short, curly",
+					"Long, straight"
+				],
+		    	"NeoTribe": [
+					"Dread",
+					"Shaved",
+					"Natural, long",
+					"Short, beat",
+					"Colored",
+					"Braids, wraps",
+					"Wild, all over",
+					"Spiked",
+					"Shoulder length",
+					"Mohawk"
+				],
+		    	"PacRimJapan": [
+					"Mohawk",
+					"Shaven/bald",
+					"Crew cut/fade cut",
+					"Tinted/dyed",
+					"Slicked back/Elvis",
+					"Short, Spiked",
+					"Perm/Big hair",
+					"Long, straight",
+					"Short, neat",
+					"Tied"
+				],
+				"PacRimChina":[
+					"Mohawk",
+					"Short + spiky",
+					"Long + ratty",
+					"Bald",
+					"Box fade",
+					"Colored",
+					"Neat + short",
+					"Neat + long",
+					"Braided ponytail",
+					"Tech cut"
+				]
+			},
+		  "affectations": {
+		    	"CP2020":[
+					"Tattoos",
+					"Mirrorshades",
+					"Ritual scars",
+					"Spiked gloves",
+					"Nose rings",
+					"Earrings",
+					"Long fingernails",
+					"Spike heeled boots",
+					"Weird contact lenses",
+					"Fingerless gloves"
+				],
+		    	"NeoTribe":[
+					"Scarring, branding",
+					"Tattoos",
+					"Jewelry",
+					"Piercing",
+					"Hats/caps",
+					"Gloves/boots",
+					"Makeup",
+					"Skin tints",
+					"Goggles/gear",
+					"Roll 2"],
+		    	"PacRimJapan":[
+					"Tattoos",
+					"Mirrorshades/glasses",
+					"Ritual scars",
+					"Earrings/body pierce",
+					"Fingerless gloves",
+					"Bandanna/hairband",
+					"Cap/hat",
+					"Long fingernails",
+					"Waist pouch",
+					"Makeup/face paint"
+				],
+				"PacRimChina":[
+					"Tattoos",
+					"Shades (mirrors)",
+					"Ritual scars",
+					"Nose rings",
+					"Earrings",
+					"Fingerless gloves",
+					"Combat boots(heels)",
+					"Long fingernails",
+					"Androgyne makeup",
+					"Weird lenses (Preppy)"
+				]
+			}
+		}
+}

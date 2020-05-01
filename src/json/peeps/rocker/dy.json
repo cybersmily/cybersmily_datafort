@@ -1,0 +1,80 @@
+﻿{"name":"Daniella Eklund",
+	"handle":"Dy",
+	"aliases":"",
+	"age":19,
+	"img":"dy",
+	"career":{"name":"Rocker","specialability":"Charismatic Leadership","value":4},
+	"stats":{
+		"ref":7,
+		"int":6,
+		"tech":9,
+		"cool":7,
+		"attr":9,
+		"luck":9,
+		"ma":7,
+		"body":6,
+		"emp":8,
+    "hc":16,
+    "rep":2},
+	"skills":{
+		"attr":[
+			{"name":"Wardrobe/Style","value":4}
+		],
+		"body":[
+		],
+		"cool":[
+			{"name":"Human Perception","value":4},
+			{"name":"Streetwise","value":2}
+		],
+		"emp":[
+			{"name":"Seduction","value":4},
+			{"name":"Persuasion/Fast Talk","value":4},
+			{"name":"Perform","value":5}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":3},
+			{"name":"Composition","value":6}
+		],
+		"ref":[
+			{"name":"Brawling","value":2},
+			{"name":"Dance","value":2},
+			{"name":"Driving","value":3}
+		],
+		"tech":[
+      {"name":"Electronics","value":4},
+			{"name":"Play Instrument","value":6}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Silly & fluffhead",
+			"valuedperson":"her brother, Lyte.",
+			"valuemost":"Having a good time",
+			"feelaboutpeople":"people are wonderful",
+			"valuedpossession":"a signed copy of Samurai's first album"
+		},
+		"style":{
+			"clothes":"High Fashion",
+			"hair":"Long, Straight",
+			"affectations":"Long fingernails",
+			"ethnicity":"Swedish",
+			"languages":"English"
+		},
+		"family":"",
+		"siblings":"1"
+	},
+	"cyberware":[
+    "Contraceptive Implant",
+    "Neural Processor[PLG,MLNK]",
+    "New Throat[Voice Synth., AudioVox, Forked Tongue]"
+  ],
+	"gear":[
+    "High Fashion Clothing",
+    "E-book",
+    "Armored High Fashion",
+    "Taser()",
+    "Trenchcoat(SP 16)",
+    "3 room Apartment in Moderate Zone(w/ BD)."
+  ],
+	"history":"Made a friend with a Media named Mojo. She grew up with her family in an arcology. She spent most of her time out on the streets having a good time. She meet a nomad by the name BD. Both of them hit it off right away. Di thinks BD is one of the greatest guys she knows, next to her brother. When her brother, Lyte, got back from the war, both of them decided to form a band with your current boyfriend, BD, and Lyte's friend Splice. The band was doing good with the help from the band's manager Cory Stevens. Cory also got some protection in the way of a bodyguard named Stacks. She hopes that they become big and spend the rest of her wealthy life with BD."
+}

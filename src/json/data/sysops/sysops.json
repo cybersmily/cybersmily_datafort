@@ -1,0 +1,10 @@
+{"npcs":[
+	{ "name":"Herman Revista", "img":"hermanrevista", "career": "Netrunner"},
+	{ "name":"Lesley Major", "img":"lesleymajor", "career":"Netrunner"},
+	{ "name":"Lisa Blight", "img":"lisablight", "career":"Netrunner" },
+	{ "name":"Marcel Desoleil", "img":"marceldesoleil", "career": "Netrunner"},
+	{ "name":"Pravit Bharat", "img":"pravitbharat", "career":"Netrunner"},
+	{ "name":"Rasmin Bridger", "img":"rasminbridger", "career":"Netrunner"},
+	{ "name":"Raymond Ellison", "img":"raymondellison", "career":"Netrunner" },
+	{ "name":"Simon Francisco", "img":"simonfrancisco", "career":"Netrunner"}
+]}

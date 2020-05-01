@@ -1,0 +1,72 @@
+﻿{
+    "title": "New Cyberware",
+    "desc": "",
+    "updated": "2014-09",
+    "geartype": "cyberware",
+    "items": [
+        {
+            "name": "BUILDING BLOCK CHIPS",
+            "type": "CHIPWARE",
+            "cost": "Skill chip x5",
+            "hc": "0",
+            "surgery": "N",
+            "desc": "New From BMS. Skill Chips that keep on learning! These chips are able to grow with you as you learn from your mistakes and successes. They are a little bit bigger but that's because of the micro AI inside that learns along with you. NOTE: BMS disclaims any tampering with the chip. There have been incidents of 'rogue' chips that BMS did not produce. These 'rogue' chips have caused psychosis and programed thoughts in individuals who bought off the street and BMS takes no responsibility for such use",
+            "notes": "These are the same as skill chips but take up 2 slots and are considered 2 skills for INT capacity. The cost is 5x normal price and maybe bought as high as +3. PCs gain IP for using these skills. After 1 year of use the chip is no longer needed (as long as PCs pay the IP for the starting level of the skill i.e. a level 2 chip requires 20 IP before the chip can be removed) "
+        },
+        {
+            "name": "HOLO-HAND",
+            "type": "CYBER LIMB",
+            "cost": "1,000eb",
+            "hc": "2",
+            "surgery": "N",
+            "desc": "That's right, holographic images at your fingertips. This hand option uses the latest in holographic generator technology. Images must be loaded into the hands memory to use.",
+            "notes": "This is a cyberhand option. No other options may be installed into this hand. Images can be downloaded through interface plugs or a chip socket. The holograms are small, no large then the size of a hand. A baseball, handgun, or grenade are about the size of the hologram."
+        },
+        {
+            "name": "THE PROJECTOR EYE",
+            "type": "CYBER OPTIC",
+            "cost": "300eb",
+            "hc": "2",
+            "surgery": "N",
+            "desc": "New from BMS, The Projector Eye. This little optic allows you to show the rest of the world what you see. Like a old school movie projector, the Projector Eye will show on any surface what the person wants. If you have a vid camera in your finger and peek around a corner now you can show the rest of the team what you see. You also can be the life of the party by showing film anywhere you want. On the wall, on the ceiling, on the fridge, anywhere you look. You must have a cyber optic and a neural processor.",
+            "notes": "Takes 2 options. Can be link to a vid screen or any other viewing device through interface plugs"
+        },
+        {
+            "name": "FLASHBULB EYE",
+            "type": "CYBER OPTIC",
+            "cost": "500eb",
+            "hc": "2",
+            "surgery": "N",
+            "desc": "Brings the Hand option to your eye! Surprise your opponent with this great option. Often people get suspicion when you start to raise your arm. Now you don't have to. Just click, any your opponents drop like flies, not even knowing what hit them.",
+            "notes": "Has the same stats for the flashbulb hand option from Chrome 2. Takes 2options. You must have Anti-Dazzle in the other eye or else the player will suffer the same effects. Doesn't work through goggles, shades, or opti-shields."
+        },
+        {
+            "name": "SANDMAN IMPLANT",
+            "type": "IMPLANT",
+            "cost": "200eb",
+            "hc": "2",
+            "surgery": "M",
+            "desc": "Tire of not getting enough sleep? You're away for a while and forgot your sleep inducer? Well BMS has the answer for you. The Sandman implant is an internal sleep inducer. When you want to go to sleep just think it and boom you're out like a light. You also have setting for when you need to wake up. If there is a noise above a certain decibal your internal alarm will go off (need cyber audio for this optoin). Or you may set a time. Or when light hits your face(cyber optics needed for this option). No longer do you have to worry about bring your sleep inducer when you're always carrying it. NOTE: Use of this implant as means of controlling an individual is illegal in 3 states. ",
+            "notes": "works as a sleep inducer (Chrome book 1 pg11) but with more options as above."
+        },
+        {
+            "name": "INSTANT FACE",
+            "type": "IMPLANT",
+            "cost": "1000eb + 500eb",
+            "hc": "1D6+3",
+            "surgery": "MA",
+            "desc": "Tired of looking at the mirror and seeing the same person over and over? Well now with Instant Face you don't have to. Implants installed under your fac allows bone structure to be manipulated with a thought! Have people guessing what you'll look like with Instant Face from BMS Surgical. NOTE: This item is illegal in several countries and can be considered a Priority IV crime if used by a known felon.",
+            "notes": "Add a +5 to Disguise rolls. With a PC, interface plugs and a program (500 eb) the character will be able to match any face scanned into the computer. Very Difficult Awareness/Notice roll to recognize the face as an imposter. Modification to the users body can increase the disguise even further."
+        },
+        {
+            "name": "RETRAX WIRE",
+            "type": "NEURALWARE",
+            "cost": "150eb",
+            "hc": "1D6+1",
+            "surgery": "M",
+            "desc": "First generation Livewires! A 1m long low impedance cable that has a spool implanted to wind the cord up when not in use. By signal from your Neural Processor you can vary the length of the wire to fit your needs. Your already plugged in when you pull the cable to interface. Gone are the days when you would plug the cable into yourself and then to your gun or deck. No more worrying about your cable being too long and in the way. The implant may be in either your neck or arm.",
+            "notes": "As interface plugs but with the wire. The character mentally controls the length of the cord according to their needs."
+        }
+    ]
+
+}

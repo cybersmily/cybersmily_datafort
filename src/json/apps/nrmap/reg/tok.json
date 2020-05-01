@@ -1,0 +1,29 @@
+﻿{
+    "name": "Tokyo/Chiba",
+    "type": "r",
+    "w": 496,
+    "h": 450,
+    "nx": 15,
+    "ny": 14,
+    "gridsize": 35,
+    "offsetx": 9,
+    "offsety": 7,
+    "lx": 30,
+    "ly": 20,
+    "img":"img/apps/regionmaps/tokyo-chiba.png",
+    "dforts": [
+      { "img":"city", "top": -2, "left":19, "align":"l", "row": 3, "column":11, "name":"Sapporo" },
+      { "img":"city", "top": 18, "left":17, "align":"l", "row": 7, "column": 9, "name":"Niigata" },
+      { "img":"city", "top": 15, "left":17, "align":"l", "row": 6, "column": 3, "name":"Seoul" },
+      { "img":"city", "top": 18, "left":15, "align":"r", "row": 6, "column":11, "name":"Sendai" },
+      { "img":"city", "top":  8, "left":17, "align":"l", "row": 8, "column": 4, "name":"Pusan" },
+      { "img":"city", "top": 13, "left":22, "align":"l", "row": 8, "column": 7, "name":"Kanazawa" },
+      { "img":"city", "top": 18, "left":12, "align":"r", "row": 9, "column":10, "name":"Tokyo" },
+      { "img":"city", "top": -4, "left":10, "align":"r", "row":10, "column": 5, "name":"Hiroshima" },
+      { "img":"city", "top": 10, "left": 7, "align":"r", "row":10, "column": 6, "name":"Osaka/Kyoto" },
+      { "img":"city", "top":  8, "left":22, "align":"r", "row":10, "column": 8, "name":"Nagoya" },
+      { "img":"city", "top":  3, "left":12, "align":"r", "row":11, "column": 3, "name":"Fukuoka/Kitakyushu" },
+      { "img":"city", "top":  8, "left": 7, "align":"r", "row":12, "column": 3, "name":"Nagasaki" }
+    ]
+
+}

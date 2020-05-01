@@ -1,0 +1,2617 @@
+{
+  "Regions": {
+    "World": {
+      "name": "World",
+      "img": "img/apps/nrworldmap.png",
+      "w": 1000,
+      "h": 618,
+      "gridsize": 47,
+      "offsetx": 3,
+      "offsety": 6,
+      "nx": 22,
+      "ny": 14,
+      "lx": 14,
+      "ly": 6
+    },
+    "Afrikani": {
+      "name": "Afrikani",
+      "img": "img/apps/Afrikani.png",
+      "w": 1000,
+      "h": 812,
+      "gridsize": 40,
+      "offsetx": 30,
+      "offsety": 3,
+      "nx": 26,
+      "ny": 21,
+      "lx": 13,
+      "ly": 12
+    },
+
+    "Atlantis": {
+      "name": "Atlantis",
+      "img": "img/apps/atlantis.png",
+      "w": 1000,
+      "h": 1031,
+      "gridsize": 51,
+      "offsetx": 38,
+      "offsety": 38,
+      "nx": 20,
+      "ny": 21,
+      "lx": 47,
+      "ly": 27
+    },
+    "EuroTheatre": {
+      "name": "EuroTheatre",
+      "img": "img/apps/Eurotheatre.png",
+      "w": 1000,
+      "h": 979,
+      "gridsize": 51,
+      "offsetx": 42,
+      "offsety": 42,
+      "nx": 20,
+      "ny": 20,
+      "lx": 43,
+      "ly": 22
+    },
+    "Olympia": {
+      "name": "Olympia",
+      "img": "img/apps/Olympia.png",
+      "w": 1000,
+      "h": 991,
+      "gridsize": 49,
+      "offsetx": 37,
+      "offsety": 39,
+      "nx": 21,
+      "ny": 21,
+      "lx": 40,
+      "ly": 43
+    },
+    "Orbitsville": {
+      "name": "Orbitsville",
+      "img": "img/apps/Orbitsville.png",
+      "w": 1000,
+      "h": 1000,
+      "gridsize": 38,
+      "offsetx": 17,
+      "offsety": 5,
+      "nx": 27,
+      "ny": 27,
+      "lx": 10,
+      "ly": 10
+    },
+    "Pacifica": {
+      "name": "Pacifica",
+      "img": "img/apps/Pacifica.png",
+      "w": 1000,
+      "h": 1080,
+      "gridsize": 49,
+      "offsetx": 38,
+      "offsety": 36,
+      "nx": 21,
+      "ny": 23,
+      "lx": 43,
+      "ly": 34
+    },
+    "Rustbelt": {
+      "name": "Rustbelt",
+      "img": "img/apps/Rustbelt.png",
+      "w": 1000,
+      "h": 989,
+      "gridsize": 48,
+      "offsetx": 40,
+      "offsety": 41,
+      "nx": 22,
+      "ny": 21,
+      "lx": 1,
+      "ly": 39
+    },
+    "SovSpace": {
+      "name": "SovSpace",
+      "img": "img/apps/Sovspace.png",
+      "w": 1173,
+      "h": 457,
+      "gridsize": 34,
+      "offsetx": 28,
+      "offsety": 32,
+      "nx": 35,
+      "ny": 14,
+      "lx": 30,
+      "ly": 22
+    },
+    "Tokyo/Chiba": {
+      "name": "Tokyo/Chiba",
+      "img": "img/apps/tokyo-chiba.png",
+      "w": 1000,
+      "h": 902,
+      "gridsize": 71,
+      "offsetx": 19,
+      "offsety": 14,
+      "nx": 15,
+      "ny": 14,
+      "lx": 61,
+      "ly": 39
+    },
+    "City": {
+      "img": "",
+      "w": 1400,
+      "h": 1600,
+      "gridsize": 45,
+      "offsetx": 20,
+      "offsety": 20,
+      "nx": 30,
+      "ny": 30,
+      "lx": 25,
+      "ly": 25
+    }
+  },
+  "LDLs": [{
+      "city": "Cairo/Alexandria",
+      "region": "Afrikani",
+      "security": 4,
+      "trace": 4,
+      "controlby": "Orbital Air",
+      "coord": {
+        "World": {
+          "x": 525,
+          "y": 335
+        },
+        "Afrikani": {
+          "x": 495,
+          "y": 105
+        },
+        "EuroTheatre": {
+          "x": 870,
+          "y": 940
+        },
+        "SovSpace": {
+          "x": 85,
+          "y": 445
+        }
+      }
+    },
+    {
+      "city": "Delhi",
+      "region": "Afrikani",
+      "security": 1,
+      "trace": 2,
+      "controlby": "None",
+      "coord": {
+        "World": {
+          "x": 645,
+          "y": 350
+        },
+        "Afrikani": {
+          "x": 980,
+          "y": 140
+        }
+      }
+    },
+    {
+      "city": "Nairobi",
+      "region": "Afrikani",
+      "security": 2,
+      "trace": 2,
+      "controlby": "PAC/ Oribital Air",
+      "coord": {
+        "World": {
+          "x": 535,
+          "y": 430
+        },
+        "Afrikani": {
+          "x": 580,
+          "y": 420
+        }
+      }
+    },
+    {
+      "city": "Accra Ghana",
+      "region": "Afrikani",
+      "security": 1,
+      "trace": 2,
+      "controlby": "Free African Foundation",
+      "coord": {
+        "Afrikani": {
+          "x": 170,
+          "y": 360
+        }
+      }
+    },
+    {
+      "city": "Addis Ababa",
+      "region": "Afrikani",
+      "security": 2,
+      "trace": 2,
+      "controlby": "Pan-African Confederation",
+      "coord": {
+        "Afrikani": {
+          "x": 575,
+          "y": 345
+        }
+      }
+    },
+    {
+      "city": "Algiers",
+      "region": "Afrikani",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Netwatch/ EEC/ Eurocorps",
+      "coord": {
+        "Afrikani": {
+          "x": 265,
+          "y": 40
+        },
+        "EuroTheatre": {
+          "x": 440,
+          "y": 830
+        }
+      },
+      "dataforts": "nr_algiers.json"
+    },
+    {
+      "city": "Antananarivo",
+      "region": "Afrikani",
+      "security": 3,
+      "trace": 4,
+      "controlby": "Madagascar Traditionalists",
+      "coord": {
+        "Afrikani": {
+          "x": 690,
+          "y": 615
+        }
+      }
+    },
+    {
+      "city": "Canary Islands",
+      "region": "Afrikani",
+      "security": 3,
+      "trace": 2,
+      "controlby": "EEC/ Eurocorps",
+      "coord": {
+        "Afrikani": {
+          "x": 80,
+          "y": 90
+        }
+      }
+    },
+    {
+      "city": "Casablanca",
+      "region": "Afrikani",
+      "security": 3,
+      "trace": 2,
+      "controlby": "EEC/ Eurocorps",
+      "coord": {
+        "Afrikani": {
+          "x": 145,
+          "y": 65
+        }
+      }
+    },
+    {
+      "city": "Johannesburg",
+      "region": "Afrikani",
+      "security": 1,
+      "trace": 1,
+      "controlby": "None",
+      "coord": {
+        "Afrikani": {
+          "x": 455,
+          "y": 710
+        }
+      }
+    },
+    {
+      "city": "Kartoum",
+      "region": "Afrikani",
+      "security": 2,
+      "trace": 2,
+      "controlby": "Pan-African Confederation",
+      "coord": {
+        "Afrikani": {
+          "x": 490,
+          "y": 260
+        }
+      }
+    },
+    {
+      "city": "Kigali",
+      "region": "Afrikani",
+      "security": 2,
+      "trace": 2,
+      "controlby": "Pan-African Confederation",
+      "coord": {
+        "Afrikani": {
+          "x": 505,
+          "y": 455
+        }
+      }
+    },
+    {
+      "city": "Kinskase",
+      "region": "Afrikani",
+      "security": 2,
+      "trace": 2,
+      "controlby": "Socialist Purity Front",
+      "coord": {
+        "Afrikani": {
+          "x": 360,
+          "y": 455
+        }
+      }
+    },
+    {
+      "city": "Lagos",
+      "region": "Afrikani",
+      "security": 2,
+      "trace": 2,
+      "controlby": "None",
+      "coord": {
+        "Afrikani": {
+          "x": 250,
+          "y": 350
+        }
+      }
+    },
+    {
+      "city": "Lusaka",
+      "region": "Afrikani",
+      "security": 1,
+      "trace": 1,
+      "controlby": "None",
+      "coord": {
+        "Afrikani": {
+          "x": 450,
+          "y": 580
+        }
+      }
+    },
+    {
+      "city": "Mecca",
+      "region": "Afrikani",
+      "security": 2,
+      "trace": 3,
+      "controlby": "Islamic Radicals",
+      "coord": {
+        "Afrikani": {
+          "x": 615,
+          "y": 200
+        }
+      }
+    },
+    {
+      "city": "Quagadouhou",
+      "region": "Afrikani",
+      "security": 2,
+      "trace": 2,
+      "controlby": "General Bapou",
+      "coord": {
+        "Afrikani": {
+          "x": 165,
+          "y": 305
+        }
+      }
+    },
+    {
+      "city": "Tunis",
+      "region": "Afrikani",
+      "security": 2,
+      "trace": 3,
+      "controlby": "Netwatch/ EEC/ Eurocorps",
+      "coord": {
+        "Afrikani": {
+          "x": 305,
+          "y": 65
+        }
+      },
+      "dataforts": "nr_tunis.json"
+    },
+    {
+      "city": "Zanzibar/Dar-es-Salaam",
+      "region": "Afrikani",
+      "security": 2,
+      "trace": 2,
+      "controlby": "Pan-African Confederation",
+      "coord": {
+        "Afrikani": {
+          "x": 585,
+          "y": 495
+        }
+      }
+    },
+    {
+      "city": "Ascension",
+      "region": "Atlantis",
+      "security": 2,
+      "trace": 3,
+      "controlby": "Central American Federation",
+      "coord": {
+        "World": {
+          "x": 450,
+          "y": 460
+        },
+        "Afrikani": {
+          "x": 15,
+          "y": 510
+        },
+        "Atlantis": {
+          "x": 965,
+          "y": 450
+        }
+      }
+    },
+    {
+      "city": "Bogota",
+      "region": "Atlantis",
+      "security": 1,
+      "trace": 4,
+      "controlby": "Central American Federation",
+      "coord": {
+        "World": {
+          "x": 255,
+          "y": 405
+        },
+        "Atlantis": {
+          "x": 325,
+          "y": 310
+        }
+      }
+    },
+    {
+      "city": "Buenos Aires",
+      "region": "Atlantis",
+      "security": 2,
+      "trace": 3,
+      "controlby": "Central American Federation",
+      "coord": {
+        "World": {
+          "x": 300,
+          "y": 520
+        },
+        "Atlantis": {
+          "x": 515,
+          "y": 770
+        }
+      }
+    },
+    {
+      "city": "Dakar",
+      "region": "Atlantis",
+      "security": 2,
+      "trace": 2,
+      "controlby": "None",
+      "coord": {
+        "World": {
+          "x": 420,
+          "y": 365
+        },
+        "Atlantis": {
+          "x": 940,
+          "y": 220
+        }
+      }
+    },
+    {
+      "city": "Havanna",
+      "region": "Atlantis",
+      "security": 2,
+      "trace": 3,
+      "controlby": "Central American Federation",
+      "coord": {
+        "World": {
+          "x": 255,
+          "y": 355
+        },
+        "Atlantis": {
+          "x": 265,
+          "y": 125
+        },
+        "Rustbelt": {
+          "x": 445,
+          "y": 880
+        }
+      }
+    },
+    {
+      "city": "Asuncion",
+      "region": "Atlantis",
+      "security": 1,
+      "trace": 4,
+      "controlby": "Central American Federation",
+      "coord": {
+        "Atlantis": {
+          "x": 515,
+          "y": 620
+        }
+      }
+    },
+    {
+      "city": "Brasilia",
+      "region": "Atlantis",
+      "security": 2,
+      "trace": 3,
+      "controlby": "Central American Federation/ World Sat",
+      "coord": {
+        "Atlantis": {
+          "x": 640,
+          "y": 520
+        }
+      }
+    },
+    {
+      "city": "Mexico City",
+      "region": "Atlantis",
+      "security": 1,
+      "trace": 2,
+      "controlby": "Central American Federation",
+      "coord": {
+        "World": {
+          "x": 200,
+          "y": 360
+        },
+        "Atlantis": {
+          "x": 85,
+          "y": 160
+        },
+        "Rustbelt": {
+          "x": 155,
+          "y": 935
+        }
+      }
+    },
+    {
+      "city": "Caracas",
+      "region": "Atlantis",
+      "security": 1,
+      "trace": 3,
+      "controlby": "Central American Federation",
+      "coord": {
+        "Atlantis": {
+          "x": 425,
+          "y": 275
+        }
+      }
+    },
+    {
+      "city": "La Paz",
+      "region": "Atlantis",
+      "security": 1,
+      "trace": 2,
+      "controlby": "Central American Federation",
+      "coord": {
+        "Atlantis": {
+          "x": 405,
+          "y": 555
+        }
+      }
+    },
+    {
+      "city": "Lima",
+      "region": "Atlantis",
+      "security": 1,
+      "trace": 3,
+      "controlby": "Central American Federation",
+      "coord": {
+        "Atlantis": {
+          "x": 325,
+          "y": 510
+        }
+      }
+    },
+    {
+      "city": "Monterrey",
+      "region": "Atlantis",
+      "security": 2,
+      "trace": 4,
+      "controlby": "Central American Federation",
+      "coord": {
+        "Atlantis": {
+          "x": 70,
+          "y": 110
+        },
+        "Rustbelt": {
+          "x": 100,
+          "y": 795
+        }
+      }
+    },
+    {
+      "city": "Montevideo",
+      "region": "Atlantis",
+      "security": 2,
+      "trace": 3,
+      "controlby": "Central American Federation",
+      "coord": {
+        "Atlantis": {
+          "x": 535,
+          "y": 745
+        }
+      }
+    },
+    {
+      "city": "Quito",
+      "region": "Atlantis",
+      "security": 2,
+      "trace": 3,
+      "controlby": "Central American Federation",
+      "coord": {
+        "Atlantis": {
+          "x": 280,
+          "y": 375
+        }
+      }
+    },
+    {
+      "city": "Santiago",
+      "region": "Atlantis",
+      "security": 2,
+      "trace": 3,
+      "controlby": "Central American Federation",
+      "coord": {
+        "Atlantis": {
+          "x": 365,
+          "y": 765
+        }
+      }
+    },
+    {
+      "city": "Panama City",
+      "region": "Atlantis",
+      "security": 1,
+      "trace": 3,
+      "controlby": "Central American Federation",
+      "coord": {
+        "World": {
+          "x": 240,
+          "y": 390
+        },
+        "Atlantis": {
+          "x": 280,
+          "y": 275
+        }
+      }
+    },
+    {
+      "city": "Rio De Janeiro",
+      "region": "Atlantis",
+      "security": 2,
+      "trace": 2,
+      "controlby": "Central American Federation",
+      "coord": {
+        "World": {
+          "x": 350,
+          "y": 470
+        },
+        "Atlantis": {
+          "x": 660,
+          "y": 605
+        }
+      },
+      "dataforts": "nr_riodejaneiro.json"
+    },
+    {
+      "city": "Berlin",
+      "region": "EuroTheatre",
+      "security": 3,
+      "trace": 3,
+      "controlby": "Netwatch/ EEC/ Eurocorps",
+      "coord": {
+        "World": {
+          "x": 495,
+          "y": 265
+        },
+        "EuroTheatre": {
+          "x": 535,
+          "y": 440
+        }
+      },
+      "dataforts": "nr_berlin.json"
+    },
+    {
+      "city": "London",
+      "region": "EuroTheatre",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Netwatch/ EEC/ Eurocorps",
+      "coord": {
+        "World": {
+          "x": 450,
+          "y": 250
+        },
+        "EuroTheatre": {
+          "x": 310,
+          "y": 475
+        }
+      },
+      "dataforts": "nr_london.json"
+    },
+    {
+      "city": "Madrid",
+      "region": "EuroTheatre",
+      "security": 2,
+      "trace": 2,
+      "controlby": "Netwatch/ EEC/ Eurocorps",
+      "coord": {
+        "World": {
+          "x": 430,
+          "y": 305
+        },
+        "EuroTheatre": {
+          "x": 255,
+          "y": 730
+        }
+      }
+    },
+    {
+      "city": "Ankara",
+      "region": "EuroTheatre",
+      "security": 1,
+      "trace": 3,
+      "controlby": "none (Eurocorps)",
+      "coord": {
+        "EuroTheatre": {
+          "x": 970,
+          "y": 770
+        }
+      }
+    },
+    {
+      "city": "Athens",
+      "region": "EuroTheatre",
+      "security": 1,
+      "trace": 3,
+      "controlby": "EEC/ Eurocorps",
+      "coord": {
+        "EuroTheatre": {
+          "x": 735,
+          "y": 775
+        }
+      }
+    },
+    {
+      "city": "Paris",
+      "region": "EuroTheatre",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Netwatch/ EEC/ Eurocorps",
+      "coord": {
+        "World": {
+          "x": 450,
+          "y": 280
+        },
+        "EuroTheatre": {
+          "x": 320,
+          "y": 570
+        }
+      }
+    },
+    {
+      "city": "Bordeaux",
+      "region": "EuroTheatre",
+      "security": 3,
+      "trace": 1,
+      "controlby": "Netwatch/ EEC/ Eurocorps",
+      "coord": {
+        "EuroTheatre": {
+          "x": 310,
+          "y": 640
+        }
+      }
+    },
+    {
+      "city": "Bucharest",
+      "region": "EuroTheatre",
+      "security": 2,
+      "trace": 3,
+      "controlby": "USSR/ EEC",
+      "coord": {
+        "EuroTheatre": {
+          "x": 830,
+          "y": 635
+        }
+      }
+    },
+    {
+      "city": "Dublin",
+      "region": "EuroTheatre",
+      "security": 2,
+      "trace": 2,
+      "controlby": "Netwatch/ EEC/ Eurocorps",
+      "coord": {
+        "EuroTheatre": {
+          "x": 170,
+          "y": 430
+        }
+      }
+    },
+    {
+      "city": "Geneva",
+      "region": "EuroTheatre",
+      "security": 4,
+      "trace": 1,
+      "controlby": "Netwatch/ EEC/ Eurocorps",
+      "coord": {
+        "EuroTheatre": {
+          "x": 450,
+          "y": 590
+        }
+      }
+    },
+    {
+      "city": "Gibraltar",
+      "region": "EuroTheatre",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Netwatch/ EEC/ Eurocorps",
+      "coord": {
+        "Afrikani": {
+          "x": 145,
+          "y": 40
+        },
+        "EuroTheatre": {
+          "x": 190,
+          "y": 830
+        }
+      }
+    },
+    {
+      "city": "Glasgow",
+      "region": "EuroTheatre",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Netwatch/ EEC/ Eurocorps",
+      "coord": {
+        "EuroTheatre": {
+          "x": 235,
+          "y": 365
+        }
+      }
+    },
+    {
+      "city": "Helsinki",
+      "region": "EuroTheatre",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Netwatch/ EEC/ Eurocorps",
+      "coord": {
+        "EuroTheatre": {
+          "x": 770,
+          "y": 230
+        }
+      }
+    },
+    {
+      "city": "Jerusalem",
+      "region": "EuroTheatre",
+      "security": 2,
+      "trace": 2,
+      "controlby": "Israeli Govt.",
+      "coord": {
+        "Afrikani": {
+          "x": 545,
+          "y": 85
+        },
+        "EuroTheatre": {
+          "x": 980,
+          "y": 920
+        },
+        "SovSpace": {
+          "x": 125,
+          "y": 430
+        }
+      },
+      "dataforts": "nr_jerusalem.json"
+    },
+    {
+      "city": "KDC",
+      "region": "EuroTheatre",
+      "security": 3,
+      "trace": 3,
+      "controlby": "Netwatch/ EEC/ Eurocorps",
+      "coord": {
+        "EuroTheatre": {
+          "x": 430,
+          "y": 510
+        }
+      }
+    },
+    {
+      "city": "Lisbon",
+      "region": "EuroTheatre",
+      "security": 4,
+      "trace": 2,
+      "controlby": "Netwatch/ EEC/ Eurocorps",
+      "coord": {
+        "EuroTheatre": {
+          "x": 130,
+          "y": 770
+        }
+      }
+    },
+    {
+      "city": "Rome",
+      "region": "EuroTheatre",
+      "security": 2,
+      "trace": 2,
+      "controlby": "Netwatch/ EEC/ Eurocorps",
+      "coord": {
+        "World": {
+          "x": 490,
+          "y": 305
+        },
+        "EuroTheatre": {
+          "x": 555,
+          "y": 695
+        }
+      }
+    },
+    {
+      "city": "Marseille",
+      "region": "EuroTheatre",
+      "security": 3,
+      "trace": 3,
+      "controlby": "Netwatch/ EEC/ Eurocorps",
+      "coord": {
+        "EuroTheatre": {
+          "x": 410,
+          "y": 670
+        }
+      }
+    },
+    {
+      "city": "Munich",
+      "region": "EuroTheatre",
+      "security": 3,
+      "trace": 3,
+      "controlby": "Netwatch/ EEC/ Eurocorps",
+      "coord": {
+        "EuroTheatre": {
+          "x": 510,
+          "y": 560
+        }
+      }
+    },
+    {
+      "city": "Oslo",
+      "region": "EuroTheatre",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Netwatch/ EEC/ Eurocorps",
+      "coord": {
+        "EuroTheatre": {
+          "x": 515,
+          "y": 240
+        }
+      }
+    },
+    {
+      "city": "Reykjavik",
+      "region": "EuroTheatre",
+      "security": 1,
+      "trace": 3,
+      "controlby": "Netwatch/ EEC/ Eurocorps",
+      "coord": {
+        "EuroTheatre": {
+          "x": 20,
+          "y": 105
+        }
+      }
+    },
+    {
+      "city": "Vienna",
+      "region": "EuroTheatre",
+      "security": 3,
+      "trace": 3,
+      "controlby": "Netwatch/ EEC/ Eurocorps",
+      "coord": {
+        "EuroTheatre": {
+          "x": 595,
+          "y": 580
+        }
+      }
+    },
+    {
+      "city": "Warsaw",
+      "region": "EuroTheatre",
+      "security": 3,
+      "trace": 2,
+      "controlby": "USSR/ EEC",
+      "coord": {
+        "EuroTheatre": {
+          "x": 730,
+          "y": 465
+        }
+      }
+    },
+    {
+      "city": "Stockholm",
+      "region": "EuroTheatre",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Netwatch/ EEC/ Eurocorps",
+      "coord": {
+        "World": {
+          "x": 510,
+          "y": 215
+        },
+        "EuroTheatre": {
+          "x": 620,
+          "y": 260
+        }
+      }
+    },
+    {
+      "city": "Alburquerque",
+      "region": "Olympia",
+      "security": 2,
+      "trace": 2,
+      "controlby": "Militech",
+      "coord": {
+        "Olympia": {
+          "x": 350,
+          "y": 505
+        }
+      }
+    },
+    {
+      "city": "Bismarck",
+      "region": "Olympia",
+      "security": 3,
+      "trace": 1,
+      "controlby": "Petrochem et. al. ",
+      "coord": {
+        "Olympia": {
+          "x": 500,
+          "y": 250
+        }
+      }
+    },
+    {
+      "city": "Boise",
+      "region": "Olympia",
+      "security": 3,
+      "trace": 3,
+      "controlby": "Netwatch/ US Govt.",
+      "coord": {
+        "Olympia": {
+          "x": 160,
+          "y": 280
+        }
+      }
+    },
+    {
+      "city": "Calgary",
+      "region": "Olympia",
+      "security": 2,
+      "trace": 3,
+      "controlby": "Petrochem",
+      "coord": {
+        "Olympia": {
+          "x": 255,
+          "y": 110
+        }
+      }
+    },
+    {
+      "city": "Dallas/Ft. Worth",
+      "region": "Olympia",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Republic of Texas/ Net 54",
+      "coord": {
+        "Olympia": {
+          "x": 600,
+          "y": 580
+        },
+        "Rustbelt": {
+          "x": 165,
+          "y": 645
+        }
+      }
+    },
+    {
+      "city": "El Paso",
+      "region": "Olympia",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Republic of Texas/ Republic West Oil",
+      "coord": {
+        "Olympia": {
+          "x": 400,
+          "y": 585
+        }
+      }
+    },
+    {
+      "city": "Grand Praire",
+      "region": "Olympia",
+      "security": 3,
+      "trace": 1,
+      "controlby": "US Govt.",
+      "coord": {
+        "Olympia": {
+          "x": 365,
+          "y": 255
+        }
+      }
+    },
+    {
+      "city": "Houston",
+      "region": "Olympia",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Republic of Texas/ World Sat",
+      "coord": {
+        "Olympia": {
+          "x": 630,
+          "y": 665
+        },
+        "Rustbelt": {
+          "x": 190,
+          "y": 705
+        }
+      }
+    },
+    {
+      "city": "Las Vegas",
+      "region": "Olympia",
+      "security": 1,
+      "trace": 3,
+      "controlby": "Nevada Notwatch/ DMS",
+      "coord": {
+        "Olympia": {
+          "x": 165,
+          "y": 500
+        }
+      },
+      "dataforts": "nr_lasvegas.json"
+    },
+    {
+      "city": "New Galveston",
+      "region": "Olympia",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Merril, Asukaga, and Finch",
+      "coord": {
+        "Olympia": {
+          "x": 620,
+          "y": 680
+        }
+      }
+    },
+    {
+      "city": "Phoenix",
+      "region": "Olympia",
+      "security": 2,
+      "trace": 2,
+      "controlby": "US Govt./ Netlink",
+      "coord": {
+        "Olympia": {
+          "x": 235,
+          "y": 535
+        }
+      }
+    },
+    {
+      "city": "Reno/Las Juegos",
+      "region": "Olympia",
+      "security": 1,
+      "trace": 3,
+      "controlby": "Nevada Notwatch/ Arasaka",
+      "coord": {
+        "Olympia": {
+          "x": 120,
+          "y": 420
+        }
+      }
+    },
+    {
+      "city": "San Antonio",
+      "region": "Olympia",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Republic of Texas/ Bronleigh Develop.",
+      "coord": {
+        "Olympia": {
+          "x": 495,
+          "y": 635
+        }
+      }
+    },
+    {
+      "city": "Denver",
+      "region": "Olympia",
+      "security": 2,
+      "trace": 1,
+      "controlby": "Netwatch/ US Govt./ Orbital Air",
+      "coord": {
+        "World": {
+          "x": 190,
+          "y": 300
+        },
+        "Olympia": {
+          "x": 315,
+          "y": 370
+        }
+      },
+      "dataforts": "nr_denver.json"
+    },
+    {
+      "city": "Salt Lake City",
+      "region": "Olympia",
+      "security": 2,
+      "trace": 1,
+      "controlby": "Netwatch/ US Govt./ Militech",
+      "coord": {
+        "World": {
+          "x": 170,
+          "y": 315
+        },
+        "Olympia": {
+          "x": 200,
+          "y": 355
+        }
+      }
+    },
+    {
+      "img": "/img/apps/spacestation.png",
+      "city": "Crystal Palace",
+      "region": "Orbitsville",
+      "security": 3,
+      "trace": 1,
+      "controlby": "ESA/ Interpol/ Orbital Air",
+      "coord": {
+        "Orbitsville": {
+          "x": 400,
+          "y": 370
+        }
+      },
+      "dataforts": "nr_crystalpalace.json"
+    },
+    {
+      "img": "/img/apps/spacestation.png",
+      "city": "O'Neil One",
+      "region": "Orbitsville",
+      "security": 3,
+      "trace": 1,
+      "controlby": "Highriders/ Orbital Air",
+      "coord": {
+        "Orbitsville": {
+          "x": 215,
+          "y": 530
+        }
+      },
+      "dataforts": "nr_oneilcity.json"
+    },
+    {
+      "img": "/img/apps/spacestation.png",
+      "city": "O'Neil Two",
+      "region": "Orbitsville",
+      "security": 3,
+      "trace": 1,
+      "controlby": "Highriders/ Orbital Air",
+      "coord": {
+        "Orbitsville": {
+          "x": 700,
+          "y": 270
+        }
+      },
+      "dataforts": "nr_oneilcity.json"
+    },
+    {
+      "img": "/img/apps/spacestation.png",
+      "city": "O'Neil Three (Paradise)",
+      "region": "Orbitsville",
+      "security": 4,
+      "trace": 1,
+      "controlby": "ESA/ Interpol",
+      "coord": {
+        "Orbitsville": {
+          "x": 705,
+          "y": 705
+        }
+      },
+      "dataforts": "nr_oneilcity.json"
+    },
+    {
+      "img": "/img/apps/lunar.png",
+      "city": "Tycho",
+      "region": "Orbitsville",
+      "security": 3,
+      "trace": 1,
+      "controlby": "ESA/ Interpol",
+      "coord": {
+        "Orbitsville": {
+          "x": 285,
+          "y": 300
+        }
+      },
+      "dataforts": "nr_tycho.json"
+    },
+    {
+      "img": "/img/apps/spacestation.png",
+      "city": "L-2",
+      "region": "Orbitsville",
+      "security": 3,
+      "trace": 1,
+      "controlby": "ESA/ Interpol",
+      "coord": {
+        "Orbitsville": {
+          "x": 250,
+          "y": 170
+        }
+      }
+    },
+    {
+      "img": "/img/apps/geo.png",
+      "city": "WorldSat Network (GEO)",
+      "region": "Orbitsville",
+      "security": 3,
+      "trace": 2,
+      "controlby": "WorldSat",
+      "coord": {
+        "World": {
+          "x": 10,
+          "y": 10
+        },
+        "Orbitsville": {
+          "x": 550,
+          "y": 430
+        }
+      }
+    },
+    {
+      "img": "/img/apps/geo.png",
+      "city": "WorldSat Network (GEO)",
+      "region": "Orbitsville",
+      "security": 3,
+      "trace": 2,
+      "controlby": "WorldSat",
+      "coord": {
+        "Orbitsville": {
+          "x": 420,
+          "y": 500
+        }
+      }
+    },
+    {
+      "img": "/img/apps/geo.png",
+      "city": "WorldSat Network (GEO)",
+      "region": "Orbitsville",
+      "security": 3,
+      "trace": 2,
+      "controlby": "WorldSat",
+      "coord": {
+        "Orbitsville": {
+          "x": 550,
+          "y": 560
+        }
+      }
+    },
+    {
+      "city": "Anchorage",
+      "region": "Pacifica",
+      "security": 2,
+      "trace": 3,
+      "controlby": "Netwatch/ US Govt./ Petrochem",
+      "coord": {
+        "Pacifica": {
+          "x": 630,
+          "y": 115
+        }
+      }
+    },
+    {
+      "city": "Antartic Relay",
+      "region": "Pacifica",
+      "security": 0,
+      "trace": 4,
+      "controlby": "Netwatch/ EEC",
+      "coord": {
+        "Pacifica": {
+          "x": 640,
+          "y": 1060
+        }
+      }
+    },
+    {
+      "city": "Brisbane",
+      "region": "Pacifica",
+      "security": 2,
+      "trace": 2,
+      "controlby": "Netwatch/ Aust. Govt.",
+      "coord": {
+        "Pacifica": {
+          "x": 360,
+          "y": 830
+        }
+      }
+    },
+    {
+      "city": "Darwin",
+      "region": "Pacifica",
+      "security": 2,
+      "trace": 2,
+      "controlby": "Netwatch/ Aust. Govt.",
+      "coord": {
+        "Pacifica": {
+          "x": 255,
+          "y": 700
+        }
+      }
+    },
+    {
+      "city": "Dutch Harbor",
+      "region": "Pacifica",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Netwatch/ US Govt./ Petrochem",
+      "coord": {
+        "Pacifica": {
+          "x": 490,
+          "y": 200
+        }
+      }
+    },
+    {
+      "city": "Fiji",
+      "region": "Pacifica",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Netwatch/ France",
+      "coord": {
+        "Pacifica": {
+          "x": 495,
+          "y": 740
+        }
+      }
+    },
+    {
+      "city": "French Polynesia",
+      "region": "Pacifica",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Netwatch/ France",
+      "coord": {
+        "Pacifica": {
+          "x": 640,
+          "y": 690
+        }
+      }
+    },
+    {
+      "city": "Galapagos",
+      "region": "Pacifica",
+      "security": 1,
+      "trace": 1,
+      "controlby": "Various Corporations",
+      "coord": {
+        "Pacifica": {
+          "x": 840,
+          "y": 640
+        }
+      }
+    },
+    {
+      "city": "Gilbert Islands",
+      "region": "Pacifica",
+      "security": 3,
+      "trace": 3,
+      "controlby": "Shell Trader/ Itself",
+      "coord": {
+        "Pacifica": {
+          "x": 435,
+          "y": 575
+        }
+      }
+    },
+    {
+      "city": "Jakarta",
+      "region": "Pacifica",
+      "security": 3,
+      "trace": 3,
+      "controlby": "Zaibatsus",
+      "coord": {
+        "Pacifica": {
+          "x": 115,
+          "y": 680
+        }
+      }
+    },
+    {
+      "city": "Kiritimati Island",
+      "region": "Pacifica",
+      "security": 1,
+      "trace": 3,
+      "controlby": "Shell Trader/ whomever",
+      "coord": {
+        "Pacifica": {
+          "x": 600,
+          "y": 600
+        }
+      }
+    },
+    {
+      "city": "Manila",
+      "region": "Pacifica",
+      "security": 1,
+      "trace": 3,
+      "controlby": "Netwatch/ FACS/Zaibatsus",
+      "coord": {
+        "Pacifica": {
+          "x": 190,
+          "y": 505
+        }
+      }
+    },
+    {
+      "city": "Midway",
+      "region": "Pacifica",
+      "security": 2,
+      "trace": 2,
+      "controlby": "Netwatch/ US Govt.",
+      "coord": {
+        "Pacifica": {
+          "x": 405,
+          "y": 405
+        }
+      }
+    },
+    {
+      "city": "Beijing",
+      "region": "SovSpace",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Netwatch/ FACS/Zaibatsus",
+      "coord": {
+        "World": {
+          "x": 775,
+          "y": 305
+        },
+        "Pacifica": {
+          "x": 110,
+          "y": 300
+        },
+        "SovSpace": {
+          "x": 800,
+          "y": 325
+        }
+      },
+      "dataforts": "nr_beijing.json"
+    },
+    {
+      "city": "Singapore",
+      "region": "Pacifica",
+      "security": 3,
+      "trace": 3,
+      "controlby": "Netwatch/ Merill, Asukaga, and Finch/ FACS",
+      "coord": {
+        "Pacifica": {
+          "x": 55,
+          "y": 605
+        }
+      },
+      "dataforts": "nr_singapore.json"
+    },
+    {
+      "city": "Wake",
+      "region": "Pacifica",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Netwatch/ US Govt.",
+      "coord": {
+        "Pacifica": {
+          "x": 310,
+          "y": 460
+        }
+      }
+    },
+    {
+      "city": "Wellington",
+      "region": "Pacifica",
+      "security": 2,
+      "trace": 2,
+      "controlby": "Netwatch/ Aust. Govt.",
+      "coord": {
+        "Pacifica": {
+          "x": 500,
+          "y": 915
+        }
+      }
+    },
+    {
+      "city": "Hong Kong",
+      "region": "Pacifica",
+      "security": 2,
+      "trace": 3,
+      "controlby": "Netwatch/ FACS",
+      "coord": {
+        "World": {
+          "x": 785,
+          "y": 355
+        },
+        "Pacifica": {
+          "x": 110,
+          "y": 440
+        }
+      },
+      "dataforts": "nr_hongkong.json"
+    },
+    {
+      "city": "Honolulu",
+      "region": "Pacifica",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Netwatch/ US Govt./ EBM",
+      "coord": {
+        "World": {
+          "x": 25,
+          "y": 365
+        },
+        "Pacifica": {
+          "x": 540,
+          "y": 485
+        }
+      }
+    },
+    {
+      "city": "Los Angeles/San Diego",
+      "region": "Pacifica",
+      "security": 2,
+      "trace": 2,
+      "controlby": "Netwatch/ US Govt./ Petrochem",
+      "coord": {
+        "World": {
+          "x": 150,
+          "y": 330
+        },
+        "Olympia": {
+          "x": 130,
+          "y": 555
+        },
+        "Pacifica": {
+          "x": 750,
+          "y": 365
+        }
+      }
+    },
+    {
+      "city": "Melbourne",
+      "region": "Pacifica",
+      "security": 2,
+      "trace": 2,
+      "controlby": "Netwatch/ Aust. Govt.",
+      "coord": {
+        "World": {
+          "x": 845,
+          "y": 560
+        },
+        "Pacifica": {
+          "x": 310,
+          "y": 915
+        }
+      }
+    },
+    {
+      "city": "Night City",
+      "region": "Pacifica",
+      "security": 2,
+      "trace": 2,
+      "controlby": "Netwatch/ US Govt./ Arasaka",
+      "coord": {
+        "World": {
+          "x": 145,
+          "y": 315
+        },
+        "Olympia": {
+          "x": 90,
+          "y": 530
+        },
+        "Pacifica": {
+          "x": 725,
+          "y": 335
+        }
+      },
+      "dataforts": "nr_nightcity.json"
+    },
+    {
+      "city": "San Francisco",
+      "region": "Pacifica",
+      "security": 2,
+      "trace": 2,
+      "controlby": "Netwatch/ US Govt./ EBM",
+      "coord": {
+        "World": {
+          "x": 140,
+          "y": 295
+        },
+        "Olympia": {
+          "x": 55,
+          "y": 4780
+        },
+        "Pacifica": {
+          "x": 705,
+          "y": 310
+        }
+      }
+    },
+    {
+      "city": "Seattle",
+      "region": "Pacifica",
+      "security": 2,
+      "trace": 2,
+      "controlby": "Netwatch/ US Govt./ Arasaka",
+      "coord": {
+        "World": {
+          "x": 135,
+          "y": 280
+        },
+        "Olympia": {
+          "x": 45,
+          "y": 235
+        },
+        "Pacifica": {
+          "x": 730,
+          "y": 250
+        }
+      }
+    },
+    {
+      "city": "Atlanta",
+      "region": "Rustbelt",
+      "security": 2,
+      "trace": 3,
+      "controlby": "Netwatch/ US Govt./ EMC",
+      "coord": {
+        "World": {
+          "x": 240,
+          "y": 320
+        },
+        "Rustbelt": {
+          "x": 390,
+          "y": 630
+        }
+      }
+    },
+    {
+      "city": "Boston",
+      "region": "Rustbelt",
+      "security": 3,
+      "trace": 1,
+      "controlby": "Netwatch/ US Govt./ EMC",
+      "coord": {
+        "World": {
+          "x": 270,
+          "y": 295
+        },
+        "Rustbelt": {
+          "x": 635,
+          "y": 410
+        }
+      }
+    },
+    {
+      "city": "Chicago",
+      "region": "Rustbelt",
+      "security": 2,
+      "trace": 2,
+      "controlby": "Netwatch/ US Govt./ EMC",
+      "coord": {
+        "World": {
+          "x": 225,
+          "y": 300
+        },
+        "Rustbelt": {
+          "x": 315,
+          "y": 430
+        }
+      }
+    },
+    {
+      "city": "Bermuda",
+      "region": "Rustbelt",
+      "security": 3,
+      "trace": 3,
+      "controlby": "EEC/ Eurocorps",
+      "coord": {
+        "Rustbelt": {
+          "x": 690,
+          "y": 640
+        }
+      }
+    },
+    {
+      "city": "Detroit",
+      "region": "Rustbelt",
+      "security": 2,
+      "trace": 1,
+      "controlby": "Netwatch/ US Govt./ EMC",
+      "coord": {
+        "World": {
+          "x": 245,
+          "y": 300
+        },
+        "Rustbelt": {
+          "x": 410,
+          "y": 410
+        }
+      }
+    },
+    {
+      "city": "Greenland (Gothab)",
+      "region": "Rustbelt",
+      "security": 1,
+      "trace": 4,
+      "controlby": "EEC/ Eurocorps",
+      "coord": {
+        "Rustbelt": {
+          "x": 885,
+          "y": 20
+        }
+      }
+    },
+    {
+      "city": "Halifax",
+      "region": "Rustbelt",
+      "security": 2,
+      "trace": 3,
+      "controlby": "Netwach/ EEC/ Eurocorps",
+      "coord": {
+        "Rustbelt": {
+          "x": 790,
+          "y": 355
+        }
+      }
+    },
+    {
+      "city": "Kansas City",
+      "region": "Rustbelt",
+      "security": 2,
+      "trace": 1,
+      "controlby": "Netwatch/ US Govt./ EMC",
+      "coord": {
+        "Olympia": {
+          "x": 645,
+          "y": 435
+        },
+        "Rustbelt": {
+          "x": 215,
+          "y": 500
+        }
+      }
+    },
+    {
+      "city": "Louisville",
+      "region": "Rustbelt",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Netwatch/ US Govt./ EMC",
+      "coord": {
+        "Rustbelt": {
+          "x": 410,
+          "y": 540
+        }
+      },
+      "dataforts": "nr_louisville.json"
+    },
+    {
+      "city": "Miami",
+      "region": "Rustbelt",
+      "security": 2,
+      "trace": 3,
+      "controlby": "Netwatch/ US Govt./ EMC",
+      "coord": {
+        "Rustbelt": {
+          "x": 460,
+          "y": 770
+        }
+      }
+    },
+    {
+      "city": "Minniapolis/St. Paul",
+      "region": "Rustbelt",
+      "security": 2,
+      "trace": 1,
+      "controlby": "Netwatch/ US Govt.",
+      "coord": {
+        "Olympia": {
+          "x": 690,
+          "y": 300
+        },
+        "Rustbelt": {
+          "x": 255,
+          "y": 360
+        }
+      }
+    },
+    {
+      "city": "Moosonee",
+      "region": "Rustbelt",
+      "security": 2,
+      "trace": 3,
+      "controlby": "Netwatch/ Can. Govt.",
+      "coord": {
+        "Rustbelt": {
+          "x": 490,
+          "y": 220
+        }
+      }
+    },
+    {
+      "city": "Norfolk",
+      "region": "Rustbelt",
+      "security": 3,
+      "trace": 1,
+      "controlby": "Netwatch/ US Govt./ EMC",
+      "coord": {
+        "Rustbelt": {
+          "x": 535,
+          "y": 550
+        }
+      }
+    },
+    {
+      "city": "Omaha",
+      "region": "Rustbelt",
+      "security": 3,
+      "trace": 1,
+      "controlby": "Netwatch/ US Govt./ EBM",
+      "coord": {
+        "Olympia": {
+          "x": 605,
+          "y": 390
+        },
+        "Rustbelt": {
+          "x": 170,
+          "y": 440
+        }
+      }
+    },
+    {
+      "city": "Philadelphia",
+      "region": "Rustbelt",
+      "security": 3,
+      "trace": 1,
+      "controlby": "Netwatch/ US Govt./ EMC",
+      "coord": {
+        "Rustbelt": {
+          "x": 580,
+          "y": 480
+        }
+      }
+    },
+    {
+      "city": "Savannah",
+      "region": "Rustbelt",
+      "security": 2,
+      "trace": 3,
+      "controlby": "Netwatch/ US Govt./ EMC",
+      "coord": {
+        "Rustbelt": {
+          "x": 450,
+          "y": 650
+        }
+      }
+    },
+    {
+      "city": "St. Louis",
+      "region": "Rustbelt",
+      "security": 2,
+      "trace": 2,
+      "controlby": "Netwatch/ US Govt./ EMC",
+      "coord": {
+        "Rustbelt": {
+          "x": 300,
+          "y": 545
+        }
+      }
+    },
+    {
+      "city": "Saskatoon",
+      "region": "Rustbelt",
+      "security": 2,
+      "trace": 3,
+      "controlby": "Netwatch/ Can. Govt.",
+      "coord": {
+        "Rustbelt": {
+          "x": 20,
+          "y": 195
+        }
+      }
+    },
+    {
+      "city": "Thunder Bay",
+      "region": "Rustbelt",
+      "security": 2,
+      "trace": 3,
+      "controlby": "Netwatch/ Can. Govt.",
+      "coord": {
+        "Rustbelt": {
+          "x": 295,
+          "y": 265
+        }
+      }
+    },
+    {
+      "city": "Toronto",
+      "region": "Rustbelt",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Netwach/ EEC/ Eurocorps",
+      "coord": {
+        "Rustbelt": {
+          "x": 540,
+          "y": 360
+        }
+      }
+    },
+    {
+      "city": "Winnipeg",
+      "region": "Rustbelt",
+      "security": 2,
+      "trace": 3,
+      "controlby": "Netwatch/ EEC/ Can. Govt.",
+      "coord": {
+        "Rustbelt": {
+          "x": 155,
+          "y": 215
+        }
+      }
+    },
+    {
+      "city": "Montreal",
+      "region": "Rustbelt",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Netwach/ EEC/ Eurocorps",
+      "coord": {
+        "World": {
+          "x": 255,
+          "y": 280
+        },
+        "Rustbelt": {
+          "x": 645,
+          "y": 310
+        }
+      }
+    },
+    {
+      "city": "New Orleans",
+      "region": "Rustbelt",
+      "security": 2,
+      "trace": 3,
+      "controlby": "Netwatch/ US Govt./ EMC",
+      "coord": {
+        "World": {
+          "x": 220,
+          "y": 325
+        },
+        "Olympia": {
+          "x": 740,
+          "y": 650
+        },
+        "Rustbelt": {
+          "x": 300,
+          "y": 695
+        }
+      }
+    },
+    {
+      "city": "Washington DC",
+      "region": "Rustbelt",
+      "security": 4,
+      "trace": 1,
+      "controlby": "Netwatch/ US Govt./ EMC",
+      "coord": {
+        "World": {
+          "x": 260,
+          "y": 305
+        },
+        "Rustbelt": {
+          "x": 535,
+          "y": 525
+        }
+      },
+      "dataforts": "nr_washingtondc.json"
+    },
+    {
+      "city": "Moscow",
+      "region": "SovSpace",
+      "security": 3,
+      "trace": 2,
+      "controlby": "USSR/ EEC",
+      "coord": {
+        "World": {
+          "x": 575,
+          "y": 250
+        },
+        "SovSpace": {
+          "x": 110,
+          "y": 180
+        }
+      },
+      "dataforts": "nr_moscow.json"
+    },
+    {
+      "city": "Arkangelsk",
+      "region": "SovSpace",
+      "security": 2,
+      "trace": 3,
+      "controlby": "USSR/ EEC",
+      "coord": {
+        "SovSpace": {
+          "x": 175,
+          "y": 110
+        }
+      }
+    },
+    {
+      "city": "Baku",
+      "region": "SovSpace",
+      "security": 1,
+      "trace": 3,
+      "controlby": "USSR/ EEC",
+      "coord": {
+        "SovSpace": {
+          "x": 230,
+          "y": 335
+        }
+      }
+    },
+    {
+      "city": "Budapest",
+      "region": "SovSpace",
+      "security": 3,
+      "trace": 3,
+      "controlby": "none",
+      "coord": {
+        "SovSpace": {
+          "x": 75,
+          "y": 305
+        }
+      }
+    },
+    {
+      "city": "Irkutsk",
+      "region": "SovSpace",
+      "security": 1,
+      "trace": 1,
+      "controlby": "USSR/ EEC",
+      "coord": {
+        "SovSpace": {
+          "x": 540,
+          "y": 235
+        }
+      }
+    },
+    {
+      "city": "Istanbul",
+      "region": "SovSpace",
+      "security": 1,
+      "trace": 3,
+      "controlby": "none",
+      "coord": {
+        "SovSpace": {
+          "x": 70,
+          "y": 340
+        }
+      }
+    },
+    {
+      "city": "Kabul",
+      "region": "SovSpace",
+      "security": 1,
+      "trace": 3,
+      "controlby": "none",
+      "coord": {
+        "Afrikani": {
+          "x": 895,
+          "y": 105
+        },
+        "SovSpace": {
+          "x": 410,
+          "y": 445
+        }
+      }
+    },
+    {
+      "city": "Karaganda",
+      "region": "SovSpace",
+      "security": 2,
+      "trace": 3,
+      "controlby": "USSR/ EEC",
+      "coord": {
+        "SovSpace": {
+          "x": 315,
+          "y": 345
+        }
+      }
+    },
+    {
+      "city": "Khabarovsk",
+      "region": "SovSpace",
+      "security": 1,
+      "trace": 1,
+      "controlby": "USSR/ EEC",
+      "coord": {
+        "SovSpace": {
+          "x": 835,
+          "y": 270
+        }
+      }
+    },
+    {
+      "city": "Kiev",
+      "region": "SovSpace",
+      "security": 3,
+      "trace": 2,
+      "controlby": "USSR/ EEC",
+      "coord": {
+        "EuroTheatre": {
+          "x": 925,
+          "y": 515
+        },
+        "SovSpace": {
+          "x": 75,
+          "y": 255
+        }
+      }
+    },
+    {
+      "city": "Kuibysev",
+      "region": "SovSpace",
+      "security": 3,
+      "trace": 3,
+      "controlby": "USSR/ EEC",
+      "coord": {
+        "SovSpace": {
+          "x": 275,
+          "y": 230
+        }
+      }
+    },
+    {
+      "city": "Leningrad (St. Petersburg)",
+      "region": "SovSpace",
+      "security": 2,
+      "trace": 2,
+      "controlby": "USSR/ EEC",
+      "coord": {
+        "EuroTheatre": {
+          "x": 835,
+          "y": 280
+        },
+        "SovSpace": {
+          "x": 80,
+          "y": 150
+        }
+      }
+    },
+    {
+      "city": "Minsk",
+      "region": "SovSpace",
+      "security": 3,
+      "trace": 1,
+      "controlby": "USSR/ EEC",
+      "coord": {
+        "SovSpace": {
+          "x": 50,
+          "y": 210
+        }
+      }
+    },
+    {
+      "city": "Mogocha",
+      "region": "SovSpace",
+      "security": 1,
+      "trace": 1,
+      "controlby": "USSR/ EEC",
+      "coord": {
+        "SovSpace": {
+          "x": 730,
+          "y": 220
+        }
+      }
+    },
+    {
+      "city": "Murmansk",
+      "region": "SovSpace",
+      "security": 3,
+      "trace": 2,
+      "controlby": "USSR/ EEC",
+      "coord": {
+        "SovSpace": {
+          "x": 115,
+          "y": 20
+        }
+      }
+    },
+    {
+      "city": "Novosibirsk",
+      "region": "SovSpace",
+      "security": 2,
+      "trace": 3,
+      "controlby": "USSR/ EEC",
+      "coord": {
+        "SovSpace": {
+          "x": 535,
+          "y": 225
+        }
+      }
+    },
+    {
+      "city": "Omsk",
+      "region": "SovSpace",
+      "security": 3,
+      "trace": 3,
+      "controlby": "USSR/ EEC",
+      "coord": {
+        "SovSpace": {
+          "x": 440,
+          "y": 250
+        }
+      }
+    },
+    {
+      "city": "Pusan",
+      "region": "SovSpace",
+      "security": 2,
+      "trace": 3,
+      "controlby": "Zaibatsus/ FACS",
+      "coord": {
+        "SovSpace": {
+          "x": 820,
+          "y": 420
+        },
+        "Tokyo/Chiba": {
+          "x": 265,
+          "y": 530
+        }
+      }
+    },
+    {
+      "city": "Rostov",
+      "region": "SovSpace",
+      "security": 3,
+      "trace": 3,
+      "controlby": "USSR/ EEC",
+      "coord": {
+        "SovSpace": {
+          "x": 170,
+          "y": 295
+        }
+      }
+    },
+    {
+      "city": "Seoul",
+      "region": "SovSpace",
+      "security": 2,
+      "trace": 3,
+      "controlby": "Zaibatsus/ FACS",
+      "coord": {
+        "SovSpace": {
+          "x": 805,
+          "y": 400
+        },
+        "Tokyo/Chiba": {
+          "x": 210,
+          "y": 410
+        }
+      }
+    },
+    {
+      "city": "Sverdlovsk",
+      "region": "SovSpace",
+      "security": 3,
+      "trace": 3,
+      "controlby": "USSR/ EEC",
+      "coord": {
+        "SovSpace": {
+          "x": 345,
+          "y": 245
+        }
+      }
+    },
+    {
+      "city": "Tashkent",
+      "region": "SovSpace",
+      "security": 2,
+      "trace": 3,
+      "controlby": "USSR/ EEC",
+      "coord": {
+        "Afrikani": {
+          "x": 895,
+          "y": 15
+        },
+        "SovSpace": {
+          "x": 410,
+          "y": 370
+        }
+      }
+    },
+    {
+      "city": "Tehran",
+      "region": "SovSpace",
+      "security": 1,
+      "trace": 3,
+      "controlby": "Iran Govt.",
+      "coord": {
+        "Afrikani": {
+          "x": 695,
+          "y": 80
+        },
+        "SovSpace": {
+          "x": 245,
+          "y": 430
+        }
+      }
+    },
+    {
+      "city": "Vladivostok",
+      "region": "SovSpace",
+      "security": 2,
+      "trace": 2,
+      "controlby": "USSR/ EEC",
+      "coord": {
+        "SovSpace": {
+          "x": 870,
+          "y": 255
+        }
+      }
+    },
+    {
+      "city": "Volgograd",
+      "region": "SovSpace",
+      "security": 3,
+      "trace": 3,
+      "controlby": "USSR/ EEC",
+      "coord": {
+        "SovSpace": {
+          "x": 180,
+          "y": 240
+        }
+      }
+    },
+    {
+      "city": "Fukuoka/Kitakyushu",
+      "region": "Tokyo/Chiba",
+      "security": 2,
+      "trace": 2,
+      "controlby": "Zaibatsus/ FACS",
+      "coord": {
+        "Tokyo/Chiba": {
+          "x": 180,
+          "y": 755
+        }
+      }
+    },
+    {
+      "city": "Hiroshima",
+      "region": "Tokyo/Chiba",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Arasaka/ Zaibatsus/ FACS",
+      "coord": {
+        "Tokyo/Chiba": {
+          "x": 340,
+          "y": 655
+        }
+      }
+    },
+    {
+      "city": "Kanazawa",
+      "region": "Tokyo/Chiba",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Arasaka/ Zaibatsus/ FACS",
+      "coord": {
+        "Tokyo/Chiba": {
+          "x": 500,
+          "y": 545
+        }
+      }
+    },
+    {
+      "city": "Nagasaki",
+      "region": "Tokyo/Chiba",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Arasaka/ Zaibatsus/ FACS",
+      "coord": {
+        "Tokyo/Chiba": {
+          "x": 185,
+          "y": 830
+        }
+      }
+    },
+    {
+      "city": "Nagoya",
+      "region": "Tokyo/Chiba",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Arasaka/ Zaibatsus/ FACS",
+      "coord": {
+        "Tokyo/Chiba": {
+          "x": 570,
+          "y": 675
+        }
+      }
+    },
+    {
+      "city": "Niigata",
+      "region": "Tokyo/Chiba",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Arasaka/ Zaibatsus/ FACS",
+      "coord": {
+        "Tokyo/Chiba": {
+          "x": 635,
+          "y": 470
+        }
+      }
+    },
+    {
+      "city": "Osaka/Kyoto",
+      "region": "Tokyo/Chiba",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Arasaka/ Zaibatsus/ FACS",
+      "coord": {
+        "Tokyo/Chiba": {
+          "x": 390,
+          "y": 700
+        }
+      }
+    },
+    {
+      "city": "Sapporo",
+      "region": "Tokyo/Chiba",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Zaibatsus/ FACS",
+      "coord": {
+        "Tokyo/Chiba": {
+          "x": 770,
+          "y": 170
+        }
+      }
+    },
+    {
+      "city": "Sendai",
+      "region": "Tokyo/Chiba",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Arasaka/ Zaibatsus/ FACS",
+      "coord": {
+        "Tokyo/Chiba": {
+          "x": 760,
+          "y": 405
+        }
+      }
+    },
+    {
+      "city": "Tokyo",
+      "region": "Tokyo/Chiba",
+      "security": 3,
+      "trace": 2,
+      "controlby": "Arasaka/ Zaibatsus/ FACS",
+      "coord": {
+        "World": {
+          "x": 845,
+          "y": 330
+        },
+        "Pacifica": {
+          "x": 265,
+          "y": 315
+        },
+        "SovSpace": {
+          "x": 910,
+          "y": 410
+        },
+        "Tokyo/Chiba": {
+          "x": 695,
+          "y": 640
+        }
+      },
+      "dataforts": "tokyo.json"
+    }
+  ]
+}

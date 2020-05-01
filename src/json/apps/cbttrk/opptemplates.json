@@ -1,0 +1,28 @@
+{
+  "templates":[
+    { "name": "Booster", "type": "Generic", "json": "ganger-generic-booster", "desc": "", "source": "PS", "page":61 },
+    { "name": "Hitter", "type": "Corporate", "json": "corporate-hitter", "desc": "", "source": "PS", "page":57 },
+    { "name": "Ninja", "type": "Corporate", "json": "corporate-ninja", "desc": "", "source": "PS", "page":57 },
+    { "name": "Back Alley Brawler", "type": "Ganger", "json": "ganger-back-alley-brawler", "desc": "", "source": "NC", "page":46 },
+    { "name": "Black Queen", "type": "Ganger", "json": "ganger-black-queen", "desc": "", "source": "NC", "page":42 },
+    { "name": "Brainiac", "type": "Ganger", "json": "ganger-brainiac", "desc": "", "source": "NC", "page":44 },
+    { "name": "Slaughterhouse", "type": "Ganger", "json": "ganger-slaughterhouse", "desc": "", "source": "NC", "page":45 },
+    { "name": "Wild Thing", "type": "Ganger", "json": "ganger-wild-thing", "desc": "", "source": "NC", "page":43 },
+    { "name": "The D.J.'s", "type": "Ganger", "json": "ganger-d-j", "desc": "", "source": "NC", "page":46 },
+    { "name": "Maelstrom", "type": "Ganger", "json": "ganger-maelstrom", "desc": "", "source": "NC", "page":47 },
+    { "name": "Silver Slash", "type": "Ganger", "json": "ganger-silver-slash", "desc": "", "source": "NC", "page":48 },
+    { "name": "Philharmonic Vampyres", "type": "Ganger", "json": "ganger-philharmonic-vampyres", "desc": "", "source": "NC", "page":49 },
+    { "name": "Julliard", "type": "Ganger", "json": "ganger-julliard", "desc": "", "source": "NC", "page":50 },
+    { "name": "Sacred Blades", "type": "Ganger", "json": "ganger-sacred-blades", "desc": "", "source": "NC", "page":51 },
+    { "name": "Bozos", "type": "Ganger", "json": "ganger-bozo", "desc": "", "source": "NC", "page":52 },
+    { "name": "Voodoo Boyz", "type": "Ganger", "json": "ganger-voodoo-boyz", "desc": "", "source": "NC", "page":53 },
+    { "name": "Yakuza Hitter", "type": "Crime Org", "json": "crime-yakuza", "desc": "", "source": "PS", "page":52 },
+    { "name": "Triad Hitter", "type": "Crime Org", "json": "crime-triad", "desc": "", "source": "PS", "page":53 },
+    { "name": "Mafia Hitter", "type": "Crime Org", "json": "crime-mafia", "desc": "", "source": "PS", "page":53 },
+    { "name": "SoAm Hitter", "type": "Crime Org", "json": "crime-soam", "desc": "", "source": "PS", "page":53 },
+    { "name": "Corporate", "type": "Cop", "json": "cop-corporate", "desc": "", "source": "PS", "page":48 },
+    { "name": "HiWay", "type": "Cop", "json": "cop-hiway", "desc": "", "source": "PS", "page":46 },
+    { "name": "LEDiv Operative", "type": "Cop", "json": "cop-lediv", "desc": "", "source": "PS", "page":45 },
+    { "name": "", "type": "", "json": "", "desc": "", "source": "", "page":0 }
+  ]
+}

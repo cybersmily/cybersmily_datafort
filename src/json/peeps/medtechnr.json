@@ -1,0 +1,9 @@
+﻿{"npcs":[
+    {"name":"Papa Doc","img":"papadoc","career":"Medtech"},
+    {"name":"Pads","img":"pads","career":"Medtech"},
+    {"name":"Arsenic","img":"arsenic","career":"Medtech"},
+    {"name":"Egg","img":"ed","career":"Medtech"},
+    {"name":"Mars","img":"mars","career":"Netrunner"},
+    {"name":"Tabi","img":"tabi","career":"Netrunner"},
+    {"name":"Io","img":"io","career":"Netrunner"}
+]}

@@ -1,0 +1,238 @@
+<div class="row csd-rounded">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-12">
+        <h4 (click)="isCollapsed= !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
+          <fa-icon [icon]="(isCollapsed)?faAngleDoubleRight:faAngleDoubleDown" class="csd-dice"
+            title="Collapse instructions section"></fa-icon>
+          Instructions&nbsp;
+        </h4>
+      </div>
+    </div>
+    <div class="row" id="collapseBasic" [collapse]="isCollapsed">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12">
+            This is a utility to help manage combat for the referee in Cyberpunk 2020. Expand each title below to get
+            instructions for each panel.
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-12">
+            <b>SAVE</b> -
+            You will notice that the data is "sticky" from session to session. The data is store in the browser local storage.
+            But that doesn't mean it  is "saved". If you clear your local storage for the browser then this data will also be losted forever.
+            This button will save the Tracker data as a JSON file to your local system.
+            Just a bit of warning. If you mess with the contents you can corrupt the file unless you know how to work with JSON.
+            Even then, you might not want to tinker with it too much.
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <b>LOAD</b> - This will load the JSON file savedd. You can try to upload other json files, but good chance they won't work.
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+          <b>RESET</b> - This will clear all the data from the tracker.
+          If you haven't saved important work, it will delete and will be lost.
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-12 col-md-4">
+            <h5 (click)="isLeftCollapsed = !isLeftCollapsed" [attr.aria-expanded]="!isLeftCollapsed"
+              aria-controls="collapseLeftPanel">
+              <fa-icon [icon]="(isLeftCollapsed)?faAngleDoubleRight:faAngleDoubleDown" class="csd-dice"
+                title="Collapse instructions section"></fa-icon>&nbsp;
+              Left Panel - Initiative Tracker
+            </h5>
+            <div id="collapseLeftPanel" [collapse]="isLeftCollapsed">
+              <p>
+                The section on the left tracks the initiative order or the combatants.
+                You can click on the dice icon to roll all the comabatant's initiatives.
+                This will generate an initiative roll and add in all their REF and Combat Sense.
+              </p>
+              <p>Turn helps to keep track of the turn of combat.</p>
+              <p>
+                Each combatant row has the initiative box which can be manually set.
+                NOTE: Manually setting initiative will not add REF or Combat Sense to it. You will need to add them up
+                before
+                entering it.
+              </p>
+              <p>
+                Changing the initatiive value will resort the order automatically. Hovering over the initiative value,
+                you
+                will also be able to roll initiative.
+                Click on the dice icon. This will add the REF stat and Combat Sesnse to the roll.
+              </p>
+              <p>
+                Each combatant will display their name, their REF stat, and any conditions they current have (wound
+                level
+                and
+                if they are stunned).
+              </p>
+              <p>
+                You can add new oppenents with the button on the bottom of the list.
+              </p>
+              <p>Rest button will clear all the data in the list.
+                This will start from a clean point with 3 test opponent.
+                The data is not recoverable if you do this.</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-8">
+            <h5 (click)="isRightCollapsed = !isRightCollapsed" [attr.aria-expanded]="!isRightCollapsed"
+              aria-controls="collapseRightPanel">
+              <fa-icon [icon]="(isRightCollapsed)?faAngleDoubleRight:faAngleDoubleDown" class="csd-dice"
+                title="Collapse instructions section"></fa-icon>&nbsp;Right Panel - Opponent Card
+            </h5>
+            <div id="collapseRightPanel" [collapse]="isRightCollapsed">
+              <p>In this section you can enter the name, stats, skills, cyberware, and weapons of the combatant.</p>
+              <p>Enter the combatant's name. Select their Role or choose a template. Templates are based on NPCs within
+                the
+                source books.
+                Hovering over the selections will display the source bookk they can be found in.
+                Once you select a Role, all the role skills will be added.
+                If you choose a template all the stats, skills, cyberware, and weapons for that template will be filled
+                in.
+              </p>
+
+              <h6 (click)="isWoundsCollapsed = !isWoundsCollapsed" [attr.aria-expanded]="!isWoundsCollapsed"
+                aria-controls="collapseWounds">
+                <fa-icon [icon]="(isWoundsCollapsed)?faAngleDoubleRight:faAngleDoubleDown" class="csd-dice"
+                  title="Collapse instructions section"></fa-icon>&nbsp;WOUNDS
+              </h6>
+              <div id="collapseWounds" [collapse]="isWoundsCollapsed">
+              <p>
+                The Wounds section is where to make save, keep track of the wounds, and show other effects for the combatant.
+              </p>
+              <p>
+                Hovering over the Stun/Death Save will show the dice icon. Click on these icon will prompt for a modifier to the roll and then roll it.
+                If the stun save fails, the STUNNED checkbox will be marked. This will also show in the Left Panel for that combatant.
+                The Death State indicator will show up if the combatant has failed their Death Save. Remember to advance the death state each turn.
+                This too will show up on the combatant in the Left Panel.
+              </p>
+              </div>
+              <h6 (click)="isArmorCollapsed = !isArmorCollapsed" [attr.aria-expanded]="!isArmorCollapsed"
+                aria-controls="collapseArmor">
+                <fa-icon [icon]="(isArmorCollapsed)?faAngleDoubleRight:faAngleDoubleDown" class="csd-dice"
+                  title="Collapse instructions section"></fa-icon>&nbsp;ARMOR
+              </h6>
+              <div id="collapseArmor" [collapse]="isArmorCollapsed">
+              <p>
+                Armor section is to fill in the SP for the location. This is tracking and updated manuallly. Future update will address this in the coming months.
+              </p>
+              </div>
+              <h6 (click)="isModifiedCollapsed = !isModifiedCollapsed" [attr.aria-expanded]="!isModifiedCollapsed"
+                aria-controls="collapseMods">
+                <fa-icon [icon]="(isModifiedCollapsed)?faAngleDoubleRight:faAngleDoubleDown" class="csd-dice"
+                  title="Collapse instructions section"></fa-icon>&nbsp;COMBAT MODIFIERS
+              </h6>
+              <div id="collapseMods" [collapse]="isModifiedCollapsed">
+                <p>This is where the sausage is made. This section will contain all the weapons the combatant has and list out the modifiers for combat.</p>
+                <p>
+                  In the weapon section, all the weapons added to the combatant from the WEAPONS tab will display here.
+                  It will also display the total modifier to the d10 for rolling against the DIFF, whichis set by the Range to Target.
+                  Click on the dice icon will generate a roll and show the results vs the DIFF.
+                  You shoud set the Range to Target and check off all applicable modifiers before rolling.
+                </p>
+                <p>
+                  The next line in the weapon show the stats of the weapon: type, weapon accuracy, damage, shots (used/capacity), rate of fire, reliability, and range.
+                  Click on the dice icon next to damage will roll the damage and show the individual dice.
+                  Shots you can keep track of how many shots the weapon has fired. Once the shots fired equals to the capacity, the weapon will be locked until the reload is clicked.
+                  The reliabilit dice is similiar. If a Reliabilty check is required, and the weapon jams, then it will lock the weapon and show how many turns it will take to unjam it.
+                </p>
+                <p>
+                  After the weapon is where tracking of the modifiers to hit are done. Enter a range and then check off all the modifiers that apply.
+                  This will update the skill roll above as well as the DIFF when the range changes.
+                </p>
+              </div>
+              <h6 (click)="isStatCollapsed = !isStatCollapsed" [attr.aria-expanded]="!isStatCollapsed"
+                aria-controls="collapseStats">
+                <fa-icon [icon]="(isStatCollapsed)?faAngleDoubleRight:faAngleDoubleDown" class="csd-dice"
+                  title="Collapse instructions section"></fa-icon>&nbsp;STATS
+              </h6>
+              <p id="collapseStats" [collapse]="isStatCollapsed">
+                This section you can enter stats for the combatant or
+                roll all the stats randomly.
+                The second box on the stat is for any modifications to the stat due to situation, cyberware, drug
+                effects,
+                etc.This box is updated manually.
+                There is a dice icon next to each stat. Clicking on it you will be prompt to roll a stat roll (stat + 1d10) or a save (1d10 less than or equal to stat).
+                Stat rolls are of skills not listed in the Skills section.
+              </p>
+              <h6 (click)="isSkillCollapsed = !isSkillCollapsed" [attr.aria-expanded]="!isSkillCollapsed"
+                aria-controls="collapseSkills">
+                <fa-icon [icon]="(isSkillCollapsed)?faAngleDoubleRight:faAngleDoubleDown" class="csd-dice"
+                  title="Collapse instructions section"></fa-icon>&nbsp;SKILLS
+              </h6>
+              <div id="collapseSkills" [collapse]="isSkillCollapsed">
+                <p>
+                  The skills section includes an entry for the Special Ability of the role and lists of skills.
+                  The special ability can be chosen or will be filled in if a Role is selected.
+                  Hovering over the stat will show the trash bin icon if you want to delete this special ability and
+                  choose another.
+                </p>
+                <p>
+                  You can add more skills to the combatant by choosing the skill (see <a href="/data/skills">Master
+                    Skill
+                    List</a> for the full list and description) and setting its value.
+                </p>
+                <p>
+                  The dice icon will roll the skill adding the value, stat, and die roll to generate the total value
+                  rolled.
+                </p>
+              </div>
+
+              <h6 (click)="isCyberwareCollapsed = !isCyberwareCollapsed" [attr.aria-expanded]="!isCyberwareCollapsed"
+                aria-controls="collapseCyberware">
+                <fa-icon [icon]="(isCyberwareCollapsed)?faAngleDoubleRight:faAngleDoubleDown" class="csd-dice"
+                  title="Collapse instructions section"></fa-icon>&nbsp;CYBERWARE
+              </h6>
+              <div id="collapseCyberware" [collapse]="isCyberwareCollapsed">
+                <p>
+                  This is where you can add cyberware. The dice icon is to randomly roll for some basic cyberware.
+                  The table used is a modified version of the one from Fast and Dirty Expendable characters (see
+                  Cyberpunk 2020 main book, page 30).
+                  Currently there is no logic to adjust stats or skills.
+                  Nor is it smart enough to know that you can't have 2 speedwares. Someday it will get updated.
+                </p>
+                <p>To add cyberware add its name and any options that piece may have.</p>
+                <p>hovering over a piece of cyberware will show the trash bin icon so you can remove it from teh list.
+                </p>
+              </div>
+              <h6 (click)="isWeaponCollapsed = !isWeaponCollapsed" [attr.aria-expanded]="!isWeaponCollapsed"
+                aria-controls="collapseWeapon">
+                <fa-icon [icon]="(isWeaponCollapsed)?faAngleDoubleRight:faAngleDoubleDown" class="csd-dice"
+                  title="Collapse instructions section"></fa-icon>&nbsp;WEAPONS
+              </h6>
+              <div id="collapseWeapon" [collapse]="isWeaponCollapsed">
+                <p>
+                  Similar to the cyberware section.
+                  The dice icon will randomly generate a weapon from a modified table.
+                  You can add your own as needed by filling out the stats for the weapon.
+                </p>
+                <p>
+                  Each weapon list will show the dice icon for the weapon damage and the reliability (if any).
+                  Click on them will generate a dice roll. For damage it will displace the die rolled and total damage.
+                  For the reliability it will tell you if there was a jam or not.
+                </p>
+              </div>
+              <h6 (click)="isGearCollapsed = !isGearCollapsed" [attr.aria-expanded]="!isGearCollapsed"
+                aria-controls="collapseGear">
+                <fa-icon [icon]="(isGearCollapsed)?faAngleDoubleRight:faAngleDoubleDown" class="csd-dice"
+                  title="Collapse instructions section"></fa-icon>&nbsp;GEAR
+              </h6>
+              <div id="collapseGear" [collapse]="isGearCollapsed">
+                <p>
+                  This is just a simple list of gear. Just add them as needed. Nothing special as been implemented yet.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

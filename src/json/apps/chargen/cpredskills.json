@@ -1,0 +1,26 @@
+{
+  "skills": [
+    {"category":"Fighting"       , "name":"Brawling"         , "stat": "DEX"  , "desc":""},
+    {"category":"Fighting"       , "name":"Evasion"          , "stat": "DEX"  , "desc":""},
+    {"category":"Fighting"       , "name":"Melee Weapon"     , "stat": "DEX"  , "desc":""},
+    {"category":"Reanged Weapon" , "name":"Marksmanship"     , "stat": "REF"  , "desc":""},
+    {"category":"Awareness"      , "name":"Concentration"    , "stat": "WILL" , "desc":""},
+    {"category":"Awareness"      , "name":"Perception"       , "stat": "INT"  , "desc":""},
+    {"category":"Awareness"      , "name":"Tracking"         , "stat": "INT"  , "desc":""},
+    {"category":"Control"        , "name":"Driving"          , "stat": "REF"  , "desc":""},
+    {"category":"Body"           , "name":"Athletics"        , "stat": "DEX"  , "desc":""},
+    {"category":"Body"           , "name":"Stealth"          , "stat": "DEX"  , "desc":""},
+    {"category":"Social"         , "name":"Bribery"          , "stat": "COOL" , "desc":""},
+    {"category":"Social"         , "name":"Conversation"     , "stat": "EMP"  , "desc":""},
+    {"category":"Social"         , "name":"Human Perception" , "stat": "EMP"  , "desc":""},
+    {"category":"Social"         , "name":"Interrogation"    , "stat": "COOL" , "desc":""},
+    {"category":"Social"         , "name":"Persuasion"       , "stat": "COOL" , "desc":""},
+    {"category":"Technique"      , "name":"Basic Tech"       , "stat": "TECH" , "desc":""},
+    {"category":"Technique"      , "name":"Cybertech"        , "stat": "TECH" , "desc":""},
+    {"category":"Technique"      , "name":"First Aid"        , "stat": "TECH" , "desc":""},
+    {"category":"Performance"    , "name":"Play Instrument"  , "stat": "EMP"  , "desc":""},
+    {"category":"Education"      , "name":"Education"        , "stat": "INT"  , "desc":""},
+    {"category":"Education"      , "name":"Local Expert"     , "stat": "INT"  , "desc":""},
+    {"category":"Role Ability"   , "name":"Interface"        , "stat": ""     , "desc":""}
+  ]
+}

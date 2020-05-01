@@ -1,0 +1,19 @@
+.chargen-page-header {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.chargen-notes {
+  width: 100%;
+  height: 1200px;
+}
+
+.csd-chargen-btn {
+  margin-right: 8px;
+}
+
+.ng-fa-icon {
+  color: red;
+  font-size: 20px;
+}

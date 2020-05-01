@@ -1,0 +1,207 @@
+{
+  "familyRanking":{
+      "CP2020":[
+      "Corporate Executive.",
+      "Corporate Manager.",
+      "Corporate Technician.",
+      "Nomad Pack.",
+      "Pirate Fleet.",
+      "Gang Family.",
+      "Crime Lord.",
+      "Combat Zone Poor.",
+      "Urban homeless.",
+      "Arcology family."
+    ],
+      "EuroPlus":[
+      "[[Commision|Commision|Corporate]] Executive.",
+      "[[Commision|Commision|Corporate]] Manager.",
+      "[[Commision|Commision|Corporate]] Technician.",
+      "Nomad Pack.",
+      "Pirate Fleet.",
+      "Gang Family.",
+      "Crime Lord.",
+      "Combat Zone Poor.",
+      "Urban jobless.",
+      "Arcology family."
+    ],
+      "NeoTribe":[
+      "Contruction Family.",
+      "Salvage Family.",
+      "Transportation Family.",
+      "Outrider Family.",
+      "Warrior Family.",
+      "Shaman/Doctor Family.",
+      "Technical Family.",
+      "Entertainment/Carny Family.",
+      "Agricultural Family.",
+      "Raffen Shiv Family."
+    ],
+      "PacRimJapan":[
+      "Military/Bureaucrat/Police.",
+      "Corporate Manager.",
+      "Corporate Employee.",
+      "Corporate Technician.",
+      "Self-Employed/Artist/Artisan.",
+      "Yakuza/Gang/Pirates/Ninja.",
+      "Religious Believer.",
+      "Farmer/Fisherman.",
+      "Urban Homeless.",
+      "Zaibatsu/Ex-noble/Yangban family."
+    ],
+    "PacRimChina":[
+      "Cadre.",
+      "Corp Exec.",
+      "Shopkeeper.",
+      "Artisan.",
+      "Triad family.",
+      "Peasant-Factory.",
+      "Peasant-Factory.",
+      "Peasant-Farm.",
+      "Peasant-Farm.",
+      "Refugee."
+    ],
+    "PacRimSEAsia":[
+      "Corporate managers.",
+      "Corporate technicians.",
+      "Military/Police/Government bureaucrats.",
+      "Factory workers.",
+      "Farmers/Fishermen.",
+      "Store owner/Artisan.",
+      "Religious fanatics/Radicals.",
+      "Highland tribe.",
+      "Pirates/Gangs/Smugglers.",
+      "Urban homeless/Street trash."
+    ]
+  },
+  "parentSomethingHappen":{
+      "CP2020":[
+      "Your parent(s) died in warfare.",
+      "Your parent(s) died in an accident.",
+      "Your parent(s) were murdered.",
+      "Your parent(s) have amnesia and don't remember you.",
+      "You never knew your parent(s).",
+      "Your parent(s) are in hiding to protect you.",
+      "You were left with relatives for safekeeping.",
+      "You grew up on the Street and never had parents.",
+      "Your parent(s) gave you up for adoption.",
+      "Your parent(s) sold you for money."
+    ],
+      "NeoTribe":[
+      "Your parent(s) died in warfare.",
+      "Your parent(s) died in a road accident.",
+      "Your parent(s) were murdered.",
+      "Your parent(s) have imprisoned.",
+      "Your parent(s) died of heart attack or other premature cause.",
+      "Your parent(s) incapacitated by illness or injury.",
+      "You parent(s) got lost or vanished.",
+      "Your parent(s) died committing a crime.",
+      "Your parent(s) left the pack.",
+      "Your parent(s) abandoned you."
+    ],
+      "PacRimJapan":[
+      "Your parent(s) extracted by a corporation or killed in warfare.",
+      "Your parent(s) died in an accident.",
+      "Your parent(s) were murdered.",
+      "Your parent(s) divorced/were forced to divorce.",
+      "You never knew your parent(s).",
+      "Your parent(s) are in hiding to protect you.",
+      "You were left with relatives.",
+      "You parent(s) gave you up for adoption.",
+      "Your parent(s) committed/were forced to commit suicide.",
+      "Your parent(s) became religious fanatics."
+    ],
+    "PacRimSEAsia":[
+      "Your parent(s) were murdered.",
+      "Your parent(s) died in warfare.",
+      "Your parent(s) died in accident.",
+      "Your parent(s) committed suicide.",
+      "You never knew your parents.",
+      "Your parent(s) are in hiding to protect you.",
+      "You were left with relatives.",
+      "Your parent(s) gave you up for adoption.",
+      "Your parent(s) became fanatics/radicals.",
+      "Your parent(s) sold you for money."
+    ]
+  },
+  "familyTragedy":{
+      "CP2020":[
+      "Family lost everything through betrayal.",
+      "Family lost everything through bad management.",
+      "Family exiled or otherwise driven from their original home/nation/corporation.",
+      "Family is imprisoned and you alone escaped.",
+      "Family vanished. You are the only remaining member.",
+      "Family was murdered/killed and you were the only survivor.",
+      "Family is involved in longterm conspiracy/organization/association, such as a crime family or revolutionary group.",
+      "Your family was scattered to the winds due to misfortune.",
+      "Your family is cursed with a hereditary feud that has lasted for generations.",
+      "You are the inheritor of a family debt; you must honor this debt before moving on with your life."
+    ],
+      "NeoTribe":[
+      "Family was expelled from pack for breaking the Code.",
+      "Family was last survivors of a pack.",
+      "Family was unable to travel with the pack.",
+      "Family was separated from the pack.",
+      "Family was held responsible for pack misfortune.",
+      "Family was involved in an intra-pack feud."
+    ]
+  },
+  "childhoodEnvironment":{
+      "CP2020":[
+      "spent on the street, with no adult supervision.",
+      "spent in a safe Corporate Suburbia.",
+      "spent in a Nomad Pack moving from town to town.",
+      "spent in a decaying, once upscale neighborhood.",
+      "spent in a defended Corporate Zone in the central City.",
+      "spent in the heart of the Combat Zone.",
+      "spent in a small village or town far from the City.",
+      "spent in a large arcology city.",
+      "spent in an aquatic Pirate Pack.",
+      "spent on a Corporate controlled Farm or Research Facility."
+    ],
+      "NeoTribe":[
+      "spent happily, with normal nomad pastimes.",
+      "spent unhappily, due to circumstances beyond your control.",
+      "spent away from your family.",
+      "spent separately from the main body of the pack.",
+      "spent in juvenile institutions.",
+      "spent on the Street."
+    ],
+    "PacRimChina":[
+      "on the streets with no supervision; guttersnipe,child prostitute, etc.",
+      "cadre compound; the life of luxury.",
+      "refugee pack; life of absolute squalor, desperation.",
+      "revolutionary camp; armed paranoia.",
+      "small village; Chinese beavertown.",
+      "triad family/pirate pack.",
+      "Buddhist temple compound.",
+      "farm work unit; working for a living at 8AM.",
+      "factory work unit; working for a living at 8AM.",
+      "family small business; working for a living at 8AM."
+    ],
+    "PacRimSEAsia":[
+      "spent in the dorm of a school.",
+      "safe corporate suburb/arcology.",
+      "corporate farm/research facility.",
+      "noraml city life.",
+      "street, with no adult supervision.",
+      "small village or town.",
+      "martial arts/religious training.",
+      "gang/pirates/smugglers.",
+      "worked in factory/store from age 8."
+    ]
+  },
+  "siblingFeeling":{
+      "CP2020":[
+      "dislikes you",
+      "dislikes you",
+      "likes you",
+      "likes you",
+      "neutral",
+      "neutral",
+      "hero worships you",
+      "hero worships you",
+      "hates you",
+      "hates you"
+    ]
+  }
+}

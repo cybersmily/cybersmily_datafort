@@ -1,0 +1,117 @@
+{"motivations": {
+    "personality": {
+        "CP2020": [
+      "Shy and secretive",
+      "Rebellious, antisocial, violent",
+      "Arrogant, proud and aloof",
+      "Moody, rash and headstrong",
+      "Picky, fussy, and nervous",
+      "Stable and serious",
+      "Silly and fluffheaded",
+      "Sneaky and deceptive",
+      "Intellectual and detached",
+      "Friendly and outgoing"
+      ],
+        "NeoTribe": [
+      "Outgoing",
+      "Neutral",
+      "Aloof",
+      "Indifferent to Outsiders",
+      "Cautious",
+      "Perfectionist",
+      "Altruistic",
+      "Defensive",
+      "Complusive",
+      "Manic"
+      ]
+    },
+  "valuedperson":{
+        "CP2020": [
+        "A parent",
+        "Brother or sister",
+        "Lover",
+        "Friend",
+        "Yourself",
+        "A pet",
+        "Teacher or mentor",
+        "Public figure",
+        "A personal hero",
+        "No one"
+      ],
+        "Neotribe":[
+        "Your Family",
+        "A Sibling",
+        "A Friend",
+        "A Lover or Ex",
+        "The Pack",
+        "Yourself or No One",
+        "A Pet",
+        "A Personal Icon or Hero",
+        "A Religious Leader",
+        "A Teacher or Mentor"
+      ]
+    },
+  "valuemost":{
+        "CP2020": [
+        "Money",
+        "Honor",
+        "Your Word",
+        "Honesty",
+        "Knowledge",
+        "Vengeance",
+        "Love",
+        "Power",
+        "Having a good time",
+        "Friendship"
+      ],
+        "NeoTribe":[
+        "The Pack",
+        "Money",
+        "Personal Integrity or Honor",
+        "Honesty",
+        "Knowledge",
+        "Vengeance",
+        "Good Times",
+        "Power or Influence",
+        "Skill",
+        "Friendship"
+      ]
+    },
+    "feelaboutpeople":{
+        "CP2020":[
+        "Neutral",
+        "Neutral",
+        "I like almost everyone",
+        "I hate almost everyone",
+        "People are tools. Use them for your own goals and discard them",
+        "Every person is a valuable individual",
+        "People are obstacles to be destroyed if they cross me",
+        "People are untrustworthy. Don't depend on anyone",
+        "Wipe 'em all out and give the place to the cockroaches",
+        "People are wonderful"
+      ],
+        "NeoTribe":[
+        "Indifferent",
+        "Neutral and Negative",
+        "Neutral and Positive",
+        "Refuse to Make Judgements Until Known",
+        "They are Useful Tools",
+        "People are Basically Good"
+      ]
+    },
+    "valuedpossesion":{
+        "CP2020":[
+        "A weapon",
+        "A tool",
+        "A piece of clothing",
+        "A photograph",
+        "A book or diary",
+        "A recording",
+        "A musical intrument",
+        "A piece of jewelry",
+        "A toy",
+        "A letter"
+      ]
+    }
+  }
+}

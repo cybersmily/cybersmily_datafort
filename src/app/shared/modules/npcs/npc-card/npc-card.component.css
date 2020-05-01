@@ -1,0 +1,4 @@
+.csd-npc-card { width: 120px;min-width: 120px; padding:5px 5px; text-align: center; cursor: pointer;}
+.csd-npc-career {font-style: italic; font-size: small;}
+.csd-npc-card h5 {min-height: 50px;}
+.csd-npc-card img {height: 100px; width: 100px;}

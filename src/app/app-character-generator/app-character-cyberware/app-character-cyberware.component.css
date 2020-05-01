@@ -1,0 +1,52 @@
+.chargen-cyber-header{
+  font-weight: bold;
+}
+
+.chargen-cyber-table {
+  width: 100%;
+}
+
+.chargen-cyber-table td {
+  border: 1px solid black;
+}
+
+.chargen-cyber-type {
+  width: 75%;
+}
+.chargen-cyber-hl {
+  width: 10%;
+  text-align: center;
+}
+.chargen-cybercost {
+  width: 15%;
+  text-align: center;
+}
+
+.chargen-cyber-row input[type=text] {
+  width: 100%;
+}
+
+.chargen-cyber-row input[type=number] {
+  width: 100%;
+}
+.chargen-section-skills {
+  width: 100%;
+}
+
+:host {
+  width: 100%
+}
+
+
+/* Chrome, Safari, Edge, Opera */
+.chargen-cyber-row input::-webkit-outer-spin-button,
+.chargen-cyber-row input::-webkit-inner-spin-button
+ {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.chargen-cyber-row input[type=number] {
+  -moz-appearance:textfield;
+}

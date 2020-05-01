@@ -1,0 +1,36 @@
+<div class="row">
+  <button id="btn-nrmap-trace-list"  class="btn btn-secondary csd-rounded" (click)="openModal(template)">
+    Total Trace: <span>{{totalTrace}}</span>
+  </button>
+</div>
+<ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Netrun Trace Log -  {{totalTrace}}</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+  <div class="row">
+    <div class="col-sm-5 col-sm-offset-2">
+      <ul id="csd-nrmap-trace-lst" class="csd-rounded csd-section">
+        <li class="csd-trace-hdr">
+          <span class="csd-trace-trace">Trace</span>
+          <span class="csd-trace-region">Region</span>
+          <span class="csd-trace-city">City</span>
+        </li>
+        <li *ngFor="let trace of traceList">
+          <span class="csd-trace-trace">{{trace.trace}}</span>
+          <span class="csd-trace-region">{{trace.region}}</span>
+          <span class="csd-trace-city">{{trace.city}}</span>
+        </li>
+        <li class="csd-trace-ftr">
+          <span class="csd-trace-trace">{{totalTrace}}</span>
+          <span class="csd-trace-region">{{totalRegions.length}} Regions</span>
+          <span class="csd-trace-city">{{totalCities}} Cities</span>
+        </li>
+      </ul>
+    </div>
+    </div>
+  </div>
+</ng-template>

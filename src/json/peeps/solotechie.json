@@ -1,0 +1,17 @@
+﻿{"npcs":[
+{"name":"Anna","img":"anna","career":"Solo"},
+{"name":"Dango","img":"dango","career":"Solo"},
+{"name":"Glass","img":"glass","career":"Solo"},
+{"name":"Hood","img":"hood","career":"Solo"},
+{"name":"Jot","img":"jot","career":"Solo"},
+{"name":"Joy Joy","img":"joyjoy","career":"Solo"},
+{"name":"Lyte","img":"lyte","career":"Solo"},
+{"name":"Mandy Masher","img":"mandy","career":"Solo"},
+{"name":"Shade","img":"shade","career":"Solo"},
+{"name":"Stacks","img":"stack","career":"Solo"},
+
+{"name":"A Bomb","img":"abomb","career":"Techie"},
+{"name":"Cookie","img":"cookie","career":"Techie"},
+{"name":"Pup-pup","img":"puppup","career":"Techie"},
+{"name":"Splice","img":"splice","career":"Techie"}
+]}

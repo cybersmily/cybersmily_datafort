@@ -1,0 +1,98 @@
+﻿{"name":"Harden Torres",
+	"handle":"Hit Hard Torres",
+	"aliases":"",
+	"age":53,
+	"img":"htorres",
+	"career":{"name":"Media (Action Reporter)","specialability":"Credibility","value":9},
+	"stats":{
+		"ref":6,
+		"int":8,
+		"tech":7,
+		"cool":9,
+		"attr":5,
+		"luck":4,
+		"ma":5,
+		"body":6,
+		"emp":7,
+		"hc":31,
+    "rep":8
+  },
+	"skills":{
+		"attr":[
+			{"name":"Personal Grooming","value":4},
+			{"name":"Wardrobe/Style","value":3}
+		],
+		"body":[
+			{"name":"Endurance","value":2}
+		],
+		"cool":[
+			{"name":"Interrogation","value":4},
+			{"name":"Intimidate","value":5},
+			{"name":"Oratory","value":6},
+			{"name":"Streetwise","value":6}
+		],
+		"emp":[
+			{"name":"Human Perception","value":4},
+			{"name":"Interview","value":8},
+			{"name":"Leadership","value":2},
+			{"name":"Social","value":3},
+			{"name":"Persuasion/Fast Talk","value":2}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":4},
+			{"name":"Composition","value":7},
+			{"name":"Education/Gen. Know","value":6},
+			{"name":"Gamble","value":2},
+      {"name":"History","value":4},
+      {"name":"Language: English","value":8},
+			{"name":"Library Search","value":5},
+			{"name":"Shadow/Track","value":6}
+		],
+		"ref":[
+			{"name":"Brawling","value":4},
+			{"name":"Driving","value":3},
+			{"name":"Handgun","value":5},
+			{"name":"Melee","value":2},
+			{"name":"Stealth","value":4}
+		],
+		"tech":[
+			{"name":"Electronics","value":2},
+			{"name":"Elect. Security","value":3},
+			{"name":"First Aid","value":4},
+			{"name":"Forgery","value":3},
+			{"name":"Photo/Film","value":6},
+			{"name":"Pick Lock","value":3},
+			{"name":"Pick Pocket","value":2}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Moody, rash and headstrong",
+			"valuedperson":"His brother",
+			"valuemost":"Honor",
+			"feelaboutpeople":"People are untrustworthy. Don't depend on anyone.",
+			"valuedpossession":"A patch from his former unit."
+		},
+		"style":{
+			"clothes":"Generic chic",
+			"hair":"Short, curly",
+			"affectations":"Smoking",
+			"ethnicity":"Spanish",
+			"languages":"Spanish"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":[
+    "Neural Processor [DLNK, PLG]",
+    "Left Cyberarm [no options]",
+    "Right Cyberoptic[IE, MV, LL]"
+  ],
+	"gear":[
+    "business jacket armored [SP12]",
+    "Colt AMT Model 2000 (P/0/C/J/4D6+1/8/1/VR)",
+    "E-book with assorted options",
+    "Smokes"
+  ],
+	"history":"Harden Torres does the street report on channel WNS-7, Night City News force Team. Harden is a vet for the SoAm wars and is very gruff. His opinions on air and off have often gotten him in trouble, but WNS keeps him to give the appearance of being unbiased. Harden knows he's being used in this way and takes advantage of it. Currently he is mentoring Mac V and knows that WNS will replace him with the kid. Harden hopes to instill a backbone in Mac to become a true, dedicated journalist and not a corporate tool."
+}

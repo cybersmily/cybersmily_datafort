@@ -1,0 +1,58 @@
+<div *ngIf="!editMode; else inEditMode">
+<div class="row">
+  <div class="col-3">{{contact.name}}</div>
+  <div class="col" title="Skill check {{(contact.capability)?contact.capability.effect:''}}">{{(contact.capability)?contact.capability.name:''}})({{contact.cost}}pts)</div>
+  <div class="col" title="{{(contact.reputation)?contact.reputation.effect:''}}">{{(contact.reputation)?contact.reputation.name+'(x'+contact.reputation.multiplier+')':''}}</div>
+  <div class="col" title="Availablity Check {{(contact.availability)?contact.availability.effect:''}}">{{(contact.availability)?contact.availability.name+'(x'+contact.availability.multiplier+')':''}}</div>
+  <div class="col" title="{{(contact.reliability)?contact.reliability.effect:''}}">{{(contact.reliability)?contact.reliability.name+'(x'+contact.reliability.multiplier+')':''}}</div>
+  <div class="col">
+    {{contact.cost}}pts
+  </div>
+  <div class="col-1">
+    <fa-icon [icon]="faPen" (click)="editContact()" title="Edit contact" class="hidden-print csd-btn"></fa-icon>&nbsp;
+    <fa-icon [icon]="faTrash" (click)="deleteContact()" title="Delete contact" class="hidden-print csd-btn"></fa-icon>
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10 big-league-details">
+    {{contact.details}}
+  </div>
+</div>
+</div>
+<ng-template #inEditMode>
+  <div class="row hidden-print">
+    <div class="col-3">{{contact.name}}</div>
+    <div class="col">
+      <select [(ngModel)]="capability" title="Choose a capability for the contact">
+        <option *ngFor="let c of catagories.capabilities" [ngValue]="c.name" title="Skill check {{c.effect}}">{{c.name}}({{c.cost}}pts)</option>
+      </select>
+    </div>
+    <div class="col">
+      <select [(ngModel)]="reputation" title="Choose a reputation for the contact">
+        <option *ngFor="let c of catagories.reputations" [ngValue]="c.name" title="{{c.effect}}">{{c.name}}(x{{c.multiplier}})</option>
+      </select>
+    </div>
+    <div class="col">
+      <select [(ngModel)]="availability" title="Choose a availability for the contact">
+        <option *ngFor="let c of catagories.availabilities" [ngValue]="c.name" title="Availability test {{c.effect}}">{{c.name}}(x{{c.multiplier}})</option>
+      </select>
+    </div>
+    <div class="col">
+      <select [(ngModel)]="reliability" title="Choose a reliability for the contact">
+        <option *ngFor="let c of catagories.reliabilities" [ngValue]="c.name" title="{{c.effect}}">{{c.name}}(x{{c.multiplier}})</option>
+      </select>
+    </div>
+    <div class="col">
+      {{contact.cost}}pts&nbsp;&nbsp;
+      <fa-icon  [icon]="faSave" (click)="saveContact()" title="Save contact changes" class="csd-btn"></fa-icon>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10 big-league-details">
+      <textarea [(ngModel)]="contact.details" placeholder="Enter details about contact..."></textarea>
+    </div>
+  </div>
+</ng-template>

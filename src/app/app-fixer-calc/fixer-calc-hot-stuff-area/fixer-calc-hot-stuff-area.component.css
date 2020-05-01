@@ -1,0 +1,9 @@
+.area-details {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: solid 1px #BBB;
+}
+
+.area-details textarea {
+  width: 100%;
+}

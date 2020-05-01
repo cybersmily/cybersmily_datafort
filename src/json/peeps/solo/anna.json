@@ -1,0 +1,99 @@
+﻿{"name":"Annabella Estellio",
+	"handle":"Anna",
+	"aliases":"Tory Lino, Marsha Oneito, Kelly Escabar",
+	"age":29,
+	"img":"anna",
+	"career":{"name":"Solo","specialability":"Combat Sneak","value":8},
+	"stats":{
+		"ref":10,
+		"int":8,
+		"tech":6,
+		"cool":9,
+		"attr":9,
+		"luck":6,
+		"ma":7,
+		"body":8,
+		"emp":8,
+		"hc":47},
+	"skills":{
+		"attr":[
+		],
+		"body":[
+		],
+		"cool":[
+			{"name":"Intimidate","value":5},
+			{"name":"Streetwise","value":5}
+		],
+		"emp":[
+			{"name":"Seduction","value":5},
+			{"name":"Persuasion/Fast Talk","value":5}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":6},
+			{"name":"Hide/Evade","value":7},
+			{"name":"History","value":""},
+			{"name":"Language: Spanish","value":8},
+			{"name":"Language: Egnlish","value":6},
+			{"name":"Language: Japanese","value":6}
+		],
+		"ref":[
+			{"name":"Athletics","value":5},
+			{"name":"Dance","value":3},
+			{"name":"Driving","value":4},
+			{"name":"Handgun","value":8},
+			{"name":"Heavy Weapons","value":8},
+			{"name":"MA: Choi Li Fut","value":8},
+			{"name":"Melee","value":5},
+			{"name":"Pilot: Gyro","value":4},
+			{"name":"Pilot: Fixed Wing","value":3},
+			{"name":"Pilot: VTV","value":5},
+			{"name":"Rifle","value":3},
+			{"name":"Stealth","value":4},
+			{"name":"Submachinegun","value":7}
+		],
+		"tech":[
+			{"name":"Basic Tech","value":3},
+			{"name":"Demolitions","value":4},
+			{"name":"Disguise","value":3},
+			{"name":"Elect. Security","value":2},
+			{"name":"First Aid","value":4},
+			{"name":"Pick Lock","value":3},
+			{"name":"Pick Pocket","value":2},
+			{"name":"Weaponsmith","value":4}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"",
+			"valuedperson":"",
+			"valuemost":"",
+			"feelaboutpeople":"",
+			"valuedpossession":""
+		},
+		"style":{
+			"clothes":"",
+			"hair":"Long",
+			"affectations":"",
+			"ethnicity":"Columbian",
+			"languages":"Spanish"
+		},
+		"family":"",
+		"siblings":""
+	},
+  "cyberware":[
+    "Gang Jazzler",
+    "Left Arm [MSR, HRAM]",
+    "Cyber Optics [Right:TM+2,AD;Left:AD, TH, LL, TE]",
+    "Neural Processor [W-V-M-DlLNK, SW, TE]",
+    "Subdermal armor-Torso(SP16)",
+    "Subdermal armor-Head(SP10)",
+    "Light Tattoo",
+    "Miss Midnight",
+    "Biomonitor",
+    "Nanosurgeons",
+    "Nasal Filters",
+    "Cyber Audio [RL, PS, WB]"
+  ],
+	"gear":[],
+	"history":"Anna grew up in Columbia. She was orphaned at an early age and was adopted buy a nomad pack. During her adolescence she got into trouble and was jailed. Anna saw where her life might end up if she continued with the ways she was going. After a year of imprisonment she joined the Columbian National Army. There she pushed herself hard to become one of the elite solider. She was soon offered a position in KAS (Columbians equivalent of the CIA). There she learned to become an assassin and spy. Because of the desperate situation in Columbia after the wars, Anna thought it would be better if she went professional. BMS, who had some assets in Columbia was first to offer her a job. She was given a new ID and a face change (the Columbian government didn't agree with her leaving). She worked for BMS for several years in Team Alpha (the black ops team for BMS). One day Big Man came to all of them and discussed his meeting with the BMS AI Prometheus. What was discussed caused the whole team turn rogue and free Prometheus. BMS is still hunting Anna and the rest of Team Alpha but so far have meet with some success. Anna is still at large and is believe to be working with Prometheus on some hidden agenda."
+}

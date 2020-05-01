@@ -1,0 +1,264 @@
+﻿{
+    "news": [
+      {
+        "date":"2020-05",
+        "entries": [
+            "Day 6,732 since lockdown...",
+            "The good news is 2 new apps have been added this month: CP 2020 Combat Tracker and the Fixer Network/Contact Point calculator.",
+            "Had to make some changes to the code to streamline it for integration with the combat tracker. Since needs more tweaks and enhancements. But will get to that in coming months. For now you should be able to play around with it",
+            "The Fixer Contact Calculator uses the 2 systems (Hot Stuff and Big League) from Wildside supplement. You can save them as text files. Someday may integrate with the character genereator. ",
+            "The other HUGE app is the Combat Tracker. This has be really fun to make and it is no where near completed. There is mising functionality I have yet to implement (looking at you Armor section). There is also tons of tweaks I still want to do throughout it.",
+            "For now it is done. Not done done. Just done. I hope it is useful. If it is and you have some ideas, by all means email me (uppper right on menu bar).",
+            "In the coming months, working master lists for cyberware and weapons. These will not be as thorough as Datafortress 2020, go to his site and look up Ultrachrome. Mine will be from references within my own library of books, which is limited to the main cp2020 books and supllements and Inteface magazine.",
+            "I will also be tweaking other parts of the site and apps as my fancy leads me or if there are any bugs reported by ya'll",
+            "If you spot a bug, typo, or missing data, please send me an email. Click on the envelope icon in the upper right. Thanks",
+            "Stay safe gatos. The dark future is upon us!",
+            "CYBER :D"
+        ]
+      },
+      {
+        "date":"2020-04",
+        "entries": [
+            "Crazy times we live in where fiction is reality.",
+            "4/11 - Small fixes throughout the site. Nothing major. Continuing to work on a combat tracker which is most of my time.",
+            "4/6 - Fixed/added some tweaks to CP2020 Character generator. Add input for number of years in lifepath. Added note field for weapons. Fixed the skill point calculation and the Special Abilty missing a die roll.",
+            "4/4 - Did some fixes to the dice roller. Had a bad bug in it. Sorry if you weren't getting any 10s on the roll :(",
+            "If you spot a bug, typo, or missing data, please send me an email. Click on the envelope icon in the upper right. Thanks",
+            "CYBER :D"
+        ]
+      },
+      {
+        "date":"2020-03-28",
+        "entries": [
+          "More changes have arrived! There has been a few things I have change, from updating the javascript framework I have been using, to 2 new sections under Data, and updates to the CP2020 Character Sheet.",
+          "The framework change was a minor, but had to untangle somethings to make it easier for future releases.",
+          "The 2 new sections under Data are the Master Roles List  and the Master Skills List. These contain most of the roles and skills I could find in the books I have in my library. I'm sure there are more and some entries I've missed. I also changed some of the Roles and skills to fit in line with others to keep them standardized.",
+          "The update to the character genarator/sheet was to include all the roles from the master list and added a couple of skills. I didn't add all the skills, due to formatting issues, but roles that have skills not listed will add them to the Others section of skills.",
+          "In additional, I have added click-to-roll on skills and saves.",
+          "In the works: Continue adding bits and pieces to other apps in the site and creating a combat tracker to help with game play.",
+          "I plan to a Cyberpunk Red character sheet, but am waiting for it to come out first. I have a feeling that the Jumpstart Kit is a simple version and it will be more elaborate with the full version.",
+          "If you spot a bug, typo, or missing data, please send me an email. Click on the envelope icon in the upper right. Thanks",
+          "CYBER :D"
+        ]
+      },
+      {
+        "date": "2020-03",
+        "entries": [
+            "This month's updates are round character generation. I have add 2 apps:",
+            "1) Cyberpunk Red Template Generator",
+            "This will generate a random character based on the templates from the CP Red Jumpstart Kit. You can print the sheet straight form the browser. The intent is these are throw away characters, like the pregen from the kit.",
+            " ",
+            "2) Cyberpunk 2020 Character Generator",
+            "This is a character online character sheet. It has more capabilities than the CPRJK generator and is based on the CP 2020 character sheet. The intent is to have a double-sided sheet to print.",
+            "You can save the character to your local drive and load it back to the site to continue maintaining your character. There is some sticky data as well, so the data will stay if you come back to the site. But if you clear your cache or some other clearing of data in the browser will lose all that work, so save to a file when you end your session just in case.",
+            "The CPRJK is as is. CP2020 I will be continue to work on. I plan to continue to build out the functionality. That will be scheduled for upcoming months. Right now I have another utility for CP 2020 in the works as well as getting ready for Cyberpunk Red and Cyberpunk 2077.",
+            "I hope I can keep this pace up with an update per month this year. We will see what real life and what happens with how much CP 2077 takes up my free time. Till next time... Burn that Chrome!",
+            "CYBER :D"
+        ]
+      },
+      {
+        "date": "2020-02",
+        "entries": [
+          "Back with another update. Since this is 2020, I am going to try to push out something once a month. This isn't a promise, just a goal.",
+          "For this month's installment, I fixed a bug with the Fashion Calculator around some of the modifier would linger when changing the clothes.",
+          "There has been a major update with the Max Metal App. I have added weapon/option selection. This is far from finished, so you shoudl audit your work with the book. I will continue to get some more fixes to it. But for now, you can play more with it.",
+          "Also, you can save your Max Metal Vehicle to a text file now too!",
+          "CYBER :D"
+        ]
+      },
+      {
+        "date": "2020-01",
+        "entries": [
+          "The year is upon us my fellow edgerunners! The prophecy has come true, flying cars, booster gangs, cybernetics.. hmmm. Guess not. Oh well.",
+          "I have done a quick update though. I create a quick CyberPunk Red Jumpstart Kit Lifepath generator under Apps section. Enjoy!",
+          "CYBER :D"
+        ]
+      },
+      {
+        "date": "2019-12",
+        "entries": [
+          "Fixed some bugs with the icons and added the ethnicity/language section to the Lifepath app.",
+          "CYBER :D"
+        ]
+      },
+      {
+        "date": "2019-08",
+        "entries": [
+          "Back again. Got the bug to do some things with the site. Added print functions to Fashion Caldulator and LifePath Generator. These will produce txt files for your records.",
+          "CYBER :D"
+        ]
+      },
+      {
+        "date": "2019-07",
+        "entries": [
+          "I fixed an issue in the Fashion calculator. Apparently the EV for choosing high SP Rating wasn't being set. That has been resolved.",
+          "The reason I noticed it was because I played Cyberpunk 2020 for the first time in a while. Normally I only get to play it at cons, but a LFGS had an event. This may turn into a regular occurrence. Fingers crossed.",
+          "CYBER :D"
+        ]
+      },
+      {
+        "date": "2019-05",
+        "entries": [
+          "Not much of an update this month. I got my wife to help edit my site. I'm not very good at grammar or spelling. about a quarter of the way through the site.",
+          "I fixed some bugs with the netrunner navigator app. I also included some DIFF for hacking a datafort using my quick netrun rules.",
+          "CYBER :D"
+        ]
+      },
+      {
+        "date": "2019-04",
+        "entries": [
+          "I'm back with an update. I have done some updating on the site, specifically switching to a different Javascript framework.",
+          "I added some enhancements to some of the apps, tweaked some of the other pages, and generally trying to do some light cleaning.",
+          "I am working to get any bugs resolved as quick as my real life allows me the time. I hope to get this done within the next month or two. Please be patient with me...",
+          "CYBER :D"
+        ]
+      },
+      {
+        "date": "2019-02",
+        "entries": [
+          "Yes. I'm still alive. Been trying to get back to updating the site and add some enhancemnets to it, but been sidelined due to other priorities in my life. I can't make promises of when these updates will show up as im in the middle of rewriting the netrunning app.",
+          "I just got back from TotalCon 2019 and was in a game with Maximum Mike. It was a fun session. He did a very minor previews of Cyberpunk Red. Nothing to report but there will be changes to career skills as well as elements from Fuzion added. He also gave a bit of the history and current state of the world, similar to what he said in his recent podcast, Episode 1: Deep Lore over at R. Talsorian Games site. Go check it out. I was also in another game with Jay Libby who's trying to get the characters we played as canon. We will see...",
+          "CYBER :D"
+        ]
+      },
+        {
+          "date": "2018-02",
+          "entries": [
+            "I'm back with an update. RL has been a bit of a pain and haven't been playing much CP2020 in these past years except at conventions. I am going to try to update the site as I learn a new web technology. This all depends on what else is going in my life at any particular time.",
+            "One thing that seems interesting is that CP 2077 might be making some appearances this year. That will be interesting.",
+            "CYBER :D"
+          ]
+        },
+        {
+            "date": "2015-12",
+            "entries": [
+                "Haven't done much with the site. This year has been a bit crazy, got a new house, company I worked for merged so been trying to prove my worth on that end, and had a death in the family. So my mind hasn't been on getting this site perfected yet. I am still working on a few different things, mostly coding of the site, than any content. Was working on a CP character generator using WPF/C# and started overengineering it I think, so not sure if that will see the light of day",
+                "Hope you have good new year and start 2016 off right.",
+                "Till next time",
+                "CYBER :D"
+            ]
+        },
+        {
+            "date": "2015-06",
+            "entries": [
+                "So I didn't add to much new content. What I have been doing is turning this site into a single application page with AngularJS (javascript framework). So no longer am I maintaining individual pages, requiring me to make sure the navigation is right on all of them or the format being off. This should help me with some of the sanity of organizing the site.",
+                "I have changed a few things for styling and layout you might notice. Also, I still in the process of converting the Peeps section over as well. I also decided to get rid of the Arch section and merge it back to Mods. Less is more as they say.",
+                "Lastly, I wouldn't mind sprucing up the site with some images. However, my time and skill are limited. So I'm asking any artists out there who'd like to show off their work with no pay (sorry, I'm not in this for the money, else I would spread the wealth).  I don't mind adding links to your personal sites as well to help promote your goods. If you're willing to help this site out, please email me using the link in the title bar above. Thanks"
+            ]
+        },
+        {
+            "date": "2015-04",
+            "entries": [
+                "Been awhile. Real life has been a big distraction. So I went to Total Confusion over a month ago and got to be in a game ref'd by Maximum Mike himself! It was a fun time. The group survived, barely. There were cyborgs in the afterlife, the hit squad that tried to take down the AV we were in, and getting off the island where the Giligan's took up residence. Though the alligator in the lagoon almost got one member of the team. This was all for Action Girl, that little minx! ",
+                "As for this site, I have been mostly playing around with some frameworks and restyling a few things. No major updates I'm afraid. Though I have been thinking of updating the NR Map with a few things, such as selecting a city prior to your run, possibly copy/pasting a previous run, and a few updates to cities. Another thing I was starting to play aroudn with was creating a Max Metal calculator. I got some preliminary code done, but still need to work out a few things, especially around turret and equipment calculations. I will keep you posted on any head way I make with either item. "
+            ]
+        },
+        {
+            "date": "2015-01",
+            "entries": [
+                "Create a new Fashion Calculator app. look under the Apps section. This is based off of the information you can find in <a href='http://rpg.drivethrustuff.com/product/114828/Chrome-Compilation-Cyberpunk-Style-Guides-3--4'>Chromebook 4 (or in the compliation)</a>. This web page will allow you to pick and choose a piece of clothes you want and caculate the cost and EV for you. Then you can click on Buy and it will be added to the table on the right side. A total of all your purchase will also be calculated as well. Enjoy!"
+            ]
+        },
+        {
+            "date": "2014-09",
+            "entries": [
+                "Major overhaul of the site. Updated the look and feel of the site as well as implemented some responsive web designs for mobile devices. Testing out a responsive web framework, Foundation. I like some of what it can do, other parts not so much. ",
+                "Updated some text on several articles. Fleshed out some more of the Proteus programs, they still need a bunch of work. "
+            ]
+        },
+        {
+            "date": "2013-09",
+            "entries": [
+                "Updated the CC3 map of Night City. I drew in building outlines for the Night City Sourcebook, add security camera and data term locations. I also uploaded a png of this map with the districts.",
+                "Fixed some of the linking issue. Was trying to be slick and use xsl/xml to render pages. Really wasn't working out for me. Went back to JQuery ajax loading html pages. ",
+                "Still working on the site. Been on a hiatus with work. Also been working on something for Wisdom over at Datafortress 2020 on the Ultrachrome book. So this installment fixing some of the code I was messing with."
+            ]
+        },
+        {
+            "date": "2013-01",
+            "entries": [
+                "Thought it would be easy getting the site up and running. Yeah, my code wasn't good. I also want to be in a better position to start leveraging some dynamic stuff with ASP.NET and database driver content.",
+                "Least to say no one is reading these post as of yet. They are for my own sanity.",
+                "I also see there was a lot of unfinished content. This is something I will be addressing once I get this site at least live.",
+                "The nanites are kicking back online. <a href='http://cyberpunk.net' target='_blank'>Cyberpunk 2077</a>, if you don't know, is a brain child of CD Projekt Red and Maximum Mike Pondsmith. When I hear the news, those CP sleeper cells started reacting. IT has been a while, yes, over 12 years since I posted things. It has been that long since I've played CP 2020 as well. Though I don't have a group as of yet, I still love the game. I want to do some updates for those of you who love and adore the blood and chrome. Who knows? One of those who come to this site and lives in CT USA might email me to start a group up. I plan on doing some changes to the site, small incremental ones. So don't expect too much. I mainly will be editing this site as my knowlege of web site development has increased since last I updated. I have a few things in the pipeline, one being conversion of Night City maps into a <a href='http://www.profantasy.com/products/cc3.asp' target='_blank'>Campaign Cartographer 3</a> map. IF you haven't seen this tool, it is very nice program for creating maps for RPGs.",
+                "So to give you some history of what happen to the site. Well good 'ol geocity decide to kick the bucket. At the time I could ill afford the expense of maintaining a site.",
+                "I was back in college getting a degree and working full time+ at a factory. Finally after many years (7 to be precise) I finish college and started a new career in IT.",
+                "One thing that sucked up my free time (besides school, work, and a wife) was World of Warcraft. Yes my colleagues I am a gnomish warlock spreading evil in the world of elves and pandas. I still am playing that game. Just waiting for CP 2077 arrival.",
+                "I will 'aim' for 1/month of doing something to the site. Might not be new content, but something.",
+                "Till next time. Cyber :) "
+            ]
+        },
+        {
+            "date": "2001-12",
+            "entries": [
+                "I'm back again, and this time it's personal! Only kidding, but as you can tell I've done some reconstruction on the site. For starters the looks and navigation of the site is different. I moved the contract section and placed it in the <b>Library</b>. It's a better place for it anyways. I removed some old links from the <b>LDL</b> and add a few more. New equipment has been added to the <b>Shop</b>. I created something in every category. Thought it was time to stop teasing all of ya. Part 2 of the <b>Prometheus Chronicle</b> is up. Do you want more? As I said, I haven't played CP in AWHILE and it proably will stay that way for sometime. DnD and WHFRP are the two games right now that have my attention. Hopefully when the new version comes out, I be more into it. : ("
+            ]
+        },
+        {
+            "date": "2001-08",
+            "entries": [ "Yes it is I have returned with more goodies. First off I'm starting a new series of scenarios in the <b>Contract</b> section. These are based off of the longest Cyberpunk campaign I've ever had. I also added a new netrunning system in the <b>Law</b> section. Hopefully it will speed things up for your games with that netrunner. And finally I have made my own Character sheet, it's in <b>Library</b>. I use the hunmanity lose from Grimm's Cybertales. An awesome book. A must for the serious Referee. It might be another few months before I post again. Haven't played Cyberpunk in AWHILE so I'm not into creating until I get my juices flowing again." ]
+        },
+        {
+            "date": "2001-04",
+            "entries": [ "Damn it's been awhile. Don't panick I'm still here : ) I guess when you don't play the game as often as you use to you start running out of ideas. Well sitting at work I came up with some and thought it would be a good idea to update my site for all of my wonderful readers. Let's start with the <b>Proteus Project</b>, yes I added a couple more program descriptions to Anti-System and Anti-Personal ICE. Also in the <b>Law</b> section, I added some rules on stats and careers. Computer nerds shouldn't have a 10 bod if they sit on their @$$es all day right? Also a pre-life path for when characters grew up. If you're parents were corp execs, then you should have some Gen Know skill for the schools they sent you to. Well three things done in 4 months, average about one new thing a month isn't bad I suppose. Til next time." ]
+        },
+        {
+            "date": "2000-12",
+            "entries": [ "4,000 hits and still going strong! well it's been 2 months and thought it time to add a little to the old girl. Added some history to <b>Shitoraki</b> in People &amp; Places. One more bit of equipment to the <b>Shop</b>." ]
+        },
+        {
+            "date": "2000-10",
+            "entries": [ "I'm back again. Almost had a streak going, but alast. Had some RW projects that needed my attention and time. Of course I still have more projects but thought I needed to attempt some CP stuff before I go onto a third month without posting. Well here's what I've done, add some gear in the <b>Shop</b>, gave some stats to some of the runner in the Proteus under <b>Library</b>, and a small chart for opposing skills in the <b>Law</b>. Can't say for sure whether I'm still going to do a monthly update, but will definitely do the bi-monthly thing. If there's problem I'll relate the news to you, my fans *sniff* brings a tear to my eye to know you care (ya right ;-P)" ]
+        },
+        {
+            "date": "2000-08",
+            "entries": [ "Another months upon me. I added new <b>cyberoptics</b> to the shop. Also in the shop I put a * in front of what's new so you can easily see it. A couple of new rules have also been added. One concerning <b>IP </b>and the other about starting <b>money</b>. There are also 2 more <b>NPCs</b> who work for EBM Night City. Finally 2 new pieces of <b>gear</b>. Now I would like to talk about other web sites. It was brought to my attention that my fumble chart wasn't original. Well I thought was until I saw another. I would like to credit <a href='http://www.paper-dragon.com/' target='_blank'>Night Flyer</a> with a better chart that I was not aware of. If anyone else sees something that looks familiar I would like to point my viewers in their direction." ]
+        },
+        {
+            "date": "2000-07",
+            "entries": [ "WOO HOO! Thanks to all of you for making my page reach 2,000. I also just got into the top ten sites on the <a href='http://www.topsitelists.com/area51/cyberjunk/topsites.cgi?ID=6'>Top One Hundred Cyberpunk Sites</a>. This month I changed the main page (Foolin around with image maps). I finally got around to adding some more info to the 2 <b>corporations</b> I posted. They'll be a progress in work (sorta like the proteus thing ;). Added a <b>Black Ops Team</b> and another <b>NPC</b> to People and Places. I also added some new equipment to the <b>shop</b>. And finally I add a section about <b>me</b>, just click on the cybersmily image. I hopefully will have more stuff next month." ]
+        },
+        {
+            "date": "2000-06",
+            "entries": [ "<b>2 corporations</b> have been added to people and places. Reformatted the<b> shop</b> section." ]
+        },
+        {
+            "date": "2000-05",
+            "entries": [ "I added new rules on<b> initiative and action</b> for combat and a <b>fumble chart</b>. Also I'm working on completing the Proteus stuff, adding some NPCs to Pp, and getting a couple of corporation done up. I hope to have it done by July, but it all depends on how the real world is going. ALSO, I have a request for all browser. When you leave my page please click the CYBERPUNK TOP 100 banner on the main page. I want to try and get onto the top 10 sites. : )" ]
+        },
+        {
+            "date": "2000-04",
+            "entries": [ "I started a list of <b>books, movies, anime, tv series, etc</b>. that have a cyberpunk theme and help me get into the mood for running the edge." ]
+        },
+        {
+            "date": "2000-03",
+            "entries": [ "Well I've been on a leave of absence for too long. Do to real world problems I haven't been able to update my site in recent month. Here is what I've done. Added <b>Proteus Conversion</b> from the <i>Netrunner CCG</i> to the Library. I also added 2 more <b>NPCs</b> in People and Places." ]
+        },
+        {
+            "date": "1999-11",
+            "entries": [ "Added <b>Got... </b>scenario to contracts. Added some new graphics to spice up the page." ]
+        },
+        {
+            "date": "1999-10",
+            "entries": [ "Added some new <b>Cyberware</b> and<b> Gear</b> to the shop. Also I have a few new careers for the <b>medtech</b> profession." ]
+        },
+        {
+            "date": "1999-06",
+            "entries": [ "Added <b>Vehicles</b> converted to<i> Maximum Metal </i>from <i>Chrome2</i>" ]
+        },
+        {
+            "date": "1999-04",
+            "entries": [ "Added <b>Chipware</b> section to cyberware reference charts." ]
+        },
+        {
+            "date": "1999-03",
+            "entries": [ "Added <b>new LUCK rules</b> to the LAW section. <b>China</b> is a character of my brother's that has become a legend and NPC in my campaign. I'm still working on a chipware reference table, it will be up in the coming months." ]
+        },
+        {
+            "date": "1999-02",
+            "entries": [
+                "New graphics and layout. The e-mail links should be working now. I screwed up when entering my address. And finally I made this page to keep people up to date on what's going on with this page."
+            ]
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+<div class='row opp-skill'>
+  <div class='col-4 opp-wpn'>
+    <fa-icon class="delete-wpn csd-btn" [icon]="faTrash" (click)="deleteWpn()"></fa-icon>
+    {{weapon.name  | parse}}
+  </div>
+  <div *ngIf="!weapon.jammed; else jamWeapon" class="col-8">
+    {{weapon.type}}&nbsp;
+    {{(weapon.wa > 0)?'+' + weapon.wa: weapon.wa}}&nbsp;&nbsp;
+    <span *ngFor="let dmg of damageArray">{{dmg}}
+      <fa-icon *ngIf="isDice(dmg)" [icon]="dice" class="csd-dice" (click)="rollDamage(dmg)" title="Roll for damage."
+      popoverTitle="Damage Results" containerClass="csd-rounded csd-popover"
+      [popover]="damageResults" [outsideClick]="true"
+      ></fa-icon>
+      &nbsp;
+    </span>&nbsp;
+    {{weapon.shots}}&nbsp;
+    {{weapon.rof}}&nbsp;&nbsp;
+    {{weapon.rel}}&nbsp;
+    <fa-icon *ngIf="weapon.rel && weapon.rel !== ''" [icon]="dice" class="csd-dice" (click)="rollReliability()"
+    title="Roll for reliability."
+    popoverTitle="Reliability Results" containerClass="csd-rounded csd-popover"
+    [popover]="relResults" [outsideClick]="true"
+    ></fa-icon>&nbsp;
+    {{(weapon.range)?weapon.range + 'm':''}}
+  </div>
+  <ng-template #jamWeapon>
+  <div class=" col-8 opp-wpn-jammed">
+    ***JAMMED***&nbsp;&nbsp;
+    <span class="btn-secondary csd-rounded" (click)="unjam()">Unjam Weapon</span>
+  </div>
+</ng-template>
+</div>
+<div class="row opp-skill">
+  <div class='col-1'></div>
+  <div class='col-11'>{{weapon.notes}}</div>
+</div>

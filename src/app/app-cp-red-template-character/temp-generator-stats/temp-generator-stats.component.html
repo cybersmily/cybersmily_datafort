@@ -1,0 +1,86 @@
+  <div class="cpr-stat-area">
+    <svg height="320" width="1000" >
+      <polygon points='0,0
+                      870,0
+                      900,30
+                      900,300
+                      30,300
+                      0,270'
+            fill='#f00'/>
+      <polygon points='20,20
+            140,20
+            150,30
+            150,200
+            30,200
+            20,180'
+            fill='#fff'/>
+      <text x="170" y="50" font-family="Verdana" font-size="25" font-weight="bold" fill="white">{{(name !== '') ? name + ', ' : ''}}{{role}}</text>
+      <g>
+        <rect x="170" y="100" width="60" height="30" fill="white"></rect>
+        <text x="182" y="122" font-family="Verdana" font-size="17" font-weight="bold" fill="black">INT</text>
+        <rect x="170" y="135" width="60" height="30" fill="white"></rect>
+        <text x="192" y="157" font-family="Verdana" font-size="17" fill="black">{{stats.INT.current}}</text>
+
+        <rect x="240" y="100" width="60" height="30" fill="white"></rect>
+        <text x="252" y="122" font-family="Verdana" font-size="17" font-weight="bold" fill="black">REF</text>
+        <rect x="240" y="135" width="60" height="30" fill="white"></rect>
+        <text x="262" y="157" font-family="Verdana" font-size="17" fill="black">{{stats.REF.current}}</text>
+
+        <rect x="310" y="100" width="60" height="30" fill="white"></rect>
+        <text x="322" y="122" font-family="Verdana" font-size="17" font-weight="bold" fill="black">DEX</text>
+        <rect x="310" y="135" width="60" height="30" fill="white"></rect>
+        <text x="332" y="157" font-family="Verdana" font-size="17" fill="black">{{stats.DEX.current}}</text>
+
+        <rect x="380" y="100" width="60" height="30" fill="white"></rect>
+        <text x="385" y="122" font-family="Verdana" font-size="17" font-weight="bold" fill="black">TECH</text>
+        <rect x="380" y="135" width="60" height="30" fill="white"></rect>
+        <text x="402" y="157" font-family="Verdana" font-size="17" fill="black">{{stats.TECH.current}}</text>
+
+        <rect x="450" y="100" width="60" height="30" fill="white"></rect>
+        <text x="455" y="122" font-family="Verdana" font-size="17" font-weight="bold" fill="black">COOL</text>
+        <rect x="450" y="135" width="60" height="30" fill="white"></rect>
+        <text x="472" y="157" font-family="Verdana" font-size="17" fill="black">{{stats.COOL.current}}</text>
+
+        <rect x="520" y="100" width="60" height="30" fill="white"></rect>
+        <text x="525" y="122" font-family="Verdana" font-size="17" font-weight="bold" fill="black">WILL</text>
+        <rect x="520" y="135" width="60" height="30" fill="white"></rect>
+        <text x="542" y="157" font-family="Verdana" font-size="17" fill="black">{{stats.WILL.current}}</text>
+
+        <rect x="590" y="100" width="60" height="30" fill="white"></rect>
+        <text x="595" y="122" font-family="Verdana" font-size="17" font-weight="bold" fill="black">LUCK</text>
+        <rect x="590" y="135" width="60" height="30" fill="white"></rect>
+        <text x="612" y="157" font-family="Verdana" font-size="17" fill="black">{{stats.LUCK.current}}</text>
+
+        <rect x="660" y="100" width="60" height="30" fill="white"></rect>
+        <text x="665" y="122" font-family="Verdana" font-size="17" font-weight="bold" fill="black">MOVE</text>
+        <rect x="660" y="135" width="60" height="30" fill="white"></rect>
+        <text x="682" y="157" font-family="Verdana" font-size="17" fill="black">{{stats.MOVE.current}}</text>
+
+        <rect x="730" y="100" width="60" height="30" fill="white"></rect>
+        <text x="735" y="122" font-family="Verdana" font-size="17" font-weight="bold" fill="black">BODY</text>
+        <rect x="730" y="135" width="60" height="30" fill="white"></rect>
+        <text x="752" y="157" font-family="Verdana" font-size="17" fill="black">{{stats.BODY.current}}</text>
+
+        <rect x="800" y="100" width="60" height="30" fill="white"></rect>
+        <text x="808" y="122" font-family="Verdana" font-size="17" font-weight="bold" fill="black">EMP</text>
+        <rect x="800" y="135" width="60" height="30" fill="white"></rect>
+        <text x="822" y="157" font-family="Verdana" font-size="17" fill="black">{{stats.EMP.current}}</text>
+      </g>
+      <g>
+        <rect x="30" y="210" width="270" height="30" fill="white"></rect>
+        <text x="80" y="230" font-family="Verdana" font-size="17" font-weight="bold" fill="black">STARTING HITS</text>
+        <rect x="30" y="245" width="270" height="30" fill="white"></rect>
+        <text x="140" y="265" font-family="Verdana" font-size="17" fill="black">{{stats.StartingHP()}}</text>
+
+        <rect x="310" y="210" width="270" height="30" fill="white"></rect>
+        <text x="335" y="230" font-family="Verdana" font-size="17" font-weight="bold" fill="black">SERIOUSLY WOUNDED</text>
+        <rect x="310" y="245" width="270" height="30" fill="white"></rect>
+        <text x="430" y="265" font-family="Verdana" font-size="17" fill="black">{{stats.WoundThreshold()}}</text>
+
+        <rect x="590" y="210" width="270" height="30" fill="white"></rect>
+        <text x="665" y="230" font-family="Verdana" font-size="17" font-weight="bold" fill="black">DEATH SAVE</text>
+        <rect x="590" y="245" width="270" height="30" fill="white"></rect>
+        <text x="720" y="265" font-family="Verdana" font-size="17" fill="black">{{stats.DeathSave()}}</text>
+      </g>
+    </svg>
+  </div>

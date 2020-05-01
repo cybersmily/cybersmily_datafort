@@ -1,0 +1,69 @@
+﻿{"nodes":[
+	{"title":"Data","links":[
+		{"title":"More Guns","link":"#moreguns"}, 
+		{"title":"Proteus Conversion","link":"","sublinks":[
+			{"title":"Programs","link":"#proteus-progm"},
+			{"title":"Decks, Cyber, Gear","link":"#proteus-gear"},
+			{"title":"Sysops","link":"#proteus-sysop"}
+		]},
+		{"title":"CH2 Conversion","link":"#chrome2"},
+		{"title":"In the Media","link":"#inmedia"}
+	]},
+	{"title":"Mods","links":[
+		{"title":"Alt Money","link":"#altmoney"},
+		{"title":"Character Build Points","link":"#cbps"},
+		{"title":"Fumble","link":"#fumble"},
+		{"title":"Init./Actions",         "link":"#initactions"},
+		{"title":"IP Rules",              "link":"#ip"},
+		{"title":"LUCK","link":"#luck"},
+		{"title":"Medtechs","link":"#medtechs"},
+		{"title":"Quick NR","link":"#qnr"},
+		{"title":"Skills",                "link":"#skills"},
+		{"title":"Special Abilities",     "link":"#spclabilities"},
+		{"title":"Stats/Careers",         "link":"#stats"},
+		{"title":"Yth Path","link":"#ythpath"}
+	]},
+	{"title":"Shop","links":[
+		{"title":"Cyberware","link":"#shopCyberware"},
+		{"title":"Gear","link":"#shopGear"},
+		{"title":"Other","link":"#shopOther"}
+	]},
+	{"title":"Peeps","links":[
+		{"title":"Cops/Corps",			"link":"/peeps/copscorp.htm"},
+		{"title":"Fixers/Medias",		"link":"/peeps/fixermedia.htm"},
+		{"title":"Medtechs/Netrunners",	"link":"/peeps/medtechnr.htm"},
+		{"title":"Nomads/Rockerboys",	"link":"/peeps/nomadrocker.htm"},
+		{"title":"Solos/Techies",		"link":"/peeps/solotechie.htm"},
+		{"title":"Corporations",		"link":"/peeps/corporations.htm"}
+	]},
+	{"title":"Gigs","links":[
+		{"title":"Dy in Lyte",             "link":"#dynlyte"},
+		{"title":"Got...",                 "link":"#got"},
+		{"title":"Prometheus Chron.",      "link":"#prometheus"},
+		{"title":"WNS7 News Force Reports","link":"#wns7"}
+	]},
+	{"title":"Apps","links":[
+		{"title":"LifePath Generator", "link":"#csdlifepath"},
+		{"title":"Netrunner Navigator","link":"#nrtrace"},
+		{"title":"Netrunner Navigator2","link":"#nrtrace2"},
+		{"title":"Fashion Calculator", "link":"#fashion"},
+		{"title":"MaxMetal Calculator","link":"#maxmetal"}
+	]},
+	{"title":"DLow","links":[
+		{"title":"PC Sheet",   "link":"/files/PCSheet2.pdf"},
+		{"title":"CC3 NC Maps","link":"#cc3maps"},
+		{"title":"NC JPG Maps","link":"#jpgmaps"}
+	]},
+	{"title":"LDLs","links":[
+		{"title":"R. Talsorian","link":"https://rtalsoriangames.wordpress.com/","target":"_blank"},
+		{"title":"Datafortress 2020","link":"http://datafortress2020.com/","target":"_blank"},
+		{"title":"Views from the Edge","link":"http://vfte.cyberpunk.co.uk/","target":"_blank"},
+		{"title":"Cyberpunk 2077","link":"http://cyberpunk.net/","target":"_blank"},
+		{"title":"Mockery","link":"http://www.verminary.com/cyberpunk/","target":"_blank"},
+		{"title":"Karsten's CP Arch.","link":"http://www.cyberpunk2020.de/","target":"_blank"},
+		{"title":"Paper Dragon","link":"http://www.paper-dragon.com/","target":"_blank"},
+		{"title":"2k20","link":"http://mecha.com/~conkle/cyber/","target":"_blank"},
+		{"title":"Blackhammer","link":"http://www.ambient.ca/cpunk/","target":"_blank"},
+		{"title":"CP2020: Prog/Utilities","link":"http://lost.strange.com/cp2020/","target":"_blank"}
+	]}
+]}

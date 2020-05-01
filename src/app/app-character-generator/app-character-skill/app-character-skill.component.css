@@ -1,0 +1,106 @@
+.skill-name {
+  font-size: 10px;
+}
+
+.chargen-skill-input {
+  width: 20px;
+  height: 14px;
+  font-size: 10px;
+  text-align: right;
+}
+
+.chargen-skil-option {
+  width: 55px;
+  height: 14px;
+  font-size: 10px;
+  margin-left: 4px;
+}
+
+.chargen-skil-option::before {
+  content: ": ";
+  display: block;
+}
+
+.chargen-skill-is-role span.skill-name:first-child::before {
+  content: '*';
+}
+.chargen-skill-is-role.chargen-role-choice span.skill-name:first-child::before {
+  content: '@';
+}
+
+.chargen-skill-is-role span {
+  background-color: #ffff99;
+  font-weight: bold;
+}
+
+.chargen-skill-is-role input {
+  background-color: #ffff22;
+}
+
+.chargen-skill-has-value {
+  background-color: #ffff22;
+  font-weight: bold;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input.chargen-skill-input::-webkit-outer-spin-button,
+input.chargen-skill-input::-webkit-inner-spin-button
+ {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input.chargen-skill-input[type=number] {
+  -moz-appearance:textfield;
+}
+
+.article {
+  display: flex;
+}
+
+.article .skill-name,
+.article .skill-inputs {
+  flex: 1 0 auto;
+}
+.article .dots {
+  flex: 0 1 auto;
+  /*Allows too long content to be hidden.*/
+  overflow: hidden;
+}
+.dots::before {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+  content:
+    ". . . . . . . . . . . . . . . . . . . . "
+    ". . . . . . . . . . . . . . . . . . . . "
+    ". . . . . . . . . . . . . . . . . . . . "
+    ". . . . . . . . . . . . . . . . . . . . "
+}
+
+span.skill-name:hover {
+  background-color: #BBB;
+  font-size: 13px;
+  padding-right: 3px;
+  padding-left: 3px;
+  cursor: default;
+}
+
+span.skill-name .ng-fa-icon {
+  display: none;
+  cursor: pointer;
+  margin-left:3px;
+  color: red;
+  font-size: 20px;
+}
+
+span.skill-name:hover .ng-fa-icon {
+  display: inline-block;
+}
+
+span.sa-name {
+  font-size: 14px;
+  margin: 5px 0px;
+}

@@ -1,0 +1,24 @@
+.opp-wpn-note {
+  width: 100%;
+}
+
+.opp-wpn-dmg {
+  width: 60px;
+}
+.opp-wpn-wa {
+  width: 30px;
+}
+.opp-wpn-shots {
+  width: 20px;
+}
+.opp-wpn-rof {
+  width: 20px;
+}
+
+.opp-wpn-txt {
+  font-size: 1.0em;
+}
+
+.opp-wpn-hdr {
+  font-size: 0.7em;
+}

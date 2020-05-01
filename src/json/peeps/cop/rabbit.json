@@ -1,0 +1,87 @@
+{"name":"Rodney Mathers",
+	"handle":"Rabbit",
+	"aliases":"Rodney Rabbit",
+	"age":27,
+	"img":"rabbit",
+	"career":{"name":"Cop","specialability":"Authority","value":6},
+	"stats":{
+		"ref":8,
+		"int":6,
+		"tech":5,
+		"cool":8,
+		"attr":6,
+		"luck":8,
+		"ma":6,
+		"body":6,
+		"emp":6,
+		"hc":37,
+    "rep":2},
+	"skills":{
+		"attr":[
+			{"name":"Personal Grooming","value":3},
+			{"name":"Wardrobe/Style","value":3}
+		],
+		"body":[
+			{"name":"Endurance","value":2}
+		],
+		"cool":[
+			{"name":"Interrogation","value":4},
+			{"name":"Intimidate","value":3},
+			{"name":"Resist Torture/Drugs","value":2},
+			{"name":"Streetwise","value":5}
+		],
+		"emp":[
+			{"name":"Human Perception","value":4},
+			{"name":"Interview","value":3},
+			{"name":"Persuasion/Fast Talk","value":2}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":5},
+			{"name":"Education/Gen. Know","value":3},
+			{"name":"Expert: Law","value":4},
+			{"name":"Gamble","value":2},
+			{"name":"Shadow/Track","value":3}
+		],
+		"ref":[
+			{"name":"Athletics","value":4},
+			{"name":"Driving","value":2},
+			{"name":"Handgun","value":6},
+			{"name":"MA: Karate","value":4},
+			{"name":"Motorcycle","value":3},
+			{"name":"Rifle","value":2},
+			{"name":"Stealth","value":3},
+			{"name":"Submachinegun","value":3}
+		],
+		"tech":[
+			{"name":"First Aid","value":2},
+			{"name":"Pharmacuticals","value":4},
+			{"name":"Weaponsmith","value":3}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Stable and serious",
+			"valuedperson":"Yourself",
+			"valuemost":"Your word",
+			"feelaboutpeople":"Neutral",
+			"valuedpossession":"mp3 of Fear of a Black Planet by Public Enemy"
+		},
+		"style":{
+			"clothes":"Biker leathers",
+			"hair":"Bald",
+			"affectations":"Fingerless gloves",
+			"ethnicity":"African American",
+			"languages":"English"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":[
+		"Neural Processor[WLNK, PLGs, Chip Socket]",
+		"Cyberaudio('bunny ears')[EH, AH,PS,HT, TBR, WB, MR, LD, BD, VSA, WM, Parabolic mic]"
+		],
+	"gear":[
+		"Various. Depends on his assignment. Usually will carry Smart-mirrorshades and Budget Arms Auto3"
+	],
+	"history":"Rabbit is a narcotics officer working for NCPD working undercover. He has been planted in a branch of the Escoban Cartel working in NC. He has been provide the NCPD with intelligence on the organization."
+}

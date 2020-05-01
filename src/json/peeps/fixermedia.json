@@ -1,0 +1,16 @@
+﻿{"npcs":[
+    {"name":"Big Man","img":"bigman","career":"Fixer"},
+    {"name":"Kestrel","img":"kestrel","career":"Fixer"},
+    {"name":"Silent Su","img":"silentsu","career":"Fixer"},
+    {"name":"Stevens","img":"cstevens","career":"Fixer"},
+    {"name":"Vulture","img":"vulture","career":"Fixer"},
+
+    {"name":"Anchorman","img":"tphillips","career":"Media"},
+    {"name":"Glit G","img":"glitg","career":"Media"},
+    {"name":"Harden Torres","img":"htorres","career":"Media"},
+    {"name":"Isha","img":"itomoda","career":"Media"},
+    {"name":"Mac V","img":"macv","career":"Media"},
+    {"name":"Porche","img":"phendricks","career":"Media"}
+]}
+
+

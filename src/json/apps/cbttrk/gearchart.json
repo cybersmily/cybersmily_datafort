@@ -1,0 +1,178 @@
+{
+  "weapon": {
+    "chart":[
+      0,
+      0,
+      0,
+      1,
+      1,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      4,
+      5,
+      5,
+      6,
+      7,
+      8,
+      9,
+      9
+    ],
+    "values":[
+    {"name":"Melee", "choices":[
+      {"name":"club","type":"MEL","wa":0,"con":"L","damage":"1D6"},
+      {"name":"knife","type":"MEL","wa":0,"con":"P","damage":"1D6"},
+      {"name":"axe","type":"MEL","wa":-1,"con":"N","damage":"2D6+3"},
+      {"name":"switchblade","type":"MEL","wa":0,"con":"P","damage":"1D6/2"},
+      {"name":"sword","type":"MEL","wa":0,"con":"L","damage":"2D6+2"},
+      {"name":"nunchaku","type":"MEL","wa":0,"con":"L","damage":"3D6"},
+      {"name":"tonfa","type":"MEL","wa":0,"con":"L","damage":"2D6"},
+      {"name":"shuriken","type":"MEL","wa":0,"con":"P","damage":"1D6/3","note":"thrown"},
+      {"name":"brass knuckles","type":"MEL","wa":0,"con":"P","damage":"1d6+2"},
+      {"name":"sledgehammer","type":"MEL","wa":-2,"con":"N","damage":"4d6"},
+      {"name":"chainsaw","type":"MEL","wa":-3,"con":"N","damage":"4d6","note":"AP vs soft armor; 2SP/hit to armor."},
+      {"name":"machete","type":"MEL","wa":0,"con":"L","damage":"1D6+3"}
+    ]},
+    {"name":"Light Pistol", "choices": [
+      {"name":"BudgetArms C-13","type":"P","wa":-1,"con":"P","damage":"1D6","shots":8,"rof":2,"rel":"ST","rng":50},
+      {"name":"Dai Lung Cybermag 15","type":"P","wa":-1,"con":"P","damage":"1D6+1","shots":10,"rof":2,"rel":"UR","rng":50},
+      {"name":"Federated Arms X-22","type":"P","wa":0,"con":"P","damage":"1D6+1","shots":10,"rof":2,"rel":"ST","rng":50}
+    ]},
+    {"name":"Med. Pistol", "choices": [
+      {"name":"Militech Arms Avenger","type":"P","wa":0,"con":"J","damage":"2D6+1","shots":10,"rof":2,"rel":"VR","rng":50},
+      {"name":"Dai Lung Streetmaster","type":"P","wa":0,"con":"J","damage":"2D6+3","shots":12,"rof":2,"rel":"UR","rng":50},
+      {"name":"Federated Arms X-9mm","type":"P","wa":0,"con":"J","damage":"2D6+1","shots":12,"rof":2,"rel":"ST","rng":50}
+    ]},
+    {"name":"Heavy Pistol", "choices": [
+      {"name":"BudgetArms Auto 3","type":"P","wa":-1,"con":"J","damage":"3D6","shots":8,"rof":2,"rel":"UR","rng":50},
+      {"name":"Sternmeyer Type 35","type":"P","wa":0,"con":"J","damage":"3D6","shots":8,"rof":2,"rel":"VR","rng":50}
+    ]},
+    {"name":"Very Heavy Pistol", "choices": [
+      {"name":"Armalite 44","type":"P","wa":0,"con":"J","damage":"4d6+1","shots":8,"rof":2,"rel":"ST","rng":50},
+      {"name":"Colt AMT Model 2000","type":"P","wa":0,"con":"J","damage":"4d6+1","shots":8,"rof":2,"rel":"VR","rng":50}
+    ]},
+    {"name":"Light SMG", "choices": [
+      {"name":"Uzi Miniauto 9","type":"SMG","wa":1,"con":"J","damage":"2D6+1","shots":30,"rof":35,"rel":"VR","rng":150},
+      {"name":"H\\&K MP-2013","type":"SMG","wa":1,"con":"J","damage":"2D6+3","shots":35,"rof":32,"rel":"ST","rng":150},
+      {"name":"Fed. Arms Tech Assault II","type":"SMG","wa":1,"con":"J","damage":"1D6+1","shots":50,"rof":25,"rel":"ST","rng":150}
+    ]},
+    {"name":"Medium SMG", "choices": [
+      {"name":"Arasaka Minami 10","type":"SMG","wa":0,"con":"J","damage":"2D6+3","shots":40,"rof":20,"rel":"VR","rng":200},
+      {"name":"H\\&K MPK-9","type":"SMG","wa":1,"con":"J","damage":"2D6+1","shots":35,"rof":25,"rel":"ST","rng":200}
+    ]},
+    {"name":"Heavy SMG", "choices": [
+      {"name":"Sternmeyer SMG 21","type":"SMG","wa":-1,"con":"L","damage":"3D6","shots":30,"rof":15,"rel":"VR","rng":200},
+      {"name":"H\\&K MPK-11","type":"SMG","wa":0,"con":"L","damage":"4D6+1","shots":30,"rof":20,"rel":"ST","rng":200},
+      {"name":"Ingram MAC 14","type":"SMG","wa":-2,"con":"L","damage":"4D6+1","shots":20,"rof":10,"rel":"ST","rng":200}
+    ]},
+    {"name":"Shotgun", "choices": [
+      {"name":"Arasaka Rapid Assault 12","type":"RIF","wa":-1,"con":"N","damage":"4D6","shots":20,"rof":10,"rel":"ST","rng":50},
+      {"name":"Sternmeyer Stakeout 10","type":"RIF","wa":-2,"con":"N","damage":"4D6","shots":10,"rof":2,"rel":"ST","rng":50}
+    ]},
+    {"name":"Assault Rifle", "choices": [
+      {"name":"Militech Ronin","type":"RIF","wa":1,"con":"N","damage":"5D6","shots":35,"rof":30,"rel":"VR","rng":400},
+      {"name":"AKR-20","type":"RIF","wa":0,"con":"N","damage":"5D6","shots":30,"rof":30,"rel":"ST","rng":400},
+      {"name":"FN-RAL","type":"RIF","wa":-1,"con":"N","damage":"6D6+2","shots":30,"rof":30,"rel":"VR","rng":400},
+      {"name":"Kalishnikov A80","type":"RIF","wa":-1,"con":"N","damage":"6D6+2","shots":35,"rof":25,"rel":"ST","rng":400}
+    ]}
+  ]},
+  "armor": {
+    "chart":[
+      0,
+      1,
+      2,
+      2,
+      3,
+      3,
+      3,
+      4,
+      4,
+      5
+    ],
+    "values":[
+    {"name":"Heavy Leather", "armor":{"head":0,"torso":4,"arms":4,"legs":0}, "ev": 0},
+    {"name":"Armor vest", "armor":{"head":0,"torso":10,"arms":0,"legs":0}, "ev": 0},
+    {"name":"Light Armor Jacket", "armor":{"head":0,"torso":14,"arms":14,"legs":0}, "ev": 0},
+    {"name":"Med. Armor Jacket", "armor":{"head":0,"torso":18,"arms":18,"legs":0}, "ev": 1},
+    {"name":"Hvy. Armor Jacket", "armor":{"head":0,"torso":20,"arms":20,"legs":0}, "ev": 2},
+    {"name":"MetalGear", "armor":{"head":25,"torso":25,"arms":25,"legs":25}, "ev": 2}
+  ]},
+  "cyberware":{
+    "chart":[
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      2,
+      3,
+      3,
+      3,
+      4,
+      4,
+      4,
+      5,
+      5,
+      5,
+      6,
+      7,
+      7,
+      8,
+      8,
+      8,
+      9,
+      10,
+      10,
+      11,
+      11,
+      12,
+      13,
+      14,
+      12,
+      13,
+      14,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      -1,
+      -1,
+      -1
+    ],
+    "values":[
+    {"name": "Cyberoptics", "optLimit": 4, "options": [ "IR", "Lowlight", "Camera", "Dartgun", "Antidazzle", "Targeting Scope"]},
+    {"name": "Cyberarm with gun", "optLimit": 1, "options": [ "Med. Pistol", "Light Pistol", "Med. Pistol", "Light SMG", "Very Heavy Pistol", "Heavy Pistol"]},
+    {"name": "Cyberarm", "optLimit": 3, "options": [ "Hydraulic Rams", "Thickened Myomer", "Reinforced Joints", "EMP Shielding", "Armored", "Armored"]},
+    {"name": "Cyberaudio", "optLimit": 4, "options": ["Wearman", "Radio Splice", "Phone Link", "Amplified Hearing", "Sound Editing", "Digital Recording Link"]},
+    {"name": "Big Knucks", "weapon": {"name":"Big Knucks","type":"MEL","wa":0,"damage":"1D6+2"}},
+    {"name": "Rippers", "weapon": {"name":"Rippers","type":"MEL","wa":0,"damage":"1D6+3"}},
+    {"name": "Vampires-Sharkgrin", "weapon": {"name": "Vampires-Sharkgrin","type":"MEL","wa":0,"damage":"1D6/2"}},
+    {"name": "Vampires-Canines", "weapon": {"name": "Vampires-Canines","type":"MEL","wa":0,"damage":"1D6/3"}},
+    {"name": "Slice n'dice", "weapon": {"name": "Slice n'dice","type":"MEL","wa":0,"damage":"2D6"}},
+    {"name": "Wolvers", "weapon": {"name": "Wolvers","type":"MEL","wa":0,"damage":"3D6"}},
+    {"name": "Skinweave", "armor": {"head":12,"torso":12,"arms":12,"legs":12}},
+    {"name": "Subdermal armor", "armor": {"head":0,"torso":18,"arms":0,"legs":0}},
+    {"name": "Reflex Boost Kerenzikov I", "notes":"Kerenzikov +1 init."},
+    {"name": "Reflex Boost Kerenzikov II", "notes":"Kerenzikov +2 init."},
+    {"name": "Reflex Boost Sandevistan", "notes":"Sandevistan +3 init. 5 turns"},
+    {"name": "Grafted Muscles I", "notes":"+1 BODY"},
+    {"name": "Grafted Muscles II", "notes":"+2 BODY"},
+    {"name": "Muscle and Bone Lace", "notes":"+2 BODY"},
+    {"name": "Nasal Filters", "notes":"70% effective vs gases"},
+    {"name": "Pain Editor"},
+    {"name": "Nerualware", "optLimit": 6, "otions":["smartgun","smartgun","smartgun","tactile boost","skill chip","skill chip","skill chip","Vehicle Link"]},
+    {"name": "Body Plating - Cowl", "armor": {"head":25,"torso":0,"arms":0,"legs":0}},
+    {"name": "Body Plating - Torso", "armor": {"head":0,"torso":25,"arms":0,"legs":0}}
+  ]}
+}

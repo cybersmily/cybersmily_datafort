@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-12">
+    <button class="btn btn-secondary btn-sm csd-rounded pull-right hidden-print" (click)="save()"
+    title="Save the Big League contacts as a text file"
+    >Save</button>
+    <button class="btn btn-secondary btn-sm csd-rounded pull-right hidden-print" (click)="reset()"
+    title="Reset Streetdeal and clear all contacts"
+    >Reset</button>
+    <h4>Big League</h4>
+    <div class="hidden-print">This system has a set amount of points that can be distributed amongst contacts.</div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6">Streetdeal:
+    <input [(ngModel)]="streetdeal" type="number" min="0" max="10"
+    title="Streetdeal skill level"
+    (change)="changeStreetdeal()" class="text-center">
+  </div>
+  <div class="col-6">Contact Points Used: {{spentPoints}}/{{totalPoints}}</div>
+</div>
+<br>
+<div class="csd-rounded">
+<div class="row header-row">
+  <div class="col-3">Desciption/Name/field</div>
+  <div class="col">Capacity</div>
+  <div class="col">Reputation</div>
+  <div class="col">Availablity</div>
+  <div class="col">Reliability</div>
+  <div class="col">Contact Points</div>
+  <div class="col-1"></div>
+</div>
+<cs-fixer-calc-big-league-contact *ngFor="let c of contacts; let i = index"
+  [contact]="c"
+  [index]="i"
+  (delete)="deleteContact($event)"
+  (edit)="editContact($event)"
+  >
+</cs-fixer-calc-big-league-contact>
+</div>
+<br>
+<cs-fixer-calc-big-league-contact-new [availablePoints]="availablePoints"
+[contacts]="contacts"
+(addContact)="addContact($event)"
+class="hidden-print"
+></cs-fixer-calc-big-league-contact-new>
+<br>
+
+

@@ -1,0 +1,59 @@
+<div (click)="showDebug = !showDebug">Toggle Debug</div>
+<div  *ngIf="showDebug">
+  <h4>MousePosition</h4>
+  <div class="row small">
+    <div class="col-4 col-md-2">position={{mouseposition.x}}x:{{mouseposition.y}}y</div>
+    <div class="col-4 col-md-2">client={{mouseposition.clientX}}x:{{mouseposition.clientY}}y</div>
+    <div class="col-4 col-md-2">layer={{mouseposition.layerX}}x:{{mouseposition.layerY}}y</div>
+    <div class="col-4 col-md-2">movement={{mouseposition.movementX}}x:{{mouseposition.movementY}}y</div>
+    <div class="col-4 col-md-2">offset={{mouseposition.offsetX}}x:{{mouseposition.offsetY}}y</div>
+    <div class="col-4 col-md-2">page={{mouseposition.pageX}}x:{{mouseposition.pageY}}y</div>
+  </div>
+  <div class="row small">
+      <div class="col-4 col-md-2">column: {{cellPosition.x}}</div>
+      <div class="col-4 col-md-2">row:   {{cellPosition.y}}</div>
+      <div class="col-4 col-md-2">screen={{mouseposition.screenX}}x:{{mouseposition.screenY}}y</div>
+  </div>
+  <h4 (click)="showMapData = !showMapData">MAP OBJECT</h4>
+  <div  *ngIf="showMapData" class="row" >
+    <div class="col-12">
+      <div class="row">
+        <div class="col-12">Name: {{currMap.name}}</div>
+      </div>
+      <div class="row">
+        <div class="col-12">Active Map: {{activeMap}}</div>
+      </div>
+      <div class="row">
+        <div class="col-12">Img: {{currMap.img}}</div>
+      </div>
+      <div class="row">
+        <div class="col-4 col-md-2">Type: {{currMap.type}}</div>
+         <div class="col-4 col-md-2">Size: {{currMap.h}}h {{currMap.w}}w</div>
+        <div class="col-4 col-md-2">Nodes: {{currMap.nx}}x {{currMap.ny}}y</div>
+        <div class="col-4 col-md-2">GridSize: {{currMap.gridsize}}</div>
+        <div class="col-4 col-md-2">Offset: {{currMap.offsetx}}x {{currMap.offsety}}y</div>
+        <div class="col-4 col-md-2">Lastcell: {{currMap.lx}}x {{currMap.ly}}y</div>
+      </div>
+      <div (click)="showDataForts = !showDataForts">DATAFORTS</div>
+      <div *ngIf="showDataForts">
+        <div *ngFor="let df of currMap.dforts">
+          <div class="row">
+            <div class="col-6">Name: {{df.name}}</div>
+            <div class="col-6">
+              <span *ngIf="df.world">W;</span>
+              <span *ngIf="df.region">R;</span>
+              <span *ngIf="df.hacked">H;</span>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-4 col-md-2">Img: {{df.img}}</div>
+              <div class="col-4 col-md-2">Column: {{df.column}} Row: {{df.row}}</div>
+              <div class="col-4 col-md-2">Sec: {{df.security}} Trace: {{df.trace}}</div>
+              <div class="col-4 col-md-2">L: {{df.left}} T: {{df.top}}</div>
+              <div class="col-4 col-md-2">Align: {{df.align}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

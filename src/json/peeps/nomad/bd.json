@@ -1,0 +1,88 @@
+﻿{"name":"Breno Duarte Rocha",
+	"handle":"BD",
+	"aliases":"",
+	"age":22,
+	"img":"bd",
+	"career":{"name":"Nomad","specialability":"Family","value":3},
+	"stats":{
+		"ref":7,
+		"int":5,
+		"tech":7,
+		"cool":8,
+		"attr":7,
+		"luck":7,
+		"ma":8,
+		"body":7,
+		"emp":7,
+    "hc":13,
+    "rep":2
+  },
+	"skills":{
+		"attr":[
+			{"name":"Personal Grooming","value":2},
+			{"name":"Wardrobe/Style","value":2}
+		],
+		"body":[
+			{"name":"Endurance","value":3}
+		],
+		"cool":[
+			{"name":"Streetwise","value":3}
+		],
+		"emp":[
+			{"name":"Perform","value":3}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":6},
+			{"name":"Wilderness Survival","value":2}
+		],
+		"ref":[
+			{"name":"Athletics","value":2},
+			{"name":"Brawling","value":4},
+			{"name":"Driving","value":5},
+			{"name":"Handgun","value":3},
+			{"name":"Melee","value":7},
+			{"name":"Rifle","value":2},
+			{"name":"Submachinegun","value":2}
+		],
+		"tech":[
+			{"name":"Basic Tech","value":4},
+			{"name":"Electronics","value":3},
+			{"name":"First Aid","value":3},
+			{"name":"Play Instrument","value":4}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Shy & secretive",
+			"valuedperson":"Dy",
+			"valuemost":"money",
+			"feelaboutpeople":"people are valuable",
+			"valuedpossession":"His guitar"
+		},
+		"style":{
+			"clothes":"Leathers",
+			"hair":"Long",
+			"affectations":"earrings",
+			"ethnicity":"Spanish",
+			"languages":"English"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":[
+    "Neural Processor[PLG, MLNK, WLNK]"
+  ],
+	"gear":[
+    "Edgerunner Clothes",
+    "Armored Leather Pants (SP 16)",
+    "Armored Leather Jacket (SP16)",
+    "Electric Guitar",
+    "Image Wallet",
+    "Toyo-Chervolett Hopper(Car)",
+    "3 room Apartment Moderate Zone (w/Di)",
+    "Stallone (P +1 J P 4D6 6 2 VR 6om)",
+    "Taser ( P -1 J C Stun 10 1 ST 10m)",
+    "ChainKnife(MEL 0 J P 2D6+1* NA NA VR NA)"
+  ],
+	"history":"Made a friend w/ a childhood one named Night Shade(fixer). BD grew up in a nomad pack but didn't stay for very long. The big city was where he wanted to be. He worked a couple different jobs and then found Di. Both of them hit it off right away. She was forming a band with her brother, Lyte, and his friend Splice. The band started to grow under the supervision of their manager Cory Stevens. They started to play small gigs and made a name for themselves in the bar scene. For protection Cory hired a guy named Stack who has helped the band get paid by some unscrupulous bar owners. The band is starting to come together and his love affair is even better with Dy."
+}

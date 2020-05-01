@@ -1,0 +1,41 @@
+<div class="csdDatafort" [ngClass]="dataFort.img" [popover]="datafortMenu" #pop="bs-popover" containerClass="csdDatafortPopover"
+  container="body" triggers="" [placement]="popPlacement" tabindex="1" (click)="onClick($event)" (mouseover)="onOver($event)">
+
+  <ng-template #datafortMenu>
+    <div class="csdDatafortInfo">
+      <div class="row">
+        <div class="col-12">
+          <h5 class="csd-fort-name">{{datafortInfo.name}}</h5>
+          <div class="csd-rounded csd-close" (click)='pop.hide()'>X</div>
+          <div>
+            <span *ngIf="showLinks.hack" class="btn btn-secondary csd-rounded" (click)="hackDatafort()">Hack</span>
+            <div *ngIf="dataFort.hacked" class="text-danger">*!HACKED!*</div>
+          </div>
+          <div *ngIf="datafortInfo.region">Region: {{datafortInfo.region}}</div>
+          <div *ngIf="datafortInfo.security">Security: {{datafortInfo.security}}</div>
+          <div *ngIf="datafortInfo.trace">Trace: {{datafortInfo.trace}}</div>
+          <div *ngIf="datafortInfo.controlby">Controlled by: {{datafortInfo.controlby}}</div>
+          <div *ngIf="datafortInfo.hasSysop">Has a Sysop</div>
+          <div *ngIf="datafortInfo.hasAI">Has an AI</div>
+          <div *ngIf="datafortInfo.diff">Hacking DIFF: {{datafortInfo.diff}}</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 csd-nrNavBtn">
+          <div *ngIf="showLinks.world || showLinks.region || showLinks.city" class="text-warning">NAVIGATE TO:</div>
+          <div>
+            <span *ngIf="showLinks.world" class="btn btn-secondary csd-rounded" (click)="goToWorld()">World</span>
+            <span *ngIf="showLinks.space" class="btn btn-secondary csd-rounded" (click)="goToSpace()">Space</span>
+            <span *ngIf="showLinks.region" class="btn btn-secondary csd-rounded" (click)="goToRegion()">Region</span>
+            <span *ngIf="showLinks.city" class="btn btn-secondary csd-rounded" (click)="goToCity()">City</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #datafortTooltip>
+    <h5>{{dataFort.name}}</h5>
+  </ng-template>
+  <img *ngIf="dataFort.img" [src]="imageSrc()" [alt]="dataFort.name" [ngClass]="iconClass" [tooltip]="datafortTooltip"
+    containerClass="csdDatafortTooltip" triggers="hover" container="body" [placement]="ttPlacement" tabindex="1" />
+</div>

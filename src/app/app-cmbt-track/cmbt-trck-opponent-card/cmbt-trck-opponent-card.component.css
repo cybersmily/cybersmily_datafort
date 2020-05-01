@@ -1,0 +1,45 @@
+.opp-skill {
+  font-size: 12px;
+}
+
+.opp-handle {
+  margin-top: 10px;
+  font-size: x-large;
+}
+
+.opp-handle input {
+  width: 100%;
+}
+
+.opp-role-delete {
+  display: none;
+}
+
+.opp-role:hover .opp-role-delete {
+  display: inline-block;
+}
+.navitem {
+  background-color: #777;
+}
+::ng-deep .opp-section > a {
+  margin-top: 5px !important;
+  margin-right: 4px !important;
+  color: white !important;
+  font-size: 14px;
+  background-color: #999 !important;
+  text-decoration-style: none !important;
+  border: solid 2px #a9f5bc !important;
+    -webkit-border-top-left-radius: .5em !important;
+    -moz-border-radius-topleft: .5em !important;
+    border-top-left-radius: 0.5em !important;
+    -webkit-border-top-right-radius: .5em !important;
+    -moz-border-radius-topright: .5em !important;
+    border-top-right-radius: 0.5em !important;
+}
+
+::ng-deep .opp-section > a.active {
+  background-color: #AAA !important;
+  color: white !important;
+  font-weight: bold !important;
+  bottom: 5px;
+}

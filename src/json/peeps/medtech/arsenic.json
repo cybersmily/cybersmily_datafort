@@ -1,0 +1,81 @@
+﻿{"name":"Ashley Myers",
+	"handle":"Arsenic",
+	"aliases":"",
+	"age":26,
+	"img":"arsenic",
+	"career":{"name":"Medtechie","specialability":"Medical Tech","value":8},
+	"stats":{
+		"ref":6,
+		"int":9,
+		"tech":9,
+		"cool":5,
+		"attr":7,
+		"luck":5,
+		"ma":9,
+		"body":6,
+		"emp":5,
+		"hc":9,
+    "rep":4
+  },
+	"skills":{
+		"attr":[
+		],
+		"body":[
+		],
+		"cool":[
+			{"name":"Resist Torture/Drugs","value":4},
+			{"name":"Streetwise","value":2}
+		],
+		"emp":[
+			{"name":"Human Perception","value":4},
+			{"name":"Social","value":2},
+			{"name":"Persuasion/Fast Talk","value":3}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":5},
+			{"name":"Biology","value":3},
+			{"name":"Chemistry","value":4},
+			{"name":"Diagnose Illness","value":4},
+			{"name":"Education/Gen. Know","value":4},
+      {"name":"Expert: Bioware","value":5},
+      {"name":"Expert: Cosmetic Surgery","value":8},
+			{"name":"Library Search","value":3},
+			{"name":"Zoology","value":2}
+		],
+		"ref":[
+			{"name":"Driving","value":3},
+			{"name":"MA: Karate","value":2}
+		],
+		"tech":[
+			{"name":"Basic Tech","value":2},
+			{"name":"Cryotank Operation","value":6},
+			{"name":"Cyber Tech","value":4},
+			{"name":"Pharmacuticals","value":6}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Arrogant, proud and aloof",
+			"valuedperson":"Public figure",
+			"valuemost":"Vengeance",
+			"feelaboutpeople":"Wipe 'em all out and give the place to the cockroaches.",
+			"valuedpossession":"A recording"
+		},
+		"style":{
+			"clothes":"High Fashion",
+			"hair":"Long, pulled back",
+			"affectations":"Long fingernails",
+			"ethnicity":"Anglo American",
+			"languages":"English"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":[
+    "Neural Processor [MLNK, PLGS, Chipsocket]"
+  ],
+	"gear":[
+
+  ],
+	"history":""
+}

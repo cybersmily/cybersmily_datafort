@@ -1,0 +1,55 @@
+{ "handle": "Triad Hitter",
+  "role": "Solo",
+  "int": 4,
+  "ref": 10,
+  "tech": 3,
+  "cool": 8,
+  "attr": 4,
+  "luck": 5,
+  "ma": 9,
+  "body":7,
+  "emp": 2,
+  "armor": {
+    "head": 0,
+    "torso": 16,
+    "arms": 0,
+    "legs": 0
+  },
+  "sa": {"name":"Combat Sense", "value": 4},
+  "skills": [
+    {"name":"Athletics", "stat": "ref", "value": 9},
+    {"name":"Strength Feat", "stat": "body", "value": 7},
+    {"name":"Dodge/Evade", "stat": "ref", "value": 7},
+    {"name":"Intimidate", "stat": "cool", "value": 3},
+    {"name":"Martial Arts: Kung Fu", "stat": "ref", "value": 5},
+    {"name":"Streetwise", "stat": "cool", "value": 5},
+    {"name":"Awareness/Notice", "stat": "int", "value": 8},
+    {"name":"Rifle", "stat": "ref", "value": 6},
+    {"name":"Shadow/Track", "stat": "int", "value": 4},
+    {"name":"Submachinegun", "stat": "ref", "value": 9}
+  ],
+  "cyberware": [
+    {"name":"Epsilon Linear Frame"},
+    {"name":"Pain Editor"},
+    {"name":"Muscle/Bone Lace"},
+    {"name":"Neuralware", "options":"Smartgun Link"},
+    {"name":"Wolvers"},
+    {"name":"Interface Plugs"},
+    {"name":"Subdermal Armor SP 16"},
+    {"name":"Cyberoptics", "options":"Targeting Scope, IR"}
+  ],
+  "weapons": [
+    {"name": "Wolvers", "type": "MEL", "wa": 0, "damage":"3d6", "notes":""},
+    {"name": "AKR-20", "type": "RIF", "wa": 0, "conc":"N", "damage":"5D6", "shots":30, "rof": 30, "rel": "ST", "range": 50, "notes":""},
+    {"name": "Setsuko-Arasaka 'PMS' SMG", "type": "SMG", "wa": 1, "conc":"L", "damage":"1d6+2", "shots":40, "rof": 20, "rel": "ST", "range": 400, "notes":""},
+    {"name": "HE Grenades", "type": "HVY", "wa": 0, "conc":"P", "damage":"7D6", "shots":1, "rof": 1, "rel": "ST", "range": 70, "notes":"Thrown. 5m radius; 3D6 to 6-10m away."},
+    {"name": "Flash Bang Grenades", "type": "HVY", "wa": 0, "conc":"P", "damage":"", "shots":1, "rof": 1, "rel": "ST", "range": 70, "notes":"Thrown. 5m radius/15m in doors. Stun Save -2, stunned/deaf 4 turns. DIFF20 vs REF to avoid 2 turns of blindness."},
+    {"name": "Incendiary Grenades", "type": "HVY", "wa": 0, "conc":"P", "damage":"4D6", "shots":1, "rof": 1, "rel": "ST", "range": 70, "notes":"Thrown. 5m radius. Damage for 3 turns. Sets fire."}
+  ],
+  "gear": [
+    "Drugs",
+    "Harley-Davidson Thundergod Motorcycle"
+  ],
+  "source": "PS",
+  "notes": ""
+}

@@ -1,0 +1,37 @@
+{ "handle": "Silver Slash",
+  "role": "Streetpunk",
+  "int": 7,
+  "ref": 7,
+  "tech": 5,
+  "cool": 8,
+  "attr": 7,
+  "luck": 5,
+  "ma": 7,
+  "body":6,
+  "emp": 7,
+  "armor": {
+    "head": 0,
+    "torso": 0,
+    "arms": 0,
+    "legs": 0
+  },
+  "sa": {"name":"", "stat": "", "value": 0},
+  "skills": [
+    {"name":"Martial Arts: Karate", "stat": "ref", "value": 8},
+    {"name":"Athletics", "stat": "ref", "value": 7},
+    {"name":"Martial Arts:", "stat": "ref", "value": 6},
+    {"name":"Handgun", "stat": "ref", "value": 5},
+    {"name":"Dodge \\& Escape", "stat": "ref", "value": 5},
+    {"name":"Streetwise", "stat": "cool", "value": 7},
+    {"name":"First Aid", "stat": "tech", "value": 4},
+    {"name":"Shadow", "stat": "int", "value": 3},
+    {"name":"Education \\& Gen. Know.", "stat": "int", "value": 4}
+  ],
+  "cyberware": [
+    {"name":"Reflex Boost Kerenzikov I"}
+  ],
+  "weapons": [],
+  "gear": [],
+  "source": "NC",
+  "notes": ""
+}

@@ -1,0 +1,107 @@
+<div class="container">
+    <div class="small">Last updated 2014-09</div>
+  <h2>Proteus Decks, Cyberware, and Gear</h2>
+  <div>
+    This is the gear that I converted from the Netrunner CCG expansion pack.
+    These are by no means official, just doing my part to get some stats on them.
+  </div>
+  <accordion #accordion>
+    <!-- Cyberdecks -->
+    <accordion-group>
+      <div accordion-heading>
+        <h3 style="display:inline-block">Cyberdecks</h3>
+        <fa-icon [icon]="accordion.groups[0].isOpen?faAngleDoubleDown:faAngleDoubleRight" size="2x"></fa-icon>
+      </div>
+      <div class="card-columns">
+        <div class="card" *ngFor="let n of cyberDeckList">
+          <div class="card-block csd-box csd-rounded">
+            <h4 class="card-title">{{n.name}}</h4>
+            <div class="csd-card-holder card-text">
+                <div class="csd-card-img">
+                <img src="/img/data/proteus/{{n.img}}.png" class="csd-rounded-corners"/>
+                <br>
+                <i>{{n.imgCredit}}</i>
+              </div>
+              <div>Spd: {{n.speed}}; MU: {{n.mu}}; Datawall: {{n.dataWall}}; Cost: {{n.cost | number}} eb.</div>
+              <div>Options: {{n.options}}</div>
+              <div>Description: {{n.desc}}</div>
+              <div><i>{{n.flavor}}</i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </accordion-group>
+    <!-- Cyberdecks Options-->
+    <accordion-group>
+        <div accordion-heading>
+          <h3 style="display:inline-block">Cyberdecks Options</h3>
+          <fa-icon [icon]="accordion.groups[1].isOpen?faAngleDoubleDown:faAngleDoubleRight" size="2x"></fa-icon>
+        </div>
+      <div class="card-columns">
+        <div class="card" *ngFor="let n of cyberDeckOptionList">
+          <div class="card-block csd-box csd-rounded">
+            <h4 class="card-title">{{n.name}}</h4>
+            <div class="csd-card-holder card-text">
+              <div class="csd-card-img">
+                  <img src="/img/data/proteus/{{n.img}}.png" alt="{{n.name}} - {{n.imgCredit}} for Cyberpunk 2020"/>
+                  <br>
+                  <i>{{n.imgCredit}}</i>
+                </div>
+                <div>Cost: {{n.cost | number}} eb.</div>
+              <div>Description: {{n.desc}}</div>
+              <div><i>{{n.flavor}}</i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </accordion-group>
+    <!-- Cyberware -->
+    <accordion-group >
+        <div accordion-heading>
+          <h3 style="display:inline-block">Cyberware</h3>
+          <fa-icon [icon]="accordion.groups[2].isOpen?faAngleDoubleDown:faAngleDoubleRight" size="2x" ></fa-icon>
+        </div>
+      <div class="card-columns">
+        <div class="card" *ngFor="let n of cyberwareList">
+          <div class="card-block csd-box csd-rounded">
+            <h4 class="card-title">{{n.name}}</h4>
+            <div class="csd-card-holder card-text">
+                <div class="csd-card-img">
+                  <img src="/img/data/proteus/{{n.img}}.png"/>
+                  <br>
+                  <i>{{n.imgCredit}}</i>
+                </div>
+                <div>HC: {{n.hc}}; Surgery: {{n.surgery}}; Cost: {{n.cost | number}} eb. </div>
+                <div>Description: {{n.desc}}</div>
+                <div><i>{{n.flavor}}</i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </accordion-group>
+    <!-- Gear -->
+    <accordion-group>
+        <div accordion-heading>
+          <h3 style="display:inline-block">Gear</h3>
+          <fa-icon [icon]="accordion.groups[3].isOpen?faAngleDoubleDown:faAngleDoubleRight" size="2x" ></fa-icon>
+        </div>
+      <div class="card-columns">
+        <div class="card" *ngFor="let n of gearList">
+          <div class="card-block csd-box csd-rounded">
+            <h4 class="card-title">{{n.name}}</h4>
+            <div class="csd-card-holder card-text">
+                <div class="csd-card-img">
+                  <img src="/img/data/proteus/{{n.img}}.png"/>
+                  <br>
+                  <i>{{n.imgCredit}}</i>
+                </div>
+                <div>Cost: {{n.cost | number}} eb.</div>
+                <div>Description: {{n.desc}}</div>
+                <div><i>{{n.flavor}}</i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </accordion-group>
+  </accordion>
+</div>

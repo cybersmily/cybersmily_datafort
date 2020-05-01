@@ -1,0 +1,36 @@
+{ "handle": "Bozo",
+  "role": "Streetpunk",
+  "int": 7,
+  "ref": 7,
+  "tech": 5,
+  "cool": 7,
+  "attr": 2,
+  "luck": 8,
+  "ma": 6,
+  "body":8,
+  "emp": 2,
+  "armor": {
+    "head": 0,
+    "torso": 0,
+    "arms": 0,
+    "legs": 0
+  },
+  "sa": {"name":"", "stat": "", "value": 0},
+  "skills": [
+    {"name":"Intimidate", "stat": "cool", "value": 6},
+    {"name":"Juggling", "stat": "ref", "value": 7},
+    {"name":"Hide/Evade", "stat": "int", "value": 7},
+    {"name":"Handgun", "stat": "ref", "value": 6},
+    {"name":"Melee", "stat": "ref", "value": 7},
+    {"name":"Brawling", "stat": "ref", "value": 7},
+    {"name":"Basic Tech", "stat": "tech", "value": 7},
+    {"name":"Awareness/Notice", "stat": "int", "value": 6},
+    {"name":"Electronics", "stat": "tech", "value": 5},
+    {"name":"Pharmaceuticals", "stat": "tech", "value": 4}
+  ],
+  "cyberware": [],
+  "weapons": [],
+  "gear": [],
+  "source": "NC",
+  "notes": ""
+}

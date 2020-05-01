@@ -1,0 +1,77 @@
+﻿{
+    "gear": {
+
+        "Cyberdeck": [
+            {
+                "name": "The Deck",
+                "img": "thedeck",
+                "imgCredit": "Illus. Mark Tedin Copyrighted by WotC",
+                "cost": 21000,
+                "speed": "+1",
+                "mu":"18",
+                "dataWall":"+8",
+                "options":"none",
+                "desc": "This deck can store up to 4 different link routs and will cycle through them at random to get the runner to where they currently are in netspace. This allows traces to have to make double the amount of rolls need to successfully trace the runnner.",
+                "flavor": "'...oh and I'll also need a '20 Moebius Link.'... 'A what?'... 'You know, Forward's deck. The Deck.'... 'Gotcha'..."
+            },
+            {
+                "name": "Sunburst Cranial Interface",
+                "img": "sunburst",
+                "imgCredit": "Illus. Craig Hooper Copyrighted by WotC",
+                "cost": 16000,
+                "speed": "+3",
+                "mu":"20",
+                "dataWall":"+5",
+                "options":"none",
+                "desc": "This deck is a cranial helmet with enhanced ‘trodes to allow the runner to not have the need of using interface plugs. The netrunner is immune to all anti-personnel programs while using it. Speed of the deck already incorporates the lag normally felt through ‘trodes, however due to breakthroughs in receptor technologies, it isn't as bad as other ‘trodes.",
+                "flavor": ""
+            },
+            {
+                "name": "Cortical Cybermodem",
+                "img": "cortcybmdm",
+                "imgCredit": "Illus. Christopher Rush Copyrighted by WotC",
+                "cost": 28000,
+                "speed": "+7",
+                "mu":"20",
+                "dataWall":"+8",
+                "options":"none",
+                "desc": "Cortical Cybermodem integrates with the brain allowing it greater speed than most other cyberdecks (starts at +3 normally with the ability to go beyond +5). However, there are some major drawbacks. Anti-personnel programs get a +2 damage to their die rolls. Also anti-system programs can cause damage to the netrunner. For instance, Firestarter does 1d6 physical damage to the netrunner per turn. Anti-system programs that rewrite a systems MU has 10% chance of doing 1 INT damage to the netrunner. Also, another runner could hack the user's brain as well. But think of the speed you get! This module isn't cellular, but could be made into one for an additional 1000eb. HC: 2d6+1 Surgery: CR;",
+                "flavor": ""
+            }
+        ],
+        "Cyberware": [
+            {
+                "name": "Cortical Stimulators",
+                "img": "cortstim",
+                "imgCredit": "Illus. Randy Gallegos Copyrighted by WotC",
+                "cost": 5000,
+                "hc":"1d6+2",
+                "surgery":"CR",
+                "desc": "Neural implant reduces damage from zombies, hellbolts, hellhounds, liches, brainwipe, etc. by 4 points. ",
+                "flavor": "Damn but those Zombies make your head itch!"
+            }
+        ],
+        "Cyberdeck_Option": [
+            {
+                "name": "Eurocorpse Spin Chip",
+                "img": "eurospinchip",
+                "imgCredit": "Illus. Doug Shuler Copyrighted by WotC",
+                "cost": 6000,
+                "desc": "This cyberdeck option is an extra CPU with 2 MU of storage. A program can be installed on this chip. This chip runs one program in addition to what the runner can run on his/her cyberdeck, and only one program from this chip. There is speed penalty of -3 with using the program stored on this chip. If the is attacked by anti-system ware, this is considered part of the deck. ",
+                "flavor": ""
+            }
+        ],
+        "Gear": [
+            {
+                "name": "Lucidrine Drip Feed",
+                "img": "lucidrine",
+                "imgCredit": "Illus. Paul Chadwick Copyrighted by WotC",
+                "cost": 1500,
+                "desc": " This medical device will drip various drugs into a patient at set times. Up to 10 different drips can be administrated and programmed into the unit. It also has a battery life of 1 full month. There are ports to plug into a computer system or cyberdeck. The utility app to control this is 1 MU and costs 120 eb. So a netrunner can monitor the unit while remaining in the Net.",
+                "flavor": "By the time he jacked out, his girlfriend had left him, and the dog was dead."
+            }
+
+        ]
+    }
+
+}

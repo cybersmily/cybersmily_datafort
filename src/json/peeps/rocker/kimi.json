@@ -1,0 +1,70 @@
+﻿{"name":"",
+	"handle":"Kimi",
+	"aliases":"",
+	"age":"",
+	"img":"kimi",
+	"career":{"name":"Rocker","specialability":"Charismatic Leadership","value":9},
+	"stats":{
+		"ref":5,
+		"int":7,
+		"tech":8,
+		"cool":9,
+		"attr":8,
+		"luck":6,
+		"ma":7,
+		"body":6,
+		"emp":5,
+		"hc":12},
+	"skills":{
+		"attr":[
+			{"name":"Personal Grooming","value":5},
+			{"name":"Wardrobe/Style","value":6}
+		],
+		"body":[
+		],
+		"cool":[
+			{"name":"Streetwise","value":2}
+		],
+		"emp":[
+			{"name":"Seduction","value":4},
+			{"name":"Social","value":3},
+			{"name":"Persuasion/Fast Talk","value":4},
+			{"name":"Perform","value":8}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":3},
+			{"name":"Composition","value":9},
+			{"name":"Education/Gen. Know","value":4},
+			{"name":"Gamble","value":5}
+		],
+		"ref":[
+			{"name":"Dance","value":7},
+			{"name":"Motorcycle","value":3}
+		],
+		"tech":[
+      {"name":"Electronics","value":4},
+			{"name":"Play Instrument","value":9}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"",
+			"valuedperson":"",
+			"valuemost":"",
+			"feelaboutpeople":"",
+			"valuedpossession":""
+		},
+		"style":{
+			"clothes":"",
+			"hair":"",
+			"affectations":"",
+			"ethnicity":"",
+			"languages":""
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":[],
+	"gear":[],
+	"history":"Kimi is one of the current rockstar for Shitoraki Musics."
+}

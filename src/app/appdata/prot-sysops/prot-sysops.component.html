@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="small">Last updated 2014-09</div>
+  <h2>Proteus Sysops</h2>
+      <div class="card-columns">
+        <div class="card" *ngFor="let sysop of sysopsList" >
+          <div class="card-block csd-box csd-rounded">
+            <h4 class="card-title">{{sysop.name}}</h4>
+            <div class="csd-card-holder card-text">
+              <div class="csd-card-img">
+                <img src="/img/peeps/{{sysop.img}}.png" alt="{{sysop.name}} - {{sysop.imgCredit}} for Cyberpunk 2020" class="csd-rounded-corners"/>
+                <br>
+                <i>{{sysop.imgCredit}}</i>
+              </div>
+              <div>INT: {{sysop.stats.INT}}
+                  REF:  {{sysop.stats.REF}}
+                  TECH:  {{sysop.stats.TECH}}
+                  COOL:  {{sysop.stats.COOL}}
+                  ATTR:  {{sysop.stats.ATTR}}
+                  LUCK:  {{sysop.stats.LUCK}}
+                  MA:  {{sysop.stats.MA}}
+                  BODY:  {{sysop.stats.BODY}}
+                  EMP:  {{sysop.stats.EMP}}
+              </div>
+              <div>Cyberware:<span *ngFor="let c of sysop.cyber"> {{c}};</span></div>
+              <div>Skills:<span *ngFor="let s of sysop.skills"> {{s}};</span></div>
+              <div>Program Mix: {{sysop.progMix}}</div>
+              <div>Icon: {{sysop.icon}}</div>
+              <div>Gear:<span *ngFor="let e of sysop.equip"> {{e}};</span></div>
+              <div>Description: {{sysop.desc}}</div>
+              <div><i>{{sysop.flavor}}</i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+

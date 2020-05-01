@@ -1,0 +1,32 @@
+<div class="chargen-section">
+  <div class="chargen-label">WEAPONS</div>
+  <table class="chargen-weapons-table">
+    <tr class="chargen-wpn-hdr">
+      <td>Name</td>
+      <td class="text-center">Type</td>
+      <td class="text-center">WA</td>
+      <td class="text-center">Conc.</td>
+      <td class="text-center">Avail.</td>
+      <td class="text-center">Dam.</td>
+      <td class="text-center">#Shots</td>
+      <td class="text-center">ROF</td>
+      <td class="text-center">Rel</td>
+    </tr>
+    <ng-container *ngFor="let wpn of weapons.items" >
+    <tr>
+      <td><input [(ngModel)]="wpn.name" type="text" class="chargen-wpn-name"/></td>
+      <td><input [(ngModel)]="wpn.type" type="text" class="text-uppercase text-center chargen-wpn-narrow"/></td>
+      <td><input [(ngModel)]="wpn.wa" type="number" class="text-uppercase text-center chargen-wpn-narrow"/></td>
+      <td><input [(ngModel)]="wpn.conc" type="text" class="text-uppercase text-center chargen-wpn-narrow"/></td>
+      <td><input [(ngModel)]="wpn.avail" type="text" class="text-uppercase text-center chargen-wpn-narrow"/></td>
+      <td><input [(ngModel)]="wpn.damage" type="text" class="text-uppercase text-center chargen-wpn-col"/></td>
+      <td><input [(ngModel)]="wpn.shots" type="number" class="text-uppercase text-center chargen-wpn-col"/></td>
+      <td><input [(ngModel)]="wpn.rof" type="number" class="text-uppercase text-center chargen-wpn-col"/></td>
+      <td><input [(ngModel)]="wpn.rel" type="text" class="text-uppercase text-center chargen-wpn-narrow"/></td>
+    </tr>
+    <tr>
+      <td colspan="9"><span>Notes: </span><input [(ngModel)]="wpn.notes" type="text" class="chargen-wpn-notes"/></td>
+    </tr>
+    </ng-container>
+  </table>
+</div>

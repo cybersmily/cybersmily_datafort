@@ -1,0 +1,47 @@
+import { GearCardComponent } from './../gear-card/gear-card.component';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { GearCardColumnComponent } from './gear-card-column.component';
+import { Gear } from '../../../models/gear';
+
+describe('GearCardColumnComponent', () => {
+  let component: GearCardColumnComponent;
+  let fixture: ComponentFixture<GearCardColumnComponent>;
+  const gearList: Gear[] = [
+    {
+      name: 'testgear1',
+      cost: '111000',
+      desc: 'this is a test'
+    },
+    {
+      name: 'testgear2',
+      cost: '100',
+      desc: 'this is a test'
+    }
+  ];
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        GearCardColumnComponent,
+        GearCardComponent
+      ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(GearCardColumnComponent);
+    component = fixture.componentInstance;
+    component.gearList = gearList;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  afterAll(() => {
+  TestBed.resetTestingModule();
+});
+});

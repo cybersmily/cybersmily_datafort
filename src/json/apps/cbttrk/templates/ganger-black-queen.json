@@ -1,0 +1,34 @@
+{ "handle": "Ganger - Black Queen",
+  "role": "Streetpunk",
+  "int": 7,
+  "ref": 7,
+  "body":6,
+  "luck": 6,
+  "tech": 4,
+  "cool": 5,
+  "attr": 6,
+  "ma": 4,
+  "emp": 7,
+  "armor": {
+    "head": 0,
+    "torso": 0,
+    "arms": 0,
+    "legs": 0
+  },
+  "sa": {"name":"", "stat": "", "value": 0},
+  "skills": [
+    {"name":"Melee", "stat": "ref", "value": 3},
+    {"name":"Stealth", "stat": "ref", "value": 4},
+    {"name":"Streetwise", "stat": "cool", "value": 3},
+    {"name":"Persuasion \\& Fast Talk", "stat": "emp", "value": 2},
+    {"name":"Gamble", "stat": "int", "value": 1},
+    {"name":"Dance", "stat": "ref", "value": 2}
+  ],
+  "cyberware": [],
+  "weapons": [
+    {"name": "switchblade", "type": "MEL", "wa": 0, "damage":"1D6", "notes":""}
+  ],
+  "gear": [],
+  "source": "NC",
+  "notes": "Black Queens a gang in Night City. Use switchblades as their only weapon. Not a very violent gang."
+}

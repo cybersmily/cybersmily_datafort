@@ -1,0 +1,42 @@
+.chargen-charpoint-input {
+  width: 50px;
+  text-align: center;
+}
+
+.chargen-stats {
+  width: 80px;
+}
+
+.chargen-stat-input {
+  width: 40px;
+  text-align: center;
+}
+
+.chargen-stat-section {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.chargen-stat-section input {
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.chargen-stats-current {
+  margin-left: 10px;
+}
+
+.chargen-stats-over, .chargen-stat-dmged {
+  color: red;
+}
+
+.chargen-stat-dmged {
+  font-weight: bold;
+}
+
+.chargen-point-dice {
+  font-size: 20px;
+  margin-left: 5px;
+  color: red;
+  cursor: pointer;
+}

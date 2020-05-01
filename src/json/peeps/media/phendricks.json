@@ -1,0 +1,84 @@
+﻿{"name":"Porche Hendricks",
+	"handle":"Porche",
+	"aliases":"",
+	"age":32,
+	"img":"phendricks",
+	"career":{"name":"Media(On-Air Star)","specialability":"Credibility","value":8},
+	"stats":{
+		"ref":6,
+		"int":8,
+		"tech":5,
+		"cool":7,
+		"attr":8,
+		"luck":9,
+		"ma":6,
+		"body":6,
+		"emp":7,
+		"hc":15,
+    "rep":8
+  },
+	"skills":{
+		"attr":[
+			{"name":"Personal Grooming","value":7},
+			{"name":"Wardrobe/Style","value":7}
+		],
+		"body":[
+			{"name":"Swimming","value":3}
+		],
+		"cool":[
+			{"name":"Intimidate","value":4},
+			{"name":"Oratory","value":4},
+			{"name":"Streetwise","value":2}
+		],
+		"emp":[
+			{"name":"Human Perception","value":5},
+			{"name":"Interview","value":7},
+			{"name":"Leadership","value":3},
+			{"name":"Seduction","value":5},
+			{"name":"Social","value":6},
+			{"name":"Persuasion/Fast Talk","value":3},
+			{"name":"Perform","value":3}
+		],
+		"int":[
+			{"name":"Accounting","value":5},
+			{"name":"Awareness/Notice","value":3},
+			{"name":"Composition","value":6},
+			{"name":"Education/Gen. Know","value":7},
+			{"name":"Library Search","value":4},
+			{"name":"Stock Market","value":5}
+		],
+		"ref":[
+			{"name":"Athletics","value":2},
+			{"name":"Driving","value":2},
+			{"name":"Handgun","value":3},
+			{"name":"MA: Thai boxing","value":4}
+		],
+		"tech":[
+			{"name":"Forgery","value":3},
+			{"name":"Photo/Film","value":2}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Arrogant, proud and aloof",
+			"valuedperson":"Kurt Muller",
+			"valuemost":"Having a good time",
+			"feelaboutpeople":"People are obstacles to be destroyed if they cross me.",
+			"valuedpossession":"A pair of earrings"
+		},
+		"style":{
+			"clothes":"Businesswear",
+			"hair":"Long, straight",
+			"affectations":"Spiked heels",
+			"ethnicity":"Anglo American",
+			"languages":"English"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":["none"],
+	"gear":[
+    "Businesswear"
+  ],
+	"history":"Porche Hendricks does the business report on channel WNS-7, Night City Newsforce Team."
+}

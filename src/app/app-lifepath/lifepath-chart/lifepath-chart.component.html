@@ -1,0 +1,14 @@
+<div>
+  <h4 style="display:inline-block;">{{header}}</h4>&nbsp;&nbsp;
+  <button class="btn-secondary csd-rounded" (click)="generateRandom(lifepathSource)">Generate</button>
+</div>
+<div class="csd-rounded csd-lifepath-sect">
+  <div *ngFor="let chart of chartData; let i = index;">
+    <div style="display:inline-block;">
+      <h6>{{chart.title}}: </h6>
+      <select [(ngModel)]="selectedValues[chart.title]" (change)="onSelected($event, chart.title)">
+        <option value="?" selected="selected"></option>
+        <option *ngFor="let opt of filterData(chart.options, lifepathSource)">{{opt}}</option>
+      </select>
+    </div>
+  </div>

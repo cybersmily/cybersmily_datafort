@@ -1,0 +1,18 @@
+.csd-input-row {
+  position: relative;
+  height: 40px;
+}
+.csd-input-row input { display:inline-block;width:100px;}
+.csd-input-row span { display:inline-block;width:150px;}
+.csd-veh-type-selector {
+  display:inline-block;
+  width:180px;
+  margin-left: 10px;
+}
+div input.csd-veh-name-input {
+  display: inline-block;
+  width: 80%;
+}
+.csd-veh-desc-input {
+  width: 100%;
+}

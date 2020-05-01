@@ -1,0 +1,80 @@
+﻿{"name":"",
+	"handle":"Glit G",
+	"aliases":"",
+	"age":"",
+	"img":"glitg",
+	"career":{"name":"Media (Social Reporter)","specialability":"Credibility","value":6},
+	"stats":{
+		"ref":6,
+		"int":5,
+		"tech":4,
+		"cool":7,
+		"attr":10,
+		"luck":8,
+		"ma":7,
+		"body":6,
+		"emp":9,
+    "hc":21,
+    "rep":8
+  },
+	"skills":{
+		"attr":[
+			{"name":"Personal Grooming","value":6},
+			{"name":"Wardrobe/Style","value":6}
+		],
+		"body":[
+		],
+		"cool":[
+			{"name":"Oratory","value":2},
+			{"name":"Resist Torture/Drugs","value":2},
+			{"name":"Streetwise","value":4}
+		],
+		"emp":[
+			{"name":"Human Perception","value":3},
+			{"name":"Interview","value":4},
+			{"name":"Seduction","value":3},
+			{"name":"Social","value":4},
+			{"name":"Persuasion/Fast Talk","value":2}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":2},
+			{"name":"Composition","value":2},
+			{"name":"Education/Gen. Know","value":2}
+		],
+		"ref":[
+			{"name":"Athletics","value":2},
+			{"name":"Dance","value":5}
+		],
+		"tech":[
+			{"name":"Photo/Film","value":2}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Silly and fluffheaded",
+			"valuedperson":"Her pet pig",
+			"valuemost":"Having a good time.",
+			"feelaboutpeople":"I like almost everyone",
+			"valuedpossession":"A photograph of Johnny Silverhand, autographed."
+		},
+		"style":{
+			"clothes":"High Fashion",
+			"hair":"Long, wild",
+			"affectations":"Earrings",
+			"ethnicity":"Spanish",
+			"languages":"English"
+		},
+		"family":"",
+		"siblings":""
+	},
+  "cyberware":[
+    "Neuralware[PLG]",
+    "Miss Midnight",
+    "Contraceptive implant",
+    "Maxx II Cyberliver",
+    "Cyberaudio[PS]",
+    "Various phoney cyberware used as a fashion statement"
+  ],
+	"gear":["Various fashions, various tech gizmo that are \"in\", various drugs that are \"in\""],
+	"history":"Glit G does the fashion/entertainment report on channel WNS-7, Night City News force Team. Glit is a party girl and hangs with all the local celebs. She has tons of contacts in the entertainment business or is willing to do whatever it takes to make new ones."
+}

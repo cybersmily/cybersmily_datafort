@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <h2>CYBERWARE LIST</h2>
+  </div>
+  <div class="row">
+    <table class="cyber-data-table">
+      <tr>
+        <th>TYPE</th>
+        <th>SUBTYPE</th>
+        <th>NAME</th>
+        <th>DESCRIPTION</th>
+        <th>COST</th>
+        <th class="cyber-data-sm text-center">HC</th>
+        <th class="cyber-data-sm text-center">SURGERY</th>
+        <th>SOURCE</th>
+      </tr>
+      <tr>
+        <td><input [(ngModel)]="searchFilter.type" type="text" /></td>
+        <td><input [(ngModel)]="searchFilter.subtype" type="text" /></td>
+        <td><input [(ngModel)]="searchFilter.name" type="text" class="cyber-data-name" /></td>
+        <td><input [(ngModel)]="searchFilter.desc" type="text" /></td>
+        <td></td>
+        <td><input [(ngModel)]="searchFilter.hc" class="cyber-data-sm text-center" type="text" /></td>
+        <td><input [(ngModel)]="searchFilter.surg" class="cyber-data-sm text-center" type="text" /></td>
+        <td><input [(ngModel)]="searchFilter.source" class="cyber-data-source" type="text" /></td>
+      </tr>
+      <tr *ngFor="let cyber of cyberwareList
+          |filter:'type':searchFilter.type
+          |filter:'type':searchFilter.type
+          |filter:'name':searchFilter.name
+          |contains:'notes':searchFilter.desc
+          |contains:'hc':searchFilter.hc
+          |contains:'surgery':searchFilter.surg
+          |sourcebookFilter:searchFilter.source"
+          class="cyber-row">
+        <td>{{cyber.type}}</td>
+        <td>{{cyber.subtype}}</td>
+        <td>{{cyber.name}}</td>
+        <td>{{cyber.notes}}</td>
+        <td>{{cyber.cost}}eb.</td>
+        <td class="cyber-data-sm text-center">{{cyber.hc}}</td>
+        <td class="cyber-data-sm text-center">{{cyber.surgery}}</td>
+        <td>{{cyber.source.book|sourcebook}} pg.{{cyber.source.page}}</td>
+      </tr>
+    </table>
+  </div>
+
+</div>

@@ -1,0 +1,94 @@
+﻿{"name":"Edgar Harrison",
+	"handle":"Egg",
+	"aliases":"Ed head",
+	"age":24,
+	"img":"ed",
+	"career":{"name":"Medtechie","specialability":"Medical Tech","value":6},
+	"stats":{
+		"ref":4,
+		"int":10,
+		"tech":9,
+		"cool":5,
+		"attr":6,
+		"luck":4,
+		"ma":6,
+		"body":5,
+		"emp":5,
+		"hc":24.5,
+    "rep":2
+  },
+	"skills":{
+		"attr":[
+		],
+		"body":[
+		],
+		"cool":[
+			{"name":"Streetwise","value":3}
+		],
+		"emp":[
+			{"name":"Human Perception","value":4}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":6},
+			{"name":"Biology","value":3},
+			{"name":"Chemistry","value":3},
+			{"name":"Diagnose Illness","value":5},
+			{"name":"Education/Gen. Know","value":7},
+			{"name":"History","value":3},
+      {"name":"Language: Japanese","value":4},
+      {"name":"Language: English","value":8},
+			{"name":"Library Search","value":5},
+			{"name":"Mathematics","value":3},
+			{"name":"Physics","value":2},
+			{"name":"Programming","value":3},
+			{"name":"System Knowledge","value":3},
+			{"name":"Zoology","value":2}
+		],
+		"ref":[
+			{"name":"Athletics","value":2},
+			{"name":"Brawling","value":3},
+			{"name":"Dodge/Escape","value":4},
+			{"name":"Driving","value":4},
+			{"name":"Pilot: VTV","value":3}
+		],
+		"tech":[
+			{"name":"Basic Tech","value":8},
+			{"name":"Cryotank Operation","value":6},
+			{"name":"Cyber Tech","value":10},
+			{"name":"Electronics","value":8},
+			{"name":"Elect. Security","value":3},
+			{"name":"Pharmacuticals","value":4},
+			{"name":"Weaponsmith","value":5}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Toady",
+			"valuedperson":"Inventor of the Neural Processor",
+			"valuemost":"Technology",
+			"feelaboutpeople":"Neutral",
+			"valuedpossession":"His tools"
+		},
+		"style":{
+			"clothes":"Generic Chic",
+			"hair":"Short, curly",
+			"affectations":"Comboy boots",
+			"ethnicity":"Anglo American",
+			"languages":"English"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":[
+    "Neural Processor [MLNK, PLG, DLNK, VLNK, CS]",
+    "Cyberoptic Right [AD, TSsqM] Left[LL, AD, TE, IE]",
+    "Cyberaudio [AH, EH, LD]"
+  ],
+	"gear":[
+    "Armor Techie clothes (SP12)",
+    "Tech Tools",
+    "Body Computer w/ medscanner and techscanner"
+  ],
+	"history":"Egg is a recent graduate from a prestigious college. He has entered the working world with a contract with Arasaka. Still a somewhat junior technician he has already had 3 promotion in the past year. He works with Araska's cyber division, specifically on cyborg technology.",
+  "playerinfo":"<strong>For &quot;NCPD Blues&quot; scenario</strong><h6>Edgar &quot;Egg&quot; Harrison, Technician</h6><br>A rogue cyborg and I get to deactivate it! After a few of these I hope the higher ups will transfer me into R&amp;D where I can really shine. I'll show 'em I can do this. No problem. Well except two. Those C-SWAT grunts. Always destroying masterpieces of technology. 30 years ago borgs were fantasy and now... I wish people would understand the wonderment of this technology. The ignorant are to blame for cyberpyschosis. They are the ones who drive borgs over the edge. Never showing compassion. Always fear towards the borgs. Imbeciles.<br><strong>Lips</strong> - Seems liek a nice guy.<br><strong>Lady J</strong> - I hope Diamond tears her apart. That'll show her for being a part of the C-SWAT.<br><strong>Tin</strong> - Another borg killer. He thinks he's more metal than Diamond, but he'll learn soon enough.<br><strong>Mum</strong> - I hope she likes the work I do. I better be good in front of her so she can give me a good report. I better do my best to impress her.<br><strong>Shade</strong> - Seems O.K. Doesn't talk much. I don't know. there's something about him."
+}

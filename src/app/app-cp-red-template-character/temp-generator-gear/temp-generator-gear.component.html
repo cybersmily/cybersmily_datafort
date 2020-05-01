@@ -1,0 +1,21 @@
+<div class="cpr-stat-area">
+  <svg height="570" width="450" >
+    <polygon points='0,0
+                    390,0
+                    420,30
+                    420,570
+                    30,570
+                    0,540'
+          fill='#f00'/>
+    <text x="30" y="40" font-family="Verdana" font-weight="bold" font-size="17px" fill="white">CYBERWARE</text>
+    <text x="280" y="40" font-family="Verdana" font-weight="bold" font-size="17px" fill="white">GEAR</text>
+    <g *ngFor="let cyber of cyberware; let i = index">
+      <rect x="20" [attr.y]="getY(i)" height="50" width="190" fill="white"/>
+      <text x="25" [attr.y]="getY(i) + 17" font-family="Verdana" font-size="12px" fill="black">{{cyber}}</text>
+    </g>
+    <g *ngFor="let g of gear; let i = index">
+      <rect x="220" [attr.y]="getY(i)" height="50" width="190" fill="white"/>
+      <text x="230" [attr.y]="getY(i) + 17" font-family="Verdana" font-size="12px" fill="black">{{g}}</text>
+    </g>
+  </svg>
+</div>

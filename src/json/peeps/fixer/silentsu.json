@@ -1,0 +1,91 @@
+﻿{"name":"Sugai Kurumi",
+	"handle":"Silent Su",
+	"aliases":"",
+	"age":27,
+	"img":"silentsu",
+	"career":{"name":"Fixer (Sniffer)","specialability":"Streetdeal","value":7},
+	"stats":{
+		"ref":7,
+		"int":7,
+		"tech":5,
+		"cool":9,
+		"attr":7,
+		"luck":8,
+		"ma":6,
+		"body":7,
+		"emp":8,
+    "hc":3,
+    "rep":8
+  },
+	"skills":{
+		"attr":[
+			{"name":"Personal Grooming","value":4},
+			{"name":"Wardrobe/Style","value":3}
+		],
+		"body":[
+		],
+		"cool":[
+			{"name":"Intimidate","value":5}
+		],
+		"emp":[
+			{"name":"Human Perception","value":4},
+			{"name":"Leadership","value":7},
+			{"name":"Seduction","value":3},
+			{"name":"Social","value":7},
+			{"name":"Persuasion/Fast Talk","value":5}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":4},
+			{"name":"Hide/Evade","value":4},
+			{"name":"Language: Japanese","value":9},
+			{"name":"Language: English","value":5},
+			{"name":"Language: Spanish","value":3},
+			{"name":"Library Search","value":5},
+			{"name":"Shadow/Track","value":2}
+		],
+		"ref":[
+			{"name":"Athletics","value":3},
+			{"name":"Brawling","value":2},
+			{"name":"Dodge/Escape","value":2},
+			{"name":"Driving","value":3},
+			{"name":"Handgun","value":4},
+			{"name":"MA: Aikido","value":4},
+			{"name":"MA: Tae Kwon Do","value":4},
+			{"name":"Melee","value":6}
+		],
+		"tech":[
+			{"name":"Disguise","value":3},
+			{"name":"Forgery","value":4},
+			{"name":"Pick Lock","value":6},
+			{"name":"Pick Pocket","value":5}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Intellectual and detached",
+			"valuedperson":"Mandy Masher",
+			"valuemost":"Knowledge",
+			"feelaboutpeople":"Neural",
+			"valuedpossession":"A letter"
+		},
+		"style":{
+			"clothes":"High Fashion",
+			"hair":"Long, straight",
+			"affectations":"Mirror shades",
+			"ethnicity":"Japanese",
+			"languages":"Japanese"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":["T-MAXX II Cyberliver"],
+  "gear":["High Fashion leather trench (SP18)",
+    "cellphone w/ all options",
+    "Bodycomputer w/ Lie detector, bug jammer/detector",
+    "Mirroshade, smart (AD, TS)",
+    "Monoknife (MEL/+1/P/-/2D6/-/-/VR)",
+    "Towa Type-14 Pistol (P/+2/P/P/2D6+1/16/1-3-16/VR)",
+    "Techtronica Black-Zap (MEL/0/C/-/Stun-2/6/1/ST)"
+  ],
+	"history":"Silent Su is a sniffer by trade. She is co-owner of Burn, a night club in the west part of Night City. She spends most of her time there, in her office. The majority of her past is unknown and hit the Night City scene about 4 years ago. She has slowly grown into an organization based out of Burn. It's believed that she has major connections to the yakuza, but this is a rumor that hasn't been confirmed. She will find anything for anyone, but usually it's talent or equipment that most of her customers pay her for. Su is a japanese woman of middle age. Throughout her career she has always spoke very little during meetings with clients. This gave her the handle of Silent Su. This has often give people an impression that she doesn't pay attention or won't complete the tasks requested of her. This is far from the truth. She is always accompanied by at least 2 bodyguards, Demon D and Jot. A year ago she just had one bodyguard, her lover Mandy Masher. Su was in the middle of a tiff between 2 corps(Arasaka and Biotechnica) when things went south. Su was spared, but Mandy got whacked. Ever since then Su has become more withdrawn. Her paranoia caused some problems with her deals. She rarely meets face to face with her clients and works through her underlings to get things done. Su will get anythinig, at anytime without any questions. She is well connected to most blackmarketeers in Night City. She knows a few smugglers from various parts of the world. You can get in contact with her through a guy named Kestrel (no, not the solo. The REAL Kestrel doesn't know this guy exists.) or ask any of the bartenders at the Burn him."
+}

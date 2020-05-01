@@ -1,0 +1,55 @@
+.chargen-skills-title {
+  padding-right: 30px;
+}
+
+.chargen-skills-instructions {
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+.chargen-skills {
+  font-size: 12px;
+}
+
+.chargen-skill-fillin {
+  width: 110px;
+  font-size: 10px;
+}
+
+.chargen-skill-misc, .chargen-skill-sa span.skill-name {
+  font-weight: bold;
+  font-size: 16px !important;
+}
+
+.chargen-skill-sa input {
+  background: #ddd;
+}
+
+.chargen-skill-misc input {
+  font-weight: normal;
+  width: 20px;
+  height: 20px;
+  text-align: right;
+}
+
+.chargen-skill-stat {
+  font-size: 14px;
+  font-weight: 300;
+  color: white;
+  background: black;
+  padding-left: 4px;
+}
+
+
+/* Chrome, Safari, Edge, Opera */
+.chargen-skill-misc input::-webkit-outer-spin-button,
+.chargen-skill-misc input::-webkit-inner-spin-button
+ {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.chargen-skill-misc input[type=number] {
+  -moz-appearance:textfield;
+}

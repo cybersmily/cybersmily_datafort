@@ -1,0 +1,26 @@
+.chargen-cp-logo {
+  text-align: center;
+  font-size: 20px;
+  display: block;
+  height: 50px;
+}
+
+.chargen-pc-pic {
+  margin-top: 10px;
+  border-color: black;
+  display: block;
+  height: 320px;
+  text-align: center;
+}
+
+img.chargen-pc-img {
+  margin: 0px 0px;
+  padding: 0px 0px;
+  height: 300px;
+  border-color: transparent;
+  max-width: 90%;
+}
+
+.chargen-pc-pic-url {
+  width: 80%;
+}

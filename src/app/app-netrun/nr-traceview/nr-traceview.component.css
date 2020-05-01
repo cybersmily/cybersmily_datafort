@@ -1,0 +1,6 @@
+#csd-nrmap-trace-lst {list-style: none; width: 450px;padding:20px 20px;}
+.csd-trace-hdr { border-bottom: 1px solid black;}
+.csd-trace-ftr { padding-top: 10px;border-top: 1px solid black;margin-top:10px;}
+.csd-trace-city { display:inline-block; width: 150px;}
+.csd-trace-region { display:inline-block; width: 150px;}
+.csd-trace-trace { display:inline-block; width: 50px;}

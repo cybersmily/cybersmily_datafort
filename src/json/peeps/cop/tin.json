@@ -1,0 +1,79 @@
+{"name":"Officer Jeremy Tomun",
+	"handle":"Tin",
+	"aliases":"Tiny, Tinman",
+	"age":"22",
+	"img":"tin",
+	"career":{"name":"Cop","specialability":"Authority","value":2},
+	"stats":{
+		"ref":9,
+		"int":4,
+		"tech":6,
+		"cool":9,
+		"attr":3,
+		"luck":4,
+		"ma":16,
+		"body":14,
+		"emp":9,
+		"hc":83,
+    "rep":4},
+	"skills":{
+		"body":[
+			{"name":"Endurance","value":5},
+			{"name":"Strength Feat","value":5}
+		],
+		"cool":[
+			{"name":"Interrogation","value":2},
+			{"name":"Intimidate","value":8}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":4},
+			{"name":"Shadow/Track","value":3}
+		],
+		"ref":[
+			{"name":"Athletics","value":3},
+			{"name":"Brawling","value":5},
+			{"name":"Dodge/Escape","value":4},
+			{"name":"Driving","value":2},
+			{"name":"Handgun","value":8},
+			{"name":"Heavy Weapons","value":6},
+			{"name":"MA: Aikido","value":4},
+			{"name":"MA: Jeet Kun Do","value":5},
+			{"name":"Melee","value":4},
+			{"name":"Pilot: Gyro","value":3},
+			{"name":"Pilot: VTV","value":4},
+			{"name":"Rifle","value":7},
+			{"name":"Submachinegun","value":5}
+		],
+		"tech":[
+			{"name":"Cyber Tech","value":4},
+			{"name":"Demolitions","value":3},
+			{"name":"Weaponsmith","value":2}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Moody, rash and headstrong",
+			"valuedperson":"Adam Smasher",
+			"valuemost":"Money",
+			"feelaboutpeople":"People are tools. Use them for your own goals and discard them.",
+			"valuedpossession":"Bowie knife, handed down from father"
+		},
+		"style":{
+			"clothes":"Cammos",
+			"hair":"Wild, all over",
+			"affectations":"Ritual scars",
+			"ethnicity":"Native American",
+			"languages":"English"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":["Muscle/Bone Lace", "Grafted Muscles",
+                    "2 Cyberarms [shielding, armor, thickened Myomer, Wolvers]",
+                    "2 Cyberlegs [Adv. Corvette option]",
+                    "Subdermal Armor[Torso:18SP,Skull:12]",
+                    "Decentralized Heart",
+                    "Neural Processor[RFB, BM, WLNK, PLGs, Chip Socket]"],
+	"gear":["Various gear, usually heavy weapons and borg weapons."],
+	"history":"Jeremy server in the Army with special forces. This is where the fun loving youth became a hardened man. He suffered several injuries during his tour and was augmented each time. This chipped away at his humanity. When he returned to civilian life, and took a gig with the NCPD, C-SWAT division. There his combat skills shined, though the higher-ups fear he will eventually be the hunted. He works closely with Lady J, another C-SWAT officer. Though they don't hang out after work, they do work well together.", "playerinfo":"<strong>For &quot;NCPD Blues&quot; scenario</strong><h6>Officer Jeremy &quot;Tin&quot; Tomum, C-SWAT NCPD</h6><br>I like guns. Lots of guns. I like cyberware. Lots of cyberware. Shrink says I should slow down with the metal. She's an idiot. Chrome is better than meat. I see it everyday with C-SWAT. Can't wait to bag this borg. I'm sure he'll have cool chrome that I can take. If those corps complain, well they'll be dealt with if they try to stop me. Bang! Bang! Right in their meaty heads.<br><br><strong>Lips</strong> - Meat.<br><strong>Lady J</strong> - Cool meat.<br><strong>Mum</strong> - Corporate meat.<br><strong>Egg</strong> - Undertanding meat.<br><strong>Shade</strong> - Dangerous meat."
+}

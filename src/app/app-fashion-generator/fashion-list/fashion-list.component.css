@@ -1,0 +1,10 @@
+.cs-cloth-lst, .cs-cloth-lst tr td { border: 1px solid black; }
+.cs-cloth-lst .hdr-row { background-color: #888;}
+.cs-cloth-lst .hdr-row td { color: white;}
+.cs-cloth-lst .hdr-row .cloth {width: 150px;}
+.cs-cloth-lst .hdr-row .cloth-loc {width: 100px;}
+.cs-cloth-lst .hdr-row .cloth-ev {width: 40px;}
+.cs-cloth-lst .hdr-row .cloth-cost {width: 80px;}
+.cs-cloth-lst .cloth-total {text-align:right;}
+.cs-cloth-lst .cloth-options {font-size:x-small;}
+.cloth-item span {margin-right: 3px;}

@@ -1,0 +1,78 @@
+﻿{"name":"Amanda Ventrulla",
+	"handle":"Mandy Masher",
+	"aliases":"",
+	"age":23,
+	"img":"mandy",
+	"career":{"name":"Solo","specialability":"Combat Sense","value":8},
+	"stats":{
+		"ref":11,
+		"int":7,
+		"tech":4,
+		"cool":7,
+		"attr":10,
+		"luck":7,
+		"ma":6,
+		"body":11,
+		"emp":8,
+		"hc":52},
+	"skills":{
+		"attr":[
+		],
+		"body":[
+		],
+		"cool":[
+			{"name":"Streetwise","value":2}
+		],
+		"emp":[
+			{"name":"Human Perception","value":3},
+			{"name":"Seduction","value":5},
+			{"name":"Persuasion/Fast Talk","value":3}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":5},
+      {"name":"Language: English","value":6},
+      {"name":"Language: Spanish","value":7},
+			{"name":"Library Search","value":2}
+		],
+		"ref":[
+			{"name":"Athletics","value":2},
+			{"name":"Driving","value":4},
+			{"name":"Handgun","value":7},
+			{"name":"Heavy Weapons","value":2},
+			{"name":"MA: Choi Li Fut","value":4},
+			{"name":"Melee","value":2},
+			{"name":"Motorcycle","value":3},
+			{"name":"Pilot: Gyro","value":2},
+			{"name":"Pilot: VTV","value":2},
+			{"name":"Rifle","value":3},
+			{"name":"Stealth","value":3},
+			{"name":"Submachinegun","value":3}
+		],
+		"tech":[
+			{"name":"Elect. Security","value":3},
+			{"name":"First Aid","value":2},
+			{"name":"Weaponsmith","value":5}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Moody, rash and headstrong",
+			"valuedperson":"Silent Su(fixer and lover)",
+			"valuemost":"Honesty",
+			"feelaboutpeople":"Neutral",
+			"valuedpossession":"Her pistol"
+		},
+		"style":{
+			"clothes":"Jeans",
+			"hair":"wild and all over",
+			"affectations":"Spike heeled boots",
+			"ethnicity":"Hispanic",
+			"languages":"Spanish, English"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":["Basic Processor [WLNK, SW, PLG, BM]", "Chip Socket [Stress Chip, Fish N Chips, Adrenaline/Endorphin Surge, Ambidexterity Plus chip, Lock Pick +3, Demolition +3]" , "Muscle & Bone Lace", "Nasal Filters", "Contraceptive Implant", "Cyber Optics [Right:AD, TA, TH, TE, Left:AD, TS+]", "Left Cyberarm [REAL, Whip, Flashbulb]", "Right Cyber Hand [QCF, Video Feed(Lowlite),Lock Pick, Scissors/Wirecutters, Light Pen]"],
+	"gear":["Gibson Battlegear"],
+	"history":"Mandy grew up on the streets. She work as an escort/bodyguard for a few years then she met Silent Su. Su hired as a bodyguard. One thing lead to another and they became lovers. Often it was Mandy who discussed the business with a client while Su kept silent. This tactic often intimidated clients. Su and Mandy never really had any double crosses because of it. Things were going good. Su's rep was growing and the money was coming in. One day a group of edgerunners need Su's help. Su was contacted by an AI who hired her to help the group. The money was great and both Mandy and Su thought it would be a walk in the park. Well it wasn't. Arasaka needed info on the group and the AI. Mandy and Su were \"picked up\" and then the torture started. Mandy was killed and Su cracked. The AI was the only reason why Su survived."
+}

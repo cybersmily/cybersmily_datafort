@@ -1,0 +1,34 @@
+{ "handle": "Voodoo Boy",
+  "role": "Streetpunk",
+  "int": 5,
+  "ref": 7,
+  "tech": 4,
+  "cool": 6,
+  "attr": 4,
+  "luck": 6,
+  "ma": 6,
+  "body":6,
+  "emp": 4,
+  "armor": {
+    "head": 0,
+    "torso": 0,
+    "arms": 0,
+    "legs": 0
+  },
+  "sa": {"name":"", "stat": "", "value": 0},
+  "skills": [
+    {"name":"Melee", "stat": "ref", "value": 7},
+    {"name":"Handgun", "stat": "ref", "value": 4},
+    {"name":"Brawling", "stat": "ref", "value": 6},
+    {"name":"Intimidate", "stat": "cool", "value": 8},
+    {"name":"Human Perception", "stat": "emp", "value": 5},
+    {"name":"Persuasion \\& Fast Talk", "stat": "emp", "value": 7},
+    {"name":"Dodge \\& Escape", "stat": "ref", "value": 5},
+    {"name":"Stealth", "stat": "ref", "value": 7}
+  ],
+  "cyberware": [],
+  "weapons": [],
+  "gear": [],
+  "source": "NC",
+  "notes": ""
+}

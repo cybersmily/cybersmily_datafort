@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="small">Last updated {{updated}}</div>
+<h2>{{title}}</h2>
+<div>
+  These are the unofficial conversions of the vehicles in <i>Chromebook2</i>.
+  These conversions are to <i>Maximum Metal</i> stats.
+  If there is an error email me and I'll try to get a fix in.
+</div>
+<div class="container card-columns">
+  <div *ngFor="let veh of vehicleList" class="card">
+    <div class="card-block csd-box csd-rounded">
+    <h4 class="card-title">{{veh.name}}</h4>
+    <div *ngIf="hasProp(veh,'description')" class="card-text">
+        {{veh.description}}
+      </div>
+    <div class="card-text row" *ngIf="!hasProp(veh,'description')">
+      <div class="col-5">
+        <div>Top Speed: {{veh.topspeed}}</div>
+        <div>Crew: {{veh.crew}}</div>
+        <div>Passengers: {{veh.passengers}}</div>
+        <div>Maneuver: {{veh.manuever}}</div>
+        <div>SP: {{veh.sp | number}}</div>
+        <div>Mass: {{veh.mass | number}} tons</div>
+      </div>
+      <div class="col-5">
+          <div>Acc/Dec: {{veh.accelerate}}/{{veh.decelerate}}</div>
+          <div>Range: {{veh.range | number}} mi.</div>
+          <div>Cargo: {{veh.cargo}}</div>
+          <div>SDP: {{veh.sdp}}</div>
+          <div>Type: {{veh.type}}</div>
+          <div>Cost: {{veh.cost | number}}</div>
+      </div>
+      <div class="col-12">Options: {{veh.options}}</div>
+    </div>
+    <div class="small">Source: <i>{{veh.source.book}}</i>
+      <span *ngIf="hasProp(veh.source,'page')">  pg(s): {{veh.source.page}}</span></div>
+  </div>
+</div>
+</div>
+
+</div>

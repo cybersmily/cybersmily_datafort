@@ -1,0 +1,38 @@
+#csdLDLMap {position: relative;}
+#csdLDLMap #csdLDLMapTable { position: absolute; top: 0px;left:0px; border-width: 1px;}
+.csdGhostMap {display:block; height: 800px; width: 1000px; background-color:#999;}
+.csd-datafort-map {display: block; position:absolute; top: 0px; left: 0px;}
+#csdLDLMapTable tr, #csdLDLMapTable tr td  {
+  padding: 0 0;
+  margin: 0 0;
+  line-height: 0px; /* need to set that to reduce the size of the first row.*/
+}
+#csdLDLMap {padding: 1px 1px;}
+#csdLDLMapTable tr td {
+  display: inline-block;
+  line-height: 0px;
+  border-right-width: thin;
+  border-right-style:solid;
+  border-bottom-width: thin;
+  border-bottom-style:solid;
+  border-color: white;
+}
+
+#csdLDLMapTable tr td.cityGrid {
+  border-color: black;
+}
+
+:host .csdUnselected {
+  cursor: pointer;
+}
+
+:host .csdUnselected ::ng-deep .csdNRCell:hover {
+  background-color:rgba(238,232,170,0.5);
+}
+
+:host .csdUnselected ::ng-deep .csdNRCell.csdCityGrid:hover {
+  background-color:rgba(238,232,170,0.8);
+}
+.csdRefeshMap {float: right; }
+.csdRegionName {display:inline-block;}
+

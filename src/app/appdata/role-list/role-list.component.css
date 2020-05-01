@@ -1,0 +1,20 @@
+.mstr-role-table {
+  width: 100%;
+}
+
+.mstr-role-table th, .mstr-role-table td {
+  border: 1px solid #999;
+}
+
+.role-skills { width: 300px;}
+.role-skills div, .role-salaries div {
+  width: 100%;
+  border-bottom: 1px solid #999;
+}
+
+
+.mstr-role-table UL { list-style: none;}
+
+.mstr-role-search {
+  width: 100%;
+}

@@ -1,0 +1,27 @@
+{ "handle": "Ganger - Brainiacs",
+  "role": "Streetpunk",
+  "int": 9,
+  "ref": 6,
+  "body":6,
+  "luck": 6,
+  "tech": 8,
+  "cool": 6,
+  "attr": 7,
+  "ma": 6,
+  "emp": 3,
+  "armor": {
+    "head": 0,
+    "torso": 0,
+    "arms": 0,
+    "legs": 0
+  },
+  "sa": {"name":"", "stat": "", "value": 0},
+  "skills": [
+    {"name":"", "stat": "", "value": 0}
+  ],
+  "cyberware": [],
+  "weapons": [],
+  "gear": [],
+  "source": "NC",
+  "notes": "Thinking man's booster gang. Required to have high intelligence to join. Deals in chipware. Skillsfora Brainiacdifferfrom person to person, but each will always have one personal speciality chipped to 10, and two others chipped to 6. Most members have Knowledge skills in the 5-7 range. Cyberware is almost all skill chips."
+}

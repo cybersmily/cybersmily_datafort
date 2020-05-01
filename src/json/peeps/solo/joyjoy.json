@@ -1,0 +1,84 @@
+﻿{"name":"Joyce Summers",
+	"handle":"Joy Joy",
+	"aliases":"Jen Marshals, Sable, Svetlana Orwichvo",
+	"age":"26",
+	"img":"joyjoy",
+	"career":{"name":"Solo","specialability":"Combat Sneak","value":9},
+	"stats":{
+		"ref":10,
+		"int":7,
+		"tech":8,
+		"cool":8,
+		"attr":10,
+		"luck":6,
+		"ma":6,
+		"body":9,
+		"emp":7,
+		"hc":28},
+	"skills":{
+		"attr":[
+			{"name":"Personal Grooming","value":5},
+			{"name":"Wardrobe/Style","value":4}
+		],
+		"body":[
+			{"name":"Endurance","value":2},
+			{"name":"Swimming","value":2}
+		],
+		"cool":[
+			{"name":"Intimidate","value":3},
+			{"name":"Streetwise","value":2}
+		],
+		"emp":[
+			{"name":"Seduction","value":7},
+			{"name":"Social","value":3},
+			{"name":"Persuasion/Fast Talk","value":2},
+			{"name":"Perform","value":5}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":5},
+			{"name":"Composition","value":2},
+			{"name":"Hide/Evade","value":4},
+			{"name":"Shadow/Track","value":4}
+		],
+		"ref":[
+			{"name":"Athletics","value":4},
+			{"name":"Handgun","value":5},
+			{"name":"MA: Choi Li Fut","value":3},
+			{"name":"MA: Aikido","value":3},
+			{"name":"Melee","value":4},
+			{"name":"Rifle","value":2},
+			{"name":"Stealth","value":7},
+			{"name":"Submachinegun","value":5}
+		],
+		"tech":[
+			{"name":"Basic Tech","value":2},
+			{"name":"Demolitions","value":3},
+			{"name":"Elect. Security","value":3},
+			{"name":"Pick Lock","value":5},
+			{"name":"Play Instrument","value":6},
+			{"name":"Weaponsmith","value":4}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"",
+			"valuedperson":"",
+			"valuemost":"",
+			"feelaboutpeople":"",
+			"valuedpossession":""
+		},
+		"style":{
+			"clothes":"",
+			"hair":"",
+			"affectations":"",
+			"ethnicity":"",
+			"languages":""
+		},
+		"family":"",
+		"siblings":""
+	},
+  "cyberware":["Contraceptive Implant", "Miss Midnight", "Adv. Muscle & Bone Lace", "Forked Tongue", "Neural Processor [PLG, WLNK, RFB2, BM, PE]", "Chip socket[]", "Cyber Optics [RE-TA, AD, TH, IE, LE-AD, TA, IR, TE]", "Skinweave[SP12]"
+  ],
+	"gear":[],
+	"history":"Joyce Summers grew up on the streets. By the time she was 16 she had already been in 2 gangs and had been a prostitute for 3 years. She got off the street and started working for a more upscale escort service. During this she learned a little more about self-defense. She really enjoyed. When she was offered combat training she took it. She became well paid but was feeling tired of the back work she had to do. Enter Big Man. He came along and offered her a position on Team Alpha. She was thrilled. Several years passed and her combat skills got better. When Prometheus went rogue she was all for it, especially what Prometheus offered for his release. After they fled BMS they landed in Night City. There Joy-Joy and Mars started up a band. Unfortunately BMS was able to located them and Mars and Dango ended up dead. Prometheus was thru with what he needed done and Joy-Joy wants what's do her. Anna and she were able to eliminate the BMS team. Now it is unknown where Team Alpha the current where abouts are."
+}

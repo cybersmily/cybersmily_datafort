@@ -1,0 +1,17 @@
+.cbttrk-input {
+  width: 25px;
+  height: 20px;
+}
+
+.opp-stat {
+  font-size: 12px;
+}
+
+.opp-wounded {
+  color: red;
+}
+
+.opp-wounded::before {
+  content: '*';
+  color: red;
+}

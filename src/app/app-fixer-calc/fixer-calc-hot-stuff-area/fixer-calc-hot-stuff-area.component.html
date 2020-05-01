@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-5">
+    <span>{{area.area}}</span>
+  </div>
+  <div class="col-3">
+  <span *ngIf="!editMode">{{area.rolls}}</span>
+  <input *ngIf="editMode" type="number" min="0" max="6" [(ngModel)]="area.rolls">
+  </div>
+  <div class="col-3">{{area.points}}</div>
+  <div class="col-1">
+    <fa-icon *ngIf="!editMode" [icon]="faPen" (click)="onEdit()"
+      class="csd-btn hidden-print"
+      title="Edit Area/field"
+      ></fa-icon>
+    <fa-icon *ngIf="editMode" [icon]="faSave" (click)="onSave()"
+      title="Save changes to Area/field"
+      class="csd-btn hidden-print"></fa-icon>
+    &nbsp;&nbsp;&nbsp;
+    <fa-icon [icon]="faTrash" (click)="onDelete()"
+    title="Delete Area/field" class="csd-btn hidden-print"></fa-icon>
+  </div>
+</div>
+<div class="row">
+  <div class="col-1"></div>
+  <div *ngIf="!editMode; else editDetails" class="col-10 area-details">
+    {{area.details}}
+  </div>
+  <ng-template #editDetails>
+    <div class="col-10">
+      <textarea [(ngModel)]="area.details"></textarea>
+    </div>
+  </ng-template>
+
+</div>

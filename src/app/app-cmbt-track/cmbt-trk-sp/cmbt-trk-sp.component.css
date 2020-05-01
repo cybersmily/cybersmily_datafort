@@ -1,0 +1,24 @@
+.opp-sp input {
+  margin: 0px 0px;
+  width: 100%;
+  padding: 0px;
+  text-align: center;
+}
+.opp-sp-hdr {
+  background-color: black;
+  color: white;
+  border-top: solid 1px white;
+  margin-left: 15px;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.opp-sp {
+  font-size: 12px;
+  text-align: center;
+}
+
+.opp-sp-input {
+  padding: 0px 0px;
+  border: solid 1px black;
+}

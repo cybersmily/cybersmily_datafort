@@ -1,0 +1,52 @@
+{ "handle": "Corporate Hitter",
+  "role": "Solo",
+  "int": 6,
+  "ref": 8,
+  "body":8,
+  "luck": 5,
+  "tech": 5,
+  "cool": 8,
+  "attr": 7,
+  "ma": 7,
+  "emp": 4,
+  "armor": {
+    "head": 0,
+    "torso": 0,
+    "arms": 0,
+    "legs": 0
+  },
+  "sa": {"name":"Combat Sense", "stat": "REF", "value": 5},
+  "skills": [
+    {"name":"Awareness/Notice", "stat": "int", "value": 9},
+    {"name":"Brawling", "stat": "ref", "value": 5},
+    {"name":"Handgun", "stat": "ref", "value": 8},
+    {"name":"Melee", "stat": "ref", "value": 8},
+    {"name":"Rifle", "stat": "ref", "value": 8},
+    {"name":"Dodge/Escape", "stat": "ref", "value": 6},
+    {"name":"Driving", "stat": "ref", "value": 7},
+    {"name":"Human Perception", "stat": "emp", "value": 5},
+    {"name":"Interrogation", "stat": "cool", "value": 6},
+    {"name":"Intimidate", "stat": "cool", "value": 8},
+    {"name":"Personal Grooming", "stat": "attr", "value": 6},
+    {"name":"Social", "stat": "emp", "value": 4},
+    {"name":"Streetwise", "stat": "cool", "value": 3},
+    {"name":"Shadown/track", "stat": "int", "value": 5},
+    {"name":"Wardrobe \\& Style", "stat": "attr", "value": 7}
+  ],
+  "cyberware": [
+    {"name":"Smartgun Link"},
+    {"name":"Interface Plugs"},
+    {"name":"Chip Socket"},
+    {"name":"Cyberoptic", "options":"targeting scope, IR, Image Enhancement"},
+    {"name":"Cyberaudio","options":"Radio link, Frequency changer"}
+  ],
+  "weapons": [
+    {"name": "Colt Alpha Omega 10mm", "type": "P", "wa": 2, "damage":"2D6+2", "shots":10, "rof": 2, "rel": "VR", "range": 50, "notes":"silenced"},
+    {"name": "Militech MK IV Assault Weapon", "type": "RIF", "wa": 1, "damage":"6D6-1", "shots":35, "rof": 30, "rel": "VR", "range": 400, "notes":""}
+  ],
+  "gear": [
+    "Mirrorshades", "Cell phone", "Sonar scanner", "Advanced communication suitcase", "Credchip"
+  ],
+  "source": "PS",
+  "notes": "Generic corporate hitter."
+}

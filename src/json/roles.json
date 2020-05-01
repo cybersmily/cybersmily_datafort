@@ -1,0 +1,12 @@
+﻿{"roles":[
+{"name":"Solo"			,"stat":"REF" ,"specialability":"Combat Sense"				,"skills":["Awareness/Notice","Melee","Athletics","Handgun","Rifle","Brawling|Marital Arts", "Weapons Tech", "SMG","Stealth"]},
+{"name":"Nomad"			,"stat":"REF" ,"specialability":"Family"					,"skills":["Awareness/Notice","Melee","Athletics","Brawling","Rifle","Endurance","Drive","Basic Tech", "Wilderness Survival"]},
+{"name":"Cop"			,"stat":"COOL","specialability":"Authority"					,"skills":["Awareness/Notice","Melee","Athletics","Handgun","Human Perception","Education","Brawling","Interrogration","Streetwise"]},
+{"name":"Fixer"			,"stat":"COOL","specialability":"Streetdeal"				,"skills":["Awareness/Notice","Melee","Handgun","Forgery","Brawling","Pick Lock", "Pick Pocket","Intimidate","Persuasion"]},
+{"name":"Corporate"		,"stat":"INT" ,"specialability":"Resource"					,"skills":["Awareness/Notice","Social","Education","Human Perception","Library Search","Persuasion","Stock Market","Wardrobe & Style", "Personal Grooming"]},
+{"name":"Techie"		,"stat":"TECH","specialability":"Jury Rig"					,"skills":["Awareness/Notice","Basic Tech","CyberTech","Teaching","Education","Electronics","Gryo Tech|Aero Tech|Weapons Tech|Elect. Security|AV Tech"]},
+{"name":"Medical Tech"	,"stat":"TECH","specialability":"Medtech"					,"skills":["Awareness/Notice","Basic Tech","Diagnose","Cryotank Operations","Library Search","Pharmeuticals","Zoology","Human Perception"]},
+{"name":"Netrunner"		,"stat":"INT" ,"specialability":"Interface"					,"skills":["Awareness/Notice","Basic Tech","Education","System Knowledge","CyberTech","Cyberdeck Design","Composition","Electronics","Programming"]},
+{"name":"Media"			,"stat":"INT" ,"specialability":"Credibility"				,"skills":["Awareness/Notice","Composition","Education","Persuasion","Human Perception","Social","Streetwise","Photo & Film","Interview"]},
+{"name":"Rockerboy"		,"stat":"COOL","specialability":"Charismatic Leadership"	,"skills":["Awareness/Notice","Perform","Wardrobe & Style","Composition","Brawling","Play Instrument","Streetwise","Persuasion","Seduction"]}
+]}

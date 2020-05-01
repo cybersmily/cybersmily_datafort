@@ -1,0 +1,44 @@
+﻿{
+    "title": "New Expenses",
+    "desc": "",
+    "updated": "2001",
+    "geartype": "expenses",
+    "items": [ 
+        
+    {
+        "name":"Secur-a-safe",
+        "type":"SERVICE",
+        "cost":"10eb/month",
+        "desc": "You can find one in most airports, train stations, hotels, gyms, and even some bars. Just swipe your debit card, and that your key. Your card will be assessed on a monthly basis. Upon your first failed payment, the user forfeits any rights to the property in storage. Secur-a-safe attendants will claim what inside the safe and your card will no longer work on any safes until the advance fee is payed.",
+        "notes":"The locks on these safes are card locks that use a debit card as a key.  The locks are a Level 3 lock, and a safe has  a 30 SP and 50 SDP.  The dimensions of the safes are 18in.x18in.x40in.."
+    },
+    {
+        "name":"Rudolph's Comatoser",
+        "type":"FURNITURE",
+        "cost":"800eb",
+        "desc": "The best sleep you'll ever have. The comatoser is the best bed you can get on the market. With computer assistance, this bed will reglate tempature, softness/hardness, and movement to give the sleeper the best comfort they deserve. The comatoser also comes with a sleep inducer built in so you're out like a light. You'll never wake up with aches and pains because of sleeping in the wrong position. Now the real kicker is that's it's portable! It fits in a backpack, so you can take it anywhere. With memory plastic, air compressors, and micro circuitry you'll never sleep without one again.",
+        "notes":""
+    },
+    {
+        "name":"Fogarty Safe Houses",
+        "type":"HOUSING",
+        "cost":"varies",
+        "desc":"Safe, secure, and secret. Once a client calls and requests FSH service, an unmark car will arrive within a half hour, guaranteed, and bring the client to one of the safe houses. FSH offers clients a place to sleep, food delivered right to the door, shuttle service to make sure the client is not followed, and armed guards will keep an eye on the client while they use FSH services. Fogarty Safe Houses are in all major cities and in many other places. Call to find one near you. Prices vary due to options.",
+       "notes":"Depending on the options a player chooses the price will vary on how many security guards they want , where they want to stay, what kind of food they want, and other services. Location: Corp Zone-1,000eb/day;Moderate Zone-750eb/day;Comabt zone-500eb/day; This includes being taxi arounded. Guards: 100eb/day/guard minimum of 3 guards; Food services: As Cyberpunk 2020 rulebook pg. 68; Phone/net services: 50eb/day"
+    },
+    {
+        "name":"Shitoraki's Secure BizMan Attache Case",
+        "type":"SECURITY",
+        "cost":"2,000eb+",
+        "desc": "If you want to keep your important documents safe, or those bonds secured. Look no further! Shitoraki has just made your business life a bit safer. The Secure BizMan Attache Case is the way to go. First it comes with not only a fingerprint scan (Diff 20), but also a voc lock(Diff 20). Don't worry if you get into a firefight because the BizMan can be used as a shield with an armor rating of Class VI(SP 40), you'll be totally safe from small arms. But the features don't stop there! It also comes with it's own security system. All you have to do is arm the system before locking the case up. As long as you have the proximity beeper your safe if the BizMan leaves the 5m distance it will sound an alarm (can be heard for at least 100m in a crowd!). If the thief still doesn't get the hint the BizMan starts electrocuting the would be thief (this is a taser attack. Who ever is holding the case will be shocked ever turn and must make a Stun Save -2 (cumulative) or be stunned as by a taser.). Plus the BizMan can come with a built in computer, or phone, or fax, or whatever personnel electronic you want! As an extra precaution the BizMan has been EMP shielded so those items won't be hurt. As a corp you live out of your brief case, so you should make it as safe as possible.",
+        "notes":"The buyer may put any options they wish; Cell phone, computer, stereo system, fax, cybermodem, etc. The cost is equal to the item they wish (cell phone costs 400eb plus phone options)."
+    },
+    {
+        "name":"Molecular tripwire",
+        "type":"SECURITY",
+        "cost": "50eb/m",
+        "desc": "Molecular tripwire is so small you can barely see it with the naked eye. The wire runs a small electrical current though it. When the circuits broke, whatever the wire was set for activates, whether it was a boobytrap or a security system. Very hard to detect and easy to use. Ask for it at any security store near you.",
+        "notes":"Awareness/Notice or Electronic Security System check (Diff 30) to notice it. Isn't picked up on IR like laser tripwire. Any solid object hitting (with at least 10 pounds of pressure) it will break the wire."
+    }
+    ]
+}

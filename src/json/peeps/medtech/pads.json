@@ -1,0 +1,77 @@
+﻿{"name":"Padma Bhuti",
+	"handle":"Pads",
+	"aliases":"",
+	"age":23,
+	"img":"pads",
+	"career":{"name":"Medtechie","specialability":"Medical Tech","value":7},
+	"stats":{
+		"ref":5,
+		"int":9,
+		"tech":10,
+		"cool":5,
+		"attr":7,
+		"luck":8,
+		"ma":7,
+		"body":5,
+		"emp":7,
+		"hc":8,
+    "rep":2
+  },
+	"skills":{
+		"attr":[
+		],
+		"body":[
+		],
+		"cool":[
+		],
+		"emp":[
+			{"name":"Human Perception","value":5}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":5},
+			{"name":"Biology","value":3},
+			{"name":"Chemistry","value":4},
+			{"name":"Diagnose Illness","value":7},
+			{"name":"Education/Gen. Know","value":4},
+			{"name":"Library Search","value":3},
+			{"name":"Zoology","value":2}
+		],
+		"ref":[
+			{"name":"Handgun","value":3},
+			{"name":"MA: Karate","value":2}
+		],
+		"tech":[
+			{"name":"Basic Tech","value":3},
+			{"name":"Cryotank Operation","value":6},
+			{"name":"Cyber Tech","value":5},
+			{"name":"Pharmacuticals","value":5}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Sneaky and deceptive",
+			"valuedperson":"Papa Doc",
+			"valuemost":"Knowledge",
+			"feelaboutpeople":"Neutral",
+			"valuedpossession":"Her medscanner"
+		},
+		"style":{
+			"clothes":"Normal clothes",
+			"hair":"Short, neat",
+			"affectations":"Tattoos",
+			"ethnicity":"Tibetan",
+			"languages":"Mandarin"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":["Neural Processor [MLNK, PLGS, Chipsocket]"],
+	"gear":[
+    "Colt Alpha-Omega (P/+2/C/J/2D6+3/14/1/VR)",
+    "Body Computer w/ medscanner",
+    "Bomber jacket (SP12)",
+    "Normal cloths",
+    "Trauma Team gear"
+  ],
+	"history":"Pads works for Trauma Team and is an acquaintance of Papa Doc. He often sends her side work when is docket is full."
+}

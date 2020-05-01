@@ -1,0 +1,70 @@
+﻿{"name":"Leo Eklund",
+	"handle":"Lyte",
+	"aliases":"",
+	"age":"",
+	"img":"lyte",
+	"career":{"name":"Solo","specialability":"Combat Sense","value":5},
+	"stats":{
+		"ref":8,
+		"int":6,
+		"tech":4,
+		"cool":8,
+		"attr":7,
+		"luck":5,
+		"ma":5,
+		"body":6,
+		"emp":6,
+    "hc":21,
+    "rep":4
+  },
+	"skills":{
+		"attr":[
+		],
+		"body":[
+		],
+		"cool":[
+		],
+		"emp":[
+			{"name":"Perform","value":6}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":3},
+			{"name":"Composition","value":3}
+		],
+		"ref":[
+			{"name":"Athletics","value":3},
+			{"name":"Brawling","value":4},
+			{"name":"Handgun","value":5},
+			{"name":"MA: Karate","value":2},
+			{"name":"Melee","value":4},
+			{"name":"Rifle","value":4},
+			{"name":"Stealth","value":4},
+			{"name":"Submachinegun","value": 4}
+		],
+		"tech":[
+			{"name":"Play Instrument","value":6},
+			{"name":"Weaponsmith","value":4}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Friendly/Outgoing,",
+			"valuedperson":"Dy(sister)",
+			"valuemost":"Friendship the most",
+			"feelaboutpeople":"Likes almost everyone",
+			"valuedpossession":"a ring from his father"
+		},
+		"style":{
+			"clothes":"Urbanflash",
+			"hair":"short spiked",
+			"affectations":"Tattoos",
+			"ethnicity":"Swedish",
+			"languages":"English"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":["Neural Processor[PLGs,MLNK]", "Optishield(AD, LL)", "Speedware(+2)", "Skinweave(SP 12)"],
+	"gear":["Good Urban Flash Clothing", "Armored Bodysuit (SP14)", "Mini-Cell Phone", "E-book", "Portable Keyboard", "3 room apartment in Moderate Zone", "Gonz-Taurus(P 0 J E 2D6+1 15 2 ST 50m)", "2 clips", "Monoknife( MEL +1 P P 2D6 NA NA VR)"],
+	"history":"Made friends with a Fixer named Silent Sue & a Techie named Splice. Saved a Powerful Corp and he owes you 1 favor. Lyte grew up in an arcology with his brothers and sister. When he was legal age he joined the army. The second So-Am war was in full swing he got shipped off. The war was bad. Vietnam was a tea party compared to this one. When the US pulled out they left Lyte and a few hundred thousand other soldiers on their own in enemy territory. Life was hard on the Long Walk home. When Lyte got back to Night City he meet up with a guy named Splice. Splice could fix anything and he also played music, something Lyte and his sister, Dy, were always into. That's when they decided to form a band . Dy's boyfriend, BD, also joined. They meet a fixer by the name of Cory Stevens who became their manager. Cory helped a lot getting gigs for the band. She also hired Stacks for protection, even though Lyte didn't need it. The band is starting to come together, with time who knows what might happen."
+}

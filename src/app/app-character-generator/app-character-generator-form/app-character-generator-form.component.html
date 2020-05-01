@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="hidden-print">
+      <h3>Cyberpunk 2020 Character Generator</h3>
+      <p>
+        This is a utility to create a Cyberpunk 2020 character.
+        Here you will be able to create, save, load, and print character sheets.
+        There is still a bit of work to be done, but this should help with starting out with the basics.
+      </p>
+      <p>
+        PRINTING - To print, use the browser to print it.
+        Make sure to print the Background Graphics as well.
+        This is usually off by default.
+      </p>
+      <ul>
+        <li>Chrome - add the background colors to print go Print > More settings > options > Background graphics.</li>
+        <li>Edge - doesn't support background color, but the form will print. IE does but the site doesn't work in IE.</li>
+        <li>Firefox - Page setup > Print Background. You will also need to set the scale of the page to 70%. There is an issue with Firfox distorting some of the elements while printing.</li>
+      </ul>
+      <p>
+        SAVE/UPLOAD - The data is save into a .txt file.
+        This is the JSON object of the character.
+        If you want to mess with it, back the file up before you edit it.
+        This is a free app and created in my spare time so if you broke it you bought it ;-).
+      </p>
+      <p>
+        If you see <fa-icon [icon]="faDice"></fa-icon> icon, click it to get dice roll for a skill or save, or generate random lifepath.
+      </p>
+  </div>
+  <div class="row hidden-print">
+    <div class="col-12">
+    <hr color="#999999" style="width:100%;">
+    <p>
+      <input type="button" title="Reset the sheet to a blank character" class="btn-secondary csd-rounded csd-chargen-btn pull-right" value="Reset"
+        (click)="resetCharacter()" />
+      <input type="button" title="Save the character to a file" class="btn-secondary csd-rounded csd-chargen-btn" value="Save"
+        (click)="saveCharacter()" />
+        <label class="btn btn-secondary btn-file csd-rounded csd-chargen-btn" title="load a character .txt file">
+          Browse
+        <input type="file" id="loadFile" title="load a character .txt file" style="display: none;" name="Load"
+          (change)="loadCharacter($event)" #input accept="text/plain" />
+        </label>
+    </p>
+    <hr color="#999999" style="width:100%;">
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <cs-app-character-handle [handle]="character.handle" (changeHandle)="changeHandle($event)">
+      </cs-app-character-handle>
+      <cs-app-character-role [role]="character.role" (changeRole)="changeRole($event)"></cs-app-character-role>
+      <cs-app-character-stats [stats]="character.stats" (changeStats)="changeStats($event)"></cs-app-character-stats>
+      <cs-app-character-armor [armor]="character.armor" (changeArmor)="changeArmor($event)"></cs-app-character-armor>
+      <cs-app-character-save-wounds [stats]="character.stats"></cs-app-character-save-wounds>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <cs-app-character-image [image]="character.image" (changeImage)="changeImage($event)"></cs-app-character-image>
+    </div>
+  </div>
+  <div class="row print-fix">
+    <div class="col-12">
+      <cs-app-character-skills
+          [cyberware]="character.cyberware"
+          (changeCyberware)="changeCyber($event)"
+          [stats]="character.stats"
+          [role]="character.role" (changeSpecialAblity)="changeRole($event)"
+          [skills]="character.skills" (changeSKills)="changeSkills($event)"
+          ></cs-app-character-skills>
+    </div>
+  </div>
+  <div class="chargen-label chargen-fill chargen-page-header csd-linebreak">LIFEPATH, GEAR & WEAPONS</div>
+  <div class="row print-fix">
+    <div class="col-sm-12 col-md-6">
+      <cs-app-character-lifepath [lifepath]="character.lifepath" (changeLifepath)="changeLifepath($event)"></cs-app-character-lifepath>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <cs-app-character-gear [gear]="character.gear" (changeGear)="changeGear($event)"></cs-app-character-gear>
+      <cs-app-character-weapons [weapons]="character.weapons" (changeWeapon)="changeWeapons($event)"></cs-app-character-weapons>
+    </div>
+  </div>
+  <div class="chargen-label chargen-fill chargen-page-header csd-linebreak">NOTES</div>
+  <textarea [(ngModel)]="character.notes" class="chargen-notes"></textarea>
+
+
+</div>

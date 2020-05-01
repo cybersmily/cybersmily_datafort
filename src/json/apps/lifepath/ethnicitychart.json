@@ -1,0 +1,72 @@
+{
+  "CP2020": [
+        {"name":"Anglo-American", "languages": ["English"]},
+        {"name":"African", "languages":["Bantu","Fante","Kongo","Ashanti","Zulu","Swahili"]},
+        {"name":"Japanese/Korean", "languages": ["Japanese","Korean"]},
+        {"name":"Central European/Soviet", "languages": ["Bulgarian","Russian","Czech","Polish","Ukranian","Slovek"]},
+        {"name":"Pacific Islander", "languages": ["Microneasian","Tagalog","Polynesian","Malayan","Sudanese","Indonesian","Hawaiian"]},
+        {"name":"Chinese/Southeast Asian", "languages": ["Burmese","Cantonese","Mandarin","Thai","Tibetan","Vietnamese"]},
+        {"name":"Black American", "languages": ["English","Blackfolk"]},
+        {"name":"Hispanic American", "languages": ["Spanish","English"]},
+        {"name":"Central American/South American", "languages": ["Spanish","Portuguese"]},
+        {"name":"European", "languages": ["French","German","English","Spanish","Italian","Greek","Danish","Dutch","Norwegian","Swedish","Finnish"]}
+
+  ],
+    "NeoTribe": [
+        {"name":"Hispanic", "languages": ["Spanish","English"]},
+        {"name":"Romany", "languages": ["English","Romani"]},
+        {"name":"African American", "languages": ["English","Blackfolk"]},
+        {"name":"European", "languages": ["French","German","English","Spanish","Italian","Greek","Danish","Dutch","Norwegian","Swedish","Finnish"]},
+        {"name":"Cultural-American", "languages": ["English"]},
+        {"name":"Native-American", "languages": ["English","Siouan-Catawban","Uto-Aztecan","Iroquoian","Muskogean","Algic","Caddoan","Na-Dene","Kiowa-Tanoan","Salishan"]},
+        {"name":"Caribean", "languages": ["Spanish","English"]},
+        {"name":"Asian", "languages": ["Japanese","Korean","Burmese","Cantonese","Mandarin","Thai","Tibetan","Vietnamese"]},
+        {"name":"Other", "languages": ["Spanish","Portuguese","Microneasian","Tagalog","Polynesian","Malayan","Sudanese","Indonesian","Hawaiian","Bantu","Fante","Kongo","Ashanti","Zulu","Swahili","Bulgarian","Russian","Czech","Polish","Ukranian","Slovek"]},
+        {"name":"Polygot", "languages": ["Roll 2"]}
+    ],
+  "PacRimJapan":[
+    {"name":"Japanese", "languages":["Japanese","English"]},
+    {"name":"Korean", "languages":["Japanese","Korean","English"]},
+    {"name":"South American", "languages":["Japanese","Portuguese","English"]}
+
+  ],
+  "PacRimJapan-Student":[
+    {"name":"Japanese", "languages":["Japanese","English"]},
+    {"name":"Korean", "languages":["Japanese","Korean","English"]},
+    {"name":"South American", "languages":["Japanese","Portuguese","English"]}
+
+  ],
+  "PacRimJapan-PuTaro":[
+    {"name":"Japanese", "languages":["Japanese","English"]},
+    {"name":"Korean", "languages":["Japanese","Korean","English"]},
+    {"name":"South American", "languages":["Japanese","Portuguese","English"]}
+  ],
+  "PacRimJapan-Korea":[
+    {"name":"Korean", "languages":["Korean","English"]}]
+  ,
+  "PacRimJapan-ProtectServe-KoreaMP":[
+    {"name":"Korean", "languages":["Korean","English"]}]
+  ,
+  "PacRimChina":[
+    {"name":"Han", "languages":["Mandarin Chinese"]},
+    {"name":"Tibetan", "languages":["Tibetan","Mandarin Chinese"]},
+    {"name":"Cantonese", "languages":["Catonese","Mandarin Chinese"]},
+    {"name":"Madnarin", "languages":["Mandarin Chinese"]},
+    {"name":"Moslem Ughurs", "languages":["Mandarin Chinese"]}
+  ],
+  "PacRimSEAsia":[
+    {"name":"Burmese", "languages":["Burmese","English"]},
+    {"name":"Khmer", "languages":["Khmer","French","English"]},
+    {"name":"Vietnamese", "languages":["Vietnamese","French","English"]},
+    {"name":"Indian", "languages":["Tamil","Khmer","French","English"]},
+    {"name":"Laotian", "languages":["Lao"]},
+    {"name":"Thai", "languages":["Thai","English"]},
+    {"name":"Malay", "languages":["Malaysia","English","Indonesian","Bahasa"]},
+    {"name":"Arab", "languages":["Arabic","Malaysia","English"]},
+    {"name":"Timorese", "languages":["Timorese","Bahasa","English","Indonesian"]},
+    {"name":"New Guinean", "languages":["Bahasa","English","Indonesian","Pidgin"]},
+    {"name":"Borneo Tribe", "languages":["Malaysia","Bahasa","English","Indonesian","Pidgin"]},
+    {"name":"Filipino", "languages":["Philipino(Tagalog)","English"]},
+    {"name":"Spanish", "languages":["Spanish","Philipino","English"]}
+  ]
+}

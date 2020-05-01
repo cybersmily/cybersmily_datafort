@@ -1,0 +1,80 @@
+{"name":"Sgt. Joyce Landers",
+	"handle":"Lady J",
+	"aliases":"Sarge, Josie",
+	"age":28,
+	"img":"ladyj",
+	"career":{"name":"Cop","specialability":"Authority","value":4},
+	"stats":{
+		"ref":11,
+		"int":6,
+		"tech":5,
+		"cool":7,
+		"attr":5,
+		"luck":3,
+		"ma":8,
+		"body":8,
+		"emp":5,
+		"hc":41,
+    "rep":5},
+	"skills":{
+		"body":[
+			{"name":"Endurance","value":5},
+			{"name":"Strength Feat","value":3},
+			{"name":"Swimming","value":2}
+		],
+		"cool":[
+			{"name":"Interrogation","value":4},
+			{"name":"Intimidate","value":7},
+			{"name":"Streetwise","value":4}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":5},
+			{"name":"Expert: Law","value":4},
+			{"name":"Shadow/Track","value":4}
+		],
+		"ref":[
+			{"name":"Athletics","value":6},
+			{"name":"Dodge/Escape","value":4},
+			{"name":"Driving","value":4},
+			{"name":"Handgun","value":7},
+			{"name":"Heavy Weapons","value":5},
+			{"name":"MA: Aikido","value":6},
+			{"name":"Melee","value":6},
+			{"name":"Rifle","value":8},
+			{"name":"Stealth","value":3},
+			{"name":"Submachinegun","value":4}
+		],
+		"tech":[
+			{"name":"Elect. Security","value":2},
+			{"name":"First Aid","value":2},
+			{"name":"Pick Lock","value":2},
+			{"name":"Weaponsmith","value":4}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Arrogant, proud and aloof",
+			"valuedperson":"Mentor from police academy, dead",
+			"valuemost":"Money",
+			"feelaboutpeople":"People are tools. Use them for your own goals and discard them.",
+			"valuedpossession":"A bottle opener, she twirls when on her finger"
+		},
+		"style":{
+			"clothes":"Cammos",
+			"hair":"Neat short",
+			"affectations":"Weird contact lenses",
+			"ethnicity":"Anglo-american",
+			"languages":"English"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":["Neural Processor[WLNK, RFB+2, PE, PLGS]",
+                    "Subdermal Armor (SP18)",
+                    "Left Cyberoptic (AD, TA, LL, TH)",
+                    "Right Cyberarm (Armor, MSR, HRAM)"],
+	"gear":["Various police gear and weapons. Usually in Full Metal Gear."],
+  "history":"Lady J has been walking the beat for the past 10 years. She joined CSWAT 4 years ago to add some excitement, but soon came to realize it was too much. She has been looking for a way to get out and hopefully retire sooner than later. She is on the take with various corporations, which is know. Her team of 4 members includes Tin, Marvelous Mark, and Downgrade. All of them follower her, no questions asked.",
+  "playerinfo":"<strong>For &quot;NCPD Blues&quot; scenario</strong><h6>Sgt Joyce Landers a.k.a Lady J of the C-SWAT division of NCPD</h6><br>After 10 years of service and I'm still walking the beat. I should never have joined C-SWAT. High risk, low pay. I'm glad I bumped into that fixer, Vulture. He's been supplementing my income real good. Screw the precinct if they don't want to pay me. The corps are all to willing to. Paying decent chop for info and to turn my head once in awhile. Soon I'll be outa here.<br>This new thing with the borg must be important. The Vulture says a corporation is willing to pay 8 figures for it, 9 if I get it alive. I could retire somewhere nice and warm. Maybe even orbital. But I gotta figure out what to do about those Arasaka people.<br><br><strong>Lips</strong> - Seems too wrapped in the PD and how we should clean this city up. I think I should be quiet about the Vulture and my business arrangement. I'm sure Lips would turn me in to internal affairs. Self righteous beaver.<br><strong>Tin</strong> - Known him for a couple of years. What a freak! I guess it takes a borg to hunt a borg. He's definitely a loose canon. But I'm glad he's on our side. Or at least I hope he is.<br><strong>Mum</strong> - A thru and thru corp. Precise and controlling. No doubt she'll get the job done. I also hope I won't have to shoot her either. Arasaka wouldn't like it, I'm sure. But hey if I get the right amount of chop, I can hide real good.<br><strong>Egg</strong> - Definite toady. Might be useful though. Seems to known his stuff about the borg.<br><strong>Shade</strong> - Full of himself. Never meet a corp killer like him beofre. I should be one of those. Those guys get paid big. Real big. He doesn't seem to like the rest of his team, maybe I can use that to my advantage."
+
+}

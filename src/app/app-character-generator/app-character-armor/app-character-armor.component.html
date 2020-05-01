@@ -1,0 +1,24 @@
+<div class="chargen-section">
+  <table>
+    <tr>
+      <td class="chargen-label chargen-armor-label">Location</td>
+      <td class="chargen-armor-space"></td>
+      <td class="chargen-armor-cell">Head<br>1</td>
+      <td class="chargen-armor-cell">Torso<br>2-4</td>
+      <td class="chargen-armor-cell">R.Arm<br>5</td>
+      <td class="chargen-armor-cell">L.Arm<br>6</td>
+      <td class="chargen-armor-cell">R.Leg<br>7-8</td>
+      <td class="chargen-armor-cell">L.Leg<br>9-0</td>
+    </tr>
+    <tr>
+      <td class="chargen-label chargen-armor-label">Armor SP</td>
+      <td class="chargen-armor-space"></td>
+      <td class="chargen-armor-cell"><input [(ngModel)]="armor.head" (change)="onChangeArmor()" min="0" type="number"/></td>
+      <td class="chargen-armor-cell"><input [(ngModel)]="armor.torso" (change)="onChangeArmor()" min="0" type="number"/></td>
+      <td class="chargen-armor-cell"><input [(ngModel)]="armor.rarm" (change)="onChangeArmor()" min="0" type="number"/></td>
+      <td class="chargen-armor-cell"><input [(ngModel)]="armor.larm" (change)="onChangeArmor()" min="0" type="number"/></td>
+      <td class="chargen-armor-cell"><input [(ngModel)]="armor.rleg" (change)="onChangeArmor()" min="0" type="number"/></td>
+      <td class="chargen-armor-cell"><input [(ngModel)]="armor.lleg" (change)="onChangeArmor()" min="0" type="number"/></td>
+    </tr>
+  </table>
+</div>

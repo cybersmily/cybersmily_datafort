@@ -1,0 +1,572 @@
+﻿{
+	"sources":[
+		{"title":"CP 2020","value":"CP2020"},
+		{"title":"NeoTribe","value":"NeoTribe"},
+		{"title":"Eurosource Plus","value":"EuroPlus"},
+		{"title":"Home of the Brave","value":"HoB"},
+		{"title":"Protect and Serve","value":"ProtectServe"},
+		{"title":"PacRim - Japan","value":"PacRimJapan"},
+		{"title":"PacRim - Japan (student)","value":"PacRimJapan-Student"},
+		{"title":"PacRim - Japan (Pu-Taro)","value":"PacRimJapan-PuTaro"},
+		{"title":"PacRim - Korea","value":"PacRimJapan-Korea"},
+		{"title":"PacRim - Korea (MP)","value":"PacRimJapan-ProtectServe-KoreaMP"},
+		{"title":"PacRim - China","value":"PacRimChina"},
+		{"title":"PacRim - Southeast Asia","value":"PacRimSEAsia"}
+	],
+	"origins":{
+		"CP2020": [
+	        {"name":"Anglo-American", "languages": ["English"]},
+	        {"name":"African", "languages":["Bantu","Fante","Kongo","Ashanti","Zulu","Swahili"]},
+	        {"name":"Japanese/Korean", "languages": ["Japanese","Korean"]},
+	        {"name":"Central European/Soviet", "languages": ["Bulgarian","Russian","Czech","Polish","Ukranian","Slovek"]},
+	        {"name":"Pacific Islander", "languages": ["Microneasian","Tagalog","Polynesian","Malayan","Sudanese","Indonesian","Hawaiian"]},
+	        {"name":"Chinese/Southeast Asian", "languages": ["Burmese","Cantonese","Mandarin","Thai","Tibetan","Vietnamese"]},
+	        {"name":"Black American", "languages": ["English","Blackfolk"]},
+	        {"name":"Hispanic American", "languages": ["Spanish","English"]},
+	        {"name":"Central American/South American", "languages": ["Spanish","Portuguese"]},
+	        {"name":"European", "languages": ["French","German","English","Spanish","Italian","Greek","Danish","Dutch","Norwegian","Swedish","Finnish"]}
+
+    ],
+	    "NeoTribe": [
+          {"name":"Hispanic", "languages": ["Spanish","English"]},
+	        {"name":"Romany", "languages": ["English","Romani"]},
+	        {"name":"African American", "languages": ["English","Blackfolk"]},
+	        {"name":"European", "languages": ["French","German","English","Spanish","Italian","Greek","Danish","Dutch","Norwegian","Swedish","Finnish"]},
+	        {"name":"Cultural-American", "languages": ["English"]},
+	        {"name":"Native-American", "languages": ["English","Siouan-Catawban","Uto-Aztecan","Iroquoian","Muskogean","Algic","Caddoan","Na-Dene","Kiowa-Tanoan","Salishan"]},
+	        {"name":"Caribean", "languages": ["Spanish","English"]},
+	        {"name":"Asian", "languages": ["Japanese","Korean","Burmese","Cantonese","Mandarin","Thai","Tibetan","Vietnamese"]},
+			    {"name":"Other", "languages": ["Spanish","Portuguese","Microneasian","Tagalog","Polynesian","Malayan","Sudanese","Indonesian","Hawaiian","Bantu","Fante","Kongo","Ashanti","Zulu","Swahili","Bulgarian","Russian","Czech","Polish","Ukranian","Slovek"]},
+	        {"name":"Polygot", "languages": ["Roll 2"]}
+      ],
+		"PacRimJapan":[
+      {"name":"Japanese", "languages":["Japanese","English"]},
+      {"name":"Korean", "languages":["Japanese","Korean","English"]},
+      {"name":"South American", "languages":["Japanese","Portuguese","English"]}
+
+    ],
+		"PacRimJapan-Korea":[
+      {"name":"Korean", "languages":["Korean","English"]}]
+    ,
+		"PacRimChina":[
+			{"name":"Han", "languages":["Mandarin Chinese"]},
+			{"name":"Tibetan", "languages":["Tibetan","Mandarin Chinese"]},
+			{"name":"Cantonese", "languages":["Catonese","Mandarin Chinese"]},
+			{"name":"Madnarin", "languages":["Mandarin Chinese"]},
+			{"name":"Moslem Ughurs", "languages":["Mandarin Chinese"]}
+		],
+		"PacRimSEAsia":[
+      {"name":"Burmese", "languages":["Burmese","English"]},
+			{"name":"Khmer", "languages":["Khmer","French","English"]},
+			{"name":"Vietnamese", "languages":["Vietnamese","French","English"]},
+			{"name":"Indian", "languages":["Tamil","Khmer","French","English"]},
+			{"name":"Laotian", "languages":["Lao"]},
+			{"name":"Thai", "languages":["Thai","English"]},
+			{"name":"Malay", "languages":["Malaysia","English","Indonesian","Bahasa"]},
+			{"name":"Arab", "languages":["Arabic","Malaysia","English"]},
+			{"name":"Timorese", "languages":["Timorese","Bahasa","English","Indonesian"]},
+			{"name":"New Guinean", "languages":["Bahasa","English","Indonesian","Pidgin"]},
+			{"name":"Borneo Tribe", "languages":["Malaysia","Bahasa","English","Indonesian","Pidgin"]},
+			{"name":"Filipino", "languages":["Philipino(Tagalog)","English"]},
+      {"name":"Spanish", "languages":["Spanish","Philipino","English"]}
+    ]
+	},
+	"motivations":[
+		{
+			"title":"Personality",
+			"options":{
+		    	"CP2020": [
+				"Shy and secretive",
+				"Rebellious, antisocial, violent",
+				"Arrogant, proud and aloof",
+				"Moody, rash and headstrong",
+				"Picky, fussy, and nervous",
+				"Stable and serious",
+				"Silly and fluffheaded",
+				"Sneaky and deceptive",
+				"Intellectual and detached",
+				"Friendly and outgoing"
+				],
+		    	"NeoTribe": [
+				"Outgoing",
+				"Neutral",
+				"Aloof",
+				"Indifferent to Outsiders",
+				"Cautious",
+				"Perfectionist",
+				"Altruistic",
+				"Defensive",
+				"Complusive",
+				"Manic"
+				]
+			}
+		},
+		{
+			"title": "Valued Person",
+			"options":{
+		    	"CP2020": [
+					"A parent",
+					"Brother or sister",
+					"Lover",
+					"Friend",
+					"Yourself",
+					"A pet",
+					"Teacher or mentor",
+					"Public figure",
+					"A personal hero",
+					"No one"
+				],
+		    	"Neotribe":[
+					"Your Family",
+					"A Sibling",
+					"A Friend",
+					"A Lover or Ex",
+					"The Pack",
+					"Yourself or No One",
+					"A Pet",
+					"A Personal Icon or Hero",
+					"A Religious Leader",
+					"A Teacher or Mentor"
+				]
+			}
+		},
+		{
+			"title":"Value Most",
+			"options":{
+		    	"CP2020": [
+					"Money",
+					"Honor",
+					"Your Word",
+					"Honesty",
+					"Knowledge",
+					"Vengeance",
+					"Love",
+					"Power",
+					"Having a good time",
+					"Friendship"
+				],
+		    	"NeoTribe":[
+					"The Pack",
+					"Money",
+					"Personal Integrity or Honor",
+					"Honesty",
+					"Knowledge",
+					"Vengeance",
+					"Good Times",
+					"Power or Influence",
+					"Skill",
+					"Friendship"
+				]
+			}
+		},
+		{
+			"title":"Feel about People",
+			"options":{
+		    	"CP2020":[
+					"Neutral",
+					"Neutral",
+					"I like almost everyone",
+					"I hate almost everyone",
+					"People are tools. Use them for your own goals and discard them",
+					"Every person is a valuable individual",
+					"People are obstacles to be destroyed if they cross me",
+					"People are untrustworthy. Don't depend on anyone",
+					"Wipe 'em all out and give the place to the cockroaches",
+					"People are wonderful"
+				],
+		    	"NeoTribe":[
+					"Indifferent",
+					"Neutral and Negative",
+					"Neutral and Positive",
+					"Refuse to Make Judgements Until Known",
+					"They are Useful Tools",
+					"People are Basically Good"
+				]
+			}
+		},
+		{
+			"title":"Valued Possesion",
+			"options":{
+		    	"CP2020":[
+					"A weapon",
+					"A tool",
+					"A piece of clothing",
+					"A photograph",
+					"A book or diary",
+					"A recording",
+					"A musical intrument",
+					"A piece of jewelry",
+					"A toy",
+					"A letter"
+				]
+			}
+		}
+	],
+	"appearance":[
+		{
+			"title": "Clothes",
+			"options":{
+		    	"CP2020": [
+					"Biker leathers",
+					"Blue Jeans",
+					"Corporate Suits",
+					"Jumpsuits",
+					"Miniskirts",
+					"High Fashion",
+					"Cammos",
+					"Normal Clothes",
+					"Nude",
+					"Bag Lady Chic"
+				],
+		    	"NeoTribe":[
+					"Tribal Dress",
+					"Paramilitary",
+					"Leathers",
+					"Denim",
+					"Generic",
+					"Coveralls",
+					"Ethnic Dress",
+					"Short, Open",
+					"Normal Clothes",
+					"Roll 2"
+				],
+		    	"PacRimJapan":[
+					"Biker leathers/Boso style",
+					"Jeans",
+					"Corporate Suits",
+					"Leaisure wear",
+					"High Fashion",
+					"Urban Flash/Yakuza style",
+					"Cammos/Jumpsuits",
+					"Normal Clothes",
+					"Lingerie",
+					"Historical Fashion"
+				],
+				"PacRimChina":[
+					"Jeans",
+					"Corp suits",
+					"Big suits",
+					"Jumpsuits",
+					"Miniskirts",
+					"High fashion",
+					"Camos",
+					"Kung fu pj's",
+					"HS Uniforms",
+					"SovUtilitarian"
+				]
+			}
+		},
+		{
+			"title":"Hairstyle",
+			"options":{
+		    	"CP2020":[
+					"Mohawk",
+					"Long, ratty",
+					"Short, spiked",
+					"Wild, all over",
+					"Bald",
+					"Striped",
+					"Tinted",
+					"Neat, short",
+					"Short, curly",
+					"Long, straight"
+				],
+		    	"NeoTribe": [
+					"Dread",
+					"Shaved",
+					"Natural, long",
+					"Short, beat",
+					"Colored",
+					"Braids, wraps",
+					"Wild, all over",
+					"Spiked",
+					"Shoulder length",
+					"Mohawk"
+				],
+		    	"PacRimJapan": [
+					"Mohawk",
+					"Shaven/bald",
+					"Crew cut/fade cut",
+					"Tinted/dyed",
+					"Slicked back/Elvis",
+					"Short, Spiked",
+					"Perm/Big hair",
+					"Long, straight",
+					"Short, neat",
+					"Tied"
+				],
+				"PacRimChina":[
+					"Mohawk",
+					"Short + spiky",
+					"Long + ratty",
+					"Bald",
+					"Box fade",
+					"Colored",
+					"Neat + short",
+					"Neat + long",
+					"Braided ponytail",
+					"Tech cut"
+				]
+			}
+		},
+		{
+			"title":"Affectations",
+			"options": {
+		    	"CP2020":[
+					"Tattoos",
+					"Mirrorshades",
+					"Ritual scars",
+					"Spiked gloves",
+					"Nose rings",
+					"Earrings",
+					"Long fingernails",
+					"Spike heeled boots",
+					"Weird contact lenses",
+					"Fingerless gloves"
+				],
+		    	"NeoTribe":[
+					"Scarring, branding",
+					"Tattoos",
+					"Jewelry",
+					"Piercing",
+					"Hats/caps",
+					"Gloves/boots",
+					"Makeup",
+					"Skin tints",
+					"Goggles/gear",
+					"Roll 2"],
+		    	"PacRimJapan":[
+					"Tattoos",
+					"Mirrorshades/glasses",
+					"Ritual scars",
+					"Earrings/body pierce",
+					"Fingerless gloves",
+					"Bandanna/hairband",
+					"Cap/hat",
+					"Long fingernails",
+					"Waist pouch",
+					"Makeup/face paint"
+				],
+				"PacRimChina":[
+					"Tattoos",
+					"Shades (mirrors)",
+					"Ritual scars",
+					"Nose rings",
+					"Earrings",
+					"Fingerless gloves",
+					"Combat boots(heels)",
+					"Long fingernails",
+					"Androgyne makeup",
+					"Weird lenses (Preppy)"
+				]
+			}
+		}
+	],
+	"family":{
+		"familyRanking":{
+		    "CP2020":[
+				"Corporate Executive.",
+				"Corporate Manager.",
+				"Corporate Technician.",
+				"Nomad Pack.",
+				"Pirate Fleet.",
+				"Gang Family.",
+				"Crime Lord.",
+				"Combat Zone Poor.",
+				"Urban homeless.",
+				"Arcology family."
+			],
+		    "EuroPlus":[
+				"[[Commision|Commision|Corporate]] Executive.",
+				"[[Commision|Commision|Corporate]] Manager.",
+				"[[Commision|Commision|Corporate]] Technician.",
+				"Nomad Pack.",
+				"Pirate Fleet.",
+				"Gang Family.",
+				"Crime Lord.",
+				"Combat Zone Poor.",
+				"Urban jobless.",
+				"Arcology family."
+			],
+		    "NeoTribe":[
+				"Contruction Family.",
+				"Salvage Family.",
+				"Transportation Family.",
+				"Outrider Family.",
+				"Warrior Family.",
+				"Shaman/Doctor Family.",
+				"Technical Family.",
+				"Entertainment/Carny Family.",
+				"Agricultural Family.",
+				"Raffen Shiv Family."
+			],
+		    "PacRimJapan":[
+				"Military/Bureaucrat/Police.",
+				"Corporate Manager.",
+				"Corporate Employee.",
+				"Corporate Technician.",
+				"Self-Employed/Artist/Artisan.",
+				"Yakuza/Gang/Pirates/Ninja.",
+				"Religious Believer.",
+				"Farmer/Fisherman.",
+				"Urban Homeless.",
+				"Zaibatsu/Ex-noble/Yangban family."
+			],
+			"PacRimChina":[
+				"Cadre.",
+				"Corp Exec.",
+				"Shopkeeper.",
+				"Artisan.",
+				"Triad family.",
+				"Peasant-Factory.",
+				"Peasant-Factory.",
+				"Peasant-Farm.",
+				"Peasant-Farm.",
+				"Refugee."
+			],
+			"PacRimSEAsia":[
+				"Corporate managers.",
+				"Corporate technicians.",
+				"Military/Police/Government bureaucrats.",
+				"Factory workers.",
+				"Farmers/Fishermen.",
+				"Store owner/Artisan.",
+				"Religious fanatics/Radicals.",
+				"Highland tribe.",
+				"Pirates/Gangs/Smugglers.",
+				"Urban homeless/Street trash."
+			]
+		},
+		"parentSomethingHappen":{
+		    "CP2020":[
+				"Your parent(s) died in warfare.",
+				"Your parent(s) died in an accident.",
+				"Your parent(s) were murdered.",
+				"Your parent(s) have amnesia and don't remember you.",
+				"You never knew your parent(s).",
+				"Your parent(s) are in hiding to protect you.",
+				"You were left with relatives for safekeeping.",
+				"You grew up on the Street and never had parents.",
+				"Your parent(s) gave you up for adoption.",
+				"Your parent(s) sold you for money."
+			],
+		    "NeoTribe":[
+				"Your parent(s) died in warfare.",
+				"Your parent(s) died in a road accident.",
+				"Your parent(s) were murdered.",
+				"Your parent(s) have imprisoned.",
+				"Your parent(s) died of heart attack or other premature cause.",
+				"Your parent(s) incapacitated by illness or injury.",
+				"You parent(s) got lost or vanished.",
+				"Your parent(s) died committing a crime.",
+				"Your parent(s) left the pack.",
+				"Your parent(s) abandoned you."
+			],
+		    "PacRimJapan":[
+				"Your parent(s) extracted by a corporation or killed in warfare.",
+				"Your parent(s) died in an accident.",
+				"Your parent(s) were murdered.",
+				"Your parent(s) divorced/were forced to divorce.",
+				"You never knew your parent(s).",
+				"Your parent(s) are in hiding to protect you.",
+				"You were left with relatives.",
+				"You parent(s) gave you up for adoption.",
+				"Your parent(s) committed/were forced to commit suicide.",
+				"Your parent(s) became religious fanatics."
+			],
+			"PacRimSEAsia":[
+				"Your parent(s) were murdered.",
+				"Your parent(s) died in warfare.",
+				"Your parent(s) died in accident.",
+				"Your parent(s) committed suicide.",
+				"You never knew your parents.",
+				"Your parent(s) are in hiding to protect you.",
+				"You were left with relatives.",
+				"Your parent(s) gave you up for adoption.",
+				"Your parent(s) became fanatics/radicals.",
+				"Your parent(s) sold you for money."
+			]
+		},
+		"familyTragedy":{
+		    "CP2020":[
+				"Family lost everything through betrayal.",
+				"Family lost everything through bad management.",
+				"Family exiled or otherwise driven from their original home/nation/corporation.",
+				"Family is imprisoned and you alone escaped.",
+				"Family vanished. You are the only remaining member.",
+				"Family was murdered/killed and you were the only survivor.",
+				"Family is involved in longterm conspiracy/organization/association, such as a crime family or revolutionary group.",
+				"Your family was scattered to the winds due to misfortune.",
+				"Your family is cursed with a hereditary feud that has lasted for generations.",
+				"You are the inheritor of a family debt; you must honor this debt before moving on with your life."
+			],
+		    "NeoTribe":[
+				"Family was expelled from pack for breaking the Code.",
+				"Family was last survivors of a pack.",
+				"Family was unable to travel with the pack.",
+				"Family was separated from the pack.",
+				"Family was held responsible for pack misfortune.",
+				"Family was involved in an intra-pack feud."
+			]
+		},
+		"childhoodEnvironment":{
+		    "CP2020":[
+				"spent on the street, with no adult supervision.",
+				"spent in a safe Corporate Suburbia.",
+				"spent in a Nomad Pack moving from town to town.",
+				"spent in a decaying, once upscale neighborhood.",
+				"spent in a defended Corporate Zone in the central City.",
+				"spent in the heart of the Combat Zone.",
+				"spent in a small village or town far from the City.",
+				"spent in a large arcology city.",
+				"spent in an aquatic Pirate Pack.",
+				"spent on a Corporate controlled Farm or Research Facility."
+			],
+		    "NeoTribe":[
+				"spent happily, with normal nomad pastimes.",
+				"spent unhappily, due to circumstances beyond your control.",
+				"spent away from your family.",
+				"spent separately from the main body of the pack.",
+				"spent in juvenile institutions.",
+				"spent on the Street."
+			],
+			"PacRimChina":[
+				"on the streets with no supervision; guttersnipe,child prostitute, etc.",
+				"cadre compound; the life of luxury.",
+				"refugee pack; life of absolute squalor, desperation.",
+				"revolutionary camp; armed paranoia.",
+				"small village; Chinese beavertown.",
+				"triad family/pirate pack.",
+				"Buddhist temple compound.",
+				"farm work unit; working for a living at 8AM.",
+				"factory work unit; working for a living at 8AM.",
+				"family small business; working for a living at 8AM."
+			],
+			"PacRimSEAsia":[
+				"spent in the dorm of a school.",
+				"safe corporate suburb/arcology.",
+				"corporate farm/research facility.",
+				"noraml city life.",
+				"street, with no adult supervision.",
+				"small village or town.",
+				"martial arts/religious training.",
+				"gang/pirates/smugglers.",
+				"worked in factory/store from age 8."
+			]
+		},
+		"siblingFeeling":{
+		    "CP2020":[
+				"dislikes you",
+				"dislikes you",
+				"likes you",
+				"likes you",
+				"neutral",
+				"neutral",
+				"hero worships you",
+				"hero worships you",
+				"hates you",
+				"hates you"
+			]
+		}
+	}
+}

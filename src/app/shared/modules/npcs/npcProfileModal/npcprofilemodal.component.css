@@ -1,0 +1,14 @@
+.csdProfilePic img {
+  width: 200px;
+}
+.modal-body {}
+
+.csdProfileStats {
+  margin-left: 10px;
+}
+
+.csdProfileList {
+  list-style: none;
+}
+
+.csdProfile { font-size: .8em;}

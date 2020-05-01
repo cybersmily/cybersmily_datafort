@@ -1,0 +1,88 @@
+﻿{"name":"Cory Stevens",
+	"handle":"Stevens",
+	"aliases":"",
+	"age":28,
+	"img":"cstevens",
+	"career":{"name":"Fixer (Talent Agent)","specialability":"Streetdeal","value":6},
+	"stats":{
+		"ref":7,
+		"int":7,
+		"tech":6,
+		"cool":10,
+		"attr":8,
+		"luck":7,
+		"ma":6,
+		"body":5,
+		"emp":8,
+    "hc":8,
+    "rep": 4},
+	"skills":{
+		"attr":[
+			{"name":"Personal Grooming","value":2},
+			{"name":"Wardrobe/Style","value":2}
+		],
+		"body":[
+		],
+		"cool":[
+			{"name":"Intimidate","value":2}
+		],
+		"emp":[
+			{"name":"Human Perception","value":4},
+			{"name":"Seduction","value":3},
+			{"name":"Social","value":4},
+			{"name":"Persuasion/Fast Talk","value":9}
+		],
+		"int":[
+			{"name":"Accounting","value":3},
+			{"name":"Awareness/Notice","value":4},
+			{"name":"Library Search","value":4}
+		],
+		"ref":[
+			{"name":"Brawling","value":2},
+			{"name":"Driving","value":3},
+			{"name":"Handgun","value":5},
+			{"name":"Melee","value":4},
+			{"name":"Stealth","value":2}
+		],
+		"tech":[
+			{"name":"Disguise","value":2},
+			{"name":"Forgery","value":5},
+			{"name":"Pick Lock","value":3},
+			{"name":"Pick Pocket","value":1}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Arrogant & Proud",
+			"valuedperson":"Her mentor, China(fixer)",
+			"valuemost":"her word",
+			"feelaboutpeople":"most people are untrustworthy",
+			"valuedpossession":"her diary"
+		},
+		"style":{
+			"clothes":"Miniskirts",
+			"hair":"Wild, all over",
+			"affectations":"Earrings",
+			"ethnicity":"Black American",
+			"languages":"English"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":[
+    "Neural Processor[Chip Socket:Max. Lover, Stress, Fish 'n', Accounting +3, Library Search +3]",
+    "Contraceptive Implant",
+    "Miss Midnight Implant"
+  ],
+	"gear":[
+    "Urban Flash Clothing",
+    "Mini-Cell Phone",
+    "Body Computer",
+    "Mitzuki Bushi(car)",
+    "Urban Flash Armored Trenchcoat(SP16)",
+    "2 Apartments-1 room in Moderate Zone, 4 room in Corp Zone",
+    "Glock 30(P +2 P C 2D6+3 20 1/3 VR 50m)",
+    "Speedholster"
+  ],
+	"history":"Cory grew up in the combat zone and learned life's lessons the hard way. That made her more self-reliant and determine to do better. One night she was hanging out at a bar and saw this band Dy 'n Lyte. They were pretty good and she offered them her services as a manager. They accepted and Cory's career began. The band was formed by Dy, her brother Lyte, her boyfriend BD, and Lyte's friend Splice. Things were going good, but Cory feared that something might happen with a zealous fan. Cory hired a guy named Stacks to be the band's bodyguard. Now things were going better and Cory has been scoring bigger gigs for the band. Life in a rock band is good."
+}

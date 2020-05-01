@@ -1,0 +1,19 @@
+.header-row {
+  font-weight: 600;
+}
+
+.hot-stuff-new {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.hot-stuff-details {
+  margin-top: 10px;
+}
+.hot-stuff-details textarea {
+  width: 100%;
+}
+
+.hot-stuff-new-area input{
+  width: 90%;
+}

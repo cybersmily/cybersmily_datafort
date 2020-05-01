@@ -1,0 +1,87 @@
+<div class="chargen-section">
+  <div class="row">
+    <div class="col-12">
+      <span class="chargen-label chargen-skills-title">SKILLS</span>
+      <span class="chargen-skills-instructions">
+        [ROLE&nbsp;{{skills.RoleTotal + role.specialAbility.value}}]&nbsp;&nbsp;[OTHER&nbsp;{{skills.OtherTotal}}]&nbsp;&nbsp;&nbsp;&nbsp;
+        (#) is the combined stat + skill. [#] is the skill level. Checkbox is if chipped. Role skills are highlighted with * or @ (choose one as role).</span>
+    </div>
+  </div>
+  <div class="row print-fix">
+    <div class="col-sm-6 col-md-3 chargen-skills">
+      <div class="chargen-skill-stat">SPECIAL ABILITIES</div>
+      <div class="row">
+        <div [ngClass]="{'col-12':true, 'chargen-skill-misc': true, 'chargen-skill-sa': (role.specialAbility.name != '')}">
+          <cs-app-character-skill [skill]="role.specialAbility"
+          [stat]="(role.specialAbility.stat !== ''? stats[role.specialAbility.stat] : null)"
+          [isSpecialAbility]="true" >
+          </cs-app-character-skill>
+        </div>
+      </div>
+
+      <div class="chargen-skill-stat">ATTR</div>
+      <cs-app-character-skill *ngFor="let skill of skills.ATTR"
+        [skill]="skill" (changeSkill)="onChangeSkill($event)"
+        [stat]="stats.ATTR"
+      ></cs-app-character-skill>
+
+      <div class="chargen-skill-stat">BODY</div>
+      <cs-app-character-skill *ngFor="let skill of skills.BODY"
+        [skill]="skill" (changeSkill)="onChangeSkill($event)"
+        [stat]="stats.BODY"></cs-app-character-skill>
+
+      <div class="chargen-skill-stat">COOL/WILL</div>
+      <cs-app-character-skill *ngFor="let skill of skills.COOL"
+        [skill]="skill" (changeSkill)="onChangeSkill($event)"
+        [stat]="stats.COOL"></cs-app-character-skill>
+
+      <div class="chargen-skill-stat">EMPATHY</div>
+      <cs-app-character-skill *ngFor="let skill of skills.EMP"
+      [skill]="skill" (changeSkill)="onChangeSkill($event)"
+      [stat]="stats.EMP"></cs-app-character-skill>
+
+      <div class="chargen-skill-stat">INT</div>
+      <cs-app-character-skill *ngFor="let skill of skills.INT.slice(0,22)"
+        [skill]="skill" (changeSkill)="onChangeSkill($event)"
+        [stat]="stats.INT"></cs-app-character-skill>
+    </div>
+    <div class="col-sm-6 col-md-3 chargen-skills">
+      <cs-app-character-skill *ngFor="let skill of skills.INT.slice(22)"
+        [skill]="skill" (changeSkill)="onChangeSkill($event)"
+        [stat]="stats.INT"></cs-app-character-skill>
+
+      <div class="chargen-skill-stat">REF</div>
+      <cs-app-character-skill *ngFor="let skill of skills.REF"
+        [skill]="skill" (changeSkill)="onChangeSkill($event)"
+        [stat]="stats.REF"></cs-app-character-skill>
+
+      <div class="chargen-skill-stat">TECH</div>
+      <cs-app-character-skill *ngFor="let skill of skills.TECH.slice(0,8)"
+        [skill]="skill" (changeSkill)="onChangeSkill($event)"
+        [stat]="stats.TECH"></cs-app-character-skill>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <div class="row">
+        <div class="col-sm-12 col-md-6 chargen-skills">
+          <cs-app-character-skill *ngFor="let skill of skills.TECH.slice(8)"
+            [skill]="skill" (changeSkill)="onChangeSkill($event)"
+            [stat]="stats.TECH"></cs-app-character-skill>
+        </div>
+        <div class="col-sm-12 col-md-6 chargen-skills">
+          <cs-app-character-skill *ngFor="let skill of skills.Other"
+          [skill]="skill" (changeSkill)="onChangeSkill($event)"></cs-app-character-skill>
+          <br>
+          <div class="chargen-skill-misc">REP<span class="pull-right">[<input type="number"
+                class="chargen-skill-input" />]</span></div>
+          <div class="chargen-skill-misc">IP<span class="pull-right">[<input type="number"
+                class="chargen-skill-input" />]</span></div>
+          <div class="chargen-skill-misc">HUMANITY<span class="pull-right">[{{stats.CurrentHumanity}}]</span></div>
+        </div>
+      </div>
+      <div class="row  print-fix">
+        <cs-app-character-cyberware [cyberware]="cyberware" (changeCyberware)="changeCyberware">
+        </cs-app-character-cyberware>
+      </div>
+    </div>
+  </div>
+</div>

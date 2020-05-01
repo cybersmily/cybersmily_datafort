@@ -1,0 +1,16 @@
+.cs-inline {
+  display:inline-block;
+}
+
+.cs-title-heading h6, input {
+  display: inline;
+}
+
+.cs-title-heading h6 {
+  margin-right: 10px;
+}
+
+.cs-ethnicity-input {
+  min-width: 300px;
+  max-width: 300px;
+}

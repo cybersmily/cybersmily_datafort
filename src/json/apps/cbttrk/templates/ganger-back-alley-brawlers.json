@@ -1,0 +1,33 @@
+
+    { "handle": "Ganger - Back Alley Brawlers",
+      "role": "Streetpunk",
+      "int": 7,
+      "ref": 7,
+      "body":7,
+      "luck": 5,
+      "tech": 5,
+      "cool": 8,
+      "attr": 6,
+      "ma": 6,
+      "emp": 8,
+      "armor": {
+        "head": 0,
+        "torso": 0,
+        "arms": 0,
+        "legs": 0
+      },
+      "sa": {"name":"", "stat": "", "value": 0},
+      "skills": [
+        {"name":"Brawling", "stat": "ref", "value": 7},
+        {"name":"Melee", "stat": "ref", "value": 6},
+        {"name":"Martial Arts:", "stat": "ref", "value": 3},
+        {"name":"Handgun", "stat": "ref", "value": 3},
+        {"name":"Streetwise", "stat": "cool", "value": 4},
+        {"name":"Stealth", "stat": "ref", "value": 4}
+      ],
+      "cyberware": [],
+      "weapons": [],
+      "gear": [],
+      "source": "NC",
+      "notes": ""
+    }

@@ -1,0 +1,21 @@
+<div class="opp-sp">
+<div class="row">
+  <div class="col-2 opp-sp-hdr">Location</div>
+  <div class="col-1 opp-sp-input">Head<br>1</div>
+  <div class="col-1 opp-sp-input">Torso<br>2-4</div>
+  <div class="col-1 opp-sp-input">R Arm<br>5</div>
+  <div class="col-1 opp-sp-input">L Arm<br>6</div>
+  <div class="col-1 opp-sp-input">R Leg<br>7-8</div>
+  <div class="col-1 opp-sp-input">L Leg<br>9-10</div>
+</div>
+<div class="row">
+  <div class="col-2 opp-sp-hdr">SP</div>
+  <div class="col-1 opp-sp-input"><input [(ngModel)]="armor.head" type="number" min="0" (change)="changeArmor()"/></div>
+  <div class="col-1 opp-sp-input"><input [(ngModel)]="armor.torso" type="number" min="0" (change)="changeArmor()"/></div>
+  <div class="col-1 opp-sp-input"><input [(ngModel)]="armor.rarm" type="number" min="0" (change)="changeArmor()"/></div>
+  <div class="col-1 opp-sp-input"><input [(ngModel)]="armor.larm" type="number" min="0" (change)="changeArmor()"/></div>
+  <div class="col-1 opp-sp-input"><input [(ngModel)]="armor.rleg" type="number" min="0" (change)="changeArmor()"/></div>
+  <div class="col-1 opp-sp-input"><input [(ngModel)]="armor.lleg" type="number" min="0" (change)="changeArmor()"/></div>
+  <div class="col-4"></div>
+</div>
+</div>

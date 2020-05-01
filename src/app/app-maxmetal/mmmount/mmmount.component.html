@@ -1,0 +1,7 @@
+<div>
+<h5 (click)="isCollapse = !isCollapse" [attr.aria-expanded]="!isCollapse" aria-controls="">
+    {{mount.name}}
+    <fa-icon [icon]="isCollapse?faChevronRight:faChevronDown"></fa-icon>
+</h5>
+<div [collapse]="isCollapse">{{mount.description}}</div>
+</div>

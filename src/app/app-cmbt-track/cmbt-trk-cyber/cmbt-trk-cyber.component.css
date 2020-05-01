@@ -1,0 +1,11 @@
+.opp-cyber {
+  font-size: 13px;
+}
+
+.cyber-delete {
+  display: none;
+}
+
+.opp-cyber:hover .cyber-delete {
+  display: inline-block;
+}

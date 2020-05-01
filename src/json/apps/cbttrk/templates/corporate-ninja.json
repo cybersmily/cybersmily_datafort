@@ -1,0 +1,61 @@
+{ "handle": "Corporate \"Ninja\"",
+  "role": "Solo",
+  "int": 8,
+  "ref": 10,
+  "body":6,
+  "luck": 6,
+  "tech": 6,
+  "cool": 9,
+  "attr": 5,
+  "ma": 9,
+  "emp": 8,
+  "armor": {
+    "head": 0,
+    "torso": 0,
+    "arms": 0,
+    "legs": 0
+  },
+  "sa": {"name":"Combat Sense", "stat": "REF", "value": 8},
+  "skills": [
+    {"name":"Awareness/Notice", "stat": "int", "value": 9},
+    {"name":"Archery", "stat": "ref", "value": 6},
+    {"name":"Fencing", "stat": "ref", "value": 8},
+    {"name":"Handgun", "stat": "ref", "value": 6},
+    {"name":"Martial Arts: Choi Li Fut", "stat": "ref", "value": 8},
+    {"name":"Martial Arts: Karate", "stat": "ref", "value": 9},
+    {"name":"Martial Arts: Tae Kwon Do", "stat": "ref", "value": 5},
+    {"name":"Melee", "stat": "ref", "value": 7},
+    {"name":"Rifle", "stat": "ref", "value": 8},
+    {"name":"Submachinegun", "stat": "ref", "value": 6},
+    {"name":"Athletics", "stat": "ref", "value": 8},
+    {"name":"Demolitions", "stat": "tech", "value": 5},
+    {"name":"Disguise", "stat": "tech", "value": 5},
+    {"name":"Dodge/Escape", "stat": "ref", "value": 8},
+    {"name":"Elect. Security", "stat": "tech", "value": 6},
+    {"name":"Endurance", "stat": "body", "value": 6},
+    {"name":"Hide/Evade", "stat": "int", "value": 8},
+    {"name":"Pick Lock", "stat": "tech", "value": 6},
+    {"name":"Resist Torture/Drugs", "stat": "body", "value": 7},
+    {"name":"Shadown/track", "stat": "int", "value": 5},
+    {"name":"Streetwise", "stat": "cool", "value": 3},
+    {"name":"Strentgh Feat", "stat": "body", "value": 5},
+    {"name":"Wardrobe \\& Style", "stat": "attr", "value": 9}
+  ],
+  "cyberware": [
+    {"name":"None"}
+  ],
+  "weapons": [
+    {"name": "Sternmeyer P-35", "type": "P", "wa": 0, "conc":"P","damage":"3D6", "shots":8, "rof": 2, "rel": "VR", "range": 50, "notes":"silenced"},
+    {"name": "No-Dachi", "type": "MEL", "wa": 1, "conc":"L","damage":"4D6",  "rel": "VR", "notes":"Workmanship gives weapons capabilities of the Kendachi Mono Two"},
+    {"name": "Ninjato", "type": "MEL", "wa": 1, "conc":"J","damage":"2D6", "rel": "VR", "notes":"Workmanship gives weapons capabilities of the Kendachi Mono Two"},
+    {"name": "Militech-10", "type": "SMG", "wa": 1, "conc":"J","damage":"2D6+3", "shots":30, "rof": 20, "rel": "ST", "range": 200, "notes":"suppressor/ scopes/ Grenade Launcher"},
+    {"name": "FEN Dz 22 Saucer Grenades", "type": "HVY", "wa": 1, "conc":"J","damage":"2d6+3", "shots":1, "rof": 1, "rel": "ST", "range": 60, "notes":"Thrown. HE/Frag - 15m radius. See Backhand's Street Weapons pg. 40"},
+    {"name": "DutchArms Gpz-78 MiniGrenades", "type": "HVY", "wa": 0, "conc":"P","damage":"HE/Frag", "shots":1, "rof": 1, "rel": "VR", "range": 60, "notes":"Thrown. HE/Frag - 3m diameter. See Backhand's Street Weapons pg. 40"}
+  ],
+  "gear": [
+    "SonarScanner","IR Cloak Suit (Black)","Compact Climbing Kit (100m mono-line with grapnel)",
+    "Det Cord","Advanced Alarm Removal Kit"
+  ],
+  "source": "PS",
+  "notes": "Generic corporate ninja."
+}

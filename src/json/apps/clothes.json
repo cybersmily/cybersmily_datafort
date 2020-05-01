@@ -1,0 +1,73 @@
+﻿{
+"Clothes":[
+	{"name":"Belt"             ,"cost":10,"wt":"Lt","leather":1.5,"loc":"waist"},
+	{"name":"Top Blouse"       ,"cost":15,"wt":"Lt","loc":"body|arms"},
+	{"name":"Boots"            ,"cost":25,"wt":"Med","leather":1.5,"loc":"feet"},
+	{"name":"Halfboots"        ,"cost":15,"wt":"Med","leather":1.5,"loc":"feet"},
+	{"name":"Kneeboots"        ,"cost":40,"wt":"Med","leather":1.5,"loc":"legs(lower)"},
+	{"name":"Cloak"            ,"cost":50,"wt":"Med","leather":1.5,"loc":"body|arms|legs"},
+	{"name":"Short Cape"       ,"cost":75,"wt":"Med","leather":1.5,"loc":"body|arms|legs"},
+	{"name":"Long Cape"        ,"cost":90,"wt":"Med","leather":1.5,"loc":"body|arms|legs"},
+  {"name":"Leather Chaps"    ,"cost":60,"wt":"Med","loc":"legs"},
+	{"name":"Long Heavy Coat"  ,"cost":55,"wt":"Hvy","leather":2.0,"loc":"body|arms"},
+	{"name":"Dress"            ,"cost":50,"wt":"Lt","loc":"body|arms|legs"},
+	{"name":"Gloves"           ,"cost":20,"wt":"Lt","leather":2.0,"loc":"hands"},
+	{"name":"Long Gloves"      ,"cost":30,"wt":"Lt","leather":2.0,"loc":"arms"},
+	{"name":"Hat"              ,"cost":15,"wt":"Lt","leather":2.0,"loc":"head"},
+	{"name":"Toboggan Hood"    ,"cost":10,"wt":"Lt","loc":"head"},
+	{"name":"Jacket"           ,"cost":35,"wt":"Med","leather":2.0,"loc":"body|arms"},
+	{"name":"Long Jacket"      ,"cost":40,"wt":"Med","leather":2.0,"loc":"body|arms"},
+	{"name":"Jumpsuit"         ,"cost":50,"wt":"Lt","loc":"body|arms|legs"},
+	{"name":"Ski Mask"         ,"cost":15,"wt":"Lt","loc":"head"},
+	{"name":"Miniskirt"        ,"cost":30,"wt":"Lt","leather":1.5,"loc":"legs(upper)"},
+	{"name":"Pants/jeans"      ,"cost":20,"wt":"Med","leather":1.5,"loc":"legs"},
+	{"name":"Scarf/Bandana"    ,"cost":15,"wt":"Lt","leather":2.0,"loc":"head"},
+	{"name":"Shades"           ,"cost":20,"wt":"Lt","loc":"eyes"},
+	{"name":"Long-sleeve Shirt","cost":20,"wt":"Lt","loc":"body|arms"},
+	{"name":"Shoes"            ,"cost":15,"wt":"Med","leather":1.5,"loc":"feet"},
+	{"name":"Long Skirt"       ,"cost":55,"wt":"Med","leather":1.5,"loc":"legs"},
+	{"name":"Short"            ,"cost":10,"wt":"Lt","leather":1.5,"loc":"legs(upper)"},
+	{"name":"Sweater"          ,"cost":20,"wt":"Lt","loc":"body|arms"},
+	{"name":"T-Shirt"          ,"cost":10,"wt":"Lt","loc":"body"},
+	{"name":"Tank Top"         ,"cost":10,"wt":"Lt","loc":"body"},
+	{"name":"Tie"              ,"cost":20,"wt":"Lt","leather":2.0,"loc":""},
+	{"name":"Trenchcoat"       ,"cost":125,"wt":"Med","leather":1.5,"loc":"body|arms|legs"},
+	{"name":"Tunic"            ,"cost":25,"wt":"Med","leather":3.0,"loc":"body|arms"},
+	{"name":"Vest"             ,"cost":25,"wt":"Lt","leather":2.0,"loc":"body"}
+	],
+"Style":[
+	{"name":"Generic Chic","mod":1,"desc":""},
+	{"name":"Leisurewear" ,"mod":2,"desc":""},
+	{"name":"Urban Flash" ,"mod":2,"desc":""},
+	{"name":"Businesswear","mod":3,"desc":""},
+	{"name":"Edgerunner"  ,"mod":3,"desc":""},
+	{"name":"High Fashion","mod":4,"desc":""}
+],
+"Quality":[
+	{"name":"Sub-average","mod":0.5,"desc":""},
+	{"name":"Average"    ,"mod":1.0,"desc":""},
+	{"name":"Good"       ,"mod":1.5,"desc":""},
+	{"name":"Very Good"  ,"mod":2.0,"desc":"", "effect":"+1 to Wardrobe &amp; Style"},
+	{"name":"Designer"   ,"mod":4.0,"desc":"", "effect":"+2 to Wardrobe &amp; Style"},
+	{"name":"Superchic"  ,"mod":7,"desc":"", "effect":"+3 to Wardrobe &amp; Style"}
+],
+"Options":[
+	{"name":"Fireproofing"       ,"mod":{"Lt":4.0,"Med":3.0,"Hvy":1.5},"desc":"", "effect":"Giving clothing the equivalent of SP20 vs. flame damage adds to the price."},
+	{"name":"Polylog Material"   ,"mod":3,"desc":"", "effect":"Holds up to 4 different color schemes. Can be damaged by EMP or electrical pulses. Has a 5 in 10 chance of malfunctioning under combat conditions (heavy dirt/moisture, etc.)"},
+	{"name":"Reacti-Mesh Panels" ,"mod":2,"desc":"", "effect":"Provides extra comfort."},
+	{"name":"Polychromic Material","mod":5,"desc":"", "effect":""}
+],
+"Armoring":[
+	{"name":"SP 4","sp":4,"mod":{"Lt":1.1,  "Med":1.05,"Hvy":1.0}, "ev":{"Lt":0,"Med":0,"Hvy":0}},
+	{"name":"SP 6","sp":6,"mod":{"Lt":1.2,  "Med":1.1, "Hvy":1.05},"ev":{"Lt":0,"Med":0,"Hvy":0}},
+	{"name":"SP 8","sp":8,"mod":{"Lt":1.35, "Med":1.2, "Hvy":1.15},"ev":{"Lt":0,"Med":0,"Hvy":0}},
+	{"name":"SP10","sp":10,"mod":{"Lt":1.5,  "Med":1.25,"Hvy":1.25},"ev":{"Lt":0,"Med":0,"Hvy":0}},
+	{"name":"SP12","sp":12,"mod":{"Lt":1.75, "Med":1.5, "Hvy":1.5}, "ev":{"Lt":0,"Med":0,"Hvy":0}},
+	{"name":"SP14","sp":14,"mod":{"Lt":2.0,  "Med":1.75,"Hvy":1.75},"ev":{"Lt":-1,"Med":0,"Hvy":0}},
+	{"name":"SP16","sp":16,"mod":{"Lt":2.5,  "Med":2.0, "Hvy":2.0}, "ev":{"Lt":-2,"Med":0,"Hvy":0}},
+	{"name":"SP18","sp":18,"mod":{"Lt":3,	  "Med":2.5, "Hvy":2.25},"ev":{"Lt":-3,"Med":-1,"Hvy":0}},
+	{"name":"SP20","sp":20,"mod":{"Med":3.0, "Hvy":2.5},  "ev":{"Med":-2,"Hvy":-1}},
+	{"name":"SP22","sp":22,"mod":{"Med":3.25,"Hvy":2.75}, "ev":{"Med":-3,"Hvy":-2}},
+	{"name":"SP24","sp":24,"mod":{"Hvy":3.0},             "ev":{"Hvy":-3}}
+]
+}

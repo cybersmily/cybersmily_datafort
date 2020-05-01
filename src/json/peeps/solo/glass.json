@@ -1,0 +1,92 @@
+﻿{"name":"Gerald Noel",
+	"handle":"Glass",
+	"aliases":"Smooth, Gerry",
+	"age":28,
+	"img":"glass",
+	"career":{"name":"Solo","specialability":"Combat Sense","value":7},
+	"stats":{
+		"ref":9,
+		"int":6,
+		"tech":5,
+		"cool":10,
+		"attr":6,
+		"luck":3,
+		"ma":6,
+		"body":11,
+		"emp":7,
+		"hc":18},
+	"skills":{
+		"attr":[
+			{"name":"Personal Grooming","value":2},
+			{"name":"Wardrobe/Style","value":5}
+		],
+		"body":[
+		],
+		"cool":[
+			{"name":"Intimidate","value":3},
+			{"name":"Streetwise","value":3}
+		],
+		"emp":[
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":5},
+			{"name":"Language: French","value":3}
+		],
+		"ref":[
+			{"name":"Athletics","value":2},
+			{"name":"Handgun","value":6},
+			{"name":"Heavy Weapons","value":3},
+			{"name":"MA: Sambo","value":6},
+			{"name":"Melee","value":4},
+			{"name":"Motorcycle","value":4},
+			{"name":"Pilot: VTV","value":1},
+			{"name":"Rifle","value":3},
+			{"name":"Stealth","value":2},
+			{"name":"Submachinegun","value":2}
+		],
+		"tech":[
+			{"name":"Demolitions","value":1},
+			{"name":"First Aid","value":1},
+			{"name":"Weaponsmith","value":2}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Intellectual & detached",
+			"valuedperson":"Friend",
+			"valuemost":"Friendship",
+			"feelaboutpeople":"Neutral",
+			"valuedpossession":"A photo of his family"
+		},
+		"style":{
+			"clothes":"Suits",
+			"hair":"Neat short",
+			"affectations":"Tattoos",
+			"ethnicity":"Black American",
+			"languages":"English"
+		},
+		"family":"Family was killed.",
+		"siblings":"2 sisters and 5 brothers"
+	},
+	"cyberware":[
+    "Neural Processor [Smartgun link, Chip socket(Cookiecutter, Photomemory)]",
+    "Cyberarm [smartgun2, smartplate]",
+    "Optishield [Target scope, Time Sq Marquee]",
+    "Muscle & Bone lace",
+    "Cybernetic Targeting Network",
+    "Subdermal Armor (SP18)",
+    "Adrenal Booster",
+    "Interface plugs"
+  ],
+	"gear":[
+    "Towa Type-13 [custom grip, digital wpn uplink, compensator] (P/+5/P/R/2D6+3/12/3/VR)",
+    "Speed holster",
+    "Mono-knife (MEL/+1/P/P/2D6+10/-/-/ST)",
+    "Businesswear Good Suits (Jacket/pants - SP16)",
+    "Cellphone",
+    "Imagewallet",
+    "E-Book",
+    "Airhypo w/ assorted drugs"
+  ],
+	"history":"Gerry grew up in the sub urbans with coporate technician parents. He spent his youth on the straight and narrow. Upon graduating high school he was drafted into the army and sent to Central America to fight for the last hurrah. This is where he lost his arm. Upon returning back to Night City he found his family murdered. He learned that one of his brother was caught up in a booster gang and the rival gang firebombed his house, kiling all his family while they slept. Gerry made some connection with old friends who were part of the gang. He work with them to find his family's murderers and systematic took each one out. The first encunter with the gange was when Gerry got the alias Glass. During a fire fight with the murderers, Gerry's assocates saw a calmness in him while the bullets flying. They started calling him 'smooth as glass' and Mr. Glass, and then simply Glass. Glass part ways with the gang that helped him acheive his revenge. He moved on to working as a freelance gun for hire.<br>A few years had past and Glass took on a bodyguard gig for a Militech manager. He was involved with a attempted kidnapping in which Glass killed some of the kidnappers who surrender. This was caught on vid and was charge. The Militech corp was gratiful for what he had done so got involved with the trial. Glass was only sentenced for a year. Upon release, the fixer Silent Sue offered him a permanent place in her stable of edgerunners. He was recommend to her by the Militech corp. Glass has done several ops for Su and has benefitted greatly.<br>Glass likes to do bodyguard work. He makes it a point to look and act professional on any job. "
+}

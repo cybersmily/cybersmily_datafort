@@ -1,0 +1,71 @@
+﻿{"name":"",
+	"handle":"Demon D",
+	"aliases":"",
+	"age":25,
+	"img":"demond",
+	"career":{"name":"Nomad","specialability":"Family","value":5},
+	"stats":{
+		"ref":9,
+		"int":6,
+		"tech":7,
+		"cool":7,
+		"attr":6,
+		"luck":5,
+		"ma":8,
+		"body":6,
+		"emp":6,
+		"hc":11},
+	"skills":{
+		"attr":[
+		],
+		"body":[
+			{"name":"Endurance","value":2}
+		],
+		"cool":[
+			{"name":"Streetwise","value":4}
+		],
+		"emp":[
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":6},
+			{"name":"Wilderness Survival","value":2}
+		],
+		"ref":[
+			{"name":"Athletics","value":2},
+			{"name":"Brawling","value":4},
+			{"name":"Driving","value":5},
+			{"name":"Handgun","value":5},
+			{"name":"Melee","value":7},
+			{"name":"Rifle","value":2},
+			{"name":"Submachinegun","value":4}
+		],
+		"tech":[
+			{"name":"Basic Tech","value":4},
+			{"name":"Electronics","value":3},
+			{"name":"First Aid","value":3}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"",
+			"valuedperson":"",
+			"valuemost":"",
+			"feelaboutpeople":"",
+			"valuedpossession":""
+		},
+		"style":{
+			"clothes":"",
+			"hair":"",
+			"affectations":"",
+			"ethnicity":"",
+			"languages":""
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":[
+    "Neural Processor[PLG,VLNK,WLNK,MLNK]"
+  ],
+	"gear":[],
+	"history":"Demon D was part of a roving family which eventually end their path in Night City. There D found a love of the urban sprawl. He took the various odd jobs in the city. He was contracted a few times by the fixer Silent Su. After Su lost her body guard she took on Demon as her driver bodyguard along with the solo Jot. Jot and Demon get along well. They often through jabs and insults at each other in good humor. Demon likes working for Su. He also gets along with Kestrel, Su's faceman. He often will kid kestrel and Jot about their rivalry. But will often is the man to step in if the sitation between them gets too serious."
+}

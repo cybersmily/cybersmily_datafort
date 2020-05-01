@@ -1,0 +1,24 @@
+<div class="cpr-stat-area">
+  <svg height="180" width="450" >
+    <polygon points='0,0
+                    390,0
+                    420,30
+                    420,180
+                    30,180
+                    0,150'
+          fill='#f00'/>
+    <text x="10" y="85" font-family="Verdana" font-weight="bold" font-size="17px" fill="white">WEAPONS</text>
+    <g>
+      <rect x="115" y="20" height="25" width="140" fill="white"/>
+      <text x="120" y="37" font-family="Verdana" font-weight="bold" font-size="14px" fill="black">NAME</text>
+      <rect x="270" y="20" height="25" width="100" fill="white"/>
+      <text x="275" y="37" font-family="Verdana" font-weight="bold" font-size="14px" fill="black">DAMAGE</text>
+    </g>
+    <g *ngFor="let wpn of weapons; let i = index">
+      <rect x="115" [attr.y]="getY(i + 1)" height="25" width="140" fill="white"/>
+      <text x="120" [attr.y]="getY(i + 1) + 17" font-family="Verdana" font-size="14px" fill="black">{{wpn.name}}</text>
+      <rect x="270" [attr.y]="getY(i + 1)" height="25" width="100" fill="white"/>
+      <text x="275" [attr.y]="getY(i + 1) + 17" font-family="Verdana" font-size="14px" fill="black">{{wpn.damage}}</text>
+    </g>
+  </svg>
+</div>

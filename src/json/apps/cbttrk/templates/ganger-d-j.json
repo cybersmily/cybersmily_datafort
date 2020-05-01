@@ -1,0 +1,35 @@
+{ "handle": "D.J",
+  "role": "Streetpunk",
+  "int": 6,
+  "ref": 6,
+  "tech": 7,
+  "cool": 5,
+  "attr": 8,
+  "luck": 4,
+  "ma": 6,
+  "body":5,
+  "emp": 6,
+  "armor": {
+    "head": 0,
+    "torso": 0,
+    "arms": 0,
+    "legs": 0
+  },
+  "sa": {"name":"", "stat": "", "value": 0},
+  "skills": [
+    {"name":"Play Instrument", "stat": "tech", "value": 1},
+    {"name":"Wardrobe \\& Style", "stat": "attr", "value": 4},
+    {"name":"Streetwise", "stat": "cool", "value": 5},
+    {"name":"Persuasion \\& Fast Talk", "stat": "emp", "value": 7},
+    {"name":"Perform", "stat": "emp", "value": 3},
+    {"name":"Brawling", "stat": "ref", "value": 7},
+    {"name":"Dance", "stat": "ref", "value": 7},
+    {"name":"Handgun", "stat": "ref", "value": 4}
+  ],
+  "cyberware": [],
+  "weapons": [],
+  "gear": [],
+  "source": "NC",
+  "page": 47,
+  "notes": ""
+}

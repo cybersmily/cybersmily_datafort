@@ -1,0 +1,90 @@
+.chargen-save {
+  display: inline-block;
+  margin-right: 5px;
+  border: 1px solid black;
+  text-align: center;
+  width: 60px;
+}
+
+.chargen-save input {
+  width: 55px;
+  height: 55px;
+  text-align: center;
+}
+
+.chargen-save-title {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.chargen-wound-cell {
+  border: none;
+  padding: 0;
+  width: 60px;
+}
+
+.chargen-wound-title {
+  font-style: italic;
+  display: block;
+  font-size: 10px;
+  height: 12px;
+  padding: 0px 0px;
+  margin: 0px 0px;
+}
+
+.chargen-wound-boxes {
+  display: block;
+  padding: 0px 0px;
+  margin: 0px 0px;
+  height: 16px;
+  line-height: 14px;
+}
+
+.chargen-wound-boxes input {
+  display: inline;
+  padding: 0px 0px;
+  margin: 0px 0px;
+}
+
+.chargen-wound-stun {
+  display: block;
+  color: white;
+  background-color: black;
+  font-style: italic;
+  font-size: 8px;
+  text-align: center;
+  margin: 0px 0px;
+  padding: 2px 3px;
+}
+
+.chargen-wound-table {
+  display: inline-block;
+  border: 0px solid white;
+}
+
+.chargen-save-text {
+  font-size: 12px;
+}
+
+.chargen-damaged {
+  color: red;
+  font-weight: bold;
+}
+
+.chargen-save .csd-dice {
+  display: none;
+}
+
+
+.chargen-save:hover .csd-dice {
+  display: inline-block;
+}
+
+.opp-death-state {
+  width: 30px;
+}
+
+.death-state {
+  color: red;
+  font-weight: bold;
+}

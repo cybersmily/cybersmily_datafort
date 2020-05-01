@@ -1,0 +1,52 @@
+{ "handle": "South American Hitter",
+  "role": "Solo",
+  "int": 4,
+  "ref": 7,
+  "tech": 3,
+  "cool": 5,
+  "attr": 6,
+  "luck": 3,
+  "ma": 7,
+  "body":8,
+  "emp": 3,
+  "armor": {
+    "head": 12,
+    "torso": 17,
+    "arms": 12,
+    "legs": 12
+  },
+  "sa": {"name":"Combat Sense", "value": 3},
+  "skills": [
+    {"name":"Brawling", "stat": "ref", "value": 6},
+    {"name":"Streetwise", "stat": "cool", "value": 3},
+    {"name":"Dodge/Escape", "stat": "ref", "value": 4},
+    {"name":"Awareness/Notice", "stat": "int", "value": 5},
+    {"name":"Driving", "stat": "ref", "value": 5},
+    {"name":"Hide/Evade", "stat": "int", "value": 6},
+    {"name":"Handgun", "stat": "ref", "value": 7},
+    {"name":"Shadow/Track", "stat": "int", "value": 3},
+    {"name":"Rifle", "stat": "ref", "value": 7},
+    {"name":"Melee", "stat": "ref", "value": 5}
+  ],
+  "cyberware": [
+    {"name":"Speedware(Sandevistan)"},
+    {"name":"Interface Plugs"},
+    {"name":"Neuralware", "options":"Smartgun Link"},
+    {"name":"Skinweave SP 12"},
+    {"name":"Scratchers"},
+    {"name":"Cyberoptics", "options":"Targeting Scope"}
+  ],
+  "weapons": [
+    {"name": "Scratchers", "type": "MEL", "wa": 0, "damage":"1D6/2", "notes":""},
+    {"name": "Federated Arms Light Assault 15", "type": "RIF", "wa": 0, "conc":"N", "damage":"5D6+3", "shots":30, "rof": 25, "rel": "VR", "range": 400, "notes":""},
+    {"name": "Militech Crusher SSG", "type": "SHT", "wa": -1, "conc":"J", "damage":"3D6", "shots":6, "rof": 2, "rel": "ST", "range": 25, "notes":"Range greater than 12m apply WA -3"},
+    {"name": "Goncz-Taurus 9mm", "type": "P", "wa": 0, "conc":"J", "damage":"2D6+1", "shots":15, "rof": 2, "rel": "ST", "range": 50, "notes":""}
+  ],
+  "gear": [
+    "Mirrorshades",
+    "Several hits of dorph",
+    "Kevlar T-Shirt"
+  ],
+  "source": "PS",
+  "notes": ""
+}

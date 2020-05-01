@@ -1,0 +1,80 @@
+﻿{"name":"Herkirmer Lenoski",
+	"handle":"Pup-pup",
+	"aliases":"Da Dog",
+	"age":"33",
+	"img":"puppup",
+	"career":{"name":"Techie","specialability":"Jury Rig","value": 9},
+	"stats":{
+		"ref": 7,
+		"int": 9,
+		"tech":10,
+		"cool": 6,
+		"attr": 5,
+		"luck": 8,
+		"ma": 6,
+		"body": 6,
+		"emp": 7,
+		"hc": 5},
+	"skills":{
+		"attr":[
+		],
+		"body":[
+		],
+		"cool":[
+		],
+		"emp":[
+		],
+		"int":[
+			{"name":"Awareness/Notice","value": 6},
+      {"name":"Control Remote","value": 7},
+			{"name":"Education/Gen. Know","value": 5},
+			{"name":"Hide/Evade","value": 3},
+			{"name":"Library Search","value": 6},
+			{"name":"Programming","value": 6},
+			{"name":"System Knowledge","value": 5},
+			{"name":"Teaching","value": 2}
+		],
+		"ref":[
+			{"name":"Brawling","value": 3},
+			{"name":"Handgun","value": 4},
+			{"name":"Heavy Weapons","value": 4},
+			{"name":"Motorcycle","value": 5},
+			{"name":"Stealth","value": 3}
+		],
+		"tech":[
+			{"name":"Aero Tech","value": 4},
+			{"name":"AV Tech","value": 5},
+			{"name":"Basic Tech","value": 8},
+			{"name":"Cyberdeck Design","value": 3},
+			{"name":"Cyber Tech","value": 6},
+			{"name":"Demolitions","value": 6},
+			{"name":"Electronics","value": 9},
+			{"name":"Elect. Security","value": 7},
+			{"name":"ELINT","value": 3},
+			{"name":"Gyro Tech","value": 3},
+			{"name":"Pick Lock","value": 5},
+			{"name":"Weaponsmith","value": 5}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"",
+			"valuedperson":"",
+			"valuemost":"",
+			"feelaboutpeople":"",
+			"valuedpossession":""
+		},
+		"style":{
+			"clothes":"",
+			"hair":"",
+			"affectations":"",
+			"ethnicity":"",
+			"languages":""
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":["Neural Processor [PLGx2, DLNK, MLNK, VLNK, CLNK, WAL]", "Chip Socket []", "Cyber Optics [Right:AD, TS+; Left:AD, TH, ME, IE]"],
+	"gear":[],
+	"history":"At an early age Pup-pup was into taking apart thing and rebuilding them. He was part of a nomad gang and learned all he could from the chief mechanic and technicians. During his late teen years, he went to the city. There he did various jobs in repair working and building. The thing he was real good at was stealing and breaking into places. He soon started hiring himself out as a break in artist. This got the attention of a talent agent named Big Man. Big Man hired Pup-pup for BMS' Team Alpha. Pup-pup was sure until Big Man quoted him a price. Pup-pup was no fool and knew that it was easy money. Then came the day when Prometheus, BMS' AI, came to the group with an offer. Pup-pup wasn't sure about it, but went along with the team. When the team fled to Night City Pup-pup went off on his own. He wanted to back to what he loved, Machines."
+}
