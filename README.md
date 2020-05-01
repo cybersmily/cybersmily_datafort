@@ -1,4 +1,5 @@
-# cybersmily_datafort
+# Cybersmily's Datafort
+http://cybersmily.net
 This is the code base for the cybersmily.net fansite for Cyberpunk 2020/Red. This is an Angular SPA site.
 
 See (wiki)(https://github.com/cybersmily/cybersmily_datafort/wiki) for details
