@@ -1,0 +1,13 @@
+node_modules
+dist
+~$nr_dataforts.xlsx
+*.xlsx
+*.csv
+*.db
+src/BingSiteAuth.xml
+src/.htcaccess
+src/conceptions-fluted.php
+src/google*.html
+src/img/data/
+src/web.config
+gimp
