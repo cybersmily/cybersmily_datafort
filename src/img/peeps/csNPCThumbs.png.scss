@@ -1,0 +1,333 @@
+﻿/*
+@import this file directly into your existing Scss files to use these mixins
+*/
+@mixin sprite-th_abomb() {
+/* You may have to set 'display: block' */
+	width: 85px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -1px;
+}
+@mixin sprite-th_algare() {
+/* You may have to set 'display: block' */
+	width: 97px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -102px;
+}
+@mixin sprite-th_anna() {
+/* You may have to set 'display: block' */
+	width: 78px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -203px;
+}
+@mixin sprite-th_arsenic() {
+/* You may have to set 'display: block' */
+	width: 127px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -304px;
+}
+@mixin sprite-th_asstmayor() {
+/* You may have to set 'display: block' */
+	width: 82px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -405px;
+}
+@mixin sprite-th_bd() {
+/* You may have to set 'display: block' */
+	width: 104px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -506px;
+}
+@mixin sprite-th_bigman() {
+/* You may have to set 'display: block' */
+	width: 97px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -607px;
+}
+@mixin sprite-th_bms() {
+/* You may have to set 'display: block' */
+	width: 121px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -708px;
+}
+@mixin sprite-th_bms2() {
+/* You may have to set 'display: block' */
+	width: 140px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -809px;
+}
+@mixin sprite-th_cookie() {
+/* You may have to set 'display: block' */
+	width: 84px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -910px;
+}
+@mixin sprite-th_cstevens() {
+/* You may have to set 'display: block' */
+	width: 107px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -1011px;
+}
+@mixin sprite-th_dango() {
+/* You may have to set 'display: block' */
+	width: 85px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -1112px;
+}
+@mixin sprite-th_demond() {
+/* You may have to set 'display: block' */
+	width: 82px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -1213px;
+}
+@mixin sprite-th_dy() {
+/* You may have to set 'display: block' */
+	width: 88px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -1314px;
+}
+@mixin sprite-th_generic-npc() {
+/* You may have to set 'display: block' */
+	width: 103px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -1415px;
+}
+@mixin sprite-th_glass() {
+/* You may have to set 'display: block' */
+	width: 104px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -1516px;
+}
+@mixin sprite-th_glitg() {
+/* You may have to set 'display: block' */
+	width: 102px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -1617px;
+}
+@mixin sprite-th_harikari() {
+/* You may have to set 'display: block' */
+	width: 81px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -1718px;
+}
+@mixin sprite-th_hermanrevista() {
+/* You may have to set 'display: block' */
+	width: 113px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -1819px;
+}
+@mixin sprite-th_hood() {
+/* You may have to set 'display: block' */
+	width: 88px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -1920px;
+}
+@mixin sprite-th_htorres() {
+/* You may have to set 'display: block' */
+	width: 85px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -2021px;
+}
+@mixin sprite-th_io() {
+/* You may have to set 'display: block' */
+	width: 115px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -2122px;
+}
+@mixin sprite-th_itomoda() {
+/* You may have to set 'display: block' */
+	width: 94px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -2223px;
+}
+@mixin sprite-th_jot() {
+/* You may have to set 'display: block' */
+	width: 105px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -2324px;
+}
+@mixin sprite-th_joyjoy() {
+/* You may have to set 'display: block' */
+	width: 100px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -2425px;
+}
+@mixin sprite-th_kestrel() {
+/* You may have to set 'display: block' */
+	width: 97px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -2526px;
+}
+@mixin sprite-th_kimi() {
+/* You may have to set 'display: block' */
+	width: 107px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -2627px;
+}
+@mixin sprite-th_ladyj() {
+/* You may have to set 'display: block' */
+	width: 124px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -2728px;
+}
+@mixin sprite-th_lesleymajor() {
+/* You may have to set 'display: block' */
+	width: 123px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -2829px;
+}
+@mixin sprite-th_lips() {
+/* You may have to set 'display: block' */
+	width: 95px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -2930px;
+}
+@mixin sprite-th_lisablight() {
+/* You may have to set 'display: block' */
+	width: 78px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -3031px;
+}
+@mixin sprite-th_lynx() {
+/* You may have to set 'display: block' */
+	width: 96px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -3132px;
+}
+@mixin sprite-th_lyte() {
+/* You may have to set 'display: block' */
+	width: 104px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -3233px;
+}
+@mixin sprite-th_macv() {
+/* You may have to set 'display: block' */
+	width: 125px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -3334px;
+}
+@mixin sprite-th_mandy() {
+/* You may have to set 'display: block' */
+	width: 85px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -3435px;
+}
+@mixin sprite-th_marceldesoleil() {
+/* You may have to set 'display: block' */
+	width: 101px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -3536px;
+}
+@mixin sprite-th_mars() {
+/* You may have to set 'display: block' */
+	width: 85px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -3637px;
+}
+@mixin sprite-th_myamazi() {
+/* You may have to set 'display: block' */
+	width: 101px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -3738px;
+}
+@mixin sprite-th_pads() {
+/* You may have to set 'display: block' */
+	width: 123px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -3839px;
+}
+@mixin sprite-th_papadoc() {
+/* You may have to set 'display: block' */
+	width: 96px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -3940px;
+}
+@mixin sprite-th_pavitbharat() {
+/* You may have to set 'display: block' */
+	width: 89px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -4041px;
+}
+@mixin sprite-th_phendricks() {
+/* You may have to set 'display: block' */
+	width: 88px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -4142px;
+}
+@mixin sprite-th_puppup() {
+/* You may have to set 'display: block' */
+	width: 98px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -4243px;
+}
+@mixin sprite-th_rabbit() {
+/* You may have to set 'display: block' */
+	width: 90px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -4344px;
+}
+@mixin sprite-th_rasminbridger() {
+/* You may have to set 'display: block' */
+	width: 116px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -4445px;
+}
+@mixin sprite-th_raymondellison() {
+/* You may have to set 'display: block' */
+	width: 75px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -4546px;
+}
+@mixin sprite-th_shito() {
+/* You may have to set 'display: block' */
+	width: 288px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -4647px;
+}
+@mixin sprite-th_shitoraki() {
+/* You may have to set 'display: block' */
+	width: 100px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -4748px;
+}
+@mixin sprite-th_silentsu() {
+/* You may have to set 'display: block' */
+	width: 95px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -4849px;
+}
+@mixin sprite-th_simonfrancisco() {
+/* You may have to set 'display: block' */
+	width: 132px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -4950px;
+}
+@mixin sprite-th_splice() {
+/* You may have to set 'display: block' */
+	width: 100px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -5051px;
+}
+@mixin sprite-th_stack() {
+/* You may have to set 'display: block' */
+	width: 95px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -5152px;
+}
+@mixin sprite-th_tin() {
+/* You may have to set 'display: block' */
+	width: 120px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -5253px;
+}
+@mixin sprite-th_tphillips() {
+/* You may have to set 'display: block' */
+	width: 106px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -5354px;
+}
+@mixin sprite-th_vulture() {
+/* You may have to set 'display: block' */
+	width: 103px;
+	height: 100px;
+	background: url('csNPCThumbs.png') -1px -5455px;
+}

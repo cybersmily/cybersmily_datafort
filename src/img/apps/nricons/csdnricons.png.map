@@ -1,0 +1,88 @@
+{
+  "images": [
+    {
+      "name": "/img/apps/nricons/df_bbs.png",
+      "width": 100,
+      "height": 77,
+      "offsetX": 1,
+      "offsetY": 1
+    },
+    {
+      "name": "/img/apps/nricons/df_blk.png",
+      "width": 100,
+      "height": 74,
+      "offsetX": 1,
+      "offsetY": 79
+    },
+    {
+      "name": "/img/apps/nricons/df_ldl.png",
+      "width": 76,
+      "height": 100,
+      "offsetX": 1,
+      "offsetY": 154
+    },
+    {
+      "name": "/img/apps/nricons/df_lv1.png",
+      "width": 100,
+      "height": 99,
+      "offsetX": 1,
+      "offsetY": 255
+    },
+    {
+      "name": "/img/apps/nricons/df_lv2.png",
+      "width": 100,
+      "height": 92,
+      "offsetX": 1,
+      "offsetY": 355
+    },
+    {
+      "name": "/img/apps/nricons/df_lv3.png",
+      "width": 56,
+      "height": 100,
+      "offsetX": 1,
+      "offsetY": 448
+    },
+    {
+      "name": "/img/apps/nricons/df_pbc.png",
+      "width": 100,
+      "height": 100,
+      "offsetX": 1,
+      "offsetY": 549
+    },
+    {
+      "name": "/img/apps/nricons/df_pvt.png",
+      "width": 100,
+      "height": 78,
+      "offsetX": 1,
+      "offsetY": 650
+    },
+    {
+      "name": "/img/apps/nricons/geo.png",
+      "width": 40,
+      "height": 50,
+      "offsetX": 1,
+      "offsetY": 729
+    },
+    {
+      "name": "/img/apps/nricons/lunar.png",
+      "width": 45,
+      "height": 45,
+      "offsetX": 1,
+      "offsetY": 780
+    },
+    {
+      "name": "/img/apps/nricons/nrcity.png",
+      "width": 40,
+      "height": 36,
+      "offsetX": 1,
+      "offsetY": 826
+    },
+    {
+      "name": "/img/apps/nricons/spacestation.png",
+      "width": 50,
+      "height": 50,
+      "offsetX": 1,
+      "offsetY": 863
+    }
+  ]
+}

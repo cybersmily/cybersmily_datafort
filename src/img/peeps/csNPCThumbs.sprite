@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sprite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://vswebessentials.com/schemas/v1/sprite.xsd">
+  <settings>
+    <!--Determines if the sprite image should be automatically optimized after creation/update.-->
+    <optimize>true</optimize>
+    <!--Determines the orientation of images to form this sprite. The value must be vertical or horizontal.-->
+    <orientation>vertical</orientation>
+    <!--The margin (in pixel) around and between the constituent images.-->
+    <margin>1</margin>
+    <!--File extension of sprite image.-->
+    <outputType>png</outputType>
+    <!--Determine whether to generate/re-generate this sprite on building the solution.-->
+    <runOnBuild>false</runOnBuild>
+    <!--Use full path to generate unique class or mixin name in CSS, LESS and SASS files. Consider disabling this if you want class names to be filename only.-->
+    <fullPathForIdentifierName>false</fullPathForIdentifierName>
+    <!--Use absolute path in the generated CSS-like files. By default, the URLs are relative to sprite image file (and the location of CSS, LESS and SCSS).-->
+    <useAbsoluteUrl>false</useAbsoluteUrl>
+    <!--Specifies a custom subfolder to save files to. By default, compiled output will be placed in the same folder and nested under the original file.-->
+    <outputDirectory />
+    <!--Specifies a custom subfolder to save CSS files to. By default, compiled output will be placed in the same folder and nested under the original file.-->
+    <outputDirectoryForCss>/Styles</outputDirectoryForCss>
+    <!--Specifies a custom subfolder to save LESS files to. By default, compiled output will be placed in the same folder and nested under the original file.-->
+    <outputDirectoryForLess />
+    <!--Specifies a custom subfolder to save SCSS files to. By default, compiled output will be placed in the same folder and nested under the original file.-->
+    <outputDirectoryForScss />
+  </settings>
+  <!--The order of the <file> elements determines the order of the images in the sprite.-->
+  <files>
+    <file>/img/peeps/th/th_abomb.png</file>
+    <file>/img/peeps/th/th_algare.png</file>
+    <file>/img/peeps/th/th_anna.png</file>
+    <file>/img/peeps/th/th_arsenic.png</file>
+    <file>/img/peeps/th/th_asstmayor.png</file>
+    <file>/img/peeps/th/th_bd.png</file>
+    <file>/img/peeps/th/th_bigman.png</file>
+    <file>/img/peeps/th/th_bms.png</file>
+    <file>/img/peeps/th/th_bms2.png</file>
+    <file>/img/peeps/th/th_cookie.png</file>
+    <file>/img/peeps/th/th_cstevens.png</file>
+    <file>/img/peeps/th/th_dango.png</file>
+    <file>/img/peeps/th/th_demond.png</file>
+    <file>/img/peeps/th/th_dy.png</file>
+    <file>/img/peeps/th/th_generic-npc.png</file>
+    <file>/img/peeps/th/th_glass.png</file>
+    <file>/img/peeps/th/th_glitg.png</file>
+    <file>/img/peeps/th/th_harikari.png</file>
+    <file>/img/peeps/th/th_hermanrevista.png</file>
+    <file>/img/peeps/th/th_hood.png</file>
+    <file>/img/peeps/th/th_htorres.png</file>
+    <file>/img/peeps/th/th_io.png</file>
+    <file>/img/peeps/th/th_itomoda.png</file>
+    <file>/img/peeps/th/th_jot.png</file>
+    <file>/img/peeps/th/th_joyjoy.png</file>
+    <file>/img/peeps/th/th_kestrel.png</file>
+    <file>/img/peeps/th/th_kimi.png</file>
+    <file>/img/peeps/th/th_ladyj.png</file>
+    <file>/img/peeps/th/th_lesleymajor.png</file>
+    <file>/img/peeps/th/th_lips.png</file>
+    <file>/img/peeps/th/th_lisablight.png</file>
+    <file>/img/peeps/th/th_lynx.png</file>
+    <file>/img/peeps/th/th_lyte.png</file>
+    <file>/img/peeps/th/th_macv.png</file>
+    <file>/img/peeps/th/th_mandy.png</file>
+    <file>/img/peeps/th/th_marceldesoleil.png</file>
+    <file>/img/peeps/th/th_mars.png</file>
+    <file>/img/peeps/th/th_myamazi.png</file>
+    <file>/img/peeps/th/th_pads.png</file>
+    <file>/img/peeps/th/th_papadoc.png</file>
+    <file>/img/peeps/th/th_pavitbharat.png</file>
+    <file>/img/peeps/th/th_phendricks.png</file>
+    <file>/img/peeps/th/th_puppup.png</file>
+    <file>/img/peeps/th/th_rabbit.png</file>
+    <file>/img/peeps/th/th_rasminbridger.png</file>
+    <file>/img/peeps/th/th_raymondellison.png</file>
+    <file>/img/peeps/th/th_shito.png</file>
+    <file>/img/peeps/th/th_shitoraki.png</file>
+    <file>/img/peeps/th/th_silentsu.png</file>
+    <file>/img/peeps/th/th_simonfrancisco.png</file>
+    <file>/img/peeps/th/th_splice.png</file>
+    <file>/img/peeps/th/th_stack.png</file>
+    <file>/img/peeps/th/th_tin.png</file>
+    <file>/img/peeps/th/th_tphillips.png</file>
+    <file>/img/peeps/th/th_vulture.png</file>
+  </files>
+</sprite>
