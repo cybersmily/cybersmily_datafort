@@ -2,14 +2,14 @@
   <div class="col-7">
     {{weapon.name}}(
     <span *ngIf="skills.length &lt; 2">
-      {{skills[0].name}}
+      {{selectedSkill}}
     </span>
     <select [(ngModel)]="selectedSkill" *ngIf="skills.length &gt; 1">
       <option *ngFor="let s of skills" [ngValue]="s">{{s.name}}</option>
     </select>
     )&nbsp;
     <span
-      title="[{{skills[0].name}}:{{skills[0].value}} + REF:{{REF.Adjusted}} + WA:{{weapon.wa}} + MOD:{{modifiers.totalModifiers}}]">
+      title="[{{selectedSkill.name}}:{{selectedSkill.value}} + REF:{{REF.Adjusted}} + WA:{{weapon.wa}} + MOD:{{modifiers.totalModifiers}}]">
       {{getWeaponMods(weapon)}} +
       <ng-template #popSkill><div [innerHTML]="skillRoll"></div></ng-template>
       <fa-icon [icon]="faDice" class="csd-dice" (click)="rollSkill()"

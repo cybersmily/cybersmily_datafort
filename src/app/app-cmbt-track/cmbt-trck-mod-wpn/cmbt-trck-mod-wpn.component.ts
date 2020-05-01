@@ -40,14 +40,14 @@ export class CmbtTrckModWpnComponent implements OnInit {
 
   constructor(private diceService: DiceService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if ( this.skills && this.skills.length > 0) {
+      this.selectedSkill = this.skills[0];
+    }
+  }
 
   getWeaponMods(wpn: CpPlayerWeapon): number {
-    if (this.skills.length < 2) {
-      return wpn.wa + this.skills[0].value + this.REF.Adjusted + this.modifiers.totalModifiers;
-    } else {
-      return wpn.wa + this.selectedSkill.value + this.REF.Adjusted + this.modifiers.totalModifiers;
-    }
+    return wpn.wa + this.selectedSkill.value + this.REF.Adjusted + this.modifiers.totalModifiers;
   }
 
   rollReliability() {
@@ -72,7 +72,7 @@ export class CmbtTrckModWpnComponent implements OnInit {
   }
 
   rollSkill() {
-    this.skillRoll = ((this.skills.length > 1) ?  this.selectedSkill.value : this.skills[0].value) + '(skill) ';
+    this.skillRoll = this.selectedSkill.value + '(skill) ';
     this.skillRoll += '+ ' + this.REF.Adjusted + '(REF) ';
     this.skillRoll += ((this.weapon.wa >= 0) ? '+' : '') + '(wa) ';
     this.skillRoll += '+ ' + this.modifiers.totalModifiers + '(mods) ';

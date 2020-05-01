@@ -57,12 +57,13 @@ export class LifeEventsGeneratorService {
    */
   private GenerateEvent(chartData: LifepathEventsCharts, lifepathSource: string, isEventful: boolean): string {
     // if hasEventful is true, then ignore the rolls for 'nothing happened.'
-    const die = (isEventful) ? 8 : 10;
+    const die = (isEventful) ? 7 : 9;
     // determine the event type
     const mainRoll = this.dice.generateNumber(0, die);
     let eventDesc = `Nothing happened that year.`;
     if ( mainRoll < 8) {
-      switch (this.GetEventType(chartData, lifepathSource, mainRoll)) {
+      const eventType = this.GetEventType(chartData, lifepathSource, mainRoll);
+      switch (eventType) {
         case 'GetWin':
           eventDesc = this.GetWin(chartData, lifepathSource);
           break;
@@ -89,7 +90,7 @@ export class LifeEventsGeneratorService {
     const mainEvent = chartData.ChartRoll[source][roll];
     // check to see if there is a chart for the main event,
     // if not then it means nothing happened.
-    const eventRoll = this.dice.generateNumber(0, (mainEvent.chart.length));
+    const eventRoll = this.dice.generateNumber(0, (mainEvent.chart.length - 1));
     return mainEvent.chart[eventRoll];
   }
 

@@ -1,3 +1,7 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { CmbtTrckModSelectorComponent } from './../cmbt-trck-mod-selector/cmbt-trck-mod-selector.component';
+import { CmbtTrckModWpnComponent } from './../cmbt-trck-mod-wpn/cmbt-trck-mod-wpn.component';
 import { CmbtTrckInstructionsComponent } from './../cmbt-trck-instructions/cmbt-trck-instructions.component';
 import { CmbtTrckFormComponent } from './../cmbt-trck-form/cmbt-trck-form.component';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
@@ -29,7 +33,8 @@ describe('CmbtTrckMainComponent', () => {
       imports: [
         CommonUiModule,
         PipesModule,
-        HttpClientModule
+        HttpClientModule,
+        BrowserAnimationsModule
       ],
       declarations: [
         CmbtTrckMainComponent,
@@ -45,11 +50,14 @@ describe('CmbtTrckMainComponent', () => {
         CmbtTrkWpnComponent,
         CmbtTrkCyberComponent,
         CmbtTrckGearComponent,
-        CmbtTrckInstructionsComponent
+        CmbtTrckInstructionsComponent,
+        CmbtTrckModWpnComponent,
+        CmbtTrckModSelectorComponent
       ],
       providers: [
         DiceService,
-        DataService
+        DataService,
+        BsModalService
       ]
     })
     .compileComponents();

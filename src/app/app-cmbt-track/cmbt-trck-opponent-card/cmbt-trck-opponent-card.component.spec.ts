@@ -1,3 +1,5 @@
+import { CmbtTrckModSelectorComponent } from './../cmbt-trck-mod-selector/cmbt-trck-mod-selector.component';
+import { CmbtTrckModWpnComponent } from './../cmbt-trck-mod-wpn/cmbt-trck-mod-wpn.component';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { CmbtTrckGearComponent } from './../cmbt-trck-gear/cmbt-trck-gear.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -36,7 +38,9 @@ describe('CmbtTrckOpponentCardComponent', () => {
         CmbtTrkWpnComponent,
         CmbtTrkSkillsComponent,
         CmbtTrkCyberComponent,
-        CmbtTrckGearComponent
+        CmbtTrckGearComponent,
+        CmbtTrckModWpnComponent,
+        CmbtTrckModSelectorComponent
       ],
       imports: [
         CommonUiModule,
