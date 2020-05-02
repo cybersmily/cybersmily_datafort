@@ -35,7 +35,6 @@ export class RedJumpkitLifepathService {
       this.lifePath = this.generateLifePathObject();
       return of(this.lifePath);
     }
-
     return this.GetLifePathData()
     .pipe(
       map( (data) => {

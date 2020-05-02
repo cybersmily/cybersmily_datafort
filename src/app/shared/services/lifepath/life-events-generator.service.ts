@@ -40,11 +40,10 @@ export class LifeEventsGeneratorService {
 
     const startAge = 16;
     levents.Age = startAge + levents.NumberOfYears;
-
     // for each year roll for an event
     for ( let j = 0; j < levents.NumberOfYears; j++) {
         const event = this.GenerateEvent(chartData, lifepathSource, isEventful);
-        levents.Events.push( { age: (startAge + j), event: event });
+        levents.Events.push( { age: ((startAge + 1 ) + j), event: event });
     }
     return levents;
   }
