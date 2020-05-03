@@ -94,7 +94,6 @@ describe('FixerBigLeagueService', () => {
     service.addContact(contacts.verycapable);  // 200 pts
     service.model.subscribe( data => {
       expect(data).toBeTruthy(data);
-      console.log(data);
       expect(data.contacts.length === 0).toBeTruthy('Big League contacts is not empty.');
       expect(service.spentPoints === 0).toBeTruthy('Big League spent points is not 0.');
     });

@@ -21,7 +21,7 @@ export class FilterPipe implements PipeTransform {
           if (property.includes('.')) {
             return this.processObject(obj, property, value);
           } else {
-            return true;
+            return false;
           }
         default:
           if (Array.isArray(obj[property])) {
@@ -50,12 +50,12 @@ export class FilterPipe implements PipeTransform {
   processObject(obj: any, property: string, value: any ): boolean {
     // property should use ':' to designate the object property
     if (!property.includes('.')) {
-      return true;
+      return false;
     }
     const objProp = property.split('.')[0];
     const subProp = property.split('.')[1];
     if (obj[objProp] === undefined || obj[objProp] === null || obj[objProp][subProp] === undefined) {
-      return true;
+      return false;
     }
     switch ( typeof obj[objProp][subProp]) {
       case 'string':
@@ -66,9 +66,8 @@ export class FilterPipe implements PipeTransform {
         return obj[objProp][subProp] === value;
       default:
         // assume this is an object
-        return true;
+        return false;
     }
-    return true;
   }
 
 }
