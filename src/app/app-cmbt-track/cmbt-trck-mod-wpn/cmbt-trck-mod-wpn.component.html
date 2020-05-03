@@ -26,7 +26,7 @@
     </span>
   </div>
 </div>
-<div *ngIf="!weapon.jammed && !weapon.isEmpty()" class="row opp-mod-text">
+<div *ngIf="!weapon.jammed && !weapon.isEmpty" class="row opp-mod-text">
   <div class="col-1"></div>
   <div class="col-auto">
     {{weapon.type}}&nbsp;
@@ -64,7 +64,7 @@
     ></fa-icon>
   </div>
 </div>
-<div *ngIf="weapon.isEmpty()" class="row">
+<div *ngIf="weapon.isEmpty" class="row">
   <div class="col-1"></div>
   <div class="col-11">
     <span class="csd-btn" (click)="reloadAmmo()">

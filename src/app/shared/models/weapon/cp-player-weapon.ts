@@ -1,3 +1,4 @@
+import { SourceBook } from './../sourcebook';
 import { WeaponRanges } from './weapon-ranges';
 import { CombatRange } from './combat-range';
 import { CpWeapon } from '.';
@@ -16,6 +17,7 @@ export class CpPlayerWeapon implements CpWeapon {
   cost: number;
   notes: string;
   range: number;
+  source?: SourceBook;
 
   constructor(param?) {
     // weapon prop is deprecated. There for backward support
@@ -49,13 +51,15 @@ export class CpPlayerWeapon implements CpWeapon {
     } else {
       this.rof = (param && param.rof) ? 0 : undefined;
     }
+    this.cost = (param) ? param.cost : 0;
     this.range = (param) ? param.range : 0;
     this.rel = (param) ? param.rel : '';
     this.jammed = (param) ? param.jammed : false;
     this.notes = (param) ? param.notes : '';
+    this.source = (param) ? param.source : undefined;
   }
 
-  isEmpty(): boolean {
+  get isEmpty(): boolean {
     return this.shots <= this.shotsUsed || isNaN(this.shotsUsed);
   }
 
