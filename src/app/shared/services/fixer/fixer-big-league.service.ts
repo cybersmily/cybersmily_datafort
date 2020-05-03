@@ -25,14 +25,16 @@ export class FixerBigLeagueService {
   }
 
   addContact(contact: BigLeagueContact) {
-    const c = new BigLeagueContact();
-    c.name = contact.name;
-    c.reputation = contact.reputation;
-    c.availability = contact.availability;
-    c.reliability = contact.reliability;
-    c.capability = contact.capability;
-    this._curModel.contacts.push(c);
-    this.updateModel();
+    if ( contact.cost + this.spentPoints <= this.totalPoints) {
+      const c = new BigLeagueContact();
+      c.name = contact.name;
+      c.reputation = contact.reputation;
+      c.availability = contact.availability;
+      c.reliability = contact.reliability;
+      c.capability = contact.capability;
+      this._curModel.contacts.push(c);
+      this.updateModel();
+    }
   }
   deleteContact(index: number) {
     this._curModel.contacts.splice(index, 1);
