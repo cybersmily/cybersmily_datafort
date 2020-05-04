@@ -34,36 +34,15 @@ export class CpRedBaseStats {
     this.MOVE.set(0);
   }
 
-  DeathSave(): number {
+  get deathSave(): number {
     return this.BODY.current;
   }
 
-  StartingHP(): number {
+  get startingHP(): number {
     return this.BODY.base * 5;
   }
 
-  WoundThreshold(): number {
-    switch(this.BODY.adjusted) {
-      case 2:
-        return 5;
-      case 3:
-        return 8;
-      case 4:
-        return 10;
-      case 5:
-        return 13;
-      case 6:
-        return 15;
-      case 7:
-        return 18;
-      case 8:
-        return 20;
-      case 9:
-        return 23;
-      case 10:
-        return 25;
-      default:
-        return 0;
-    }
+  get woundThreshold(): number {
+    return Math.ceil(this.startingHP / 2);
   }
 }

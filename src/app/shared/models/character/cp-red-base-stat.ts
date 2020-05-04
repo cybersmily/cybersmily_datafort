@@ -1,17 +1,21 @@
 export class CpRedBaseStat {
-  base: number;
+  private _base: number;
   adjusted: number;
-  current: number;
 
   constructor() {
-    this.base  = 0;
+    this._base  = 0;
     this.adjusted = 0;
-    this.current = 0;
   }
 
+  get base(): number {
+    return this._base;
+  }
+
+  get current(): number {
+    return this.base + this.adjusted;
+  }
   set(value: number) {
-    this.base  = value;
+    this._base  = (value < 0) ? 0 : value;
     this.adjusted = 0;
-    this.current = this.base + this.adjusted;
   }
 }
