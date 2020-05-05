@@ -37,7 +37,7 @@ export class TempGeneratorComponent implements OnInit {
     const role = this.roles[roll];
     this.templateGenerator.generateCharacter(role).subscribe(data => {
       this.character = data;
-      this.lifepathService.GenerateLifePath().subscribe( (lifepath) => {
+      this.lifepathService.generateLifePath().subscribe( (lifepath) => {
         this.character.lifepath = lifepath;
           this.nameService.generateName().subscribe( name => {
             this.character.name = name;

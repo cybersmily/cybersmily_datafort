@@ -1,6 +1,6 @@
 import { LifepathEventsList } from './../../models/lifepath/lifepath-events-list';
 import { map } from 'rxjs/operators';
-import { of, Observable } from 'rxjs';
+import { of, Observable, forkJoin } from 'rxjs';
 import { CPRedLifepathData } from './../../models/lifepath/cpred-lifepath-data';
 import { Injectable } from '@angular/core';
 import { DiceService } from './../dice/dice.service';
@@ -12,92 +12,119 @@ import { CPRedLifepath } from '../../models/lifepath/cpred-lifepath';
 })
 export class RedJumpkitLifepathService {
 
-  private lifePathData: CPRedLifepathData;
-  private lifePath: CPRedLifepath;
+  private _lifePathData: CPRedLifepathData;
+  private _lifePath: CPRedLifepath;
 
   constructor(private dice: DiceService, private dataService: DataService) {}
 
-  GetLifePathData(): Observable<CPRedLifepathData> {
-    if (this.lifePathData) {
-      return of(this.lifePathData);
+  private get lifePathData(): Observable<CPRedLifepathData> {
+    if (this._lifePathData) {
+      return of(this._lifePathData);
     } else {
       return this.dataService
       .GetJson('/json/apps/lifepath/cpredjkchart.json')
       .pipe( map( (data) => {
-        this.lifePathData = data;
-        return this.lifePathData;
+        this._lifePathData = data;
+        return this._lifePathData;
       }));
     }
   }
 
-  GenerateLifePath(): Observable<CPRedLifepath> {
-    if (this.lifePathData) {
-      this.lifePath = this.generateLifePathObject();
-      return of(this.lifePath);
-    }
-    return this.GetLifePathData()
-    .pipe(
+  generateLifePath(): Observable<CPRedLifepath> {
+    return this.generateLifePathObject();
+  }
+
+  generateBackground(): Observable<string> {
+    return this.lifePathData.pipe(
       map( (data) => {
-        this.lifePath = this.generateLifePathObject();
-        return this.lifePath;
-      }));
+        return this.rollchart(data, 'background');
+    }));
   }
 
-  private generateLifePathObject(): CPRedLifepath {
-    const lifePath = new CPRedLifepath();
-    lifePath.background = this.GenerateBackground();
-    lifePath.motivation = this.GenerateMotivation();
-    lifePath.goals = this.GenerateGoals();
-    lifePath.friends = this.GenerateFriends();
-    lifePath.enemies = this.GenerateEnemies();
-    lifePath.romance = this.GenerateRomance();
-    lifePath.personality = this.GeneratePersonality();
-    return lifePath;
+  generateMotivation(): Observable<string> {
+    return this.lifePathData.pipe(
+      map( (data) => {
+        return this.rollchart(data, 'motivation');
+    }));
   }
 
-  GenerateBackground(): string {
-    return this.dice.rollOnChart(this.lifePathData, 'background');
+  generateGoals(): Observable<string> {
+    return this.lifePathData.pipe(
+      map( (data) => {
+        return this.rollchart(data, 'goals');
+    }));
   }
 
-  GenerateMotivation(): string {
-    return this.dice.rollOnChart(this.lifePathData, 'motivation');
+  generateFriends(): Observable<Array<string>> {
+    return this.lifePathData.pipe(
+      map( (data) => {
+        let noOfFriends = this.dice.generateNumber(1, 10) - 7;
+        noOfFriends = (noOfFriends < 1) ? 1 : noOfFriends;
+        const friends = new Array<string>();
+        for ( let i = 0; i < noOfFriends; i++ ) {
+          const friend = this.rollchart(data, 'friends');
+          if ( friend && friend !== '' && friend !== ' ') {
+            friends.push(friend);
+          }
+        }
+        return friends;
+    }));
   }
 
-  GenerateGoals(): string {
-    return this.dice.rollOnChart(this.lifePathData, 'goals');
+  generateEnemies(): Observable<Array<string>> {
+    return this.lifePathData.pipe(
+      map( (data) => {
+        let noOfEnemies = this.dice.generateNumber(1, 10) - 5;
+        noOfEnemies = (noOfEnemies < 1) ? 1 : noOfEnemies;
+        const enemies = new Array<string>();
+        for ( let i = 0; i < noOfEnemies; i++ ) {
+          const enemy = this.rollchart(data, 'enemies');
+          if ( enemy && enemy !== '' && enemy !== ' ') {
+            enemies.push(enemy);
+          }
+        }
+      return enemies;
+    }));
   }
 
-  GenerateFriends(): string[] {
-    let noOfFriends = this.dice.generateNumber(1, 10) - 7;
-    noOfFriends = (noOfFriends < 1) ? 1 : noOfFriends;
-    const friends = [];
-    for ( let i = 0; i < noOfFriends; i++ ) {
-      const friend = this.dice.rollOnChart(this.lifePathData, 'friends');
-      if ( friend && friend !== '' && friend !== ' ') {
-        friends.push(friend);
-      }
-    }
-    return friends;
+  generatePersonality(): Observable<string> {
+    return this.lifePathData.pipe(
+      map( (data) => {
+        return this.rollchart(data, 'personality');
+    }));
   }
 
-  GenerateEnemies(): string[] {
-    let noOfEnemies = this.dice.generateNumber(1, 10) - 5;
-    noOfEnemies = (noOfEnemies < 1) ? 1 : noOfEnemies;
-    const enemies = [];
-    for ( let i = 0; i < noOfEnemies; i++ ) {
-      const enemy = this.dice.rollOnChart(this.lifePathData, 'enemies');
-      if ( enemy && enemy !== '' && enemy !== ' ') {
-        enemies.push(enemy);
-      }
-    }
-    return enemies;
+  generateRomance(): Observable<string> {
+    return this.lifePathData.pipe(
+      map( (data) => {
+        return this.rollchart(data, 'romance');
+    }));
   }
 
-  GeneratePersonality(): string {
-    return this.dice.rollOnChart(this.lifePathData, 'personality');
+  private rollchart(chart: CPRedLifepathData, section: string): string {
+    return this.dice.rollOnChart(chart, section);
   }
 
-  GenerateRomance(): string {
-    return this.dice.rollOnChart(this.lifePathData, 'romance');
+  private generateLifePathObject(): Observable<CPRedLifepath> {
+    return forkJoin([
+      this.generateBackground(),
+      this.generateMotivation(),
+      this.generateGoals(),
+      this.generateFriends(),
+      this.generateEnemies(),
+      this.generateRomance(),
+      this.generatePersonality(),
+    ]).pipe(
+      map( data => {
+        const newLifePath = new CPRedLifepath();
+        newLifePath.background = data[0].toString();
+        newLifePath.motivation = data[1].toString();
+        newLifePath.goals = data[2].toString();
+        newLifePath.friends = data[3] as Array<string>;
+        newLifePath.enemies = data[4] as Array<string>;
+        newLifePath.romance = data[5].toString();
+        newLifePath.personality = data[6].toString();
+        return newLifePath;
+    }));
   }
 }

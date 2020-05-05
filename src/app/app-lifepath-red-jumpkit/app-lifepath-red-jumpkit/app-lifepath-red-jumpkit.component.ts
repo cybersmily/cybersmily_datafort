@@ -11,57 +11,63 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppLifepathRedJumpkitComponent implements OnInit {
 
-  LifePathData: CPRedLifepathData;
   enabled = false;
   LifePath = new CPRedLifepath();
-  background = '';
 
   constructor(private lifepathService: RedJumpkitLifepathService,
               private saveFileService: SaveFileService) {}
 
   ngOnInit() {
-    this.lifepathService.GetLifePathData().subscribe( data => {
-      this.enabled = true;
-      this.LifePathData = data;
-    });
+    this.enabled = true;
+    this.LifePath = new CPRedLifepath();
   }
 
   generate() {
-    this.generateBackground();
-    this.generateEnemies();
-    this.generateFriends();
-    this.generateGoals();
-    this.generateMotivation();
-    this.generatePersonality();
-    this.generateRomance();
+    this.lifepathService
+    .generateLifePath()
+    .subscribe(data => this.LifePath = data);
   }
 
   generateBackground() {
-    this.LifePath.background = this.lifepathService.GenerateBackground();
+    this.lifepathService
+    .generateBackground()
+    .subscribe( data => this.LifePath.background = data);
   }
 
   generateMotivation() {
-    this.LifePath.motivation = this.lifepathService.GenerateMotivation();
+    this.lifepathService
+    .generateMotivation()
+    .subscribe( data => this.LifePath.motivation = data);
   }
 
   generateGoals() {
-    this.LifePath.goals = this.lifepathService.GenerateGoals();
+    this.lifepathService
+    .generateGoals()
+    .subscribe( data => this.LifePath.goals = data);
   }
 
   generateRomance() {
-    this.LifePath.romance = this.lifepathService.GenerateRomance();
+    this.lifepathService
+    .generateRomance()
+    .subscribe( data => this.LifePath.romance = data);
   }
 
   generatePersonality() {
-    this.LifePath.personality = this.lifepathService.GeneratePersonality();
+    this.lifepathService
+    .generatePersonality()
+    .subscribe( data => this.LifePath.personality = data);
   }
 
   generateFriends() {
-    this.LifePath.friends = this.lifepathService.GenerateFriends();
+    this.lifepathService
+    .generateFriends()
+    .subscribe( data => this.LifePath.friends = data);
   }
 
   generateEnemies() {
-    this.LifePath.enemies = this.lifepathService.GenerateEnemies();
+    this.lifepathService
+    .generateEnemies()
+    .subscribe( data => this.LifePath.enemies = data);
   }
 
   saveFile() {
