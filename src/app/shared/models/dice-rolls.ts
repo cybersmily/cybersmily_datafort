@@ -1,10 +1,10 @@
 export class DiceRolls {
     total: number;
-    rolls: any[];
+    rolls: number[];
 
     constructor() {
       this.total = 0;
-      this.rolls = new Array();
+      this.rolls = new Array<number>();
     }
 
     /**

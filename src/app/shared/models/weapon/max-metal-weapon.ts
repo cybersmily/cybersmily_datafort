@@ -91,13 +91,16 @@ export class MaxMetalWeapon implements VehicleWeapon {
     return wpn;
   }
 
-  totalWA() {
+  totalWA(): number {
     let mod = 0;
     if (this.isStablized) {
       mod = 2;
     }
-    return this.wa + mod;
-
+    if (this.mounting) {
+      mod += (isNaN(Number(this.mounting.wa))) ? 0 : Number(this.mounting.wa);
+    }
+    const wa = (isNaN(Number(this.wa))) ? 0 : Number(this.wa);
+    return wa + mod;
   }
 
   totalCost() {
@@ -106,7 +109,9 @@ export class MaxMetalWeapon implements VehicleWeapon {
       total += (this.cost * 0.5);
     }
     if (this.isAutoLoad) {
-      total += (this.cost * 0.5);
+      // min cost of auotloader is 25000
+      const autoLoad = (this.cost * 0.5);
+      total += (autoLoad < 25000) ? 25000 : autoLoad;
     }
     if (isNaN(Number(this.mounting.cost))) {
       // parse and calculate
@@ -127,13 +132,13 @@ export class MaxMetalWeapon implements VehicleWeapon {
 
   totalSpaces() {
     let total = this.spaces;
+    total = (total * this.mounting.spaces);
     if (this.isStablized) {
       total += (this.spaces * 0.5);
     }
     if (this.isAutoLoad) {
       total += (this.spaces * 0.25);
     }
-    total = (total * this.mounting.spaces);
     if (this.extraLoads > 0) {
       total += (this.extraLoads * this.ammo.spacePerLoad);
     }
