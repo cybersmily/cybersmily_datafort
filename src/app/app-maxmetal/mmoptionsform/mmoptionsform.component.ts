@@ -35,7 +35,7 @@ export class MmoptionsformComponent implements OnInit {
   ngOnInit() {
     this.currOption = new MaxMetalOption();
     this.addDisabled = true;
-    this.mmDataService.LoadOptions().subscribe( data => {
+    this.mmDataService.loadOptions().subscribe( data => {
       this.options = data;
     });
   }

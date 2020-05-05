@@ -26,7 +26,7 @@ export class MmweaponformComponent implements OnInit {
     this.addDisabled = true;
     this.currWeapon = new MaxMetalWeapon();
     this.currWeapon.mounting = null;
-    this.mmDataService.LoadWeapons().subscribe( data => {
+    this.mmDataService.loadWeapons().subscribe( data => {
       this.weapons = data;
       this.weapons.forEach(cat => {
         cat.value.items.sort( (a, b) => (a.name > b.name) ? 1 : -1);
@@ -45,7 +45,7 @@ export class MmweaponformComponent implements OnInit {
 
   changeWeapon() {
     this.currWeapon.copy(this.selectedWeapon);
-    this.mmDataService.LoadWeaponMounts().subscribe( data => {
+    this.mmDataService.loadWeaponMounts().subscribe( data => {
         this.mounts = data;
         // check to see if the mount is available for the weapon.
         this.mounts = this.mounts.filter( (mount, ind, array) => {

@@ -1,69 +1,83 @@
-import { Observable, of } from 'rxjs';
+
+import { Observable, of, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { VehicleWeapon } from './../../models/weapon';
-import { MaxMetalOption } from './../../models/maxmetal';
 import { Injectable } from '@angular/core';
+import {
+        MaxMetalWeaponCategory,
+        MaxMetalWeaponMount,
+        VehicleWeapon } from './../../models/weapon';
+import { MaxMetalOption, VehicleType } from './../../models/maxmetal';
 import { DataService } from '../data.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MaxMetalDataService {
-
-  private weapons: any;
-  private options: any;
-  private mounts: any;
-  private vehicleTypes: any;
+  private _jsonPath = '/json/apps/maxmetal/';
+  private _weapons: any;
+  private _options: any;
+  private _mounts: any;
+  private _vehicleTypes: any;
 
   constructor(private dataSerivce: DataService ) { }
 
-  LoadWeapons(): Observable<any> {
-    if ( this.weapons) {
-      return of(this.weapons);
-    }
-    return this.dataSerivce
-    .GetJson('/json/apps/maxmetal/mmweapons.json')
-    .pipe(
-      map( data => data.weapons),
-      map( data => this.weapons = this.createWeaponCategories(data))
-    );
+  loadMaxMetalData(): Observable<boolean> {
+    return forkJoin([
+      this.dataSerivce.GetJson(`${this._jsonPath}mmweapons.json`),
+      this.dataSerivce.GetJson(`${this._jsonPath}mmoptions.json`),
+      this.dataSerivce.GetJson(`${this._jsonPath}mmweaponmounts.json`),
+      this.dataSerivce.GetJson(`${this._jsonPath}mmTypes.json`)
+
+    ]).pipe( map( results => {
+      this._weapons = this.createWeaponCategories(results[0].weapons);
+      this._options = this.createOptionCategories(results[1].options);
+      this._mounts = results[2].mounts;
+      this._vehicleTypes = results[3].baseTypes;
+      return true;
+    }));
   }
 
-  LoadOptions(): Observable<any> {
-    if (this.options) {
-      return of(this.options);
+  loadWeapons(): Observable<Array<MaxMetalWeaponCategory>> {
+    if ( this._weapons) {
+      return of(this._weapons);
     }
-    return this.dataSerivce
-    .GetJson('/json/apps/maxmetal/mmoptions.json')
+    return this.loadMaxMetalData()
     .pipe(
-      map( data => data.options),
-      map(data => this.options = this.createOptionCategories(data))
-     );
+      map( data => {
+        return this._weapons;
+      }));
   }
 
-  LoadWeaponMounts(): Observable<any> {
-    if (this.mounts) {
-      return of(this.mounts);
+  loadOptions(): Observable<Array<MaxMetalOption>> {
+    if (this._options) {
+      return of(this._options);
     }
-    return this.dataSerivce
-    .GetJson('/json/apps/maxmetal/mmweaponmounts.json')
+    return this.loadMaxMetalData()
     .pipe(
-      map( data => data.mounts),
-      map(data => this.mounts = data)
-     );
+      map(data => {
+        return this._options;
+      }));
   }
 
-  LoadVehicleTypes(): Observable<any[]> {
-    if (this.vehicleTypes) {
-      return of(this.vehicleTypes);
+  loadWeaponMounts(): Observable<Array<MaxMetalWeaponMount>> {
+    if (this._mounts) {
+      return of(this._mounts);
     }
-    return this.dataSerivce
-    .GetJson('/json/apps/maxmetal/mmTypes.json')
+    return this.loadMaxMetalData()
     .pipe(
-      map( data => data.baseTypes),
-      map(data => this.vehicleTypes = data)
-     );
+      map(data => { return this._mounts;
+      }));
+  }
 
+  loadVehicleTypes(): Observable<Array<VehicleType>> {
+    if (this._vehicleTypes) {
+      return of(this._vehicleTypes);
+    }
+    return this.loadMaxMetalData()
+    .pipe(
+      map(data => {
+        return this._vehicleTypes;
+      }));
   }
 
   private createOptionCategories(options: MaxMetalOption[]) {
@@ -86,7 +100,6 @@ export class MaxMetalDataService {
         weaponCategories[wpn.type] = { name: wpn.type, id: wpn.type, items: []};
       }
       weaponCategories[wpn.type].items.push(wpn);
-      return wpn;
     });
     return this.generateArray(weaponCategories);
   }
