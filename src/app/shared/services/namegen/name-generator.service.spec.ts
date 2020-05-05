@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './../data.service';
 import { DiceService } from './../dice/dice.service';
-import { TestBed } from '@angular/core/testing';
+import { TestBed, async, inject } from '@angular/core/testing';
 
 import { NameGeneratorService } from './name-generator.service';
 
@@ -15,4 +15,10 @@ describe('NameGeneratorService', () => {
     const service: NameGeneratorService = TestBed.get(NameGeneratorService);
     expect(service).toBeTruthy();
   });
+
+  it('should generate a name', async(inject([NameGeneratorService], (service: NameGeneratorService) => {
+    service.generateName().subscribe( name => {
+      expect( name && name !== '').toBeTruthy(name);
+    });
+  })));
 });
