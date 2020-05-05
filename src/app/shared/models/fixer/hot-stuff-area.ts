@@ -1,12 +1,20 @@
 
 export class HotStuffArea {
   area: string;
-  rolls: number;
+  private _rolls: number;
   details: string;
   constructor() {
     this.area = '';
-    this.rolls = 0;
+    this._rolls = 0;
     this.details = '';
+  }
+
+  get rolls(): number {
+    return this._rolls;
+  }
+
+  set rolls(value: number) {
+    this._rolls = ( value > 6 || value < 0) ? 0 : value;
   }
 
   get points(): number {
