@@ -32,6 +32,7 @@ export class MaxMetalVehSpeed implements MaxMetalVehStat {
     };
   }
 
+
   setSpeed(type: VehicleType) {
     this.accelerate = {
       min: type.acc,
@@ -99,6 +100,7 @@ export class MaxMetalVehSpeed implements MaxMetalVehStat {
    */
   changeTopSpeed(value: number) {
     this.curr += value;
+    this.curr = (this.curr > this.max) ? this.max : ((this.curr < this.min) ? this.min : this.curr);
   }
 
   /**
@@ -111,6 +113,8 @@ export class MaxMetalVehSpeed implements MaxMetalVehStat {
    */
   changeAcceleration(value: number) {
     this.accelerate.curr += value;
+    this.accelerate.curr = (this.accelerate.curr > this.accelerate.max) ? this.accelerate.max :
+        (this.accelerate.curr < this.accelerate.min ? this.accelerate.min : this.accelerate.curr);
     const boost = this.accelerate.curr - this.accelerate.base;
     if (value > 0 && boost < 5) {
       this.accelerate.curr = this.accelerate.base + 5;
@@ -135,6 +139,8 @@ export class MaxMetalVehSpeed implements MaxMetalVehStat {
   */
  changeDeceleration(value: number) {
    this.decelerate.curr += value;
+   this.decelerate.curr = (this.decelerate.curr > this.decelerate.max) ? this.decelerate.max :
+       (this.decelerate.curr < this.decelerate.min ? this.decelerate.min : this.decelerate.curr);
    const boost = this.decelerate.curr - this.decelerate.base;
    if (value > 0 && boost < 5) {
      this.decelerate.curr = this.decelerate.base + 5;
