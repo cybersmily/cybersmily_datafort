@@ -351,6 +351,7 @@ export class MaxMetalVehicle {
       spaces = this.type.spaces.max;
     }
     spaces = spaces - this.weapons.calculateSpace();
+    spaces = spaces - this.options.calculateSpace(this);
     spaces -= (this.crew - 1);
     spaces -= this.passengers;
     this.spaces.curr = spaces;
@@ -382,7 +383,8 @@ export class MaxMetalVehicle {
     }
     return false;
   }
-  removeOption() {
+  removeOption(option: MaxMetalOption) {
+    this.options.removeOption(option);
     this.calculateCost();
     this.calculateSpace();
   }

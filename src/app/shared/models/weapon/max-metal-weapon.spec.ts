@@ -108,7 +108,7 @@ describe('MaxMetalWeapon', () => {
 
   it('should total the spaces with all options added', () => {
     // wpn space
-    // wpn toatl = wpn space * mount spaces
+    // wpn total = wpn space * mount spaces
     // autoloader = wpn space * 0.25
     // stablizier = wpn space * 0.5
     // extraloads = ammoLoadSpace * #extraloads
