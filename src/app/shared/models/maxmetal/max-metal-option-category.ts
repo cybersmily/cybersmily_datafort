@@ -1,4 +1,4 @@
-import { MaxMetalOption } from "./max-metal-option";
+import { MaxMetalOption } from './max-metal-option';
 
 export interface MaxMetalOptionCategory {
   name: string;

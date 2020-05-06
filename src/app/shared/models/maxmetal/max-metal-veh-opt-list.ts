@@ -38,14 +38,10 @@ export class MaxMetalVehOptList {
       return total;
     }
 
-    calculateSpace(): number {
+    calculateSpace(vehicle: MaxMetalVehicle): number {
       let total = 0;
       this.options.forEach( opt => {
-        if (isNaN( Number(opt.spaces))) {
-          // do a calculation
-        } else {
-          total += Number(opt.spaces);
-        }
+        total += opt.calculateSpaces(vehicle);
       });
       return total;
     }

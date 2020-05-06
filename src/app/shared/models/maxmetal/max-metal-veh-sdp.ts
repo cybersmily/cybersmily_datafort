@@ -30,9 +30,8 @@ export class MaxMetalVehSdp implements MaxMetalVehStat {
    */
   changeSDP(value: number) {
     this.base += value;
-    this.base =
-      (this.base > this.max) ?
-        this.max : this.base;
+    this.base = (this.base > this.max) ? this.max : this.base;
+    this.base = (this.base < this.min) ? this.min : this.base;
     this.curr += value;
   }
 
@@ -49,9 +48,13 @@ export class MaxMetalVehSdp implements MaxMetalVehStat {
    */
   changeExtraSDP(value: number) {
     this.adjusted.curr += value;
+    this.adjusted.curr = (this.adjusted.curr > this.adjusted.max ) ? this.adjusted.max :
+      ((this.adjusted.curr < this.adjusted.min) ? this.adjusted.min : this.adjusted.curr);
+    const max = Math.ceil(this.base * 1.25);
+    const min = Math.ceil(this.base * 0.5);
     this.curr += value;
+    this.curr = (this.curr > max) ? max : ((this.curr < min ) ? min : this.curr);
   }
-
 
   /**
    * Calculate Adjusted SDP
@@ -65,10 +68,10 @@ export class MaxMetalVehSdp implements MaxMetalVehStat {
     let min = 0;
     let max = 0;
     if (this.base <= this.min) {
-      min = -(Math.round(type.sdp.min * 0.5));
+      min = -(Math.floor(type.sdp.min * 0.5));
     }
     if (this.base >= this.max) {
-      max = Math.round(type.sdp.max * 0.25);
+      max = Math.ceil(type.sdp.max * 0.25);
     }
     this.adjusted.min = min;
     this.adjusted.max = max;

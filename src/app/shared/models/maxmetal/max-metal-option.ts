@@ -1,3 +1,4 @@
+import { SourceBook } from './../sourcebook';
 import { MaxMetalVehicle } from './max-metal-vehicle';
 export class MaxMetalOption {
   type: string;
@@ -8,8 +9,7 @@ export class MaxMetalOption {
   calcCost?: number;
   mass?: string;
   avail?: string;
-  source?: string;
-  pg?: string;
+  source?: SourceBook;
   notes?: string;
   count?: number;
 
@@ -21,13 +21,12 @@ export class MaxMetalOption {
     this.calcCost = 0;
     this.mass = '';
     this.avail = '';
-    this.source = '';
-    this.pg = '';
+    this.source = {book: '', page: 0};
     this.notes = '';
     this.count = 1;
   }
 
-  clone() {
+  clone(): MaxMetalOption {
     const opt = new MaxMetalOption();
     opt.type = this.type;
     opt.name = this.name;
@@ -37,9 +36,9 @@ export class MaxMetalOption {
     opt.mass = this.mass;
     opt.avail =  this.avail;
     opt.source = this.source;
-    opt.pg = this.pg;
     opt.notes =  this.notes;
     opt.count = this.count;
+    return opt;
   }
 
   copy(option: MaxMetalOption) {
@@ -50,8 +49,7 @@ export class MaxMetalOption {
     this.calcCost = (option.calcCost) ? option.calcCost : 0;
     this.mass = (option.mass) ? option.mass : '';
     this.avail = (option.avail) ? option.avail : '';
-    this.source = (option.source) ? option.source : '';
-    this.pg = (option.pg) ? option.pg : '';
+    this.source = (option.source) ? option.source : {book: '', page: 0};
     this.notes = (option.notes) ? option.notes : '';
     this.count = (option.count) ? option.count : 1;
   }
@@ -63,9 +61,9 @@ export class MaxMetalOption {
       const cost = this.cost.toString().split('*');
       const eb = Number(cost[0]);
       // get the modifier so 4*b is 4 times the base vehicle cost
-      this.calcCost = vehicle.getBaseCost() * eb;
+      this.calcCost = (vehicle.getBaseCost() * eb) * ((this.count) ? this.count : 1);
     } else {
-      this.calcCost = (isNaN(total)) ? 0 : total;
+      this.calcCost = ((isNaN(total)) ? 0 : total) * ((this.count) ? this.count : 1);
     }
     return this.calcCost;
   }
@@ -77,8 +75,9 @@ export class MaxMetalOption {
       const spaces = this.spaces.toString().split('*');
       const num = Number(spaces[0]);
       // get the modifier so 4*b is 4 times the base vehicle cost
+      this.calcSpaces = (vehicle.spaces.base * num) * ((this.count) ? this.count : 1);
     } else {
-      this.calcSpaces = (isNaN(total)) ? 0 : total;
+      this.calcSpaces = ((isNaN(total)) ? 0 : total) * ((this.count) ? this.count : 1);
     }
     return this.calcSpaces;
   }
