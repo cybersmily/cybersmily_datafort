@@ -3,10 +3,11 @@ export class HotStuffArea {
   area: string;
   private _rolls: number;
   details: string;
-  constructor() {
-    this.area = '';
-    this._rolls = 0;
-    this.details = '';
+
+  constructor(param?: any) {
+    this.area = (param) ? param.area : '';
+    this._rolls = (param) ? param._rolls : 0;
+    this.details = (param) ? param.details : '';
   }
 
   get rolls(): number {

@@ -84,14 +84,11 @@ export class FixerHotStuffService {
       results.streetdeal = storage.streetdeal;
       if ( storage.areas) {
         storage.areas.forEach(a => {
-          const area = new HotStuffArea();
-          area.area = a.area;
-          area.rolls = a.rolls;
-          area.details = a.details;
-          results.areas.push(area);
+          results.areas.push(new HotStuffArea(a));
         });
       }
     }
+    console.log(results);
     return results;
   }
 

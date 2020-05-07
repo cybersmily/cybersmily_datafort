@@ -39,7 +39,12 @@ export class FixerCalcHotStuffComponent implements OnInit {
   }
 
   get canAdd(): boolean {
-    return ( this.newArea.area !== '' && this.newArea.rolls > 0 && !this.exists);
+    return ( (this.newArea.area !== '' && this.newArea.rolls > 0 && !this.exists)
+    && this.isUnderPoints);
+  }
+
+  get isUnderPoints(): boolean {
+    return (this.newArea.points + this.spentPoints <= this.totalPoints);
   }
 
   get exists(): boolean {

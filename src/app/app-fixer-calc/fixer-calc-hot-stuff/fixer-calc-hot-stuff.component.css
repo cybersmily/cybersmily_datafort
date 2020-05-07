@@ -17,3 +17,13 @@
 .hot-stuff-new-area input{
   width: 90%;
 }
+
+.hot-stuff-over {
+  color: red;
+}
+.hot-stuff-over::before {
+  content: '!!'
+}
+.hot-stuff-over::after {
+  content: ' *OVER*'
+}

@@ -47,7 +47,7 @@
             title="Must be a value between 1 and 6."> rolls
         </span>
       </div>
-      <div class="col">{{newArea.points}}pts</div>
+      <div [ngClass]="{'col': true, 'hot-stuff-over': !isUnderPoints}" >{{newArea.points}}pts</div>
     </div>
     <div *ngIf="exists" class="row">
       <div class="col text-danger">!!The area already exists. Either delete the old one or rename this one.</div>
