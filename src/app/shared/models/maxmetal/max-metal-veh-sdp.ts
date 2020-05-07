@@ -1,25 +1,54 @@
+import { VehicleSdp } from './vehicle-sdp';
 import { VehicleType } from './vehicle-type';
 import { MaxMetalVehStat } from './max-metal-veh-stat';
-export class MaxMetalVehSdp implements MaxMetalVehStat {
+export class MaxMetalVehSdp implements MaxMetalVehStat, VehicleSdp {
   min: number;
   max: number;
   base: number;
-  curr: number;
+  eb: number;
+  perSpace: number;
   adjusted: MaxMetalVehStat;
 
-  constructor() {
-    this.min = 0;
-    this.max = 0;
-    this.base = 0;
-    this.curr = 0;
-    this.adjusted = {min: 0, max: 0, base: 0, curr: 0};
+  constructor(vehicleType?: VehicleType) {
+    this.setTypeValues(vehicleType);
   }
 
-  setTypeValues(type: VehicleType) {
-    this.min = type.sdp.min;
-    this.max = type.sdp.max;
-    this.curr = type.sdp.min;
-    this.base = type.sdp.min;
+  get curr(): number {
+    return this.base + this.adjusted.curr;
+  }
+
+  get baseCost(): number {
+    const baseSdp = (this.curr > this.max ) ? this.max : ((this.curr < this.min ) ? this.min : this.curr);
+    return baseSdp * this.eb;
+  }
+
+  get totalCost(): number {
+    let cost = this.curr * this.eb;
+    // SDP above max costs double. Simply add the adjusted difference
+    if (this.adjusted.curr > 0 ) {
+      cost += this.adjusted.curr * this.eb;
+    }
+    return cost;
+  }
+  get maxSpaces(): number {
+    return Math.floor(this.base / this.perSpace);
+  }
+
+  setTypeValues(type?: VehicleType) {
+    if (type && type.sdp) {
+      this.min = type.sdp.min;
+      this.max = type.sdp.max;
+      this.base = this.min;
+      this.perSpace = type.sdp.perSpace;
+      this.eb = type.sdp.eb;
+    } else {
+      this.min = 0;
+      this.max = 0;
+      this.base = this.min;
+      this.perSpace = 0;
+      this.eb = 0;
+    }
+    this.calculateAdjSDP();
   }
 
   /**
@@ -32,7 +61,7 @@ export class MaxMetalVehSdp implements MaxMetalVehStat {
     this.base += value;
     this.base = (this.base > this.max) ? this.max : this.base;
     this.base = (this.base < this.min) ? this.min : this.base;
-    this.curr += value;
+    this.calculateAdjSDP();
   }
 
   /**
@@ -50,10 +79,6 @@ export class MaxMetalVehSdp implements MaxMetalVehStat {
     this.adjusted.curr += value;
     this.adjusted.curr = (this.adjusted.curr > this.adjusted.max ) ? this.adjusted.max :
       ((this.adjusted.curr < this.adjusted.min) ? this.adjusted.min : this.adjusted.curr);
-    const max = Math.ceil(this.base * 1.25);
-    const min = Math.ceil(this.base * 0.5);
-    this.curr += value;
-    this.curr = (this.curr > max) ? max : ((this.curr < min ) ? min : this.curr);
   }
 
   /**
@@ -61,24 +86,13 @@ export class MaxMetalVehSdp implements MaxMetalVehStat {
    * Thsi recalculates the vehcile's SDP for being
    * reinforced or weakened beyond the normal vehile
    * SDP limits.
-   * @param {VehicleType} type
    * @memberof MaxMetalVehSdp
    */
-  calculateAdjSDP(type: VehicleType) {
-    let min = 0;
-    let max = 0;
-    if (this.base <= this.min) {
-      min = -(Math.floor(type.sdp.min * 0.5));
-    }
-    if (this.base >= this.max) {
-      max = Math.ceil(type.sdp.max * 0.25);
-    }
-    this.adjusted.min = min;
-    this.adjusted.max = max;
+  private calculateAdjSDP() {
+    this.adjusted = { min: 0, max: 0, base: 0, curr: 0};
+    this.adjusted.min = -(Math.floor(this.base * 0.5));
+    this.adjusted.max = Math.ceil(this.base * 0.25);
     this.adjusted.base = 0;
-    if (this.adjusted.curr && this.adjusted.curr !== 0 ) {
-      this.curr -= this.adjusted.curr;
-    }
     this.adjusted.curr = 0;
   }
 }

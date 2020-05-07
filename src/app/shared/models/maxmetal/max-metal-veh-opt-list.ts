@@ -30,20 +30,19 @@ export class MaxMetalVehOptList {
       }
     }
 
-    calculateCost(vehicle: MaxMetalVehicle): number {
+    calculateCost(baseVehicleCost: number): number {
       let total = 0;
       this.options.forEach( opt => {
-        total += opt.calculateCost(vehicle);
+        total += opt.calculateCost(baseVehicleCost);
       });
       return total;
     }
 
-    calculateSpace(vehicle: MaxMetalVehicle): number {
+    calculateSpace(baseSdp: number): number {
       let total = 0;
       this.options.forEach( opt => {
-        total += opt.calculateSpaces(vehicle);
+        total += opt.calculateSpaces(baseSdp);
       });
       return total;
     }
 }
-

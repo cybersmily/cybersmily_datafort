@@ -11,7 +11,6 @@ export class MaxMetalVehicle {
   type: VehicleType;
   sdp: MaxMetalVehSdp;
   sp: MaxMetalVehStat;
-  spaces: MaxMetalVehStat;
   speed: MaxMetalVehSpeed;
   range: MaxMetalVehStat;
   crew: number;
@@ -31,7 +30,6 @@ export class MaxMetalVehicle {
     this.sdp = new MaxMetalVehSdp();
     this.sp = { min: 0, max: 0, base: 0, curr: 0, cost: 0, spdMod: 0 };
     this.speed = new MaxMetalVehSpeed();
-    this.spaces = { min: 0, max: 0, base: 0, curr: 0 };
     this.range = { min: 0, max: 0, base: 0, curr: 0 };
     this.description = '';
     this.offRoad = false;
@@ -46,6 +44,67 @@ export class MaxMetalVehicle {
   }
 
   /**
+   * Get the number of available spaces to fill
+   *
+   * @readonly
+   * @type {number}
+   * @memberof MaxMetalVehicle
+   */
+  get availableSpaces(): number {
+    let spaces = this.sdp.maxSpaces;
+    // lose 5% of spaces for each 10% of speed over base pg 14
+    let spdCost = 0;
+    // gain 10% of space lowering top speed, pg 14
+    if (this.speed.curr < this.speed.base) {
+      const spdFactor = Math.ceil((1 - this.speed.curr / this.speed.base) * 10);
+      spdCost = Math.ceil(spdFactor * 0.2 * spaces) / 2; // round to nearest .5
+    }
+    spaces += spdCost;
+    // range modifies the space available.
+    const rngFactor = (this.range.curr / this.range.base) * 100;
+    if (rngFactor < 100) {
+      // add 10% of space for each 33% decrease in range.
+    }
+    return spaces - this.usedSpaces;
+  }
+
+  get usedSpaces(): number {
+    let spaces = 0;
+    // lose 5% of spaces for each 10% of speed over base pg 14
+    let spdCost = 0;
+    if (this.speed.curr > this.speed.base) {
+      const spdFactor = Math.floor((this.speed.curr / this.speed.base - 1) * 10);
+      spdCost = (Math.ceil(spdFactor * 0.1 * spaces ) / 2); // round to nearest .5
+    }
+    spaces += spdCost;
+    // range modifies the space available.
+    const rngFactor = (this.range.curr / this.range.base) * 100;
+    if (rngFactor > 100) {
+      // lose 10% of space for each 33% increase in range.
+    }
+    spaces += this.weapons.calculateSpace();
+    spaces += this.options.calculateSpace(this.maxSpaces);
+    spaces += (this.crew - 1);
+    spaces += this.passengers;
+    return spaces;
+  }
+
+  /**
+   * Get the maximum number of spaces vehicle can have.
+   *
+   * @readonly
+   * @type {number}
+   * @memberof MaxMetalVehicle
+   */
+  get maxSpaces(): number {
+    return this.sdp.maxSpaces;
+  }
+
+  get baseCost(): number {
+    return this.sdp.totalCost;
+  }
+
+  /**
    * sets the current vehicles type. This will also set up the initial
    * current vehicle's properties.
    * @param {VehicleType} type
@@ -55,8 +114,6 @@ export class MaxMetalVehicle {
     this.type = type;
     // set the sdp properties.
     this.sdp.setTypeValues(type);
-    // set the adj sdp properties
-    this.sdp.calculateAdjSDP(type);
 
     // set the armor properties
     this.calculateSP();
@@ -71,25 +128,16 @@ export class MaxMetalVehicle {
       base: type.range,
       curr: type.range
     };
-    // set the initial spaces
-    this.spaces = {
-      min: type.spaces.min,
-      max: type.spaces.max,
-      base: type.spaces.min,
-      curr: type.spaces.min
-    };
     // set the initial mass
     this.calculateMass();
     this.calculateCost();
   }
 
   calculate() {
-    this.sdp.calculateAdjSDP(this.type);
     this.calculateSP();
     this.speed.calculateSpeed(this.type, this.sp.spdMod);
     this.calculateMass();
     this.calculateCost();
-    this.calculateSpace();
   }
 
   /**
@@ -163,7 +211,6 @@ export class MaxMetalVehicle {
       this.sp.spdMod = spdFactor;
 
       this.speed.calculateSpeed(this.type, this.sp.spdMod);
-      this.calculateSpace();
       this.calculateCost();
     }
   }
@@ -224,24 +271,21 @@ export class MaxMetalVehicle {
    */
   changeRange(value: number) {
     this.range.curr += value;
-    this.calculateSpace();
   }
 
   changeOffRoad(value: boolean) {}
 
   changeCrew(value: number): boolean {
-    if ( this.spaces.curr > 0 ) {
+    if ( this.availableSpaces >= 1 ) {
       this.crew += value;
-      this.calculateSpace();
       return true;
     }
     return false;
   }
 
   changePassenger(value: number): boolean {
-    if ( this.spaces.curr > 0 ) {
+    if ( this.availableSpaces >= 1 ) {
       this.passengers += value;
-      this.calculateSpace();
       return true;
     }
     return false;
@@ -269,9 +313,6 @@ export class MaxMetalVehicle {
     }
   }
 
-  getBaseCost(): number {
-    return this.sdp.curr * this.type.sdp.eb;
-  }
 
   /**
    * calculate the total cost of the vehicle. The cost values of SDP and armor
@@ -282,11 +323,7 @@ export class MaxMetalVehicle {
   calculateCost() {
     let cost = 0;
     let multiplier = 1;
-    cost = this.getBaseCost();
-    // extra structure cost double for each point.
-    if (this.sdp.adjusted.curr > 0) {
-      cost += this.sdp.adjusted.curr * this.type.sdp.eb;
-    }
+    cost = this.sdp.totalCost;
     multiplier = multiplier * this.manuever.cost;
     multiplier = multiplier * this.speed.cost;
     multiplier = multiplier * this.speed.accelerate.cost;
@@ -298,7 +335,7 @@ export class MaxMetalVehicle {
     // armor isn't a multiplier of the sdp cost.
     cost += this.sp.cost;
     cost += this.weapons.calculateCost();
-    cost += this.options.calculateCost(this);
+    cost += this.options.calculateCost(this.baseCost);
     this.cost = Math.ceil(cost);
   }
 
@@ -315,53 +352,10 @@ export class MaxMetalVehicle {
     this.mass.value = this.mass.base + ' ' + this.type.mass.unit;
   }
 
-  calculateSpace() {
-    let spaces = 0;
-    if (this.type.sdp.perSpace > 0) {
-      spaces = Math.floor(this.sdp.curr / this.type.sdp.perSpace);
-    }
-    this.spaces.base = spaces;
-    // lose 5% of spaces for each 10% of speed over base
-    let spdCost = 0;
-    if (this.speed.curr > this.speed.base) {
-      const spdFactor = Math.floor(
-        (this.speed.curr / this.speed.base - 1) * 10
-      );
-      spdCost = -(spdFactor * 0.05 * spaces);
-    }
-    if (this.speed.curr < this.speed.base) {
-      const spdFactor = Math.ceil(
-        (1 - this.speed.curr / this.speed.base) * 10
-      );
-      spdCost = spdFactor * 0.1 * spaces;
-    }
-    // range modifies the space available.
-    const rngFactor = (this.range.curr / this.range.base) * 100;
-    if (rngFactor < 100) {
-      // add 10% of space for each 33% decrease in range.
-    } else {
-      // lose 10% of space for each 33% increase in range.
-    }
-
-    spaces = Math.floor((spaces + spdCost) * 10) / 10;
-    if (spaces < this.type.spaces.min) {
-      spaces = this.type.spaces.min;
-    }
-    if (spaces > this.type.spaces.max) {
-      spaces = this.type.spaces.max;
-    }
-    spaces = spaces - this.weapons.calculateSpace();
-    spaces = spaces - this.options.calculateSpace(this);
-    spaces -= (this.crew - 1);
-    spaces -= this.passengers;
-    this.spaces.curr = spaces;
-  }
-
   addWeapon( weapon: MaxMetalWeapon): boolean {
-    if (weapon.totalSpaces() <= this.spaces.curr ) {
+    if (weapon.totalSpaces() <= this.availableSpaces ) {
       this.weapons.addWeapon(weapon);
       this.calculateCost();
-      this.calculateSpace();
       return true;
     }
     return false;
@@ -370,15 +364,13 @@ export class MaxMetalVehicle {
   removeWeapon(weapon: MaxMetalWeapon) {
     this.weapons.removeWeapon(weapon);
     this.calculateCost();
-    this.calculateSpace();
   }
 
 
   addOption(option: MaxMetalOption): boolean {
-    if (option.calculateSpaces(this) <= this.spaces.curr ) {
+    if (option.calculateSpaces(this.sdp.base) <= this.availableSpaces ) {
       this.options.addOption(option);
       this.calculateCost();
-      this.calculateSpace();
       return true;
     }
     return false;
@@ -386,7 +378,6 @@ export class MaxMetalVehicle {
   removeOption(option: MaxMetalOption) {
     this.options.removeOption(option);
     this.calculateCost();
-    this.calculateSpace();
   }
 
   toString(): string {

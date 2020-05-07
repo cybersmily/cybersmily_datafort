@@ -1,19 +1,18 @@
-import { VehicleType, VehicleSdp } from '../../models/maxmetal';
+import { VehicleType, MaxMetalVehSdp } from '../../models/maxmetal';
 import { TestBed, inject } from '@angular/core/testing';
 
 import { MaxmetalService } from './maxmetal.service';
 
 
 describe('MaxmetalService', () => {
-  const defaultSdp: VehicleSdp = {
+  const vehicleType: VehicleType = {
+    name: 'test',
+    sdp: {
       min: 10,
       max: 40,
       perSpace: 1,
       eb: 100
-  };
-  const vehicleType: VehicleType = {
-    name: 'test',
-    sdp: defaultSdp,
+    },
     spaces: {min: 1, max: 5 },
     speed: 50,
     range: 100,
@@ -50,12 +49,12 @@ describe('MaxmetalService', () => {
       service.setVehicleType(vehicleType);
       service.cast.subscribe(vehicle => {
         expect(vehicle.sdp).toBeTruthy();
-        expect(vehicle.sdp.min).toEqual(defaultSdp.min);
-        expect(vehicle.sdp.max).toEqual(defaultSdp.max);
-        expect(vehicle.sdp.curr).toEqual(defaultSdp.min);
-        expect(vehicle.sdp.base).toEqual(defaultSdp.min);
+        expect(vehicle.sdp.min).toEqual(vehicleType.sdp.min);
+        expect(vehicle.sdp.max).toEqual(vehicleType.sdp.max);
+        expect(vehicle.sdp.curr).toEqual(vehicleType.sdp.min);
+        expect(vehicle.sdp.base).toEqual(vehicleType.sdp.min);
         expect(vehicle.sdp.adjusted.min).toEqual(-5);
-        expect(vehicle.sdp.adjusted.max).toEqual(0);
+        expect(vehicle.sdp.adjusted.max).toEqual(3);
         expect(vehicle.sdp.adjusted.curr).toEqual(0);
       });
   }));
@@ -134,11 +133,11 @@ describe('MaxmetalService', () => {
     service.cast.subscribe(vehicle => {
       expect(vehicle.sdp.base).toEqual(15);
       expect(vehicle.sdp.curr).toEqual(15);
-      expect(vehicle.sdp.min).toEqual(defaultSdp.min);
-      expect(vehicle.sdp.max).toEqual(defaultSdp.max);
+      expect(vehicle.sdp.min).toEqual(vehicleType.sdp.min);
+      expect(vehicle.sdp.max).toEqual(vehicleType.sdp.max);
       // calculatedAdjSDP
-      expect(vehicle.sdp.adjusted.min).toEqual(0);
-      expect(vehicle.sdp.adjusted.max).toEqual(0);
+      expect(vehicle.sdp.adjusted.min).toEqual(-7);
+      expect(vehicle.sdp.adjusted.max).toEqual(4);
       expect(vehicle.sdp.adjusted.curr).toEqual(0);
       // calculatedSP
       expect(vehicle.sp.max).toEqual(8);
@@ -149,7 +148,7 @@ describe('MaxmetalService', () => {
       // calculatedCost
       expect(vehicle.cost).toEqual(1500);
       // CalculatedSpace
-      expect(vehicle.spaces.base).toEqual(15);
+      expect(vehicle.maxSpaces).toEqual(15);
     });
   }));
 
@@ -160,11 +159,11 @@ describe('MaxmetalService', () => {
     service.cast.subscribe(vehicle => {
       expect(vehicle.sdp.base).toEqual(13);
       expect(vehicle.sdp.curr).toEqual(13);
-      expect(vehicle.sdp.min).toEqual(defaultSdp.min);
-      expect(vehicle.sdp.max).toEqual(defaultSdp.max);
+      expect(vehicle.sdp.min).toEqual(vehicleType.sdp.min);
+      expect(vehicle.sdp.max).toEqual(vehicleType.sdp.max);
       // calculatedAdjSDP
-      expect(vehicle.sdp.adjusted.min).toEqual(0);
-      expect(vehicle.sdp.adjusted.max).toEqual(0);
+      expect(vehicle.sdp.adjusted.min).toEqual(-6);
+      expect(vehicle.sdp.adjusted.max).toEqual(4);
       expect(vehicle.sdp.adjusted.curr).toEqual(0);
       // calculatedSP
       expect(vehicle.sp.max).toEqual(7);
@@ -175,7 +174,7 @@ describe('MaxmetalService', () => {
       // calculatedCost
       expect(vehicle.cost).toEqual(1300);
       // CalculatedSpace
-      expect(vehicle.spaces.base).toEqual(13);
+      expect(vehicle.maxSpaces).toEqual(13);
     });
   }));
 
@@ -183,10 +182,10 @@ describe('MaxmetalService', () => {
     service.setVehicleType(vehicleType);
     service.changeSDP(250);
     service.cast.subscribe(vehicle => {
-      expect(vehicle.sdp.base).toEqual(defaultSdp.max);
-      expect(vehicle.sdp.curr).toEqual(260);
+      expect(vehicle.sdp.base).toEqual(vehicleType.sdp.max);
+      expect(vehicle.sdp.curr).toEqual(40);
       // calculatedAdjSDP
-      expect(vehicle.sdp.adjusted.min).toEqual(0);
+      expect(vehicle.sdp.adjusted.min).toEqual(-20);
       expect(vehicle.sdp.adjusted.max).toEqual(10);
       expect(vehicle.sdp.adjusted.curr).toEqual(0);
     });

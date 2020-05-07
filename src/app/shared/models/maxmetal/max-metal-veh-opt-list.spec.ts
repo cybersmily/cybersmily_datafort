@@ -88,9 +88,9 @@ describe('MaxMetalOptList', () => {
     optList.addOption(opt1);
     optList.addOption(opt1);
     optList.addOption(opt2); // 0.5*b = 750
-    expect(optList.calculateCost(vehicle) === 2250).toBeTruthy(optList.calculateCost(vehicle));
+    expect(optList.calculateCost(vehicle.baseCost)).toBe(2250, optList.calculateCost(vehicle.baseCost));
     optList.removeOption(opt2);
-    expect(optList.calculateCost(vehicle) === 1500).toBeTruthy(optList.calculateCost(vehicle));
+    expect(optList.calculateCost(vehicle.baseCost)).toBe(1500, optList.calculateCost(vehicle.baseCost));
   });
 
   it('should be calculate spaces', () => {
@@ -98,8 +98,8 @@ describe('MaxMetalOptList', () => {
     optList.addOption(opt1);
     optList.addOption(opt1);
     optList.addOption(opt2); // 0.5*b
-    expect(optList.calculateSpace(vehicle) === 13.5).toBeTruthy(optList.calculateSpace(vehicle));
+    expect(optList.calculateSpace(vehicle.maxSpaces)).toBe(13.5, optList.calculateSpace(vehicle.maxSpaces));
     optList.removeOption(opt2);
-    expect(optList.calculateSpace(vehicle) === 6).toBeTruthy(optList.calculateSpace(vehicle));
+    expect(optList.calculateSpace(vehicle.maxSpaces)).toBe(6, optList.calculateSpace(vehicle.maxSpaces));
   });
 });

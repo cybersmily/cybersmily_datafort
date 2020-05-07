@@ -1,3 +1,5 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
+import { BsModalService } from 'ngx-bootstrap/modal';
 import { MmweaponComponent } from './../mmweapon/mmweapon.component';
 import { MmoptionComponent } from './../mmoption/mmoption.component';
 import { MmoptionslistComponent } from './../mmoptionslist/mmoptionslist.component';
@@ -5,7 +7,6 @@ import { MmweaponlistComponent } from './../mmweaponlist/mmweaponlist.component'
 import { MmoptionsformComponent } from './../mmoptionsform/mmoptionsform.component';
 import { MmweaponformComponent } from './../mmweaponform/mmweaponform.component';
 import { MminputComponent } from './../mminput/mminput.component';
-import { FormsModule } from '@angular/forms';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MmbuilderComponent } from './mmbuilder.component';
@@ -30,10 +31,11 @@ describe('MmbuilderComponent', () => {
         LongpressDirective
       ],
       imports: [
-        FormsModule
+        CommonUiModule
       ],
       providers: [
-        MaxmetalService
+        MaxmetalService,
+        BsModalService
       ]
     })
     .compileComponents();

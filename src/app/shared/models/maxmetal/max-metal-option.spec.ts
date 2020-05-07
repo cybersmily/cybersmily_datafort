@@ -1,5 +1,3 @@
-import { MaxMetalVehicle } from './max-metal-vehicle';
-import { MaxMetalVehOptList } from './max-metal-veh-opt-list';
 import { MaxMetalOption } from './max-metal-option';
 import { VehicleType } from './vehicle-type';
 import { TestBed } from '@angular/core/testing';
@@ -7,7 +5,6 @@ import { TestBed } from '@angular/core/testing';
 describe('MaxMetalOption', () => {
   let opt1: MaxMetalOption;
   let opt2: MaxMetalOption;
-  let vehicle: MaxMetalVehicle;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
@@ -34,19 +31,6 @@ describe('MaxMetalOption', () => {
     opt2.source = {book: 'Max Metal', page: 50};
     opt2.notes = 'Testing';
     opt2.count = 4;
-    // create test vehicle
-    const vehType = new VehicleType();
-    vehType.name = 'Cycle';
-    vehType.sdp = { min: 15, max: 30, eb: 100, perSpace: 1};
-    vehType.spaces = { min: 15, max: 50};
-    vehType.speed = 120;
-    vehType.range = 400;
-    vehType.mass = { wt: 4, unit: 'kg', sdp: 1};
-    vehType.acc = 18;
-    vehType.dec = 30;
-    vehType.cargoCapacity = 0.33;
-    vehicle = new MaxMetalVehicle();
-    vehicle.setVehicleType(vehType);
   });
 
   it('should be created', () => {
@@ -68,17 +52,17 @@ describe('MaxMetalOption', () => {
   });
 
   it('should calculate cost', () => {
-    let cost = opt1.calculateCost(vehicle);
-    expect(cost === 500).toBeTruthy(cost);
-    cost = opt2.calculateCost(vehicle);
-    expect(cost === 3000).toBeTruthy(cost);
+    let cost = opt1.calculateCost(1500);
+    expect(cost).toBe(500);
+    cost = opt2.calculateCost(1500);
+    expect(cost).toBe(3000);
   });
 
   it('should calculate spaces', () => {
-    let spaces = opt1.calculateSpaces(vehicle);
-    expect(spaces === 2).toBeTruthy(spaces);
-    spaces = opt2.calculateSpaces(vehicle);
-    expect(spaces === 30).toBeTruthy(spaces);
+    let spaces = opt1.calculateSpaces(15);
+    expect(spaces).toBe(2);
+    spaces = opt2.calculateSpaces(15);
+    expect(spaces).toBe(30);
   });
 
   it('should convert to string', () => {

@@ -88,7 +88,6 @@ export class FixerHotStuffService {
         });
       }
     }
-    console.log(results);
     return results;
   }
 

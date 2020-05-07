@@ -54,28 +54,28 @@ export class MaxMetalOption {
     this.count = (option.count) ? option.count : 1;
   }
 
-  calculateCost(vehicle: MaxMetalVehicle): number {
+  calculateCost(baseCost: number): number {
     const total = Number(this.cost);
     // if the cost of the option is a string, it requires vehicle cost to calculate
     if (isNaN(total) && this.cost.toString().indexOf('*b') > 0) {
       const cost = this.cost.toString().split('*');
       const eb = Number(cost[0]);
       // get the modifier so 4*b is 4 times the base vehicle cost
-      this.calcCost = (vehicle.getBaseCost() * eb) * ((this.count) ? this.count : 1);
+      this.calcCost = (baseCost * eb) * ((this.count) ? this.count : 1);
     } else {
       this.calcCost = ((isNaN(total)) ? 0 : total) * ((this.count) ? this.count : 1);
     }
     return this.calcCost;
   }
 
-  calculateSpaces(vehicle: MaxMetalVehicle): number {
+  calculateSpaces(baseSdp: number): number {
     const total = Number(this.spaces);
     // if the cost of the option is a string, it requires vehicle cost to calculate
     if (isNaN(total) && this.spaces.toString().indexOf('*b') > 0) {
       const spaces = this.spaces.toString().split('*');
       const num = Number(spaces[0]);
       // get the modifier so 4*b is 4 times the base vehicle cost
-      this.calcSpaces = (vehicle.spaces.base * num) * ((this.count) ? this.count : 1);
+      this.calcSpaces = (baseSdp * num) * ((this.count) ? this.count : 1);
     } else {
       this.calcSpaces = ((isNaN(total)) ? 0 : total) * ((this.count) ? this.count : 1);
     }

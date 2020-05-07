@@ -1,3 +1,5 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
+import { BsModalService } from 'ngx-bootstrap/modal';
 import { MmoptionslistComponent } from './../mmoptionslist/mmoptionslist.component';
 import { MmweaponlistComponent } from './../mmweaponlist/mmweaponlist.component';
 import { MmoptionsformComponent } from './../mmoptionsform/mmoptionsform.component';
@@ -40,15 +42,13 @@ describe('MmgeneratorComponent', () => {
         MmoptionslistComponent
       ],
       imports: [
-        FormsModule,
-        AccordionModule.forRoot(),
-        FontAwesomeModule,
-        CollapseModule.forRoot(),
+        CommonUiModule,
         HttpClientTestingModule
       ],
       providers: [
         DataService,
-        MaxmetalService
+        MaxmetalService,
+        BsModalService
       ]
     })
     .compileComponents();

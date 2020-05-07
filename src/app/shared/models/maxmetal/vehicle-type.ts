@@ -18,7 +18,7 @@ export class VehicleType {
   isAirVehicle: boolean;
   constructor() {
     this.name = '';
-    this.sdp = new VehicleSdp();
+    this.sdp = { min: 0, max: 0, eb: 0, perSpace: 0 };
     this.spaces = { min: 0, max: 0 };
     this.speed = 0;
     this.range = 0;

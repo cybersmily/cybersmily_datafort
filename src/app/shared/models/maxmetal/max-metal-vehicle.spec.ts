@@ -2,7 +2,6 @@ import { MaxMetalVehicle } from './max-metal-vehicle';
 import { MaxMetalWeapon} from './../weapon';
 import { VehicleType } from './vehicle-type';
 import { TestBed } from '@angular/core/testing';
-import { SpyNgModuleFactoryLoader } from '@angular/router/testing';
 import { MaxMetalOption } from './max-metal-option';
 
 describe('MaxMetalVehicle', () => {
@@ -43,7 +42,16 @@ describe('MaxMetalVehicle', () => {
   });
 
   it('should change SDP', () => {
-    expect(vehicle).toBeTruthy();
+    vehicle.setVehicleType(vehType);
+    vehicle.changeSDP(5);
+    expect(vehicle.sdp.base).toBeTruthy(20);
+    expect(vehicle.sdp.curr).toBeTruthy(20);
+    vehicle.changeSDP(50);
+    expect(vehicle.sdp.base).toBeTruthy(50);
+    expect(vehicle.sdp.curr).toBeTruthy(70);
+    vehicle.changeSDP(-70);
+    expect(vehicle.sdp.base).toBeTruthy(15);
+    expect(vehicle.sdp.curr).toBeTruthy(7);
   });
 
   it('should change Extra SDP', () => {
@@ -108,18 +116,20 @@ describe('MaxMetalVehicle', () => {
 
   it('should add Weapon', () => {
     vehicle.setVehicleType(vehType);
+    let spaces = 0;
     for ( let i = 0; i < 5; i++) {
       const wpn = new MaxMetalWeapon();
       wpn.name = 'weapon_' + i;
       wpn.cost = i * 100;
       wpn.spaces = i;
+      spaces += i;
       wpn.count = 1;
       wpn.mounting = {name: 'testMount', description: '', availability: '', cost: -1, spacelimit: '1', spaces: 1, wa: '0'};
       vehicle.addWeapon(wpn);
     }
     expect(vehicle.weapons.weapons.length).toBe(5);
     expect(vehicle.cost).toBe(3500); // vehicle + cost of weapons above.
-    expect(vehicle.spaces.curr).toBe(5); // 5 extra spaces
+    expect(vehicle.usedSpaces).toBe(spaces); // 5 extra spaces
     const wpn = new MaxMetalWeapon();
     wpn.name = 'weapon_5';
     wpn.count = 1;
@@ -127,17 +137,19 @@ describe('MaxMetalVehicle', () => {
     wpn.mounting = {name: 'testMount', description: '', availability: '', cost: -1, spacelimit: '1', spaces: 1, wa: '0'};
     vehicle.addWeapon(wpn);
     expect(vehicle.weapons.weapons.length).toBe(5);
-    expect(vehicle.spaces.curr).toBe(5);
+    expect(vehicle.usedSpaces).toBe(spaces);
   });
 
   it('should remove Weapon', () => {
     vehicle.setVehicleType(vehType);
     const wpns = new Array<MaxMetalWeapon>();
+    let spaces = 0;
     for ( let i = 0; i < 5; i++) {
       const wpn = new MaxMetalWeapon();
       wpn.name = 'weapon_' + i;
       wpn.cost = i * 100;
       wpn.spaces = i;
+      spaces += i;
       wpn.count = 1;
       wpn.mounting = {name: 'testMount', description: '', availability: '', cost: -1, spacelimit: '1', spaces: 1, wa: '0'};
       wpns.push(wpn);
@@ -158,24 +170,26 @@ describe('MaxMetalVehicle', () => {
 
   it('should add Option', () => {
     vehicle.setVehicleType(vehType);
+    let spaces = 0;
     for ( let i = 0; i < 5; i++) {
       const opt = new MaxMetalOption();
       opt.name = 'option_' + i;
       opt.cost = i * 100;
+      spaces += i;
       opt.spaces = `${i}`;
       opt.count = 1;
       vehicle.addOption(opt);
     }
     expect(vehicle.options.options.length).toBe(5);
     expect(vehicle.cost).toBe(2500); // vehicle + cost of weapons above.
-    expect(vehicle.spaces.curr).toBe(5); // 5 extra spaces
+    expect(vehicle.usedSpaces).toBe(spaces);
     const opt = new MaxMetalOption();
     opt.name = 'option_';
     opt.count = 1;
     opt.spaces = '75'; // should not have room for this
     vehicle.addOption(opt);
     expect(vehicle.options.options.length).toBe(5);
-    expect(vehicle.spaces.curr).toBe(5);
+    expect(vehicle.usedSpaces).toBe(spaces);
   });
 
   it('should remove Option', () => {
