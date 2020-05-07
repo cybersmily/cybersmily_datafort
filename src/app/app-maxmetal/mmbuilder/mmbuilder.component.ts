@@ -1,9 +1,10 @@
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { SaveFileService } from './../../shared/services/save-file.service';
 import { MaxMetalOption } from './../../shared/models/maxmetal/max-metal-option';
 import { MaxmetalService } from '../../shared/services/maxmetal/maxmetal.service';
 import { MaxMetalVehicle, VehicleType } from '../../shared/models/maxmetal';
 import { MaxMetalWeapon } from '../../shared/models/weapon';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, TemplateRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'cs-mmbuilder',
@@ -11,19 +12,29 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./mmbuilder.component.css']
 })
 export class MmbuilderComponent implements OnInit {
+  modalRef: BsModalRef;
+  modalConfig = {
+    keyboard: true,
+    class: 'modal-dialog-centered'
+  };
+
+  @ViewChild('maxMetalMessageModal', {static: false})
+  private messageTemplate: TemplateRef<any>;
 
   @Input()
   vehicleTypes: VehicleType[];
 
   vehicle: MaxMetalVehicle;
   disableInput: boolean;
+  message = '';
 
   selectedType: VehicleType = null;
 
   outString: string;
 
   constructor(private mmService: MaxmetalService,
-              private saveFileService: SaveFileService) {
+              private saveFileService: SaveFileService,
+              private modalService: BsModalService) {
   }
 
   ngOnInit() {
@@ -137,13 +148,19 @@ export class MmbuilderComponent implements OnInit {
   }
 
   changeCrew(value: number) {
-    if (this.mmService.changeCrew(value)) {
-      alert('Not enough space to add more crew members.');
+    if (!this.mmService.changeCrew(value)) {
+      this.message = 'Not enough space to add more crew members.';
+      this.openModal(this.messageTemplate);
+    } else {
+      this.message = '';
     }
   }
   changePassengers(value: number) {
-    if (this.mmService.changePassengers(value)) {
-      alert('Not enough room to add more passengaers.');
+    if (!this.mmService.changePassengers(value)) {
+      this.message = 'Not enough room to add more passengaers.';
+      this.openModal(this.messageTemplate);
+    } else {
+      this.message = '';
     }
   }
 
@@ -164,7 +181,10 @@ export class MmbuilderComponent implements OnInit {
 
   addWeapon(weapon: MaxMetalWeapon) {
     if (!this.mmService.addWeapon(weapon)) {
-      alert('Not enough space to add weapon.');
+      this.message = 'Not enough space to add weapon.';
+      this.openModal(this.messageTemplate);
+    } else {
+      this.message = '';
     }
   }
 
@@ -174,7 +194,10 @@ export class MmbuilderComponent implements OnInit {
 
   addOption(option: MaxMetalOption) {
     if (!this.mmService.addOption(option)) {
-      alert('Not enough space to add the option.');
+      this.message = 'Not enough space to add the option.';
+      this.openModal(this.messageTemplate);
+    } else {
+      this.message = '';
     }
   }
 
@@ -184,5 +207,9 @@ export class MmbuilderComponent implements OnInit {
 
   saveList() {
     this.saveFileService.SaveAsFile('CP2020_' + (this.mmService.currVehicle.name.replace(' ', '_')), this.mmService.currVehicle.toString());
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, this.modalConfig);
   }
 }

@@ -136,3 +136,15 @@
   </div>
   <br>
 </div>
+
+<ng-template #maxMetalMessageModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">MAXIMUM METAL</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div>{{message}}</div>
+  </div>
+</ng-template>
