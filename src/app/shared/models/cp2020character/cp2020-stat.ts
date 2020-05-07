@@ -20,7 +20,8 @@ export class Cp2020Stat {
   }
 
   get Adjusted(): number {
-    return Math.ceil((this._value + this._adjusted + this._woundMod) * this._multiplier);
+    const val = Math.ceil((this._value + this._adjusted + this._woundMod) * this._multiplier);
+    return val;
   }
 
   set Modifier(value: number) {

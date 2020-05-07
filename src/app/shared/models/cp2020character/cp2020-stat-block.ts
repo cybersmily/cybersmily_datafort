@@ -64,7 +64,7 @@ export class Cp2020StatBlock implements Cp2020Stats {
     const stat = new Cp2020Stat();
     stat.Base = (value && value._value) ? value._value : 0;
     stat.Modifier = (value && value.Modifier) ? value.Modifier : 0;
-    stat.Multiplier  = (value && value._multiplier) ? value._multiplier : 0;
+    stat.Multiplier  = (value && value._multiplier) ? value._multiplier : 1;
     stat.WoundModifier  = (value && value._woundMod) ? value._woundMod : 0;
     return stat;
   }
