@@ -7,8 +7,8 @@ assignees: ''
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+**Is your feature request related to an existing section/app or a new one? Please describe.**
+Ex. I would like to have X functionality in Character Generator to help with gameplay or Can you createa Y app to do a calculation for Z. Reference sourcebooks if available.
 
 **Describe the solution you'd like**
 A clear and concise description of what you want to happen.
