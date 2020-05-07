@@ -78,7 +78,8 @@ export class CmbtTrkSkillsComponent implements OnInit, OnChanges {
       total.push(roll);
     }
     const result = total.reduce((a, b) => a + b) + skill.value + this.opponent.stats[skill.stat.toUpperCase()].Adjusted;
-    this.skillResults = total.join(' + ') + '(Rolls)  + '
+    const status = (total[0] === 1) ? 'Fumbled! ' : (total[0] === 10) ? 'Critical! ' : '';
+    this.skillResults = status + total.join(' + ') + '(Rolls)  + '
     + this.opponent.stats[skill.stat.toUpperCase()].Adjusted
     + '(stat) + '
     +  skill.value + '(skill) = ' + result;
