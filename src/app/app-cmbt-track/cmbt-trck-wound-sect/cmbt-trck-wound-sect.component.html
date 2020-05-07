@@ -9,7 +9,7 @@
             <fa-icon [icon]="faDice" class="csd-dice" title="Roll for stun save."
             [popover]="stunSave"
             popoverTitle="STUN SAVE" [outsideClick]="true" containerClass="csd-rounded csd-popover"
-            ></fa-icon>
+            (onShown)="onShowSaves()"></fa-icon>
           </div>
           <ng-template #stunSave>
             Enter Stun Save modifier: <input [(ngModel)]="stunSaveMod" type="number"
@@ -21,7 +21,8 @@
           <div [ngClass]="{'chargen-save-text':true, 'chargen-damaged': (stats.Damage > 12)}">DEATH: {{stats.DeathSave}}
             <fa-icon [icon]="faDice" class="csd-dice" title="Roll for death save"
             [popover]="deathSave"
-            popoverTitle="DEATH SAVE" [outsideClick]="true" containerClass="csd-rounded csd-popover"></fa-icon>
+            popoverTitle="DEATH SAVE" [outsideClick]="true" containerClass="csd-rounded csd-popover"
+            (onShown)="onShowSaves()"></fa-icon>
           </div>
           <ng-template #deathSave>
             Enter Death Save modifier: <input [(ngModel)]="deathSaveMod" type="number"

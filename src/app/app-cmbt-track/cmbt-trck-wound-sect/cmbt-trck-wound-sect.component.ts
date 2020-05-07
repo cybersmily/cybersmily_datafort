@@ -40,6 +40,11 @@ export class CmbtTrckWoundSectComponent implements OnInit {
     this.updateStats.emit(this.stats);
   }
 
+  onShowSaves() {
+    this.deathSaveResults = '';
+    this.stunSaveResults = '';
+  }
+
   rollDeathSave() {
     if (this.rollSave(this.stats.DeathSave, 'Death', this.deathSaveMod)) {
       this.deathSaveResults = 'Save Death roll';
