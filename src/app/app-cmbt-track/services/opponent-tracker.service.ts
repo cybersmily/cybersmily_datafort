@@ -52,15 +52,14 @@ export class OpponentTrackerService {
    * @memberof CmbtTrckFormComponent
    */
   rollInitiative(index?: number) {
-    if (index && this.curOpponents[index]) {
-      this.curOpponents[index].calculateInitiative(this.getDieRoll());
-      this.sortInitiative();
-    }
     if (index === undefined || index == null) {
       // roll initiative for all opponents.
       this.curOpponents.map(opp => {
         opp.calculateInitiative(this.getDieRoll());
       });
+      this.sortInitiative();
+    } else if (index >= 0 && index < this.curOpponents.length ) {
+      this.curOpponents[index].calculateInitiative(this.getDieRoll());
       this.sortInitiative();
     }
     this.cache = this.curOpponents;
