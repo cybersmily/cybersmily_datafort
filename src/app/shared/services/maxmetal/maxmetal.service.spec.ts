@@ -105,7 +105,7 @@ describe('MaxmetalService', () => {
       expect(vehicle.speed.curr).toEqual(50);
       expect(vehicle.speed.max).toEqual(100);
       expect(vehicle.speed.base).toEqual(50);
-      expect(vehicle.speed.cost).toEqual(1);
+      expect(vehicle.speed.costModifier).toEqual(1);
     });
   }));
 
@@ -113,9 +113,8 @@ describe('MaxmetalService', () => {
     service.setVehicleType(vehicleType);
     service.cast.subscribe(vehicle => {
       expect(vehicle.mass).toBeTruthy();
-      expect(vehicle.mass.curr).toEqual(5);
-      expect(vehicle.mass.base).toEqual(5);
-      expect(vehicle.mass.value).toEqual(`5 ${vehicleType.mass.unit}`);
+      expect(vehicle.mass).toEqual(10);
+      expect(vehicle.weight).toEqual(5);
     });
   }));
 
@@ -142,9 +141,8 @@ describe('MaxmetalService', () => {
       // calculatedSP
       expect(vehicle.sp.max).toEqual(8);
       // calculatedMass
-      expect(vehicle.mass.curr).toEqual(7.5);
-      expect(vehicle.mass.base).toEqual(7.5);
-      expect(vehicle.mass.value).toEqual(`7.5 ${vehicleType.mass.unit}`);
+      expect(vehicle.mass).toEqual(15);
+      expect(vehicle.weight).toEqual(7.5);
       // calculatedCost
       expect(vehicle.cost).toEqual(1500);
       // CalculatedSpace
@@ -168,9 +166,7 @@ describe('MaxmetalService', () => {
       // calculatedSP
       expect(vehicle.sp.max).toEqual(7);
       // calculatedMass
-      expect(vehicle.mass.curr).toEqual(6.5);
-      expect(vehicle.mass.base).toEqual(6.5);
-      expect(vehicle.mass.value).toEqual(`6.5 ${vehicleType.mass.unit}`);
+      expect(vehicle.mass).toEqual(13);
       // calculatedCost
       expect(vehicle.cost).toEqual(1300);
       // CalculatedSpace

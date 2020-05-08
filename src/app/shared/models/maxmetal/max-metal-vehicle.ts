@@ -18,7 +18,6 @@ export class MaxMetalVehicle {
   cargo: string;
   manuever: { curr: number; cost: number };
   weapons: MaxMetalWeaponList;
-  mass: { base: number; value: string; curr: number };
   description: string;
   offRoad: boolean;
   cost: number;
@@ -38,7 +37,6 @@ export class MaxMetalVehicle {
     this.cargo = '0';
     this.manuever = { curr: 0, cost: 1 };
     this.weapons = new MaxMetalWeaponList();
-    this.mass = { base: 0, value: '0 tons', curr: 0 };
     this.cost = 0;
     this.options = new MaxMetalVehOptList();
   }
@@ -104,6 +102,26 @@ export class MaxMetalVehicle {
     return this.sdp.totalCost;
   }
 
+  get mass(): number {
+      return (Math.round(
+          this.type.mass.wt * ((this.sdp.curr / this.type.mass.sdp) * 100
+        )) / 100);
+  }
+
+  /**
+   * Weight is different than mass. Unarmored vehicles weight 1/2 their mass.
+   *
+   * @readonly
+   * @type {number}
+   * @memberof MaxMetalVehicle
+   */
+  get weight(): number {
+    if (this.sp.curr < 1) {
+      return (this.mass / 2);
+    }
+    return this.mass;
+  }
+
   /**
    * sets the current vehicles type. This will also set up the initial
    * current vehicle's properties.
@@ -118,7 +136,7 @@ export class MaxMetalVehicle {
     // set the armor properties
     this.calculateSP();
     // set the top speed
-    this.speed.calculateSpeed(type, this.sp.spdMod);
+    this.speed.getTopSpeed(this.sp.spdMod);
     this.speed.setSpeed(type);
 
     // set the range
@@ -128,15 +146,12 @@ export class MaxMetalVehicle {
       base: type.range,
       curr: type.range
     };
-    // set the initial mass
-    this.calculateMass();
     this.calculateCost();
   }
 
   calculate() {
     this.calculateSP();
-    this.speed.calculateSpeed(this.type, this.sp.spdMod);
-    this.calculateMass();
+    this.speed.getTopSpeed(this.sp.spdMod);
     this.calculateCost();
   }
 
@@ -185,10 +200,6 @@ export class MaxMetalVehicle {
     // only change if the value is within range.
     if (this.type.name.toUpperCase() !== 'AIRSHIP') {
       this.sp.curr += value;
-      // sp only affects mass if it is 0SP.
-      if (this.sp.curr > 0) {
-        this.calculateMass();
-      }
       // calculate the cost
       if (this.sp.curr > 0 && this.sp.curr < 21) {
         this.sp.cost = this.sp.curr * 500;
@@ -210,7 +221,7 @@ export class MaxMetalVehicle {
       }
       this.sp.spdMod = spdFactor;
 
-      this.speed.calculateSpeed(this.type, this.sp.spdMod);
+      this.speed.getTopSpeed(this.sp.spdMod);
       this.calculateCost();
     }
   }
@@ -322,34 +333,23 @@ export class MaxMetalVehicle {
    */
   calculateCost() {
     let cost = 0;
-    let multiplier = 1;
     cost = this.sdp.totalCost;
-    multiplier = multiplier * this.manuever.cost;
-    multiplier = multiplier * this.speed.cost;
-    multiplier = multiplier * this.speed.accelerate.cost;
+    // change cost by speed multiplier
+    cost = cost * this.speed.costModifier;
+    // acc/dec cost is off of basecost.
+    cost += (this.sdp.baseCost * (1 - this.speed.accelerate.cost));
+    cost += (this.sdp.baseCost * (1 - this.speed.decelerate.cost));
+    // handling raises the cost by 50%/point
+    cost = cost * this.manuever.cost;
     // off road is a flat cost of 15%
     if (this.offRoad) {
-      multiplier = multiplier * 1.15;
+      cost = cost * 1.15;
     }
-    cost = cost * multiplier;
     // armor isn't a multiplier of the sdp cost.
     cost += this.sp.cost;
     cost += this.weapons.calculateCost();
     cost += this.options.calculateCost(this.baseCost);
     this.cost = Math.ceil(cost);
-  }
-
-  calculateMass() {
-    this.mass.base =
-      Math.round(
-        this.type.mass.wt * (this.sdp.curr / this.type.mass.sdp) * 100
-      ) / 100;
-    // if the vehicle has no armor than it is half it's wait.
-    if (this.sp.curr < 1) {
-      this.mass.base = this.mass.base / 2;
-    }
-    this.mass.curr = this.mass.base;
-    this.mass.value = this.mass.base + ' ' + this.type.mass.unit;
   }
 
   addWeapon( weapon: MaxMetalWeapon): boolean {
@@ -381,7 +381,7 @@ export class MaxMetalVehicle {
   }
 
   toString(): string {
-    let output = this.name + '\r\n';
+    let output = '\r\n' + this.name + '\r\n';
     output += '\r\n' + this.description;
     output += '\r\n   TOP SPEED: ' + this.speed.curr.toLocaleString() + ' MPH';
     output += '\r\n     ACC/DEC: ' + this.speed.accelerate.curr + '/' +  this.speed.decelerate.curr + ' MPH';
@@ -393,7 +393,7 @@ export class MaxMetalVehicle {
     output += '\r\n         SDP: ' + this.sdp.curr + '(BODY ' + ')';
     output += '\r\n          SP: ' + this.sp.curr;
     output += '\r\n        TYPE: ' + this.type.name;
-    output += '\r\n        MASS: ' + this.mass.curr.toLocaleString() + ' TONS';
+    output += '\r\n        MASS: ' + this.mass + ' ' + this.type.mass.unit;
     output += '\r\n        COST: ' + this.cost.toLocaleString() + ' EB.';
     output += '\r\n';
 

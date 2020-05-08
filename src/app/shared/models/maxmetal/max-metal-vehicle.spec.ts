@@ -220,9 +220,10 @@ describe('MaxMetalVehicle', () => {
   it('should to string', () => {
     vehicle.setVehicleType(vehType);
     vehicle.name = 'Test cycle';
-    expect(vehicle.toString()).toContain('Test cycle');
+    expect(vehicle.toString().toLowerCase()).toContain('test cycle');
     expect(vehicle.toString().toLowerCase()).toContain('cycle');
     expect(vehicle.toString().toLowerCase()).toContain('top speed: 120 mph');
+    expect(vehicle.toString().toLowerCase()).toContain('60 kg');
     expect(vehicle.toString().toLowerCase()).toContain('cost: 1,500 eb.');
   });
 });

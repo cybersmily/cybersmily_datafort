@@ -8,7 +8,6 @@ describe('MaxMetalVehSpeed', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    speed = new MaxMetalVehSpeed();
     vehType = new VehicleType();
     vehType.name = 'Cycle';
     vehType.sdp = { min: 15, max: 30, eb: 100, perSpace: 1};
@@ -19,6 +18,7 @@ describe('MaxMetalVehSpeed', () => {
     vehType.acc = 18;
     vehType.dec = 30;
     vehType.cargoCapacity = 0.33;
+    speed = new MaxMetalVehSpeed(vehType);
   });
 
   it('should be created', () => {
@@ -27,47 +27,63 @@ describe('MaxMetalVehSpeed', () => {
 
   it('should set speed', () => {
     speed.setSpeed(vehType);
-    expect(speed.decelerate.base === 30).toBeTruthy(speed);
-    expect(speed.accelerate.base === 18).toBeTruthy(speed);
+    const vehType2 = new VehicleType();
+    vehType2.name = 'Cycle';
+    vehType2.sdp = { min: 15, max: 30, eb: 100, perSpace: 1};
+    vehType2.spaces = { min: 15, max: 50};
+    vehType2.speed = 100;
+    vehType2.range = 400;
+    vehType2.mass = { wt: 4, unit: 'kg', sdp: 1};
+    vehType2.acc = 10;
+    vehType2.dec = 20;
+    vehType2.cargoCapacity = 0.33;
+    speed.setSpeed(vehType2);
+    expect(speed.decelerate.base).toBe(20);
+    expect(speed.accelerate.base).toBe(10);
+    expect(speed.curr).toBe(100);
   });
 
   it('should calculate Speed', () => {
-    speed.calculateSpeed(vehType, 0);
-    expect(speed.base === 120).toBeTruthy();
-    expect(speed.max === 240).toBeTruthy();
-    expect(speed.min === 12).toBeTruthy();
-    expect(speed.cost === 1).toBeTruthy();
+    expect(speed.base).toBe(120);
+    expect(speed.max).toBe(240);
+    expect(speed.min).toBe(12);
+    expect(speed.costModifier).toBe(1);
   });
 
   it('should change Top Speed', () => {
-    speed.calculateSpeed(vehType, 0);
     speed.changeTopSpeed(100);
-    expect(speed.curr === 220).toBeTruthy(speed);
+    expect(speed.curr).toBe(220);
     speed.changeTopSpeed(100);
-    expect(speed.curr === 240).toBeTruthy(speed);
+    expect(speed.curr).toBe(240);
     speed.changeTopSpeed(-220);
-    expect(speed.curr === 20).toBeTruthy(speed);
+    expect(speed.curr).toBe(20);
     speed.changeTopSpeed(-20);
-    expect(speed.curr === 12).toBeTruthy(speed);
+    expect(speed.curr).toBe(12);
+  });
+
+  it('should change Top Speed with SP', () => {
+    expect(speed.getTopSpeed(0)).toBe(120);
+    expect(speed.getTopSpeed(0.1)).toBe(108);
+    expect(speed.getTopSpeed(0.5)).toBe(60);
   });
 
   it('should change Acceleration', () => {
     speed.setSpeed(vehType);
     speed.changeAcceleration(10);
-    expect(speed.accelerate.curr === 28).toBeTruthy(speed.accelerate);
+    expect(speed.accelerate.curr).toBe(28);
     speed.changeAcceleration(50);
-    expect(speed.accelerate.curr === 36).toBeTruthy(speed.accelerate);
+    expect(speed.accelerate.curr).toBe(36);
     speed.changeAcceleration(-70);
-    expect(speed.accelerate.curr === 18).toBeTruthy(speed.accelerate);
+    expect(speed.accelerate.curr).toBe(18);
   });
 
   it('should change Deceleration', () => {
     speed.setSpeed(vehType);
     speed.changeDeceleration(10);
-    expect(speed.decelerate.curr === 40).toBeTruthy(speed.decelerate);
+    expect(speed.decelerate.curr).toBe(40);
     speed.changeDeceleration(50);
-    expect(speed.decelerate.curr === 60).toBeTruthy(speed.decelerate);
+    expect(speed.decelerate.curr).toBe(60);
     speed.changeDeceleration(-70);
-    expect(speed.decelerate.curr === 30).toBeTruthy(speed.decelerate);
+    expect(speed.decelerate.curr).toBe(30);
   });
 });
