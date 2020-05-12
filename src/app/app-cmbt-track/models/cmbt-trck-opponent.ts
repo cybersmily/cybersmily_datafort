@@ -73,7 +73,7 @@ export class CmbtTrckOpponent {
       this.skills = this._skills;
       this.cyberware = template.cyberware;
       this.weapons =  new Array<CpPlayerWeapon>();
-      template.weapons.forEach( w => this.weapons.push(w));
+      template.weapons.forEach( w => this.weapons.push( new CpPlayerWeapon(w)));
       this.gear = template.gear;
     }
 
