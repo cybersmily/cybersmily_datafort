@@ -1,3 +1,4 @@
+import { LongpressDirective } from './../../shared/directives/longpress.directive';
 import { FormsModule } from '@angular/forms';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -10,7 +11,8 @@ describe('MminputComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        MminputComponent
+        MminputComponent,
+        LongpressDirective
       ],
       imports: [
         FormsModule

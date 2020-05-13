@@ -99,14 +99,14 @@ export class MaxMetalVehicle {
       rngFactor = Math.round(rngFactor * 10) / 10;
       if (rngFactor > 0 ) {
         // higher range returns spaces
-        spaces = spaces  * rngFactor;
+        spaces = spaces  * (1 - rngFactor);
       } else {
         // lower range returns spaces
         rngFactor = Math.abs(rngFactor) + 1;
         spaces = spaces  * rngFactor;
       }
     }
-    return spaces;
+    return Math.ceil(spaces * 10) / 10;
   }
 
   get baseCost(): number {

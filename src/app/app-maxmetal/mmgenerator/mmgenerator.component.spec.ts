@@ -1,3 +1,4 @@
+import { LongpressDirective } from './../../shared/directives/longpress.directive';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { MmoptionslistComponent } from './../mmoptionslist/mmoptionslist.component';
@@ -39,7 +40,8 @@ describe('MmgeneratorComponent', () => {
         MmweaponformComponent,
         MmoptionsformComponent,
         MmweaponlistComponent,
-        MmoptionslistComponent
+        MmoptionslistComponent,
+        LongpressDirective
       ],
       imports: [
         CommonUiModule,
