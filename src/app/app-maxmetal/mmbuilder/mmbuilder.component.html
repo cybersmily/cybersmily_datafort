@@ -42,7 +42,7 @@
       <div class="col-sm-12 col-md-6">
         <cs-mminput label="Added/weaker structure" [min]="vehicle.sdp.adjusted.min" [max]="vehicle.sdp.adjusted.max"
           [inputValue]="vehicle.sdp.adjusted.curr" [increment]="1" (changeValue)="changeExtraSDP($event)"
-          [maxDisabled]="disableInput" [minDisabled]="disableInput">
+          [maxDisabled]="disableInput || vehicle.sdp.base !== vehicle.sdp.max" [minDisabled]="disableInput || vehicle.sdp.base !== vehicle.sdp.min">
         </cs-mminput>
       </div>
     </div>

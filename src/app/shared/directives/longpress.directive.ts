@@ -25,7 +25,6 @@ export class LongpressDirective {
 
   @HostListener('mouseup', ['$event'])
   endPress(event) {
-    console.log('EndLongPress');
     clearTimeout(this.timeout);
     clearInterval(this.interval);
     this.longPressing = false;
@@ -35,7 +34,6 @@ export class LongpressDirective {
   @HostListener('touchstart', ['$event'])
   @HostListener('mousedown', ['$event'])
   onMouseDown(event) {
-    console.log('mousedown');
     this.stopInterval = false;
     this.pressing = true;
     this.longPressing = false;
@@ -44,7 +42,6 @@ export class LongpressDirective {
       this.onLongPress.emit(event);
       this.interval = setInterval(() => {
         this.onLongPressing.emit(event);
-        console.log(this.stopInterval);
         if (this.stopInterval ) {
           this.endPress(event);
         }
