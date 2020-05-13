@@ -11,10 +11,10 @@
       <input type="button" title="Save" class="pull-right btn-secondary csd-rounded csd-fash-btn" value="Save"
         (click)="saveList()" [disabled]="disableInput" />
     </div>
-    <div>Total Cost : {{vehicle.cost | number}} eb. [{{vehicle.type.sdp.eb | number}} eb/SDP]</div>
+    <div title="{{vehicle.costTally}}">Total Cost : {{vehicle.cost | number}} eb. [{{vehicle.type.sdp.eb | number}} eb/SDP]</div>
     <div>
       <span>SDP : {{vehicle.sdp.curr | number}}  </span>
-      <span>Mass : {{vehicle.mass.curr | number}} tons  </span>
+      <span>Mass : {{vehicle.mass | number}} {{vehicle.type.mass.unit}}  </span>
       <span>Spaces : {{vehicle.usedSpaces}}/{{vehicle.maxSpaces}}</span>
     </div>
   </div>

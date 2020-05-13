@@ -1,6 +1,6 @@
 {
   "baseTypes": [
-    { "name": "Cycle"             , "sdp": { "min": 15  , "max": 30   , "eb": 100                     }, "spaces": { "min": 1  , "max": 1   }, "speed": 120 , "range": 400  , "mass": { "wt": 4, "unit": "kg"  , "sdp":1    }, "acc": 18 , "dec": 30, "cargoCapacity": 0.33                            },
+    { "name": "Cycle"             , "sdp": { "min": 15  , "max": 30   , "eb": 100   , "perSpace": 50  }, "spaces": { "min": 1  , "max": 1   }, "speed": 120 , "range": 400  , "mass": { "wt": 4, "unit": "kg"  , "sdp":1    }, "acc": 18 , "dec": 30, "cargoCapacity": 0.33                            },
     { "name": "Car"               , "sdp": { "min": 25  , "max": 80   , "eb": 250   , "perSpace": 8   }, "spaces": { "min": 3  , "max": 10  }, "speed": 100 , "range": 300  , "mass": { "wt": 1, "unit": "ton" , "sdp":25   }, "acc": 15 , "dec": 40, "cargoCapacity": 0.33                            },
     { "name": "Pickup"            , "sdp": { "min": 30  , "max": 90   , "eb": 400   , "perSpace": 4   }, "spaces": { "min": 8  , "max": 20  }, "speed": 100 , "range": 300  , "mass": { "wt": 1, "unit": "ton" , "sdp":25   }, "acc": 15 , "dec": 40, "cargoCapacity": 0.33                            },
     { "name": "Truck"             , "sdp": { "min": 50  , "max": 125  , "eb": 750   , "perSpace": 12.5}, "spaces": { "min": 4  , "max": 10  }, "speed": 100 , "range": 800  , "mass": { "wt": 1, "unit": "ton" , "sdp":15   }, "acc": 10 , "dec": 30, "cargoCapacity": 0.33, "massRating": 36000       },

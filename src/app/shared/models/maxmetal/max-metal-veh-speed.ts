@@ -3,8 +3,8 @@ import { MaxMetalVehStat } from './max-metal-veh-stat';
 
 export class MaxMetalVehSpeed implements MaxMetalVehStat {
   private _curr: number;
-  base: number;
-  min: number;
+  private _spMod: number;
+  private _base: number;
   accelerate: MaxMetalVehStat;
   decelerate: MaxMetalVehStat;
 
@@ -12,9 +12,9 @@ export class MaxMetalVehSpeed implements MaxMetalVehStat {
     if (vehType) {
       this.setSpeed(vehType);
     } else {
-      this.base = 0;
+      this._base = 0;
+      this.spMod = 1;
       this._curr = this.base;
-      this.min = 0;
       this.accelerate = {
         min: 0,
         max: 0,
@@ -32,31 +32,51 @@ export class MaxMetalVehSpeed implements MaxMetalVehStat {
     }
   }
 
+  get base(): number {
+    return this._base * this.spMod;
+  }
+
+  get spMod(): number {
+    return this._spMod;
+  }
+
+  set spMod(value: number) {
+    this._spMod = ( value < 1 && value > 0) ? value : 1;
+  }
+
   get curr(): number {
-    return this._curr;
+    return this._curr * this.spMod;
   }
 
   get max(): number {
-    return this.base * 2;
+    return Math.ceil(this.base * 2 * this.spMod);
   }
 
+  get min(): number {
+    return Math.ceil(this.base * 0.1 * this.spMod);
+  }
 
   get costModifier(): number {
+    let mod = 1;
+    const base = this.base * this.spMod;
     // caculate the eb cost
-    if (this.curr > this.base) {
+    if (this.curr > base && base > 0) {
       // increase SDP by 25% per 10% of speed
-      return (1 + 0.25 * (Math.floor((this.curr / this.base) * 10) % 10));
-    } else if (this.curr < this.base) {
+      const delta = this.curr - base;
+      const percent = Math.floor((delta / base) * 10);
+      mod = (1 + (0.25 * percent));
+    } else if (this.curr < base) {
       // decrease SDP by 10% per 10% of speed
-      return (0.1 * (Math.ceil((this.curr / this.base) * 10) % 10));
+      const percent = Math.floor((this.curr / base) * 10);
+      mod = (0.1 * percent);
     }
-    return 1;
+    return mod;
   }
 
   setSpeed(type: VehicleType) {
-    this.base = type.speed;
+    this._base = type.speed;
+    this.spMod = 1;
     this._curr = this.base;
-    this.min = Math.ceil(this.base * 0.1);
     this.accelerate = {
       min: type.acc,
       max: type.acc * 2,
@@ -75,18 +95,6 @@ export class MaxMetalVehSpeed implements MaxMetalVehStat {
   }
 
   /**
-   * calculates the topspeed object within the currVeicle.
-   * topspeed is based off the speed of the vehicle type.
-   * This will be adjusted by SP value as well.
-   * @memberof MaxmetalService
-   */
-  getTopSpeed(spMod: number) {
-    // adjust the speed based on SP
-    const modifier = Math.abs(1 - spMod);
-    return Math.ceil(this.curr * modifier);
-  }
-
-  /**
    * MAX METAL pg. 14
    * Added Speed: Each 10% of original Top Speed added to vehicle's Top Speed
    * raises the base SDP cost of vehicle by 25% and takes up 5% of vehicle's
@@ -98,12 +106,7 @@ export class MaxMetalVehSpeed implements MaxMetalVehStat {
    */
   changeTopSpeed(value: number) {
     this._curr += value;
-    this._curr =
-      this._curr > this.max
-        ? this.max
-        : this._curr < this.min
-        ? this.min
-        : this._curr;
+    this._curr =  this._curr > this.max ? this.max : this._curr < this.min ? this.min : this._curr;
   }
 
   /**

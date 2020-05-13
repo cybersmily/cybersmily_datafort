@@ -31,7 +31,10 @@ export class MaxMetalVehSdp implements MaxMetalVehStat, VehicleSdp {
     return cost;
   }
   get maxSpaces(): number {
-    return Math.floor(this.base / this.perSpace);
+    if ( this.perSpace > 0) {
+      return Math.ceil(this.base / this.perSpace);
+    }
+    return 0;
   }
 
   setTypeValues(type?: VehicleType) {
@@ -76,9 +79,13 @@ export class MaxMetalVehSdp implements MaxMetalVehStat, VehicleSdp {
    * @memberof MaxmetalService
    */
   changeExtraSDP(value: number) {
-    this.adjusted.curr += value;
-    this.adjusted.curr = (this.adjusted.curr > this.adjusted.max ) ? this.adjusted.max :
-      ((this.adjusted.curr < this.adjusted.min) ? this.adjusted.min : this.adjusted.curr);
+    const mod = this.adjusted.curr + value;
+    if (this.base <= this.min) {
+      this.adjusted.curr = (mod < 0) ? (mod < this.adjusted.min ? this.adjusted.min : mod) : 0;
+    }
+    if (this.base >= this.max) {
+      this.adjusted.curr = (mod > 0) ? (mod > this.adjusted.max ? this.adjusted.max : mod) : 0;
+    }
   }
 
   /**

@@ -22,6 +22,7 @@ export class MaxMetalVehicle {
   offRoad: boolean;
   cost: number;
   options: MaxMetalVehOptList;
+  costTally: string;
 
   constructor() {
     this.name = '';
@@ -39,6 +40,7 @@ export class MaxMetalVehicle {
     this.weapons = new MaxMetalWeaponList();
     this.cost = 0;
     this.options = new MaxMetalVehOptList();
+    this.costTally = '';
   }
 
   /**
@@ -49,21 +51,7 @@ export class MaxMetalVehicle {
    * @memberof MaxMetalVehicle
    */
   get availableSpaces(): number {
-    let spaces = this.sdp.maxSpaces;
-    // lose 5% of spaces for each 10% of speed over base pg 14
-    let spdCost = 0;
-    // gain 10% of space lowering top speed, pg 14
-    if (this.speed.curr < this.speed.base) {
-      const spdFactor = Math.ceil((1 - this.speed.curr / this.speed.base) * 10);
-      spdCost = Math.ceil(spdFactor * 0.2 * spaces) / 2; // round to nearest .5
-    }
-    spaces += spdCost;
-    // range modifies the space available.
-    const rngFactor = (this.range.curr / this.range.base) * 100;
-    if (rngFactor < 100) {
-      // add 10% of space for each 33% decrease in range.
-    }
-    return spaces - this.usedSpaces;
+    return this.maxSpaces - this.usedSpaces;
   }
 
   get usedSpaces(): number {
@@ -95,11 +83,52 @@ export class MaxMetalVehicle {
    * @memberof MaxMetalVehicle
    */
   get maxSpaces(): number {
-    return this.sdp.maxSpaces;
+    let spaces = (this.sdp) ? this.sdp.maxSpaces : 0;
+    if (this.speed.curr < this.speed.base) {
+      const spdFactor = Math.ceil((1 - this.speed.curr / this.speed.base) * 10);
+      spaces += Math.ceil(spdFactor * 0.2 * spaces) / 2; // round to nearest .5
+    }
+    if (this.speed.curr > this.speed.base) {
+      const delta = this.speed.curr - this.speed.base;
+      const spdFactor = 1 - (Math.ceil((delta / this.speed.base) * 10) * 0.05);
+      spaces = spaces * spdFactor;
+    }
+    // range modifies the space available.
+    if (this.range.curr !== this.range.base) {
+      let rngFactor = ((this.range.curr / this.range.base) - 1) / 3;
+      rngFactor = Math.round(rngFactor * 10) / 10;
+      if (rngFactor > 0 ) {
+        // higher range returns spaces
+        spaces = spaces  * rngFactor;
+      } else {
+        // lower range returns spaces
+        rngFactor = Math.abs(rngFactor) + 1;
+        spaces = spaces  * rngFactor;
+      }
+    }
+    return spaces;
   }
 
   get baseCost(): number {
     return this.sdp.totalCost;
+  }
+
+  get totalCost(): number {
+    this.calculateCost();
+    if ( this.cost <= 20000) {
+      return this.cost;
+    } else if ( this.cost > 20000 && this.cost <= 50000) {
+      return Math.ceil(this.cost / 1000) * 1000;
+    } else if ( this.cost > 50000 && this.cost <= 250000) {
+      return Math.ceil(this.cost / 5000) * 5000;
+    } else if ( this.cost > 250000 && this.cost <= 500000) {
+      return Math.ceil(this.cost / 10000) * 10000;
+    } else if ( this.cost > 500000 && this.cost <= 5000000) {
+      return Math.ceil(this.cost / 50000) * 50000;
+    } else if ( this.cost > 5000000) {
+      return Math.ceil(this.cost / 100000) * 100000;
+    }
+    return this.cost;
   }
 
   get mass(): number {
@@ -136,7 +165,6 @@ export class MaxMetalVehicle {
     // set the armor properties
     this.calculateSP();
     // set the top speed
-    this.speed.getTopSpeed(this.sp.spdMod);
     this.speed.setSpeed(type);
 
     // set the range
@@ -151,7 +179,6 @@ export class MaxMetalVehicle {
 
   calculate() {
     this.calculateSP();
-    this.speed.getTopSpeed(this.sp.spdMod);
     this.calculateCost();
   }
 
@@ -200,6 +227,7 @@ export class MaxMetalVehicle {
     // only change if the value is within range.
     if (this.type.name.toUpperCase() !== 'AIRSHIP') {
       this.sp.curr += value;
+      this.sp.curr = (this.sp.curr > this.sp.max) ? this.sp.max : (this.sp.curr < 0 ) ? 0 : this.sp.curr;
       // calculate the cost
       if (this.sp.curr > 0 && this.sp.curr < 21) {
         this.sp.cost = this.sp.curr * 500;
@@ -209,9 +237,12 @@ export class MaxMetalVehicle {
         this.sp.cost = this.sp.curr * 5000;
       } else if (this.sp.curr > 60) {
         this.sp.cost = this.sp.curr * 7000;
+      } else {
+        this.sp.cost = 0;
       }
       // adjust topspeed
-      let spdFactor = Math.floor((this.sp.curr / this.sdp.curr) * 10) / 10;
+      let spdFactor = 1 - Math.ceil((this.sp.curr / this.sdp.curr) * 10) / 10; // get the 10%
+      spdFactor = (spdFactor < 0.5) ? 0.5 : spdFactor;
       if (
         this.type.name.toUpperCase() === 'OSPREY' ||
         this.type.name.toUpperCase().indexOf('HELICOPTER') > -1
@@ -220,8 +251,7 @@ export class MaxMetalVehicle {
         spdFactor = spdFactor * 2;
       }
       this.sp.spdMod = spdFactor;
-
-      this.speed.getTopSpeed(this.sp.spdMod);
+      this.speed.spMod = spdFactor;
       this.calculateCost();
     }
   }
@@ -236,6 +266,7 @@ export class MaxMetalVehicle {
    */
   changeHandling(value: number) {
     this.manuever.curr += value;
+    this.manuever.curr = (this.manuever.curr > 3) ? 3 : (this.manuever.curr < 0 ) ? 0 : this.manuever.curr;
     this.manuever.cost = 1 + this.manuever.curr * 0.5;
     this.calculateCost();
   }
@@ -282,13 +313,17 @@ export class MaxMetalVehicle {
    */
   changeRange(value: number) {
     this.range.curr += value;
+    this.range.curr = (this.range.curr < this.range.min) ? this.range.min : this.range.curr;
   }
 
-  changeOffRoad(value: boolean) {}
+  toggleOffRoad() {
+    this.offRoad = !this.offRoad;
+  }
 
   changeCrew(value: number): boolean {
     if ( this.availableSpaces >= 1 ) {
       this.crew += value;
+      this.crew = (this.crew < 1) ? 1 : this.crew;
       return true;
     }
     return false;
@@ -297,6 +332,7 @@ export class MaxMetalVehicle {
   changePassenger(value: number): boolean {
     if ( this.availableSpaces >= 1 ) {
       this.passengers += value;
+      this.passengers = this.passengers < 0 ? 0 : this.passengers;
       return true;
     }
     return false;
@@ -334,22 +370,39 @@ export class MaxMetalVehicle {
   calculateCost() {
     let cost = 0;
     cost = this.sdp.totalCost;
+    this.costTally = 'Base Cost: ' + this.sdp.baseCost + '\n';
+    this.costTally += 'Extra/Weakened Structure: ' + (this.sdp.totalCost - this.sdp.baseCost) + '\n';
     // change cost by speed multiplier
     cost = cost * this.speed.costModifier;
+    this.costTally += 'Top Speed Change: ' + (cost - this.sdp.totalCost) + '\n';
     // acc/dec cost is off of basecost.
-    cost += (this.sdp.baseCost * (1 - this.speed.accelerate.cost));
-    cost += (this.sdp.baseCost * (1 - this.speed.decelerate.cost));
+    const accCost = (this.sdp.baseCost * (1 - this.speed.accelerate.cost));
+    this.costTally += 'Acceleration Change: ' + accCost + '\n';
+    cost += accCost;
+    const decCost = (this.sdp.baseCost * (1 - this.speed.decelerate.cost));
+    this.costTally += 'Deceleration Change: ' + accCost + '\n';
+    cost += decCost;
     // handling raises the cost by 50%/point
-    cost = cost * this.manuever.cost;
+    const manCost = this.sdp.totalCost * this.manuever.curr * 0.5;
+    this.costTally += 'Maneuver Cost: ' + manCost + '\n';
+    cost += manCost;
     // off road is a flat cost of 15%
     if (this.offRoad) {
-      cost = cost * 1.15;
+      const offRoadCost = this.sdp.totalCost * 0.15;
+      this.costTally += 'OffRoad Cost: ' + offRoadCost + '\n';
+      cost += offRoadCost;
     }
     // armor isn't a multiplier of the sdp cost.
     cost += this.sp.cost;
-    cost += this.weapons.calculateCost();
-    cost += this.options.calculateCost(this.baseCost);
+    this.costTally += 'SP Cost: ' + this.sp.cost + '\n';
+    const wpnCost = this.weapons.calculateCost();
+    cost += wpnCost;
+    this.costTally += 'Weapons Cost: ' + wpnCost + '\n';
+    const optCost = this.options.calculateCost(this.baseCost);
+    cost += optCost;
+    this.costTally += 'Options Cost: ' + optCost + '\n';
     this.cost = Math.ceil(cost);
+    this.costTally += 'Total: ' + this.cost;
   }
 
   addWeapon( weapon: MaxMetalWeapon): boolean {

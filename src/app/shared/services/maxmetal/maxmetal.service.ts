@@ -152,8 +152,8 @@ export class MaxmetalService {
     this.currVehicle.changeRange(value);
   }
 
-  changeOffRoad(value: boolean) {
-    this.currVehicle.changeOffRoad(value);
+  toggleOffRoad() {
+    this.currVehicle.toggleOffRoad();
   }
 
   calculateCost() {
