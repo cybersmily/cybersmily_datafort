@@ -14,13 +14,16 @@
             <button csLongpress
               class="btn btn-secondary btn-sm"
               (onLongPressing)="decrementValue()"
+              [stopInterval]="disableMin"
               (click)="decrementValue()"
-              [disabled]="disabled">-</button>
+              [disabled]="disableMin">-</button>
             <button csLongpress
               class="btn btn-secondary btn-sm"
               (onLongPressing)="incrementValue()"
+              [stopInterval]="disableMax"
               (click)="incrementValue()"
-              [disabled]="disabled">+</button>
+              [disabled]="disableMax"
+              >+</button>
         </div>
     </div>
   </div>

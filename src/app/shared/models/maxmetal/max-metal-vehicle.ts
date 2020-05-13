@@ -321,7 +321,7 @@ export class MaxMetalVehicle {
   }
 
   changeCrew(value: number): boolean {
-    if ( this.availableSpaces >= 1 ) {
+    if ( this.availableSpaces >= 1 || value < 0) {
       this.crew += value;
       this.crew = (this.crew < 1) ? 1 : this.crew;
       return true;
@@ -330,7 +330,7 @@ export class MaxMetalVehicle {
   }
 
   changePassenger(value: number): boolean {
-    if ( this.availableSpaces >= 1 ) {
+    if ( this.availableSpaces >= 1 || value < 0) {
       this.passengers += value;
       this.passengers = this.passengers < 0 ? 0 : this.passengers;
       return true;

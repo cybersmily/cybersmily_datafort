@@ -42,6 +42,7 @@ export class MmbuilderComponent implements OnInit {
       this.vehicle = vehicle;
     });
     this.disableInput = true;
+    this.modalService.onHide.subscribe( () => this.disableInput = false);
   }
 
 
@@ -148,20 +149,19 @@ export class MmbuilderComponent implements OnInit {
   }
 
   changeCrew(value: number) {
-    if (!this.mmService.changeCrew(value)) {
+    this.mmService.changeCrew(value);
+    /*
+    if (!this.mmService.changeCrew(value) && !this.disableInput) {
+      this.disableInput = true;
       this.message = 'Not enough space to add more crew members.';
       this.openModal(this.messageTemplate);
     } else {
       this.message = '';
     }
+    */
   }
   changePassengers(value: number) {
-    if (!this.mmService.changePassengers(value)) {
-      this.message = 'Not enough room to add more passengaers.';
-      this.openModal(this.messageTemplate);
-    } else {
-      this.message = '';
-    }
+    this.mmService.changePassengers(value);
   }
 
   /**
@@ -180,7 +180,8 @@ export class MmbuilderComponent implements OnInit {
   changeCargo() {}
 
   addWeapon(weapon: MaxMetalWeapon) {
-    if (!this.mmService.addWeapon(weapon)) {
+    if (!this.mmService.addWeapon(weapon) && !this.disableInput) {
+      this.disableInput = true;
       this.message = 'Not enough space to add weapon.';
       this.openModal(this.messageTemplate);
     } else {
@@ -193,7 +194,8 @@ export class MmbuilderComponent implements OnInit {
   }
 
   addOption(option: MaxMetalOption) {
-    if (!this.mmService.addOption(option)) {
+    if (!this.mmService.addOption(option) && !this.disableInput) {
+      this.disableInput = true;
       this.message = 'Not enough space to add the option.';
       this.openModal(this.messageTemplate);
     } else {
@@ -211,5 +213,10 @@ export class MmbuilderComponent implements OnInit {
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, this.modalConfig);
+  }
+
+  closeModal() {
+    this.modalRef.hide();
+    this.disableInput = false;
   }
 }

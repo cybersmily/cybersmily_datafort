@@ -35,25 +35,27 @@
     <div class="row">
       <div class="col-sm-12 col-md-6">
         <cs-mminput label="Base SDP" [min]="vehicle.sdp.min" [max]="vehicle.sdp.max" [inputValue]="vehicle.sdp.base"
-          [increment]="1" (changeValue)="changeSDP($event)" [disabled]="disableInput">
+          [increment]="1" (changeValue)="changeSDP($event)"
+          [maxDisabled]="disableInput" [minDisabled]="disableInput">
         </cs-mminput>
       </div>
       <div class="col-sm-12 col-md-6">
         <cs-mminput label="Added/weaker structure" [min]="vehicle.sdp.adjusted.min" [max]="vehicle.sdp.adjusted.max"
           [inputValue]="vehicle.sdp.adjusted.curr" [increment]="1" (changeValue)="changeExtraSDP($event)"
-          [disabled]="disableInput">
+          [maxDisabled]="disableInput" [minDisabled]="disableInput">
         </cs-mminput>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-12 col-md-6">
         <cs-mminput label="Armor/SP" [min]="0" [max]="vehicle.sp.max" [inputValue]="vehicle.sp.curr" [increment]="1"
-          (changeValue)="changeArmor($event)" [disabled]="disableInput"></cs-mminput>
+          (changeValue)="changeArmor($event)"
+          [maxDisabled]="disableInput || vehicle.availableSpaces &lt; 1" [minDisabled]="disableInput"></cs-mminput>
       </div>
       <div class="col-sm-12 col-md-6">
         <cs-mminput label="Top Speed ( {{vehicle.speed.base}} mph)" [min]="vehicle.speed.min" [max]="vehicle.speed.max"
           [inputValue]="vehicle.speed.curr" [increment]="1" (changeValue)="changeSpeed($event)"
-          [disabled]="disableInput">
+          [maxDisabled]="disableInput || vehicle.availableSpaces &lt; 1" [minDisabled]="disableInput">
         </cs-mminput>
       </div>
     </div>
@@ -62,13 +64,13 @@
         <cs-mminput label="Boost Acceleration ( accel: {{vehicle.speed.accelerate.base}} mph)"
           [min]="vehicle.speed.accelerate.min" [max]="vehicle.speed.accelerate.max"
           [inputValue]="vehicle.speed.accelerate.curr" [increment]="1" (changeValue)="changeAcceleration($event)"
-          [disabled]="disableInput"></cs-mminput>
+          [maxDisabled]="disableInput" [minDisabled]="disableInput"></cs-mminput>
       </div>
       <div class="col-sm-12 col-md-6">
         <cs-mminput label="Heavy-Duty Brakes( decel: {{vehicle.speed.decelerate.curr}} mph)"
           [min]="vehicle.speed.decelerate.min" [max]="vehicle.speed.decelerate.max"
           [inputValue]="vehicle.speed.decelerate.curr" [increment]="1" (changeValue)="changeDeceleration($event)"
-          [disabled]="disableInput"></cs-mminput>
+          [maxDisabled]="disableInput" [minDisabled]="disableInput"></cs-mminput>
       </div>
     </div>
     <div class="row">
@@ -76,23 +78,26 @@
         <cs-mminput label="Range ({{vehicle.range.curr}})" [min]="vehicle.range.min"
         [max]="vehicle.range.max"
           [inputValue]="vehicle.range.curr" [increment]="10" (changeValue)="changeRange($event)"
-          [disabled]="disableInput"></cs-mminput>
+          [maxDisabled]="disableInput || vehicle.availableSpaces &lt; 1" [minDisabled]="disableInput"></cs-mminput>
       </div>
       <div class="col-sm-12 col-md-6">
         <cs-mminput label="Handling" [min]="0" [max]="3" [inputValue]="vehicle.manuever.curr" [increment]="1"
-          (changeValue)="changeHandling($event)" [disabled]="disableInput"></cs-mminput>
+          (changeValue)="changeHandling($event)"
+          [maxDisabled]="disableInput" [minDisabled]="disableInput"></cs-mminput>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-12 col-md-6">
-        <cs-mminput label="Crew" [min]="1"
+        <cs-mminput label="Crew" [min]="1" [max]="vehicle.crew + vehicle.availableSpaces"
           [inputValue]="vehicle.crew" [increment]="1"
-          (changeValue)="changeCrew($event)" [disabled]="disableInput"></cs-mminput>
+          (changeValue)="changeCrew($event)"
+          [maxDisabled]="disableInput || vehicle.availableSpaces &lt; 1" [minDisabled]="disableInput"></cs-mminput>
       </div>
       <div class="col-sm-12 col-md-6">
-        <cs-mminput label="Passengers" [min]="1"
+        <cs-mminput label="Passengers" [min]="0" [max]="vehicle.passengers + vehicle.availableSpaces"
           [inputValue]="vehicle.passengers" [increment]="1"
-          (changeValue)="changePassengers($event)" [disabled]="disableInput"></cs-mminput>
+          (changeValue)="changePassengers($event)"
+          [maxDisabled]="disableInput || vehicle.availableSpaces &lt; 1" [minDisabled]="disableInput"></cs-mminput>
       </div>
     </div>
     <div class="row">
@@ -137,10 +142,10 @@
   <br>
 </div>
 
-<ng-template #maxMetalMessageModal>
+<ng-template #maxMetalMessageModal >
   <div class="modal-header">
     <h4 class="modal-title pull-left">MAXIMUM METAL</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>

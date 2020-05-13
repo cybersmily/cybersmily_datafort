@@ -1,11 +1,4 @@
-import {
-  Directive,
-  Output,
-  Input,
-  HostBinding,
-  EventEmitter,
-  HostListener
-} from '@angular/core';
+import { Directive, EventEmitter, HostListener, HostBinding, Output, Input } from '@angular/core';
 
 @Directive({
   selector: '[csLongpress]'
@@ -15,6 +8,8 @@ export class LongpressDirective {
   longPressing: boolean;
   timeout: any;
   interval: any;
+  @Input()
+  stopInterval = false;
 
   @Output()
   onLongPress = new EventEmitter();
@@ -28,9 +23,20 @@ export class LongpressDirective {
   @HostBinding('class.longpress')
   get longPress() { return this.longPressing; }
 
+  @HostListener('mouseup', ['$event'])
+  endPress(event) {
+    console.log('EndLongPress');
+    clearTimeout(this.timeout);
+    clearInterval(this.interval);
+    this.longPressing = false;
+    this.pressing = false;
+  }
+
   @HostListener('touchstart', ['$event'])
   @HostListener('mousedown', ['$event'])
   onMouseDown(event) {
+    console.log('mousedown');
+    this.stopInterval = false;
     this.pressing = true;
     this.longPressing = false;
     this.timeout = setTimeout(() => {
@@ -38,17 +44,12 @@ export class LongpressDirective {
       this.onLongPress.emit(event);
       this.interval = setInterval(() => {
         this.onLongPressing.emit(event);
-      }, 50);
+        console.log(this.stopInterval);
+        if (this.stopInterval ) {
+          this.endPress(event);
+        }
+      }, 100);
     }, 500);
   }
 
-  @HostListener('touchend')
-  @HostListener('mouseup')
-  @HostListener('mouseleave')
-  endPress() {
-    clearTimeout(this.timeout);
-    clearInterval(this.interval);
-    this.longPressing = false;
-    this.pressing = false;
-  }
 }

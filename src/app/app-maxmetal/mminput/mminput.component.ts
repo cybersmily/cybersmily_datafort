@@ -59,7 +59,10 @@ export class MminputComponent implements OnInit {
    * @memberof MminputComponent
    */
   @Input()
-  disabled: boolean;
+  maxDisabled: boolean;
+
+  @Input()
+  minDisabled: boolean;
 
   /**
    * Method to change the inputValue to and pass back to the parent component.
@@ -67,6 +70,14 @@ export class MminputComponent implements OnInit {
    */
   @Output()
   changeValue = new EventEmitter();
+
+  get disableMax(): boolean {
+    return this.maxDisabled || this.inputValue >= this.max;
+  }
+
+  get disableMin(): boolean {
+    return this.minDisabled || this.inputValue <= this.min;
+  }
 
 
   constructor() {
@@ -106,6 +117,10 @@ export class MminputComponent implements OnInit {
     if ( this.inputValue > this.min) {
       this.changeValue.emit(-this.increment);
     }
+  }
+
+  writeConole() {
+    console.log('Mouseup triggered');
   }
 
 }
