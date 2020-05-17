@@ -1,3 +1,4 @@
+import { FumbleChart } from './../../shared/models/skill/fumble-chart';
 import { SkillLevelSpread } from './../../shared/models/skill-level-spread';
 import { DataSkill } from './../../shared/models/data/data-skill';
 import { SkillListService } from './../../shared/services/data/skill-list.service';
@@ -78,7 +79,14 @@ export class CmbtTrkSkillsComponent implements OnInit, OnChanges {
       total.push(roll);
     }
     const result = total.reduce((a, b) => a + b) + skill.value + this.opponent.stats[skill.stat.toUpperCase()].Adjusted;
-    const status = (total[0] === 1) ? 'Fumbled! ' : (total[0] === 10) ? 'Critical! ' : '';
+    let status = '';
+    if (total[0] === 1 ) {
+      status =  'Fumbled! ' + FumbleChart.getResults(this.diceRoll.generateNumber(1, 10), skill) + ' ';
+    }
+    if (total[0] === 10 ) {
+      status = 'Critical! ';
+    }
+
     this.skillResults = status + total.join(' + ') + '(Rolls)  + '
     + this.opponent.stats[skill.stat.toUpperCase()].Adjusted
     + '(stat) + '

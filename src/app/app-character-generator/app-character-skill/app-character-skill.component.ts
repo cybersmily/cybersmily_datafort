@@ -1,3 +1,4 @@
+import { FumbleChart } from './../../shared/models/skill/fumble-chart';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 import { Cp2020Stat } from './../../shared/models/cp2020character/cp2020-stat';
@@ -47,7 +48,8 @@ export class AppCharacterSkillComponent implements OnInit {
       this.dieRoll += roll;
     } while (roll > 9);
     if (this.dieRoll < 2) {
-      this.rollMessage = 'FUMBLE!';
+      this.rollMessage = 'FUMBLE! ';
+      this.rollMessage += FumbleChart.getResults(this.dice.generateNumber(1, 10), this.skill);
     }
     if (this.dieRoll > 10) {
       this.rollMessage = 'CRITICAL SUCCESS!';

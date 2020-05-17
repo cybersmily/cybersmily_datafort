@@ -63,9 +63,9 @@ describe('MaxMetalVehSpeed', () => {
 
   it('should change Top Speed with SP', () => {
     speed.spMod = 0;
-    expect(speed.curr).toBe(120);
+    expect(speed.base).toBe(120);
     speed.spMod = .8;
-    expect(speed.curr).toBe(96);
+    expect(speed.base).toBe(96);
     speed.spMod = .5;
     expect(speed.base).toBe(60);
   });

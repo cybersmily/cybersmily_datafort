@@ -235,7 +235,7 @@ describe('MaxMetalVehicle', () => {
     expect(mbt.sp.curr).toBe(100);
     expect(mbt.speed.spMod).toBe(.5);
     expect(mbt.sp.cost).toBe(700000);
-    expect(mbt.speed.curr).toBe(20);
+    expect(mbt.speed.base).toBe(20);
     mbt.changeSP(-300);
     expect(mbt.sp.curr).toBe(0);
     expect(mbt.sp.cost).toBe(0);
