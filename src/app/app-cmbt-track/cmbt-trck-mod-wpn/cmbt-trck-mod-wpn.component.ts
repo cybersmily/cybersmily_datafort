@@ -1,3 +1,4 @@
+import { FumbleChart } from './../../shared/models/skill/fumble-chart';
 import { CombatRange } from './../../shared/models/weapon/combat-range';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { CombatModifiers } from './../models/combat-modifiers';
@@ -88,7 +89,11 @@ export class CmbtTrckModWpnComponent implements OnInit {
     this.skillRoll += '+ ' + total + '(dice)' + dieRolls + '<br>';
     const diff = this.weapon.getRangeBracket(this.rangeToTarget).diff;
     const totalRoll = this.getWeaponMods(this.weapon) + total;
-    this.skillRoll += (totalRoll >= diff) ? 'Succeeded by ' + (totalRoll - diff) : (roll === 1) ? 'Fumbled!!' : 'Missed';
+    if (roll === 1 ) {
+      this.skillRoll += 'Fumbled! ' + FumbleChart.getResults(this.diceService.generateNumber(1, 10), this.selectedSkill);
+    } else {
+      this.skillRoll += (totalRoll >= diff) ? 'Succeeded by ' + (totalRoll - diff) : 'Missed';
+    }
     this.skillRoll += ' (Total:' + totalRoll + ' vs DIFF:' + diff + ')';
   }
 
