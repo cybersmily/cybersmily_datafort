@@ -241,7 +241,7 @@ export class MaxMetalVehicle {
         this.sp.cost = 0;
       }
       // adjust topspeed
-      let spdFactor = 1 - Math.ceil((this.sp.curr / this.sdp.curr) * 10) / 10; // get the 10%
+      let spdFactor = 1 - Math.ceil((this.sp.curr / this.sdp.base) * 10) / 10; // get the 10%
       spdFactor = (spdFactor < 0.5) ? 0.5 : spdFactor;
       if (
         this.type.name.toUpperCase() === 'OSPREY' ||
@@ -253,6 +253,28 @@ export class MaxMetalVehicle {
       this.sp.spdMod = spdFactor;
       this.speed.spMod = spdFactor;
       this.calculateCost();
+    }
+  }
+
+  /**
+   * MAX METAL pg 14
+   * Ospreys and airplanes can have
+   * a maximum SP armor of 1/4 their SDP. Airships can't be armored, an airship
+   * gondala can, but the gasbag can't; and the gasbag is hit 90% of the time,
+   * unless specifically aiming for the gondala.
+   * @memberof MaxmetalService
+   */
+  calculateSP() {
+    // Airships can't be armored.
+    if (this.type.name.toUpperCase() === 'AIRSHIP') {
+      this.sp.max = 0;
+    } else if (
+      this.type.name.toUpperCase() === 'OSPREY' ||
+      this.type.name.toUpperCase().indexOf('PLANE') > -1
+    ) {
+      this.sp.max = Math.round(this.sdp.curr * 0.25);
+    } else {
+      this.sp.max = Math.round(this.sdp.curr * 0.5);
     }
   }
 
@@ -338,27 +360,6 @@ export class MaxMetalVehicle {
     return false;
   }
 
-  /**
-   * MAX METAL pg 14
-   * Ospreys and airplanes can have
-   * a maximum SP armor of 1/4 their SDP. Airships can't be armored, an airship
-   * gondala can, but the gasbag can't; and the gasbag is hit 90% of the time,
-   * unless specifically aiming for the gondala.
-   * @memberof MaxmetalService
-   */
-  calculateSP() {
-    // Airships can't be armored.
-    if (this.type.name.toUpperCase() === 'AIRSHIP') {
-      this.sp.max = 0;
-    } else if (
-      this.type.name.toUpperCase() === 'OSPREY' ||
-      this.type.name.toUpperCase().indexOf('PLANE') > -1
-    ) {
-      this.sp.max = Math.round(this.sdp.curr * 0.25);
-    } else {
-      this.sp.max = Math.round(this.sdp.curr * 0.5);
-    }
-  }
 
 
   /**

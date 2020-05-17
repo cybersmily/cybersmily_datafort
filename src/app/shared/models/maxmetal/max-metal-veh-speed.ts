@@ -45,24 +45,24 @@ export class MaxMetalVehSpeed implements MaxMetalVehStat {
   }
 
   get curr(): number {
-    return this._curr * this.spMod;
+    return Math.floor(this._curr);
   }
 
   get max(): number {
-    return Math.ceil(this.base * 2 * this.spMod);
+    return Math.ceil(this.base * 2);
   }
 
   get min(): number {
-    return Math.ceil(this.base * 0.1 * this.spMod);
+    return Math.ceil(this.base * 0.1);
   }
 
   get costModifier(): number {
     let mod = 1;
-    const base = this.base * this.spMod;
+    const base = this._base;
     // caculate the eb cost
-    if (this.curr > base && base > 0) {
+    if (this.curr > this.base && this.base > 0) {
       // increase SDP by 25% per 10% of speed
-      const delta = this.curr - base;
+      const delta = this.curr - this.base;
       const percent = Math.floor((delta / base) * 10);
       mod = (1 + (0.25 * percent));
     } else if (this.curr < base) {

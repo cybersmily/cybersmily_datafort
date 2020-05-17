@@ -53,7 +53,7 @@
           [maxDisabled]="disableInput || vehicle.availableSpaces &lt; 1" [minDisabled]="disableInput"></cs-mminput>
       </div>
       <div class="col-sm-12 col-md-6">
-        <cs-mminput label="Top Speed ( {{vehicle.speed.base}} mph)" [min]="vehicle.speed.min" [max]="vehicle.speed.max"
+        <cs-mminput label="Top Speed ({{vehicle.speed.base}} mph)" [min]="vehicle.speed.min" [max]="vehicle.speed.max"
           [inputValue]="vehicle.speed.curr" [increment]="1" (changeValue)="changeSpeed($event)"
           [maxDisabled]="disableInput || vehicle.availableSpaces &lt; 1" [minDisabled]="disableInput">
         </cs-mminput>
