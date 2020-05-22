@@ -36,17 +36,17 @@ describe('Cp2020ArmorBlock', () => {
     metalGear = {
       name: 'MetalGear',
       head: 25, torso: 25, rarm: 25, larm: 25, rleg: 25,  lleg: 25,
-      isHard: true, isActive: false, ev: -2,  isSkinWeave: false
+      isHard: true, isActive: false, ev: 2,  isSkinWeave: false
     };
     steelHelmet = {
       name: 'Steel Helmet',
       head: 14, torso: 0, rarm: 0, larm: 0, rleg: 0,  lleg: 0,
-      isHard: true, isActive: false, ev: -2,  isSkinWeave: false
+      isHard: true, isActive: false, ev: 2,  isSkinWeave: false
     };
     heavyArmorJacket = {
       name: 'Heavy Armor Jacket',
       head: 0, torso: 20, rarm: 20, larm: 20, rleg: 0,  lleg: 0,
-      isHard: false, isActive: false, ev: -2,  isSkinWeave: false
+      isHard: false, isActive: false, ev: 2,  isSkinWeave: false
     };
     lightArmorJacket = {
       name: 'Light Armor Jacket',
@@ -56,12 +56,12 @@ describe('Cp2020ArmorBlock', () => {
     flakVest = {
       name: 'Flak Vest',
       head: 0, torso: 20, rarm: 0, larm: 0, rleg: 0,  lleg: 0,
-      isHard: true, isActive: false, ev: -1,  isSkinWeave: false
+      isHard: true, isActive: false, ev: 1,  isSkinWeave: false
     };
     flakPants = {
       name: 'Flak Pants',
       head: 0, torso: 0, rarm: 0, larm: 0, rleg: 20,  lleg: 20,
-      isHard: true, isActive: false, ev: -1,  isSkinWeave: false
+      isHard: true, isActive: false, ev: 1,  isSkinWeave: false
     };
     armorStockings = {
       name: 'Armor Stockings',
@@ -137,19 +137,19 @@ describe('Cp2020ArmorBlock', () => {
     expect(armorBlock.hasThreeLayer('torso')).toBeFalsy();
     // activate a MetalGear
     armorBlock.activateLayer(metalGear);
-    expect(armorBlock.ev).toBe(-3);
+    expect(armorBlock.ev).toBe(3);
     expect(armorBlock.torsoSP).toBe(30);
     expect(armorBlock.hasHardLayer('torso')).toBeTruthy();
     expect(armorBlock.hasThreeLayer('torso')).toBeTruthy();
     expect(armorBlock.hasThreeLayer('head')).toBeFalsy();
     // should fail to add
     armorBlock.activateLayer(lightArmorJacket);
-    expect(armorBlock.ev).toBe(-3);
+    expect(armorBlock.ev).toBe(3);
     expect(armorBlock.rArmSP).toBe(28);
     expect(armorBlock.activeLayers.length).toBe(3);
     // should succeed
     armorBlock.activateLayer(armorStockings);
-    expect(armorBlock.ev).toBe(-3); // stocking shouldn't count as subdermal and metal gear is top
+    expect(armorBlock.ev).toBe(3); // stocking shouldn't count as subdermal and metal gear is top
     expect(armorBlock.rLegSP).toBe(28);
     expect(armorBlock.activeLayers.length).toBe(4);
   });
@@ -170,7 +170,7 @@ describe('Cp2020ArmorBlock', () => {
     armorBlock.activateLayer(armorStockings);
     armorBlock.removeLayer(subdermalArmor);
     expect(armorBlock.activeLayers.length).toBe(3);
-    expect(armorBlock.ev).toBe(-3);
+    expect(armorBlock.ev).toBe(3);
     expect(armorBlock.torsoSP).toBe(28);
     expect(armorBlock.hasHardLayer('torso')).toBeTruthy();
     expect(armorBlock.hasThreeLayer('torso')).toBeFalsy();

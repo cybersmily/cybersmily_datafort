@@ -1,4 +1,5 @@
-import { FormsModule } from '@angular/forms';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppCharacterArmorComponent } from './app-character-armor.component';
@@ -10,7 +11,8 @@ describe('AppCharacterArmorComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AppCharacterArmorComponent ],
-      imports: [ FormsModule]
+      imports: [CommonUiModule],
+      providers: [BsModalService]
     })
     .compileComponents();
   }));

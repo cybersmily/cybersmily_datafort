@@ -1,4 +1,4 @@
-import { Cp2020ArmorLayer } from 'src/app/shared/models/cp2020character/cp2020-armor-block';
+import { Cp2020ArmorLayer } from './../../shared/models/cp2020character/cp2020-armor-block';
 import { ArmorLayer } from './../../shared/models/gear/armor-layer';
 import { Cp2020ArmorBlock } from './../../shared/models/cp2020character/cp2020-armor-block';
 import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';

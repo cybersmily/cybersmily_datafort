@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CmbtTrckArmorComponent } from './cmbt-trck-armor.component';
@@ -8,7 +9,8 @@ describe('CmbtTrckArmorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CmbtTrckArmorComponent ]
+      declarations: [ CmbtTrckArmorComponent ],
+      imports: [CommonUiModule]
     })
     .compileComponents();
   }));

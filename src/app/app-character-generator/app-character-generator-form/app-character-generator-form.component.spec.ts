@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { BsModalService, ModalModule } from 'ngx-bootstrap';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -5,7 +6,6 @@ import { DataService } from './../../shared/services/data.service';
 import { AppCharacterWoundLevelComponent } from './../app-character-wound-level/app-character-wound-level.component';
 import { AppCharacterCyberwareComponent } from './../app-character-cyberware/app-character-cyberware.component';
 import { AppCharacterSkillComponent } from './../app-character-skill/app-character-skill.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppCharacterArmorComponent } from './../app-character-armor/app-character-armor.component';
 import { AppCharacterWeaponsComponent } from './../app-character-weapons/app-character-weapons.component';
 import { AppCharacterStatsComponent } from './../app-character-stats/app-character-stats.component';
@@ -14,7 +14,6 @@ import { AppCharacterRoleComponent } from './../app-character-role/app-character
 import { AppCharacterLifepathComponent } from './../app-character-lifepath/app-character-lifepath.component';
 import { AppCharacterImageComponent } from './../app-character-image/app-character-image.component';
 import { AppCharacterHandleComponent } from './../app-character-handle/app-character-handle.component';
-import { FormsModule } from '@angular/forms';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppCharacterGeneratorFormComponent } from './app-character-generator-form.component';
@@ -44,8 +43,7 @@ describe('AppCharacterGeneratorFormComponent', () => {
         AppCharacterCyberwareComponent
       ],
       imports: [
-        FormsModule,
-        FontAwesomeModule,
+        CommonUiModule,
         HttpClientModule,
         ModalModule.forRoot()
       ],

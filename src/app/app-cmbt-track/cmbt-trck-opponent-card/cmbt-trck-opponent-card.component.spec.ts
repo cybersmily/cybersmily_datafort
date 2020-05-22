@@ -1,3 +1,4 @@
+import { CmbtTrckArmorComponent } from './../cmbt-trck-armor/cmbt-trck-armor.component';
 import { CmbtTrckModSelectorComponent } from './../cmbt-trck-mod-selector/cmbt-trck-mod-selector.component';
 import { CmbtTrckModWpnComponent } from './../cmbt-trck-mod-wpn/cmbt-trck-mod-wpn.component';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
@@ -40,7 +41,8 @@ describe('CmbtTrckOpponentCardComponent', () => {
         CmbtTrkCyberComponent,
         CmbtTrckGearComponent,
         CmbtTrckModWpnComponent,
-        CmbtTrckModSelectorComponent
+        CmbtTrckModSelectorComponent,
+        CmbtTrckArmorComponent
       ],
       imports: [
         CommonUiModule,

@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';
 import { LifePathGeneratorService } from './../shared/services/lifepath/life-path-generator.service';
 import { EthnicityGeneratorService } from './../shared/services/lifepath/ethnicity-generator.service';
 import { FamilyGeneratorService } from './../shared/services/lifepath/family-generator.service';
@@ -7,8 +8,6 @@ import { LifeEventsGeneratorService } from '../shared/services/lifepath/life-eve
 import { DataService } from './../shared/services/data.service';
 import { DiceService } from './../shared/services/dice/dice.service';
 import { ModalModule, BsModalRef } from 'ngx-bootstrap/modal';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -47,9 +46,8 @@ import { AppCharacterWoundLevelComponent } from './app-character-wound-level/app
   ],
   imports: [
     CommonModule,
-    FormsModule,
+    CommonUiModule,
     AppCharacterGeneratorRoutingModule,
-    FontAwesomeModule,
     ModalModule.forRoot()
   ],
   providers: [

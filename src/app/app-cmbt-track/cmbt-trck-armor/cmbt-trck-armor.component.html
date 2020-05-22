@@ -11,7 +11,7 @@
 </div>
 <div *ngFor="let layer of armorBlock.layers; let i = index"  class="row">
   <div class="col-4">
-    <input type="checkbox" [(ngModel)]="layer.isActive"
+    <input [(ngModel)]="layer.isActive" type="checkbox"
       title="Activate the layer. May not activate if 3 layer rule or if doubling up on hard armor for the layer."
       (click)="activateLayer(i)"
       >{{layer.name}}

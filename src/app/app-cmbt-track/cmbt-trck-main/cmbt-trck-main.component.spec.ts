@@ -1,3 +1,4 @@
+import { CmbtTrckArmorComponent } from './../cmbt-trck-armor/cmbt-trck-armor.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { CmbtTrckModSelectorComponent } from './../cmbt-trck-mod-selector/cmbt-trck-mod-selector.component';
@@ -52,7 +53,8 @@ describe('CmbtTrckMainComponent', () => {
         CmbtTrckGearComponent,
         CmbtTrckInstructionsComponent,
         CmbtTrckModWpnComponent,
-        CmbtTrckModSelectorComponent
+        CmbtTrckModSelectorComponent,
+        CmbtTrckArmorComponent
       ],
       providers: [
         DiceService,
