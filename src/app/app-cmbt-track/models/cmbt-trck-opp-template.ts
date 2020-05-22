@@ -1,6 +1,6 @@
+import { ArmorBlock } from './../../shared/models/gear/armor-block';
 import { OppCyberware } from './../../shared/models/cyberware';
 import { CpPlayerWeapon } from './../../shared/models/weapon';
-import { CmbtTrckOppTempArmor} from './';
 import { Cp2020PlayerSkill } from './../../shared/models/cp2020character';
 export interface CmbtTrckOppTemplate {
     handle: string;
@@ -14,7 +14,7 @@ export interface CmbtTrckOppTemplate {
     attr:  number;
     ma: number;
     emp:  number;
-    armor: CmbtTrckOppTempArmor;
+    armor: ArmorBlock;
     sa: Cp2020PlayerSkill;
     skills: Array<Cp2020PlayerSkill>;
     cyberware: Array<OppCyberware>;

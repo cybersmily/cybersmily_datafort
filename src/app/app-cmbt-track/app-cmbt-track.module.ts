@@ -27,6 +27,7 @@ import { CmbtTrckMainComponent } from './cmbt-trck-main/cmbt-trck-main.component
 import { CmbtTrckInstructionsComponent } from './cmbt-trck-instructions/cmbt-trck-instructions.component';
 import { CmbtTrckGearComponent } from './cmbt-trck-gear/cmbt-trck-gear.component';
 import { CmbtTrckModWpnComponent } from './cmbt-trck-mod-wpn/cmbt-trck-mod-wpn.component';
+import { CmbtTrckArmorComponent } from './cmbt-trck-armor/cmbt-trck-armor.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { CmbtTrckModWpnComponent } from './cmbt-trck-mod-wpn/cmbt-trck-mod-wpn.c
     CmbtTrckMainComponent,
     CmbtTrckInstructionsComponent,
     CmbtTrckGearComponent,
-    CmbtTrckModWpnComponent
+    CmbtTrckModWpnComponent,
+    CmbtTrckArmorComponent
   ],
   imports: [
     CommonUiModule,

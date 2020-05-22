@@ -10,10 +10,21 @@
   "body":7,
   "emp": 4,
   "armor": {
-    "head": 0,
-    "torso": 18,
-    "arms": 18,
-    "legs": 18
+    "layers": [
+      {
+        "name": "Gibson Battle Gear",
+        "head": 0,
+        "torso":14,
+        "rarm": 14,
+        "larm": 14,
+        "rleg": 16,
+        "lleg": 16,
+        "isHard": false,
+        "isActive": false,
+        "ev": 0,
+        "isSkinWeave": false
+        }
+    ]
   },
   "sa": {"name":"Authority", "stat": "cool", "value": 4},
   "skills": [

@@ -10,10 +10,35 @@
   "body":8,
   "emp": 3,
   "armor": {
-    "head": 12,
-    "torso": 17,
-    "arms": 12,
-    "legs": 12
+    "layers": [
+      {
+        "name": "Skinweave",
+        "head": 12,
+        "torso":12,
+        "rarm": 12,
+        "larm": 12,
+        "rleg": 12,
+        "lleg": 12,
+        "isHard": false,
+        "isActive": true,
+        "ev": 0,
+        "isSkinWeave": true
+        },
+
+      {
+        "name": "Kevlar T-Shirt",
+        "head": 0,
+        "torso":10,
+        "rarm": 0,
+        "larm": 0,
+        "rleg": 0,
+        "lleg": 0,
+        "isHard": false,
+        "isActive": true,
+        "ev": 0,
+        "isSkinWeave": false
+        }
+    ]
   },
   "sa": {"name":"Combat Sense", "value": 3},
   "skills": [

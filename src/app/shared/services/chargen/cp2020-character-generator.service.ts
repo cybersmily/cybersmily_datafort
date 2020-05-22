@@ -40,7 +40,7 @@ export class Cp2020CharacterGeneratorService {
       this._currCharacter.stats.import(value.stats);
     }
     if (value.armor) {
-      this._currCharacter.armor = value.armor;
+      this._currCharacter.armor = new Cp2020ArmorBlock(value.armor);
     }
     if (value.weapons) {
       this._currCharacter.weapons.items = new Array<CpPlayerWeapon>();

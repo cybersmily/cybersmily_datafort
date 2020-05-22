@@ -1,4 +1,4 @@
-import { OpponentArmor } from './../models/opponent-armor';
+import { Cp2020ArmorBlock } from './../../shared/models/cp2020character/cp2020-armor-block';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -9,10 +9,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class CmbtTrkSpComponent implements OnInit {
 
   @Input()
-  armor: OpponentArmor = { head: 0, torso: 0, rarm: 0, larm: 0, rleg: 0, lleg: 0 };
+  armor: Cp2020ArmorBlock = new Cp2020ArmorBlock();
 
   @Output()
-  updateArmor = new EventEmitter<OpponentArmor>();
+  updateArmor = new EventEmitter<Cp2020ArmorBlock>();
 
   constructor() { }
 

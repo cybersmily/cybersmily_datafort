@@ -10,10 +10,33 @@
   "body":8,
   "emp": 2,
   "armor": {
-    "head": 28,
-    "torso": 28,
-    "arms": 28,
-    "legs": 28
+    "layers": [
+      {
+        "name": "MetalGear",
+        "head": 25,
+        "torso":25,
+        "rarm": 25,
+        "larm": 25,
+        "rleg": 25,
+        "lleg": 25,
+        "isHard": true,
+        "isActive": true,
+        "ev": 2,
+        "isSkinWeave": false
+        },{
+          "name": "Skinweave",
+          "head": 12,
+          "torso":12,
+          "rarm": 12,
+          "larm": 12,
+          "rleg": 12,
+          "lleg": 12,
+          "isHard": false,
+          "isActive": true,
+          "ev": 0,
+          "isSkinWeave": true
+          }
+    ]
   },
   "sa": {"name":"Authority", "stat": "cool", "value": 6},
   "skills": [

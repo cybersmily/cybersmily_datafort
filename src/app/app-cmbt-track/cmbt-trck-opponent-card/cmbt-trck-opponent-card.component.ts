@@ -1,4 +1,4 @@
-import { OpponentArmor } from './../models/opponent-armor';
+import { Cp2020ArmorBlock } from './../../shared/models/cp2020character/cp2020-armor-block';
 import { CmbtTrckOppSelection } from './../models/cmbt-trck-opp-selection';
 import { CmbtTrckTemplate } from './../models/cmbt-trck-template';
 import { OppTemplateService } from './../services/opp-template.service';
@@ -85,7 +85,7 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
     this.updateOpponent.emit({index: this.index, opponent: this.opponent});
   }
 
-  changeArmor(armor: OpponentArmor) {
+  changeArmor(armor: Cp2020ArmorBlock) {
     this.opponent.armor = armor;
     this.updateOpponent.emit({index: this.index, opponent: this.opponent});
   }

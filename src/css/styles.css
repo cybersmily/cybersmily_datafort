@@ -35,6 +35,7 @@ SELECT option.font-italic {
 
 .csd-disabled {
   color: #BBB !important;
+  cursor: no-drop;
 }
 
 .csd-desc-sect {

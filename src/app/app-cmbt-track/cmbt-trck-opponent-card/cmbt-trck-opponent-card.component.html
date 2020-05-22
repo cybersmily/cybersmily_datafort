@@ -76,6 +76,12 @@
         <br>
       </div>
     </tab>
+    <tab heading="ARMOR" [customClass]="customClass">
+      <div class="csd-rounded">
+        <cs-cmbt-trck-armor [armorBlock]="opponent.armor" (changeArmorBlock)="changeArmor($event)"></cs-cmbt-trck-armor>
+        <br>
+      </div>
+    </tab>
     <tab heading="GEAR" [customClass]="customClass">
       <div class="csd-rounded">
         <cs-cmbt-trck-gear [gear]="opponent.gear" (newGear)="changeGear($event)"></cs-cmbt-trck-gear>

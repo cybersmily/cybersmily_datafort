@@ -1,3 +1,4 @@
+import { Cp2020ArmorBlock } from './../../shared/models/cp2020character/cp2020-armor-block';
 import { OppCyberware } from './../../shared/models/cyberware';
 import { CpPlayerWeapon } from './../../shared/models/weapon';
 import { Cp2020PlayerSkill, Cp2020StatBlock } from './../../shared/models/cp2020character';
@@ -11,7 +12,7 @@ export class CmbtTrckOpponent {
     initRoll: number;
     initDie: Array<number>;
     stats: Cp2020StatBlock;
-    armor: OpponentArmor;
+    armor: Cp2020ArmorBlock;
     sa: Cp2020PlayerSkill;
     cyberware: Array<OppCyberware>;
     private _skills: Array<Cp2020PlayerSkill>;
@@ -28,7 +29,7 @@ export class CmbtTrckOpponent {
         if (param && param.stats) {
           this.stats.import(param.stats);
         }
-        this.armor = (param && param.armor) ? param.armor : {head: 0, torso: 0, rarm: 0, larm: 0, rleg: 0, lleg: 0};
+        this.armor = (param && param.armor) ? new Cp2020ArmorBlock(param.armor) : new Cp2020ArmorBlock();
         this.cyberware = (param && param.cyberware) ? param.cyberware : new Array<OppCyberware>();
         this.sa = (param && param.sa) ? param.sa : new Cp2020PlayerSkill();
         this._skills = (param && param._skills) ? param._skills : new Array<Cp2020PlayerSkill>();
@@ -60,12 +61,8 @@ export class CmbtTrckOpponent {
       this.stats.EMP.Base = template.emp;
       this.stats.MA.Base = template.ma;
       // import armor
-      this.armor.head = template.armor.head;
-      this.armor.torso = template.armor.torso;
-      this.armor.larm = template.armor.arms;
-      this.armor.rarm = template.armor.arms;
-      this.armor.lleg = template.armor.legs;
-      this.armor.rleg = template.armor.legs;
+      this.armor.layers = template.armor.layers;
+      console.log(template.armor);
       this.sa = new Cp2020PlayerSkill(template.sa);
       template.skills.forEach( sk => {
         this._skills.push( new Cp2020PlayerSkill(sk));

@@ -10,10 +10,21 @@
   "body":7,
   "emp": 2,
   "armor": {
-    "head": 0,
-    "torso": 16,
-    "arms": 0,
-    "legs": 0
+    "layers": [
+      {
+        "name": "Subdermal Armor",
+        "head": 0,
+        "torso":16,
+        "rarm": 0,
+        "larm": 0,
+        "rleg": 0,
+        "lleg": 0,
+        "isHard": false,
+        "isActive": true,
+        "ev": 0,
+        "isSkinWeave": false
+        }
+    ]
   },
   "sa": {"name":"Combat Sense", "value": 4},
   "skills": [

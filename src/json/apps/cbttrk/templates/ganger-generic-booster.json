@@ -10,10 +10,21 @@
   "ma": 8,
   "emp": 2,
   "armor": {
-    "head": 0,
-    "torso": 0,
-    "arms": 0,
-    "legs": 0
+    "layers": [
+      {
+        "name": "",
+        "head": 0,
+        "torso":0,
+        "rarm": 0,
+        "larm": 0,
+        "rleg": 0,
+        "lleg": 0,
+        "isHard": false,
+        "isActive": false,
+        "ev": 0,
+        "isSkinWeave": false
+        }
+    ]
   },
   "sa": {"name":"Combat Sense", "stat": "REF", "value": 4},
   "skills": [

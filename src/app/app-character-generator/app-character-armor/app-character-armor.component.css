@@ -24,3 +24,15 @@
   height: 45px;
   width: 60px;
 }
+
+.modal-body {
+  font-size: 10px;
+}
+
+.modal-body INPUT[type=number]{
+  width: 40px;
+}
+
+.modal-dialog {
+  background-color: white;
+}

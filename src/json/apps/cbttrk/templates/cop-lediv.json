@@ -10,10 +10,21 @@
   "body":7,
   "emp": 6,
   "armor": {
-    "head": 0,
-    "torso": 13,
-    "arms": 13,
-    "legs": 13
+    "layers": [
+      {
+        "name": "Executive Line clothing armored",
+        "head": 0,
+        "torso":13,
+        "rarm": 13,
+        "larm": 13,
+        "rleg": 13,
+        "lleg": 13,
+        "isHard": false,
+        "isActive": true,
+        "ev": 0,
+        "isSkinWeave": false
+        }
+    ]
   },
   "sa": {"name":"Authority", "stat": "cool", "value": 6},
   "skills": [

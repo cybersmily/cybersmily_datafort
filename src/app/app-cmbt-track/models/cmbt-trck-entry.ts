@@ -1,9 +1,9 @@
+import { ArmorBlock } from './../../shared/models/gear/armor-block';
 import { CpWeapon } from './../../shared/models/weapon/cp-weapon';
 
-import {  CmbtTrckOppTempArmor } from './';
 export interface CmbtTrckEntry {
   name: string;
-  armor?: CmbtTrckOppTempArmor;
+  armor?: ArmorBlock;
   ev?: number;
   choices?: Array<CpWeapon>;
   options?: Array<string>;

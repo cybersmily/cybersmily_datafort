@@ -17,7 +17,7 @@
 <div class="chargen-stat-section">
   <span [ngClass]="{'chargen-stat-dmged': (stats.Damage > 8)}">INT</span>
   [<input [(ngModel)]="stats.INT.Base" (change)="onStatChange()" min="0" max="15" class="chargen-stat-input" type="number">
-  /<span [ngClass]="{'chargen-stat-dmged': (stats.Damage > 8)}">{{stats.INT.Adjusted}}</span>]
+  /<span [ngClass]="{'chargen-stat-dmged': (stats.Damage > 8)}" >{{stats.INT.Adjusted}}</span>]
 
   <span [ngClass]="{'chargen-stat-dmged': (stats.Damage > 4)}">REF</span>
   [<input [(ngModel)]="stats.REF.Base" (change)="onStatChange()" min="0" max="25" class="chargen-stat-input" type="number">
