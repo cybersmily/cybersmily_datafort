@@ -1,4 +1,5 @@
-import { Cp2020ArmorBlock, Cp2020ArmorLayer } from './cp2020-armor-block';
+import { Cp2020ArmorBlock} from './cp2020-armor-block';
+import {Cp2020ArmorLayer} from './cp2020-armor-layer';
 import { TestBed } from '@angular/core/testing';
 
 describe('Cp2020ArmorBlock', () => {

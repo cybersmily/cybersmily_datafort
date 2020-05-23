@@ -1,5 +1,13 @@
 ﻿{
   "news": [{
+    "date": "2020-06",
+    "entries": [
+      "<strong>06-01</strong> - Fixed a bunch of bugs. Added an armor management contorls for the Cyberpunk 2020 combat tracker and character generator.",
+      "Stay safe gatos. The dark future is upon us!",
+      "CYBER :D"
+    ]
+  },
+  {
       "date": "2020-05",
       "entries": [
         "<strong>05-09</strong> - Quick update with fixes for some the apps. Been working on creating better unit tests to help with preventing some of the silly bugs I have done in the site.",
