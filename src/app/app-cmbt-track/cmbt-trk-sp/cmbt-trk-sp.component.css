@@ -22,3 +22,11 @@
   padding: 0px 0px;
   border: solid 1px black;
 }
+.armor-dmg input{
+  width: 40px;
+  text-align: center;
+}
+
+.armor-dmg, .armor-dmg button {
+  font-size: 10px;
+}

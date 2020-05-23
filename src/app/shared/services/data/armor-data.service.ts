@@ -2,7 +2,7 @@ import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { DataService } from './../data.service';
 import { Injectable } from '@angular/core';
-import { Cp2020ArmorLayer } from '../../models/cp2020character/cp2020-armor-block';
+import { Cp2020ArmorLayer } from '../../models/cp2020character/cp2020-armor-layer';
 
 @Injectable({
   providedIn: 'root'

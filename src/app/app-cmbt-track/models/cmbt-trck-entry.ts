@@ -1,4 +1,4 @@
-import { ArmorBlock } from './../../shared/models/gear/armor-block';
+import { ArmorBlock } from '../../shared/models/armor/armor-block';
 import { CpWeapon } from './../../shared/models/weapon/cp-weapon';
 
 export interface CmbtTrckEntry {

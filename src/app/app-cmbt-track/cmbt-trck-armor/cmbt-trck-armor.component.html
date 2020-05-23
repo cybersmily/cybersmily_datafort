@@ -7,10 +7,7 @@
       (click)="activateLayer(i)"
       >{{layer.name}}({{layer.isHard ? 'Hard Armor':'Soft Armor'}})
   </div>
-  <div class="col-1">
-    Head<br>
-    <input [(ngModel)]="layer.head" type="number" min="0" (change)="updateArmorBlock()">
-  </div>
+  <div class="col-1">Head<br><input [(ngModel)]="layer.head" type="number" min="0" (change)="updateArmorBlock()"></div>
   <div class="col-1">Torso<br><input [(ngModel)]="layer.torso" type="number" min="0" (change)="updateArmorBlock()"></div>
   <div class="col-1">RArm<br><input [(ngModel)]="layer.rarm" type="number" min="0" (change)="updateArmorBlock()"></div>
   <div class="col-1">LArm<br><input [(ngModel)]="layer.larm" type="number" min="0" (change)="updateArmorBlock()"></div>
@@ -34,12 +31,12 @@
         </fa-icon>&nbsp;
         Name<br><input [(ngModel)]="newArmorLayer.name" type="text">
       </div>
-      <div class="col-1">Head <br><input [(ngModel)]="newArmorLayer.head" type="number" min="0"></div>
+      <div class="col-1">Head <br><input [(ngModel)]="newArmorLayer.head" type="number" min="0" ></div>
       <div class="col-1">Torso<br><input [(ngModel)]="newArmorLayer.torso" type="number" min="0"></div>
-      <div class="col-1">RArm <br><input [(ngModel)]="newArmorLayer.rarm" type="number" min="0"></div>
-      <div class="col-1">LArm <br><input [(ngModel)]="newArmorLayer.larm" type="number" min="0"></div>
-      <div class="col-1">RLeg <br><input [(ngModel)]="newArmorLayer.rleg" type="number" min="0"></div>
-      <div class="col-1">LLeg <br><input [(ngModel)]="newArmorLayer.lleg" type="number" min="0"></div>
+      <div class="col-1">RArm <br><input [(ngModel)]="newArmorLayer.rarm" type="number" min="0" ></div>
+      <div class="col-1">LArm <br><input [(ngModel)]="newArmorLayer.larm" type="number" min="0" ></div>
+      <div class="col-1">RLeg <br><input [(ngModel)]="newArmorLayer.rleg" type="number" min="0" ></div>
+      <div class="col-1">LLeg <br><input [(ngModel)]="newArmorLayer.lleg" type="number" min="0" ></div>
     </div>
     <br>
     <div class="row">

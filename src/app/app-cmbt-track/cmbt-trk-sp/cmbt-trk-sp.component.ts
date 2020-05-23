@@ -14,6 +14,8 @@ export class CmbtTrkSpComponent implements OnInit {
   @Output()
   updateArmor = new EventEmitter<Cp2020ArmorBlock>();
 
+  spDamage = 0;
+  selectedLocation = '';
   constructor() { }
 
   ngOnInit() {
@@ -21,6 +23,11 @@ export class CmbtTrkSpComponent implements OnInit {
 
   changeArmor() {
     this.updateArmor.emit(this.armor);
+  }
+
+  damage() {
+    this.armor.damageSP(this.selectedLocation, this.spDamage);
+    this.changeArmor();
   }
 
 }

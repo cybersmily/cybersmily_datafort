@@ -14,17 +14,28 @@
     <tr>
       <td class="chargen-label chargen-armor-label">Armor SP</td>
       <td class="chargen-armor-space"></td>
-      <td class="chargen-armor-cell">{{armor.headSP}}</td>
-      <td class="chargen-armor-cell">{{armor.torsoSP}}</td>
-      <td class="chargen-armor-cell">{{armor.rArmSP}}</td>
-      <td class="chargen-armor-cell">{{armor.lArmSP}}</td>
-      <td class="chargen-armor-cell">{{armor.rLegSP}}</td>
-      <td class="chargen-armor-cell">{{armor.lLegSP}}</td>
+      <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'head'">{{armor.headSP}}</td>
+      <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'torso'">{{armor.torsoSP}}</td>
+      <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'rarm'">{{armor.rArmSP}}</td>
+      <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'larm'">{{armor.lArmSP}}</td>
+      <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'rleg'">{{armor.rLegSP}}</td>
+      <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'lleg'">{{armor.lLegSP}}</td>
       <td class="chargen-armor-cell">+{{armor.ev}}</td>
     </tr>
   </table>
   <button class="btn btn-sm btn-secondary csd-rounded hidden-print" (click)="openModal(armorModal)">Manage Armor</button>
 </div>
+
+<ng-template #armorDamage>
+  <div class="row armor-dmg">
+    <div class="col-1"></div>
+    <div class="col">SP Damage: <input [(ngModel)]="spDamage" type="number" value="1">
+      &nbsp;&nbsp;
+      <button class="btn btn-sm btn-secondary csd-rounded" (click)="damage()">Apply</button></div>
+    <div class="col-1"></div>
+  </div>
+</ng-template>
+
 <ng-template #armorModal>
     <div class="modal-header">
       <h4 id="armor-modal-name" class="modal-title pull-left">Armor Manager</h4>

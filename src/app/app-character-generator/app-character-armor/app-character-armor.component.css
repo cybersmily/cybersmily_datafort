@@ -36,3 +36,12 @@
 .modal-dialog {
   background-color: white;
 }
+
+.armor-dmg input{
+  width: 40px;
+  text-align: center;
+}
+
+.armor-dmg, .armor-dmg button {
+  font-size: 10px;
+}

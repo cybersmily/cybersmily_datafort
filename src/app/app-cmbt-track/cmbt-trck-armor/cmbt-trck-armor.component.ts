@@ -1,5 +1,5 @@
-import { Cp2020ArmorLayer } from './../../shared/models/cp2020character/cp2020-armor-block';
-import { ArmorLayer } from './../../shared/models/gear/armor-layer';
+import { Cp2020ArmorLayer } from './../../shared/models/cp2020character/cp2020-armor-layer';
+import { ArmorLayer } from '../../shared/models/armor/armor-layer';
 import { Cp2020ArmorBlock } from './../../shared/models/cp2020character/cp2020-armor-block';
 import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';

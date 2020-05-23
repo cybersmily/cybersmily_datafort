@@ -2,7 +2,7 @@ import { faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Cp2020ArmorBlock } from './../../shared/models/cp2020character';
 import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
-import { Cp2020ArmorLayer } from './../../shared/models/cp2020character/cp2020-armor-block';
+import { Cp2020ArmorLayer } from './../../shared/models/cp2020character/cp2020-armor-layer';
 
 @Component({
   selector: 'cs-app-character-armor',
@@ -26,6 +26,8 @@ export class AppCharacterArmorComponent implements OnInit {
   changeArmor = new EventEmitter<Cp2020ArmorBlock>();
 
   newLayer = new Cp2020ArmorLayer();
+  selectedLocation = '';
+  spDamage = 0;
 
   constructor(private modalService: BsModalService) { }
 
@@ -68,6 +70,11 @@ export class AppCharacterArmorComponent implements OnInit {
     } else {
       this.armor.activateLayer(layer);
     }
+    this.onChangeArmor();
+  }
+
+  damage() {
+    this.armor.damageSP(this.selectedLocation, this.spDamage);
     this.onChangeArmor();
   }
 
