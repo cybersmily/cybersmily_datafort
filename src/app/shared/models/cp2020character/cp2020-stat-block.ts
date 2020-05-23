@@ -190,16 +190,20 @@ export class Cp2020StatBlock implements Cp2020Stats {
     this.DeathSaveMod = ( this.DeathSaveMod < 0 ) ? 0 : this.DeathSaveMod;
     if (this._damage > 4 && this._damage < 9) {
       this.REF.WoundModifier = -2;
+      this.REF.Multiplier = 1;
       this.WoundLevel = Cp2020_WOUND_LEVELS.SERIOUS;
     } else if (this._damage > 0 && this._damage < 5) {
       this.REF.WoundModifier = 0;
+      this.REF.Multiplier = 1;
       this.WoundLevel = Cp2020_WOUND_LEVELS.LIGHT;
     } else if (this._damage > 8 && this._damage < 13) {
       this.WoundLevel = Cp2020_WOUND_LEVELS.CRITICAL;
+      this.REF.WoundModifier = 0;
       this.REF.Multiplier = 0.5;
       this.INT.Multiplier = 0.5;
       this.COOL.Multiplier = 0.5;
     } else if ( this._damage > 12 ) {
+      this.REF.WoundModifier = 0;
       this.REF.Multiplier = 0.33;
       this.INT.Multiplier = 0.33;
       this.COOL.Multiplier = 0.33;

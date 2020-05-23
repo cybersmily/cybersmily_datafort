@@ -28,18 +28,22 @@ export class CmbtTrckArmorComponent implements OnInit {
 
   addLayer() {
     this.armorBlock.addLayer(this.newArmorLayer);
-    this.changeArmorBlock.emit(this.armorBlock);
+    this.updateArmorBlock();
   }
 
   removeLayer(index: number) {
     const layer = this.armorBlock.layers[index];
     this.armorBlock.removeLayer(layer);
-    this.changeArmorBlock.emit(this.armorBlock);
+    this.updateArmorBlock();
   }
 
   activateLayer(index: number) {
     const layer = this.armorBlock.layers[index];
     this.armorBlock.activateLayer(layer);
+    this.updateArmorBlock();
+  }
+
+  updateArmorBlock() {
     this.changeArmorBlock.emit(this.armorBlock);
   }
 

@@ -30,6 +30,7 @@ export class CmbtTrckOpponent {
           this.stats.import(param.stats);
         }
         this.armor = (param && param.armor) ? new Cp2020ArmorBlock(param.armor) : new Cp2020ArmorBlock();
+        this.stats.REF.ev = this.armor.ev;
         this.cyberware = (param && param.cyberware) ? param.cyberware : new Array<OppCyberware>();
         this.sa = (param && param.sa) ? param.sa : new Cp2020PlayerSkill();
         this._skills = (param && param._skills) ? param._skills : new Array<Cp2020PlayerSkill>();

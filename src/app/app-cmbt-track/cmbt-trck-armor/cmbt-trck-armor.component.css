@@ -1,5 +1,6 @@
 INPUT[type=number]{
   width: 40px;
+  text-align: right;
 }
 
 .cmbt-trk-armor {

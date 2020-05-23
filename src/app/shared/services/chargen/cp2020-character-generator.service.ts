@@ -41,6 +41,7 @@ export class Cp2020CharacterGeneratorService {
     }
     if (value.armor) {
       this._currCharacter.armor = new Cp2020ArmorBlock(value.armor);
+      this._currCharacter.stats.REF.ev = this._currCharacter.armor.ev;
     }
     if (value.weapons) {
       this._currCharacter.weapons.items = new Array<CpPlayerWeapon>();
@@ -115,6 +116,7 @@ export class Cp2020CharacterGeneratorService {
 
   changeArmor(value: Cp2020ArmorBlock) {
     this._currCharacter.armor = value;
+    this._currCharacter.stats.REF.ev = this._currCharacter.armor.ev;
     this.updateCharacter();
   }
 

@@ -15,31 +15,42 @@
   <div class="chargen-label chargen-stats">STATS</div>
 </div>
 <div class="chargen-stat-section">
-  <span [ngClass]="{'chargen-stat-dmged': (stats.Damage > 8)}">INT</span>
+  <span [ngClass]="{'chargen-stat-dmged': (stats.Damage > 8)}" title="{{stats.INT.toString()}}">INT
   [<input [(ngModel)]="stats.INT.Base" (change)="onStatChange()" min="0" max="15" class="chargen-stat-input" type="number">
   /<span [ngClass]="{'chargen-stat-dmged': (stats.Damage > 8)}" >{{stats.INT.Adjusted}}</span>]
+</span>
 
-  <span [ngClass]="{'chargen-stat-dmged': (stats.Damage > 4)}">REF</span>
+  <span [ngClass]="{'chargen-stat-dmged': (stats.Damage > 4)}" title="{{stats.REF.toString()}}">REF
   [<input [(ngModel)]="stats.REF.Base" (change)="onStatChange()" min="0" max="25" class="chargen-stat-input" type="number">
   /<span [ngClass]="{'chargen-stat-dmged': (stats.Damage > 4)}">{{stats.REF.Adjusted}}</span>]
-
+</span>
+  <span title="{{stats.TECH.toString()}}">
   TECH [<input [(ngModel)]="stats.TECH.Base" (change)="onStatChange()" min="0" max="15" class="chargen-stat-input" type="number">
   /{{stats.TECH.Adjusted}}]
+  </span>
 
-  <span [ngClass]="{'chargen-stat-dmged': (stats.Damage > 8)}">COOL</span>
+  <span [ngClass]="{'chargen-stat-dmged': (stats.Damage > 8)}" title="{{stats.COOL.toString()}}">COOL
   [<input [(ngModel)]="stats.COOL.Base" (change)="onStatChange()" min="0" max="15" class="chargen-stat-input" type="number">
   /<span [ngClass]="{'chargen-stat-dmged': (stats.Damage > 8)}">{{stats.COOL.Adjusted}}</span>]
-
+  </span>
 </div>
 <div class="chargen-stat-section">
+  <span title="{{stats.ATTR.toString()}}">
   ATTR [<input [(ngModel)]="stats.ATTR.Base" (change)="onStatChange()" min="0" max="15" class="chargen-stat-input" type="number">
   /{{stats.ATTR.Adjusted}}]
+</span>
+<span title="{{stats.LUCK.toString()}}">
   LUCK [<input [(ngModel)]="stats.LUCK.Base" (change)="onStatChange()" min="0" max="10" class="chargen-stat-input" type="number">
   /{{stats.LUCK.Adjusted}}]
+</span>
+<span title="{{stats.MA.toString()}}">
   MA [<input [(ngModel)]="stats.MA.Base" (change)="onStatChange()"  min="0" max="30" class="chargen-stat-input" type="number">
   /{{stats.MA.Adjusted}}]
+</span>
+<span title="{{stats.BODY.toString()}}">
   BODY[<input [(ngModel)]="stats.BODY.Base" (change)="onStatChange()" min="0" max="60" class="chargen-stat-input" type="number">
   /{{stats.BODY.Adjusted}}]
+  </span>
 </div>
 <div class="chargen-stat-section">
   EMP [<input [(ngModel)]="stats.EMP.Base" (change)="onStatChange()" min="0" max="10" class="chargen-stat-input" type="number">

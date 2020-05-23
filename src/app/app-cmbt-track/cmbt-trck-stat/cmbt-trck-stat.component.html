@@ -1,11 +1,11 @@
 <span class="opp-stat">
-  <span [ngClass]="{'opp-wounded': isWounded}">{{statName}}</span>: {{stat.Adjusted}}[
+  <span [ngClass]="{'opp-wounded': isWounded}" title="{{stat.toString()}}">{{statName}}: {{stat.Adjusted}}[
   <input [(ngModel)]="stat.Base" type="number" min="0" class="csd-hide-spinner text-center cbttrk-input"
     title="Base stat of the opponent."
   /> +
   <input [(ngModel)]="stat.Modifier" type="number" class="csd-hide-spinner text-center cbttrk-input" (change)="onChangeModifier()"
   title="Modifier to the stat. Note: Cyberware hasn't been added. You need to manually add those modifiers."
-  />]
+  />]</span>
   <fa-icon [icon]="faDice" class="csd-dice"
   [popoverTitle]="statName + ' ' + stat.Adjusted + ' - Roll or Save'"
   [popover]="dieRolls" [outsideClick]="true" containerClass="csd-rounded csd-popover"

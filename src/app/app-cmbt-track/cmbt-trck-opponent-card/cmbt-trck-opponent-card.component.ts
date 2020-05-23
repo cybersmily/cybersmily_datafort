@@ -87,6 +87,7 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
 
   changeArmor(armor: Cp2020ArmorBlock) {
     this.opponent.armor = armor;
+    this.opponent.stats.REF.ev = this.opponent.armor.ev;
     this.updateOpponent.emit({index: this.index, opponent: this.opponent});
   }
 
