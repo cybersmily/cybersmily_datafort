@@ -67,7 +67,12 @@ export class Cp2020ArmorBlock implements ArmorBlock {
     }
 
     addLayer(layer: Cp2020ArmorLayer) {
-      this.layers.push(layer);
+      if (layer.isActive && this.layers.length > 2) {
+        layer.isActive = false;
+      }
+      if (!this.layers.some(l => l.name === layer.name)) {
+        this.layers.push(layer);
+      }
     }
 
     activateLayer(layer: Cp2020ArmorLayer) {

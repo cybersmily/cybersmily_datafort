@@ -13,7 +13,7 @@ import { faDice, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { CmbtTrckOpponent, } from './../models';
 import { CpPlayerWeapon } from './../../shared/models/weapon';
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
-import { Cp2020ArmorLayer } from 'src/app/shared/models/cp2020character/cp2020-armor-layer';
+import { Cp2020ArmorLayer } from './../../shared/models/cp2020character/cp2020-armor-layer';
 
 @Component({
   selector: 'cs-cmbt-trck-opponent-card',
@@ -103,9 +103,13 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
     this.opponent.cyberware = cyber;
     // add any armor to as layers
     this.opponent.cyberware.filter( c => c.armor)
-    .forEach( c =>
-      this.opponent.armor.addLayer( new Cp2020ArmorLayer(c.armor))
-    );
+    .forEach( c => {
+      const a = new Cp2020ArmorLayer(c.armor);
+      a.name = c.name;
+      a.isActive = true;
+      a.isSkinWeave = c.name.toLowerCase().includes('skinweave');
+      this.opponent.armor.addLayer(a);
+    });
     this.updateOpponent.emit({index: this.index, opponent: this.opponent});
   }
 

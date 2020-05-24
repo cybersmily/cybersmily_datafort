@@ -1,4 +1,12 @@
 <div class="cmbt-trk-armor container">
+  <div class='row'>
+    <div class='col-12'>
+      <h6>
+        ARMOR &nbsp;
+        <fa-icon [icon]="faDice" class="csd-btn csd-dice" (click)="generate()" title="Roll for armor"></fa-icon>
+      </h6>
+    </div>
+  </div>
 <div *ngFor="let layer of armorBlock.layers; let i = index"  class="row">
   <div class="col-12 col-lg-4">
     <br>

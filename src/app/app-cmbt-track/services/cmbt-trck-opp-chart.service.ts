@@ -51,10 +51,21 @@ export class CmbtTrckOppChartService {
   }
 
 
-  generateArmor(): CmbtTrckEntry {
+  generateArmor(): Observable<CmbtTrckEntry> {
+    if (this._curCharts) {
+      return of(this.getArmor());
+    }
+    return this.getData()
+    .pipe( map( chart => {
+      return this.getArmor();
+    }));
+  }
+
+  private getArmor(): CmbtTrckEntry {
     const die = this.dice.generateNumber(0, this._curCharts.armor.chart.length);
     const value = this._curCharts.armor.chart[die];
-    return this._curCharts.armor.values.find( w => w.name === value);
+    const result = this._curCharts.armor.values[value];
+    return result;
   }
 
 
@@ -92,6 +103,7 @@ export class CmbtTrckOppChartService {
     const cyber = new OppCyberware();
     if (found) {
       cyber.name = found.name;
+      cyber.armor = found.armor;
       // roll for options
       if (found.options && found.optLimit) {
         const lmt = this.dice.generateNumber(0, found.optLimit);
