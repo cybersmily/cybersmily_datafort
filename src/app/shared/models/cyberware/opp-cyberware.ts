@@ -7,6 +7,7 @@ export class OppCyberware implements BaseCyberware {
   hc: string;
   surgery: string;
   options?: string;
+  armor?: any;
 
   constructor(param?) {
     this.name = (param) ? (param.cyber ? param.cyber : ((param.name) ? param.name : '')) : '';
@@ -15,5 +16,6 @@ export class OppCyberware implements BaseCyberware {
     this.hc = (param) ? param.hc : '';
     this.surgery = (param) ? param.surgery : '';
     this.options = (param) ? param.options : undefined;
+    this.armor = (param) ? param.armor : undefined;
   }
 }

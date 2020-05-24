@@ -13,6 +13,7 @@ import { faDice, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { CmbtTrckOpponent, } from './../models';
 import { CpPlayerWeapon } from './../../shared/models/weapon';
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Cp2020ArmorLayer } from 'src/app/shared/models/cp2020character/cp2020-armor-layer';
 
 @Component({
   selector: 'cs-cmbt-trck-opponent-card',
@@ -98,8 +99,13 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
     this.updateOpponent.emit({index: this.index, opponent: this.opponent});
   }
 
-  changeCyber(cyber: Array<OppCyberware>){
+  changeCyber(cyber: Array<OppCyberware>) {
     this.opponent.cyberware = cyber;
+    // add any armor to as layers
+    this.opponent.cyberware.filter( c => c.armor)
+    .forEach( c =>
+      this.opponent.armor.addLayer( new Cp2020ArmorLayer(c.armor))
+    );
     this.updateOpponent.emit({index: this.index, opponent: this.opponent});
   }
 
