@@ -1,3 +1,4 @@
+import { FileLoaderService } from './../../shared/services/file-loader/file-loader.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { SaveFileService } from './../../shared/services/save-file.service';
 import { CmbtTrckOppSelection } from './../models/cmbt-trck-opp-selection';
@@ -36,7 +37,8 @@ export class CmbtTrckFormComponent implements OnInit {
 
   constructor(private opponentService: OpponentTrackerService,
     private saveFileService: SaveFileService,
-    private modalService: BsModalService) {}
+    private modalService: BsModalService,
+    private fileLoader: FileLoaderService) {}
 
   ngOnInit() {
     this.opponentService.opponents.subscribe( opps => {
@@ -132,57 +134,16 @@ export class CmbtTrckFormComponent implements OnInit {
       this.selectedOpponent = new CmbtTrckOpponent();
       this.selectedIndex = 0;
       this.opponents = new Array<CmbtTrckOpponent>();
-      this.handleUpload(file);
+      this.fileLoader.importJSON(file).subscribe(data => {
+        if ( Array.isArray(data)) {
+          this.opponentService.importArray(data);
+        } else {
+          alert( 'Error while reading the file. The content was corrupted.');
+        }
+      });
     } else {
       alert('Please select a combat tracker .json file to load.');
     }
   }
 
-   /**
-   * Promise to do the FileReader loading of the file.
-   *
-   * @param {*} inputFile - File to read
-   * @returns
-   * @memberof AppCharacterGeneratorFormComponent
-   */
-  readUploadedFileAsText(inputFile) {
-    const temporaryFileReader = new FileReader();
-
-    return new Promise((resolve, reject) => {
-      temporaryFileReader.onerror = () => {
-        temporaryFileReader.abort();
-        reject(new DOMException('Problem parsing input file.'));
-      };
-
-      temporaryFileReader.onload = () => {
-        resolve(temporaryFileReader.result);
-      };
-      temporaryFileReader.readAsText(inputFile);
-    });
-  }
-
-
-  /**
-   * Handle the uploading of the file to the page.
-   *
-   * @param {*} event - event form the input element.
-   * @memberof AppCharacterGeneratorFormComponent
-   */
-  handleUpload(file) {
-    try {
-      this.readUploadedFileAsText(file).then(
-        (value: string) => {
-          const opps = JSON.parse(value);
-          if ( Array.isArray(opps)) {
-            this.opponentService.importArray(opps);
-          } else {
-            alert( 'Error while reading the file. The content was corrupted.');
-          }
-        }
-      );
-    } catch (e) {
-      alert('Error with reading the file. Please make sure that the file\'s content wasn\'t altered.' );
-      console.log(e.message);
-    }
-  }
 }

@@ -1,3 +1,4 @@
+import { FileLoaderService } from './../../shared/services/file-loader/file-loader.service';
 import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerSkills } from './../../shared/models/cp2020character/cp2020-player-skills';
 import { SaveFileService } from './../../shared/services/save-file.service';
@@ -23,7 +24,8 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   character: Cp2020PlayerCharacter;
 
   constructor( private characterService: Cp2020CharacterGeneratorService,
-               private saveFileService: SaveFileService) { }
+               private saveFileService: SaveFileService,
+               private fileLoader: FileLoaderService) { }
 
   ngOnInit() {
     this.characterService.character.subscribe( data => {
@@ -98,52 +100,8 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
    * @memberof AppCharacterGeneratorFormComponent
    */
   loadCharacter($event) {
-    this.handleUpload($event);
-  }
-
-
-  /**
-   * Promise to do the FileReader loading of the file.
-   *
-   * @param {*} inputFile - File to read
-   * @returns
-   * @memberof AppCharacterGeneratorFormComponent
-   */
-  readUploadedFileAsText(inputFile) {
-    const temporaryFileReader = new FileReader();
-
-    return new Promise((resolve, reject) => {
-      temporaryFileReader.onerror = () => {
-        temporaryFileReader.abort();
-        reject(new DOMException('Problem parsing input file.'));
-      };
-
-      temporaryFileReader.onload = () => {
-        resolve(temporaryFileReader.result);
-      };
-      temporaryFileReader.readAsText(inputFile);
-    });
-  }
-
-
-  /**
-   * Handle the uploading of the file to the page.
-   *
-   * @param {*} event - event form the input element.
-   * @memberof AppCharacterGeneratorFormComponent
-   */
-  handleUpload(event) {
-    const file = event.target.files[0];
-    try {
-      this.readUploadedFileAsText(file).then(
-        (value: string) => {
-          const pc = JSON.parse(value);
-          this.characterService.changeCharacter(pc);
-        }
-      );
-    } catch (e) {
-      console.log(e.message);
-    }
+    this.fileLoader.importJSON($event.target.files[0])
+    .subscribe( data =>  this.characterService.changeCharacter(data));
   }
 
 }
