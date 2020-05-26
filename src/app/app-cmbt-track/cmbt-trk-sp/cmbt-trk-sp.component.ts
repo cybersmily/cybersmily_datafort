@@ -1,4 +1,4 @@
-import { Cp2020ArmorBlock } from './../../shared/models/cp2020character/cp2020-armor-block';
+import { Cp2020ArmorBlock } from './../../shared/models/cp2020character';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({

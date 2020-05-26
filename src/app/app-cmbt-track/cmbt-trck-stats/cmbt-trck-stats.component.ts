@@ -1,7 +1,6 @@
 import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { DiceService } from './../../shared/services/dice/dice.service';
-import { Cp2020StatBlock } from './../../shared/models/cp2020character/cp2020-stat-block';
-import { Cp2020Stat } from './../../shared/models/cp2020character/cp2020-stat';
+import { Cp2020StatBlock, Cp2020Stat } from './../../shared/models/cp2020character';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({

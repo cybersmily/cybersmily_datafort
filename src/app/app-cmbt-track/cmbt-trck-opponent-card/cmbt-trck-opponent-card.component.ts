@@ -1,19 +1,15 @@
-import { Cp2020ArmorBlock } from './../../shared/models/cp2020character/cp2020-armor-block';
-import { CmbtTrckOppSelection } from '../../shared/models/cmbt-trck/cmbt-trck-opp-selection';
-import { CmbtTrckTemplate } from '../../shared/models/cmbt-trck/cmbt-trck-template';
+import { CmbtTrckOpponent, CmbtTrckOppSelection, CmbtTrckTemplate } from '../../shared/models/cmbt-trck';
 import { OppTemplateService } from './../services/opp-template.service';
 import { OppCyberware } from './../../shared/models/cyberware';
 import { DataSkill } from './../../shared/models/data/data-skill';
-import { Cp2020Role, Cp2020PlayerSkill, Cp2020StatBlock} from './../../shared/models/cp2020character';
+import { Cp2020ArmorBlock, Cp2020ArmorLayer, Cp2020Role, Cp2020PlayerSkill, Cp2020StatBlock} from './../../shared/models/cp2020character';
 import { SkillListService } from './../../shared/services/data/skill-list.service';
 import { DataService } from './../../shared/services/data.service';
 import { Cp2020RolesDataService } from './../../shared/services/chargen/cp2020-roles-data.service';
 import { forkJoin } from 'rxjs';
 import { faDice, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { CmbtTrckOpponent, } from '../../shared/models/cmbt-trck';
 import { CpPlayerWeapon } from './../../shared/models/weapon';
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
-import { Cp2020ArmorLayer } from './../../shared/models/cp2020character/cp2020-armor-layer';
 
 @Component({
   selector: 'cs-cmbt-trck-opponent-card',

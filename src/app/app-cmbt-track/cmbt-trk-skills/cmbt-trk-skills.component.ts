@@ -1,12 +1,12 @@
-import { FumbleChart } from './../../shared/models/skill/fumble-chart';
+import { FumbleChart } from './../../shared/models/skill';
 import { SkillLevelSpread } from './../../shared/models/skill-level-spread';
 import { DataSkill } from './../../shared/models/data/data-skill';
 import { SkillListService } from './../../shared/services/data/skill-list.service';
-import { faDice, faTrash, faPlus, faAngleDoubleDown, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
-import { CmbtTrckOpponent } from '../../shared/models/cmbt-trck/cmbt-trck-opponent';
-import { DiceService } from './../../shared/services/dice/dice.service';
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { CmbtTrckOpponent } from '../../shared/models/cmbt-trck';
 import { Cp2020PlayerSkill } from './../../shared/models/cp2020character';
+import { DiceService } from './../../shared/services/dice/dice.service';
+import { faDice, faTrash, faPlus, faAngleDoubleDown, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'cs-cmbt-trk-skills',

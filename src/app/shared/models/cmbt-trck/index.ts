@@ -7,3 +7,5 @@ export * from './combat-modifier';
 export * from './combat-modifiers';
 export * from '../gear/opponent-armor';
 export * from './cmbt-trck-opponent';
+export * from './cmbt-trck-opp-selection';
+export * from './cmbt-trck-template';

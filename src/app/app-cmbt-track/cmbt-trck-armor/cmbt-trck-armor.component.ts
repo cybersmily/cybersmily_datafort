@@ -1,7 +1,6 @@
 import { CmbtTrckOppChartService } from './../services/cmbt-trck-opp-chart.service';
-import { Cp2020ArmorLayer } from './../../shared/models/cp2020character/cp2020-armor-layer';
-import { ArmorLayer } from '../../shared/models/armor/armor-layer';
-import { Cp2020ArmorBlock } from './../../shared/models/cp2020character/cp2020-armor-block';
+import { Cp2020ArmorLayer, Cp2020ArmorBlock } from './../../shared/models/cp2020character';
+import { ArmorLayer } from '../../shared/models/armor';
 import { faPlus, faTrash, faDice } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 

@@ -1,8 +1,7 @@
 import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { Cp2020PlayerSkill } from './../../shared/models/cp2020character/cp2020-player-skill';
-import { CmbtTrckOpponent } from '../../shared/models/cmbt-trck/cmbt-trck-opponent';
-import { CombatModifiers } from '../../shared/models/cmbt-trck/combat-modifiers';
+import { CmbtTrckOpponent, CombatModifiers } from '../../shared/models/cmbt-trck';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({

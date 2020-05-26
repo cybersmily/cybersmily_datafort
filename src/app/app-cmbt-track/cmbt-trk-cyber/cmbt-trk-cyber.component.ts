@@ -1,6 +1,6 @@
 import { faDice, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { CmbtTrckOppChartService } from './../services/cmbt-trck-opp-chart.service';
-import { OppCyberware } from './../../shared/models/cyberware/opp-cyberware';
+import { OppCyberware } from './../../shared/models/cyberware';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({

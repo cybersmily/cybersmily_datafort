@@ -1,3 +1,4 @@
+export { Cp2020ArmorLayer } from './cp2020-armor-layer';
 export { Cp2020ArmorBlock } from './cp2020-armor-block';
 
 export { Cp2020PlayerCharacter } from './cp2020-player-character';

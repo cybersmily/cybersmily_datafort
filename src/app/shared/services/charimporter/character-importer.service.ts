@@ -1,7 +1,7 @@
-import { Cp2020PlayerCyber } from './../../models/cyberware/cp2020-player-cyber';
-import { CpPlayerWeapon } from './../../models/weapon/cp-player-weapon';
-import { CmbtTrckOpponent } from './../../models/cmbt-trck/cmbt-trck-opponent';
-import { Cp2020PlayerCharacter } from './../../models/cp2020character/cp2020-player-character';
+import { Cp2020PlayerCyber } from './../../models/cyberware';
+import { CpPlayerWeapon } from './../../models/weapon';
+import { CmbtTrckOpponent } from './../../models/cmbt-trck';
+import { Cp2020PlayerCharacter } from './../../models/cp2020character';
 import { Injectable } from '@angular/core';
 
 @Injectable({

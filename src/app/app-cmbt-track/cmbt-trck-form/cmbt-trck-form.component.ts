@@ -2,11 +2,10 @@ import { CharacterImporterService } from './../../shared/services/charimporter/c
 import { FileLoaderService } from './../../shared/services/file-loader/file-loader.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { SaveFileService } from './../../shared/services/save-file.service';
-import { CmbtTrckOppSelection } from '../../shared/models/cmbt-trck/cmbt-trck-opp-selection';
+import { CmbtTrckOppSelection, CmbtTrckOpponent } from '../../shared/models/cmbt-trck';
 import { faDice, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { Cp2020_WOUND_LEVELS } from './../../shared/models/cp2020character/cp2020-wound-levels.enum';
+import { Cp2020_WOUND_LEVELS } from './../../shared/models/cp2020character';
 import { OpponentTrackerService } from './../services/opponent-tracker.service';
-import { CmbtTrckOpponent } from '../../shared/models/cmbt-trck/cmbt-trck-opponent';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 
 @Component({
