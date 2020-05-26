@@ -8,6 +8,12 @@
       <input type="file" id="loadFile" title="load a combat tracker json file" style="display: none;" name="Load"
         (change)="load($event)" #fileInput accept="application/json" value="" (click)="fileInput.value = null" />
       </label>
+      &nbsp;
+      <label class="btn btn-secondary btn-file csd-rounded btn-sm" title="load a combat tracker json file">
+        IMPORT
+      <input type="file" id="importFile" title="Import a CP2020 JSON file as an opponent" style="display: none;" name="Import"
+        (change)="import($event)" #fileInput accept="application/json,text/plain" value="" (click)="fileInput.value = null" />
+      </label>
       <button class="float-right btn btn-sm btn-secondary csd-rounded csd-btn" (click)="openModal(resetModal)" title="Reset tracker. Removing all the combatants.">RESET</button>
     </div>
   </div>

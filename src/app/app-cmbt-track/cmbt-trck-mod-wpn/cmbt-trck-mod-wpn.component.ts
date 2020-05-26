@@ -1,7 +1,7 @@
 import { FumbleChart } from './../../shared/models/skill/fumble-chart';
 import { CombatRange } from './../../shared/models/weapon/combat-range';
 import { DiceService } from './../../shared/services/dice/dice.service';
-import { CombatModifiers } from './../models/combat-modifiers';
+import { CombatModifiers } from '../../shared/models/cmbt-trck/combat-modifiers';
 import { faDice, faRedo } from '@fortawesome/free-solid-svg-icons';
 import { CpPlayerWeapon, WeaponRanges } from '../../shared/models/weapon';
 import { Component, OnInit, Input } from '@angular/core';

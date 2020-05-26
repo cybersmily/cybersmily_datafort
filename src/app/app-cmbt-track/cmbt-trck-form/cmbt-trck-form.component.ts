@@ -1,11 +1,12 @@
+import { CharacterImporterService } from './../../shared/services/charimporter/character-importer.service';
 import { FileLoaderService } from './../../shared/services/file-loader/file-loader.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { SaveFileService } from './../../shared/services/save-file.service';
-import { CmbtTrckOppSelection } from './../models/cmbt-trck-opp-selection';
+import { CmbtTrckOppSelection } from '../../shared/models/cmbt-trck/cmbt-trck-opp-selection';
 import { faDice, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020_WOUND_LEVELS } from './../../shared/models/cp2020character/cp2020-wound-levels.enum';
 import { OpponentTrackerService } from './../services/opponent-tracker.service';
-import { CmbtTrckOpponent } from './../models/cmbt-trck-opponent';
+import { CmbtTrckOpponent } from '../../shared/models/cmbt-trck/cmbt-trck-opponent';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 
 @Component({
@@ -38,7 +39,8 @@ export class CmbtTrckFormComponent implements OnInit {
   constructor(private opponentService: OpponentTrackerService,
     private saveFileService: SaveFileService,
     private modalService: BsModalService,
-    private fileLoader: FileLoaderService) {}
+    private fileLoader: FileLoaderService,
+    private characterImporter: CharacterImporterService) {}
 
   ngOnInit() {
     this.opponentService.opponents.subscribe( opps => {
@@ -85,6 +87,8 @@ export class CmbtTrckFormComponent implements OnInit {
    * @memberof CmbtTrckFormComponent
    */
   removeOpponent(index: number) {
+    this.selectedIndex = 0;
+    this.selectOpponent(0);
     this.opponentService.removeOpponent(index);
   }
 
@@ -143,6 +147,18 @@ export class CmbtTrckFormComponent implements OnInit {
       });
     } else {
       alert('Please select a combat tracker .json file to load.');
+    }
+  }
+
+  import($event) {
+    const file = $event.target.files[0];
+    const name: string = file.name;
+    if (name && (name.endsWith('.json') || name.endsWith('.txt'))) {
+      this.fileLoader.importJSON(file).subscribe( data => {
+        const opp = this.characterImporter.convertCP2020PCToCmbtTrckOpp(data);
+        this.opponentService.addOpponent(opp);
+      });
+
     }
   }
 

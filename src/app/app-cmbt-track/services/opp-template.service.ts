@@ -1,8 +1,8 @@
-import { CmbtTrckOppTemplate } from './../models/cmbt-trck-opp-template';
+import { CmbtTrckOppTemplate } from '../../shared/models/cmbt-trck/cmbt-trck-opp-template';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { DataService } from './../../shared/services/data.service';
-import { CmbtTrckTemplate } from './../models/cmbt-trck-template';
+import { CmbtTrckTemplate } from '../../shared/models/cmbt-trck/cmbt-trck-template';
 import { Injectable } from '@angular/core';
 
 @Injectable({

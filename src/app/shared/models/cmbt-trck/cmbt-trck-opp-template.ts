@@ -1,7 +1,7 @@
-import { ArmorBlock } from '../../shared/models/armor/armor-block';
-import { OppCyberware } from './../../shared/models/cyberware';
-import { CpPlayerWeapon } from './../../shared/models/weapon';
-import { Cp2020PlayerSkill } from './../../shared/models/cp2020character';
+import { ArmorBlock } from '../armor/armor-block';
+import { OppCyberware } from '../cyberware';
+import { CpPlayerWeapon } from '../weapon';
+import { Cp2020PlayerSkill } from '../cp2020character';
 export interface CmbtTrckOppTemplate {
     handle: string;
     role: string;

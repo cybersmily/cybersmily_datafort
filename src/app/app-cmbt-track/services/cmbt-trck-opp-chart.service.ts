@@ -1,7 +1,7 @@
 import { OppCyberware } from './../../shared/models/cyberware';
 import { CpPlayerWeapon } from './../../shared/models/weapon';
 import { DiceService } from './../../shared/services/dice/dice.service';
-import { CmbtTrckEntry, CmbtTrckCharts} from './../models';
+import { CmbtTrckEntry, CmbtTrckCharts} from '../../shared/models/cmbt-trck';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { DataService } from './../../shared/services/data.service';

@@ -3,7 +3,7 @@ import { SkillLevelSpread } from './../../shared/models/skill-level-spread';
 import { DataSkill } from './../../shared/models/data/data-skill';
 import { SkillListService } from './../../shared/services/data/skill-list.service';
 import { faDice, faTrash, faPlus, faAngleDoubleDown, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
-import { CmbtTrckOpponent } from './../models/cmbt-trck-opponent';
+import { CmbtTrckOpponent } from '../../shared/models/cmbt-trck/cmbt-trck-opponent';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { Cp2020PlayerSkill } from './../../shared/models/cp2020character';

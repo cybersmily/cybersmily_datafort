@@ -1,10 +1,8 @@
-import { CmbtTrckOppSelection } from './../models/cmbt-trck-opp-selection';
-import { CmbtTrckOppTemplate } from './../models/cmbt-trck-opp-template';
+import { CmbtTrckOppSelection } from '../../shared/models/cmbt-trck/cmbt-trck-opp-selection';
 import { DiceService } from './../../shared/services/dice/dice.service';
-import { CmbtTrckOpponent } from './../models/cmbt-trck-opponent';
+import { CmbtTrckOpponent } from '../../shared/models/cmbt-trck/cmbt-trck-opponent';
 import { BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { Cp2020PlayerSkill } from './../../shared/models/cp2020character';
 
 @Injectable({
   providedIn: 'root'

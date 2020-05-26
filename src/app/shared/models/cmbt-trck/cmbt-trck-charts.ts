@@ -1,4 +1,4 @@
-import { CmbtTrckChartEntry } from './';
+import { CmbtTrckChartEntry } from '.';
 export class CmbtTrckCharts {
   weapon: CmbtTrckChartEntry;
   armor:  CmbtTrckChartEntry;

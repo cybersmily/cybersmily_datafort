@@ -1,6 +1,6 @@
 import { Cp2020ArmorBlock } from './../../shared/models/cp2020character/cp2020-armor-block';
-import { CmbtTrckOppSelection } from './../models/cmbt-trck-opp-selection';
-import { CmbtTrckTemplate } from './../models/cmbt-trck-template';
+import { CmbtTrckOppSelection } from '../../shared/models/cmbt-trck/cmbt-trck-opp-selection';
+import { CmbtTrckTemplate } from '../../shared/models/cmbt-trck/cmbt-trck-template';
 import { OppTemplateService } from './../services/opp-template.service';
 import { OppCyberware } from './../../shared/models/cyberware';
 import { DataSkill } from './../../shared/models/data/data-skill';
@@ -10,7 +10,7 @@ import { DataService } from './../../shared/services/data.service';
 import { Cp2020RolesDataService } from './../../shared/services/chargen/cp2020-roles-data.service';
 import { forkJoin } from 'rxjs';
 import { faDice, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { CmbtTrckOpponent, } from './../models';
+import { CmbtTrckOpponent, } from '../../shared/models/cmbt-trck';
 import { CpPlayerWeapon } from './../../shared/models/weapon';
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { Cp2020ArmorLayer } from './../../shared/models/cp2020character/cp2020-armor-layer';

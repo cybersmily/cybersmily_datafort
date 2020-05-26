@@ -1,9 +1,8 @@
-import { Cp2020ArmorBlock } from './../../shared/models/cp2020character/cp2020-armor-block';
-import { OppCyberware } from './../../shared/models/cyberware';
-import { CpPlayerWeapon } from './../../shared/models/weapon';
-import { Cp2020PlayerSkill, Cp2020StatBlock } from './../../shared/models/cp2020character';
+import { Cp2020ArmorBlock } from '../cp2020character/cp2020-armor-block';
+import { OppCyberware } from '../cyberware';
+import { CpPlayerWeapon } from '../weapon';
+import { Cp2020PlayerSkill, Cp2020StatBlock } from '../cp2020character';
 import { CmbtTrckOppTemplate } from './cmbt-trck-opp-template';
-import { OpponentArmor } from './opponent-armor';
 import { CombatModifiers } from './combat-modifiers';
 
 export class CmbtTrckOpponent {
