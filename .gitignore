@@ -5,9 +5,7 @@ dist
 *.csv
 *.db
 src/BingSiteAuth.xml
-src/*.htcaccess
 src/conceptions-fluted.php
 src/google*.html
 src/img/data/
-src/web.config
 gimp

@@ -27,7 +27,6 @@
               "src/BingSiteAuth.xml",
               "src/sitemap.xml",
               "src/web.config"
-
             ],
             "styles": [
               "src/css/styles.css"
