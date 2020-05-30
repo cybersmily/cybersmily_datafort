@@ -6,12 +6,12 @@
     </h6>
   </div>
 </div>
+<cs-cmbt-trk-wpn *ngFor="let wpn of weapons;let i = index" [weapon]="wpn" [index]="i"
+  (delete)="deleteWeapon($event)">
+</cs-cmbt-trk-wpn>
+<br>
 <div id="oppWeaponSection" class="row">
   <div class="col-12">
-    <cs-cmbt-trk-wpn *ngFor="let wpn of weapons;let i = index" [weapon]="wpn" [index]="i"
-      (delete)="deleteWeapon($event)">
-    </cs-cmbt-trk-wpn>
-    <br>
     <div class="row opp-wpn-txt">
       <div class="col-12">
         <button class="btn btn-secondary btn-sm csd-rounded" (click)="addWeapon()" [disabled]="newWpn.name === ''">
@@ -19,49 +19,63 @@
         </button>
         &nbsp;
         <span>
-          <input [(ngModel)]="newWpn.name" type="text" class="opp-wpn-name" placeholder="Enter name" />
-        </span>
-        <span>
-          <select [(ngModel)]="newWpn.type" class="opp-wpn-type">
-            <option value="P" selected>Pistol</option>
-            <option value="RIF">Rifle</option>
-            <option value="SMG">SMG</option>
-            <option value="EX">Exotic</option>
-            <option value="MEL">Melee</option>
-            <option value="HVY">Heavy</option>
-          </select>
-        </span>
-        <span>
-          <input [(ngModel)]="newWpn.wa" type="number" class="opp-wpn-wa" placeholder="WA">
-        </span>
-        <span>
-          <input [(ngModel)]="newWpn.damage" type="text" class="opp-wpn-dmg" placeholder="#d6 or #d6+#"
-            title="Enter text #d6 or #d6+#">
-        </span>
-        <span>
-          <input [(ngModel)]="newWpn.shots" type="number" class="opp-wpn-shots" placeholder="Shots">
-        </span>
-        <span>
-          <input [(ngModel)]="newWpn.rof" type="number" class="opp-wpn-rof" placeholder="RoF">
-        </span>
-        <span>
-          <select [(ngModel)]="newWpn.rel" class="opp-wpn-rel">
-            <option value="ST" selected>Standard</option>
-            <option value="VR">Very Reliable</option>
-            <option value="UR">Unreliable</option>
-          </select>
-        </span>
-        <span>
-          <input [(ngModel)]="newWpn.range" type="number" class="opp-wpn-rof" placeholder="Range">m
+          Name: <input [(ngModel)]="newWpn.name" type="text" class="opp-wpn-name" placeholder="Enter name" />
         </span>
       </div>
     </div>
     <div class="row opp-wpn-txt">
       <div class="col-1"></div>
-      <div class="col-11">
-        <input [(ngModel)]="newWpn.notes" type="text" class="opp-wpn-note" placeholder="Notes" />
+      <div class="col-4 col-sm-3 col-lg-2 opp-wpn-new">
+        TYPE:
+        <select [(ngModel)]="newWpn.type" class="opp-wpn-type">
+          <option value="P" selected>Pistol</option>
+          <option value="RIF">Rifle</option>
+          <option value="SMG">SMG</option>
+          <option value="EX">Exotic</option>
+          <option value="MEL">Melee</option>
+          <option value="HVY">Heavy</option>
+        </select>
+      </div>
+      <div class="col-3 col-sm-2 col-xl-2 opp-wpn-new">
+        WA:
+        <input [(ngModel)]="newWpn.wa" type="number" class="opp-wpn-wa" placeholder="WA">
+      </div>
+      <div class="col-4 col-sm-3 col-xl-2 opp-wpn-new">
+        DMG:
+        <input [(ngModel)]="newWpn.damage" type="text" class="opp-wpn-dmg" placeholder="#d6 or #d6+#"
+          title="Enter text #d6 or #d6+#">
+      </div>
+      <div class="col-1 d-sm-none"></div>
+      <div class="col-4 col-sm-3 col-lg-2 opp-wpn-new">
+        SHOTS:
+        <input [(ngModel)]="newWpn.shots" type="number" class="opp-wpn-shots" placeholder="Shots" min="0">
+      </div>
+      <div class="col-1 d-none d-sm-block d-lg-none"></div>
+      <div class="col-4 col-sm-3 col-lg-2 col-xl-3 opp-wpn-new">
+        ROF:
+        <input [(ngModel)]="newWpn.rof" type="number" class="opp-wpn-rof" placeholder="RoF" min="0">
+      </div>
+      <div class="col-1 d-none d-lg-block d-xl-block"></div>
+      <div class="col-3 col-sm-2 col-md-3 col-lg-2 opp-wpn-new">
+        REL:
+        <select [(ngModel)]="newWpn.rel" class="opp-wpn-rel">
+          <option value="ST" selected title="Standard">ST</option>
+          <option value="VR" title="Very Reliable">VR</option>
+          <option value="UR" title="Unreliable">UR</option>
+          <option value="" title="Not applicable">N/A</option>
+        </select>
+      </div>
+      <div class="col-1 d-sm-none"></div>
+      <div class="col-6 col-sm-4 opp-wpn-new">
+        RANGE:
+        <input [(ngModel)]="newWpn.range" type="number" class="opp-wpn-range" placeholder="Range" min="0"> m
       </div>
     </div>
-
+  <div class="row opp-wpn-txt">
+    <div class="col-1"></div>
+    <div class="col-11">
+      <input [(ngModel)]="newWpn.notes" type="text" class="opp-wpn-note" placeholder="Notes" />
+    </div>
   </div>
+</div>
 </div>

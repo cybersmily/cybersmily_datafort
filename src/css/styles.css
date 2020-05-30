@@ -1,6 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
+INPUT {
+  border-width: 1px !important;
+  margin-bottom: 3px !important;
+  margin-bottom: 3px !important;
+}
+
+
+
 .csd-box {
   background-color: #ddd;
   color: #333;
