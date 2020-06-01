@@ -38,15 +38,11 @@ export class CyberDataService {
 
   save() {
     this.fileService.SaveAsFile('cyberware', JSON.stringify(this._cyberwareList), 'json');
-    console.log('Saved list:');
-    console.log(this._cyberwareList);
   }
 
   add(cyberware: DataCyberware) {
     const cyber = new DataCyberware(cyberware);
     this._cyberwareList.push(cyber);
-    console.log('Added cyberware:');
-    console.log(cyber);
   }
 
   delete(name: string) {
@@ -54,6 +50,5 @@ export class CyberDataService {
       return (c.name === name);
     });
     this._cyberwareList.splice(i, 1 );
-    console.log(`Deleted: ${name}; index: ${i}`);
   }
 }

@@ -1,87 +1,92 @@
 export class SourceBookLookup {
     static getSource(abbrev: string): string {
-      if ( abbrev.startsWith('CP')) {
+      if ( abbrev.toLocaleLowerCase().startsWith('cp')) {
         return 'Cyberpunk 2020 2nd ed.';
       }
-        switch (abbrev) {
-            case 'Chr1':
+        switch (abbrev.toLowerCase()) {
+            case 'chr1':
               return 'Chromebook 1';
-            case 'Chr2':
+            case 'chr2':
               return 'Chromebook 2';
-            case 'Chr3':
+            case 'chr3':
               return 'Chromebook 3';
-            case 'Chr4':
+            case 'chr4':
               return 'Chromebook 4';
-            case 'BH':
+            case 'bh':
               return 'Blackhand\'s Street Weapons';
-            case 'LD':
+            case 'ld':
               return 'Live & Direct';
-            case 'WS':
+            case 'ws':
               return 'Wildside';
-            case 'NEO':
+            case 'neo':
               return 'Neo Tribes';
-            case 'SOF':
+            case 'sof':
               return 'Solo of Fortune';
-            case 'SOF2':
+            case 'sof2':
               return 'Solo of Fortune 2';
-            case 'HW':
+            case 'hw':
               return 'Hardwired';
-            case 'LU':
+            case 'lu':
               return 'Listen Up, You Primitive Screwheads!!!';
-            case 'PS':
+            case 'ps':
+            case 'p+s':
               return 'Protect & Serve';
-            case 'WGF':
+            case 'wgf':
               return 'When Gravity Fails';
-            case 'DS':
+            case 'ds':
               return 'Deep Space';
-            case 'PAC':
+            case 'pac':
               return 'Pacific Rim Sourcebook';
-            case 'MM':
+            case 'mm':
               return 'Maximum Metal';
-            case 'HOB':
+            case 'hob':
               return 'Home of the Brave';
-            case 'SF':
+            case 'sf':
               return 'Firestorm: Stormfront';
-            case 'SW':
+            case 'sw':
               return 'Firestorm: Shockwave';
-            case 'CB1':
+            case 'cb1':
               return 'Corpbook 1';
-            case 'CB2':
+            case 'cb2':
               return 'Corpbook 2';
-            case 'CB3':
+            case 'cb3':
               return 'Corpbook 3';
-            case 'ES+':
+            case 'es+':
               return 'Eurosource Plus';
-            case 'RB':
+            case 'es':
+              return 'Eurosource';
+            case 'rb':
               return 'Rockerboy';
-            case 'NC':
+            case 'nc':
               return 'Night City';
-            case 'BB':
+            case 'bb':
               return 'R Bartmoss\' Brainware Blowout';
-            case 'NET':
+            case 'net':
               return 'Rache Bartmoss\' Guide to the Net';
-            case 'UK':
+            case 'uk':
               return 'Rough Guide to the U.K.';
-            case 'I1.1':
+            case 'i1.1':
               return 'Interface 1.1';
-            case 'I1.2':
+            case 'i1.2':
               return 'Interface 1.2';
-            case 'I1.3':
+            case 'i1.3':
               return 'Interface 1.3';
-            case 'I1.4':
+            case 'i1.4':
               return 'Interface 1.4';
-            case 'I2.1':
+            case 'i2.1':
               return 'Interface 2.1';
-            case 'I2.2':
+            case 'i2.2':
               return 'Interface 2.2';
-            case 'LOF':
+            case 'lof':
               return 'Land of the Free';
-            case 'ET':
+            case 'et':
               return 'Eurotour';
-            case 'ER':
+            case 'er':
               return 'Edgerunner Inc.';
-            case 'FH':
+            case 'fh':
               return 'Forlorn Hope';
+            case 'cgen':
+              return 'Cybergeneration';
             default:
                 return '??';
         }
@@ -195,6 +200,9 @@ export class SourceBookLookup {
       }
       if (RegExp(/forlorn.*hope.*/gi).test(name)) {
         return 'FH';
+      }
+      if (RegExp(/cybergeneration.*/gi).test(name)) {
+        return 'Cgen';
       }
       return '??';
     }

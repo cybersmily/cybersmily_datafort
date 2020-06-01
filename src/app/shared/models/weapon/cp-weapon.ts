@@ -10,18 +10,22 @@ export interface CpWeapon extends BaseWeapon {
   name: string;
   type: string;
   category?: string;
+  subcategory?: string;
   wa: string | number;
   conc?: string;
   avail?: string;
   ammo?: string | Ammo;
   damage?: string;
+  burst?: string | number;
   shots?: string | number;
+  bod?: number;
   rof?: string | number;
+  fullAuto?: boolean;
+  burstFire?: boolean;
   rel?: string;
-  range?: number;
+  range?: number | string;
+  thrown?: boolean;
   cost?: string | number;
   notes?: string;
   source?: SourceBook;
 }
-
-

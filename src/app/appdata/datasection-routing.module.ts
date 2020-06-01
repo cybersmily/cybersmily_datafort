@@ -1,3 +1,4 @@
+import { AdminWpnListComponent } from './admin-wpn-list/admin-wpn-list.component';
 import { AdminCyberListComponent } from './admin-cyber-list/admin-cyber-list.component';
 import { CyberListComponent } from './cyber-list/cyber-list.component';
 import { RoleListComponent } from './role-list/role-list.component';
@@ -26,7 +27,8 @@ export const dataRoutes: Routes = [
       {path: 'skills', component: SkillListComponent},
       {path: 'roles', component: RoleListComponent},
       {path: 'cyber', component: CyberListComponent},
-      {path: 'admincyber', component: AdminCyberListComponent}
+      {path: 'admincyber', component: AdminCyberListComponent},
+      {path: 'adminwpn', component: AdminWpnListComponent}
     ]}
 ];
 @NgModule({

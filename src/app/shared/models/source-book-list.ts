@@ -1,0 +1,50 @@
+
+export class SourceBookList {
+    get books(): Array<any> {
+        const list = [
+            { abbrev: 'CP20', name: 'Cyberpunk 2020 2nd ed.' },
+            { abbrev: 'Chr1', name: 'Chromebook 1' },
+            { abbrev: 'chr2', name: 'Chromebook 2' },
+            { abbrev: 'chr3', name: 'Chromebook 3' },
+            { abbrev: 'chr4', name: 'Chromebook 4' },
+            { abbrev: 'BH' , name: 'Blackhand\'s Street Weapons' },
+            { abbrev: 'LD' , name: 'Live & Direct' },
+            { abbrev: 'WS' , name: 'Wildside' },
+            { abbrev: 'NEO' , name: 'Neo Tribes' },
+            { abbrev: 'SOF' , name: 'Solo of Fortune' },
+            { abbrev: 'SOF2' , name: 'Solo of Fortune 2' },
+            { abbrev: 'HW' , name: 'Hardwired' },
+            { abbrev: 'LU' , name: 'Listen Up, You Primitive Screwheads!!!' },
+            { abbrev: 'PS' , name: 'Protect & Serve' },
+            { abbrev: 'WGF' , name: 'When Gravity Fails' },
+            { abbrev: 'DS' , name: 'Deep Space' },
+            { abbrev: 'PAC' , name: 'Pacific Rim Sourcebook' },
+            { abbrev: 'MM' , name: 'Maximum Metal' },
+            { abbrev: 'HOB' , name: 'Home of the Brave' },
+            { abbrev: 'SF' , name: 'Firestorm: Stormfront' },
+            { abbrev: 'SW' , name: 'Firestorm: Shockwave' },
+            { abbrev: 'CB1' , name: 'Corpbook 1' },
+            { abbrev: 'CB2' , name: 'Corpbook 2' },
+            { abbrev: 'CB3' , name: 'Corpbook 3' },
+            { abbrev: 'ES+' , name: 'Eurosource Plus' },
+            { abbrev: 'ES' , name: 'Eurosource' },
+            { abbrev: 'RB' , name: 'Rockerboy' },
+            { abbrev: 'NC' , name: 'Night City' },
+            { abbrev: 'BB' , name: 'R Bartmoss\' Brainware Blowout' },
+            { abbrev: 'NET' , name: 'Rache Bartmoss\' Guide to the Net' },
+            { abbrev: 'UK' , name: 'Rough Guide to the U.K.' },
+            { abbrev: 'I1.1' , name: 'Interface 1.1' },
+            { abbrev: 'I1.2' , name: 'Interface 1.2' },
+            { abbrev: 'I1.3' , name: 'Interface 1.3' },
+            { abbrev: 'I1.4' , name: 'Interface 1.4' },
+            { abbrev: 'I2.1' , name: 'Interface 2.1' },
+            { abbrev: 'I2.2' , name: 'Interface 2.2' },
+            { abbrev: 'LOF' , name: 'Land of the Free' },
+            { abbrev: 'ET' , name: 'Eurotour' },
+            { abbrev: 'ER' , name: 'Edgerunner Inc.' },
+            { abbrev: 'FH' , name: 'Forlorn Hope' },
+            { abbrev: 'CGen' , name: 'Cybergeneration' }
+        ]
+        return list;
+    }
+}

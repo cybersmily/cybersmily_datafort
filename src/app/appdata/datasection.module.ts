@@ -18,6 +18,7 @@ import { SkillListComponent } from './skill-list/skill-list.component';
 import { RoleListComponent } from './role-list/role-list.component';
 import { CyberListComponent } from './cyber-list/cyber-list.component';
 import { AdminCyberListComponent } from './admin-cyber-list/admin-cyber-list.component';
+import { AdminWpnListComponent } from './admin-wpn-list/admin-wpn-list.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { AdminCyberListComponent } from './admin-cyber-list/admin-cyber-list.com
     SkillListComponent,
     RoleListComponent,
     CyberListComponent,
-    AdminCyberListComponent],
+    AdminCyberListComponent,
+    AdminWpnListComponent],
   providers: [
     DataService,
     CyberDataService
