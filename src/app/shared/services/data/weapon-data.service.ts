@@ -15,9 +15,6 @@ export class WeaponDataService {
   constructor(private dataService: DataService, private saveFileService: SaveFileService) { }
 
   get WeaponList(): Observable<Array<DataWeapon>> {
-    if (this._weaponList && this._weaponList.length > 0) {
-      return of(this._weaponList);
-    }
     return this.dataService
     .GetJson('/json/wpns/cp2020weapons.json')
     .pipe(
@@ -36,6 +33,17 @@ export class WeaponDataService {
           return a.category.toLowerCase() > b.category.toLowerCase() ? 1 : -1;
         });
         return this._weaponList;
+      })
+    );
+  }
+
+  get Sources(): Observable<Array<string>> {
+    return this.WeaponList.pipe(
+      map( data => {
+        let sources = new Array<string>();
+        data.map( wpn => sources.push(wpn.source.book));
+        sources = [...new Set(sources)];
+        return sources;
       })
     );
   }

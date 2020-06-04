@@ -16,12 +16,13 @@ export class AdminWpnListComponent implements OnInit {
 
   sources = new SourceBookList();
 
+  completed = false;
+
   searchFilter = {
     category: '',
     subcategory: '',
     name: '',
     type: '',
-    notes: '',
     source: ''
   };
 
@@ -31,6 +32,15 @@ export class AdminWpnListComponent implements OnInit {
 
   newWeapon: DataWeapon = new DataWeapon({name: '', category: '', subcategory: '', source: {book: '', page: 0 }});
   selectedWeapon: DataWeapon = new DataWeapon({name: '', category: '', subcategory: '', source: {book: '', page: 0 }});
+
+  sourcesList: Array<string> = new Array<string>();
+
+  filterCompleted(page: number): boolean {
+    if ( this.completed && page !== 0) {
+      return false;
+    }
+    return true;
+  }
 
   constructor(private weaponDataService: WeaponDataService) { }
 
@@ -42,7 +52,10 @@ export class AdminWpnListComponent implements OnInit {
     .subscribe( data => {
       this.updateList(data);
     });
-  }
+
+    this.weaponDataService.Sources.subscribe(
+      data => this.sourcesList = data);
+    }
 
   updateList(data: Array<DataWeapon>) {
     this.weaponList = data;

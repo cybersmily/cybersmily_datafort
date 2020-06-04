@@ -13,18 +13,26 @@
           (blur)="savefilter()" /></div>
       <div>Name: <input [(ngModel)]="searchFilter.name" type="text" class="cyber-data-name" (keyup.enter)="savefilter()"
           (blur)="savefilter()" /></div>
-      <div>Source: <input [(ngModel)]="searchFilter.source" class="cyber-data-source cyber-data-sm" type="text"
-          (keyup.enter)="savefilter()" (blur)="savefilter()" /></div>
+      <div>Source:
+        <select [(ngModel)]="searchFilter.source" class="cyber-data-source cyber-data-sm" (change)="savefilter()">
+          <option value=""></option>
+          <option *ngFor="let s of sourcesList" [value]="s|sourcebook">{{s|sourcebook}}</option>
+        </select>
+      </div>
+      <div>Completed: <input [(ngModel)]="completed" type="checkbox"></div>
+
       <accordion [closeOthers]="true">
         <accordion-group *ngFor="let cat of categoryList|filter:'key':searchFilter.category" heading="{{cat.key}}">
           <accordion [closeOthers]="true">
             <accordion-group *ngFor="let sub of cat.value|filter:'key':searchFilter.subcategory"
               heading="{{(sub.key !== '')?sub.key:cat.key}}">
-              <div *ngFor="let wpn of sub.value|contains:'name':searchFilter.name
-              |sourcebookFilter:searchFilter.source" class="csd-btn" (click)="select(wpn.name)">
+              <ng-container *ngFor="let wpn of sub.value|contains:'name':searchFilter.name
+              |sourcebookFilter:searchFilter.source">
+              <div *ngIf="filterCompleted(wpn.source.page)" class="csd-btn" (click)="select(wpn.name)">
                 {{wpn.name}}&nbsp;&nbsp;&nbsp;&nbsp;
                 <fa-icon [icon]="faTrash" class="csd-btn" (click)="delete(wpn.name, cat.key)"></fa-icon>
               </div>
+            </ng-container>
             </accordion-group>
           </accordion>
         </accordion-group>
