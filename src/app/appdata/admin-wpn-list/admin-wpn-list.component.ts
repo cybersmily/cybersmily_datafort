@@ -101,6 +101,7 @@ export class AdminWpnListComponent implements OnInit {
     this.weaponDataService.WeaponList
     .subscribe( data => {
       this.updateList(data);
+      this.newWeapon = new DataWeapon({name: '', category: '', subcategory: '', source: {book: '', page: 0 }});
     });
   }
 
