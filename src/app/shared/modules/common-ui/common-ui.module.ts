@@ -17,7 +17,7 @@ import { NgModule } from '@angular/core';
   declarations: [],
   imports: [
     FormsModule,
-    AccordionModule,
+    AccordionModule.forRoot(),
     BsDropdownModule,
     CollapseModule.forRoot(),
     ModalModule,

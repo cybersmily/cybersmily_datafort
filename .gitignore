@@ -1,5 +1,6 @@
 node_modules
 dist
+coverage
 ~$nr_dataforts.xlsx
 *.xlsx
 *.csv
@@ -8,5 +9,4 @@ src/BingSiteAuth.xml
 src/conceptions-fluted.php
 src/google*.html
 src/img/data/
-coverage
 gimp
