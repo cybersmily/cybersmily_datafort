@@ -1,0 +1,26 @@
+<div class="pull-right csd-btn csd-rounded" (click)="saveToPDF()">PDF</div>
+<div class="row" #pdfContent>
+  <div *ngFor="let item of drugList.items; let i = index" class="col-12">
+    <div class="row"><strong>
+        <div class="col">{{item.name}}</div>
+      </strong></div>
+    <div class="row">
+      <div class="col">Type: {{item.effectList}}</div>
+      <div class="col">Strength: {{item.strength}}</div>
+    </div>
+    <div class="row">
+      <div class="col">Difficulty: {{item.diff}}</div>
+      <div class="col">Cost: {{item.cost}}</div>
+    </div>
+    <div class="row">
+      <div class="col">Duration: {{item.duration}}</div>
+    </div>
+    <div class="row">
+      <div class="col">{{item.description}}</div>
+    </div>
+    <div class="row">
+      <div class="col">Side Effects: {{item.sideEffectList}}</div>
+    </div>
+    <br>
+  </div>
+</div>

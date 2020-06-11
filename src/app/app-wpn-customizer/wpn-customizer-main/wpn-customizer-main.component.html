@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+  <h3>Weapon Customizer</h3>
+</div>
+<div class="row">
+  Weapon
+</div>
+<div class="row">
+  <div *ngFor="let opt of options" class="col-3">
+      <input [(ngModel)]="opt.enabled" type="checkbox"> {{opt.name}}
+  </div>
+</div>
+</div>

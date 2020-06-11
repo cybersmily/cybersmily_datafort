@@ -27,6 +27,12 @@ export const mainRoutes: Routes = [
   { path: 'apps/fixcalc',
     loadChildren: () => import('./app-fixer-calc/app-fixer-calc.module')
     .then(m => m.AppFixerCalcModule) },
+  { path: 'apps/wpncust',
+    loadChildren: () => import('./app-wpn-customizer/app-wpn-customizer.module')
+    .then(m => m.AppWpnCustomizerModule) },
+  { path: 'apps/druglab',
+      loadChildren: () => import('./app-drug-lab/app-drug-lab.module')
+      .then(m => m.AppDrugLabModule) },
   { path: 'dlow', loadChildren: () => import('./appdlow/dlowsection.module').then(m => m.DlowSectionModule) },
   { path: '**', redirectTo: '/', pathMatch: 'full'}
 ];

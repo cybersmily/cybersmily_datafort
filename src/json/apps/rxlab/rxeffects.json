@@ -1,0 +1,36 @@
+{
+  "effects":[
+    {"diff":15, "effect": "Increase REF", "desc":"+Strength to REF."},
+    {"diff":15, "effect": "Increase INT", "desc":"+Strength to INT."},
+    {"diff":15, "effect": "Increase COOL", "desc":"+Strength to COOL."},
+    {"diff":15, "effect": "Enhanced Perception", "desc":"+Strength to Awareness checks."},
+    {"diff":15, "effect": "Increase healing", "desc": " increase rate 1 point per point of Strength."},
+    {"diff":15, "effect": "Antidote", "desc":"+ 1 to Save per Strength"},
+    {"diff":10, "effect": "Increased Endurance","desc":"+Strength to Endurance checks."},
+    {"diff":10, "effect": "Negate Pain Effects","desc":"+Strength to Stun Saves."},
+    {"diff":5 , "effect": "Depressant", "desc":"-Strength to Awareness."},
+    {"diff":5 , "effect": "Euphoric","desc":"makes you feel good"},
+    {"diff":10, "effect": "Hallucinogenic","desc":"makes you see things."},
+    {"diff":10, "effect": "Reduce Stun","desc":"+Strength to Stun Saves."},
+    {"diff":5 , "effect": "Soporific","desc":"-Strength to Save vs. Sleep."},
+    {"diff":10, "effect": "Aphrodesiac","desc":"-Strength to resist Seduction checks."},
+    {"diff":10, "effect": "Contraceptive","desc":"male or female"},
+    {"diff":10, "effect": "Antibiotic","desc":"+Strength to Saves vs. disease."}
+  ],
+  "sideEffects":[
+    {"diff": -8,  "effect": "Psychological Addiction","desc":"The character is psychologically addicted, and must roll lower than his CL each hour following the last dose of the drug. On a failed roll, he suffers extreme anxiety, fear and depression; he become driven to find more of the drug and can do nothing else. K icking the addiction is a VERY DIFFICULT Endurance check, and may take as long as the Referee decides is sufficient."},
+    {"diff": -1,  "effect": "Physiological Addiction","desc":"The character is physiologically addicted, and must roll lower than his BT each hourfollowing the last dose of the drug. On a failed roll, he will suffer intense pain and take 2D6 in damage until he can kick the habit (a VERY DIFFICULT Endurance check, taking as long as the Referee decides is sufficient)."},
+    {"diff": -15, "effect": "Death","desc":"The drug has a fatal component that can kill the unawary. Each time the drug is taken, a Death Save must be made with a negative modifier equal to the drug's Strength number minus one."},
+    {"diff": -5,  "effect": "Reduced REF","desc":"The drug reduces REF at a rate of1 point per dose for the duration of ths dose. If a new dose is taken before the last has worn off, the REF penalty is cumulative."},
+    {"diff": -5,  "effect": "Reduced INT","desc":"The drug reduces INT at a rate of 1 point per dose for the duration of the dose. If a new dose is taken before the last has worn off, the INT penalty is cumulative."},
+    {"diff": -2,  "effect": "Tremors","desc":"The drug causes painful tremors in the hands, face (-2 to REF)."},
+    {"diff": -5,  "effect": "Hallucinations","desc":"The drug causes hallucinations (colors, voices, strange shapes). The character is virtually unable to function normally. If you buy this as a side effect for a hallucinogen; the character will always have a really bad trip that is totally at the Referee's sadistic discretion. You Have Been Warned."},
+    {"diff": -3,  "effect": "Paranoia","desc":"The character is subject to paranoic delusions; he thinks 'they' are after him, etc. (although in Cyberpunk, this may not all be delusion). The character must drop everything and devote his actions to defending himself against 'them'. Who 'they' are is, of course, up to the Referee."},
+    {"diff": -5,  "effect": "Delusions","desc":"The character is subject to strong delusions; he thinks untrue things . are real, that aliens are talking to him, etc. The character must drop everything and devote all actions towards the maintenance of his delusion. Which, again, is up to the Referee."},
+    {"diff": -8,  "effect": "Sterility","desc":"The drug causes pernament sterility on a 3 in 10 chance."},
+    {"diff": -10, "effect": "Carcinogenic","desc":"The drug causes causes severe nerve damage (-2 REF lost cancer (3 in 1 0). If cancer is developed, the permanently). character will take 1 point of permanent damage unless a cure is effective (a VERY Duration DIFFICULT Medical Tech check) or he dies. Drug durations vary from dose to dose, situtation to situation. When a drug is taken, Psychotic Rage ( -1 Opts): The drug causes roll1 D6+ 1 to det'ermine the total amount of the character to fly into a psychotic rage, timethedrugwillremainactiveinthesystem: attacking anyone within range."},
+    {"diff": -12, "effect": "Aggressive Behavior","desc":"The drug causes the character to become irritable and aggressive. On a 5 in 1 0 chance, he will pick a fight with the nearest person to him."},
+    {"diff": -12, "effect": "Irrational Fear","desc":"The drug causes the character to become inordinately fearful of everything. He must drop everything and cower in near catatonia until the drug wears off."},
+    {"diff": -15, "effect": "Nerve Degeneration","desc":"causes severe nerve damage (-2 REF lost permanently). "}
+  ]
+}

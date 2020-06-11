@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-3">Name: </div>
+  <div class="col-7"><input type="text"></div>
+  <div class="col-1"><fa-icon [icon]="faPlus" (click)="add()"></fa-icon></div>
+</div>
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-5">DIFF: {{selectedDrug.diff}}</div>
+  <div class="col-5">Cost: {{selectedDrug.cost}}eb</div>
+  <div class="col-1"></div>
+</div>
+<div class="row">
+  <div class="col-3">Effect: </div>
+  <div class="col-9">
+    <div class="row">
+      <div *ngFor="let e of effectList" class="col-6 effect-name" [title]="e.desc">
+        <input type="checkbox" [(ngModel)]="e.enabled" (change)="enableEffect(e)"> {{e.effect}} ({{e.diff}})
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-3">Strength:</div>
+  <div class="col-9"><input type="number" [(ngModel)]="selectedDrug.strength"></div>
+</div>
+<div class="row">
+  <div class="col-3">Side Effects:</div>
+  <div class="col-9">
+    <div class="row">
+      <div *ngFor="let e of sideEffectList" class="col-6 effect-name" [title]="e.desc">
+        <input type="checkbox" [(ngModel)]="e.enabled" (change)="enableSideEffect(e)"> {{e.effect}} ({{e.diff}})
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-3">Duration:</div>
+  <div class="col-5">
+    <select [(ngModel)]="selectedDrug.duration">
+      <option value="1d10 turns" selected>1d10 turns</option>
+      <option value="1d10 minutes">1d10 minutes</option>
+      <option value="1d10 hours">1d10 hours</option>
+    </select>
+  </div>
+</div>
+<div class="row">
+  <div class="col-3">Description:</div>
+  <div class="col-9"><textarea [(ngModel)]="selectedDrug.description"></textarea></div>
+</div>
