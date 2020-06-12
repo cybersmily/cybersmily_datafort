@@ -12,7 +12,7 @@ import { faAngleDoubleDown, faAngleDoubleRight } from '@fortawesome/free-solid-s
 })
 export class ProtGearComponent implements OnInit {
 
-  @ViewChild('accordion', {static: false}) accordion: AccordionComponent;
+  @ViewChild('accordion') accordion: AccordionComponent;
     gearList: Gear[];
     cyberwareList: DataCyberware[];
     cyberDeckList: CyberDeck[];

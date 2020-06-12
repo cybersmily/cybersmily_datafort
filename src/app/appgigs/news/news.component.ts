@@ -12,7 +12,7 @@ import { faAngleDoubleDown, faAngleDoubleRight } from '@fortawesome/free-solid-s
 export class NewsComponent implements OnInit {
   faAngleDoubleDown = faAngleDoubleDown;
   faAngleDoubleRight = faAngleDoubleRight;
-  @ViewChild('accordion', {static: false}) accordion: AccordionComponent;
+  @ViewChild('accordion') accordion: AccordionComponent;
 
   newsItems: any;
   constructor(private dataService: DataService) { }

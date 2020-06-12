@@ -14,7 +14,7 @@ export class WeaponcardcolumnComponent implements OnInit {
   faAngleDoubleDown = faAngleDoubleDown;
   faAngleDoubleRight = faAngleDoubleRight;
 
-  @ViewChild('accordion', {static: false}) accordion: AccordionComponent;
+  @ViewChild('accordion') accordion: AccordionComponent;
 
   @Input()
   weapons: WeaponGroup[];

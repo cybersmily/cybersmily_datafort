@@ -5,8 +5,11 @@
     "baseUrl": "./",
     "types": ["bootstrap"]
   },
-  "exclude": [
-    "tests/*.ts",
-    "**/*.spec.ts"
+  "files": [
+    "home.ts",
+    "polyfills.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts"
   ]
 }

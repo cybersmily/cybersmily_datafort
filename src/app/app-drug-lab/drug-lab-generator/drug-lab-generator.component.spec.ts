@@ -1,3 +1,5 @@
+import { RxLabDataService } from './../../shared/services/rxlab/rx-lab-data.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DrugLabGeneratorComponent } from './drug-lab-generator.component';
@@ -8,7 +10,9 @@ describe('DrugLabGeneratorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DrugLabGeneratorComponent ]
+      declarations: [ DrugLabGeneratorComponent ],
+      imports: [ HttpClientTestingModule],
+      providers: [ RxLabDataService]
     })
     .compileComponents();
   }));
@@ -19,7 +23,4 @@ describe('DrugLabGeneratorComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });

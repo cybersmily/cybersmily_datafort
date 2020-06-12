@@ -18,7 +18,7 @@ export class DrugLabListComponent implements OnInit {
   @Output()
   deleteItem: EventEmitter<number> = new EventEmitter<number>();
 
-  @ViewChild('pdfContent', {static: false})
+  @ViewChild('pdfContent')
   pdfContent: ElementRef;
 
   constructor() { }

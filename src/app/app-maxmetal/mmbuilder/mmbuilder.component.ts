@@ -18,7 +18,7 @@ export class MmbuilderComponent implements OnInit {
     class: 'modal-dialog-centered'
   };
 
-  @ViewChild('maxMetalMessageModal', {static: false})
+  @ViewChild('maxMetalMessageModal')
   private messageTemplate: TemplateRef<any>;
 
   @Input()
