@@ -30,12 +30,12 @@ export class Cp2020Drug implements CpDrug{
   }
 
   get sideEffectList(): string {
-    return this.sideEffects.map(d => d.effect).join(',');
+    return this.sideEffects.map(d => d.effect).join(', ');
   }
 
 
   get effectList(): string {
-    return this.effects.map(d => d.effect).join(',');
+    return this.effects.map(d => d.effect).join(', ');
   }
 
 }

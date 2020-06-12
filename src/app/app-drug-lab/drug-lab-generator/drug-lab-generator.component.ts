@@ -1,4 +1,4 @@
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faUndo } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020Drug } from './../../shared/models/drug/cp2020-drug';
 import { forkJoin } from 'rxjs';
 import { CpSelectedDrugEffect } from './../../shared/models/drug/cp-drug';
@@ -12,6 +12,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class DrugLabGeneratorComponent implements OnInit {
   faPlus = faPlus;
+  faUndo = faUndo;
 
   effectList: Array<CpSelectedDrugEffect> = new Array<CpSelectedDrugEffect>();
   sideEffectList: Array<CpSelectedDrugEffect> = new Array<CpSelectedDrugEffect>();
