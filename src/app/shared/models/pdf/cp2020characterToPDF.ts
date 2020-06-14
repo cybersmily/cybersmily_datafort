@@ -1,3 +1,5 @@
+import { LifePathResults } from './../lifepath/lifepath-results';
+import { Cp2020PlayerCyberList } from './../cyberware/cp2020-player-cyber-list';
 import { CpPlayerWeaponList } from './../weapon/cp-player-weapon-list';
 import { Cp2020PlayerGearList } from './../cp2020character/cp2020-player-gear-list';
 import { Cp2020ArmorBlock } from './../cp2020character/cp2020-armor-block';
@@ -51,7 +53,7 @@ export class Cp2020characterToPDF {
     line = this.addWoundRow(doc, this._character.stats.Save, this._character.stats.BTM, line);
 
     this.addSkills(doc, null);
-    this.addCyberware(doc, null, this._midPage, 160);
+    this.addCyberware(doc, this._character.cyberware, this._midPage, 175);
   }
 
   createSecondPage( doc: jsPDF) {
@@ -64,7 +66,7 @@ export class Cp2020characterToPDF {
     doc.setTextColor('black');
     doc.setFontStyle('normal');
 
-    this.addLifePath(doc, null, this._left, this._top + 10);
+    this.addLifePath(doc, this._character.lifepath, this._left, this._top + 10);
     this.addGear(doc, this._character.gear, this._midPage, this._top + 10);
     this.addWeapons(doc, this._character.weapons, this._midPage, 200);
   }
@@ -247,7 +249,7 @@ private addWounds(doc: jsPDF, level: string, stun: number, line: number, left: n
 private addSkills(doc: jsPDF, skills: any) {
 }
 
-private addCyberware(doc: jsPDF, cyber: any, left: number, line: number) {
+private addCyberware(doc: jsPDF, cyber: Cp2020PlayerCyberList, left: number, line: number) {
   doc.setFillColor('black');
   doc.rect(left, line, 100, 7, 'DF');
   doc.setTextColor('white');
@@ -255,6 +257,34 @@ private addCyberware(doc: jsPDF, cyber: any, left: number, line: number) {
   doc.text('CYBERNETICS', left + 2, line + 5);
   doc.setTextColor('black');
   doc.setFontStyle('normal');
+  line += 7;
+  doc.setFontSize(9);
+  const ht = 6;
+  // header
+  doc.rect(left, line, 80, ht, 'S');
+  doc.rect(left + 80, line, 10, ht, 'S');
+  doc.rect(left + 90, line, 10, ht, 'S');
+  doc.text('Type', left + 2, line + 4);
+  doc.text('HL', left + 81, line + 4);
+  doc.text('Cost', left + 91, line + 4);
+  line += ht;
+  cyber.items.forEach(c => {
+    doc.rect(left, line, 80, ht, 'S');
+    doc.rect(left + 80, line, 10, ht, 'S');
+    doc.rect(left + 90, line, 10, ht, 'S');
+    doc.text((c.name) ? c.name : '', left + 2, line + 4);
+    doc.text((c.hl) ? c.hl.toString() : '', left + 81, line + 4);
+    doc.text((c.cost) ? c.cost.toString() : '', left + 91, line + 4);
+    line += ht;
+  });
+
+  // footer
+  doc.rect(left, line, 80, ht, 'S');
+  doc.rect(left + 80, line, 10, ht, 'S');
+  doc.rect(left + 90, line, 10, ht, 'S');
+  doc.text('Total HL and Cost', left + 2, line + 4);
+  doc.text((cyber.totalHL) ? cyber.totalHL.toString()  : '', left + 81, line + 4);
+  doc.text(cyber.totalCost ? cyber.totalCost.toString() : '', left + 91, line + 4);
 }
 
 private addGear(doc: jsPDF, gear: Cp2020PlayerGearList, left: number, line: number) {
@@ -380,8 +410,144 @@ private addWeapons(doc: jsPDF, weapons: CpPlayerWeaponList, left: number, line: 
   doc.setFontSize(this._fontSize);
 }
 
-private addLifePath(doc: jsPDF, lifepath: any, left: number, line: number) {
-  doc.rect(left + 0.5, line, 90, this._pageHeight - line, 'S');
+private addLifePath(doc: jsPDF, lifepath: LifePathResults, left: number, line: number) {
+  doc.rect(left, line, 90, this._pageHeight - line, 'S');
+  const ht = 6.5;
+  const recth = 6;
+  doc.setFontStyle('bold');
+  doc.text('LIFEPATH', left + 2, line + 5);
+  doc.setFillColor('black');
+  line += ht;
+  // Style
+  doc.rect(left, line, 20, recth, 'FD');
+  doc.setTextColor('white');
+  doc.text('Style', left + 2, line + 4);
+  doc.setTextColor('black');
+  line += ht;
+  doc.text('Clothes', left + 5, line + 5);
+  doc.setFontStyle('normal');
+  doc.text(lifepath.appearance.clothes, left + 20, line + 5);
+  line += ht;
+  doc.setFontStyle('bold');
+  doc.text('Hair', left + 5, line + 5);
+  doc.setFontStyle('normal');
+  doc.text(lifepath.appearance.hairstyle, left + 17, line + 5);
+  line += ht;
+  doc.setFontStyle('bold');
+  doc.text('Affectations', left + 5, line + 5);
+  doc.setFontStyle('normal');
+  doc.text(lifepath.appearance.affectations, left + 25, line + 5);
+  line += ht;
+  doc.setFontStyle('bold');
+  doc.text('Ethnicity', left + 5, line + 5);
+  doc.setFontStyle('normal');
+  doc.text(lifepath.ethnicity.name, left + 20, line + 5);
+  line += ht;
+  doc.setFontStyle('bold');
+  doc.text('Language', left + 5, line + 5);
+  doc.setFontStyle('normal');
+  doc.text(lifepath.ethnicity.language, left + 22, line + 5);
+  line += ht;
+  doc.setFontStyle('bold');
+
+  // Family
+  doc.setFontStyle('bold');
+  doc.setFillColor('black');
+  doc.rect(left, line, 40, recth, 'FD');
+  doc.setTextColor('white');
+  doc.text('Family Background', left + 2, line + 4);
+  doc.setTextColor('black');
+
+  line += ht;
+  const fam = doc.splitTextToSize(lifepath.family.familyBackground, 90);
+  doc.setFontStyle('normal');
+  doc.text('Ranking: ' + lifepath.family.familyRanking, left + 5, line + 4);
+  line += ht;
+  for ( let i = 0; i < 4; i++) {
+    if ( fam[i] ) {
+      doc.text(fam[i].trim(), left + 5, line + 4);
+    }
+    line += ht;
+  }
+
+  doc.setFontStyle('bold');
+  doc.setFillColor('black');
+  doc.rect(left, line, 25, recth, 'FD');
+  doc.setTextColor('white');
+  doc.text('# Siblings', left + 2, line + 4);
+  doc.setTextColor('black');
+  line += ht;
+
+  // Motivations
+  doc.setFillColor('black');
+  doc.rect(left, line, 25, recth, 'FD');
+  doc.setTextColor('white');
+  doc.text('Motivations', left + 2, line + 4);
+  doc.setTextColor('black');
+  line += ht;
+  doc.text('Traits', left + 5, line + 5);
+  doc.setFontStyle('normal');
+  doc.text(lifepath.motivations.personality, left + 22, line + 5);
+  line += ht;
+  doc.setFontStyle('bold');
+  doc.text('Valued Person', left + 5, line + 5);
+  doc.setFontStyle('normal');
+  doc.text(lifepath.motivations.valuedperson, left + 22, line + 5);
+  line += ht;
+  doc.setFontStyle('bold');
+  doc.text('Value Most', left + 5, line + 5);
+  doc.setFontStyle('normal');
+  doc.text(lifepath.motivations.valuemost, left + 22, line + 5);
+  line += ht;
+  doc.setFontStyle('bold');
+  doc.text('Feel About People', left + 5, line + 5);
+  doc.setFontStyle('normal');
+  doc.text(lifepath.motivations.feelaboutpeople, left + 22, line + 5);
+  line += ht;
+  doc.setFontStyle('bold');
+  doc.text('Valued Possesion', left + 5, line + 5);
+  doc.setFontStyle('normal');
+  doc.text(lifepath.motivations.valuedpossession, left + 22, line + 5);
+  line += ht;
+  doc.setFontStyle('bold');
+
+  // Life Events
+  doc.rect(left, line, 25, recth, 'FD');
+  doc.setTextColor('white');
+  doc.text('Life Events', left + 2, line + 4);
+  doc.setTextColor('black');
+  line += ht;
+  doc.setFontSize(9);
+  doc.setFontStyle('normal');
+  doc.setTextColor('black');
+  doc.rect(left, line, 10, recth, 'S');
+  doc.text('YEAR', left + 1, line + 5);
+  doc.rect(left + 10, line, 80, recth, 'S');
+  doc.text('EVENT', left + 12, line + 5);
+  line += ht;
+  lifepath.events.forEach( e => {
+    if (e.event && e.event.trim() !== '') {
+      const details: Array<string> = doc.splitTextToSize(e.event, 77);
+      const h = (recth * details.length) + 1;
+      doc.rect(left, line, 10, h, 'S');
+      doc.text(e.age ? e.age.toString() : '', left + 1, line + 5);
+      doc.rect(left + 10, line, 80, h, 'S');
+      let lineHt = line;
+      details.forEach( d => {
+        doc.text(d.trim(), left + 11, lineHt + 5);
+        lineHt += 5;
+      });
+      line += h;
+    } else {
+      doc.rect(left, line, 10, recth, 'S');
+      doc.text(e.age ? e.age.toString() : '', left + 1, line + 5);
+      doc.text('', left + 11, line + 5);
+      line += ht;
+    }
+  });
+
+
+  doc.setFontStyle('normal');
 }
 
 }
