@@ -10,8 +10,9 @@ import { Cp2020ArmorBlock } from './../../shared/models/cp2020character/cp2020-a
 import { Cp2020StatBlock } from './../../shared/models/cp2020character/cp2020-stat-block';
 import { Cp2020PlayerCharacter } from './../../shared/models/cp2020character/cp2020-player-character';
 import { Cp2020CharacterGeneratorService } from './../../shared/services/chargen/cp2020-character-generator.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Cp2020PlayerRole } from './../../shared/models/cp2020character/cp2020-player-role';
+import { Cp2020characterToPDF } from './../../shared/models/pdf/cp2020characterToPDF';
 
 @Component({
   selector: 'cs-app-character-generator-form',
@@ -22,6 +23,9 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   faDice = faDice;
 
   character: Cp2020PlayerCharacter;
+
+  @ViewChild('pdfCP2020Character',{static: false})
+  pdfCP2020Character: ElementRef;
 
   constructor( private characterService: Cp2020CharacterGeneratorService,
                private saveFileService: SaveFileService,
@@ -91,6 +95,10 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     this.saveFileService.SaveAsFile('CP2020_' + (this.character.handle.replace(' ', '_')), JSON.stringify(this.character));
   }
 
+  createPDF() {
+    const characterToPDF = new Cp2020characterToPDF();
+    characterToPDF.generatePdf(this.character);
+  }
 
   /**
    * load the character file to the page. Note, the handler needed
