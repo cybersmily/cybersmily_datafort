@@ -71,10 +71,10 @@
           <cs-app-character-skill *ngFor="let skill of skills.Other"
           [skill]="skill" (changeSkill)="onChangeSkill($event)"></cs-app-character-skill>
           <br>
-          <div class="chargen-skill-misc">REP<span class="pull-right">[<input type="number"
-                class="chargen-skill-input" />]</span></div>
-          <div class="chargen-skill-misc">IP<span class="pull-right">[<input type="number"
-                class="chargen-skill-input" />]</span></div>
+          <div class="chargen-skill-misc">REP<span class="pull-right">[<input [(ngModel)]="skills.rep" type="number"
+                class="chargen-skill-input" (change)="onChangeSkill()"/>]</span></div>
+          <div class="chargen-skill-misc">IP<span class="pull-right">[<input [(ngModel)]="skills.ip" type="number"
+                class="chargen-skill-input" (change)="onChangeSkill()" />]</span></div>
           <div class="chargen-skill-misc">HUMANITY<span class="pull-right">[{{stats.CurrentHumanity}}]</span></div>
         </div>
       </div>

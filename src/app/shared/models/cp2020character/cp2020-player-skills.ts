@@ -3,12 +3,16 @@ export class Cp2020PlayerSkills {
   RoleTotal: number;
   OtherTotal: number;
   skills: Array<Cp2020PlayerSkill>;
+  rep: number;
+  ip: number;
 
   constructor() {
     this.skills = new Array<Cp2020PlayerSkill>();
     this.initiateSkills();
     this.RoleTotal = 0;
     this.OtherTotal = 0;
+    this.rep = 0;
+    this.ip = 0;
   }
 
   private initiateSkills() {
