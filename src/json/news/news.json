@@ -2,6 +2,8 @@
   "news": [{
     "date": "2020-06",
     "entries": [
+      "<strong>06-15</strong> Fixed a few bugs around the site. Add PDF export button the Character Generator CP2020 app. This was a challenge to make sure it was client side only. Still working on a couple of new apps for the upcoming months.",
+      "Half way through the year and continuing my goal of a new app or feature per month of 2020.",
       "<strong>06-01</strong> - Fixed a bunch of bugs. Added an armor management contorls for the Cyberpunk 2020 combat tracker and character generator.",
       "Added a function in the Combat Tracker to import a CP 2020 Character file and add it as an opppenent.",
       "Stay safe gatos. The dark future is upon us!",
