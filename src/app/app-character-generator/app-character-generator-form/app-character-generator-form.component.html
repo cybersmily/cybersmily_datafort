@@ -7,22 +7,13 @@
       There is still a bit of work to be done, but this should help with starting out with the basics.
     </p>
     <p>
-      PRINTING - To print, use the browser to print it.
-      Make sure to print the Background Graphics as well.
-      This is usually off by default.
-    </p>
-    <ul>
-      <li>Chrome - add the background colors to print go Print > More settings > options > Background graphics.</li>
-      <li>Edge - doesn't support background color, but the form will print. IE does but the site doesn't work in IE.
-      </li>
-      <li>Firefox - Page setup > Print Background. You will also need to set the scale of the page to 70%. There is an
-        issue with Firfox distorting some of the elements while printing.</li>
-    </ul>
-    <p>
       SAVE/UPLOAD - The data is save into a .txt file.
       This is the JSON object of the character.
       If you want to mess with it, back the file up before you edit it.
       This is a free app and created in my spare time so if you broke it you bought it ;-).
+    </p>
+    <p>PDF - this will export the character sheet to a PDF file. This PDF file cannot be uploaded to the this sheet.
+      You will need to save the file as a txt file has mentioned above.
     </p>
     <p>
       If you see <fa-icon [icon]="faDice"></fa-icon> icon, click it to get dice roll for a skill or save, or generate
@@ -37,13 +28,13 @@
           class="btn btn-sm btn-secondary csd-rounded csd-chargen-btn pull-right" value="Reset"
           (click)="resetCharacter()" />
         <input type="button" title="Save the character to a file"
-          class=" btn btn-sm btn-secondary csd-rounded csd-chargen-btn" value="Save" (click)="saveCharacter()" />
-        <label class="btn btn-sm btn-secondary btn-file csd-rounded csd-chargen-btn" title="load a character .txt file">
-          Browse
+          class=" btn btn-sm btn-secondary csd-rounded csd-chargen-btn float-right" value="Save" (click)="saveCharacter()" />
+        <label class="btn btn-sm btn-secondary btn-file csd-rounded csd-chargen-btn float-right" title="load a character .txt file">
+          Load
           <input type="file" id="loadFile" title="load a character .txt file" style="display: none;" name="Load"
             (change)="loadCharacter($event)" #input accept="text/plain" />
         </label>
-        <button class="btn btn-sm btn-secondary csd-rounded" (click)="createPDF()">PDF</button>
+        <button class="btn btn-sm btn-secondary csd-rounded csd-chargen-btn float-right" (click)="createPDF()" title="Export as a PDF file">Export PDF</button>
       </p>
       <hr color="#999999" style="width:100%;">
     </div>
