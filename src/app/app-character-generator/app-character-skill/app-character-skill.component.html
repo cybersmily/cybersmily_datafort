@@ -3,8 +3,7 @@
 >
     <span [ngClass]="{'rounded': true, 'sa-name': isSpecialAbility, 'skill-name': true }">{{skill.name}}<fa-icon [icon]="faDice"
       title="Click to Roll" (click)="onClick(chargenSkillRoll)"></fa-icon></span>
-    <input *ngIf="skill.option || skill.option === ''"
-    [(ngModel)]="skill.option" type="text" class="chargen-skil-option"/>
+    <input *ngIf="skill.option || skill.option === ''" [(ngModel)]="skill.option" type="text" class="chargen-skil-option"/>
     <span *ngIf="skill.ipMod > 1">({{skill.ipMod}}) </span>
     <span class="dots"></span>
     <span class="skill-inputs pull-right">
@@ -40,4 +39,3 @@
   </div>
   </div>
 </ng-template>
-

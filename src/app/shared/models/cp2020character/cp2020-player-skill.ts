@@ -24,7 +24,15 @@ export class Cp2020PlayerSkill implements Skill {
       this.value = (param.value) ? param.value : 0;
       this.ip = (param.ip) ? param.ip : 0;
       this.ipMod = (param.ipmod) ? param.ipmod : 1;
-      this.option = (param.option) ? param.option : '';
+      if (this.name.toLowerCase() === 'expert'
+          || this.name.toLowerCase() === 'language'
+          || this.name.toLowerCase() === 'other'
+          || this.name.toLowerCase() === 'martial art') {
+            this.option = (param.option) ? param.option : '';
+
+      } else {
+        this.option = undefined;
+      }
       this.chipped = (param.chipped !== undefined && param.chipped !== null) ? param.chipped : false;
       this.isRoleSkill = (param.roleskill !== undefined && param.roleskill !== null) ? param.roleskill : false;
       this.roleChoice = (param.ischoice !== undefined && param.ischoice !== null) ? param.ischoice : false;
