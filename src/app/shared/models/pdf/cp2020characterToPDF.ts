@@ -30,8 +30,8 @@ export class Cp2020characterToPDF {
     this.createFirstPage(doc);
     this.createSecondPage(doc);
     this.createThirdPage(doc);
-    doc.save('test.pdf');
-
+    const filename = this._character.handle.replace(/[^\W\s]/gi, '');
+    doc.save(`${filename}.pdf`);
   }
 
   createFirstPage(doc: jsPDF) {
