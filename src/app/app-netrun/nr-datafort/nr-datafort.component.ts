@@ -19,7 +19,7 @@ export class NrDatafortComponent implements OnInit {
   @Input()
   column: number;
 
-  @ViewChild('pop') pop: PopoverDirective;
+  @ViewChild('pop', {static: false}) pop: PopoverDirective;
 
   @HostBinding('style.top') top: string;
   @HostBinding('style.left') left: string;

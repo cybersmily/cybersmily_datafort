@@ -10,7 +10,7 @@ import { faAngleDoubleDown, faAngleDoubleRight } from '@fortawesome/free-solid-s
   styleUrls: ['./prot-prog.component.css']
 })
 export class ProtProgComponent implements OnInit {
-  @ViewChild('accordion') accordion: AccordionComponent;
+  @ViewChild('accordion', {static: false}) accordion: AccordionComponent;
   programList: ProgramGroup[];
   faAngleDoubleDown = faAngleDoubleDown;
   faAngleDoubleRight = faAngleDoubleRight;
