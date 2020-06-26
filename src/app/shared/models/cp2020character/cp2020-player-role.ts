@@ -4,6 +4,7 @@ export class Cp2020PlayerRole {
   base: string;
   specialAbility: Cp2020PlayerSkill;
   skills: string[][];
+  secondary?: any[];
   source: string;
   page: number;
 
@@ -31,6 +32,7 @@ export class Cp2020PlayerRole {
     }
 
     this.skills = (value.skills) ? value.skills : new Array();
+    this.secondary = (value.secondary) ? value.secondary : undefined;
     this.source = (value.source) ? value.source : '';
     this.page = (value.page) ? value.page : 0;
   }

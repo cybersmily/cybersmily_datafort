@@ -24,6 +24,11 @@
 .chargen-skill-is-role span.skill-name:first-child::before {
   content: '*';
 }
+
+.chargen-skill-is-role.chargen-skill-is-secodary span.skill-name:first-child::before {
+  content: '!';
+}
+
 .chargen-skill-is-role.chargen-role-choice span.skill-name:first-child::before {
   content: '@';
 }

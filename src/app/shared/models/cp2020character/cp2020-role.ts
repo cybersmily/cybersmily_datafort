@@ -4,6 +4,7 @@ export class Cp2020Role {
   base: string;
   specialability: Cp2020Skill;
   skills: any[];
+  secondary?: any[];
   source: string;
   page: number;
   salary: number[];

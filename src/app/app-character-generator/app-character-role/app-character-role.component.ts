@@ -37,6 +37,18 @@ export class AppCharacterRoleComponent implements OnInit, OnChanges {
           }
           return sk;
         });
+        if (e.secondary) {
+          e.secondary = e.secondary.map( sk => {
+            if (Array.isArray(sk)) {
+              sk = sk.map( s => {
+                return (( s.indexOf('&') > -1 ) ? s.replace('\\&', '&') : s);
+              });
+            } else {
+              sk = (( sk.indexOf('&') > -1 ) ? sk.replace('\\&', '&') : sk);
+            }
+            return sk;
+          });
+        }
         return e;
       });
       const index = data.findIndex( role => role.name === this.role.name);
@@ -54,6 +66,9 @@ export class AppCharacterRoleComponent implements OnInit, OnChanges {
   onRoleChange() {
     this.role.name = this.currentRole.name;
     this.role.skills = this.currentRole.skills;
+    if (this.currentRole.secondary) {
+      this.role.secondary = this.currentRole.secondary;
+    }
     this.role.base = this.currentRole.base;
     this.role.source = this.currentRole.source;
     this.role.page = this.currentRole.page;

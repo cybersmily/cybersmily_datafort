@@ -13,6 +13,7 @@ export class Cp2020PlayerSkill implements Skill {
   option?: string;
   roleChoice?: boolean;
   isRoleSkill?: boolean;
+  isSecondarySkill?: boolean;
   chipped?: boolean;
   maBonuses?: MartialBonuses;
 
@@ -35,6 +36,7 @@ export class Cp2020PlayerSkill implements Skill {
       }
       this.chipped = (param.chipped !== undefined && param.chipped !== null) ? param.chipped : false;
       this.isRoleSkill = (param.roleskill !== undefined && param.roleskill !== null) ? param.roleskill : false;
+      this.isSecondarySkill = (param.secondarySkill !== undefined && param.secondarySkill !== null) ? param.secondarySkill : false;
       this.roleChoice = (param.ischoice !== undefined && param.ischoice !== null) ? param.ischoice : false;
       this.isSA = (param.sa !== undefined && param.sa !== null) ? param.sa : false;
       this.maBonuses = (param.maBonuses) ? param.maBonuses : undefined;
@@ -77,6 +79,7 @@ export interface SkillParameters {
   ip?: number;
   sa?: boolean;
   roleskill?: boolean;
+  secondarySkill?: boolean;
   option?: string;
   ischoice?: boolean;
   chipped?: boolean;

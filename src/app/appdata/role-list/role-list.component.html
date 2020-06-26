@@ -11,6 +11,7 @@
       <th class="text-center">Base Role</th>
       <th class="text-center">Special Ability</th>
       <th class="text-center">Skills</th>
+      <th class="text-center">Secondary Skills</th>
       <th class="text-center">Salary</th>
       <th class="text-center">Source</th>
     </tr>
@@ -20,15 +21,19 @@
       <td><input [(ngModel)]="filters.sa" type="search" placeholder="search on special ability" class="mstr-role-search"/></td>
       <td><input [(ngModel)]="filters.skill" type="search" placeholder="search on special ability" class="mstr-role-search"/></td>
       <td></td>
+      <td></td>
       <td><input [(ngModel)]="filters.source" type="search" placeholder="search on source" class="mstr-role-search"/></td>
     </tr>
-    <tr *ngFor="let role of roleList|filter:'name':filters.role|filter:'base':filters.base|filter:'specialability.name':filters.sa|sourcebookFilter:filters.source|filter:'skills':filters.skill"
-        style="vertical-align: top;">
+    <ng-container *ngFor="let role of roleList|filter:'name':filters.role|filter:'base':filters.base|filter:'specialability.name':filters.sa|sourcebookFilter:filters.source|filter:'skills':filters.skill">
+    <tr style="vertical-align: top;">
       <td>{{role.name}}</td>
       <td>{{role.base}}</td>
       <td>{{role.specialability.name}}({{role.specialability.stat}})</td>
       <td class="role-skills">
         <div *ngFor="let sk of role.skills">{{getSkill(sk)}}</div>
+      </td>
+      <td class="role-skills">
+        <div *ngFor="let sk of role.secondary">{{getSkill(sk)}}</div>
       </td>
       <td class="role-salaries">
         <div>1-5: {{role.salary[0]}}eb</div>
@@ -40,5 +45,9 @@
       </td>
       <td title="{{role.source|sourcebook}}">{{role.source|sourcebook}} pg. {{role.page}}</td>
     </tr>
+    <tr>
+
+    </tr>
+  </ng-container>
   </table>
   </div>

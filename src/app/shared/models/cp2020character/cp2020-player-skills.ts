@@ -191,9 +191,24 @@ export class Cp2020PlayerSkills {
     this.addToOthers(skills);
   }
 
-  private processRoleSkillArray(skillArray: Array<Cp2020PlayerSkill>, roleSkills: any[]) {
+  setSecondarySkills(secondarySkills: any[]) {
+    // set the isRoleSkill flag
+    let skills = this.processRoleSkillArray(this.COOL, secondarySkills, true);
+    skills = this.processRoleSkillArray(this.EMP, skills, true);
+    skills = this.processRoleSkillArray(this.TECH, skills, true);
+    skills = this.processRoleSkillArray(this.BODY, skills, true);
+    skills = this.processRoleSkillArray(this.ATTR, skills, true);
+    skills = this.processRoleSkillArray(this.INT, skills, true);
+    skills = this.processRoleSkillArray(this.REF, skills, true);
+    this.addToOthers(skills);
+
+  }
+
+  private processRoleSkillArray(skillArray: Array<Cp2020PlayerSkill>, roleSkills: any[], isSecondary?: boolean) {
     // clean the flags
-    skillArray.map( skill => { skill.isRoleSkill = false; skill.roleChoice = false; });
+    if (!isSecondary) {
+      skillArray.map( skill => { skill.isRoleSkill = false; skill.roleChoice = false; });
+    }
     // find if a role skill
     const rSkills = roleSkills.slice();
     let index = rSkills.length - 1;
@@ -205,6 +220,7 @@ export class Cp2020PlayerSkills {
           if (found > -1) {
             skillArray[found].isRoleSkill = true;
             skillArray[found].roleChoice = true;
+            skillArray[found].isSecondarySkill = isSecondary;
             rSkills[index].splice(j, 1);
           }
           j--;
@@ -213,6 +229,7 @@ export class Cp2020PlayerSkills {
         const found = skillArray.findIndex( s => s.name.toLowerCase() === rSkills[index].toLowerCase());
         if (found > -1) {
           skillArray[found].isRoleSkill = true;
+          skillArray[found].isSecondarySkill = isSecondary;
           rSkills.splice(index, 1);
         }
       }

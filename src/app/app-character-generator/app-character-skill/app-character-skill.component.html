@@ -1,5 +1,5 @@
 <div
-[ngClass]="{'article': true, 'chargen-skill-is-role': skill.isRoleSkill, 'chargen-role-choice': skill.roleChoice, 'chargen-skill': true}"
+[ngClass]="{'article': true, 'chargen-skill-is-role': skill.isRoleSkill,'chargen-skill-is-secodary ': skill.isSecondarySkill, 'chargen-role-choice': skill.roleChoice, 'chargen-skill': true}"
 >
     <span [ngClass]="{'rounded': true, 'sa-name': isSpecialAbility, 'skill-name': true }">{{skill.name}}<fa-icon [icon]="faDice"
       title="Click to Roll" (click)="onClick(chargenSkillRoll)"></fa-icon></span>

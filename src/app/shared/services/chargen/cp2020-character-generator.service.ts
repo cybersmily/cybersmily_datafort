@@ -105,6 +105,10 @@ export class Cp2020CharacterGeneratorService {
     this._currCharacter.role = value;
     // set the role skills
     this._currCharacter.skills.setRoleSkills(value.skills);
+    if (value.secondary) {
+      this._currCharacter.skills.setSecondarySkills(value.secondary);
+    }
+    console.log(this._currCharacter.skills);
     this._currCharacter.skills.calculateTotals();
     this.updateCharacter();
   }

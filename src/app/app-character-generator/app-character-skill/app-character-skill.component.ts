@@ -33,6 +33,9 @@ export class AppCharacterSkillComponent implements OnInit {
   constructor(private modalService: BsModalService, private dice: DiceService) { }
 
   ngOnInit() {
+    if (this.skill.isSecondarySkill) {
+      console.log(this.skill);
+    }
   }
 
   onChangeSkill() {
