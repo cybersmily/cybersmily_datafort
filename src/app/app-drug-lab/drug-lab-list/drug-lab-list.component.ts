@@ -1,3 +1,5 @@
+import { faUndo, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { DruglabToPDF } from './../../shared/models/pdf/druglab-to-pdf';
 import { Cp2020DrugList } from './../../shared/models/drug/cp2020-drug-list';
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import * as jsPDF from 'jspdf';
@@ -8,6 +10,8 @@ import * as jsPDF from 'jspdf';
   styleUrls: ['./drug-lab-list.component.css']
 })
 export class DrugLabListComponent implements OnInit {
+  faUndo = faUndo;
+  faTrash = faTrash;
 
   @Input()
   drugList: Cp2020DrugList = new Cp2020DrugList();
@@ -18,8 +22,13 @@ export class DrugLabListComponent implements OnInit {
   @Output()
   deleteItem: EventEmitter<number> = new EventEmitter<number>();
 
+  @Output()
+  resetList: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   @ViewChild('pdfContent', {static: false})
   pdfContent: ElementRef;
+
+  pdf: DruglabToPDF = new DruglabToPDF();
 
   constructor() { }
 
@@ -35,16 +44,11 @@ export class DrugLabListComponent implements OnInit {
   }
 
   saveToPDF() {
-    const content = this.pdfContent.nativeElement;
-    const doc = new jsPDF();
-    const _elementHandlers = {
-      '#editor': function(element, renderer){ return true; }
-    };
-    doc.fromHTML(content.innerHTML, 15, 15, {
-      'width': 190,
-      'elementHandlers': _elementHandlers
-    });
-    doc.save('CP2020_DrugList.pdf');
+    this.pdf.generatePdf(this.drugList);
+  }
+
+  reset() {
+    this.resetList.emit(true);
   }
 
 }

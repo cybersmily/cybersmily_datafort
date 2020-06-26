@@ -7,13 +7,13 @@ export class Cp2020Drug implements CpDrug{
   strength: number;
   duration: string;
 
-  constructor() {
-    this.name = '';
-    this.description = '';
-    this.effects = new Array<CpDrugEffect>();
-    this.sideEffects = new Array<CpDrugEffect>();
-    this.strength = 0;
-    this.duration = '';
+  constructor(param?: CpDrug) {
+    this.name = (param) ? param.name : '';
+    this.description = (param) ? param.description : '';
+    this.effects = (param && param.effects) ? param.effects : new Array<CpDrugEffect>();
+    this.sideEffects = (param && param.sideEffects) ? param.sideEffects : new Array<CpDrugEffect>();
+    this.strength = (param) ? param.strength : 0;
+    this.duration = (param) ? param.duration : '';
   }
 
   get cost(): number {

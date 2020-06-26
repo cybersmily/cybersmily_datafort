@@ -93,18 +93,25 @@ export interface SiteLinksGroup {
         ]
       });
       this.menuItems.push({
-        groupTitle: 'Apps',
+        groupTitle: 'Apps-2020',
         description: 'Under Apps you will find web page based application/utilities for Cyberpunk.',
         links: [
-          {title: 'Character Generator - CP2020', link: 'apps/chargen', desc: ''},
-          {title: 'Combat Tracker - CP2020', link: 'apps/cmbttrk', desc: ''},
-          {title: 'CP Red Jumpstart Kit Character', link: 'apps/qkpregen', desc: ''},
+          {title: 'Character Generator', link: 'apps/chargen', desc: ''},
+          {title: 'Combat Tracker', link: 'apps/cmbttrk', desc: ''},
+          {title: 'Drug Lab', link: 'apps/druglab', desc: ''},
           {title: 'Fashion Calculator', link: 'apps/fashcalc', desc: ''},
           {title: 'Fixer Calculator', link: 'apps/fixcalc', desc: ''},
           {title: 'LifePath Generator', link: 'apps/lifepath', desc: ''},
-          {title: 'LifePath Red Generator', link: 'apps/lpredjmp', desc: ''},
           {title: 'Max Metal Calculator', link: 'apps/maxmetal', desc: ''},
           {title: 'Netrunner Navigator', link: 'apps/nrtrace', desc: ''}
+        ]
+      });
+      this.menuItems.push({
+        groupTitle: 'Apps-RED',
+        description: 'Under Apps you will find web page based application/utilities for Cyberpunk.',
+        links: [
+          {title: 'CP Red Jumpstart Kit Character', link: 'apps/qkpregen', desc: ''},
+          {title: 'LifePath Red Generator', link: 'apps/lpredjmp', desc: ''}
         ]
       });
       this.menuItems.push({
@@ -142,5 +149,3 @@ export interface SiteLinksGroup {
       return typeof(val.title) !== 'undefined' && typeof(val.link) !== 'undefined' || typeof(val.desc) !== 'undefined';
     }
   }
-
-

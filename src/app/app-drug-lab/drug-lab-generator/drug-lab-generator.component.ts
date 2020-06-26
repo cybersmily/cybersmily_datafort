@@ -57,6 +57,13 @@ export class DrugLabGeneratorComponent implements OnInit {
 
   add() {
     this.addDrug.emit(this.selectedDrug);
+    this.reset();
+  }
+
+  reset() {
+    this.selectedDrug = new Cp2020Drug();
+    this.effectList.map( e => e.enabled = false);
+    this.sideEffectList.map( e => e.enabled = false);
   }
 
 }

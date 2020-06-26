@@ -1,5 +1,15 @@
 ﻿{
-  "news": [{
+  "news": [
+    {
+      "date": "2020-07",
+      "entries": [
+        "<strong>07-01</strong> - You will notice I have split out Cyberpunk 2020 and Cyberpunk Red into 2 different menu items. I am adding more and more apps, I want to categorize them as need. This month I add another CP 2020 app. This time a simple one for doing pharmaceuticals, Drug Lab.",
+        "Last month we saw the launch of Night City Wire episode 1. Holy Saint Pondsmith, does CP 2077 look awesome. I can't wait for November or December or whenever.",
+        "Stay safe gatos. The dark future is upon us!",
+        "CYBER :D"
+      ]
+    },
+    {
     "date": "2020-06",
     "entries": [
       "<strong>06-15</strong> Fixed a few bugs around the site. Add PDF export button the Character Generator CP2020 app. This was a challenge to make sure it was client side only. Still working on a couple of new apps for the upcoming months.",

@@ -21,7 +21,7 @@
     </div>
     <div class="col-1"></div>
     <div class="csd-rounded col-5">
-      <cs-drug-lab-list [drugList]="list"></cs-drug-lab-list>
+      <cs-drug-lab-list [drugList]="list" (resetList)="resetDrugList($event)" (deleteItem)="delete($event)"></cs-drug-lab-list>
     </div>
   </div>
 </div>
