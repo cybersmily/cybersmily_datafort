@@ -6,7 +6,8 @@
     {"title":"Dick, Philip K.","description":"Do Androids Dream of Electric Sheep? - The Minority Report - We Can Remember It for You Wholesale - Paycheck - Flow My Tears, the Policeman Said"},
     {"title":"Williams, Walter Jon","description":"Hardwired - Solip: System - Voice of the Whirlwind - Angel Station"},
     {"title":"Anthology","description":"Burning Chrome - Mirrorshades - Nanotech"},
-    {"title":"Besher, Alexander","description":"Rim"}
+    {"title":"Besher, Alexander","description":"Rim"},
+    {"title":"R. Talsorian","description":"Ravengers, Holoman"}
   ],
   "movies":[
     {"title":"Blade Runner","description":"MUST SEE!"},
@@ -53,6 +54,7 @@
     {"title":"Patlabor","description":"Some would say this is more mecha than CP, but I disagree"},
     {"title":"Pyscho Pass","description":"Started watching this, not too bad."},
     {"title":"Ergo Proxy","description":"Nice. Very Nice!"},
+    {"title":"Love, Death + Robots","description":"Anime by netfix. Some of the episodes are not necessarily cyberpunk, but over all great series."},
     {"title":"Cyber City Oedo 808","description":"Cyberpunk prisoners"}
 
 ],
@@ -64,8 +66,9 @@
     {"title":"Almost Human","description":"Shame it was cancelled in one season."},
     {"title":"Continuum","description":"Remove the time travel and keep the augmented humans and evil corporations."},
     {"title":"H+","description":"Web series on YouTube. Lot of neat ideas. "},
-    {"title":"Black Mirrors","description":"Netflix series that is a must watch"},
+    {"title":"Black Mirror","description":"Netflix series that is a must watch"},
     {"title":"Electric Dreams","description":"Amazon series based on Philip K Dick's stories. Great series."},
+    {"title":"Alter Carbon","description":"Borderline cyberpunk, if it wasn't for the aliens. Great tech."},
     {"title":"Incorporated","description":"Great cyberpunk series. Loved the corporates in it."}
 ]
 }

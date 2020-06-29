@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { DataService } from './../../shared/services/data.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -16,9 +17,15 @@ export class ArticleComponent implements OnInit {
   curArticle: CSArticle;
   articleHTML: string;
 
-  constructor(private dataService: DataService, private activatedRoute: ActivatedRoute ) { }
+  constructor(private dataService: DataService,
+    private activatedRoute: ActivatedRoute,
+    private seo: SeoService ) { }
 
   ngOnInit() {
+    this.seo.updateMeta(
+      'Cyberpunk 2020 Mod',
+      '2020-07, Cybersmily\'s Datafort Cyberpunk 2020 Mod is houserules and homebrew rules to extend/modify Cyberpunk 2020 rules.'
+    );
     this.LoadArticleHTML();
   }
 

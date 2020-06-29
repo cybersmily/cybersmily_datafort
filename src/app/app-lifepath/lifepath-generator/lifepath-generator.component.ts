@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { SaveFileService } from './../../shared/services/save-file.service';
 import { LifepathData, LifepathSource, LifepathChart, LifePathResults,
   LifepathChartSelection, LifepathFamily, LifepathEvent, LifepathEventsList, LifepathEthnicity } from '../../shared/models/lifepath';
@@ -22,7 +23,8 @@ export class LifepathGeneratorComponent implements OnInit {
   selectedSource: string;
 
   constructor(private dataService: DataService,
-      private saveFileService: SaveFileService) {
+      private saveFileService: SaveFileService,
+      private seo: SeoService) {
     this.appearanceList = new Array<LifepathChart>();
     this.motivationList = new Array<LifepathChart>();
     this.sourceList = new Array<LifepathSource>();
@@ -31,6 +33,10 @@ export class LifepathGeneratorComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.seo.updateMeta(
+      'Cyberpunk 2020 Lifepath',
+      '2020-07, Cybersmily\'s Datafort Cyberpunk 2020 Lifepath is an application to generate a character\'s lifepath.'
+    );
     // load data
     this.getLifepathData();
   }

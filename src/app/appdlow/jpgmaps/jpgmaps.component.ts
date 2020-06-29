@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JpgmapsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private seo: SeoService) { }
 
   ngOnInit() {
+    this.seo.updateMeta(
+      'Cyberpunk 2020 Night City JPG Maps',
+      '2020-07, Cybersmily\'s Datafort Cyberpunk 2020 Night City jpg maps of districts and areas of influence.'
+    );
   }
 
 }

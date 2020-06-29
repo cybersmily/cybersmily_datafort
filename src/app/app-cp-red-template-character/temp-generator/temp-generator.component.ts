@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { NameGeneratorService } from '../../shared/services/namegen/name-generator.service';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { CpRedTemplateGeneratorService } from './../../shared/services/cpredpc/cp-red-template-generator.service';
@@ -18,11 +19,16 @@ export class TempGeneratorComponent implements OnInit {
   constructor( private templateGenerator: CpRedTemplateGeneratorService,
     private dice: DiceService,
     private lifepathService: RedJumpkitLifepathService,
-    private nameService: NameGeneratorService
+    private nameService: NameGeneratorService,
+    private seo: SeoService
       ) {
   }
 
   ngOnInit() {
+    this.seo.updateMeta(
+      'Cyberpunk Red Jumpstart Kit Charcter generator',
+      '2020-07, Cybersmily\'s Datafort Cyberpunk  Red Jumpstart Kit Charcter generator is an application to generate characters based on the Cyberpunk Red character templates.'
+    );
     this.character = new CpRedBaseCharacter();
     this.roles = new Array<string>();
     this.roles.push('Fixer');

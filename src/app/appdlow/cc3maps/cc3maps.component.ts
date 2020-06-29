@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Cc3mapsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private seo: SeoService) { }
 
   ngOnInit() {
+    this.seo.updateMeta(
+      'Cyberpunk 2020 CC3 Maps',
+      '2020-07, Cybersmily\'s Datafort Cyberpunk 2020 Campaign Cartographer 3 maps of Night City and the NorCal.'
+    );
   }
 
 }

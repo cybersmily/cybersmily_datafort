@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataService } from '../../shared/services/data.service';
 import { AccordionComponent } from 'ngx-bootstrap';
@@ -15,9 +16,13 @@ export class NewsComponent implements OnInit {
   @ViewChild('accordion', {static: false}) accordion: AccordionComponent;
 
   newsItems: any;
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private seo: SeoService) { }
 
   ngOnInit() {
+    this.seo.updateMeta(
+      'Cyberpunk 2020 News',
+      '2020-07, Cybersmily\'s Datafort Cyberpunk 2020 News are blurbs from Night City nightly teams team.'
+    );
     this.loadNews();
   }
 

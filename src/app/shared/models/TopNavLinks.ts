@@ -133,7 +133,28 @@ export interface SiteLinksGroup {
           {title: 'Mockery', link: 'http://www.verminary.com/cyberpunk/', desc: '', target: '_blank'},
           {title: 'BlackHammer Project', link: 'http://www.ambient.ca/cpunk/', desc: '', target: '_blank'},
           {title: 'Karstens CP Arch.', link: 'https://www.cyberpunk2020.de/', desc: '', target: '_blank'},
-          {title: 'Views from the Edge', link: 'http://vfte.cyberpunk.co.uk/', desc: '', target: '_blank'}
+          {title: 'Paper Dragon.', link: 'http://www.paper-dragon.com/', desc: '', target: '_blank'},
+          {title: 'Views from the Edge', link: 'http://vfte.cyberpunk.co.uk/', desc: '', target: '_blank'},
+          {title: 'Eric Dorsey CP Character Generator', link: 'https://ericdorsey.info/cp2020/index.html', desc: '', target: '_blank'},
+          {title: 'Cyberpunk Red Character Generator', link: 'https://cyberpunk-char-gen.neocities.org', desc: '', target: '_blank'},
+          {title: 'Moosh Cyberpunk FDE + Lifepath Generator', link: 'https://www.moosh.net/cp2020/', desc: '', target: '_blank'},
+          {title: 'Dodo Cyberpunk Character Generator', link: 'http://members.dodo.com.au/~boyleholdings/cyberpunk/#4thPage', desc: '', target: '_blank'},
+          {title: 'Laurel Cadre Goon Generator', link: 'http://www.laurelcadre.com/cp_goon/', desc: '', target: '_blank'},
+          {title: 'Mad Queen Show', link: 'https://www.youtube.com/channel/UC0G5rpOFcY6pOdtKsCE0p2A', desc: '', target: '_blank'},
+          {title: 'JonJon theWise', link: 'https://www.youtube.com/channel/UCTZML8xYXTyuEaCb9ette6Q', desc: '', target: '_blank'},
+          {title: 'Mr Welch', link: 'https://www.youtube.com/channel/UC3NteHN3fWXXMaLXjMMHRkA', desc: '', target: '_blank'},
+          {title: 'PunkGenerator', link: 'https://www.youtube.com/channel/UCrB_VVl4kFsMiQFw_h6RKfg', desc: '', target: '_blank'},
+          {title: 'The Dark Future', link: 'https://www.youtube.com/channel/UCdppRwWMT7V7hfqI4ZncZBg', desc: '', target: '_blank'},
+          {title: 'Tokyo Red: Cyberpunk Red',
+            link: 'https://www.youtube.com/playlist?list=PLM-HN-1Cf8rggbs5RiHn-OkUjncMTAzYE', desc: '', target: '_blank'},
+          {title: 'Tabletop Cyberpujnk 2020',
+            link: 'https://www.youtube.com/watch?v=efRE_tqUkhY&list=PLr8mrSTjqGo6-A9QBncTWvj96GKALCfae', desc: '', target: '_blank'},
+          {title: 'HSG Cyberpujnk 2020',
+            link: 'https://www.youtube.com/watch?v=u2YNS-IHmvM&list=PLW2YGZCblxbdtK-CP0zETLS1Uq15XiUBU', desc: '', target: '_blank'},
+          {title: 'Die Party Nightcity',
+            link: 'https://www.youtube.com/watch?v=_nU7Ihi_wDs&list=PL6hA9KBc10-6nIi7s6y-GdIcvRBYvZNIN', desc: '', target: '_blank'},
+          {title: 'Hokie200proof Cyberpunk',
+            link: 'https://www.youtube.com/watch?v=utbv55gCjW4&list=PLMeyxv3x0N0tPan0m-l8KeL3hp8UBGohv', desc: '', target: '_blank'}
         ]
       });
     }

@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { SourceBookLookup } from './../../shared/models/source-book-lookup';
 import { DataSkill } from './../../shared/models/data/data-skill';
 import { DataService } from './../../shared/services/data.service';
@@ -21,9 +22,13 @@ export class SkillListComponent implements OnInit {
     }
   };
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private seo: SeoService) { }
 
   ngOnInit() {
+    this.seo.updateMeta(
+      'Cyberpunk 2020 Skill List',
+      '2020-07, Cybersmily\'s Datafort Cyberpunk 2020 Skill List is a complied list of skills from Cyberpunk 2020 source books.'
+    );
     this.dataService
     .GetJson('/json/apps/cpskills.json')
     .subscribe( data => {

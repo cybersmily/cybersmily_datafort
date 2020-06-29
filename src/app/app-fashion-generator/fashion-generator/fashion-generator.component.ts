@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 
 import { SaveFileService } from './../../shared/services/save-file.service';
 import { DataService } from './../../shared/services/data.service';
@@ -16,7 +17,8 @@ export class FashionGeneratorComponent implements OnInit {
 
   clothingData: ClothingLists;
   constructor(private dataService: DataService,
-            private saveFileService: SaveFileService) {
+            private saveFileService: SaveFileService,
+            private seo: SeoService) {
     // create dumby object while waiting for the real data to load.
     this.clothingData = {
       Clothes: new Array(),
@@ -28,6 +30,10 @@ export class FashionGeneratorComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.seo.updateMeta(
+      'Cyberpunk 2020 Fashion Calculator',
+      '2020-07, Cybersmily\'s Datafort Cyberpunk 2020 Fashion Calculator is an application to generate a character clothes using the Chromebook 3 supplement.'
+    );
     this.clothingList = new Array();
     this.getClothingData();
     this.clothingTotal = 0;

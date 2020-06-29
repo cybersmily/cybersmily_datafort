@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { DataService } from './../../shared/services/data.service';
 import { NpcCard } from '../../shared/models/character';
 import { Component, OnInit } from '@angular/core';
@@ -13,9 +14,15 @@ export class NpcsComponent implements OnInit {
   npcRoster: NpcCard[];
   currNpcs: string;
 
-  constructor(private dataService: DataService, private activatedRoute: ActivatedRoute) { }
+  constructor(private dataService: DataService,
+    private activatedRoute: ActivatedRoute,
+    private seo: SeoService) { }
 
   ngOnInit() {
+    this.seo.updateMeta(
+      'Cyberpunk 2020 Peeps',
+      '2020-07, Cybersmily\'s Datafort Cyberpunk 2020 Peeps are NPCs from the various campaigns and scenarios over the years.'
+    );
     this.getNpcs();
   }
 

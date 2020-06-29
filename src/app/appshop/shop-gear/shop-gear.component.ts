@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { DataService } from './../../shared/services/data.service';
 import { Component, OnInit } from '@angular/core';
 import { Gear } from '../../shared/models/gear';
@@ -12,9 +13,13 @@ export class ShopGearComponent implements OnInit {
   title: string;
   updated: string;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private seo: SeoService) { }
 
   ngOnInit() {
+    this.seo.updateMeta(
+      'Cyberpunk 2020 Shop - Gear',
+      '2020-07, Cybersmily\'s Datafort Cyberpunk 2020 Gear custom made by Cybersmily.'
+    );
     this.getEquipment();
   }
   private getEquipment(): void {

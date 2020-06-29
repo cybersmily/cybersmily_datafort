@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { Cp2020Drug, CpDrug, Cp2020DrugList } from './../../shared/models/drug';
 import { Component, OnInit } from '@angular/core';
 
@@ -13,9 +14,13 @@ export class DrugLabMainComponent implements OnInit {
   selectedIndex: number;
   key = 'CS_LabList';
 
-  constructor() { }
+  constructor(private seo: SeoService) { }
 
   ngOnInit() {
+    this.seo.updateMeta(
+      'Cyberpunk 2020 Drug Lab',
+      '2020-07, Cybersmily\'s Datafort Cyberpunk 2020 Drug Lab is an application to generate drugs for the game using the rules from the basic book.'
+    );
     if ( window.localStorage[this.key]) {
       const items: Array<CpDrug> = JSON.parse(window.localStorage[this.key]);
        this.list = new Cp2020DrugList(items);

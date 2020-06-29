@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { AccordionComponent } from 'ngx-bootstrap';
 import { ProgramGroup, Program } from '../../shared/models/gear';
 import { DataService } from './../../shared/services/data.service';
@@ -15,9 +16,13 @@ export class ProtProgComponent implements OnInit {
   faAngleDoubleDown = faAngleDoubleDown;
   faAngleDoubleRight = faAngleDoubleRight;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private seo: SeoService) { }
 
   ngOnInit() {
+    this.seo.updateMeta(
+      'Cyberpunk 2020 Proteus Program List',
+      '2020-07, Cybersmily\'s Datafort Cyberpunk 2020 Proteus Program List is a complied list of gear from the Netrunner TCG expansion converted into Cyberpunk 2020 stats.'
+    );
     this.getProgramList();
   }
 

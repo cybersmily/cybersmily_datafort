@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './../../shared/services/data.service';
 
@@ -8,7 +9,7 @@ import { DataService } from './../../shared/services/data.service';
 })
 export class InmediaComponent implements OnInit {
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private seo: SeoService) { }
 
   books: {title: string; description: string; }[];
   movies: {title: string; description: string; }[];
@@ -16,6 +17,10 @@ export class InmediaComponent implements OnInit {
   series: {title: string; description: string; }[];
 
   ngOnInit() {
+    this.seo.updateMeta(
+      'Cyberpunk in the Media',
+      '2020-07, Cybersmily\'s Datafort Cyberpunk In the Media. Lists movies, tv series, books, anime and web series for inspiration.'
+    );
     this.getMedia();
   }
   private getMedia(): void {

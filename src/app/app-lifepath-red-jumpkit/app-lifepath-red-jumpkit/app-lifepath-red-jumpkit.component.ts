@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { SaveFileService } from './../../shared/services/save-file.service';
 import { RedJumpkitLifepathService } from './../../shared/services/lifepath/red-jumpkit-lifepath.service';
 import { CPRedLifepathData } from './../../shared/models/lifepath/cpred-lifepath-data';
@@ -15,9 +16,14 @@ export class AppLifepathRedJumpkitComponent implements OnInit {
   LifePath = new CPRedLifepath();
 
   constructor(private lifepathService: RedJumpkitLifepathService,
-              private saveFileService: SaveFileService) {}
+              private saveFileService: SaveFileService,
+              private seo: SeoService) {}
 
   ngOnInit() {
+    this.seo.updateMeta(
+      'Cyberpunk Red Jumpstart Kit Lifepath',
+      '2020-07, Cybersmily\'s Datafort Cyberpunk  Red Jumpstart Kit Lifepath is an application to generate a character\'s lifepath.'
+    );
     this.enabled = true;
     this.LifePath = new CPRedLifepath();
   }

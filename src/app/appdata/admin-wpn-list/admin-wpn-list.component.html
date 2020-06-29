@@ -108,7 +108,7 @@
         <div>Book:
           <select [(ngModel)]="selectedWeapon.source.book" (change)="edit()">
             <option value="undefined"></option>
-            <option *ngFor="let book of sources.books" [value]="book.abbrev">{{book.name}}</option>
+            <option *ngFor="let book of sources.books" [ngValue]="book.abbrev">{{book.name}}</option>
           </select>
           <div>Page: <input [(ngModel)]="selectedWeapon.source.page" class="cyber-data-sm" type="number"
               (keyup.enter)="edit()" (blur)="edit()" /></div>

@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { CpWeapon, WeaponGroup } from '../../shared/models/weapon';
 import { DataService } from './../../shared/services/data.service';
 import { Component, OnInit } from '@angular/core';
@@ -9,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoregunsComponent implements OnInit {
   weaponList: WeaponGroup[];
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private seo: SeoService) { }
 
   ngOnInit() {
+    this.seo.updateMeta(
+      'Cyberpunk 2020 More Guns',
+      '2020-07, Cybersmily\'s Datafort Cyberpunk 2020 More Guns is a complied list of guns from The Edge of the Sword Vol 1 and Solo of Fortune.'
+    );
     this.getWeapons();
   }
 

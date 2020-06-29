@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { FileLoaderService } from './../../shared/services/file-loader/file-loader.service';
 import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerSkills } from './../../shared/models/cp2020character/cp2020-player-skills';
@@ -13,6 +14,7 @@ import { Cp2020CharacterGeneratorService } from './../../shared/services/chargen
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Cp2020PlayerRole } from './../../shared/models/cp2020character/cp2020-player-role';
 import { Cp2020characterToPDF } from './../../shared/models/pdf/cp2020characterToPDF';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'cs-app-character-generator-form',
@@ -24,14 +26,19 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
 
   character: Cp2020PlayerCharacter;
 
-  @ViewChild('pdfCP2020Character',{static: false})
+  @ViewChild('pdfCP2020Character', {static: false})
   pdfCP2020Character: ElementRef;
 
   constructor( private characterService: Cp2020CharacterGeneratorService,
                private saveFileService: SaveFileService,
-               private fileLoader: FileLoaderService) { }
+               private fileLoader: FileLoaderService,
+               private seo: SeoService) { }
 
   ngOnInit() {
+    this.seo.updateMeta(
+      'Cyberpunk 2020 Character Generator',
+      '2020-07-01 Cybersmily\'s Datafort Cyberpunk 2020 Character Generator. This app can print to PDF and save/load the character sheet'
+    );
     this.characterService.character.subscribe( data => {
       this.character = data;
     });
