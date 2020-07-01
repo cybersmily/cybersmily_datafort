@@ -139,7 +139,13 @@ export interface SiteLinksGroup {
           {title: 'Cyberpunk Red Character Generator', link: 'https://cyberpunk-char-gen.neocities.org', desc: '', target: '_blank'},
           {title: 'Moosh Cyberpunk FDE + Lifepath Generator', link: 'https://www.moosh.net/cp2020/', desc: '', target: '_blank'},
           {title: 'Dodo Cyberpunk Character Generator', link: 'http://members.dodo.com.au/~boyleholdings/cyberpunk/#4thPage', desc: '', target: '_blank'},
-          {title: 'Laurel Cadre Goon Generator', link: 'http://www.laurelcadre.com/cp_goon/', desc: '', target: '_blank'},
+          {title: 'Laurel Cadre Goon Generator', link: 'http://www.laurelcadre.com/cp_goon/', desc: '', target: '_blank'}
+        ]
+      });
+      this.menuItems.push({
+        groupTitle: 'Vids',
+        description: 'Under Vids you will find links to other Cyberpunk 2020/red videos/livestreams.',
+        links: [
           {title: 'Mad Queen Show', link: 'https://www.youtube.com/channel/UC0G5rpOFcY6pOdtKsCE0p2A', desc: '', target: '_blank'},
           {title: 'JonJon theWise', link: 'https://www.youtube.com/channel/UCTZML8xYXTyuEaCb9ette6Q', desc: '', target: '_blank'},
           {title: 'Mr Welch', link: 'https://www.youtube.com/channel/UC3NteHN3fWXXMaLXjMMHRkA', desc: '', target: '_blank'},
