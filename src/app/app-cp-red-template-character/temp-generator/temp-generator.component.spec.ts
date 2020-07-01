@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { DataService } from './../../shared/services/data.service';
@@ -33,7 +34,8 @@ describe('TempGeneratorComponent', () => {
       ],
       providers: [
         DataService,
-        DiceService
+        DiceService,
+        SeoService
       ]
     })
     .compileComponents();

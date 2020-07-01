@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { LifepathEthnicityComponent } from './../lifepath-ethnicity/lifepath-ethnicity.component';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -28,7 +29,8 @@ describe('LifepathGeneratorComponent', () => {
         HttpClientTestingModule],
       providers: [
         DataService,
-        DiceService
+        DiceService,
+        SeoService
       ]
     })
     .compileComponents();

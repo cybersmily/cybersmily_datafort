@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { CmbtTrckArmorComponent } from './../cmbt-trck-armor/cmbt-trck-armor.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsModalService } from 'ngx-bootstrap/modal';
@@ -59,7 +60,8 @@ describe('CmbtTrckMainComponent', () => {
       providers: [
         DiceService,
         DataService,
-        BsModalService
+        BsModalService,
+        SeoService
       ]
     })
     .compileComponents();

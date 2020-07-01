@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { LongpressDirective } from './../../shared/directives/longpress.directive';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { BsModalService } from 'ngx-bootstrap/modal';
@@ -50,7 +51,8 @@ describe('MmgeneratorComponent', () => {
       providers: [
         DataService,
         MaxmetalService,
-        BsModalService
+        BsModalService,
+        SeoService
       ]
     })
     .compileComponents();
