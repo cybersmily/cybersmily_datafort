@@ -44,12 +44,17 @@
         <select [(ngModel)]="selectedWeapon.category" (change)="edit()">
           <option value="undefined"></option>
           <option value="EXOTICS">Exotics</option>
-          <option value="HEAVYWEAPONS">Heavy Weapons</option>
+          <option value="HEAVY WEAPONS">Heavy Weapons</option>
           <option value="MELEE">Melee</option>
           <option value="PISTOLS">Pistols</option>
           <option value="RIFLES">Rifles</option>
           <option value="SHOTGUNS">Shotguns</option>
           <option value="SMG">SMG</option>
+          <option value="MACHINEGUNS">Machinegun</option>
+          <option value="GRENADES">Grenades</option>
+          <option value="LAUNCHED GRENADES">Launched Grenades</option>
+          <option value="GRENADE LAUNCHERS">Grenade Launchers</option>
+          <option value="EXPLOSIVES">Explosives</option>
         </select>
         <div>Subcategory: <input [(ngModel)]="selectedWeapon.subcategory" type="text" (keyup.enter)="edit()"
             (blur)="edit()" /></div>
@@ -120,18 +125,27 @@
   </div>
   <div class="row">
     <div class="col-8">
-      <h3>NEW WEAPON <fa-icon [icon]="faPlus" class="cyber-data-sm csd-btn" (click)="add()"></fa-icon>
+      <h3><span (click)="isCollapse = !isCollapse" [attr.aria-expanded]="!isCollapse" aria-controls="newWeaponCol">NEW WEAPON</span> <fa-icon [icon]="faPlus" class="cyber-data-sm csd-btn" (click)="add()"></fa-icon>
       </h3>
+    </div>
+  </div>
+  <div class="row" id="newWeaponCol" [collapse]="isCollapse">
+    <div class="col-8">
       <div>Category:
         <select [(ngModel)]="newWeapon.category">
           <option value="undefined"></option>
           <option value="EXOTICS">Exotics</option>
-          <option value="HEAVYWEAPONS">Heavy Weapons</option>
+          <option value="HEAVY WEAPONS">Heavy Weapons</option>
           <option value="MELEE">Melee</option>
           <option value="PISTOLS">Pistols</option>
           <option value="RIFLES">Rifles</option>
           <option value="SHOTGUNS">Shotguns</option>
           <option value="SMG">SMG</option>
+          <option value="MACHINEGUNS">Machinegun</option>
+          <option value="GRENADES">Grenades</option>
+          <option value="LAUNCHED GRENADES">Launched Grenades</option>
+          <option value="GRENADE LAUNCHERS">Grenade Launchers</option>
+          <option value="EXPLOSIVES">Explosives</option>
         </select>
         <div>Subcategory: <input [(ngModel)]="newWeapon.subcategory" type="text" /></div>
         <div>id: {{newWeapon.id}}</div>
@@ -183,7 +197,7 @@
         <div>Book:
           <select [(ngModel)]="newWeapon.source.book" (change)="changeSource()">
             <option value="undefined"></option>
-            <option *ngFor="let book of sources.books" [value]="book.abbrev">{{book.name}}</option>
+            <option *ngFor="let book of sources.books" [ngValue]="book.abbrev">{{book.name}}</option>
           </select>
         </div>
         <div>Page: <input [(ngModel)]="newWeapon.source.page" class="cyber-data-sm" type="number" /></div>

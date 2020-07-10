@@ -13,6 +13,7 @@ import { KeyValue } from '@angular/common';
 export class AdminWpnListComponent implements OnInit {
   faTrash = faTrash;
   faPlus = faPlus;
+  isCollapse = true;
 
   sources = new SourceBookList();
 
