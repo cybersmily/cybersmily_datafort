@@ -1,0 +1,70 @@
+<div class="csd-rounded">
+  <h4>Program
+    <span class="float-right">
+      <fa-icon [icon]="faSave" class="csd-btn" (click)="save()" title="Add program to list."></fa-icon>
+    </span>
+  </h4>
+  <div class="row">
+    <div class="col-6">
+      Name: <input type="text" [(ngModel)]="program.name" placeholder="Enter name of program..."
+        title="Name of the program">
+    </div>
+    <div class="col-6">
+      <span class="float-right">
+        {{program.cost|number}}eb
+      </span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      Class: <select [(ngModel)]="program.class">
+        <option [ngValue]="undefined"></option>
+        <option *ngFor="let c of classes" [ngValue]="c" title="{{c.description}}">{{c.name}} ({{c.diff}})</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      Str: <input type="number" [(ngModel)]="program.strength" min="0" max="10">
+    </div>
+    <div class="col">
+      DIFF: {{program.diff}}
+    </div>
+    <div class="col">
+      MU: {{program.mu}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      Options: {{optionList}} <fa-icon [icon]="faPlus" (click)="showOptions(programOptions)" class="csd-btn"
+        title="Add/remove options"></fa-icon>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div>Description:</div>
+      <textarea [(ngModel)]="program.description"></textarea>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div>Icon:</div>
+      <textarea [(ngModel)]="program.icon"></textarea>
+    </div>
+  </div>
+</div>
+<ng-template #programOptions>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Program Options</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div *ngFor="let opt of options; let i = index" class="col-6" title="{{opt.description}}">
+        <input type="checkbox" [checked]="isChecked(opt.name)" (change)="checkOption(i)"> {{opt.name}} ({{opt.diff}})
+      </div>
+    </div>
+  </div>
+</ng-template>

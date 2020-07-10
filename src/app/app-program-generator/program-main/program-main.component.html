@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>Netrunner Program Generator</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <cs-program-new [program]="newProgram" (updateProgram)="updateProgram($event)"></cs-program-new>
+    </div>
+    <div class="col-6">
+      <cs-program-list [programList]="programList"
+        (deleteProgram)="deleteProgram($event)"
+        (selectProgram)="selectProgram($event)"
+        (resetList)="resetList()"
+        (uploadList)="uploadList($event)"
+        >
+      </cs-program-list>
+    </div>
+  </div>
+
+</div>

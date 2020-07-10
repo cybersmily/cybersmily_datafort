@@ -33,6 +33,9 @@ export const mainRoutes: Routes = [
   { path: 'apps/druglab',
       loadChildren: () => import('./app-drug-lab/app-drug-lab.module')
       .then(m => m.AppDrugLabModule) },
+  { path: 'apps/proggen',
+      loadChildren: () => import('./app-program-generator/app-program-generator.module')
+      .then(m => m.AppProgramGeneratorModule) },
   { path: 'dlow', loadChildren: () => import('./appdlow/dlowsection.module').then(m => m.DlowSectionModule) },
   { path: '**', redirectTo: '/', pathMatch: 'full'}
 ];
