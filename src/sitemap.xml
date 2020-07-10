@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" >
 	<url>
 		<loc>http://www.cybersmily.net/index.html</loc>
-		<lastmod>2020-07-01</lastmod>
+		<lastmod>2020-08-01</lastmod>
 	</url>
 	<url>
 		<loc>http://www.cybersmily.net/apps/chargen</loc>
@@ -30,7 +30,7 @@
 	</url>
 	<url>
 		<loc>http://www.cybersmily.net/apps/fashcalc</loc>
-		<lastmod>2020-04-1</lastmod>
+		<lastmod>2020-04-11</lastmod>
 	</url>
 	<url>
 		<loc>http://www.cybersmily.net/apps/lifepath</loc>
@@ -43,6 +43,10 @@
 	<url>
 		<loc>http://www.cybersmily.net/apps/nrtrace</loc>
 		<lastmod>2019-05-02</lastmod>
+	</url>
+	<url>
+		<loc>http://www.cybersmily.net/apps/proggen</loc>
+		<lastmod>2020-08-01</lastmod>
 	</url>
 	<url>
 		<loc>http://cybersmily.net/data/chrome2</loc>

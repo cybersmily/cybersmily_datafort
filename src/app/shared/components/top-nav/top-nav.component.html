@@ -1,62 +1,64 @@
 <div class="csdHeader hidden-print">
   <div class="container">
-      <div style="display:block;height:20px;width:20px;"></div>
-      <div class="row">
-        <div class="d-none d-lg-block col-lg-2">
-          <div id="image-holder" class="bg-dark csd-rounded" style="text-align: center;">
-            <a [routerLink]="''" >
-              <img alt="Cybersmily's Datafort for Cyberpunk 2020 by R. Talsorian" src="/img/cs100.png">
-            </a>
+    <div style="display:block;height:20px;width:20px;"></div>
+    <div class="row">
+      <div class="d-none d-lg-block col-lg-2">
+        <div id="image-holder" class="bg-dark csd-rounded" style="text-align: center;">
+          <a [routerLink]="''">
+            <img alt="Cybersmily's Datafort for Cyberpunk 2020 by R. Talsorian" src="/img/cs100.png" style="width: 75px;">
+          </a>
+        </div>
+      </div>
+      <div class=" col-lg-10 csdHeaderTitle">
+        <div class="d-none d-lg-block row">
+          <div class="col-sm-10 offset-2">
+            <h1>Cybersmily's Datafort</h1>
           </div>
         </div>
-        <div class=" col-lg-10 csdHeaderTitle">
-          <div class="d-none d-lg-block row">
-            <div class="col-sm-10 offset-2">
-              <h1>Cybersmily's Datafort</h1>
-            </div>
+        <div class="d-none d-lg-block row sub-ttl">
+          <div class="col-7 offset-5">
+            <h6>Fansite for R. Talsorian's Cyberpunk 2020</h6>
           </div>
-          <div class="d-none d-lg-block row sub-ttl">
-            <div class="col-7 offset-5">
-              <h6>Fansite for R. Talsorian's Cyberpunk 2020</h6>
-            </div>
-          </div>
-          <nav class="navbar navbar-expand-lg navbar-dark bg-dark csd-rounded">
-            <a class="navbar-brand csdHeaderTitle d-lg-none" href="#"><span><img src="/img/cs50.png" alt="Cybersmily"/></span>&nbsp;Cybersmily's Datafort</a>
-            <button class="navbar-toggler d-lg-none"
-                type="button"
-                (click)="isCollapsed = !isCollapsed"
-                [attr.aria-expanded]="!isCollapsed"
-                aria-controls="navbarCybersmily"
-                aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse bg-dark"
-            id="navbarCybersmily"
-            [collapse]="isCollapsed">
-              <ul class="nav navbar-nav mr-auto bg-dark">
-                <li *ngFor="let lnk of topNavLinks.menuItems" class="dropdown nav-item bg-dark" dropdown>
-                  <a dropdownToggle role="button" class="nav-link dropdown-toggle"
-                    title="{{lnk.description}}">{{lnk.groupTitle}}</a>
-                  <ul *dropdownMenu class="dropdown-menu bg-dark csd-rounded  csd-box">
-                    <li *ngFor="let lk of lnk.links" class="dropdown-item csd-dropdown-item bg-dark">
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark csd-rounded">
+          <a class="navbar-brand csdHeaderTitle d-lg-none" href="#"><span><img src="/img/cs50.png"
+                alt="Cybersmily" /></span>&nbsp;Cybersmily's Datafort</a>
+          <button class="navbar-toggler d-lg-none" type="button" data-target="#navbarCybersmily2" (click)="isCollapsed = !isCollapsed"
+            [attr.aria-expanded]="isCollapsed" aria-controls="navbarCybersmily2" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse bg-dark" id="navbarCybersmily2"  [collapse]="isCollapsed">
+            <ul class="navbar-nav mr-auto bg-dark">
+              <li class="nav-item dropdown mega-dropdown" dropdown *ngFor="let lnk of topNavLinks.menuItems">
+                <a class="nav-link dropdown-toggle text-uppsercase" data-toggle="" aria-haspopup="true" aria-expand="false" dropdownToggle
+                [attr.title]="lnk.description">
+                  {{lnk.groupTitle}}
+                </a>
+                <div class="dropdown-menu mega-menu z-depth-1 py-1 px-3 bg-dark text-light csd-rounded csd-link-menu" *dropdownMenu>
+                    <div *ngFor="let lk of lnk.links" class="bg-dark">
                       <a *ngIf="!isExternal(lk.link)" [routerLink]="lk.link" routerLinkActive="active"
                         class="dropdown-item nav-link bg-dark" [target]="lk.target ? lk.target : undefined"
-                        [attr.download]="lk.download ? lk.download : undefined">{{lk.title}}</a>
+                        [attr.download]="lk.download ? lk.download : undefined" [attr.title]="lk.desc">{{lk.title}}</a>
                       <a *ngIf="isExternal(lk.link)" [href]="lk.link" class="dropdown-item nav-link bg-dark"
-                        [target]="'_blank'">{{lk.title}}</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-              <ul class="nav navbar-nav ml-auto">
-                <li>
-                  <fa-icon [icon]="faEnvelope" inverse=true (click)="sendEmail()" class="btn " title="Email Cybersmily"></fa-icon>
-                </li>
-              </ul>
-            </div>
-          </nav>
-        </div>
+                        [target]="'_blank'" [attr.title]="lk.desc">{{lk.title}}</a>
+                    </div>
+                </div>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav ml-auto">
+              <li>
+                <fa-icon [icon]="faEnvelope" inverse=true (click)="sendEmail()" class="btn " title="Email Cybersmily">
+                </fa-icon>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
     </div>
-
   </div>
 </div>

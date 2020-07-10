@@ -121,7 +121,10 @@ SELECT option.font-italic {
     font-size: larger;
 }
 
-.dropdown-item.csd-dropdown-item { padding-left: 0px; padding-right:0px; width:200px;min-width: 230px;}
+.dropdown-item.csd-dropdown-item {
+  padding-left: 0px;
+  padding-right:0px;
+}
 
 .csd-lifepath-sect {
   padding: 5px 5px;
@@ -454,4 +457,10 @@ input, select, textarea {
 
 fa-icon.csd-btn {
   cursor: pointer;
+}
+
+.navbar .mega-dropdown .dropdown-menu.mega-menu {
+  width: 100%;
+  border: 0;
+  border-radius: 0;;
 }

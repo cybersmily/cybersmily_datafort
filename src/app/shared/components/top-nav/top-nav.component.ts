@@ -11,6 +11,7 @@ export class TopNavComponent implements OnInit {
   faEnvelope = faEnvelope;
   topNavLinks: TopNavLinks = new TopNavLinks();
   isCollapsed = true;
+  selected: any;
   constructor() {
     this.topNavLinks = new TopNavLinks();
   }
@@ -32,4 +33,3 @@ export class TopNavComponent implements OnInit {
   }
 
 }
-
