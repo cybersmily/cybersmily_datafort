@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../json-data-files';
 
 import { Observable, of, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -13,7 +14,6 @@ import { DataService } from '../data.service';
   providedIn: 'root'
 })
 export class MaxMetalDataService {
-  private _jsonPath = '/json/apps/maxmetal/';
   private _weapons: any;
   private _options: any;
   private _mounts: any;
@@ -23,10 +23,10 @@ export class MaxMetalDataService {
 
   loadMaxMetalData(): Observable<boolean> {
     return forkJoin([
-      this.dataSerivce.GetJson(`${this._jsonPath}mmweapons.json`),
-      this.dataSerivce.GetJson(`${this._jsonPath}mmoptions.json`),
-      this.dataSerivce.GetJson(`${this._jsonPath}mmweaponmounts.json`),
-      this.dataSerivce.GetJson(`${this._jsonPath}mmTypes.json`)
+      this.dataSerivce.GetJson(JsonDataFiles.CP2020_MAXMETAL_WEAPONS_JSON),
+      this.dataSerivce.GetJson(JsonDataFiles.CP2020_MAXMETAL_OPTIONS_JSON),
+      this.dataSerivce.GetJson(JsonDataFiles.CP2020_MAXMETAL_MOUNTS_JSON),
+      this.dataSerivce.GetJson(JsonDataFiles.CP2020_MAXMETAL_TYPES_JSON)
 
     ]).pipe( map( results => {
       this._weapons = this.createWeaponCategories(results[0].weapons);

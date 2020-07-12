@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../shared/json-data-files';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { SourceBookLookup } from './../../shared/models/source-book-lookup';
 import { Cp2020Role } from './../../shared/models/cp2020character/cp2020-role';
@@ -23,7 +24,7 @@ export class RoleListComponent implements OnInit {
       '2020-07, Cybersmily\'s Datafort Cyberpunk 2020 Role List is a complied list of roles from Cyberpunk 2020 source books.'
     );
     this.dataService
-    .GetJson('json/apps/chargen/cp2020rolesext.json')
+    .GetJson(JsonDataFiles.CP2020_ROLES_LIST_JSON)
     .subscribe( data => {
       this.roleList = data.roles.sort( (a, b) => {
         return a.name > b.name ? 1 : -1;

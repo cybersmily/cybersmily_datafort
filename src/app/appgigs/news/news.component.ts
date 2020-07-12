@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../shared/json-data-files';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataService } from '../../shared/services/data.service';
@@ -27,7 +28,9 @@ export class NewsComponent implements OnInit {
   }
 
   loadNews() {
-    this.dataService.GetJson('/json/gigs/news.json').subscribe((news) => {
+    this.dataService
+    .GetJson(JsonDataFiles.GIG_NEWS_JSON)
+    .subscribe((news) => {
       this.newsItems = news.news;
     });
   }

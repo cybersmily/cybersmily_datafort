@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../shared/json-data-files';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { DataService } from './../../shared/services/data.service';
 import { Component, OnInit } from '@angular/core';
@@ -26,7 +27,8 @@ export class MmgeneratorComponent implements OnInit {
 
   loadMaxMetaldata() {
     // load the max metal data
-    this.data.GetJson('json/apps/maxmetal/mmTypes.json').subscribe(resp => {
+    this.data.GetJson(JsonDataFiles.CP2020_MAXMETAL_TYPES_JSON)
+    .subscribe(resp => {
       this.vehicleTypes = resp.baseTypes;
     });
   }

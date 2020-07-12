@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../json-data-files';
 import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { DataService } from '../data.service';
@@ -19,7 +20,7 @@ export class WeaponDataService {
       return of(this._weaponList);
     }
     return this.dataService
-    .GetJson('/json/wpns/cp2020weapons.json')
+    .GetJson(JsonDataFiles.CP2020_WEAPON_DATA_LIST_JSON)
     .pipe(
       map( (data: Array<DataWeapon>) => {
         data = data.map( (w, i) => {

@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../shared/json-data-files';
 import { MaxMetalWeaponMount } from '../../shared/models/weapon';
 import { DataService } from './../../shared/services/data.service';
 import { Component, OnInit } from '@angular/core';
@@ -13,7 +14,8 @@ export class MmmountsComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.GetJson('/json/apps/maxmetal/mmweaponmounts.json').subscribe( data => {
+    this.dataService.GetJson(JsonDataFiles.CP2020_MAXMETAL_MOUNTS_JSON)
+    .subscribe( data => {
       this.mounts = data.mounts;
     });
   }

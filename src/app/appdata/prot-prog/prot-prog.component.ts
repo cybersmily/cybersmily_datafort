@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../shared/json-data-files';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { AccordionComponent } from 'ngx-bootstrap';
 import { ProgramGroup, Program } from '../../shared/models/gear';
@@ -28,7 +29,7 @@ export class ProtProgComponent implements OnInit {
 
   private getProgramList(): void {
     this.dataService
-      .GetJson('/json/data/proteus-progm.json')
+      .GetJson(JsonDataFiles.CP2020_PROTEUS_PROGRAMS_JSON)
       .subscribe(
         resultObj => {
           this.programList = resultObj.programs;

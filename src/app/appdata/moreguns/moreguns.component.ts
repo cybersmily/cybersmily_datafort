@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../shared/json-data-files';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { CpWeapon, WeaponGroup } from '../../shared/models/weapon';
 import { DataService } from './../../shared/services/data.service';
@@ -22,7 +23,7 @@ export class MoregunsComponent implements OnInit {
 
   private getWeapons() {
     this.dataService
-      .GetJson('/json/data/moreguns.json')
+      .GetJson(JsonDataFiles.CP2020_MORE_GUNS_JSON)
       .subscribe(
         resultObj => {
           this.weaponList = resultObj.weapons;

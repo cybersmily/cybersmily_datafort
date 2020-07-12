@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../shared/json-data-files';
 import { OppCyberware } from './../../shared/models/cyberware';
 import { CpPlayerWeapon } from './../../shared/models/weapon';
 import { DiceService } from './../../shared/services/dice/dice.service';
@@ -18,7 +19,7 @@ export class CmbtTrckOppChartService {
 
   getData(): Observable<any> {
     return this.data
-    .GetJson('/json/apps/cbttrk/gearchart.json')
+    .GetJson(JsonDataFiles.CP2020_CMBTTRCK_GEAR_JSON)
     .pipe( map( chart => {
       this._curCharts = chart;
     }));

@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../json-data-files';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
@@ -19,7 +20,7 @@ export class RxLabDataService {
       return of(this._effects);
     }
     return this.dataService
-    .GetJson('/json/apps/rxlab/rxeffects.json')
+    .GetJson(JsonDataFiles.CP2020_DRUG_EFFECTS_JSON)
     .pipe( map( data => {
       this._effects = data.effects;
       this._sideEffects = data.sideEffects;
@@ -32,7 +33,7 @@ export class RxLabDataService {
       return of(this._sideEffects);
     }
     return this.dataService
-    .GetJson('/json/apps/rxlab/rxeffects.json')
+    .GetJson(JsonDataFiles.CP2020_DRUG_EFFECTS_JSON)
     .pipe( map( data => {
       this._effects = data.effects;
       this._sideEffects = data.sideEffects;

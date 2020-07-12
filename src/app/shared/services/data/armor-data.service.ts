@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../json-data-files';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { DataService } from './../data.service';
@@ -17,7 +18,8 @@ export class ArmorDataService {
     if (this.armorList) {
       return of(this.armorList);
     }
-    this.dataService.GetJson('/json/apps/cparmor.json').pipe(
+    this.dataService.GetJson(JsonDataFiles.CP2020_ARMOR_DATA_LIST_JSON)
+    .pipe(
       map( data => {
         this.armorList = data;
         return this.armorList;

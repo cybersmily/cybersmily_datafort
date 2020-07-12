@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../json-data-files';
 import { LifepathEthnicityEntry, LifepathEthnicity } from './../../models/lifepath';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -70,7 +71,7 @@ export class EthnicityGeneratorService {
   private getChartData(): Observable<any> {
     if (!this.ethnicityChart) {
       return this.dataService
-      .GetJson('/json/apps/lifepath/ethnicitychart.json')
+      .GetJson(JsonDataFiles.CP2020_LIFEPTAH_ETHNICITY_JSON)
       .pipe(
         map (data => this.ethnicityChart = data)
       );

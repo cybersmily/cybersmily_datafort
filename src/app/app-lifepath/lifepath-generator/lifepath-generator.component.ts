@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../shared/json-data-files';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { SaveFileService } from './../../shared/services/save-file.service';
 import { LifepathData, LifepathSource, LifepathChart, LifePathResults,
@@ -43,7 +44,7 @@ export class LifepathGeneratorComponent implements OnInit {
 
   getLifepathData() {
     this.dataService
-    .GetJson('/json/apps/lifepath.json')
+    .GetJson(JsonDataFiles.CP2020_LIFEPTAH_JSON)
     .subscribe(
       resultObj => {
         this.parseLifepathData(resultObj);

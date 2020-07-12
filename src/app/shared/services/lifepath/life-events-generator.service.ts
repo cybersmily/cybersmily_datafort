@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../json-data-files';
 import { LifepathEventsList, LifepathEventsCharts } from './../../models/lifepath';
 import { Injectable } from '@angular/core';
 import { DiceService } from '../dice/dice.service';
@@ -28,7 +29,7 @@ export class LifeEventsGeneratorService {
   private GetChartData(): Observable<LifepathEventsCharts> {
     if (!this.chartData) {
       return this.dataService
-      .GetJson('/json/apps/lifepath/eventcharts.json')
+      .GetJson(JsonDataFiles.CP2020_LIFEPTAH_EVENTS_JSON)
       .pipe(map(data => this.chartData = data));
     }
     return of(this.chartData);

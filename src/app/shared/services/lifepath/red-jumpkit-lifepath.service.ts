@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../json-data-files';
 import { LifepathEventsList } from './../../models/lifepath/lifepath-events-list';
 import { map } from 'rxjs/operators';
 import { of, Observable, forkJoin } from 'rxjs';
@@ -22,7 +23,7 @@ export class RedJumpkitLifepathService {
       return of(this._lifePathData);
     } else {
       return this.dataService
-      .GetJson('/json/apps/lifepath/cpredjkchart.json')
+      .GetJson(JsonDataFiles.CPRED_LIFEPATH_CHART_JSON)
       .pipe( map( (data) => {
         this._lifePathData = data;
         return this._lifePathData;

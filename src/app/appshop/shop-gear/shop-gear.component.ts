@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../shared/json-data-files';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { DataService } from './../../shared/services/data.service';
 import { Component, OnInit } from '@angular/core';
@@ -24,7 +25,7 @@ export class ShopGearComponent implements OnInit {
   }
   private getEquipment(): void {
     this.dataService
-      .GetJson('/json/shop/shopgear.json')
+      .GetJson(JsonDataFiles.CP2020_SHOP_GEAR_JSON)
       .subscribe(
         resultObj => {
           this.title = resultObj.title;

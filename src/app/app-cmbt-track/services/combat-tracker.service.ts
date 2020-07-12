@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../shared/json-data-files';
 import { DataService } from './../../shared/services/data.service';
 import { BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
@@ -12,7 +13,7 @@ export class CombatTrackerService {
 
   constructor(private dataService: DataService) {
     this.dataService
-    .GetJson('/json/apps/cbttrk/modifiers.json')
+    .GetJson(JsonDataFiles.CP2020_CMBTTRCK_MODIFIERS_JSON)
     .subscribe( data => {
       this._modifiers.next(data);
     });

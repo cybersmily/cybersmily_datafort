@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../shared/json-data-files';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { SourceBookLookup } from './../../shared/models/source-book-lookup';
 import { DataSkill } from './../../shared/models/data/data-skill';
@@ -30,7 +31,7 @@ export class SkillListComponent implements OnInit {
       '2020-07, Cybersmily\'s Datafort Cyberpunk 2020 Skill List is a complied list of skills from Cyberpunk 2020 source books.'
     );
     this.dataService
-    .GetJson('/json/apps/cpskills.json')
+    .GetJson(JsonDataFiles.CP2020_SKILLS_DATA_LIST_JSON)
     .subscribe( data => {
       this.skillList = data.sort( (a, b) => {
         return a.name > b.name ? 1 : -1;

@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../shared/json-data-files';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './../../shared/services/data.service';
@@ -25,7 +26,7 @@ export class InmediaComponent implements OnInit {
   }
   private getMedia(): void {
     this.dataService
-      .GetJson('/json/data/inmedia.json')
+      .GetJson(JsonDataFiles.CP2020_INMEDIA_JSON)
       .subscribe(
         resultObj => {
           this.books = resultObj.books;

@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../json-data-files';
 import { LifepathDataMotivation } from './../../models/lifepath/lifepath-data-motivation';
 import { LifepathMotivations } from './../../models/lifepath/lifepath-motivations';
 import { Observable, of } from 'rxjs';
@@ -64,7 +65,7 @@ export class MotivationGeneratorService {
   private getChartData(): Observable<any> {
     if (!this.motivationChart) {
       return this.dataService
-      .GetJson('/json/apps/lifepath/motivationcharts.json')
+      .GetJson(JsonDataFiles.CP2020_LIFEPTAH_MOTIVATION_JSON)
       .pipe(
         map (data => this.motivationChart = data.motivations)
       );

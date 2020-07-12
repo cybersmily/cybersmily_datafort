@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../shared/json-data-files';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { Vehicle } from '../../shared/models/maxmetal';
 import { DataService } from './../../shared/services/data.service';
@@ -28,7 +29,7 @@ export class Chrome2Component implements OnInit {
 
   private getVehicles(): void {
     this.dataService
-      .GetJson('/json/data/ch2conversion.json')
+      .GetJson(JsonDataFiles.CP2020_CHROME2_VEHICLE_JSON)
       .subscribe(
         resultObj => this.vehicleList = resultObj.vehicles,
         error => console.log( 'Error :: ' + error)

@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../json-data-files';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { NrProgramOption } from './../../models/netrun';
@@ -15,12 +16,10 @@ export class NrProgramOptionsService {
   constructor(private data: DataService) { }
 
   get classes(): Observable<Array<NrProgramOption>> {
-    if (this._classes.length < 1 ){
-      return this.data.GetJson('/json/apps/nrmap/program.json')
+    if (this._classes.length < 1 ) {
+      return this.getJson()
       .pipe(
         map( data => {
-        this._classes = data.classes;
-        this._options = data.options;
         return this._classes;
       }));
     } else {
@@ -29,16 +28,24 @@ export class NrProgramOptionsService {
   }
 
   get options(): Observable<Array<NrProgramOption>> {
-    if (this._classes.length < 1 ){
-      return this.data.GetJson('/json/apps/nrmap/program.json')
+    if (this._classes.length < 1 ) {
+      return this.getJson()
       .pipe(
         map( data => {
-        this._classes = data.classes;
-        this._options = data.options;
         return this._options;
       }));
     } else {
       return of(this._options);
     }
+  }
+
+  getJson(): Observable<Array<NrProgramOption>> {
+    return this.data.GetJson(JsonDataFiles.CP2020_PROGRAM_OPTIONS_JSON)
+      .pipe(
+        map( data => {
+        this._classes = data.classes;
+        this._options = data.options;
+        return data;
+      }));
   }
 }

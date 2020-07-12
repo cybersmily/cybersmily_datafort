@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../json-data-files';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { DataService } from './../data.service';
@@ -19,7 +20,7 @@ export class Cp2020RolesDataService {
       return of(this._roles);
     }
     return this.dataService
-      .GetJson('/json/apps/chargen/cp2020rolesext.json')
+      .GetJson( JsonDataFiles.CP2020_ROLES_LIST_JSON)
       .pipe( map( data => {
         this._roles = data.roles;
         this._roles = this._roles.sort( (a, b) => {

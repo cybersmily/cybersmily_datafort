@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../json-data-files';
 import { LifepathDataStyles } from './../../models/lifepath/lifepath-data-styles';
 import { LifepathAppearance } from './../../models/lifepath/lifepath-appearance';
 import { map } from 'rxjs/operators';
@@ -54,7 +55,7 @@ export class StyleGeneratorService {
   private getChartData(): Observable<LifepathDataStyles> {
     if (!this.stylesChart) {
       return this.dataService
-      .GetJson('/json/apps/lifepath/stylecharts.json')
+      .GetJson(JsonDataFiles.CP2020_LIFEPTAH_STYLE_JSON)
       .pipe(
         map (data => this.stylesChart = data.styles)
       );

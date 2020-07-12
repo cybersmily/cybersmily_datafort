@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../json-data-files';
 import { map, flatMap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { LifepathFamily, FamilyChart, LifepahtParentOption, Sibling, Siblings } from '../../models/lifepath';
@@ -25,7 +26,7 @@ export class FamilyGeneratorService {
   private GetChartData(): Observable<FamilyChart> {
     if (!this.chartData) {
       return this.dataService
-      .GetJson('/json/apps/lifepath/familycharts.json')
+      .GetJson(JsonDataFiles.CP2020_LIFEPTAH_FAMILY_JSON)
       .pipe(map(data => this.chartData = data));
     }
     return of(this.chartData);

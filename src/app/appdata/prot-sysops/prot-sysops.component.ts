@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../shared/json-data-files';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { Sysop } from '../../shared/models/character';
 import { DataService } from './../../shared/services/data.service';
@@ -24,7 +25,7 @@ export class ProtSysopsComponent implements OnInit {
 
   private getSysopList(): void {
     this.dataService
-      .GetJson('/json/data/proteus-sysop.json')
+      .GetJson(JsonDataFiles.CP2020_PROTEUS_SYSOPS_JSON)
       .subscribe(
         resultObj => {
           this.sysopsList = resultObj.sysops;

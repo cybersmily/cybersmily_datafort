@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../shared/json-data-files';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { DataService } from './../../shared/services/data.service';
 import { Component, OnInit } from '@angular/core';
@@ -25,7 +26,7 @@ export class ShopCyberwareComponent implements OnInit {
   }
   private getCyberware(): void {
     this.dataService
-      .GetJson('/json/shop/shopcyber.json')
+      .GetJson(JsonDataFiles.CP2020_SHOP_CYBERWARE_JSON)
       .subscribe(
         resultObj => {
           this.cyberwareList = resultObj.items;

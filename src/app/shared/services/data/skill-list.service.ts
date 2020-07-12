@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../json-data-files';
 import { Cp2020PlayerSkill } from './../../models/cp2020character/cp2020-player-skill';
 import { map } from 'rxjs/operators';
 import { DataSkill } from './../../models/data/data-skill';
@@ -19,7 +20,7 @@ export class SkillListService {
     if (this._skillList) {
       return of(this._skillList);
     }
-    return this.dataService.GetJson('/json/apps/cpskills.json')
+    return this.dataService.GetJson(JsonDataFiles.CP2020_SKILLS_DATA_LIST_JSON)
     .pipe( map( data => {
       data.forEach( sk => {
         sk.name = sk.name.replace('\\', '');

@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../json-data-files';
 import { SaveFileService } from './../save-file.service';
 import { DataCyberware } from './../../models/cyberware';
 import { map } from 'rxjs/operators';
@@ -19,7 +20,7 @@ export class CyberDataService {
       return of(this._cyberwareList);
     }
     return this.dataService
-    .GetJson('/json/data/cyberware.json')
+    .GetJson(JsonDataFiles.CP2020_CYBERWARE_DATA_LIST_JSON)
     .pipe(
       map( (data: Array<DataCyberware>) => {
         this._cyberwareList = data.sort( (a, b) => {

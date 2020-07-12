@@ -1,3 +1,4 @@
+import { CacheKeys } from './../../cache-keys';
 import { Cp2020PlayerCyber } from './../../models/cyberware/cp2020-player-cyber';
 import { Cp2020PlayerSkills, Cp2020PlayerSkill } from './../../models/cp2020character';
 import { LifePathResults } from './../../models/lifepath/lifepath-results';
@@ -16,14 +17,13 @@ import { Injectable } from '@angular/core';
 })
 export class Cp2020CharacterGeneratorService {
   private _character = new BehaviorSubject<Cp2020PlayerCharacter>(new Cp2020PlayerCharacter());
-  private _storageKey = 'CybersmilyDFCharacter';
   character = this._character.asObservable();
 
   private _currCharacter: Cp2020PlayerCharacter;
 
   constructor() {
-    if ( window.localStorage && window.localStorage.getItem(this._storageKey)) {
-      const character = JSON.parse(window.localStorage.getItem(this._storageKey));
+    if ( window.localStorage && window.localStorage.getItem(CacheKeys.CP2020_CHAR_GEN)) {
+      const character = JSON.parse(window.localStorage.getItem(CacheKeys.CP2020_CHAR_GEN));
       this.changeCharacter(character);
     } else {
       this._currCharacter = new Cp2020PlayerCharacter();
@@ -165,7 +165,7 @@ export class Cp2020CharacterGeneratorService {
    * @memberof Cp2020CharacterGeneratorService
    */
   getFromStorage(): string {
-    return window.localStorage.getItem(this._storageKey);
+    return window.localStorage.getItem(CacheKeys.CP2020_CHAR_GEN);
   }
 
 
@@ -175,7 +175,7 @@ export class Cp2020CharacterGeneratorService {
    * @memberof Cp2020CharacterGeneratorService
    */
   saveToStorage() {
-    window.localStorage.setItem(this._storageKey, JSON.stringify(this._currCharacter));
+    window.localStorage.setItem(CacheKeys.CP2020_CHAR_GEN, JSON.stringify(this._currCharacter));
   }
 
 
@@ -192,7 +192,7 @@ export class Cp2020CharacterGeneratorService {
 
   clearCharacter() {
     this._currCharacter = new Cp2020PlayerCharacter();
-    window.localStorage.removeItem(this._storageKey);
+    window.localStorage.removeItem(CacheKeys.CP2020_CHAR_GEN);
     this._character.next(this._currCharacter);
   }
 }

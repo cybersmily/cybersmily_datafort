@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../json-data-files';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { DiceService } from '../dice/dice.service';
@@ -21,7 +22,7 @@ export class NameGeneratorService {
       const roll = this.diceService.generateNumber(0, (this.names.length - 1));
       return of(this.names[roll]);
     }
-    return this.dataService.GetJson('/json/apps/namegen/names.json').pipe(
+    return this.dataService.GetJson(JsonDataFiles.CP_NAMES_JSON).pipe(
       map( data => {
         this.names = data.names;
         const roll = this.diceService.generateNumber(0, (this.names.length - 1));

@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../shared/json-data-files';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { DataService } from './../../shared/services/data.service';
 import { Component, OnInit } from '@angular/core';
@@ -37,7 +38,7 @@ export class ArticleComponent implements OnInit {
   LoadArticleHTML(): void {
     // load the json file with the artilces
     this.dataService
-    .GetJson('/json/mods/articles.json')
+    .GetJson(JsonDataFiles.MOD_ARTICLES_JSON)
     .subscribe(
       resultObj => this.GetCurrentArticle(resultObj.articles),
       error => console.log( 'Error :: '  + JSON.stringify(error))

@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../json-data-files';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { TitleValue } from './../../models/title-value';
@@ -18,7 +19,7 @@ export class SourcesDataService {
       return of(this.sources);
     }
     return this.data
-      .GetJson('/json/apps/lifepath/sources.json')
+      .GetJson(JsonDataFiles.CP2020_LIFEPTAH_SOURCES_JSON)
       .pipe( map( (data) => {
         this.sources = data.sources;
         return this.sources;

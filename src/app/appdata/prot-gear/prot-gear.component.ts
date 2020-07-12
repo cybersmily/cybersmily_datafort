@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../shared/json-data-files';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { DataCyberware } from './../../shared/models/cyberware';
 import { Gear, CyberDeck } from './../../shared/models/gear';
@@ -33,7 +34,7 @@ export class ProtGearComponent implements OnInit {
 
   private getGear(): void {
     this.dataService
-      .GetJson('/json/data/proteus-gear.json')
+      .GetJson(JsonDataFiles.CP2020_PROTEUS_GEAR_JSON)
       .subscribe(
         resultObj => {
           this.gearList = resultObj.gear.Gear;

@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../../shared/json-data-files';
 import { CmbtTrckOppTemplate } from '../../shared/models/cmbt-trck/cmbt-trck-opp-template';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
@@ -26,7 +27,8 @@ export class OppTemplateService {
     if (this._templateList) {
       return of(this._templateList);
     }
-    return this.dataService.GetJson('/json/apps/cbttrk/opptemplates.json')
+    return this.dataService
+    .GetJson(JsonDataFiles.CP2020_CMBTTRCK_OPP_TEMPLATES_JSON)
     .pipe(
       map( data => {
         this._templateList = data.templates;

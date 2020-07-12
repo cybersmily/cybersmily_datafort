@@ -13,7 +13,6 @@ export class CharacterImporterService {
 
   convertCP2020PCToCmbtTrckOpp(character: Cp2020PlayerCharacter): CmbtTrckOpponent {
     const opp = new CmbtTrckOpponent();
-    console.log(character);
     opp.name = character.handle;
     opp.role = character.role.name;
     opp.sa = character.role.specialAbility;
@@ -38,7 +37,6 @@ export class CharacterImporterService {
         .filter(c => c.name && c.name !== '');
     opp.gear = character.gear.items.filter(g => g.gear && g.gear !== '').map( g => g.gear);
     opp.armor = character.armor;
-    console.log(opp);
     return opp;
   }
 

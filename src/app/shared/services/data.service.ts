@@ -1,3 +1,4 @@
+import { JsonDataFiles } from './../json-data-files';
 import { CS_VERSION, CS_VERSION_KEY } from './../../keys/storageKeys';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -22,11 +23,11 @@ export class DataService {
   }
 
   public GetAppDataClothes(): Observable<ClothingLists> {
-    return this.GetJson('/json/apps/clothes.json');
+    return this.GetJson(JsonDataFiles.CP2020_FASHION_CLOTHES_JSON);
   }
 
   public GetDataNews(): Observable<News> {
-    return this.GetJson('/json/news/news.json');
+    return this.GetJson(JsonDataFiles.NEWS_JSON);
   }
 }
 
