@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './../../shared/services/data.service';
 import { DiceService } from './../../shared/services/dice/dice.service';
@@ -12,7 +13,7 @@ describe('AppLifepathRedJumpkitComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AppLifepathRedJumpkitComponent ],
-      providers: [DiceService, DataService],
+      providers: [DiceService, DataService, SeoService],
       imports: [HttpClientModule]
     })
     .compileComponents();

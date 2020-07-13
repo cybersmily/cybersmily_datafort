@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { FixerCalcBigLeagueContactNewComponent } from './../fixer-calc-big-league-contact-new/fixer-calc-big-league-contact-new.component';
 import { FixerCalcBigLeagueContactComponent } from './../fixer-calc-big-league-contact/fixer-calc-big-league-contact.component';
@@ -31,7 +32,8 @@ describe('FixerCalcMainComponent', () => {
       ],
       providers: [
         FixerHotStuffService,
-        FixerBigLeagueService
+        FixerBigLeagueService,
+        SeoService
       ]
     })
     .compileComponents();

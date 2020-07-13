@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule } from '@angular/forms';
 import { FashionOptionsSelectorComponent } from './../fashion-options-selector/fashion-options-selector.component';
@@ -33,7 +34,8 @@ describe('FashionGeneratorComponent', () => {
          HttpClientTestingModule
         ],
        providers: [
-         DataService
+         DataService,
+         SeoService
       ]
     })
     .compileComponents();
@@ -119,8 +121,10 @@ describe('FashionGeneratorComponent', () => {
 
   it('should load clothing data', () => {
     const dataService = new DataService(null);
+    const seo = new SeoService( null, null, null);
+    spyOn(seo, 'updateMeta').and.returnValue(undefined);
     spyOn(dataService, 'GetAppDataClothes').and.returnValue(of(clothingList));
-    const genComponent = new FashionGeneratorComponent(dataService, null);
+    const genComponent = new FashionGeneratorComponent(dataService, null, seo);
     genComponent.ngOnInit();
     expect(genComponent.clothingData).toBeTruthy();
     expect(genComponent.clothingData.Clothes).toBeTruthy();
@@ -131,7 +135,7 @@ describe('FashionGeneratorComponent', () => {
     expect(genComponent.clothingData.Options.length).toEqual(4);
   });
   it('should sort Clothes data', () => {
-    const genComponent = new FashionGeneratorComponent(null, null);
+    const genComponent = new FashionGeneratorComponent(null, null, null);
     genComponent.parseClothingData(clothingList);
 
     expect(genComponent.clothingData).toBeTruthy();

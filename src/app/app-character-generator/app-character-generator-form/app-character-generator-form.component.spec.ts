@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { BsModalService, ModalModule } from 'ngx-bootstrap';
 import { DiceService } from './../../shared/services/dice/dice.service';
@@ -50,7 +51,8 @@ describe('AppCharacterGeneratorFormComponent', () => {
       providers: [
         DataService,
         DiceService,
-        BsModalService
+        BsModalService,
+        SeoService
       ]
     })
     .compileComponents();

@@ -44,16 +44,22 @@ export class DruglabToPDF {
     doc.text(drug.name, column, line);
     doc.setFontStyle('normal');
     line += 7;
-    doc.text(`Type: ${drug.effectList}`, column, line);
     doc.text(`Strength: +${drug.strength}`, column + 50, line);
-    line += 7;
+    const effects: Array<string> = doc.splitTextToSize(`Type: ${drug.effectList}`, 45);
+    effects.forEach( e => {
+      doc.text(e, column, line);
+      line += 7;
+    });
     doc.text(`Difficulty: ${drug.diff}`, column, line);
     doc.text(`Cost: ${drug.cost}`, column + 50, line);
     line += 7;
     doc.text(`Duration: ${drug.duration}`, column, line);
     line += 7;
-    doc.text(`Side Effects: ${drug.sideEffectList}`, column, line);
-    line += 7;
+    const sideEffects: Array<string> = doc.splitTextToSize(`Side Effects: ${drug.sideEffectList}`, 90);
+    sideEffects.forEach( e => {
+      doc.text(e, column, line);
+      line += 7;
+    });
     const desc: Array<string> = doc.splitTextToSize(drug.description, 90);
     desc.forEach( d => {
       doc.text(d, column, line);

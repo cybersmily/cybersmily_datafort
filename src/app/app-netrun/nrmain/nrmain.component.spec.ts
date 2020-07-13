@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { PopoverModule, TooltipModule, BsModalService, BsModalRef } from 'ngx-bootstrap';
@@ -46,7 +47,8 @@ describe('NrmainComponent', () => {
       BsModalService,
       BsModalRef,
       NrTrackerService,
-      DiceService
+      DiceService,
+      SeoService
     ]
     })
     .compileComponents();
