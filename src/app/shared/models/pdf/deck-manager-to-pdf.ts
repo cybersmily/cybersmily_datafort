@@ -44,7 +44,7 @@ export class DeckManagerToPdf {
     doc.setFontSize(13);
     doc.text(deck.name, this._left, line);
     doc.setFontStyle('normal');
-    doc.text(`${deck.cost}eb`, this._left + 200, line, 'right');
+    doc.text(`${deck.cost}eb`, this._left + 190, line, 'right');
     doc.setFontSize(this._fontSize);
     line += 7;
     doc.text(`Chassis: ${deck.type.name}`, this._left, line);
@@ -128,6 +128,7 @@ export class DeckManagerToPdf {
       doc.text(d, column, line);
       line += 7;
     });
+    line += 2;
     return line;
   }
 }
