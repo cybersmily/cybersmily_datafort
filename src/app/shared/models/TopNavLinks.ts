@@ -119,15 +119,18 @@ export interface SiteLinksGroup {
           {title: 'Fixer Calculator', link: 'apps/fixcalc', desc: 'Cyberpunk 2020 Fixe contact generator using rules from Wildside.'},
           {title: 'LifePath Generator', link: 'apps/lifepath', desc: 'Cyberpunk 2020 Lifepaht generator.'},
           {title: 'Max Metal Calculator', link: 'apps/maxmetal', desc: 'Cyberpunk 2020 vehicle designer using Maximum Metal rules.'},
-          {title: 'Netrunner Navigator', link: 'apps/nrtrace', desc: 'Cyberpunk 2020 netrunning map for accumulating trace and doing a run.'},
-          {title: 'Netrunner Program Generator', link: 'apps/proggen', desc: 'Cyberpunk 2020 netrunner program generator.'}
+          {title: 'Netrunner Navigator', link: 'apps/nrtrace',
+            desc: 'Cyberpunk 2020 netrunning map for accumulating trace and doing a run.'},
+          {title: 'Netrunner Cyberdeck Manager', link: 'apps/deckmgr',
+            desc: 'Cyberpunk 2020 netrunner deck manager to help with your netrunner\'s needs.'}
         ]
       });
       this.menuItems.push({
         groupTitle: 'Apps-RED',
         description: 'Under Apps you will find web page based application/utilities for Cyberpunk.',
         links: [
-          {title: 'CP Red Jumpstart Kit Character', link: 'apps/qkpregen', desc: 'Cyberpunk Red Character generator based on tempates for the jumpstart kit.'},
+          {title: 'CP Red Jumpstart Kit Character', link: 'apps/qkpregen',
+            desc: 'Cyberpunk Red Character generator based on tempates for the jumpstart kit.'},
           {title: 'LifePath Red Generator', link: 'apps/lpredjmp', desc: 'Cyberpunk Red lifepath generator.'}
         ]
       });
@@ -145,7 +148,6 @@ export interface SiteLinksGroup {
         groupTitle: 'LDLs',
         description: 'Under LDLs you will find links to other Cyberpunk 2020/RED sites.',
         links: [
-<<<<<<< HEAD
           {title: 'R. Talsorian', link: 'https://rtalsoriangames.wordpress.com/',
             desc: 'The main site for news and books for Cyberpunk.', target: '_blank'},
           {title: 'Datafortress 2020', link: 'http://datafortress2020.com/',
@@ -171,26 +173,10 @@ export interface SiteLinksGroup {
             desc: 'Another site for chracter genartion.', target: '_blank'},
           {title: 'Laurel Cadre Goon Generator', link: 'http://www.laurelcadre.com/cp_goon/',
             desc: 'Nice way of craete quick NPCs for the game.', target: '_blank'}
-=======
-          {title: 'R. Talsorian', link: 'https://rtalsoriangames.wordpress.com/', desc: '', target: '_blank'},
-          {title: 'Datafortress 2020', link: 'http://datafortress2020.com/', desc: '', target: '_blank'},
-          {title: 'Cyberpunk 2077', link: 'http://cyberpunk.net/', desc: '', target: '_blank'},
-          {title: 'Mockery', link: 'http://www.verminary.com/cyberpunk/', desc: '', target: '_blank'},
-          {title: 'BlackHammer Project', link: 'http://www.ambient.ca/cpunk/', desc: '', target: '_blank'},
-          {title: 'Karstens CP Arch.', link: 'https://www.cyberpunk2020.de/', desc: '', target: '_blank'},
-          {title: 'Paper Dragon.', link: 'http://www.paper-dragon.com/', desc: '', target: '_blank'},
-          {title: 'Views from the Edge', link: 'http://vfte.cyberpunk.co.uk/', desc: '', target: '_blank'},
-          {title: 'Eric Dorsey CP Character Generator', link: 'https://ericdorsey.info/cp2020/index.html', desc: '', target: '_blank'},
-          {title: 'Cyberpunk Red Character Generator', link: 'https://cyberpunk-char-gen.neocities.org', desc: '', target: '_blank'},
-          {title: 'Moosh Cyberpunk FDE + Lifepath Generator', link: 'https://www.moosh.net/cp2020/', desc: '', target: '_blank'},
-          {title: 'Dodo Cyberpunk Character Generator', link: 'http://members.dodo.com.au/~boyleholdings/cyberpunk/#4thPage', desc: '', target: '_blank'},
-          {title: 'Laurel Cadre Goon Generator', link: 'http://www.laurelcadre.com/cp_goon/', desc: '', target: '_blank'}
->>>>>>> aab0a294c2751e963f86993a79824b746c039ae9
         ]
       });
       this.menuItems.push({
         groupTitle: 'Vids',
-<<<<<<< HEAD
         description: 'Under Vids you will find links to videos, webisodes, and streams for Cyberpunk 2020/Red.',
         links: [
           {title: 'Mad Queen Show', link: 'https://www.youtube.com/channel/UC0G5rpOFcY6pOdtKsCE0p2A',
@@ -203,14 +189,6 @@ export interface SiteLinksGroup {
             desc: 'Great advise for all TTRPGs, but has a few specifically for Cyberpunk', target: '_blank'},
           {title: 'PunkGenerator', link: 'https://www.youtube.com/channel/UCrB_VVl4kFsMiQFw_h6RKfg',
             desc: 'Reviews and live play.', target: '_blank'},
-=======
-        description: 'Under Vids you will find links to other Cyberpunk 2020/red videos/livestreams.',
-        links: [
-          {title: 'Mad Queen Show', link: 'https://www.youtube.com/channel/UC0G5rpOFcY6pOdtKsCE0p2A', desc: '', target: '_blank'},
-          {title: 'JonJon theWise', link: 'https://www.youtube.com/channel/UCTZML8xYXTyuEaCb9ette6Q', desc: '', target: '_blank'},
-          {title: 'Mr Welch', link: 'https://www.youtube.com/channel/UC3NteHN3fWXXMaLXjMMHRkA', desc: '', target: '_blank'},
-          {title: 'PunkGenerator', link: 'https://www.youtube.com/channel/UCrB_VVl4kFsMiQFw_h6RKfg', desc: '', target: '_blank'},
->>>>>>> aab0a294c2751e963f86993a79824b746c039ae9
           {title: 'The Dark Future', link: 'https://www.youtube.com/channel/UCdppRwWMT7V7hfqI4ZncZBg', desc: '', target: '_blank'},
           {title: 'Tokyo Red: Cyberpunk Red',
             link: 'https://www.youtube.com/playlist?list=PLM-HN-1Cf8rggbs5RiHn-OkUjncMTAzYE',

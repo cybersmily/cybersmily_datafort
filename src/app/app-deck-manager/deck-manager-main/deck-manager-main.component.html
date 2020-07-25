@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>Netrunner Cyberdeck Manager</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      This application is for Cyberpunk 2020 to help manage a Netrunner's deck and the programs they use. This relies upon the source book <a href="https://talsorianstore.com/collections/cyberpunk/products/bartmoss-brainware-blowout" title="Bartmoss' Brainware Blowout">Bartmoss' Brainware Blowout</a>.
+    </div>
+  </div>
+  <div class="row csd-rounded">
+    <div class="col">
+<div class="row">
+  <div class="col">
+    <h4>Deck Manager
+    <span class="float-right"><fa-icon [icon]="faFilePdf" class="csd-btn" (click)="pdf()" title="Save Deck Manager as PDF"></fa-icon></span>
+    <span class="float-right"><fa-icon [icon]="faSave" class="csd-btn" (click)="save()" title="Save Deck Manager as json file to upload later."></fa-icon></span>
+    <span class="float-right">
+      <input type="file" id="loadFile" title="load a program list .json file" name="file" Style="display: none"
+        (change)="upload($event)" #inputFile (click)="inputFile.value = null" accept="text/json" />
+        <label for="loadFile"><fa-icon [icon]="faUpload" class="csd-btn" title="Upload Deck Manager json file to edit."></fa-icon></label>
+    </span>
+    <span class="float-right"><fa-icon [icon]="faUndo" class="csd-btn" (click)="reset()" title="Reset the Deck Manager and clear all items"></fa-icon></span>
+  </h4>
+  </div>
+</div>
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <cs-deck-form [deck]="deckManagerModel.deck" (update)="updateDeck($event)"></cs-deck-form>
+    </div>
+    <div class="col-12 col-md-6">
+      <cs-program-list [programList]="deckManagerModel.programList"
+        [maxMu]="deckManagerModel.deck.mu"
+        (updateList)="uploadList($event)">
+      </cs-program-list>
+    </div>
+  </div>
+  </div>
+  </div>
+
+</div>

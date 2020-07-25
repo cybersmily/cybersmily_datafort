@@ -1,0 +1,43 @@
+h4 span {
+  padding: 0px 10px;
+  font-size: large;
+  vertical-align: bottom;
+}
+
+.csd-prog-lst-new {
+  width: 100%;
+  text-align: center;
+  margin: 3px 20px;
+}
+
+.csd-prog-lst-new fa-icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.csd-prog-lst-new:hover {
+  background-color: #999;
+  cursor: pointer;
+}
+
+.csd-prog-select {
+  text-align: left;
+}
+
+.csd-prog-select:hover {
+  background-color: #999;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.csd-mu-breach {
+  color: red;
+}
+.csd-mu-breach::before {
+  content: '* ';
+  color: red;
+}
+
+.csd-prog-class-name {
+  font-size: 12px;
+}

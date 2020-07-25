@@ -1,0 +1,21 @@
+.csd-deck-input {
+  width: 40px;
+  text-align: right;
+}
+
+textarea {
+  width: 100%;
+}
+
+.csd-deck-name {
+  width: 70%;
+}
+
+.opt-columns {
+  column-count: 2;
+}
+
+.opt-count {
+  width: 40px;
+  text-align: right;
+}

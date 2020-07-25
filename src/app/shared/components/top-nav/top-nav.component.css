@@ -1,7 +1,13 @@
 .csdHeader {background-color: #666;padding-bottom:10px;}
-.csdHeaderTitle {color:#CCC;}
+.csdHeaderTitle, .csdHeader .nav-bar .nav-item A.nav-link {
+  color:#CCC;
+}
 .csd-link-menu {
   column-fill: auto;
+
+}
+.csd-link-menu A {
+  color:#CCC;
 }
 .navbar .mega-dropdown{
   position:static

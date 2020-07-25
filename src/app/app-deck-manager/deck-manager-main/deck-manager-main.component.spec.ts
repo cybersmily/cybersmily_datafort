@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProgramMainComponent } from './program-main.component';
+import { DeckManagerMainComponent } from './deck-manager-main.component';
 
 describe('ProgramMainComponent', () => {
-  let component: ProgramMainComponent;
-  let fixture: ComponentFixture<ProgramMainComponent>;
+  let component: DeckManagerMainComponent;
+  let fixture: ComponentFixture<DeckManagerMainComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProgramMainComponent ]
+      declarations: [ DeckManagerMainComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProgramMainComponent);
+    fixture = TestBed.createComponent(DeckManagerMainComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

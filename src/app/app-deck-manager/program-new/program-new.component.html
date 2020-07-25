@@ -1,38 +1,47 @@
-<div class="csd-rounded">
-  <h4>Program
-    <span class="float-right">
-      <fa-icon [icon]="faSave" class="csd-btn" (click)="save()" title="Add program to list."></fa-icon>
-    </span>
-  </h4>
+<div class="csd-rounded csd-program-box">
   <div class="row">
-    <div class="col-6">
-      Name: <input type="text" [(ngModel)]="program.name" placeholder="Enter name of program..."
-        title="Name of the program">
+    <div class="col-12 col-md-2 col-lg-1">
+      Name:
     </div>
-    <div class="col-6">
+    <div class="col-8 col-md-7 col-lg-9">
+      <input type="text" [(ngModel)]="program.name" placeholder="Enter name of program..." class="csd-program-name"
+        title="Name of the program" (change)="updated()">
+    </div>
+    <div class="col-4 col-md-3 col-lg-2">
+      <span *ngIf="!isSaved" class="csd-program-unsaved">** UNSAVED **</span>
+      <span class="float-right pl-2">
+        <fa-icon [icon]="faSave" class="csd-btn" (click)="save()" title="Add program to list."></fa-icon>
+      </span>
       <span class="float-right">
         {{program.cost|number}}eb
       </span>
     </div>
   </div>
   <div class="row">
-    <div class="col">
-      Class: <select [(ngModel)]="program.class">
+    <div class="col-12 col-md-2 col-lg-1">
+      Class:
+    </div>
+    <div class="col-12 col-md-10 col-lg-11">
+      <select [(ngModel)]="program.class" [compareWith]="compare" (change)="updated()">
         <option [ngValue]="undefined"></option>
         <option *ngFor="let c of classes" [ngValue]="c" title="{{c.description}}">{{c.name}} ({{c.diff}})</option>
       </select>
     </div>
   </div>
   <div class="row">
-    <div class="col">
-      Str: <input type="number" [(ngModel)]="program.strength" min="0" max="10">
+    <div class="col-2 col-lg-1">
+      STR:
     </div>
-    <div class="col">
-      DIFF: {{program.diff}}
+    <div class="col-10 col-lg-11">
+      <input type="number" [(ngModel)]="program.strength" min="0" max="10" (change)="updated()">
+      <div class="pull-right p1-2 ml-2">
+        DIFF: {{program.diff}}
+      </div>
+      <div class="pull-right p1-2 ml-2">
+        MU: {{program.mu}}
+      </div>
     </div>
-    <div class="col">
-      MU: {{program.mu}}
-    </div>
+
   </div>
   <div class="row">
     <div class="col">
@@ -43,13 +52,13 @@
   <div class="row">
     <div class="col">
       <div>Description:</div>
-      <textarea [(ngModel)]="program.description"></textarea>
+      <textarea [(ngModel)]="program.description" (change)="updated()"></textarea>
     </div>
   </div>
   <div class="row">
     <div class="col">
       <div>Icon:</div>
-      <textarea [(ngModel)]="program.icon"></textarea>
+      <textarea [(ngModel)]="program.icon" (change)="updated()"></textarea>
     </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { ProgramMainComponent } from './program-main/program-main.component';
+import { DeckManagerMainComponent } from './deck-manager-main/deck-manager-main.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -6,11 +6,11 @@ import { Routes, RouterModule } from '@angular/router';
 const nrProgramRoutes: Routes = [
   {
     path: '',
-    component: ProgramMainComponent
+    component: DeckManagerMainComponent
   }];
 
 @NgModule({
   imports: [RouterModule.forChild(nrProgramRoutes)],
   exports: [RouterModule]
 })
-export class AppProgramGeneratorRoutingModule { }
+export class AppDeckManagerRoutingModule { }

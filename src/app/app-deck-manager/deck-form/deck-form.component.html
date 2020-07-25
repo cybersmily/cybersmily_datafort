@@ -1,0 +1,72 @@
+<div class="csd-rounded">
+  <h4>Cyberdeck
+    <span class="float-right">
+    </span>
+  </h4>
+  <div class="row">
+    <div class="col">
+      Name: <input type="text" [(ngModel)]="deck.name" placeholder="Enter name of the deck..."
+        title="Name of the cyberdeck" class="csd-deck-name">
+      <span class="float-right">
+        {{deck.cost|number}}eb
+      </span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      Type: <select [(ngModel)]="selectedChassis" (change)="changeType()" [compareWith]="compare">
+        <option [ngValue]="undefined"></option>
+        <option *ngFor="let chassis of deckData.chassis" [ngValue]="chassis" [selected]="selectedChassis && selectedChassis.name === chassis.name">{{chassis.name}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-sm-6 col-lg-4">
+      Speed: <input type="number" [(ngModel)]="deck.speed" min="0" max="5" class="csd-deck-input" (change)="updateDeck()">
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4">
+      Data Wall: <input type="number" [(ngModel)]="deck.dataWall" min="2" max="10" class="csd-deck-input" (change)="updateDeck()">
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4">
+      MU: {{deck.mu}} <input type="checkbox" [(ngModel)]="deck.doubleMu" (change)="updateDeck()" title="Double stock size (10).">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      Options: <fa-icon [icon]="faPlus" class="csd-btn" title="Add/remove options"
+        (click)="deckOptions.show()"></fa-icon>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      {{deck.deckOptionsString}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div>Description:</div>
+      <textarea [(ngModel)]="deck.description" (change)="updateDeck()"></textarea>
+    </div>
+  </div>
+</div>
+<div bsModal #deckOptions="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Deck Options</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="deckOptions.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="opt-columns">
+        <div *ngFor="let opt of deckData.options; let i = index"
+          title="{{opt.source.book | sourcebook}} pg. {{opt.source.page}}">
+          <input type="number" [(ngModel)]="opt.count" min="0" (change)="checkOption(opt)" class="opt-count">
+          {{opt.name}} ({{ opt.cost.toString().includes('*') ? opt.cost : opt.cost | number}} eb)
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

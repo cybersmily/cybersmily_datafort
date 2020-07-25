@@ -17,6 +17,8 @@ export class ProgramNewComponent implements OnInit {
   options: Array<NrProgramOption> = new Array<NrProgramOption>();
   modalRef: BsModalRef;
 
+  isSaved = true;
+
   @Input()
   program: NetRunProgram = new NetRunProgram();
 
@@ -36,12 +38,18 @@ export class ProgramNewComponent implements OnInit {
     });
   }
 
+  updated() {
+    this.isSaved = false;
+    console.log('unsaved');
+  }
+
   get optionList(): string {
-    return this.program.options.map(o => o.name).join(', ');
+    return this.program.options.map(o => o.name).join(' ');
   }
 
   save() {
     this.updateProgram.emit(this.program);
+    this.isSaved = true;
   }
 
   isChecked(optName: string) {
@@ -52,11 +60,11 @@ export class ProgramNewComponent implements OnInit {
     const option = this.options[index];
     if (this.isChecked(option.name)) {
       const i = this.program.options.findIndex(opt => opt.name === option.name);
-      this.program.description = this.program.description.replace(option.description, '');
+      this.program.description = this.program.description.replace(option.description, ' ');
       this.program.options.splice(i, 1);
     } else {
       this.program.options.push(option);
-      this.program.description = `${this.program.description}.  ${option.description}`;
+      this.program.description = `${this.program.description}${option.description} `;
     }
   }
 
@@ -64,4 +72,7 @@ export class ProgramNewComponent implements OnInit {
     this.modalRef = this.modalService.show(template);
   }
 
+  compare(a: NrProgramOption, b: NrProgramOption) {
+    return a  && b ? a.name === b.name : a === b;
+  }
 }

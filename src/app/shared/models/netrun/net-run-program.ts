@@ -7,6 +7,7 @@ export class NetRunProgram implements NrProgram {
   icon: string;
   class: NrProgramOption;
   options: Array<NrProgramOption>;
+  loaded:  boolean;
   private _str: number;
 
   constructor(param?: any) {
@@ -15,6 +16,7 @@ export class NetRunProgram implements NrProgram {
     this.icon = (param && param.icon) ? param.icon : '';
     this.class = (param && param.class) ? param.class : {};
     this.options = (param && param.options) ? param.options : new Array<NrProgramOption>();
+    this.loaded = (param && param.loaded) ? true : false;
     this._str = (param && param._str) ? param._str : 0;
   }
 

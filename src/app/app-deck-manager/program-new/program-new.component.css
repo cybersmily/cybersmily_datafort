@@ -1,0 +1,17 @@
+textarea {
+  width: 100%;
+}
+
+.csd-program-box {
+  padding: 10px 10px;
+}
+
+.csd-program-unsaved {
+  font-size:12px;
+  font-style: italic;
+  color:red
+}
+
+.csd-program-name {
+  width: 100%;
+}
