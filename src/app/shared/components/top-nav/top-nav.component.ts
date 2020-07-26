@@ -1,6 +1,7 @@
 import { TopNavLinks } from './../../Models/TopNavLinks';
 import { Component, OnInit } from '@angular/core';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-top-nav',
@@ -9,6 +10,8 @@ import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 })
 export class TopNavComponent implements OnInit {
   faEnvelope = faEnvelope;
+  faGithub = faGithub;
+
   topNavLinks: TopNavLinks = new TopNavLinks();
   isCollapsed = true;
   selected: any;
