@@ -6,6 +6,6 @@ export interface NrDeckOption {
   slotType?: string;
   description: string;
   source: SourceBook;
-  mods: Array<any>;
+  mods: any;
   count?: number;
 }

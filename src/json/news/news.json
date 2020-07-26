@@ -1,6 +1,15 @@
 ﻿{
   "news": [
     {
+      "date": "2020-08",
+      "entries": [
+        "<strong>08-01</strong> - I change the menu a bit to turn it into a megamenu, which should space it out a bit more to help with using the menu on longer list of choices.",
+        "A new app has been added: Cyberpunk 2020 Netrunner Deck Manager utility. This app allows you to create/enter a cyberdeck and programs for it. It keeps track of the costs as well as how many programs you have loaded into the deck.",
+        "Stay safe gatos. The dark future is upon us!",
+        "CYBER :D"
+      ]
+    },
+    {
       "date": "2020-07",
       "entries": [
         "<strong>07-01</strong> - You will notice I have split out Cyberpunk 2020 and Cyberpunk Red into 2 different menu items. I am adding more and more apps, I want to categorize them as need. This month I add another CP 2020 app. This time a simple one for doing pharmaceuticals, Drug Lab.",

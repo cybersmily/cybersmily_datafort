@@ -6,7 +6,57 @@
   </div>
   <div class="row">
     <div class="col">
-      This application is for Cyberpunk 2020 to help manage a Netrunner's deck and the programs they use. This relies upon the source book <a href="https://talsorianstore.com/collections/cyberpunk/products/bartmoss-brainware-blowout" title="Bartmoss' Brainware Blowout">Bartmoss' Brainware Blowout</a>.
+      This application is for Cyberpunk 2020 to help manage a Netrunner's deck and the programs they use.
+      This relies upon the source book <a href="https://talsorianstore.com/collections/cyberpunk/products/bartmoss-brainware-blowout" title="Bartmoss' Brainware Blowout">Bartmoss' Brainware Blowout</a>.
+      Some of the selections are not automatically calculated into some aspects. Such as programs increase deck speed will not update the deck itself. So keep this in mind.
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h4 (click)="showInstructions = !showInstructions" [attr.aria-expanded]="!showInstructions" aria-controls="collapseBasic">
+        <fa-icon [icon]="(showInstructions)?faAngleDoubleDown:faAngleDoubleRight" class="csd-dice"
+          title="Collapse instructions section"></fa-icon>
+        Instructions&nbsp;
+      </h4>
+    </div>
+  </div>
+  <div class="row" [collapse]="!showInstructions">
+    <div class="col">
+      <div class="row">
+        <div class="col">
+          <h6>Deck Manager</h6>
+          <div>There are 4 options you can do with the manager:</div>
+          <div><fa-icon [icon]="faUndo"></fa-icon> (Clear) - This button will remove all the data in the cyberdeck and the program list. Be careful with this button ;-)</div>
+          <div><fa-icon [icon]="faUpload"></fa-icon> (Upload) - This button will allow you to select the saved deck manager json file to upload to this app.</div>
+          <div><fa-icon [icon]="faSave"></fa-icon> (Save) - This button will save all deck manager data to a json file.</div>
+          <div><fa-icon [icon]="faFilePdf"></fa-icon> (PDF) - This button generates the deck manager to a PDF file listing the deck and the program list.</div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <h6>Cyberdeck Section</h6>
+          <div>This section is self explanatory. To add/remove options click on <fa-icon [icon]="faPlus"></fa-icon> to manage them.</div>
+          <div>MU is calculated as per source books. The check box is to add 10 more MU to stock.
+            You will note that some printed deck has 15 or 25 MU. To acheive this, choose the Zetatech Memchip from options.</div>
+          <div>Price is calculated automatically. Some printed deck will be different. That is most likely due to addtional details or reduce price due to large surplus.</div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <h6>Program List Section</h6>
+          <div>The number next to the header are the total MU of programs loaded (checked) compared to the deck MU storage. The eb value is the total cost of all the programs from the list.</div>
+          <div>The program list is sorted by class and then name. The Loaded check box is to mark if the program is loaded into the deck. STR and MU are listed as well.</div>
+          <div>Hovering over the class name will show you the description of the class. Hovering over the name of the program will display its description. Click on the name will open the program to be modified.</div>
+          <div><fa-icon [icon]="faTrash"></fa-icon> will delete the program form the list.</div>
+          <div>At the bottom of the list, the <fa-icon [icon]="faPlus"></fa-icon> will pop up a blank program dialog to add more programs to the list.</div>
+          <div>Program Pop - This is where you would enter or modify a program. You must click on the <fa-icon [icon]="faSave"></fa-icon> button to save the changes to the program list.</div>
+        </div>
+      </div>
+      <br>
+      <br>
     </div>
   </div>
   <div class="row csd-rounded">

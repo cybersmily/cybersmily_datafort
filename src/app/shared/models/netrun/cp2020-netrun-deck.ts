@@ -13,11 +13,13 @@ export class Cp2020NetrunDeck implements NrDeck {
   options: Array<NrDeckOption>;
   programs: Array<NrProgram>;
   description: string;
+  codeGate: number;
 
   constructor(param?: any) {
     this.name = (param) ? param.name : '';
     this.type = (param) ? param.type : undefined;
     this.dataWall = (param) ? param.dataWall : 2;
+    this.codeGate = (param) ? param.codeGate : 0;
     this.speed = (param) ? param.speed : 0;
     this._mu = (param) ? param._mu : 10;
     this.doubleMu = (param) ? param.doubleMu : false;
@@ -27,7 +29,10 @@ export class Cp2020NetrunDeck implements NrDeck {
   }
 
   get mu(): number {
-    return this._mu + ((this.doubleMu) ? 10 : 0);
+    let mu = this._mu;
+    mu += ((this.doubleMu) ? 10 : 0);
+    mu += this.options.reduce( (a, b) => a + ((b.mods && b.mods['mu']) ? b.mods['mu'] : 0), 0);
+    return mu;
   }
 
   set mu(value: number) {
@@ -38,7 +43,7 @@ export class Cp2020NetrunDeck implements NrDeck {
     let basecost = 0;
     basecost = (this.type) ? this.type.cost : 0;
     basecost += ((this.dataWall - 2) * 1000);
-    basecost += (this.speed * 2000);
+    basecost += (this.speed > 0 ) ? (this.speed * 2000) : 0;
     basecost += (this.doubleMu) ? 5000 : 0;
       let optcost = 0;
       this.options.forEach( o => {
@@ -59,16 +64,25 @@ export class Cp2020NetrunDeck implements NrDeck {
     return this.programs.reduce( (a, b) => a + b.mu, 0);
   }
 
-  get deckOptionsString(): string {
-    if (this.options.length > 0) {
-      return this.options.map( o => {
-        let result = o.name;
-        if ( o.count && o.count > 1) {
-          result = o.count + ' ' + result;
-        }
-        return result;
-      }).join(', ');
-    }
-    return '';
+  get maxSpeed(): number {
+    let spd = 5;
+    spd += this.options.reduce( (a, b) => a + ((b.mods && b.mods['maxSpeed']) ? b.mods['maxSpeed'] : 0), 0);
+    return spd;
   }
+
+  updateOption(opt: NrDeckOption) {
+    if (opt.count && opt.count > 0 ) {
+      if (!this.options.some( (o: NrDeckOption) => o.name === opt.name)) {
+        this.options.push(opt);
+      } else {
+        const i = this.options.findIndex( o => o.name === opt.name);
+        this.options[i].count = opt.count;
+      }
+    } else {
+      const i = this.options.findIndex( o => o.name === opt.name);
+      this.options.splice(i, 1);
+    }
+    this.options.sort( (a, b) => (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1));
+  }
+
 }

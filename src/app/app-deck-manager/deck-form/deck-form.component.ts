@@ -58,17 +58,7 @@ export class DeckFormComponent implements OnInit, OnChanges {
 
 
   checkOption(opt: NrDeckOption) {
-    if (opt.count && opt.count > 0 ) {
-      if (!this.deck.options.some( (o: NrDeckOption) => o.name === opt.name)) {
-        this.deck.options.push(opt);
-      } else {
-        const i = this.deck.options.findIndex( o => o.name === opt.name);
-        this.deck.options[i].count = opt.count;
-      }
-    } else {
-      const i = this.deck.options.findIndex( o => o.name === opt.name);
-      this.deck.options.splice(i, 1);
-    }
+    this.deck.updateOption(opt);
     this.updateDeck();
   }
 

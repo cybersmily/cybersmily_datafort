@@ -22,7 +22,7 @@
   </div>
   <div class="row">
     <div class="col-12 col-sm-6 col-lg-4">
-      Speed: <input type="number" [(ngModel)]="deck.speed" min="0" max="5" class="csd-deck-input" (change)="updateDeck()">
+      Speed: <input type="number" [(ngModel)]="deck.speed" min="-5" max="5" class="csd-deck-input" (change)="updateDeck()">
     </div>
     <div class="col-12 col-sm-6 col-lg-4">
       Data Wall: <input type="number" [(ngModel)]="deck.dataWall" min="2" max="10" class="csd-deck-input" (change)="updateDeck()">
@@ -39,7 +39,7 @@
   </div>
   <div class="row">
     <div class="col">
-      {{deck.deckOptionsString}}
+      <div *ngFor="let opt of deck.options" tooltip="{{opt.description}}" class="pull-left">{{opt.name}};&nbsp;</div>
     </div>
   </div>
   <div class="row">
@@ -61,7 +61,7 @@
     <div class="modal-body">
       <div class="opt-columns">
         <div *ngFor="let opt of deckData.options; let i = index"
-          title="{{opt.source.book | sourcebook}} pg. {{opt.source.page}}">
+          title="{{opt.description}} ~ {{opt.source.book | sourcebook}} pg. {{opt.source.page}}">
           <input type="number" [(ngModel)]="opt.count" min="0" (change)="checkOption(opt)" class="opt-count">
           {{opt.name}} ({{ opt.cost.toString().includes('*') ? opt.cost : opt.cost | number}} eb)
         </div>

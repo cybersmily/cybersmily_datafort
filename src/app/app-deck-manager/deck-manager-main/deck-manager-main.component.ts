@@ -6,7 +6,7 @@ import { FileLoaderService } from './../../shared/services/file-loader/file-load
 import { SeoService } from '../../shared/services/seo/seo.service';
 import { Component, OnInit } from '@angular/core';
 import { NetRunProgram, Cp2020DeckManager, Cp2020NetrunDeck } from '../../shared/models/netrun';
-import { faTrash, faFilePdf, faSave, faUndo, faUpload } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faFilePdf, faSave, faUndo, faUpload, faAngleDoubleDown, faAngleDoubleRight, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'cs-program-main',
@@ -19,6 +19,12 @@ export class DeckManagerMainComponent implements OnInit {
   faSave = faSave;
   faUndo = faUndo;
   faUpload = faUpload;
+  faAngleDoubleDown = faAngleDoubleDown;
+  faAngleDoubleRight = faAngleDoubleRight;
+  faPlus = faPlus;
+
+
+  showInstructions = false;
 
   deckManagerModel: Cp2020DeckManager = new Cp2020DeckManager();
 
