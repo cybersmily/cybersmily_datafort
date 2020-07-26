@@ -7,7 +7,26 @@ export class WeaponRanges {
     long: number;
     extreme: number;
 
-    constructor(weaponRange: number) {
+    constructor(weaponRange: number, weaponType?: string) {
+      if (weaponRange === undefined && weaponType ) {
+        switch (weaponType.toLowerCase()) {
+          case 'smg':
+            weaponRange = 150;
+            break;
+          case 'p':
+            weaponRange = 50;
+            break;
+          case 'rif':
+            weaponRange = 400;
+            break;
+          case 'shg':
+          case 'sht':
+            weaponRange = 50;
+            break;
+          default:
+            weaponRange = 10;
+        }
+      }
         this.pointBlank = 1;
         this.close = Math.floor(weaponRange * 0.25);
         this.medium = Math.floor(weaponRange * 0.5);
@@ -31,7 +50,6 @@ export class WeaponRanges {
         if ( range > this.long && range <= this.extreme) {
             return { bracket: 'Extreme', diff: 30};
         }
-        return { bracket: 'Out of range', diff: -1};
+        return { bracket: 'Out of range', diff: 0};
     }
 }
-

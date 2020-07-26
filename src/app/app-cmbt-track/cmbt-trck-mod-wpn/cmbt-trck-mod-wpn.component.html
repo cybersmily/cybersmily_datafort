@@ -2,7 +2,7 @@
   <div class="col-7">
     {{weapon.name}}(
     <span *ngIf="skills.length &lt; 2">
-      {{selectedSkill}}
+      {{selectedSkill.name}}
     </span>
     <select [(ngModel)]="selectedSkill" *ngIf="skills.length &gt; 1">
       <option *ngFor="let s of skills" [ngValue]="s">{{s.name}}</option>

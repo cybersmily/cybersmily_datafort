@@ -3,13 +3,14 @@ import { DiceService } from './../../shared/services/dice/dice.service';
 import { CombatModifiers } from '../../shared/models/cmbt-trck';
 import { faDice, faRedo } from '@fortawesome/free-solid-svg-icons';
 import { CpPlayerWeapon, CombatRange } from '../../shared/models/weapon';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, ChangeDetectionStrategy } from '@angular/core';
 import { Cp2020PlayerSkill, Cp2020Stat } from './../../shared/models/cp2020character';
 
 @Component({
   selector: 'cs-cmbt-trck-mod-wpn',
   templateUrl: './cmbt-trck-mod-wpn.component.html',
-  styleUrls: ['./cmbt-trck-mod-wpn.component.css']
+  styleUrls: ['./cmbt-trck-mod-wpn.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CmbtTrckModWpnComponent implements OnInit {
   faDice = faDice;

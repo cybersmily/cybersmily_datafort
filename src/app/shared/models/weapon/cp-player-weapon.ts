@@ -79,7 +79,7 @@ export class CpPlayerWeapon implements CpWeapon {
   }
 
   getRangeBracket(range: number): CombatRange {
-    const wr = new WeaponRanges(this.range);
+    const wr = new WeaponRanges(this.range, this.type);
     return wr.rangeBracket(range);
   }
 }
