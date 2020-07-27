@@ -195,6 +195,8 @@ export class Cp2020StatBlock implements Cp2020Stats {
     } else if (this._damage > 0 && this._damage < 5) {
       this.REF.WoundModifier = 0;
       this.REF.Multiplier = 1;
+      this.INT.Multiplier = 1;
+      this.COOL.Multiplier = 1;
       this.WoundLevel = Cp2020_WOUND_LEVELS.LIGHT;
     } else if (this._damage > 8 && this._damage < 13) {
       this.WoundLevel = Cp2020_WOUND_LEVELS.CRITICAL;
