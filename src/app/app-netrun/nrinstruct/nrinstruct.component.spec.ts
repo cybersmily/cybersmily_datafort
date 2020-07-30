@@ -1,6 +1,5 @@
-import { BsModalService, ModalModule, BsModalRef } from 'ngx-bootstrap/modal';
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { NrinstructComponent } from './nrinstruct.component';
 
 describe('NrinstructComponent', () => {
@@ -13,11 +12,9 @@ describe('NrinstructComponent', () => {
         NrinstructComponent
       ],
       imports: [
-        ModalModule.forRoot()
+        CommonUiModule
       ],
       providers: [
-        BsModalService,
-        BsModalRef
       ]
     })
     .compileComponents();

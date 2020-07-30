@@ -1,5 +1,5 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { CorporationCard } from '../../shared/models/corporation';
-import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
 import { DataService } from './../../shared/services/data.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -15,11 +15,10 @@ describe('CorporationCardComponent', () => {
       declarations: [ CorporationCardComponent ],
       imports: [
         HttpClientTestingModule,
-        ModalModule.forRoot()
+        CommonUiModule
       ],
       providers: [
-        DataService,
-        BsModalService
+        DataService
       ]
     })
     .compileComponents();

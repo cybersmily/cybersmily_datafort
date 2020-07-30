@@ -1,3 +1,5 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { WeaponDataService } from './../../shared/services/data/weapon-data.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -17,6 +19,8 @@ describe('AdminWpnListComponent', () => {
       imports: [
         HttpClientTestingModule,
         CommonUiModule,
+        FormsModule,
+        BrowserAnimationsModule,
         PipesModule
       ],
       providers: [

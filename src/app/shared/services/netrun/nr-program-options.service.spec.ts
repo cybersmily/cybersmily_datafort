@@ -1,16 +1,21 @@
-import { TestBed } from '@angular/core/testing';
+import { DataService } from './../data.service';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { TestBed, inject  } from '@angular/core/testing';
 
 import { NrProgramOptionsService } from './nr-program-options.service';
 
 describe('NrProgramOptionsService', () => {
-  let service: NrProgramOptionsService;
-
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(NrProgramOptionsService);
+    TestBed.configureTestingModule({
+      providers: [NrProgramOptionsService, DataService],
+      imports: [HttpClientTestingModule]
+    });
   });
 
-  it('should be created', () => {
+  it('should be created', inject([NrProgramOptionsService, HttpTestingController], (service: NrProgramOptionsService) => {
     expect(service).toBeTruthy();
+  }));
+  afterAll(() => {
+    TestBed.resetTestingModule();
   });
 });

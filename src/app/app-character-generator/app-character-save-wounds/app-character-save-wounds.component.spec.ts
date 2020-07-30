@@ -1,9 +1,8 @@
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { FormsModule } from '@angular/forms';
 import { AppCharacterWoundLevelComponent } from './../app-character-wound-level/app-character-wound-level.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { BsModalService, ModalModule } from 'ngx-bootstrap';
 import { AppCharacterSaveWoundsComponent } from './app-character-save-wounds.component';
 
 describe('AppCharacterSaveWoundsComponent', () => {
@@ -18,11 +17,9 @@ describe('AppCharacterSaveWoundsComponent', () => {
       ],
       imports: [
         FormsModule,
-        ModalModule.forRoot(),
-        FontAwesomeModule
+        CommonUiModule,
       ],
       providers: [
-        BsModalService,
         DiceService
       ]
     })

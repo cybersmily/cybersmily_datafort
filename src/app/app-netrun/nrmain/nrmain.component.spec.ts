@@ -1,7 +1,6 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { SeoService } from './../../shared/services/seo/seo.service';
-import { ModalModule } from 'ngx-bootstrap/modal';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { PopoverModule, TooltipModule, BsModalService, BsModalRef } from 'ngx-bootstrap';
 import { NrMapCellComponent } from './../nr-map-cell/nr-map-cell.component';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { FormsModule } from '@angular/forms';
@@ -36,16 +35,12 @@ describe('NrmainComponent', () => {
     ],
     imports: [
       FormsModule,
-      PopoverModule.forRoot(),
-      TooltipModule.forRoot(),
+      CommonUiModule,
       NgxUiLoaderModule,
-      HttpClientTestingModule,
-      ModalModule
+      HttpClientTestingModule
     ],
     providers: [
       DataService,
-      BsModalService,
-      BsModalRef,
       NrTrackerService,
       DiceService,
       SeoService

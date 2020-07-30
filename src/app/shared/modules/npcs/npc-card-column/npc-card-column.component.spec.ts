@@ -1,5 +1,5 @@
+import { CommonUiModule } from './../../common-ui/common-ui.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { BsModalService, ModalModule, BsModalRef  } from 'ngx-bootstrap/modal';
 
 import { NpcCardColumnComponent } from './npc-card-column.component';
 import { NpcCard } from '../../../models/character';
@@ -27,12 +27,8 @@ describe('NpcCardColumnComponent', () => {
         NpcCardColumnComponent,
         NpcCardComponent
       ],
-      providers: [
-        BsModalService,
-        BsModalRef
-      ],
       imports: [
-        ModalModule.forRoot()
+        CommonUiModule
       ]
     })
     .compileComponents();

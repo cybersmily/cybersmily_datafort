@@ -1,4 +1,3 @@
-import { BsModalService } from 'ngx-bootstrap/modal';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -11,8 +10,7 @@ describe('AppCharacterArmorComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AppCharacterArmorComponent ],
-      imports: [CommonUiModule],
-      providers: [BsModalService]
+      imports: [CommonUiModule]
     })
     .compileComponents();
   }));

@@ -1,5 +1,4 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
-import { BsModalService } from 'ngx-bootstrap/modal';
 import { MmweaponComponent } from './../mmweapon/mmweapon.component';
 import { MmoptionComponent } from './../mmoption/mmoption.component';
 import { MmoptionslistComponent } from './../mmoptionslist/mmoptionslist.component';
@@ -34,8 +33,7 @@ describe('MmbuilderComponent', () => {
         CommonUiModule
       ],
       providers: [
-        MaxmetalService,
-        BsModalService
+        MaxmetalService
       ]
     })
     .compileComponents();

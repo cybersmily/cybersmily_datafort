@@ -39,7 +39,7 @@ export class JsonDataFiles {
   public static CP2020_MAXMETAL_TYPES_JSON =  `/json/apps/maxmetal/mmTypes.json`;
 
   public static CP2020_LIFEPTAH_STYLE_JSON = `/json/apps/lifepath/stylecharts.json`;
-  public static CP2020_LIFEPTAH_SOURCES_JSON = `/json/apps/lifepath/soruces.json`;
+  public static CP2020_LIFEPTAH_SOURCES_JSON = `/json/apps/lifepath/sources.json`;
   public static CP2020_LIFEPTAH_MOTIVATION_JSON = `/json/apps/lifepath/motivationcharts.json`;
   public static CP2020_LIFEPTAH_EVENTS_JSON = `/json/apps/lifepath/eventcharts.json`;
   public static CP2020_LIFEPTAH_FAMILY_JSON = `/json/apps/lifepath/familycharts.json`;

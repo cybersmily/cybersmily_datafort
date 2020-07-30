@@ -1,5 +1,5 @@
-import { ModalModule } from 'ngx-bootstrap/modal';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap';
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
+import { BsModalRef } from 'ngx-bootstrap';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NrTraceviewComponent } from './nr-traceview.component';
@@ -16,10 +16,9 @@ describe('NrTraceviewComponent', () => {
         NrTraceviewComponent
       ],
       imports: [
-        ModalModule.forRoot()
+        CommonUiModule
       ],
       providers: [
-        BsModalService,
         BsModalRef,
         NrTrackerService,
         DiceService

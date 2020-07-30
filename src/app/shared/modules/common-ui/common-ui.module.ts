@@ -1,6 +1,6 @@
+import { BsModalService } from 'ngx-bootstrap/modal';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule,
           CollapseModule,
           TooltipModule,
@@ -36,6 +36,9 @@ import { NgModule } from '@angular/core';
     TabsModule,
     TooltipModule,
     FontAwesomeModule
+  ],
+  providers: [
+    BsModalService
   ]
 })
 export class CommonUiModule { }

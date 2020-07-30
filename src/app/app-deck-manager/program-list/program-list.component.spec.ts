@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProgramListComponent } from './program-list.component';
@@ -8,7 +9,10 @@ describe('ProgramListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProgramListComponent ]
+      declarations: [ ProgramListComponent ],
+      imports: [
+        CommonUiModule
+      ]
     })
     .compileComponents();
   }));

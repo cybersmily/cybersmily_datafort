@@ -1,7 +1,6 @@
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { CmbtTrckArmorComponent } from './../cmbt-trck-armor/cmbt-trck-armor.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BsModalService } from 'ngx-bootstrap/modal';
 import { CmbtTrckModSelectorComponent } from './../cmbt-trck-mod-selector/cmbt-trck-mod-selector.component';
 import { CmbtTrckModWpnComponent } from './../cmbt-trck-mod-wpn/cmbt-trck-mod-wpn.component';
 import { CmbtTrckInstructionsComponent } from './../cmbt-trck-instructions/cmbt-trck-instructions.component';
@@ -60,7 +59,6 @@ describe('CmbtTrckMainComponent', () => {
       providers: [
         DiceService,
         DataService,
-        BsModalService,
         SeoService
       ]
     })
