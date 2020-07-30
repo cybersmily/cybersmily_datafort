@@ -1,4 +1,4 @@
-import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BsDropdownModule,
@@ -38,7 +38,8 @@ import { NgModule } from '@angular/core';
     FontAwesomeModule
   ],
   providers: [
-    BsModalService
+    BsModalService,
+    BsModalRef
   ]
 })
 export class CommonUiModule { }

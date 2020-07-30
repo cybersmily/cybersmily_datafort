@@ -1,6 +1,7 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { DataService } from './../../../services/data.service';
 import { CommonUiModule } from './../../common-ui/common-ui.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { NpcCardComponent } from './npc-card.component';
 import { NpcCard } from '../../../models/character';
 
@@ -19,7 +20,11 @@ describe('NpcCardComponent', () => {
         NpcCardComponent
       ],
       imports: [
-        CommonUiModule
+        CommonUiModule,
+        HttpClientTestingModule
+      ],
+      providers: [
+        DataService
       ]
     })
     .compileComponents();

@@ -6,6 +6,9 @@ import { NpcProfileModalComponent } from './npcprofilemodal.component';
 import { DataService } from './../../../services/data.service';
 
 describe('NpcProfileComponent', () => {
+  let component: NpcProfileModalComponent;
+  let fixture: ComponentFixture<NpcProfileModalComponent>;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
@@ -22,9 +25,14 @@ describe('NpcProfileComponent', () => {
     .compileComponents();
   }));
 
+  beforeEach(() => {
+    fixture = TestBed.createComponent(NpcProfileModalComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
   it('should create', () => {
-    // expect(component).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
   afterAll(() => {

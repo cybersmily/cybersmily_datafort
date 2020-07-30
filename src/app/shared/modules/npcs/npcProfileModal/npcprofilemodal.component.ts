@@ -29,16 +29,18 @@ export class NpcProfileModalComponent implements OnInit {
     }
 
   loadNpc() {
-    this.dataService
-    .GetJson(this.npcFile)
-    .subscribe(
-      resultObj => {
-        this.npcProfile = new Npc(resultObj);
-        this.loadSkills();
-        this.imgFile = this.npcProfile.imgFile;
-      },
-      error => console.log( 'Error :: ' + error)
-    );
+    if (this.npcFile) {
+      this.dataService
+      .GetJson(this.npcFile)
+      .subscribe(
+        resultObj => {
+          this.npcProfile = new Npc(resultObj);
+          this.loadSkills();
+          this.imgFile = this.npcProfile.imgFile;
+        },
+        error => console.log( 'Error :: ' + error)
+      );
+    }
 
   }
 

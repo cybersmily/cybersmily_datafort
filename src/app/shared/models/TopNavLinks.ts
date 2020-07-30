@@ -21,7 +21,8 @@ export interface SiteLink {
 export interface SiteLinksGroup {
   groupTitle: string;
   description: string;
-  links: (SiteLink|SiteLinksGroup)[];
+  link?: string;
+  links: (SiteLink)[];
 }
 
 // create the link tree for the top navigation
