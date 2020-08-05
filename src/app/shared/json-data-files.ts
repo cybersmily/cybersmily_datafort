@@ -26,6 +26,8 @@ export class JsonDataFiles {
 
   // APPS data
   public static CP_NAMES_JSON = `/json/apps/namegen/names.json`;
+  public static CP_COLORS_JSON = `/json/apps/namegen/colors.json`;
+
   public static CP2020_DRUG_EFFECTS_JSON = `/json/apps/rxlab/rxeffects.json`;
   public static CP2020_PROGRAM_OPTIONS_JSON =  `/json/apps/nrmap/program.json`;
   public static CP2020_DECK_DATA_JSON = '/json/apps/nrmap/nrdeckdata.json';

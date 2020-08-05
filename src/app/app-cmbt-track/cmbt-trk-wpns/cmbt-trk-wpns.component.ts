@@ -29,6 +29,7 @@ export class CmbtTrkWpnsComponent implements OnInit {
 
   addWeapon() {
     this.weapons.push(this.newWpn);
+    this.newWpn = new CpPlayerWeapon();
     this.newWeapon.emit(this.weapons);
   }
 

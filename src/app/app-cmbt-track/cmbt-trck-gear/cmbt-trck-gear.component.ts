@@ -26,6 +26,7 @@ export class CmbtTrckGearComponent implements OnInit {
 
   add() {
     this.gear.push(this.addedGear);
+    this.addedGear = '';
     this.newGear.emit(this.gear);
   }
 

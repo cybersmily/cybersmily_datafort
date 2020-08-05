@@ -57,6 +57,7 @@ export class CmbtTrkSkillsComponent implements OnInit, OnChanges {
 
   addSKill() {
     this.opponent.addSkill( new Cp2020PlayerSkill({ name: this.newSkill.name, stat: this.newSkill.stat, value: this.newSkill.value}));
+    this.newSkill = new Cp2020PlayerSkill();
     this.updateOpponent.emit(this.opponent);
   }
 

@@ -28,6 +28,7 @@ export class CmbtTrkCyberComponent implements OnInit {
 
   addCyber() {
     this.cyberware.push(this.newCyber);
+    this.newCyber = new OppCyberware();
     this.newCyberware.emit(this.cyberware);
   }
 

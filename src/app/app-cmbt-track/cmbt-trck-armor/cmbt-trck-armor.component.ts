@@ -29,6 +29,7 @@ export class CmbtTrckArmorComponent implements OnInit {
 
   addLayer() {
     this.armorBlock.addLayer(this.newArmorLayer);
+    this.newArmorLayer = new Cp2020ArmorLayer();
     this.updateArmorBlock();
   }
 

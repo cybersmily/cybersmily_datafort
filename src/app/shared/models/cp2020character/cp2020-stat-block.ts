@@ -154,6 +154,28 @@ export class Cp2020StatBlock implements Cp2020Stats {
     }
   }
 
+  get BodyDmgMod(): number {
+    if (this.BODY.Adjusted < 3) {
+      return -2;
+    } else if (this.BODY.Adjusted > 3 && this.BODY.Adjusted < 5) {
+      return -1;
+    } else if (this.BODY.Adjusted > 4 && this.BODY.Adjusted < 8) {
+      return 0;
+    } else if (this.BODY.Adjusted > 7 && this.BODY.Adjusted < 10) {
+      return 1;
+    } else if (this.BODY.Adjusted === 10) {
+      return 2;
+    } else if (this.BODY.Adjusted === 11 || this.BODY.Adjusted === 12) {
+      return 4;
+    } else if (this.BODY.Adjusted === 13 || this.BODY.Adjusted === 14) {
+      return 6;
+    } else if (this.BODY.Adjusted > 14) {
+      return 8;
+    } else {
+      return 0;
+    }
+  }
+
   get BodyType(): string {
     switch ( this.BODY.Adjusted) {
       case 0:

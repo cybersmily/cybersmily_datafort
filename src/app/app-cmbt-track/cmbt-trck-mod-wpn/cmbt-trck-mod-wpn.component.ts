@@ -26,6 +26,9 @@ export class CmbtTrckModWpnComponent implements OnInit {
   REF: Cp2020Stat = new Cp2020Stat();
 
   @Input()
+  BodDmgBonus = 0;
+
+  @Input()
   rangeToTarget = 0;
 
   @Input()
