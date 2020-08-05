@@ -7,7 +7,7 @@
   </div>
 </div>
 <cs-cmbt-trk-wpn *ngFor="let wpn of weapons;let i = index" [weapon]="wpn" [index]="i"
-  (delete)="deleteWeapon($event)">
+  (delete)="deleteWeapon($event)" [BodDmgMod]="BodDmgMod">
 </cs-cmbt-trk-wpn>
 <br>
 <div id="oppWeaponSection" class="row">

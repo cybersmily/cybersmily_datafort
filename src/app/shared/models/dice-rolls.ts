@@ -1,10 +1,12 @@
 export class DiceRolls {
     total: number;
     rolls: number[];
+    mod?: string;
 
     constructor() {
       this.total = 0;
       this.rolls = new Array<number>();
+      this.mod = undefined;
     }
 
     /**
@@ -53,7 +55,6 @@ export class DiceRolls {
      * @memberof DiceRolls
      */
     show(): string {
-      return `Total: ${this.total} (${this.rolls.join(', ')})`;
+      return `Total: ${this.total} [Dice: (${this.rolls.join(', ')})${this.mod ? this.mod : '' }]`;
     }
 }
-

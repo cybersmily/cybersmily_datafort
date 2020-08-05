@@ -74,6 +74,7 @@ export class DiceService {
 
   private performOperation(str: string, val: DiceRolls): DiceRolls {
     if (str.match(/[\/\+\*\-]\d+/g) && typeof (val.total) !== 'undefined') {
+      val.mod = str;
       const b = str.split(/[\/\+\*\-]/)[1];
       const c = str.match(/[\/\+\*\-]/);
       if (/^\d+d\d+$/i.test(b)) {

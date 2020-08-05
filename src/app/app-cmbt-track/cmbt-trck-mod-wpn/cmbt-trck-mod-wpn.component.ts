@@ -71,8 +71,11 @@ export class CmbtTrckModWpnComponent implements OnInit {
   }
 
   rollDamage() {
-    const roll = this.diceService.rollDice(this.weapon.damage);
-    this.damageRoll = roll.total + '[' + roll.rolls.join(', ') + ']';
+    const roll = this.diceService.rollMoreDice(this.weapon.damage);
+    if (this.weapon.type.toLowerCase() === 'mel') {
+      roll.total += this.BodDmgBonus;
+    }
+    this.damageRoll = `${roll.show()}${ this.weapon.type.toLowerCase() === 'mel' ? ' +  ' + this.BodDmgBonus + '(BOD Mod)' : ''}`;
   }
 
   rollSkill() {

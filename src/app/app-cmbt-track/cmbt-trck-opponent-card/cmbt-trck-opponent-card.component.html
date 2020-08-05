@@ -72,7 +72,7 @@
     </tab>
     <tab heading="WEAPONS" [customClass]="customClass">
       <div class="csd-rounded">
-        <cs-cmbt-trk-wpns [weapons]="opponent.weapons" (newWeapon)="changeWeapons($event)"></cs-cmbt-trk-wpns>
+        <cs-cmbt-trk-wpns [weapons]="opponent.weapons" (newWeapon)="changeWeapons($event)" [BodDmgMod]="opponent.stats.BodyDmgMod"></cs-cmbt-trk-wpns>
         <br>
       </div>
     </tab>

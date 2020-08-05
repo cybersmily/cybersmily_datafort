@@ -22,6 +22,9 @@ export class CmbtTrkWpnComponent implements OnInit {
   @Input()
   skill: Cp2020PlayerSkill = null;
 
+  @Input()
+  BodDmgMod = 0;
+
   @Output()
   delete = new EventEmitter<number>();
 
@@ -31,6 +34,7 @@ export class CmbtTrkWpnComponent implements OnInit {
   constructor(private roll: DiceService) { }
 
   ngOnInit() {
+    console.log(this.BodDmgMod);
   }
 
   get damageArray(): Array<string> {
@@ -39,7 +43,14 @@ export class CmbtTrkWpnComponent implements OnInit {
 
 
   rollDamage(dmg: string) {
-    this.damageResults = this.roll.rollMoreDice(dmg).show();
+    const roll = this.roll.rollMoreDice(dmg);
+    if (this.weapon.type.toLowerCase() === 'mel' ) {
+      roll.total += this.BodDmgMod;
+    }
+    this.damageResults = roll.show();
+    if (this.weapon.type.toLowerCase() === 'mel' ) {
+      this.damageResults += ' +  ' + this.BodDmgMod +  '(BOD Mod)';
+    }
   }
 
   isDice(dmg: string): boolean {
@@ -72,4 +83,3 @@ export class CmbtTrkWpnComponent implements OnInit {
     this.delete.emit(this.index);
   }
 }
-

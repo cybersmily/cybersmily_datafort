@@ -20,6 +20,9 @@ export class CmbtTrkWpnsComponent implements OnInit {
   @Output()
   newWeapon = new EventEmitter<Array<CpPlayerWeapon>>();
 
+  @Input()
+  BodDmgMod = 0;
+
   newWpn: CpPlayerWeapon = new CpPlayerWeapon();
 
   constructor(private oppChart: CmbtTrckOppChartService, private dice: DiceService) { }
