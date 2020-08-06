@@ -81,7 +81,7 @@ export class CmbtTrckModWpnComponent implements OnInit {
   rollSkill() {
     this.skillRoll = this.selectedSkill.value + '(skill) ';
     this.skillRoll += '+ ' + this.REF.Adjusted + '(REF) ';
-    this.skillRoll += ((this.weapon.wa >= 0) ? '+' : '') + '(wa) ';
+    this.skillRoll += ((this.weapon.wa >= 0) ? '+ ' + this.weapon.wa : '') + '(wa) ';
     this.skillRoll += '+ ' + this.modifiers.totalModifiers + '(mods) ';
     let roll = this.diceService.generateNumber(1, 10);
     let dieRolls = '[ ' + roll;
