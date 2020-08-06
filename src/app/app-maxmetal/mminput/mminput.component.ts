@@ -120,7 +120,6 @@ export class MminputComponent implements OnInit {
   }
 
   writeConole() {
-    console.log('Mouseup triggered');
   }
 
 }

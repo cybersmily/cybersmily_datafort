@@ -149,7 +149,6 @@ describe('DiceService', () => {
     expect(dice.rolls.some(d => d === 5)).toBeTruthy();
     expect(dice.rolls.some(d => d === 6)).toBeTruthy();
     expect(dice.rolls.every( d => d > 0 && d < 7)).toBeTruthy();
-    console.log(dice);
 
     const rolls = new Array<number>();
     for ( let i = 0; i < 100; i++) {
@@ -161,7 +160,6 @@ describe('DiceService', () => {
     expect(rolls.some(d => d === 7)).toBeTruthy();
     expect(rolls.some(d => d === 8)).toBeTruthy();
     expect(rolls.every( d => d > 3 && d < 9)).toBeTruthy();
-    console.log(rolls);
   }));
 
 

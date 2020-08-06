@@ -78,7 +78,6 @@ export class WeaponDataService {
     const i = this._weaponList
     .findIndex( c => c.name === weapon.name && c.category === weapon.category);
     this._weaponList.splice(i, 1 );
-    console.log(this._weaponList.some( c => c.name === weapon.name && c.category === weapon.category));
   }
 
   edit(weapon: DataWeapon) {

@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { DataService } from './../data.service';
 import { DiceService } from './../dice/dice.service';
 import { TestBed, async, inject } from '@angular/core/testing';
@@ -8,7 +8,7 @@ import { NameGeneratorService } from './name-generator.service';
 describe('NameGeneratorService', () => {
   beforeEach(() => TestBed.configureTestingModule({
     providers: [DiceService, DataService],
-    imports: [HttpClientModule]
+    imports: [HttpClientTestingModule]
   }));
 
   it('should be created', () => {

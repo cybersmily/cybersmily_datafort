@@ -55,6 +55,6 @@ export class DiceRolls {
      * @memberof DiceRolls
      */
     show(): string {
-      return `Total: ${this.total} [Dice: (${this.rolls.join(', ')})${this.mod ? this.mod : '' }]`;
+      return `Total: ${this.total} [Dice: (${this.rolls.join(', ')})${this.mod ?  this.mod : '' }]`;
     }
 }

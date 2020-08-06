@@ -34,7 +34,6 @@ export class AppCharacterSkillComponent implements OnInit {
 
   ngOnInit() {
     if (this.skill.isSecondarySkill) {
-      console.log(this.skill);
     }
   }
 

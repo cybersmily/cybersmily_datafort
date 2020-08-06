@@ -33,7 +33,6 @@ export class DrugLabMainComponent implements OnInit {
   }
 
   delete(index: number) {
-    console.log(index);
     this.list.remove(index);
     window.localStorage[this.key] = JSON.stringify(this.list.items);
   }

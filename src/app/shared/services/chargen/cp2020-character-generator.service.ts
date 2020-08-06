@@ -108,7 +108,6 @@ export class Cp2020CharacterGeneratorService {
     if (value.secondary) {
       this._currCharacter.skills.setSecondarySkills(value.secondary);
     }
-    console.log(this._currCharacter.skills);
     this._currCharacter.skills.calculateTotals();
     this.updateCharacter();
   }

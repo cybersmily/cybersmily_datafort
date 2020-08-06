@@ -1,6 +1,6 @@
+import { map } from 'rxjs/operators';
 import { JsonDataFiles } from './../../json-data-files';
 import { Observable, of, forkJoin } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { DiceService } from '../dice/dice.service';
 import { DataService } from '../data.service';
 import { Injectable } from '@angular/core';
@@ -20,17 +20,17 @@ export class NameGeneratorService {
     this.colors = new Array<string>();
   }
 
-  generateName(): Observable<string> {
-    if (this.names && this.names.length > 0) {
-      return this.createName();
+  public generateName(): Observable<string> {
+    if (!this.names && this.names.length < 1) {
+      const nameList = this.dataService.GetJson(JsonDataFiles.CP_NAMES_JSON);
+      const colorList = this.dataService.GetJson(JsonDataFiles.CP_COLORS_JSON);
+      forkJoin( [nameList, colorList]).pipe( map( results => {
+        this.names = results[0].names;
+        this.colors = results[1];
+        return this.createName();
+      }));
     }
-    const nameList = this.dataService.GetJson(JsonDataFiles.CP_NAMES_JSON);
-    const colorList = this.dataService.GetJson(JsonDataFiles.CP_COLORS_JSON);
-    forkJoin( [nameList, colorList]).subscribe( results => {
-      this.names = results[0].names;
-      this.colors = results[1];
-      return this.createName();
-    });
+    return this.createName();
   }
 
   private createName(): Observable<string> {

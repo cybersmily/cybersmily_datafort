@@ -89,7 +89,6 @@ export class AdminWpnListComponent implements OnInit {
   }
 
   edit() {
-    console.log(this.selectedWeapon);
     this.weaponDataService.edit(this.selectedWeapon);
     this.weaponDataService.WeaponList
     .subscribe( data => {
@@ -120,6 +119,5 @@ export class AdminWpnListComponent implements OnInit {
   }
 
   changeSource() {
-    console.log(this.newWeapon);
   }
 }

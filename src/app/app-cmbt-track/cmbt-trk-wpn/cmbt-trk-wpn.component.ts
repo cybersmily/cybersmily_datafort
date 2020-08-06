@@ -34,7 +34,6 @@ export class CmbtTrkWpnComponent implements OnInit {
   constructor(private roll: DiceService) { }
 
   ngOnInit() {
-    console.log(this.BodDmgMod);
   }
 
   get damageArray(): Array<string> {

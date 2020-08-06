@@ -62,7 +62,6 @@ export class CmbtTrckOpponent {
       this.stats.MA.Base = template.ma;
       // import armor
       this.armor.layers = template.armor.layers;
-      console.log(template.armor);
       this.sa = new Cp2020PlayerSkill(template.sa);
       template.skills.forEach( sk => {
         this._skills.push( new Cp2020PlayerSkill(sk));

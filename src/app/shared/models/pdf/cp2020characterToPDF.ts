@@ -559,7 +559,6 @@ private addLifePath(doc: jsPDF, lifepath: LifePathResults, left: number, line: n
   if (lifepath.family.familyBackground && lifepath.family.familyBackground !== '') {
     fam = doc.splitTextToSize(lifepath.family.familyBackground, 90);
   }
-  console.log(fam);
   for ( let i = 0; i < 4; i++) {
     if ( fam[i] ) {
       doc.text(fam[i].trim(), left + 5, line + 4);
