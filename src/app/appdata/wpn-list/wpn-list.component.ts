@@ -1,3 +1,5 @@
+import { WeaponDataService } from './../../shared/services/data/weapon-data.service';
+import { DataWeapon } from './../../shared/models/weapon/data-weapon';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WpnListComponent implements OnInit {
 
-  constructor() { }
+  wpnList: Array<DataWeapon> = new Array<DataWeapon>();
+
+  filters = {
+    category: '',
+    subcategory: '',
+    name: '',
+    type: '',
+    source: '',
+    conc: '',
+    avail: '',
+    rel: ''
+  };
+
+  constructor(private wpnDataService: WeaponDataService) { }
 
   ngOnInit(): void {
+    this.wpnDataService.WeaponList.subscribe(list => {
+      this.wpnList = list;
+    });
   }
 
 }

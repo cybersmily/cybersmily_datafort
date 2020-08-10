@@ -1,1 +1,106 @@
-<p>wpn-list works!</p>
+<div class="container">
+  <h2>Master Weapons List</h2>
+  <div>This is the master list of all weapons with their sources.
+    Search is based on what the field starts with.
+    Sources were pulled from R. Talsorian and the Interface magazines.</div>
+  <table class="mstr-skill-table csd-rounded">
+    <tr class="csd-rounded bg-secondary text-light">
+      <th class="text-center">Category</th>
+      <th class="text-center">Subcategory</th>
+      <th class="text-center">Name</th>
+      <th class="text-center">Type</th>
+      <th class="text-center">WA</th>
+      <th class="text-center">Conc.</th>
+      <th class="text-center">Avail.</th>
+      <th class="text-center">Damage/Ammo</th>
+      <th class="text-center">#Shots</th>
+      <th class="text-center">ROF</th>
+      <th class="text-center">Rel</th>
+      <th class="text-center">Range</th>
+      <th class="text-center">Cost</th>
+      <th class="text-center">Source</th>
+    </tr>
+    <tr>
+      <td>
+        <select [(ngModel)]="filters.category" class="skill-search">
+          <option [ngValue]="''">All</option>
+          <option [ngValue]="'exoctics'">EXOTICS</option>
+          <option [ngValue]="'explosives'">EXPLOSIVES</option>
+          <option [ngValue]="'grenade launchers'">GRENADE LAUNCHERS</option>
+          <option [ngValue]="'grenades'" >GRENADES</option>
+          <option [ngValue]="'heavy weapons'" >HEAVY WEAONS</option>
+          <option [ngValue]="'launched grenades'" >LAUNCHED GRENADES</option>
+          <option [ngValue]="'machineguns'" >MACHINE GUNS</option>
+          <option [ngValue]="'melee'" >MELEE</option>
+          <option [ngValue]="'pistols'" >PISTOLS</option>
+          <option [ngValue]="'rifles'" >RIFLES</option>
+          <option [ngValue]="'shotguns'" >SHOTGUNS</option>
+          <option [ngValue]="'smg'" >SMG</option>
+        </select>
+      </td>
+      <td><input [(ngModel)]="filters.subcategory" type="search" placeholder="search on name" class="skill-search"/></td>
+      <td><input [(ngModel)]="filters.name" type="search" placeholder="search on name" class="skill-search"/></td>
+      <td>
+        <select [(ngModel)]="filters.type">
+          <option [ngValue]="''">All</option>
+          <option [ngValue]="'mel'">MEL</option>
+          <option [ngValue]="'p'">P</option>
+          <option [ngValue]="'smg'">SMG</option>
+          <option [ngValue]="'ex'">EX</option>
+          <option [ngValue]="'sht'">SHT</option>
+          <option [ngValue]="'rif'">RIF</option>
+          <option [ngValue]="'hvy'">HVY</option>
+        </select>
+      </td>
+        <td></td>
+      <td>
+        <select [(ngModel)]="filters.conc">
+          <option [ngValue]="''">All</option>
+          <option [ngValue]="'N'" title="Not concealable">N</option>
+          <option [ngValue]="'L'" title="Long Jacket">L</option>
+          <option [ngValue]="'J'" title="Jacket">J</option>
+          <option [ngValue]="'p'" title="Pocket">P</option>
+        </select>
+      </td>
+      <td>
+        <select [(ngModel)]="filters.avail">
+          <option [ngValue]="''">All</option>
+          <option [ngValue]="'e'" title="Excellent">E</option>
+          <option [ngValue]="'c'" title="Common">C</option>
+          <option [ngValue]="'p'" title="Poor">P</option>
+          <option [ngValue]="'r'" title="Rare">R</option>
+        </select>
+      </td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+        <select [(ngModel)]="filters.rel">
+          <option [ngValue]="''" selected>All</option>
+          <option [ngValue]="'ur'" title="Unreliable">UR</option>
+          <option [ngValue]="'st'" title="Standard">ST</option>
+          <option [ngValue]="'vr'" title="Very Reliable">VR</option>
+        </select></td>
+      <td></td>
+      <td></td>
+      <td><input [(ngModel)]="filters.source" type="search" placeholder="search on source" class="skill-search"/></td>
+    </tr>
+    <tr *ngFor="let wpn of wpnList |filter:'name': filters.name|filter:'category': filters.category|filter:'subcategory': filters.subcategory|sourcebookFilter:filters.source|filter:'type': filters.type|filter:'avail': filters.avail|filter:'conc': filters.conc|filter:'rel': filters.rel"
+        style="vertical-align: top;">
+        <td>{{wpn.category}}</td>
+        <td>{{wpn.subcategory}}</td>
+        <td>{{wpn.name | parse}}</td>
+        <td>{{wpn.type}}</td>
+        <td class="text-center">{{wpn.wa}}</td>
+        <td class="text-center">{{wpn.conc}}</td>
+        <td class="text-center">{{wpn.avail}}</td>
+        <td class="text-center">{{wpn.damage}}{{wpn.ammo? '(' + wpn.ammo + ')':''}}</td>
+        <td class="text-center">{{wpn.shots}}</td>
+        <td class="text-center">{{wpn.rof}}</td>
+        <td class="text-center">{{wpn.rel ? wpn.rel : ''}}</td>
+        <td class="text-center">{{ wpn.thrown ? 'thrown' : ( wpn.range ? ((wpn.range | number) + 'm'): '')}}</td>
+        <td class="text-center">{{wpn.cost|number}}eb</td>
+        <td class="text-center">{{wpn.source.book |sourcebook}} pg. {{wpn.source.page}}</td>
+    </tr>
+  </table>
+  </div>

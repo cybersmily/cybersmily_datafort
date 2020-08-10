@@ -39,6 +39,7 @@ export interface SiteLinksGroup {
             desc: 'Movies, TV shows, Books, anime, manga, webisodes, etc for Cyberpunk inspiration'},
           {title: 'Master Roles List', link: 'data/roles', desc: 'List of all canon roles in Cyberpunk 2020'},
           {title: 'Master Skills List', link: 'data/skills', desc: 'List of all canon skills in Cyberpunk 2020'},
+          {title: 'Master Weapons List', link: 'data/wpns', desc: 'List of all canon weapons in Cyberpunk 2020'},
           {title: 'More Guns', link: 'data/moreguns', desc: 'Guns updated from R. Talsorian\'s Edge of Sword supplement'},
           {title: 'Proteus - Programs', link: 'data/proteus/prog',
             desc: 'Convert programs based from the Netrunner CCG expansion.'},

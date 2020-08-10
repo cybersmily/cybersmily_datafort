@@ -1,5 +1,8 @@
 export class SourceBookLookup {
     static getSource(abbrev: string): string {
+      if (!abbrev || abbrev === '') {
+        return '';
+      }
       if ( abbrev.toLocaleLowerCase().startsWith('cp')) {
         return 'Cyberpunk 2020 2nd ed.';
       }
