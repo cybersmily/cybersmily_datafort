@@ -1,6 +1,15 @@
 ﻿{
   "news": [
     {
+      "date": "2020-09",
+      "entries": [
+        "<strong>09-01</strong> - A couple of things have been aded to the site.",
+        "1st we have the master weapons list. This is a searchable list of the Cyberpunk 2020 weapons for all cannon sources for 2020 (no cybergeneration i'm afraid). This list will give you the base stats for the weapons, but won't go into the finer details about the weapon. For that you need to go to the source, which I list and the page in the source book you can find it on.",
+        "Stay safe gatos. The dark future is upon us!",
+        "CYBER :D"
+      ]
+    },
+    {
       "date": "2020-08",
       "entries": [
         "<strong>08-09</strong> - Did some bug fixes on the Combat Tracker thanks to Pawook over on the Cyberpunk 2020/RED Fans discord. The fixes are with the weapn, skill, cyber, and gear tabs when adding new items they get sticky. Added the BOD damage modifier to melee weapon damage rolls. Fixed the WA not being shown in the to-hit roll. Change the text for dice rolls and fixed an issue with the + modifier to damage dice.",
