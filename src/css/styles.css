@@ -161,7 +161,7 @@ SELECT option.font-italic {
 .csd-card-img i {font-size:xx-small;display:block;max-width:95px;}
 .csd-card-holder {display:block;min-height: 130px;}
 
-.chargen-label {
+.chargen-label, .cp2020-label {
   background-color: black;
   color: white;
   font-weight: bold;
@@ -176,7 +176,7 @@ SELECT option.font-italic {
   margin-left: 5px;
 }
 
-.chargen-section { margin-top: 5px;}
+.chargen-section, .cp2020-section { margin-top: 5px;}
 
 .csd-linebreak {
   page-break-before: always;

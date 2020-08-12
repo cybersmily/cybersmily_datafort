@@ -1,21 +1,19 @@
+import { CommonUiModule } from './../common-ui/common-ui.module';
 import { WeaponcardComponent } from './weaponcard/weaponcard.component';
 import {  WeaponcardcolumnComponent } from './weaponcardcolumn/weaponcardcolumn.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AccordionModule } from 'ngx-bootstrap/accordion';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    AccordionModule,
-    FontAwesomeModule
+    CommonUiModule
   ],
   exports: [
     WeaponcardcolumnComponent,
     WeaponcardComponent,
-    FontAwesomeModule
+    CommonUiModule
   ],
   declarations: [
     WeaponcardComponent,

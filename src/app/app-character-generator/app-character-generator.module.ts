@@ -1,3 +1,4 @@
+import { Cp2020weaponsModule } from './../shared/cp2020/cp2020weapons/cp2020weapons.module';
 import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';
 import { LifePathGeneratorService } from './../shared/services/lifepath/life-path-generator.service';
 import { EthnicityGeneratorService } from './../shared/services/lifepath/ethnicity-generator.service';
@@ -48,6 +49,7 @@ import { AppCharacterWoundLevelComponent } from './app-character-wound-level/app
     CommonModule,
     CommonUiModule,
     AppCharacterGeneratorRoutingModule,
+    Cp2020weaponsModule,
     ModalModule.forRoot()
   ],
   providers: [

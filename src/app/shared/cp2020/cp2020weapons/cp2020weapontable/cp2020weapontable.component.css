@@ -1,0 +1,30 @@
+.cp2020-weapons-table {
+  width: 100%;
+}
+
+.cp2020-wpn-hdr div {
+  font-size: small;
+  border:1px solid black;
+  padding: 0px 0px;
+  margin: 0px 0px;
+}
+
+.wpn-narrow {
+  width: 30px;
+  display: inline-block;
+}
+
+.wpn-col {
+  width: 55px;
+  display: inline-block;
+}
+
+input.wpn-notes {
+  width: 90%;
+  float: right;
+  display: inline-block;
+}
+
+.wpn-name {
+  width: 100%;
+}

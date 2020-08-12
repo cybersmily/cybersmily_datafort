@@ -1,0 +1,51 @@
+<div class="row wpn-stats">
+  <div class="col-3">{{weapon.name}}<fa-icon [icon]="faPen"></fa-icon><fa-icon [icon]="faTrash"></fa-icon></div>
+  <div class="col-1 text-center">{{weapon.type}}</div>
+  <div class="col-1 text-center">{{weapon.wa}} <fa-icon *ngIf="weapon.name && weapon.name !==''"  [icon]="faDice" class="csd-dice" class="csd-dice" ></fa-icon></div>
+  <div class="col-1 text-center">{{weapon.conc}}</div>
+  <div class="col-1 text-center">{{weapon.avail}} </div>
+  <div class="col-2 text-center">{{weapon.damage}}
+    <fa-icon *ngIf="weapon.damage && weapon.damage !== ''" [icon]="faDice" class="csd-dice" (click)="rollDamage()"
+    [popover]="damageRoll" popoverTitle="DAMAGE RESULTS"  [outsideClick]="true"
+    containerClass="csd-rounded csd-popover" ></fa-icon>
+  </div>
+  <div class="col-1 text-center">{{weapon.shots}}</div>
+  <div class="col-1 text-center">{{weapon.rof}}</div>
+  <div class="col-1 text-center wpn-rel">{{weapon.rel}}
+    <fa-icon *ngIf="weapon.rel && weapon.rel !== ''" [icon]="faDice" class="csd-dice" (click)="rollReliability()"
+    opoverTitle="Reliability Results"
+    [popover]="(weapon.jammed)?'Weapon Jammed for ' + jammed + ' turns.' : 'Weapon is ok.'"
+    containerClass="csd-rounded csd-popover" [outsideClick]="true"
+    ></fa-icon>
+  </div>
+</div>
+<div class="row wpn-notes">
+  <ng-container *ngIf="weaponShots">
+  <div class="col-1"></div>
+  <div class="col-2">
+    shots ({{usedShots}}/{{weapon.shots}}):
+  </div>
+  <div class="col-9">
+    <span class="wpn-shot" *ngFor="let shot of weaponShots;let i = index" (click)="checkShots(i)">{{ shot ? 'x' : ''}}</span>
+  </div>
+  </ng-container>
+  <div class="col-1"></div>
+  <div class="col-11">Notes: {{weapon.notes}}</div>
+</div>
+
+<ng-template>
+  <div class="row">
+    <div class="col-2"><input [(ngModel)]="weapon.name" type="text" class="wpn-name" /></div>
+    <div class="col-1"><input [(ngModel)]="weapon.type" type="text" class="text-uppercase text-center wpn-narrow" /></div>
+    <div class="col-1"><input [(ngModel)]="weapon.wa" type="number" class="text-uppercase text-center wpn-narrow" /></div>
+    <div class="col-1"><input [(ngModel)]="weapon.conc" type="text" class="text-uppercase text-center wpn-narrow" /></div>
+    <div class="col-1"><input [(ngModel)]="weapon.avail" type="text" class="text-uppercase text-center wpn-narrow" /></div>
+    <div class="col-2"><input [(ngModel)]="weapon.damage" type="text" class="text-uppercase text-center wpn-col" /></div>
+    <div class="col-2"><input [(ngModel)]="weapon.shots" type="number" class="text-uppercase text-center wpn-col" /></div>
+    <div class="col-1"><input [(ngModel)]="weapon.rof" type="number" class="text-uppercase text-center wpn-col" /></div>
+    <div class="col-1"><input [(ngModel)]="weapon.rel" type="text" class="text-uppercase text-center wpn-narrow" /></div>
+  </div>
+  <div class="row">
+    <div class="col-12"><span>Notes: </span><input [(ngModel)]="weapon.notes" type="text" class="wpn-notes" /></div>
+  </div>
+</ng-template>

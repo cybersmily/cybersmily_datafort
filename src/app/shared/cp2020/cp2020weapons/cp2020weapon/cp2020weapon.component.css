@@ -1,0 +1,51 @@
+
+.wpn-narrow {
+  width: 30px;
+  display: inline-block;
+}
+
+.wpn-col {
+  width: 55px;
+  display: inline-block;
+}
+
+
+.wpn-name {
+  width: 100%;
+}
+
+.wpn-notes div, .wpn-stats div {
+  padding: 0px 0px;
+  margin: 0px 0px;
+}
+
+.wpn-stats div, .wpn-notes  {
+  font-size: small;
+  border:1px solid black;
+
+}
+
+.wpn-stats div fa-icon {
+  display: none;
+  float: right;
+}
+
+.wpn-stats div:hover fa-icon {
+  display: inline;
+}
+
+.wpn-shot {
+  border: 1px solid black;
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  padding: 0px 0px;
+  line-height: 8px;
+  text-align: center;
+  vertical-align: top;
+  margin-top: 3px;
+}
+
+.wpn-rel {
+  text-transform: uppercase;
+}

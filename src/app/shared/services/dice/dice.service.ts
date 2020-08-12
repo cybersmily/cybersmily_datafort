@@ -20,6 +20,18 @@ export class DiceService {
     return this.recurse(str);
   }
 
+  rollCP2020D10(): DiceRolls {
+    const results = new DiceRolls();
+    let roll = 0;
+    do {
+      roll = this.generateNumber(1, 10);
+      results.rolls.push(roll);
+      results.total += roll;
+    } while (roll === 10 );
+
+    return results;
+  }
+
   /**
    * This is a simple dice formula that uses just d rolls.
    * Ex. 12d6 or 3d4

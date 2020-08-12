@@ -26,10 +26,8 @@ export class CpPlayerWeapon implements CpWeapon {
     // WA need to see if there is a + in it
     if ( param && param.wa && typeof param.wa === 'string') {
       this.wa = (param && !isNaN(Number(String(param.wa).replace('+', '')))) ? Number(String(param.wa).replace('+', '')) : 0;
-    } else if (param && param.wa && typeof param.wa === 'number') {
-      this.wa = param.wa;
     } else {
-      this.wa = 0;
+      this.wa = param ? param.wa : undefined;
     }
     this.conc = (param) ? param.conc : 'N';
     this.avail = (param) ? param.conc : 'C';
@@ -54,7 +52,7 @@ export class CpPlayerWeapon implements CpWeapon {
     this.cost = (param) ? param.cost : 0;
     this.range = (param) ? param.range : 0;
     this.rel = (param) ? param.rel : '';
-    this.jammed = (param) ? param.jammed : false;
+    this.jammed = (param && param.jammed !== undefined) ? param.jammed : false;
     this.notes = (param) ? param.notes : '';
     this.source = (param) ? param.source : undefined;
   }
@@ -64,15 +62,15 @@ export class CpPlayerWeapon implements CpWeapon {
   }
 
   checkReliability(roll: number) {
-    switch (this.rel) {
+    switch (this.rel.toUpperCase()) {
       case 'VR':
-        this.jammed = roll < 4;
+        this.jammed = (roll < 4);
         break;
       case 'ST':
-        this.jammed = roll < 6;
+        this.jammed = (roll < 6);
         break;
       case 'UR':
-        this.jammed = roll < 9;
+        this.jammed = (roll < 9);
         break;
       default:
     }
