@@ -24,7 +24,7 @@
   border:1px solid black;
 }
 .wpn-stats {
-  height: 25px;
+  min-height: 25px;
 }
 
 .wpn-stats div fa-icon {

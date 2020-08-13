@@ -1,5 +1,5 @@
 <div class="row wpn-stats">
-  <div class="col-3">{{weapon.name}}
+  <div class="col-3">{{weapon.count && weapon.count > 1 ? weapon.count + ' ': ''}}{{weapon.name}}
     <fa-icon [icon]="faTrash" (click)="delete()" class="csd-btn" title="Delete weapon"></fa-icon>
     <fa-icon [icon]="faPen" (click)="openModal(editWeaponModal)" class="mr-2 csd-btn" title="Edit weapon"></fa-icon>
 
@@ -24,7 +24,7 @@
   </div>
 </div>
 <div class="row wpn-notes">
-  <ng-container *ngIf="weaponShots">
+  <ng-container *ngIf="weaponShots && weaponShots.length > 1">
   <div class="col-1"></div>
   <div class="col-2">
     shots ({{usedShots}}/{{weapon.shots}}):

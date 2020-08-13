@@ -1,5 +1,9 @@
 <div class="cp2020-section container">
-  <div class="cp2020-label row"><div class="col">WEAPONS<fa-icon class="csd-dice" [icon]="faDice" ></fa-icon></div></div>
+  <div class="cp2020-label row">
+    <div class="col">
+    WEAPONS  <fa-icon [ngClass]="{'csd-dice': true, 'd-none': !showRandomGenerator}" [icon]="faDice" ></fa-icon>
+    </div>
+  </div>
     <div class="cp2020-wpn-hdr row">
       <div class="wpn-name col-3"><span class="wpn-name" >Name</span></div>
       <div class="col-1 wpn-narrow text-center">Type</div>
@@ -31,6 +35,13 @@
     </button>
   </div>
   <div class="modal-body container">
-    <cs-cp2020weapon-editor [weapon]="newWeapon" (updateWeapon)="addWeapon($event)"></cs-cp2020weapon-editor>
+    <tabset>
+      <tab heading="New Weapon" id="tab1">
+        <cs-cp2020weapon-editor [weapon]="newWeapon" (updateWeapon)="addWeapon($event)"></cs-cp2020weapon-editor>
+      </tab>
+      <tab heading="Search Weapons" id="tab2">
+        <cs-cp2020weapon-selector (addWeapons)="addWeaponList($event)"></cs-cp2020weapon-selector>
+      </tab>
+    </tabset>
   </div>
   </ng-template>

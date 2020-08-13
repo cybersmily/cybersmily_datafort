@@ -28,6 +28,9 @@ export class Cp2020weapontableComponent implements OnInit {
   @Input()
   skills: Cp2020PlayerSkills = new Cp2020PlayerSkills();
 
+  @Input()
+  showRandomGenerator = false;
+
   @Output()
   changeWeapons: EventEmitter<Array<CpPlayerWeapon>> = new EventEmitter<Array<CpPlayerWeapon>>();
 
@@ -48,6 +51,15 @@ export class Cp2020weapontableComponent implements OnInit {
 
   addWeapon(wpn: CpPlayerWeapon) {
     this.weapons.push(wpn);
+    this.changeWeapons.emit(this.weapons);
+  }
+
+  addWeaponList(wpnList: Array<CpPlayerWeapon>) {
+    wpnList.forEach( wpn => {
+      this.weapons.push(wpn);
+    });
+    console.log(wpnList);
+    console.log(this.weapons);
     this.changeWeapons.emit(this.weapons);
   }
 

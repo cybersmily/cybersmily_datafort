@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-2">
+    <select [(ngModel)]="searchCategory" class="wpn-cat-srch">
+      <option [ngValue]="''">All</option>
+      <option [ngValue]="'exoctics'">EXOTICS</option>
+      <option [ngValue]="'explosives'">EXPLOSIVES</option>
+      <option [ngValue]="'grenade launchers'">GRENADE LAUNCHERS</option>
+      <option [ngValue]="'grenades'" >GRENADES</option>
+      <option [ngValue]="'heavy weapons'" >HEAVY WEAONS</option>
+      <option [ngValue]="'launched grenades'" >LAUNCHED GRENADES</option>
+      <option [ngValue]="'machineguns'" >MACHINE GUNS</option>
+      <option [ngValue]="'melee'" >MELEE</option>
+      <option [ngValue]="'pistols'" >PISTOLS</option>
+      <option [ngValue]="'rifles'" >RIFLES</option>
+      <option [ngValue]="'shotguns'" >SHOTGUNS</option>
+      <option [ngValue]="'smg'" >SMG</option>
+    </select>
+  </div>
+  <div class="col-9">
+    <input type="text" placeholder="Search for part of name..." [(ngModel)]="searchTerm">
+    <fa-icon [icon]="faSave" [ngClass]="{'csd-btn float-right btn-lg': true, 'csd-disabled': isListEmpty()}" (click)="saveList()" title="Save selected weapons"></fa-icon>
+  </div>
+</div>
+<ng-container *ngFor="let wpn of wpnList | contains:'name':searchTerm | filter:'category':searchCategory">
+  <div class="row" >
+    <div class="col-1"><input type="number" (change)="selected($event, wpn.name)" [value]="getCount(wpn.name)" min="0" class="wpn-count"/></div>
+    <div class="col-2">{{wpn.category}} {{wpn.subcategory}}</div>
+    <div class="col">
+      {{wpn.name}} ({{wpn.source.book | sourcebook}} {{wpn.source.page}}pg.)
+      <br>
+      <span class="wpn-details">
+        {{wpn.type}} {{wpn.wa}} {{wpn.conc}} {{wpn.avail}} {{wpn.damage}} {{wpn.shots}} {{wpn.rof}} {{wpn.rel}} {{wpn.range}}m {{wpn.cost}}eb
+      </span>
+    </div>
+  </div>
+</ng-container>

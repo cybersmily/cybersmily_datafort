@@ -49,6 +49,7 @@ export class Cp2020weaponComponent implements OnInit {
   jammed = 0;
   damageRoll = '';
   skillRoll = '';
+  selectedSkill: Cp2020PlayerSkill;
 
   constructor(private diceService: DiceService, private modalService: BsModalService) { }
 
@@ -59,6 +60,7 @@ export class Cp2020weaponComponent implements OnInit {
     } else {
       this.weaponShots = undefined;
     }
+    this.selectedSkill = (this.skill.length === 1) ? this.skill[0] : new Cp2020PlayerSkill();
   }
 
   get usedShots(): number {
@@ -95,7 +97,7 @@ export class Cp2020weaponComponent implements OnInit {
   }
 
   rollToHit() {
-    // this.skillRoll = this.selectedSkill.value + '(skill) ';
+    this.skillRoll = this.selectedSkill.value + '(skill) ';
     this.skillRoll += '+ ' + this.Ref + '(REF) ';
     this.skillRoll += ((this.weapon.wa >= 0) ? '+ ' + this.weapon.wa : '') + '(wa) ';
     // this.skillRoll += '+ ' + this.modifiers.totalModifiers + '(mods) ';

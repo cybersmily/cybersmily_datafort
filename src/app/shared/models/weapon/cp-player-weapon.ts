@@ -18,6 +18,7 @@ export class CpPlayerWeapon implements CpWeapon {
   notes: string;
   range: number;
   source?: SourceBook;
+  count?: number;
 
   constructor(param?) {
     // weapon prop is deprecated. There for backward support
@@ -30,7 +31,7 @@ export class CpPlayerWeapon implements CpWeapon {
       this.wa = param ? param.wa : undefined;
     }
     this.conc = (param) ? param.conc : 'N';
-    this.avail = (param) ? param.conc : 'C';
+    this.avail = (param) ? param.avail : 'C';
     this.damage = (param) ? param.damage : '';
     // shots could be a string for backward capability.
     if ( param && param.shots && typeof param.shots === 'string') {
@@ -55,6 +56,7 @@ export class CpPlayerWeapon implements CpWeapon {
     this.jammed = (param && param.jammed !== undefined) ? param.jammed : false;
     this.notes = (param) ? param.notes : '';
     this.source = (param) ? param.source : undefined;
+    this.count = (param) ? param.count : 0;
   }
 
   get isEmpty(): boolean {
