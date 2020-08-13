@@ -1,5 +1,7 @@
-import { Cp2020StatBlock, Cp2020PlayerSkill } from './../../../models/cp2020character';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { faDice, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { Cp2020StatBlock, Cp2020PlayerSkills } from './../../../models/cp2020character';
+import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
 import { CpPlayerWeapon } from './../../../models/weapon';
 
 @Component({
@@ -8,6 +10,14 @@ import { CpPlayerWeapon } from './../../../models/weapon';
   styleUrls: ['./cp2020weapontable.component.css']
 })
 export class Cp2020weapontableComponent implements OnInit {
+  faDice = faDice;
+  faPlus = faPlus;
+  modalRef: BsModalRef;
+  modalConfig = {
+    keyboard: true,
+    class: 'modal-dialog-centered modal-lg'
+  };
+  newWeapon: CpPlayerWeapon = new CpPlayerWeapon();
 
   @Input()
   weapons: Array<CpPlayerWeapon> = new Array<CpPlayerWeapon>();
@@ -16,19 +26,18 @@ export class Cp2020weapontableComponent implements OnInit {
   stats: Cp2020StatBlock = new Cp2020StatBlock();
 
   @Input()
-  skills: Array<Cp2020PlayerSkill> = new Array<Cp2020PlayerSkill>();
+  skills: Cp2020PlayerSkills = new Cp2020PlayerSkills();
 
   @Output()
   changeWeapons: EventEmitter<Array<CpPlayerWeapon>> = new EventEmitter<Array<CpPlayerWeapon>>();
 
-  constructor() { }
+  constructor(private modalService: BsModalService) { }
 
   ngOnInit(): void {
   }
 
-  updateWeapon(data: {index: number, wpn: CpPlayerWeapon}) {
-    this.weapons[data.index] = data.wpn;
-    this.weapons.sort( (a, b) => (a.name.toLowerCase() < b.name.toLowerCase()) ? -1 : 1);
+  updateWeapon(data: {index: number, weapon: CpPlayerWeapon}) {
+    this.weapons[data.index] = data.weapon;
     this.changeWeapons.emit(this.weapons);
   }
 
@@ -39,8 +48,16 @@ export class Cp2020weapontableComponent implements OnInit {
 
   addWeapon(wpn: CpPlayerWeapon) {
     this.weapons.push(wpn);
-    this.weapons.sort( (a, b) => (a.name.toLowerCase() < b.name.toLowerCase()) ? -1 : 1);
     this.changeWeapons.emit(this.weapons);
+  }
+
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, this.modalConfig);
+  }
+
+  closeModal() {
+    this.modalRef.hide();
   }
 
 }

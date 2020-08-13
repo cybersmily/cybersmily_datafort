@@ -21,7 +21,7 @@ export class CpPlayerWeapon implements CpWeapon {
 
   constructor(param?) {
     // weapon prop is deprecated. There for backward support
-    this.name = (param && param.weapon) ? param.weapon : (param) ? param.name : '';
+    this.name = (param && param.weapon) ? param.weapon : (param && param.name) ? param.name : '';
     this.type = (param) ? param.type : '';
     // WA need to see if there is a + in it
     if ( param && param.wa && typeof param.wa === 'string') {

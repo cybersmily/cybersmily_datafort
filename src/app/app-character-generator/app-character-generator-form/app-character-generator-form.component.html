@@ -72,7 +72,7 @@
         </div>
         <div class="col-sm-12 col-md-6">
           <cs-app-character-gear [gear]="character.gear" (changeGear)="changeGear($event)"></cs-app-character-gear>
-          <cs-cp2020weapontable [weapons]="character.weapons.items" [stats]="character.stats" [skills]="character.skills.REF" (changeWeapons)="changeWeapons($event)"></cs-cp2020weapontable>
+          <cs-cp2020weapontable [weapons]="character.weapons.items" [stats]="character.stats" [skills]="character.skills" (changeWeapons)="changeWeapons($event)"></cs-cp2020weapontable>
         </div>
       </div>
       <div class="chargen-label chargen-fill chargen-page-header csd-linebreak">NOTES</div>

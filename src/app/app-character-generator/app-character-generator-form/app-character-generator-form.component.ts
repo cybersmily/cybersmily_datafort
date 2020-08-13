@@ -1,10 +1,10 @@
+import { CpPlayerWeapon } from './../../shared/models/weapon';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { FileLoaderService } from './../../shared/services/file-loader/file-loader.service';
 import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerSkills } from './../../shared/models/cp2020character/cp2020-player-skills';
 import { SaveFileService } from './../../shared/services/save-file.service';
 import { LifePathResults } from './../../shared/models/lifepath/lifepath-results';
-import { CpPlayerWeaponList } from '../../shared/models/weapon';
 import { Cp2020PlayerGearList } from './../../shared/models/cp2020character/cp2020-player-gear-list';
 import { Cp2020PlayerCyberList } from '../../shared/models/cyberware/cp2020-player-cyber-list';
 import { Cp2020ArmorBlock } from './../../shared/models/cp2020character/cp2020-armor-block';
@@ -14,7 +14,6 @@ import { Cp2020CharacterGeneratorService } from './../../shared/services/chargen
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Cp2020PlayerRole } from './../../shared/models/cp2020character/cp2020-player-role';
 import { Cp2020characterToPDF } from './../../shared/models/pdf/cp2020characterToPDF';
-import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'cs-app-character-generator-form',
@@ -68,7 +67,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     this.characterService.changeGear(value);
   }
 
-  changeWeapons(value: CpPlayerWeaponList) {
+  changeWeapons(value: Array<CpPlayerWeapon>) {
     this.characterService.changeWeapons(value);
   }
 

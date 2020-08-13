@@ -2,11 +2,21 @@
   width: 100%;
 }
 
-.cp2020-wpn-hdr div {
+.cp2020-wpn-hdr div, .cp2020-wpn-add {
   font-size: small;
   border:1px solid black;
   padding: 0px 0px;
   margin: 0px 0px;
+}
+
+.cp2020-wpn-add {
+  cursor: pointer;
+  text-align: center;
+  padding: 5px 5px;
+}
+
+.cp2020-wpn-add:hover {
+  background-color: #AAA;
 }
 
 .wpn-narrow {

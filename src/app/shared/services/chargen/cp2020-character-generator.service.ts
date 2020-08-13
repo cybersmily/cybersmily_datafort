@@ -134,8 +134,8 @@ export class Cp2020CharacterGeneratorService {
     this.updateCharacter();
   }
 
-  changeWeapons( value: CpPlayerWeaponList) {
-    this._currCharacter.weapons = value;
+  changeWeapons( value: Array<CpPlayerWeapon>) {
+    this._currCharacter.weapons.items = value;
     this.updateCharacter();
   }
 

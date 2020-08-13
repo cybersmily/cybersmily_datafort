@@ -1,0 +1,17 @@
+.wpn-narrow {
+  width: 40px;
+}
+
+.wpn-col {
+  width: 55px;
+  text-align: right;
+}
+
+.wpn-notes, .wpn-dmg {
+  width: 100%;
+}
+
+.disabled {
+  color: #999;
+  cursor: not-allowed;
+}

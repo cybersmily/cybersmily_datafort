@@ -22,7 +22,9 @@
 .wpn-stats div, .wpn-notes  {
   font-size: small;
   border:1px solid black;
-
+}
+.wpn-stats {
+  height: 25px;
 }
 
 .wpn-stats div fa-icon {

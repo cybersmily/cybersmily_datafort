@@ -1,8 +1,11 @@
+import { FumbleChart } from './../../../models/skill/fumble-chart';
+import { BsModalService } from 'ngx-bootstrap/modal';
 import { Cp2020PlayerSkill } from './../../../models/cp2020character';
 import { DiceService } from './../../../services/dice/dice.service';
 import { faPen, faTrash, faDice } from '@fortawesome/free-solid-svg-icons';
 import { CpPlayerWeapon } from './../../../models/weapon/cp-player-weapon';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, TemplateRef, Output, EventEmitter } from '@angular/core';
+import { BsModalRef } from 'ngx-bootstrap';
 
 @Component({
   selector: 'cs-cp2020weapon',
@@ -13,6 +16,11 @@ export class Cp2020weaponComponent implements OnInit {
   faPen = faPen;
   faTrash = faTrash;
   faDice = faDice;
+  modalRef: BsModalRef;
+  modalConfig = {
+    keyboard: true,
+    class: 'modal-dialog-centered modal-lg'
+  };
 
   @Input()
   weapon: CpPlayerWeapon = new CpPlayerWeapon();
@@ -26,16 +34,23 @@ export class Cp2020weaponComponent implements OnInit {
   @Input()
   BodDamageMod = 0;
 
+  @Input()
+  index: number;
+
+  @Output()
+  updateWeapon: EventEmitter<{index: number, weapon: CpPlayerWeapon}> = new EventEmitter<{index: number, weapon: CpPlayerWeapon}>();
+
+  @Output()
+  deleteWeapon: EventEmitter<number> = new EventEmitter<number>();
+
   weaponShots: Array<boolean>;
-
   selectShot: number;
-
   unjammRoll: string;
   jammed = 0;
   damageRoll = '';
   skillRoll = '';
 
-  constructor(private diceService: DiceService) { }
+  constructor(private diceService: DiceService, private modalService: BsModalService) { }
 
   ngOnInit(): void {
     if (this.weapon.shots && this.weapon.shots > 0) {
@@ -94,15 +109,26 @@ export class Cp2020weaponComponent implements OnInit {
     }
     dieRolls += ' ]';
     this.skillRoll += '+ ' + total + '(dice)' + dieRolls + '<br>';
-    // const diff = this.weapon.getRangeBracket(this.rangeToTarget).diff;
-    // const totalRoll = this.getWeaponMods(this.weapon) + total;
-    /*
     if (roll === 1 ) {
-      this.skillRoll += 'Fumbled! ' + FumbleChart.getResults(this.diceService.generateNumber(1, 10), this.selectedSkill);
-    } else {
-      this.skillRoll += (totalRoll >= diff) ? 'Succeeded by ' + (totalRoll - diff) : 'Missed';
+      this.skillRoll += 'Fumbled! ' + FumbleChart.getResults(this.diceService.generateNumber(1, 10), undefined);
     }
-    this.skillRoll += ' (Total:' + totalRoll + ' vs DIFF:' + diff + ')';
-    */
   }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, this.modalConfig);
+  }
+
+  closeModal() {
+    this.modalRef.hide();
+  }
+
+  update(wpn: CpPlayerWeapon) {
+    this.weapon = wpn;
+    this.updateWeapon.emit({index: this.index, weapon: this.weapon});
+  }
+
+  delete() {
+    this.deleteWeapon.emit(this.index);
+  }
+
 }

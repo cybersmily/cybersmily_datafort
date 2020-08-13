@@ -179,6 +179,38 @@ export class Cp2020PlayerSkills {
     return this.NonRoleSkills.reduce( (a, b) => a + b.value, 0);
   }
 
+  getSkillForWeaponType(type: string): Array<Cp2020PlayerSkill> {
+    if (!type) {
+      return [];
+    }
+    switch (type.toLowerCase()) {
+      case 'p':
+        return this.REF.filter( s => s.name.toLowerCase() === 'handgun');
+      case 'smg':
+        return this.REF.filter( s => s.name.toLowerCase() === 'submachinegun');
+      case 'rif':
+      case 'sht':
+        return this.REF.filter( s => s.name.toLowerCase() === 'rifle');
+      case 'mel':
+        return this.REF.filter( s => s.name.toLowerCase() === 'melee'
+          || s.name.toLowerCase() === 'martial art'
+          || s.name.toLowerCase() === 'fencing'
+        );
+      case 'hvy':
+        return this.REF.filter( s => s.name.toLowerCase() === 'heavy weapons');
+      default:
+        return this.REF.filter( s => s.name.toLowerCase() === 'melee'
+          || s.name.toLowerCase() === 'martial art'
+          || s.name.toLowerCase() === 'fencing'
+          || s.name.toLowerCase() === 'rifle'
+          || s.name.toLowerCase() === 'pistol'
+          || s.name.toLowerCase() === 'submachinegun'
+          || s.name.toLowerCase() === 'archery'
+          || s.name.toLowerCase() === 'heavy weapons'
+        );
+    }
+  }
+
   setRoleSkills(roleSkills: any[]) {
     // set the isRoleSkill flag
     let skills = this.processRoleSkillArray(this.COOL, roleSkills);

@@ -1,5 +1,9 @@
 <div class="row wpn-stats">
-  <div class="col-3">{{weapon.name}}<fa-icon [icon]="faPen"></fa-icon><fa-icon [icon]="faTrash"></fa-icon></div>
+  <div class="col-3">{{weapon.name}}
+    <fa-icon [icon]="faTrash" (click)="delete()" class="csd-btn" title="Delete weapon"></fa-icon>
+    <fa-icon [icon]="faPen" (click)="openModal(editWeaponModal)" class="mr-2 csd-btn" title="Edit weapon"></fa-icon>
+
+  </div>
   <div class="col-1 text-center">{{weapon.type}}</div>
   <div class="col-1 text-center">{{weapon.wa}} <fa-icon *ngIf="weapon.name && weapon.name !==''"  [icon]="faDice" class="csd-dice" class="csd-dice" ></fa-icon></div>
   <div class="col-1 text-center">{{weapon.conc}}</div>
@@ -33,19 +37,14 @@
   <div class="col-11">Notes: {{weapon.notes}}</div>
 </div>
 
-<ng-template>
-  <div class="row">
-    <div class="col-2"><input [(ngModel)]="weapon.name" type="text" class="wpn-name" /></div>
-    <div class="col-1"><input [(ngModel)]="weapon.type" type="text" class="text-uppercase text-center wpn-narrow" /></div>
-    <div class="col-1"><input [(ngModel)]="weapon.wa" type="number" class="text-uppercase text-center wpn-narrow" /></div>
-    <div class="col-1"><input [(ngModel)]="weapon.conc" type="text" class="text-uppercase text-center wpn-narrow" /></div>
-    <div class="col-1"><input [(ngModel)]="weapon.avail" type="text" class="text-uppercase text-center wpn-narrow" /></div>
-    <div class="col-2"><input [(ngModel)]="weapon.damage" type="text" class="text-uppercase text-center wpn-col" /></div>
-    <div class="col-2"><input [(ngModel)]="weapon.shots" type="number" class="text-uppercase text-center wpn-col" /></div>
-    <div class="col-1"><input [(ngModel)]="weapon.rof" type="number" class="text-uppercase text-center wpn-col" /></div>
-    <div class="col-1"><input [(ngModel)]="weapon.rel" type="text" class="text-uppercase text-center wpn-narrow" /></div>
-  </div>
-  <div class="row">
-    <div class="col-12"><span>Notes: </span><input [(ngModel)]="weapon.notes" type="text" class="wpn-notes" /></div>
-  </div>
+<ng-template #editWeaponModal>
+  <div class="modal-header">
+  <h4 class="modal-title pull-left">Edit Weapon</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body container">
+  <cs-cp2020weapon-editor [weapon]="weapon" (updateWeapon)="update($event)"></cs-cp2020weapon-editor>
+</div>
 </ng-template>
