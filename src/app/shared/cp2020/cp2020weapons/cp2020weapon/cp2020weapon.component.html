@@ -5,7 +5,9 @@
 
   </div>
   <div class="col-1 text-center">{{weapon.type}}</div>
-  <div class="col-1 text-center">{{weapon.wa}} <fa-icon *ngIf="weapon.name && weapon.name !==''"  [icon]="faDice" class="csd-dice" class="csd-dice" ></fa-icon></div>
+  <div class="col-1 text-center">{{weapon.wa}}
+    <fa-icon *ngIf="weapon.name && weapon.name !==''"  [icon]="faDice" class="csd-dice" class="csd-dice" (click)="openModal(fireWeaponModal)" ></fa-icon>
+  </div>
   <div class="col-1 text-center">{{weapon.conc}}</div>
   <div class="col-1 text-center">{{weapon.avail}} </div>
   <div class="col-2 text-center">{{weapon.damage}}
@@ -34,7 +36,7 @@
   </div>
   </ng-container>
   <div class="col-1"></div>
-  <div class="col-11">Notes: {{weapon.notes}}</div>
+  <div class="col-11">Notes: {{weapon.thrown ? 'Thrown weapon. ' : '' }}{{weapon.notes}}</div>
 </div>
 
 <ng-template #editWeaponModal>
@@ -46,5 +48,16 @@
 </div>
 <div class="modal-body container">
   <cs-cp2020weapon-editor [weapon]="weapon" (updateWeapon)="update($event)"></cs-cp2020weapon-editor>
+</div>
+</ng-template>
+
+<ng-template #fireWeaponModal>
+  <div class="modal-header">
+  <h4 class="modal-title pull-left">Use Weapon</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body container">
 </div>
 </ng-template>

@@ -9,6 +9,10 @@
   margin: 0px 0px;
 }
 
+.cp2020-wpn-hdr {
+  font-weight: bold;
+}
+
 .cp2020-wpn-add {
   cursor: pointer;
   text-align: center;

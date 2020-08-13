@@ -54,17 +54,21 @@ export class Cp2020weaponComponent implements OnInit {
   constructor(private diceService: DiceService, private modalService: BsModalService) { }
 
   ngOnInit(): void {
+    this.fillShots();
+    this.selectedSkill = (this.skill.length === 1) ? this.skill[0] : new Cp2020PlayerSkill();
+  }
+
+  get usedShots(): number {
+    return this.weaponShots.reduce( (a, b) => a + (b ? 1 : 0), 0);
+  }
+
+  private fillShots() {
     if (this.weapon.shots && this.weapon.shots > 0) {
       this.weaponShots = new Array<boolean>(this.weapon.shots);
       this.weaponShots.fill(false);
     } else {
       this.weaponShots = undefined;
     }
-    this.selectedSkill = (this.skill.length === 1) ? this.skill[0] : new Cp2020PlayerSkill();
-  }
-
-  get usedShots(): number {
-    return this.weaponShots.reduce( (a, b) => a + (b ? 1 : 0), 0);
   }
 
   checkShots(index: number) {
@@ -126,6 +130,7 @@ export class Cp2020weaponComponent implements OnInit {
 
   update(wpn: CpPlayerWeapon) {
     this.weapon = wpn;
+    this.fillShots();
     this.updateWeapon.emit({index: this.index, weapon: this.weapon});
   }
 

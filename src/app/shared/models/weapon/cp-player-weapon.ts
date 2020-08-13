@@ -19,6 +19,7 @@ export class CpPlayerWeapon implements CpWeapon {
   range: number;
   source?: SourceBook;
   count?: number;
+  thrown?: boolean;
 
   constructor(param?) {
     // weapon prop is deprecated. There for backward support
@@ -57,6 +58,7 @@ export class CpPlayerWeapon implements CpWeapon {
     this.notes = (param) ? param.notes : '';
     this.source = (param) ? param.source : undefined;
     this.count = (param) ? param.count : 0;
+    this.thrown  = (param) ? param.thrown : undefined;
   }
 
   get isEmpty(): boolean {

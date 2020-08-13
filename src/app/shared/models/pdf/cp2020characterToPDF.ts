@@ -493,10 +493,30 @@ private addWeapons(doc: jsPDF, weapons: CpPlayerWeaponList, left: number, line: 
     left += 7;
     line += ht;
 
-    doc.rect(leftMargin, line, 100, ht, 'S');
-    doc.text(w.notes ? w.notes : '', leftMargin + 2, textLine);
 
-    line += ht;
+    if (w.shots && w.shots > 1) {
+      const startLine = line;
+      let shotLine = ht;
+      left = leftMargin + 5;
+      for (let i = 0; i < w.shots; i++) {
+        doc.rect(left, line + 1, 2, 2, 'S');
+        left += 3;
+        if ( (i + 1) % 30 === 0) {
+          left = leftMargin + 5;
+          line += ht;
+          shotLine += ht;
+        }
+      }
+      doc.rect(leftMargin, startLine, 100, shotLine, 'S');
+      line += ht;
+    }
+
+    if ((w.notes && w.notes !== '') || w.thrown) {
+      doc.rect(leftMargin, line, 100, ht, 'S');
+      const text = (w.thrown ? 'Thrown. ' : '') + (w.notes ? w.notes : '');
+      doc.text(text, leftMargin + 2, line + 3.5);
+      line += ht;
+    }
   });
   doc.setFontSize(this._fontSize);
 }
