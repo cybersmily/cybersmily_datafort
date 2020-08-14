@@ -1,10 +1,14 @@
-import { SourceBook } from './../sourcebook';
+import { DiceService } from './../../services/dice/dice.service';
 import { TestBed } from '@angular/core/testing';
 
 import { CpPlayerWeapon } from './';
 
 describe('CpPlayerWeapon', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  let dice: DiceService;
+  beforeEach(() => {
+    dice = new DiceService();
+    TestBed.configureTestingModule({});
+  });
 
   it('should be created', () => {
     const wpn: CpPlayerWeapon = new CpPlayerWeapon();
@@ -47,20 +51,9 @@ describe('CpPlayerWeapon', () => {
       rel: 'VR',
       source: { book: 'Cp2020', page: 50}
     });
-    wpn.checkReliability(3);
-    expect(wpn.jammed).toBeTruthy('Very Reliable should failed.');
-    wpn.checkReliability(4);
-    expect(wpn.jammed).toBeFalsy('Very Reliable should succeeded.');
-    wpn.rel = 'ST';
-    wpn.checkReliability(5);
-    expect(wpn.jammed).toBeTruthy('Standard should failed.');
-    wpn.checkReliability(6);
-    expect(wpn.jammed).toBeFalsy('Standard should succeeded.');
-    wpn.rel = 'UR';
-    wpn.checkReliability(8);
-    expect(wpn.jammed).toBeTruthy('Unreliable should failed.');
-    wpn.checkReliability(9);
-    expect(wpn.jammed).toBeFalsy('Unreliable should succeeded.');
+    const result = wpn.checkReliability(dice);
+    expect(result).not.toBeUndefined();
+    expect(result).not.toEqual('');
   });
 
   it('should return proper range', () => {
@@ -96,16 +89,13 @@ describe('CpPlayerWeapon', () => {
       wa: 3,
       damage: '2d6',
       shots: 10,
-      shotsUsed: 10,
       cost: 100,
       rel: 'VR',
       range: 100,
       source: { book: 'Cp2020', page: 50}
     });
+    expect(wpn.isEmpty).toBeFalsy();
+    wpn.expendShot(9);
     expect(wpn.isEmpty).toBeTruthy();
-    wpn.shotsUsed = 0;
-    expect(wpn.isEmpty).toBeFalsy();
-    wpn.shotsUsed = 6;
-    expect(wpn.isEmpty).toBeFalsy();
   });
 });

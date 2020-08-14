@@ -1,3 +1,10 @@
+import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
+import { DataService } from './../../../services/data.service';
+import { BsModalService } from 'ngx-bootstrap';
+import { Cp2020weaponEditorComponent } from './../cp2020weapon-editor/cp2020weapon-editor.component';
+import { WeaponDataService } from './../../../services/data/weapon-data.service';
+import { DiceService } from './../../../services/dice/dice.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Cp2020weaponComponent } from './cp2020weapon.component';
@@ -8,7 +15,9 @@ describe('Cp2020weaponComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ Cp2020weaponComponent ]
+      declarations: [Cp2020weaponComponent, Cp2020weaponEditorComponent],
+      imports: [HttpClientTestingModule, CommonUiModule],
+      providers: [DiceService, WeaponDataService, DataService]
     })
     .compileComponents();
   }));

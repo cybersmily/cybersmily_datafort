@@ -1,3 +1,4 @@
+import { DiceService } from './../../../services/dice/dice.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Cp2020weaponFireComponent } from './cp2020weapon-fire.component';
@@ -8,7 +9,8 @@ describe('Cp2020weaponFireComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ Cp2020weaponFireComponent ]
+      declarations: [Cp2020weaponFireComponent],
+      providers: [DiceService]
     })
     .compileComponents();
   }));

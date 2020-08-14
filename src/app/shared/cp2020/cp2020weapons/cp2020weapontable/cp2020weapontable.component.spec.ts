@@ -1,3 +1,12 @@
+import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
+import { WeaponDataService } from './../../../services/data/weapon-data.service';
+import { DataService } from './../../../services/data.service';
+import { BsModalService } from 'ngx-bootstrap';
+import { DiceService } from './../../../services/dice/dice.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { Cp2020weaponEditorComponent } from './../cp2020weapon-editor/cp2020weapon-editor.component';
+import { Cp2020weaponSelectorComponent } from './../cp2020weapon-selector/cp2020weapon-selector.component';
+import { Cp2020weaponComponent } from './../cp2020weapon/cp2020weapon.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Cp2020weapontableComponent } from './cp2020weapontable.component';
@@ -8,7 +17,14 @@ describe('Cp2020weapontableComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ Cp2020weapontableComponent ]
+      declarations: [
+        Cp2020weapontableComponent,
+        Cp2020weaponComponent,
+        Cp2020weaponSelectorComponent,
+        Cp2020weaponEditorComponent
+      ],
+      imports: [HttpClientTestingModule, CommonUiModule],
+      providers: [DiceService, WeaponDataService, DataService]
     })
     .compileComponents();
   }));

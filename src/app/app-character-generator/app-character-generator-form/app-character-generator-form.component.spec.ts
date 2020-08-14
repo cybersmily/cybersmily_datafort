@@ -7,7 +7,6 @@ import { AppCharacterWoundLevelComponent } from './../app-character-wound-level/
 import { AppCharacterCyberwareComponent } from './../app-character-cyberware/app-character-cyberware.component';
 import { AppCharacterSkillComponent } from './../app-character-skill/app-character-skill.component';
 import { AppCharacterArmorComponent } from './../app-character-armor/app-character-armor.component';
-import { AppCharacterWeaponsComponent } from './../app-character-weapons/app-character-weapons.component';
 import { AppCharacterStatsComponent } from './../app-character-stats/app-character-stats.component';
 import { AppCharacterSkillsComponent } from './../app-character-skills/app-character-skills.component';
 import { AppCharacterRoleComponent } from './../app-character-role/app-character-role.component';
@@ -35,7 +34,6 @@ describe('AppCharacterGeneratorFormComponent', () => {
         AppCharacterSkillComponent,
         AppCharacterSkillsComponent,
         AppCharacterStatsComponent,
-        AppCharacterWeaponsComponent,
         AppCharacterGearComponent,
         AppCharacterSaveWoundsComponent,
         AppCharacterWoundLevelComponent,
