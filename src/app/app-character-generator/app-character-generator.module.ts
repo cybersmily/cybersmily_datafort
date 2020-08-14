@@ -23,7 +23,6 @@ import { AppCharacterImageComponent } from './app-character-image/app-character-
 import { AppCharacterCyberwareComponent } from './app-character-cyberware/app-character-cyberware.component';
 import { AppCharacterLifepathComponent } from './app-character-lifepath/app-character-lifepath.component';
 import { AppCharacterGearComponent } from './app-character-gear/app-character-gear.component';
-import { AppCharacterWeaponsComponent } from './app-character-weapons/app-character-weapons.component';
 import { AppCharacterSkillsComponent } from './app-character-skills/app-character-skills.component';
 import { AppCharacterSkillComponent } from './app-character-skill/app-character-skill.component';
 import { AppCharacterWoundLevelComponent } from './app-character-wound-level/app-character-wound-level.component';
@@ -40,7 +39,6 @@ import { AppCharacterWoundLevelComponent } from './app-character-wound-level/app
     AppCharacterCyberwareComponent,
     AppCharacterLifepathComponent,
     AppCharacterGearComponent,
-    AppCharacterWeaponsComponent,
     AppCharacterSkillsComponent,
     AppCharacterSkillComponent,
     AppCharacterWoundLevelComponent

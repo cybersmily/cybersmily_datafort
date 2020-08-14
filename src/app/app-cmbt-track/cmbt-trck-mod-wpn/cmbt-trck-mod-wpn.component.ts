@@ -40,7 +40,6 @@ export class CmbtTrckModWpnComponent implements OnInit {
   damageRoll: string;
   unjammRoll: string;
   skillRoll: string;
-  jammed = 0;
 
   constructor(private diceService: DiceService) { }
 
@@ -55,11 +54,7 @@ export class CmbtTrckModWpnComponent implements OnInit {
   }
 
   rollReliability() {
-    const roll = this.diceService.generateNumber(1, 10);
-    this.weapon.checkReliability(roll);
-    if (this.weapon.jammed) {
-      this.jammed = this.diceService.generateNumber(1, 6);
-    }
+    this.weapon.checkReliability(this.diceService);
   }
 
   get rangeBracket(): CombatRange {
@@ -71,11 +66,7 @@ export class CmbtTrckModWpnComponent implements OnInit {
   }
 
   rollDamage() {
-    const roll = this.diceService.rollMoreDice(this.weapon.damage);
-    if (this.weapon.type.toLowerCase() === 'mel') {
-      roll.total += this.BodDmgBonus;
-    }
-    this.damageRoll = `${roll.show()}${ this.weapon.type.toLowerCase() === 'mel' ? ' +  ' + this.BodDmgBonus + '(BOD Mod)' : ''}`;
+    this.damageRoll = this.weapon.rollDamage(this.diceService, 1)[0];
   }
 
   rollSkill() {
@@ -104,6 +95,6 @@ export class CmbtTrckModWpnComponent implements OnInit {
   }
 
   reloadAmmo() {
-    this.weapon.shotsUsed = 0;
+    this.weapon.reload();
   }
 }

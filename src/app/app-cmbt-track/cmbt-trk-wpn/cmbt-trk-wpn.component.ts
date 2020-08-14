@@ -31,7 +31,7 @@ export class CmbtTrkWpnComponent implements OnInit {
   damageResults = '';
   relResults = '';
 
-  constructor(private roll: DiceService) { }
+  constructor(private diceService: DiceService) { }
 
   ngOnInit() {
   }
@@ -42,14 +42,7 @@ export class CmbtTrkWpnComponent implements OnInit {
 
 
   rollDamage(dmg: string) {
-    const roll = this.roll.rollMoreDice(dmg);
-    if (this.weapon.type.toLowerCase() === 'mel' ) {
-      roll.total += this.BodDmgMod;
-    }
-    this.damageResults = roll.show();
-    if (this.weapon.type.toLowerCase() === 'mel' ) {
-      this.damageResults += ' +  ' + this.BodDmgMod +  '(BOD Mod)';
-    }
+    this.damageResults = this.weapon.rollDamage(this.diceService, 1, this.BodDmgMod)[0];
   }
 
   isDice(dmg: string): boolean {
@@ -60,7 +53,7 @@ export class CmbtTrkWpnComponent implements OnInit {
   rollToHit() {}
 
   reload() {
-    this.weapon.shotsUsed = isNaN(Number(this.weapon.shots)) ? 0 : Number(this.weapon.shots);
+    this.weapon.reload();
   }
 
   unjam() {
@@ -68,14 +61,11 @@ export class CmbtTrkWpnComponent implements OnInit {
   }
 
   fire() {
-    this.weapon.shotsUsed--;
+    this.weapon.fire(this.diceService, 0, this.skill.value);
   }
 
   rollReliability() {
-    let roll = this.roll.generateNumber(1, 10);
-    this.weapon.checkReliability(roll);
-    roll = this.roll.generateNumber(1, 6);
-    this.relResults = (this.weapon.jammed) ? 'Weapon jammed for ' + roll + 'turns.' : 'No Jam';
+    this.relResults = this.weapon.checkReliability(this.diceService);
   }
 
   deleteWpn() {

@@ -1,3 +1,4 @@
+import { CpPlayerWeaponList } from './../../../models/weapon/cp-player-weapon-list';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { faDice, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020StatBlock, Cp2020PlayerSkills } from './../../../models/cp2020character';
@@ -20,7 +21,7 @@ export class Cp2020weapontableComponent implements OnInit {
   newWeapon: CpPlayerWeapon = new CpPlayerWeapon();
 
   @Input()
-  weapons: Array<CpPlayerWeapon> = new Array<CpPlayerWeapon>();
+  weapons: CpPlayerWeaponList = new CpPlayerWeaponList();
 
   @Input()
   stats: Cp2020StatBlock = new Cp2020StatBlock();
@@ -32,7 +33,7 @@ export class Cp2020weapontableComponent implements OnInit {
   showRandomGenerator = false;
 
   @Output()
-  changeWeapons: EventEmitter<Array<CpPlayerWeapon>> = new EventEmitter<Array<CpPlayerWeapon>>();
+  changeWeapons: EventEmitter<CpPlayerWeaponList> = new EventEmitter<CpPlayerWeaponList>();
 
   constructor(private modalService: BsModalService) { }
 
@@ -40,26 +41,22 @@ export class Cp2020weapontableComponent implements OnInit {
   }
 
   updateWeapon(data: {index: number, weapon: CpPlayerWeapon}) {
-    this.weapons[data.index] = data.weapon;
+    this.weapons.updateWeapon(data.index, data.weapon);
     this.changeWeapons.emit(this.weapons);
   }
 
   deleteWeapon(index: number) {
-    this.weapons.splice(index, 1);
+    this.weapons.deleteWeapon(index);
     this.changeWeapons.emit(this.weapons);
   }
 
   addWeapon(wpn: CpPlayerWeapon) {
-    this.weapons.push(wpn);
+    this.weapons.addWeapon(wpn);
     this.changeWeapons.emit(this.weapons);
   }
 
   addWeaponList(wpnList: Array<CpPlayerWeapon>) {
-    wpnList.forEach( wpn => {
-      this.weapons.push(wpn);
-    });
-    console.log(wpnList);
-    console.log(this.weapons);
+    this.weapons.addPlayerWeaponList(wpnList);
     this.changeWeapons.emit(this.weapons);
   }
 

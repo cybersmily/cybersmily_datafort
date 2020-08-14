@@ -193,22 +193,30 @@ export class Cp2020PlayerSkills {
         return this.REF.filter( s => s.name.toLowerCase() === 'rifle');
       case 'mel':
         return this.REF.filter( s => s.name.toLowerCase() === 'melee'
-          || s.name.toLowerCase() === 'martial art'
+          || (s.name.toLowerCase() === 'martial art' && s.option && s.option !== '')
           || s.name.toLowerCase() === 'fencing'
         );
       case 'hvy':
         return this.REF.filter( s => s.name.toLowerCase() === 'heavy weapons');
       default:
-        return this.REF.filter( s => s.name.toLowerCase() === 'melee'
-          || s.name.toLowerCase() === 'martial art'
-          || s.name.toLowerCase() === 'fencing'
-          || s.name.toLowerCase() === 'rifle'
-          || s.name.toLowerCase() === 'pistol'
-          || s.name.toLowerCase() === 'submachinegun'
-          || s.name.toLowerCase() === 'archery'
-          || s.name.toLowerCase() === 'heavy weapons'
-        );
+        return this.getCombatSkills();
     }
+  }
+
+  getCombatSkills(): Array<Cp2020PlayerSkill> {
+    return this.REF.filter(
+      (s) =>
+        s.name.toLowerCase() === 'melee' ||
+        (s.name.toLowerCase() === 'martial art' &&
+          s.option &&
+          s.option !== '') ||
+        s.name.toLowerCase() === 'fencing' ||
+        s.name.toLowerCase() === 'rifle' ||
+        s.name.toLowerCase() === 'pistol' ||
+        s.name.toLowerCase() === 'submachinegun' ||
+        s.name.toLowerCase() === 'archery' ||
+        s.name.toLowerCase() === 'heavy weapons'
+    );
   }
 
   setRoleSkills(roleSkills: any[]) {

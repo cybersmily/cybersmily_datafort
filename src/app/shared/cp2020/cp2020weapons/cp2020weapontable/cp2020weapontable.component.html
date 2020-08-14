@@ -15,7 +15,7 @@
       <div class="col-1 wpn-col text-center">ROF</div>
       <div class="col-1 wpn-narrow text-center">Rel</div>
     </div>
-    <cs-cp2020weapon *ngFor="let wpn of weapons;let i = index" [index]="i"
+    <cs-cp2020weapon *ngFor="let wpn of weapons.items;let i = index" [index]="i"
       [weapon]="wpn" [Ref]="stats.REF.Adjusted" [BodDamageMod]="stats.BodyDmgMod"
       [skill]="skills.getSkillForWeaponType(wpn.type)"
       (deleteWeapon)="deleteWeapon($event)" (updateWeapon)="updateWeapon($event)">

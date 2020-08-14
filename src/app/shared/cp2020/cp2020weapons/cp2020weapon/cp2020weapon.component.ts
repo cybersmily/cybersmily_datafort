@@ -1,8 +1,9 @@
+import { DiceRolls } from './../../../models/dice-rolls';
 import { FumbleChart } from './../../../models/skill/fumble-chart';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { Cp2020PlayerSkill } from './../../../models/cp2020character';
 import { DiceService } from './../../../services/dice/dice.service';
-import { faPen, faTrash, faDice } from '@fortawesome/free-solid-svg-icons';
+import { faPen, faTrash, faDice, faRedo } from '@fortawesome/free-solid-svg-icons';
 import { CpPlayerWeapon } from './../../../models/weapon/cp-player-weapon';
 import { Component, OnInit, Input, TemplateRef, Output, EventEmitter } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap';
@@ -16,6 +17,8 @@ export class Cp2020weaponComponent implements OnInit {
   faPen = faPen;
   faTrash = faTrash;
   faDice = faDice;
+  faRedo = faRedo;
+
   modalRef: BsModalRef;
   modalConfig = {
     keyboard: true,
@@ -43,81 +46,33 @@ export class Cp2020weaponComponent implements OnInit {
   @Output()
   deleteWeapon: EventEmitter<number> = new EventEmitter<number>();
 
-  weaponShots: Array<boolean>;
-  selectShot: number;
-  unjammRoll: string;
-  jammed = 0;
+  reliabilityResults = '';
   damageRoll = '';
-  skillRoll = '';
   selectedSkill: Cp2020PlayerSkill;
+  toHitOutcome = '';
 
   constructor(private diceService: DiceService, private modalService: BsModalService) { }
 
   ngOnInit(): void {
-    this.fillShots();
     this.selectedSkill = (this.skill.length === 1) ? this.skill[0] : new Cp2020PlayerSkill();
   }
 
-  get usedShots(): number {
-    return this.weaponShots.reduce( (a, b) => a + (b ? 1 : 0), 0);
-  }
-
-  private fillShots() {
-    if (this.weapon.shots && this.weapon.shots > 0) {
-      this.weaponShots = new Array<boolean>(this.weapon.shots);
-      this.weaponShots.fill(false);
-    } else {
-      this.weaponShots = undefined;
-    }
-  }
-
-  checkShots(index: number) {
-    if (this.weaponShots) {
-      if ( index === this.selectShot) {
-        this.weaponShots[index] = false;
-      } else {
-        this.selectShot = index;
-        this.weaponShots.fill(true, 0, index + 1);
-        this.weaponShots.fill(false, index + 1);
-      }
-    }
-  }
-
   rollReliability() {
-    const roll = this.diceService.generateNumber(1, 10);
-    this.weapon.checkReliability(roll);
-    if (this.weapon.jammed) {
-      this.jammed = this.diceService.generateNumber(1, 6);
-    }
+    this.reliabilityResults = this.weapon.checkReliability(this.diceService);
   }
 
 
   rollDamage() {
-    const roll = this.diceService.rollMoreDice(this.weapon.damage);
-    if (this.weapon.type.toLowerCase() === 'mel') {
-      roll.total += this.BodDamageMod;
-    }
-    this.damageRoll = `${roll.show()}${ this.weapon.type.toLowerCase() === 'mel' ? ' +  ' + this.BodDamageMod + '(BOD Mod)' : ''}`;
+    this.damageRoll = this.weapon.rollDamage(this.diceService, 1, this.BodDamageMod).join('<br>');
   }
 
   rollToHit() {
-    this.skillRoll = this.selectedSkill.value + '(skill) ';
-    this.skillRoll += '+ ' + this.Ref + '(REF) ';
-    this.skillRoll += ((this.weapon.wa >= 0) ? '+ ' + this.weapon.wa : '') + '(wa) ';
-    // this.skillRoll += '+ ' + this.modifiers.totalModifiers + '(mods) ';
-    let roll = this.diceService.generateNumber(1, 10);
-    let dieRolls = '[ ' + roll;
-    let total = roll;
-    while ( roll === 10) {
-      roll = this.diceService.generateNumber(1, 10);
-      total += roll;
-      dieRolls += ' ' + roll;
-    }
-    dieRolls += ' ]';
-    this.skillRoll += '+ ' + total + '(dice)' + dieRolls + '<br>';
-    if (roll === 1 ) {
-      this.skillRoll += 'Fumbled! ' + FumbleChart.getResults(this.diceService.generateNumber(1, 10), undefined);
-    }
+    this.toHitOutcome = '';
+    this.toHitOutcome = this.weapon.fire(this.diceService, this.Ref, this.selectedSkill.value);
+  }
+
+  reload() {
+    this.weapon.reload();
   }
 
   openModal(template: TemplateRef<any>) {
@@ -130,7 +85,6 @@ export class Cp2020weaponComponent implements OnInit {
 
   update(wpn: CpPlayerWeapon) {
     this.weapon = wpn;
-    this.fillShots();
     this.updateWeapon.emit({index: this.index, weapon: this.weapon});
   }
 

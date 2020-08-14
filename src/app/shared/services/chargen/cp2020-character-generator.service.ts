@@ -43,7 +43,7 @@ export class Cp2020CharacterGeneratorService {
       this._currCharacter.armor = new Cp2020ArmorBlock(value.armor);
       this._currCharacter.stats.REF.ev = this._currCharacter.armor.ev;
     }
-    if (value.weapons) {
+    if (value.weapons && value.weapons.items) {
       this._currCharacter.weapons.items = new Array<CpPlayerWeapon>();
         value.weapons.items.forEach( w => {
           this._currCharacter.weapons.items.push(new CpPlayerWeapon(w));

@@ -19,7 +19,7 @@
   margin: 0px 0px;
 }
 
-.wpn-stats div, .wpn-notes  {
+.wpn-stats>div, .wpn-notes  {
   font-size: small;
   border:1px solid black;
 }
@@ -27,12 +27,12 @@
   min-height: 25px;
 }
 
-.wpn-stats div fa-icon {
+.wpn-stats>div>fa-icon {
   display: none;
   float: right;
 }
 
-.wpn-stats div:hover fa-icon {
+.wpn-stats>div:hover>fa-icon {
   display: inline;
 }
 
