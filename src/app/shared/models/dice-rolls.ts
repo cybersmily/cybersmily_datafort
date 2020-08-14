@@ -58,7 +58,6 @@ export class DiceRolls {
     let results = `Total: ${this.total} [Dice: (${this.rolls.join(', ')})${
         this.mod ? this.mod : ''
       }]`;
-    console.log(this.rolls[0]);
     if (showType && this.rolls[0] === 1) {
       results += ' Fumbled!';
     }

@@ -7,7 +7,7 @@ export class WeaponRanges {
     long: number;
     extreme: number;
 
-    constructor(weaponRange: number, weaponType?: string) {
+  constructor(weaponRange: number, weaponType?: string) {
       if (weaponRange === undefined && weaponType ) {
         switch (weaponType.toLowerCase()) {
           case 'smg':

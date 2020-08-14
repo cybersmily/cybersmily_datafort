@@ -40,7 +40,6 @@ export class ProgramNewComponent implements OnInit {
 
   updated() {
     this.isSaved = false;
-    console.log('unsaved');
   }
 
   get optionList(): string {
