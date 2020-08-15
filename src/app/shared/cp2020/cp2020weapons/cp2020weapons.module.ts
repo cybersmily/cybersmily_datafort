@@ -6,7 +6,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Cp2020weaponEditorComponent } from './cp2020weapon-editor/cp2020weapon-editor.component';
 import { Cp2020weaponSelectorComponent } from './cp2020weapon-selector/cp2020weapon-selector.component';
-import { Cp2020weaponFireComponent } from './cp2020weapon-fire/cp2020weapon-fire.component';
 import { Cp2020weaponCalculatorComponent } from './cp2020weapon-calculator/cp2020weapon-calculator.component';
 
 
@@ -17,7 +16,6 @@ import { Cp2020weaponCalculatorComponent } from './cp2020weapon-calculator/cp202
     Cp2020weaponComponent,
     Cp2020weaponEditorComponent,
     Cp2020weaponSelectorComponent,
-    Cp2020weaponFireComponent,
     Cp2020weaponCalculatorComponent
   ],
   imports: [

@@ -1,9 +1,8 @@
 import { WeaponDataService } from './../../../services/data/weapon-data.service';
 import { DiceService } from './../../../services/dice/dice.service';
-import { CmbtTrckOppChartService } from './../../../../app-cmbt-track/services/cmbt-trck-opp-chart.service';
 import { CpPlayerWeaponList } from './../../../models/weapon/cp-player-weapon-list';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { faDice, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faPlus, faCrosshairs } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020StatBlock, Cp2020PlayerSkills } from './../../../models/cp2020character';
 import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
 import { CpPlayerWeapon } from './../../../models/weapon';
@@ -16,6 +15,8 @@ import { CpPlayerWeapon } from './../../../models/weapon';
 export class Cp2020weapontableComponent implements OnInit {
   faDice = faDice;
   faPlus = faPlus;
+  faCrosshairs = faCrosshairs;
+
   modalRef: BsModalRef;
   modalConfig = {
     keyboard: true,
@@ -37,6 +38,9 @@ export class Cp2020weapontableComponent implements OnInit {
 
   @Input()
   showSelector = false;
+
+  @Input()
+  showCalculator = false;
 
   @Output()
   changeWeapons: EventEmitter<CpPlayerWeaponList> = new EventEmitter<CpPlayerWeaponList>();
