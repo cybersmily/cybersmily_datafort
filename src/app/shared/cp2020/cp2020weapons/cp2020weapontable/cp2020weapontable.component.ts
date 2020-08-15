@@ -32,6 +32,9 @@ export class Cp2020weapontableComponent implements OnInit {
   @Input()
   showRandomGenerator = false;
 
+  @Input()
+  showSelector = false;
+
   @Output()
   changeWeapons: EventEmitter<CpPlayerWeaponList> = new EventEmitter<CpPlayerWeaponList>();
 

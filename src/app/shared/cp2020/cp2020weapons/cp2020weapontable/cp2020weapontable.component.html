@@ -28,18 +28,15 @@
   </div>
 
   <ng-template #newWeaponModal>
-    <div class="modal-header">
-    <h4 id="weapon-modal-name" class="modal-title pull-left">New Weapon</h4>
+  <div class="modal-body container">
     <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
       <span aria-hidden="true">&times;</span>
     </button>
-  </div>
-  <div class="modal-body container">
     <tabset>
       <tab heading="New Weapon" id="tab1">
         <cs-cp2020weapon-editor [weapon]="newWeapon" (updateWeapon)="addWeapon($event)"></cs-cp2020weapon-editor>
       </tab>
-      <tab heading="Search Weapons" id="tab2">
+      <tab *ngIf="showSelector" heading="Search Weapons" id="tab2">
         <cs-cp2020weapon-selector (addWeapons)="addWeaponList($event)"></cs-cp2020weapon-selector>
       </tab>
     </tabset>
