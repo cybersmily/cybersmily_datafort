@@ -1,3 +1,4 @@
+import { DiceService } from './../../services/dice/dice.service';
 import { DataWeapon } from './data-weapon';
 import { CpPlayerWeapon } from './cp-player-weapon';
 export class CpPlayerWeaponList {
@@ -5,7 +6,10 @@ export class CpPlayerWeaponList {
 
   constructor(length?: number) {
     if (length) {
-      this.items = Array.from({ length: length }, () => new CpPlayerWeapon());
+      this.items = Array.from(
+        { length: length },
+        () => new CpPlayerWeapon()
+      );
     } else {
       this.items = new Array<CpPlayerWeapon>();
     }
@@ -44,6 +48,26 @@ export class CpPlayerWeaponList {
   updateWeapon(index: number, weapon: CpPlayerWeapon) {
     if (!isNaN(Number(index)) && index > -1 && weapon) {
       this.items[index] = weapon;
+    }
+  }
+  generateWeapon(weaponList: Array<DataWeapon>, diceService: DiceService, count: number = 1) {
+    console.log(count);
+    console.log(weaponList);
+    if (count < 1 || count > weaponList.length - 1) {
+      return;
+    }
+    for (let i = 0; i < count; i++) {
+      let wpn: DataWeapon;
+      let tries = 0;
+      do {
+        const roll = diceService.generateNumber(
+          0,
+          weaponList.length - 1
+        );
+        wpn = weaponList[roll];
+        tries++;
+      } while (this.items.some((w) => w.name === wpn.name) || tries < 10);
+      this.addDataWeapon(wpn);
     }
   }
 }

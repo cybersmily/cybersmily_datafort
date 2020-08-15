@@ -1,3 +1,6 @@
+import { WeaponDataService } from './../../../services/data/weapon-data.service';
+import { DiceService } from './../../../services/dice/dice.service';
+import { CmbtTrckOppChartService } from './../../../../app-cmbt-track/services/cmbt-trck-opp-chart.service';
 import { CpPlayerWeaponList } from './../../../models/weapon/cp-player-weapon-list';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { faDice, faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -38,7 +41,7 @@ export class Cp2020weapontableComponent implements OnInit {
   @Output()
   changeWeapons: EventEmitter<CpPlayerWeaponList> = new EventEmitter<CpPlayerWeaponList>();
 
-  constructor(private modalService: BsModalService) { }
+  constructor(private modalService: BsModalService, private diceService: DiceService, private weaponData: WeaponDataService) { }
 
   ngOnInit(): void {
   }
@@ -63,6 +66,20 @@ export class Cp2020weapontableComponent implements OnInit {
     this.changeWeapons.emit(this.weapons);
   }
 
+  randomGenerateWeapon() {
+    this.weaponData.WeaponList.subscribe(data => {
+      const shortList = data.filter(
+        (weapon) =>
+          !weapon.category.toLowerCase().startsWith('machine') &&
+          weapon.avail &&
+          (weapon.avail.toLowerCase() === 'e' ||
+            weapon.avail.toLowerCase() === 'c')
+      );
+      this.weapons.generateWeapon(shortList, this.diceService);
+    this.changeWeapons.emit(this.weapons);
+    });
+
+  }
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, this.modalConfig);

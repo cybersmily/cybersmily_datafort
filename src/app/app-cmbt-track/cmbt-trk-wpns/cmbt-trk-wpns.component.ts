@@ -25,7 +25,7 @@ export class CmbtTrkWpnsComponent implements OnInit {
 
   newWpn: CpPlayerWeapon = new CpPlayerWeapon();
 
-  constructor(private oppChart: CmbtTrckOppChartService, private dice: DiceService) { }
+  constructor(private oppChart: CmbtTrckOppChartService) { }
 
   ngOnInit() {
   }
