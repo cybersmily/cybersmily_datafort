@@ -1,26 +1,44 @@
 import { ContainsPipe } from './contains.pipe';
-import { faAmericanSignLanguageInterpreting } from '@fortawesome/free-solid-svg-icons';
 
 describe('ContainsPipe', () => {
-  it('create an instance', () => {
-    const pipe = new ContainsPipe();
-    expect(pipe).toBeTruthy();
-  });
+  let pipe: ContainsPipe;
+  let testArray: Array<{name: string}>;
 
-  it('should filter', () => {
-    const pipe = new ContainsPipe();
-    const stringArray = [
+  beforeEach(() => {
+    pipe = new ContainsPipe();
+    testArray = [
       { name: 'test'},
       { name: 'cat'},
       { name: 'category'},
       { name: 'test2'}
     ];
+  });
 
-    let results = pipe.transform(stringArray, 'name', 'dog');
-    expect(results.length === 0).toBeTruthy(results);
-    results = pipe.transform(stringArray, 'name', 'test');
-    expect(results.length === 2).toBeTruthy(results);
-    results = pipe.transform(stringArray, 'name', 'gory');
-    expect(results.length === 1).toBeTruthy(results);
+  afterEach(() => {
+    pipe = null;
+    testArray = null;
+
+  });
+  it('create an instance', () => {
+    expect(pipe).toBeTruthy();
+  });
+
+  it('should filter', () => {
+    let results = pipe.transform(testArray, 'name', 'dog');
+    expect(results.length).toEqual(0);
+    results = pipe.transform(testArray, 'name', 'test');
+    expect(results.length).toEqual(2);
+    results = pipe.transform(testArray, 'name', 'tEsT');
+    expect(results.length).toEqual(2);
+    results = pipe.transform(testArray, 'name', 'gory');
+    expect(results.length).toEqual(1);
+  });
+  it('should not filter', () => {
+    let results = pipe.transform(testArray, 'dog', 'dog');
+    expect(results.length).toEqual(4);
+    results = pipe.transform(testArray, 'test', 'test');
+    expect(results.length).toEqual(4);
+    results = pipe.transform(testArray, undefined, null);
+    expect(results.length).toEqual(4);
   });
 });
