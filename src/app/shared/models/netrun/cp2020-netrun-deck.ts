@@ -22,6 +22,7 @@ export class Cp2020NetrunDeck implements NrDeck {
     this.codeGate = (param) ? param.codeGate : 0;
     this.speed = (param) ? param.speed : 0;
     this._mu = (param) ? param._mu : 10;
+    this._mu = param ? param.mu : 10;
     this.doubleMu = (param) ? param.doubleMu : false;
     this.options = (param) ? param.options : new Array<NrDeckOption>();
     this.programs = (param) ? param.programs : new Array<NrProgram>();
@@ -36,7 +37,7 @@ export class Cp2020NetrunDeck implements NrDeck {
   }
 
   set mu(value: number) {
-    this._mu = value;
+    this._mu = (value > 0 ) ? value : 0;
   }
 
   get cost(): number {
@@ -66,7 +67,7 @@ export class Cp2020NetrunDeck implements NrDeck {
 
   get maxSpeed(): number {
     let spd = 5;
-    spd += this.options.reduce( (a, b) => a + ((b.mods && b.mods['maxSpeed']) ? b.mods['maxSpeed'] : 0), 0);
+    spd += this.options.reduce( (a, b) => a + ((b.mods && b.mods['maxSpeed']) ? b.mods['maxSpeed'] * (b.count ? b.count : 1) : 0), 0);
     return spd;
   }
 

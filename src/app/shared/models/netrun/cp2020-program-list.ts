@@ -8,10 +8,17 @@ export class Cp2020ProgramList implements NrProgramList {
 
   constructor(param?: any) {
     this._programs = new Array<NetRunProgram>();
-    if (param && param._programs && Array.isArray(param._programs)) {
-      param._programs.forEach( p => {
-        this.add(p);
-      });
+    if (param) {
+      if (param._programs && Array.isArray(param._programs)) {
+        param._programs.forEach((p) => {
+          this.add(p);
+        });
+      }
+      if (param.programs && Array.isArray(param.programs)) {
+        param.programs.forEach((p) => {
+          this.add(p);
+        });
+      }
     }
   }
 
