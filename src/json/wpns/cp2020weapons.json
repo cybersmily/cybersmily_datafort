@@ -1,13 +1,4 @@
-[{
-  "name": "",
-  "category": "",
-  "subcategory": "",
-  "source": {
-    "book": "",
-    "page": 0
-  },
-  "id": 536
-}, {
+[ {
   "category": "EXOTICS",
   "subcategory": "",
   "name": "APEX Mobile Point Defense System",
@@ -21,7 +12,7 @@
   "rof": 40,
   "rel": "ST",
   "range": 200,
-  "notes": "See Blackhand's Street Weapons page 5 for details on to-hit numbers.",
+  "details": "See Blackhand's Street Weapons page 5 for details on to-hit numbers.",
   "cost": 10000,
   "source": {
     "book": "BH",
@@ -44,7 +35,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 15,
-  "notes": "BOD vs 25 or disoriented. See Blackhand's Street Weapons for more details.",
+  "details": "BOD vs 25 or disoriented. See Blackhand's Street Weapons for more details.",
   "cost": 1900,
   "source": {
     "book": "BH",
@@ -65,7 +56,7 @@
   "rof": 2,
   "rel": "ST",
   "range": 100,
-  "notes": "",
+  "details": "",
   "cost": 6450,
   "source": {
     "book": "SF",
@@ -87,7 +78,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 100,
-  "notes": "See text about damage. This isn't real damage.",
+  "details": "See text about damage. This isn't real damage.",
   "cost": 1500,
   "source": {
     "book": "SW",
@@ -108,7 +99,7 @@
   "rel": "ST",
   "range": 100,
   "cost": 1500,
-  "notes": "See text about damage. This isn't real damage.",
+  "details": "See text about damage. This isn't real damage.",
   "source": {
     "book": "SW",
     "page": 37
@@ -128,7 +119,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 25,
-  "notes": "BOD vs 25 to untangle.",
+  "details": "BOD vs 25 to untangle.",
   "cost": 200,
   "source": {
     "book": "BH",
@@ -149,7 +140,7 @@
   "rof": "2",
   "rel": "VR",
   "range": 100,
-  "notes": "",
+  "details": "",
   "cost": 750,
   "source": {
     "book": "SF",
@@ -171,7 +162,7 @@
   "rof": 20,
   "rel": "VR",
   "range": 400,
-  "notes": "to-hit 10+1d10",
+  "details": "to-hit 10+1d10",
   "cost": 3000,
   "source": {
     "book": "BH",
@@ -194,7 +185,7 @@
   "rof": 2,
   "rel": "ST",
   "range": 40,
-  "notes": "See Cyberpunk 2020 pg 107 for details on drugs",
+  "details": "See Cyberpunk 2020 pg 107 for details on drugs",
   "cost": 200,
   "source": {
     "book": "BH",
@@ -215,7 +206,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 1,
-  "notes": "Stunned for 1d10 minutes",
+  "details": "Stunned for 1d10 minutes",
   "cost": 50,
   "source": {
     "book": "BH",
@@ -236,7 +227,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 10,
-  "notes": "See Cyberpunk 2020 pg 108 for details on ammo.",
+  "details": "See Cyberpunk 2020 pg 108 for details on ammo.",
   "cost": 15,
   "source": {
     "book": "BH",
@@ -258,7 +249,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 4,
-  "notes": "Affects 2 location. Following turn does another 1D6 damage to same locations. Hard and Soft(SP15+) protect. Soft armor loses 2SP.",
+  "details": "Affects 2 location. Following turn does another 1D6 damage to same locations. Hard and Soft(SP15+) protect. Soft armor loses 2SP.",
   "cost": 660,
   "source": {
     "book": "BH",
@@ -279,7 +270,7 @@
   "rof": 2,
   "rel": "UR",
   "range": 40,
-  "notes": "hits with 2d6 fragments doing 1d6/2 damage each.",
+  "details": "hits with 2d6 fragments doing 1d6/2 damage each.",
   "cost": 375,
   "source": {
     "book": "BH",
@@ -301,7 +292,7 @@
   "rof": 2,
   "rel": "UR",
   "range": 200,
-  "notes": "See Cyberpunk 2020 pg 108 for ammo/damage",
+  "details": "See Cyberpunk 2020 pg 108 for ammo/damage",
   "cost": 8000,
   "source": {
     "book": "BH",
@@ -322,7 +313,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 1,
-  "notes": "",
+  "details": "",
   "cost": 100,
   "source": {
     "book": "chr4",
@@ -343,7 +334,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 10,
-  "notes": "",
+  "details": "",
   "cost": 60,
   "source": {
     "book": "BH",
@@ -364,7 +355,7 @@
   "rof": 2,
   "rel": "VR",
   "range": 0,
-  "notes": "",
+  "details": "",
   "cost": 100,
   "source": {
     "book": "BH",
@@ -385,7 +376,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 1000,
-  "notes": "",
+  "details": "",
   "cost": 3500,
   "source": {
     "book": "SF",
@@ -406,7 +397,7 @@
   "rof": "3",
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 1500,
   "source": {
     "book": "SF",
@@ -430,7 +421,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 5,
-  "notes": "duration 2d6 minutes. Saved REF & COOL halved.",
+  "details": "duration 2d6 minutes. Saved REF & COOL halved.",
   "cost": 100,
   "source": {
     "book": "BH",
@@ -449,7 +440,7 @@
   "damage": "3d6",
   "rel": "VR",
   "range": 0,
-  "notes": "cost is per meter",
+  "details": "cost is per meter",
   "cost": 60,
   "source": {
     "book": "BH",
@@ -472,7 +463,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 70,
-  "notes": "",
+  "details": "",
   "cost": 1000,
   "source": {
     "book": "BH",
@@ -494,7 +485,7 @@
   "rof": 2,
   "rel": "UR",
   "range": 40,
-  "notes": "",
+  "details": "",
   "cost": 200,
   "source": {
     "book": "BH",
@@ -514,7 +505,7 @@
   "shots": 1,
   "rof": 1,
   "rel": "VR",
-  "notes": "",
+  "details": "",
   "cost": 20,
   "source": {
     "book": "BH",
@@ -536,7 +527,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 25,
-  "notes": "over 25m damage is 2d6",
+  "details": "over 25m damage is 2d6",
   "cost": 350,
   "source": {
     "book": "BH",
@@ -558,7 +549,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 20,
-  "notes": "",
+  "details": "",
   "cost": 10,
   "source": {
     "book": "BH",
@@ -579,7 +570,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 0,
-  "notes": "Resist Drugs vs 25",
+  "details": "Resist Drugs vs 25",
   "cost": 150,
   "source": {
     "book": "BH",
@@ -600,7 +591,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 3,
-  "notes": "Endurance vs 25",
+  "details": "Endurance vs 25",
   "cost": 100,
   "source": {
     "book": "BH",
@@ -621,7 +612,7 @@
   "rof": 2,
   "rel": "VR",
   "range": 50,
-  "notes": "Duration 1hour. ",
+  "details": "Duration 1hour. ",
   "cost": 109,
   "source": {
     "book": "BH",
@@ -643,7 +634,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 30,
-  "notes": "See more options in Blackhand's Street Weapons.",
+  "details": "See more options in Blackhand's Street Weapons.",
   "cost": 250,
   "source": {
     "book": "BH",
@@ -664,7 +655,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 2,
-  "notes": "See Stench Bomb and CP2020 for Gas.",
+  "details": "See Stench Bomb and CP2020 for Gas.",
   "cost": 70,
   "source": {
     "book": "BH",
@@ -685,7 +676,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 3,
-  "notes": "0-1m -1, 1-2m -2, 2-3m -3;",
+  "details": "0-1m -1, 1-2m -2, 2-3m -3;",
   "cost": 33,
   "source": {
     "book": "BH",
@@ -706,7 +697,7 @@
   "rof": 2,
   "rel": "VR",
   "range": 20,
-  "notes": "See Cyberpunk pg 108 for other effects of the microwave.",
+  "details": "See Cyberpunk pg 108 for other effects of the microwave.",
   "cost": 400,
   "source": {
     "book": "BH",
@@ -727,7 +718,7 @@
   "rof": 2,
   "rel": "VR",
   "range": 25,
-  "notes": "See CP2020 for rules on microwaves",
+  "details": "See CP2020 for rules on microwaves",
   "cost": 500,
   "source": {
     "book": "BH",
@@ -748,7 +739,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 1,
-  "notes": "",
+  "details": "",
   "cost": 90,
   "source": {
     "book": "BH",
@@ -769,7 +760,7 @@
   "rof": "1/2",
   "rel": "ST",
   "range": 50,
-  "notes": "See Blackhand's Street Weapons for effects.",
+  "details": "See Blackhand's Street Weapons for effects.",
   "cost": 3500,
   "source": {
     "book": "BH",
@@ -790,7 +781,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 25,
-  "notes": "See Blackhand's for additional details.",
+  "details": "See Blackhand's for additional details.",
   "cost": 950,
   "source": {
     "book": "BH",
@@ -811,7 +802,7 @@
   "rof": 2,
   "rel": "ST",
   "range": 50,
-  "notes": "See Blackhand's for more details.",
+  "details": "See Blackhand's for more details.",
   "cost": 325,
   "source": {
     "book": "BH",
@@ -832,7 +823,7 @@
   "rof": 2,
   "rel": "UR",
   "range": 25,
-  "notes": "",
+  "details": "",
   "cost": 950,
   "source": {
     "book": "BH",
@@ -853,7 +844,7 @@
   "rof": 2,
   "rel": "ST",
   "range": 20,
-  "notes": "See CP2020 for Microwave effects.",
+  "details": "See CP2020 for Microwave effects.",
   "cost": 500,
   "source": {
     "book": "BH",
@@ -875,7 +866,7 @@
   "rof": 1,
   "rel": "UR",
   "range": 300,
-  "notes": "2D6 to opponents within 1m.",
+  "details": "2D6 to opponents within 1m.",
   "cost": 100,
   "source": {
     "book": "BH",
@@ -897,7 +888,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 100,
-  "notes": "",
+  "details": "",
   "cost": 100,
   "source": {
     "book": "BH",
@@ -918,7 +909,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 150,
-  "notes": "",
+  "details": "",
   "cost": 500,
   "source": {
     "book": "BH",
@@ -939,7 +930,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 150,
-  "notes": "",
+  "details": "",
   "cost": 500,
   "source": {
     "book": "BH",
@@ -960,7 +951,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 150,
-  "notes": "",
+  "details": "",
   "cost": 150,
   "source": {
     "book": "BH",
@@ -981,7 +972,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 100,
-  "notes": "",
+  "details": "",
   "cost": 35,
   "source": {
     "book": "BH",
@@ -1002,7 +993,7 @@
   "rof": "1/2",
   "rel": "VR",
   "range": 150,
-  "notes": "",
+  "details": "",
   "cost": 500,
   "source": {
     "book": "BH",
@@ -1023,7 +1014,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 25,
-  "notes": "",
+  "details": "",
   "cost": 75,
   "source": {
     "book": "BH",
@@ -1044,7 +1035,7 @@
   "rof": "1/2",
   "rel": "VR",
   "range": 200,
-  "notes": "Athletics roll of 20+ to stand after being hit.",
+  "details": "Athletics roll of 20+ to stand after being hit.",
   "cost": 1500,
   "source": {
     "book": "BH",
@@ -1065,7 +1056,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 220,
   "source": {
     "book": "BH",
@@ -1086,7 +1077,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 20,
-  "notes": "",
+  "details": "",
   "cost": 100,
   "source": {
     "book": "BH",
@@ -1108,7 +1099,7 @@
   "shots": 1,
   "rof": 1,
   "rel": "VR",
-  "notes": "",
+  "details": "",
   "cost": 350,
   "source": {
     "book": "BH",
@@ -1130,7 +1121,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 2,
-  "notes": "damage to other targets within burst take 6D6.",
+  "details": "damage to other targets within burst take 6D6.",
   "cost": 400,
   "source": {
     "book": "BH",
@@ -1151,7 +1142,7 @@
   "shots": 1,
   "rof": 1,
   "rel": "VR",
-  "notes": "damage & cost is per kilogram",
+  "details": "damage & cost is per kilogram",
   "cost": 100,
   "source": {
     "book": "BH",
@@ -1170,7 +1161,7 @@
   "damage": "6d10",
   "burst": "1",
   "rel": "VR",
-  "notes": "cost is per meter",
+  "details": "cost is per meter",
   "cost": 100,
   "source": {
     "book": "LU",
@@ -1191,7 +1182,7 @@
   "shots": 1,
   "rof": 1,
   "rel": "ST",
-  "notes": "",
+  "details": "",
   "cost": 120,
   "source": {
     "book": "BH",
@@ -1210,7 +1201,7 @@
   "damage": "3d10",
   "burst": "3",
   "rel": "ST",
-  "notes": "damage/cost is per kilogram",
+  "details": "damage/cost is per kilogram",
   "cost": 10,
   "source": {
     "book": "LU",
@@ -1230,7 +1221,7 @@
   "shots": 1,
   "rof": 1,
   "rel": "ST",
-  "notes": "Area is 75mx6m front, 6mx6m back of mine.",
+  "details": "Area is 75mx6m front, 6mx6m back of mine.",
   "cost": 500,
   "source": {
     "book": "BH",
@@ -1251,7 +1242,7 @@
   "shots": 1,
   "rof": 1,
   "rel": "ST",
-  "notes": "",
+  "details": "",
   "cost": 150,
   "source": {
     "book": "BH",
@@ -1273,7 +1264,7 @@
   "rof": 1,
   "rel": "UR",
   "range": 3,
-  "notes": "cost is per kilogram",
+  "details": "cost is per kilogram",
   "cost": 2,
   "source": {
     "book": "LU",
@@ -1292,7 +1283,7 @@
   "damage": "3d10",
   "burst": "3",
   "rel": "UR",
-  "notes": "damate/cost is per 1/4 kilogram",
+  "details": "damate/cost is per 1/4 kilogram",
   "cost": 24,
   "source": {
     "book": "LU",
@@ -1311,7 +1302,7 @@
   "damage": "7d10",
   "burst": "4",
   "rel": "VR",
-  "notes": "damage/cost is per kilogram",
+  "details": "damage/cost is per kilogram",
   "cost": 75,
   "source": {
     "book": "LU",
@@ -1333,7 +1324,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 600,
   "source": {
     "book": "HOB",
@@ -1355,7 +1346,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 0.5,
-  "notes": "lasts for 3 turns. Does 15SP/turn",
+  "details": "lasts for 3 turns. Does 15SP/turn",
   "cost": 0,
   "source": {
     "book": "chr4",
@@ -1374,7 +1365,7 @@
   "damage": "4d10",
   "burst": "3",
   "rel": "ST",
-  "notes": "damage/cost is per kilogram",
+  "details": "damage/cost is per kilogram",
   "cost": 30,
   "source": {
     "book": "LU",
@@ -1395,7 +1386,7 @@
   "rof": "2",
   "rel": "VR",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 450,
   "source": {
     "book": "SW",
@@ -1418,7 +1409,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 500,
-  "notes": "",
+  "details": "",
   "cost": 1500,
   "source": {
     "book": "MM",
@@ -1439,7 +1430,7 @@
   "rof": 2,
   "rel": "VR",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 750,
   "source": {
     "book": "BH",
@@ -1460,7 +1451,7 @@
   "rof": 10,
   "rel": "ST",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 2000,
   "source": {
     "book": "BH",
@@ -1482,7 +1473,7 @@
   "rof": 1,
   "rel": "UR",
   "range": 0,
-  "notes": "REF(Dodge/Escape) vs 25DIFF or BOD(Strength Feat) vs 30DIFF, else restrained for 30-40 minutes",
+  "details": "REF(Dodge/Escape) vs 25DIFF or BOD(Strength Feat) vs 30DIFF, else restrained for 30-40 minutes",
   "cost": 60,
   "source": {
     "book": "BH",
@@ -1505,7 +1496,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 0,
-  "notes": "",
+  "details": "",
   "cost": 40,
   "source": {
     "book": "BH",
@@ -1528,7 +1519,7 @@
   "rof": 1,
   "rel": "ST*",
   "range": 0,
-  "notes": "Unshielded internal cyber disabled for 4 minutes. Cyberlimbs for 10 minutes, chips are wiped. No cyber Stun Save -1 for 1D6 turns.",
+  "details": "Unshielded internal cyber disabled for 4 minutes. Cyberlimbs for 10 minutes, chips are wiped. No cyber Stun Save -1 for 1D6 turns.",
   "cost": 200,
   "source": {
     "book": "BH",
@@ -1551,7 +1542,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 0,
-  "notes": "",
+  "details": "",
   "cost": 65,
   "source": {
     "book": "BH",
@@ -1574,7 +1565,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 0,
-  "notes": "HEAT; Burst damage is 3d6\n",
+  "details": "HEAT; Burst damage is 3d6\n",
   "cost": 30,
   "source": {
     "book": "BH",
@@ -1597,7 +1588,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 0,
-  "notes": "",
+  "details": "",
   "cost": 30,
   "source": {
     "book": "BH",
@@ -1620,7 +1611,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 0,
-  "notes": "20+ REF or blinded for 4 turns.",
+  "details": "20+ REF or blinded for 4 turns.",
   "cost": 30,
   "source": {
     "book": "BH",
@@ -1643,7 +1634,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 0,
-  "notes": "Stun Save -2 or Deadened 4 turns. REF 20 or blind 2 turns.",
+  "details": "Stun Save -2 or Deadened 4 turns. REF 20 or blind 2 turns.",
   "cost": 30,
   "source": {
     "book": "BH",
@@ -1666,7 +1657,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 0,
-  "notes": "Range 6-10m damage 3d6",
+  "details": "Range 6-10m damage 3d6",
   "cost": 30,
   "source": {
     "book": "BH",
@@ -1689,7 +1680,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 0,
-  "notes": "Stun Save +1; If saved BOD vs 20DIFF or deaf 4 turns",
+  "details": "Stun Save +1; If saved BOD vs 20DIFF or deaf 4 turns",
   "cost": 40,
   "source": {
     "book": "BH",
@@ -1712,7 +1703,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 0,
-  "notes": "damage is for 3 rounds. Soft armor loses 2SP/round.",
+  "details": "damage is for 3 rounds. Soft armor loses 2SP/round.",
   "cost": 30,
   "source": {
     "book": "BH",
@@ -1734,7 +1725,7 @@
   "range": 0,
   "thrown": true,
   "cost": 5,
-  "notes": "Distracts opponent enough for a Stealth roll.",
+  "details": "Distracts opponent enough for a Stealth roll.",
   "source": {
     "book": "BH",
     "page": 40
@@ -1755,7 +1746,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 0,
-  "notes": "IR defeating cloud for 5 turns.",
+  "details": "IR defeating cloud for 5 turns.",
   "cost": 70,
   "source": {
     "book": "BH",
@@ -1777,7 +1768,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 0,
-  "notes": "Blind for 1-2 mins if center.",
+  "details": "Blind for 1-2 mins if center.",
   "cost": 20,
   "source": {
     "book": "BH",
@@ -1799,7 +1790,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 0,
-  "notes": "V.Diff COOL/BOD roll.",
+  "details": "V.Diff COOL/BOD roll.",
   "cost": 20,
   "source": {
     "book": "BH",
@@ -1821,7 +1812,7 @@
   "rof": 2,
   "rel": "VR",
   "range": 1000,
-  "notes": "",
+  "details": "",
   "cost": 750,
   "source": {
     "book": "BH",
@@ -1842,7 +1833,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 1000,
-  "notes": "",
+  "details": "",
   "cost": 0,
   "source": {
     "book": "SW",
@@ -1864,7 +1855,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 600,
-  "notes": "",
+  "details": "",
   "cost": 3050,
   "source": {
     "book": "BH",
@@ -1885,7 +1876,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 225,
-  "notes": "",
+  "details": "",
   "cost": 150,
   "source": {
     "book": "BH",
@@ -1906,7 +1897,7 @@
   "rof": 0.5,
   "rel": "VR",
   "range": 150,
-  "notes": "",
+  "details": "",
   "cost": 50,
   "source": {
     "book": "BH",
@@ -1948,7 +1939,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 50,
-  "notes": "See Cyberpunk 2020 pg 110 for more details on damage.",
+  "details": "See Cyberpunk 2020 pg 110 for more details on damage.",
   "cost": 1500,
   "source": {
     "book": "BH",
@@ -1990,7 +1981,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 250,
   "source": {
     "book": "BH",
@@ -2011,7 +2002,7 @@
   "rof": 2,
   "rel": "VR",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 500,
   "source": {
     "book": "BH",
@@ -2032,7 +2023,7 @@
   "rof": 20,
   "rel": "VR",
   "range": 1600,
-  "notes": "",
+  "details": "",
   "cost": 2500,
   "source": {
     "book": "BH",
@@ -2053,7 +2044,7 @@
   "rof": 3,
   "rel": "ST",
   "range": 150,
-  "notes": "",
+  "details": "",
   "cost": 900,
   "source": {
     "book": "BH",
@@ -2075,7 +2066,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 3000,
-  "notes": "",
+  "details": "",
   "cost": 11000,
   "source": {
     "book": "SW",
@@ -2097,7 +2088,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 1600,
-  "notes": "Range up to 160m, 1/3 damage;\nRange between 160-00, WA 1, 1/2 damage\nRange 800+ WA 0, full damage",
+  "details": "Range up to 160m, 1/3 damage;\nRange between 160-00, WA 1, 1/2 damage\nRange 800+ WA 0, full damage",
   "cost": 6000,
   "source": {
     "book": "BH",
@@ -2119,7 +2110,7 @@
   "rof": "1/3",
   "rel": "ST",
   "range": 500,
-  "notes": "base to-hit: 17. 3d6 Damage for 5m-10m burst effect",
+  "details": "base to-hit: 17. 3d6 Damage for 5m-10m burst effect",
   "cost": 1250,
   "source": {
     "book": "SW",
@@ -2141,7 +2132,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 600,
-  "notes": "",
+  "details": "",
   "cost": 4500,
   "source": {
     "book": "SW",
@@ -2184,7 +2175,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 2000,
-  "notes": "To-Hit base 15",
+  "details": "To-Hit base 15",
   "cost": 1500,
   "source": {
     "book": "SW",
@@ -2205,7 +2196,7 @@
   "rof": 2,
   "rel": "ST",
   "range": 150,
-  "notes": "",
+  "details": "",
   "cost": 475,
   "source": {
     "book": "BH",
@@ -2226,7 +2217,7 @@
   "rof": 2,
   "rel": "ST",
   "range": 150,
-  "notes": "",
+  "details": "",
   "cost": 225,
   "source": {
     "book": "BH",
@@ -2247,7 +2238,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 750,
-  "notes": "",
+  "details": "",
   "cost": 1500,
   "source": {
     "book": "BH",
@@ -2289,7 +2280,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 3000,
-  "notes": "Damange is HEAT",
+  "details": "Damange is HEAT",
   "cost": 75000,
   "source": {
     "book": "SW",
@@ -2310,7 +2301,7 @@
   "rof": 2,
   "rel": "ST",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 900,
   "source": {
     "book": "BH",
@@ -2351,7 +2342,7 @@
   "rof": 1,
   "rel": "UR",
   "range": 800,
-  "notes": "",
+  "details": "",
   "cost": 8000,
   "source": {
     "book": "SW",
@@ -2372,7 +2363,7 @@
   "rof": "1/2",
   "rel": "ST",
   "range": 1500,
-  "notes": "",
+  "details": "",
   "cost": 11370,
   "source": {
     "book": "BH",
@@ -2394,7 +2385,7 @@
   "rof": 3,
   "rel": "ST",
   "range": 250,
-  "notes": "",
+  "details": "",
   "cost": 380,
   "source": {
     "book": "BH",
@@ -2416,7 +2407,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 1500,
-  "notes": "",
+  "details": "",
   "cost": 7400,
   "source": {
     "book": "BH",
@@ -2438,7 +2429,7 @@
   "rof": 1,
   "rel": "UR",
   "range": 500,
-  "notes": "",
+  "details": "",
   "cost": 50000,
   "source": {
     "book": "SW",
@@ -2459,7 +2450,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 1200,
-  "notes": "",
+  "details": "",
   "cost": 7500,
   "source": {
     "book": "BH",
@@ -2481,7 +2472,7 @@
   "rof": 1,
   "rel": "UR",
   "range": 300,
-  "notes": "",
+  "details": "",
   "cost": 100,
   "source": {
     "book": "SOF2",
@@ -2504,7 +2495,7 @@
   "rof": 15,
   "rel": "VR",
   "range": 300,
-  "notes": "",
+  "details": "",
   "cost": 2000,
   "source": {
     "book": "BH",
@@ -2527,7 +2518,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 1250,
   "source": {
     "book": "BH",
@@ -2573,7 +2564,7 @@
   "rof": 1,
   "rel": "st",
   "range": 15,
-  "notes": "",
+  "details": "",
   "cost": 20,
   "source": {
     "book": "",
@@ -2596,7 +2587,7 @@
   "rof": 1,
   "rel": "st",
   "range":  15,
-  "notes": "",
+  "details": "",
   "cost": 15,
   "source": {
     "book": "",
@@ -2619,7 +2610,7 @@
   "rof": 1,
   "rel": "st",
   "range":  15,
-  "notes": "",
+  "details": "",
   "cost": 20,
   "source": {
     "book": "",
@@ -2642,7 +2633,7 @@
   "rof": 1,
   "rel": "st",
   "range":  15,
-  "notes": "",
+  "details": "",
   "cost": 15,
   "source": {
     "book": "",
@@ -2665,7 +2656,7 @@
   "rof": 1,
   "rel": "st",
   "range":  15,
-  "notes": "",
+  "details": "",
   "cost": 30,
   "source": {
     "book": "",
@@ -2688,7 +2679,7 @@
   "rof": 1,
   "rel": "st",
   "range":  15,
-  "notes": "",
+  "details": "",
   "cost": 30,
   "source": {
     "book": "",
@@ -2711,7 +2702,7 @@
   "rof": 1,
   "rel": "st",
   "range":  15,
-  "notes": "",
+  "details": "",
   "cost": 25,
   "source": {
     "book": "",
@@ -2734,7 +2725,7 @@
   "rof": 1,
   "rel": "st",
   "range":  15,
-  "notes": "",
+  "details": "",
   "cost": 15,
   "source": {
     "book": "",
@@ -2757,7 +2748,7 @@
   "rof": 1,
   "rel": "st",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost":  100,
   "source": {
     "book": "",
@@ -2780,7 +2771,7 @@
   "rof": 1,
   "rel": "st",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost":  100,
   "source": {
     "book": "",
@@ -2803,7 +2794,7 @@
   "rof": 1,
   "rel": "st",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 400,
   "source": {
     "book": "",
@@ -2826,7 +2817,7 @@
   "rof": 1,
   "rel": "st",
   "range": 25,
-  "notes": "",
+  "details": "",
   "cost":  100,
   "source": {
     "book": "",
@@ -2849,7 +2840,7 @@
   "rof": 1,
   "rel": "st",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost":  100,
   "source": {
     "book": "",
@@ -2872,7 +2863,7 @@
   "rof": 1,
   "rel": "st",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 30,
   "source": {
     "book": "",
@@ -2895,7 +2886,7 @@
   "rof": 1,
   "rel": "st",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost":  100,
   "source": {
     "book": "",
@@ -2918,7 +2909,7 @@
   "rof": 1,
   "rel": "st",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost":  100,
   "source": {
     "book": "",
@@ -2941,7 +2932,7 @@
   "rof": 1,
   "rel": "st",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost":  100,
   "source": {
     "book": "",
@@ -2964,7 +2955,7 @@
   "rof": 1,
   "rel": "st",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost":  100,
   "source": {
     "book": "",
@@ -2987,7 +2978,7 @@
   "rof": 1,
   "rel": "st",
   "range": 25,
-  "notes": "",
+  "details": "",
   "cost":  100,
   "source": {
     "book": "",
@@ -3010,7 +3001,7 @@
   "rof": 1,
   "rel": "st",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 75,
   "source": {
     "book": "",
@@ -3033,7 +3024,7 @@
   "rof": 1,
   "rel": "st",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 10,
   "source": {
     "book": "",
@@ -3056,7 +3047,7 @@
   "rof": 1,
   "rel": "st",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 20,
   "source": {
     "book": "",
@@ -3079,7 +3070,7 @@
   "rof": 1,
   "rel": "st",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost":  100,
   "source": {
     "book": "",
@@ -3102,7 +3093,7 @@
   "rof": 1,
   "rel": "st",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost":  100,
   "source": {
     "book": "",
@@ -3125,7 +3116,7 @@
   "rof": 1,
   "rel": "st",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost":  100,
   "source": {
     "book": "",
@@ -3148,7 +3139,7 @@
   "rof": 1,
   "rel": "st",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 400,
   "source": {
     "book": "",
@@ -3171,7 +3162,7 @@
   "rof": 1,
   "rel": "st",
   "range": 25,
-  "notes": "",
+  "details": "",
   "cost":  100,
   "source": {
     "book": "",
@@ -3194,7 +3185,7 @@
   "rof": 1,
   "rel": "st",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost":  100,
   "source": {
     "book": "",
@@ -3217,7 +3208,7 @@
   "rof": 1,
   "rel": "st",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 30,
   "source": {
     "book": "",
@@ -3240,7 +3231,7 @@
   "rof": 1,
   "rel": "st",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost":  100,
   "source": {
     "book": "",
@@ -3263,7 +3254,7 @@
   "rof": 1,
   "rel": "st",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost":  100,
   "source": {
     "book": "",
@@ -3286,7 +3277,7 @@
   "rof": 1,
   "rel": "st",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost":  100,
   "source": {
     "book": "",
@@ -3309,7 +3300,7 @@
   "rof": 1,
   "rel": "st",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost":  100,
   "source": {
     "book": "",
@@ -3332,7 +3323,7 @@
   "rof": 1,
   "rel": "st",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost":  100,
   "source": {
     "book": "",
@@ -3355,7 +3346,7 @@
   "rof": 1,
   "rel": "st",
   "range": 25,
-  "notes": "",
+  "details": "",
   "cost":  100,
   "source": {
     "book": "",
@@ -3378,7 +3369,7 @@
   "rof": 1,
   "rel": "st",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 75,
   "source": {
     "book": "",
@@ -3401,7 +3392,7 @@
   "rof": 1,
   "rel": "st",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost":  100,
   "source": {
     "book": "",
@@ -3424,7 +3415,7 @@
   "rof": 1,
   "rel": "st",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 20,
   "source": {
     "book": "",
@@ -3447,7 +3438,7 @@
   "rof": 1,
   "rel": "st",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost":  100,
   "source": {
     "book": "",
@@ -3469,7 +3460,7 @@
   "rof": 0.5,
   "rel": "VR",
   "range": 100,
-  "notes": "Gas or Smoke.",
+  "details": "Gas or Smoke.",
   "cost": 50,
   "source": {
     "book": "BH",
@@ -3512,7 +3503,7 @@
   "rel": "VR",
   "range": 100,
   "cost": 50,
-  "notes": "4d6 to all within 1m",
+  "details": "4d6 to all within 1m",
   "source": {
     "book": "BH",
     "page": 41
@@ -3534,7 +3525,7 @@
   "rof": 1,
   "rel": "st",
   "range": 0,
-  "notes": "",
+  "details": "",
   "cost": 50,
   "source": {
     "book": "",
@@ -3557,7 +3548,7 @@
   "rof": 1,
   "rel": "st",
   "range": 0,
-  "notes": "",
+  "details": "",
   "cost": 400,
   "source": {
     "book": "",
@@ -3580,7 +3571,7 @@
   "rof": 1,
   "rel": "st",
   "range": 0,
-  "notes": "",
+  "details": "",
   "cost": 50,
   "source": {
     "book": "",
@@ -3603,7 +3594,7 @@
   "rof": 1,
   "rel": "st",
   "range": 0,
-  "notes": "",
+  "details": "",
   "cost": 50,
   "source": {
     "book": "",
@@ -3644,7 +3635,7 @@
   "rof": 1,
   "rel": "st",
   "range": 150,
-  "notes": "",
+  "details": "",
   "cost": 50,
   "source": {
     "book": "",
@@ -3667,7 +3658,7 @@
   "rof": 1,
   "rel": "st",
   "range": 150,
-  "notes": "",
+  "details": "",
   "cost": 50,
   "source": {
     "book": "",
@@ -3690,7 +3681,7 @@
   "rof": 1,
   "rel": "st",
   "range": 150,
-  "notes": "",
+  "details": "",
   "cost": 50,
   "source": {
     "book": "",
@@ -3706,7 +3697,7 @@
   "damage": "7D6",
   "burst": "5",
   "cost": 50,
-  "notes": "Doesn't arm within 10m of launch",
+  "details": "Doesn't arm within 10m of launch",
   "source": {
     "book": "BH",
     "page": 42
@@ -3720,7 +3711,7 @@
   "avail": "R",
   "damage": "2D6",
   "cost": 50,
-  "notes": "Stun Save -5, +1/15SP. REF vs 20DIFF to remain standing",
+  "details": "Stun Save -5, +1/15SP. REF vs 20DIFF to remain standing",
   "source": {
     "book": "BH",
     "page": 42
@@ -3749,7 +3740,7 @@
   "burst": "5",
   "range": 25,
   "cost": 50,
-  "notes": "Burst 15m indoors. Stun save -2 or stun/deaf for 4 turns. REF vs DIFF20 to avoid blindness for 2 turns.",
+  "details": "Burst 15m indoors. Stun save -2 or stun/deaf for 4 turns. REF vs DIFF20 to avoid blindness for 2 turns.",
   "source": {
     "book": "BH",
     "page": 42
@@ -3780,7 +3771,7 @@
   "avail": "R",
   "damage": "1D6",
   "cost": 30,
-  "notes": "Cost +1eb/20m of line. 50% it catches.",
+  "details": "Cost +1eb/20m of line. 50% it catches.",
   "source": {
     "book": "BH",
     "page": 42
@@ -3796,7 +3787,7 @@
   "damage": "4D10",
   "burst": "1",
   "cost": 50,
-  "notes": "HEAT; 4D6 to all within 1m of target",
+  "details": "HEAT; 4D6 to all within 1m of target",
   "source": {
     "book": "BH",
     "page": 42
@@ -3812,7 +3803,7 @@
   "ap": "1/2",
   "damage": "7D6",
   "cost": 50,
-  "notes": "Damage 1/2 real, 1/2 stun. Armor -5SP",
+  "details": "Damage 1/2 real, 1/2 stun. Armor -5SP",
   "source": {
     "book": "BH",
     "page": 42
@@ -3825,7 +3816,7 @@
   "subcategory": "",
   "damage": "1D6",
   "cost": 50,
-  "notes": "Damage is for 6 turns. Lights up 20m.",
+  "details": "Damage is for 6 turns. Lights up 20m.",
   "source": {
     "book": "BH",
     "page": 42
@@ -3842,7 +3833,7 @@
   "damage": "1D6",
   "range": 25,
   "cost": 50,
-  "notes": "50% to entangle. Strength Feat vs DIFF 25 to escape; 2 turns to get free.",
+  "details": "50% to entangle. Strength Feat vs DIFF 25 to escape; 2 turns to get free.",
   "source": {
     "book": "BH",
     "page": 42
@@ -3856,7 +3847,7 @@
   "avail": "R",
   "burst": "10",
   "cost": 10,
-  "notes": "Target hit with 1D6+1 balls. See CP2020 for details",
+  "details": "Target hit with 1D6+1 balls. See CP2020 for details",
   "source": {
     "book": "BH",
     "page": 42
@@ -3871,7 +3862,7 @@
   "damage": "4D6",
   "burst": "10",
   "cost": 50,
-  "notes": "last 3 turns for damage.",
+  "details": "last 3 turns for damage.",
   "source": {
     "book": "BH",
     "page": 42
@@ -3888,7 +3879,7 @@
   "ammo": "",
   "damage": "2d6x1d6",
   "rel": "st",
-  "notes": "",
+  "details": "",
   "cost": 0,
   "source": {
     "book": "BH",
@@ -3911,7 +3902,7 @@
   "rof": 1,
   "rel": "st",
   "range": 150,
-  "notes": "Chemical or smoke",
+  "details": "Chemical or smoke",
   "cost": 30,
   "source": {
     "book": "BH",
@@ -3930,7 +3921,7 @@
   "damage": "2d6+1",
   "burst": "5",
   "rel": "st",
-  "notes": "",
+  "details": "",
   "cost": 0,
   "source": {
     "book": "BH",
@@ -3948,7 +3939,7 @@
   "ammo": "",
   "damage": "5d6",
   "rel": "st",
-  "notes": "Reduce armor by 2SP.1/2 real damage, 1/2 stun.",
+  "details": "Reduce armor by 2SP.1/2 real damage, 1/2 stun.",
   "cost": 0,
   "source": {
     "book": "BH",
@@ -3968,7 +3959,7 @@
   "damage": "3d6 Stun",
   "burst": "4",
   "rel": "st",
-  "notes": "",
+  "details": "",
   "cost": 0,
   "source": {
     "book": "BH",
@@ -3988,7 +3979,7 @@
   "damage": "2d6+1",
   "burst": "3",
   "rel": "st",
-  "notes": "",
+  "details": "",
   "cost": 20,
   "source": {
     "book": "BH",
@@ -4007,7 +3998,7 @@
   "damage": "50% -5 REF+Awa for 3 turns",
   "burst": "5",
   "rel": "st",
-  "notes": "Stun Save or -5 REF+Awareness for 5 turns",
+  "details": "Stun Save or -5 REF+Awareness for 5 turns",
   "cost": 15,
   "source": {
     "book": "BH",
@@ -4023,7 +4014,7 @@
   "damage": "5D6",
   "burst": "3",
   "cost": 30,
-  "notes": "1/2 real, 1/2 stun; -2SP",
+  "details": "1/2 real, 1/2 stun; -2SP",
   "source": {
     "book": "BH",
     "page": 41
@@ -4041,7 +4032,7 @@
   "damage": "4d6",
   "burst": "1",
   "rel": "st",
-  "notes": "Burns 3 turns, 3d6 damage 2nd turn, 2d6 third turn.",
+  "details": "Burns 3 turns, 3d6 damage 2nd turn, 2d6 third turn.",
   "cost": 0,
   "source": {
     "book": "BH",
@@ -4067,7 +4058,7 @@
   "subcategory": "",
   "burst": "3",
   "cost": 20,
-  "notes": "See CP2020 for Gas.",
+  "details": "See CP2020 for Gas.",
   "source": {
     "book": "BH",
     "page": 41
@@ -4089,7 +4080,7 @@
   "rof": 1,
   "rel": "st",
   "range": 1500,
-  "notes": "",
+  "details": "",
   "cost": 15,
   "source": {
     "book": "",
@@ -4112,7 +4103,7 @@
   "rof": 1,
   "rel": "st",
   "range": 1500,
-  "notes": "",
+  "details": "",
   "cost": 15,
   "source": {
     "book": "",
@@ -4135,7 +4126,7 @@
   "rof": 1,
   "rel": "st",
   "range": 1500,
-  "notes": "",
+  "details": "",
   "cost": 25,
   "source": {
     "book": "",
@@ -4158,7 +4149,7 @@
   "rof": 1,
   "rel": "st",
   "range": 1500,
-  "notes": "",
+  "details": "",
   "cost": 15,
   "source": {
     "book": "",
@@ -4179,7 +4170,7 @@
   "rof": 50,
   "rel": "ST",
   "range": 200,
-  "notes": "each hit, hits with 1d3 bullets. ",
+  "details": "each hit, hits with 1d3 bullets. ",
   "cost": 1000,
   "source": {
     "book": "LD",
@@ -4202,7 +4193,7 @@
   "rof": 35,
   "rel": "VR",
   "range": 500,
-  "notes": "",
+  "details": "",
   "cost": 1200,
   "source": {
     "book": "BH",
@@ -4225,7 +4216,7 @@
   "rof": 35,
   "rel": "ST",
   "range": 60,
-  "notes": "",
+  "details": "",
   "cost": 800,
   "source": {
     "book": "BH",
@@ -4248,7 +4239,7 @@
   "rof": 80,
   "rel": "ST",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 1110,
   "source": {
     "book": "BH",
@@ -4271,7 +4262,7 @@
   "rof": 30,
   "rel": "VR",
   "range": 450,
-  "notes": "",
+  "details": "",
   "cost": 1600,
   "source": {
     "book": "BH",
@@ -4292,7 +4283,7 @@
   "rof": 40,
   "rel": "VR",
   "range": 450,
-  "notes": "",
+  "details": "",
   "cost": 1800,
   "source": {
     "book": "BH",
@@ -4315,7 +4306,7 @@
   "rof": 30,
   "rel": "VR",
   "range": 1000,
-  "notes": "",
+  "details": "",
   "cost": 1500,
   "source": {
     "book": "UK",
@@ -4338,7 +4329,7 @@
   "rof": 30,
   "rel": "VR",
   "range": 450,
-  "notes": "",
+  "details": "",
   "cost": 2050,
   "source": {
     "book": "BH",
@@ -4360,7 +4351,7 @@
   "rof": 20,
   "rel": "VR",
   "range": 500,
-  "notes": "",
+  "details": "",
   "cost": 1000,
   "source": {
     "book": "BH",
@@ -4383,7 +4374,7 @@
   "rof": 10,
   "rel": "VR",
   "range": 600,
-  "notes": "",
+  "details": "",
   "cost": 2000,
   "source": {
     "book": "BH",
@@ -4428,7 +4419,7 @@
   "rof": "60",
   "rel": "ST",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 1600,
   "source": {
     "book": "BH",
@@ -4451,7 +4442,7 @@
   "rof": 20,
   "rel": "VR",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 1000,
   "source": {
     "book": "BH",
@@ -4472,7 +4463,7 @@
   "rof": 20,
   "rel": "ST",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 1100,
   "source": {
     "book": "BH",
@@ -4495,7 +4486,7 @@
   "rof": 33,
   "rel": "ST",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 3300,
   "source": {
     "book": "SW",
@@ -4518,7 +4509,7 @@
   "rof": 20,
   "rel": "ST",
   "range": 500,
-  "notes": "",
+  "details": "",
   "cost": 1000,
   "source": {
     "book": "BH",
@@ -4541,7 +4532,7 @@
   "rof": 35,
   "rel": "VR",
   "range": 500,
-  "notes": "",
+  "details": "",
   "cost": 2500,
   "source": {
     "book": "BH",
@@ -4560,7 +4551,7 @@
   "damage": "3d6+2",
   "rel": "VR",
   "range": 2,
-  "notes": "",
+  "details": "",
   "cost": 150,
   "source": {
     "book": "PAC",
@@ -4579,7 +4570,7 @@
   "damage": "1d6*",
   "rel": "st",
   "range": 1,
-  "notes": "",
+  "details": "",
   "cost": 28,
   "source": {
     "book": "PAC",
@@ -4598,7 +4589,7 @@
   "ammo": "",
   "damage": "2d6",
   "rel": "st",
-  "notes": "",
+  "details": "",
   "cost": 20,
   "source": {
     "book": "BH",
@@ -4619,7 +4610,7 @@
   "damage": "2d6",
   "rel": "st",
   "range": 1,
-  "notes": "",
+  "details": "",
   "cost": 45,
   "source": {
     "book": "PAC",
@@ -4639,7 +4630,7 @@
   "damage": "1d6/3*",
   "rel": "st",
   "range": 1,
-  "notes": "",
+  "details": "",
   "cost": 15,
   "source": {
     "book": "PAC",
@@ -4658,7 +4649,7 @@
   "ammo": "",
   "damage": "1d6",
   "rel": "VR",
-  "notes": "",
+  "details": "",
   "cost": 50,
   "source": {
     "book": "BH",
@@ -4678,7 +4669,7 @@
   "damage": "1d6",
   "rel": "st",
   "range": 0,
-  "notes": "",
+  "details": "",
   "cost": 7,
   "source": {
     "book": "PAC",
@@ -4698,7 +4689,7 @@
   "ammo": "",
   "damage": "1d6+2",
   "rel": "st",
-  "notes": "",
+  "details": "",
   "cost": 10,
   "source": {
     "book": "BH",
@@ -4717,7 +4708,7 @@
   "damage": "4d6",
   "rel": "st",
   "range": 2,
-  "notes": "",
+  "details": "",
   "cost": 80,
   "source": {
     "book": "BH",
@@ -4736,7 +4727,7 @@
   "ammo": "",
   "damage": "1d6",
   "rel": "st",
-  "notes": "",
+  "details": "",
   "cost": 0,
   "source": {
     "book": "BH",
@@ -4755,7 +4746,7 @@
   "damage": "1D6+3",
   "rel": "st",
   "range": 1,
-  "notes": "",
+  "details": "",
   "cost": 70,
   "source": {
     "book": "PAC",
@@ -4774,7 +4765,7 @@
   "ammo": "--",
   "damage": "2d6",
   "rel": "st",
-  "notes": "",
+  "details": "",
   "cost": 50,
   "source": {
     "book": "BH",
@@ -4795,7 +4786,7 @@
   "shots": 6,
   "rof": 1,
   "rel": "ST",
-  "notes": "Mace canisters cost 5eb for a six pack.",
+  "details": "Mace canisters cost 5eb for a six pack.",
   "cost": 80,
   "source": {
     "book": "BH",
@@ -4813,7 +4804,7 @@
   "ammo": "",
   "damage": "2d6+3",
   "rel": "VR",
-  "notes": "",
+  "details": "",
   "cost": 80,
   "source": {
     "book": "BH",
@@ -4833,7 +4824,7 @@
   "shots": 8,
   "rof": 1,
   "rel": "ST",
-  "notes": "",
+  "details": "",
   "cost": 80,
   "source": {
     "book": "BH",
@@ -4852,7 +4843,7 @@
   "damage": "3d6",
   "rel": "st",
   "range": 2,
-  "notes": "",
+  "details": "",
   "cost": 95,
   "source": {
     "book": "PAC",
@@ -4872,7 +4863,7 @@
   "damage": "2d6",
   "rel": "st",
   "range": 1,
-  "notes": "",
+  "details": "",
   "cost": 30,
   "source": {
     "book": "PAC",
@@ -4891,7 +4882,7 @@
   "damage": "1d6/3",
   "rel": "st",
   "range": 0,
-  "notes": "Shots = REF/2",
+  "details": "Shots = REF/2",
   "cost": 5,
   "source": {
     "book": "PAC",
@@ -4911,7 +4902,7 @@
   "ammo": "--",
   "damage": "2d6+1",
   "rel": "VR",
-  "notes": "",
+  "details": "",
   "cost": 120,
   "source": {
     "book": "BH",
@@ -4931,7 +4922,7 @@
   "damage": "2d6",
   "rel": "st",
   "range": 1,
-  "notes": "",
+  "details": "",
   "cost": 30,
   "source": {
     "book": "PAC",
@@ -4950,7 +4941,7 @@
   "damage": "3d6",
   "rel": "st",
   "range": 2,
-  "notes": "",
+  "details": "",
   "cost": 120,
   "source": {
     "book": "PAC",
@@ -4986,7 +4977,7 @@
   "ammo": "",
   "damage": "4d6 (Sx1/4 Hx1/2)",
   "rel": "ST",
-  "notes": "Breaks on 5 or less on 1D10 on Fumble parry.",
+  "details": "Breaks on 5 or less on 1D10 on Fumble parry.",
   "cost": 860,
   "source": {
     "book": "BH",
@@ -5006,7 +4997,7 @@
   "damage": "4D6",
   "rel": "VR",
   "cost": 700,
-  "notes": "Shatters on 2 or less on 1D10 on parry fumbles.",
+  "details": "Shatters on 2 or less on 1D10 on parry fumbles.",
   "source": {
     "book": "BH",
     "page": 3
@@ -5023,7 +5014,7 @@
   "ammo": "",
   "damage": "2d6",
   "rel": "VR",
-  "notes": "Shatters on 2 or less on 1D10 on parry fumbles.",
+  "details": "Shatters on 2 or less on 1D10 on parry fumbles.",
   "cost": 650,
   "source": {
     "book": "BH",
@@ -5042,7 +5033,7 @@
   "ammo": "",
   "damage": "4d6",
   "rel": "VR",
-  "notes": "Shatters on 2 or less on 1D10 on parry fumbles.",
+  "details": "Shatters on 2 or less on 1D10 on parry fumbles.",
   "cost": 600,
   "source": {
     "book": "BH",
@@ -5063,7 +5054,7 @@
   "burst": 0,
   "rel": "VR",
   "range": 1,
-  "notes": "",
+  "details": "",
   "cost": 200,
   "source": {
     "book": "CP20",
@@ -5083,7 +5074,7 @@
   "damage": "4d6",
   "rel": "VR",
   "range": 2,
-  "notes": "",
+  "details": "",
   "cost": 700,
   "source": {
     "book": "BH",
@@ -5103,7 +5094,7 @@
   "damage": "2d6",
   "rel": "ST",
   "range": 3,
-  "notes": "Double damage on crit",
+  "details": "Double damage on crit",
   "cost": 350,
   "source": {
     "book": "BH",
@@ -5123,7 +5114,7 @@
   "damage": "1d6",
   "rel": "st",
   "range": 0,
-  "notes": "Cost ranges between 1-20eb",
+  "details": "Cost ranges between 1-20eb",
   "cost": 10,
   "source": {
     "book": "BH",
@@ -5144,7 +5135,7 @@
   "damage": "2d6",
   "rel": "st",
   "range": 1,
-  "notes": "",
+  "details": "",
   "cost": 100,
   "source": {
     "book": "PAC",
@@ -5164,7 +5155,7 @@
   "damage": "2d6*",
   "rel": "st",
   "range": 2,
-  "notes": "",
+  "details": "",
   "cost": 100,
   "source": {
     "book": "PAC",
@@ -5184,7 +5175,7 @@
   "damage": "1d6+3",
   "rel": "st",
   "range": 1,
-  "notes": "",
+  "details": "",
   "cost": 25,
   "source": {
     "book": "PAC",
@@ -5204,7 +5195,7 @@
   "damage": "3d6+2",
   "rel": "st",
   "range": 2,
-  "notes": "",
+  "details": "",
   "cost": 40,
   "source": {
     "book": "PAC",
@@ -5224,7 +5215,7 @@
   "burst": 0,
   "rel": "st",
   "range": 1,
-  "notes": "",
+  "details": "",
   "cost": 30,
   "source": {
     "book": "PAC",
@@ -5243,7 +5234,7 @@
   "damage": "3d6",
   "rel": "VR",
   "range": 1,
-  "notes": "",
+  "details": "",
   "cost": 255,
   "source": {
     "book": "SOF2",
@@ -5263,7 +5254,7 @@
   "damage": "1d6+1",
   "rel": "VR",
   "range": 1,
-  "notes": "If used 2-handed, 2d6+1 damage. Can switch to Nunchakus (see that for dmg, etc.)",
+  "details": "If used 2-handed, 2d6+1 damage. Can switch to Nunchakus (see that for dmg, etc.)",
   "cost": 200,
   "source": {
     "book": "BH",
@@ -5284,7 +5275,7 @@
   "burst": 0,
   "rel": "ST",
   "range": 5,
-  "notes": "2 rounds to reload",
+  "details": "2 rounds to reload",
   "cost": 125,
   "source": {
     "book": "BH",
@@ -5304,7 +5295,7 @@
   "damage": "3d6",
   "rel": "st",
   "range": 2,
-  "notes": "",
+  "details": "",
   "cost": 100,
   "source": {
     "book": "BH",
@@ -5324,7 +5315,7 @@
   "damage": "1d6+2",
   "rel": "ST",
   "range": 3,
-  "notes": "Requires Machine Link to use",
+  "details": "Requires Machine Link to use",
   "cost": 600,
   "source": {
     "book": "BH",
@@ -5342,7 +5333,7 @@
   "ammo": "",
   "damage": "3d6",
   "rel": "st",
-  "notes": "",
+  "details": "",
   "cost": 15,
   "source": {
     "book": "BH",
@@ -5360,7 +5351,7 @@
   "ammo": "",
   "damage": "4d6",
   "rel": "st",
-  "notes": "",
+  "details": "",
   "cost": 450,
   "source": {
     "book": "PAC",
@@ -5396,7 +5387,7 @@
   "ammo": "",
   "damage": "2d6+2",
   "rel": "st",
-  "notes": "",
+  "details": "",
   "cost": 20,
   "source": {
     "book": "PAC",
@@ -5416,7 +5407,7 @@
   "damage": "3d6+2",
   "rel": "st",
   "range": 2,
-  "notes": "",
+  "details": "",
   "cost": 50,
   "source": {
     "book": "PAC",
@@ -5434,7 +5425,7 @@
   "ammo": "",
   "damage": "1D6/3",
   "rel": "st",
-  "notes": "Can add poison.",
+  "details": "Can add poison.",
   "cost": 3,
   "source": {
     "book": "BH",
@@ -5454,7 +5445,7 @@
   "ammo": "--",
   "damage": "1d6",
   "rel": "ST",
-  "notes": "if damage penetrating SP is 4 or more, do 1d6+3 more damage.",
+  "details": "if damage penetrating SP is 4 or more, do 1d6+3 more damage.",
   "cost": 450,
   "source": {
     "book": "BH",
@@ -5475,7 +5466,7 @@
   "damage": "4d6",
   "burst": 0,
   "rel": "st",
-  "notes": "",
+  "details": "",
   "cost": 20,
   "source": {
     "book": "BH",
@@ -5511,7 +5502,7 @@
   "damage": "1d6*",
   "rel": "st",
   "range": 1,
-  "notes": "",
+  "details": "",
   "cost": 20,
   "source": {
     "book": "PAC",
@@ -5530,7 +5521,7 @@
   "damage": "2d6",
   "rel": "VR",
   "range": 1,
-  "notes": "Damage is for punch. Crush damage 3D6. Can have 3 cyberarm options.",
+  "details": "Damage is for punch. Crush damage 3D6. Can have 3 cyberarm options.",
   "cost": 900,
   "source": {
     "book": "BH",
@@ -5549,7 +5540,7 @@
   "damage": "2d6",
   "rel": "VR",
   "range": 1,
-  "notes": "",
+  "details": "",
   "cost": 970,
   "source": {
     "book": "PAC",
@@ -5569,7 +5560,7 @@
   "damage": "3d6",
   "rel": "VR",
   "range": 1,
-  "notes": "",
+  "details": "",
   "cost": 15,
   "source": {
     "book": "HOB",
@@ -5588,7 +5579,7 @@
   "ammo": "",
   "damage": "1d6/2",
   "rel": "st",
-  "notes": "",
+  "details": "",
   "cost": 15,
   "source": {
     "book": "BH",
@@ -5607,7 +5598,7 @@
   "ammo": "",
   "damage": "2D6+2",
   "rel": "st",
-  "notes": "Cost ranges 20-200eb. ",
+  "details": "Cost ranges 20-200eb. ",
   "cost": 110,
   "source": {
     "book": "BH",
@@ -5627,7 +5618,7 @@
   "damage": "1d6/2*",
   "rel": "st",
   "range": 1,
-  "notes": "",
+  "details": "",
   "cost": 25,
   "source": {
     "book": "PAC",
@@ -5646,7 +5637,7 @@
   "damage": "1d6+2",
   "rel": "st",
   "range": 1,
-  "notes": "",
+  "details": "",
   "cost": 60,
   "source": {
     "book": "PAC",
@@ -5665,7 +5656,7 @@
   "damage": "1d6/2",
   "rel": "st",
   "range": 0,
-  "notes": "",
+  "details": "",
   "cost": 6,
   "source": {
     "book": "PAC",
@@ -5685,7 +5676,7 @@
   "ammo": "",
   "damage": "2d6",
   "rel": "st",
-  "notes": "",
+  "details": "",
   "cost": 15,
   "source": {
     "book": "BH",
@@ -5703,7 +5694,7 @@
   "ammo": "",
   "damage": "1D6+3",
   "rel": "st",
-  "notes": "",
+  "details": "",
   "cost": 60,
   "source": {
     "book": "BH",
@@ -5723,7 +5714,7 @@
   "damage": "3d6",
   "rel": "VR",
   "range": 1,
-  "notes": "",
+  "details": "",
   "cost": 100,
   "source": {
     "book": "SW",
@@ -5743,7 +5734,7 @@
   "damage": "2d6",
   "rel": "st",
   "range": 2,
-  "notes": "",
+  "details": "",
   "cost": 100,
   "source": {
     "book": "PAC",
@@ -5779,7 +5770,7 @@
   "ammo": "",
   "damage": "2d6",
   "rel": "st",
-  "notes": "",
+  "details": "",
   "cost": 150,
   "source": {
     "book": "PAC",
@@ -5804,7 +5795,7 @@
   "rel": "ST",
   "range": 2,
   "cost": 2000,
-  "notes": "Reduce Soft Armor by 2\nReduce Hard Armor by 1D6+4",
+  "details": "Reduce Soft Armor by 2\nReduce Hard Armor by 1D6+4",
   "source": {
     "book": "BH",
     "page": 38
@@ -5825,7 +5816,7 @@
   "rof": 2,
   "rel": "VR",
   "range": 60,
-  "notes": "",
+  "details": "",
   "cost": 2000,
   "source": {
     "book": "BH",
@@ -5847,7 +5838,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 80,
-  "notes": "",
+  "details": "",
   "cost": 4000,
   "source": {
     "book": "BH",
@@ -5868,7 +5859,7 @@
   "rof": "2",
   "rel": "UR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 350,
   "source": {
     "book": "BH",
@@ -5889,7 +5880,7 @@
   "rof": "2",
   "rel": "UR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 60,
   "source": {
     "book": "BH",
@@ -5910,7 +5901,7 @@
   "rof": 1,
   "rel": "UR",
   "range": 50,
-  "notes": "60% change explodes doing 2d6+1 on misfire.",
+  "details": "60% change explodes doing 2d6+1 on misfire.",
   "cost": 75,
   "source": {
     "book": "BH",
@@ -5931,7 +5922,7 @@
   "rof": "2",
   "rel": "ST",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 595,
   "source": {
     "book": "BH",
@@ -5953,7 +5944,7 @@
   "rof": 3,
   "rel": "VR",
   "range": 50,
-  "notes": "20 shot magazine increase Conc to L.",
+  "details": "20 shot magazine increase Conc to L.",
   "cost": 425,
   "source": {
     "book": "BH",
@@ -5974,7 +5965,7 @@
   "rof": 3,
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 460,
   "source": {
     "book": "BH",
@@ -5995,7 +5986,7 @@
   "rof": "2",
   "rel": "ST",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 480,
   "source": {
     "book": "BH",
@@ -6018,7 +6009,7 @@
   "rof": 2,
   "rel": "UR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 0,
   "source": {
     "book": "",
@@ -6039,7 +6030,7 @@
   "rof": "2",
   "rel": "UR",
   "range": 50,
-  "notes": "Also includes an automatic\nP +1 J/L 2d6+2(.45ACP) 10 2 UR 50m",
+  "details": "Also includes an automatic\nP +1 J/L 2d6+2(.45ACP) 10 2 UR 50m",
   "cost": 850,
   "source": {
     "book": "BH",
@@ -6060,7 +6051,7 @@
   "rof": "2",
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 400,
   "source": {
     "book": "BH",
@@ -6081,7 +6072,7 @@
   "rof": "2",
   "rel": "VR",
   "range": 100,
-  "notes": "damage is for close, increase further away the target is.",
+  "details": "damage is for close, increase further away the target is.",
   "cost": 1100,
   "source": {
     "book": "BH",
@@ -6103,7 +6094,7 @@
   "rof": "2",
   "rel": "UR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 75,
   "source": {
     "book": "BH",
@@ -6125,7 +6116,7 @@
   "rof": "2",
   "rel": "ST",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 75,
   "source": {
     "book": "BH",
@@ -6146,7 +6137,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 200,
   "source": {
     "book": "CP20",
@@ -6167,7 +6158,7 @@
   "rof": "2",
   "rel": "UR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 50,
   "source": {
     "book": "BH",
@@ -6188,7 +6179,7 @@
   "rof": "2",
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 60,
   "source": {
     "book": "BH",
@@ -6209,7 +6200,7 @@
   "rof": "2",
   "rel": "ST",
   "range": 50,
-  "notes": "Polymer-one-shot. Cost is between 50-150eb.",
+  "details": "Polymer-one-shot. Cost is between 50-150eb.",
   "cost": 100,
   "source": {
     "book": "BH",
@@ -6231,7 +6222,7 @@
   "rof": "2",
   "rel": "ST",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 35,
   "source": {
     "book": "BH",
@@ -6252,7 +6243,7 @@
   "rof": "2",
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 450,
   "source": {
     "book": "BH",
@@ -6273,7 +6264,7 @@
   "rof": "2",
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 400,
   "source": {
     "book": "BH",
@@ -6294,7 +6285,7 @@
   "rof": "2",
   "rel": "VR",
   "range": 50,
-  "notes": "integral laser sight",
+  "details": "integral laser sight",
   "cost": 480,
   "source": {
     "book": "BH",
@@ -6315,7 +6306,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 200,
   "source": {
     "book": "UK",
@@ -6336,7 +6327,7 @@
   "rof": "3",
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 600,
   "source": {
     "book": "BH",
@@ -6357,7 +6348,7 @@
   "rof": "20",
   "rel": "ST",
   "range": 50,
-  "notes": "35 snail clip, increase Conc. L. Integral Laser Sight",
+  "details": "35 snail clip, increase Conc. L. Integral Laser Sight",
   "cost": 675,
   "source": {
     "book": "BH",
@@ -6380,7 +6371,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 250,
   "source": {
     "book": "CP20",
@@ -6401,7 +6392,7 @@
   "rof": "2",
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 450,
   "source": {
     "book": "NEO",
@@ -6422,7 +6413,7 @@
   "rof": "2",
   "rel": "ST",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 75,
   "source": {
     "book": "BH",
@@ -6444,7 +6435,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 100,
   "source": {
     "book": "CP20",
@@ -6465,7 +6456,7 @@
   "rof": "2",
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 500,
   "source": {
     "book": "BH",
@@ -6486,7 +6477,7 @@
   "rof": "2",
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 500,
   "source": {
     "book": "BH",
@@ -6507,7 +6498,7 @@
   "rof": "2",
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 550,
   "source": {
     "book": "BH",
@@ -6528,7 +6519,7 @@
   "rof": "2",
   "rel": "UR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 250,
   "source": {
     "book": "BH",
@@ -6549,7 +6540,7 @@
   "rof": 2,
   "rel": "UR",
   "range": 25,
-  "notes": "",
+  "details": "",
   "cost": 40,
   "source": {
     "book": "BH",
@@ -6570,7 +6561,7 @@
   "rof": "2",
   "rel": "ST",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 300,
   "source": {
     "book": "BH",
@@ -6591,7 +6582,7 @@
   "rof": 3,
   "rel": "ST",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 425,
   "source": {
     "book": "BH",
@@ -6613,7 +6604,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 150,
   "source": {
     "book": "UK",
@@ -6635,7 +6626,7 @@
   "rof": "1",
   "rel": "VR",
   "range": 50,
-  "notes": "30rd magazine increase conc to L",
+  "details": "30rd magazine increase conc to L",
   "cost": 705,
   "source": {
     "book": "BH",
@@ -6657,7 +6648,7 @@
   "rof": 2,
   "rel": "ST",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 275,
   "source": {
     "book": "BH",
@@ -6679,7 +6670,7 @@
   "rel": "ST",
   "range": 50,
   "cost": 400,
-  "notes": "30rd magazine available.",
+  "details": "30rd magazine available.",
   "source": {
     "book": "BH",
     "page": 12
@@ -6699,7 +6690,7 @@
   "rof": "2",
   "rel": "ST",
   "range": 30,
-  "notes": "",
+  "details": "",
   "cost": 320,
   "source": {
     "book": "BH",
@@ -6722,7 +6713,7 @@
   "rof": 2,
   "rel": "VR",
   "range": 50,
-  "notes": "integral Lasersight; 15rd magazine increase conc to J",
+  "details": "integral Lasersight; 15rd magazine increase conc to J",
   "cost": 575,
   "source": {
     "book": "BH",
@@ -6743,7 +6734,7 @@
   "rof": "2",
   "rel": "UR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 35,
   "source": {
     "book": "BH",
@@ -6764,7 +6755,7 @@
   "rof": "2",
   "rel": "UR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 150,
   "source": {
     "book": "BH",
@@ -6785,7 +6776,7 @@
   "rof": "2",
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 250,
   "source": {
     "book": "BH",
@@ -6807,7 +6798,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 30,
-  "notes": "Flechette can be drugged.",
+  "details": "Flechette can be drugged.",
   "cost": 400,
   "source": {
     "book": "BH",
@@ -6830,7 +6821,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 30,
-  "notes": "Hits with 1d6/2 + 2 flechettes, doing 1d6/3 damage plus drugs/poison",
+  "details": "Hits with 1d6/2 + 2 flechettes, doing 1d6/3 damage plus drugs/poison",
   "cost": 300,
   "source": {
     "book": "BH",
@@ -6852,7 +6843,7 @@
   "rof": "2",
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 300,
   "source": {
     "book": "BH",
@@ -6873,7 +6864,7 @@
   "rof": "2",
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 250,
   "source": {
     "book": "BH",
@@ -6894,7 +6885,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 125,
   "source": {
     "book": "CP20",
@@ -6915,7 +6906,7 @@
   "rof": "2",
   "rel": "UR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 60,
   "source": {
     "book": "BH",
@@ -6936,7 +6927,7 @@
   "rof": "2",
   "rel": "ST",
   "range": 50,
-  "notes": "Triple shell resolve as a 3rd Burst",
+  "details": "Triple shell resolve as a 3rd Burst",
   "cost": 275,
   "source": {
     "book": "BH",
@@ -6958,7 +6949,7 @@
   "rof": "2",
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 425,
   "source": {
     "book": "BH",
@@ -6979,7 +6970,7 @@
   "rof": 2,
   "rel": "VR",
   "range": 50,
-  "notes": "Rare in USA",
+  "details": "Rare in USA",
   "cost": 450,
   "source": {
     "book": "BH",
@@ -7000,7 +6991,7 @@
   "rof": "2",
   "rel": "ST",
   "range": 25,
-  "notes": "",
+  "details": "",
   "cost": 30,
   "source": {
     "book": "BH",
@@ -7021,7 +7012,7 @@
   "rof": "2",
   "rel": "UR",
   "range": 50,
-  "notes": "60% autofire will melt gun.",
+  "details": "60% autofire will melt gun.",
   "cost": 36,
   "source": {
     "book": "BH",
@@ -7043,7 +7034,7 @@
   "rof": "2",
   "rel": "UR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 420,
   "source": {
     "book": "BH",
@@ -7064,7 +7055,7 @@
   "rof": "2",
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 500,
   "source": {
     "book": "BH",
@@ -7085,7 +7076,7 @@
   "rof": "16",
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 520,
   "source": {
     "book": "BH",
@@ -7108,7 +7099,7 @@
   "rof": "3",
   "rel": "VR",
   "range": 5,
-  "notes": "",
+  "details": "",
   "cost": 5300,
   "source": {
     "book": "BH",
@@ -7129,7 +7120,7 @@
   "rof": "2",
   "rel": "VR",
   "range": 50,
-  "notes": "Shots are between 15-21\nCost is 250-300eb",
+  "details": "Shots are between 15-21\nCost is 250-300eb",
   "cost": 240,
   "source": {
     "book": "BH",
@@ -7150,7 +7141,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 40,
-  "notes": "",
+  "details": "",
   "cost": 100,
   "source": {
     "book": "BH",
@@ -7171,7 +7162,7 @@
   "rof": "2",
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 1000,
   "source": {
     "book": "BH",
@@ -7192,7 +7183,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 450,
   "source": {
     "book": "BH",
@@ -7213,7 +7204,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 500,
   "source": {
     "book": "BH",
@@ -7235,7 +7226,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 50,
-  "notes": "See Protect & Serve for ammunition",
+  "details": "See Protect & Serve for ammunition",
   "cost": 525,
   "source": {
     "book": "BH",
@@ -7257,7 +7248,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 375,
   "source": {
     "book": "BH",
@@ -7278,7 +7269,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 200,
   "source": {
     "book": "CP20",
@@ -7300,7 +7291,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 4525,
   "source": {
     "book": "BH",
@@ -7321,7 +7312,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 50,
-  "notes": "Acc(+1) and Conc(L) drops with brace or cyberarm",
+  "details": "Acc(+1) and Conc(L) drops with brace or cyberarm",
   "cost": 450,
   "source": {
     "book": "BH",
@@ -7342,7 +7333,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 375,
   "source": {
     "book": "BH",
@@ -7364,7 +7355,7 @@
   "rof": "2",
   "rel": "VR",
   "range": 100,
-  "notes": "",
+  "details": "",
   "cost": 1799,
   "source": {
     "book": "BH",
@@ -7385,7 +7376,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 80,
-  "notes": "",
+  "details": "",
   "cost": 1199,
   "source": {
     "book": "BH",
@@ -7406,7 +7397,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 80,
-  "notes": "",
+  "details": "",
   "cost": 1499,
   "source": {
     "book": "BH",
@@ -7427,7 +7418,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 60,
-  "notes": "",
+  "details": "",
   "cost": 999,
   "source": {
     "book": "BH",
@@ -7448,7 +7439,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 550,
   "source": {
     "book": "BH",
@@ -7470,7 +7461,7 @@
   "rof": 10,
   "rel": "VR",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 2500,
   "source": {
     "book": "BH",
@@ -7493,7 +7484,7 @@
   "rof": 20,
   "rel": "VR",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 200,
   "source": {
     "book": "CP20",
@@ -7515,7 +7506,7 @@
   "rof": "30",
   "rel": "ST",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 500,
   "source": {
     "book": "BH",
@@ -7538,7 +7529,7 @@
   "rof": "30",
   "rel": "VR",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 800,
   "source": {
     "book": "BH",
@@ -7561,7 +7552,7 @@
   "rof": "25",
   "rel": "ST",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 125,
   "source": {
     "book": "BH",
@@ -7584,7 +7575,7 @@
   "rof": 20,
   "rel": "VR",
   "range": 400,
-  "notes": "Undermount: HVY -2 - - 25mm 6 2 ST 200m",
+  "details": "Undermount: HVY -2 - - 25mm 6 2 ST 200m",
   "cost": 1550,
   "source": {
     "book": "BH",
@@ -7605,7 +7596,7 @@
   "rof": "30",
   "rel": "VR",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 750,
   "source": {
     "book": "BH",
@@ -7629,7 +7620,7 @@
   "rof": "25",
   "rel": "ST",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 300,
   "source": {
     "book": "BH",
@@ -7652,7 +7643,7 @@
   "rof": "4",
   "rel": "VR",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 1400,
   "source": {
     "book": "BH",
@@ -7675,7 +7666,7 @@
   "rof": "25",
   "rel": "VR",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 400,
   "source": {
     "book": "BH",
@@ -7698,7 +7689,7 @@
   "rof": "21",
   "rel": "VR",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 450,
   "source": {
     "book": "BH",
@@ -7721,7 +7712,7 @@
   "rof": "30",
   "rel": "VR",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 600,
   "source": {
     "book": "BH",
@@ -7744,7 +7735,7 @@
   "rof": "25",
   "rel": "ST",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 550,
   "source": {
     "book": "BH",
@@ -7767,7 +7758,7 @@
   "rof": 20,
   "rel": "VR",
   "range": 500,
-  "notes": "",
+  "details": "",
   "cost": 500,
   "source": {
     "book": "UK",
@@ -7788,7 +7779,7 @@
   "rof": 25,
   "rel": "UR",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 200,
   "source": {
     "book": "CP20",
@@ -7809,7 +7800,7 @@
   "rof": 30,
   "rel": "VR",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 700,
   "source": {
     "book": "BH",
@@ -7832,7 +7823,7 @@
   "rof": "30",
   "rel": "ST",
   "range": 400,
-  "notes": "Undermount: HVY -1 - - 25mm 4 2 ST 150m",
+  "details": "Undermount: HVY -1 - - 25mm 4 2 ST 150m",
   "cost": 1695,
   "source": {
     "book": "BH",
@@ -7855,7 +7846,7 @@
   "rof": "4",
   "rel": "ST",
   "range": 600,
-  "notes": "",
+  "details": "",
   "cost": 1500,
   "source": {
     "book": "SW",
@@ -7878,7 +7869,7 @@
   "rof": "30",
   "rel": "VR",
   "range": 400,
-  "notes": "can switch ammo to 5.56mm (5d6)",
+  "details": "can switch ammo to 5.56mm (5d6)",
   "cost": 800,
   "source": {
     "book": "BH",
@@ -7901,7 +7892,7 @@
   "rof": "30",
   "rel": "VR",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 450,
   "source": {
     "book": "BH",
@@ -7925,7 +7916,7 @@
   "rof": "20",
   "rel": "VR",
   "range": 500,
-  "notes": "Damage can be lowered to 2d6+1 or 4d6.\n2 45round magazines ",
+  "details": "Damage can be lowered to 2d6+1 or 4d6.\n2 45round magazines ",
   "cost": 1800,
   "source": {
     "book": "BH",
@@ -7948,7 +7939,7 @@
   "rof": "30",
   "rel": "VR",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 750,
   "source": {
     "book": "BH",
@@ -7971,7 +7962,7 @@
   "rof": "30",
   "rel": "VR",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 900,
   "source": {
     "book": "BH",
@@ -7994,7 +7985,7 @@
   "rof": 20,
   "rel": "VR",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 400,
   "source": {
     "book": "CP20",
@@ -8017,7 +8008,7 @@
   "rof": "45",
   "rel": "VR",
   "range": 400,
-  "notes": "Undermount: HVY 0 - - 25mm 4 2 ST 150m",
+  "details": "Undermount: HVY 0 - - 25mm 4 2 ST 150m",
   "cost": 4200,
   "source": {
     "book": "BH",
@@ -8040,7 +8031,7 @@
   "rof": "30",
   "rel": "ST",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 1500,
   "source": {
     "book": "BH",
@@ -8064,7 +8055,7 @@
   "rof": 10,
   "rel": "VR",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 2000,
   "source": {
     "book": "BH",
@@ -8087,7 +8078,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 650,
   "source": {
     "book": "NEO",
@@ -8108,7 +8099,7 @@
   "rof": "30",
   "rel": "VR",
   "range": 250,
-  "notes": "",
+  "details": "",
   "cost": 750,
   "source": {
     "book": "BH",
@@ -8131,7 +8122,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 500,
-  "notes": "",
+  "details": "",
   "cost": 750,
   "source": {
     "book": "BH",
@@ -8153,7 +8144,7 @@
   "rof": 2,
   "rel": "ST",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 5000,
   "source": {
     "book": "BH",
@@ -8175,7 +8166,7 @@
   "rof": 2,
   "rel": "VR",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 0,
   "source": {
     "book": "SW",
@@ -8196,7 +8187,7 @@
   "rof": "20",
   "rel": "ST",
   "range": 500,
-  "notes": "",
+  "details": "",
   "cost": 800,
   "source": {
     "book": "BH",
@@ -8219,7 +8210,7 @@
   "rof": "30",
   "rel": "VR",
   "range": 250,
-  "notes": "",
+  "details": "",
   "cost": 650,
   "source": {
     "book": "BH",
@@ -8242,7 +8233,7 @@
   "rof": "2",
   "rel": "VR",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 500,
   "source": {
     "book": "BH",
@@ -8265,7 +8256,7 @@
   "rof": "2",
   "rel": "VR",
   "range": 100,
-  "notes": "WA 0 with 3 round burst",
+  "details": "WA 0 with 3 round burst",
   "cost": 400,
   "source": {
     "book": "BH",
@@ -8287,7 +8278,7 @@
   "rof": 2,
   "rel": "VR",
   "range": 100,
-  "notes": "",
+  "details": "",
   "cost": 300,
   "source": {
     "book": "BH",
@@ -8308,7 +8299,7 @@
   "rof": 2,
   "rel": "VR",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 650,
   "source": {
     "book": "BH",
@@ -8329,7 +8320,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 400,
-  "notes": "",
+  "details": "",
   "cost": 500,
   "source": {
     "book": "BH",
@@ -8350,7 +8341,7 @@
   "rof": 1,
   "rel": "UR",
   "range": 100,
-  "notes": "",
+  "details": "",
   "cost": 90,
   "source": {
     "book": "BH",
@@ -8371,7 +8362,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 100,
-  "notes": "",
+  "details": "",
   "cost": 1650,
   "source": {
     "book": "BH",
@@ -8392,7 +8383,7 @@
   "rof": 3,
   "rel": "VR",
   "range": 800,
-  "notes": "Medium range 6d6+1, Long range 7d6, Extreme range 7d6+3",
+  "details": "Medium range 6d6+1, Long range 7d6, Extreme range 7d6+3",
   "cost": 1230,
   "source": {
     "book": "BH",
@@ -8413,7 +8404,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 1200,
-  "notes": "",
+  "details": "",
   "cost": 2000,
   "source": {
     "book": "SW",
@@ -8434,7 +8425,7 @@
   "rof": 2,
   "rel": "VR",
   "range": 600,
-  "notes": "smartchipped already added to WA",
+  "details": "smartchipped already added to WA",
   "cost": 2400,
   "source": {
     "book": "BH",
@@ -8455,7 +8446,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 1000,
-  "notes": "",
+  "details": "",
   "cost": 1500,
   "source": {
     "book": "BH",
@@ -8476,7 +8467,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 450,
-  "notes": "",
+  "details": "",
   "cost": 2000,
   "source": {
     "book": "BH",
@@ -8497,7 +8488,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 1000,
-  "notes": "",
+  "details": "",
   "cost": 2500,
   "source": {
     "book": "SW",
@@ -8518,7 +8509,7 @@
   "rof": 2,
   "rel": "ST",
   "range": 500,
-  "notes": "",
+  "details": "",
   "cost": 1100,
   "source": {
     "book": "BH",
@@ -8539,7 +8530,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 900,
-  "notes": "",
+  "details": "",
   "cost": 3000,
   "source": {
     "book": "BH",
@@ -8560,7 +8551,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 600,
-  "notes": "API rounds",
+  "details": "API rounds",
   "cost": 1000,
   "source": {
     "book": "BH",
@@ -8583,7 +8574,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 500,
-  "notes": "",
+  "details": "",
   "cost": 1000,
   "source": {
     "book": "SW",
@@ -8604,7 +8595,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 1200,
-  "notes": "",
+  "details": "",
   "cost": 3000,
   "source": {
     "book": "BH",
@@ -8626,7 +8617,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 1000,
-  "notes": "",
+  "details": "",
   "cost": 900,
   "source": {
     "book": "UK",
@@ -8648,7 +8639,7 @@
   "rof": 1,
   "rel": "VR",
   "range": 500,
-  "notes": "",
+  "details": "",
   "cost": 250,
   "source": {
     "book": "CP20",
@@ -8670,7 +8661,7 @@
   "rof": 2,
   "rel": "VR",
   "range": 15,
-  "notes": "",
+  "details": "",
   "cost": 200,
   "source": {
     "book": "NEO",
@@ -8691,7 +8682,7 @@
   "rof": "10",
   "rel": "ST",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 900,
   "source": {
     "book": "BH",
@@ -8714,7 +8705,7 @@
   "rof": 10,
   "rel": "ST",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 500,
   "source": {
     "book": "CP20",
@@ -8735,7 +8726,7 @@
   "rof": "10",
   "rel": "ST",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 150,
   "source": {
     "book": "BH",
@@ -8757,7 +8748,7 @@
   "rof": "20",
   "rel": "ST",
   "range": 70,
-  "notes": "",
+  "details": "",
   "cost": 1000,
   "source": {
     "book": "BH",
@@ -8780,7 +8771,7 @@
   "rof": 2,
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 200,
   "source": {
     "book": "UK",
@@ -8801,7 +8792,7 @@
   "rof": 1,
   "rel": "UR",
   "range": 25,
-  "notes": "",
+  "details": "",
   "cost": 60,
   "source": {
     "book": "BH",
@@ -8823,7 +8814,7 @@
   "rof": 10,
   "rel": "ST",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 800,
   "source": {
     "book": "UK",
@@ -8846,7 +8837,7 @@
   "rof": "4",
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 800,
   "source": {
     "book": "BH",
@@ -8867,7 +8858,7 @@
   "rof": "10",
   "rel": "ST",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 980,
   "source": {
     "book": "BH",
@@ -8889,7 +8880,7 @@
   "rof": "1",
   "rel": "VR",
   "range": 75,
-  "notes": "",
+  "details": "",
   "cost": 700,
   "source": {
     "book": "BH",
@@ -8911,7 +8902,7 @@
   "rof": "10",
   "rel": "VR",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 950,
   "source": {
     "book": "BH",
@@ -8932,7 +8923,7 @@
   "rof": "10",
   "rel": "ST",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 1000,
   "source": {
     "book": "BH",
@@ -8955,7 +8946,7 @@
   "rof": 2,
   "rel": "ST",
   "range": 25,
-  "notes": "WA -3 when range is 12m+",
+  "details": "WA -3 when range is 12m+",
   "cost": 450,
   "source": {
     "book": "BH",
@@ -8976,7 +8967,7 @@
   "rof": 2,
   "rel": "ST",
   "range": 50,
-  "notes": "WA -1, conc. L folded stock. \n10GA variant, #shots 6 Damage 5D6.",
+  "details": "WA -1, conc. L folded stock. \n10GA variant, #shots 6 Damage 5D6.",
   "cost": 300,
   "source": {
     "book": "BH",
@@ -8998,7 +8989,7 @@
   "rof": 2,
   "rel": "ST",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 400,
   "source": {
     "book": "BH",
@@ -9019,7 +9010,7 @@
   "rof": 2,
   "rel": "ST",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 350,
   "source": {
     "book": "BH",
@@ -9041,7 +9032,7 @@
   "rof": 2,
   "rel": "VR",
   "range": 10,
-  "notes": "",
+  "details": "",
   "cost": 100,
   "source": {
     "book": "UK",
@@ -9062,7 +9053,7 @@
   "rof": 2,
   "rel": "ST",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 450,
   "source": {
     "book": "BH",
@@ -9083,7 +9074,7 @@
   "rof": "20",
   "rel": "ST",
   "range": 70,
-  "notes": "",
+  "details": "",
   "cost": 4500,
   "source": {
     "book": "BH",
@@ -9106,7 +9097,7 @@
   "rof": 43,
   "rel": "VR",
   "range": 60,
-  "notes": "",
+  "details": "",
   "cost": 3000,
   "source": {
     "book": "BH",
@@ -9129,7 +9120,7 @@
   "rof": 2,
   "rel": "ST",
   "range": 30,
-  "notes": "",
+  "details": "",
   "cost": 1000,
   "source": {
     "book": "BH",
@@ -9151,7 +9142,7 @@
   "rof": "14",
   "rel": "VR",
   "range": 60,
-  "notes": "",
+  "details": "",
   "cost": 1600,
   "source": {
     "book": "BH",
@@ -9174,7 +9165,7 @@
   "rof": 25,
   "rel": "VR",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 1200,
   "source": {
     "book": "BH",
@@ -9198,7 +9189,7 @@
   "rof": "1",
   "rel": "VR",
   "range": 150,
-  "notes": "",
+  "details": "",
   "cost": 3000,
   "source": {
     "book": "BH",
@@ -9241,7 +9232,7 @@
   "rof": 15,
   "rel": "ST",
   "range": 100,
-  "notes": "",
+  "details": "",
   "cost": 125,
   "source": {
     "book": "BH",
@@ -9264,7 +9255,7 @@
   "rof": 20,
   "rel": "VR",
   "range": 200,
-  "notes": "underbarrel shotgun\nSHT -1 - - 4d6(12GA) 10 3 ST 50m",
+  "details": "underbarrel shotgun\nSHT -1 - - 4d6(12GA) 10 3 ST 50m",
   "cost": 950,
   "source": {
     "book": "BH",
@@ -9289,7 +9280,7 @@
   "rof": 3,
   "rel": "ST",
   "range": 50,
-  "notes": "",
+  "details": "",
   "cost": 0,
   "source": {
     "book": "",
@@ -9310,7 +9301,7 @@
   "rof": 20,
   "rel": "ST",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 700,
   "source": {
     "book": "BH",
@@ -9333,7 +9324,7 @@
   "rof": 30,
   "rel": "ST",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 750,
   "source": {
     "book": "BH",
@@ -9356,7 +9347,7 @@
   "rof": 10,
   "rel": "ST",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 650,
   "source": {
     "book": "BH",
@@ -9377,7 +9368,7 @@
   "rof": "15",
   "rel": "VR",
   "range": 200,
-  "notes": "Single shot acc(0)",
+  "details": "Single shot acc(0)",
   "cost": 500,
   "source": {
     "book": "BH",
@@ -9400,7 +9391,7 @@
   "rof": 20,
   "rel": "ST",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 300,
   "source": {
     "book": "CP20",
@@ -9423,7 +9414,7 @@
   "rof": "30",
   "rel": "UR*",
   "range": 100,
-  "notes": "10% melts on full auto",
+  "details": "10% melts on full auto",
   "cost": 160,
   "source": {
     "book": "BH",
@@ -9446,7 +9437,7 @@
   "rof": 25,
   "rel": "ST",
   "range": 150,
-  "notes": "",
+  "details": "",
   "cost": 400,
   "source": {
     "book": "BH",
@@ -9469,7 +9460,7 @@
   "rof": 25,
   "rel": "ST",
   "range": 150,
-  "notes": "",
+  "details": "",
   "cost": 520,
   "source": {
     "book": "BH",
@@ -9492,7 +9483,7 @@
   "rof": 40,
   "rel": "ST",
   "range": 150,
-  "notes": "",
+  "details": "",
   "cost": 695,
   "source": {
     "book": "BH",
@@ -9515,7 +9506,7 @@
   "rof": 20,
   "rel": "ST",
   "range": 150,
-  "notes": "",
+  "details": "",
   "cost": 950,
   "source": {
     "book": "BH",
@@ -9539,7 +9530,7 @@
   "rof": 50,
   "rel": "UR",
   "range": 150,
-  "notes": "50shot magazine increase conc(L)",
+  "details": "50shot magazine increase conc(L)",
   "cost": 375,
   "source": {
     "book": "BH",
@@ -9562,7 +9553,7 @@
   "rof": 20,
   "rel": "VR",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 250,
   "source": {
     "book": "CP20",
@@ -9585,7 +9576,7 @@
   "rof": 35,
   "rel": "VR",
   "range": 150,
-  "notes": "",
+  "details": "",
   "cost": 475,
   "source": {
     "book": "BH",
@@ -9608,7 +9599,7 @@
   "rof": 25,
   "rel": "VR",
   "range": 150,
-  "notes": "",
+  "details": "",
   "cost": 150,
   "source": {
     "book": "CP20",
@@ -9631,7 +9622,7 @@
   "rof": 20,
   "rel": "VR",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 500,
   "source": {
     "book": "BH",
@@ -9654,7 +9645,7 @@
   "rof": 15,
   "rel": "ST",
   "range": 100,
-  "notes": "15 shot magazine and removing barrel shroud lowers conc(P)",
+  "details": "15 shot magazine and removing barrel shroud lowers conc(P)",
   "cost": 475,
   "source": {
     "book": "BH",
@@ -9677,7 +9668,7 @@
   "rof": 25,
   "rel": "VR",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 950,
   "source": {
     "book": "BH",
@@ -9701,7 +9692,7 @@
   "rof": "3/20",
   "rel": "ST",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 750,
   "source": {
     "book": "NEO",
@@ -9724,7 +9715,7 @@
   "rof": 32,
   "rel": "ST",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 450,
   "source": {
     "book": "BH",
@@ -9769,7 +9760,7 @@
   "rof": 25,
   "rel": "VR",
   "range": 200,
-  "notes": "Magazine is double feed (2x35) Also mounts 25mm Launcher\nHVY 0 - - 25mm/10GA 1 1 ST 100m",
+  "details": "Magazine is double feed (2x35) Also mounts 25mm Launcher\nHVY 0 - - 25mm/10GA 1 1 ST 100m",
   "cost": 950,
   "source": {
     "book": "BH",
@@ -9794,7 +9785,7 @@
   "rof": 1,
   "rel": "ST",
   "range": 100,
-  "notes": "",
+  "details": "",
   "cost": 0,
   "source": {
     "book": "",
@@ -9816,7 +9807,7 @@
   "rof": 5,
   "rel": "UR",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 225,
   "source": {
     "book": "CP20",
@@ -9840,7 +9831,7 @@
   "rof": 20,
   "rel": "VR",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 200,
   "source": {
     "book": "UK",
@@ -9864,7 +9855,7 @@
   "rof": "35",
   "rel": "VR",
   "range": 200,
-  "notes": "1d6 flechettes will be hit for each shot.",
+  "details": "1d6 flechettes will be hit for each shot.",
   "cost": 795,
   "source": {
     "book": "BH",
@@ -9889,7 +9880,7 @@
   "rof": 20,
   "rel": "VR",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 2500,
   "source": {
     "book": "I2.1",
@@ -9912,7 +9903,7 @@
   "rof": 20,
   "rel": "ST",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 455,
   "source": {
     "book": "BH",
@@ -9935,7 +9926,7 @@
   "rof": 20,
   "rel": "ST",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 455,
   "source": {
     "book": "BH",
@@ -9958,7 +9949,7 @@
   "rof": 30,
   "rel": "VR",
   "range": 200,
-  "notes": "",
+  "details": "",
   "cost": 600,
   "source": {
     "book": "BH",
@@ -9981,7 +9972,7 @@
   "rof": "40",
   "rel": "VR",
   "range": 100,
-  "notes": "",
+  "details": "",
   "cost": 600,
   "source": {
     "book": "BH",
@@ -10004,7 +9995,7 @@
   "rof": "30",
   "rel": "ST",
   "range": 100,
-  "notes": "",
+  "details": "",
   "cost": 200,
   "source": {
     "book": "BH",
@@ -10093,7 +10084,7 @@
   "rof": 30,
   "rel": "VR",
   "range": 100,
-  "notes": "",
+  "details": "",
   "cost": 600,
   "source": {
     "book": "BH",
