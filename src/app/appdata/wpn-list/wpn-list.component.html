@@ -24,18 +24,9 @@
       <td>
         <select [(ngModel)]="filters.category" class="skill-search">
           <option [ngValue]="''">All</option>
-          <option [ngValue]="'exoctics'">EXOTICS</option>
-          <option [ngValue]="'explosives'">EXPLOSIVES</option>
-          <option [ngValue]="'grenade launchers'">GRENADE LAUNCHERS</option>
-          <option [ngValue]="'grenades'" >GRENADES</option>
-          <option [ngValue]="'heavy weapons'" >HEAVY WEAONS</option>
-          <option [ngValue]="'launched grenades'" >LAUNCHED GRENADES</option>
-          <option [ngValue]="'machineguns'" >MACHINE GUNS</option>
-          <option [ngValue]="'melee'" >MELEE</option>
-          <option [ngValue]="'pistols'" >PISTOLS</option>
-          <option [ngValue]="'rifles'" >RIFLES</option>
-          <option [ngValue]="'shotguns'" >SHOTGUNS</option>
-          <option [ngValue]="'smg'" >SMG</option>
+          <option *ngFor="let category of categories" [ngValue]="category">{{
+            category
+          }}</option>
         </select>
       </td>
       <td><input [(ngModel)]="filters.subcategory" type="search" placeholder="search on name" class="skill-search"/></td>
@@ -43,32 +34,22 @@
       <td>
         <select [(ngModel)]="filters.type">
           <option [ngValue]="''">All</option>
-          <option [ngValue]="'mel'">MEL</option>
-          <option [ngValue]="'p'">P</option>
-          <option [ngValue]="'smg'">SMG</option>
-          <option [ngValue]="'ex'">EX</option>
-          <option [ngValue]="'sht'">SHT</option>
-          <option [ngValue]="'rif'">RIF</option>
-          <option [ngValue]="'hvy'">HVY</option>
+            <option *ngFor="let type of weaponTypes" [ngValue]="type.code">{{
+              type.code
+            }}</option>
         </select>
       </td>
         <td></td>
       <td>
         <select [(ngModel)]="filters.conc">
           <option [ngValue]="''">All</option>
-          <option [ngValue]="'N'" title="Not concealable">N</option>
-          <option [ngValue]="'L'" title="Long Jacket">L</option>
-          <option [ngValue]="'J'" title="Jacket">J</option>
-          <option [ngValue]="'p'" title="Pocket">P</option>
+            <option *ngFor="let conc of concealments" [ngValue]="conc.code">{{ conc.name }}</option>
         </select>
       </td>
       <td>
         <select [(ngModel)]="filters.avail">
           <option [ngValue]="''">All</option>
-          <option [ngValue]="'e'" title="Excellent">E</option>
-          <option [ngValue]="'c'" title="Common">C</option>
-          <option [ngValue]="'p'" title="Poor">P</option>
-          <option [ngValue]="'r'" title="Rare">R</option>
+            <option *ngFor="let avail of availabilities" [ngValue]="avail.code">{{ avail.name }}</option>
         </select>
       </td>
       <td></td>
@@ -77,9 +58,9 @@
       <td>
         <select [(ngModel)]="filters.rel">
           <option [ngValue]="''" selected>All</option>
-          <option [ngValue]="'ur'" title="Unreliable">UR</option>
-          <option [ngValue]="'st'" title="Standard">ST</option>
-          <option [ngValue]="'vr'" title="Very Reliable">VR</option>
+            <option *ngFor="let rel of reliabilites" [ngValue]="rel.code">{{
+              rel.name
+            }}</option>
         </select></td>
       <td></td>
       <td></td>

@@ -1,4 +1,4 @@
-import { CpPlayerWeapon } from './../../shared/models/weapon';
+import { CpPlayerWeaponList } from './../../shared/models/weapon';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { FileLoaderService } from './../../shared/services/file-loader/file-loader.service';
 import { faDice } from '@fortawesome/free-solid-svg-icons';
@@ -18,27 +18,29 @@ import { Cp2020characterToPDF } from './../../shared/models/pdf/cp2020characterT
 @Component({
   selector: 'cs-app-character-generator-form',
   templateUrl: './app-character-generator-form.component.html',
-  styleUrls: ['./app-character-generator-form.component.css']
+  styleUrls: ['./app-character-generator-form.component.css'],
 })
 export class AppCharacterGeneratorFormComponent implements OnInit {
   faDice = faDice;
 
   character: Cp2020PlayerCharacter;
 
-  @ViewChild('pdfCP2020Character', {static: false})
+  @ViewChild('pdfCP2020Character', { static: false })
   pdfCP2020Character: ElementRef;
 
-  constructor( private characterService: Cp2020CharacterGeneratorService,
-               private saveFileService: SaveFileService,
-               private fileLoader: FileLoaderService,
-               private seo: SeoService) { }
+  constructor(
+    private characterService: Cp2020CharacterGeneratorService,
+    private saveFileService: SaveFileService,
+    private fileLoader: FileLoaderService,
+    private seo: SeoService
+  ) {}
 
   ngOnInit() {
     this.seo.updateMeta(
       'Cyberpunk 2020 Character Generator',
-      '2020-07-01 Cybersmily\'s Datafort Cyberpunk 2020 Character Generator. This app can print to PDF and save/load the character sheet'
+      "2020-07-01 Cybersmily's Datafort Cyberpunk 2020 Character Generator. This app can print to PDF and save/load the character sheet"
     );
-    this.characterService.character.subscribe( data => {
+    this.characterService.character.subscribe((data) => {
       this.character = data;
     });
   }
@@ -67,21 +69,19 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     this.characterService.changeGear(value);
   }
 
-  changeWeapons(value: Array<CpPlayerWeapon>) {
+  changeWeapons(value: CpPlayerWeaponList) {
     this.characterService.changeWeapons(value);
   }
 
-  changeLifepath( value: LifePathResults) {
+  changeLifepath(value: LifePathResults) {
     this.characterService.changeLifepath(value);
   }
 
-  changeSkills( value: Cp2020PlayerSkills) {
+  changeSkills(value: Cp2020PlayerSkills) {
     this.characterService.changeSkills(value);
   }
 
-  changeImage(value: string) {
-
-  }
+  changeImage(value: string) {}
 
   resetCharacter() {
     this.characterService.clearCharacter();
@@ -91,14 +91,16 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     this.characterService.changeNotes(this.character.notes);
   }
 
-
   /**
    * Save the character json to a txt file.
    *
    * @memberof AppCharacterGeneratorFormComponent
    */
   saveCharacter() {
-    this.saveFileService.SaveAsFile('CP2020_' + (this.character.handle.replace(' ', '_')), JSON.stringify(this.character));
+    this.saveFileService.SaveAsFile(
+      'CP2020_' + this.character.handle.replace(' ', '_'),
+      JSON.stringify(this.character)
+    );
   }
 
   createPDF() {
@@ -114,8 +116,8 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
    * @memberof AppCharacterGeneratorFormComponent
    */
   loadCharacter($event) {
-    this.fileLoader.importJSON($event.target.files[0])
-    .subscribe( data =>  this.characterService.changeCharacter(data));
+    this.fileLoader
+      .importJSON($event.target.files[0])
+      .subscribe((data) => this.characterService.changeCharacter(data));
   }
-
 }

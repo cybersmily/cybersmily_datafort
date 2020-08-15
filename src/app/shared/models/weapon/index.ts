@@ -14,3 +14,7 @@ export * from './max-metal-weapon-list';
 export * from './max-metal-ammo';
 export * from './max-metal-weapon-category';
 export * from './max-metal-weapon-mount';
+
+export * from './weapon-properties';
+
+export * from './data-weapon';

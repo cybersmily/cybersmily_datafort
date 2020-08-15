@@ -1,35 +1,50 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <button class="btn btn-secondary btn-sm csd-rounded pull-right" (click)="save()">Save</button>
+      <button class="btn btn-secondary btn-sm csd-rounded pull-right" (click)="save()">
+        Save
+      </button>
       <h2>WEAPONS LIST</h2>
     </div>
   </div>
   <div class="row">
     <div class="col-6 overflow-auto" style="height: 800px;">
-      <div>Category: <input [(ngModel)]="searchFilter.category" type="text" (keyup.enter)="savefilter()"
-          (blur)="savefilter()" /></div>
-      <div>Subcategory: <input [(ngModel)]="searchFilter.subcategory" type="text" (keyup.enter)="savefilter()"
-          (blur)="savefilter()" /></div>
-      <div>Name: <input [(ngModel)]="searchFilter.name" type="text" class="cyber-data-name" (keyup.enter)="savefilter()"
-          (blur)="savefilter()" /></div>
-      <div>Source:
+      <div>
+        Category:
+        <input [(ngModel)]="searchFilter.category" type="text" (keyup.enter)="savefilter()" (blur)="savefilter()" />
+      </div>
+      <div>
+        Subcategory:
+        <input [(ngModel)]="searchFilter.subcategory" type="text" (keyup.enter)="savefilter()" (blur)="savefilter()" />
+      </div>
+      <div>
+        Name:
+        <input [(ngModel)]="searchFilter.name" type="text" class="cyber-data-name" (keyup.enter)="savefilter()"
+          (blur)="savefilter()" />
+      </div>
+      <div>
+        Source:
         <select [(ngModel)]="searchFilter.source" class="cyber-data-source cyber-data-sm" (change)="savefilter()">
           <option value=""></option>
-          <option *ngFor="let s of sourcesList" [value]="s|sourcebook">{{s|sourcebook}}</option>
+          <option *ngFor="let s of sourcesList" [value]="s | sourcebook">{{
+            s | sourcebook
+          }}</option>
         </select>
       </div>
-      <div>Completed: <input [(ngModel)]="completed" type="checkbox"></div>
+      <div>Completed: <input [(ngModel)]="completed" type="checkbox" /></div>
 
       <accordion [closeOthers]="true">
-        <accordion-group *ngFor="let cat of categoryList|filter:'key':searchFilter.category" heading="{{cat.key}}">
-          <accordion >
-            <ng-container *ngFor="let sub of cat.value;let i=index">
-              <accordion-group heading="{{(sub.key !== '')?sub.key:cat.key}}" [isOpen]="true">
-                <ng-container *ngFor="let wpn of sub.value|contains:'name':searchFilter.name
-              |sourcebookFilter:searchFilter.source">
+        <accordion-group *ngFor="let cat of categoryList | filter: 'key':searchFilter.category" heading="{{ cat.key }}">
+          <accordion>
+            <ng-container *ngFor="let sub of cat.value; let i = index">
+              <accordion-group heading="{{ sub.key !== '' ? sub.key : cat.key }}" [isOpen]="true">
+                <ng-container *ngFor="
+                    let wpn of sub.value
+                      | contains: 'name':searchFilter.name
+                      | sourcebookFilter: searchFilter.source
+                  ">
                   <div *ngIf="filterCompleted(wpn.source.page)" class="csd-btn" (click)="select(wpn.name)">
-                    {{wpn.name}}&nbsp;&nbsp;&nbsp;&nbsp;
+                    {{ wpn.name }}&nbsp;&nbsp;&nbsp;&nbsp;
                     <fa-icon [icon]="faTrash" class="csd-btn" (click)="delete(wpn.name, cat.key)"></fa-icon>
                   </div>
                 </ng-container>
@@ -40,138 +55,173 @@
       </accordion>
     </div>
     <div class="col-6">
-      <div>Category:
+      <div>
+        Category:
         <select [(ngModel)]="selectedWeapon.category" (change)="edit()">
-          <option value="undefined"></option>
-          <option value="EXOTICS">Exotics</option>
-          <option value="HEAVY WEAPONS">Heavy Weapons</option>
-          <option value="MELEE">Melee</option>
-          <option value="PISTOLS">Pistols</option>
-          <option value="RIFLES">Rifles</option>
-          <option value="SHOTGUNS">Shotguns</option>
-          <option value="SMG">SMG</option>
-          <option value="MACHINEGUNS">Machinegun</option>
-          <option value="GRENADES">Grenades</option>
-          <option value="LAUNCHED GRENADES">Launched Grenades</option>
-          <option value="GRENADE LAUNCHERS">Grenade Launchers</option>
-          <option value="EXPLOSIVES">Explosives</option>
+          <option [ngValue]="undefined"></option>
+          <option *ngFor="let category of categories" [ngValue]="category">{{
+            category
+          }}</option>
         </select>
-        <div>Subcategory: <input [(ngModel)]="selectedWeapon.subcategory" type="text" (keyup.enter)="edit()"
-            (blur)="edit()" /></div>
-        <div>id: {{selectedWeapon.id}}</div>
-        <div>Name: <input [(ngModel)]="selectedWeapon.name" type="text" class="cyber-data-name"
-            placeholder="new weapon..." (keyup.enter)="edit()" (blur)="edit()" /></div>
-        <div>Type:
+        <div>
+          Subcategory:
+          <input [(ngModel)]="selectedWeapon.subcategory" type="text" (keyup.enter)="edit()" (blur)="edit()" />
+        </div>
+        <div>id: {{ selectedWeapon.id }}</div>
+        <div>
+          Name:
+          <input [(ngModel)]="selectedWeapon.name" type="text" class="cyber-data-name" placeholder="new weapon..."
+            (keyup.enter)="edit()" (blur)="edit()" />
+        </div>
+        <div>
+          Type:
           <select [(ngModel)]="selectedWeapon.type" (change)="edit()">
-            <option value="undefined"></option>
-            <option value="EX">EX</option>
-            <option value="HVY">HVY</option>
-            <option value="MEL">MEL</option>
-            <option value="P">P</option>
-            <option value="RIF">RIF</option>
-            <option value="SHT">SHT</option>
-            <option value="SMG">SMG</option>
+            <option [ngValue]="undefined"></option>
+            <option *ngFor="let type of weaponTypes" [ngValue]="type.code">{{
+              type.code
+            }}</option>
           </select>
         </div>
-        <div>WA: <input [(ngModel)]="selectedWeapon.wa" type="text" (keyup.enter)="edit()" (blur)="edit()" /></div>
-        <div>Conc: <input [(ngModel)]="selectedWeapon.conc" type="text" (keyup.enter)="edit()" (blur)="edit()" /></div>
-        <div>Avail:
+        <div>
+          WA:
+          <input [(ngModel)]="selectedWeapon.wa" type="text" (keyup.enter)="edit()" (blur)="edit()" />
+        </div>
+        <div>
+          Conc:
+          <select [(ngModel)]="selectedWeapon.conc" (change)="edit()">
+            <option [ngValue]="undefined"></option>
+            <option *ngFor="let conc of concealments" [ngValue]="conc.code">{{ conc.name }}</option>
+          </select>
+        </div>
+        <div>
+          Avail:
           <select [(ngModel)]="selectedWeapon.avail" (change)="edit()">
-            <option value="undefined"></option>
-            <option value="E">Excellent</option>
-            <option value="C">Common</option>
-            <option value="P">Poor</option>
-            <option value="R">Rare</option>
+            <option [ngValue]="undefined"></option>
+            <option *ngFor="let avail of availabilities" [ngValue]="avail.code">{{ avail.name }}</option>
           </select>
         </div>
-        <div>Ammo: <input [(ngModel)]="selectedWeapon.ammo" type="text" (keyup.enter)="edit()" (blur)="edit()" /></div>
-        <div>Damage: <input [(ngModel)]="selectedWeapon.damage" type="text" (keyup.enter)="edit()" (blur)="edit()" />
+        <div>
+          Ammo:
+          <input [(ngModel)]="selectedWeapon.ammo" type="text" (keyup.enter)="edit()" (blur)="edit()" />
         </div>
-        <div>AP: <input [(ngModel)]="selectedWeapon.ap" type="text" (keyup.enter)="edit()" (blur)="edit()" /></div>
-        <div>Burst: <input [(ngModel)]="selectedWeapon.burst" type="text" (keyup.enter)="edit()" (blur)="edit()" />
+        <div>
+          Damage:
+          <input [(ngModel)]="selectedWeapon.damage" type="text" (keyup.enter)="edit()" (blur)="edit()" />
         </div>
-        <div>#Shots: <input [(ngModel)]="selectedWeapon.shots" type="text" (keyup.enter)="edit()" (blur)="edit()" />
+        <div>
+          AP:
+          <input [(ngModel)]="selectedWeapon.ap" type="text" (keyup.enter)="edit()" (blur)="edit()" />
         </div>
-        <div>Min BOD: <input [(ngModel)]="selectedWeapon.bod" type="text" (keyup.enter)="edit()" (blur)="edit()" />
+        <div>
+          Burst:
+          <input [(ngModel)]="selectedWeapon.burst" type="text" (keyup.enter)="edit()" (blur)="edit()" />
         </div>
-        <div>RoF: <input [(ngModel)]="selectedWeapon.rof" type="text" (keyup.enter)="edit()" (blur)="edit()" /></div>
-        <div>Is Full Auto? <input [(ngModel)]="selectedWeapon.fullAuto" type="checkbox" (change)="edit()" /></div>
-        <div>Is 3 round burst?<input [(ngModel)]="selectedWeapon.burstFire" type="checkbox" (change)="edit()" /></div>
-        <div>Rel:
+        <div>
+          #Shots:
+          <input [(ngModel)]="selectedWeapon.shots" type="text" (keyup.enter)="edit()" (blur)="edit()" />
+        </div>
+        <div>
+          Min BOD:
+          <input [(ngModel)]="selectedWeapon.bod" type="text" (keyup.enter)="edit()" (blur)="edit()" />
+        </div>
+        <div>
+          RoF:
+          <input [(ngModel)]="selectedWeapon.rof" type="text" (keyup.enter)="edit()" (blur)="edit()" />
+        </div>
+        <div>
+          Is Full Auto?
+          <input [(ngModel)]="selectedWeapon.fullAuto" type="checkbox" (change)="edit()" />
+        </div>
+        <div>
+          Is 3 round burst?<input [(ngModel)]="selectedWeapon.burstFire" type="checkbox" (change)="edit()" />
+        </div>
+        <div>
+          Rel:
           <select [(ngModel)]="selectedWeapon.rel" (change)="edit()">
-            <option value="undefined"></option>
-            <option value="VR">Very Reliable</option>
-            <option value="ST">Standard</option>
-            <option value="UR">Unreliable</option>
+            <option [ngValue]="undefined"></option>
+            <option *ngFor="let rel of reliabilites" [ngValue]="rel.code">{{
+              rel.name
+            }}</option>
           </select>
         </div>
-        <div>Range: <input [(ngModel)]="selectedWeapon.range" type="text" (keyup.enter)="edit()" (blur)="edit()" />m
+        <div>
+          Range:
+          <input [(ngModel)]="selectedWeapon.range" type="text" (keyup.enter)="edit()" (blur)="edit()" />m
         </div>
-        <div>Is thrown?<input [(ngModel)]="selectedWeapon.thrown" type="checkbox" (change)="edit()" /></div>
-        <div>Cost: <input [(ngModel)]="selectedWeapon.cost" type="text" (keyup.enter)="edit()" (blur)="edit()" />eb
+        <div>
+          Is thrown?<input [(ngModel)]="selectedWeapon.thrown" type="checkbox" (change)="edit()" />
         </div>
-        <div>Book:
+        <div>
+          Cost:
+          <input [(ngModel)]="selectedWeapon.cost" type="text" (keyup.enter)="edit()" (blur)="edit()" />eb
+        </div>
+        <div>
+          Book:
           <select [(ngModel)]="selectedWeapon.source.book" (change)="edit()">
             <option value="undefined"></option>
-            <option *ngFor="let book of sources.books" [ngValue]="book.abbrev">{{book.name}}</option>
+            <option *ngFor="let book of sources.books" [ngValue]="book.abbrev">{{ book.name }}</option>
           </select>
-          <div>Page: <input [(ngModel)]="selectedWeapon.source.page" class="cyber-data-sm" type="number"
-              (keyup.enter)="edit()" (blur)="edit()" /></div>
-          <div>Notes: <br><textarea [(ngModel)]="selectedWeapon.notes" title="{{selectedWeapon.notes}}"
-              (keyup.enter)="edit()" (blur)="edit()"></textarea></div>
+          <div>
+            Page:
+            <input [(ngModel)]="selectedWeapon.source.page" class="cyber-data-sm" type="number" (keyup.enter)="edit()"
+              (blur)="edit()" />
+          </div>
+          <div>
+            Notes: <br /><textarea [(ngModel)]="selectedWeapon.notes" title="{{ selectedWeapon.notes }}"
+              (keyup.enter)="edit()" (blur)="edit()"></textarea>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-8">
-      <h3><span (click)="isCollapse = !isCollapse" [attr.aria-expanded]="!isCollapse" aria-controls="newWeaponCol">NEW WEAPON</span> <fa-icon [icon]="faPlus" class="cyber-data-sm csd-btn" (click)="add()"></fa-icon>
+      <h3>
+        <span (click)="isCollapse = !isCollapse" [attr.aria-expanded]="!isCollapse" aria-controls="newWeaponCol">NEW
+          WEAPON</span>
+        <fa-icon [icon]="faPlus" class="cyber-data-sm csd-btn" (click)="add()"></fa-icon>
       </h3>
     </div>
   </div>
   <div class="row" id="newWeaponCol" [collapse]="isCollapse">
     <div class="col-8">
-      <div>Category:
+      <div>
+        Category:
         <select [(ngModel)]="newWeapon.category">
-          <option value="undefined"></option>
-          <option value="EXOTICS">Exotics</option>
-          <option value="HEAVY WEAPONS">Heavy Weapons</option>
-          <option value="MELEE">Melee</option>
-          <option value="PISTOLS">Pistols</option>
-          <option value="RIFLES">Rifles</option>
-          <option value="SHOTGUNS">Shotguns</option>
-          <option value="SMG">SMG</option>
-          <option value="MACHINEGUNS">Machinegun</option>
-          <option value="GRENADES">Grenades</option>
-          <option value="LAUNCHED GRENADES">Launched Grenades</option>
-          <option value="GRENADE LAUNCHERS">Grenade Launchers</option>
-          <option value="EXPLOSIVES">Explosives</option>
+          <option [ngValue]="undefined"></option>
+          <option *ngFor="let category of categories" [ngValue]="category">{{
+            category
+          }}</option>
         </select>
-        <div>Subcategory: <input [(ngModel)]="newWeapon.subcategory" type="text" /></div>
-        <div>id: {{newWeapon.id}}</div>
-        <div>Name: <input [(ngModel)]="newWeapon.name" type="text" class="cyber-data-name"
-            placeholder="new weapon..." /></div>
-        <div>Type:
+        <div>
+          Subcategory: <input [(ngModel)]="newWeapon.subcategory" type="text" />
+        </div>
+        <div>id: {{ newWeapon.id }}</div>
+        <div>
+          Name:
+          <input [(ngModel)]="newWeapon.name" type="text" class="cyber-data-name" placeholder="new weapon..." />
+        </div>
+        <div>
+          Type:
           <select [(ngModel)]="newWeapon.type">
-            <option value="undefined"></option>
-            <option value="EX">EX</option>
-            <option value="HVY">HVY</option>
-            <option value="MEL">MEL</option>
-            <option value="P">P</option>
-            <option value="RIF">RIF</option>
-            <option value="SHT">SHT</option>
-            <option value="SMG">SMG</option>
+            <option [ngValue]="undefined"></option>
+            <option *ngFor="let type of weaponTypes" [ngValue]="type.code">{{
+              type.code
+            }}</option>
           </select>
         </div>
         <div>WA: <input [(ngModel)]="newWeapon.wa" type="text" /></div>
-        <div>Conc: <input [(ngModel)]="newWeapon.conc" type="text" /></div>
-        <div>Avail:
+        <div>Conc:
+          <select [(ngModel)]="newWeapon.conc">
+            <option [ngValue]="undefined"></option>
+            <option *ngFor="let conc of concealments" [ngValue]="conc.code">{{ conc.name }}</option>
+          </select>
+        </div>
+        <div>
+          Avail:
           <select [(ngModel)]="newWeapon.avail">
-            <option value="undefined"></option>
-            <option value="E">Excellent</option>
-            <option value="C">Common</option>
-            <option value="P">Poor</option>
-            <option value="R">Rare</option>
+            <option [ngValue]="undefined"></option>
+            <option *ngFor="let avail of availabilities" [ngValue]="avail.code">{{ avail.name }}</option>
           </select>
         </div>
         <div>Ammo: <input [(ngModel)]="newWeapon.ammo" type="text" /></div>
@@ -181,29 +231,42 @@
         <div>#Shots: <input [(ngModel)]="newWeapon.shots" type="text" /></div>
         <div>Min BOD: <input [(ngModel)]="newWeapon.bod" type="text" /></div>
         <div>RoF: <input [(ngModel)]="newWeapon.rof" type="text" /></div>
-        <div>Is Full Auto? <input [(ngModel)]="newWeapon.fullAuto" type="checkbox"></div>
-        <div>Is 3 round burst?<input [(ngModel)]="newWeapon.burstFire" type="checkbox" /></div>
-        <div>Rel:
+        <div>
+          Is Full Auto?
+          <input [(ngModel)]="newWeapon.fullAuto" type="checkbox" />
+        </div>
+        <div>
+          Is 3 round burst?<input [(ngModel)]="newWeapon.burstFire" type="checkbox" />
+        </div>
+        <div>
+          Rel:
           <select [(ngModel)]="newWeapon.rel">
-            <option value="undefined"></option>
-            <option value="VR">Very Reliable</option>
-            <option value="ST">Standard</option>
-            <option value="UR">Unreliable</option>
+            <option [ngValue]="undefined"></option>
+            <option *ngFor="let rel of reliabilites" [ngValue]="rel.code">{{
+              rel.name
+            }}</option>
           </select>
         </div>
         <div>Range: <input [(ngModel)]="newWeapon.range" type="text" />m</div>
-        <div>Is thrown?<input [(ngModel)]="newWeapon.thrown" type="checkbox" /></div>
+        <div>
+          Is thrown?<input [(ngModel)]="newWeapon.thrown" type="checkbox" />
+        </div>
         <div>Cost: <input [(ngModel)]="newWeapon.cost" type="text" />eb</div>
-        <div>Book:
+        <div>
+          Book:
           <select [(ngModel)]="newWeapon.source.book" (change)="changeSource()">
             <option value="undefined"></option>
-            <option *ngFor="let book of sources.books" [ngValue]="book.abbrev">{{book.name}}</option>
+            <option *ngFor="let book of sources.books" [ngValue]="book.abbrev">{{ book.name }}</option>
           </select>
         </div>
-        <div>Page: <input [(ngModel)]="newWeapon.source.page" class="cyber-data-sm" type="number" /></div>
-        <div>Notes: <br><textarea [(ngModel)]="newWeapon.notes" title="{{selectedWeapon.notes}}"></textarea></div>
+        <div>
+          Page:
+          <input [(ngModel)]="newWeapon.source.page" class="cyber-data-sm" type="number" />
+        </div>
+        <div>
+          Notes: <br /><textarea [(ngModel)]="newWeapon.notes" title="{{ selectedWeapon.notes }}"></textarea>
+        </div>
       </div>
     </div>
-
   </div>
 </div>

@@ -42,8 +42,8 @@ export class CpPlayerWeapon implements CpWeapon {
     } else {
       this.wa = param ? param.wa : undefined;
     }
-    this.conc = param ? param.conc : 'N';
-    this.avail = param ? param.avail : 'C';
+    this.conc = param && param.conc ? param.conc.toUpperCase() : 'N';
+    this.avail = param && param.avail ? param.avail.toUpperCase() : 'C';
     this.damage = param ? param.damage : '';
     // shots could be a string for backward capability.
     if (param && param.shots && typeof param.shots === 'string') {
@@ -68,8 +68,8 @@ export class CpPlayerWeapon implements CpWeapon {
       this.rof = param && param.rof ? 0 : undefined;
     }
     this.cost = param ? param.cost : 0;
-    this.range = param ? param.range : 0;
-    this.rel = param ? param.rel : '';
+    this.range = param && param.range ? param.range : this.getDefaultRange();
+    this.rel = param && param.rel ? param.rel.toUpperCase() : '';
     this.jammed =
       param && param.jammed !== undefined ? param.jammed : false;
     this.notes = param ? param.notes : '';
@@ -79,6 +79,26 @@ export class CpPlayerWeapon implements CpWeapon {
     if (this.shots > 1) {
       this.currentShots = new Array<boolean>(this.shots).fill(false);
     }
+  }
+
+  private getDefaultRange(): number {
+    if (this.type) {
+      switch (this.type.toLowerCase()) {
+        case 'smg':
+          return 150;
+        case 'p':
+        case 'shg':
+        case 'sht':
+          return 50;
+        case 'rif':
+          return 400;
+        case 'mel':
+          return 1;
+        default:
+          return 0;
+      }
+    }
+    return 0;
   }
 
   get shotsUsed(): number {

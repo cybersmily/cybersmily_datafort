@@ -13,17 +13,24 @@ import { Cp2020PlayerCharacter } from '../../models/cp2020character';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class Cp2020CharacterGeneratorService {
-  private _character = new BehaviorSubject<Cp2020PlayerCharacter>(new Cp2020PlayerCharacter());
+  private _character = new BehaviorSubject<Cp2020PlayerCharacter>(
+    new Cp2020PlayerCharacter()
+  );
   character = this._character.asObservable();
 
   private _currCharacter: Cp2020PlayerCharacter;
 
   constructor() {
-    if ( window.localStorage && window.localStorage.getItem(CacheKeys.CP2020_CHAR_GEN)) {
-      const character = JSON.parse(window.localStorage.getItem(CacheKeys.CP2020_CHAR_GEN));
+    if (
+      window.localStorage &&
+      window.localStorage.getItem(CacheKeys.CP2020_CHAR_GEN)
+    ) {
+      const character = JSON.parse(
+        window.localStorage.getItem(CacheKeys.CP2020_CHAR_GEN)
+      );
       this.changeCharacter(character);
     } else {
       this._currCharacter = new Cp2020PlayerCharacter();
@@ -32,7 +39,7 @@ export class Cp2020CharacterGeneratorService {
 
   changeCharacter(value: any) {
     this._currCharacter = new Cp2020PlayerCharacter();
-    this._currCharacter.handle = (value.handle) ? value.handle : '';
+    this._currCharacter.handle = value.handle ? value.handle : '';
     if (value.role) {
       this._currCharacter.role.import(value.role);
     }
@@ -45,14 +52,14 @@ export class Cp2020CharacterGeneratorService {
     }
     if (value.weapons && value.weapons.items) {
       this._currCharacter.weapons.items = new Array<CpPlayerWeapon>();
-        value.weapons.items.forEach( w => {
-          this._currCharacter.weapons.items.push(new CpPlayerWeapon(w));
-        });
+      value.weapons.items.forEach((w) => {
+        this._currCharacter.weapons.items.push(new CpPlayerWeapon(w));
+      });
     }
 
     if (value.cyberware) {
       this._currCharacter.cyberware.items = new Array<Cp2020PlayerCyber>();
-      value.cyberware.items.forEach( c => {
+      value.cyberware.items.forEach((c) => {
         this._currCharacter.cyberware.items.push(new Cp2020PlayerCyber(c));
       });
     }
@@ -66,9 +73,12 @@ export class Cp2020CharacterGeneratorService {
       this._currCharacter.lifepath.ethnicity = value.lifepath.ethnicity;
       this._currCharacter.lifepath.events = value.lifepath.events;
       this._currCharacter.lifepath.motivations = value.lifepath.motivations;
-      this._currCharacter.lifepath.family.familyBackground = value.lifepath.family.familyBackground;
-      this._currCharacter.lifepath.family.familyRanking = value.lifepath.family.familyRanking;
-      this._currCharacter.lifepath.family.siblings.siblings = value.lifepath.family.siblings.siblings;
+      this._currCharacter.lifepath.family.familyBackground =
+        value.lifepath.family.familyBackground;
+      this._currCharacter.lifepath.family.familyRanking =
+        value.lifepath.family.familyRanking;
+      this._currCharacter.lifepath.family.siblings.siblings =
+        value.lifepath.family.siblings.siblings;
     }
 
     if (value.skills) {
@@ -129,17 +139,17 @@ export class Cp2020CharacterGeneratorService {
     this.updateCharacter();
   }
 
-  changeGear( value: Cp2020PlayerGearList) {
+  changeGear(value: Cp2020PlayerGearList) {
     this._currCharacter.gear = value;
     this.updateCharacter();
   }
 
-  changeWeapons( value: Array<CpPlayerWeapon>) {
-    this._currCharacter.weapons.items = value;
+  changeWeapons(value: CpPlayerWeaponList) {
+    this._currCharacter.weapons = value;
     this.updateCharacter();
   }
 
-  changeLifepath( value: LifePathResults) {
+  changeLifepath(value: LifePathResults) {
     this._currCharacter.lifepath = value;
     this.updateCharacter();
   }
@@ -167,16 +177,17 @@ export class Cp2020CharacterGeneratorService {
     return window.localStorage.getItem(CacheKeys.CP2020_CHAR_GEN);
   }
 
-
   /**
    * Save the current character object to local storage.
    *
    * @memberof Cp2020CharacterGeneratorService
    */
   saveToStorage() {
-    window.localStorage.setItem(CacheKeys.CP2020_CHAR_GEN, JSON.stringify(this._currCharacter));
+    window.localStorage.setItem(
+      CacheKeys.CP2020_CHAR_GEN,
+      JSON.stringify(this._currCharacter)
+    );
   }
-
 
   /**
    * Update character will save to localstorage and

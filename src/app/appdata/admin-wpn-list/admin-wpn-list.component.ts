@@ -2,7 +2,10 @@ import { SourceBookList } from './../../shared/models/source-book-list';
 import { WeaponDataService } from './../../shared/services/data/weapon-data.service';
 import { Component, OnInit } from '@angular/core';
 import { faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { DataWeapon } from './../../shared/models/weapon/data-weapon';
+import {
+  DataWeapon,
+  WeaponProperties
+} from './../../shared/models/weapon';
 import { KeyValue } from '@angular/common';
 
 @Component({
@@ -15,6 +18,11 @@ export class AdminWpnListComponent implements OnInit {
   faPlus = faPlus;
   isCollapse = true;
 
+  categories = WeaponProperties.categories;
+  weaponTypes = WeaponProperties.types;
+  availabilities = WeaponProperties.availabilities;
+  concealments = WeaponProperties.concealments;
+  reliabilites = WeaponProperties.reliabilites;
   sources = new SourceBookList();
 
   completed = false;

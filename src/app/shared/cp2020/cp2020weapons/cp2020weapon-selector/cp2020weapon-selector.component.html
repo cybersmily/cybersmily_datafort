@@ -3,18 +3,9 @@
   <div class="col-2">
     <select [(ngModel)]="searchCategory" class="wpn-cat-srch">
       <option [ngValue]="''">All</option>
-      <option [ngValue]="'exoctics'">EXOTICS</option>
-      <option [ngValue]="'explosives'">EXPLOSIVES</option>
-      <option [ngValue]="'grenade launchers'">GRENADE LAUNCHERS</option>
-      <option [ngValue]="'grenades'" >GRENADES</option>
-      <option [ngValue]="'heavy weapons'" >HEAVY WEAONS</option>
-      <option [ngValue]="'launched grenades'" >LAUNCHED GRENADES</option>
-      <option [ngValue]="'machineguns'" >MACHINE GUNS</option>
-      <option [ngValue]="'melee'" >MELEE</option>
-      <option [ngValue]="'pistols'" >PISTOLS</option>
-      <option [ngValue]="'rifles'" >RIFLES</option>
-      <option [ngValue]="'shotguns'" >SHOTGUNS</option>
-      <option [ngValue]="'smg'" >SMG</option>
+          <option *ngFor="let category of categories" [ngValue]="category">{{
+            category
+          }}</option>
     </select>
   </div>
   <div class="col-9">

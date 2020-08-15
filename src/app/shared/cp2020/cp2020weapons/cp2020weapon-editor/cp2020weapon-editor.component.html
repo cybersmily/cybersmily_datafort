@@ -1,82 +1,88 @@
 <div class="row">
-  <div class="col-12">
-    Name: <input [(ngModel)]="weapon.name" type="text" class="wpn-name" />
-    <fa-icon [icon]="faSave" [ngClass]="{'float-right btn btn-lg csd-btn': true, 'disabled': (weapon.name === '')}" title="Save weapon" (click)="update()"></fa-icon>
+  <div class="col-2">Name:</div>
+  <div class="col-9 wpn-name">
+    <input [(ngModel)]="weapon.name" type="text"/>
+  </div>
+  <div class="col-1 wpn-save">
+    <fa-icon [icon]="faSave" [ngClass]="{
+        'float-right btn btn-lg csd-btn': true,
+        disabled: weapon.name === ''
+      }" title="Save weapon" (click)="update()"></fa-icon>
   </div>
 </div>
 <div class="row">
-  <div class="col-1">Type:</div>
-  <div class="col-2"><select [(ngModel)]="weapon.type">
+  <div class="col-3 col-lg-1">Type:</div>
+  <div class="col-3 col-lg-2">
+    <select [(ngModel)]="weapon.type">
       <option [ngValue]="undefined"></option>
-      <option [ngValue]="'MEL'" title="Melee">MEL</option>
-      <option [ngValue]="'P'" title="Pistol">P</option>
-      <option [ngValue]="'SMG'" title="Submachinegun">SMG</option>
-      <option [ngValue]="'RIF'" title="Rifle">RIF</option>
-      <option [ngValue]="'SHT'" title="Shotgun">SHT</option>
-      <option [ngValue]="'HVY'" title="Heavy Weapon">HVY</option>
-      <option [ngValue]="'EX'" title="Exotic">EX</option>
+      <option *ngFor="let wpnType of weaponTypes" [ngValue]="wpnType.code">{{ wpnType.code}}
+      </option>
     </select>
   </div>
-  <div class="col-1">WA:</div>
-   <div class="col-2">
-     <input [(ngModel)]="weapon.wa" type="number" class="text-uppercase text-center wpn-narrow" />
+  <div class="col-3 col-lg-1">WA:</div>
+  <div class="col-3 col-lg-2">
+    <input
+      [(ngModel)]="weapon.wa"
+      type="number"
+      class="text-uppercase text-center wpn-narrow"
+    />
   </div>
-  <div class="col-2">Concealment:</div>
-  <div class="col-1">
+  <div class="col-3 col-lg-2">Concealment:</div>
+  <div class="col-3 col-lg-1">
     <select [(ngModel)]="weapon.conc">
       <option [ngValue]="undefined"></option>
-      <option [ngValue]="'P'" title="Pocket">P</option>
-      <option [ngValue]="'J'" title="Jacket">J</option>
-      <option [ngValue]="'L'" title="Long coat">L</option>
-      <option [ngValue]="'N'" title="None">N</option>
+      <option *ngFor="let conc of concealments" [ngValue]="conc.code">{{
+        conc.code
+      }}</option>
     </select>
   </div>
-  <div class="col-2">Availability:</div>
-  <div class="col-1">
+  <div class="col-3 col-lg-2">Availability:</div>
+  <div class="col-3 col-lg-1">
     <select [(ngModel)]="weapon.avail">
-      <option [ngValue]="undefined">N</option>
-      <option [ngValue]="'E'" title="Excellent">E</option>
-      <option [ngValue]="'C'" title="Common">C</option>
-      <option [ngValue]="'P'" title="Poor">P</option>
-      <option [ngValue]="'R'" title="Rare">R</option>
+      <option [ngValue]="undefined"></option>
+      <option *ngFor="let avail of availabilities" [ngValue]="avail.code">{{
+        avail.code
+      }}</option>
     </select>
   </div>
 </div>
 <div class="row">
-  <div class="col-1">Damage:</div>
-  <div class="col-2">
-    <input [(ngModel)]="weapon.damage" type="text" class="text-uppercase wpn-dmg" placeholder="ex. 2d6+3"/>
+  <div class="col-3 col-lg-1">Damage:</div>
+  <div class="col-3 col-lg-2">
+    <input [(ngModel)]="weapon.damage" type="text" class="text-uppercase wpn-dmg" placeholder="ex. 2d6+3" />
   </div>
-  <div class="col-1">#Shots:</div>
-  <div class="col-2">
+  <div class="col-3 col-lg-1">#Shots:</div>
+  <div class="col-3 col-lg-2">
     <input [(ngModel)]="weapon.shots" type="number" class="text-uppercase wpn-col" />
   </div>
-  <div class="col-2">ROF:</div>
-  <div class="col-1">
+  <div class="col-3 col-lg-2">ROF:</div>
+  <div class="col-3 col-lg-1">
     <input [(ngModel)]="weapon.rof" type="number" class="text-uppercase wpn-col" />
   </div>
-  <div class="col-2">Reliability:</div>
-  <div class="col-1">
+  <div class="col-3 col-lg-2">Reliability:</div>
+  <div class="col-3 col-lg-1">
     <select [(ngModel)]="weapon.rel">
       <option [ngValue]="undefined"></option>
-      <option [ngValue]="'UR'" title="Unreliable">UR</option>
-      <option [ngValue]="'ST'" title="Standard">ST</option>
-      <option [ngValue]="'VR'" title="Very reliable">VR</option>
+      <option *ngFor="let rel of reliabilites" [ngValue]="rel.code">{{
+        rel.code
+      }}</option>
     </select>
   </div>
 </div>
 <div class="row">
-  <div class="col-1">Range:</div>
-  <div class="col-2">
+  <div class="col-3 col-lg-1">Range:</div>
+  <div class="col-3 col-lg-2">
     <input [(ngModel)]="weapon.range" type="number" class="text-uppercase wpn-col" />m
   </div>
-  <div class="col-1">Cost:</div>
-  <div class="col-2">
+  <div class="col-3 col-lg-1">Cost:</div>
+  <div class="col-3 col-lg-2">
     <input [(ngModel)]="weapon.cost" type="number" class="text-uppercase wpn-col" />eb
   </div>
   <div></div>
 </div>
 <div class="row">
-  <div class="col-1">Notes:</div>
-  <div class="col-11"><textarea [(ngModel)]="weapon.notes" type="text" class="wpn-notes"></textarea></div>
+  <div class="col-2 col-lg-1">Notes:</div>
+  <div class="col-10 col-lg-11">
+    <textarea [(ngModel)]="weapon.notes" type="text" class="wpn-notes"></textarea>
+  </div>
 </div>
