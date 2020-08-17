@@ -5,6 +5,7 @@
       "entries": [
         "<strong>09-01</strong> - A couple of things have been aded to the site.",
         "1st we have the master weapons list. This is a searchable list of the Cyberpunk 2020 weapons for all cannon sources for 2020 (no cybergeneration i'm afraid). This list will give you the base stats for the weapons, but won't go into the finer details about the weapon. For that you need to go to the source, which I list and the page in the source book you can find it on.",
+        "Overall haul of the Cyberpunk 2020 weapons sections in the combat tracker and character generator. I made the sections consistent with each other. Also, I have added *drum roll* a ammo tracker on the weapons in both areas. This includes an ammo tracker in the PDF version of the character sheet as well. Though there might be some formatting issues in the PDF if the weapon list is long and/or the weapon has a lot of shots. Let me know if there is a bug and I will try to figure out a solution. ",
         "Stay safe gatos. The dark future is upon us!",
         "CYBER :D"
       ]
@@ -33,17 +34,17 @@
       ]
     },
     {
-    "date": "2020-06",
-    "entries": [
-      "<strong>06-15</strong> Fixed a few bugs around the site. Add PDF export button the Character Generator CP2020 app. This was a challenge to make sure it was client side only. Still working on a couple of new apps for the upcoming months.",
-      "Half way through the year and continuing my goal of a new app or feature per month of 2020.",
-      "<strong>06-01</strong> - Fixed a bunch of bugs. Added an armor management contorls for the Cyberpunk 2020 combat tracker and character generator.",
-      "Added a function in the Combat Tracker to import a CP 2020 Character file and add it as an opppenent.",
-      "Stay safe gatos. The dark future is upon us!",
-      "CYBER :D"
-    ]
-  },
-  {
+      "date": "2020-06",
+      "entries": [
+        "<strong>06-15</strong> Fixed a few bugs around the site. Add PDF export button the Character Generator CP2020 app. This was a challenge to make sure it was client side only. Still working on a couple of new apps for the upcoming months.",
+        "Half way through the year and continuing my goal of a new app or feature per month of 2020.",
+        "<strong>06-01</strong> - Fixed a bunch of bugs. Added an armor management contorls for the Cyberpunk 2020 combat tracker and character generator.",
+        "Added a function in the Combat Tracker to import a CP 2020 Character file and add it as an opppenent.",
+        "Stay safe gatos. The dark future is upon us!",
+        "CYBER :D"
+      ]
+    },
+    {
       "date": "2020-05",
       "entries": [
         "<strong>05-09</strong> - Quick update with fixes for some the apps. Been working on creating better unit tests to help with preventing some of the silly bugs I have done in the site.",
