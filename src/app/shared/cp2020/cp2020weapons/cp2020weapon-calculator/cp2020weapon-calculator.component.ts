@@ -64,7 +64,10 @@ export class Cp2020weaponCalculatorComponent implements OnInit {
 
   constructor(private diceService: DiceService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.skills);
+  }
+
   get filteredList(): Array<CpPlayerWeapon> {
     return this.weaponList.items.filter((wpn) => wpn.name !== '');
   }
@@ -112,10 +115,16 @@ export class Cp2020weaponCalculatorComponent implements OnInit {
   }
 
   get filteredSkills(): Array<Cp2020PlayerSkill> {
+    let skills = [
+      new Cp2020PlayerSkill({ name: 'not trained', stat: 'ref', value: 0 }),
+    ];
     if (this.selectedWeapon) {
-      return this.skills.getSkillForWeaponType(this.selectedWeapon.type);
+      skills = this.skills.getSkillForWeaponType(
+        this.selectedWeapon.type);
+
     }
-    return [];
+
+    return skills;
   }
 
   get totalDiff(): number {

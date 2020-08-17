@@ -3,8 +3,8 @@
     <div class="col">
       WEAPONS&nbsp;&nbsp;
       <fa-icon [ngClass]="{'csd-dice': true, 'd-none': !showRandomGenerator}" [icon]="faDice"
-        (click)="randomGenerateWeapon()"></fa-icon>&nbsp;&nbsp;
-      <fa-icon [icon]="faCrosshairs" title="Combat Calculator"
+        (click)="randomGenerateWeapon()" title="Add random weapon"></fa-icon>&nbsp;&nbsp;
+      <fa-icon [icon]="faCrosshairs" title="Show Combat Calculator"
        [ngClass]="{'csd-btn': true, 'd-none': !showCalculator}"
        (click)="openModal(combatCalcModal)"
        >

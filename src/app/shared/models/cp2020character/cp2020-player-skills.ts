@@ -128,35 +128,35 @@ export class Cp2020PlayerSkills {
   }
 
   get ATTR(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter( sk => sk.stat === 'ATTR');
+    return this.skills.filter( sk => sk.stat.toLowerCase() === 'attr');
   }
 
   get BODY(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter( sk => sk.stat === 'BODY');
+    return this.skills.filter( sk => sk.stat.toLowerCase() === 'body');
   }
 
   get COOL(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter( sk => sk.stat === 'COOL');
+    return this.skills.filter((sk) => sk.stat.toLowerCase() === 'cool');
   }
 
   get EMP(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter( sk => sk.stat === 'EMP');
+    return this.skills.filter((sk) => sk.stat.toLowerCase() === 'emp');
   }
 
   get INT(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter( sk => sk.stat === 'INT');
+    return this.skills.filter((sk) => sk.stat.toLowerCase() === 'int');
   }
 
   get REF(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter( sk => sk.stat === 'REF');
+    return this.skills.filter( sk => sk.stat.toLowerCase() === 'ref');
   }
 
   get TECH(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter( sk => sk.stat === 'TECH');
+    return this.skills.filter((sk) => sk.stat.toLowerCase() === 'tech');
   }
 
   get Other(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter( sk => sk.name === 'Other');
+    return this.skills.filter((sk) => sk.name.toLowerCase() === 'other');
   }
 
   get RoleSKills(): Array<Cp2020PlayerSkill> {
@@ -183,24 +183,38 @@ export class Cp2020PlayerSkills {
     if (!type) {
       return [];
     }
+    let list = new Array<Cp2020PlayerSkill>();
     switch (type.toLowerCase()) {
       case 'p':
-        return this.REF.filter( s => s.name.toLowerCase() === 'handgun');
+        list = this.REF.filter((s) => s.name.toLowerCase() === 'handgun');
+        break;
       case 'smg':
-        return this.REF.filter( s => s.name.toLowerCase() === 'submachinegun');
+        list = this.REF.filter((s) => s.name.toLowerCase() === 'submachinegun');
+        break;
       case 'rif':
       case 'sht':
-        return this.REF.filter( s => s.name.toLowerCase() === 'rifle');
+        list = this.REF.filter((s) => s.name.toLowerCase() === 'rifle');
+        break;
       case 'mel':
-        return this.REF.filter( s => s.name.toLowerCase() === 'melee'
-          || (s.name.toLowerCase() === 'martial art' && s.option && s.option !== '')
-          || s.name.toLowerCase() === 'fencing'
+        list = this.REF.filter(
+          (s) =>
+            s.name.toLowerCase() === 'melee' ||
+            (s.name.toLowerCase() === 'martial art' &&
+              s.option &&
+              s.option !== '') ||
+            s.name.toLowerCase() === 'fencing'
         );
+        break;
       case 'hvy':
-        return this.REF.filter( s => s.name.toLowerCase() === 'heavy weapons');
+        list = this.REF.filter((s) => s.name.toLowerCase() === 'heavy weapons');
+        break;
       default:
-        return this.getCombatSkills();
+        list = this.getCombatSkills();
     }
+    if (list.length < 1) {
+      return [new Cp2020PlayerSkill({ name: 'Not trained', stat: 'ref', value: 0 })];
+    }
+    return list;
   }
 
   getCombatSkills(): Array<Cp2020PlayerSkill> {

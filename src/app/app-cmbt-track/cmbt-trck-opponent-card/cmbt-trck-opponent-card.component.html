@@ -1,10 +1,8 @@
 <div class='container'>
   <div class='row'>
     <div class='col-12 opp-handle'>
-      <input [(ngModel)]="opponent.name" type="text"
-      title="Enter the name of the opponent." placeholder="Enter the opponent's handle..."
-      (change)="changeOpponent()"
-      />
+      <input [(ngModel)]="opponent.name" type="text" title="Enter the name of the opponent."
+        placeholder="Enter the opponent's handle..." (change)="changeOpponent()" />
     </div>
   </div>
   <div class='row'>
@@ -12,9 +10,8 @@
       ROLE:
     </div>
     <div class='col-11 col-lg-6'>
-      <select *ngIf="opponent.role === ''; else hasRole" [(ngModel)]="selectedRole"
-      (change)="changeRole()" title="Choose a role of the opponent. The role skills will be added to the oppoent."
-      class="btn-sm">
+      <select *ngIf="opponent.role === ''; else hasRole" [(ngModel)]="selectedRole" (change)="changeRole()"
+        title="Choose a role of the opponent. The role skills will be added to the oppoent." class="btn-sm">
         <option *ngIf="!selectedTemplate" [ngValue]="null" selected>Choose a role</option>
         <option *ngFor="let role of roles" [ngValue]="role" selected>
           {{((role.base && role.base !== '')? role.base + ' - ': '') +role.name}}
@@ -22,22 +19,25 @@
       </select>
       <ng-template #hasRole>
         <span class="opp-role">
-          <fa-icon [icon]="faTrash" (click)="deleteRole()" title="Delete this role and choose another." class="opp-role-delete"></fa-icon>
+          <fa-icon [icon]="faTrash" (click)="deleteRole()" title="Delete this role and choose another."
+            class="opp-role-delete"></fa-icon>
           {{opponent.role}}
         </span>
       </ng-template>
     </div>
     <div class='col-12 col-lg-5'>
-      <select *ngIf="opponent.role === ''" [(ngModel)]="selectedTemplate" (change)="changeTemplate()"
-      class="btn-sm" title="Template will pre-generate the opponent based on source books.">
+      <select *ngIf="opponent.role === ''" [(ngModel)]="selectedTemplate" (change)="changeTemplate()" class="btn-sm"
+        title="Template will pre-generate the opponent based on source books.">
         <option *ngIf="!selectedTemplate" [ngValue]="null" selected>Or choose a template...</option>
-        <option *ngFor="let temp of templates" [ngValue]="temp.json" title="{{temp.source | sourcebook}} pg. {{temp.page}}" >{{temp.type}} - {{temp.name}}</option>
+        <option *ngFor="let temp of templates" [ngValue]="temp.json"
+          title="{{temp.source | sourcebook}} pg. {{temp.page}}">{{temp.type}} - {{temp.name}}</option>
       </select>
     </div>
   </div>
   <div class='row'>
     <div class='col-12'>
-      <cs-cmbt-trck-wound-sect [stats]="opponent.stats" (updateStats)="onStatBlockChange($event)"></cs-cmbt-trck-wound-sect>
+      <cs-cmbt-trck-wound-sect [stats]="opponent.stats" (updateStats)="onStatBlockChange($event)">
+      </cs-cmbt-trck-wound-sect>
     </div>
   </div>
   <div class='row'>
@@ -48,31 +48,46 @@
   <tabset>
     <tab heading="MODIFIERS" [customClass]="customClass">
       <div class="csd-rounded">
-        <cs-cmbt-trck-mod-selector [opponent]="opponent"></cs-cmbt-trck-mod-selector>
+        <cs-cp2020weapon-calculator [weaponList]="opponent.getWeaponsAsList()"
+        [skills]="opponent.getSkillAsList()"
+        [body]="opponent.stats.BODY.Adjusted"
+        [ref]="opponent.stats.REF.Adjusted"
+        [bodyDamageMod]="opponent.stats.BodyDmgMod"
+        >
+        </cs-cp2020weapon-calculator>
         <br>
       </div>
     </tab>
     <tab heading="STATS" [customClass]="customClass">
       <div class="csd-rounded">
-        <cs-cmbt-trck-stats [statBlock]="opponent.stats" (changeStatBlock)="onStatBlockChange($event)"></cs-cmbt-trck-stats>
+        <cs-cmbt-trck-stats [statBlock]="opponent.stats" (changeStatBlock)="onStatBlockChange($event)">
+        </cs-cmbt-trck-stats>
         <br>
       </div>
     </tab>
     <tab heading="SKILLS" [customClass]="customClass">
       <div class="csd-rounded">
-      <cs-cmbt-trk-skills [opponent]="opponent" (updateOpponent)="changeOpponent($event)"></cs-cmbt-trk-skills>
-      <br>
+        <cs-cmbt-trk-skills [opponent]="opponent" (updateOpponent)="changeOpponent($event)"></cs-cmbt-trk-skills>
+        <br>
       </div>
     </tab>
     <tab heading="CYBER" [customClass]="customClass">
       <div class="csd-rounded">
         <cs-cmbt-trk-cyber [cyberware]="opponent.cyberware" (newCyberware)="changeCyber($event)"></cs-cmbt-trk-cyber>
         <br>
-       </div>
+      </div>
     </tab>
     <tab heading="WEAPONS" [customClass]="customClass">
       <div class="csd-rounded">
-        <cs-cmbt-trk-wpns [weapons]="opponent.weapons" (newWeapon)="changeWeapons($event)" [BodDmgMod]="opponent.stats.BodyDmgMod"></cs-cmbt-trk-wpns>
+         <cs-cp2020weapontable
+            [weapons]="opponent.getWeaponsAsList()"
+            [stats]="opponent.stats"
+            [skills]="opponent.getSkillAsList()"
+            [showRandomGenerator]="true"
+            [showSelector]="false"
+            [showCalculator]="false"
+            (changeWeapons)="changeWeapons($event)">
+          </cs-cp2020weapontable>
         <br>
       </div>
     </tab>

@@ -1,3 +1,4 @@
+import { CpPlayerWeaponList } from './../../shared/models/weapon/cp-player-weapon-list';
 import { CmbtTrckOpponent, CmbtTrckOppSelection, CmbtTrckTemplate } from '../../shared/models/cmbt-trck';
 import { OppTemplateService } from './../services/opp-template.service';
 import { OppCyberware } from './../../shared/models/cyberware';
@@ -77,8 +78,11 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
     });
   }
 
-  changeWeapons(wpns: Array<CpPlayerWeapon>) {
-    this.opponent.weapons = wpns;
+  changeWeapons(wpns: CpPlayerWeaponList) {
+    if (!wpns) {
+      return;
+    }
+    this.opponent.weapons = wpns.items;
     this.updateOpponent.emit({index: this.index, opponent: this.opponent});
   }
 

@@ -25,7 +25,8 @@ import { Cp2020weaponCalculatorComponent } from './cp2020weapon-calculator/cp202
   ],
   exports: [
     Cp2020weapontableComponent,
-    Cp2020weaponComponent
+    Cp2020weaponComponent,
+    Cp2020weaponCalculatorComponent
   ]
 })
 export class Cp2020weaponsModule { }
