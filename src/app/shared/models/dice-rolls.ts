@@ -55,7 +55,7 @@ export class DiceRolls {
      * @memberof DiceRolls
      */
   show(showType?: boolean): string {
-    let results = `Total: ${this.total} [Dice: (${this.rolls.join(', ')})${
+    let results = `${this.total} [Dice: (${this.rolls.join(', ')})${
         this.mod ? this.mod : ''
       }]`;
     if (showType && this.rolls[0] === 1) {

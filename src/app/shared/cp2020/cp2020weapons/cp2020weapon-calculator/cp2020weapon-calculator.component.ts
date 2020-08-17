@@ -1,9 +1,11 @@
+import { FumbleChart } from './../../../models/skill/fumble-chart';
+import { DiceRolls } from './../../../models/dice-rolls';
 import { CombatRange } from './../../../models/weapon/combat-range';
 import { Cp2020PlayerSkills } from './../../../models/cp2020character/cp2020-player-skills';
 import { DiceService } from './../../../services/dice/dice.service';
 import { Cp2020PlayerSkill } from './../../../models/cp2020character/cp2020-player-skill';
 import { CpPlayerWeaponList, CpPlayerWeapon } from './../../../models/weapon';
-import { faDice } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faRedo } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -13,6 +15,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class Cp2020weaponCalculatorComponent implements OnInit {
   faDice = faDice;
+  faRedo = faRedo;
   @Input()
   weaponList: CpPlayerWeaponList = new CpPlayerWeaponList();
 
@@ -31,7 +34,7 @@ export class Cp2020weaponCalculatorComponent implements OnInit {
   shots = 0;
   rangeToTarget = 1;
   fireMode = 2; // default to single shot
-  shotsFired = 0;
+  shotsFired = 1;
   aimedTurns = 0;
   targetMovementModified = 0;
   targetSize = 0;
@@ -53,6 +56,8 @@ export class Cp2020weaponCalculatorComponent implements OnInit {
   fireFromHip = false;
 
   otherToHitModifiers = 0;
+  toHitDiceRoll = new DiceRolls();
+  toHitResults: Array<string> = Array<string>();
 
   selectedSkill: Cp2020PlayerSkill = new Cp2020PlayerSkill();
   selectedWeapon: CpPlayerWeapon;
@@ -64,11 +69,18 @@ export class Cp2020weaponCalculatorComponent implements OnInit {
     return this.weaponList.items.filter((wpn) => wpn.name !== '');
   }
 
+  get totalToHit(): number {
+    return this.selectedSkill.value + this.ref + this.selectedWeapon.wa + this.toHitDiceRoll.total;
+
+  }
+
   get targetActionModifier(): number {
     let total = 0;
     total += this.targetDodge ? 2 : 0;
     total += this.targetSilhoutted ? -2 : 0;
     total += this.turnToFaceTarget ? 2 : 0;
+    total += this.targetSize;
+    total += this.targetMovementModified;
     return total;
   }
 
@@ -82,6 +94,7 @@ export class Cp2020weaponCalculatorComponent implements OnInit {
     total += this.twoWeapons ? 3 : 0;
     total += this.running ? 3 : 0;
     total += this.fireFromHip ? 2 : 0;
+    total += this.aimedTurns;
     return total;
   }
 
@@ -104,6 +117,7 @@ export class Cp2020weaponCalculatorComponent implements OnInit {
     }
     return [];
   }
+
   get totalDiff(): number {
     let total = 0;
     total = this.selectedWeaponBracket.diff;
@@ -118,6 +132,9 @@ export class Cp2020weaponCalculatorComponent implements OnInit {
     return total;
   }
 
+  get isRanged(): boolean {
+    return this.selectedWeapon.type.toLowerCase() !== 'mel' || this.selectedWeapon.thrown;
+  }
   get selectedWeaponBracket(): CombatRange {
     return this.selectedWeapon.getRangeBracket(this.rangeToTarget);
   }
@@ -158,6 +175,34 @@ export class Cp2020weaponCalculatorComponent implements OnInit {
         return 50;
       default:
         return 1;
+    }
+  }
+
+  rollToHit() {
+    this.toHitDiceRoll = this.diceService.rollCP2020D10();
+    let shots = (this.shotsFired) ? this.shotsFired : 1;
+    this.selectedWeapon.fire(this.diceService, this.ref, this.selectedSkill.value, shots);
+    const degreeOfSuccess = this.totalToHit - this.totalDiff;
+    if (degreeOfSuccess > -1 && this.toHitDiceRoll.rolls[0] !== 1) {
+      if (this.fireMode === 3) {
+        shots = (degreeOfSuccess > this.selectedWeapon.rof) ? this.selectedWeapon.rof : degreeOfSuccess;
+      }
+      if (this.fireMode === 1) {
+        shots = this.diceService.generateNumber(1, 3);
+      }
+      const dmg = this.selectedWeapon.rollDamage(this.diceService, shots);
+
+      this.toHitResults = [`Successful hit!`, ...dmg];
+    } else if (this.toHitDiceRoll.rolls[0] === 1) {
+      const msg = FumbleChart.getResults(this.diceService.generateNumber(1, 10), this.selectedSkill);
+      const jammed = msg.indexOf('jam') > 0 ? this.selectedWeapon.checkReliability(this.diceService) : '';
+      this.toHitResults = [
+        'Fumbled!',
+        msg,
+        jammed
+      ];
+    } else {
+      this.toHitResults = ['Missed!'];
     }
   }
 

@@ -21,7 +21,7 @@ export class FumbleChart {
         case 6:
           return 'Weapon discharge (non-auto make REL roll) or hits something harmless.';
         case 7:
-          return 'Weapon jam (non-auto make REL roll) or imbeds itself for 1 turn.';
+          return 'Weapon jam (check reliability) or imbeds itself for 1 turn.';
         case 8:
           return 'You wound yourself.';
         case 9:

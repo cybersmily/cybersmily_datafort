@@ -10,6 +10,7 @@ export class CpPlayerWeapon implements CpWeapon {
   conc: string;
   avail: string;
   damage: string;
+  ammo: string;
   shots: number;
   rof: number;
   rel: string;
@@ -20,7 +21,7 @@ export class CpPlayerWeapon implements CpWeapon {
   source?: SourceBook;
   count?: number;
   thrown?: boolean;
-  currentShots?: Array<boolean>;
+  _currentShots: Array<boolean>;
 
   private selectShot = -1;
 
@@ -45,6 +46,7 @@ export class CpPlayerWeapon implements CpWeapon {
     this.conc = param && param.conc ? param.conc.toUpperCase() : 'N';
     this.avail = param && param.avail ? param.avail.toUpperCase() : 'C';
     this.damage = param ? param.damage : '';
+    this.ammo = param ? param.ammo : '';
     // shots could be a string for backward capability.
     if (param && param.shots && typeof param.shots === 'string') {
       this.shots =
@@ -76,9 +78,13 @@ export class CpPlayerWeapon implements CpWeapon {
     this.source = param ? param.source : undefined;
     this.count = param ? param.count : 0;
     this.thrown = param ? param.thrown : undefined;
-    if (this.shots > 1) {
-      this.currentShots = new Array<boolean>(this.shots).fill(false);
+  }
+
+  get currentShots(): Array<boolean> {
+    if (!this._currentShots) {
+      this._currentShots = new Array<boolean>(this.shots).fill(false);
     }
+    return this._currentShots;
   }
 
   private getDefaultRange(): number {
@@ -231,5 +237,15 @@ export class CpPlayerWeapon implements CpWeapon {
     const total = stat + skill + this.wa;
     const results = `${stat}(stat) + ${skill}(skill) + ${this.wa}(wa) = ${total}`;
     return { total: total, results: results };
+  }
+
+  showStats(): string {
+    const ammoDmg =
+      this.ammo && this.ammo !== ''
+        ? `${this.ammo}(${this.damage || '-'})`
+        : (this.damage  || '-');
+    return `${this.type} ${this.wa || '-'} ${this.conc || '-'} ${
+      this.avail || '-'
+    } ${ammoDmg} ${this.shots || '-'} ${this.rof || '-'} ${this.rel || '-'}`;
   }
 }
