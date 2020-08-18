@@ -199,10 +199,14 @@ export class Cp2020PlayerSkills {
         list = this.REF.filter(
           (s) =>
             s.name.toLowerCase() === 'melee' ||
+            s.name.toLowerCase() === 'brawling' ||
             (s.name.toLowerCase() === 'martial art' &&
               s.option &&
               s.option !== '') ||
             s.name.toLowerCase() === 'fencing'
+        );
+        list.unshift(
+          new Cp2020PlayerSkill({ name: 'Not trained', stat: 'ref', value: 0 })
         );
         break;
       case 'hvy':
@@ -217,10 +221,24 @@ export class Cp2020PlayerSkills {
     return list;
   }
 
+  getPhysicalCombatSkills(): Array<Cp2020PlayerSkill> {
+    return this.REF.filter(
+      (s) =>
+        s.name.toLowerCase() === 'melee' ||
+        s.name.toLowerCase() === 'brawling' ||
+        (s.name.toLowerCase() === 'martial art' &&
+          s.option &&
+          s.option !== '') ||
+        s.name.toLowerCase() === 'fencing'
+    );
+
+  }
+
   getCombatSkills(): Array<Cp2020PlayerSkill> {
     return this.REF.filter(
       (s) =>
         s.name.toLowerCase() === 'melee' ||
+        s.name.toLowerCase() === 'brawling' ||
         (s.name.toLowerCase() === 'martial art' &&
           s.option &&
           s.option !== '') ||
