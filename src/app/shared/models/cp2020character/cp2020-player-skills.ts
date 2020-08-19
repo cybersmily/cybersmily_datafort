@@ -186,31 +186,23 @@ export class Cp2020PlayerSkills {
     let list = new Array<Cp2020PlayerSkill>();
     switch (type.toLowerCase()) {
       case 'p':
-        list = this.REF.filter((s) => s.name.toLowerCase() === 'handgun');
+        list = this.REF.filter((s) => s.name.toLowerCase().startsWith('handgun'));
         break;
       case 'smg':
-        list = this.REF.filter((s) => s.name.toLowerCase() === 'submachinegun');
+        list = this.REF.filter((s) => s.name.toLowerCase().startsWith('submachinegun'));
         break;
       case 'rif':
       case 'sht':
-        list = this.REF.filter((s) => s.name.toLowerCase() === 'rifle');
+        list = this.REF.filter((s) => s.name.toLowerCase().startsWith('rifle'));
         break;
       case 'mel':
-        list = this.REF.filter(
-          (s) =>
-            s.name.toLowerCase() === 'melee' ||
-            s.name.toLowerCase() === 'brawling' ||
-            (s.name.toLowerCase() === 'martial art' &&
-              s.option &&
-              s.option !== '') ||
-            s.name.toLowerCase() === 'fencing'
-        );
+        list = this.getPhysicalCombatSkills();
         list.unshift(
           new Cp2020PlayerSkill({ name: 'Not trained', stat: 'ref', value: 0 })
         );
         break;
       case 'hvy':
-        list = this.REF.filter((s) => s.name.toLowerCase() === 'heavy weapons');
+        list = this.REF.filter((s) => s.name.toLowerCase().startsWith('heavy weapons'));
         break;
       default:
         list = this.getCombatSkills();
@@ -226,9 +218,7 @@ export class Cp2020PlayerSkills {
       (s) =>
         s.name.toLowerCase() === 'melee' ||
         s.name.toLowerCase() === 'brawling' ||
-        (s.name.toLowerCase() === 'martial art' &&
-          s.option &&
-          s.option !== '') ||
+        s.name.toLowerCase().toLowerCase().startsWith('martial') ||
         s.name.toLowerCase() === 'fencing'
     );
 
@@ -239,9 +229,7 @@ export class Cp2020PlayerSkills {
       (s) =>
         s.name.toLowerCase() === 'melee' ||
         s.name.toLowerCase() === 'brawling' ||
-        (s.name.toLowerCase() === 'martial art' &&
-          s.option &&
-          s.option !== '') ||
+        s.name.toLowerCase().startsWith('martial')  ||
         s.name.toLowerCase() === 'fencing' ||
         s.name.toLowerCase() === 'rifle' ||
         s.name.toLowerCase() === 'pistol' ||

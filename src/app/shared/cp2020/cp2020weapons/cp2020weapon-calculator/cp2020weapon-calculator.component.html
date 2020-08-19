@@ -7,18 +7,21 @@
         <option *ngFor="let wpn of filteredList" [ngValue]="wpn">{{
           wpn.name
         }}</option>
+        <option *ngFor="let att of physicalAttacks" [ngValue]="att">{{att.name}}</option>
       </select>
       &nbsp;&nbsp;
+      <span class="cmbt-modifiers">
       {{ selectedWeapon ? selectedWeapon.showStats() : "" }}
+    </span>
     </div>
   </div>
   <div class="row" *ngIf="selectedWeapon">
     <div class="col">
       <div class="row">
         <div class="col-1"></div>
-        <div class="col">
+        <div class="col cmbt-section">
           <span *ngIf="filteredSkills.length > 1; else elseSkill">
-            <select [(ngModel)]="selectedSkill">
+            <select [(ngModel)]="selectedSkill" (change)="changeSkill()">
               <option *ngFor="let sk of filteredSkills" [ngValue]="sk">
                 {{ sk.name }}{{ sk.option ? ": " + sk.option : "" }}
               </option>
@@ -30,7 +33,7 @@
           <fa-icon [icon]="faDice" class="csd-btn csd-dice" (click)="rollToHit()">
           </fa-icon>&nbsp;{{ toHitDiceRoll.show(true) }} = {{ totalToHit }}
         </div>
-        <div class="col-2 text-right">
+        <div class="col-3 text-right">
           VS.
           {{
             selectedWeapon.type.toLowerCase() !== "mel" || selectedWeapon.thrown
@@ -39,26 +42,64 @@
           }}
         </div>
       </div>
+
+      <div class="row cmbt-section" *ngIf="isMartialArts && martialArtsBonuses as ma">
+        <div class="col-1"></div>
+        <div class="col-1">
+          {{ma.name}}
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col">Strike: +{{ma.strike}}</div>
+            <div class="col">Block: +{{ma.block}}</div>
+            <div class="col">Choke: +{{ma.choke}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Punch: +{{ma.punch}}</div>
+            <div class="col">Dodge: +{{ma.dodge}}</div>
+            <div class="col">Escape: +{{ma.escape}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Kick: +{{ma.kick}}</div>
+            <div class="col">Grapple: +{{ma.grapple}}</div>
+            <div class="col">Ram: +{{ma.ram}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Disarm: +{{ma.disarm}}</div>
+            <div class="col">Throw: +{{ma.throw}}</div>
+            <div class="col"></div>
+          </div>
+          <div class="row">
+            <div class="col">Sweep: +{{ma.sweep}}</div>
+            <div class="col">Hold: +{{ma.hold}}</div>
+            <div class="col"></div>
+          </div>
+        </div>
+        <div class="col-2"></div>
+      </div>
+
       <div class="row" *ngIf="selectedWeapon.shots && selectedWeapon.shots > 1">
         <div class="col-1"></div>
-        <div class="col-2">
+        <div class="col-2 cmbt-section">
           shots ({{ selectedWeapon.shotsUsed }}/{{ selectedWeapon.shots }}):
         </div>
-        <div class="col-9">
+        <div class="col">
           <span class="wpn-shot csd-btn" *ngFor="let shot of selectedWeapon.currentShots; let i = index"
             (click)="selectedWeapon.expendShot(i)" title="{{ i + 1 }}">{{ shot ? "x" : "" }}</span>
           &nbsp;&nbsp;
           <fa-icon *ngIf="selectedWeapon.isEmpty" [icon]="faRedo" class="csd-btn" (click)="selectedWeapon.reload()"
             title="Reload"></fa-icon>
         </div>
+        <div class="col-2"></div>
       </div>
+
       <div class="row" *ngFor="let msg of toHitResults">
         <div class="col-2"></div>
         <div class="col">{{ msg }}</div>
       </div>
       <div class="row" *ngIf="isRanged">
         <div class="col-1"></div>
-        <div class="col">
+        <div class="col cmbt-section">
           Range to Target:
           <input [(ngModel)]="rangeToTarget" type="range" min="0" max="{{ weaponRange > 1 ? weaponRange * 2 : 1 }}"
             value="1" />&nbsp; {{ rangeToTarget }}m ({{
@@ -71,7 +112,7 @@
       </div>
       <div class="row test-sm" *ngIf="selectedWeapon.rof && selectedWeapon.rof > 1">
         <div class="col-1"></div>
-        <div class="col">
+        <div class="col cmbt-section">
           Fire:
           <select [(ngModel)]="fireMode">
             <option [ngValue]="2">Single Shot</option>
@@ -234,7 +275,7 @@
       <div class="row">
         <div class="col-1"></div>
         <div class="col">Other Modifiers</div>
-        <div class="col-2 col-md-1 text-right cmbt-other">
+        <div class="col-2 text-right cmbt-other">
           <input type="number" [(ngModel)]="otherToHitModifiers" />
         </div>
       </div>

@@ -14,11 +14,13 @@ export class MartialArtsDataService {
 
   constructor(private dataService: DataService) { }
 
-  getMartialArtsList(): Observable<Array<Cp2020MartialArt>> {
+  get martialArtsBonuses(): Observable<Array<Cp2020MartialArt>> {
     if (this._martialArts) {
       return of( this._martialArts);
     }
-    return this.dataService.GetJson(JsonDataFiles.CP2020_MARTIAL_ARTS_LIST_JSON).pipe( map( martialArtList => {
+    return this.dataService
+    .GetJson(JsonDataFiles.CP2020_MARTIAL_ARTS_LIST_JSON)
+    .pipe( map( martialArtList => {
       this._martialArts = martialArtList;
       return martialArtList;
     }));

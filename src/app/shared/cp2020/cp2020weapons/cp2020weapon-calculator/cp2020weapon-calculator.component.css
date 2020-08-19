@@ -2,8 +2,13 @@
   font-size: 11px;
 }
 
+.cmbt-section {
+  font-size: 13px;
+}
+
 .cmbt-other input {
-  width: 100%;
+  width: 50px;
+  text-align: right;
 }
 
 .cmbt-calculator .row {

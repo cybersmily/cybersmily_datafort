@@ -51,8 +51,6 @@ export class CpPlayerWeaponList {
     }
   }
   generateWeapon(weaponList: Array<DataWeapon>, diceService: DiceService, count: number = 1) {
-    console.log(count);
-    console.log(weaponList);
     if (count < 1 || count > weaponList.length - 1) {
       return;
     }
