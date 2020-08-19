@@ -159,21 +159,26 @@ export class CpPlayerWeapon implements CpWeapon {
   rollDamage(
     diceService: DiceService,
     numberOfShots: number = 1,
-    bodyDamageModifier?: number
+    bodyDamageModifier?: number,
+    martialBonus?: number
   ): Array<string> {
     const results = new Array<string>();
     if (diceService && this.damage !== '') {
       for (let i = 0; i < numberOfShots; i++) {
         const roll = diceService.rollMoreDice(this.damage);
         const location = this.rollLocation(diceService);
+        let total = roll.total;
+        let msg = roll.show();
         if (this.type.toLowerCase() === 'mel') {
-          roll.total += bodyDamageModifier;
-          results.push(`${roll.show()} + ${bodyDamageModifier}(BOD Mod) to ${location}`);
-        } else {
-          results.push(
-            `${roll.show()} to ${location}`
-          );
+          const bodMod = (bodyDamageModifier > -1) ? '+ ' : '';
+          total += bodyDamageModifier;
+          msg += ` ${bodMod + bodyDamageModifier}(BOD Mod)`;
         }
+        if (martialBonus) {
+          total += martialBonus;
+          msg += ` + ${martialBonus}(MA Mod)`;
+        }
+        results.push( msg + `= ${total} to ${location}`);
       }
     }
     return results;

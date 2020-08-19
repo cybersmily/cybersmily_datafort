@@ -168,12 +168,10 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
       changes.handle &&
       changes.handle.currentValue !== changes.handle.previousValue
     ) {
-      console.log('got here');
       if (this.opponents[this.handle]) {
         this.selectedSkill =
           this.opponents[this.handle]['skill'] || new Cp2020PlayerSkill();
         this.selectedWeapon = this.opponents[this.handle].weapon || undefined;
-        console.log(this.selectedSkill);
       } else {
         this.selectedSkill = new Cp2020PlayerSkill();
         this.selectedWeapon = undefined;
@@ -349,6 +347,10 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
   }
 
   rollToHit() {
+    if (this.isRanged && this.selectedWeapon.isEmpty) {
+      this.toHitResults = ['Weapon needs to be reloaded'];
+      return;
+    }
     this.toHitDiceRoll = this.diceService.rollCP2020D10();
     let shots = this.shotsFired ? this.shotsFired : 1;
     this.selectedWeapon.fire(
@@ -357,7 +359,7 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
       this.selectedSkill.value,
       shots
     );
-    const degreeOfSuccess = this.totalToHit - this.totalDiff;
+    const degreeOfSuccess = (this.totalToHit - this.totalDiff) + 1;
     if (degreeOfSuccess > -1 && this.toHitDiceRoll.rolls[0] !== 1) {
       if (this.fireMode === 3) {
         shots =
@@ -368,7 +370,8 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
       if (this.fireMode === 1) {
         shots = this.diceService.generateNumber(1, 3);
       }
-      const dmg = this.selectedWeapon.rollDamage(this.diceService, shots);
+      const maDmg = (this.isMartialArts) ? this.selectedSkill.value : undefined;
+      const dmg = this.selectedWeapon.rollDamage(this.diceService, shots, this.bodyDamageMod, maDmg);
 
       this.toHitResults = [`Successful hit!`, ...dmg];
     } else if (this.toHitDiceRoll.rolls[0] === 1) {
@@ -400,6 +403,7 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
         this.opponents[this.handle]['skill'] = this.selectedSkill;
       }
     }
+    this.toHitResults = new Array<string>();
   }
 
   changeSkill() {

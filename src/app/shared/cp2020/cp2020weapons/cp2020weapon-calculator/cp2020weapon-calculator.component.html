@@ -28,8 +28,9 @@
             </select>
           </span>
           <ng-template #elseSkill> {{ selectedSkill.name }} </ng-template>:&nbsp;
-          <span>{{ selectedSkill.value }}</span>&nbsp; + REF: {{ ref }}&nbsp; + WA: {{ selectedWeapon.wa }}&nbsp; =
-          {{ selectedSkill.value + ref + selectedWeapon.wa }} +&nbsp;
+          <span title="{{ selectedSkill.value }}(Skill) + {{ ref }}(REF) + {{ selectedWeapon.wa }}(wa)">
+            {{ selectedSkill.value + ref + selectedWeapon.wa }}
+          </span> +&nbsp;
           <fa-icon [icon]="faDice" class="csd-btn csd-dice" (click)="rollToHit()">
           </fa-icon>&nbsp;{{ toHitDiceRoll.show(true) }} = {{ totalToHit }}
         </div>
@@ -40,6 +41,28 @@
               ? totalDiff
               : "Opposed Roll"
           }}
+        </div>
+      </div>
+
+      <div class="row" *ngIf="selectedWeapon.shots && selectedWeapon.shots > 1">
+        <div class="col-1"></div>
+        <div class="col-2 cmbt-section">
+          shots ({{ selectedWeapon.shotsUsed }}/{{ selectedWeapon.shots }}):
+        </div>
+        <div class="col">
+          <span class="wpn-shot csd-btn" *ngFor="let shot of selectedWeapon.currentShots; let i = index"
+            (click)="selectedWeapon.expendShot(i)" title="{{ i + 1 }}">{{ shot ? "x" : "" }}</span>
+          &nbsp;&nbsp;
+          <fa-icon *ngIf="selectedWeapon.isEmpty" [icon]="faRedo" class="csd-btn" (click)="selectedWeapon.reload()"
+            title="Reload"></fa-icon>
+        </div>
+        <div class="col-2"></div>
+      </div>
+
+      <div class="row" *ngIf="toHitResults.length > 0">
+        <div class="col-2">TO-HIT Results:</div>
+        <div class="col">
+          <div *ngFor="let msg of toHitResults">{{ msg }}</div>
         </div>
       </div>
 
@@ -78,25 +101,6 @@
         <div class="col-2"></div>
       </div>
 
-      <div class="row" *ngIf="selectedWeapon.shots && selectedWeapon.shots > 1">
-        <div class="col-1"></div>
-        <div class="col-2 cmbt-section">
-          shots ({{ selectedWeapon.shotsUsed }}/{{ selectedWeapon.shots }}):
-        </div>
-        <div class="col">
-          <span class="wpn-shot csd-btn" *ngFor="let shot of selectedWeapon.currentShots; let i = index"
-            (click)="selectedWeapon.expendShot(i)" title="{{ i + 1 }}">{{ shot ? "x" : "" }}</span>
-          &nbsp;&nbsp;
-          <fa-icon *ngIf="selectedWeapon.isEmpty" [icon]="faRedo" class="csd-btn" (click)="selectedWeapon.reload()"
-            title="Reload"></fa-icon>
-        </div>
-        <div class="col-2"></div>
-      </div>
-
-      <div class="row" *ngFor="let msg of toHitResults">
-        <div class="col-2"></div>
-        <div class="col">{{ msg }}</div>
-      </div>
       <div class="row" *ngIf="isRanged">
         <div class="col-1"></div>
         <div class="col cmbt-section">
