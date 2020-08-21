@@ -1,4 +1,4 @@
-import { CpRedTemplateArmor } from './../../shared/models/character/cp-red-template-armor';
+import { CpRedTemplateArmor } from './../../shared/cpred/models/cp-red-template-armor';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({

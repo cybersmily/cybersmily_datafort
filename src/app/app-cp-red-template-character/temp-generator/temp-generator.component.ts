@@ -1,10 +1,10 @@
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { NameGeneratorService } from '../../shared/services/namegen/name-generator.service';
 import { DiceService } from './../../shared/services/dice/dice.service';
-import { CpRedTemplateGeneratorService } from './../../shared/services/cpredpc/cp-red-template-generator.service';
-import { CpRedBaseCharacter } from './../../shared/models/character/cp-red-base-character';
+import { CpRedTemplateGeneratorService } from '../../shared/cpred/services/cpredpc/cp-red-template-generator.service';
+import { CpRedBaseCharacter } from '../../shared/cpred/models/cp-red-base-character';
 import { Component, OnInit } from '@angular/core';
-import { RedJumpkitLifepathService } from './../../shared/services/lifepath/red-jumpkit-lifepath.service';
+import { RedJumpkitLifepathService } from '../../shared/cpred/services/cprlifepath/red-jumpkit-lifepath.service';
 
 @Component({
   selector: 'cs-temp-generator',

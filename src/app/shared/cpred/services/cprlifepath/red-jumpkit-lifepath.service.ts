@@ -1,12 +1,11 @@
-import { JsonDataFiles } from './../../json-data-files';
-import { LifepathEventsList } from './../../models/lifepath/lifepath-events-list';
+import { JsonDataFiles } from '../../../json-data-files';
 import { map } from 'rxjs/operators';
 import { of, Observable, forkJoin } from 'rxjs';
-import { CPRedLifepathData } from './../../models/lifepath/cpred-lifepath-data';
+import { CPRedLifepathData } from '../../models/cpred-lifepath-data';
 import { Injectable } from '@angular/core';
-import { DiceService } from './../dice/dice.service';
-import { DataService } from '../data.service';
-import { CPRedLifepath } from '../../models/lifepath/cpred-lifepath';
+import { DiceService } from '../../../services/dice/dice.service';
+import { DataService } from '../../../services/data.service';
+import { CPRedLifepath } from '../../models/cpred-lifepath';
 
 @Injectable({
   providedIn: 'root'

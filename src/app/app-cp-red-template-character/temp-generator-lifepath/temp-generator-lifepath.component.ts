@@ -1,4 +1,4 @@
-import { CPRedLifepath } from './../../shared/models/lifepath/cpred-lifepath';
+import { CPRedLifepath } from '../../shared/cpred/models/cpred-lifepath';
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 @Component({

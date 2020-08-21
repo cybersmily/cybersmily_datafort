@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CpRedTemplateSkill } from './../../shared/models/character/cp-red-template-skill';
+import { CpRedTemplateSkill } from './../../shared/cpred/models/cp-red-template-skill';
 
 @Component({
   selector: 'cs-temp-generator-skills',

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CpRedBaseStats } from './../../shared/models/character/cp-red-base-stats';
+import { CpRedBaseStats } from './../../shared/cpred/models/cp-red-base-stats';
 
 @Component({
   selector: 'cs-temp-generator-stats',

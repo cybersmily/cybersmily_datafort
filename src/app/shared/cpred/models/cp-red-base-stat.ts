@@ -14,6 +14,7 @@ export class CpRedBaseStat {
   get current(): number {
     return this.base + this.adjusted;
   }
+
   set(value: number) {
     this._base  = (value < 0) ? 0 : value;
     this.adjusted = 0;

@@ -1,11 +1,10 @@
-import { JsonDataFiles } from './../../json-data-files';
-import { RedJumpkitLifepathService } from './../lifepath/red-jumpkit-lifepath.service';
+import { JsonDataFiles } from '../../../json-data-files';
 import { Observable, of } from 'rxjs';
-import { CpRedBaseCharacter } from './../../models/character/cp-red-base-character';
-import { DiceService } from './../dice/dice.service';
-import { DataService } from './../data.service';
+import { CpRedBaseCharacter } from '../../models/cp-red-base-character';
+import { DiceService } from '../../../services/dice/dice.service';
+import { DataService } from '../../../services/data.service';
 import { Injectable } from '@angular/core';
-import { CpRedTemplate } from '../../models/character/cp-red-template';
+import { CpRedTemplate } from '../../models/cp-red-template';
 
 @Injectable({
   providedIn: 'root'

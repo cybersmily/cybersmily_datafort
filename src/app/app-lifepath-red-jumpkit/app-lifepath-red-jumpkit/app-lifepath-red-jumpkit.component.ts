@@ -1,8 +1,9 @@
+import { faFilePdf, faSave, faDice } from '@fortawesome/free-solid-svg-icons';
+import { CPRedCharacterPDFService } from './../../shared/cpred/services/cprcharpdf/c-p-red-character-p-d-f.service';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { SaveFileService } from './../../shared/services/save-file.service';
-import { RedJumpkitLifepathService } from './../../shared/services/lifepath/red-jumpkit-lifepath.service';
-import { CPRedLifepathData } from './../../shared/models/lifepath/cpred-lifepath-data';
-import { CPRedLifepath } from './../../shared/models/lifepath/cpred-lifepath';
+import { RedJumpkitLifepathService } from '../../shared/cpred/services/cprlifepath/red-jumpkit-lifepath.service';
+import { CPRedLifepath } from '../../shared/cpred/models/cpred-lifepath';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,12 +12,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app-lifepath-red-jumpkit.component.css']
 })
 export class AppLifepathRedJumpkitComponent implements OnInit {
+  faFilePdf = faFilePdf;
+  faSave = faSave;
+  faDice = faDice;
 
   enabled = false;
   LifePath = new CPRedLifepath();
 
   constructor(private lifepathService: RedJumpkitLifepathService,
               private saveFileService: SaveFileService,
+              private pdfService: CPRedCharacterPDFService,
               private seo: SeoService) {}
 
   ngOnInit() {
@@ -78,6 +83,11 @@ export class AppLifepathRedJumpkitComponent implements OnInit {
 
   saveFile() {
     this.saveFileService.SaveAsFile( 'CPRedJumpkitLifepath', this.LifePath.print());
+  }
+
+  saveAsPDF() {
+    this.pdfService.generateLifePahtPDF(this.LifePath);
+
   }
 
 }

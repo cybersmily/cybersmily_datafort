@@ -1,6 +1,6 @@
 import { NameGeneratorService } from './../shared/services/namegen/name-generator.service';
-import { RedJumpkitLifepathService } from './../shared/services/lifepath/red-jumpkit-lifepath.service';
-import { CpRedTemplateGeneratorService } from './../shared/services/cpredpc/cp-red-template-generator.service';
+import { RedJumpkitLifepathService } from '../shared/cpred/services/cprlifepath/red-jumpkit-lifepath.service';
+import { CpRedTemplateGeneratorService } from '../shared/cpred/services/cpredpc/cp-red-template-generator.service';
 import { DiceService } from './../shared/services/dice/dice.service';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
