@@ -16,6 +16,7 @@
     {
       "date": "2020-08",
       "entries": [
+        "<strong>08-21</strong> - Very embarassing. I tweaked the name generator however there was a bad bug in it. I'm sorry for those who suffered with a character named Undefined...",
         "<strong>08-09</strong> - Did some bug fixes on the Combat Tracker thanks to Pawook over on the Cyberpunk 2020/RED Fans discord. The fixes are with the weapn, skill, cyber, and gear tabs when adding new items they get sticky. Added the BOD damage modifier to melee weapon damage rolls. Fixed the WA not being shown in the to-hit roll. Change the text for dice rolls and fixed an issue with the + modifier to damage dice.",
         "<strong>08-01</strong> - I change the menu a bit to turn it into a megamenu, which should space it out a bit more to help with using the menu on longer list of choices.",
         "A new app has been added: Cyberpunk 2020 Netrunner Deck Manager utility. This app allows you to create/enter a cyberdeck and programs for it. It keeps track of the costs as well as how many programs you have loaded into the deck.",
