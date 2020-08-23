@@ -158,7 +158,7 @@ describe('CpPlayerWeapon', () => {
       spyOn(dice, 'rollCP2020D10').and.returnValue(roll);
       const results = testWeapon.fire(dice, 5, 5);
       expect(results).not.toBeUndefined();
-      expect(results).toContain('Total: 5');
+      expect(results).toContain('5 [Dice: (5)]');
       expect(results).toContain(' = 17');
     });
 
@@ -191,7 +191,8 @@ describe('CpPlayerWeapon', () => {
     it('should roll 11 damage', () => {
       spyOn(dice, 'rollMoreDice').and.returnValue(diceRoll);
       const results = testWeapon.rollDamage(dice);
-      expect(results[0]).toContain('Total: 11 [Dice: (10, 1)] to ');
+      expect(results[0]).toContain('11 [Dice: (10, 1)]');
+      expect(results[0]).toContain('= 11');
     });
 
     it('should roll multiple damage', () => {
@@ -199,7 +200,7 @@ describe('CpPlayerWeapon', () => {
       const results = testWeapon.rollDamage(dice, 5);
       expect(results.length).toEqual(5);
       results.forEach((r) => {
-        expect(r).toContain('Total: 11 [Dice: (10, 1)] to ');
+        expect(r).toContain('11 [Dice: (10, 1)]= 11 to ');
       });
     });
 
@@ -207,16 +208,14 @@ describe('CpPlayerWeapon', () => {
       testWeapon.type = 'P';
       spyOn(dice, 'rollMoreDice').and.returnValue(diceRoll);
       const results = testWeapon.rollDamage(dice, 1, 3);
-      expect(results[0]).toContain('Total: 11 [Dice: (10, 1)] to ');
+      expect(results[0]).not.toContain('(BOD Mod)');
     });
 
     it('should add body modifier', () => {
       testWeapon.type = 'MEL';
       spyOn(dice, 'rollMoreDice').and.returnValue(diceRoll);
       const results = testWeapon.rollDamage(dice, 1, 3);
-      expect(results[0]).toContain(
-        'Total: 14 [Dice: (10, 1)] + 3(BOD Mod) to '
-      );
+      expect(results[0]).toContain( '+ 3(BOD Mod)');
     });
   });
 });

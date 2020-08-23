@@ -1,8 +1,7 @@
+import { WeaponModule } from './../../shared/modules/weapons/weapon.module';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { CmbtTrckArmorComponent } from './../cmbt-trck-armor/cmbt-trck-armor.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CmbtTrckModSelectorComponent } from './../cmbt-trck-mod-selector/cmbt-trck-mod-selector.component';
-import { CmbtTrckModWpnComponent } from './../cmbt-trck-mod-wpn/cmbt-trck-mod-wpn.component';
 import { CmbtTrckInstructionsComponent } from './../cmbt-trck-instructions/cmbt-trck-instructions.component';
 import { CmbtTrckFormComponent } from './../cmbt-trck-form/cmbt-trck-form.component';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
@@ -11,8 +10,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './../../shared/services/data.service';
 import { PipesModule } from './../../shared/pipes/pipes.module';
 import { CmbtTrkCyberComponent } from './../cmbt-trk-cyber/cmbt-trk-cyber.component';
-import { CmbtTrkWpnComponent } from './../cmbt-trk-wpn/cmbt-trk-wpn.component';
-import { CmbtTrkWpnsComponent } from './../cmbt-trk-wpns/cmbt-trk-wpns.component';
 import { CmbtTrkSkillsComponent } from './../cmbt-trk-skills/cmbt-trk-skills.component';
 import { CmbtTrkSpComponent } from './../cmbt-trk-sp/cmbt-trk-sp.component';
 import { DiceService } from './../../shared/services/dice/dice.service';
@@ -35,6 +32,7 @@ describe('CmbtTrckMainComponent', () => {
         CommonUiModule,
         PipesModule,
         HttpClientModule,
+        WeaponModule,
         BrowserAnimationsModule
       ],
       declarations: [
@@ -47,13 +45,9 @@ describe('CmbtTrckMainComponent', () => {
         CmbtTrckWoundLevelComponent,
         CmbtTrkSpComponent,
         CmbtTrkSkillsComponent,
-        CmbtTrkWpnsComponent,
-        CmbtTrkWpnComponent,
         CmbtTrkCyberComponent,
         CmbtTrckGearComponent,
         CmbtTrckInstructionsComponent,
-        CmbtTrckModWpnComponent,
-        CmbtTrckModSelectorComponent,
         CmbtTrckArmorComponent
       ],
       providers: [

@@ -45,8 +45,8 @@ describe('DiceRolls', () => {
   });
 
   it('should be shown as string', () => {
-    expect(diceRolls1.show()).toBe(`Total: 7 [Dice: (2, 5)]`);
+    expect(diceRolls1.show()).toBe(`7 [Dice: (2, 5)]`);
     diceRolls1.mod = '+ 3';
-    expect(diceRolls1.show()).toBe(`Total: 7 [Dice: (2, 5)+ 3]`);
+    expect(diceRolls1.show()).toBe(`7 [Dice: (2, 5)+ 3]`);
   });
 });

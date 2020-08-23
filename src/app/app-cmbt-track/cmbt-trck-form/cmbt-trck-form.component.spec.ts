@@ -1,14 +1,11 @@
+import { WeaponModule } from './../../shared/modules/weapons/weapon.module';
 import { CmbtTrckArmorComponent } from './../cmbt-trck-armor/cmbt-trck-armor.component';
-import { CmbtTrckModWpnComponent } from './../cmbt-trck-mod-wpn/cmbt-trck-mod-wpn.component';
-import { CmbtTrckModSelectorComponent } from './../cmbt-trck-mod-selector/cmbt-trck-mod-selector.component';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { CmbtTrckGearComponent } from './../cmbt-trck-gear/cmbt-trck-gear.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './../../shared/services/data.service';
 import { PipesModule } from './../../shared/pipes/pipes.module';
 import { CmbtTrkCyberComponent } from './../cmbt-trk-cyber/cmbt-trk-cyber.component';
-import { CmbtTrkWpnComponent } from './../cmbt-trk-wpn/cmbt-trk-wpn.component';
-import { CmbtTrkWpnsComponent } from './../cmbt-trk-wpns/cmbt-trk-wpns.component';
 import { CmbtTrkSkillsComponent } from './../cmbt-trk-skills/cmbt-trk-skills.component';
 import { CmbtTrkSpComponent } from './../cmbt-trk-sp/cmbt-trk-sp.component';
 import { DiceService } from './../../shared/services/dice/dice.service';
@@ -36,18 +33,15 @@ describe('CmbtTrckFormComponent', () => {
         CmbtTrckWoundLevelComponent,
         CmbtTrkSpComponent,
         CmbtTrkSkillsComponent,
-        CmbtTrkWpnsComponent,
-        CmbtTrkWpnComponent,
         CmbtTrkCyberComponent,
         CmbtTrckGearComponent,
-        CmbtTrckModSelectorComponent,
-        CmbtTrckModWpnComponent,
         CmbtTrckArmorComponent
 
       ],
       imports: [
         CommonUiModule,
         PipesModule,
+        WeaponModule,
         HttpClientModule
       ],
       providers: [

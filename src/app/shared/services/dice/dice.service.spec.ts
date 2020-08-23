@@ -13,6 +13,7 @@ describe('DiceService', () => {
   it('should be created', inject([DiceService], (service: DiceService) => {
     expect(service).toBeTruthy();
   }));
+
   it('should be 1 roll', inject([DiceService], (service: DiceService) => {
     const dice: DiceRolls = service.rollDice('1');
     expect(dice.total).toBe(1);

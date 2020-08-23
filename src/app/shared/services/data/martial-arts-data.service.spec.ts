@@ -1,16 +1,22 @@
-import { TestBed } from '@angular/core/testing';
+import { DataService } from './../data.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { TestBed, inject, async } from '@angular/core/testing';
 
 import { MartialArtsDataService } from './martial-arts-data.service';
 
 describe('MartialArtsDataService', () => {
-  let service: MartialArtsDataService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(MartialArtsDataService);
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [
+        MartialArtsDataService,
+        DataService
+      ]
+    });
   });
 
-  it('should be created', () => {
+  it('should be created', async(inject([MartialArtsDataService], (service: MartialArtsDataService)  => {
     expect(service).toBeTruthy();
-  });
+  })));
 });

@@ -16,7 +16,7 @@ describe('FumbleChart', () => {
     skill.stat = 'REF';
     skill.name = 'Martial Arts: Karate';
     const results = FumbleChart.getResults(7, skill);
-    expect(results).toBe('Weapon jam (non-auto make REL roll) or imbeds itself for 1 turn.');
+    expect(results).toBe('Weapon jam (check reliability) or imbeds itself for 1 turn.');
   });
 
   it('should non-combat ref results', () => {

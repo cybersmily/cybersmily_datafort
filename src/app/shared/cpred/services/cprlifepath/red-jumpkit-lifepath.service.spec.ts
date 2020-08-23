@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
-import { DataService } from './../data.service';
-import { DiceService } from './../dice/dice.service';
+import { DataService } from './../../../services/data.service';
+import { DiceService } from './../../../services//dice/dice.service';
 import { TestBed, async, inject } from '@angular/core/testing';
 
 import { RedJumpkitLifepathService } from './red-jumpkit-lifepath.service';
