@@ -1,6 +1,6 @@
 import { CPRedLifepath } from './../../models/cpred-lifepath';
 import { Injectable } from '@angular/core';
-import * as jsPDF from 'jspdf';
+import { jsPDF } from 'jspdf';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +18,7 @@ export class CPRedCharacterPDFService {
   private _pageWidth = 200;
   private _fontSize = 11;
   private _pageHeight = 290;
+  private _font = 'Arial';
 
   generatePdf(character: any) {
     this._character = character;
@@ -25,7 +26,14 @@ export class CPRedCharacterPDFService {
       orientation: 'p',
       format: 'a4',
       unit: 'mm'
-    });
+    });    // verify that Arial is a font.
+    if (!doc.getFontList()['Arial']) {
+      doc.addFont('/assets/fonts/arial.ttf', 'Arial', 'normal');
+      doc.addFont('/assets/fonts/arial-bold.ttf', 'Arial', 'bold');
+      doc.addFont('/assets/fonts/arial-corsivo.ttf', 'Arial', 'itatlic');
+    }
+    console.log(doc.getFontList());
+    doc.setFont(this._font);
     doc.setFontSize(this._fontSize);
     this.createBackgroundBox(doc, 'FD', this._top, this._left, 100, 150, 10, 'red');
     const filename = 'test';
@@ -105,10 +113,12 @@ export class CPRedCharacterPDFService {
   }
 
   private createLifePathSection(doc: jsPDF, title: string, text: Array<string>, line: number, left: number, height: number): number {
+    doc.setFont(this._font, 'bold');
     doc.setFontSize(this._fontSize);
     doc.setTextColor('white');
     doc.text(title, left, line + Math.floor(height / 2), {baseline: 'middle'});
     doc.setFillColor('white');
+    doc.setFont(this._font, 'normal');
     doc.rect(left + 45, line, 140, height, 'F');
     doc.setTextColor('black');
     doc.setFontSize(this._fontSize - 1);

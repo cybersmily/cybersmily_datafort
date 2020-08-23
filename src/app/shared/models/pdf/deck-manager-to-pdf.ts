@@ -1,7 +1,7 @@
 import { Cp2020NetrunDeck } from './../netrun/cp2020-netrun-deck';
 import { Cp2020ProgramList } from './../netrun/cp2020-program-list';
 import { Cp2020DeckManager } from './../netrun/cp2020-deck-manager';
-import * as jsPDF from 'jspdf';
+import { jsPDF } from 'jspdf';
 import { NetRunProgram } from '../netrun';
 import { LinkedList } from 'ngx-bootstrap';
 
@@ -10,13 +10,20 @@ export class DeckManagerToPdf {
   private static _top = 15;
   private static _midPage = 105;
   private static _fontSize = 11;
+  private static _font = 'Arial';
 
   static generatePdf( manager: Cp2020DeckManager) {
     const doc: jsPDF = new jsPDF({
       orientation: 'p',
       format: 'a4',
       unit: 'mm'
-    });
+    });    // verify that Arial is a font.
+    if (!doc.getFontList()['Arial']) {
+      doc.addFont('/assets/fonts/arial.ttf', 'Arial', 'normal');
+      doc.addFont('/assets/fonts/arial-bold.ttf', 'Arial', 'bold');
+      doc.addFont('/assets/fonts/arial-corsivo.ttf', 'Arial', 'itatlic');
+    }
+    doc.setFont(this._font);
     doc.setFontSize(this._fontSize);
     let line = this._top;
     line = this.addHeader(doc, 'CYBERPUNK 2020 DECK MANAGER', line);
@@ -31,27 +38,27 @@ export class DeckManagerToPdf {
   }
 
   private static addHeader(doc: jsPDF, text: string, line: number): number {
-    doc.setFontStyle('bold');
+    doc.setFont(this._font, 'bold');
     doc.setFontSize(15);
-    doc.text(text, this._midPage, line, 'center');
+    doc.text(text, this._midPage, line, {align: 'center'});
     doc.setFontSize(this._fontSize);
     line += 20;
     return line;
   }
 
   private static addDeck(doc: jsPDF, deck: Cp2020NetrunDeck, line: number): number {
-    doc.setFontStyle('bold');
+    doc.setFont('bold');
     doc.setFontSize(13);
     doc.text(deck.name, this._left, line);
-    doc.setFontStyle('normal');
-    doc.text(`${deck.cost}eb`, this._left + 190, line, 'right');
+    doc.setFont(this._font, 'normal');
+    doc.text(`${deck.cost}eb`, this._left + 190, line, { align: 'right'});
     doc.setFontSize(this._fontSize);
     line += 7;
     doc.text(`Chassis: ${deck.type.name}`, this._left, line);
     line += 7;
     doc.text(`Speed: +${deck.speed}`, this._left, line);
-    doc.text(`DataWall: ${deck.dataWall}`, this._left + 60, line, 'right');
-    doc.text(`MU: ${deck.mu}`, this._left + 120, line, 'right');
+    doc.text(`DataWall: ${deck.dataWall}`, this._left + 60, line, { align: 'right'});
+    doc.text(`MU: ${deck.mu}`, this._left + 120, line, { align: 'right'});
     line += 7;
     const options  = deck.options.map(o => (o.count && o.count > 1 ? o.count + ' ' : '' ) + o.name).join(', ');
     const optList: Array<string> = doc.splitTextToSize(`Options: ${options}`, 200);
@@ -96,18 +103,18 @@ export class DeckManagerToPdf {
   }
 
   private static addProgram(doc: jsPDF, prog: NetRunProgram, line: number, column: number ): number {
-    doc.setFontStyle('bold');
+    doc.setFont(this._font, 'bold');
     doc.setFontSize(13);
     doc.rect(column, line - 3, 3, 3, 'S');
     doc.text(prog.name, column + 4, line);
-    doc.setFontStyle('normal');
-    doc.text(`${prog.cost}eb`, column + 90, line, 'right');
+    doc.setFont(this._font, 'normal');
+    doc.text(`${prog.cost}eb`, column + 90, line, { align: 'right'});
     doc.setFontSize(this._fontSize);
     line += 7;
     doc.text(`Class: ${prog.class.name}`, column, line);
     line += 7;
     doc.text(`Strength: +${prog.strength}`, column, line);
-    doc.text(`MU: ${prog.mu}`, column + 90, line, 'right');
+    doc.text(`MU: ${prog.mu}`, column + 90, line, { align: 'right'});
     line += 7;
     const options  = prog.options.map(o => o.name).join(', ');
     const optList: Array<string> = doc.splitTextToSize(`Options: ${options}`, 90);

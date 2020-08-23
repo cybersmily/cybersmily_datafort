@@ -1,4 +1,4 @@
-import * as jsPDF from 'jspdf';
+import { jsPDF } from 'jspdf';
 import { Cp2020Drug, Cp2020DrugList } from './../drug';
 
 export class DruglabToPDF {
@@ -6,20 +6,26 @@ export class DruglabToPDF {
   private _top = 15;
   private _midPage = 105;
   private _fontSize = 11;
+  private _font = 'Arial';
 
    generatePdf( drugList: Cp2020DrugList) {
     const doc: jsPDF = new jsPDF({
       orientation: 'p',
       format: 'a4',
       unit: 'mm'
-    });
+    });    // verify that Arial is a font.
+    if (!doc.getFontList()['Arial']) {
+      doc.addFont('/assets/fonts/arial.ttf', 'Arial', 'normal');
+      doc.addFont('/assets/fonts/arial-bold.ttf', 'Arial', 'bold');
+      doc.addFont('/assets/fonts/arial-corsivo.ttf', 'Arial', 'itatlic');
+    }
     doc.setFontSize(this._fontSize);
     let col = this._left;
     let line = this._top;
     let nextLine = this._top;
-    doc.setFontStyle('bold');
+    doc.setFont(this._font, 'bold');
     doc.setFontSize(15);
-    doc.text('CYBERPUNK 2020 DRUG LAB', this._midPage, line, 'center');
+    doc.text('CYBERPUNK 2020 DRUG LAB', this._midPage, line, {align: 'center'});
     doc.setFontSize(this._fontSize);
     line += 20;
     drugList.items.forEach( (d, i) => {
@@ -40,9 +46,9 @@ export class DruglabToPDF {
   }
 
   private addDrug(doc: jsPDF, drug: Cp2020Drug, line: number, column: number): number {
-    doc.setFontStyle('bold');
+    doc.setFont(this._font, 'bold');
     doc.text(drug.name, column, line);
-    doc.setFontStyle('normal');
+    doc.setFont(this._font, 'normal');
     line += 7;
     doc.text(`Strength: +${drug.strength}`, column + 50, line);
     const effects: Array<string> = doc.splitTextToSize(`Type: ${drug.effectList}`, 45);

@@ -7,7 +7,7 @@ import { Cp2020ArmorBlock } from './../cp2020character/cp2020-armor-block';
 import { Cp2020StatBlock } from './../cp2020character/cp2020-stat-block';
 import { Cp2020PlayerCharacter } from '../cp2020character/cp2020-player-character';
 
-import * as jsPDF from 'jspdf';
+import {jsPDF} from 'jspdf';
 
 export class Cp2020characterToPDF {
   private _character: Cp2020PlayerCharacter;
@@ -18,6 +18,7 @@ export class Cp2020characterToPDF {
   private _midPage = 105;
   private _fontSize = 11;
   private _pageHeight = 290;
+  private _font = 'Arial';
 
   generatePdf( character: Cp2020PlayerCharacter) {
     this._character = character;
@@ -26,6 +27,14 @@ export class Cp2020characterToPDF {
       format: 'a4',
       unit: 'mm'
     });
+
+    // verify that Arial is a font.
+    if (!doc.getFontList()['Arial']) {
+      doc.addFont('/assets/fonts/arial.ttf', 'Arial', 'normal');
+      doc.addFont('/assets/fonts/arial-bold.ttf', 'Arial', 'bold');
+      doc.addFont('/assets/fonts/arial-corsivo.ttf', 'Arial', 'itatlic');
+    }
+    doc.setFont(this._font, 'normal');
     doc.setFontSize(this._fontSize);
     this.createFirstPage(doc);
     this.createSecondPage(doc);
@@ -62,10 +71,10 @@ export class Cp2020characterToPDF {
     doc.setFillColor('black');
     doc.rect(this._left, this._top, 200, 7, 'DF');
     doc.setTextColor('white');
-    doc.setFontStyle('bold');
+    doc.setFont(this._font, 'bold');
     doc.text('LIFEPATH, GEAR, & WEAPONS', this._left + 2, this._top + 5);
     doc.setTextColor('black');
-    doc.setFontStyle('normal');
+    doc.setFont(this._font, 'normal');
 
     this.addLifePath(doc, this._character.lifepath, this._left, this._top + 10);
     this.addGear(doc, this._character.gear, this._midPage, this._top + 10);
@@ -77,10 +86,10 @@ export class Cp2020characterToPDF {
     doc.setFillColor('black');
     doc.rect(this._left, this._top, 200, 7, 'DF');
     doc.setTextColor('white');
-    doc.setFontStyle('bold');
+    doc.setFont(this._font, 'bold');
     doc.text('HISTORY & NOTES', this._left + 2, this._top + 5);
     doc.setTextColor('black');
-    doc.setFontStyle('normal');
+    doc.setFont(this._font, 'normal');
     doc.rect(this._left, this._top, 200, this._pageHeight - this._top, 'S');
     const notes: Array<string> = doc.splitTextToSize(this._character.notes, 190);
     let line = this._top + 13;
@@ -95,12 +104,12 @@ export class Cp2020characterToPDF {
     let rw = 22;
     doc.rect(this._left, line, rw, this._lineheight, 'DF');
     doc.setTextColor('white');
-    doc.setFontStyle('bold');
+    doc.setFont(this._font, 'bold');
     doc.text('HANDLE:', this._left + 3, line + 5);
     rw = this._left + rw;
     doc.rect(rw, line, 70, this._lineheight, 'S');
     doc.setTextColor('black');
-    doc.setFontStyle('normal');
+    doc.setFont(this._font, 'normal');
     doc.text(handle, rw + 1, line + 5);
   }
 
@@ -109,12 +118,12 @@ private addRole(doc: jsPDF, role: string, line: number) {
   let rw = 22;
   doc.rect(this._left, line, rw, this._lineheight, 'DF');
   doc.setTextColor('white');
-  doc.setFontStyle('bold');
+  doc.setFont(this._font, 'bold');
   doc.text('ROLE:', this._left + 3, line + 5);
   rw = this._left + rw;
   doc.rect(rw, line, 70, this._lineheight, 'S');
   doc.setTextColor('black');
-  doc.setFontStyle('normal');
+  doc.setFont(this._font, 'normal');
   doc.text(role, rw + 1, line + 5);
 }
 
@@ -122,7 +131,7 @@ private addCharImage(doc: jsPDF) {
   doc.setTextColor('black');
   doc.rect(this._midPage, this._top, 100, 10, 'DF');
   doc.setTextColor('white');
-  doc.setFontStyle('bold');
+  doc.setFont(this._font, 'bold');
   doc.setFontSize(15);
   doc.text('CYBERPUNK 2020', this._midPage + 20, this._top + 6);
   doc.roundedRect(this._midPage, this._top + 10, 100, 80, 0.5, 0.5, 'S');
@@ -133,11 +142,11 @@ private addCharImage(doc: jsPDF) {
 private addStats(doc: jsPDF, stats: Cp2020StatBlock, line: number): number {
   doc.rect(this._left, line, 20, this._lineheight, 'DF');
   doc.setTextColor('white');
-  doc.setFontStyle('bold');
+  doc.setFont(this._font, 'bold');
   doc.text('STATS', this._left + 3, line + 5);
   doc.rect(this._left + 20, line, 15, this._lineheight, 'S');
   doc.setTextColor('black');
-  doc.setFontStyle('normal');
+  doc.setFont(this._font, 'normal');
   doc.text(stats.BasePoints.toString(), this._left + 23, line + 5);
 
 
@@ -221,7 +230,7 @@ private addWoundRow(doc: jsPDF, save: number, btm: number, line: number): number
   doc.text('BTM', left + 2, line + 5);
   doc.rect(left, line + this._lineheight, 13, 15, 'S');
   doc.text(btm.toString(), left + 4, line + this._lineheight + 8);
-  doc.setFontStyle('normal');
+  doc.setFont(this._font, 'normal');
   const woundWidth = 12;
   this.addWounds(doc, 'LIGHT', 0, line + 2, left + 14, woundWidth);
   this.addWounds(doc, 'SERIOUS', -1, line + 2, left + 26, woundWidth);
@@ -258,10 +267,10 @@ private addSkills(doc: jsPDF, sa: Cp2020PlayerSkill, skills: Cp2020PlayerSkills,
   doc.setFillColor('black');
   doc.rect(this._left, line, 22, this._lineheight, 'DF');
   doc.setTextColor('white');
-  doc.setFontStyle('bold');
+  doc.setFont(this._font, 'bold');
   doc.text('SKILLS', left + 3, line + 5);
   doc.setTextColor('black');
-  doc.setFontStyle('normal');
+  doc.setFont(this._font, 'normal');
   doc.setFontSize(6);
   doc.text('Skills show level| level + stat in box []. X next to box is chipped', left + 23, line + 3);
   line += 7;
@@ -301,19 +310,19 @@ private addSkills(doc: jsPDF, sa: Cp2020PlayerSkill, skills: Cp2020PlayerSkills,
   line = startLine;
   line = this.printSkills(doc, skills.Other, '', 0, line, col);
   doc.setFontSize(9);
-  doc.setFontStyle('bold');
+  doc.setFont(this._font, 'bold');
   doc.text('REP', col, line + 4);
-  doc.setFontStyle('normal');
+  doc.setFont(this._font, 'normal');
   doc.text(skills.rep.toString(), col + 40, line + 4);
   line += 6;
-  doc.setFontStyle('bold');
+  doc.setFont(this._font, 'bold');
   doc.text('CURRENT IP', col, line + 4);
-  doc.setFontStyle('normal');
+  doc.setFont(this._font, 'normal');
   doc.text(skills.ip.toString(), col + 40, line + 4);
   line += 6;
-  doc.setFontStyle('bold');
+  doc.setFont(this._font, 'bold');
   doc.text('HUMANITY', col, line + 4);
-  doc.setFontStyle('normal');
+  doc.setFont(this._font, 'normal');
   doc.text(stats.Humanity.toString(), col + 40, line + 4);
   line += 6;
 }
@@ -338,10 +347,10 @@ private addCyberware(doc: jsPDF, cyber: Cp2020PlayerCyberList, left: number, lin
   doc.setFillColor('black');
   doc.rect(left, line, 100, 7, 'DF');
   doc.setTextColor('white');
-  doc.setFontStyle('bold');
+  doc.setFont(this._font, 'bold');
   doc.text('CYBERNETICS', left + 2, line + 5);
   doc.setTextColor('black');
-  doc.setFontStyle('normal');
+  doc.setFont(this._font, 'normal');
   line += 7;
   doc.setFontSize(9);
   const ht = 6;
@@ -376,10 +385,10 @@ private addGear(doc: jsPDF, gear: Cp2020PlayerGearList, left: number, line: numb
   doc.setFillColor('black');
   doc.rect(left, line, 100, 7, 'DF');
   doc.setTextColor('white');
-  doc.setFontStyle('bold');
+  doc.setFont(this._font, 'bold');
   doc.text('GEAR', left + 2, line + 5);
   doc.setTextColor('black');
-  doc.setFontStyle('normal');
+  doc.setFont(this._font, 'normal');
   line += 7;
   doc.setFontSize(9);
   const ht = 6;
@@ -407,10 +416,10 @@ private addWeapons(doc: jsPDF, weapons: CpPlayerWeaponList, left: number, line: 
   doc.setFillColor('black');
   doc.rect(left, line, 100, 7, 'DF');
   doc.setTextColor('white');
-  doc.setFontStyle('bold');
+  doc.setFont(this._font, 'bold');
   doc.text('WEAPONS', left + 2, line + 5);
   doc.setTextColor('black');
-  doc.setFontStyle('normal');
+  doc.setFont(this._font, 'normal');
   doc.setFontSize(7);
   const ht = 5;
   const leftMargin = left;
@@ -525,7 +534,7 @@ private addLifePath(doc: jsPDF, lifepath: LifePathResults, left: number, line: n
   doc.rect(left, line, 90, this._pageHeight - line, 'S');
   const ht = 6.5;
   const recth = 6;
-  doc.setFontStyle('bold');
+  doc.setFont(this._font, 'bold');
   doc.text('LIFEPATH', left + 2, line + 5);
   doc.setFillColor('black');
   line += ht;
@@ -536,33 +545,31 @@ private addLifePath(doc: jsPDF, lifepath: LifePathResults, left: number, line: n
   doc.setTextColor('black');
   line += ht;
   doc.text('Clothes', left + 5, line + 5);
-  doc.setFontStyle('normal');
+  doc.setFont(this._font, 'normal');
   doc.text(lifepath.appearance.clothes, left + 20, line + 5);
   line += ht;
-  doc.setFontStyle('bold');
+  doc.setFont(this._font, 'bold');
   doc.text('Hair', left + 5, line + 5);
-  doc.setFontStyle('normal');
+  doc.setFont(this._font, 'normal');
   doc.text(lifepath.appearance.hairstyle, left + 17, line + 5);
   line += ht;
-  doc.setFontStyle('bold');
+  doc.setFont(this._font, 'bold');
   doc.text('Affectations', left + 5, line + 5);
-  doc.setFontStyle('normal');
+  doc.setFont(this._font, 'normal');
   doc.text(lifepath.appearance.affectations, left + 25, line + 5);
   line += ht;
-  doc.setFontStyle('bold');
+  doc.setFont(this._font, 'bold');
   doc.text('Ethnicity', left + 5, line + 5);
-  doc.setFontStyle('normal');
+  doc.setFont(this._font, 'normal');
   doc.text(lifepath.ethnicity.name, left + 20, line + 5);
-  line += ht;
-  doc.setFontStyle('bold');
+  line += ht;doc.setFont(this._font, 'bold');
   doc.text('Language', left + 5, line + 5);
-  doc.setFontStyle('normal');
+  doc.setFont(this._font, 'normal');
   doc.text(lifepath.ethnicity.language, left + 22, line + 5);
   line += ht;
-  doc.setFontStyle('bold');
 
   // Family
-  doc.setFontStyle('bold');
+  doc.setFont(this._font, 'bold');
   doc.setFillColor('black');
   doc.rect(left, line, 40, recth, 'FD');
   doc.setTextColor('white');
@@ -570,7 +577,7 @@ private addLifePath(doc: jsPDF, lifepath: LifePathResults, left: number, line: n
   doc.setTextColor('black');
 
   line += ht;
-  doc.setFontStyle('normal');
+  doc.setFont(this._font, 'normal');
   if ( lifepath.family.familyRanking && lifepath.family.familyRanking !== '') {
     doc.text('Ranking: ' + lifepath.family.familyRanking, left + 5, line + 4);
   }
@@ -586,13 +593,13 @@ private addLifePath(doc: jsPDF, lifepath: LifePathResults, left: number, line: n
     line += ht;
   }
 
-  doc.setFontStyle('bold');
+  doc.setFont(this._font, 'bold');
   doc.setFillColor('black');
   doc.rect(left, line, 25, recth, 'FD');
   doc.setTextColor('white');
   doc.text('# Siblings', left + 2, line + 4);
   doc.setTextColor('black');
-  doc.setFontStyle('normal');
+  doc.setFont(this._font, 'normal');
   const bro = lifepath.family.siblings.getBrothersCount().toString();
   const sis = lifepath.family.siblings.getSistersCount().toString();
   doc.text(
@@ -609,32 +616,32 @@ private addLifePath(doc: jsPDF, lifepath: LifePathResults, left: number, line: n
   doc.setTextColor('black');
   line += ht;
   doc.text('Traits: ', left + 5, line + 5);
-  doc.setFontStyle('normal');
+  doc.setFont(this._font, 'normal');
   doc.text(lifepath.motivations.personality, left + 18, line + 5);
   line += ht;
-  doc.setFontStyle('bold');
+  doc.setFont(this._font, 'bold');
   doc.text('Valued Person: ', left + 5, line + 5);
-  doc.setFontStyle('normal');
+  doc.setFont(this._font, 'normal');
   doc.text(lifepath.motivations.valuedperson, left + 28, line + 5);
   line += ht;
-  doc.setFontStyle('bold');
+  doc.setFont(this._font, 'bold');
   doc.text('Value Most: ', left + 5, line + 5);
-  doc.setFontStyle('normal');
+  doc.setFont(this._font, 'normal');
   doc.text(lifepath.motivations.valuemost, left + 23, line + 5);
   line += ht;
   const feel = (lifepath.motivations.feelaboutpeople.length > 30) ?
     lifepath.motivations.feelaboutpeople.substring(0, 30) + '...' : lifepath.motivations.feelaboutpeople;
-  doc.setFontStyle('bold');
+    doc.setFont(this._font, 'bold');
   doc.text('Feel About People: ', left + 5, line + 5);
-  doc.setFontStyle('normal');
+  doc.setFont(this._font, 'normal');
   doc.text(feel, left + 35, line + 5);
   line += ht;
-  doc.setFontStyle('bold');
+  doc.setFont(this._font, 'bold');
   doc.text('Valued Possesion: ', left + 5, line + 5);
-  doc.setFontStyle('normal');
+  doc.setFont(this._font, 'normal');
   doc.text(lifepath.motivations.valuedpossession, left + 35, line + 5);
   line += ht;
-  doc.setFontStyle('bold');
+  doc.setFont(this._font, 'bold');
 
   // Life Events
   doc.rect(left, line, 25, recth, 'FD');
@@ -643,7 +650,7 @@ private addLifePath(doc: jsPDF, lifepath: LifePathResults, left: number, line: n
   doc.setTextColor('black');
   line += ht;
   doc.setFontSize(8);
-  doc.setFontStyle('normal');
+  doc.setFont(this._font, 'normal');
   doc.setTextColor('black');
   doc.rect(left, line, 10, recth, 'S');
   doc.text('YEAR', left + 1, line + 5);
@@ -673,7 +680,7 @@ private addLifePath(doc: jsPDF, lifepath: LifePathResults, left: number, line: n
   });
 
 
-  doc.setFontStyle('normal');
+  doc.setFont(this._font, 'normal');
 }
 
 }
