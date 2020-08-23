@@ -6,7 +6,7 @@
         "Your family is imprisoned and you alone escaped.",
         "Your family vanished. You are the only remaining member.",
         "Your family was killed and you were the only survivor.",
-        "Your family is involved in a long–term conspiracy, organization, or association, such as a crime family or revolutionary group.",
+        "Your family is involved in a long-term conspiracy, organization, or association, such as a crime family or revolutionary group.",
         "Your family was scattered to the winds due to misfortune.",
         "Your family is cursed with a hereditary feud that has lasted for generations.",
         "You are the inheritor of a family debt; you must honor this debt before moving on with your life."
@@ -30,7 +30,7 @@
         "Cause pain and suffering to anyone who crosses you.",
         "Live down your past life and try to forget it.",
         "Hunt down those responsible for your life and make them pay.",
-        "Get what’s rightfully yours.",
+        "Get what's rightfully yours.",
         "Save, if possible, anyone else involved in your background.",
         "Gain fame and recognition.",
         "Become feared and respected."
@@ -48,8 +48,8 @@
         "Someone with a common interest"
     ],
     "enemies":[
-        "Ex–friend",
-        "Ex–lover",
+        "Ex-friend",
+        "Ex-lover",
         "Relative",
         "Childhood enemy",
         "Person working for you",
@@ -66,7 +66,7 @@
         "Moody, rash and headstrong",
         "Picky, fussy, and nervous",
         "Stable and serious",
-        "Silly and fluff–headed",
+        "Silly and fluff-headed",
         "Sneaky and deceptive",
         "Intellectual and detached",
         "Friendly and outgoing"

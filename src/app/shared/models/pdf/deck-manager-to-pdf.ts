@@ -10,21 +10,11 @@ export class DeckManagerToPdf {
   private static _top = 15;
   private static _midPage = 105;
   private static _fontSize = 11;
-  private static _font = 'Arial';
+  private static _font = '';
 
   static generatePdf( manager: Cp2020DeckManager) {
-    const doc: jsPDF = new jsPDF({
-      orientation: 'p',
-      format: 'a4',
-      unit: 'mm'
-    });    // verify that Arial is a font.
-    if (!doc.getFontList()['Arial']) {
-      doc.addFont('/assets/fonts/arial.ttf', 'Arial', 'normal');
-      doc.addFont('/assets/fonts/arial-bold.ttf', 'Arial', 'bold');
-      doc.addFont('/assets/fonts/arial-corsivo.ttf', 'Arial', 'itatlic');
-    }
-    doc.setFont(this._font);
-    doc.setFontSize(this._fontSize);
+    const doc: jsPDF = this.setupDoc();
+
     let line = this._top;
     line = this.addHeader(doc, 'CYBERPUNK 2020 DECK MANAGER', line);
 
@@ -35,6 +25,38 @@ export class DeckManagerToPdf {
     line = this.addProgramList(doc, manager.programList, line);
 
     doc.save('CP_DeckManager.pdf');
+  }
+
+  private static setupDoc(): jsPDF {
+    const doc = new jsPDF({
+      orientation: 'p',
+      format: 'a4',
+      unit: 'mm'
+    });
+     // verify that Arial is a font.
+     this._font = this.getFont(doc.getFontList());
+    doc.setFont(this._font);
+    doc.setFontSize(this._fontSize);
+   return doc;
+  }
+
+  private static getFont(fonts: any): string {
+    if (fonts['Arial']) {
+      return 'Arial';
+    }
+    if (fonts['Helvetica']) {
+      return 'Helvetica';
+    }
+    if (fonts['Verdana']) {
+      return 'Verdana';
+    }
+    if (fonts['sans-serif']) {
+      return 'sans-serif';
+    }
+    if (fonts['times']) {
+      return 'times';
+    }
+    return 'courier';
   }
 
   private static addHeader(doc: jsPDF, text: string, line: number): number {

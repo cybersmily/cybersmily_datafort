@@ -9,17 +9,7 @@ export class DruglabToPDF {
   private _font = 'Arial';
 
    generatePdf( drugList: Cp2020DrugList) {
-    const doc: jsPDF = new jsPDF({
-      orientation: 'p',
-      format: 'a4',
-      unit: 'mm'
-    });    // verify that Arial is a font.
-    if (!doc.getFontList()['Arial']) {
-      doc.addFont('/assets/fonts/arial.ttf', 'Arial', 'normal');
-      doc.addFont('/assets/fonts/arial-bold.ttf', 'Arial', 'bold');
-      doc.addFont('/assets/fonts/arial-corsivo.ttf', 'Arial', 'itatlic');
-    }
-    doc.setFontSize(this._fontSize);
+    const doc: jsPDF = this.setupDoc();
     let col = this._left;
     let line = this._top;
     let nextLine = this._top;
@@ -43,6 +33,38 @@ export class DruglabToPDF {
       }
     });
     doc.save('CP_DrugLab.pdf');
+  }
+
+  private setupDoc(): jsPDF {
+    const doc = new jsPDF({
+      orientation: 'p',
+      format: 'a4',
+      unit: 'mm'
+    });
+     // verify that Arial is a font.
+     this._font = this.getFont(doc.getFontList());
+    doc.setFont(this._font);
+    doc.setFontSize(this._fontSize);
+   return doc;
+  }
+
+  private getFont(fonts: any): string {
+    if (fonts['Arial']) {
+      return 'Arial';
+    }
+    if (fonts['Helvetica']) {
+      return 'Helvetica';
+    }
+    if (fonts['Verdana']) {
+      return 'Verdana';
+    }
+    if (fonts['sans-serif']) {
+      return 'sans-serif';
+    }
+    if (fonts['times']) {
+      return 'times';
+    }
+    return 'courier';
   }
 
   private addDrug(doc: jsPDF, drug: Cp2020Drug, line: number, column: number): number {

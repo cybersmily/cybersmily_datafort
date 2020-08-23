@@ -18,23 +18,11 @@ export class CPRedCharacterPDFService {
   private _pageWidth = 200;
   private _fontSize = 11;
   private _pageHeight = 290;
-  private _font = 'Arial';
+  private _font = '';
 
   generatePdf(character: any) {
     this._character = character;
-    const doc = new jsPDF({
-      orientation: 'p',
-      format: 'a4',
-      unit: 'mm'
-    });    // verify that Arial is a font.
-    if (!doc.getFontList()['Arial']) {
-      doc.addFont('/assets/fonts/arial.ttf', 'Arial', 'normal');
-      doc.addFont('/assets/fonts/arial-bold.ttf', 'Arial', 'bold');
-      doc.addFont('/assets/fonts/arial-corsivo.ttf', 'Arial', 'itatlic');
-    }
-    console.log(doc.getFontList());
-    doc.setFont(this._font);
-    doc.setFontSize(this._fontSize);
+    const doc = this.setupDoc();
     this.createBackgroundBox(doc, 'FD', this._top, this._left, 100, 150, 10, 'red');
     const filename = 'test';
     doc.save(`CPRED_${filename}.pdf`);
@@ -42,14 +30,42 @@ export class CPRedCharacterPDFService {
 
 
   generateLifePahtPDF(lifepath: CPRedLifepath) {
+    const doc = this.setupDoc();
+    this.createLifePathFullPage(doc, lifepath);
+    doc.save(`CPRED_LIFEPATH.pdf`);
+
+  }
+
+  private setupDoc(): jsPDF {
     const doc = new jsPDF({
       orientation: 'p',
       format: 'a4',
       unit: 'mm'
     });
-    this.createLifePathFullPage(doc, lifepath);
-    doc.save(`CPRED_LIFEPATH.pdf`);
+     // verify that Arial is a font.
+     this._font = this.getFont(doc.getFontList());
+    doc.setFont(this._font);
+    doc.setFontSize(this._fontSize);
+   return doc;
+  }
 
+  private getFont(fonts: any): string {
+    if (fonts['Arial']) {
+      return 'Arial';
+    }
+    if (fonts['Helvetica']) {
+      return 'Helvetica';
+    }
+    if (fonts['Verdana']) {
+      return 'Verdana';
+    }
+    if (fonts['sans-serif']) {
+      return 'sans-serif';
+    }
+    if (fonts['times']) {
+      return 'times';
+    }
+    return 'courier';
   }
 
   /**
@@ -128,7 +144,7 @@ export class CPRedCharacterPDFService {
       const textArray: Array<string> = doc.splitTextToSize(str, 130);
       textArray.forEach( txt => {
         doc.text(txt, textLeft, textLine, {baseline: 'top'} );
-        textLine += 12;
+        textLine += this._lineheight;
       });
     });
     doc.setFontSize(this._fontSize);

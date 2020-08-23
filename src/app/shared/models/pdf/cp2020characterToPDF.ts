@@ -22,18 +22,7 @@ export class Cp2020characterToPDF {
 
   generatePdf( character: Cp2020PlayerCharacter) {
     this._character = character;
-    const doc = new jsPDF({
-      orientation: 'p',
-      format: 'a4',
-      unit: 'mm'
-    });
-
-    // verify that Arial is a font.
-    if (!doc.getFontList()['Arial']) {
-      doc.addFont('/assets/fonts/arial.ttf', 'Arial', 'normal');
-      doc.addFont('/assets/fonts/arial-bold.ttf', 'Arial', 'bold');
-      doc.addFont('/assets/fonts/arial-corsivo.ttf', 'Arial', 'itatlic');
-    }
+    const doc = this.setupDoc()
     doc.setFont(this._font, 'normal');
     doc.setFontSize(this._fontSize);
     this.createFirstPage(doc);
@@ -41,6 +30,38 @@ export class Cp2020characterToPDF {
     this.createThirdPage(doc);
     const filename = this._character.handle.replace(/[^A-Za-z0-9_]/gi, '');
     doc.save(`CP2020_${filename}.pdf`);
+  }
+
+  private setupDoc(): jsPDF {
+    const doc = new jsPDF({
+      orientation: 'p',
+      format: 'a4',
+      unit: 'mm'
+    });
+     // verify that Arial is a font.
+     this._font = this.getFont(doc.getFontList());
+    doc.setFont(this._font);
+    doc.setFontSize(this._fontSize);
+   return doc;
+  }
+
+  private getFont(fonts: any): string {
+    if (fonts['Arial']) {
+      return 'Arial';
+    }
+    if (fonts['Helvetica']) {
+      return 'Helvetica';
+    }
+    if (fonts['Verdana']) {
+      return 'Verdana';
+    }
+    if (fonts['sans-serif']) {
+      return 'sans-serif';
+    }
+    if (fonts['times']) {
+      return 'times';
+    }
+    return 'courier';
   }
 
   createFirstPage(doc: jsPDF) {
