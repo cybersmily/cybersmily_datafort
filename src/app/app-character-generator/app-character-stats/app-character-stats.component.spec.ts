@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { FormsModule } from '@angular/forms';
@@ -12,7 +13,7 @@ describe('AppCharacterStatsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AppCharacterStatsComponent ],
-      imports: [ FormsModule, FontAwesomeModule],
+      imports: [ CommonUiModule],
       providers: [ DiceService]
     })
     .compileComponents();

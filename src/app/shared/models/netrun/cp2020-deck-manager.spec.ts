@@ -54,8 +54,6 @@ describe('Cp2020DeckManager', () => {
     expect(manager).toBeTruthy();
     expect(importManager).toBeTruthy();
     expect(manager.deck).toBeTruthy(importManager);
-    console.log(manager);
-    console.log(importManager);
     expect(manager.deck.name).toEqual(importManager.deck.name, importManager);
     expect(manager.programList).toBeTruthy(importManager);
     expect(manager.programList.programs.length).toEqual(importManager.programList.programs.length);

@@ -1,4 +1,4 @@
-import { WeaponModule } from './../../shared/modules/weapons/weapon.module';
+import { Cp2020weaponsModule } from './../../shared/cp2020/cp2020weapons/cp2020weapons.module';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { CmbtTrckArmorComponent } from './../cmbt-trck-armor/cmbt-trck-armor.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -32,7 +32,7 @@ describe('CmbtTrckMainComponent', () => {
         CommonUiModule,
         PipesModule,
         HttpClientModule,
-        WeaponModule,
+        Cp2020weaponsModule,
         BrowserAnimationsModule
       ],
       declarations: [

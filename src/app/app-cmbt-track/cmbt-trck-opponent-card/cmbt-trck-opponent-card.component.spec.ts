@@ -1,4 +1,4 @@
-import { WeaponModule } from './../../shared/modules/weapons/weapon.module';
+import { Cp2020weaponsModule } from './../../shared/cp2020/cp2020weapons/cp2020weapons.module';
 import { CmbtTrckArmorComponent } from './../cmbt-trck-armor/cmbt-trck-armor.component';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { CmbtTrckGearComponent } from './../cmbt-trck-gear/cmbt-trck-gear.component';
@@ -39,7 +39,7 @@ describe('CmbtTrckOpponentCardComponent', () => {
         CommonUiModule,
         PipesModule,
         HttpClientModule,
-        WeaponModule
+        Cp2020weaponsModule
       ],
       providers: [
         DiceService,

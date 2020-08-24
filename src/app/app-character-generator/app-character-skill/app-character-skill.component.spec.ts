@@ -12,7 +12,7 @@ describe('AppCharacterSkillComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AppCharacterSkillComponent ],
-      imports: [ FormsModule,
+      imports: [
         CommonUiModule,
       ],
       providers: [

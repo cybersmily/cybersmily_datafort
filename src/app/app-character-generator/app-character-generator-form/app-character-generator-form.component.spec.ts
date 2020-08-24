@@ -1,3 +1,4 @@
+import { Cp2020weaponsModule } from './../../shared/cp2020/cp2020weapons/cp2020weapons.module';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { DiceService } from './../../shared/services/dice/dice.service';
@@ -42,7 +43,8 @@ describe('AppCharacterGeneratorFormComponent', () => {
       ],
       imports: [
         CommonUiModule,
-        HttpClientModule
+        HttpClientModule,
+        Cp2020weaponsModule
       ],
       providers: [
         DataService,

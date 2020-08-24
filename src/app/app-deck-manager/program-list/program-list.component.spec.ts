@@ -1,3 +1,6 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { DataService } from './../../shared/services/data.service';
+import { ProgramNewComponent } from './../program-new/program-new.component';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -9,9 +12,16 @@ describe('ProgramListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProgramListComponent ],
+      declarations: [
+        ProgramListComponent,
+        ProgramNewComponent
+      ],
+      providers: [
+        DataService
+      ],
       imports: [
-        CommonUiModule
+        CommonUiModule,
+        HttpClientTestingModule
       ]
     })
     .compileComponents();

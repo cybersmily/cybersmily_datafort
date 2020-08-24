@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppCharacterImageComponent } from './app-character-image.component';
@@ -8,7 +9,8 @@ describe('AppCharacterImageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppCharacterImageComponent ]
+      declarations: [ AppCharacterImageComponent ],
+      imports: [CommonUiModule]
     })
     .compileComponents();
   }));

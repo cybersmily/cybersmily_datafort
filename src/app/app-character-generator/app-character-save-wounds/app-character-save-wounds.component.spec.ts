@@ -16,8 +16,7 @@ describe('AppCharacterSaveWoundsComponent', () => {
         AppCharacterWoundLevelComponent
       ],
       imports: [
-        FormsModule,
-        CommonUiModule,
+        CommonUiModule
       ],
       providers: [
         DiceService

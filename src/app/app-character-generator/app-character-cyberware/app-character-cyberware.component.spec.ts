@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { FormsModule } from '@angular/forms';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -10,7 +11,7 @@ describe('AppCharacterCyberwareComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AppCharacterCyberwareComponent ],
-      imports: [ FormsModule]
+      imports: [ CommonUiModule]
     })
     .compileComponents();
   }));

@@ -19,7 +19,6 @@ describe('AppCharacterSkillsComponent', () => {
         AppCharacterCyberwareComponent
       ],
       imports: [
-        FormsModule,
         CommonUiModule
       ],
       providers: [
