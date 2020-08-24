@@ -19,7 +19,6 @@ describe('AdminWpnListComponent', () => {
       imports: [
         HttpClientTestingModule,
         CommonUiModule,
-        FormsModule,
         BrowserAnimationsModule,
         PipesModule
       ],

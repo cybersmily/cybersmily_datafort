@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './../../shared/services/data.service';
@@ -14,7 +15,10 @@ describe('AppLifepathRedJumpkitComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ AppLifepathRedJumpkitComponent ],
       providers: [DiceService, DataService, SeoService],
-      imports: [HttpClientModule]
+      imports: [
+        CommonUiModule,
+        HttpClientModule
+      ]
     })
     .compileComponents();
   }));

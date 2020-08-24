@@ -34,7 +34,6 @@ describe('NrmainComponent', () => {
         NrDatafortComponent
     ],
     imports: [
-      FormsModule,
       CommonUiModule,
       NgxUiLoaderModule,
       HttpClientTestingModule

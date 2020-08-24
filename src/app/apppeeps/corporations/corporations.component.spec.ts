@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { DataService } from './../../shared/services/data.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CorporationCardComponent } from './../corporation-card/corporation-card.component';
@@ -15,7 +16,10 @@ describe('CorporationsComponent', () => {
         CorporationsComponent,
         CorporationCardComponent
       ],
-      imports: [HttpClientTestingModule],
+      imports: [
+        CommonUiModule,
+        HttpClientTestingModule
+      ],
       providers: [DataService]
     })
     .compileComponents();

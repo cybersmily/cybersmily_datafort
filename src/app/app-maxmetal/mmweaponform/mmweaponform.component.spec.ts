@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { MaxmetalService } from './../../shared/services/maxmetal/maxmetal.service';
 import { DataService } from './../../shared/services/data.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,7 +15,7 @@ describe('MmmweaponformComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ MmweaponformComponent ],
       imports: [
-        FormsModule,
+        CommonUiModule,
         HttpClientModule
       ],
       providers: [

@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TempGeneratorSkillsComponent } from './temp-generator-skills.component';
@@ -8,7 +9,8 @@ describe('TempGeneratorSkillsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TempGeneratorSkillsComponent ]
+      declarations: [ TempGeneratorSkillsComponent ],
+      imports: [CommonUiModule]
     })
     .compileComponents();
   }));

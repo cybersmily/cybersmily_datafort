@@ -3,7 +3,6 @@ import { Cp2020ProgramList } from './../netrun/cp2020-program-list';
 import { Cp2020DeckManager } from './../netrun/cp2020-deck-manager';
 import { jsPDF } from 'jspdf';
 import { NetRunProgram } from '../netrun';
-import { LinkedList } from 'ngx-bootstrap';
 
 export class DeckManagerToPdf {
   private static _left = 5;
@@ -76,8 +75,10 @@ export class DeckManagerToPdf {
     doc.text(`${deck.cost}eb`, this._left + 190, line, { align: 'right'});
     doc.setFontSize(this._fontSize);
     line += 7;
-    doc.text(`Chassis: ${deck.type.name}`, this._left, line);
-    line += 7;
+    if (deck.type) {
+      doc.text(`Chassis: ${deck.type.name}`, this._left, line);
+      line += 7;
+    }
     doc.text(`Speed: +${deck.speed}`, this._left, line);
     doc.text(`DataWall: ${deck.dataWall}`, this._left + 60, line, { align: 'right'});
     doc.text(`MU: ${deck.mu}`, this._left + 120, line, { align: 'right'});

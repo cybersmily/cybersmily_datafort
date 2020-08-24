@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { MaxMetalOption } from '../../shared/models/maxmetal';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -9,7 +10,8 @@ describe('MmweaponComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MmweaponComponent ]
+      declarations: [ MmweaponComponent ],
+      imports: [CommonUiModule]
     })
     .compileComponents();
   }));

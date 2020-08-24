@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { PopoverModule } from 'ngx-bootstrap';
@@ -21,8 +22,7 @@ describe('NrDatafortComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ NrDatafortComponent ],
       imports: [
-        PopoverModule.forRoot(),
-        TooltipModule.forRoot(),
+        CommonUiModule,
         HttpClientTestingModule,
       ],
       providers: [

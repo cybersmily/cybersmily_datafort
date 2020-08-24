@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { MartialArtsDataService } from './../../../services/data/martial-arts-data.service';
 import { DiceService } from './../../../services/dice/dice.service';
 import { DataService } from './../../../services/data.service';
@@ -13,7 +14,7 @@ describe('Cp2020weaponCalculatorComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ Cp2020weaponCalculatorComponent ],
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule, CommonUiModule],
       providers: [
         DataService,
         DiceService,

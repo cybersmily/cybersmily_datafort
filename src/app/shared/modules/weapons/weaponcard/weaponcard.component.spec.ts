@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../common-ui/common-ui.module';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { CpWeapon } from '../../../models/weapon';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -11,7 +12,7 @@ describe('WeaponcardComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ WeaponcardComponent ],
-      imports: [CollapseModule]
+      imports: [CommonUiModule]
     })
     .compileComponents();
   }));

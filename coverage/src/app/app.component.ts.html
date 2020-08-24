@@ -1,5 +1,7 @@
+
 <!doctype html>
 <html lang="en">
+
 <head>
     <title>Code coverage report for src/app/app.component.ts</title>
     <meta charset="utf-8" />
@@ -12,40 +14,48 @@
         }
     </style>
 </head>
+    
 <body>
 <div class='wrapper'>
-  <div class='pad1'>
-    <h1>
-      <a href="..\..\index.html">All files</a> / <a href="index.html">src/app</a> app.component.ts
-    </h1>
-    <div class='clearfix'>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">75% </span>
-        <span class="quiet">Statements</span>
-        <span class='fraction'>9/12</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
-        <span class="quiet">Branches</span>
-        <span class='fraction'>0/2</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">66.67% </span>
-        <span class="quiet">Functions</span>
-        <span class='fraction'>2/3</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">70% </span>
-        <span class="quiet">Lines</span>
-        <span class='fraction'>7/10</span>
-      </div>
+    <div class='pad1'>
+        <h1><a href="..\..\index.html">All files</a> / <a href="index.html">src/app</a> app.component.ts</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">91.3% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>21/23</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">55.26% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>21/38</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">83.33% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>5/6</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">93.75% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>15/16</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
     </div>
-    <p class="quiet">
-      Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
-    </p>
-  </div>
-  <div class='status-line medium'></div>
-<pre><table class="coverage">
+    <div class='status-line high'></div>
+    <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
 <a name='L3'></a><a href='#L3'>3</a>
@@ -64,66 +74,60 @@
 <a name='L16'></a><a href='#L16'>16</a>
 <a name='L17'></a><a href='#L17'>17</a>
 <a name='L18'></a><a href='#L18'>18</a>
-<a name='L19'></a><a href='#L19'>19</a>
-<a name='L20'></a><a href='#L20'>20</a>
-<a name='L21'></a><a href='#L21'>21</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L19'></a><a href='#L19'>19</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
-&nbsp;
-@Component({
-  selector: 'app-root',
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span></td><td class="text"><pre class="prettyprint lang-js">import { Component } from <span class="branch-1 cbranch-no" title="branch not covered" >'@angular/core';</span>
+import { Router, NavigationEnd } from '@angular/rou<span class="branch-1 cbranch-no" title="branch not covered" >ter';</span>
+<span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="if path not taken" >I</span></span>
+@Component({<span class="branch-1 cbranch-no" title="branch not covered" ><span class="missing-if-branch" title="else path not taken" >E</span></span>
+  selector: 'app-roo<span class="branch-1 cbranch-no" title="branch not covered" >t'</span>,<span class="branch-2 cbranch-no" title="branch not covered" ></span>
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
+  styleUrls: ['./app.compo<span class="branch-1 cbranch-no" title="branch not covered" >nent.css']</span>
+})<span class="missing-if-branch" title="else path not taken" >E</span>
 export class AppComponent {
-  title = `Cybersmily's Datafort`;
-  constructor(private router: Router) {
-    this.router.events.subscribe(<span class="fstat-no" title="function not covered" >event =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >     if (event instanceof NavigationEnd) {</span>
-       (&lt;any&gt;<span class="cstat-no" title="statement not covered" >window).ga('set', 'page', event.urlAfterRedirects);</span>
-       (&lt;any&gt;<span class="cstat-no" title="statement not covered" >window).ga('send', 'pageview');</span>
+  title = `Cybersmily's Datafor<span class="branch-1 cbranch-no" title="branch not covered" >t`;</span>
+  constructor(private router: Router) {<span class="branch-1 cbranch-no" title="branch not covered" ></span>
+    this.router.events.subscribe(event =&gt; {
+     if (event instanceof NavigationEnd) {
      }
    });
 &nbsp;
   }
 }
-&nbsp;</pre></td></tr>
-</table></pre>
-<div class='push'></div><!-- for sticky footer -->
-</div><!-- /wrapper -->
-<div class='footer quiet pad2 space-top1 center small'>
-  Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Sep 01 2019 13:58:09 GMT-0400 (Eastern Daylight Time)
-</div>
-</div>
-<script src="..\..\prettify.js"></script>
-<script>
-window.onload = function () {
-        if (typeof prettyPrint === 'function') {
-            prettyPrint();
-        }
-};
-</script>
-<script src="..\..\sorter.js"></script>
-<script src="..\..\block-navigation.js"></script>
-</body>
+<span class="fstat-no" title="function not covered" ></span></pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
+                at Mon Aug 24 2020 14:32:50 GMT-0400 (Eastern Daylight Time)
+            </div>
+        </div>
+        <script src="..\..\prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="..\..\sorter.js"></script>
+        <script src="..\..\block-navigation.js"></script>
+    </body>
 </html>
+    

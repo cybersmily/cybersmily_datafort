@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DiceService } from './../../shared/services/dice/dice.service';
@@ -29,7 +30,7 @@ describe('TempGeneratorComponent', () => {
         TempGeneratorGearComponent
       ],
       imports: [
-        FormsModule,
+        CommonUiModule,
         HttpClientModule
       ],
       providers: [

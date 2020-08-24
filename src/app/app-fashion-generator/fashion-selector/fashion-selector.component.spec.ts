@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FashionSelectorComponent } from './fashion-selector.component';
@@ -14,7 +15,7 @@ describe('FashionSelectorComponent', () => {
         FashionSelectorComponent
       ],
       imports: [
-        FormsModule
+        CommonUiModule
       ]
     })
     .compileComponents();

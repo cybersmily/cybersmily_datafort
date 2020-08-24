@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule } from '@angular/forms';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -15,7 +16,7 @@ describe('NrnavigatorComponent', () => {
         NrnavigatorComponent
       ],
       imports: [
-        FormsModule,
+        CommonUiModule,
         HttpClientTestingModule
       ],
       providers: [

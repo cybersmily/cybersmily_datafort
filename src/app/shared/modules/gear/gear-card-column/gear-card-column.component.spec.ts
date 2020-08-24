@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../common-ui/common-ui.module';
 import { GearCardComponent } from './../gear-card/gear-card.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -25,7 +26,8 @@ describe('GearCardColumnComponent', () => {
       declarations: [
         GearCardColumnComponent,
         GearCardComponent
-      ]
+      ],
+      imports: [CommonUiModule]
     })
     .compileComponents();
   }));

@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { JpgmapsComponent } from './jpgmaps.component';
@@ -8,7 +9,8 @@ describe('JpgmapsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ JpgmapsComponent ]
+      declarations: [ JpgmapsComponent ],
+      imports: [ CommonUiModule]
     })
     .compileComponents();
   }));

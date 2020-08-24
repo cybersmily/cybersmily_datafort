@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { PipesModule } from './../../shared/pipes/pipes.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -15,7 +16,7 @@ describe('CyberListComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ CyberListComponent ],
       imports: [
-        FormsModule,
+        CommonUiModule,
         HttpClientModule,
         PipesModule
       ],

@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { PipesModule } from './../../shared/pipes/pipes.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,7 +17,7 @@ describe('RoleListComponent', () => {
       providers: [DataService],
       imports: [
         HttpClientModule,
-        FormsModule,
+        CommonUiModule,
         PipesModule
       ]
     })

@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { LifepathEthnicityComponent } from './../lifepath-ethnicity/lifepath-ethnicity.component';
 import { DiceService } from './../../shared/services/dice/dice.service';
@@ -25,7 +26,7 @@ describe('LifepathGeneratorComponent', () => {
         LifepathEthnicityComponent
       ],
       imports: [
-        FormsModule,
+        CommonUiModule,
         HttpClientTestingModule],
       providers: [
         DataService,

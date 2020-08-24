@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { MaxMetalOption } from '../../shared/models/maxmetal';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -10,7 +11,8 @@ describe('MmoptionComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MmoptionComponent ]
+      declarations: [ MmoptionComponent ],
+      imports: [CommonUiModule]
     })
     .compileComponents();
   }));

@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { FormsModule } from '@angular/forms';
 import { FashionOptionsSelectorComponent } from './../fashion-options-selector/fashion-options-selector.component';
 import { FashionSelectorComponent } from './../fashion-selector/fashion-selector.component';
@@ -18,7 +19,7 @@ describe('FashionInputComponent', () => {
         FashionSelectorComponent,
         FashionOptionsSelectorComponent
       ],
-      imports: [FormsModule]
+      imports: [CommonUiModule]
     })
     .compileComponents();
   }));

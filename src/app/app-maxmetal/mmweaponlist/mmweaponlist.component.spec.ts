@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { MmweaponComponent } from './../mmweapon/mmweapon.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -12,7 +13,8 @@ describe('MmweaponlistComponent', () => {
       declarations: [
         MmweaponlistComponent,
         MmweaponComponent
-      ]
+      ],
+      imports: [CommonUiModule]
     })
     .compileComponents();
   }));

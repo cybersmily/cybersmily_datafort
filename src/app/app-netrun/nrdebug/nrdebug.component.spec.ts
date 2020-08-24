@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { DataService } from './../../shared/services/data.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -14,6 +15,7 @@ describe('NrdebugComponent', () => {
         NrdebugComponent
       ],
       imports: [
+        CommonUiModule,
         HttpClientTestingModule
       ],
       providers: [

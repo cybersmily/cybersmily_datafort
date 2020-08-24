@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { PopoverModule, TooltipModule } from 'ngx-bootstrap';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -24,8 +25,7 @@ describe('NrMapGridComponent', () => {
       imports: [
         HttpClientTestingModule,
         NgxUiLoaderModule,
-        PopoverModule.forRoot(),
-        TooltipModule.forRoot()
+        CommonUiModule
       ],
       providers: [
         NgxUiLoaderService,

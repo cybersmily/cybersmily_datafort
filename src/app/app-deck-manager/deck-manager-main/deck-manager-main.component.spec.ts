@@ -1,14 +1,20 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DeckManagerMainComponent } from './deck-manager-main.component';
 
-describe('ProgramMainComponent', () => {
+describe('DeckManagerMainComponent', () => {
   let component: DeckManagerMainComponent;
   let fixture: ComponentFixture<DeckManagerMainComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DeckManagerMainComponent ]
+      declarations: [ DeckManagerMainComponent ],
+      imports: [
+        CommonUiModule,
+        BrowserAnimationsModule
+      ]
     })
     .compileComponents();
   }));

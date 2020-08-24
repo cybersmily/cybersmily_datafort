@@ -88,6 +88,8 @@
             "styles": [
               "src/css/styles.css"
             ],
+            "sourceMap": false,
+            "codeCoverage": true,
             "assets": [
               "src/assets",
               "src/favicon.ico",

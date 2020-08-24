@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -10,6 +11,7 @@ describe('DrugLabMainComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ DrugLabMainComponent ],
+      imports: [CommonUiModule],
       providers: [ SeoService]
     })
     .compileComponents();

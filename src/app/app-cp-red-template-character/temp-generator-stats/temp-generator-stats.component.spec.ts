@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TempGeneratorStatsComponent } from './temp-generator-stats.component';
@@ -10,7 +11,8 @@ describe('TempGeneratorStatsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         TempGeneratorStatsComponent
-      ]
+      ],
+      imports: [CommonUiModule]
     })
     .compileComponents();
   }));

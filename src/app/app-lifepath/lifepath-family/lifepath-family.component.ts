@@ -1,11 +1,5 @@
 import { FamilyGeneratorService } from '../../shared/services/lifepath/family-generator.service';
-import {
-  FamilyChart, Sibling, LifepathFamily, LifepahtParentOption, Siblings
-} from '../../shared/models/lifepath';
-import {
-  DiceService
-} from './../../shared/services/dice/dice.service';
-
+import { LifepathFamily } from '../../shared/models/lifepath';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -21,26 +15,26 @@ export class LifepathFamilyComponent implements OnInit {
   @Output()
   generateValue = new EventEmitter();
 
-  GeneratedFamily: LifepathFamily;
+  generatedFamily: LifepathFamily;
 
   constructor(private familyGenService: FamilyGeneratorService) {
   }
 
   ngOnInit() {
-    this.GeneratedFamily = new LifepathFamily();
+    this.generatedFamily = new LifepathFamily();
     this.lifepathSource = 'CP2020';
   }
   generateFamily() {
     if (this.lifepathSource !== '') {
       this.familyGenService
-      .GenerateFamily(this.lifepathSource).subscribe( data => {
-        this.GeneratedFamily = data;
-        this.onGenerate(this.GeneratedFamily);
-      });
+        .GenerateFamily(this.lifepathSource).subscribe(data => {
+          this.generatedFamily = data;
+          this.onGenerate(this.generatedFamily);
+        });
     }
   }
 
-onGenerate(family: LifepathFamily) {
-  this.generateValue.emit(family);
-}
+  onGenerate(family: LifepathFamily) {
+    this.generateValue.emit(family);
+  }
 }

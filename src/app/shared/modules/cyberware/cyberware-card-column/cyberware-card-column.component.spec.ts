@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../common-ui/common-ui.module';
 import { CyberwareCardComponent } from './../cyberware-card/cyberware-card.component';
 import { DataCyberware } from './../../../models/cyberware';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -48,7 +49,8 @@ describe('CyberwareCardColumnComponent', () => {
       declarations: [
         CyberwareCardColumnComponent,
         CyberwareCardComponent
-      ]
+      ],
+      imports: [CommonUiModule]
     })
     .compileComponents();
   }));

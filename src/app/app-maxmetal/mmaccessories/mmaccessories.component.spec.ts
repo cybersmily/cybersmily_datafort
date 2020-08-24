@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { DataService } from './../../shared/services/data.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -20,8 +21,7 @@ describe('MmaccessoriesComponent', () => {
         MmoptionComponent
       ],
       imports: [
-        AccordionModule.forRoot(),
-        FontAwesomeModule,
+        CommonUiModule,
         HttpClientTestingModule
       ],
       providers: [

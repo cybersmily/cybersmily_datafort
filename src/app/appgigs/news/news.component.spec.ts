@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { AccordionModule } from 'ngx-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -34,8 +35,7 @@ describe('NewsComponent', () => {
         NewsComponent
       ],
       imports: [
-        FontAwesomeModule,
-        AccordionModule.forRoot(),
+        CommonUiModule,
         HttpClientTestingModule
       ],
       providers: [

@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FashionListComponent } from './fashion-list.component';
@@ -8,7 +9,8 @@ describe('FashionListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FashionListComponent ]
+      declarations: [ FashionListComponent ],
+      imports: [CommonUiModule]
     })
     .compileComponents();
   }));

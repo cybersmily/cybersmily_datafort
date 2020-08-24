@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Cp2020SaveWoundsComponent } from './cp2020-save-wounds.component';
@@ -8,7 +9,8 @@ describe('Cp2020SaveWoundsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ Cp2020SaveWoundsComponent ]
+      declarations: [ Cp2020SaveWoundsComponent ],
+      imports: [CommonUiModule]
     })
     .compileComponents();
   }));

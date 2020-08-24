@@ -16,7 +16,6 @@ describe('DeckFormComponent', () => {
       declarations: [ DeckFormComponent ],
       imports: [
         CommonUiModule,
-        FormsModule,
         HttpClientTestingModule
       ],
       providers: [

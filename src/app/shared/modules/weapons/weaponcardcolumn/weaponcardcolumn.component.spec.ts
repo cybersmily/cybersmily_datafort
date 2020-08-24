@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../common-ui/common-ui.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { WeaponGroup } from '../../../models/weapon';
@@ -85,9 +86,7 @@ describe('WeaponcardcolumnComponent', () => {
         WeaponcardComponent
       ],
       imports: [
-        FontAwesomeModule,
-        AccordionModule.forRoot(),
-        CollapseModule,
+        CommonUiModule,
         BrowserAnimationsModule
       ]
     })

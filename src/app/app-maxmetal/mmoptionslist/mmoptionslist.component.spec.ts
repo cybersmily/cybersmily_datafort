@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { MmoptionComponent } from './../mmoption/mmoption.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -12,7 +13,8 @@ describe('MmoptionslistComponent', () => {
       declarations: [
         MmoptionslistComponent,
         MmoptionComponent
-      ]
+      ],
+      imports: [ CommonUiModule]
     })
     .compileComponents();
   }));

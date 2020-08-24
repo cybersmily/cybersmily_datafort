@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MmdetailsComponent } from './mmdetails.component';
@@ -10,7 +11,8 @@ describe('MmdetailsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         MmdetailsComponent
-      ]
+      ],
+      imports: [CommonUiModule]
     })
     .compileComponents();
   }));

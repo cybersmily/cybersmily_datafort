@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { News } from '../../shared/models/articles/news';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { DataService } from './../../shared/services/data.service';
@@ -34,7 +35,8 @@ describe('HomeComponent', () => {
         HomeComponent
       ],
       imports: [
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        CommonUiModule
       ],
       providers: [
         DataService

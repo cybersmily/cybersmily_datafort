@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TempGeneratorLifepathComponent } from './temp-generator-lifepath.component';
@@ -8,7 +9,8 @@ describe('TempGeneratorLifepathComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TempGeneratorLifepathComponent ]
+      declarations: [ TempGeneratorLifepathComponent ],
+      imports: [CommonUiModule]
     })
     .compileComponents();
   }));

@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WpnCustomizerMainComponent } from './wpn-customizer-main.component';
@@ -8,7 +9,8 @@ describe('WpnCustomizerMainComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WpnCustomizerMainComponent ]
+      declarations: [ WpnCustomizerMainComponent ],
+      imports: [ CommonUiModule]
     })
     .compileComponents();
   }));

@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { DataService } from './../../shared/services/data.service';
 import { TooltipModule, PopoverModule } from 'ngx-bootstrap';
@@ -25,8 +26,7 @@ describe('NrmapComponent', () => {
       ],
       imports: [
         NgxUiLoaderModule,
-        TooltipModule,
-        PopoverModule,
+        CommonUiModule,
         HttpClientTestingModule
       ],
       providers: [

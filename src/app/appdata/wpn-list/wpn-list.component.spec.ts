@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { PipesModule } from './../../shared/pipes/pipes.module';
 import { WeaponDataService } from './../../shared/services/data/weapon-data.service';
 import { DataService } from './../../shared/services/data.service';
@@ -13,7 +14,10 @@ describe('WpnListComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [WpnListComponent],
-      imports: [HttpClientTestingModule, PipesModule],
+      imports: [
+        CommonUiModule,
+        HttpClientTestingModule,
+        PipesModule],
       providers: [DataService, WeaponDataService]
     })
     .compileComponents();

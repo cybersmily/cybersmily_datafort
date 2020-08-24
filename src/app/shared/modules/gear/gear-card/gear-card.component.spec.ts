@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../common-ui/common-ui.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GearCardComponent } from './gear-card.component';
@@ -15,7 +16,8 @@ describe('GearCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GearCardComponent ]
+      declarations: [ GearCardComponent ],
+      imports: [ CommonUiModule]
     })
     .compileComponents();
   }));

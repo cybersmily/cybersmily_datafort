@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './../../shared/services/data.service';
 import { FormsModule } from '@angular/forms';
@@ -13,7 +14,7 @@ describe('MmoptionsformComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ MmoptionsformComponent ],
       imports: [
-        FormsModule,
+        CommonUiModule,
         HttpClientModule
       ],
       providers: [DataService]

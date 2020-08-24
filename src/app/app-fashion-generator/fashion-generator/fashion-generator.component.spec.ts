@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule } from '@angular/forms';
@@ -30,7 +31,7 @@ describe('FashionGeneratorComponent', () => {
         FashionOptionsSelectorComponent
        ],
        imports: [
-         FormsModule,
+         CommonUiModule,
          HttpClientTestingModule
         ],
        providers: [
