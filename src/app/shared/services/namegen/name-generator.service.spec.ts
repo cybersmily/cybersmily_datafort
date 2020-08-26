@@ -68,6 +68,7 @@ describe('NameGeneratorService', async () => {
     });
   });
 
+
   describe('Loading from cache and setting die roll', () => {
 
     it('should generate name from loading cache with roll set to 5', (done: DoneFn) => {

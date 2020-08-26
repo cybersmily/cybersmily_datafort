@@ -1,3 +1,4 @@
+import { NrLoadMapsService } from './services/nr-load-maps.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -46,6 +47,7 @@ import { NrMapCellComponent } from './nr-map-cell/nr-map-cell.component';
     NrMapGridService,
     NrMapPositionService,
     NrTrackerService,
+    NrLoadMapsService,
     DiceService
   ]
 })

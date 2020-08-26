@@ -32,7 +32,7 @@ export class NrMapGridService {
 
   prevGrids: any = {};
 
-  constructor(private nrMapDataService: NrMapDataService) { }
+  constructor() { }
 
   initialize ( nrMap: NRMap) {
     // get the grid dimensions
@@ -49,6 +49,7 @@ export class NrMapGridService {
     // create the grid
     this.createGrid(this.dimensions.rows, this.dimensions.columns);
   }
+
 
   createGrid( rows: number, columns: number ) {
     const newGrid = new Array();
@@ -90,7 +91,7 @@ export class NrMapGridService {
    * @param {boolean} mark - mark it true or false.
    * @memberof NrMapService
    */
-  visitCell(row: number, col: number, mark: boolean, isMapChange: boolean): Observable<NRMapCell> {
+  visitCell(row: number, col: number, mark: boolean, isMapChange: boolean, currMapIndex: number): Observable<NRMapCell> {
     let grid = this._grid.value;
     const selectedGrid = this._selectedCell.value;
     // check if the visited cell is the current cell, if so, visit and set previous select to current
@@ -108,13 +109,13 @@ export class NrMapGridService {
       const newSelected = this.prevSelected.shift();
       col = newSelected.cell.column;
       row = newSelected.cell.row;
-      mark = !mark;
+      // mark = !mark;
 
     } else {
       // only add to the array a valid cell
       if (selectedGrid.column >= 0) {
         const prevGrid = new PrevSelectedCell();
-        prevGrid.regionIndex = isMapChange ?  this.prevSelected[0].regionIndex : this.nrMapDataService.currMapIndex;
+        prevGrid.regionIndex = isMapChange ?  this.prevSelected[0].regionIndex : currMapIndex;
         prevGrid.cell = selectedGrid;
         this.prevSelected.unshift(prevGrid);
       }

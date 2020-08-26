@@ -19,6 +19,9 @@ export class NrTrackerService {
   constructor(private diceService: DiceService) {}
 
   hackLDL(df: NRDataFort): NRTraceResult {
+    if (!df) {
+      return undefined;
+    }
     // roll to determine if the person hacks it.
     const roll = this.diceService.rollDice('1d10');
     if (roll.total >= df.security) {
@@ -85,7 +88,7 @@ export class NrTrackerService {
     return total;
   }
 
-  getDiff(datafortType: string, hasSysop: boolean, hasAI: boolean ) {
+  getDiff(datafortType: string, hasSysop: boolean, hasAI: boolean ): number {
     let diff = 0;
     diff = ((hasSysop) ? 5 : 0)  + ((hasAI) ? 5 : 0);
     switch(datafortType) {

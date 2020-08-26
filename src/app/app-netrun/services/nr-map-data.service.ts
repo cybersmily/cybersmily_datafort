@@ -1,6 +1,6 @@
+import { NrLoadMapsService } from './nr-load-maps.service';
 import { Coord } from './../models/coord';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { DataService } from '../../shared/services/data.service';
 import { LoadedMap, NRRegion, NRRegionMap, NrCityList, NRDataFort, NrGridCell } from '../models';
 import { NR_WORLD_MAP } from '../models/nr-constants';
 import { Injectable } from '@angular/core';
@@ -37,12 +37,12 @@ export class NrMapDataService {
   // as well as saving the different grid cells visited.
   loadedMaps: LoadedMap[] = new Array<LoadedMap>();
 
-  constructor(private dataService: DataService) {
+  constructor(private nrLoadMapService: NrLoadMapsService) {
     this.activemap = '';
     // only load the region/city data from teh data.json file.
-    if (!this.regionList || !this.cityList) {
-      this.cityList  = new NrCityList();
-      this.dataService.GetJson('/json/apps/nrmap/data.json').subscribe( data => {
+    if (!this.cityList || this.regionList.value.length < 1) {
+      this.cityList = new NrCityList();
+      this.nrLoadMapService.nrMapData.subscribe(data => {
         try {
           // create the regionlist and set it for all components subscribing to it.
           this.regionList.next(this.InitiateRegionsList(data.regions));
@@ -55,21 +55,21 @@ export class NrMapDataService {
     }
   }
 
-   /**
-   * Initiates the region list from the json file and
-   * sort the list based on region name.
-   * @private
-   * @param {*} regionsObj - json obj of regions.
-   * @returns list of NRRegion objects
-   * @memberof NrMapService
-   */
+  /**
+  * Initiates the region list from the json file and
+  * sort the list based on region name.
+  * @private
+  * @param {*} regionsObj - json obj of regions.
+  * @returns list of NRRegion objects
+  * @memberof NrMapService
+  */
   private InitiateRegionsList(regionsObj): NRRegion[] {
     const list: NRRegion[] = regionsObj;
-    list.sort( (a, b) => {
+    list.sort((a, b) => {
       const x = a.name.toLowerCase();
       const y = b.name.toLowerCase();
-      if ( x < y ) { return -1; }
-      if ( x > y ) { return 1; }
+      if (x < y) { return -1; }
+      if (x > y) { return 1; }
       return 0;
     });
     return list;
@@ -92,10 +92,10 @@ export class NrMapDataService {
       return;
     }
     // see if the map has already been loaded.
-    this.currMapIndex = this.loadedMaps.findIndex( search => {
+    this.currMapIndex = this.loadedMaps.findIndex(search => {
       return search.fileName === map;
     });
-    if ( this.currMapIndex >= 0) {
+    if (this.currMapIndex >= 0) {
       this._map.next(this.loadedMaps[this.currMapIndex].mapObj);
       this._rows.next(this.loadedMaps[this.currMapIndex].mapGrid);
       if (ldlName) {
@@ -104,7 +104,7 @@ export class NrMapDataService {
       }
     } else {
       // load the map from file.
-      this.dataService.GetJson('/json/apps/nrmap/' + map).subscribe( data => {
+      this.nrLoadMapService.getNRMap(map).subscribe(data => {
         // create and initialize the region map
         const regMap = new NRRegionMap();
         const newGrid = this.createGrid(data.ny, data.nx);
@@ -140,7 +140,7 @@ export class NrMapDataService {
     const r = (rows < 0) ? 1 : rows;
     const c = (columns < 0) ? 1 : columns;
     const grid = new Array();
-    for ( let i = 0; i < r; i++) {
+    for (let i = 0; i < r; i++) {
       const col = new Array();
       for (let j = 0; j < c; j++) {
         col.push(new NrGridCell());
@@ -160,16 +160,16 @@ export class NrMapDataService {
    */
   findAndSetMap(mapName: string, isCity: boolean, ldlName?: string) {
     let mapList: any[] = new Array();
-    if ( isCity ) {
+    if (isCity) {
       mapList = this.cityList.list;
     } else {
       mapList = this.regionList.value;
     }
-    const mapObj = mapList.find( (map) => {
+    const mapObj = mapList.find((map) => {
       return map.name === mapName;
     });
 
-    if ( mapObj.map ) {
+    if (mapObj && mapObj.map) {
       if (ldlName) {
         this.GetMap(mapObj.map, ldlName);
       } else {
@@ -189,7 +189,7 @@ export class NrMapDataService {
     if (navigate) {
       this.unsetSelected();
     }
-    this.GetMap( NR_WORLD_MAP, navigate );
+    this.GetMap(NR_WORLD_MAP, navigate);
   }
 
   /**
@@ -228,12 +228,14 @@ export class NrMapDataService {
   }
 
   findLDL(ldlName: string): Coord {
-    const node = this._map.value.dforts.find( search => {
+    const node = this._map.value.dforts.find(search => {
       return search.name === ldlName;
     });
     const location = new Coord();
-    location.x = node.row;
-    location.y = node.column;
+    if (node && node.row) {
+      location.x = node.row;
+      location.y = node.column;
+    }
     return location;
   }
 
@@ -247,12 +249,12 @@ export class NrMapDataService {
     return this._map.value.name;
   }
 
-    /**
-   * Get the current map's type, city, world, region, space
-   *
-   * @returns {string} - map type
-   * @memberof NrMapService
-   */
+  /**
+ * Get the current map's type, city, world, region, space
+ *
+ * @returns {string} - map type
+ * @memberof NrMapService
+ */
   getCurrRegionType(): string {
     return this._map.value.type;
   }
@@ -279,8 +281,8 @@ export class NrMapDataService {
    * @memberof NrMapDataService
    */
   getDataForts(row: number, column: number): NRDataFort[] {
-    if ( this._map.value && this._map.value.dforts) {
-      return this._map.value.dforts.filter( d => ((d.row === row) && (d.column === column)));
+    if (this._map.value && this._map.value.dforts) {
+      return this._map.value.dforts.filter(d => ((d.row === row) && (d.column === column)));
     } else {
       return new Array<NRDataFort>();
     }
@@ -297,7 +299,7 @@ export class NrMapDataService {
    */
   isSelectable(row: number, column: number, map: string): boolean {
     // if the a selected cell is set yet, all cells are selectable.
-    if ( (this.selectedCell.x < 0 || this.selectedCell.y < 0) ) {
+    if ((this.selectedCell.x < 0 || this.selectedCell.y < 0)) {
       return true;
     } else if (this._rows.value[row] && map === this.activemap) {
       const topRow = (row === (this._rows.value.length - 1)) ? this._rows.value.length : (row + 1);
@@ -306,11 +308,11 @@ export class NrMapDataService {
       const rightCol = (column === (this._rows.value[row].length - 1)) ? 0 : (column + 1);
       const leftCol = (column < 1) ? this._rows.value[row].length : (column - 1);
 
-      if ( row === this.selectedCell.x && (this.selectedCell.y === leftCol || this.selectedCell.y === rightCol)) {
+      if (row === this.selectedCell.x && (this.selectedCell.y === leftCol || this.selectedCell.y === rightCol)) {
         return true;
       }
 
-      if ( column === this.selectedCell.y && (this.selectedCell.x === bottomRow || this.selectedCell.x === topRow)) {
+      if (column === this.selectedCell.y && (this.selectedCell.x === bottomRow || this.selectedCell.x === topRow)) {
         return true;
       }
 
@@ -359,17 +361,19 @@ export class NrMapDataService {
    * @memberof NrMapDataService
    */
   setSelectCell(row: number, column: number) {
-    this.activemap = this._map.getValue().name;
-    const grid: Array<any> = this._rows.getValue();
-    grid[row][column].v = true;
-    grid[row][column].s = true;
-    if ( this.selectedCell.x > -1 && this.selectedCell.y > -1) {
-      grid[this.selectedCell.x][this.selectedCell.y].s = false;
+    if (row > -1 && column > -1) {
+      this.activemap = this._map.getValue().name;
+      const grid: Array<any> = this._rows.getValue();
+      grid[row][column].v = true;
+      grid[row][column].s = true;
+      if (this.selectedCell.x > -1 && this.selectedCell.y > -1) {
+        grid[this.selectedCell.x][this.selectedCell.y].s = false;
+      }
+      this.loadedMaps[this.currMapIndex].mapGrid = grid;
+      this._rows.next(grid);
+      this.selectedCell.x = row;
+      this.selectedCell.y = column;
     }
-    this.loadedMaps[this.currMapIndex].mapGrid = grid;
-    this._rows.next(grid);
-    this.selectedCell.x = row;
-    this.selectedCell.y = column;
   }
 
 }

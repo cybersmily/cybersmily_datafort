@@ -56,4 +56,7 @@ export class JsonDataFiles {
   public static CPRED_LIFEPATH_CHART_JSON = `/json/apps/lifepath/cpredjkchart.json`;
   public static CPRED_CHARACTER_TEMPLATE_JSON = `/json/apps/chargen/cpredtemplates.json`;
 
+  public static CP2020_NETRUN_MAPDATA_JSON = `/json/apps/nrmap/data.json`;
+  public static CP2020_NETRUN_MAPPATH_JSON = `/json/apps/nrmap/`;
+
 }

@@ -1,3 +1,4 @@
+import { NrMapDataService } from './../services/nr-map-data.service';
 import { MAP_TYPE } from '../models/nr-constants';
 import { NRMapCell } from '../models';
 import { Component, OnInit, Input, HostBinding} from '@angular/core';
@@ -38,7 +39,8 @@ export class NrgridboxComponent implements OnInit {
 
   constructor(
     private nrMapGridService: NrMapGridService,
-    private nrPositionService: NrMapPositionService) { }
+    private nrPositionService: NrMapPositionService,
+    private nrMapDataService: NrMapDataService) { }
 
   ngOnInit() {
     this.nrMapGridService.currGrid.subscribe( grid => {
@@ -63,7 +65,7 @@ export class NrgridboxComponent implements OnInit {
     if ( this.cell.selectable || !this.nrMapGridService.isGridSelected()) {
       // if clicking on the current cell, then roll it back
       const mark = (this.cell.selected) ? false : true;
-      this.nrMapGridService.visitCell(this.cell.row, this.cell.column, mark, false);
+      this.nrMapGridService.visitCell(this.cell.row, this.cell.column, mark, false, this.nrMapDataService.currMapIndex);
     }
   }
 
