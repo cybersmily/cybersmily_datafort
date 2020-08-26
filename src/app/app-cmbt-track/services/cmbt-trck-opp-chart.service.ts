@@ -17,11 +17,12 @@ export class CmbtTrckOppChartService {
   constructor(private data: DataService, private dice: DiceService) {
   }
 
-  getData(): Observable<any> {
+  getData(): Observable<CmbtTrckCharts> {
     return this.data
     .GetJson(JsonDataFiles.CP2020_CMBTTRCK_GEAR_JSON)
     .pipe( map( chart => {
       this._curCharts = chart;
+      return this._curCharts;
     }));
   }
 
@@ -63,7 +64,7 @@ export class CmbtTrckOppChartService {
   }
 
   private getArmor(): CmbtTrckEntry {
-    const die = this.dice.generateNumber(0, this._curCharts.armor.chart.length);
+    const die = this.dice.generateNumber(0, this._curCharts.armor.chart.length - 1);
     const value = this._curCharts.armor.chart[die];
     const result = this._curCharts.armor.values[value];
     return result;
@@ -89,7 +90,7 @@ export class CmbtTrckOppChartService {
       }
       while (!cyber && results.some(c => c.name === cyber.name));
       if (cyber.name && cyber.name !== '') {
-        results.push(cyber);
+        results[i] = cyber;
       }
     }
     return results;
