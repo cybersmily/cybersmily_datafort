@@ -43,6 +43,9 @@ export class CharacterImporterService {
 
   convertCmbtTrckOppToCP2020PC(opp: CmbtTrckOpponent): Cp2020PlayerCharacter {
     const char = new Cp2020PlayerCharacter();
+    char.handle = opp.name;
+    char.role.name = opp.role;
+    char.role.specialAbility = opp.sa;
     return char;
   }
 }

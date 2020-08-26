@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { JsonDataFiles } from '../../../json-data-files';
 import { Observable, of } from 'rxjs';
 import { CpRedBaseCharacter } from '../../models/cp-red-base-character';
@@ -10,21 +11,29 @@ import { CpRedTemplate } from '../../models/cp-red-template';
   providedIn: 'root'
 })
 export class CpRedTemplateGeneratorService {
-  templates: CpRedTemplate[];
+  private _templates: CpRedTemplate[];
 
   constructor(private dataSerive: DataService,
               private dice: DiceService) {
-    this.dataSerive.GetJson(JsonDataFiles.CPRED_CHARACTER_TEMPLATE_JSON)
-    .subscribe( data => {
-      this.templates = data.roles;
-    });
   }
 
+
   generateCharacter(role: string): Observable<CpRedBaseCharacter> {
+    if (this._templates) {
+      return of(this.setCharacter(role));
+    }
+    return this.dataSerive.GetJson(JsonDataFiles.CPRED_CHARACTER_TEMPLATE_JSON)
+    .pipe( map(data => {
+      this._templates = data.roles;
+      return  this.setCharacter(role);
+    }));
+  }
+
+  private setCharacter(role: string): CpRedBaseCharacter {
     const character = new CpRedBaseCharacter();
     character.role = role;
     // get the role from the templates
-    const template = this.templates.find( temp => temp.name === role);
+    const template = this._templates.find( temp => temp.name.toLowerCase() === role.toLowerCase());
     // transfer data to character object
     character.armor = template.armor;
     character.skills = template.skills;
@@ -45,6 +54,6 @@ export class CpRedTemplateGeneratorService {
     character.stats.LUCK.set(stats.luck);
     character.stats.MOVE.set(stats.move);
     character.stats.BODY.set(stats.body);
-    return  of(character);
+    return character;
   }
 }
