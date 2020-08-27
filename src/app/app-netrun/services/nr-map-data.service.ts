@@ -366,7 +366,7 @@ export class NrMapDataService {
       const grid: Array<any> = this._rows.getValue();
       grid[row][column].v = true;
       grid[row][column].s = true;
-      if (this.selectedCell.x > -1 && this.selectedCell.y > -1) {
+      if (grid[this.selectedCell.x] && grid[this.selectedCell.x][this.selectedCell.y]) {
         grid[this.selectedCell.x][this.selectedCell.y].s = false;
       }
       this.loadedMaps[this.currMapIndex].mapGrid = grid;
