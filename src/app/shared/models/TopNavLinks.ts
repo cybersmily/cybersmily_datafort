@@ -37,6 +37,7 @@ export interface SiteLinksGroup {
           {title: 'CH2 Conversion', link: 'data/chrome2', desc: 'Conversion of Chromebook 2 vehicles to Maximum Metal rules.'},
           {title: 'In the Media', link: 'data/inmedia',
             desc: 'Movies, TV shows, Books, anime, manga, webisodes, etc for Cyberpunk inspiration'},
+          {title: 'Master Cyberware List', link: 'data/cyber', desc: 'List of all canon roles in Cyberpunk 2020'},
           {title: 'Master Roles List', link: 'data/roles', desc: 'List of all canon roles in Cyberpunk 2020'},
           {title: 'Master Skills List', link: 'data/skills', desc: 'List of all canon skills in Cyberpunk 2020'},
           {title: 'Master Weapons List', link: 'data/wpns', desc: 'List of all canon weapons in Cyberpunk 2020'},

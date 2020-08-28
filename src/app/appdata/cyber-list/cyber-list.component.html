@@ -1,7 +1,9 @@
-<div class="container">
-  <div class="row">
-    <h2>CYBERWARE LIST</h2>
-  </div>
+
+  <div class="container">
+    <h2>Master Cyberware List</h2>
+    <div>This is the master list of all cyberware with their sources.
+      Sources were pulled from R. Talsorian Games and the Interface magazines.
+    </div>
   <div class="row">
     <table class="cyber-data-table">
       <tr>
@@ -15,7 +17,27 @@
         <th>SOURCE</th>
       </tr>
       <tr>
-        <td><input [(ngModel)]="searchFilter.type" type="text" /></td>
+        <td>
+
+          <select [(ngModel)]="searchFilter.type">
+            <option [ngValue]="''">All</option>
+            <option [ngValue]="'ANIMAL CYBERWARE'">Animal Cyberware</option>
+            <option [ngValue]="'BIOWARE'">Bioware</option>
+            <option [ngValue]="'BODY PLATING'">Body Plating</option>
+            <option [ngValue]="'CYBERAUDIO'">Cyberaudio</option>
+            <option [ngValue]="'CYBERHANDS/FEET'">Cyberhands/feet</option>
+            <option [ngValue]="'CYBERLIMB'">Cyberlimb</option>
+            <option [ngValue]="'CYBERNETIC SYSTEM'">Cybernetic System</option>
+            <option [ngValue]="'CYBEROPTIC'">Cyberoptic</option>
+            <option [ngValue]="'CYBERWEAPON'">Cyberweapon</option>
+            <option [ngValue]="'EXOTIC BODYSCULPT'">Exotic Bodysculpt</option>
+            <option [ngValue]="'FASHIONWARE'">Fashionware</option>
+            <option [ngValue]="'FULL CONVERSION'">Full Conversion</option>
+            <option [ngValue]="'IMPLANT'">Implant</option>
+            <option [ngValue]="'LINEAR FRAMES'">Linear Frames</option>
+            <option [ngValue]="'NEURALWARE'">Neuralware</option>
+
+          </select>
         <td><input [(ngModel)]="searchFilter.subtype" type="text" /></td>
         <td><input [(ngModel)]="searchFilter.name" type="text" class="cyber-data-name" /></td>
         <td><input [(ngModel)]="searchFilter.desc" type="text" /></td>
@@ -33,7 +55,8 @@
           |contains:'surgery':searchFilter.surg
           |sourcebookFilter:searchFilter.source"
           class="cyber-row">
-        <td>{{cyber.type}}</td>
+        <td>{{cyber.type}}
+        </td>
         <td>{{cyber.subtype}}</td>
         <td>{{cyber.name}}</td>
         <td>{{cyber.notes}}</td>
