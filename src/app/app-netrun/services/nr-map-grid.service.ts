@@ -1,8 +1,6 @@
-import { NrMapDataService } from './nr-map-data.service';
 import { Injectable } from '@angular/core';
 import { Observable ,  BehaviorSubject } from 'rxjs';
 import { NRMap, NRMapCell, NRMapRow, PrevSelectedCell, NRRegionMap } from '../models';
-import { NRMapCellObservable } from '../models/nr-map-cell-observable';
 
 @Injectable({
   providedIn: 'root'

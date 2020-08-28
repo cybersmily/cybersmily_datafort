@@ -41,15 +41,20 @@ export class CyberDataService {
     this.fileService.SaveAsFile('cyberware', JSON.stringify(this._cyberwareList), 'json');
   }
 
+  update(list: Array<DataCyberware>) {
+    this._cyberwareList = list;
+  }
+
   add(cyberware: DataCyberware) {
     const cyber = new DataCyberware(cyberware);
     this._cyberwareList.push(cyber);
   }
 
-  delete(name: string) {
+  delete(name: string, type: string, subtype: string) {
     const i = this._cyberwareList.findIndex( c => {
-      return (c.name === name);
+      return (c.name === name && c.type === type && c.subtype === subtype);
     });
     this._cyberwareList.splice(i, 1 );
+
   }
 }

@@ -24,6 +24,8 @@ export class AdminCyberListComponent implements OnInit {
     source: ''
   };
 
+  completed = true;
+
   cyberwareList: Array<DataCyberware> = new Array<DataCyberware>();
 
   newCyber: DataCyberware = new DataCyberware();
@@ -41,12 +43,24 @@ export class AdminCyberListComponent implements OnInit {
     this.cyberData.save();
   }
 
-  add() {
-    this.cyberData.add(this.newCyber);
+  update() {
+    this.cyberData.update(this.cyberwareList);
   }
 
-  delete(cyber: string) {
-    this.cyberData.delete(cyber);
+  add() {
+    this.cyberData.add(new DataCyberware(this.newCyber));
+    this.newCyber = new DataCyberware();
+  }
+
+  delete(cyber: string, type: string, subtype: string) {
+    this.cyberData.delete(cyber, type, subtype);
+  }
+
+   filterCompleted(page: number): boolean {
+    if ( this.completed && page && page !== 0) {
+      return false;
+    }
+    return true;
   }
 
 }
