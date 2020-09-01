@@ -107,7 +107,7 @@ export class NrMapGridService {
       const newSelected = this.prevSelected.shift();
       col = newSelected.cell.column;
       row = newSelected.cell.row;
-      mark = !mark;
+      // mark = !mark;
 
     } else {
       // only add to the array a valid cell

@@ -25,6 +25,8 @@ export class WpnListComponent implements OnInit {
     conc: '',
     avail: '',
     rel: '',
+    damage: '',
+    ammo: ''
   };
 
   constructor(

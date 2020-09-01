@@ -23,15 +23,7 @@ export class CyberDataService {
     .GetJson(JsonDataFiles.CP2020_CYBERWARE_DATA_LIST_JSON)
     .pipe(
       map( (data: Array<DataCyberware>) => {
-        this._cyberwareList = data.sort( (a, b) => {
-          if (a.type === b.type) {
-            if (a.subtype === b.subtype) {
-              return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1;
-            }
-            return a.subtype.toLowerCase() > b.subtype.toLowerCase() ? 1 : -1;
-          }
-          return a.type.toLowerCase() > b.type.toLowerCase() ? 1 : -1;
-        });
+        this._cyberwareList = data;
         return this._cyberwareList;
       })
     );

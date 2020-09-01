@@ -6,7 +6,7 @@ export class DataCyberware implements BaseCyberware {
   subtype: string;
   name: string;
   notes: string; // game notes of the item.
-  cost: string | number;
+  cost: number;
   hc: string;
   surgery: string;
   source: SourceBook;
@@ -17,7 +17,7 @@ export class DataCyberware implements BaseCyberware {
     this.subtype = (param) ? param.subtype : '';
     this.name = (param) ? (param.cyber ? param.cyber : ((param.name) ? param.name : '')) : '';
     this.notes =  (param) ? param.notes : '';
-    this.cost = (param) ? ((typeof param.cost === 'string') ? param.cost : Number(param.cost)) : 0;
+    this.cost = (param) ? ((typeof param.cost === 'string') ? Number(param.cost) : param.cost) : 0;
     this.hc = (param) ? param.hc : '';
     this.surgery = (param) ? param.surgery : '';
     this.source =  (param) ? param.source : {book: '', page: 0};

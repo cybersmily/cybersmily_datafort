@@ -1,3 +1,4 @@
+import { faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { DataCyberware } from '../../shared/models/cyberware/data-cyberware';
 import { CyberDataService } from './../../shared/services/data/cyber-data.service';
@@ -9,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cyber-list.component.css']
 })
 export class CyberListComponent implements OnInit {
+  faSortUp = faSortUp;
+  faSortDown = faSortDown;
 
   searchFilter = {
       type: '',
@@ -20,10 +23,21 @@ export class CyberListComponent implements OnInit {
       surg: '',
       source: ''
     };
+    sortOrder = [
+      {prop: 'type', desc: false},
+      {prop: 'subtype', desc: false},
+      {prop: 'name', desc: false},
+      {prop: 'cost', desc: false},
+      {prop: 'hc', desc: false},
+      {prop: 'surgery', desc: false}
+    ];
+    orderBy = 'type';
+    descending = false;
 
   cyberwareList: Array<DataCyberware> = new Array<DataCyberware>();
 
   constructor(private cyberData: CyberDataService, private seo: SeoService) { }
+
 
   ngOnInit() {
     this.seo.updateMeta(
@@ -36,5 +50,17 @@ export class CyberListComponent implements OnInit {
     });
   }
 
+  isSorted(property: string): boolean {
+    return this.sortOrder.find( sort => sort.prop === property).desc;
+  }
 
+  toggleSort(property: string) {
+    const index = this.sortOrder.findIndex( sort => sort.prop === property);
+    this.sortOrder[index].desc = !this.sortOrder[index].desc;
+    // reorder the list
+    this.sortOrder.splice(0, 0, this.sortOrder.splice(index, 1)[0]);
+    // force the pipe to re-evaluate
+    const arr = this.sortOrder.filter(a => a.prop);
+    this.sortOrder = arr;
+  }
 }

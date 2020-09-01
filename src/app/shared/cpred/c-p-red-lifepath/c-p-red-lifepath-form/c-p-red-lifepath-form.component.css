@@ -1,0 +1,64 @@
+.cpred-lp-value {
+  background-color: white;
+  color: black;
+  display: inline-block;
+  min-height: 60px;
+  width: 100%;
+  font-size: 15px;
+}
+
+.cpred-lp-title {
+  font-weight: bold;
+  font-size: 20px;
+  padding-left: 20px;
+}
+
+.cpred-lp-value.cpred-lp-double {
+  min-height: 120px;
+}
+
+textarea.cpred-lp-value {
+  resize: none;
+}
+
+.cpred-background-red {
+  background-color: red;
+  color: white;
+}
+
+.cpred-background-red .row {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.cpred-top-bar::before {
+  content: '';
+  width: 0;
+  height: 0;
+  float: right;
+  border-top: 50px solid white;
+  border-left: 50px solid transparent;
+}
+
+.cpred-top-bar {
+  display: inline-block;
+  width: 100%;
+  min-height: 50px;
+  background-color: red;
+  margin-bottom: -7px;
+  padding-bottom: -7px;
+}
+.cpred-bottom-bar::before {
+  content: '';
+  width: 0;
+  height: 0;
+  float: left;
+  border-bottom: 50px solid white;
+  border-right: 50px solid transparent;
+}
+.cpred-bottom-bar {
+  display: inline-block;
+  width: 100%;
+  min-height: 50px;
+  background-color: red;
+}

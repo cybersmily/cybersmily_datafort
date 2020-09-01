@@ -1,24 +1,37 @@
-
-  <div class="container">
-    <h2>Master Cyberware List</h2>
-    <div>This is the master list of all cyberware with their sources.
-      Sources were pulled from R. Talsorian Games and the Interface magazines.
-    </div>
+<div class="container">
+  <h2>Master Cyberware List</h2>
+  <div>This is the master list of all cyberware with their sources.
+    Sources were pulled from R. Talsorian Games and the Interface magazines. You should consult the source material
+  </div>
+  <div>NOTE: Costs I either show the average if it has a range or empty if the prices is based on another factor.</div>
   <div class="row">
     <table class="cyber-data-table">
       <tr>
-        <th>TYPE</th>
-        <th>SUBTYPE</th>
-        <th>NAME</th>
+        <th>
+          TYPE
+          <fa-icon [icon]="(isSorted('type'))?faSortUp:faSortDown" (click)="toggleSort('type')"></fa-icon>
+        </th>
+        <th>SUBTYPE
+          <fa-icon [icon]="(isSorted('subtype'))?faSortUp:faSortDown" (click)="toggleSort('subtype')"></fa-icon>
+        </th>
+        <th>NAME
+          <fa-icon [icon]="(isSorted('name'))?faSortUp:faSortDown" (click)="toggleSort('name')"></fa-icon>
+        </th>
         <th>DESCRIPTION</th>
-        <th>COST</th>
-        <th class="cyber-data-sm text-center">HC</th>
-        <th class="cyber-data-sm text-center">SURGERY</th>
-        <th>SOURCE</th>
+        <th>COST
+          <fa-icon [icon]="(isSorted('cost'))?faSortUp:faSortDown" (click)="toggleSort('cost')"></fa-icon>
+        </th>
+        <th class="cyber-data-sm text-center">HC
+          <fa-icon [icon]="(isSorted('hc'))?faSortUp:faSortDown" (click)="toggleSort('hc')"></fa-icon>
+        </th>
+        <th class="cyber-data-sm text-center">SURGERY
+          <fa-icon [icon]="(isSorted('surgery'))?faSortUp:faSortDown" (click)="toggleSort('surgery')"></fa-icon>
+        </th>
+        <th>SOURCE
+        </th>
       </tr>
       <tr>
         <td>
-
           <select [(ngModel)]="searchFilter.type">
             <option [ngValue]="''">All</option>
             <option [ngValue]="'ANIMAL CYBERWARE'">Animal Cyberware</option>
@@ -36,7 +49,6 @@
             <option [ngValue]="'IMPLANT'">Implant</option>
             <option [ngValue]="'LINEAR FRAMES'">Linear Frames</option>
             <option [ngValue]="'NEURALWARE'">Neuralware</option>
-
           </select>
         <td><input [(ngModel)]="searchFilter.subtype" type="text" /></td>
         <td><input [(ngModel)]="searchFilter.name" type="text" class="cyber-data-name" /></td>
@@ -53,14 +65,15 @@
           |contains:'notes':searchFilter.desc
           |contains:'hc':searchFilter.hc
           |contains:'surgery':searchFilter.surg
-          |sourcebookFilter:searchFilter.source"
-          class="cyber-row">
+          |sourcebookFilter:searchFilter.source
+          |orderby:sortOrder
+          " class="cyber-row">
         <td>{{cyber.type}}
         </td>
         <td>{{cyber.subtype}}</td>
         <td>{{cyber.name}}</td>
         <td>{{cyber.notes}}</td>
-        <td>{{cyber.cost}}eb.</td>
+        <td><span *ngIf="cyber.cost > 0">{{cyber.cost | number}}eb.</span></td>
         <td class="cyber-data-sm text-center">{{cyber.hc}}</td>
         <td class="cyber-data-sm text-center">{{cyber.surgery}}</td>
         <td>{{cyber.source.book|sourcebook}} pg.{{cyber.source.page}}</td>

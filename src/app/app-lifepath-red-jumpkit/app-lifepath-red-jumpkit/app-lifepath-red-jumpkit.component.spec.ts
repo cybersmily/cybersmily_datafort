@@ -13,8 +13,13 @@ describe('AppLifepathRedJumpkitComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppLifepathRedJumpkitComponent ],
-      providers: [DiceService, DataService, SeoService],
+      declarations: [
+        AppLifepathRedJumpkitComponent
+      ],
+      providers: [
+        DiceService,
+        DataService,
+        SeoService],
       imports: [
         CommonUiModule,
         HttpClientModule

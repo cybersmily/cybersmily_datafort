@@ -52,7 +52,10 @@
             <option *ngFor="let avail of availabilities" [ngValue]="avail.code">{{ avail.name }}</option>
         </select>
       </td>
-      <td></td>
+      <td>
+        <input [(ngModel)]="filters.damage" type="search" placeholder="Search damage" class="skill-search"/><br>
+        <input [(ngModel)]="filters.ammo" type="search" placeholder="Search ammo" class="skill-search"/>
+      </td>
       <td></td>
       <td></td>
       <td>
@@ -66,7 +69,17 @@
       <td></td>
       <td><input [(ngModel)]="filters.source" type="search" placeholder="search on source" class="skill-search"/></td>
     </tr>
-    <tr *ngFor="let wpn of wpnList |filter:'name': filters.name|filter:'category': filters.category|filter:'subcategory': filters.subcategory|sourcebookFilter:filters.source|filter:'type': filters.type|filter:'avail': filters.avail|filter:'conc': filters.conc|filter:'rel': filters.rel"
+    <tr *ngFor="let wpn of wpnList
+    |contains:'name': filters.name
+    |contains:'damage': filters.damage
+    |contains:'ammo': filters.ammo
+    |filter:'category': filters.category
+    |filter:'subcategory': filters.subcategory
+    |sourcebookFilter:filters.source
+    |filter:'type': filters.type
+    |filter:'avail': filters.avail
+    |filter:'conc': filters.conc
+    |filter:'rel': filters.rel"
         style="vertical-align: top;">
         <td>{{wpn.category}}</td>
         <td>{{wpn.subcategory}}</td>

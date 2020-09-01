@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { SourcebookPipe } from './sourcebook.pipe';
 import { SourcebookFilterPipe } from './sourcebook-filter.pipe';
 import { ContainsPipe } from './contains.pipe';
+import { OrderbyPipe } from './orderby.pipe';
 
 
 
@@ -14,7 +15,8 @@ import { ContainsPipe } from './contains.pipe';
     SourcebookPipe,
     SourcebookFilterPipe,
     ParsePipe,
-    ContainsPipe
+    ContainsPipe,
+    OrderbyPipe
   ],
   imports: [
     CommonModule
@@ -24,7 +26,8 @@ import { ContainsPipe } from './contains.pipe';
     SourcebookPipe,
     SourcebookFilterPipe,
     ParsePipe,
-    ContainsPipe
+    ContainsPipe,
+    OrderbyPipe
   ]
 })
 export class PipesModule { }
