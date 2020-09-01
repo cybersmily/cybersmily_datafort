@@ -35,7 +35,7 @@ export class WeaponDataService {
             return a.subcategory.toLowerCase() > b.subcategory.toLowerCase() ? 1 : -1;
           }
           return a.category.toLowerCase() > b.category.toLowerCase() ? 1 : -1;
-        });
+        }).map(w => new DataWeapon(w));
         return this._weaponList;
       })
     );
@@ -64,9 +64,9 @@ export class WeaponDataService {
       weapon.bod = (weapon.bod > 0) ? weapon.bod : undefined;
       weapon.ap = (weapon.ap !== '') ? weapon.ap : undefined;
       weapon.burst = (weapon.burst > 0 || weapon.burst !== '') ? weapon.burst : undefined;
-      weapon.shots = (weapon.shots > 0 || weapon.shots !== '') ? weapon.shots : undefined;
-      weapon.rof = (weapon.rof > 0 || weapon.rof !== '') ? weapon.rof : undefined;
-      weapon.range = (weapon.range > 0 || weapon.range !== '') ? weapon.range : undefined;
+      weapon.shots = (weapon.shots > 0 ) ? weapon.shots : 0;
+      weapon.rof = (weapon.rof > 0 ) ? weapon.rof : 0;
+      weapon.range = (weapon.range > 0 ) ? weapon.range : 0;
       weapon.burstFire = (weapon.burstFire) ? true : undefined;
       weapon.fullAuto = (weapon.fullAuto) ? true : undefined;
       weapon.thrown = (weapon.thrown) ? true : undefined;
@@ -87,10 +87,10 @@ export class WeaponDataService {
     if (i > -1) {
       weapon.bod = (weapon.bod > 0) ? weapon.bod : undefined;
       weapon.burst = (weapon.burst > 0 || weapon.burst !== '') ? weapon.burst : undefined;
-      weapon.shots = (weapon.shots > 0 || weapon.shots !== '') ? weapon.shots : undefined;
+      weapon.shots = (weapon.shots > 0 ) ? weapon.shots : 0;
       weapon.ap = (weapon.ap !== '') ? weapon.ap : undefined;
-      weapon.rof = (weapon.rof > 0 || weapon.rof !== '') ? weapon.rof : undefined;
-      weapon.range = (weapon.range > 0 || weapon.range !== '') ? weapon.range : undefined;
+      weapon.rof = (weapon.rof > 0 ) ? weapon.rof : 0;
+      weapon.range = (weapon.range > 0 ) ? weapon.range : 0;
       weapon.burstFire = (weapon.burstFire) ? true : undefined;
       weapon.fullAuto = (weapon.fullAuto) ? true : undefined;
       weapon.thrown = (weapon.thrown) ? true : undefined;

@@ -3,21 +3,50 @@
   <div>This is the master list of all weapons with their sources.
     Search is based on what the field starts with.
     Sources were pulled from R. Talsorian and the Interface magazines.</div>
-  <table class="mstr-skill-table csd-rounded">
+  <table class="mstr-skill-table csd-rounded small">
     <tr class="csd-rounded bg-secondary text-light">
-      <th class="text-center">Category</th>
-      <th class="text-center">Subcategory</th>
-      <th class="text-center">Name</th>
-      <th class="text-center">Type</th>
-      <th class="text-center">WA</th>
-      <th class="text-center">Conc.</th>
-      <th class="text-center">Avail.</th>
-      <th class="text-center">Damage/Ammo</th>
-      <th class="text-center">#Shots</th>
-      <th class="text-center">ROF</th>
-      <th class="text-center">Rel</th>
-      <th class="text-center">Range</th>
-      <th class="text-center">Cost</th>
+      <th class="text-center">Category
+        <fa-icon [icon]="(isSorted('category'))?faSortUp:faSortDown" class="csd-btn" (click)="toggleSort('category')"></fa-icon>
+      </th>
+      <th class="text-center text-nowrap">Subcategory
+        <fa-icon [icon]="(isSorted('subcategory'))?faSortUp:faSortDown" class="csd-btn" (click)="toggleSort('subcategory')"></fa-icon>
+      </th>
+      <th class="text-center">Name
+        <fa-icon [icon]="(isSorted('name'))?faSortUp:faSortDown" class="csd-btn" (click)="toggleSort('name')"></fa-icon>
+      </th>
+      <th class="text-center">Type
+        <fa-icon [icon]="(isSorted('type'))?faSortUp:faSortDown" class="csd-btn" (click)="toggleSort('type')"></fa-icon>
+      </th>
+      <th class="text-center text-nowrap">WA
+        <fa-icon [icon]="(isSorted('wa'))?faSortUp:faSortDown" class="csd-btn" (click)="toggleSort('wa')"></fa-icon>
+      </th>
+      <th class="text-center">Conc.
+        <fa-icon [icon]="(isSorted('conc'))?faSortUp:faSortDown" class="csd-btn" (click)="toggleSort('conc')"></fa-icon>
+      </th>
+      <th class="text-center">Avail.
+        <fa-icon [icon]="(isSorted('avail'))?faSortUp:faSortDown" class="csd-btn" (click)="toggleSort('avail')"></fa-icon>
+      </th>
+      <th class="text-center">Damage
+        <fa-icon [icon]="(isSorted('damage'))?faSortUp:faSortDown" class="csd-btn" (click)="toggleSort('damage')"></fa-icon>
+      </th>
+      <th class="text-center">Ammo
+        <fa-icon [icon]="(isSorted('ammo'))?faSortUp:faSortDown" class="csd-btn" (click)="toggleSort('ammo')"></fa-icon>
+      </th>
+      <th class="text-center text-nowrap">#Shots
+        <fa-icon [icon]="(isSorted('shots'))?faSortUp:faSortDown" class="csd-btn" (click)="toggleSort('shots')"></fa-icon>
+      </th>
+      <th class="text-center text-nowrap">ROF
+        <fa-icon [icon]="(isSorted('rof'))?faSortUp:faSortDown" class="csd-btn" (click)="toggleSort('rof')"></fa-icon>
+      </th>
+      <th class="text-center">Rel
+        <fa-icon [icon]="(isSorted('rel'))?faSortUp:faSortDown" class="csd-btn" (click)="toggleSort('rel')"></fa-icon>
+      </th>
+      <th class="text-center text-nowrap">Range
+        <fa-icon [icon]="(isSorted('range'))?faSortUp:faSortDown" class="csd-btn" (click)="toggleSort('range')"></fa-icon>
+      </th>
+      <th class="text-center text-nowrap">Cost
+        <fa-icon [icon]="(isSorted('cost'))?faSortUp:faSortDown" class="csd-btn" (click)="toggleSort('cost')"></fa-icon>
+      </th>
       <th class="text-center">Source</th>
     </tr>
     <tr>
@@ -53,7 +82,9 @@
         </select>
       </td>
       <td>
-        <input [(ngModel)]="filters.damage" type="search" placeholder="Search damage" class="skill-search"/><br>
+        <input [(ngModel)]="filters.damage" type="search" placeholder="Search damage" class="skill-search"/>
+      </td>
+      <td>
         <input [(ngModel)]="filters.ammo" type="search" placeholder="Search ammo" class="skill-search"/>
       </td>
       <td></td>
@@ -79,7 +110,8 @@
     |filter:'type': filters.type
     |filter:'avail': filters.avail
     |filter:'conc': filters.conc
-    |filter:'rel': filters.rel"
+    |filter:'rel': filters.rel
+    |orderby:sortOrder"
         style="vertical-align: top;">
         <td>{{wpn.category}}</td>
         <td>{{wpn.subcategory}}</td>
@@ -88,12 +120,13 @@
         <td class="text-center">{{wpn.wa}}</td>
         <td class="text-center">{{wpn.conc}}</td>
         <td class="text-center">{{wpn.avail}}</td>
-        <td class="text-center">{{wpn.damage}}{{wpn.ammo? '(' + wpn.ammo + ')':''}}</td>
-        <td class="text-center">{{wpn.shots}}</td>
-        <td class="text-center">{{wpn.rof}}</td>
+        <td class="text-center">{{wpn.damage}}</td>
+        <td class="text-center">{{wpn.ammo? wpn.ammo :''}}</td>
+        <td class="text-center">{{wpn.shots > 0 ? wpn.shots : ''}}</td>
+        <td class="text-center">{{wpn.rof > 0 ? wpn.rof : ''}}</td>
         <td class="text-center">{{wpn.rel ? wpn.rel : ''}}</td>
-        <td class="text-center">{{ wpn.thrown ? 'thrown' : ( wpn.range ? ((wpn.range | number) + 'm'): '')}}</td>
-        <td class="text-center">{{wpn.cost|number}}eb</td>
+        <td class="text-center">{{ wpn.thrown ? 'thrown' : ( wpn.range > 0 ? ((wpn.range | number) + 'm'): '')}}</td>
+        <td class="text-center"><span *ngIf="wpn.cost > 0">{{wpn.cost|number}}eb</span></td>
         <td class="text-center">{{wpn.source.book |sourcebook}} pg. {{wpn.source.page}}</td>
     </tr>
   </table>

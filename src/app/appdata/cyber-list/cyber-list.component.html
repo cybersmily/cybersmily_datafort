@@ -5,27 +5,27 @@
   </div>
   <div>NOTE: Costs I either show the average if it has a range or empty if the prices is based on another factor.</div>
   <div class="row">
-    <table class="cyber-data-table">
-      <tr>
+  <table class="cyber-data-table csd-rounded">
+    <tr class="csd-rounded bg-secondary text-light">
         <th>
           TYPE
-          <fa-icon [icon]="(isSorted('type'))?faSortUp:faSortDown" (click)="toggleSort('type')"></fa-icon>
+          <fa-icon [icon]="(isSorted('type'))?faSortUp:faSortDown" class="csd-btn" (click)="toggleSort('type')"></fa-icon>
         </th>
         <th>SUBTYPE
-          <fa-icon [icon]="(isSorted('subtype'))?faSortUp:faSortDown" (click)="toggleSort('subtype')"></fa-icon>
+          <fa-icon [icon]="(isSorted('subtype'))?faSortUp:faSortDown" class="csd-btn" (click)="toggleSort('subtype')"></fa-icon>
         </th>
         <th>NAME
-          <fa-icon [icon]="(isSorted('name'))?faSortUp:faSortDown" (click)="toggleSort('name')"></fa-icon>
+          <fa-icon [icon]="(isSorted('name'))?faSortUp:faSortDown" class="csd-btn" (click)="toggleSort('name')"></fa-icon>
         </th>
         <th>DESCRIPTION</th>
         <th>COST
-          <fa-icon [icon]="(isSorted('cost'))?faSortUp:faSortDown" (click)="toggleSort('cost')"></fa-icon>
+          <fa-icon [icon]="(isSorted('cost'))?faSortUp:faSortDown" class="csd-btn" (click)="toggleSort('cost')"></fa-icon>
         </th>
         <th class="cyber-data-sm text-center">HC
-          <fa-icon [icon]="(isSorted('hc'))?faSortUp:faSortDown" (click)="toggleSort('hc')"></fa-icon>
+          <fa-icon [icon]="(isSorted('hc'))?faSortUp:faSortDown" class="csd-btn" (click)="toggleSort('hc')"></fa-icon>
         </th>
         <th class="cyber-data-sm text-center">SURGERY
-          <fa-icon [icon]="(isSorted('surgery'))?faSortUp:faSortDown" (click)="toggleSort('surgery')"></fa-icon>
+          <fa-icon [icon]="(isSorted('surgery'))?faSortUp:faSortDown" class="csd-btn" (click)="toggleSort('surgery')"></fa-icon>
         </th>
         <th>SOURCE
         </th>

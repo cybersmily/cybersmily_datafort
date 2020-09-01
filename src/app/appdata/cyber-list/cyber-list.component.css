@@ -28,3 +28,13 @@
 .cyber-data-sm{
   width: 70px;
 }
+.mstr-skill-table {
+  width: 100%;
+}
+
+.mstr-skill-table th, .mstr-skill-table td {
+  border: 1px solid #999;
+}
+.skill-search {
+  width: 100%;
+}
