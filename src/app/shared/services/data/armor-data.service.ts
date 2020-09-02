@@ -18,7 +18,7 @@ export class ArmorDataService {
     if (this.armorList) {
       return of(this.armorList);
     }
-    this.dataService.GetJson(JsonDataFiles.CP2020_ARMOR_DATA_LIST_JSON)
+    return this.dataService.GetJson(JsonDataFiles.CP2020_ARMOR_DATA_LIST_JSON)
     .pipe(
       map( data => {
         this.armorList = data;
