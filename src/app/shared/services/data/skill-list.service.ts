@@ -5,7 +5,6 @@ import { DataSkill } from './../../models/data/data-skill';
 import { Observable, of } from 'rxjs';
 import { DataService } from './../data.service';
 import { Injectable } from '@angular/core';
-import { Cp2020Skill } from '../../models/cp2020character';
 
 @Injectable({
   providedIn: 'root'
