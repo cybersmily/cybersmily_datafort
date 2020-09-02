@@ -426,8 +426,10 @@ private addGear(doc: jsPDF, gear: Cp2020PlayerGearList, left: number, line: numb
     doc.rect(left + 80, line, 10, ht, 'S');
     doc.rect(left + 90, line, 10, ht, 'S');
     doc.text(g.gear, left + 1, line + 4);
-    doc.text(g.cost.toString(), left + 81, line + 4);
-    doc.text(g.weight.toString(), left + 91, line + 4);
+    const cost: string = (g.cost) ? g.cost.toString() : '';
+    const wt: string =  (g.weight) ? g.weight.toString() : '';
+    doc.text(cost, left + 81, line + 4);
+    doc.text(wt, left + 91, line + 4);
     line += ht;
   });
   doc.setFontSize(this._fontSize);
