@@ -14,7 +14,7 @@ describe('CyberwareCardComponent', () => {
     hc: '1d6/3',
     desc: 'This is a test',
     notes: 'Game notes',
-    cost: '1002',
+    cost: 1002,
     surgery: 'MA',
     source: {book: 'CP2020', page: 12}
   };

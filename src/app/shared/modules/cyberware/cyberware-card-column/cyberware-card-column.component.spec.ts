@@ -15,7 +15,7 @@ describe('CyberwareCardColumnComponent', () => {
       name: 'test cyberware1',
       hc: '1d6/3',
       desc: 'This is a test',
-      cost: '1002',
+      cost: 1002,
       surgery: 'MA',
       notes: 'Game notes',
       source: {book: 'CP2020', page: 12}
@@ -26,7 +26,7 @@ describe('CyberwareCardColumnComponent', () => {
       name: 'test cyberware2',
       hc: '1d6',
       desc: 'This is a test',
-      cost: '10',
+      cost: 10,
       surgery: 'M',
       notes: 'Game notes',
       source: {book: 'CP2020', page: 12}
@@ -37,7 +37,7 @@ describe('CyberwareCardColumnComponent', () => {
       name: 'test cyberware3',
       hc: '3',
       desc: 'This is a test',
-      cost: '20%',
+      cost: 0.2,
       surgery: 'S',
       notes: 'Game notes',
       source: {book: 'CP2020', page: 12}
