@@ -22,7 +22,7 @@ export class Cp2020characterToPDF {
 
   generatePdf( character: Cp2020PlayerCharacter) {
     this._character = character;
-    const doc = this.setupDoc()
+    const doc = this.setupDoc();
     doc.setFont(this._font, 'normal');
     doc.setFontSize(this._fontSize);
     this.createFirstPage(doc);
@@ -32,7 +32,7 @@ export class Cp2020characterToPDF {
     doc.save(`CP2020_${filename}.pdf`);
   }
 
-  private setupDoc(): jsPDF {
+  setupDoc(): jsPDF {
     const doc = new jsPDF({
       orientation: 'p',
       format: 'a4',
@@ -472,7 +472,7 @@ private addWeapons(doc: jsPDF, weapons: CpPlayerWeaponList, left: number, line: 
   doc.text('Dam.', left +  0.5, line + 4);
   left += 12;
 
-  doc.rect(left, line,10, ht, 'S');
+  doc.rect(left, line, 10, ht, 'S');
   doc.text('#Shots', left + 0.5, line + 4);
   left += 10;
 
@@ -585,7 +585,8 @@ private addLifePath(doc: jsPDF, lifepath: LifePathResults, left: number, line: n
   doc.text('Ethnicity', left + 5, line + 5);
   doc.setFont(this._font, 'normal');
   doc.text(lifepath.ethnicity.name, left + 20, line + 5);
-  line += ht;doc.setFont(this._font, 'bold');
+  line += ht;
+  doc.setFont(this._font, 'bold');
   doc.text('Language', left + 5, line + 5);
   doc.setFont(this._font, 'normal');
   doc.text(lifepath.ethnicity.language, left + 22, line + 5);
