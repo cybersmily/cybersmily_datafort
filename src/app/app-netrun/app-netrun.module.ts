@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TooltipModule, PopoverModule } from 'ngx-bootstrap';
-import { NgxUiLoaderModule } from 'ngx-ui-loader';
 
 import { AppNetrunRoutingModule } from './app-netrun-routing.module';
 
@@ -27,7 +26,6 @@ import { NrMapCellComponent } from './nr-map-cell/nr-map-cell.component';
     TooltipModule.forRoot(),
     PopoverModule.forRoot(),
     FormsModule,
-    NgxUiLoaderModule,
     AppNetrunRoutingModule
   ],
   declarations: [
