@@ -10,7 +10,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { SaveFileService } from './shared/services/save-file.service';
 import { PipesModule } from './shared/pipes/pipes.module';
-import { NgxUiLoaderModule } from 'ngx-ui-loader';
 
 @NgModule({
   declarations: [
@@ -25,7 +24,6 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
     AppFashionGeneratorModule,
     ApphomeModule,
     PipesModule,
-    NgxUiLoaderModule,
     AppRoutingModule /* Keep last as it is important for routing */
   ],
   entryComponents: [NpcProfileModalComponent],

@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';
 import { NrLoadMapsService } from './services/nr-load-maps.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -19,13 +20,13 @@ import { DiceService } from '../shared/services/dice/dice.service';
 import { NrMapDataService, NrTrackerService, NrMapPositionService, NrMapGridService } from './services';
 import { NrMapGridComponent } from './nr-map-grid/nr-map-grid.component';
 import { NrMapCellComponent } from './nr-map-cell/nr-map-cell.component';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
 
 @NgModule({
   imports: [
     CommonModule,
-    TooltipModule.forRoot(),
-    PopoverModule.forRoot(),
-    FormsModule,
+    CommonUiModule,
+    NgxUiLoaderModule,
     AppNetrunRoutingModule
   ],
   declarations: [
