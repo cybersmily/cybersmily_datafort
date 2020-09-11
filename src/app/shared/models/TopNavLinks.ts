@@ -175,7 +175,9 @@ export interface SiteLinksGroup {
           {title: 'Dodo Cyberpunk Generator', link: 'http://members.dodo.com.au/~boyleholdings/cyberpunk/#4thPage',
             desc: 'Another site for chracter genartion.', target: '_blank'},
           {title: 'Laurel Cadre Goon Generator', link: 'http://www.laurelcadre.com/cp_goon/',
-            desc: 'Nice way of craete quick NPCs for the game.', target: '_blank'}
+            desc: 'Nice way of craete quick NPCs for the game.', target: '_blank'},
+            {title: 'Cyberpunk Uncensored', link: 'https://www.cyberpunkuncensored.com/',
+              desc: 'New site to the scene. Rob Mulligan from Mulligan Live is pushing the game to the masses.', target: '_blank'}
         ]
       });
       this.menuItems.push({
