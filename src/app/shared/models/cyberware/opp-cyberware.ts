@@ -2,6 +2,7 @@ import { SourceBook } from './../sourcebook';
 import { BaseCyberware } from './baseCyberware';
 export class OppCyberware implements BaseCyberware {
   name: string;
+  abbrev: string;
   notes: string; // game notes of the item.
   cost: string | number;
   hc: string;

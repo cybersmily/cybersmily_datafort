@@ -49,4 +49,8 @@ export class AppCharacterSkillsComponent implements OnInit {
     this.changeSpecialAblity.emit(this.role);
   }
 
+  onChangeCyber(list: Cp2020PlayerCyberList) {
+    this.changeCyberware.emit(list);
+  }
+
 }

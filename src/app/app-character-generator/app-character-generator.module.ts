@@ -1,3 +1,4 @@
+import { Cp2020CyberwareModule } from './../shared/cp2020/cp2020-cyberware/cp2020-cyberware.module';
 import { Cp2020weaponsModule } from './../shared/cp2020/cp2020weapons/cp2020weapons.module';
 import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';
 import { LifePathGeneratorService } from './../shared/services/lifepath/life-path-generator.service';
@@ -48,6 +49,7 @@ import { AppCharacterWoundLevelComponent } from './app-character-wound-level/app
     CommonUiModule,
     AppCharacterGeneratorRoutingModule,
     Cp2020weaponsModule,
+    Cp2020CyberwareModule,
     ModalModule.forRoot()
   ],
   providers: [

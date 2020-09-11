@@ -1,0 +1,129 @@
+<div class="container">
+  <div class="row cyber-select-table">
+    <div class="col-6">
+      <div class="row small">
+        <div class="col-4">
+          <select [(ngModel)]="searchFilter.type" style="width: 90%" title="filter on cyberware type...">
+            <option [ngValue]="''">All</option>
+            <option [ngValue]="'ANIMAL CYBERWARE'">Animal Cyberware</option>
+            <option [ngValue]="'BIOWARE'">Bioware</option>
+            <option [ngValue]="'BODY PLATING'">Body Plating</option>
+            <option [ngValue]="'CYBERAUDIO'">Cyberaudio</option>
+            <option [ngValue]="'CYBERHANDS/FEET'">Cyberhands/feet</option>
+            <option [ngValue]="'CYBERLIMB'">Cyberlimb</option>
+            <option [ngValue]="'CYBERNETIC SYSTEM'">Cybernetic System</option>
+            <option [ngValue]="'CYBEROPTIC'">Cyberoptic</option>
+            <option [ngValue]="'CYBERWEAPON'">Cyberweapon</option>
+            <option [ngValue]="'EXOTIC BODYSCULPT'">Exotic Bodysculpt</option>
+            <option [ngValue]="'FASHIONWARE'">Fashionware</option>
+            <option [ngValue]="'FULL CONVERSION'">Full Conversion</option>
+            <option [ngValue]="'IMPLANT'">Implant</option>
+            <option [ngValue]="'LINEAR FRAMES'">Linear Frames</option>
+            <option [ngValue]="'NEURALWARE'">Neuralware</option>
+          </select>
+        </div>
+        <div class="col">
+          <input [(ngModel)]="searchFilter.name" type="text" class="cyber-data-name" placeholder="Search on name..." style="width: 100%" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col cyber-data-table">
+          <div class="row cyber-row" *ngFor="let cyber of dataCyber
+      |filter:'type':searchFilter.type
+      |contains:'name':searchFilter.name">
+            <div class="col-4">
+              <fa-icon [icon]="faPlus" class="csd-btn" (click)="add(cyber)"></fa-icon>&nbsp;&nbsp;
+              {{cyber.type}}
+            </div>
+            <div class="col" (click)="setSelected(cyber)" [popover]="cyberwareDetails"
+              [popoverTitle]="selectedCyber.name" placement="top" [outsideClick]="true">{{cyber.name}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-1"></div>
+    <div class="col csd-rounded">
+      <div class="row">
+        <div class="col">Add Cyberware
+          <fa-icon [icon]="faSave"
+          class="float-right csd-btn"
+          (click)="save()"
+          >
+
+          </fa-icon>
+        </div>
+      </div>
+      <hr>
+      <div class="row small">
+        <div class="col-5">Name</div>
+        <div class="col-4 text-center">HL</div>
+        <div class="col-3 text-right">Cost</div>
+      </div>
+      <div *ngFor="let cyber of cart; let i = index" class="row small">
+        <div class="col-5">
+          <fa-icon class="small csd-btn" [icon]="faTrash" (click)="delete(i)"></fa-icon>&nbsp;
+          <span
+          [popover]="addedCyberwareDetails"
+          [popoverContext]="{cyber: cart[i]}"
+          triggers="mouseenter mouseleave click"
+          placement="bottom" >
+          {{cyber.name}}
+        </span>
+        </div>
+        <div class="col-4 text-center"
+        title="HC: {{cyber.hc}}">
+          <ng-container *ngIf="cyber.hc.toLowerCase().indexOf('d') > 0; else staticHumanityLose">
+            <input type="number" [(ngModel)]="cyber.hl" class="cyber-hl text-right" step="0.5">
+            &nbsp;
+            <fa-icon [icon]="faDice" (click)="rollHumanityLose(i, cyber.hc)"
+              class="small csd-dice"
+            ></fa-icon>
+          </ng-container>
+          <ng-template #staticHumanityLose>
+            {{cyber.hl}}
+          </ng-template>
+        </div>
+        <div class="col-3 text-right">{{cyber.cost | number}}eb
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-5">Totals</div>
+        <div class="col-4 text-center">{{totalHumanityLose}}</div>
+        <div class="col-3 text-right">{{totalCost | number}}eb</div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #cyberwareDetails>
+  <div class="container">
+    <div class="row">
+      <div class="col small">{{selectedCyber.type}}</div>
+      <div class="col small">{{selectedCyber.subtype}}</div>
+      <div class="col small">{{selectedCyber.cost}}eb</div>
+    </div>
+    <div class="row">
+      <div class="col small">HC: {{selectedCyber.hc}}</div>
+      <div class="col small">Surgery: {{selectedCyber.surgery}}</div>
+    </div>
+    <div class="row">
+      <div class="col small">Source: {{selectedCyber.source.book}} {{selectedCyber.source.page}}pg.</div>
+    </div>
+    <div class="row">
+      <div class="col small">Notes: {{selectedCyber.notes}}</div>
+    </div>
+    <div class="row">
+      <div class="col">{{selectedCyber.desc}}</div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #addedCyberwareDetails let-cyber="cyber">
+  <div class="cyber-details">
+    {{cyber.notes}}
+    <br><br>
+    Surgery: {{cyber.surgery}}
+    <br><br>
+    <i>{{cyber.source.book}} pg.{{cyber.source.page}}</i>
+  </div>
+</ng-template>

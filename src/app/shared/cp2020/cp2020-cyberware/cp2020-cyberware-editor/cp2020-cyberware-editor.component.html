@@ -1,0 +1,136 @@
+<div class="container">
+  <div class="row">
+    <div class="col ">
+      <input class="cyber-edit-box" type="text" [(ngModel)]="newCyberware.name" placeholder="Enter name of cyberware">
+    </div>
+    <div class="col-2 text-right">
+      Total Cost:
+    </div>
+    <div class="col-2">
+      {{newCyberware.totalCost | number}}eb
+    </div>
+    <div class="col-1 text-right">
+      <fa-icon [icon]="faSave" class="large ml-1 csd-btn" (click)="update()"></fa-icon>
+    </div>
+  </div>
+  <div class="row small">
+    <div class="col-1">Code:</div>
+    <div class="col-4"><input type="text" [(ngModel)]="newCyberware.abbrev" placeholder="abbreviation or code"></div>
+    <div class="col-2">Surgery:</div>
+    <div class="col-4">
+      <select [(ngModel)]="newCyberware.surgery">
+        <option *ngFor="let surg of surgeries" [ngValue]="surg.code"
+          title="Cost: {{surg.cost | number}}eb; Time: {{surg.timeInHours}}hrs; Damage: {{surg.damage}}; DIFF: {{surg.diff}}; Requires: {{surg.requried}}">
+          {{surg.name}} ({{surg.code}})
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="row small">
+    <div class="col-1">Type:</div>
+    <div class="col-4">
+      <select [(ngModel)]="newCyberware.type">
+        <option [ngValue]="''"></option>
+        <option [ngValue]="'BIOWARE'">Bioware</option>
+        <option [ngValue]="'BODY PLATING'">Body Plating</option>
+        <option [ngValue]="'CHIPWARE'">Chipware</option>
+        <option [ngValue]="'CYBERAUDIO'">Cyberaudio</option>
+        <option [ngValue]="'CYBERFOOT'">Cyberfoot</option>
+        <option [ngValue]="'CYBERHAND'">Cyberhand</option>
+        <option [ngValue]="'CYBERLIMB'">Cyberlimb</option>
+        <option [ngValue]="'CYBERNETIC SYSTEM'">Cybernetic System</option>
+        <option [ngValue]="'CYBEROPTIC'">Cyberoptic</option>
+        <option [ngValue]="'CYBERVOCAL'">Cybervocal</option>
+        <option [ngValue]="'CYBERWEAPON'">Cyberweapon</option>
+        <option [ngValue]="'EXOTIC BODYSCULPT'">Exotic Bodysculpt</option>
+        <option [ngValue]="'FASHIONWARE'">Fashionware</option>
+        <option [ngValue]="'FULL CONVERSION'">Full Conversion</option>
+        <option [ngValue]="'IMPLANT'">Implant</option>
+        <option [ngValue]="'LINEAR FRAMES'">Linear Frames</option>
+        <option [ngValue]="'NEURALWARE'">Neuralware</option>
+      </select>
+    </div>
+    <div class="col-2">Humanity Cost:</div>
+    <div class="col-4">
+      <input type="text" [(ngModel)]="newCyberware.hc" placeholder="ex. 2d6+2 or 1d6/2">
+    </div>
+  </div>
+  <div class="row small">
+    <div class="col-1">Subtype:</div>
+    <div class="col-4"><input type="text" [(ngModel)]="newCyberware.subtype" placeholder="optional"></div>
+    <div class="col-2">Humanity Loss:</div>
+    <div class="col-4">
+      <input type="number" [(ngModel)]="newCyberware.hl" step="0.5">
+      <fa-icon *ngIf="newCyberware.hc && newCyberware.hc.toLowerCase().indexOf('d') > 0" [icon]="faDice"
+        class="csd-dice" title="Roll for humanity loss"></fa-icon>
+    </div>
+  </div>
+  <div class="row small">
+    <div class="col-1">Cost:</div>
+    <div class="col-4"><input type="number" [(ngModel)]="newCyberware.cost" class="text-right">eb</div>
+    <div class="col-2">Total H.L:</div>
+    <div class="col-4">{{newCyberware.totalHL}}</div>
+  </div>
+  <div class="row small">
+    <div class="col-1">#Options:</div>
+    <div class="col-4"><input type="number" [(ngModel)]="newCyberware.numOptions" class="text-right"></div>
+  </div>
+  <div class="row">
+    <div class="col">
+      Notes:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col"><textarea [(ngModel)]="newCyberware.notes" class="cyber-edit-box"></textarea></div>
+  </div>
+  <div class="row" *ngIf="optionList.length > 0">
+    <div class="col">
+      <div class="row">
+        <div class="col-5">
+          <i>Drag drop options to right box</i>
+        </div>
+        <div class="col">Current Options
+          <span
+            *ngIf="newCyberware.numOptions && newCyberware.numOptions > 0">({{newCyberware.options.length}}/{{newCyberware.numOptions}})</span>
+        </div>
+      </div>
+      <div class="row csd-rounded">
+        <div class="col-5 cyber-option-list">
+          <bs-sortable [(ngModel)]="optionList" itemClass="sortable-item" itemActiveClass="sortable-item-active"
+            placeholderItem="Drag here" placeholderClass="placeholderStyle" wrapperClass="" [itemTemplate]="optionItem">
+          </bs-sortable>
+        </div>
+        <div class="col-7 cyber-option-list bg-light">
+          <bs-sortable [(ngModel)]="newCyberware.options" itemClass="sortable-item"
+            itemActiveClass="sortable-item-active" placeholderItem="Drag here" placeholderClass="placeholderStyle"
+            wrapperClass="csd-rounded bg-white" [itemTemplate]="currentOptionItem">
+          </bs-sortable>
+          <i class="small">Drag options to the above area</i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #optionItem let-item="item" let-index="index">
+  <div>{{item.value.name}} ({{item.value.abbrev}})</div>
+  <div class="small">&nbsp;&nbsp;HC: {{item.value.hc}} Surgery: {{item.value.surgery}} Cost: {{item.value.cost | number}}eb</div>
+</ng-template>
+
+<ng-template #currentOptionItem let-item="item" let-index="index">
+  <div class="row">
+    <div class="col" title="{{item.value.notes}}; {{item.value.source.book}} pg.{{item.value.source.page}}">
+      {{item.value.name}} ({{item.value.abbrev}})
+    </div>
+  </div>
+  <div class="small row">
+    <div class="col-1"></div>
+    <div class="col-5 cyber-option-hl">
+      HL: <input type="number" [(ngModel)]="item.value.h" step="0.5">&nbsp;<fa-icon [icon]="faDice" class="csd-dice"></fa-icon>
+    </div>
+    <div class="col text-right">
+      Cost: {{item.value.cost | number}}eb
+    </div>
+  </div>
+
+</ng-template>

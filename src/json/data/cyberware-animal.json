@@ -1,0 +1,513 @@
+[
+
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "BIOWARE",
+    "name": "Grafted Muscle I",
+    "notes": "+1 BODY;",
+    "cost": 1000,
+    "hc": "2d6",
+    "surgery": "MA",
+    "source": {
+      "book": "Chr3",
+      "page": 84
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "BIOWARE",
+    "name": "Grafted Muscle II",
+    "notes": "+2 BODY;",
+    "cost": 1000,
+    "hc": "2d6",
+    "surgery": "MA",
+    "source": {
+      "book": "Chr3",
+      "page": 84
+    },
+    "desc": ""
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "BIOWARE",
+    "name": "Muscle and Bone Lace",
+    "notes": "Adds +2 BODY",
+    "cost": 750,
+    "hc": "1d6/2",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 84
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "BIOWARE",
+    "name": "SkinWeave",
+    "notes": "12 SP; DIFF 20 to spot",
+    "cost": 1000,
+    "hc": "2d6",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 84
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CHIPWARE",
+    "name": "BehaviorChip",
+    "notes": "PerfectPet. Loyalty +3",
+    "cost": 500,
+    "hc": "0",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CHIPWARE",
+    "name": "Berserk Chip",
+    "notes": "To hit +2; negates COOL rolls; +2 melee damage",
+    "cost": 100,
+    "hc": "0",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CHIPWARE",
+    "name": "IFF Chip",
+    "notes": "Identify Friend or Foe",
+    "cost": 400,
+    "hc": "0",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CHIPWARE",
+    "name": "RecordingChip",
+    "notes": "Records 4 hours of seneory perceptions",
+    "cost": 1500,
+    "hc": "0",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CHIPWARE",
+    "name": "Skill Chip +1",
+    "notes": "Skill at +1",
+    "cost": 100,
+    "hc": "0",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CHIPWARE",
+    "name": "Skill Chip +2",
+    "notes": "+2 in a skill",
+    "cost": 200,
+    "hc": "0",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    },
+    "desc": ""
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CHIPWARE",
+    "name": "Stress Chip",
+    "notes": "COOL +1 for morale; +1 EMP interaction",
+    "cost": 100,
+    "hc": "0",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CHIPWARE",
+    "name": "Watchdog Chip",
+    "notes": "Codeword/phrase to disarm/arm guard animal",
+    "cost": 250,
+    "hc": "0",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CYBERAUDIO",
+    "name": "Basic Audio",
+    "notes": "Can have any options",
+    "cost": 500,
+    "hc": "1d6",
+    "surgery": "M",
+    "source": {
+      "book": "Chr3",
+      "page": 84
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CYBERAUDIO",
+    "name": "Bug Detector",
+    "notes": "Detects bugs up to 3m. 60% effective",
+    "cost": 150,
+    "hc": "1",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 84
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CYBERAUDIO",
+    "name": "Scrambler",
+    "notes": "Cannot understand with out a descrambler",
+    "cost": 100,
+    "hc": "1",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 84
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CYBERLIMB",
+    "name": "Added Cyberlimb Strength",
+    "notes": "+1d6 damage; +6 Strength Feat if on all limbs",
+    "cost": 250,
+    "hc": "3",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CYBERLIMB",
+    "name": "Basic Limb",
+    "notes": "Can have 2 options",
+    "cost": 1000,
+    "hc": "2d6",
+    "surgery": "CR",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CYBERLIMB",
+    "name": "Cyberweapon",
+    "notes": "As cyber weapon; but half hc",
+    "cost": 200,
+    "hc": "1d6/2",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CYBERLIMB",
+    "name": "Limb Armor",
+    "notes": "Armors cyberlimb to SP 20",
+    "cost": 300,
+    "hc": "1",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CYBERLIMB",
+    "name": "RealSkinn Covering",
+    "notes": "Limb looks real. 70% effective (DiffAwareness)",
+    "cost": 200,
+    "hc": "-2",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CYBERLIMB",
+    "name": "Secret Compartment",
+    "notes": "2 in. x 2 in. x 4 in. hidden compartment",
+    "cost": 100,
+    "hc": "1",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CYBERLIMB",
+    "name": "Tape Recorder",
+    "notes": "Records from connected source",
+    "cost": 200,
+    "hc": "1",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CYBEROPTIC",
+    "name": "Anti-Dazzle",
+    "notes": "Immune to flash; laser blinding",
+    "cost": 100,
+    "hc": "1",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CYBEROPTIC",
+    "name": "Basic Eye",
+    "notes": "Basiceye module (3 option spaces per eye)",
+    "cost": 400,
+    "hc": "1d6",
+    "surgery": "MA",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CYBEROPTIC",
+    "name": "Infrared",
+    "notes": "See in total darkness; using heat emissions",
+    "cost": 200,
+    "hc": "2",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CYBEROPTIC",
+    "name": "Low-lite",
+    "notes": "See in dim light; almost total darkness",
+    "cost": 200,
+    "hc": "2",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CYBEROPTIC",
+    "name": "Microscopics",
+    "notes": "Microscope",
+    "cost": 400,
+    "hc": "3",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CYBEROPTIC",
+    "name": "Telescopics",
+    "notes": "Telescope ability to 20x",
+    "cost": 400,
+    "hc": "3",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CYBEROPTIC",
+    "name": "Thermograph",
+    "notes": "See heat patterns; temperature readings",
+    "cost": 200,
+    "hc": "3",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CYBERWEAPON",
+    "name": "Cyberclaws",
+    "notes": "Large felines,bears, raptors only; ;+1d6 damage",
+    "cost": 300,
+    "hc": "2d6",
+    "surgery": "",
+    "source": {
+      "book": "Chr3",
+      "page": 84
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CYBERWEAPON",
+    "name": "Cyberfangs",
+    "notes": "Not for small animals ;+1d6 damage",
+    "cost": 200,
+    "hc": "1d6",
+    "surgery": "",
+    "source": {
+      "book": "Chr3",
+      "page": 84
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CYBERWEAPON",
+    "name": "External Weapon Harness",
+    "notes": "BODY 2 min; size limit as Pop-Up Weapons",
+    "cost": 200,
+    "hc": "1d6",
+    "surgery": "",
+    "source": {
+      "book": "Chr3",
+      "page": 84
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "NEURALWARE",
+    "name": "Basic Processor",
+    "notes": "Basic processor. Needed for all Neuralware",
+    "cost": 500,
+    "hc": "1d6",
+    "surgery": "M",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "NEURALWARE",
+    "name": "Chipslot",
+    "notes": "Animal can use as many chips as their INT",
+    "cost": 100,
+    "hc": "1d6/2",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "NEURALWARE",
+    "name": "Input Plugs",
+    "notes": "As Interface Plugs; requires Link",
+    "cost": 100,
+    "hc": "1d6",
+    "surgery": "M",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "NEURALWARE",
+    "name": "Reflex Boost",
+    "notes": "Adds +1 to REF",
+    "cost": 500,
+    "hc": "2d6",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "NEURALWARE",
+    "name": "Sensory Boost (smell/audio)",
+    "notes": "Boosted signal from either olfactory or hearing",
+    "cost": 250,
+    "hc": "1d6/2",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "NEURALWARE",
+    "name": "Weapon Link",
+    "notes": "Smartgun attack +2",
+    "cost": 100,
+    "hc": "2",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    }
+  },
+  {
+    "type": "ANIMAL CYBERWARE",
+    "subtype": "CHIPWARE",
+    "name": "Skill Chip +3",
+    "notes": "+3 in a skill",
+    "cost": 300,
+    "hc": "0",
+    "surgery": "N",
+    "source": {
+      "book": "Chr3",
+      "page": 83
+    },
+    "desc": ""
+  }
+]

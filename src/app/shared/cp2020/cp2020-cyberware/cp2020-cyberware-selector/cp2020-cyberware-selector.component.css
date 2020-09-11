@@ -1,0 +1,54 @@
+.cyber-data-source {
+  width: 90px;
+}
+
+.cyber-data-type {
+  width: 100px;
+  font-size: 12px;
+}
+
+.cyber-data-name {
+  width: 250px;
+}
+
+.cyber-data-notes {
+  width: 400px;
+}
+
+.cyber-data-table {
+  width: 100%;
+  border: 0px transparent solid;
+  font-size: 12px;
+}
+
+.cyber-row {
+  border-bottom: 1px solid #999;
+}
+
+.cyber-data-sm{
+  width: 70px;
+}
+.mstr-skill-table {
+  width: 100%;
+}
+
+.mstr-skill-table th, .mstr-skill-table td {
+  border: 1px solid #999;
+}
+.skill-search {
+  width: 100%;
+}
+
+.cyber-data-table {
+  max-height: 400px;
+  overflow: scroll;
+}
+
+.cyber-hl {
+  width: 45px;
+}
+
+.cyber-details {
+  min-width: 150px;
+  display: block;
+}

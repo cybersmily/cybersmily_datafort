@@ -1,0 +1,25 @@
+.cp2020-section  {
+  width: 100%;
+}
+.csd-cyber-header{
+  font-weight: bold;
+}
+
+.csd-cyber-header div, .csd-cyber-row div {
+  border: 1px solid black;
+  padding: 2px 0px;
+}
+
+
+/* Chrome, Safari, Edge, Opera */
+.csd-cyber-row input::-webkit-outer-spin-button,
+.csd-cyber-row input::-webkit-inner-spin-button
+ {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.csd-cyber-row input[type=number] {
+  -moz-appearance:textfield;
+}

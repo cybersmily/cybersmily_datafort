@@ -11,6 +11,7 @@ describe('CyberwareCardComponent', () => {
     type: 'Neuralware',
     subtype: 'chipware',
     name: 'test cyberware',
+    abbrev: 'tst',
     hc: '1d6/3',
     desc: 'This is a test',
     notes: 'Game notes',

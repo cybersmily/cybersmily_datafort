@@ -11,9 +11,11 @@
         <th>TYPE</th>
         <th>SUBTYPE</th>
         <th>NAME</th>
+        <th>ABBREV</th>
         <th>DESCRIPTION</th>
         <th>COST</th>
         <th>HC</th>
+        <th>#OPTIONS</th>
         <th>SURGERY</th>
         <th>SOURCE</th>
         <th>PAGE</th>
@@ -24,9 +26,11 @@
         </td>
         <td><input [(ngModel)]="newCyber.subtype" type="text" placerholder="enter new cyber..." /></td>
         <td><input [(ngModel)]="newCyber.name" type="text" class="cyber-data-name" /></td>
+        <td><input [(ngModel)]="newCyber.abbrev" type="text" class="cyber-data-sm" /></td>
         <td><input [(ngModel)]="newCyber.notes" type="text" /></td>
-        <td><input [(ngModel)]="newCyber.cost" type="text" /></td>
+        <td><input [(ngModel)]="newCyber.cost" type="text" class="cyber-data-sm" /></td>
         <td><input [(ngModel)]="newCyber.hc"  class="cyber-data-sm" type="text" /></td>
+        <td><input [(ngModel)]="newCyber.numOptions"  class="cyber-data-sm" type="number" /></td>
         <td><input [(ngModel)]="newCyber.surgery"  class="cyber-data-sm" type="text" /></td>
         <td><input [(ngModel)]="newCyber.source.book" class="cyber-data-source cyber-data-sm" type="text" /></td>
         <td>
@@ -39,6 +43,8 @@
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td></td>
         <td></td>
         <td></td>
         <td></td>
@@ -49,9 +55,11 @@
         <td><input [(ngModel)]="searchFilter.type" type="text" placeholder="search..."/></td>
         <td><input [(ngModel)]="searchFilter.subtype" type="text" placeholder="search..." /></td>
         <td><input [(ngModel)]="searchFilter.name" type="text" class="cyber-data-name" placeholder="search..." /></td>
+        <td>&nbsp;</td>
         <td><input [(ngModel)]="searchFilter.desc" type="text" /></td>
         <td><input [(ngModel)]="completed" type="checkbox"></td>
         <td><input [(ngModel)]="searchFilter.hc"  class="cyber-data-sm" type="text" /></td>
+        <td></td>
         <td><input [(ngModel)]="searchFilter.surg"  class="cyber-data-sm" type="text" /></td>
         <td><input [(ngModel)]="searchFilter.source" class="cyber-data-source cyber-data-sm" type="text" placeholder="search..." /></td>
         <td></td>
@@ -68,9 +76,11 @@
         <td><input type="text" [(ngModel)]="cyber.type" (change)="update()"></td>
         <td><input type="text" [(ngModel)]="cyber.subtype" (change)="update()"></td>
         <td><input type="text" [(ngModel)]="cyber.name" (change)="update()"></td>
+        <td><input type="text"  class="cyber-data-sm" [(ngModel)]="cyber.abbrev" (change)="update()"></td>
         <td><input type="text" [(ngModel)]="cyber.notes" title="{{cyber.notes}}" (change)="update()"></td>
         <td><input type="text" class="cyber-data-sm" [(ngModel)]="cyber.cost" (change)="update()"></td>
         <td><input type="text" class="cyber-data-sm" [(ngModel)]="cyber.hc" (change)="update()"></td>
+        <td><input type="text" class="cyber-data-sm" [(ngModel)]="cyber.numOptions" (change)="update()"></td>
         <td><input type="text" [(ngModel)]="cyber.surgery" (change)="update()"></td>
         <td><input type="text"  class="cyber-data-sm" [(ngModel)]="cyber.source.book" title="{{cyber.source.book | sourcebook}}" (change)="update()"></td>
         <td><input type="number" class="text-center cyber-data-sm" [(ngModel)]="cyber.source.page" (change)="update()"></td>

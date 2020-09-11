@@ -1,3 +1,4 @@
+import { OppCyberware } from './../../models/cyberware/opp-cyberware';
 import { Cp2020PlayerCyber } from './../../models/cyberware';
 import { CpPlayerWeapon } from './../../models/weapon';
 import { CmbtTrckOpponent } from './../../models/cmbt-trck';
@@ -33,7 +34,7 @@ export class CharacterImporterService {
         .map(w => new CpPlayerWeapon(w))
         .filter(w => w.name && w.name !== '');
     opp.cyberware = character.cyberware.items
-        .map(c => new Cp2020PlayerCyber(c))
+        .map(c => new OppCyberware(c))
         .filter(c => c.name && c.name !== '');
     opp.gear = character.gear.items.filter(g => g.gear && g.gear !== '').map( g => g.gear);
     opp.armor = character.armor;

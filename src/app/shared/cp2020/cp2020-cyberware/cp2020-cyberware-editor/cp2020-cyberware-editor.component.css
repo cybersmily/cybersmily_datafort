@@ -1,0 +1,13 @@
+.cyber-edit-box {
+  width: 100%;
+}
+
+.cyber-option-list {
+  max-height: 300px;
+  overflow: auto;
+  display: block;
+}
+
+.cyber-option-hl input {
+  width: 45px;
+}

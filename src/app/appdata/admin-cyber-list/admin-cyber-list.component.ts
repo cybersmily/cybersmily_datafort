@@ -24,7 +24,7 @@ export class AdminCyberListComponent implements OnInit {
     source: ''
   };
 
-  completed = true;
+  completed = false;
 
   cyberwareList: Array<DataCyberware> = new Array<DataCyberware>();
 

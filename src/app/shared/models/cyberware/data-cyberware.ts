@@ -10,6 +10,8 @@ export class DataCyberware implements BaseCyberware {
   hc: string;
   surgery: string;
   source: SourceBook;
+  abbrev: string;
+  numOptions: number;
   desc?: string; // flavor text of the item.
 
   constructor(param?) {
@@ -20,7 +22,9 @@ export class DataCyberware implements BaseCyberware {
     this.cost = (param) ? ((typeof param.cost === 'string') ? Number(param.cost) : param.cost) : 0;
     this.hc = (param) ? param.hc : '';
     this.surgery = (param) ? param.surgery : '';
+    this.abbrev = (param && param.abbrev) ? param.abbrev : '';
     this.source =  (param) ? param.source : {book: '', page: 0};
     this.desc = (param) ? param.desc : '';
+    this.numOptions = (param && param.numOptions) ? param.numOptions : 0;
   }
 }

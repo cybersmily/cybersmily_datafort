@@ -1,0 +1,61 @@
+<div class="cp2020-section container">
+  <div class="row">
+    <div class="cp2020-label col">
+      CYBERNETICS&nbsp;&nbsp;
+      <fa-icon [icon]="faDice" class="csd-dice csd-btn" title="Generate random cyberware"></fa-icon>
+    </div>
+  </div>
+  <div class="row csd-cyber-header">
+    <div class="col small">TYPE</div>
+    <div class="col-1 text-center small">HL</div>
+    <div class="col-1 text-center small">COST</div>
+  </div>
+  <div *ngFor="let cyber of cyberList.items;let i = index" class="csd-cyber-row row">
+    <div class="col">
+      <span class="csd-btn" (click)="editCyberware(i, cyberEdit)">
+        {{cyber.toString()}}
+      </span>
+      <fa-icon [icon]="faPen" *ngIf="cyber.name === ''" class="csd-btn" (click)="editCyberware(i, cyberEdit)"></fa-icon>
+      <fa-icon [icon]="faTrash" class="float-right csd-btn small mr-2" (click)="delete(i)"></fa-icon>
+    </div>
+    <div class="col-1 text-center small">{{cyber.hl}}</div>
+    <div class="col-1 text-right small pr-1">{{cyber.cost | number}}</div>
+  </div>
+  <div class="row csd-cyber-row">
+    <div class="col text-center csd-btn" (click)="openModal(cyberSelect)">
+      <fa-icon [icon]="faPlus"></fa-icon>
+    </div>
+  </div>
+  <div class="row csd-cyber-row">
+    <div class="col">Total HL and Euro Costs</div>
+    <div class="col-1 small text-center">{{cyberList.totalHL | number}}</div>
+    <div class="col-1 small text-right pr-1">{{cyberList.totalCost | number}}</div>
+  </div>
+</div>
+
+<ng-template #cyberEdit>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Edit Cyberware</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body container">
+    <cs-cp2020-cyberware-editor [cyberware]="selectedCyberware" [index]="selectedIndex" (changeCybeware)="update($event)"></cs-cp2020-cyberware-editor>
+  </div>
+</ng-template>
+
+
+<ng-template #cyberSelect>
+  <div class="cyber-selector-modal">
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Add Cyberware</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body container">
+    <cs-cp2020-cyberware-selector (addCyberware)="add($event)"></cs-cp2020-cyberware-selector>
+  </div>
+</div>
+</ng-template>
