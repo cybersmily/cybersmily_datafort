@@ -12,7 +12,7 @@
   </div>
   <div *ngFor="let cyber of cyberList.items;let i = index" class="csd-cyber-row row">
     <div class="col cyber-name" [popover]="cyberDetails" [popoverContext]="{ item: cyber}" container="body"
-      placement="left top" triggers="mouseenter mouseleave click" containerClass="cyber-popover"
+      placement="left top" triggers="mouseenter:mouseleave:click" containerClass="cyber-popover"
       [outsideClick]="true">
       <span class="csd-btn pl-1" (click)="editCyberware(i, cyberEdit)">
         {{cyber.toString()}}
