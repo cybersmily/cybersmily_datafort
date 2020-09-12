@@ -1,3 +1,7 @@
+import { DataService } from './../../../services/data.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
+import { DiceService } from './../../../services/dice/dice.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Cp2020CyberwareEditorComponent } from './cp2020-cyberware-editor.component';
@@ -8,7 +12,15 @@ describe('Cp2020CyberwareEditorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ Cp2020CyberwareEditorComponent ]
+      declarations: [ Cp2020CyberwareEditorComponent ],
+      imports: [
+        CommonUiModule,
+        HttpClientTestingModule
+      ],
+      providers: [
+        DiceService,
+        DataService
+      ]
     })
     .compileComponents();
   }));

@@ -12,6 +12,7 @@ describe('CyberwareCardComponent', () => {
     subtype: 'chipware',
     name: 'test cyberware',
     abbrev: 'tst',
+    numOptions: undefined,
     hc: '1d6/3',
     desc: 'This is a test',
     notes: 'Game notes',
