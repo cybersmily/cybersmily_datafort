@@ -123,7 +123,7 @@ export class SourceBookLookup {
       if (RegExp(/neo*.tribe.*/gi).test(name)) {
         return 'NEO';
       }
-      if (RegExp(/solo.*2*./gi).test(name)) {
+      if (RegExp(/solo.*2+.*/gi).test(name)) {
         return 'SOF2';
       }
       if (RegExp(/solo.*/gi).test(name)) {
