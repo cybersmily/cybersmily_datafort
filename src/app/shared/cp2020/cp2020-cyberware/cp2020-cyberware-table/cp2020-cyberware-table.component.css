@@ -23,3 +23,18 @@
 .csd-cyber-row input[type=number] {
   -moz-appearance:textfield;
 }
+
+fa-icon {
+  display: none;
+}
+
+.cyber-name:hover fa-icon {
+  display: block;
+}
+
+.cyber-popover {
+  display: block;
+  min-width: 800px !important;
+  width: 800px !important;
+  max-width: 100% !important;
+}

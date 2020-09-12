@@ -6,17 +6,19 @@
     </div>
   </div>
   <div class="row csd-cyber-header">
-    <div class="col small">TYPE</div>
+    <div class="col small pl-1">TYPE</div>
     <div class="col-1 text-center small">HL</div>
     <div class="col-1 text-center small">COST</div>
   </div>
   <div *ngFor="let cyber of cyberList.items;let i = index" class="csd-cyber-row row">
-    <div class="col">
-      <span class="csd-btn" (click)="editCyberware(i, cyberEdit)">
+    <div class="col cyber-name" [popover]="cyberDetails" [popoverContext]="{ item: cyber}" container="body"
+      placement="left top" triggers="mouseenter mouseleave click" containerClass="cyber-popover"
+      [outsideClick]="true">
+      <span class="csd-btn pl-1" (click)="editCyberware(i, cyberEdit)">
         {{cyber.toString()}}
       </span>
-      <fa-icon [icon]="faPen" *ngIf="cyber.name === ''" class="csd-btn" (click)="editCyberware(i, cyberEdit)"></fa-icon>
-      <fa-icon [icon]="faTrash" class="float-right csd-btn small mr-2" (click)="delete(i)"></fa-icon>
+      <fa-icon [icon]="faTrash" class="float-right csd-btn small ml-2" (click)="delete(i)"></fa-icon>
+      <fa-icon [icon]="faPen" class="float-right csd-btn small ml-2" (click)="editCyberware(i, cyberEdit)"></fa-icon>
     </div>
     <div class="col-1 text-center small">{{cyber.hl}}</div>
     <div class="col-1 text-right small pr-1">{{cyber.cost | number}}</div>
@@ -41,21 +43,41 @@
     </button>
   </div>
   <div class="modal-body container">
-    <cs-cp2020-cyberware-editor [cyberware]="selectedCyberware" [index]="selectedIndex" (changeCybeware)="update($event)"></cs-cp2020-cyberware-editor>
+    <cs-cp2020-cyberware-editor [cyberware]="selectedCyberware" [index]="selectedIndex"
+      (changeCybeware)="update($event)"></cs-cp2020-cyberware-editor>
   </div>
 </ng-template>
 
-
 <ng-template #cyberSelect>
   <div class="cyber-selector-modal">
-  <div class="modal-header">
-    <h4 class="modal-title pull-left">Add Cyberware</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
-      <span aria-hidden="true">&times;</span>
-    </button>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Add Cyberware</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body container">
+      <cs-cp2020-cyberware-selector (addCyberware)="add($event)"></cs-cp2020-cyberware-selector>
+    </div>
   </div>
-  <div class="modal-body container">
-    <cs-cp2020-cyberware-selector (addCyberware)="add($event)"></cs-cp2020-cyberware-selector>
+</ng-template>
+<ng-template #cyberDetails let-item="item">
+  <div class="row cyber-popover">
+    <div class="col">{{item.notes}}</div>
   </div>
-</div>
+  <div class="row">
+    <div class="col">HL: {{item.hl}} ({{item.hc}})</div>
+    <div class="col">Surgery: {{item.surgery}}</div>
+  </div>
+  <div *ngIf="item.source" class="row">
+    <div class="col"><i>{{item.source.book}} pg. {{item.source.page}}</i></div>
+  </div>
+  <ng-container *ngIf="item.options && item.options.length > 0">
+    <div class="row mt-3">
+      <div class="col">Options:</div>
+    </div>
+    <div class="row" *ngFor="let opt of item.options">
+      <div class="col ml-1">{{opt.abbrev || opt.name}} - {{opt.notes}} (HC: {{opt.hc}})</div>
+    </div>
+  </ng-container>
 </ng-template>

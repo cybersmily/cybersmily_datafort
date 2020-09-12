@@ -53,6 +53,7 @@ export class Cp2020CyberwareTableComponent implements OnInit {
   update(data: {index: number, cyber: Cp2020PlayerCyber}) {
     this.cyberList.items[data.index] = data.cyber;
     this.updateList();
+    this.closeModal();
   }
 
   editCyberware(index: number, template: TemplateRef<any>) {

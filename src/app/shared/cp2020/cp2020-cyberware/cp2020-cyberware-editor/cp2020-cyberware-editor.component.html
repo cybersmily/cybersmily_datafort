@@ -10,7 +10,7 @@
       {{newCyberware.totalCost | number}}eb
     </div>
     <div class="col-1 text-right">
-      <fa-icon [icon]="faSave" class="large ml-1 csd-btn" (click)="update()"></fa-icon>
+      <fa-icon [icon]="faSave" class="ml-1 csd-btn cyber-save" (click)="update()"></fa-icon>
     </div>
   </div>
   <div class="row small">
@@ -59,10 +59,13 @@
     <div class="col-1">Subtype:</div>
     <div class="col-4"><input type="text" [(ngModel)]="newCyberware.subtype" placeholder="optional"></div>
     <div class="col-2">Humanity Loss:</div>
-    <div class="col-4">
+    <div class="col-4 cyber-option-hl">
       <input type="number" [(ngModel)]="newCyberware.hl" step="0.5">
-      <fa-icon *ngIf="newCyberware.hc && newCyberware.hc.toLowerCase().indexOf('d') > 0" [icon]="faDice"
-        class="csd-dice" title="Roll for humanity loss"></fa-icon>
+      <fa-icon *ngIf="newCyberware.hc && newCyberware.hc.toLowerCase().indexOf('d') > 0"
+        [icon]="faDice"
+        class="csd-dice" 
+        title="Roll for humanity loss"
+        (click)="rollHL(newCyberware.hc)"></fa-icon>
     </div>
   </div>
   <div class="row small">
@@ -71,7 +74,7 @@
     <div class="col-2">Total H.L:</div>
     <div class="col-4">{{newCyberware.totalHL}}</div>
   </div>
-  <div class="row small">
+  <div class="row small cyber-option-hl">
     <div class="col-1">#Options:</div>
     <div class="col-4"><input type="number" [(ngModel)]="newCyberware.numOptions" class="text-right"></div>
   </div>
@@ -113,20 +116,31 @@
 </div>
 
 <ng-template #optionItem let-item="item" let-index="index">
-  <div>{{item.value.name}} ({{item.value.abbrev}})</div>
+  <div title="{{item.value.notes}}; {{item.value.source.book}} pg.{{item.value.source.page}}">
+    {{item.value.name}}
+    <span class="ml-1" *ngIf="item.value.abbrev">({{item.value.abbrev}})</span>
+  </div>
   <div class="small">&nbsp;&nbsp;HC: {{item.value.hc}} Surgery: {{item.value.surgery}} Cost: {{item.value.cost | number}}eb</div>
 </ng-template>
 
 <ng-template #currentOptionItem let-item="item" let-index="index">
   <div class="row">
     <div class="col" title="{{item.value.notes}}; {{item.value.source.book}} pg.{{item.value.source.page}}">
-      {{item.value.name}} ({{item.value.abbrev}})
+      {{item.value.name}}
+      <span class="ml-1" *ngIf="item.value.abbrev">({{item.value.abbrev}})</span>
     </div>
   </div>
   <div class="small row">
     <div class="col-1"></div>
     <div class="col-5 cyber-option-hl">
-      HL: <input type="number" [(ngModel)]="item.value.h" step="0.5">&nbsp;<fa-icon [icon]="faDice" class="csd-dice"></fa-icon>
+      HL: <input type="number" [(ngModel)]="item.value.hl" step="0.5">
+      &nbsp;
+      <fa-icon [icon]="faDice"
+        *ngIf="item.value.hc.toLowerCase().indexOf('d') > 0"
+        class="csd-dice"
+        title="{{item.value.hc}}"
+        (click)="rollOptionHL(item.value.hc, index)">
+      </fa-icon>
     </div>
     <div class="col text-right">
       Cost: {{item.value.cost | number}}eb

@@ -64,6 +64,11 @@ export class Cp2020CyberwareEditorComponent implements OnInit {
     this.newCyberware.hl = this.diceService.rollMoreDice(die).total;
   }
 
+  rollOptionHL(die: string, index: number) {
+    const roll: number = this.diceService.rollMoreDice(die).total;
+    this.newCyberware.options[index].hl = roll;
+  }
+
   get surgeries(): Array<Cp2020Surgery> {
     return Cp2020Surgeries.list;
   }
