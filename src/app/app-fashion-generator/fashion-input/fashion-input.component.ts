@@ -34,12 +34,11 @@ export class FashionInputComponent implements OnInit {
   @Output()
   purchaseClothing: EventEmitter<Clothing> = new EventEmitter<Clothing>();
 
-  constructor() {
-    this.currClothing = new Clothing();
-    this.spRatingsList = new Array();
-  }
+  constructor() {}
 
   ngOnInit() {
+    this.currClothing = new Clothing();
+    this.spRatingsList = new Array();
   }
 
   /**
