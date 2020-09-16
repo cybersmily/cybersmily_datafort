@@ -1,0 +1,64 @@
+<div class="container">
+  <h2>Gangs</h2>
+  <div class="row">
+    <div class="col-2 csd-rounded mr-2 gang-card" *ngFor="let gang of gangs"
+      (click)="openModal(selectedGang, gang.file)">
+      <img src="/img/peeps/{{gang.file}}.png" class="gang-tag align-middle" alt="{{gang.name}}" title="{{gang.name}}">
+      <div class="text-center">{{gang.name}}</div>
+    </div>
+  </div>
+</div>
+
+<ng-template #selectedGang>
+  <div class="modal-header">
+    <h4 id="armor-modal-name" class="modal-title pull-left">{{gang.name}}</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body container">
+    <div class="row">
+      <div class="col-6">
+        <div class="row">
+          <div class="col">Threat Level: {{gang.threatLevel}}</div>
+        </div>
+        <div class="row">
+          <div class="col">Threat Code: {{gang.threatCode}}</div>
+        </div>
+        <div class="row">
+          <div class="col">Leader: {{gang.leader}}</div>
+        </div>
+        <div class="row">
+          <div class="col">Members: {{gang.members}}</div>
+        </div>
+        <div class="row">
+          <div class="col">Turf: {{gang.turf}}</div>
+        </div>
+        <div class="row">
+          <div class="col">Allies: {{gang.turf}}</div>
+        </div>
+        <div class="row">
+          <div class="col">Rivals: {{gang.turf}}</div>
+        </div>
+        <div class="row">
+          <div class="col">Notable Members: {{gang.notableMembers}}</div>
+        </div>
+        <div class="row">
+          <div class="col">Colors: {{gang.colors}}</div>
+        </div>
+      </div>
+      <div class="col-6">
+        <img src="/img/peeps/{{gang.tag.img}}.png" alt="{{gang.tag.desc}}">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">Description: {{gang.description}}</div>
+  </div>
+    <div class="row">
+      <div class="col">Typical Member</div>
+    </div>
+    <div class="row">
+      <div class="col"></div>
+    </div>
+</ng-template>

@@ -1,0 +1,20 @@
+{
+  "name": "Discipulas de la Muerte",
+  "description": "uses Muertos face paint. Latino gang, opposes Bozos. Combine with bosozoku biker gangs culture",
+  "leader": "Xavier Llopis aka Ángel Asesino",
+  "notableMembers": "",
+  "members": "100-150",
+  "turf": "",
+  "rivals": "",
+  "allies": "",
+  "tag": {"img": "DiscipulasDeLaMuerte", "desc": "Sugar Skull with motorcycle handles"},
+  "colors": "White, red, and black. All wear muerto facepaint, some have it tattooed",
+  "threatLevel": "C4D",
+  "threatCode": "C",
+  "weapon": "Machetes and BigRipp",
+  "averageMemerb": {
+    "stats": {"INT":5, "REF":9, "TECH":4, "COOL":8, "ATT":6, "MA":7, "BOD": 5, "LUCK":7, "EMP":6 },
+    "skills": ["Melee 6", "motorcycle 7", "Awareness 3", "Brawling 4", "Intimidate 6", "Basic Tech 3", "Streetwise 4", "Handgun 3"],
+    "cyber": ["BigRipp", "Tattoo"]
+  }
+}

@@ -1,9 +1,9 @@
 <div class="container">
   <h2>Master Cyberware List</h2>
   <div>This is the master list of all cyberware with their sources.
-    Sources were pulled from R. Talsorian Games and the Interface magazines. You should consult the source material
+    Sources were pulled from R. Talsorian Games and the Interface magazines. You should consult the source material.
   </div>
-  <div>NOTE: Costs I either show the average if it has a range or empty if the prices is based on another factor.</div>
+  <div>NOTE: Costs I either show the average if it has a range or empty if the prices is based on another factor. Same with HC. </div>
   <div class="row">
   <table class="cyber-data-table csd-rounded">
     <tr class="csd-rounded bg-secondary text-light">
@@ -63,7 +63,7 @@
       <tr *ngFor="let cyber of cyberwareList
           |filter:'type':searchFilter.type
           |filter:'subtype':searchFilter.subtype
-          |filter:'name':searchFilter.name
+          |contains:'name':searchFilter.name
           |contains:'hc':searchFilter.hc
           |contains:'surgery':searchFilter.surg
           |sourcebookFilter:searchFilter.source

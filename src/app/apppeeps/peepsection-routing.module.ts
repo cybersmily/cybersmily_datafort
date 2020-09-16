@@ -1,3 +1,4 @@
+import { GangsComponent } from './gangs/gangs.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CorporationsComponent } from './corporations/corporations.component';
@@ -11,6 +12,7 @@ const peepRoutes: Routes = [
     {path: 'medtechnr', component: NpcsComponent },
     {path: 'nomadrocker', component: NpcsComponent },
     {path: 'solotechie', component: NpcsComponent },
+    {path: 'gangs', component: GangsComponent },
     {path: '**', redirectTo: '/', pathMatch: 'full' }
   ]}
 ];

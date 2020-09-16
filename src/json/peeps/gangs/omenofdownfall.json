@@ -1,0 +1,20 @@
+{
+  "name": "Omen of Downfall",
+  "description": "Based on sukeban, Japanese girl game of the 70s/80s.",
+  "leader": "Flarin' Erin",
+  "notableMembers": "",
+  "members": "75-125",
+  "turf": "",
+  "rivals": "",
+  "allies": "",
+  "tag": {"img": "OmenOfDownfall", "desc": "The letter Omega with an arrow pointing down"},
+  "colors": "Dark Navy Long dresses, with sailor shoulder panels decorated in pins and buttons, sleeves cut off.",
+  "threatLevel": "D",
+  "threatCode": "D4C",
+  "weapon": "blades, bats, and chains",
+  "averageMemerb": {
+    "stats": {"INT":5, "REF":9, "TECH":4, "COOL":8, "ATT":6, "MA":7, "BOD": 5, "LUCK":7, "EMP":6 },
+    "skills": ["Melee 4", "Awareness 5", "Brawling 5", "Intimidate 4", "Seduction 4", "Wardrobe and Style 3", "Streetwise 4" ],
+    "cyber": ["BigRipp", "Tattoo"]
+  }
+}

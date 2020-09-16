@@ -6,6 +6,7 @@ import { PeepSectionRoutingModule } from './peepsection-routing.module';
 import { NpcsComponent } from './npcs/npcs.component';
 import { CorporationsComponent } from './corporations/corporations.component';
 import { NpcsModule } from '../shared/modules/npcs/npcs.module';
+import { GangsComponent } from './gangs/gangs.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { NpcsModule } from '../shared/modules/npcs/npcs.module';
   declarations: [
     NpcsComponent,
     CorporationsComponent,
-    CorporationCardComponent
+    CorporationCardComponent,
+    GangsComponent
   ]
 })
 export class PeepSectionModule { }
