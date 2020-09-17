@@ -1,0 +1,20 @@
+{
+  "name": "Neon Brigade",
+  "description": "The Neon Brigade was found to fight other gangs as guardian group. They wear urban flash with bright colors. They protect the residents living in the neighborhood and will shake down anyone who looks like a threat. The residents treat them well and will fight along side them if pushed.",
+  "leader": "Photomoto",
+  "notableMembers": "Jack Barbell, Mugga, Lippa, The Tong",
+  "members": "50-70",
+  "turf": "Lower South Night City. North east of the Airport.",
+  "rivals": "Apostatas de la Muerte, Blood Razors",
+  "allies": "Silver Sash, Warrrior Heart, ",
+  "tag": {"img": "neonbrigade", "desc": "Letters NB (neon pink and electric blue) with crossed handgun(neon green)"},
+  "colors": "Flashy neon colors, including LED lighting",
+  "threatLevel": "D",
+  "threatCode": "C3D",
+  "weapon": "Handguns",
+  "averageMemer": {
+    "stats": {"INT": 6, "REF":7, "TECH":6, "COOL":7, "ATT":6, "MA":6, "BOD": 7, "LUCK":4, "EMP":7 },
+    "skills": ["Melee 3", "Awareness 5", "Brawling 4",  "Basic Tech 3", "Streetwise 4", "Handgun 5"],
+    "cyber": [ "Light Tattoos", "Kill display", "Cyberoptics"]
+  }
+}

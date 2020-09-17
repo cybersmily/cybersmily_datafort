@@ -1,0 +1,20 @@
+{
+  "name": "Apostatas de la Muerte (Apostates of Death)",
+  "description": "The gang was original created original as a protection gang. A corporation dumped toxic waste in a Latino neighborhood. During a celebration of Dia de los Muertos, on November 1st, the waste caught fire and caused an explosion, killing many in the process as well as poisoning the area. The gang was formed as a result to fight against the corporations and the authorities that allowed this disaster to occur. As years past, the area became more destitute. The Discipulas became more criminal and brutal. They now prey upon the community with extortion, robbery, drug and human trafficking. They hit the streets on their motorcycles terrorizing those who cross their path. Their territory is lower South Night City, east of the airport, but they have been known to patrol into other neighborhoods as a pack.",
+  "leader": "Xavier Llopis aka Ángel Asesino",
+  "notableMembers": "Enrico Espiritu Oscuro, Mata Maquina Max, Estragos Rodantes",
+  "members": "100-150",
+  "turf": "Lower South Night City, a few blocks east of the airport",
+  "rivals": "Most of the other gangs, esepcially Neon Brigade",
+  "allies": "Piranhas, Voodoo Boyz",
+  "tag": {"img": "apostatasdelamuerte", "desc": "Sugar Skull with motorcycle handles"},
+  "colors": "White, red, and black. All wear catrina skull makeup, some have it tattooed",
+  "threatLevel": "C4D",
+  "threatCode": "C",
+  "weapon": "Machetes and BigRipp",
+  "averageMemer": {
+    "stats": {"INT":5, "REF":9, "TECH":4, "COOL":8, "ATT":6, "MA":7, "BOD": 5, "LUCK":7, "EMP":6 },
+    "skills": ["Melee 6", "motorcycle 7", "Awareness 3", "Brawling 4", "Intimidate 6", "Basic Tech 3", "Streetwise 4", "Handgun 3"],
+    "cyber": ["BigRipp", "Light Tattoo"]
+  }
+}

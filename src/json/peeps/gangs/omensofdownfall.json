@@ -1,0 +1,20 @@
+{
+  "name": "Omens of Downfall",
+  "description": "This gang origins are based on sukeban, Japanese girl gang of the 70s/80s. This booster gang is made up of exclusively girls and women. They recruit mostly from the deliquents and runaways teenagers from Rancho Coronado, Westbrook and North Oak. The Omens traffick in drugs, robbery, and extortion racket. Often propositioned by the ignorant for prositution, the unaware jown will learn they aren't going to be providing any service other than violence and robbery. Most victims will survive the beating but some end up in pieces at a body shop.",
+  "leader": "Flarin' Erin",
+  "notableMembers": "Krazy Kiko, Batbasher, Viv the Neuterer",
+  "members": "75-125",
+  "turf": "South Night City, near the airport",
+  "rivals": "Wolves of Flesh, Apostatas de la Muerte, The Fangs of Justice",
+  "allies": "Willow Sisterhood, Blood and Tears",
+  "tag": {"img": "omensofdownfall", "desc": "The letter Omega with an arrow pointing down"},
+  "colors": "Stylized Dark Navy Long dresses, with sailor shoulder panels decorated in pins and buttons, sleeves cut off.",
+  "threatLevel": "D",
+  "threatCode": "D4C",
+  "weapon": "blades, bats, and chains",
+  "averageMemer": {
+    "stats": {"INT":6, "REF":8, "TECH":4, "COOL":8, "ATT":7, "MA":7, "BOD": 6, "LUCK":7, "EMP":6 },
+    "skills": ["Melee 5", "Awareness 5", "Brawling 5", "Intimidate 4", "Seduction 4", "Wardrobe and Style 3", "Streetwise 4" ],
+    "cyber": ["Speeware", "Skinweave"]
+  }
+}

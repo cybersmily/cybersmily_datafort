@@ -12,7 +12,7 @@
   "threatLevel": "",
   "threatCode": "",
   "weapon": "",
-  "averageMemerb": {
+  "averageMemer": {
     "stats": {"INT":5, "REF":9, "TECH":4, "COOL":8, "ATT":6, "MA":7, "BOD": 5, "LUCK":7, "EMP":6 },
     "skills": ["Melee 6", "motorcycle 7", "Awareness 3", "Brawling 4", "Intimidate 6", "Basic Tech 3", "Streetwise 4", "Submachinegun 3"],
     "cyber": ["BigRipp", "Tattoo"]

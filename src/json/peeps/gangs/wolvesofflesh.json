@@ -1,0 +1,20 @@
+{
+  "name": "Wolves of Flesh",
+  "description": "This booster gang are scavengers. They prowl the streets looking for victims to murder and scavenge what they can, selling the remains to various black market body shops. Some of the members have been known to commit cabalism. Master Alpha is the title given to the gang's leader.",
+  "leader": "Master Alpha",
+  "notableMembers": "Other than the leader, most members are nameless in the pack.",
+  "members": "40-50",
+  "turf": "Lower South Night City. North east of the Airport.",
+  "rivals": "Many",
+  "allies": "None",
+  "tag": {"img": "wolvesofflesh", "desc": "Wolf head with red eyes, red fangs, and a red F on its forehead."},
+  "colors": "faux furs with red stains",
+  "threatLevel": "D",
+  "threatCode": "C5D",
+  "weapon": "Hand to hand",
+  "averageMemer": {
+    "stats": {"INT": 4, "REF":7, "TECH":4, "COOL":7, "ATT":5, "MA":8, "BOD": 9, "LUCK":4, "EMP":2 },
+    "skills": ["Melee 4", "Awareness 5", "Brawling 7",  "Handgun 5", "Cybertech 4", "Dodge 5","Athletics 5", "Endurance 5", "First Aid 4 (for disection)"],
+    "cyber": [ "Vampires(Canines)", "Wolvers", "Grafted Muscles", "If possible Canine exotic package"]
+  }
+}

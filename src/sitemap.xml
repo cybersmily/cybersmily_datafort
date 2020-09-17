@@ -2,15 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" >
 	<url>
 		<loc>http://www.cybersmily.net/index.html</loc>
-		<lastmod>2020-09-01</lastmod>
+		<lastmod>2020-10-01</lastmod>
 	</url>
 	<url>
 		<loc>http://www.cybersmily.net/apps/chargen</loc>
-		<lastmod>2020-09-01</lastmod>
+		<lastmod>2020-10-01</lastmod>
 	</url>
 	<url>
 		<loc>http://www.cybersmily.net/apps/cmbttrk</loc>
-		<lastmod>2020-09-01</lastmod>
+		<lastmod>2020-10-01</lastmod>
 	</url>
 	<url>
 		<loc>http://www.cybersmily.net/apps/druglab</loc>
@@ -67,6 +67,10 @@
 	<url>
 		<loc>http://cybersmily.net/data/skills</loc>
 		<lastmod>2020-04-02</lastmod>
+	</url>
+	<url>
+		<loc>http://cybersmily.net/data/cyber</loc>
+		<lastmod>2020-10-01</lastmod>
 	</url>
 	<url>
 		<loc>http://cybersmily.net/data/moreguns</loc>
@@ -131,6 +135,34 @@
 	<url>
 		<loc>http://www.cybersmily.net/mods/youth</loc>
 		<lastmod>2019-05-02</lastmod>
+	</url>
+	<url>
+		<loc>http://www.cybersmily.net/peeps/copscorps</loc>
+		<lastmod>2020-10-01</lastmod>
+	</url>
+	<url>
+		<loc>http://www.cybersmily.net/peeps/fixermedia</loc>
+		<lastmod>2020-10-01</lastmod>
+	</url>
+	<url>
+		<loc>http://www.cybersmily.net/peeps/medtechnr</loc>
+		<lastmod>2020-10-01</lastmod>
+	</url>
+	<url>
+		<loc>http://www.cybersmily.net/peeps/nomadrocker</loc>
+		<lastmod>2020-10-01</lastmod>
+	</url>
+	<url>
+		<loc>http://www.cybersmily.net/peeps/solotechie</loc>
+		<lastmod>2020-10-01</lastmod>
+	</url>>
+	<url>
+		<loc>http://www.cybersmily.net/peeps/corp</loc>
+		<lastmod>2020-10-01</lastmod>
+	</url>>
+	<url>
+		<loc>http://www.cybersmily.net/peeps/gangs</loc>
+		<lastmod>2020-10-01</lastmod>
 	</url>
 	<url>
 		<loc>http://www.cybersmily.net/shop/cyber</loc>

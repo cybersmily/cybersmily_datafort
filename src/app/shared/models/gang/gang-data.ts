@@ -12,7 +12,7 @@ export interface GangData {
     weapon: string;
     threatLevel: string;
     threatCode: string;
-    averageMemerb: {
+    averageMemer: {
       stats: {
         INT: number;
         REF: number;
