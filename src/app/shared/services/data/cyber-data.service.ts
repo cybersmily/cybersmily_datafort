@@ -40,12 +40,18 @@ export class CyberDataService {
     );
   }
 
+  get cp2020CyberwareList(): Observable<Array<Cp2020PlayerCyber>> {
+    return this.CyberwareList
+    .pipe(
+      map( (data: Array<Cp2020PlayerCyber>) => {
+        return data
+        .map(cyber => new Cp2020PlayerCyber(cyber));
+      })
+    );
+  }
+
   getCyberwareOptions(type: string): Observable<Array<DataCyberware>> {
-    if (this._cyberwareList) {
-      return of(this.getfilterOptions(type));
-    }
-    return this.dataService
-    .GetJson(JsonDataFiles.CP2020_CYBERWARE_DATA_LIST_JSON)
+    return this.CyberwareList
     .pipe(
       map( (data: Array<DataCyberware>) => {
         this._cyberwareList = data;
@@ -66,28 +72,12 @@ export class CyberDataService {
   }
 
   getCP2020CyberwareOptions(type: string): Observable<Array<Cp2020PlayerCyber>> {
-    if (this._cyberwareList) {
-      return of(this.getfilterOptions(type).map( cyber => new Cp2020PlayerCyber(cyber)));
-    }
-    return this.dataService
-    .GetJson(JsonDataFiles.CP2020_CYBERWARE_DATA_LIST_JSON)
+    return this.getCyberwareOptions(type)
     .pipe(
       map( (data: Array<DataCyberware>) => {
-        this._cyberwareList = data;
-        return this.getfilterOptions(type)
+        return data
         .map(cyber => new Cp2020PlayerCyber(cyber));
-      }),
-      map (results => {
-        return results.sort( (a, b) => {
-        if (a.type === b.type) {
-          if (a.subtype === b.subtype) {
-            return (a.name > b.name) ? 1 : -1;
-          }
-          return (a.subtype > b.subtype) ? 1 : -1;
-        }
-        return (a.type > b.type) ? 1 : -1;
-      });
-    })
+      })
     );
   }
 

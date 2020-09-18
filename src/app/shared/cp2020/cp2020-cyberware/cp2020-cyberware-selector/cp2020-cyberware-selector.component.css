@@ -40,8 +40,8 @@
 }
 
 .cyber-data-table {
-  max-height: 400px;
-  overflow: scroll;
+  max-height: 400px !important;
+  overflow: auto;
 }
 
 .cyber-hl {

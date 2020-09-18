@@ -16,7 +16,8 @@ export class Cp2020CyberwareSelectorComponent implements OnInit {
   faPlus = faPlus;
   faDice = faDice;
 
-  dataCyber: Array<DataCyberware> = new Array<DataCyberware>();
+  dataCyber: Array<Cp2020PlayerCyber> = new Array<Cp2020PlayerCyber>();
+  filteredDataCyber: Array<DataCyberware> = new Array<DataCyberware>();
   searchFilter = {name: '', type: '', subtype: ''};
   selectedCyber: DataCyberware = new DataCyberware();
 
@@ -29,8 +30,9 @@ export class Cp2020CyberwareSelectorComponent implements OnInit {
 
   ngOnInit(): void {
     this.cyberDataService
-    .CyberwareList.subscribe( data => {
+    .cp2020CyberwareList.subscribe( data => {
       this.dataCyber = data;
+      this.filteredDataCyber = data;
     });
   }
 
@@ -56,6 +58,7 @@ export class Cp2020CyberwareSelectorComponent implements OnInit {
 
   save() {
     this.addCyberware.emit(this.cart);
+    this.cart = new Array<Cp2020PlayerCyber>();
   }
 
   get totalHumanityLose(): number {
@@ -64,6 +67,19 @@ export class Cp2020CyberwareSelectorComponent implements OnInit {
 
   get totalCost(): number {
     return this.cart.reduce( (a, b) => a + b.cost, 0);
+  }
+
+  filterCyberList() {
+    this.filteredDataCyber = this.dataCyber;
+    if (this.searchFilter.type !== '') {
+      this.filteredDataCyber = this.filteredDataCyber
+        .filter(cyber => cyber.type === this.searchFilter.type);
+    }
+    if (this.searchFilter.name !== '') {
+      this.filteredDataCyber = this.filteredDataCyber
+        .filter(cyber => cyber.name.toLowerCase().includes(this.searchFilter.name.toLowerCase()));
+
+    }
   }
 
 }

@@ -455,7 +455,7 @@ input, select, textarea {
   border-bottom-right-radius: 0.3em !important;
 }
 
-fa-icon.csd-btn {
+.csd-btn {
   cursor: pointer;
 }
 
