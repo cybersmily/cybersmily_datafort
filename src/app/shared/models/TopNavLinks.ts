@@ -145,7 +145,8 @@ export interface SiteLinksGroup {
           {title: 'CP 2020 PC Sheet', link: 'assets/PCsheet2.pdf',
             desc: 'My take on the Cyberpunk 2020 character sheet.', download: 'PCsheet2.pdf', target: 'self' },
           {title: 'CC3+ NC Maps', link: 'dlow/cc3', desc: 'Campaign Cartographer files for Night City during 2020.'},
-          {title: 'NC JPG Maps', link: 'dlow/maps', desc: 'Night City jpg files'}
+          {title: 'NC JPG Maps', link: 'dlow/maps', desc: 'Night City jpg files'},
+          {title: 'NC Blueprints', link: 'dlow/blueprints', desc: 'Night City png and Campaign Cartographer blue print files'}
         ]
       });
       this.menuItems.push({

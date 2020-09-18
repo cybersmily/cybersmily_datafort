@@ -1,0 +1,13 @@
+<div class="container">
+  <h2>Night City Blue Prints</h2>
+  <div>Here  you can find image files and Campaign Cartographer file for blueprints I created from various souces</div>
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-3 csd-rounded mr-1 text-center" *ngFor="let blueprint of blueprints">
+      <img src="/img/dlow/{{blueprint.img}}-th.png" alt="Blue Print of the Night OWL" style="width: 100%">
+      <h5>{{blueprint.name}}</h5>
+      <div>{{blueprint.desc}}</div>
+      <div>  <a href="/assets/blueprints/{{blueprint.cc3}}.FCW" target="self" download title="Campaign Cartographer 3+ File">CC3 File</a></div>
+      <div>  <a href="/assets/blueprints/{{blueprint.img}}.PNG" target="self" download title="PNG file: {{blueprint.imgSize}}">PNG File</a></div>
+    </div>
+  </div>
+</div>
