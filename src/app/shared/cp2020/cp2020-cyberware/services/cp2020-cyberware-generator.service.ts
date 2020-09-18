@@ -33,7 +33,6 @@ export class Cp2020CyberwareGeneratorService {
   private rollForCyber(choices: Array<Cp2020RandomCyberEntry>, cyberList: Array<Cp2020PlayerCyber>): Cp2020PlayerCyber {
     let roll = this.dice.generateNumber(0, choices.length - 1);
     const result = choices[roll];
-    console.log(result);
     const cyber: Cp2020PlayerCyber = cyberList
       .filter(c => c.name.toLowerCase() === result.name.toLowerCase()
         && (c.subtype.toLowerCase() !== 'option' && c.subtype.toLowerCase() !== 'builtin')
@@ -46,7 +45,6 @@ export class Cp2020CyberwareGeneratorService {
       const options = cyberList.filter(c => (c.type === cyber.type
         && (c.subtype.toLowerCase() === 'option'
         || c.subtype.toLowerCase() === 'builtin')));
-      console.log(options);
       if (options.length > 0) {
         const numOfOptions = (cyber.numOptions > 0) ? cyber.numOptions : this.dice.generateNumber(0, 3);
         for (let i = 0; i < numOfOptions; i++) {
@@ -55,7 +53,6 @@ export class Cp2020CyberwareGeneratorService {
         }
       }
     }
-    console.log(cyber);
     return cyber;
   }
 }
