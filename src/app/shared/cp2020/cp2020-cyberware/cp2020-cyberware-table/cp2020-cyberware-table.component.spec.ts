@@ -1,3 +1,7 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { Cp2020CyberwareGeneratorService } from './../services/cp2020-cyberware-generator.service';
+import { DiceService } from './../../../services/dice/dice.service';
+import { DataService } from './../../../services/data.service';
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -11,7 +15,13 @@ describe('Cp2020CyberwareTableComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ Cp2020CyberwareTableComponent ],
       imports: [
-        CommonUiModule
+        CommonUiModule,
+        HttpClientTestingModule
+      ],
+      providers: [
+        DataService,
+        DiceService,
+        Cp2020CyberwareGeneratorService
       ]
     })
     .compileComponents();

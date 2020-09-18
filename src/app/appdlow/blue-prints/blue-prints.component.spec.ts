@@ -1,3 +1,6 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { DataService } from './../../shared/services/data.service';
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BluePrintsComponent } from './blue-prints.component';
@@ -8,7 +11,14 @@ describe('BluePrintsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BluePrintsComponent ]
+      declarations: [ BluePrintsComponent ],
+      imports: [
+        CommonUiModule,
+        HttpClientTestingModule
+      ],
+      providers: [
+        DataService
+      ]
     })
     .compileComponents();
   }));

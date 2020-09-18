@@ -1,3 +1,5 @@
+import { CyberDataService } from './../../../services/data/cyber-data.service';
+import { Cp2020CyberwareGeneratorService } from './../services/cp2020-cyberware-generator.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 import { faDice, faPlus, faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerCyberList, Cp2020PlayerCyber } from './../../../models/cyberware';
@@ -35,7 +37,9 @@ export class Cp2020CyberwareTableComponent implements OnInit {
   @Output()
   changeList: EventEmitter<Cp2020PlayerCyberList> = new EventEmitter<Cp2020PlayerCyberList>();
 
-  constructor(private modalService: BsModalService) { }
+  constructor(private modalService: BsModalService,
+    private cyberGenerator: Cp2020CyberwareGeneratorService,
+    private cyberData: CyberDataService) { }
 
   ngOnInit(): void {
   }
@@ -65,6 +69,14 @@ export class Cp2020CyberwareTableComponent implements OnInit {
   add(cyberArray: Array<Cp2020PlayerCyber>) {
     this.cyberList.items = this.cyberList.items.concat(cyberArray);
     this.updateList();
+  }
+
+  generateCyberware() {
+    this.cyberData.cp2020CyberwareList.subscribe( list => {
+      this.cyberGenerator.generateCyberList(1, list).subscribe( data => {
+        this.add(data);
+      });
+    });
   }
 
   openModal(template: TemplateRef<any>) {

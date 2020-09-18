@@ -1,3 +1,5 @@
+import { Cp2020CyberwareGeneratorService } from './services/cp2020-cyberware-generator.service';
+import { DataService } from './../../services/data.service';
 import { PipesModule } from './../../pipes/pipes.module';
 import { CyberDataService } from './../../services/data/cyber-data.service';
 import { DiceService } from './../../services/dice/dice.service';
@@ -23,7 +25,9 @@ import { Cp2020CyberwareEditorComponent } from './cp2020-cyberware-editor/cp2020
   ],
   providers: [
     CyberDataService,
-    DiceService
+    DiceService,
+    DataService,
+    Cp2020CyberwareGeneratorService
   ],
   exports: [
     Cp2020CyberwareTableComponent,
