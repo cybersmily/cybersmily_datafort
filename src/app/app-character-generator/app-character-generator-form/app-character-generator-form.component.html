@@ -25,22 +25,22 @@
       <hr color="#999999" style="width:100%;">
       <p>
         <fa-icon [icon]="faUndo" title="Reset the sheet to a blank character"
-        class="csd-chargen-btn"
+        class="csd-chargen-btn csd-btn"
         (click)="resetCharacter()"
         ></fa-icon>
-        <fa-icon [icon]="faSave" title="Save the character to a file"
-          class="csd-chargen-btn float-right"
-          (click)="saveCharacter()"></fa-icon>
+
+        <fa-icon [icon]="faFilePdf"
+          class="csd-chargen-btn float-right csd-btn mr-2"
+          (click)="createPDF()"
+          title="Export as a PDF file"></fa-icon>
 
           <input type="file" id="loadFile" title="load a character .txt file" name="Load" Style="display: none"
           (change)="loadCharacter($event)" #inputFile (click)="inputFile.value = null" accept="text/plain;text/json" />
-          <label for="loadFile"><fa-icon [icon]="faUpload" class="csd-btn" title="load a character .txt file"></fa-icon></label>
+          <label for="loadFile" class="csd-btn float-right mr-2"><fa-icon [icon]="faUpload" title="load a character .txt file"></fa-icon></label>
 
-
-        <fa-icon [icon]="faFilePdf"
-          class="csd-chargen-btn float-right"
-          (click)="createPDF()"
-          title="Export as a PDF file"></fa-icon>
+          <fa-icon [icon]="faSave" title="Save the character to a file"
+            class="csd-chargen-btn csd-btn float-right mr-2"
+            (click)="saveCharacter()"></fa-icon>
       </p>
       <hr color="#999999" style="width:100%;">
     </div>

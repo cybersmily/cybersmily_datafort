@@ -77,7 +77,7 @@
       <div class="col">Options:</div>
     </div>
     <div class="row" *ngFor="let opt of item.options">
-      <div class="col ml-1">{{opt.abbrev || opt.name}} - {{opt.notes}} (HC: {{opt.hc}})</div>
+      <div class="col ml-1">{{(opt.abbrev)?opt.abbrev + ' (' + opt.name + ')': opt.name}} - {{opt.notes}} (HC: {{opt.hc}})</div>
     </div>
   </ng-container>
 </ng-template>
