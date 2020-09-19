@@ -12,7 +12,7 @@
   </div>
 </div>
 <div class="chargen-section">
-  <div class="chargen-label chargen-stats">STATS</div>
+  <div class="chargen-label chargen-stats">STATS<fa-icon class="csd-dice ml-2" [icon]="faDice" (click)="rollStats()"></fa-icon></div>
 </div>
 <div class="chargen-stat-section">
   <span [ngClass]="{'chargen-stat-dmged': (stats.Damage > 8)}" title="{{stats.INT.toString()}}">INT
