@@ -387,9 +387,9 @@ private addCyberware(doc: jsPDF, cyber: Cp2020PlayerCyberList, left: number, lin
     doc.rect(left, line, 80, ht, 'S');
     doc.rect(left + 80, line, 10, ht, 'S');
     doc.rect(left + 90, line, 10, ht, 'S');
-    doc.text((c.name) ? c.name : '', left + 2, line + 4);
-    doc.text((c.hl) ? c.hl.toString() : '', left + 81, line + 4);
-    doc.text((c.cost) ? c.cost.toString() : '', left + 91, line + 4);
+    doc.text((c.toString()) ? c.toString() : '', left + 2, line + 4);
+    doc.text((c.totalHL) ? c.totalHL.toString() : '', left + 81, line + 4);
+    doc.text((c.totalCost) ? c.totalCost.toString() : '', left + 91, line + 4);
     line += ht;
   });
 
