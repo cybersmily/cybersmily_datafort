@@ -1,3 +1,5 @@
+import { faDice } from '@fortawesome/free-solid-svg-icons';
+import { DiceService } from './../../shared/services/dice/dice.service';
 import { SourceBookLookup } from './../../shared/models/source-book-lookup';
 import { Cp2020RolesDataService } from './../../shared/services/chargen/cp2020-roles-data.service';
 import { Cp2020PlayerRole, Cp2020Role } from './../../shared/models/cp2020character';
@@ -10,6 +12,7 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angu
   styleUrls: ['./app-character-role.component.css']
 })
 export class AppCharacterRoleComponent implements OnInit, OnChanges {
+  faDice = faDice;
 
   @Input()
   role = new Cp2020PlayerRole();
@@ -21,7 +24,7 @@ export class AppCharacterRoleComponent implements OnInit, OnChanges {
 
   roles = new Array<Cp2020Role>();
 
-  constructor( private rolesService: Cp2020RolesDataService) { }
+  constructor( private rolesService: Cp2020RolesDataService, private diceService: DiceService) { }
 
   ngOnInit() {
     this.rolesService.getRoles().subscribe( (data: any[] ) => {
@@ -77,6 +80,11 @@ export class AppCharacterRoleComponent implements OnInit, OnChanges {
     this.role.specialAbility.stat = this.currentRole.specialability.stat;
     this.role.specialAbility.name = this.currentRole.specialability.name;
     this.changeRole.emit(this.role);
+  }
+
+  rollRole() {
+    const roll = this.diceService.generateNumber(0, this.roles.length - 1);
+    this.currentRole = this.roles[roll];
   }
 
   sourceInfo(src: string, pg: number): string {

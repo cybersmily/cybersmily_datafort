@@ -38,7 +38,7 @@ export class AppCharacterStatsComponent implements OnInit {
     let total = 0;
     this.rolls = new Array<number>();
     for (let i = 0; i < 9; i++) {
-      const roll = this.dice.generateNumber(2, 10);
+      const roll = this.dice.generateNumber(3, 10);
       this.rolls.push(roll);
       total += roll;
     }
