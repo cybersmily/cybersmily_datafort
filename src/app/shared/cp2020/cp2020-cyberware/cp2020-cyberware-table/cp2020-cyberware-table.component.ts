@@ -45,7 +45,7 @@ export class Cp2020CyberwareTableComponent implements OnInit {
   }
 
   updateList() {
-    this.cyberList.items.sort( (a, b) => a.name > b.name ? 1 : -1);
+    this.sortList();
     this.changeList.emit(this.cyberList);
   }
 
@@ -67,6 +67,15 @@ export class Cp2020CyberwareTableComponent implements OnInit {
   }
 
   add(cyberArray: Array<Cp2020PlayerCyber>) {
+    // remove blank entries
+    if (this.cyberList.items.some(c => c.name === '')) {
+      for (let i = 0; i < cyberArray.length; i++ ) {
+        const index = this.cyberList.items.findIndex( c => c.name === '');
+        if ( index > -1) {
+          this.cyberList.items.splice(index, 1);
+        }
+      }
+    }
     this.cyberList.items = this.cyberList.items.concat(cyberArray);
     this.updateList();
   }
@@ -85,6 +94,17 @@ export class Cp2020CyberwareTableComponent implements OnInit {
 
   closeModal() {
     this.modalRef.hide();
+  }
+
+  sortList() {
+    // very weird behavior when an entry is blank. so did the below to have all the
+    // ones with a name to be at top and the other on the bottom.
+    const namedCyber = this.cyberList.items.filter( c => c.name !== '');
+    const blankCyber = this.cyberList.items.filter( c => c.name === '');
+    namedCyber.sort( (a, b) => {
+      return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+    });
+    this.cyberList.items = namedCyber.concat(blankCyber);
   }
 
 }
