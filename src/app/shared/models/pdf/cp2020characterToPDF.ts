@@ -161,12 +161,14 @@ private addCharImage(doc: jsPDF) {
 
 
 private addStats(doc: jsPDF, stats: Cp2020StatBlock, line: number): number {
+  doc.setFillColor('black');
   doc.rect(this._left, line, 20, this._lineheight, 'DF');
   doc.setTextColor('white');
   doc.setFont(this._font, 'bold');
   doc.text('STATS', this._left + 3, line + 5);
   doc.rect(this._left + 20, line, 15, this._lineheight, 'S');
   doc.setTextColor('black');
+  doc.setFillColor('white');
   doc.setFont(this._font, 'normal');
   doc.text(stats.BasePoints.toString(), this._left + 23, line + 5);
 
@@ -373,7 +375,7 @@ private addCyberware(doc: jsPDF, cyber: Cp2020PlayerCyberList, left: number, lin
   doc.setTextColor('black');
   doc.setFont(this._font, 'normal');
   line += 7;
-  doc.setFontSize(9);
+  doc.setFontSize(8);
   const ht = 6;
   // header
   doc.rect(left, line, 80, ht, 'S');
@@ -384,13 +386,20 @@ private addCyberware(doc: jsPDF, cyber: Cp2020PlayerCyberList, left: number, lin
   doc.text('Cost', left + 91, line + 4);
   line += ht;
   cyber.items.forEach(c => {
-    doc.rect(left, line, 80, ht, 'S');
-    doc.rect(left + 80, line, 10, ht, 'S');
-    doc.rect(left + 90, line, 10, ht, 'S');
-    doc.text((c.toString()) ? c.toString() : '', left + 2, line + 4);
-    doc.text((c.totalHL) ? c.totalHL.toString() : '', left + 81, line + 4);
-    doc.text((c.totalCost) ? c.totalCost.toString() : '', left + 91, line + 4);
-    line += ht;
+    let cyberName = new Array<string>();
+    cyberName = doc.splitTextToSize(c.toString(), 79);
+    let rectHt = 0;
+    const rectLine = line;
+    cyberName.forEach( txt => {
+      doc.text(txt, left + 2, line + 4);
+      line += ht;
+      rectHt += ht;
+    });
+    doc.rect(left, rectLine, 80, rectHt, 'S');
+    doc.rect(left + 80, rectLine, 10, rectHt, 'S');
+    doc.rect(left + 90, rectLine, 10, rectHt, 'S');
+    doc.text((c.totalHL) ? c.totalHL.toString() : '', left + 81, rectLine + 4);
+    doc.text((c.totalCost) ? c.totalCost.toLocaleString('en') : '', left + 91, rectLine + 4);
   });
 
   // footer
@@ -399,7 +408,7 @@ private addCyberware(doc: jsPDF, cyber: Cp2020PlayerCyberList, left: number, lin
   doc.rect(left + 90, line, 10, ht, 'S');
   doc.text('Total HL and Cost', left + 2, line + 4);
   doc.text((cyber.totalHL) ? cyber.totalHL.toString()  : '', left + 81, line + 4);
-  doc.text(cyber.totalCost ? cyber.totalCost.toString() : '', left + 91, line + 4);
+  doc.text(cyber.totalCost ? cyber.totalCost.toLocaleString('en') : '', left + 91, line + 4);
 }
 
 private addGear(doc: jsPDF, gear: Cp2020PlayerGearList, left: number, line: number) {
@@ -544,10 +553,17 @@ private addWeapons(doc: jsPDF, weapons: CpPlayerWeaponList, left: number, line: 
     }
 
     if ((w.notes && w.notes !== '') || w.thrown) {
-      doc.rect(leftMargin, line, 100, ht, 'S');
       const text = (w.thrown ? 'Thrown. ' : '') + (w.notes ? w.notes : '');
-      doc.text(text, leftMargin + 2, line + 3.5);
-      line += ht;
+      let notes = new Array<string>();
+      notes = doc.splitTextToSize(text, 90);
+      let rectHt = ht;
+      const rectLine = line;
+      notes.forEach( txt => {
+        doc.text(txt, leftMargin + 2, line + 3.5);
+        line += ht;
+        rectHt += ht;
+      });
+      doc.rect(leftMargin, rectLine, 100, rectHt, 'S');
     }
   });
   doc.setFontSize(this._fontSize);
