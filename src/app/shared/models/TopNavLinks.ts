@@ -99,7 +99,7 @@ export interface SiteLinksGroup {
           {title: 'Nomads/Rockers', link: 'peeps/nomadrocker', desc: 'Nomad and Rocker NPCs'},
           {title: 'Solos/Techies', link: 'peeps/solotechie', desc: 'Solo and Techie NPCs'},
           {title: 'Corporations', link: 'peeps/corp', desc: 'Corporations'},
-          {title: 'Gangs', link: 'peeps/gangs', desc: 'Gangs'}
+          {title: 'Gangs/Nomad Packs', link: 'peeps/gangs', desc: 'Gangs'}
         ]
       });
       this.menuItems.push({

@@ -1,0 +1,77 @@
+﻿{
+	"name":"Motabu",
+	"handle":"Motabu",
+	"aliases":"",
+	"age":"28",
+	"img":"motabu",
+	"career":{"name":"Solo","specialability":"Combat Sense","value":7},
+	"stats":{
+		"ref":7,
+		"int":6,
+		"tech":5,
+		"cool":8,
+		"attr":6,
+		"luck":4,
+		"ma":5,
+		"body":9,
+		"emp":6,
+		"hc":18},
+	"skills":{
+		"attr":[
+			{"name":"Personal Grooming","value":2},
+			{"name":"Wardrobe/Style","value":3}
+		],
+		"body":[
+			{"name":"Strength Feat","value":2}
+		],
+		"cool":[
+			{"name":"Intimidate","value":5},
+			{"name":"Streetwise","value":2}
+		],
+		"emp":[
+			{"name":"Human Perception","value":3}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":5},
+			{"name":"Hide/Evade","value":4},
+			{"name":"Shadow/Track","value":3}
+		],
+		"ref":[
+			{"name":"Athletics","value":3},
+			{"name":"Driving","value":4},
+			{"name":"Handgun","value":6},
+			{"name":"MA: Sambo","value":4},
+			{"name":"Melee","value":2},
+			{"name":"Rifle","value":2},
+			{"name":"Stealth","value":2},
+			{"name":"Submachinegun","value":2}
+		],
+		"tech":[
+			{"name":"Elect. Security","value":4},
+			{"name":"First Aid","value":3},
+			{"name":"Pick Lock","value":3},
+			{"name":"Weaponsmith","value":2}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Intellectual and detached.",
+			"valuedperson":"Mentor",
+			"valuemost":"Honor",
+			"feelaboutpeople":"Every person is a valuable individual",
+			"valuedpossession":"A letter"
+		},
+		"style":{
+			"clothes":"Urban Flash",
+			"hair":"Bald",
+			"affectations":"Ritual Scars",
+			"ethnicity":"African",
+			"languages":"English"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":["Neural Processor[Chipsocket, Smartgun, Kerenzikov +2], Muscle and Bone Lace, Skinweave SP12"],
+	"gear":["twin smartchipped Sternmeyer P-35 (P 0 J C 3d6 8 2 VR), Armored Trenchcoat (SP18), bug detector and jammer, cell, Mitsuzuki Bushi"],
+	"history":"Motabu works for the fixer Vulture as a bodyguard and confidante. He is always quiet often letting Vulture blabber on. "
+}

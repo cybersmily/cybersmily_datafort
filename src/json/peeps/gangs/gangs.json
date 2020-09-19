@@ -1,6 +1,7 @@
 [
-  {"name": "Apostatas de la Muerte", "file":"apostatasdelamuerte"},
-  {"name": "Neon Brigade", "file":"neonbrigade"},
-  {"name": "Omens of Downfall", "file":"omensofdownfall"},
-  {"name": "Wolves of Flesh", "file":"wolvesofflesh"}
+  {"name": "Apostatas de la Muerte", "type": "Gang", "file":"apostatasdelamuerte"},
+  {"name": "Neon Brigade", "type": "Gang", "file":"neonbrigade"},
+  {"name": "Omens of Downfall", "type": "Gang", "file":"omensofdownfall"},
+  {"name": "Wolves of Flesh", "type": "Gang", "file":"wolvesofflesh"},
+  {"name": "Tribe of Gears", "type": "Nomad Pack", "file":"tribeofgears"}
 ]

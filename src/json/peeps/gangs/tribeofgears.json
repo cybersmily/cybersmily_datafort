@@ -1,0 +1,20 @@
+{
+  "name": "Tribe of Gears",
+  "description": "This is a small nomad pack that travels through the southwest. They have quite a collection of RC drones and often are hired to do surveying work or search and rescue operations in the desert. They are lead by Father Id, a stoic character who leads the pack.",
+  "leader": "Father Id",
+  "notableMembers": "",
+  "members": "~30",
+  "turf": "SE USA",
+  "rivals": "",
+  "allies": "Technomancers",
+  "tag": {"img": "tribeofgears", "desc": "Gear with an eye in the middle"},
+  "colors": "None",
+  "threatLevel": "",
+  "threatCode": "",
+  "weapon": "Rifles",
+  "averageMemer": {
+    "stats": {"INT":7, "REF":6, "TECH":8, "COOL":5, "ATT":5, "MA":7, "BOD": 6, "LUCK":6, "EMP":7 },
+    "skills": ["Melee 6", "Motorcycle/Drive 7", "Awareness 3", "Brawling 4", "Wilderness Survival 6", "Basic Tech 3", "Eletronics 4", "Rifle 3", "Remote System OPeration 4"],
+    "cyber": ["Nasal Filters"]
+  }
+}
