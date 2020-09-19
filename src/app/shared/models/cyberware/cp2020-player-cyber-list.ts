@@ -12,10 +12,10 @@ export class Cp2020PlayerCyberList {
     }
 
     get totalHL(): number {
-        return this.items.reduce((a, b) => a + (b.hl || 0), 0);
+        return this.items.reduce((a, b) => a + (b.totalHL || 0), 0);
     }
 
     get totalCost(): number {
-        return this.items.reduce((a, b) => a + (( b.cost && (typeof b.cost === 'number')) ? b.cost : 0), 0);
+        return this.items.reduce((a, b) => a + (( b.totalCost && (typeof b.totalCost === 'number')) ? b.totalCost : 0), 0);
     }
 }

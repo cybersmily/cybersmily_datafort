@@ -40,16 +40,19 @@ export class Cp2020CyberwareGeneratorService {
     if (!cyber) {
       return undefined;
     }
+    cyber.hl = (isNaN(Number(cyber.hc)) ? this.dice.rollMoreDice(cyber.hc).total : Number(cyber.hc));
     cyber.options = new Array<Cp2020PlayerCyber>();
     if (result.options) {
       const options = cyberList.filter(c => (c.type === cyber.type
         && (c.subtype.toLowerCase() === 'option'
         || c.subtype.toLowerCase() === 'builtin')));
       if (options.length > 0) {
-        const numOfOptions = (cyber.numOptions > 0) ? cyber.numOptions : this.dice.generateNumber(0, 3);
+        const numOfOptions = this.dice.generateNumber(1, ((cyber.numOptions > 0) ? cyber.numOptions : 3));
         for (let i = 0; i < numOfOptions; i++) {
           roll = this.dice.generateNumber(0, options.length - 1);
-          cyber.options.push(options[roll]);
+          const option = options[roll];
+          option.hl = (isNaN(Number(option.hc)) ? this.dice.rollMoreDice(option.hc).total : Number(option.hc));
+          cyber.options.push(option);
         }
       }
     }

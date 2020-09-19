@@ -20,8 +20,8 @@
       <fa-icon [icon]="faTrash" class="float-right csd-btn small ml-2" (click)="delete(i)"></fa-icon>
       <fa-icon [icon]="faPen" class="float-right csd-btn small ml-2" (click)="editCyberware(i, cyberEdit)"></fa-icon>
     </div>
-    <div class="col-1 text-center small">{{cyber.hl}}</div>
-    <div class="col-1 text-right small pr-1">{{cyber.cost | number}}</div>
+    <div class="col-1 text-center small">{{cyber.totalHL}}</div>
+    <div class="col-1 text-right small pr-1">{{cyber.totalCost | number}}</div>
   </div>
   <div class="row csd-cyber-row">
     <div class="col text-center csd-btn" (click)="openModal(cyberSelect)">
