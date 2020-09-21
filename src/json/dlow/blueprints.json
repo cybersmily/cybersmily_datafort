@@ -12,5 +12,12 @@
     "img": "ncart-train",
     "imgSize": "3000x1800",
     "cc3": "ncart"
+  },
+  {
+    "name":"NCART Startion 1, 2, and 9",
+    "desc":"Reimagined layout of the NCART station from pg. 20 of the Night City source book. The FCW(CC3+) map has all the station and train layout.",
+    "img": "ncart-stations-129",
+    "imgSize": "3000x1800",
+    "cc3": "ncart"
   }
 ]
