@@ -1,0 +1,83 @@
+﻿{"name":"Idris Banks",
+	"handle":"Father Id",
+	"aliases":"",
+	"age":48,
+	"img":"fatherid",
+	"career":{"name":"Nomad","specialability":"Family","value":9},
+	"stats":{
+		"ref":5,
+		"int":8,
+		"tech":8,
+		"cool":6,
+		"attr":6,
+		"luck":4,
+		"ma":5,
+		"body":5,
+		"emp":7,
+		"hc":0},
+	"skills":{
+		"attr":[
+		],
+		"body":[
+			{"name":"Endurance","value":3}
+		],
+		"cool":[
+			{"name":"Intimidate","value":4}
+		],
+		"emp":[
+			{"name":"Human Perception","value":3},
+			{"name":"Leadership","value":7},
+			{"name":"Social","value":4}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":4},
+			{"name":"Education/Gen. Know","value":5},
+			{"name":"History","value":3},
+			{"name":"Programming","value":3},
+			{"name":"Shadow/Track","value":2},
+			{"name":"Teaching","value":4},
+			{"name":"Wilderness Survival","value":6}
+		],
+		"ref":[
+			{"name":"Archery","value":2},
+			{"name":"Athletics","value":3},
+			{"name":"Brawling","value":5},
+			{"name":"Driving","value":4},
+			{"name":"Handgun","value":4},
+			{"name":"Melee","value":3},
+			{"name":"Motorcycle","value":3},
+			{"name":"Operate Hvy. Mach.","value":5},
+			{"name":"Rifle","value":7},
+			{"name":"Stealth","value":3}
+		],
+		"tech":[
+			{"name":"Basic Tech","value":5},
+			{"name":"Electronics","value":6},
+			{"name":"First Aid","value":2},
+			{"name":"Forgery","value":3},
+			{"name":"Gyro Tech","value":2},
+			{"name":"Weaponsmith","value":3}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Friendly and Outgoing",
+			"valuedperson":"Friends",
+			"valuemost":"Honor",
+			"feelaboutpeople":"Likes almost everyone",
+			"valuedpossession":"Necklace from his dea wife"
+		},
+		"style":{
+			"clothes":"Cammo",
+			"hair":"Mohawk",
+			"affectations":"Goggles",
+			"ethnicity":"Welsh",
+			"languages":"English"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":["Nasalfilters", "Neural Process [Chipsocket, PLG, MLNK, VLNK]"],
+	"gear":[],
+	"history":"Father Id is the leader of the Nomand pack Tribe of Gears. He leads the pack through the SW America. The pack has proficients with remotes and drones and often gets contracted by corporation in the area to improve their assets in this field. Father Id is friendly to all and willing to help others. He does the best he can and has guide the pack to be prosperous."
+}

@@ -1,0 +1,89 @@
+﻿{"name":"Chadek Citrine",
+	"handle":"Chub Citrine",
+	"aliases":"Charles Topaz, Clovis Yantar",
+	"age":32,
+	"img":"chubcitrine",
+	"career":{"name":"Fixer","specialability":"Streetdeal","value":7},
+	"stats":{
+		"ref":5,
+		"int":7,
+		"tech":7,
+		"cool":8,
+		"attr":6,
+		"luck":4,
+		"ma":6,
+		"body":4,
+		"emp":5,
+		"hc":24},
+	"skills":{
+		"attr":[
+			{"name":"Personal Grooming","value":4},
+			{"name":"Wardrobe/Style","value":4}
+		],
+		"body":[
+		],
+		"cool":[
+			{"name":"Intimidate","value":3},
+			{"name":"Resist Torture/Drugs","value":2}
+		],
+		"emp":[
+			{"name":"Human Perception","value":5},
+			{"name":"Seduction","value":3},
+			{"name":"Social","value":4},
+			{"name":"Persuasion/Fast Talk","value":5},
+			{"name":"Perform","value":2}
+		],
+		"int":[
+			{"name":"Accounting","value":3},
+			{"name":"Awareness/Notice","value":5},
+			{"name":"Biology","value":4},
+			{"name":"Chemistry","value":2},
+			{"name":"Education/Gen. Know","value":4},
+			{"name":"Expert: Biotech","value":7},
+			{"name":"Language: English","value":5},
+			{"name":"Library Search","value":2},
+			{"name":"Shadow/Track","value":0},
+			{"name":"Stock Market","value":0},
+			{"name":"Zoology","value":3}
+		],
+		"ref":[
+			{"name":"Athletics","value":2},
+			{"name":"Brawling","value":2},
+			{"name":"Driving","value":3},
+			{"name":"Fencing","value":5},
+			{"name":"Handgun","value":3},
+			{"name":"Melee","value":2},
+			{"name":"Stealth","value":3}
+		],
+		"tech":[
+			{"name":"Cryotank Operation","value":3},
+			{"name":"Cyber Tech","value":3},
+			{"name":"Disguise","value":2},
+			{"name":"Elect. Security","value":3},
+			{"name":"First Aid","value":1},
+			{"name":"Forgery","value":5},
+			{"name":"Pharmacuticals","value":2}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Intellectual and detached",
+			"valuedperson":"A pet",
+			"valuemost":"Vengeance",
+			"feelaboutpeople":"People are obstacles to be destroyed if they cross him",
+			"valuedpossession":"A jeweler's monocle with enhanced microscopic capability"
+		},
+		"style":{
+			"clothes":"High Fashion",
+			"hair":"Wild",
+			"affectations":"long fingernails",
+			"ethnicity":"Central Eurean/Russian",
+			"languages":"Russian"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":["Neural Processor [Chip socke, PLG, MLNK], Cyberaudio[AH, BD, RL, VSA]"],
+	"gear":[],
+	"history":"Chub's real surnname is unknown as well as his early history. He made the scene in Night City a few years back. He is one of the leading fixers for dealing with biotech/nanotech in the city. He speaks with a Russian accent but most believe he isn't connect with the Russian mob. He works out of a pet boutique that sells special pets and robo pets."
+}

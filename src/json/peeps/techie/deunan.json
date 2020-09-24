@@ -1,0 +1,86 @@
+﻿{"name":"Deunan",
+	"handle":"",
+	"aliases":"",
+	"age":0,
+	"img":"deunan",
+	"career":{"name":"Techie","specialability":"Jury Rig","value":7},
+	"stats":{
+		"ref":5,
+		"int":7,
+		"tech":9,
+		"cool":6,
+		"attr":7,
+		"luck":8,
+		"ma":6,
+		"body":5,
+		"emp":8,
+		"hc":37},
+	"skills":{
+		"attr":[
+			{"name":"Personal Grooming","value":2},
+			{"name":"Wardrobe/Style","value":2}
+		],
+		"body":[
+		],
+		"cool":[
+			{"name":"Streetwise","value":3}
+		],
+		"emp":[
+			{"name":"Human Perception","value":2},
+			{"name":"Seduction","value":4},
+			{"name":"Social","value":3},
+			{"name":"Persuasion/Fast Talk","value":2}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":5},
+			{"name":"Education/Gen. Know","value":3},
+			{"name":"Hide/Evade","value":3},
+			{"name":"Language: ","value":0},
+			{"name":"Library Search","value":2},
+			{"name":"Shadow/Track","value":3}
+		],
+		"ref":[
+			{"name":"Dance","value":2},
+			{"name":"Dodge/Escape","value":3},
+			{"name":"Handgun","value":4},
+			{"name":"MA: Akikido","value":4},
+			{"name":"Motorcycle","value":3},
+			{"name":"Operate Hvy. Mach.","value":2},
+			{"name":"Pilot: VTV","value":2},
+			{"name":"Stealth","value":3},
+			{"name":"Submachinegun","value":1}
+		],
+		"tech":[
+			{"name":"Aero Tech","value":3},
+			{"name":"AV Tech","value":2},
+			{"name":"Basic Tech","value":5},
+			{"name":"Demolitions","value":2},
+			{"name":"Electronics","value":6},
+			{"name":"Elect. Security","value":5},
+			{"name":"First Aid","value":2},
+			{"name":"Pick Lock","value":4},
+			{"name":"Weaponsmith","value":3}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Friendly Outgoing",
+			"valuedperson":"Teacher",
+			"valuemost":"Friendship",
+			"feelaboutpeople":"Neutral",
+			"valuedpossession":"Ring"
+		},
+		"style":{
+			"clothes":"Mini skirts",
+			"hair":"Short",
+			"affectations":"Long finger nails",
+			"ethnicity":"European/Swedish",
+			"languages":"English"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":["Neural Processor [Chip socke, PLG, MLNK], Cyberaudio[AH, BD, RL, LD], Miss Midnight, Skinweave SP12, Nanosurgeons"],
+	"gear":[],
+	"history":""
+}
