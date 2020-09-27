@@ -30,6 +30,7 @@ export class NrDeckManagerService {
   private get cache(): Cp2020DeckManager {
     let manager = new Cp2020DeckManager();
     if (window.localStorage.getItem(CacheKeys.CP2020_DECK_MANAGER)) {
+      console.log(window.localStorage.getItem(CacheKeys.CP2020_DECK_MANAGER));
       const result: NrDeckManager = JSON.parse(window.localStorage.getItem(CacheKeys.CP2020_DECK_MANAGER));
       manager = new Cp2020DeckManager(result);
     }

@@ -21,8 +21,7 @@ export class Cp2020NetrunDeck implements NrDeck {
     this.dataWall = (param) ? param.dataWall : 2;
     this.codeGate = (param) ? param.codeGate : 0;
     this.speed = (param) ? param.speed : 0;
-    this._mu = (param) ? param._mu : 10;
-    this._mu = param ? param.mu : 10;
+    this._mu = (param) ? Number(param._mu) : 10;
     this.doubleMu = (param) ? param.doubleMu : false;
     this.options = (param) ? param.options : new Array<NrDeckOption>();
     this.programs = (param) ? param.programs : new Array<NrProgram>();
