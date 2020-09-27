@@ -1,3 +1,4 @@
+import { DiceService } from './../../shared/services/dice/dice.service';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { DataService } from './../../shared/services/data.service';
@@ -18,7 +19,8 @@ describe('AppCharacterRoleComponent', () => {
         HttpClientModule
       ],
       providers: [
-        DataService
+        DataService,
+        DiceService
       ]
     })
     .compileComponents();
