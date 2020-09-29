@@ -360,8 +360,10 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
       this.selectedSkill.value,
       shots
     );
-    const degreeOfSuccess = (this.totalToHit - this.totalDiff) + 1;
-    if (degreeOfSuccess > -1 && this.toHitDiceRoll.rolls[0] !== 1) {
+    let degreeOfSuccess = (this.totalToHit - this.totalDiff);
+    degreeOfSuccess = degreeOfSuccess < 1 ? 1 : degreeOfSuccess;
+    let successMsg = '';
+      if (degreeOfSuccess > -1 && this.toHitDiceRoll.rolls[0] !== 1) {
       if (this.fireMode === 3) {
         shots =
           degreeOfSuccess > shots
@@ -370,11 +372,17 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
       }
       if (this.fireMode === 1) {
         shots = this.diceService.generateNumber(1, 3);
+
       }
       const maDmg = (this.isMartialArts) ? this.selectedSkill.value : undefined;
       const dmg = this.selectedWeapon.rollDamage(this.diceService, shots, this.bodyDamageMod, maDmg);
+      if (shots > 1) {
+        successMsg = `${shots} round${shots > 1 ? 's' : ''}`;
+      } else {
+        successMsg = '1';
+      }
 
-      this.toHitResults = [`Successful hit!`, ...dmg];
+      this.toHitResults = [`Success! ${successMsg} hit!`, ...dmg];
     } else if (this.toHitDiceRoll.rolls[0] === 1) {
       const msg = FumbleChart.getResults(
         this.diceService.generateNumber(1, 10),
