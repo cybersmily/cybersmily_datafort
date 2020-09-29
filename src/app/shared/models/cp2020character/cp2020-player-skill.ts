@@ -49,11 +49,6 @@ export class Cp2020PlayerSkill implements Skill {
 
   }
 
-  get isMartialArts(): boolean {
-    return (
-      this.name &&
-      this.name.toLowerCase().startsWith('martial'));
-  }
   toDataSkill(): DataSkill {
     return {
       name: this.name,

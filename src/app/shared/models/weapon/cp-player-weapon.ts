@@ -187,6 +187,7 @@ export class CpPlayerWeapon implements CpWeapon {
   ): Array<string> {
     const results = new Array<string>();
     if (diceService && this.damage !== '') {
+      numberOfShots = numberOfShots < 1 ? 1 : numberOfShots;
       for (let i = 0; i < numberOfShots; i++) {
         const roll = diceService.rollMoreDice(this.damage);
         const location = this.rollLocation(diceService);
@@ -241,7 +242,8 @@ export class CpPlayerWeapon implements CpWeapon {
           ? shots
           : degreeOfSuccess;
       }
-      const maDmg = (skill.isMartialArts) ? skill.value : undefined;
+      // check if martial arts skill.
+      const maDmg = (skill.name.toLowerCase().startsWith('martial')) ? skill.value : undefined;
       const dmg = this.rollDamage(dice, shots, bodyDamageMod, maDmg);
       if (shots > 1) {
         successMsg = `${shots} round${shots > 1 ? 's' : ''}`;
