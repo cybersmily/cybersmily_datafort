@@ -40,6 +40,7 @@ export class ProgramNewComponent implements OnInit {
 
   updated() {
     this.isSaved = false;
+    this.program = new NetRunProgram(this.program);
   }
 
   get optionList(): string {

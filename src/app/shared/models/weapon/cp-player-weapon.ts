@@ -114,6 +114,12 @@ export class CpPlayerWeapon implements CpWeapon {
     return 0;
   }
 
+  get shotsRemaining(): number {
+    if (this.currentShots) {
+      return this.currentShots.filter((s) => !s).length;
+    }
+    return 0;
+  }
   get isEmpty(): boolean {
     if (this.currentShots) {
       return !this.currentShots.some((s) => !s);

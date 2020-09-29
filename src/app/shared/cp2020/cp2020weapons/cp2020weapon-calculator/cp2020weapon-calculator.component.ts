@@ -353,6 +353,7 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
     }
     this.toHitDiceRoll = this.diceService.rollCP2020D10();
     let shots = this.shotsFired ? this.shotsFired : 1;
+    shots = ( shots > this.selectedWeapon.shotsRemaining ) ? this.selectedWeapon.shotsRemaining : shots;
     this.selectedWeapon.fire(
       this.diceService,
       this.ref,
@@ -363,8 +364,8 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
     if (degreeOfSuccess > -1 && this.toHitDiceRoll.rolls[0] !== 1) {
       if (this.fireMode === 3) {
         shots =
-          degreeOfSuccess > this.selectedWeapon.rof
-            ? this.selectedWeapon.rof
+          degreeOfSuccess > shots
+            ? shots
             : degreeOfSuccess;
       }
       if (this.fireMode === 1) {
