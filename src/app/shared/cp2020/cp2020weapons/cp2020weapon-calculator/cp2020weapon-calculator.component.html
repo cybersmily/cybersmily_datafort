@@ -164,7 +164,7 @@
         <div class="col-2"></div>
         <div class="col-5">
           <input id="turnToFaceTarget" type="checkbox" [(ngModel)]="turnToFaceTarget" />&nbsp;
-          <label for="turnToFaceTarget">Turn To Face (2) </label>
+          <label for="turnToFaceTarget">Turn To Face (+2) </label>
         </div>
         <div class="col-5">
           <input id="targetSilhoutted" type="checkbox" [(ngModel)]="targetSilhoutted" />&nbsp;
@@ -173,7 +173,7 @@
         <div class="col-2"></div>
         <div class="col-5" *ngIf="!isRanged">
           <input id="targetdodge" type="checkbox" [(ngModel)]="targetDodge" />&nbsp;
-          <label for="targetdodge">Dodging (2) </label>
+          <label for="targetdodge">Dodging (+2) </label>
         </div>
       </div>
       <div class="row">
@@ -199,7 +199,7 @@
         <div class="col-2"></div>
         <div class="col-5">
           <input id="fastDraw" type="checkbox" [(ngModel)]="fastDraw" />&nbsp;
-          <label for="fastDraw">Fast draw/Snapshot (3)</label>
+          <label for="fastDraw">Fast draw/Snapshot (+3)</label>
         </div>
         <div class="col-5">
           <input id="ambush" type="checkbox" [(ngModel)]="ambush" />&nbsp;
@@ -210,33 +210,33 @@
         <div class="col-2"></div>
         <div class="col-5">
           <input id="aimedBody" type="checkbox" [(ngModel)]="aimedBody" />&nbsp;
-          <label for="aimedBody">Aimed shot at body location (4)</label>
+          <label for="aimedBody">Aimed shot at body location (+4)</label>
         </div>
         <div class="col-5" *ngIf="isRanged">
           <input id="ricochet" type="checkbox" [(ngModel)]="ricochet" />&nbsp;
-          <label for="ricochet">Ricochet/Indirect fire (5) </label>
+          <label for="ricochet">Ricochet/Indirect fire (+5) </label>
         </div>
       </div>
       <div class="row cmbt-modifiers">
         <div class="col-2"></div>
         <div class="col-5">
           <input id="blind" type="checkbox" [(ngModel)]="blind" />&nbsp;
-          <label for="blind">Blinded by dust/light (3)</label>
+          <label for="blind">Blinded by dust/light (+3)</label>
         </div>
         <div class="col-5">
           <input id="twoWeapons" type="checkbox" [(ngModel)]="twoWeapons" />&nbsp;
-          <label for="twoWeapons">Using two weaons (3) </label>
+          <label for="twoWeapons">Using two weaons (+3) </label>
         </div>
       </div>
       <div class="row cmbt-modifiers" *ngIf="isRanged">
         <div class="col-2"></div>
         <div class="col-5">
           <input id="running" type="checkbox" [(ngModel)]="running" />&nbsp;
-          <label for="running">Firing while running (3)</label>
+          <label for="running">Firing while running (+3)</label>
         </div>
         <div class="col-5">
           <input id="fireFromHip" type="checkbox" [(ngModel)]="fireFromHip" />&nbsp;
-          <label for="fireFromHip">Firing shouler arm from the hip (3) </label>
+          <label for="fireFromHip">Firing shouler arm from the hip (+2) </label>
         </div>
       </div>
       <div class="row" *ngIf="isRanged">

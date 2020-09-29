@@ -256,10 +256,7 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
   }
 
   get isRanged(): boolean {
-    return (
-      this.selectedWeapon.type.toLowerCase() !== 'mel' ||
-      this.selectedWeapon.thrown
-    );
+    return this.selectedWeapon.isRangedWeapon;
   }
   get selectedWeaponBracket(): CombatRange {
     return this.selectedWeapon.getRangeBracket(this.rangeToTarget);
@@ -281,6 +278,8 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
   get fireShots(): number {
     if (this.fireMode === 2) {
       return this.selectedWeapon.rof > 3 ? 2 : this.selectedWeapon.rof;
+    } else if (this.fireMode === 1) {
+      return 3;
     } else {
       return this.selectedWeapon.rof;
     }
@@ -347,55 +346,20 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
   }
 
   rollToHit() {
-    if (this.isRanged && this.selectedWeapon.isEmpty) {
-      this.toHitResults = ['Weapon needs to be reloaded'];
-      return;
+    if (this.fireMode === 1) {
+     this.shotsFired = 3;
     }
-    this.toHitDiceRoll = this.diceService.rollCP2020D10();
-    let shots = this.shotsFired ? this.shotsFired : 1;
-    shots = ( shots > this.selectedWeapon.shotsRemaining ) ? this.selectedWeapon.shotsRemaining : shots;
-    this.selectedWeapon.fire(
+    const results = this.selectedWeapon.rollToHit(
       this.diceService,
       this.ref,
-      this.selectedSkill.value,
-      shots
+      this.selectedSkill,
+      this.totalDiff,
+      this.fireMode,
+      this.shotsFired,
+      this.bodyDamageMod
     );
-    let degreeOfSuccess = (this.totalToHit - this.totalDiff);
-    degreeOfSuccess = degreeOfSuccess < 1 ? 1 : degreeOfSuccess;
-    let successMsg = '';
-      if (degreeOfSuccess > -1 && this.toHitDiceRoll.rolls[0] !== 1) {
-      if (this.fireMode === 3) {
-        shots =
-          degreeOfSuccess > shots
-            ? shots
-            : degreeOfSuccess;
-      }
-      if (this.fireMode === 1) {
-        shots = this.diceService.generateNumber(1, 3);
-
-      }
-      const maDmg = (this.isMartialArts) ? this.selectedSkill.value : undefined;
-      const dmg = this.selectedWeapon.rollDamage(this.diceService, shots, this.bodyDamageMod, maDmg);
-      if (shots > 1) {
-        successMsg = `${shots} round${shots > 1 ? 's' : ''}`;
-      } else {
-        successMsg = '1';
-      }
-
-      this.toHitResults = [`Success! ${successMsg} hit!`, ...dmg];
-    } else if (this.toHitDiceRoll.rolls[0] === 1) {
-      const msg = FumbleChart.getResults(
-        this.diceService.generateNumber(1, 10),
-        this.selectedSkill
-      );
-      const jammed =
-        msg.indexOf('jam') > 0
-          ? this.selectedWeapon.checkReliability(this.diceService)
-          : '';
-      this.toHitResults = ['Fumbled!', msg, jammed];
-    } else {
-      this.toHitResults = ['Missed!'];
-    }
+    this.toHitDiceRoll = results.dieRoll;
+    this.toHitResults = results.results;
   }
 
   changeWeapon() {

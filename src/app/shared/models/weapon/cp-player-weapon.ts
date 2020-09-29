@@ -1,8 +1,18 @@
+import { DiceRolls } from './../dice-rolls';
+import { Cp2020PlayerSkill } from './../cp2020character/cp2020-player-skill';
 import { DiceService } from './../../services/dice/dice.service';
 import { SourceBook } from './../sourcebook';
 import { WeaponRanges } from './weapon-ranges';
 import { CombatRange } from './combat-range';
+import { FumbleChart } from './..//skill/fumble-chart';
 import { CpWeapon } from '.';
+
+
+export interface toHitResults {
+  dieRoll: DiceRolls;
+  results: Array<string>;
+}
+
 export class CpPlayerWeapon implements CpWeapon {
   name: string;
   type: string;
@@ -127,6 +137,13 @@ export class CpPlayerWeapon implements CpWeapon {
     return false;
   }
 
+  get isRangedWeapon(): boolean {
+    return (
+      this.type.toLowerCase() !== 'mel' ||
+      this.thrown
+    );
+  }
+
   reload() {
     if (this.currentShots) {
       this.selectShot = -1;
@@ -184,8 +201,66 @@ export class CpPlayerWeapon implements CpWeapon {
           total += martialBonus;
           msg += ` + ${martialBonus}(MA Mod)`;
         }
-        results.push( msg + `= ${total} to ${location}`);
+        results.push(msg + `= ${total} to ${location}`);
       }
+    }
+    return results;
+  }
+
+  rollToHit(dice: DiceService, ref: number, skill: Cp2020PlayerSkill,
+    diff: number, fireMode: number, shotsFired: number,
+    bodyDamageMod: number
+  ): toHitResults {
+    const results: toHitResults = { dieRoll: new DiceRolls, results: [] };
+    if (this.isRangedWeapon && this.isEmpty) {
+      return { dieRoll: new DiceRolls, results: ['Weapon needs to be reloaded'] };
+    }
+    const toHitDiceRoll = dice.rollCP2020D10();
+    const totalToHit = skill.value + ref + this.wa + toHitDiceRoll.total;
+    results.dieRoll = toHitDiceRoll;
+    let shots = shotsFired ? shotsFired : 1;
+    shots =  (fireMode === 1) ? 3 : shots;
+    const remainingRounds = this.shotsRemaining;
+    shots = (shots > remainingRounds) ? remainingRounds : shots;
+    this.fire(
+      dice,
+      ref,
+      skill.value,
+      shots
+    );
+    const degreeOfSuccess = (totalToHit - diff) + 1;
+    let successMsg = '';
+    if (degreeOfSuccess > 0 && toHitDiceRoll.rolls[0] !== 1) {
+      if  (fireMode === 1) {
+        const rounds = shots < 3 ? shots : 3;
+        shots = dice.generateNumber(1, rounds);
+
+      } else {
+        shots =
+        degreeOfSuccess > shots
+          ? shots
+          : degreeOfSuccess;
+      }
+      const maDmg = (skill.isMartialArts) ? skill.value : undefined;
+      const dmg = this.rollDamage(dice, shots, bodyDamageMod, maDmg);
+      if (shots > 1) {
+        successMsg = `${shots} round${shots > 1 ? 's' : ''}`;
+      } else {
+        successMsg = '1';
+      }
+      results.results = [`Success! ${successMsg} hit!`, ...dmg];
+    } else if (toHitDiceRoll.rolls[0] === 1) {
+      const msg = FumbleChart.getResults(
+        dice.generateNumber(1, 10),
+        skill
+      );
+      const jammed =
+        msg.indexOf('jam') > 0
+          ? this.checkReliability(dice)
+          : '';
+      results.results = ['Fumbled!', msg, jammed];
+    } else {
+      results.results = ['Missed!'];
     }
     return results;
   }
@@ -213,7 +288,7 @@ export class CpPlayerWeapon implements CpWeapon {
           return '';
       }
     }
-   }
+  }
 
   checkReliability(diceService: DiceService): string {
     const roll = diceService.generateNumber(1, 10);
@@ -254,9 +329,8 @@ export class CpPlayerWeapon implements CpWeapon {
     const ammoDmg =
       this.ammo && this.ammo !== ''
         ? `${this.ammo}(${this.damage || '-'})`
-        : (this.damage  || '-');
-    return `${this.type} ${this.wa || '-'} ${this.conc || '-'} ${
-      this.avail || '-'
-    } ${ammoDmg} ${this.shots || '-'} ${this.rof || '-'} ${this.rel || '-'}`;
+        : (this.damage || '-');
+    return `${this.type} ${this.wa || '-'} ${this.conc || '-'} ${this.avail || '-'
+      } ${ammoDmg} ${this.shots || '-'} ${this.rof || '-'} ${this.rel || '-'}`;
   }
 }
