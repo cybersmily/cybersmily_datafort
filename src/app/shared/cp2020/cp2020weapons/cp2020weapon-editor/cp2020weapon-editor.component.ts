@@ -13,6 +13,7 @@ export class Cp2020weaponEditorComponent implements OnInit {
   availabilities = WeaponProperties.availabilities;
   concealments = WeaponProperties.concealments;
   reliabilites = WeaponProperties.reliabilites;
+  newWeapon: CpPlayerWeapon;
 
   @Input()
   weapon: CpPlayerWeapon = new CpPlayerWeapon();
@@ -24,12 +25,15 @@ export class Cp2020weaponEditorComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.newWeapon = new CpPlayerWeapon(this.weapon);
+  }
 
   update() {
-    if (this.weapon.name && this.weapon.name !== '') {
-      this.updateWeapon.emit(this.weapon);
-      this.weapon = new CpPlayerWeapon();
+    if (this.newWeapon.name && this.newWeapon.name !== '') {
+      this.updateWeapon.emit(this.newWeapon);
+      this.newWeapon = new CpPlayerWeapon();
     }
   }
+
 }
