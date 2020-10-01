@@ -1,3 +1,4 @@
+import { NewsItems } from './../../shared/models/gigs';
 import { JsonDataFiles } from './../../shared/json-data-files';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -16,7 +17,7 @@ export class NewsComponent implements OnInit {
   faAngleDoubleRight = faAngleDoubleRight;
   @ViewChild('accordion', {static: false}) accordion: AccordionComponent;
 
-  newsItems: any;
+  newsItems: NewsItems;
   constructor(private dataService: DataService, private seo: SeoService) { }
 
   ngOnInit() {

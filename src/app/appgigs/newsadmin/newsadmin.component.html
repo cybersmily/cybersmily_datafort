@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <fa-icon [icon]="faSave" class="csd-btn float-right btn-lg" (click)="saveFile()" title="Save file"></fa-icon>
+    </div>
+  </div>
+  <accordion #accordion>
+    <accordion-group *ngFor="let report of newsItems.news; let i = index">
+      <div accordion-heading>
+        <h3 style="display:inline-block">{{report.title}}</h3>
+        <fa-icon [icon]="accordion.groups[i].isOpen?faAngleDoubleDown:faAngleDoubleRight" size="2x"></fa-icon>
+      </div>
+      <div class="csd-box csd-rounded row" *ngFor="let comment of report.reports; let ri = index" style="position:relative">
+        <div class="col-2">
+          <div class="float-left">
+            <img src="/img/peeps/th/th_{{comment.img}}.png" alt="{{comment.reporter}}" />
+            <br>
+            <input type="text" [(ngModel)]="comment.img" [typeahead]="images" style="width: 100%;">
+            <input type="text" [(ngModel)]="comment.reporter" [typeahead]="reporters" style="width: 100%;">
+          </div>
+        </div>
+        <div class="col">
+          <textarea type="text" [(ngModel)]="comment.commentary" style="width: 100%;min-height: 150px;"></textarea>
+        </div>
+
+        <div class="col-1">
+          <fa-icon [icon]="faTrash" class="csd-btn float-right ml-1" (click)="deleteNewsReport(i, ri)"></fa-icon>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <fa-icon [icon]="faPlus" class="csd-btn" (click)="addReport(i)"></fa-icon>
+          Image: <input type="text" [(ngModel)]="newNewsReport.img" [typeahead]="images">
+        </div>
+        <div class="col">Reporter: <input type="text" [(ngModel)]="newNewsReport.reporter" [typeahead]="reporters"> </div>
+      </div>
+      <div class="row">
+        <div class="col">Commentary:<br>
+          <textarea type="text" [(ngModel)]="newNewsReport.commentary" style="width: 100%"></textarea>
+        </div>
+      </div>
+    </accordion-group>
+    <br />
+  </accordion>
+  <div class="row">
+    <div class="col">
+      <fa-icon [icon]="faPlus" class="csd-btn" (click)="addNewNewsItem()"></fa-icon>
+      Title: <input type="text" [(ngModel)]="newNewsItem.title" style="width:60%;">
+    </div>
+  </div>
+  <div class="row csd-box csd-rounded" *ngFor="let report of newNewsItem.reports; let i = index">
+    <div class="col">
+      Image: <input type="text" [(ngModel)]="report.img" [typeahead]="images"> &nbsp;&nbsp;&nbsp;
+      Reporter: <input type="text" [(ngModel)]="report.reporter" [typeahead]="reporters">
+      <fa-icon [icon]="faTrash" class="csd-btn float-right" (click)="deleteNewNewsReport(i)"></fa-icon>
+      <br>
+      Commentary:
+      <br>
+      <textarea type="text" [(ngModel)]="report.commentary" style="width:100%"></textarea>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <div class="row">
+    <div class="col">
+      <fa-icon [icon]="faPlus" class="csd-btn" (click)="addNewReport()"></fa-icon>
+      Image: <input type="text" [(ngModel)]="newNewsReport.img" [typeahead]="images">
+    </div>
+    <div class="col">Reporter: <input type="text" [(ngModel)]="newNewsReport.reporter" [typeahead]="reporters"> </div>
+  </div>
+  <div class="row">
+    <div class="col">Commentary:<br>
+      <textarea type="text" [(ngModel)]="newNewsReport.commentary" style="width: 100%"></textarea>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,4 @@
+import { NewsadminComponent } from './newsadmin/newsadmin.component';
 import { NewsComponent } from './news/news.component';
 import { ScenarioComponent } from './scenario/scenario.component';
 import { NgModule } from '@angular/core';
@@ -11,6 +12,7 @@ const gigRoutes: Routes = [
     {path: 'wns7', component: NewsComponent },
     {path: 'prometheus', component: ScenarioComponent },
     {path: 'dossier', component: ScenarioComponent },
+    {path: 'newsadmin', component: NewsadminComponent },
     {path: '**', redirectTo: '/', pathMatch: 'full' }
   ]}
 ];
