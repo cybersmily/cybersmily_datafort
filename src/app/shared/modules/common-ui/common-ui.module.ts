@@ -8,7 +8,7 @@ import { BsDropdownModule,
           AccordionModule,
           TabsModule,
           PopoverModule,
-          SortableModule
+          SortableModule, TypeaheadModule
         } from 'ngx-bootstrap';
 import { NgModule } from '@angular/core';
 
@@ -26,6 +26,7 @@ import { NgModule } from '@angular/core';
     SortableModule.forRoot(),
     TabsModule.forRoot(),
     TooltipModule.forRoot(),
+    TypeaheadModule.forRoot(),
     FontAwesomeModule
   ],
   exports: [
@@ -38,6 +39,7 @@ import { NgModule } from '@angular/core';
     SortableModule,
     TabsModule,
     TooltipModule,
+    TypeaheadModule,
     FontAwesomeModule
   ],
   providers: [
