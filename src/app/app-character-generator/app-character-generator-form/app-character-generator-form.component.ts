@@ -37,7 +37,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     private saveFileService: SaveFileService,
     private fileLoader: FileLoaderService,
     private seo: SeoService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.seo.updateMeta(
@@ -85,7 +85,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     this.characterService.changeSkills(value);
   }
 
-  changeImage(value: string) {}
+  changeImage(value: string) { }
 
   resetCharacter() {
     this.characterService.clearCharacter();
@@ -123,5 +123,14 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     this.fileLoader
       .importJSON($event.target.files[0])
       .subscribe((data) => this.characterService.changeCharacter(data));
+  }
+
+  get combatSense(): number {
+    let result = 0;
+    if (this.character.role.specialAbility.name.toLowerCase() === 'combatsense'
+      || this.character.role.specialAbility.name.toLowerCase() === 'combat sense') {
+      result = this.character.role.specialAbility.value;
+    }
+    return result;
   }
 }

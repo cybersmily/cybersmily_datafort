@@ -1,3 +1,4 @@
+import { Cp2020StatsModule } from './../shared/cp2020/cp2020-stats/cp2020-stats.module';
 import { Cp2020weaponsModule } from './../shared/cp2020/cp2020weapons/cp2020weapons.module';
 import { CmbtTrckOppChartService } from './services/cmbt-trck-opp-chart.service';
 import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';
@@ -14,8 +15,6 @@ import { CommonModule } from '@angular/common';
 import { AppCmbtTrackRoutingModule } from './app-cmbt-track-routing.module';
 import { CmbtTrckFormComponent } from './cmbt-trck-form/cmbt-trck-form.component';
 import { CmbtTrckOpponentCardComponent } from './cmbt-trck-opponent-card/cmbt-trck-opponent-card.component';
-import { CmbtTrckStatsComponent } from './cmbt-trck-stats/cmbt-trck-stats.component';
-import { CmbtTrckStatComponent } from './cmbt-trck-stat/cmbt-trck-stat.component';
 import { CmbtTrkSpComponent } from './cmbt-trk-sp/cmbt-trk-sp.component';
 import { CmbtTrkSkillsComponent } from './cmbt-trk-skills/cmbt-trk-skills.component';
 import { CmbtTrkCyberComponent } from './cmbt-trk-cyber/cmbt-trk-cyber.component';
@@ -30,10 +29,8 @@ import { CmbtTrckArmorComponent } from './cmbt-trck-armor/cmbt-trck-armor.compon
   declarations: [
     CmbtTrckFormComponent,
     CmbtTrckOpponentCardComponent,
-    CmbtTrckStatsComponent,
     CmbtTrckWoundSectComponent,
     CmbtTrckWoundLevelComponent,
-    CmbtTrckStatComponent,
     CmbtTrkSpComponent,
     CmbtTrkSkillsComponent,
     CmbtTrkCyberComponent,
@@ -47,7 +44,8 @@ import { CmbtTrckArmorComponent } from './cmbt-trck-armor/cmbt-trck-armor.compon
     CommonModule,
     PipesModule,
     AppCmbtTrackRoutingModule,
-    Cp2020weaponsModule
+    Cp2020weaponsModule,
+    Cp2020StatsModule
   ],
   providers: [
     DiceService,

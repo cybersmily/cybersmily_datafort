@@ -1,0 +1,50 @@
+<div title="{{statName}}: {{stat.toString()}}"
+  (click)="openModal(statModifiers)"
+  [ngClass]="{'d-inline-block': true, 'text-danger': isWounded, 'csd-btn': true, 'stat-values':true}">
+{{statName}} <span class="d-inline-block">[{{stat.Base}}/{{stat.Adjusted}}]</span>&nbsp;&nbsp;
+</div>
+
+<ng-template #statModifiers>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">{{statName}} Modifiers</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body container">
+    <div class="row">
+      <div class="col text-right">Base:</div>
+      <div class="col"><input type="number" [(ngModel)]="stat.Base" class="stat-input"></div>
+    </div>
+    <div class="row" *ngIf="stat.ev !== 0">
+      <div class="col text-right">EV:</div>
+      <div class="col">-{{stat.ev}}</div>
+    </div>
+    <div class="row" *ngFor="let mod of stat.modifiers; let i = index">
+      <div class="col text-right">{{mod.name}}</div>
+      <div class="col">{{mod.mod}}&nbsp;&nbsp;<fa-icon [icon]="faTrash" class="csd-btn" (click)="deleteModifier(i)"></fa-icon></div>
+    </div>
+    <div class="row" *ngIf="stat.WoundModifier !== 0">
+      <div class="col text-right">Wound:</div>
+      <div class="col">{{stat.WoundModifier}}</div>
+    </div>
+    <div class="row" *ngIf="stat.Multiplier !== 1">
+      <div class="col text-right">Wound:</div>
+      <div class="col">x {{stat.Multiplier}}</div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <fa-icon [icon]="faPlus" class="csd-btn" (click)="addModifier()" ></fa-icon>&nbsp;
+        <input type="text" [(ngModel)]="newStatModifier.name" placeholder="enter name">
+      </div>
+      <div class="col">
+        <input type="number" [(ngModel)]="newStatModifier.mod" class="stat-input">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-right">Total: </div>
+      <div class="col">{{stat.Adjusted}}</div>
+    </div>
+  </div>
+</ng-template>

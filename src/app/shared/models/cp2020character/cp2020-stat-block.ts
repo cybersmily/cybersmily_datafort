@@ -1,6 +1,6 @@
 import { Cp2020_WOUND_LEVELS } from './cp2020-wound-levels.enum';
 import { Cp2020Stats} from './cp2020-stats';
-import { Cp2020Stat} from './cp2020-stat';
+import { Cp2020Stat, StatModifier} from './cp2020-stat';
 
 export class Cp2020StatBlock implements Cp2020Stats {
   private _basePoints: number; // used to total points for when PC was created.
@@ -20,6 +20,7 @@ export class Cp2020StatBlock implements Cp2020Stats {
   private _damage: number;
   isStunned: boolean;
   deathState: number;
+  initiativeModifiers: Array<StatModifier>;
 
   constructor() {
     this._basePoints = 0;
@@ -38,6 +39,7 @@ export class Cp2020StatBlock implements Cp2020Stats {
     this.StunSaveMod = 0;
     this.isStunned = false;
     this.deathState = 0;
+    this.initiativeModifiers = new Array<StatModifier>();
   }
 
   import( value: any ) {
@@ -52,18 +54,19 @@ export class Cp2020StatBlock implements Cp2020Stats {
     this.BODY = this.importStat(value.BODY);
     this.EMP = this.importStat(value.EMP);
     this._humanityCost =  (value._humanityCost) ? value._humanityCost : 0;
-    this.EMP.Modifier = -(Math.floor(this._humanityCost / 10));
+    this.setHCCost();
     this.Damage = (value._damage) ? value._damage : 0;
     this.isStunned = (value.isStunned !== undefined) ? value.isStunned : false;
     this.StunSaveMod = (value.StunSaveMod) ? value.StunSaveMod : 0;
     this.DeathSaveMod = (value.DeathSaveMod) ? value.DeathSaveMod : 0;
     this.deathState = (value.deathState) ? value.deathState : 0;
+    this.initiativeModifiers = (value.initiativeModifiers) ? value.initiativeModifiers : new Array<StatModifier>();
   }
 
   private importStat(value): Cp2020Stat {
     const stat = new Cp2020Stat();
     stat.Base = (value && value._value) ? value._value : 0;
-    stat.Modifier = (value && value.Modifier) ? value.Modifier : 0;
+    stat.modifiers = (value && value.modifiers) ? value.modifiers : new Array<StatModifier>();
     stat.Multiplier  = (value && value._multiplier) ? value._multiplier : 1;
     stat.WoundModifier  = (value && value._woundMod) ? value._woundMod : 0;
     return stat;
@@ -104,9 +107,10 @@ export class Cp2020StatBlock implements Cp2020Stats {
   }
 
   set HumanityCost(value: number) {
-    this.EMP.Modifier = -(Math.floor(value / 10));
     this._humanityCost = value;
+    this.setHCCost();
   }
+
 
   get Run(): number {
     return (this.MA.Adjusted) * 3;
@@ -213,6 +217,8 @@ export class Cp2020StatBlock implements Cp2020Stats {
     if (this._damage > 4 && this._damage < 9) {
       this.REF.WoundModifier = -2;
       this.REF.Multiplier = 1;
+      this.INT.Multiplier = 1;
+      this.COOL.Multiplier = 1;
       this.WoundLevel = Cp2020_WOUND_LEVELS.SERIOUS;
     } else if (this._damage > 0 && this._damage < 5) {
       this.REF.WoundModifier = 0;
@@ -256,9 +262,25 @@ export class Cp2020StatBlock implements Cp2020Stats {
       }
     } else {
       this.WoundLevel = Cp2020_WOUND_LEVELS.NONE;
+      this.REF.WoundModifier = 0;
       this.REF.Multiplier = 1;
       this.INT.Multiplier = 1;
       this.COOL.Multiplier = 1;
     }
+  }
+
+  private setHCCost() {
+    if (!this.EMP.modifiers) {
+      this.EMP.modifiers = new Array<StatModifier>();
+    }
+    if (!this.EMP.modifiers.some(m => m.name === 'HC')) {
+      this.EMP.modifiers.push({name: 'HC', mod: -Math.floor(this._humanityCost / 10)});
+    } else {
+      const i = this.EMP.modifiers.findIndex(m => m.name === 'HC');
+      if (i > -1) {
+        this.EMP.modifiers[i].mod = -Math.floor(this._humanityCost / 10);
+      }
+    }
+
   }
 }

@@ -61,8 +61,7 @@
     </tab>
     <tab heading="STATS" [customClass]="customClass">
       <div class="csd-rounded">
-        <cs-cmbt-trck-stats [statBlock]="opponent.stats" (changeStatBlock)="onStatBlockChange($event)">
-        </cs-cmbt-trck-stats>
+        <cs-cp2020-stats [stats]="opponent.stats" [showCharacterPoints]="false"></cs-cp2020-stats>
         <br>
       </div>
     </tab>

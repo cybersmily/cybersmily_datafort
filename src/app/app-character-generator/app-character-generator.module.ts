@@ -1,3 +1,4 @@
+import { Cp2020StatsModule } from './../shared/cp2020/cp2020-stats/cp2020-stats.module';
 import { NameGeneratorService } from './../shared/services/namegen/name-generator.service';
 import { Cp2020CyberwareModule } from './../shared/cp2020/cp2020-cyberware/cp2020-cyberware.module';
 import { Cp2020weaponsModule } from './../shared/cp2020/cp2020weapons/cp2020weapons.module';
@@ -18,7 +19,6 @@ import { AppCharacterGeneratorRoutingModule } from './app-character-generator-ro
 import { AppCharacterGeneratorFormComponent } from './app-character-generator-form/app-character-generator-form.component';
 import { AppCharacterHandleComponent } from './app-character-handle/app-character-handle.component';
 import { AppCharacterRoleComponent } from './app-character-role/app-character-role.component';
-import { AppCharacterStatsComponent } from './app-character-stats/app-character-stats.component';
 import { AppCharacterArmorComponent } from './app-character-armor/app-character-armor.component';
 import { AppCharacterSaveWoundsComponent } from './app-character-save-wounds/app-character-save-wounds.component';
 import { AppCharacterImageComponent } from './app-character-image/app-character-image.component';
@@ -34,7 +34,6 @@ import { AppCharacterWoundLevelComponent } from './app-character-wound-level/app
     AppCharacterGeneratorFormComponent,
     AppCharacterHandleComponent,
     AppCharacterRoleComponent,
-    AppCharacterStatsComponent,
     AppCharacterArmorComponent,
     AppCharacterSaveWoundsComponent,
     AppCharacterImageComponent,
@@ -51,6 +50,7 @@ import { AppCharacterWoundLevelComponent } from './app-character-wound-level/app
     AppCharacterGeneratorRoutingModule,
     Cp2020weaponsModule,
     Cp2020CyberwareModule,
+    Cp2020StatsModule,
     ModalModule.forRoot()
   ],
   providers: [

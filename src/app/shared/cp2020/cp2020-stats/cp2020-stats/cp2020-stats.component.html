@@ -1,1 +1,89 @@
-<p>cp2020-stats works!</p>
+<div class="chargen-section row">
+  <div *ngIf="showCharacterPoints" class="col">
+      <span class="chargen-label">CHARACTER POINTS</span>
+      <input [(ngModel)]="stats.BasePoints" (change)="onStatChange()" type="number" min="0" max="90"
+        class="chargen-input chargen-charpoint-input " />
+      <span *ngIf="stats.CurrentPoints !== 0"
+        [ngClass]="{'chargen-stats-over':isOver, 'chargen-stats-current':true}">{{stats.CurrentPoints}}</span>
+      <span class="hidden-print">
+        <fa-icon [icon]="faDice" class="chargen-point-dice" (click)="rollCharacterPoints()"
+          title="Roll for character points. Rolls 9d10, rerolling 1s."></fa-icon>
+        rolls: [{{rolls}}]
+      </span>
+    </div>
+</div>
+<div class="chargen-section row">
+  <div class="col">
+  <div class="chargen-label chargen-stats">STATS<fa-icon class="csd-dice ml-2" [icon]="faDice" (click)="rollStats()">
+    </fa-icon>
+  </div>
+</div>
+<div class="col">
+  <span (click)="openModal(initiative)" class="stats-initiative csd-btn">
+  Initiative: {{totalInitiative}}
+</span>&nbsp;&nbsp;
+<fa-icon [icon]="faDice" class="csd-dice" (click)="rollInitiative()"></fa-icon>
+&nbsp;&nbsp;
+  <span *ngIf="initiativeRoll" title="{{totalInitiative}} + {{initiativeRoll.show()}}">= {{totalInitiative + initiativeRoll.total}}</span>
+</div>
+</div>
+<div class="chargen-stat-section row">
+  <div class="col">
+  <cs-cp2020-stat [stat]="stats.INT" [statName]="'INT'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+  <cs-cp2020-stat [stat]="stats.REF" [statName]="'REF'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+  <cs-cp2020-stat [stat]="stats.TECH" [statName]="'TECH'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+  <cs-cp2020-stat [stat]="stats.COOL" [statName]="'COOL'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+</div>
+</div>
+<div class="chargen-stat-section row">
+  <div class="col">
+  <cs-cp2020-stat [stat]="stats.ATTR" [statName]="'ATTR'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+  <cs-cp2020-stat [stat]="stats.LUCK" [statName]="'LUCK'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+  <cs-cp2020-stat [stat]="stats.MA" [statName]="'MA'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+  <cs-cp2020-stat [stat]="stats.BODY" [statName]="'BODY'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+  </div>
+</div>
+<div class="chargen-stat-section row">
+  <div class="col">
+  <cs-cp2020-stat [stat]="stats.EMP" [statName]="'EMP'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+  Run [{{stats.Run}}m]
+  Leap [{{stats.Leap}}m]
+  Lift[{{stats.Lift}}kg]
+  </div>
+</div>
+
+<ng-template #initiative>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Initiative Modifiers</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body container">
+    <div class="row">
+      <div class="col text-right">REF:</div>
+      <div class="col">{{stats.REF.Adjusted}}</div>
+    </div>
+    <div class="row" *ngIf="combatSense > 0">
+      <div class="col text-right">Combat Sense:</div>
+      <div class="col">{{combatSense}}</div>
+    </div>
+    <div class="row" *ngFor="let mod of stats.initiativeModifiers">
+      <div class="col text-right">{{mod.name}}:</div>
+      <div class="col">{{mod.mod}}</div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <fa-icon [icon]="faPlus" class="csd-btn" (click)="addModifier()"></fa-icon>&nbsp;
+        <input type="text" [(ngModel)]="newInitModifier.name" placeholder="enter name">
+      </div>
+      <div class="col">
+        <input type="number" [(ngModel)]="newInitModifier.mod" class="stat-input">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-right">Total: </div>
+      <div class="col"></div>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,9 @@
+
+.stat-input {
+  width: 40px;
+  text-align: center;
+}
+
+.stat-values:hover {
+  background-color: #CCC;
+}
