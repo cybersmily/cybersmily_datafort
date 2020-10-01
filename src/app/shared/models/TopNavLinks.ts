@@ -178,8 +178,14 @@ export interface SiteLinksGroup {
             desc: 'Another site for chracter genartion.', target: '_blank'},
           {title: 'Laurel Cadre Goon Generator', link: 'http://www.laurelcadre.com/cp_goon/',
             desc: 'Nice way of craete quick NPCs for the game.', target: '_blank'},
-            {title: 'Cyberpunk Uncensored', link: 'https://www.cyberpunkuncensored.com/',
-              desc: 'New site to the scene. Rob Mulligan from Mulligan Live is pushing the game to the masses.', target: '_blank'}
+          {title: 'Cyberpunk Uncensored', link: 'https://www.cyberpunkuncensored.com/',
+              desc: 'New site to the scene. Rob Mulligan from Mulligan Live is pushing the game to the masses.', target: '_blank'},
+          {title: 'Datapool 2045',
+              link: 'https://datapool2045.net/',
+                    desc: 'Cool site with links to help guide edgerunners to things Cyberpunk', target: '_blank'},
+          {title: 'SkethcFab NC map',
+          link: 'https://sketchfab.com/3d-models/night-city-2020-schematic-map-7ba41a4a19574bb38bf744d7017df48c',
+                desc: 'Real nice 3d map of Night City.', target: '_blank'}
         ]
       });
       this.menuItems.push({
