@@ -33,6 +33,18 @@
   cursor: pointer;
 }
 
+.stats-initiative {
+  display: inline-block;
+  margin-top: -1;
+  margin-left: 5px;
+  height: 26px;
+  min-height: 26px;
+  width: 40px;
+  min-width: 40px;;
+  border: solid 1px black;
+  text-align: center;
+}
+
 .stats-initiative:hover {
   background-color: #BBB;
   font-weight: bold;

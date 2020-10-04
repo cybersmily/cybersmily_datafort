@@ -36,8 +36,7 @@
   </div>
   <div class='row'>
     <div class='col-12'>
-      <cs-cmbt-trck-wound-sect [stats]="opponent.stats" (updateStats)="onStatBlockChange($event)">
-      </cs-cmbt-trck-wound-sect>
+      <cs-cp2020-save-wounds [stats]="opponent.stats"></cs-cp2020-save-wounds>
     </div>
   </div>
   <div class='row'>
@@ -61,7 +60,7 @@
     </tab>
     <tab heading="STATS" [customClass]="customClass">
       <div class="csd-rounded">
-        <cs-cp2020-stats [stats]="opponent.stats" [showCharacterPoints]="false"></cs-cp2020-stats>
+        <cs-cp2020-stats [stats]="opponent.stats" [showCharacterPoints]="false" [showRollInitiative]="false"></cs-cp2020-stats>
         <br>
       </div>
     </tab>

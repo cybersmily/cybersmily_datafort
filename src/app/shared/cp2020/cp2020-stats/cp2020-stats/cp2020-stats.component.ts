@@ -24,6 +24,7 @@ export class Cp2020StatsComponent implements OnInit {
   rolls: Array<number> = new Array<number>();
   newInitModifier: StatModifier = {name: '', mod: 0};
   initiativeRoll: DiceRolls = new DiceRolls();
+  showInitiativeRoll = false;
 
 
   @Input()
@@ -35,8 +36,13 @@ export class Cp2020StatsComponent implements OnInit {
   @Input()
   combatSense = 0;
 
+
+  @Input()
+  showRollInitiative = true;
+
   @Output()
   changeStats = new EventEmitter<Cp2020StatBlock>();
+
 
   constructor(private dice: DiceService, private modalService: BsModalService) { }
 
@@ -133,7 +139,11 @@ export class Cp2020StatsComponent implements OnInit {
     this.onStatsChange();
   }
 
-  openModal(template: TemplateRef<any>) {
+  openModal(template: TemplateRef<any>, showInit: boolean) {
+    this.showInitiativeRoll = showInit;
+    if (showInit) {
+      this.rollInitiative();
+    }
     this.modalRef = this.modalService.show(template, this.modalConfig);
   }
 

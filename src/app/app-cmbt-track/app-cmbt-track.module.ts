@@ -1,3 +1,4 @@
+import { Cp2020WoundsModule } from './../shared/cp2020/cp2020wounds/cp2020wounds.module';
 import { Cp2020StatsModule } from './../shared/cp2020/cp2020-stats/cp2020-stats.module';
 import { Cp2020weaponsModule } from './../shared/cp2020/cp2020weapons/cp2020weapons.module';
 import { CmbtTrckOppChartService } from './services/cmbt-trck-opp-chart.service';
@@ -45,7 +46,8 @@ import { CmbtTrckArmorComponent } from './cmbt-trck-armor/cmbt-trck-armor.compon
     PipesModule,
     AppCmbtTrackRoutingModule,
     Cp2020weaponsModule,
-    Cp2020StatsModule
+    Cp2020StatsModule,
+    Cp2020WoundsModule
   ],
   providers: [
     DiceService,

@@ -19,12 +19,12 @@
   </div>
 </div>
 <div class="col">
-  <span (click)="openModal(initiative)" class="stats-initiative csd-btn">
-  Initiative: {{totalInitiative}}
-</span>&nbsp;&nbsp;
-<fa-icon [icon]="faDice" class="csd-dice" (click)="rollInitiative()"></fa-icon>
-&nbsp;&nbsp;
-  <span *ngIf="initiativeRoll" title="{{totalInitiative}} + {{initiativeRoll.show()}}">= {{totalInitiative + initiativeRoll.total}}</span>
+  <span class=" chargen-label">
+    Initiative&nbsp;&nbsp;
+    <fa-icon *ngIf="showRollInitiative"
+    [icon]="faDice" class="csd-dice hidden-print" (click)="openModal(initiative, true)"></fa-icon>
+</span>
+  <span class="stats-initiative csd-btn" (click)="openModal(initiative, false)">{{totalInitiative}}</span>
 </div>
 </div>
 <div class="chargen-stat-section row">
@@ -54,7 +54,7 @@
 
 <ng-template #initiative>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">Initiative Modifiers</h4>
+    <h4 class="modal-title pull-left">Initiative</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -66,11 +66,11 @@
     </div>
     <div class="row" *ngIf="combatSense > 0">
       <div class="col text-right">Combat Sense:</div>
-      <div class="col">{{combatSense}}</div>
+      <div class="col">+{{combatSense}}</div>
     </div>
     <div class="row" *ngFor="let mod of stats.initiativeModifiers">
       <div class="col text-right">{{mod.name}}:</div>
-      <div class="col">{{mod.mod}}</div>
+      <div class="col">{{mod.mod > 0 ? '+' + mod.mod : mod.mod}}</div>
     </div>
     <div class="row">
       <div class="col">
@@ -81,9 +81,18 @@
         <input type="number" [(ngModel)]="newInitModifier.mod" class="stat-input">
       </div>
     </div>
+    <hr>
+    <div class="row" *ngIf="showInitiativeRoll">
+      <div class="col text-right">DICE ROLL: </div>
+      <div class="col">+{{initiativeRoll.show()}}</div>
+    </div>
+    <hr>
     <div class="row">
       <div class="col text-right">Total: </div>
-      <div class="col"></div>
+      <div class="col" *ngIf="showInitiativeRoll;else noInititaiveRoll">{{totalInitiative + initiativeRoll.total}}</div>
+      <ng-template #noInititaiveRoll>
+        <div class="col">{{totalInitiative}}</div>
+      </ng-template>
     </div>
   </div>
 </ng-template>

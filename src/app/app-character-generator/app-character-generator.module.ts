@@ -1,3 +1,4 @@
+import { Cp2020WoundsModule } from './../shared/cp2020/cp2020wounds/cp2020wounds.module';
 import { Cp2020StatsModule } from './../shared/cp2020/cp2020-stats/cp2020-stats.module';
 import { NameGeneratorService } from './../shared/services/namegen/name-generator.service';
 import { Cp2020CyberwareModule } from './../shared/cp2020/cp2020-cyberware/cp2020-cyberware.module';
@@ -20,14 +21,12 @@ import { AppCharacterGeneratorFormComponent } from './app-character-generator-fo
 import { AppCharacterHandleComponent } from './app-character-handle/app-character-handle.component';
 import { AppCharacterRoleComponent } from './app-character-role/app-character-role.component';
 import { AppCharacterArmorComponent } from './app-character-armor/app-character-armor.component';
-import { AppCharacterSaveWoundsComponent } from './app-character-save-wounds/app-character-save-wounds.component';
 import { AppCharacterImageComponent } from './app-character-image/app-character-image.component';
 import { AppCharacterCyberwareComponent } from './app-character-cyberware/app-character-cyberware.component';
 import { AppCharacterLifepathComponent } from './app-character-lifepath/app-character-lifepath.component';
 import { AppCharacterGearComponent } from './app-character-gear/app-character-gear.component';
 import { AppCharacterSkillsComponent } from './app-character-skills/app-character-skills.component';
 import { AppCharacterSkillComponent } from './app-character-skill/app-character-skill.component';
-import { AppCharacterWoundLevelComponent } from './app-character-wound-level/app-character-wound-level.component';
 
 @NgModule({
   declarations: [
@@ -35,14 +34,12 @@ import { AppCharacterWoundLevelComponent } from './app-character-wound-level/app
     AppCharacterHandleComponent,
     AppCharacterRoleComponent,
     AppCharacterArmorComponent,
-    AppCharacterSaveWoundsComponent,
     AppCharacterImageComponent,
     AppCharacterCyberwareComponent,
     AppCharacterLifepathComponent,
     AppCharacterGearComponent,
     AppCharacterSkillsComponent,
-    AppCharacterSkillComponent,
-    AppCharacterWoundLevelComponent
+    AppCharacterSkillComponent
   ],
   imports: [
     CommonModule,
@@ -51,6 +48,7 @@ import { AppCharacterWoundLevelComponent } from './app-character-wound-level/app
     Cp2020weaponsModule,
     Cp2020CyberwareModule,
     Cp2020StatsModule,
+    Cp2020WoundsModule,
     ModalModule.forRoot()
   ],
   providers: [
