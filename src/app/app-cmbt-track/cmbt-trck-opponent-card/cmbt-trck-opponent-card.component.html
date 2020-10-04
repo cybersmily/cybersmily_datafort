@@ -60,7 +60,7 @@
     </tab>
     <tab heading="STATS" [customClass]="customClass">
       <div class="csd-rounded">
-        <cs-cp2020-stats [stats]="opponent.stats" [showCharacterPoints]="false" [showRollInitiative]="false"></cs-cp2020-stats>
+        <cs-cp2020-stats [stats]="opponent.stats" [showCharacterPoints]="false" [showRollInitiative]="false" (changeStats)="onStatBlockChange($event)"></cs-cp2020-stats>
         <br>
       </div>
     </tab>

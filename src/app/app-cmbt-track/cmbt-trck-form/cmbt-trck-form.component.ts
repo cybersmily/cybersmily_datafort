@@ -1,3 +1,4 @@
+import { Cp2020StatBlock } from './../../shared/models/cp2020character/cp2020-stat-block';
 import { CharacterImporterService } from './../../shared/services/charimporter/character-importer.service';
 import { FileLoaderService } from './../../shared/services/file-loader/file-loader.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -159,6 +160,18 @@ export class CmbtTrckFormComponent implements OnInit {
       });
 
     }
+  }
+
+  showInitiativeMods(oppStats: Cp2020StatBlock, combatSense: number): string {
+    let results = '';
+    results = oppStats.initiativeModifiers.map( mod => `,${mod.name}: ${mod.mod > 0 ? '+' + mod.mod : mod.mod}`).join('');
+    const cmbtSense = (combatSense > 0) ? `, Combat Sensse: +${combatSense}`  : '';
+    results = `[REF: ${oppStats.REF.Adjusted}${cmbtSense}${results}]`;
+    return results;
+  }
+
+  showInitiativeTooltip(opp: CmbtTrckOpponent): string {
+    return `Initiative Roll(s): (${opp.initDie.join(' + ')}) + ${this.showInitiativeMods(opp.stats, opp.combatSense)}`;
   }
 
 }

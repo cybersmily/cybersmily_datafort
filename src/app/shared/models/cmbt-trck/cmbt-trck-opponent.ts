@@ -129,6 +129,7 @@ export class CmbtTrckOpponent {
   calculateInitiative(roll: Array<number>) {
     this.initDie = roll;
     this.initRoll = this.stats.REF.Adjusted;
+    this.initRoll += this.stats.initiativeModifiers.reduce( (a, b) => a + b.mod, 0);
     this.initRoll += +this.initDie.reduce((a, b) => a + b, 0);
     this.initRoll += this.combatSense;
   }

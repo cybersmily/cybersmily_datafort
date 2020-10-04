@@ -32,13 +32,15 @@
           </div>
           <div *ngFor="let opp of opponents; index as i"
               [ngClass]="{'csd-rounded':true, 'row': true, 'cbttrk-init': true, 'cbttrk-selected': (selectedOpponent.name === opp.name)}">
-            <div class="col-3" title="Initiative Roll(s): ({{opp.initDie.join(' + ')}}) + REF: {{opp.stats.REF.Adjusted}} + Combat Sense: {{opp.combatSense}}">
+            <div class="col-3" [title]="showInitiativeTooltip(opp)">
               <input [(ngModel)]="opp.initRoll" type="number" (change)="changeInitiative()" class="csd-hide-spinner text-center" />
               <fa-icon [icon]="faDice" class="csd-btn opp-init csd-dice"
               title="Roll initiative for this opponent" (click)="rollInitiative(i)"></fa-icon>
             </div>
             <div class="col-8 cbttrk-opp-name csd-btn" (click)='selectOpponent(i)' title="Click to show opponent...">
-               <span>{{opp.name}}</span> [REF:{{opp.stats.REF.Adjusted}}]
+               <span>{{opp.name}}</span>
+               <br>
+               <span class="cbtrck-opp-init-mods">[REF: {{opp.stats.REF.Adjusted}}]</span>
             </div>
             <div class="col-1">
               <fa-icon [icon]="faTrash" class="pull-right csd-btn opp-delete" (click)="removeOpponent(i)" title="Delete opponent"></fa-icon>
