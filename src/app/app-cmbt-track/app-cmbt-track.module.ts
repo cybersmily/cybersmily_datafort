@@ -19,8 +19,6 @@ import { CmbtTrckOpponentCardComponent } from './cmbt-trck-opponent-card/cmbt-tr
 import { CmbtTrkSpComponent } from './cmbt-trk-sp/cmbt-trk-sp.component';
 import { CmbtTrkSkillsComponent } from './cmbt-trk-skills/cmbt-trk-skills.component';
 import { CmbtTrkCyberComponent } from './cmbt-trk-cyber/cmbt-trk-cyber.component';
-import { CmbtTrckWoundLevelComponent } from './cmbt-trck-wound-level/cmbt-trck-wound-level.component';
-import { CmbtTrckWoundSectComponent } from './cmbt-trck-wound-sect/cmbt-trck-wound-sect.component';
 import { CmbtTrckMainComponent } from './cmbt-trck-main/cmbt-trck-main.component';
 import { CmbtTrckInstructionsComponent } from './cmbt-trck-instructions/cmbt-trck-instructions.component';
 import { CmbtTrckGearComponent } from './cmbt-trck-gear/cmbt-trck-gear.component';
@@ -30,8 +28,6 @@ import { CmbtTrckArmorComponent } from './cmbt-trck-armor/cmbt-trck-armor.compon
   declarations: [
     CmbtTrckFormComponent,
     CmbtTrckOpponentCardComponent,
-    CmbtTrckWoundSectComponent,
-    CmbtTrckWoundLevelComponent,
     CmbtTrkSpComponent,
     CmbtTrkSkillsComponent,
     CmbtTrkCyberComponent,

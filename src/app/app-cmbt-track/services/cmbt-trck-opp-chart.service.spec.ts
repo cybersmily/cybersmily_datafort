@@ -192,7 +192,6 @@ describe('CmbtTrckOppChartService', () => {
     it('should generate cyberware from dataService', (done) => {
       service.generateCyberware(4).subscribe(data => {
         expect(data).toBeTruthy();
-        console.log(data);
         expect(data.length).toEqual(4);
         expect(data[0]).toBeTruthy();
         expect(data[0].name).not.toBeUndefined();

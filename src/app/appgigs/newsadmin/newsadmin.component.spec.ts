@@ -1,3 +1,5 @@
+import { DataService } from './../../shared/services/data.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NewsadminComponent } from './newsadmin.component';
@@ -8,7 +10,13 @@ describe('NewsadminComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewsadminComponent ]
+      declarations: [ NewsadminComponent ],
+      imports: [
+        HttpClientTestingModule
+      ],
+      providers: [
+        DataService
+      ]
     })
     .compileComponents();
   }));

@@ -20,7 +20,7 @@ export class NewsadminComponent implements OnInit {
   faPen = faPen;
   faSave = faSave;
 
-  newsItems: GigNewsItem;
+  newsItems: GigNewsItem = new GigNewsItem();
 
   newNewsItem: NewsItem = { title: '', reports: new Array<NewsReport>()};
   newNewsReport: NewsReport = {img: 'tphillips', reporter: 'Tom Phillps', commentary: ''};
