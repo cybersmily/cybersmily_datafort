@@ -14,8 +14,10 @@ export class Cp2020SaveWoundsComponent implements OnInit {
   faDice = faDice;
   modalRef: BsModalRef;
   stunSaveRoll = 0;
+  stunSaveMod = 0;
   stunMessage = '';
   deathSaveRoll = 0;
+  deathSaveMod = 0;
   deathMessage = '';
   currStats: Cp2020StatBlock = new Cp2020StatBlock();
 
@@ -36,32 +38,34 @@ export class Cp2020SaveWoundsComponent implements OnInit {
     this.changeStats.emit(this.currStats);
   }
 
-  rollStunSave(template: TemplateRef<any>) {
+  openSave(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, {class: 'modal-dialog-centered'});
+  }
+
+  rollStunSave() {
     this.stunSaveRoll = this.dice.generateNumber(1, 10);
     this.stunMessage = '';
-    if (this.stunSaveRoll > this.currStats.Save) {
+    if (this.stunSaveRoll > (this.currStats.Save + this.stunSaveMod)) {
       this.stunMessage = 'Stunned! Try again next turn';
       this.currStats.isStunned = true;
     } else {
       this.stunMessage = 'Saved! You\'re still awake.';
       this.currStats.isStunned = false;
     }
-    this.modalRef = this.modalService.show(template, {class: 'modal-dialog-centered'});
     this.changeStats.emit(this.currStats);
   }
 
-  rollDeathSave(template: TemplateRef<any>) {
+  rollDeathSave() {
     this.deathSaveRoll = this.dice.generateNumber(1, 10);
     this.deathMessage = '';
 
-    if (this.deathSaveRoll > this.currStats.DeathSave) {
+    if (this.deathSaveRoll > (this.currStats.DeathSave + this.deathSaveMod)) {
       this.deathMessage = 'You died! Death State is 1. See page 116 Cyberpunk 2020 book for details.';
       this.currStats.deathState = 1;
     } else {
       this.deathMessage = 'You\'re still breathing and in the fight!';
       this.currStats.deathState = 0;
     }
-    this.modalRef = this.modalService.show(template, {class: 'modal-dialog-centered'});
     this.changeStats.emit(this.currStats);
   }
 }

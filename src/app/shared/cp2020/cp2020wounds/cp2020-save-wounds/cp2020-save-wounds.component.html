@@ -6,11 +6,11 @@
           <div class="chargen-save-title">SAVE</div>
           <div [ngClass]="{'chargen-save-text':true, 'chargen-damaged': (stats.Damage > 4)}">
             STUN: {{stats.Save}}
-            <fa-icon [icon]="faDice" (click)="rollStunSave(chargenStunSaveRoll)" title="Click to Roll"></fa-icon>
+            <fa-icon [icon]="faDice" (click)="openSave(chargenStunSaveRoll)" title="Click to Roll"></fa-icon>
           </div>
           <div [ngClass]="{'chargen-save-text':true, 'chargen-damaged': (stats.Damage > 12)}">
             DEATH: {{stats.DeathSave}}
-            <fa-icon [icon]="faDice" (click)="rollDeathSave(chargenDeathSaveRoll)" title="Click to Roll"></fa-icon>
+            <fa-icon [icon]="faDice" (click)="openSave(chargenDeathSaveRoll)" title="Click to Roll"></fa-icon>
           </div>
         </div>
       </div>
@@ -86,7 +86,10 @@
     </button>
   </div>
   <div class="modal-body">
-    <div>Roll: {{stunSaveRoll}} - {{stunMessage}}</div>
+    <div>Stun Save Base: {{stats.Save}}</div>
+    <div>Modifier: <input type="number" [(ngModel)]="stunSaveMod"></div>
+    <div>Roll: <fa-icon [icon]="faDice" class="csd-dice" (click)="rollStunSave()" title="Roll save"></fa-icon> </div>
+    <div *ngIf="stunSaveRoll > 0">Results: {{stunSaveRoll}}(die) vs {{stats.Save + stunSaveMod}} - {{stunMessage}}</div>
   </div>
 </ng-template>
 <ng-template #chargenDeathSaveRoll>
@@ -97,6 +100,9 @@
     </button>
   </div>
   <div class="modal-body">
-    <div>Roll: {{deathSaveRoll}} - {{deathMessage}}</div>
+    <div>Stun Save Base: {{stats.DeathSave}}</div>
+    <div>Modifier: <input type="number" [(ngModel)]="deathSaveMod"></div>
+    <div>Roll: <fa-icon [icon]="faDice" class="csd-dice" (click)="rollDeathSave()" title="Roll save"></fa-icon></div>
+    <div *ngIf="deathSaveRoll > 0">Results: {{deathSaveRoll}}(die)  vs {{stats.DeathSave + deathSaveMod}} - {{deathMessage}}</div>
   </div>
 </ng-template>
