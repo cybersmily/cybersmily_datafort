@@ -14,6 +14,11 @@ export class JsonDataFiles {
   public static CP2020_CYBERWARE_RANDOM_ENTRIES_JSON = `/json/data/cyberRandomEntries.json`;
   public static CP2020_ARMOR_DATA_LIST_JSON = `/json/apps/cparmor.json`;
 
+  public static CP2020_COMBAT_ZONE_DATA_JSON = `/json/apps/cmbtzone/cmbtzone.json`;
+  public static CP2020_COMBAT_ZONE_OBJECTS_JSON = `/json/apps/cmbtzone/streetobjects.json`;
+  public static CP2020_COMBAT_ZONE_GANGS_JSON = `/json/apps/cmbtzone/gangs.json`;
+  public static CP2020_COMBAT_ZONE_BLOCKS_JSON = `/json/apps/cmbtzone/blocks.json`;
+
 
   public static CP2020_CHROME2_VEHICLE_JSON = `/json/data/ch2conversion.json`;
   public static CP2020_INMEDIA_JSON = `/json/data/inmedia.json`;

@@ -1,0 +1,78 @@
+{
+  "buildings": {
+    "types":[
+      "Church",
+      "Mini-mall",
+      "Apartment Block",
+      "Apartment Block",
+      "Apartment Block",
+      "Apartment Block",
+      "Bar/club",
+      "Bar/club",
+      "Factory",
+      "Factory",
+      "Small storefront",
+      "Offices",
+      "Parking Garage",
+      "Garage"
+    ],
+    "condition":[
+      "Abandoned",
+      "Abandoned",
+      "Burned out, still standing",
+      "Burned out, still standing",
+      "Decaying",
+      "Decaying",
+      "Decaying",
+      "Decaying",
+      "Partial rubble, run down",
+      "Renovated"
+    ],
+    "occupates":[
+      "empty",
+      "empty",
+      "empty",
+      "empty",
+      "squatters",
+      "squatters",
+      "squatters",
+      "gang",
+      "gang",
+      "nomad pack",
+      "organized crime",
+      "working stiffs"
+    ],
+    "use": [
+      "Combat sport arena",
+      "Sleazy 'coffin' hotel",
+      "Sleazy 'coffin' hotel",
+      "Sleazy 'coffin' hotel",
+      "Residence",
+      "Residence",
+      "Residence",
+      "Residence",
+      "Weapon dealer's",
+      "Dance club",
+      "Dance club",
+      "Junkyard",
+      "Sleazy bar",
+      "Sleazy bar",
+      "Druge dealer's",
+      "Gang clubhouse",
+      "Gang clubhouse",
+      "Small store",
+      "Small store",
+      "Small store",
+      "Community center",
+      "storage",
+      "storage",
+      "factory",
+      "factory",
+      "Ripperdoc clinic"
+    ],
+    "blocks": [
+      {"file": "block1", "numOfBuildings":8, "size":"2x2"}
+    ]
+
+  }
+}
