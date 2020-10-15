@@ -346,7 +346,7 @@ private addSkills(doc: jsPDF, sa: Cp2020PlayerSkill, skills: Cp2020PlayerSkills,
   doc.setFont(this._font, 'bold');
   doc.text('HUMANITY', col, line + 4);
   doc.setFont(this._font, 'normal');
-  doc.text(stats.Humanity.toString(), col + 40, line + 4);
+  doc.text(stats.CurrentHumanity.toString(), col + 40, line + 4);
   line += 6;
 }
 
