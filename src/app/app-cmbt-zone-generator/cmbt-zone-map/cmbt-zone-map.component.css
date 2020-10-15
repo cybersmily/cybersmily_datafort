@@ -5,3 +5,19 @@
   text-align: right;
   width: 50px;
 }
+
+:host >>> .customClass div.card-header, .customClass div.panel-heading {
+  padding: 0px 0px !important;
+  background-color:#fff;
+  color: #000;
+}
+
+:host >>> .customClass .btn-link {
+  font-weight: bold;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.cmbt-zone-building-desc {
+  font-size: small;
+}

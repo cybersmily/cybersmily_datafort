@@ -1,82 +1,109 @@
-  <div class="row">
-    <div class="col-12 col-lg-9 col-xl-8">
-  <svg height="940" width="690">
-    <g>
-      <!-- Map Border-->
-      <rect style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-        id="rect3033" width="680" height="900" x="0" y="0" />
-      <!-- Blocks -->
-      <ng-container *ngFor="let block of blockLayouts; let i = index">
-        <!-- Create the buildings -->
-        <rect *ngFor="let rect of block.rects"
-          style="fill:none;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-          [attr.width]="rect.width"
-          [attr.height]="rect.height"
-          [attr.x]="blocks[i].x + rect.x"
-          [attr.y]="blocks[i].y + rect.y" />
-        <text *ngFor="let text of block.texts"
-          style="font-size:12px;font-style:normal;font-weight:bold;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial Narrow;">
-          <tspan
-            [attr.x]="blocks[i].x + text.x"
-            [attr.y]="blocks[i].y + text.y">
-            {{text.text}}
-          </tspan>
-        </text>
-        <text *ngFor="let text of block.texts"
-          style="font-size:40px;font-style:normal;font-weight:bold;fill: #aaaaaa;fill-opacity:0.3;stroke:none;font-family:Arial Narrow;">
-          <tspan
-            [attr.x]="blocks[i].x + 100"
-            [attr.y]="blocks[i].y + 100">
-            {{i+1}}
-          </tspan>
-        </text>
-
-      </ng-container>
-    </g>
-  </svg>
+<div class="row">
+  <div class="col">
+    <fa-icon [icon]="faFilePdf" class="csd-btn btn-lg float-right" (click)="printPDF()" title="Save as PDF"></fa-icon>
+  </div>
 </div>
+<div class="row">
+  <div #cmbtZoneMapSVG class="col-12 col-lg-9 col-xl-8">
+    <svg height="940" width="690" id="cmbt-zone-map-svg">
+      <g>
+        <!-- Map Border-->
+        <rect style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+          id="rect3033" width="680" height="900" x="0" y="0" />
+        <!-- Blocks -->
+        <ng-container *ngFor="let block of blockLayouts; let i = index">
+          <!-- Create the buildings -->
+          <rect *ngFor="let rect of block.rects"
+            style="fill:none;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+            [attr.width]="rect.width" [attr.height]="rect.height" [attr.x]="blocks[i].x + rect.x"
+            [attr.y]="blocks[i].y + rect.y" />
+          <path *ngFor="let path of block.paths"
+           [attr.d]="getPath(path, blocks[i])"
+           fill="transparent" stroke="black" stroke-width="0.5"/>
+          <text *ngFor="let text of block.texts"
+            style="font-size:12px;font-style:normal;font-weight:bold;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial Narrow;">
+            <tspan [attr.x]="blocks[i].x + text.x" [attr.y]="blocks[i].y + text.y">
+              {{text.text}}
+            </tspan>
+          </text>
 
-<div class="col-12 col-lg-3 col-xl-4">
-  <div class="row">
-    <div class="col csd-rounded">
-      <div class="row">
-        <div class="col">BUILDINGS
-          &nbsp;&nbsp;
-          <fa-icon [icon]="faDice" class="csd-dice" (click)="rollBuildings()"></fa-icon>
-        </div>
-      </div>
-      <div *ngFor="let building of buildings; let i = index" class="row">
-        <div class="col">
-          <h4>BLOCK {{i + 1}}</h4>
-          <div class="row" *ngFor="let str of building; let j = index">
-            <div class="col">
-              {{labels[j]}}. {{str}}
+          <!-- Block Label-->
+          <text *ngFor="let text of block.texts"
+            style="font-size:40px;font-style:normal;font-weight:bold;fill: #aaaaaa;fill-opacity:0.3;stroke:none;font-family:Arial Narrow;">
+            <tspan [attr.x]="blocks[i].x + 100" [attr.y]="blocks[i].y + 100">
+              {{i+1}}
+            </tspan>
+          </text>
+        </ng-container>
+      </g>
+    </svg>
+  </div>
+
+  <div class="col-12 col-lg-3 col-xl-4">
+    <div class="row">
+      <div class="col csd-rounded">
+        <tabset>
+          <tab>
+            <ng-template tabHeading>
+              <span class="small">BUILDINGS
+              &nbsp;&nbsp;
+              <fa-icon [icon]="faDice" class="csd-dice" (click)="rollBuildings()" title="Click to generate map"></fa-icon>
+            </span>
+            </ng-template>
+            <div class="row">
+              <div class="col">Key for each block's buildings description</div>
             </div>
-          </div>
-        </div>
+            <div *ngFor="let building of buildings; let i = index" class="row">
+              <div class="col">
+                <accordion [closeOthers]="true">
+                  <accordion-group heading="BLOCK {{i + 1}}" [panelClass]="'customClass'">
+                    <div class="row" *ngFor="let str of building; let j = index">
+                      <div class="col cmbt-zone-building-desc">
+                        {{labels[j]}}. {{str}}
+                      </div>
+                    </div>
+                  </accordion-group>
+                </accordion>
+              </div>
+            </div>
+          </tab>
+          <tab>
+            <ng-template tabHeading>
+              <span class="small">OBJECTS
+              &nbsp;&nbsp;
+              <fa-icon [icon]="faDice" class="csd-dice" (click)="rollStreetObjects()" title="Click to roll objects"></fa-icon>
+            </span>
+            </ng-template>
+            <div class="row">
+              <div class="col">Objects on the street. </div>
+            </div>
+            <div *ngFor="let object of streetObjects; let i = index" class="row">
+              <div class="col ml-2">
+                {{object}}
+              </div>
+            </div>
+          </tab>
+          <tab>
+            <ng-template tabHeading>
+              <span class="small">
+                EVENTS
+              &nbsp;&nbsp;
+              <fa-icon [icon]="faDice" class="csd-dice" (click)="rollStreetEvents()" title="Click to roll events"></fa-icon>
+            </span>
+            </ng-template>
+            <div class="row">
+              <div class="col">What's currently happening on the street.</div>
+            </div>
+            <div *ngFor="let event of streetEvents; let i = index" class="row">
+              <div class="col ml-2">
+                {{event}}
+              </div>
+            </div>
+          </tab>
+        </tabset>
+        <br>
+        <br>
       </div>
-
     </div>
   </div>
-  <br>
-  <div class="row">
-    <div class="col csd-rounded">
-      <div class="row">
-        <div class="col">STREET OBJECTS</div>
-      </div>
-      <div class="row">
-        <div class="col">
-          Choose Number: <input type="number" class="cmbt-zone-input" [(ngModel)]="numOfStreetObjects">
-          &nbsp;&nbsp;
-          <fa-icon [icon]="faDice" class="csd-dice" (click)="rollStreetObjects()"></fa-icon>
-        </div>
-      </div>
-      <div *ngFor="let object of streetObjects; let i = index" class="row">
-        <div class="col">
-          {{object}}
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 </div>

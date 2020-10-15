@@ -1,0 +1,89 @@
+{
+  "daytime": [],
+  "evening": [],
+  "aftermidnight": [
+    {
+      "weight": 10,
+      "title": "City Police",
+      "desc":
+        "Two patrol officers, armed with Militech Ronin assault rifles, armored in flack vests, pants, helmets. If you are wearing visible weapons or armor, they will stop you and demand identity papers. You've got no business running around after midnight and they know it. They'll stop you and look for any pretext to make a bust. If you're wearing visible weapons, consider yourself detained. If you go for a weapon, they will shoot first and forget the paperwork."
+  },
+  {
+    "weight": 12,
+    "title": "Corporate Guards",
+    "desc":
+      "Four corporate guards patrolling the area. Armored in flack vests & helmets, carrying FN-RALs. \"What are you doing on the properly after midnight? Can't have a good reason/ Blaml Blaml Blaml\""
+    },
+    {
+      "weight": 8,
+      "title": "Nomads",
+      "desc":"A mixed group of four Nomads from the Wildman Pack. Wearing flack vests, tatoos and leather pants, carrying figh~ng knives and rifles. As long as you stay clear of their bikes, they'll ignore you and concentrate on beating that family of Corporales to mush."
+    },
+    {
+      "weight": 10,
+      "title": "Boostergang",
+      "desc":"Five low-level street punks from the Crazy Chicken boostergang. They are armed with .45 automatics, knives and boosted reflexes. They're looking for 'Lacers or any other possible source of ready cash. [[1d10;{7:you're it.}]]"
+    },
+    {
+      "weight": 10,
+      "title": "Street Punks",
+      "desc":"Four Lace addicts, looking for credit to feed their habit. Even if you're wearing Corporate or booster colors, they'll rush you. These guys don't care, and they don't feel pain. Armed with fighting knives, scratchers; no armor."
+    },
+    {
+      "weight": 10,
+      "title": "Solo Team",
+      "desc":"Two Solos, armed in flack vest & pants, carrying smartgun chipped H&K MPK-9. Boosted reflexes, boosted hearing, cyberoptics with I~ I tM:' I§ i ;j; H%.11J B;; &I low light, I Rand targeting. Obviouslyuptosomegrey operation. If you are wearing a rival Corporate uniform or patch, they will: 1-S,dodge you and move on; 6·1 0, decide you are a witness and ought to be totalled right now."
+    },
+    {
+      "weight": 5,
+      "title": "Boostergang",
+      "desc":"Six members of the Blood Razors gang, armed with automatic weapons, r i p • pers, IR cyberoptics, boosted reflexes. Hassle you? Naw ... they'll just torture you and listen to you scream. For fun. Afterwards, they'll sell the body to the Donor Center for cash."
+    },
+    {
+      "weight": 5,
+      "title": "Culties",
+      "desc":"It's lnquistion timel The lnquisitors are out in maximum force. Six of them, armed openly with nunchaku, handguns and whips corner you. \"Only a servant of the Metal Demons would be abroad at this hour. Anydecent citizen would be ot home, asleep. Hack, slay and maim the heretic/\""
+    },
+    {
+      "weight": 2,
+      "title": "Private Investigator",
+      "desc":"Roll1 01 0. On 1·3, he/she is ahead of you, hassling an informant on the streetcorner concerning the whereabouts of a suspect. 4-7, he/she is shadowing someone ahead of you. 8-10, they will stop you and ask you whether you have seen the person they are following. The PI is armed with a heavy caliber revolver and wearing an armor jacket."
+    },
+    {
+      "weight": 4,
+      "title": "Chromers",
+      "desc":"Four members of the Steel Slaughter Slammers. They are wearing armor Ts with metal spiked leathers. All have metal arms covered with chrome, with rippers and .45 cals built in. Roll1 010- on a 1-6, they will go for you. On 7-8, they'll pass you by. On 9-10, they take a liking to a member of the party and invite you to tag along with them."
+    },
+    {
+      "weight": 1,
+      "title": "Medias",
+      "desc":"A camera and interviewer team, looking for a story. Roll 1 010. On 1-5, they will be spotted by their story-subject and a firelight will ensue. You, of course, will be right in the middle of it. on a 6-1 0, they'll decide you're the story and follow you."
+    },
+    {
+      "weight": 3,
+      "title": "locals",
+      "desc":"Young man or woman. Roii1D10. 1-5, they are being beaten by four thugs from the Blood Razors gang. 6·10, they are being beaten severely by the Inquisitors for the sin of having designer eyes."
+    },
+    {
+      "weight": 5,
+      "title": "Flreflght",
+      "desc":"Great. You just walked into a major altercation between the Bradi Bunch (a highlevel Posergang that all look like refugees from an old sitcom) and the Red Chrome Legion (a neo-facist Boostergang). Both are wearing armor jackets and firing large caliber handguns. Rippers, cyberarm weapons and slice-n-dices are everywhere. Pick a side, or pick a target."
+    },
+    {
+      "weight": 3,
+      "title": "Trauma Team",
+      "desc":"The AV-4 hits the ground in the middle of a recent firelight. Roll 1D10. On a 1-5, the Team decides you're bystanders and ignores you. On 6-10, they figure you're part of the problem and the Solos open up with MAC1 Os."
+    },
+    {
+      "weight": 1,
+      "title": "Major Criminal",
+      "desc":"You've walked into a major operation of the notorious Scagattalia Family. Four Solo-type men armed with Ingram MAC 14s and wearing flack vests are unloading a drug cargo out of a truck. Roll 1D10. 1·4, they don't notice you. 5-B, they notice you and one warns you off. 9-10, they decide you are a witness and ought to be totalled right now."
+    },
+    {
+      "weight": 1,
+      "title": "Solo team",
+      "desc": "Three Solos, armed in flack vest & pants, carrying smartgun chipped Uzis.Boosted reflexes, cyberoptics with low light, targeting. These guys are on a total black operation (an assassination). Roll1 010; on a 1-5, if you ignore them, they'll ignore you. 6-10, they'll decide you are a witness and ought to be totalled right now."
+    }
+  ]
+
+}

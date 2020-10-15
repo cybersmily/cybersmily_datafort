@@ -40,7 +40,7 @@ export class CmbtZoneBuildingService {
       let occupates = dice.getRandomValue(this._buildingData.buildings.occupates);
       if (occupates !== 'empty' && !building.startsWith('Burned')) {
         if (occupates === 'gang') {
-          const die = dice.generateNumber(2, 11);
+          const die = dice.rollCP2020D10().total + 1;
           const gang = dice.getRandomValue(this._gangs);
           occupates = `${die} ${gang} gang members`;
         }

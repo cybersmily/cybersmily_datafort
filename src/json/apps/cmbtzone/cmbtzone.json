@@ -19,6 +19,7 @@
     "condition":[
       "Abandoned",
       "Abandoned",
+      "Abandoned",
       "Burned out, still standing",
       "Burned out, still standing",
       "Decaying",
@@ -26,6 +27,7 @@
       "Decaying",
       "Decaying",
       "Partial rubble, run down",
+      "Renovated",
       "Renovated"
     ],
     "occupates":[
@@ -60,14 +62,13 @@
       "Druge dealer's",
       "Gang clubhouse",
       "Gang clubhouse",
-      "Small store",
-      "Small store",
-      "Small store",
-      "Community center",
-      "storage",
-      "storage",
-      "factory",
-      "factory",
+      "Store",
+      "Store",
+      "Store",
+      "Storage",
+      "Storage",
+      "Factory",
+      "Factory",
       "Ripperdoc clinic"
     ],
     "blocks": [

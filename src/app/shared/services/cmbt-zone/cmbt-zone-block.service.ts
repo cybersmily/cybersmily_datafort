@@ -30,6 +30,7 @@ export class CmbtZoneBlockService {
     const results = new Array<CmbtZoneBlock>();
     for (let i = 0; i < numBlocks; i++ ) {
       const die = dice.generateNumber(0, this._blockData.length - 1);
+      // const die = i % 12;
       results.push(this._blockData[die]);
     }
     return results;
