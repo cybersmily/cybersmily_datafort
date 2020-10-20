@@ -14,6 +14,8 @@ export interface CmbtZoneRect {
 
 export interface CmbtZonePath {
   d: string;
+  x: number;
+  y: number;
 }
 
 export interface CmbtZoneText {

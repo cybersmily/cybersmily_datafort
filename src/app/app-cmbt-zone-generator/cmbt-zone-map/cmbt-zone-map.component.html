@@ -87,16 +87,32 @@
             <ng-template tabHeading>
               <span class="small">
                 EVENTS
-              &nbsp;&nbsp;
-              <fa-icon [icon]="faDice" class="csd-dice" (click)="rollStreetEvents()" title="Click to roll events"></fa-icon>
             </span>
             </ng-template>
             <div class="row">
-              <div class="col">What's currently happening on the street.</div>
+              <div class="col">What's currently happening on the street.
+              </div>
+            </div>
+            <div class="row small">
+              <div class="col-6">Time:
+                &nbsp;
+                <select [(ngModel)]="streetEventTime">
+                  <option [ngValue]="'daytime'">Daytime</option>
+                  <option [ngValue]="'evening'">Evening</option>
+                  <option [ngValue]="'aftermidnight'">After Midnight</option>
+                </select>
+              </div>
+                <div class="col-6">
+                Count:
+                &nbsp;
+                <input [(ngModel)]="streetEventCount" type="number" style="width: 50px;" min="1" class="text-center">
+                <fa-icon [icon]="faDice" class="csd-dice float-right" (click)="rollStreetEvents()" title="Click to roll events"></fa-icon>
+
+              </div>
             </div>
             <div *ngFor="let event of streetEvents; let i = index" class="row">
               <div class="col ml-2">
-                {{event}}
+                <h4>{{event.title}}</h4>{{event.desc}}
               </div>
             </div>
           </tab>
