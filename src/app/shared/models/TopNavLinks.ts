@@ -118,6 +118,8 @@ export interface SiteLinksGroup {
         links: [
           {title: 'Character Generator', link: 'apps/chargen', desc: 'Cyberpunk 2020 character sheet.'},
           {title: 'Combat Tracker', link: 'apps/cmbttrk', desc: 'Cyberpunk 2020 combat tracking utiltiy.'},
+          {title: 'Combat Zone Generator', link: 'apps/cmbtzone',
+            desc: 'Cyberpunk 2020 Combat Zone generator will create a map of 3x4 blocks, with street objects and event rolls.'},
           {title: 'Drug Lab', link: 'apps/druglab', desc: 'Cyberpunk 2020 Drug Lab rules.'},
           {title: 'Fashion Calculator', link: 'apps/fashcalc', desc: 'Cyberpunk 2020 Clothes creation and list.'},
           {title: 'Fixer Calculator', link: 'apps/fixcalc', desc: 'Cyberpunk 2020 Fixe contact generator using rules from Wildside.'},

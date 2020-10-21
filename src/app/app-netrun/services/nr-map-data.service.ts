@@ -1,5 +1,5 @@
 import { NrLoadMapsService } from './nr-load-maps.service';
-import { Coord } from './../models/coord';
+import { Coord } from '../../shared/models/coord';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { LoadedMap, NRRegion, NRRegionMap, NrCityList, NRDataFort, NrGridCell } from '../models';
 import { NR_WORLD_MAP } from '../models/nr-constants';

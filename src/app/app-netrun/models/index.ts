@@ -1,4 +1,4 @@
-export * from './coord';
+export * from '../../shared/models/coord';
 export * from './nr-city-list';
 export * from './nr-city';
 export * from './nr-data-fort';

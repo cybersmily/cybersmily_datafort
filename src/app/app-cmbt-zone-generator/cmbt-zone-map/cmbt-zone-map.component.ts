@@ -105,11 +105,9 @@ export class CmbtZoneMapComponent implements OnInit {
   }
 
   printPDF() {
-    if (this.cmbtZoneMapSVG && this.cmbtZoneMapSVG.nativeElement.innerHTML) {
       const pdf: CmbtZoneToPDF = new CmbtZoneToPDF();
-      pdf.generatePdf(this.cmbtZoneMapSVG.nativeElement.innerHTML, this.buildings);
-    } else {
-      alert('Failed to save PDF. Please try again or contact Cybersmily by clicking on the email icon in the upper right of the page.');
-    }
+      pdf.generatePdf(this.blocks, this.blockLayouts, this.buildings);
   }
+
+
 }
