@@ -19,9 +19,6 @@ export const mainRoutes: Routes = [
   { path: 'apps/qkpregen',
     loadChildren: () => import('./app-cp-red-template-character/app-cp-red-template-character.module')
     .then(m => m.AppCpRedTemplateCharacterModule) },
-  { path: 'apps/redchargen',
-    loadChildren: () => import('./app-red-character-generator/app-red-character-generator.module')
-    .then(m => m.AppRedCharacterGeneratorModule) },
   { path: 'apps/chargen',
     loadChildren: () => import('./app-character-generator/app-character-generator.module').then(m => m.AppCharacterGeneratorModule) },
   { path: 'apps/cmbttrk',
