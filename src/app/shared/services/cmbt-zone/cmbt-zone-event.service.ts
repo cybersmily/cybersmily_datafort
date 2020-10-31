@@ -97,7 +97,6 @@ export class CmbtZoneEventService {
    * @memberof CmbtZoneEventService
    */
   generateEventArray(count: number, dice: DiceService, chart: CMBT_ZONE_EVENT_TIME): Array<CmbtZoneEvent> {
-    console.log(chart);
     const results = new Array<CmbtZoneEvent>();
     for (let i = 0; i < count; i++) {
       const roll = dice.generateNumber(0, this._events[chart].length - 1);
@@ -114,7 +113,6 @@ export class CmbtZoneEventService {
    * @memberof CmbtZoneEventService
    */
   generateEvent(dice: DiceService, chart: CMBT_ZONE_EVENT_TIME): CmbtZoneEvent {
-    console.log(chart.toString());
     const roll = dice.generateNumber(0, this._events[chart].length - 1);
     return this._events[chart][roll];
   }

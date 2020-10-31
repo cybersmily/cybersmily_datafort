@@ -1,3 +1,4 @@
+import { OpponentTrackerService } from './../services/opponent-tracker.service';
 import { CpPlayerWeaponList } from './../../shared/models/weapon/cp-player-weapon-list';
 import { CmbtTrckOpponent, CmbtTrckOppSelection, CmbtTrckTemplate } from '../../shared/models/cmbt-trck';
 import { OppTemplateService } from './../services/opp-template.service';
@@ -21,16 +22,15 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
   dice = faDice;
   faTrash = faTrash;
 
+
   customClass = 'opp-section';
+  currOpponent = new CmbtTrckOpponent();
 
   @Input()
   opponent = new CmbtTrckOpponent();
 
   @Input()
   index: number;
-
-  @Output()
-  updateOpponent = new EventEmitter<CmbtTrckOppSelection>();
 
   selectedTemplate = null;
   templates = new Array<CmbtTrckTemplate>();
@@ -41,40 +41,46 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
   constructor(private data: DataService,
     private roleService: Cp2020RolesDataService,
     private skillListService: SkillListService,
-    private oppTemplateService: OppTemplateService
+    private oppTemplateService: OppTemplateService,
+    private opponentService: OpponentTrackerService
     ) { }
 
   ngOnInit() {
     const templates = this.oppTemplateService.TemplateList;
     const rolesList = this.roleService.getRoles();
     const skillList = this.skillListService.Skills;
+    const opponents = this.opponentService.opponents;
+    this.currOpponent = this.opponent;
     forkJoin([
       templates,
       rolesList,
-      skillList
+      skillList,
+      opponents
     ]).subscribe( results => {
       this.templates = results[0];
       this.roles = results[1];
       this.skills = results[2];
+      this.currOpponent = results[3][this.index];
     });
   }
 
   ngOnChanges() {
     this.selectedTemplate = null;
     this.selectedRole = null;
+    this.currOpponent = this.opponent;
   }
 
   onStatBlockChange(value: Cp2020StatBlock) {
-    this.opponent.stats = value;
-    this.updateOpponent.emit({index: this.index, opponent: this.opponent});
+    this.currOpponent.stats = value;
+    this.opponentService.changeOpponent({index: this.index, opponent: this.currOpponent});
   }
 
   changeTemplate() {
     this.oppTemplateService.getTemplate(this.selectedTemplate)
     .subscribe( template => {
-      this.opponent.importTemplate(template);
-      this.selectedRole = this.roles.find( r => r.name === this.opponent.role);
-      this.updateOpponent.emit({index: this.index, opponent: this.opponent});
+      this.currOpponent.importTemplate(template);
+      this.selectedRole = this.roles.find( r => r.name === this.currOpponent.role);
+      this.updateOpponent();
     });
   }
 
@@ -82,45 +88,45 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
     if (!wpns) {
       return;
     }
-    this.opponent.weapons = wpns.items;
-    this.updateOpponent.emit({index: this.index, opponent: this.opponent});
+    this.currOpponent.weapons = wpns.items;
+    this.updateOpponent();
   }
 
   changeArmor(armor: Cp2020ArmorBlock) {
-    this.opponent.armor = armor;
-    this.opponent.stats.REF.ev = this.opponent.armor.ev;
-    this.updateOpponent.emit({index: this.index, opponent: this.opponent});
+    this.currOpponent.armor = armor;
+    this.currOpponent.stats.REF.ev = this.currOpponent.armor.ev;
+    this.updateOpponent();
   }
 
   changeOpponent(opp?: CmbtTrckOpponent) {
     if (opp) {
-      this.opponent = opp;
+      this.currOpponent = opp;
     }
-    this.updateOpponent.emit({index: this.index, opponent: this.opponent});
+    this.updateOpponent();
   }
 
   changeCyber(cyber: Array<OppCyberware>) {
-    this.opponent.cyberware = cyber;
+    this.currOpponent.cyberware = cyber;
     // add any armor to as layers
-    this.opponent.cyberware.filter( c => c.armor)
+    this.currOpponent.cyberware.filter( c => c.armor)
     .forEach( c => {
       const a = new Cp2020ArmorLayer(c.armor);
       a.name = c.name;
       a.isActive = true;
       a.isSkinWeave = c.name.toLowerCase().includes('skinweave');
-      this.opponent.armor.addLayer(a);
+      this.currOpponent.armor.addLayer(a);
     });
-    this.updateOpponent.emit({index: this.index, opponent: this.opponent});
+    this.updateOpponent();
   }
 
   changeGear(gear: Array<string>) {
-    this.opponent.gear = gear;
-    this.updateOpponent.emit({index: this.index, opponent: this.opponent});
+    this.currOpponent.gear = gear;
+    this.updateOpponent();
   }
 
   changeRole() {
-    this.opponent.role = this.selectedRole.name;
-    this.opponent.sa = new Cp2020PlayerSkill(this.selectedRole.specialability);
+    this.currOpponent.role = this.selectedRole.name;
+    this.currOpponent.sa = new Cp2020PlayerSkill(this.selectedRole.specialability);
     this.selectedRole.skills.forEach( sk => {
       if (typeof sk === 'string') {
         // resolve ampersand in JSON file.
@@ -133,24 +139,35 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
         });
       }
     });
-    this.updateOpponent.emit({index: this.index, opponent: this.opponent});
+    this.updateOpponent();
   }
 
   clear() {
+    this.currOpponent = new CmbtTrckOpponent();
     this.opponent = new CmbtTrckOpponent();
-    this.updateOpponent.emit({index: this.index, opponent: this.opponent});
+    this.updateOpponent();
   }
 
   private addSkill(name: string, choice?: boolean) {
     const found = this.skills.find( skill => skill.name.toLowerCase() === name.toLowerCase());
     if (found) {
-      this.opponent.addSkill( new Cp2020PlayerSkill({ name: found.name, stat: found.stat, value: 0, roleskill: true, ischoice: choice}));
+      this.currOpponent.addSkill(new Cp2020PlayerSkill({
+        name: found.name,
+        stat: found.stat,
+        value: 0,
+        roleskill: true,
+        ischoice: choice
+      }));
     }
-    this.updateOpponent.emit({index: this.index, opponent: this.opponent});
+    this.updateOpponent();
+  }
+
+  private updateOpponent() {
+    this.opponentService.changeOpponent({index: this.index, opponent: this.currOpponent});
   }
 
   deleteRole() {
-    this.opponent.role = '';
-    this.updateOpponent.emit({index: this.index, opponent: this.opponent});
+    this.currOpponent.role = '';
+    this.updateOpponent();
   }
 }

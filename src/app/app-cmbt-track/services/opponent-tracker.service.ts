@@ -40,7 +40,7 @@ export class OpponentTrackerService {
    set cache(opps: Array<CmbtTrckOpponent>) {
     this._opponents.next(opps);
     if (window.localStorage) {
-      window.localStorage.setItem(this._STORAGE_KEY, JSON.stringify(opps));
+      window.localStorage.setItem(this._STORAGE_KEY, JSON.stringify(this._opponents.getValue()));
     }
    }
 
@@ -107,7 +107,6 @@ export class OpponentTrackerService {
       }
       attempts--;
     }
-
     return newName;
   }
 
@@ -148,8 +147,7 @@ export class OpponentTrackerService {
     opp.opponent.weapons = opp.opponent.weapons.sort( (a, b) => (b.name.toLowerCase() < a.name.toLowerCase()) ? 1 : -1);
     opp.opponent.cyberware = opp.opponent.cyberware.sort( (a, b) => (b.name.toLowerCase() < a.name.toLowerCase()) ? 1 : -1);
     opp.opponent.gear = opp.opponent.gear.sort( (a, b) => (b.toLowerCase() < a.toLowerCase()) ? 1 : -1);
-    this.curOpponents[opp.index] = opp.opponent;
-    this.curOpponents[opp.index].name  = this.checkName(this.curOpponents[opp.index].name, opp.index);
+    this.curOpponents[opp.index] = new CmbtTrckOpponent(opp.opponent);
     this.cache = this.curOpponents;
   }
 

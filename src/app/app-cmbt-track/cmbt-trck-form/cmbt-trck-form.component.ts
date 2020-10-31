@@ -103,6 +103,7 @@ export class CmbtTrckFormComponent implements OnInit {
 
   selectOpponent(index: number) {
     this.selectedIndex = index;
+    this.selectedOpponent = null;
     this.selectedOpponent = this.opponents[index];
   }
 
