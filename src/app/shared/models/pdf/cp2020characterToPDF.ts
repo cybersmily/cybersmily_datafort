@@ -180,7 +180,7 @@ private addStats(doc: jsPDF, stats: Cp2020StatBlock, line: number): number {
     this._left, line);
   line = line + 5.5;
   doc.text(
-    `ATTR [ ${stats.ATTR.Adjusted} ]   LUCK [ ${stats.LUCK.Adjusted} ]   MA [ ${stats.MA.Adjusted} ]  BODY [ ${stats.COOL.Adjusted} ]`,
+    `ATTR [ ${stats.ATTR.Adjusted} ]   LUCK [ ${stats.LUCK.Adjusted} ]   MA [ ${stats.MA.Adjusted} ]  BODY [ ${stats.BODY.Adjusted} ]`,
     this._left, line);
     line = line + 5.5;
   doc.text(`EMP [ ${stats.EMP.Adjusted} ]   Run [ ${stats.Run}m ]   Leap [ ${stats.Leap}m ]  Lift [ ${stats.Lift}kg ]`,
