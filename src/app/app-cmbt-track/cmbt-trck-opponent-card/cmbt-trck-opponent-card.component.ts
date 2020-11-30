@@ -10,7 +10,6 @@ import { DataService } from './../../shared/services/data.service';
 import { Cp2020RolesDataService } from './../../shared/services/chargen/cp2020-roles-data.service';
 import { forkJoin } from 'rxjs';
 import { faDice, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { CpPlayerWeapon } from './../../shared/models/weapon';
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 
 @Component({
@@ -51,17 +50,26 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
     const skillList = this.skillListService.Skills;
     const opponents = this.opponentService.opponents;
     this.currOpponent = this.opponent;
+    console.log('Got here');
+    console.log(templates);
     forkJoin([
-      templates,
-      rolesList,
-      skillList,
-      opponents
+      templates
+      , rolesList
+      , skillList
+      //, opponents
     ]).subscribe( results => {
+      console.log(results);
       this.templates = results[0];
       this.roles = results[1];
       this.skills = results[2];
-      this.currOpponent = results[3][this.index];
-    });
+      //this.currOpponent = results[3][this.index];
+    }, err => {
+      console.log(err);
+    },
+      () => {
+        console.log('completed');
+      }
+    );
   }
 
   ngOnChanges() {
