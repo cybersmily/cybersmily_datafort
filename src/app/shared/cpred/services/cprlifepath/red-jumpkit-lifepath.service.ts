@@ -59,7 +59,7 @@ export class RedJumpkitLifepathService {
     return this.lifePathData.pipe(
       map( (data) => {
         let noOfFriends = this.dice.generateNumber(1, 10) - 7;
-        noOfFriends = (noOfFriends < 1) ? 1 : noOfFriends;
+        noOfFriends = (noOfFriends < 1) ? 0 : ((noOfFriends > 3) ? 3 : noOfFriends);
         const friends = new Array<string>();
         for ( let i = 0; i < noOfFriends; i++ ) {
           const friend = this.rollchart(data, 'friends');
@@ -75,7 +75,7 @@ export class RedJumpkitLifepathService {
     return this.lifePathData.pipe(
       map( (data) => {
         let noOfEnemies = this.dice.generateNumber(1, 10) - 5;
-        noOfEnemies = (noOfEnemies < 1) ? 1 : noOfEnemies;
+        noOfEnemies = (noOfEnemies < 1) ? 0 :  ((noOfEnemies > 5) ? 5 : noOfEnemies);
         const enemies = new Array<string>();
         for ( let i = 0; i < noOfEnemies; i++ ) {
           const enemy = this.rollchart(data, 'enemies');
