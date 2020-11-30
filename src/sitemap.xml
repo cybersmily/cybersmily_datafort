@@ -1,199 +1,199 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" >
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9" >
 	<url>
-		<loc>http://cybersmily.net/index.html</loc>
+		<loc>https://cybersmily.net/index.html</loc>
 		<lastmod>2020-12-01</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/apps/chargen</loc>
+		<loc>https://cybersmily.net/apps/chargen</loc>
 		<lastmod>2020-12-01</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/apps/cmbttrk</loc>
+		<loc>https://cybersmily.net/apps/cmbttrk</loc>
 		<lastmod>2020-12-01</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/apps/cmbtzone</loc>
+		<loc>https://cybersmily.net/apps/cmbtzone</loc>
 		<lastmod>2020-11-01</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/apps/druglab</loc>
+		<loc>https://cybersmily.net/apps/druglab</loc>
 		<lastmod>2020-07-01</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/apps/fixcalc</loc>
+		<loc>https://cybersmily.net/apps/fixcalc</loc>
 		<lastmod>2020-05-09</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/apps/qkpregen</loc>
+		<loc>https://cybersmily.net/apps/qkpregen</loc>
 		<lastmod>2020-04-11</lastmod>
 	</url>
   <url>
-		<loc>http://cybersmily.net/apps/lpredjmp</loc>
+		<loc>https://cybersmily.net/apps/lpredjmp</loc>
 		<lastmod>2020-12-01</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/apps/fashcalc</loc>
+		<loc>https://cybersmily.net/apps/fashcalc</loc>
 		<lastmod>2020-04-11</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/apps/lifepath</loc>
+		<loc>https://cybersmily.net/apps/lifepath</loc>
 		<lastmod>2020-04-11</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/apps/maxmetal</loc>
+		<loc>https://cybersmily.net/apps/maxmetal</loc>
 		<lastmod>2020-06-01</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/apps/nrtrace</loc>
+		<loc>https://cybersmily.net/apps/nrtrace</loc>
 		<lastmod>2019-05-02</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/apps/deckmgr</loc>
+		<loc>https://cybersmily.net/apps/deckmgr</loc>
 		<lastmod>2020-08-01</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/data/chrome2</loc>
+		<loc>https://cybersmily.net/data/chrome2</loc>
 		<lastmod>2020-04-02</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/data/inmedia</loc>
+		<loc>https://cybersmily.net/data/inmedia</loc>
 		<lastmod>2020-07-01</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/data/roles</loc>
+		<loc>https://cybersmily.net/data/roles</loc>
 		<lastmod>2020-07-01</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/data/wpns</loc>
+		<loc>https://cybersmily.net/data/wpns</loc>
 		<lastmod>2020-09-01</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/data/skills</loc>
+		<loc>https://cybersmily.net/data/skills</loc>
 		<lastmod>2020-04-02</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/data/cyber</loc>
+		<loc>https://cybersmily.net/data/cyber</loc>
 		<lastmod>2020-10-01</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/data/moreguns</loc>
+		<loc>https://cybersmily.net/data/moreguns</loc>
 		<lastmod>2020-04-02</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/data/proteus/prog</loc>
+		<loc>https://cybersmily.net/data/proteus/prog</loc>
 		<lastmod>2019-05-02</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/data/proteus/gear</loc>
+		<loc>https://cybersmily.net/data/proteus/gear</loc>
 		<lastmod>2019-05-02</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/data/proteus/sysops</loc>
+		<loc>https://cybersmily.net/data/proteus/sysops</loc>
 		<lastmod>2019-05-02</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/mods/money</loc>
+		<loc>https://cybersmily.net/mods/money</loc>
 		<lastmod>2019-05-02</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/mods/cbp</loc>
+		<loc>https://cybersmily.net/mods/cbp</loc>
 		<lastmod>2019-05-02</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/mods/fumble</loc>
+		<loc>https://cybersmily.net/mods/fumble</loc>
 		<lastmod>2019-05-02</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/mods/actions</loc>
+		<loc>https://cybersmily.net/mods/actions</loc>
 		<lastmod>2019-05-02</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/mods/ip</loc>
+		<loc>https://cybersmily.net/mods/ip</loc>
 		<lastmod>2019-05-02</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/mods/luck</loc>
+		<loc>https://cybersmily.net/mods/luck</loc>
 		<lastmod>2019-05-02</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/mods/medtechs</loc>
+		<loc>https://cybersmily.net/mods/medtechs</loc>
 		<lastmod>2019-05-02</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/mods/nr</loc>
+		<loc>https://cybersmily.net/mods/nr</loc>
 		<lastmod>2019-05-02</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/mods/skills</loc>
+		<loc>https://cybersmily.net/mods/skills</loc>
 		<lastmod>2019-05-02</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/mods/sa</loc>
+		<loc>https://cybersmily.net/mods/sa</loc>
 		<lastmod>2019-05-02</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/mods/careers</loc>
+		<loc>https://cybersmily.net/mods/careers</loc>
 		<lastmod>2019-05-02</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/mods/youth</loc>
+		<loc>https://cybersmily.net/mods/youth</loc>
 		<lastmod>2019-05-02</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/peeps/copscorps</loc>
+		<loc>https://cybersmily.net/peeps/copscorps</loc>
 		<lastmod>2020-10-01</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/peeps/fixermedia</loc>
+		<loc>https://cybersmily.net/peeps/fixermedia</loc>
 		<lastmod>2020-10-01</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/peeps/medtechnr</loc>
+		<loc>https://cybersmily.net/peeps/medtechnr</loc>
 		<lastmod>2020-10-01</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/peeps/nomadrocker</loc>
+		<loc>https://cybersmily.net/peeps/nomadrocker</loc>
 		<lastmod>2020-10-01</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/peeps/solotechie</loc>
-		<lastmod>2020-10-01</lastmod>
-	</url>>
-	<url>
-		<loc>http://cybersmily.net/peeps/corp</loc>
+		<loc>https://cybersmily.net/peeps/solotechie</loc>
 		<lastmod>2020-10-01</lastmod>
 	</url>>
 	<url>
-		<loc>http://cybersmily.net/peeps/gangs</loc>
+		<loc>https://cybersmily.net/peeps/corp</loc>
+		<lastmod>2020-10-01</lastmod>
+	</url>>
+	<url>
+		<loc>https://cybersmily.net/peeps/gangs</loc>
 		<lastmod>2020-10-01</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/shop/cyber</loc>
+		<loc>https://cybersmily.net/shop/cyber</loc>
 		<lastmod>2019-05-02</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/shop/gear</loc>
+		<loc>https://cybersmily.net/shop/gear</loc>
 		<lastmod>2019-05-02</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/shop/other</loc>
+		<loc>https://cybersmily.net/shop/other</loc>
 		<lastmod>2019-05-02</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/gigs/dynlyte</loc>
+		<loc>https://cybersmily.net/gigs/dynlyte</loc>
 		<lastmod>2020-10-07</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/gigs/got</loc>
+		<loc>https://cybersmily.net/gigs/got</loc>
 		<lastmod>2020-10-07</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/gigs/prometheus</loc>
+		<loc>https://cybersmily.net/gigs/prometheus</loc>
 		<lastmod>2020-10-07</lastmod>
 	</url>
 	<url>
-		<loc>http://cybersmily.net/gigs/wns7</loc>
+		<loc>https://cybersmily.net/gigs/wns7</loc>
 		<lastmod>2020-11-01</lastmod>
 	</url>
 </urlset>
