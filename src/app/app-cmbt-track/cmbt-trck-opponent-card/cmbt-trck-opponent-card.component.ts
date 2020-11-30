@@ -56,19 +56,14 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
       templates
       , rolesList
       , skillList
-      //, opponents
     ]).subscribe( results => {
       console.log(results);
       this.templates = results[0];
       this.roles = results[1];
       this.skills = results[2];
-      //this.currOpponent = results[3][this.index];
     }, err => {
       console.log(err);
-    },
-      () => {
-        console.log('completed');
-      }
+    }
     );
   }
 
