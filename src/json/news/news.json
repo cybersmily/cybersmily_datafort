@@ -1,6 +1,14 @@
 ﻿{
   "news": [
     {
+      "date": "2020-12",
+      "entries": [
+        "<strong>12-01</strong> - Not much this month other than some bug fixes. I have the full system of Red now and will be looking to add some more apps in the next few months. There will be some limitations though as I have talked with RTG. The utilities I create will not have any published data in them, as per reqeust from RTG. This means they will be very generic and require a bit of data entry on the part of you. I will make sure to have the ability to save your work.",
+        "Stay safe gatos. The dark future is upon us!",
+        "CYBER :D"
+      ]
+    },
+    {
       "date": "2020-11",
       "entries": [
         "<strong>11-01</strong> - This update includes a fan request. The Scout1255 over on reddit had a request for a Combat Zone Generator. They asked and sounded like a great idea. The Combat Zone Generator will create a map of 3x4 blocks and list a description for each bulding with a key to use. It will also have a section to generator objects that will be on the street. This is nothing too fancy, but should help out with creating a neighborhood quickly for your game. You can export to PDF, but some of the building outlines don't render well.",
