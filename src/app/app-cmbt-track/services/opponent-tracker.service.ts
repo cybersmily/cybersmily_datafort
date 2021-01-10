@@ -1,7 +1,7 @@
 import { CmbtTrckOppSelection } from '../../shared/models/cmbt-trck/cmbt-trck-opp-selection';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { CmbtTrckOpponent } from '../../shared/models/cmbt-trck/cmbt-trck-opponent';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -14,13 +14,15 @@ export class OpponentTrackerService {
   private _opponents = new BehaviorSubject<Array<CmbtTrckOpponent>>(new Array<CmbtTrckOpponent>());
   opponents = this._opponents.asObservable();
 
-  curOpponents: Array<CmbtTrckOpponent>;
+  private _selected = new BehaviorSubject<CmbtTrckOpponent>(new CmbtTrckOpponent());
+  selected = this._selected.asObservable();
 
   constructor(private diceService: DiceService) {
-    this.curOpponents = new Array<CmbtTrckOpponent>();
-    this.curOpponents = this.cache;
-    if (this.curOpponents.length < 1) {
-      this.loadtestdata();
+    const opps = this.cache;
+    if (opps.length < 1) {
+      this._opponents.next(this.loadtestdata());
+    } else {
+      this._opponents.next(opps);
     }
    }
 
@@ -33,34 +35,33 @@ export class OpponentTrackerService {
         opponents.push( opponent);
       });
     }
-    this._opponents.next(opponents);
     return opponents;
    }
 
    set cache(opps: Array<CmbtTrckOpponent>) {
-    this._opponents.next(opps);
     if (window.localStorage) {
       window.localStorage.setItem(this._STORAGE_KEY, JSON.stringify(this._opponents.getValue()));
     }
    }
+
 
   /**
    * Roll initiative for all the Opponents
    *
    * @memberof CmbtTrckFormComponent
    */
-  rollInitiative(index?: number) {
-    if (index === undefined || index == null) {
+  rollInitiative(id?: number) {
+    const opps = this._opponents.getValue();
+    if (id === undefined || id == null) {
       // roll initiative for all opponents.
-      this.curOpponents.map(opp => {
+      opps.map(opp => {
         opp.calculateInitiative(this.getDieRoll());
       });
-      this.sortInitiative();
-    } else if (index >= 0 && index < this.curOpponents.length ) {
-      this.curOpponents[index].calculateInitiative(this.getDieRoll());
-      this.sortInitiative();
+    } else {
+      const index = this._opponents.getValue().findIndex(o => o.id === id);
+      opps[index].calculateInitiative(this.getDieRoll());
     }
-    this.cache = this.curOpponents;
+    this.sortInitiative(opps);
   }
 
   private getDieRoll(): Array<number> {
@@ -74,6 +75,9 @@ export class OpponentTrackerService {
     return total;
   }
 
+  getOpponent(id: number): CmbtTrckOpponent {
+    return this._opponents.getValue().filter(o => o.id === id)[0];
+  }
 
   /**
    * Add a new opponent to the tracker.
@@ -81,16 +85,42 @@ export class OpponentTrackerService {
    * @memberof CmbtTrckFormComponent
    */
   addOpponent(opponent?: CmbtTrckOpponent) {
+    const opps = this._opponents.getValue();
     if (opponent) {
       const newOpp = new CmbtTrckOpponent(opponent);
       newOpp.name = this.checkName(newOpp.name);
-      this.curOpponents.push(newOpp);
+      opps.push(newOpp);
     } else {
       const name = this.checkName('Opp1');
-      this.curOpponents.push(new CmbtTrckOpponent({name: name}));
+      opps.push(new CmbtTrckOpponent({name: name}));
     }
-    this.cache = this.curOpponents;
+    this._opponents.next(opps);
+    this.cache = opps;
   }
+
+  /**
+   * Remove oppenent from the tracker
+   *
+   * @memberof CmbtTrckFormComponent
+   */
+  removeOpponent(index: number) {
+    const opps = this._opponents.getValue();
+    opps.splice(index, 1);
+    this._opponents.next(opps);
+    this.cache = opps;
+  }
+
+  changeOpponent( opp: CmbtTrckOpponent) {
+    opp.weapons = opp.weapons.sort( (a, b) => (b.name.toLowerCase() < a.name.toLowerCase()) ? 1 : -1);
+    opp.cyberware = opp.cyberware.sort( (a, b) => (b.name.toLowerCase() < a.name.toLowerCase()) ? 1 : -1);
+    opp.gear = opp.gear.sort( (a, b) => (b.toLowerCase() < a.toLowerCase()) ? 1 : -1);
+    const opps = this._opponents.getValue();
+    const index = opps.findIndex( o => o.id === opp.id);
+    opps[index] = new CmbtTrckOpponent(opp);
+    this._opponents.next(opps);
+    this.cache = opps;
+  }
+
 
   private checkName(name: string, index?: number): string {
     let newName = name;
@@ -111,67 +141,52 @@ export class OpponentTrackerService {
   }
 
   private hasName( name: string, index?: number ): boolean {
-    return this.curOpponents.filter((o, i) => o.name.toLowerCase() === name.toLowerCase() && ( i !== index)).length > 0 ;
+    return this._opponents.getValue().filter((o, i) => o.name.toLowerCase() === name.toLowerCase() && ( i !== index)).length > 0 ;
   }
 
-  /**
-   * Remove oppenent from the tracker
-   *
-   * @memberof CmbtTrckFormComponent
-   */
-  removeOpponent(index: number) {
-    this.curOpponents.splice(index, 1);
-    this.cache = this.curOpponents;
-  }
 
   /**
    * Sort the iniative based on roll then REF
    *
    * @memberof CmbtTrckFormComponent
    */
-  sortInitiative() {
-    this.sortOpponents();
-    this.cache = this.curOpponents;
-  }
-
-  private sortOpponents() {
-    this.curOpponents.sort( (a, b) => {
+  sortInitiative(opps?: Array<CmbtTrckOpponent>) {
+    if (opps.length < 1) {
+      opps = this._opponents.getValue();
+    }
+    opps.sort( (a, b) => {
       if (a.initRoll === b.initRoll) {
         return b.stats.REF.Adjusted - a.stats.REF.Adjusted;
       }
       return a.initRoll < b.initRoll ? 1 : a.initRoll > b.initRoll ? -1 : 0;
     });
+    this._opponents.next(opps);
+    this.cache = opps;
   }
 
-  changeOpponent( opp: CmbtTrckOppSelection) {
-    opp.opponent.weapons = opp.opponent.weapons.sort( (a, b) => (b.name.toLowerCase() < a.name.toLowerCase()) ? 1 : -1);
-    opp.opponent.cyberware = opp.opponent.cyberware.sort( (a, b) => (b.name.toLowerCase() < a.name.toLowerCase()) ? 1 : -1);
-    opp.opponent.gear = opp.opponent.gear.sort( (a, b) => (b.toLowerCase() < a.toLowerCase()) ? 1 : -1);
-    this.curOpponents[opp.index] = new CmbtTrckOpponent(opp.opponent);
-    this.cache = this.curOpponents;
-  }
-
-  loadtestdata() {
+  loadtestdata(): Array<CmbtTrckOpponent> {
+    const opps = new Array<CmbtTrckOpponent>();
     for (let i = 0; i < 3; i++) {
       const opp = new CmbtTrckOpponent();
       opp.name = 'Opp' + (i + 1);
-      this.curOpponents.push(opp);
+      opp.id = new Date().getTime() + i;
+      opps.push(opp);
     }
-    this.cache = this.curOpponents;
+    return opps;
   }
 
   importArray(list: Array<CmbtTrckOpponent>) {
-    this.curOpponents = new Array<CmbtTrckOpponent>();
+    const opps = new Array<CmbtTrckOpponent>();
     list.forEach( opp => {
       const opponent = new CmbtTrckOpponent(opp);
-      this.curOpponents.push( opponent);
+      opps.push( opponent);
     });
-    this.cache = this.curOpponents;
+    this._opponents.next(opps);
+    this.cache = opps;
   }
 
   clear() {
-    this.curOpponents = new Array<CmbtTrckOpponent>();
-    this.loadtestdata();
+    this._opponents.next(this.loadtestdata());
   }
 
 }
