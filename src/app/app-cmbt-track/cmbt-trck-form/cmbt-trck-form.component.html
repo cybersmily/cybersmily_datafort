@@ -31,7 +31,7 @@
             </div>
           </div>
           <div *ngFor="let opp of opponents; index as i"
-              [ngClass]="{'csd-rounded':true, 'row': true, 'cbttrk-init': true, 'cbttrk-selected': (selectedOpponent.name === opp.name)}">
+              [ngClass]="{'csd-rounded':true, 'row': true, 'cbttrk-init': true, 'cbttrk-selected': (selectedOpponent.id === opp.id)}">
             <div class="col-3" [title]="showInitiativeTooltip(opp)">
               <input [(ngModel)]="opp.initRoll" type="number" (change)="changeInitiative()" class="csd-hide-spinner text-center" />
               <fa-icon [icon]="faDice" class="csd-btn opp-init csd-dice"

@@ -75,7 +75,7 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
 
   onStatBlockChange(value: Cp2020StatBlock) {
     this.currOpponent.stats = value;
-    this.opponentService.changeOpponent({index: this.index, opponent: this.currOpponent});
+    this.opponentService.changeOpponent(this.currOpponent);
   }
 
   changeTemplate() {
@@ -166,7 +166,7 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
   }
 
   private updateOpponent() {
-    this.opponentService.changeOpponent({index: this.index, opponent: this.currOpponent});
+    this.opponentService.changeOpponent(this.currOpponent);
   }
 
   deleteRole() {

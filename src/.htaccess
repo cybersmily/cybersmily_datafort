@@ -1,5 +1,8 @@
-Header add cybersmily "cybersmily=test"
 RewriteEngine On
+# If http redirect to https
+RewriteCond %{SERVER_PORT} 80
+RewriteCond %{HTTP_HOST} ^(www\.)?cybersmily\.net
+RewriteRule ^(.*)$ https://cybersmily.net/$1 [R,L]
 # If an existing asset or directory is requested go to it as it is
 RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
 RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d

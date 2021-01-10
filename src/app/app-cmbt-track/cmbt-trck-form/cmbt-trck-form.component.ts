@@ -111,7 +111,7 @@ export class CmbtTrckFormComponent implements OnInit {
     this.opponentService.sortInitiative();
   }
 
-  changeOpponent(value: CmbtTrckOppSelection) {
+  changeOpponent(value: CmbtTrckOpponent) {
     this.opponentService.changeOpponent(value);
   }
 

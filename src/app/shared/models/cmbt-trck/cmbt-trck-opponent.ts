@@ -9,6 +9,7 @@ import { CmbtTrckOppTemplate } from './cmbt-trck-opp-template';
 export class CmbtTrckOpponent {
   name: string;
   role: string;
+  id: number;
   initRoll: number;
   initDie: Array<number>;
   stats: Cp2020StatBlock;
@@ -23,6 +24,7 @@ export class CmbtTrckOpponent {
   constructor(param?) {
     this.name = param && param.name ? param.name : '';
     this.role = param && param.role ? param.role : '';
+    this.id = param && param.id ? param.id : new Date().getTime();
     this.initRoll = 0;
     this.initDie = new Array<number>();
     this.stats = new Cp2020StatBlock();
