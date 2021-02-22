@@ -32,7 +32,9 @@
             "styles": [
               "src/css/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/leader-line/leader-line.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -84,7 +86,9 @@
             "karmaConfig": "./karma.conf.js",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
-            "scripts": [],
+            "scripts": [
+              "node_modules/leader-line/leader-line.min.js"
+            ],
             "styles": [
               "src/css/styles.css"
             ],

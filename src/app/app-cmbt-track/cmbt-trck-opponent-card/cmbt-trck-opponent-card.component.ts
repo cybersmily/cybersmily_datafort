@@ -50,14 +50,11 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
     const skillList = this.skillListService.Skills;
     const opponents = this.opponentService.opponents;
     this.currOpponent = this.opponent;
-    console.log('Got here');
-    console.log(templates);
     forkJoin([
       templates
       , rolesList
       , skillList
     ]).subscribe( results => {
-      console.log(results);
       this.templates = results[0];
       this.roles = results[1];
       this.skills = results[2];

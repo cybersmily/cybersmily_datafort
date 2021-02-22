@@ -137,7 +137,8 @@ export interface SiteLinksGroup {
         links: [
           {title: 'CP Red Jumpstart Kit Character', link: 'apps/qkpregen',
             desc: 'Cyberpunk Red Character generator based on tempates for the jumpstart kit.'},
-          {title: 'LifePath Red Generator', link: 'apps/lpredjmp', desc: 'Cyberpunk Red lifepath generator.'}
+          {title: 'LifePath Red Generator', link: 'apps/lpredjmp', desc: 'Cyberpunk Red lifepath generator.'},
+          {title: 'NET Architect Generator', link: 'apps/rednet', desc: 'Cyberpunk Red NET Architect generator.'}
         ]
       });
       this.menuItems.push({

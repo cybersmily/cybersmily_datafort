@@ -1,0 +1,15 @@
+.node-name:hover {
+  background-color: #CCC;
+}
+
+.node-name {
+  cursor: pointer;
+}
+
+.net-node-details {
+  display: none;
+}
+
+div.net-node-info:hover div.col .net-node-details {
+  display: block !important;
+}

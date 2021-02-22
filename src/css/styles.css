@@ -7,8 +7,6 @@ INPUT {
   margin-bottom: 3px !important;
 }
 
-
-
 .csd-box {
   background-color: #ddd;
   color: #333;
@@ -17,6 +15,18 @@ INPUT {
   color: red;
   cursor: pointer;
   display: inline-block;
+}
+
+.csd-btn {
+  cursor: pointer;
+}
+.csd-menu-btn {
+  margin-left: 10px;
+}
+
+.csd-randomize {
+  margin-left: 10px;
+  font-size: small;
 }
 
 SELECT option.font-italic {
@@ -179,7 +189,12 @@ SELECT option.font-italic {
 .chargen-section, .cp2020-section { margin-top: 5px;}
 
 .csd-linebreak {
-  page-break-before: always;
+  page-break-before: always !important;
+  overflow:hidden !important;
+}
+
+.show-print {
+  display: none;
 }
 
 @-moz-document url-prefix() {
@@ -201,10 +216,20 @@ SELECT option.font-italic {
     width: 25%;
     float: left;
   }
+	.col-8 .page-break	{
+    width: 100%;
+    display: block !important;
+    page-break-after: always !important;
+    float: none;
+  }
 }
 }
 
 @media print {
+
+  .show-print {
+    display: block;
+  }
 
   .container {
     width: 100% !important;
@@ -231,6 +256,7 @@ SELECT option.font-italic {
   .hidden-print {
    display: none !important;
   }
+
 
   .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
     float: left;
@@ -423,6 +449,30 @@ SELECT option.font-italic {
   td.visible-sm {
     display: table-cell !important;
   }
+
+  div.col-1.csd-print,
+  div.col-2.csd-print,
+  div.col-3.csd-print,
+  div.col-4.csd-print,
+  div.col-5.csd-print,
+  div.col-6.csd-print,
+  div.col-7.csd-print,
+  div.col-8.csd-print,
+  div.col-9.csd-print,
+  div.col-10.csd-print,
+  div.col-11.csd-print,
+  div.col.csd-print  {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    float: none !important;
+    right: 0 !important;
+    left: 0 !important;
+    flex: 0 0 100% !important;
+  }
+  div.csd-linebreak::parent {
+    float: none !important;
+   }
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -455,12 +505,14 @@ input, select, textarea {
   border-bottom-right-radius: 0.3em !important;
 }
 
-.csd-btn {
-  cursor: pointer;
-}
 
 .navbar .mega-dropdown .dropdown-menu.mega-menu {
   width: 100%;
   border: 0;
   border-radius: 0;;
+}
+
+div svg circle.neticon:hover {
+  fill: red !important;
+  background-color: red;
 }

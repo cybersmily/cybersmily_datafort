@@ -39,6 +39,9 @@ export const mainRoutes: Routes = [
   { path: 'apps/deckmgr',
       loadChildren: () => import('./app-deck-manager/app-deck-manager.module')
       .then(m => m.AppDeckManagerModule) },
+      { path: 'apps/rednet',
+          loadChildren: () => import('./app-cp-red-net-arch/app-cp-red-net-arch.module')
+          .then(m => m.AppCpRedNetArchModule) },
   { path: 'dlow', loadChildren: () => import('./appdlow/dlowsection.module').then(m => m.DlowSectionModule) },
   { path: '**', redirectTo: '/', pathMatch: 'full'}
 ];

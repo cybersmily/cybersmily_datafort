@@ -2,7 +2,7 @@
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9" >
 	<url>
 		<loc>https://cybersmily.net/index.html</loc>
-		<lastmod>2020-12-01</lastmod>
+		<lastmod>2021-02-21</lastmod>
 	</url>
 	<url>
 		<loc>https://cybersmily.net/apps/chargen</loc>
@@ -11,6 +11,10 @@
 	<url>
 		<loc>https://cybersmily.net/apps/cmbttrk</loc>
 		<lastmod>2020-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://cybersmily.net/apps/rednet</loc>
+		<lastmod>2021-02-31</lastmod>
 	</url>
 	<url>
 		<loc>https://cybersmily.net/apps/cmbtzone</loc>
@@ -194,6 +198,6 @@
 	</url>
 	<url>
 		<loc>https://cybersmily.net/gigs/wns7</loc>
-		<lastmod>2020-11-01</lastmod>
+		<lastmod>2021-02-21</lastmod>
 	</url>
 </urlset>
