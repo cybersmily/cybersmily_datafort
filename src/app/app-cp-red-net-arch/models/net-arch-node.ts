@@ -40,8 +40,40 @@ export class CPRedNetArchNode implements NetArchNode {
   }
 
   addChild(node: NetArchNode) {
-    node.level = this.level + 1;
-    this.branch.push(new CPRedNetArchNode(node));
+    if(node) {
+      node.level = this.level + 1;
+      this.branch.push(new CPRedNetArchNode(node));
+    }
+  }
+
+  insertChild(parentId: string, node: NetArchNode):boolean {
+    if (this.id === parentId) {
+      this.addChild(node);
+      return true;
+    } else {
+      let i = 0;
+      let found = false;
+      do {
+        found = (this.branch[i]) ? this.branch[i].insertChild(parentId, node) : undefined;
+        i++;
+      } while(!found && i < this.branch.length);
+      return found;
+    }
+  }
+
+  deleteChild(id: string) : NetArchNode {
+    const index = this.branch.findIndex(n => n.id === id);
+    if ( index > -1) {
+      return this.branch.splice(index, 1)[0];
+    } else {
+      this.branch.forEach( n => {
+        const found = n.deleteChild(id);
+        if(found) {
+          return found;
+        }
+      });
+    }
+    return;
   }
 
   update(node: CPRedNetArchNode) {

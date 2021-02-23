@@ -82,6 +82,19 @@ export class CPRedNetArchService {
     this.idNum = 2;
     secondFloor.addChild(this.generateFloor(floors - 2, 3));
     firstFloor.addChild(secondFloor);
+    // there can only be 1 node at the bottom floor
+    const index = this.archArray.findIndex( n => !n);
+    this.archArray.splice(index);
+    const level = this.archArray.length - 1;
+    if (this.archArray[level] && this.archArray[level].length > 1) {
+      const deleteNodes =  this.archArray[level].splice(1);
+      console.log(this.archArray[level])
+      let id = this.archArray[level][0].id;
+      deleteNodes.forEach( n=> {
+         const node = firstFloor.deleteChild(n.id);
+         firstFloor.insertChild(id, node);
+      });
+    }
     this._architectAsArray.next(this.archArray);
     this._architect.next(firstFloor);
   }
