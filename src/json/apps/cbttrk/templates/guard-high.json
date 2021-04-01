@@ -1,0 +1,60 @@
+{ "handle": "Security Guard - Heavy",
+  "role": "Solo",
+  "int": 7,
+  "ref": 9,
+  "tech": 7,
+  "cool": 7,
+  "attr": 5,
+  "luck": 4,
+  "ma": 6,
+  "body":10,
+  "emp": 6,
+  "armor": {
+    "layers": [
+      {
+        "name": "Metal Gear",
+        "head": 25,
+        "torso":25,
+        "rarm": 25,
+        "larm": 25,
+        "rleg": 25,
+        "lleg": 25,
+        "isHard": false,
+        "isActive": true,
+        "ev": 2,
+        "isSkinWeave": false
+        }
+    ]
+  },
+  "sa": {"name":"Combat Sense", "stat": "REF", "value": 8},
+  "skills": [
+    {"name":"Awareness/notice", "stat": "INT", "value": 8},
+    {"name":"Handgun", "stat": "REF", "value": 8},
+    {"name":"MA: Judo", "stat": "REF", "value": 8},
+    {"name":"SMG", "stat": "REF", "value": 8},
+    {"name":"Intimidate", "stat": "COOL", "value": 8},
+    {"name":"Human Perception", "stat": "EMP", "value": 6},
+    {"name":"Athletics", "stat": "REF", "value": 8},
+    {"name":"Weaponsmith", "stat": "TECH", "value": 8},
+    {"name":"Rifle", "stat": "REF", "value": 8},
+    {"name":"Driving", "stat": "REF", "value": 5},
+    {"name":"First Aid", "stat": "TECH", "value": 4},
+    {"name":"Elect Security", "stat": "TECH", "value": 4}
+  ],
+  "cyberware": [
+    {"name":"Neural Processor", "options":"Chip socket, Smartgun, interface plugs, Kerenzikov +2"},
+    {"name":"Cyberoptics", "options":"Antidazzler, telescopic, image enhancement, Thermo"},
+    {"name":"Cyberaudio", "options":"Radio splice, Amplified Hearing"},
+    {"name":"Grafted Muscles"}
+  ],
+  "weapons": [
+    {"name": "Smart Hvy Pistol", "type": "P", "wa": "0", "conc":"J","damage":"4d6", "shots":"10", "rof": "1", "rel": "ST", "range": 50, "notes":""},
+    {"name": "Smart Assault Rifle", "type": "RIF", "wa": "1", "conc":"N","damage":"5d6", "shots":"35", "rof": "30", "rel": "ST", "range": 400, "notes":""},
+    {"name": "Taser", "type": "MEL", "wa": "0", "conc":"P","damage":"Stun-2", "shots":"10", "rof": "1", "rel": "ST", "range": 1, "notes":""}
+  ],
+  "gear": [
+    "Security Uniform, cuffs/stripe bindings, datapad"
+  ],
+  "source": "",
+  "notes": ""
+}

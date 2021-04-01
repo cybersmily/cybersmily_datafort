@@ -1,0 +1,71 @@
+{ "handle": "Ganger - Mid level",
+  "role": "Ganger",
+  "int": 7,
+  "ref": 9,
+  "tech": 7,
+  "cool": 7,
+  "attr": 7,
+  "luck": 5,
+  "ma": 6,
+  "body": 9,
+  "emp": 4,
+  "armor": {
+    "layers": [
+      {
+        "name": "Medium Armor jacket",
+        "head": 0,
+        "torso":18,
+        "rarm": 18,
+        "larm": 18,
+        "rleg": 0,
+        "lleg": 0,
+        "isHard": false,
+        "isActive": true,
+        "ev": 1,
+        "isSkinWeave": false
+        },
+        {
+          "name": "Flak pants",
+          "head": 0,
+          "torso":0,
+          "rarm": 0,
+          "larm": 0,
+          "rleg": 20,
+          "lleg": 20,
+          "isHard": false,
+          "isActive": true,
+          "ev": 1,
+          "isSkinWeave": false
+          }
+    ]
+  },
+  "sa": {"name":"Family", "stat": "COOL", "value": 7},
+  "skills": [
+    {"name":"Melee", "stat": "REF", "value": 8},
+    {"name":"Handgun", "stat": "REF", "value": 8},
+    {"name":"SMG", "stat": "REF", "value": 8},
+    {"name":"Rifle", "stat": "REF", "value": 8},
+    {"name":"Brawling", "stat": "REF", "value": 8},
+    {"name":"Dodge/Escape", "stat": "REF", "value": 8},
+    {"name":"Intimidate", "stat": "COOL", "value": 8},
+    {"name":"Resist Drug/Torture", "stat": "COOL", "value": 6},
+    {"name":"Awareness/Notice", "stat": "INT", "value": 7},
+    {"name":"Fast Talk/Persuasion", "stat": "EMP", "value": 3},
+    {"name":"Streetwise", "stat": "COOL", "value": 7},
+    {"name":"Pick Pocket", "stat": "TECH", "value": 3}
+  ],
+  "cyberware": [
+    {"name":"Wolvers"},
+    {"name":"Neural Processor", "options":"Speedware +2, Smargun Link"}
+  ],
+  "weapons": [
+    {"name": "Monoknife", "type": "MEL", "wa": "1", "conc":"P","damage":"2D6", "shots":"-", "rof": "-", "rel": "ST", "range": 0, "notes":"1/3 AP vs Soft armor;2/3 AP vs Hard Armor"},
+    {"name": "Heavy Pistol", "type": "P", "wa": "0", "conc":"J","damage":"4D6", "shots":"8", "rof": "1", "rel": "ST", "range": 50, "notes":""},
+    {"name": "Assault Rifle", "type": "RIF", "wa": "1", "conc":"N","damage":"5D6", "shots":"35", "rof": "30", "rel": "ST", "range": 400, "notes":""}
+  ],
+  "gear": [
+    ""
+  ],
+  "source": "",
+  "notes": "Choose a weapon they carry for the weapons listed."
+}

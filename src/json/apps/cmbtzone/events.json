@@ -3,82 +3,82 @@
     {
       "weight": 2,
       "title": "City Police",
-      "desc": "One patrol officer, armed with AKR-20, armored in Kevlar vest. If you are wearing visible weapons or armor, he will stop you in a nice way and ask to see your identity papers. If you're argumentative, he will call for backup (3) officers to take you in."
+      "desc": "1 NCPD, with AKR-20 and Kevlar vest(SP20). If PCs are wearing visible weapons/armor, will be stopped and asked for ID. Arguing backup will be called (3) to apprehend."
     },
     {
       "weight": 6,
       "title": "Corporate Guards",
-      "desc": "Four corporate guards patrolling the area. Armored in vests & helmets, carrying Uzi's. lf you're armed in a visible fashion, they will tell you to move on in a way that lets you know they're just itching to use those Uzis."
+      "desc": "4 Corpo security. Equiped with Vest(SP20), Helmet(SP25), Med SMGs. lf PCs visibly armed, will be toldto move along aggressively."
     },
     {
       "weight": 8,
       "title": "Nomads",
-      "desc": "Four Nomads from the Johannson Clan. Huge, rough-hewn blonde Vikings in flack vests and leather p ants, carrying fighting knives and rifles. lf there are attractive women in your group, they will whistle and make a general attempt at a pass. If not, they will move on."
+      "desc": "4 Nomads. Equiped with flack vests(SP20) and leather pants(SP4), fighting knives and rifles."
     },
     {
       "weight": 6,
       "title": "Boostergang",
-      "desc": "Four low-level street punks in the colors of the Metal Warriors. They are armed with scratchers and wearing armor jackets. If your party is larger than theirs, they will avoid you. If of smaller or equal size, they will try to rough you up right on the street."
+      "desc": "4 street punks. Equiped with scratchers armor jackets (SP12). If PCS outnumber them, they avoid. Else they will rough the PCs up."
     },
     {
       "weight": 3,
       "title": "Petty Criminal",
-      "desc": "One pickpocket. His REF is 8, his pickpocket skill is +6. Armed with only a knife. If he's successful, you have lost your wallet (and all cash, cards, etc). If he fails in the attempt, feel free to beat him to a pulp. It can only improve his technique."
+      "desc": "Pickpocket. REF 8, Pickpocket 6. Armed with knife. If successful, lose wallet. Else PCs catch them in act."
     },
     {
       "weight": 6,
       "title": "Solo Team",
-      "desc": "Three Solos, armed in flack vest & pants, carrying a mix of assault weapons. If you are wearing a rival Corporate uniform or patch, they will: 1-5, look you over and move on; 6-10, they will pick a fight. If you are wearing their Corporate colors, they'll ask you to join them for a drink. Roll 1Dl0 and take your chances."
+      "desc": "3 Solos. Equipped with flack vest(SP20), pants(SP20), and assault weapons. If PCs display rival Corporate uniform/logos, roll 1d10: 1-5, Solos look them over and move along; 6-10, pick a fight. If wearing same Corporate colors, PCs will be asked to join for a drink."
     },
     {
       "weight": 4,
       "title": "Boostergang",
-      "desc": "Six members of the Iron Sighis gang, armed with automatic pistols and rippers. They will hassle any attractive men or women in the party (the gang is mixed sex), shake you down for money and generally be looking for a fight. Go ahead and give it to them."
+      "desc": "6 gangers, Equipped with Med Pistols and rippers. They will hassle any attractive PCs, shakedown for money, and itching for a fight."
     },
     {
       "weight": 6,
       "title": "Techies",
-      "desc": "Two Techies, without weapons or armor. If you are wearing any unusual weapons or cybertech, they will stop you and ask to look. If it's removable, they may offer to trade some Skill chipware (up to the Referee's discretion) in exchange."
+      "desc": "2 Techies no arms or armor. If PCs wearing any unusual weapons/cybertech, they will stop you and ask to look. Techies willing to trade for it some Skill chipware."
     },
     {
       "weight": 3,
       "title": "Culties",
-      "desc": "The Inquisitors are out in force on the Street. Six of them, armed with hidden nunchaku, corner you to hand out literature. If you are wearing any visible cybertech (arms, eyes with logos, etc., be prepared to be heavily harrassed and followed. If you use any violence, a minor riot may develop."
+      "desc": "6 Inquisitors, armed with hidden nunchaku. They are handing out literature. If PCs have visible cybertech they will be harrassed and followed."
     },
     {
       "weight": 3,
       "title": "Private Investigator",
-      "desc": "You observe him/her shadowing you. The PI is armed with a heavy caliber revolver and wearing an armor jacket. If you rough the PI up a bit, you may discover that he/she thinks you are someone else."
+      "desc": "1 PI is shadowing PCs. Armed with HVY Pistol and armor jacket(SP16). If PCs rough the PI up, discover that he/she has mistaken PCs for someone else."
     },
     {
       "weight": 7,
       "title": "Corporates",
-      "desc": "Two corporates from a middle level firm, headed for lunch. One is wearing an armor T-shirt under his/her suit. Neither are armed, but both carry cell phones. Roll 1D10.1·4, they are being followed by thugs intent on robbery-if you feel altruistic or just want to score a reward, here's your chance. 5-8, they are lost and will ask directions to the restaurant (you could lead them the wrong way and mug them in an alley). 9-10, they know you from a previous encounter and stop you on purpose. Not good, probably."
+      "desc": "2 corporates, headed for lunch. Armor T-shirt(SP12) under his/her suit. Neither are armed. Roll 1D10.1·4, corpos being followed by thugs, PCs can help and be rewarded. 5-8, corpos are lost and ask directions. 9-10, Corpos know one of the PCs for good or bad."
     },
     {
       "weight": 6,
       "title": "Medias",
-      "desc": "A camera and interviewer team, doing random \"man-on·the-street\" stories. The subject of the interview will vary widely, depending on recent events and what's considered controversial at the time. If you want to be well known, this will put your face on TV screens all over Night City. On the other hand, it may alert your worst enemies to the fact that you are still alive."
+      "desc": "Interviewer team, doing random \"man-on·the-street\" interviews. Pick a subject."
     },
     {
       "weight": 7,
       "title": "locals",
-      "desc": "Young men or women (2 to 6 total). Roll lD10. Will be friendly on 1-S, hostile on 6-8, abusive on 9·10. No weapons or armor. These guys must be crazy."
+      "desc": "2-6 Young adults. Roll lD10: 1-S friendly to PCs,  6-8 corporates to PCs, 9·10 they are abusive. No weapons or armor."
     },
     {
       "weight": 6,
       "title": "Crazy",
-      "desc": "Some bearded, wild-eyed freak in torn rags. Roll1010. On 1-5, he rants at you a while, then starts to rant at someone else. 6-8, he decides you are one of the space aliens from Venus, and follows you, screaming invective. 9-10, he starts to scream, passes out in front of you, and everyone around thinks you had something to do with it."
+      "desc": "Bearded, wild-eyed in torn rags. Roll 1D10: 1-5 rants at PCs, 6-8 decides a PC is a space aliens and follows them screaming, 9-10 starts screaming, passes out, and bystanders thinks PCs did something."
     },
     {
       "weight": 5,
       "title": "Trauma Team",
-      "desc": "Standard 5 man team on a lunch break. Their AVis parked at the end of the corner, while their Solos keep watch. This might be a good time to make friends and spread a little \"insurance\" Eurobucks around."
+      "desc": "5 member team on a lunch break. AV parked on corner. Security members on watch."
     },
     {
       "weight": 6,
       "title": "Rockerboys",
-      "desc": "A three man band on the way to practice. Carrying real guitars and wearing leathers, no less. Roll 1D10. On 1·4, they will invite you to their gig tonight."
+      "desc": "3 member band on the way to practice. Carrying instruments and dressed in leathers. Roll 1D10: 1·4 PCs invited to gig that night."
     },
     {
       "weight": 9,
@@ -88,196 +88,196 @@
     {
       "weight": 6,
       "title": "Securlty Guards",
-      "desc": "You're treading too close to the tail of an important Corporate. These guys will come back and warn you off. Flack armor, Sternmeyer35's, boosted Reflexes."
+      "desc": "2-5 guards escorting important Corporate. PCs get too close, they will be warn you off. Equiped with Flack armor(SP20), Sternmeyer35's, and boosted Reflexes."
     },
     {
       "weight": 4,
       "title": "Media Star",
-      "desc": "Famous media star. Roll1 010. 1·6, will sign autographs if asked. 7-9, will be hostile and yell for a policeman or a bodyguard. On a 10, he/she will take a liking to one member of the party and allow you to tag along. "
+      "desc": "Famous media star. Roll 1D10: 1·6 signs autographs if asked, 7-9 hostile and yells NCPD/bodyguards for help, 10 take a liking to one of PCs and allowed to tag along."
     }
   ],
   "evening": [
     {
       "weight": 5,
-      "title": "City Pollee",
-      "desc": "Two patrol officers, armed with FN-RAL1, armored in flack vests, pants. If you are wearing visible weapons or armor, they will stop you and demand identity papers.lf you're argumentative, They will call for backup (3) officers to take you in. If you reach for a weapon, they'll shoot first, fill out the paperwork later."
+      "title": "City Pollce",
+      "desc": "2 officers. Equipped with assault rifles, flack vests(SP20), pants(SP20). If PCs have visible weapons/armor, officers stop them and demand IDs.lf PCs argue backup is called (3 officers) to take you in. Reaching for weapons will draw fire."
   },
     {
       "weight": 6,
       "title": "Corporate Guards",
-      "desc": "Four corporate guards patrolling the area. Armored in flack vests & helmets, carrying Minami l O's. Unless you're a Corporate, they don't think you have any business running around their nice clean city at night. Move it, punk."
+      "desc": "4 guards patrolling. Equipped flack vest(SP20), helmet(SP25), Med SMG. Unless PCs are Corporates, they will be told to leave the area."
   },
     {
       "weight": 6,
       "title": "Nomads",
-      "desc": "A mixed group of six Nomads from the Roadrunners Pack. Wearing flack vests and leather pants, carrying fighting knives and rifles. Moderately drunk and looking for a fight. They will hassle any attractive looking men or women in your group. Face it; they want a fight. Give them one."
+      "desc": "6 Nomads. Equipped flack vests(SP20), leather pants(SP6), fighting knives and rifles. Moderately drunk and looking for a fight. PCs will be hassled if attractive."
   },
     {
       "weight": 7,
       "title": "Boostergang",
-      "desc": "Five low-level street punks from the Piranhas boostergang. If you look like easy prey and have money, they'll rough you up. They are armed with Med. Handguns, knives and boosted reflexes."
+      "desc": "5 street punks. If PCs look soft, gangers will try to rob them. Equipped with Med. Handguns, knives and boosted reflexes."
   },
     {
       "weight": 6,
       "title": "Street Punks",
-      "desc": "Six Smash-heads, looking for credit to feed their habit. If you're not wearing Corporate or booster colors, they'll try to rush you right on the street. Armed with fighting knives; no armor."
+      "desc": "6 Smash-heads. If PCs not wearing Corporate or booster colors, punks will attack. Equipped with fighting knives and no armor."
   },
     {
       "weight": 6,
       "title": "Solo Team",
-      "desc": "Four Solos, armored in flackvest & pants, carrying smartgun chipped H&K MP 5Ks. Boosted refle xes, boosted hearing, cyberoptics with low light, IR and targeting. Obviously up to some grey operation. If you are wearing a rival Corporate uniform or patch, they will: 1-S,dodge you and move on; 6-10, decide you are a witness and ought to be totalled right now."
+      "desc": "4 Solos, Equipped with flackvest(SP20), pants(SP20), smartgun chipped Hvy SMG, Boosted reflexes, boosted hearing, cyberoptics with low light, IR and targeting. If PCs wearing rival Corporate uniform/logo, Solos will: 1-S dodge PCs and move on; 6-10 decide PCs saw something and need to be eliminated."
   },
     {
       "weight": 6,
       "title": "Boostergang",
-      "desc": "Six members of the Iron Sights gang, armed with automatic weapons, rippers, IR cyberoptic.s, boosted reflexes. They will hassle any attractive men or women in the party (the gang is mixed sex), shake you down for money and generally be looking for a fight. This might be tougher than the daylight crowd was."
+      "desc": "6 gangers. Equipped with SMGs, rippers, IR cyberoptics, boosted reflexes. They will hassle any attractive PC, shake PCs down and looking for a fight."
   },
     {
       "weight": 2,
       "title": "Techles",
-      "desc": "Two Techies, with one Minami 10 submachinegun, wearing flack vests. Roll 1D10. 1-2, they are lugging a crate of tools into an AV-4. 3-5, they are working on a City system in your path. 6-10, they are walking toward you on their way to work."
+      "desc": "2 Techies, with one Minami 10 submachinegun, wearing flack vests. Roll 1D10: 1-2 they are lugging a crate of tools into an AV-4, 3-5 they are working on a City system in your path. 6-10 they are walking toward you on their way to work."
   },
     {
       "weight": 6,
       "title": "Culties",
-      "desc": "The Inquisitors are out in maximum force. Six of them, armed openly with nunchaku, corner you for inspection. If you are wearing any visible cybertech (Arms, eyes w ith logos, etc.), they will proceed to beat you to a pulp."
+      "desc": "6 Inquisitors. Equipped nunchaku. If PC has visible cybertech (Arms, eyes w ith logos, etc.), Inquisitors attack."
   },
     {
       "weight": 4,
       "title": "Private Investigator",
-      "desc": "Roll 1D10. On 1-3, he/she is ahead of you, hassling an informant on the streetcorner concerning the whereabouts of a suspect. 4· 7, he/she is shadowing someone ahead of you. 8-10, they will stop you and ask you whether you have seen the person they are following. The PI is armed with a heavy caliber revolver and wearing an armor jacket."
+      "desc": "Equipped with a heavy revolver and light armor jacket(SP12).Roll 1D10: 1-3 hassling an informant on the streetcorner, 4-7 shadowing someone ahead of PC, 8-10 stop PC and ask whether they have seen the person they are following."
   },
     {
       "weight": 3,
       "title": "Corporates",
-      "desc": "Four corporales from a large firm, headed for the lev train station. Both are wearing armor T -shirts under their suits and carrying poly-mer one shots. Roll 1D10.1-4, they are being followed by thugs intent on robbery. 5·8, they think you're  Boosters and will open fire at any provocation. 9-10, they not only think you're trouble, but will call for Corporate backup (see Corporate Guards, above)."
+      "desc": "4 corporales headed for the lev train station. Equipped with armor T-shirts(SP10) and polymer one shot. Roll 1D10: 1-4 they are being followed by thugs intent on robbery, 5-8 they think PCs are Boosters and will open fire at any provocation, 9-10 they not only think you're trouble, but will call for Corporate backup (4 guards, equipped flack vest(SP20), helmet(SP25), Med SMG. )."
   },
     {
       "weight": 7,
       "title": "Locals",
-      "desc": "Young man or woman. Roll 1D10. 1·5, they are being held up by two thugs from the Metal Warriors gang. 6-10, they are being beaten severely by the lnquisitors for the sin of having designer eyes."
+      "desc": "Young person. Roll 1D10: 1-5 they are being held up by 2 thugs, 6-10 they are being beaten by the lnquisitors."
   },
     {
       "weight": 6,
       "title": "Fireflght",
-      "desc": "Great. You just walked into a major altercation between the Bradi Bunch (a highlevel Posergang that alll·ook like refugees from an old sitcom) and the Red Chrome Legion (a neo-facist Boostergang). Both are wearing armor jackets and firing large caliber handguns. Rippers, cyberarm weapons and slice-n-dices are everywhere. Pick a side, or pick a target."
+      "desc": "2 gangs battling. Both are wearing armor jackets (SP12) and heavy pistols. Also have Rippers, cyberarm weapons and slice-n-dices."
   },
     {
       "weight": 5,
       "title": "Trauma Team",
-      "desc": "The AV-4 hits the ground in the middle of a recent firelight. Roll 1D10. On a 1·S, the Team decides you're bystanders and ignores you. On 6-10, they figure you're part of the problem and the Solos open up with MAC 14s."
+      "desc": "The AV-4 hits lands. Roll 1D10: 1-S ignores you, 6-10 PCs are viewed as threat, 2 solos equiped with armor(SP20) and medium SMG."
   },
     {
       "weight": 5,
       "title": "Rockerboys",
-      "desc": "You overtake a four man band on the way to a gig, backed by their two Solo bodyguards and their Fixer manager. Roll 1D10. On 1·4, they will invite you to join them. 5-8, they will send the Solos to\"deal with those guys who are following them.\" 9-10, they ignore you. "
+      "desc": "4 member band on the way to a gig with 2 solo bodyguards and a fixer. Roll 1D10: 1·4 they will invite PCs to join them, 5-8 solos will deal with PCs, 9-10 ignore PCs."
   },
     {
       "weight": 5,
       "title": "Medias",
-      "desc": "A camera and interviewer team, staking out a building on a hot assignment. Roll 1D10. On 1-5, they will be spotted by their story-subject and a firelight will ensue. You, of course, will be right in the middle of it."
+      "desc": "2 members, camera operator and interviewer. They are on a stake out. Roll 1D10: 1-5 they're spotted by story-subject and a firelight starts. PCs are in the middle of it."
   },
     {
       "weight": 3,
       "title": "Major Criminal",
-      "desc": "You've walked into a major operation of the notorious Scagatta/ia Family. Four Solo-type men armed with Med.& Heavy pistols and wearing flack vests, are unloading a drug cargo out of a truck. Roll 1D10. 1·4, they don't notice you. 5·8, they notice you and one warns you off. 9-10, they decide you are a witness and ought to be totalled right now."
+      "desc": "4 solo-type men armed with Med and Heavy pistols and wearing flack vests(SP20) are unloading a drug cargo out of a truck. Roll 1D10: 1-4 ignore PCs, 5-8 warn off PCs, 9-10 PCs are witnesses and need elimination."
   },
     {
       "weight": 6,
       "title": "Chromers",
-      "desc": "Four members of the Steel Slaughter Slammers. They are wearing armor Ts with metal spiked leathers. All have metal arms covered with chrome, with rippers and Med pistols built in. Roll 1D10- on a 1-6, they will go for you. On 7-8, they'll pass you by. On 9-10, they take a liking to a member of the party and invite you to tag along with them."
+      "desc": "4 gangers. Equiped with armored Tees(SP12), leather pants(SP4), and Med Pistol. All have cyberarms with rippers. Roll 1D10: 1-6 attack PCs, 7-8 ignore PCs, 9-10 take a liking to a PC and invite them to tag along."
   },
     {
       "weight": 3,
       "title": "Solo team",
-      "desc": "Three Solos, armed in flack vest & pants, carrying smartgun chipped Uzis.Boosted reflexes, cyberoptics with low light, targeting. These guys are on a total black operation (an assassination). Roll 1D10; on a 1-5, If you ignore them, they'll ignore you. 6-10, they'll decide you are a witness and ought to be totalled right now."
+      "desc": "3 solos Equipped with flack vest(SP20), flak pants(SP20), smartgun chipped Med SMG, Boosted reflexes, cyberoptics with low light, targeting. Currenlty on op. Roll 1D10: 1-5 ignore PCs, 6-10 they'll decide PCs are witnesses and must be eliminated."
   },
     {
       "weight": 3,
       "title": "Media Star",
-      "desc": "Famous media star. Roll 1D10. 1-6, he/she will sign autographs if asked. 7-9, will be hostile and yell for a policeman or a bodyguard. on a 10, he/she will take a liking to one member of the party and allow you to tag along."
+      "desc": "Famous media star. Roll 1D10: 1-6 will sign autographs if asked, 7-9 will be hostile and yell for a policeman/bodyguard, 10 take a liking to a PC and allows them to tag along."
   }
   ],
   "aftermidnight": [
     {
       "weight": 10,
       "title": "City Police",
-      "desc": "Two patrol officers, armed with Militech Ronin assault rifles, armored in flack vests, pants, helmets. If you are wearing visible weapons or armor, they will stop you and demand identity papers. You've got no business running around after midnight and they know it. They'll stop you and look for any pretext to make a bust. If you're wearing visible weapons, consider yourself detained. If you go for a weapon, they will shoot first and forget the paperwork."
+      "desc": "2 officers, equipped with assault rifle, flack vest(SP20), flak pants(SP20), helmet(SP25). If PCs wearing visible weapons/armor will be stopped and demand IDs. They are looking for a bust. If PCs have visible weapons, will be detained. Any aggression from PCs will be met with gunfire."
     },
     {
       "weight": 12,
       "title": "Corporate Guards",
-      "desc": "Four corporate guards patrolling the area. Armored in flack vests & helmets, carrying FN-RALs. 'What are you doing on the properly after midnight? Can't have a good reason/ Blaml Blaml Blaml'"
+      "desc": "4 guards patrolling. Equipped with flack vest(SP20), helmet(SP25), and Assault Rifles. Will open fire if PCs approach them or show any hostility."
     },
     {
       "weight": 8,
       "title": "Nomads",
-      "desc": "A mixed group of four Nomads from the Wildman Pack. Wearing flack vests, tatoos and leather pants, carrying figh~ng knives and rifles. As long as you stay clear of their bikes, they'll ignore you and concentrate on beating that family of Corporales to mush."
+      "desc": "4 Nomads. Equipped with flack vest(SP20), leather pants(SP4), fighting knives and rifles. Will ignore if PCs stay clear, but they are beating those Corporates."
     },
     {
       "weight": 10,
       "title": "Boostergang",
-      "desc": "Five low-level street punks from the Crazy Chicken boostergang. They are armed with .45 automatics, knives and boosted reflexes. They're looking for 'Lacers or any other possible source of ready cash. Roll 1d10; 7 or above, you're it."
+      "desc": "5 street punks. Equipped with hvy pistol, knives and boosted reflexes. Roll 1d10: 7+ attempt to rob PCs."
     },
     {
       "weight": 10,
       "title": "Street Punks",
-      "desc": "Four Lace addicts, looking for credit to feed their habit. Even if you're wearing Corporate or booster colors, they'll rush you. These guys don't care, and they don't feel pain. Armed with fighting knives, scratchers; no armor."
+      "desc": "4 Lace addicts looking for victim to rob, PCs are it. Armed with fighting knives, scratchers."
     },
     {
       "weight": 10,
       "title": "Solo Team",
-      "desc": "Two Solos, armed in flack vest & pants, carrying smartgun chipped H&K MPK-9. Boosted reflexes, boosted hearing, cyberoptics with low light, IR and targeting. Obviously up to some grey operation. If you are wearing a rival Corporate uniform or patch, roll 1D10. they will: 1-S, dodge you and move on; 6·10, decide you are a witness and ought to be totalled right now."
+      "desc": "2 solos. Equipped with flack vest(SP20), flak pants(SP20), smartgun chipped Heavy SMG, Boosted reflexes, boosted hearing, cyberoptics with low light, IR and targeting. If PCs have rival Corporate uniform/patches, roll 1D10: 1-S ignore PCs, 6·10 PCs are a witness and need elimination."
     },
     {
       "weight": 5,
       "title": "Boostergang",
-      "desc": "Six members of the Blood Razors gang, armed with automatic weapons, rippers, IR cyberoptics, boosted reflexes. Hassle you? Naw ... they'll just torture you and listen to you scream. For fun. Afterwards, they'll sell the body to the Donor Center for cash."
+      "desc": "6 gangers. Equipped automatic Med SMG/Assault Rifles, rippers, IR cyberoptics, boosted reflexes. Want to torture and harvest PCs."
     },
     {
       "weight": 5,
       "title": "Culties",
-      "desc": "It's lnquistion timel The lnquisitors are out in maximum force. Six of them, armed openly with nunchaku, handguns and whips corner you. 'Only a servant of the Metal Demons would be abroad at this hour. Anydecent citizen would be ot home, asleep. Hack, slay and maim the heretic'"
+      "desc": "6 Inquisitors. Eqipped with nunchaku, hvy pistols handguns and whips. 'Only a servant of the Metal Demons would be abroad at this hour. Any decent citizen would be ot home, asleep. Hack, slay and maim the heretic'"
     },
     {
       "weight": 2,
       "title": "Private Investigator",
-      "desc": "Roll 1D10. On 1·3, he/she is ahead of you, hassling an informant on the streetcorner concerning the whereabouts of a suspect. 4-7, he/she is shadowing someone ahead of you. 8-10, they will stop you and ask you whether you have seen the person they are following. The PI is armed with a heavy caliber revolver and wearing an armor jacket."
+      "desc": "Equipped with heavy pistol and med armor jacket(SP18). Roll 1D10: 1·3 is ahead of PCs, hassling an informant about a suspect, 4-7 shadowing someone ahead of PCs, 8-10 stops PCs and ask them if they've the a person."
     },
     {
       "weight": 4,
       "title": "Chromers",
-      "desc": "Four members of the Steel Slaughter Slammers. They are wearing armor Ts with metal spiked leathers. All have metal arms covered with chrome, with rippers and .45 cals built in. Roll 1d10 on a 1-6, they will go for you. On 7-8, they'll pass you by. On 9-10, they take a liking to a member of the party and invite you to tag along with them."
+      "desc": "4 gangers. Equipped with armor Tee(SP10), cyberarms with rippers and Hvy Pistol built in. Roll 1d10: 1-6 attack PCs, 7-8 ignore PCs, 9-10 take a liking to a PC and invites them to tag along."
     },
     {
       "weight": 1,
       "title": "Medias",
-      "desc": "A camera and interviewer team, looking for a story. Roll 1D10. On 1-5, they will be spotted by their story-subject and a firelight will ensue. You, of course, will be right in the middle of it. on a 6-10, they'll decide you're the story and follow you."
+      "desc": "2 person crew (camera and interviewer). Roll 1D10: 1-5 they will be spotted by subject and firefight starts, 6-10 they follow PCs for a story."
     },
     {
       "weight": 3,
       "title": "locals",
-      "desc": "Young man or woman. Roll 1D10. 1-5, they are being beaten by four thugs from the Blood Razors gang. 6·10, they are being beaten severely by the Inquisitors for the sin of having designer eyes."
+      "desc": "Young person. Roll 1D10: 1-5 being beaten by 4 thugs, 6-10 being beaten by the Inquisitors."
     },
     {
       "weight": 5,
       "title": "Fireflght",
-      "desc": "Great. You just walked into a major altercation between the Bradi Bunch (a highlevel Posergang that all look like refugees from an old sitcom) and the Red Chrome Legion (a neo-facist Boostergang). Both are wearing armor jackets and firing large caliber handguns. Rippers, cyberarm weapons and slice-n-dices are everywhere. Pick a side, or pick a target."
+      "desc": "Major altercation between 2 gangs. Both equipped with med armor jackets(SP16) ,very hvy pistols, Rippers, cyberarm weapons and slice-n-dices."
     },
     {
       "weight": 3,
       "title": "Trauma Team",
-      "desc": "The AV-4 hits the ground in the middle of a recent firelight. Roll 1D10. On a 1-5, the Team decides you're bystanders and ignores you. On 6-10, they figure you're part of the problem and the Solos open up with MAC1 Os."
+      "desc": "AV-4 lands for a recent firefight. Roll 1D10: 1-5 ignores PCs, 6-10 PCs are hostiles. Solos open up with Hvy SMGs."
     },
     {
       "weight": 1,
       "title": "Major Criminal",
-      "desc": "You've walked into a major operation of the notorious Scagattalia Family. Four Solo-type men armed with Ingram MAC 14s and wearing flack vests are unloading a drug cargo out of a truck. Roll 1D10. 1·4, they don't notice you. 5-B, they notice you and one warns you off. 9-10, they decide you are a witness and ought to be totalled right now."
+      "desc": "4 solo-type men. Equipped with Hvy SMG and flack vests(SP20). Unloading a drug cargo. Roll 1D10: 1·4 don't notice PCs, 5-B warn off PCs, 9-10 witness need elimination."
     },
     {
       "weight": 1,
       "title": "Solo team",
-      "desc": "Three Solos, armed in flack vest & pants, carrying smartgun chipped Uzis.Boosted reflexes, cyberoptics with low light, targeting. These guys are on a total black operation (an assassination). Roll 1D10; on a 1-5, if you ignore them, they'll ignore you. 6-10, they'll decide you are a witness and ought to be totalled right now."
+      "desc": "3 Solos black ops team. Equipped with flack vest(SP20),flak pants(SP20), smartgun chipped Med SMG, Boosted reflexes, cyberoptics with low light, targeting. Roll 1D10: 1-5 ignore PCs, 6-10 PCs are a threat and need to be dealt with."
     }
   ]
 }

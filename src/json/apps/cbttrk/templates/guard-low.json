@@ -1,0 +1,56 @@
+{ "handle": "Security Guard - light",
+  "role": "Solo",
+  "int": 6,
+  "ref": 7,
+  "tech": 6,
+  "cool": 6,
+  "attr": 5,
+  "luck": 4,
+  "ma": 6,
+  "body":7,
+  "emp": 6,
+  "armor": {
+    "layers": [
+      {
+        "name": "Kevlar vest",
+        "head": 0,
+        "torso":10,
+        "rarm": 0,
+        "larm": 0,
+        "rleg": 0,
+        "lleg": 0,
+        "isHard": false,
+        "isActive": true,
+        "ev": 0,
+        "isSkinWeave": false
+        }
+    ]
+  },
+  "sa": {"name":"Combat Sense", "stat": "REF", "value": 3},
+  "skills": [
+    {"name":"Awareness/notice", "stat": "INT", "value": 3},
+    {"name":"Handgun", "stat": "REF", "value": 3},
+    {"name":"MA: Judo", "stat": "REF", "value": 3},
+    {"name":"SMG", "stat": "REF", "value": 3},
+    {"name":"Intimidate", "stat": "COOL", "value": 3},
+    {"name":"Human Perception", "stat": "EMP", "value": 3},
+    {"name":"Athletics", "stat": "REF", "value": 3},
+    {"name":"Weaponsmith", "stat": "TECH", "value": 3},
+    {"name":"Rifle", "stat": "REF", "value": 3},
+    {"name":"Driving", "stat": "REF", "value": 2},
+    {"name":"First Aid", "stat": "TECH", "value": 2},
+    {"name":"Elect Security", "stat": "TECH", "value": 2}
+  ],
+  "cyberware": [
+  ],
+  "weapons": [
+    {"name": "Med Pistol", "type": "P", "wa": "1", "conc":"J","damage":"2d6+3", "shots":"10", "rof": "2", "rel": "ST", "range": 50, "notes":""},
+    {"name": "Med SMG", "type": "SMG", "wa": "0", "conc":"J","damage":"2d6+1", "shots":"30", "rof": "20", "rel": "ST", "range": 200, "notes":""},
+    {"name": "Taser", "type": "MEL", "wa": "0", "conc":"P","damage":"Stun-2", "shots":"10", "rof": "1", "rel": "ST", "range": 1, "notes":""}
+  ],
+  "gear": [
+    "Security Uniform, cuffs/stripe bindings, radio, mirror shades, datapad"
+  ],
+  "source": "",
+  "notes": ""
+}

@@ -1,0 +1,51 @@
+{ "handle": "Ganger - low level",
+  "role": "Ganger",
+  "int": 4,
+  "ref": 6,
+  "tech": 5,
+  "cool": 5,
+  "attr": 6,
+  "luck": 5,
+  "ma": 6,
+  "body": 6,
+  "emp": 4,
+  "armor": {
+    "layers": [
+      {
+        "name": "Heavy Leather jacket",
+        "head": 0,
+        "torso":4,
+        "rarm": 4,
+        "larm": 4,
+        "rleg": 0,
+        "lleg": 0,
+        "isHard": false,
+        "isActive": true,
+        "ev": 0,
+        "isSkinWeave": false
+        }
+    ]
+  },
+  "sa": {"name":"Family", "stat": "COOL", "value": 2},
+  "skills": [
+    {"name":"Melee", "stat": "REF", "value": 4},
+    {"name":"Brawling", "stat": "REF", "value": 4},
+    {"name":"Intimidate", "stat": "COOL", "value": 2},
+    {"name":"Resist Drug/Torture", "stat": "COOL", "value": 2},
+    {"name":"Awareness/Notice", "stat": "INT", "value": 3},
+    {"name":"Fast Talk/Persuasion", "stat": "EMP", "value": 2},
+    {"name":"Streetwise", "stat": "COOL", "value": 2},
+    {"name":"Pick Pocket", "stat": "TECH", "value": 2}
+  ],
+  "cyberware": [
+  ],
+  "weapons": [
+    {"name": "Knife", "type": "MEL", "wa": "0", "conc":"P","damage":"1D6", "shots":"-", "rof": "-", "rel": "ST", "range": 0, "notes":"1/2 AP vs Soft armor"},
+    {"name": "Axe", "type": "MEL", "wa": "-1", "conc":"N","damage":"2D6+3", "shots":"-", "rof": "-", "rel": "ST", "range": 0, "notes":""}
+  ],
+  "gear": [
+    ""
+  ],
+  "source": "",
+  "notes": ""
+}

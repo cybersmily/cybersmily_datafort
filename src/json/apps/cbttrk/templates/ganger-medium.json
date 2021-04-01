@@ -1,0 +1,72 @@
+{ "handle": "Ganger - Mid level",
+  "role": "Ganger",
+  "int": 5,
+  "ref": 8,
+  "tech": 7,
+  "cool": 6,
+  "attr": 6,
+  "luck": 5,
+  "ma": 6,
+  "body": 7,
+  "emp": 4,
+  "armor": {
+    "layers": [
+      {
+        "name": "Light Armor jacket",
+        "head": 0,
+        "torso":14,
+        "rarm": 14,
+        "larm": 14,
+        "rleg": 0,
+        "lleg": 0,
+        "isHard": false,
+        "isActive": true,
+        "ev": 0,
+        "isSkinWeave": false
+        },
+        {
+          "name": "Leather pants",
+          "head": 0,
+          "torso":0,
+          "rarm": 0,
+          "larm": 0,
+          "rleg": 4,
+          "lleg": 4,
+          "isHard": false,
+          "isActive": true,
+          "ev": 0,
+          "isSkinWeave": false
+          }
+    ]
+  },
+  "sa": {"name":"Family", "stat": "COOL", "value": 5},
+  "skills": [
+    {"name":"Melee", "stat": "REF", "value": 6},
+    {"name":"Handgun", "stat": "REF", "value": 6},
+    {"name":"SMG", "stat": "REF", "value": 6},
+    {"name":"Rifle", "stat": "REF", "value": 6},
+    {"name":"Brawling", "stat": "REF", "value": 6},
+    {"name":"Dodge/Escape", "stat": "REF", "value": 6},
+    {"name":"Intimidate", "stat": "COOL", "value": 5},
+    {"name":"Resist Drug/Torture", "stat": "COOL", "value": 4},
+    {"name":"Awareness/Notice", "stat": "INT", "value": 5},
+    {"name":"Fast Talk/Persuasion", "stat": "EMP", "value": 3},
+    {"name":"Streetwise", "stat": "COOL", "value": 5},
+    {"name":"Pick Pocket", "stat": "TECH", "value": 3}
+  ],
+  "cyberware": [
+    {"name":"Scratchers"},
+    {"name":"Neural Processor", "options":"Speedware +2"}
+  ],
+  "weapons": [
+    {"name": "Knife", "type": "MEL", "wa": "0", "conc":"P","damage":"1D6", "shots":"-", "rof": "-", "rel": "ST", "range": 0, "notes":"1/2 AP vs Soft armor"},
+    {"name": "Medium Pistol", "type": "P", "wa": "0", "conc":"J","damage":"2D6+1", "shots":"10", "rof": "2", "rel": "ST", "range": 50, "notes":""},
+    {"name": "Light SMG", "type": "SMG", "wa": "1", "conc":"J","damage":"2D6+1", "shots":"35", "rof": "25", "rel": "ST", "range": 150, "notes":""},
+    {"name": "Shotgun", "type": "SHT", "wa": "-2", "conc":"N","damage":"4D6", "shots":"8", "rof": "2", "rel": "ST", "range": 50, "notes":""}
+  ],
+  "gear": [
+    ""
+  ],
+  "source": "",
+  "notes": "Choose a weapon they carry for the weapons listed."
+}

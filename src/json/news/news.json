@@ -1,6 +1,18 @@
 ﻿{
   "news": [
     {
+      "date": "2021-04",
+      "entries": [
+        "<strong>04-01</strong> - Updated parts of the site that didn't adhere to the R Talsorian Hombrew Policy.",
+        "Combat Tracker - remove the stats pulled from the source books for the templates. Added generic gangers and security guards. More will be added in the future.",
+        "Combat Zone Generator - summarized the entries a bit more and corrected some mispellings. ",
+        "In other News, Wisdom of <a href='https://datafortress2020.com'>Datafortress 2020</a> and I are doing a twitch show. We are aiming to do it every other week on the <a href='https://www.twitch.tv/cyberpunkuncensored'>Cyberpunk Uncensored Twitch channel</a>. We currently are giving our review of Cyberpunk 2077, but more reviews and other topics will be talked about. We would love for you to check it out.",
+        "Till next time.",
+        "CYBER :D"
+
+      ]
+    },
+    {
       "date": "2021-02",
       "entries": [
         "<strong>02-21</strong> - Another month into 2021 when the 4th Corporate War starts heating up. However seems that everyone is freezing ;). This is another update to the site with 2 new things: Red Net Architect Generator and a bunch of news reports from WNS 7 News Force team over in Gigs.",
@@ -27,163 +39,6 @@
         "Stay safe gatos. The dark future is upon us!",
         "CYBER :D"
 
-      ]
-    },
-    {
-      "date": "2020-12",
-      "entries": [
-        "<strong>12-01</strong> - Not much this month other than some bug fixes. I have the full system of Red now and will be looking to add some more apps in the next few months. There will be some limitations though as I have talked with RTG. The utilities I create will not have any published data in them, as per reqeust from RTG. This means they will be very generic and require a bit of data entry on the part of you. I will make sure to have the ability to save your work.",
-        "Stay safe gatos. The dark future is upon us!",
-        "CYBER :D"
-      ]
-    },
-    {
-      "date": "2020-11",
-      "entries": [
-        "<strong>11-01</strong> - This update includes a fan request. The Scout1255 over on reddit had a request for a Combat Zone Generator. They asked and sounded like a great idea. The Combat Zone Generator will create a map of 3x4 blocks and list a description for each bulding with a key to use. It will also have a section to generator objects that will be on the street. This is nothing too fancy, but should help out with creating a neighborhood quickly for your game. You can export to PDF, but some of the building outlines don't render well.",
-        "Other things that I did was fixing some minor bugs and some behind the scenes logistics. Still waiting on my copy of the Red so I can pump out some utilities for the game.Cyberpunk 2077 is coming out this month too. I hope I will have time to get some more work done on the site, but I have a feeling my schedule might be sucked up with all that game play.",
-        "Stay safe gatos. The dark future is upon us!",
-        "CYBER :D"
-      ]
-    },
-    {
-      "date": "2020-10",
-      "entries": [
-        "<strong>10-07</strong> - Did some bug fixes. One enhancement is the stats section on the CP2020 Character Generator and Combat Tracker. Now you have the ability to add different modifiers to the stat. I also added an Initiative field to the character generation. You can manage any initiative modifiers to it as well. The other thing you will notice is that the stats and wound sections are now the same in both the combat tracker and character generator.",
-        "<strong>10-01</strong> - Good news! After a long hiatus I have return to refereeing Cyberpunk 2020 which I am excited about. It has been taking me a bit to get my creative muscles working again but the site will benefit.",
-        "This month Cyberware gets some love. I have created another searchable master list for cyberware for your reference. Again, like most of the master lists, it goes off of canon material I own. Which isn't to shabby of a collection. I have also implemented this list and more functionallity on the Character Generator for adding cyberware to your character.",
-        "Besides the cyberware updates. I have also added some random rolls for name, role, and stats to the CP2020 Character Generator. The sheet has more and more randomly generation. The PDF export on the sheet has some tweaks as well with the weapon note formatting and the cyberware name.",
-        "Since my creative juices are flowing I have added a new item in the Peeps section, Gangs/Nomad Packs. I added a few new gangs that will be making appearances in my game as well as a nomad pack. I also added some more NPCs as well.",
-        "Last thing added is to the DLow section. I created some blueprints of my vision of The Night Owl nightclub, NCART train, and the NCART stations.",
-        "Cyberpunk Red I hope is just around the corner. When it hits the street, I hope to add in more utilities for it to the site. First app I will be adding is a converter for CP2020 to CPRed. There are a few other apps I have ideas for, but until I have the full ruleset I really don't want to start working on the code.",
-        "Stay safe gatos. The dark future is upon us!",
-        "CYBER :D"
-      ]
-    },
-    {
-      "date": "2020-09",
-      "entries": [
-        "<strong>09-01</strong> - A couple of things have been aded to the site.",
-        "1st we have the master weapons list. This is a searchable list of the Cyberpunk 2020 weapons for all cannon sources for 2020 (no cybergeneration i'm afraid). This list will give you the base stats for the weapons, but won't go into the finer details about the weapon. For that you need to go to the source, which I list and the page in the source book you can find it on.",
-        "Secondly I did an overhaul of the Cyberpunk 2020 weapons sections in the combat tracker and character generator. I made the sections consistent with each other. Also, I have added *drum roll* a ammo tracker on the weapons in both areas. This includes an ammo tracker in the PDF version of the character sheet as well. Though there might be some formatting issues in the PDF if the weapon list is long and/or the weapon has a lot of shots. Let me know if there is a bug and I will try to figure out a solution. ",
-        "Other improvements included with the combat calculator. It is by no means perfect, there is still more tweaking and special rules need to be added, but I hope it is a tool closer to your needs. I can enable this same calculator on the Cyberpunk 2020 Character Generator as well. Let me know if you'd like to see that added.",
-        "Cyberpunk Red Lifepath generator got some love this month as well. I switched out the text buttons to be icons (keeping consistent with the newer apps to the site), formatted the table to be red, and created a PDF button to generate the lifepath in a one page PDF (with the style of red).",
-        "Again, if there are any bugs or ideas for enhancements let me know and I will try to get them resolved.",
-        "Stay safe gatos. The dark future is upon us!",
-        "CYBER :D"
-      ]
-    },
-    {
-      "date": "2020-08",
-      "entries": [
-        "<strong>08-21</strong> - Very embarassing. I tweaked the name generator however there was a bad bug in it. I'm sorry for those who suffered with a character named Undefined...",
-        "<strong>08-09</strong> - Did some bug fixes on the Combat Tracker thanks to Pawook over on the Cyberpunk 2020/RED Fans discord. The fixes are with the weapn, skill, cyber, and gear tabs when adding new items they get sticky. Added the BOD damage modifier to melee weapon damage rolls. Fixed the WA not being shown in the to-hit roll. Change the text for dice rolls and fixed an issue with the + modifier to damage dice.",
-        "<strong>08-01</strong> - I change the menu a bit to turn it into a megamenu, which should space it out a bit more to help with using the menu on longer list of choices.",
-        "A new app has been added: Cyberpunk 2020 Netrunner Deck Manager utility. This app allows you to create/enter a cyberdeck and programs for it. It keeps track of the costs as well as how many programs you have loaded into the deck.",
-        "There are also some bug fixes with the combat tracker. Sorry about those, I should have caught them through testing. But the tracker shoudl be working better now. I have some addtional ideas for the tracker to help with doing combat, like choosing rounds to fire (including full auto/3rd burst). As well as a few other items.",
-        "I have also added a link to the Github repository for the site. You can visit it and also log bugs and feature requests for enhancing the site.",
-        "Stay safe gatos. The dark future is upon us!",
-        "CYBER :D"
-      ]
-    },
-    {
-      "date": "2020-07",
-      "entries": [
-        "<strong>07-01</strong> - You will notice I have split out Cyberpunk 2020 and Cyberpunk Red into 2 different menu items. I am adding more and more apps, I want to categorize them as need. This month I add another CP 2020 app. This time a simple one for doing pharmaceuticals, Drug Lab.",
-        "The covert roles from <a href='https://talsorianstore.com/products/firestorm-stormfront'>Firestrom: Stormfront</a> have been added to the role list and the character generator as well. There is still some work needed for the min skill values that the roles have. In time they will come.",
-        "Added some more links to the LDL. All of them are for Youtube channels/playlists that have Cyberpunk 2020/red content. Check these out!",
-        "Last month we saw the launch of Night City Wire episode 1. Holy Saint Pondsmith, does CP 2077 look awesome. I can't wait for November or December or whenever.",
-        "Stay safe gatos. The dark future is upon us!",
-        "CYBER :D"
-      ]
-    },
-    {
-      "date": "2020-06",
-      "entries": [
-        "<strong>06-15</strong> Fixed a few bugs around the site. Add PDF export button the Character Generator CP2020 app. This was a challenge to make sure it was client side only. Still working on a couple of new apps for the upcoming months.",
-        "Half way through the year and continuing my goal of a new app or feature per month of 2020.",
-        "<strong>06-01</strong> - Fixed a bunch of bugs. Added an armor management contorls for the Cyberpunk 2020 combat tracker and character generator.",
-        "Added a function in the Combat Tracker to import a CP 2020 Character file and add it as an opppenent.",
-        "Stay safe gatos. The dark future is upon us!",
-        "CYBER :D"
-      ]
-    },
-    {
-      "date": "2020-05",
-      "entries": [
-        "<strong>05-09</strong> - Quick update with fixes for some the apps. Been working on creating better unit tests to help with preventing some of the silly bugs I have done in the site.",
-        "To help with this I have uploaded the code to Github (github.com/cybersmily/cybersmily_datafort/). This is also in prosperity just in case happens this old chromer ;-) I am also creating a wiki there for instructions on some of the apps. This is a work in progress. You can also log any issues/bugs/enhancements you have with the site.",
-        "Bug fixes:",
-        "<ul><li>Fixer Calculator - Hot Stuff area rolls weren't loading and message if new area costs too much.</li><li>Combat Tracker - flagging skill rolls if they are a fumble or crit.</li><li>Character Generator - Loading character the saves are set to 0.</li><li>Max Metal Builder - Several issues, for the error popup, to option spaces not being tallied, and several other issues</li></ul>",
-        "<strong>05-01</strong> - Day 6,732 since lockdown...",
-        "The good news is 2 new apps have been added this month: CP 2020 Combat Tracker and the Fixer Network/Contact Point calculator.",
-        "Had to make some changes to the code to streamline it for integration with the combat tracker. Since needs more tweaks and enhancements. But will get to that in coming months. For now you should be able to play around with it",
-        "The Fixer Contact Calculator uses the 2 systems (Hot Stuff and Big League) from Wildside supplement. You can save them as text files. Someday may integrate with the character genereator. ",
-        "The other HUGE app is the Combat Tracker. This has be really fun to make and it is no where near completed. There is mising functionality I have yet to implement (looking at you Armor section). There is also tons of tweaks I still want to do throughout it.",
-        "For now it is done. Not done done. Just done. I hope it is useful. If it is and you have some ideas, by all means email me (uppper right on menu bar).",
-        "In the coming months, working master lists for cyberware and weapons. These will not be as thorough as Datafortress 2020, go to his site and look up Ultrachrome. Mine will be from references within my own library of books, which is limited to the main cp2020 books and supllements and Inteface magazine.",
-        "I will also be tweaking other parts of the site and apps as my fancy leads me or if there are any bugs reported by ya'll",
-        "If you spot a bug, typo, or missing data, please send me an email. Click on the envelope icon in the upper right. Thanks",
-        "Stay safe gatos. The dark future is upon us!",
-        "CYBER :D"
-      ]
-    },
-    {
-      "date": "2020-04",
-      "entries": [
-        "Crazy times we live in where fiction is reality.",
-        "4/11 - Small fixes throughout the site. Nothing major. Continuing to work on a combat tracker which is most of my time.",
-        "4/6 - Fixed/added some tweaks to CP2020 Character generator. Add input for number of years in lifepath. Added note field for weapons. Fixed the skill point calculation and the Special Abilty missing a die roll.",
-        "4/4 - Did some fixes to the dice roller. Had a bad bug in it. Sorry if you weren't getting any 10s on the roll :(",
-        "If you spot a bug, typo, or missing data, please send me an email. Click on the envelope icon in the upper right. Thanks",
-        "CYBER :D"
-      ]
-    },
-    {
-      "date": "2020-03-28",
-      "entries": [
-        "More changes have arrived! There has been a few things I have change, from updating the javascript framework I have been using, to 2 new sections under Data, and updates to the CP2020 Character Sheet.",
-        "The framework change was a minor, but had to untangle somethings to make it easier for future releases.",
-        "The 2 new sections under Data are the Master Roles List  and the Master Skills List. These contain most of the roles and skills I could find in the books I have in my library. I'm sure there are more and some entries I've missed. I also changed some of the Roles and skills to fit in line with others to keep them standardized.",
-        "The update to the character genarator/sheet was to include all the roles from the master list and added a couple of skills. I didn't add all the skills, due to formatting issues, but roles that have skills not listed will add them to the Others section of skills.",
-        "In additional, I have added click-to-roll on skills and saves.",
-        "In the works: Continue adding bits and pieces to other apps in the site and creating a combat tracker to help with game play.",
-        "I plan to a Cyberpunk Red character sheet, but am waiting for it to come out first. I have a feeling that the Jumpstart Kit is a simple version and it will be more elaborate with the full version.",
-        "If you spot a bug, typo, or missing data, please send me an email. Click on the envelope icon in the upper right. Thanks",
-        "CYBER :D"
-      ]
-    },
-    {
-      "date": "2020-03",
-      "entries": [
-        "This month's updates are round character generation. I have add 2 apps:",
-        "1) Cyberpunk Red Template Generator",
-        "This will generate a random character based on the templates from the CP Red Jumpstart Kit. You can print the sheet straight form the browser. The intent is these are throw away characters, like the pregen from the kit.",
-        " ",
-        "2) Cyberpunk 2020 Character Generator",
-        "This is a character online character sheet. It has more capabilities than the CPRJK generator and is based on the CP 2020 character sheet. The intent is to have a double-sided sheet to print.",
-        "You can save the character to your local drive and load it back to the site to continue maintaining your character. There is some sticky data as well, so the data will stay if you come back to the site. But if you clear your cache or some other clearing of data in the browser will lose all that work, so save to a file when you end your session just in case.",
-        "The CPRJK is as is. CP2020 I will be continue to work on. I plan to continue to build out the functionality. That will be scheduled for upcoming months. Right now I have another utility for CP 2020 in the works as well as getting ready for Cyberpunk Red and Cyberpunk 2077.",
-        "I hope I can keep this pace up with an update per month this year. We will see what real life and what happens with how much CP 2077 takes up my free time. Till next time... Burn that Chrome!",
-        "CYBER :D"
-      ]
-    },
-    {
-      "date": "2020-02",
-      "entries": [
-        "Back with another update. Since this is 2020, I am going to try to push out something once a month. This isn't a promise, just a goal.",
-        "For this month's installment, I fixed a bug with the Fashion Calculator around some of the modifier would linger when changing the clothes.",
-        "There has been a major update with the Max Metal App. I have added weapon/option selection. This is far from finished, so you should audit your work with the book. I will continue to get some more fixes to it. But for now, you can play more with it.",
-        "Also, you can save your Max Metal Vehicle to a text file now too!",
-        "CYBER :D"
-      ]
-    },
-    {
-      "date": "2020-01",
-      "entries": [
-        "The year is upon us my fellow edgerunners! The prophecy has come true, flying cars, booster gangs, cybernetics.. hmmm. Guess not. Oh well.",
-        "I have done a quick update though. I created a quick CyberPunk Red Jumpstart Kit Lifepath generator under Apps section. Enjoy!",
-        "CYBER :D"
       ]
     }
   ]
