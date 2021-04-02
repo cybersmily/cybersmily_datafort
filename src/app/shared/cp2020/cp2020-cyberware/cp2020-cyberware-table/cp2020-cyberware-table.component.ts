@@ -1,6 +1,6 @@
 import { CyberDataService } from './../../../services/data/cyber-data.service';
 import { Cp2020CyberwareGeneratorService } from './../services/cp2020-cyberware-generator.service';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { faDice, faPlus, faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerCyberList, Cp2020PlayerCyber } from './../../../models/cyberware';
 import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';

@@ -1,4 +1,4 @@
-import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { DiceService } from './../../../services/dice/dice.service';
 import { Cp2020Surgeries } from './../../../models/cyberware/cp2020-surgeries';
 import { Cp2020Surgery } from './../../../models/cyberware/cp2020-surgery';
@@ -6,7 +6,6 @@ import { faDice, faSave } from '@fortawesome/free-solid-svg-icons';
 import { CyberDataService } from './../../../services/data/cyber-data.service';
 import { Component, OnInit, Input, Output, EventEmitter, TemplateRef} from '@angular/core';
 import { Cp2020PlayerCyber } from './../../../models/cyberware';
-import { BsModalRef } from 'ngx-bootstrap';
 
 @Component({
   selector: 'cs-cp2020-cyberware-editor',

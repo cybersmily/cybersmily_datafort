@@ -1,6 +1,6 @@
 import { DiceRolls } from './../../../models/dice-rolls';
 import { StatModifier, Cp2020Stat } from './../../../models/cp2020character/cp2020-stat';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { DiceService } from './../../../services/dice/dice.service';
 import { faDice, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020StatBlock } from './../../../models/cp2020character';

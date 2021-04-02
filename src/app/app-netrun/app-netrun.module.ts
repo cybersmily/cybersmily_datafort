@@ -2,8 +2,6 @@ import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';
 import { NrLoadMapsService } from './services/nr-load-maps.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { TooltipModule, PopoverModule } from 'ngx-bootstrap';
 
 import { AppNetrunRoutingModule } from './app-netrun-routing.module';
 

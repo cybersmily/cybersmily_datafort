@@ -1,5 +1,6 @@
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { AccordionModule, CollapseModule } from 'ngx-bootstrap';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';

@@ -3,7 +3,7 @@ import { NR_TRACE_SUCCESS, MAP_TYPE, NR_DATAFORT_SPACE, NR_DATAFORT_SOLARPANEL, 
 import { NrTrackerService, NrMapDataService, NrMapGridService } from '../services';
 import { Component, OnInit, Input, HostBinding, TemplateRef, ViewChild } from '@angular/core';
 import { NRDataFort } from '../models';
-import { PopoverDirective } from 'ngx-bootstrap';
+import { PopoverDirective } from 'ngx-bootstrap/popover';
 
 @Component({
   selector: 'cs-nr-datafort',

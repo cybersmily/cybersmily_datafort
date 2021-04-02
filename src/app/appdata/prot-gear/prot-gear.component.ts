@@ -4,7 +4,7 @@ import { DataCyberware } from './../../shared/models/cyberware';
 import { Gear, CyberDeck } from './../../shared/models/gear';
 import { DataService } from './../../shared/services/data.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AccordionComponent } from 'ngx-bootstrap';
+import { AccordionComponent } from 'ngx-bootstrap/accordion';
 import { faAngleDoubleDown, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({

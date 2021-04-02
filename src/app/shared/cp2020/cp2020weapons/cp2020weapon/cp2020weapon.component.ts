@@ -1,12 +1,9 @@
-import { DiceRolls } from './../../../models/dice-rolls';
-import { FumbleChart } from './../../../models/skill/fumble-chart';
-import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Cp2020PlayerSkill } from './../../../models/cp2020character';
 import { DiceService } from './../../../services/dice/dice.service';
 import { faPen, faTrash, faDice, faRedo } from '@fortawesome/free-solid-svg-icons';
 import { CpPlayerWeapon } from './../../../models/weapon/cp-player-weapon';
 import { Component, OnInit, Input, TemplateRef, Output, EventEmitter } from '@angular/core';
-import { BsModalRef } from 'ngx-bootstrap';
 
 @Component({
   selector: 'cs-cp2020weapon',

@@ -3,7 +3,7 @@ import { JsonDataFiles } from './../../shared/json-data-files';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataService } from '../../shared/services/data.service';
-import { AccordionComponent } from 'ngx-bootstrap';
+import { AccordionComponent } from 'ngx-bootstrap/accordion';
 import { faAngleDoubleDown, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
 
 

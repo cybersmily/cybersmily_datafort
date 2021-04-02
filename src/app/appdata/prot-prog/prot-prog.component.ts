@@ -1,6 +1,6 @@
 import { JsonDataFiles } from './../../shared/json-data-files';
 import { SeoService } from './../../shared/services/seo/seo.service';
-import { AccordionComponent } from 'ngx-bootstrap';
+import { AccordionComponent } from 'ngx-bootstrap/accordion';
 import { ProgramGroup, Program } from '../../shared/models/gear';
 import { DataService } from './../../shared/services/data.service';
 import { Component, OnInit, ViewChild } from '@angular/core';

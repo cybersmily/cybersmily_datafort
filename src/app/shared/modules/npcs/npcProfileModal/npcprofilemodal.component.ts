@@ -2,7 +2,7 @@ import { PEEPS_IMG_PATH } from './../../../models/constants';
 import { DataService } from './../../../services/data.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Npc, NpcSkill, Skill } from '../../../models/character';
-import { BsModalRef } from 'ngx-bootstrap';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 
 @Component({
