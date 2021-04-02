@@ -4,12 +4,12 @@
       <div class="col-6">
         <div class="chargen-save">
           <div class="chargen-save-title">SAVE</div>
-          <div [ngClass]="{'chargen-save-text':true, 'chargen-damaged': (stats.Damage > 4)}">
-            STUN: {{stats.Save}}
+          <div [ngClass]="{'chargen-save-text':true, 'chargen-damaged': isLightWound}">
+            STUN: {{save}}
             <fa-icon [icon]="faDice" (click)="openSave(chargenStunSaveRoll)" title="Click to Roll"></fa-icon>
           </div>
-          <div [ngClass]="{'chargen-save-text':true, 'chargen-damaged': (stats.Damage > 12)}">
-            DEATH: {{stats.DeathSave}}
+          <div [ngClass]="{'chargen-save-text':true, 'chargen-damaged': isMortalWound}">
+            DEATH: {{deathsave}}
             <fa-icon [icon]="faDice" (click)="openSave(chargenDeathSaveRoll)" title="Click to Roll"></fa-icon>
           </div>
         </div>
@@ -17,7 +17,7 @@
       <div class="col-6">
         <div class="chargen-save">
           <div class="chargen-save-title">BTM</div>
-          <div>{{stats.BTM}}</div>
+          <div>{{btm}}</div>
         </div>
       </div>
     </div>
@@ -26,45 +26,45 @@
     <table>
       <tr>
         <td class="chargen-wound-cell">
-          <cs-cp2020-wound-level [title]="'LIGHT'" [stunSaveMod]="0" [damage]="stats.Damage"
+          <cs-cp2020-wound-level [title]="'LIGHT'" [stunSaveMod]="0" [damage]="getDamage(0)"
             (changeDamage)="onChangeDamage($event)"></cs-cp2020-wound-level>
         </td>
         <td class="chargen-wound-cell">
-          <cs-cp2020-wound-level [title]="'SERIOUS'" [stunSaveMod]="-1" [damage]="stats.Damage - 4"
+          <cs-cp2020-wound-level [title]="'SERIOUS'" [stunSaveMod]="-1" [damage]="getDamage(4)"
             (changeDamage)="onChangeDamage($event)"></cs-cp2020-wound-level>
         </td>
         <td class="chargen-wound-cell">
-          <cs-cp2020-wound-level [title]="'CRITICAL'" [stunSaveMod]="-2" [damage]="stats.Damage - 8"
+          <cs-cp2020-wound-level [title]="'CRITICAL'" [stunSaveMod]="-2" [damage]="getDamage(8)"
             (changeDamage)="onChangeDamage($event)"></cs-cp2020-wound-level>
         </td>
         <td class="chargen-wound-cell">
-          <cs-cp2020-wound-level [title]="'MORTAL 0'" [stunSaveMod]="-3" [damage]="stats.Damage - 12"
+          <cs-cp2020-wound-level [title]="'MORTAL 0'" [stunSaveMod]="-3" [damage]="getDamage(12)"
             (changeDamage)="onChangeDamage($event)"></cs-cp2020-wound-level>
         </td>
         <td class="chargen-wound-cell">
-          <cs-cp2020-wound-level [title]="'MORTAL 1'" [stunSaveMod]="-4" [damage]="stats.Damage - 16"
+          <cs-cp2020-wound-level [title]="'MORTAL 1'" [stunSaveMod]="-4" [damage]="getDamage(16)"
             (changeDamage)="onChangeDamage($event)"></cs-cp2020-wound-level>
         </td>
       </tr>
       <tr>
         <td class="chargen-wound-cell">
-          <cs-cp2020-wound-level [title]="'MORTAL 2'" [stunSaveMod]="-5" [damage]="stats.Damage - 20"
+          <cs-cp2020-wound-level [title]="'MORTAL 2'" [stunSaveMod]="-5" [damage]="getDamage(20)"
             (changeDamage)="onChangeDamage($event)"></cs-cp2020-wound-level>
         </td>
         <td class="chargen-wound-cell">
-          <cs-cp2020-wound-level [title]="'MORTAL 3'" [stunSaveMod]="-6" [damage]="stats.Damage - 24"
+          <cs-cp2020-wound-level [title]="'MORTAL 3'" [stunSaveMod]="-6" [damage]="getDamage(24)"
             (changeDamage)="onChangeDamage($event)"></cs-cp2020-wound-level>
         </td>
         <td class="chargen-wound-cell">
-          <cs-cp2020-wound-level [title]="'MORTAL 4'" [stunSaveMod]="-7" [damage]="stats.Damage - 28"
+          <cs-cp2020-wound-level [title]="'MORTAL 4'" [stunSaveMod]="-7" [damage]="getDamage(28)"
             (changeDamage)="onChangeDamage($event)"></cs-cp2020-wound-level>
         </td>
         <td class="chargen-wound-cell">
-          <cs-cp2020-wound-level [title]="'MORTAL 5'" [stunSaveMod]="-8" [damage]="stats.Damage - 32"
+          <cs-cp2020-wound-level [title]="'MORTAL 5'" [stunSaveMod]="-8" [damage]="getDamage(32)"
             (changeDamage)="onChangeDamage($event)"></cs-cp2020-wound-level>
         </td>
         <td class="chargen-wound-cell">
-          <cs-cp2020-wound-level [title]="'MORTAL 6'" [stunSaveMod]="-9" [damage]="stats.Damage - 36"
+          <cs-cp2020-wound-level [title]="'MORTAL 6'" [stunSaveMod]="-9" [damage]="getDamage(36)"
             (changeDamage)="onChangeDamage($event)"></cs-cp2020-wound-level>
         </td>
       </tr>
@@ -73,8 +73,8 @@
 </div>
 <div class="row">
   <div class="col">
-    <span *ngIf="stats.isStunned" class="chargen-damaged"><input type="checkbox" [(ngModel)]="stats.isStunned">*STUNNED*&nbsp;&nbsp;</span>
-    <span *ngIf="stats.deathState > 0" class="small chargen-damaged">DEATH STATE: <input type="number" [(ngModel)]="stats.deathState"
+    <span *ngIf="isStunned" class="chargen-damaged"><input type="checkbox" [(ngModel)]="isStunned">*STUNNED*&nbsp;&nbsp;</span>
+    <span *ngIf="isDying" class="small chargen-damaged">DEATH STATE: <input type="number" [(ngModel)]="deathState"
         min="0" max="10" class="chargen-death-state"></span>
   </div>
 </div>
@@ -86,10 +86,10 @@
     </button>
   </div>
   <div class="modal-body">
-    <div>Stun Save Base: {{stats.Save}}</div>
+    <div>Stun Save Base: {{save}}</div>
     <div>Modifier: <input type="number" [(ngModel)]="stunSaveMod"></div>
     <div>Roll: <fa-icon [icon]="faDice" class="csd-dice" (click)="rollStunSave()" title="Roll save"></fa-icon> </div>
-    <div *ngIf="stunSaveRoll > 0">Results: {{stunSaveRoll}}(die) vs {{stats.Save + stunSaveMod}} - {{stunMessage}}</div>
+    <div *ngIf="stunSaveRoll > 0">Results: {{stunSaveRoll}}(die) vs {{save + stunSaveMod}} - {{stunMessage}}</div>
   </div>
 </ng-template>
 <ng-template #chargenDeathSaveRoll>
@@ -100,9 +100,9 @@
     </button>
   </div>
   <div class="modal-body">
-    <div>Stun Save Base: {{stats.DeathSave}}</div>
+    <div>Stun Save Base: {{deathsave}}</div>
     <div>Modifier: <input type="number" [(ngModel)]="deathSaveMod"></div>
     <div>Roll: <fa-icon [icon]="faDice" class="csd-dice" (click)="rollDeathSave()" title="Roll save"></fa-icon></div>
-    <div *ngIf="deathSaveRoll > 0">Results: {{deathSaveRoll}}(die)  vs {{stats.DeathSave + deathSaveMod}} - {{deathMessage}}</div>
+    <div *ngIf="deathSaveRoll > 0">Results: {{deathSaveRoll}}(die)  vs {{deathsave + deathSaveMod}} - {{deathMessage}}</div>
   </div>
 </ng-template>

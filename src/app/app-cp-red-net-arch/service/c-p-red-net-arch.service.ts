@@ -88,7 +88,6 @@ export class CPRedNetArchService {
     const level = this.archArray.length - 1;
     if (this.archArray[level] && this.archArray[level].length > 1) {
       const deleteNodes =  this.archArray[level].splice(1);
-      console.log(this.archArray[level])
       let id = this.archArray[level][0].id;
       deleteNodes.forEach( n=> {
          const node = firstFloor.deleteChild(n.id);

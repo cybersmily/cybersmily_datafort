@@ -187,6 +187,7 @@ export class OpponentTrackerService {
 
   clear() {
     this._opponents.next(this.loadtestdata());
+    localStorage.removeItem(this._STORAGE_KEY);
   }
 
 }
