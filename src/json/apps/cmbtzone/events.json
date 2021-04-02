@@ -63,7 +63,7 @@
     {
       "weight": 7,
       "title": "locals",
-      "desc": "2-6 Young adults. Roll lD10: 1-S friendly to PCs,  6-8 corporates to PCs, 9·10 they are abusive. No weapons or armor."
+      "desc": "2-6 Young adults. Roll lD10: 1-5 friendly to PCs,  6-8 corporates to PCs, 9·10 they are abusive. No weapons or armor."
     },
     {
       "weight": 6,
@@ -83,7 +83,7 @@
     {
       "weight": 9,
       "title": "Posergang",
-      "desc": "Five members of the wellknown Kennedys Posergang. Two male members look like RFK, one looks like JFK, the two females look like Jackie. If your group says anything- anything-about their appearance, their boosted hearing will pick it up and they will immediately take offense. They are wearing armor Ts under their retro-style 60s clothing and carrying Hvy. Handguns. JFK has a cyber-chrome right arm."
+      "desc": "5 poser gangers. Equipped with armor Tees(SP10) and Hvy Pistols."
     },
     {
       "weight": 6,
@@ -125,7 +125,7 @@
     {
       "weight": 6,
       "title": "Solo Team",
-      "desc": "4 Solos, Equipped with flackvest(SP20), pants(SP20), smartgun chipped Hvy SMG, Boosted reflexes, boosted hearing, cyberoptics with low light, IR and targeting. If PCs wearing rival Corporate uniform/logo, Solos will: 1-S dodge PCs and move on; 6-10 decide PCs saw something and need to be eliminated."
+      "desc": "4 Solos, Equipped with flackvest(SP20), pants(SP20), smartgun chipped Hvy SMG, Boosted reflexes, boosted hearing, cyberoptics with low light, IR and targeting. If PCs wearing rival Corporate uniform/logo, Solos will: 1-5 dodge PCs and move on; 6-10 decide PCs saw something and need to be eliminated."
   },
     {
       "weight": 6,
@@ -227,7 +227,7 @@
     {
       "weight": 10,
       "title": "Solo Team",
-      "desc": "2 solos. Equipped with flack vest(SP20), flak pants(SP20), smartgun chipped Heavy SMG, Boosted reflexes, boosted hearing, cyberoptics with low light, IR and targeting. If PCs have rival Corporate uniform/patches, roll 1D10: 1-S ignore PCs, 6·10 PCs are a witness and need elimination."
+      "desc": "2 solos. Equipped with flack vest(SP20), flak pants(SP20), smartgun chipped Heavy SMG, Boosted reflexes, boosted hearing, cyberoptics with low light, IR and targeting. If PCs have rival Corporate uniform/patches, roll 1D10: 1-5 ignore PCs, 6·10 PCs are a witness and need elimination."
     },
     {
       "weight": 5,
