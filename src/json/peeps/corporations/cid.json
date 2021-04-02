@@ -1,0 +1,69 @@
+
+{
+  "name" : "Carlisle Industrial Distributions",
+  "logo" : "cid",
+  "slogan" : "Bring a tomorrow's world, today.",
+  "history" : "CID is a small corporation along the west coast of North America. Their main industry is shipping and freight all along the coast",
+  "resources" : {
+    "value": "",
+    "stock": {
+      "shares" : 130000,
+      "price" : 5.15
+    },
+    "majorityholder": {
+      "name": "Jerome Carlisle",
+      "title": "CEO",
+      "location": "Seattle WA",
+      "file": "",
+      "profile": "Son of the founder of the corporation. Quiet introvert but has a presence about him that often intimidates others.",
+      "stockpercent": 61.3
+    },
+    "resources" : "CID has a fleet of ground, water, and air transports for shipping. They have distrubition centers all along the west cost, stocking household goods to paramilitary equipment.",
+    "subsidaries" : [ { "name" : "", "lob":  "", "description":  "" }]
+  },
+  "employees" : {
+    "workers": 30000,
+    "troops": 500,
+    "covert": 25,
+    "notable": [
+      { "name": "Pedro Finely", "title": "VP of Operational Acquisitions", "location": "Night City NorCal","file": "", "profile": "Agent within Night City perform grey/black ops.", "stockpercent": 0 }
+    ]
+  },
+  "offices" : {
+    "headquarters":"Seattle WA",
+    "regionaloffices": {
+      "description": "",
+      "locations": ["Portland OR", "Vancouver BC", "Las Vegas NV", "Los Angles SoCa", "Night City NorCa", "Juneau AK", "Mexico City MEX"]
+    },
+    "coporatehq": "",
+    "location": "",
+    "architecture": "",
+    "interiorsandfacilities": "",
+    "personnel": "",
+    "security": "",
+    "specialfacilities": "",
+    "rd": "",
+    "labs": "",
+    "spacefacilities": ""
+  },
+  "intent" : {
+    "goal": "To control all shipping and distribution centers along the west coast.",
+    "longterm": "Expand to all of North and South America.",
+    "products": [
+      { "name": "Shipping", "description": "CID is known for their shipping along the west coast. This includes ground, air, and sea." },
+      { "name": "Distribution", "description": "CID has many distribution centers that taken in various goods and, through their shipping segement, delivery to local businesses." },
+      { "name": "Construction", "description": "CID construction mainly works on infrastructure project, specifically with transportation. They construct the highways, biways, and rails along the west coast." }
+    ],
+    "allies": ["Arasaka"],
+    "enemies": ["IEC"]
+  },
+  "equipment" : {
+    "executive": "",
+    "employees": "",
+    "staff": "",
+    "guards": "",
+    "vehicles": "",
+    "equipment": "",
+    "weapons": ""
+  }
+}

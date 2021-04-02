@@ -32,7 +32,7 @@ export class NewsComponent implements OnInit {
     this.dataService
     .GetJson(JsonDataFiles.GIG_NEWS_JSON)
     .subscribe((news) => {
-      this.newsItems = news.news;
+      this.newsItems = news.news.sort((a, b) => b.title.localeCompare(a.title));
     });
   }
 

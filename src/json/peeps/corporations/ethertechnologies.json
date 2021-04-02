@@ -1,0 +1,69 @@
+{
+  "name" : "Ether Technologies",
+  "logo" : "ethertech",
+  "slogan" : "Accuracy. Proven. Excellence.",
+  "history" : "Ether Technologies is only doing business within North California. They were founded in 1998 as a small laboratory processing blood and DNA testing. The company has grown into researching genetech and biotechnologies.",
+  "resources" : {
+    "value": "",
+    "stock": {
+      "shares" : 0,
+      "price" : 0.00
+    },
+    "majorityholder": {
+      "name": "Bridger Morse",
+      "title": "CEO",
+      "location": "Santa Margarita NorCal",
+      "file": "",
+      "profile": "Bridger is the founder and CEO of Ether Technologies.",
+      "stockpercent": 0
+    },
+    "resources" : "",
+    "subsidaries" : []
+  },
+  "employees" : {
+    "workers": 128,
+    "troops": 23,
+    "covert": 0,
+    "notable": [
+      { "name": "", "title": "", "location": "","file": "", "profile": "", "stockpercent": 0 }
+    ]
+  },
+  "offices" : {
+    "headquarters":"Santa Margarita NorCal",
+    "regionaloffices": {
+      "description": "",
+      "locations": [""]
+    },
+    "coporatehq": "",
+    "location": "",
+    "architecture": "",
+    "interiorsandfacilities": "",
+    "personnel": "",
+    "security": "",
+    "specialfacilities": "",
+    "rd": "",
+    "labs": "",
+    "factories?": "",
+    "stores?": "",
+    "spacefacilities": ""
+  },
+  "intent" : {
+    "goal": "To become a leader in genetic testing and gene development.",
+    "longterm": "Expand into other areas of biotechnoloty and genetics.",
+    "products": [
+      { "name": "Genetic testing", "description": "" },
+      { "name": "Genetech research", "description": "" }
+    ],
+    "allies": [""],
+    "enemies": [""]
+  },
+  "equipment" : {
+    "executive": "",
+    "employees": "",
+    "staff": "",
+    "guards": "",
+    "vehicles": "",
+    "equipment": "",
+    "weapons": ""
+  }
+}
