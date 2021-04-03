@@ -84,10 +84,10 @@ export class OpponentTrackerService {
    *
    * @memberof CmbtTrckFormComponent
    */
-  addOpponent(opponent?: CmbtTrckOpponent) {
+  addOpponent(opponent?: CmbtTrckOpponent, newId?: boolean) {
     const opps = this._opponents.getValue();
     if (opponent) {
-      const newOpp = new CmbtTrckOpponent(opponent);
+      const newOpp = new CmbtTrckOpponent(opponent, newId);
       newOpp.name = this.checkName(newOpp.name);
       opps.push(newOpp);
     } else {

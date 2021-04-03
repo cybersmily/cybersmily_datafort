@@ -2,15 +2,6 @@
   <div class="col-12">
     <div class="row">
       <div class="col-12">
-        <h4 (click)="isCollapsed= !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
-          <fa-icon [icon]="(isCollapsed)?faAngleDoubleRight:faAngleDoubleDown" class="csd-dice"
-            title="Collapse instructions section"></fa-icon>
-          Instructions&nbsp;
-        </h4>
-      </div>
-    </div>
-    <div class="row" id="collapseBasic" [collapse]="isCollapsed">
-      <div class="col-12">
         <div class="row">
           <div class="col-12">
             This is a utility to help manage combat for the referee in Cyberpunk 2020. Expand each title below to get
@@ -46,7 +37,7 @@
         </div>
         <br>
         <div class="row">
-          <div class="col-12 col-md-4">
+          <div class="col-12">
             <h5 (click)="isLeftCollapsed = !isLeftCollapsed" [attr.aria-expanded]="!isLeftCollapsed"
               aria-controls="collapseLeftPanel">
               <fa-icon [icon]="(isLeftCollapsed)?faAngleDoubleRight:faAngleDoubleDown" class="csd-dice"
@@ -86,7 +77,7 @@
                 The data is not recoverable if you do this.</p>
             </div>
           </div>
-          <div class="col-12 col-md-8">
+          <div class="col-12">
             <h5 (click)="isRightCollapsed = !isRightCollapsed" [attr.aria-expanded]="!isRightCollapsed"
               aria-controls="collapseRightPanel">
               <fa-icon [icon]="(isRightCollapsed)?faAngleDoubleRight:faAngleDoubleDown" class="csd-dice"

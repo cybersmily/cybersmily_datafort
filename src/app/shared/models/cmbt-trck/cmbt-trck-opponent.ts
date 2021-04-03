@@ -21,10 +21,13 @@ export class CmbtTrckOpponent {
   gear: Array<string>;
   modifiers: CombatModifiers;
 
-  constructor(param?) {
+  constructor(param?, newId?: boolean) {
     this.name = param && param.name ? param.name : '';
     this.role = param && param.role ? param.role : '';
     this.id = param && param.id ? param.id : new Date().getTime();
+    if (newId) {
+      this.id = new Date().getTime();
+    }
     this.initRoll = 0;
     this.initDie = new Array<number>();
     this.stats = new Cp2020StatBlock();

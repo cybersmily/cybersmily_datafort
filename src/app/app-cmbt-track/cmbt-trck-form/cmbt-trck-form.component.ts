@@ -4,7 +4,7 @@ import { FileLoaderService } from './../../shared/services/file-loader/file-load
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { SaveFileService } from './../../shared/services/save-file.service';
 import { CmbtTrckOppSelection, CmbtTrckOpponent } from '../../shared/models/cmbt-trck';
-import { faDice, faPlus, faTrash, faSave, faUpload, faRedo, faFileImport } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faPlus, faTrash, faSave, faUpload, faRedo, faFileImport, faQuestionCircle, faCopy } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020_WOUND_LEVELS } from './../../shared/models/cp2020character';
 import { OpponentTrackerService } from './../services/opponent-tracker.service';
 import { Component, OnInit, TemplateRef } from '@angular/core';
@@ -22,12 +22,14 @@ export class CmbtTrckFormComponent implements OnInit {
   faUpload = faUpload;
   faRedo = faRedo;
   faFileImport = faFileImport;
+  faHelp = faQuestionCircle;
+  faCopy = faCopy;
 
 
   modalRef: BsModalRef;
   config = {
     keyboard: true,
-    class: 'modal-dialog-centered'
+    class: 'modal-dialog-centered modal-lg'
   };
 
   /**
@@ -98,6 +100,13 @@ export class CmbtTrckFormComponent implements OnInit {
     this.opponentService.removeOpponent(index);
   }
 
+  copyOpponent(index: number) {
+    const opp = this.opponents[index];
+    const newOpp = new CmbtTrckOpponent(opp);
+    newOpp.name =  `Opp${this.opponents.length + 1}`;
+    this.opponentService.addOpponent(newOpp, true);
+  }
+
   /**
    * Sort the iniative based on roll then REF
    *
@@ -131,6 +140,7 @@ export class CmbtTrckFormComponent implements OnInit {
   clear() {
     if (confirm('This will clear all the combatant data and start a new. Are you sure you want to wipe out everything?')) {
       this.opponentService.clear();
+      this.modalService.hide();
     }
   }
 
