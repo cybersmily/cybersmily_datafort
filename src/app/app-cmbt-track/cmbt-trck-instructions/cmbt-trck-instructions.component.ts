@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faAngleDoubleRight, faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDoubleRight, faAngleDoubleDown, faTrash, faRedo, faSave, faUpload, faFileImport } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'cs-cmbt-trck-instructions',
@@ -20,6 +20,11 @@ export class CmbtTrckInstructionsComponent implements OnInit {
   isGearCollapsed = true;
   faAngleDoubleRight = faAngleDoubleRight;
   faAngleDoubleDown = faAngleDoubleDown;
+  faRedo = faRedo;
+  faSave = faSave;
+  faUpload = faUpload;
+  faFileImport = faFileImport;
+
 
   constructor() { }
 

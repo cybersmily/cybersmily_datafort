@@ -20,7 +20,7 @@
         <br>
         <div class="row">
           <div class="col-12">
-            <b>SAVE</b> -
+            <b><fa-icon [icon]="faSave" class="btn-lg"></fa-icon> SAVE</b> -
             You will notice that the data is "sticky" from session to session. The data is store in the browser local storage.
             But that doesn't mean it  is "saved". If you clear your local storage for the browser then this data will also be losted forever.
             This button will save the Tracker data as a JSON file to your local system.
@@ -30,12 +30,17 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <b>LOAD</b> - This will load the JSON file savedd. You can try to upload other json files, but good chance they won't work.
+            <b><fa-icon [icon]="faUpload" class="btn-lg"></fa-icon> LOAD</b> - This will load the JSON file saved. You can try to upload other json files, but good chance they won't work.
           </div>
         </div>
         <div class="row">
           <div class="col-12">
-          <b>RESET</b> - This will clear all the data from the tracker.
+            <b><fa-icon [icon]="faFileImport" class="btn-lg"></fa-icon> IMPORT</b> - This will import the JSON file of a Cyberpunk2020 Character sheet from this site. Make sure the json file  you select is a character sheet, else it won't work.
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+          <b><fa-icon [icon]="faRedo" class="btn-lg"></fa-icon> RESET</b> - This will clear all the data from the tracker.
           If you haven't saved important work, it will delete and will be lost.
           </div>
         </div>

@@ -4,7 +4,7 @@ import { FileLoaderService } from './../../shared/services/file-loader/file-load
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { SaveFileService } from './../../shared/services/save-file.service';
 import { CmbtTrckOppSelection, CmbtTrckOpponent } from '../../shared/models/cmbt-trck';
-import { faDice, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faPlus, faTrash, faSave, faUpload, faRedo, faFileImport } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020_WOUND_LEVELS } from './../../shared/models/cp2020character';
 import { OpponentTrackerService } from './../services/opponent-tracker.service';
 import { Component, OnInit, TemplateRef } from '@angular/core';
@@ -18,6 +18,12 @@ export class CmbtTrckFormComponent implements OnInit {
   faDice = faDice;
   faPlus = faPlus;
   faTrash = faTrash;
+  faSave = faSave;
+  faUpload = faUpload;
+  faRedo = faRedo;
+  faFileImport = faFileImport;
+
+
   modalRef: BsModalRef;
   config = {
     keyboard: true,
