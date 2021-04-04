@@ -9,24 +9,35 @@
             {{node.name}}
           </div>
           <div class="col-1">
-            <fa-icon [icon]="faPen" style="width: 15px; height: 15px;" class="float-right hidden-print csd-btn" (click)="isEdit = true"></fa-icon>
+            <fa-icon [icon]="faPen" style="width: 15px; height: 15px;" class="float-right hidden-print csd-btn"
+              (click)="isEdit = true"></fa-icon>
           </div>
         </div>
-          <div class="row show-print net-node-details" *ngIf="node.type !== 'program'">
-            <div class="col">
-              DV: {{node.dv}}
-            </div>
-            <div class="col">
-              Cost: {{node.cost|number}}eb
-            </div>
+        <div class="row show-print net-node-details" *ngIf="node.type !== 'program'">
+          <div class="col">
+            DV: {{node.dv}}
           </div>
-          <div class="row show-print net-node-details">
-            <div class="col">
-              Description:
-              <br>
-              {{node.desc}}
-            </div>
+          <div class="col">
+            Cost: {{node.cost|number}}eb
           </div>
+        </div>
+        <div class="row show-print net-node-details">
+          <div class="col">
+            Icon Color: <span [ngStyle]="{'background-color':node.color,'display': 'inline-block','min-height': '20px', 'min-width': '30px','border': 'black 1px solid'}"></span>
+          </div>
+        </div>
+        <div class="row show-print net-node-details">
+          <div class="col">
+            Background Color: <span [ngStyle]="{'background-color':node.bgColor,'display': 'inline-block','min-height': '20px', 'min-width': '30px','border': 'black 1px solid'}"></span>
+          </div>
+        </div>
+        <div class="row show-print net-node-details">
+          <div class="col">
+            Description:
+            <br>
+            {{node.desc}}
+          </div>
+        </div>
       </div>
     </div>
     <div class="row csd-rounded" *ngIf="isEdit">
@@ -55,6 +66,16 @@
         <div class="row">
           <div class="col">
             Cost: <input type="number" [(ngModel)]="node.cost" (change)="update()">
+          </div>
+        </div>
+        <div class="row" >
+          <div class="col">
+            Icon Color: <color-slider [color]="node.color" (onChange)="changeIconColor($event)"></color-slider>
+          </div>
+        </div>
+        <div class="row" >
+          <div class="col">
+            Background Color: <color-slider [color]="node.bgColor" (onChange)="changeBgColor($event)"></color-slider>
           </div>
         </div>
         <div class="row">

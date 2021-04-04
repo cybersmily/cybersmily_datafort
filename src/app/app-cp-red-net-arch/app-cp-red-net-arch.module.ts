@@ -5,6 +5,7 @@ import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';
 import { DiceService } from './../shared/services/dice/dice.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ColorSliderModule } from 'ngx-color/slider';
 
 import { AppCpRedNetArchRoutingModule } from './app-cp-red-net-arch-routing.module';
 import { NetArchMainComponent } from './net-arch-main/net-arch-main.component';
@@ -17,6 +18,7 @@ import { NetArchNodeComponent } from './net-arch-node/net-arch-node.component';
   imports: [
     CommonModule,
     CommonUiModule,
+    ColorSliderModule,
     AppCpRedNetArchRoutingModule
   ],
   providers: [

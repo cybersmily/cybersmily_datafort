@@ -1,7 +1,7 @@
 import { faSkullCrossbones, faCogs, faFile, faLock, faPen, faTimes, faThumbtack } from '@fortawesome/free-solid-svg-icons';
 import { CPRedNetArchNode } from './../models/net-arch-node';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { faPinterest } from '@fortawesome/free-brands-svg-icons';
+import { ColorEvent } from 'ngx-color';
 
 @Component({
   selector: 'cs-net-arch-node',
@@ -56,6 +56,16 @@ export class NetArchNodeComponent implements OnInit {
 
   changeType(e) {
     this.node.type = e.target.value
-    this.updateNode.emit(this.node);
+    this.update();
+  }
+
+  changeBgColor($event: ColorEvent) {
+    this.node.bgColor = $event.color.hex;
+    this.update();
+  }
+
+  changeIconColor($event: ColorEvent) {
+    this.node.color = $event.color.hex;
+    this.update();
   }
 }

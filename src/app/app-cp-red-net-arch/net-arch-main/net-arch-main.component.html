@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h3>Cyberpunk Red NET Architecture</h3>
+      <h3>NET Architecture Generator for Cyberpunk Red</h3>
     </div>
   </div>
   <div class="row hidden-print">
@@ -21,6 +21,8 @@
   <hr>
   <div class="row hidden-print">
     <div class="col-6">
+      <fa-icon class="csd-dice csd-menu-btn csd-btn btn-lg float-left" [icon]="faDice" (click)="generate()" title="Generate random Net Architect"></fa-icon>
+      <span>
       Difficulty:
       <select [(ngModel)]="netArchService.difficulty">
         <option [ngValue]="0">Basic</option>
@@ -36,8 +38,7 @@
       <span class="csd-randomize">
       <input type="checkbox" [(ngModel)]="randomFloors"> - Randomize
       </span>
-      <br>
-      <fa-icon class="csd-dice csd-menu-btn csd-btn btn-lg" [icon]="faDice" (click)="generate()" title="Generate random Net Architect"></fa-icon>
+    </span>
     </div>
     <div class="col-6">
       <input type="file" id="loadFile" title="load a Net Architect .json file" name="Load" Style="display: none"

@@ -47,11 +47,11 @@ export class NetArchDiagramComponent implements OnInit, OnChanges {
   createCircles(node:CPRedNetArchNode, x: number, offset: number): string {
     this.level = (node.level < this.level) ? this.level : node.level;
     let circle = `<circle cx='${x}%' cy='${node.level * 70}' r='15' fill='#000000'></circle>`;
-    circle += `<circle cx='${x}%' cy='${node.level * 70}' r='14' fill='#CCCCCC'></circle>`;
+    circle += `<circle cx='${x}%' cy='${node.level * 70}' r='14' fill='${node.bgColor}'></circle>`;
 
     circle += `<g transform='translate(-6,-8)'><svg x='${x}%' y='${(node.level * 70)}'><g>
       <path transform='scale(0.03)'
-       fill="currentColor"
+       fill="${node.color}"
        d="${this.getIcon(node.type)}"
        class="csd-net-icon"
        >

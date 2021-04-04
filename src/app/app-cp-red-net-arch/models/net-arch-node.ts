@@ -5,6 +5,8 @@ export interface NetArchNode {
   level: number;
   cost: number;
   dv: number;
+  bgColor: string;
+  color: string;
   branch: Array<NetArchNode>;
 }
 
@@ -17,6 +19,8 @@ export class CPRedNetArchNode implements NetArchNode {
   level: number;
   cost: number;
   dv: number;
+  bgColor: string;
+  color: string;
   branch: Array<CPRedNetArchNode>;
 
   constructor(param?: NetArchNode) {
@@ -27,6 +31,8 @@ export class CPRedNetArchNode implements NetArchNode {
     this.cost = param ? param.cost : 0;
     this.dv = param ? param.dv : 0;
     this.id = param ?  param['id'] : '';
+    this.bgColor = param ? param.bgColor : '#ffffff';
+    this.color = param ? param.color : '#000000';
     this.branch = new Array<CPRedNetArchNode>();
     if (param && param.branch && param.branch.length > 0) {
       param.branch.forEach( branch => {
@@ -83,6 +89,8 @@ export class CPRedNetArchNode implements NetArchNode {
       this.desc = node.desc;
       this.cost = node.cost;
       this.dv = node.dv;
+      this.bgColor = node.bgColor;
+      this.color =node.color;
       return;
     } else {
       if (this.branch.length > 0) {

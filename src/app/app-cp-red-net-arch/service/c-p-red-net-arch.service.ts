@@ -52,6 +52,7 @@ export class CPRedNetArchService {
   }
 
   update(node: CPRedNetArchNode) {
+    console.log(node);
     this._architect.next(new CPRedNetArchNode(node));
   }
 
