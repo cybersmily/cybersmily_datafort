@@ -7,51 +7,49 @@
       <h3>NET Architecture Generator for Cyberpunk Red</h3>
     </div>
   </div>
-  <div class="row hidden-print">
-    <div class="col">
-      Cyberpunk Red NET Architecture will randomly generate a NET Architect.
-      To use this app, choose a difficulty and number of floors (randomized or not) then click on the dice icon to generate the architect.
-      The architect will be diagram on the left with a keys to the names on the right. Hovering over the name on the right will display all of that node's details.
-      Click on the pen icon to edit the node details as needed.
-      The nodes will not have specific program names, but will have the type of program that can be used as well as the total cost for all programs in that node.
-      Don't want to step on RTG's IP, but in the future it might change.
-      There is the ability to save and load these architect json files. To print as PDF, you can do use Chrome or Edge which has that capability.
-    </div>
-  </div>
   <hr>
   <div class="row hidden-print">
     <div class="col-6">
-      <fa-icon class="csd-dice csd-menu-btn csd-btn btn-lg float-left" [icon]="faDice" (click)="generate()" title="Generate random Net Architect"></fa-icon>
+      <fa-icon class="csd-dice csd-menu-btn csd-btn btn-lg float-left" [icon]="faDice" (click)="generate()"
+        title="Generate random Net Architect"></fa-icon>
       <span>
-      Difficulty:
-      <select [(ngModel)]="netArchService.difficulty">
-        <option [ngValue]="0">Basic</option>
-        <option [ngValue]="1">Standard</option>
-        <option [ngValue]="2">Uncommon</option>
-        <option [ngValue]="3">Advanced</option>
-      </select>
-      <span class="csd-randomize">
-        <input type="checkbox"  [(ngModel)]="randomDifficulty"> - Randomize
+        <input type="checkbox" [(ngModel)]="randomDifficulty">
+        <span [ngClass]="{'net-arch-disable':randomDifficulty}" >
+          - Difficulty:
+          <select [(ngModel)]="netArchService.difficulty" [disabled]='randomDifficulty'>
+            <option [ngValue]="0">Basic</option>
+            <option [ngValue]="1">Standard</option>
+            <option [ngValue]="2">Uncommon</option>
+            <option [ngValue]="3">Advanced</option>
+          </select>
+        </span>
+        <br>
+        <input type="checkbox" [(ngModel)]="randomFloors">
+        <span [ngClass]="{'net-arch-disable':randomFloors}">
+          - Floors: <input type="number" min="3" max="18"
+            [(ngModel)]="numOfFloors" [disabled]="randomFloors">
+        </span>
       </span>
-      <br>
-      Floors: <input type="number" min="3" max="18" [(ngModel)]="numOfFloors">
-      <span class="csd-randomize">
-      <input type="checkbox" [(ngModel)]="randomFloors"> - Randomize
-      </span>
-    </span>
     </div>
     <div class="col-6">
+      <fa-icon class="csd-menu-btn btn-lg csd-btn float-right" [icon]="faImage" title="Save as a SVG image file"
+        (click)="saveSVG()"></fa-icon>
       <input type="file" id="loadFile" title="load a Net Architect .json file" name="Load" Style="display: none"
-       (change)="load($event)" #inputFile (click)="inputFile.value = null" accept="text/plain;text/json" />
-      <label for="loadFile" class="csd-menu-btn csd-btn btn-lg float-right"><fa-icon [icon]="faUpload" title="load a Net Architect .json file"></fa-icon></label>
-      <fa-icon class="csd-menu-btn csd-btn btn-lg float-right" [icon]="faSave" (click)="save()" title="Save Net Architect as json file"></fa-icon>
+        (change)="load($event)" #inputFile (click)="inputFile.value = null" accept="text/plain;text/json" />
+      <label for="loadFile" class="csd-menu-btn csd-btn btn-lg float-right">
+        <fa-icon [icon]="faUpload" title="load a Net Architect .json file"></fa-icon>
+      </label>
+      <fa-icon class="csd-menu-btn csd-btn btn-lg float-right" [icon]="faSave" (click)="save()"
+        title="Save Net Architect as json file"></fa-icon>
+      <fa-icon class="csd-menu-btn btn-lg csd-btn float-right" [icon]="faQuestionCircle" title="Show instructions."
+        (click)="openModal(instructions)"></fa-icon>
     </div>
   </div>
   <br>
   <div class="row" *ngIf="arch">
     <div class="col-12 col-lg-8 csd-rounded csd-print">
       <br>
-      <cs-net-arch-diagram [arch]="arch"></cs-net-arch-diagram>
+      <cs-net-arch-diagram [arch]="arch" (updateSVG)="updateSVG($event)"></cs-net-arch-diagram>
       <br>
       <br>
     </div>
@@ -69,7 +67,16 @@
       </div>
     </div>
   </div>
-
-
 </div>
 
+<ng-template #instructions>
+  <div class="modal-header">
+    <h4>NET ARCHITECT GENERATOR INSTRUCTIONS</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <cs-net-arch-instructions></cs-net-arch-instructions>
+  </div>
+</ng-template>

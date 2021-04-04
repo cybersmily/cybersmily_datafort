@@ -11,10 +11,11 @@ import { AppCpRedNetArchRoutingModule } from './app-cp-red-net-arch-routing.modu
 import { NetArchMainComponent } from './net-arch-main/net-arch-main.component';
 import { NetArchDiagramComponent } from './net-arch-diagram/net-arch-diagram.component';
 import { NetArchNodeComponent } from './net-arch-node/net-arch-node.component';
+import { NetArchInstructionsComponent } from './net-arch-instructions/net-arch-instructions.component';
 
 
 @NgModule({
-  declarations: [NetArchMainComponent, NetArchDiagramComponent, NetArchNodeComponent],
+  declarations: [NetArchMainComponent, NetArchDiagramComponent, NetArchNodeComponent, NetArchInstructionsComponent],
   imports: [
     CommonModule,
     CommonUiModule,

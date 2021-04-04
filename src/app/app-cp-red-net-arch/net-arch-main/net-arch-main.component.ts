@@ -1,10 +1,11 @@
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FileLoaderService } from './../../shared/services/file-loader/file-loader.service';
 import { SaveFileService } from './../../shared/services/save-file.service';
 import { CPRedNetArchNode } from './../models/net-arch-node';
-import { faFilePdf, faSave, faDice, faUpload, faQuestion, faSkullCrossbones, faLock, faCogs, faFile } from '@fortawesome/free-solid-svg-icons';
+import { faFilePdf, faSave, faDice, faUpload, faQuestion, faSkullCrossbones, faLock, faCogs, faFile, faQuestionCircle, faImage } from '@fortawesome/free-solid-svg-icons';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { CPRedNetArchService } from './../service/c-p-red-net-arch.service';
-import { AfterViewInit, Component, OnInit, OnChanges, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { CPRedNetArchPdf } from '../models/c-p-red-net-arch-pdf';
 
 @Component({
@@ -18,19 +19,28 @@ export class NetArchMainComponent implements OnInit {
   faSave = faSave;
   faDice = faDice;
   faUpload = faUpload;
-  faQuestion = faQuestion;
+  faQuestionCircle = faQuestionCircle;
+  faImage = faImage;
+
+  modalRef: BsModalRef;
+  config = {
+    keyboard: true,
+    class: 'modal-dialog-centered modal-lg'
+  };
 
   arch: CPRedNetArchNode;
   archArray: Array<Array<CPRedNetArchNode>> = new Array<Array<CPRedNetArchNode>>();
   private floors: number = 3;
   netArchService: CPRedNetArchService = new CPRedNetArchService(this.dice);
+  svg: string;
 
   randomFloors = true;
   randomDifficulty = true;
 
   constructor(private dice: DiceService,
     private saveFile: SaveFileService,
-    private fileLoader: FileLoaderService
+    private fileLoader: FileLoaderService,
+    private modalService: BsModalService
     ) { }
 
   get numOfFloors(): number {
@@ -69,6 +79,12 @@ export class NetArchMainComponent implements OnInit {
   save() {
     this.saveFile.SaveAsFile('Net Architect', JSON.stringify(this.arch),'json');
   }
+
+  saveSVG() {
+    const output = this.svg.replace('<svg style="width:100%;"', '<svg xmlns="http://www.w3.org/2000/svg" width="1000"');
+    this.saveFile.SaveAsFile('Net Architect Diagram', output,'svg');
+  }
+
   load($event) {
     this.fileLoader
     .importJSON($event.target.files[0])
@@ -80,4 +96,12 @@ export class NetArchMainComponent implements OnInit {
     this.netArchService.update(this.arch);
   }
 
+  updateSVG($event: string) {
+    // set a fix width to the svg
+    this.svg = $event;
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, this.config);
+  }
 }

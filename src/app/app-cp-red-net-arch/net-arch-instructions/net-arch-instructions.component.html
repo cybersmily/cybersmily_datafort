@@ -1,0 +1,39 @@
+  <div class="row hidden-print">
+    <div class="col">
+      <p>
+      NET Architecture Generator for Cyberpunk Red will randomly generate an architect to be used in your games. Some of the options that are generated are very generic. This is to keep with R Talsorian's Homebrew policy.
+    </p>
+    <p>
+      To use this app, click the dice (<fa-icon [icon]="faDice" class="csd-dice btn-lg" ></fa-icon>) button to generate a random Net architect.
+      By default the difficulty and number of floors will be randomly generated.
+      To specify a difficulty or number of floors, uncheck the box next to the selection and enter the desired value.
+      A diagram of the architect will be shown on the left and the key to the diagram will be on the right.
+      Scroll over the title of the node to show the details of it.
+    </p>
+    <p>
+      The icons represent the node types within the architect.
+    </p>
+    <ul>
+      <li><fa-icon [icon]="faLock" class="btn-lg"></fa-icon> = Password</li>
+      <li><fa-icon [icon]="faFile" class="btn-lg"></fa-icon> = File</li>
+      <li><fa-icon [icon]="faCogs" class="btn-lg"></fa-icon> = Control Node</li>
+      <li><fa-icon [icon]="faSkullCrossbones" class="btn-lg"></fa-icon> = Program</li>
+    </ul>
+    <p>
+      To edit a node, click on the pen (<fa-icon [icon]="faPen" class="btn-lg"></fa-icon>). This opens the edit form to update and change the details of the node.
+    </p>
+    <p>
+      <fa-icon [icon]="faSave" class="btn-lg"></fa-icon> - SAVE Button : This will save a json file that can be uploaded later for editing.
+    </p>
+    <p>
+      <fa-icon [icon]="faUpload" class="btn-lg"></fa-icon> - UPLOAD Button : This will upload the saved json file. If you try a different json file it will not load.
+    </p>
+    <p>
+      <fa-icon [icon]="faImage" class="btn-lg"></fa-icon> - SAVE AS IMAGE Button : This will save the diagram has a SVG image file. This will not be able to be uploaded.
+    </p>
+    <p>
+      Note on PDF: I am afraid I haven't figure out a way to embed the SVG image into a PDF using the utility libraries for this site. I am working on a way to do this.
+      Until then you should be able to use Chrome or Edge to print as PDF. I have tested it on both browsers and seems to be a good work around for now. Sorry Firefox users :(
+    </p>
+    </div>
+  </div>

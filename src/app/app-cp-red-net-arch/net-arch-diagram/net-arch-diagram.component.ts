@@ -17,6 +17,9 @@ export class NetArchDiagramComponent implements OnInit, OnChanges {
   @Input()
   arch: CPRedNetArchNode = new CPRedNetArchNode();
 
+  @Output()
+  updateSVG: EventEmitter<string> = new EventEmitter<string>();
+
   diagram: string = '';
   svg: SafeHtml = '';
 
@@ -33,18 +36,20 @@ export class NetArchDiagramComponent implements OnInit, OnChanges {
   }
 
   createDiagram() {
-    if(this.arch && this.arch.branch.length > 0) {
-    this.diagram = this.createCircles(this.arch, 50, 25);
-    this.svg = this.sanitizer.bypassSecurityTrustHtml(`
-    <svg style="width:100%" height="${this.level * 100}">
-      <g>
-      ${this.diagram}
-      </g>
-    </svg>`);
-    }
+    if (this.arch && this.arch.branch.length > 0) {
+      this.diagram = this.createCircles(this.arch, 50, 25);
+      const result = `
+      <svg style="width:100%;" height="${this.level * 100}">
+        <g>
+        ${this.diagram}
+        </g>
+      </svg>`;
+      this.svg = this.sanitizer.bypassSecurityTrustHtml(result);
+      this.updateSVG.emit(result);
+    };
   }
 
-  createCircles(node:CPRedNetArchNode, x: number, offset: number): string {
+  createCircles(node: CPRedNetArchNode, x: number, offset: number): string {
     this.level = (node.level < this.level) ? this.level : node.level;
     let circle = `<circle cx='${x}%' cy='${node.level * 70}' r='15' fill='#000000'></circle>`;
     circle += `<circle cx='${x}%' cy='${node.level * 70}' r='14' fill='${node.bgColor}'></circle>`;
@@ -66,18 +71,18 @@ export class NetArchDiagramComponent implements OnInit, OnChanges {
       circle += `<line x1="${(x - offset)}%" y1="${(node.level * 70) + 30}" x2="${(x + offset)}%" y2="${(node.level * 70) + 30}" style="stroke: rgb(0, 0, 0);stroke-width: 2;"></line>`;
       circle += `<line x1="${(x - offset)}%" y1="${(node.level * 70) + 30}" x2="${(x - offset)}%" y2="${(node.level * 70) + 55}" style="stroke: rgb(0, 0, 0);stroke-width: 2;"></line>`;
       circle += `<line x1="${(x + offset)}%" y1="${(node.level * 70) + 30}" x2="${(x + offset)}%" y2="${(node.level * 70) + 55}" style="stroke: rgb(0, 0, 0);stroke-width: 2;"></line>`;
-      circle += this.createCircles(node.branch[0], (x - offset), (offset/2));
-      circle += this.createCircles(node.branch[1], (x + offset), (offset/2));
+      circle += this.createCircles(node.branch[0], (x - offset), (offset / 2));
+      circle += this.createCircles(node.branch[1], (x + offset), (offset / 2));
     }
-    circle += `<circle cx='${x}%' cy='${(node.level * 70) - 25}' r='10' fill='#FFFFFF' style='z-index:100'></circle>`;
-    circle += `<g transform='translate(-5,0)'>
-      <text x='${x}%' y='${(node.level * 70) - 20}' font-size="smaller" style='z-index:101'>${node.id}</text>
+    circle += `<circle cx='${x}%' cy='${(node.level * 70) - 25}' r='9' fill='#FFFFFF' style='z-index:100'></circle>`;
+    circle += `<g transform='translate(-4,0)'>
+      <text x='${x}%' y='${(node.level * 70) - 21}' font-size="smaller" style='z-index:101'>${node.id}</text>
     </g>`;
     return circle;
   }
 
   private getIcon(type: string) {
-    switch(type){
+    switch (type) {
       case 'file':
         return this.faFile.icon[4];
       case 'controller':
