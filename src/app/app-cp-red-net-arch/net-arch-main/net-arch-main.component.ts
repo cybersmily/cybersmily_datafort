@@ -1,11 +1,11 @@
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FileLoaderService } from './../../shared/services/file-loader/file-loader.service';
 import { SaveFileService } from './../../shared/services/save-file.service';
-import { CPRedNetArchNode } from './../models/net-arch-node';
-import { faFilePdf, faSave, faDice, faUpload, faQuestion, faSkullCrossbones, faLock, faCogs, faFile, faQuestionCircle, faImage } from '@fortawesome/free-solid-svg-icons';
+import { CPRedNetArchNode, CPRedIconTypeSettings } from './../models/net-arch-node';
+import { faFilePdf, faSave, faDice, faUpload, faQuestion, faSkullCrossbones, faLock, faCogs, faFile, faQuestionCircle, faImage, faCog } from '@fortawesome/free-solid-svg-icons';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { CPRedNetArchService } from './../service/c-p-red-net-arch.service';
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild, ElementRef } from '@angular/core';
 import { CPRedNetArchPdf } from '../models/c-p-red-net-arch-pdf';
 
 @Component({
@@ -21,6 +21,10 @@ export class NetArchMainComponent implements OnInit {
   faUpload = faUpload;
   faQuestionCircle = faQuestionCircle;
   faImage = faImage;
+  faCog = faCog;
+
+  @ViewChild('diagramSVG')
+  private svgRef: ElementRef<HTMLElement>;
 
   modalRef: BsModalRef;
   config = {
@@ -29,10 +33,12 @@ export class NetArchMainComponent implements OnInit {
   };
 
   arch: CPRedNetArchNode;
+  iconColors: CPRedIconTypeSettings = new CPRedIconTypeSettings();
   archArray: Array<Array<CPRedNetArchNode>> = new Array<Array<CPRedNetArchNode>>();
-  private floors: number = 3;
+  floors: number = 3;
   netArchService: CPRedNetArchService = new CPRedNetArchService(this.dice);
   svg: string;
+  numOfLevels: number = 3;
 
   randomFloors = true;
   randomDifficulty = true;
@@ -51,6 +57,35 @@ export class NetArchMainComponent implements OnInit {
     this.floors = (value < 3) ? 3 : value;
   }
 
+  get costPerFloor(): number {
+    if ( this.floors < 7) {
+      return 1000;
+    } else if (this.floors < 13) {
+      return 5000;
+    } else if (this.floors > 12) {
+      return 10000;
+    }
+  }
+
+  get totalCost(): number {
+    let result = this.arch.totalCost;
+    result += this.floors * this.costPerFloor;
+    return result;
+  }
+
+  get defaultDV(): number {
+    switch(this.netArchService.difficulty) {
+      case 0:
+        return 6;
+      case 1:
+        return 8;
+      case 2:
+        return 10;
+      default:
+        return 12;
+    }
+  }
+
   ngOnInit(): void {
     this.netArchService.architect.subscribe( arch => {
       this.arch = undefined;
@@ -61,6 +96,7 @@ export class NetArchMainComponent implements OnInit {
     });
     this.netArchService.architectAsArray.subscribe( arr => {
       this.archArray = arr;
+      this.numOfLevels = this.archArray.length;
     });
   }
 
@@ -81,8 +117,10 @@ export class NetArchMainComponent implements OnInit {
   }
 
   saveSVG() {
-    const output = this.svg.replace('<svg style="width:100%;"', '<svg xmlns="http://www.w3.org/2000/svg" width="1000"');
-    this.saveFile.SaveAsFile('Net Architect Diagram', output,'svg');
+    const output = this.svgRef.nativeElement.querySelector('#cs-cpred-archdiagram');
+    console.log(output.outerHTML);
+    //const output = this.svg.replace('<svg style="width:100%;"', '<svg xmlns="http://www.w3.org/2000/svg" width="1000"');
+    this.saveFile.SaveAsFile('Net Architect Diagram', output.outerHTML,'svg');
   }
 
   load($event) {
@@ -103,5 +141,9 @@ export class NetArchMainComponent implements OnInit {
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, this.config);
+  }
+
+  updateSettings(settings: CPRedIconTypeSettings) {
+    this.iconColors = settings;
   }
 }

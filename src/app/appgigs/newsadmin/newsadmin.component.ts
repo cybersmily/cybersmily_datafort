@@ -56,7 +56,8 @@ export class NewsadminComponent implements OnInit {
   loadNews() {
     this.dataService
     .GetJson(JsonDataFiles.GIG_NEWS_JSON)
-    .subscribe((news) => {
+    .subscribe((news: GigNewsItem) => {
+      news.news = news.news.sort( (a, b) => b.title.localeCompare(a.title));
       this.newsItems = news;
     });
   }

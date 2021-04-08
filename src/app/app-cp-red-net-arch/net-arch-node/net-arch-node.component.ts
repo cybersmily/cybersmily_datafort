@@ -1,7 +1,8 @@
 import { faSkullCrossbones, faCogs, faFile, faLock, faPen, faTimes, faThumbtack } from '@fortawesome/free-solid-svg-icons';
-import { CPRedNetArchNode } from './../models/net-arch-node';
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { CPRedNetArchNode, CPRedIconTypeSettings } from './../models/net-arch-node';
+import { Component, Input, OnInit, Output, EventEmitter, TemplateRef } from '@angular/core';
 import { ColorEvent } from 'ngx-color';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'cs-net-arch-node',
@@ -18,16 +19,25 @@ export class NetArchNodeComponent implements OnInit {
   faTimes = faTimes;
   faThumbtack = faThumbtack;
 
-  isEdit: boolean = false;
-  isShowDetails: boolean = false;
+  modalRef: BsModalRef;
+  config = {
+    keyboard: true,
+    class: 'modal-dialog-centered'
+  };
 
   @Input()
   node: CPRedNetArchNode;
 
+  @Input()
+  defaultDV: number;
+
+  @Input()
+  iconSettings: CPRedIconTypeSettings;
+
   @Output()
   updateNode: EventEmitter<CPRedNetArchNode> = new EventEmitter<CPRedNetArchNode>();
 
-  constructor() { }
+  constructor(private modalService: BsModalService) { }
 
   ngOnInit(): void {
   }
@@ -46,8 +56,38 @@ export class NetArchNodeComponent implements OnInit {
     return this.faLock;
   }
 
-  showDetails() {
-    this.isShowDetails = !this.isShowDetails;
+  selectedColor: string;
+
+  get color(): string {
+    if(this.node.color && this.node.color !== '') {
+      return this.node.color;
+    }
+    switch(this.node.type) {
+      case 'file':
+        return this.iconSettings.file.color;
+      case 'program':
+        return this.iconSettings.program.color;
+      case 'password':
+        return this.iconSettings.password.color;
+      case 'controller':
+        return this.iconSettings.controlNode.color;
+    }
+  }
+
+  get bgColor(): string {
+    if(this.node.bgColor && this.node.bgColor !== '') {
+      return this.node.bgColor;
+    }
+    switch(this.node.type) {
+      case 'file':
+        return this.iconSettings.file.bgColor;
+      case 'program':
+        return this.iconSettings.program.bgColor;
+      case 'password':
+        return this.iconSettings.password.bgColor;
+      case 'controller':
+        return this.iconSettings.controlNode.bgColor;
+    }
   }
 
   update() {
@@ -56,16 +96,34 @@ export class NetArchNodeComponent implements OnInit {
 
   changeType(e) {
     this.node.type = e.target.value
+    if(this.node.type !== 'program')  {
+      console.log(this.node.dv);
+      console.log(this.defaultDV);
+      this.node.dv = this.defaultDV;
+      console.log(this.node.dv);
+    }
     this.update();
   }
 
-  changeBgColor($event: ColorEvent) {
-    this.node.bgColor = $event.color.hex;
+  changeBgColor() {
+    this.node.bgColor = this.selectedColor;
     this.update();
   }
 
-  changeIconColor($event: ColorEvent) {
-    this.node.color = $event.color.hex;
+  changeIconColor() {
+    this.node.color = this.selectedColor;
     this.update();
+  }
+
+  changeColor($event: ColorEvent) {
+    this.selectedColor = $event.color.hex;
+  }
+
+  setSelectedColor(color: string) {
+    this.selectedColor = color;
+  }
+
+  showModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, this.config);
   }
 }

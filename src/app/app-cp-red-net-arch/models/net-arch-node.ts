@@ -8,6 +8,13 @@ export interface NetArchNode {
   bgColor: string;
   color: string;
   branch: Array<NetArchNode>;
+  programs?:Array<NetArchProgram>;
+}
+
+export interface NetArchProgram {
+  name: string;
+  class: string;
+  cost: number;
 }
 
 
@@ -22,23 +29,66 @@ export class CPRedNetArchNode implements NetArchNode {
   bgColor: string;
   color: string;
   branch: Array<CPRedNetArchNode>;
+  programs?:Array<any>;
 
   constructor(param?: NetArchNode) {
-    this.type = param ? param.type : '';
+    this.type = param ? param.type : 'password';
     this.name = param ? param.name : '';
     this.desc = param ? param.desc : '';
     this.level = param ? param.level : 0;
     this.cost = param ? param.cost : 0;
     this.dv = param ? param.dv : 0;
     this.id = param ?  param['id'] : '';
-    this.bgColor = param ? param.bgColor : '#ffffff';
-    this.color = param ? param.color : '#000000';
+    this.bgColor = param ? param.bgColor : '';
+    this.color = param ? param.color : '';
     this.branch = new Array<CPRedNetArchNode>();
     if (param && param.branch && param.branch.length > 0) {
       param.branch.forEach( branch => {
         this.addChild( new CPRedNetArchNode(branch));
       });
     }
+  }
+
+  get totalCost(): number {
+    let result = 0;
+    result = this.cost;
+    result += this.branch.reduce((a, b) => a + b.totalCost, 0);
+    return result;
+  }
+
+  get numberOfBranches(): number {
+    if (this.branch.length < 1 ) {
+      return 0;
+    }
+    let numOfBranches = 0;
+    if (this.branch.length < 2) {
+      numOfBranches += this.branch[0].numberOfBranches;
+    } else {
+      numOfBranches = 1;
+      numOfBranches += this.branch[0].numberOfBranches;
+      numOfBranches += this.branch[1].numberOfBranches;
+    }
+    return numOfBranches;
+  }
+
+  get numberOfFloors(): number {
+    let floors = 1;
+    if (this.branch.length === 1) {
+      floors += this.branch[0].numberOfFloors;
+    } else if(this.branch.length > 1) {
+      floors += this.branch[0].numberOfFloors;
+      floors += this.branch[1].numberOfFloors;
+    }
+    return floors;
+  }
+
+  get numberOfLevels(): number {
+    if(this.branch.length > 1) {
+      return 1 + ( this.branch[0].numberOfLevels > this.branch[1].numberOfLevels ? this.branch[0].numberOfLevels : this.branch[1].numberOfLevels);
+    } else if(this.branch.length === 1) {
+      return 1 + this.branch[0].numberOfLevels;
+    }
+    return 1;
   }
 
   removeChild(index: number) {
@@ -100,4 +150,61 @@ export class CPRedNetArchNode implements NetArchNode {
     return;
   }
 
+}
+
+
+export interface iconSettings {
+  color: string;
+  bgColor: string;
+}
+
+export interface iconTypeSettings {
+  password: iconSettings;
+  controlNode: iconSettings;
+  program: iconSettings;
+  file: iconSettings;
+}
+
+export class CPRedIconTypeSettings implements iconTypeSettings {
+  password: iconSettings;
+  controlNode: iconSettings;
+  program: iconSettings;
+  file: iconSettings;
+  background: string;
+  foreground: string;
+  border: string;
+
+  constructor() {
+    this.password = {color: 'darkgoldenrod', bgColor: 'lightgoldenrodyellow'};
+    this.controlNode = {color: 'dimgray', bgColor: 'gainsboro'};
+    this.program = {color: 'darkred', bgColor: 'lightpink'};
+    this.file = {color: 'green', bgColor: 'lightgreen'};
+    this.background = '#DDDDDD';
+    this.foreground = '#888888';
+    this.border = '#a9f5bc';
+  }
+}
+
+export interface NetArchitect {
+  name: string;
+  description: string;
+  nodes: NetArchNode;
+  demons: Array<string>;
+  iconSettings: iconTypeSettings;
+}
+
+export class CPRedNetArchitect implements NetArchitect {
+  name: string;
+  description: string;
+  nodes: CPRedNetArchNode;
+  demons: Array<string>;
+  iconSettings: iconTypeSettings;
+
+  constructor(param?: NetArchitect) {
+    this.name = param? param.name: '';
+    this.description = param? param.description: '';
+    this.demons = param? param.demons: new Array<string>();
+    this.iconSettings = param? param.iconSettings: new CPRedIconTypeSettings();
+    this.nodes = param? new CPRedNetArchNode(param.nodes): new CPRedNetArchNode();
+  }
 }

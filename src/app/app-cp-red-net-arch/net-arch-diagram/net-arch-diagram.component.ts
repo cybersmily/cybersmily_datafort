@@ -37,7 +37,7 @@ export class NetArchDiagramComponent implements OnInit, OnChanges {
 
   createDiagram() {
     if (this.arch && this.arch.branch.length > 0) {
-      this.diagram = this.createCircles(this.arch, 50, 25);
+      this.diagram = this.createNode(this.arch, 50, 25);
       const result = `
       <svg style="width:100%;" height="${this.level * 100}">
         <g>
@@ -49,36 +49,52 @@ export class NetArchDiagramComponent implements OnInit, OnChanges {
     };
   }
 
-  createCircles(node: CPRedNetArchNode, x: number, offset: number): string {
+  createNode(node: CPRedNetArchNode, x: number, offset: number): string {
     this.level = (node.level < this.level) ? this.level : node.level;
-    let circle = `<circle cx='${x}%' cy='${node.level * 70}' r='15' fill='#000000'></circle>`;
-    circle += `<circle cx='${x}%' cy='${node.level * 70}' r='14' fill='${node.bgColor}'></circle>`;
+    let circle = this.drawCircle(x, (node.level * 70), 16,  node.color);
+    circle += this.drawCircle(x, (node.level * 70), 14, node.bgColor);
 
-    circle += `<g transform='translate(-6,-8)'><svg x='${x}%' y='${(node.level * 70)}'><g>
-      <path transform='scale(0.03)'
-       fill="${node.color}"
-       d="${this.getIcon(node.type)}"
-       class="csd-net-icon"
-       >
-      </path>
-      </g></svg></g>`;
+    circle += this.drawIcon(x, (node.level * 70), node.color, node.type);
     if (node.branch && node.branch.length === 1) {
       circle += `<line x1="${x}%" y1="${(node.level * 70) + 15}" x2="${x}%" y2="${(node.level * 70) + 55}" style="stroke: rgb(0, 0, 0);stroke-width: 2;"></line>`;
-      circle += this.createCircles(node.branch[0], x, offset);
+      circle += this.createNode(node.branch[0], x, offset);
     }
     if (node.branch && node.branch.length === 2) {
-      circle += `<line x1="${x}%" y1="${(node.level * 70) + 15}" x2="${x}%" y2="${(node.level * 70) + 30}" style="stroke: rgb(0, 0, 0);stroke-width: 2;"></line>`;
-      circle += `<line x1="${(x - offset)}%" y1="${(node.level * 70) + 30}" x2="${(x + offset)}%" y2="${(node.level * 70) + 30}" style="stroke: rgb(0, 0, 0);stroke-width: 2;"></line>`;
-      circle += `<line x1="${(x - offset)}%" y1="${(node.level * 70) + 30}" x2="${(x - offset)}%" y2="${(node.level * 70) + 55}" style="stroke: rgb(0, 0, 0);stroke-width: 2;"></line>`;
-      circle += `<line x1="${(x + offset)}%" y1="${(node.level * 70) + 30}" x2="${(x + offset)}%" y2="${(node.level * 70) + 55}" style="stroke: rgb(0, 0, 0);stroke-width: 2;"></line>`;
-      circle += this.createCircles(node.branch[0], (x - offset), (offset / 2));
-      circle += this.createCircles(node.branch[1], (x + offset), (offset / 2));
+      circle += this.drawLine(x, (node.level * 70) + 15, x, (node.level * 70) + 30);
+      circle += this.drawLine((x - offset), (node.level * 70) + 30, (x + offset), (node.level * 70) + 30);
+      circle += this.drawLine((x - offset), (node.level * 70) + 30, (x - offset), (node.level * 70) + 55);
+      circle += this.drawLine((x + offset), (node.level * 70) + 30, (x + offset), (node.level * 70) + 55);
+      circle += this.createNode(node.branch[0], (x - offset), (offset / 2));
+      circle += this.createNode(node.branch[1], (x + offset), (offset / 2));
     }
-    circle += `<circle cx='${x}%' cy='${(node.level * 70) - 25}' r='9' fill='#FFFFFF' style='z-index:100'></circle>`;
-    circle += `<g transform='translate(-4,0)'>
-      <text x='${x}%' y='${(node.level * 70) - 21}' font-size="smaller" style='z-index:101'>${node.id}</text>
-    </g>`;
+    circle += this.drawCircle(x, (node.level * 70) - 25, 9, '#ffffff', 'z-index:100');
+    circle += this.drawText(x, (node.level * 70) - 21, node.id, 'smaller', 'z-index:101');
     return circle;
+  }
+
+  drawLine(x1: number, y1: number, x2: number, y2: number): string {
+    return `<line x1="${x1}%" y1="${y1}" x2="${x2}%" y2="${y2}" style="stroke: rgb(0, 0, 0);stroke-width: 2;"></line>`;
+  }
+
+  drawCircle(x: number, y: number, r: number, fill: string, style?: string): string {
+    return `<circle cx='${x}%' cy='${y}' r='${r}' fill='${fill}' ${style ? 'style=\'' + style + '\'' : ''}'></circle>`;
+  }
+
+  drawIcon(x: number, y: number, fill: string, type: string): string {
+    return `<g transform='translate(-6,-8)'><svg x='${x}%' y='${y}'><g>
+  <path transform='scale(0.03)'
+   fill="${fill}"
+   d="${this.getIcon(type)}"
+   class="csd-net-icon"
+   >
+  </path>
+  </g></svg></g>`;
+  }
+
+  drawText(x: number, y: number, text: string, size: string, style?: string) : string {
+    return `<g transform='translate(-4,0)'>
+      <text x='${x}%' y='${y}' font-size="${size}" ${style? 'style=\'' + style + '\'': ''}>${text}</text>
+    </g>`;
   }
 
   private getIcon(type: string) {

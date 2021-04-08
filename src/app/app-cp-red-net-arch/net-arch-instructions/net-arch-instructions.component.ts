@@ -1,4 +1,4 @@
-import { faDice, faSave, faUpload, faImage, faSkullCrossbones, faCogs, faLock, faFile, faPen } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faSave, faUpload, faImage, faSkullCrossbones, faCogs, faLock, faFile, faPen, faCog } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -16,6 +16,7 @@ export class NetArchInstructionsComponent implements OnInit {
   faLock = faLock;
   faFile = faFile;
   faPen = faPen;
+  faCog = faCog;
 
   constructor() { }
 

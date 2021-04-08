@@ -1,92 +1,91 @@
 <div *ngIf="node" class="row ml-1">
-  <div class="col-1">{{node.id}}</div>
-  <div class="col">
-    <div class="row net-node-info" *ngIf="!isEdit">
+  <div class="col-6">
+    <div class="row net-node-info">
       <div class="col">
         <div class="row">
-          <div class="col node-name" (click)="showDetails()">
-            <fa-icon [icon]="getIcon(node.type)" style="width: 15px; height: 15px;" class="mr-1"></fa-icon>
+          <div class="col-8">
+            <span class="mr-2 font-weight-bold">{{node.id}}:</span>
+            <div class="node-icon" [style.background-color]="bgColor" [style.color]="color">
+              <fa-icon [icon]="getIcon(node.type)" class="mr-1"></fa-icon>
+            </div>
             {{node.name}}
+            <span *ngIf="node.type !== 'program'">(DV{{node.dv}})</span>
+            <fa-icon [icon]="faPen" style="width: 15px; height: 15px;" class="ml-2 hidden-print csd-btn"
+            (click)="showModal(nodeSettings)"></fa-icon>
+          </div>
+          <div class="col-3">
+            {{node.cost|number}}eb
           </div>
           <div class="col-1">
-            <fa-icon [icon]="faPen" style="width: 15px; height: 15px;" class="float-right hidden-print csd-btn"
-              (click)="isEdit = true"></fa-icon>
           </div>
         </div>
-        <div class="row show-print net-node-details" *ngIf="node.type !== 'program'">
-          <div class="col">
-            DV: {{node.dv}}
-          </div>
-          <div class="col">
-            Cost: {{node.cost|number}}eb
-          </div>
-        </div>
-        <div class="row show-print net-node-details">
-          <div class="col">
-            Icon Color: <span [ngStyle]="{'background-color':node.color,'display': 'inline-block','min-height': '20px', 'min-width': '30px','border': 'black 1px solid'}"></span>
-          </div>
-        </div>
-        <div class="row show-print net-node-details">
-          <div class="col">
-            Background Color: <span [ngStyle]="{'background-color':node.bgColor,'display': 'inline-block','min-height': '20px', 'min-width': '30px','border': 'black 1px solid'}"></span>
-          </div>
-        </div>
-        <div class="row show-print net-node-details">
-          <div class="col">
-            Description:
-            <br>
-            {{node.desc}}
-          </div>
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col">Description: {{node.desc}}</div>
         </div>
       </div>
     </div>
     <div class="row csd-rounded" *ngIf="isEdit">
-      <div class="col">
-        <div class="row">
-          <div class="col">
-            <input type="text" [(ngModel)]="node.name" style="width: 90%;" (change)="update()">
-            <fa-icon [icon]="faTimes" class="float-right" (click)="isEdit = false"></fa-icon>
-          </div>
+      </div>
+    </div>
+</div>
+<br>
+<ng-template #nodeSettings>
+  <div class="modal-header">
+    <h4> FLOOR {{node.level}}.{{node.id}} SETTINGS</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="col">
+      <div class="row">
+        <div class="col">
+          <input type="text" [(ngModel)]="node.name" style="width: 90%;" (change)="update()">
         </div>
-        <div class="row">
-          <div class="col">
-            Type: <select [(ngModel)]="node.type" (change)="changeType($event)">
-              <option value="controller">Control Node</option>
-              <option value="file">File</option>
-              <option value="password">Password</option>
-              <option value="program">Program</option>
-            </select>
-          </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          Type: <select [(ngModel)]="node.type" (change)="changeType($event)">
+            <option value="controller">Control Node</option>
+            <option value="file">File</option>
+            <option value="password">Password</option>
+            <option value="program">Program</option>
+          </select>
         </div>
-        <div class="row" *ngIf="node.type !== 'program'">
-          <div class="col">
-            DV: <input type="number" [(ngModel)]="node.dv" style="width:70px;" (change)="update()">
-          </div>
+      </div>
+      <div class="row" *ngIf="node.type !== 'program'">
+        <div class="col">
+          DV: <input type="number" [(ngModel)]="node.dv" style="width:70px;" (change)="update()" min="6" max="30">
         </div>
-        <div class="row">
-          <div class="col">
-            Cost: <input type="number" [(ngModel)]="node.cost" (change)="update()">
-          </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          Cost: <input type="number" [(ngModel)]="node.cost" (change)="update()">
         </div>
-        <div class="row" >
-          <div class="col">
-            Icon Color: <color-slider [color]="node.color" (onChange)="changeIconColor($event)"></color-slider>
-          </div>
-        </div>
-        <div class="row" >
-          <div class="col">
-            Background Color: <color-slider [color]="node.bgColor" (onChange)="changeBgColor($event)"></color-slider>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            Description:
-            <br>
-            <textarea [(ngModel)]="node.desc" style="width:100%;min-height: 80px;" (change)="update()">
-            </textarea>
-          </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          Description:
+          <br>
+          <textarea [(ngModel)]="node.desc" style="width:100%;min-height: 80px;" (change)="update()">
+          </textarea>
         </div>
       </div>
     </div>
+    <div class="row" >
+      <div class="col">
+        Color: <span class="cs-color-swatch" [style.background-color]="color" [popover]="colorPicker" [outsideClick]="true"
+        (onShown)="setSelectedColor(node.color)" (onHidden)="changeIconColor(type)"></span>
+      </div>
+      <div class="col">
+        Background: <span class="cs-color-swatch" [style.background-color]="bgColor" [popover]="colorPicker" [outsideClick]="true"
+        (onShown)="setSelectedColor(node.bgColor)" (onHidden)="changeBgColor()"></span>
+      </div>
+    </div>
   </div>
-</div>
+
+</ng-template>
+<ng-template #colorPicker>
+  <color-chrome [color]="selectedColor" (onChange)="changeColor($event)"></color-chrome>
+</ng-template>

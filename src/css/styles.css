@@ -17,6 +17,23 @@ INPUT {
   display: inline-block;
 }
 
+.csd-icon-xl {
+  font-size: x-large;
+}
+
+.cs-color-swatch {
+  display: inline-block;
+  height: 16px;
+  width: 50px;
+  cursor: pointer;
+  border: 1px solid #333;
+}
+
+
+.csd-icon-xxl {
+  font-size: xx-large;
+}
+
 .csd-btn {
   cursor: pointer;
 }

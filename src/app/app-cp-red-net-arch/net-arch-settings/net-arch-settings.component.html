@@ -1,0 +1,61 @@
+<ng-container
+  *ngTemplateOutlet="typeItem;context:{type:'Program', bgColor:iconColors.program.bgColor, color: iconColors.program.color}">
+</ng-container>
+<ng-container
+  *ngTemplateOutlet="typeItem;context:{type:'Password', bgColor:iconColors.password.bgColor, color: iconColors.password.color}">
+</ng-container>
+<ng-container
+  *ngTemplateOutlet="typeItem;context:{type:'File', bgColor:iconColors.file.bgColor, color: iconColors.file.color}">
+</ng-container>
+<ng-container
+  *ngTemplateOutlet="typeItem;context:{type:'Controller Node', bgColor:iconColors.controlNode.bgColor, color: iconColors.controlNode.color}">
+</ng-container>
+<div class="row">
+  <div class="col">
+    Diagram Background: <span class="cs-color-swatch" [style.background-color]="iconColors.background" [popover]="colorPicker" [outsideClick]="true"
+    (onShown)="setSelectedColor(iconColors.background)" (onHidden)="setColor('background')"></span>
+  </div>
+  <div class="col">
+    Diagram Text: <span class="cs-color-swatch" [style.background-color]="iconColors.foreground" [popover]="colorPicker" [outsideClick]="true"
+    (onShown)="setSelectedColor(iconColors.foreground)" (onHidden)="setColor('foreground')"></span>
+  </div>
+  <div class="col">
+    Diagram Border: <span class="cs-color-swatch" [style.background-color]="iconColors.border" [popover]="colorPicker" [outsideClick]="true"
+    (onShown)="setSelectedColor(iconColors.border)" (onHidden)="setColor('border')"></span>
+  </div>
+</div>
+<ng-template #typeItem let-type="type" let-bgColor="bgColor" let-color="color">
+  <div class="row">
+    <div class="col">
+      {{type}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-11">
+      <div class="row">
+        <div class="col-3 col-lg-2">
+          Color
+        </div>
+        <div class="col-2 col-lg-1">
+          <span class="cs-color-swatch" [style.background-color]="color" [popover]="colorPicker" [outsideClick]="true"
+            (onShown)="setSelectedColor(color)" (onHidden)="setColor(type)"></span>
+        </div>
+        <div class="col-7">{{color}}</div>
+      </div>
+      <div class="row">
+        <div class="col-3 col-lg-2">
+          BG Color
+        </div>
+        <div class="col-2 col-lg-1">
+          <span class="cs-color-swatch" [style.background-color]="bgColor" [popover]="colorPicker" [outsideClick]="true"
+            (onShown)="setSelectedColor(bgColor)" (onHidden)="setBgColor(type)"></span>
+        </div>
+        <div class="col-7">{{bgColor}}</div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<ng-template #colorPicker>
+  <color-chrome [color]="selectedColor" (onChange)="changeColor($event)"></color-chrome>
+</ng-template>

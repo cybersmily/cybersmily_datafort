@@ -10,7 +10,7 @@
   <hr>
   <div class="row hidden-print">
     <div class="col-6">
-      <fa-icon class="csd-dice csd-menu-btn csd-btn btn-lg float-left" [icon]="faDice" (click)="generate()"
+      <fa-icon class="csd-dice csd-menu-btn csd-btn csd-icon-xxl float-left mr-2" [icon]="faDice" (click)="generate()"
         title="Generate random Net Architect"></fa-icon>
       <span>
         <input type="checkbox" [(ngModel)]="randomDifficulty">
@@ -43,30 +43,43 @@
         title="Save Net Architect as json file"></fa-icon>
       <fa-icon class="csd-menu-btn btn-lg csd-btn float-right" [icon]="faQuestionCircle" title="Show instructions."
         (click)="openModal(instructions)"></fa-icon>
+      <fa-icon class="csd-menu-btn btn-lg csd-btn float-right" [icon]="faCog" title="Node Type Settings"
+        (click)="openModal(archSettings)"></fa-icon>
     </div>
   </div>
   <br>
+  <div class="row csd-rounded">
+    <div class="col">
+      <div class="row">
+        <div class="col-6"></div>
+        <div class="col">Total Floors: {{floors}} ({{costPerFloor|number}}eb/floor)</div>
+        <div class="col">Total Cost: {{totalCost | number}}eb</div>
+      </div>
+      <hr>
+
   <div class="row" *ngIf="arch">
-    <div class="col-12 col-lg-8 csd-rounded csd-print">
-      <br>
-      <cs-net-arch-diagram [arch]="arch" (updateSVG)="updateSVG($event)"></cs-net-arch-diagram>
-      <br>
-      <br>
+    <div class="col csd-print" #diagramSVG>
+      <cs-net-arch-node-svg *ngIf="arch && arch.branch.length" [node]="arch" [iconColors]="iconColors"></cs-net-arch-node-svg>
     </div>
-    <div class="col-12 col-lg-4 csd-rounded csd-print csd-linebreak">
-      <br>
+  </div>
+  <hr>
+  <div class="row" *ngIf="arch">
+    <div class="col csd-print csd-linebreak">
       <div *ngFor="let arr of archArray;let i = index" class="row">
         <div class="col">
           <div *ngIf="arr && arr.length > 0" class="row">
-            <div class="col">
-              Floor {{i + 1}}:
+            <div class="col font-weight-bold">
+              LEVEL {{i + 1}}:
             </div>
           </div>
-          <cs-net-arch-node *ngFor="let node of arr" [node]="node" (updateNode)="updateArch($event)"></cs-net-arch-node>
+          <cs-net-arch-node *ngFor="let node of arr" [node]="node" [iconSettings]="iconColors" (updateNode)="updateArch($event)" [defaultDV]="defaultDV"></cs-net-arch-node>
+          <hr>
         </div>
       </div>
     </div>
   </div>
+</div>
+</div>
 </div>
 
 <ng-template #instructions>
@@ -79,4 +92,17 @@
   <div class="modal-body">
     <cs-net-arch-instructions></cs-net-arch-instructions>
   </div>
+</ng-template>
+
+<ng-template #archSettings>
+  <div class="modal-header">
+    <h4>NET ARCHITECT GENERATOR SETTINGS</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <cs-net-arch-settings [iconColors]="iconColors" (updateColors)="updateSettings($event)"></cs-net-arch-settings>
+  </div>
+
 </ng-template>

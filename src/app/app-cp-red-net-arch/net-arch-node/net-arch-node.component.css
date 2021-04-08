@@ -13,3 +13,18 @@
 div.net-node-info:hover div.col .net-node-details {
   display: block !important;
 }
+
+.node-icon {
+  display:inline-block;
+  height:27px;
+  width:27px;
+  padding-left:4px;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid black;
+}
+
+.node-icon fa-icon {
+  width: 15px;
+  height: 15px;
+}
