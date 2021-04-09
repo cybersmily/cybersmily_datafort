@@ -111,11 +111,11 @@
           <svg x="5" y="0" style="overflow: visible;" class="cs-net-tooltip">
             <g>
               <rect x="0" y="-20" rx="2" ry="2" width="40" height="20" style="fill:{{getBGColor(node)}};stroke:{{getColor(node)}};stroke-width:1" ></rect>
-              <text x="2" y="-6" [attr.fill]="iconColors.foreground">Delete</text>
+              <text x="2" y="-6" [attr.fill]="getColor(node)">Delete</text>
             </g>
           </svg>
 
-          <line [attr.x1]="-3" [attr.y1]="0" [attr.x2]="3" [attr.y2]="0" style="stroke: {{iconColors.foreground}};stroke-width:3;"></line>
+          <line [attr.x1]="-3" [attr.y1]="0" [attr.x2]="3" [attr.y2]="0" style="stroke:{{getColor(node)}};stroke-width:3;"></line>
         </g>
       </svg>
       <line [attr.x1]="-3" [attr.y1]="0" [attr.x2]="3" [attr.y2]="0" style="stroke: {{iconColors.foreground}};stroke-width: 2;"></line>
@@ -186,7 +186,7 @@
       <svg x="0" y="0" class="cs-net-tooltip" style="overflow: visible;">
         <g>
           <rect x="9" y="-10" rx="2" ry="2" width="30" height="20" style="fill:{{getBGColor(node)}};stroke:{{getColor(node)}};stroke-width:1" ></rect>
-          <text x="12" y="3" [attr.fill]="iconColors.foreground">Add</text>
+          <text x="12" y="3" [attr.fill]="getColor(node)">Add</text>
         </g>
       </svg>
     </g>
