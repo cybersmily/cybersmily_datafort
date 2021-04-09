@@ -181,6 +181,8 @@ export interface iconTypeSettings {
   background: string;
   foreground: string;
   border: string;
+  randomDifficulty: boolean;
+  randomFloors: boolean;
 }
 
 export class CPRedIconTypeSettings implements iconTypeSettings {
@@ -192,6 +194,8 @@ export class CPRedIconTypeSettings implements iconTypeSettings {
   foreground: string;
   border: string;
   key: string;
+  randomDifficulty: boolean;
+  randomFloors: boolean;
 
   constructor() {
     this.key = "cs-cpred-netarch-settings";
@@ -202,6 +206,8 @@ export class CPRedIconTypeSettings implements iconTypeSettings {
     this.background = '#4A4848';
     this.foreground = '#DDDDDD';
     this.border = '#9DF8FF';
+    this.randomDifficulty = true;
+    this.randomFloors = true;
   }
 
   import(settings: iconTypeSettings) {
@@ -212,6 +218,8 @@ export class CPRedIconTypeSettings implements iconTypeSettings {
     this.background = settings.background;
     this.foreground = settings.foreground;
     this.border = settings.border;
+    this.randomDifficulty = settings.randomDifficulty;
+    this.randomFloors = settings.randomFloors;
   }
 
   export(): string {
@@ -222,7 +230,9 @@ export class CPRedIconTypeSettings implements iconTypeSettings {
       file: this.file,
       background: this.background,
       foreground: this.foreground,
-      border: this.border
+      border: this.border,
+      randomDifficulty: this.randomDifficulty,
+      randomFloors: this.randomFloors
     };
     return JSON.stringify(settings);
   }

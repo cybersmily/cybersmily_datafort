@@ -34,7 +34,7 @@ export class NetArchMainComponent implements OnInit {
   };
 
   arch: CPRedNetArchNode;
-  iconColors: CPRedIconTypeSettings = new CPRedIconTypeSettings();
+  archSettings: CPRedIconTypeSettings = new CPRedIconTypeSettings();
   archArray: Array<Array<CPRedNetArchNode>> = new Array<Array<CPRedNetArchNode>>();
   floors: number = 3;
   netArchService: CPRedNetArchService = new CPRedNetArchService(this.dice);
@@ -104,8 +104,10 @@ export class NetArchMainComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (window.localStorage && window.localStorage[this.iconColors.key]) {
-      this.iconColors.import(JSON.parse(window.localStorage[this.iconColors.key]));
+    console.log(this.archSettings);
+    if (window.localStorage && window.localStorage[this.archSettings.key]) {
+      console.log('here');
+      this.archSettings.import(JSON.parse(window.localStorage[this.archSettings.key]));
     }
     this.netArchService.architect.subscribe( arch => {
       this.arch = undefined;
@@ -121,8 +123,9 @@ export class NetArchMainComponent implements OnInit {
   }
 
   generate(): void {
+    this.updateSettings(this.archSettings);
     this.netArchService.difficulty = this.difficulty;
-    this.netArchService.generateArch( this.randomFloors, this.randomDifficulty, this.randomFloorNumber);
+    this.netArchService.generateArch( this.archSettings.randomFloors, this.archSettings.randomDifficulty, this.randomFloorNumber);
   }
 
   removeArch() {
@@ -169,7 +172,7 @@ export class NetArchMainComponent implements OnInit {
   }
 
   updateSettings(settings: CPRedIconTypeSettings) {
-    this.iconColors = settings;
-    window.localStorage.setItem(this.iconColors.key, this.iconColors.export());
+    this.archSettings = settings;
+    window.localStorage.setItem(this.archSettings.key, this.archSettings.export());
   }
 }

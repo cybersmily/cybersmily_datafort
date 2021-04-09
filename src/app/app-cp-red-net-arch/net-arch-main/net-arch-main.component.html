@@ -22,7 +22,7 @@
       <fa-icon class="csd-menu-btn csd-btn btn-lg float-right" [icon]="faSave" (click)="save()"
         title="Save Net Architect as json file"></fa-icon>
       <fa-icon class="csd-menu-btn btn-lg csd-btn float-right" [icon]="faCog" title="Node Type Settings"
-        (click)="openModal(archSettings)"></fa-icon>
+        (click)="openModal(archSettingsEditor)"></fa-icon>
       <fa-icon class="csd-menu-btn btn-lg csd-btn float-right" [icon]="faQuestionCircle" title="Show instructions."
         (click)="openModal(instructions)"></fa-icon>
     </div>
@@ -32,10 +32,10 @@
       <fa-icon class="csd-dice csd-menu-btn csd-btn csd-icon-xxl float-left mr-2" [icon]="faDice" (click)="generate()"
         title="Generate random Net Architect"></fa-icon>
       <span>
-        <input type="checkbox" [(ngModel)]="randomDifficulty">
-        <span [ngClass]="{'net-arch-disable':randomDifficulty}">
+        <input type="checkbox" [(ngModel)]="archSettings.randomDifficulty">
+        <span [ngClass]="{'net-arch-disable':archSettings.randomDifficulty}">
           - Difficulty:
-          <select [(ngModel)]="difficulty" [disabled]='randomDifficulty'>
+          <select [(ngModel)]="difficulty" [disabled]='archSettings.randomDifficulty'>
             <option [ngValue]="0">{{getDifficulty(0)}}</option>
             <option [ngValue]="1">{{getDifficulty(1)}}</option>
             <option [ngValue]="2">{{getDifficulty(2)}}</option>
@@ -43,9 +43,9 @@
           </select>
         </span>
         <br>
-        <input type="checkbox" [(ngModel)]="randomFloors">
-        <span [ngClass]="{'net-arch-disable':randomFloors}">
-          - Floors: <input type="number" min="3" max="18" [(ngModel)]="randomFloorNumber" [disabled]="randomFloors">
+        <input type="checkbox" [(ngModel)]="archSettings.randomFloors">
+        <span [ngClass]="{'net-arch-disable':archSettings.randomFloors}">
+          - Floors: <input type="number" min="3" max="18" [(ngModel)]="randomFloorNumber" [disabled]="archSettings.randomFloors">
         </span>
       </span>
     </div>
@@ -61,7 +61,7 @@
       <hr>
       <div class="row">
         <div class="col csd-print" #diagramSVG>
-          <cs-net-arch-node-svg *ngIf="arch && arch.branch.length" [node]="arch" [iconColors]="iconColors"
+          <cs-net-arch-node-svg *ngIf="arch && arch.branch.length" [node]="arch" [iconColors]="archSettings"
             [defaultDV]="defaultDV" (updateNode)="updateArch($event)"></cs-net-arch-node-svg>
         </div>
       </div>
@@ -75,7 +75,7 @@
                   LEVEL {{i + 1}}:
                 </div>
               </div>
-              <cs-net-arch-node *ngFor="let node of arr" [node]="node" [iconSettings]="iconColors"
+              <cs-net-arch-node *ngFor="let node of arr" [node]="node" [iconSettings]="archSettings"
                 (updateNode)="updateArch($event)" [defaultDV]="defaultDV"></cs-net-arch-node>
               <hr>
             </div>
@@ -98,7 +98,7 @@
   </div>
 </ng-template>
 
-<ng-template #archSettings>
+<ng-template #archSettingsEditor>
   <div class="modal-header">
     <h4>NET ARCHITECT GENERATOR SETTINGS</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
@@ -106,7 +106,7 @@
     </button>
   </div>
   <div class="modal-body">
-    <cs-net-arch-settings [iconColors]="iconColors" (updateColors)="updateSettings($event)"></cs-net-arch-settings>
+    <cs-net-arch-settings [iconColors]="archSettings" (updateColors)="updateSettings($event)"></cs-net-arch-settings>
   </div>
 
 </ng-template>
