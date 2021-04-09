@@ -32,8 +32,8 @@ export class CPRedNetArchNode implements NetArchNode {
   programs?:Array<any>;
 
   constructor(param?: NetArchNode) {
-    this.type = param ? param.type : 'password';
-    this.name = param ? param.name : '';
+    this.type = param ? param.type : 'file';
+    this.name = param ? param.name : 'file';
     this.desc = param ? param.desc : '';
     this.level = param ? param.level : 0;
     this.cost = param ? param.cost : 0;

@@ -8,8 +8,8 @@
             <div class="node-icon mr-2" [style.background-color]="bgColor" [style.color]="color">
               <fa-icon [icon]="getIcon(node.type)" class="mr-1"></fa-icon>
             </div>
-            <span class="text-capitalize">{{node.name}}</span>
-            <span *ngIf="node.type !== 'program'">(DV{{node.dv}})</span>
+            <h5 class="text-capitalize" style="display:inline-block">{{node.name}}</h5>
+            <span *ngIf="node.type !== 'program'">&nbsp;(DV{{node.dv}})</span>
             <fa-icon [icon]="faPen" style="width: 15px; height: 15px;" class="ml-2 hidden-print csd-btn"
             (click)="showModal(nodeSettings)"></fa-icon>
           </div>
@@ -21,7 +21,7 @@
         </div>
         <div class="row">
           <div class="col-1"></div>
-          <div class="col">Description: {{node.desc}}</div>
+          <div class="col">Description: <i>{{node.desc}}</i></div>
         </div>
       </div>
     </div>
@@ -29,7 +29,6 @@
       </div>
     </div>
 </div>
-<br>
 <ng-template #nodeSettings>
   <div class="modal-header">
     <h4> FLOOR {{node.level}}.{{node.id}} SETTINGS</h4>

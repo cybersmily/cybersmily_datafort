@@ -1,8 +1,12 @@
   <div class="row hidden-print">
     <div class="col">
       <p>
-      NET Architecture Generator for Cyberpunk Red will randomly generate an architect to be used in your games. Some of the options that are generated are very generic. This is to keep with R Talsorian's Homebrew policy.
+      NET Architecture Generator for Cyberpunk Red will randomly generate an architect to be used in your games.
+      Some of the options that are generated are very generic. This is to keep with R Talsorian's Homebrew policy.
+      Details about create a Net Architect for Cyberpunk RED can be found in the Cyberpunk Red Core Rulebook on pg 209.
     </p>
+    <p>NOTE: Levels are the depth of the architect and isn't that same as the number of floors.</p>
+    <h5>GENERATE AN ARCHITECT</h5>
     <p>
       To use this app, click the dice (<fa-icon [icon]="faDice" class="csd-dice btn-lg" ></fa-icon>) button to generate a random Net architect.
       By default the difficulty and number of floors will be randomly generated.
@@ -11,6 +15,28 @@
       Scroll over the title of the node to show the details of it.
     </p>
     <p>
+      This app will also calculate the cost of the architect.
+      This calculations include the cost per floor and the cost set in each floor.
+      If a cost isn't set for the floor then it will not be in this total.
+      The cost for each floor is set manually.
+    </p>
+    <h5>EDIT A FLOOR</h5>
+    <p>
+      To edit a floor, click on the pen (<fa-icon [icon]="faPen" class="btn-lg"></fa-icon>) in the bottom section where the floors details are listed.
+      This opens the edit form to update and change the details of the floor.
+    </p>
+    <h5>ADD A FLOOR</h5>
+    <p>
+      Adding new floors is done by click on the small plus circle located to the right or underneath the floor.
+      The new floors will be a file by default.
+      The architect will allow up to 18 floors.
+    </p>
+    <h5>DELETE A FLOOR</h5>
+    <p>
+      Deleting floors is done by click on the small minus circle in the upper right corner of the floor.
+      This will delete that floor and all of the floors above(below?) it.
+    </p>
+    <h5>ICONS</h5><p>
       The icons represent the node types within the architect.
     </p>
     <ul>
@@ -19,11 +45,9 @@
       <li><fa-icon [icon]="faCogs" class="btn-lg"></fa-icon> = Control Node</li>
       <li><fa-icon [icon]="faSkullCrossbones" class="btn-lg"></fa-icon> = Program</li>
     </ul>
+    <h5>MENU BAR</h5>
     <p>
-      To edit a node, click on the pen (<fa-icon [icon]="faPen" class="btn-lg"></fa-icon>). This opens the edit form to update and change the details of the node.
-    </p>
-    <p>
-      <fa-icon [icon]="faCog" class="btn-lg"></fa-icon> - NODE SETTINGS Button : This will only you to set the default colors for the type of nodes.
+      <fa-icon [icon]="faCog" class="btn-lg"></fa-icon> - NODE SETTINGS Button : This will only you to set the default colors for the type of floor. These settings will be save to your local cache so they may not stay if you clear your local  cache.
     </p>
     <p>
       <fa-icon [icon]="faSave" class="btn-lg"></fa-icon> - SAVE Button : This will save a json file that can be uploaded later for editing.
@@ -32,7 +56,10 @@
       <fa-icon [icon]="faUpload" class="btn-lg"></fa-icon> - UPLOAD Button : This will upload the saved json file. If you try a different json file it will not load.
     </p>
     <p>
-      <fa-icon [icon]="faImage" class="btn-lg"></fa-icon> - SAVE AS IMAGE Button : This will save the diagram has a SVG image file. This will not be able to be uploaded.
+      <fa-icon [icon]="faImage" class="btn-lg"></fa-icon> - SAVE AS SVG Button : This will save the diagram has a SVG image file. This will not be able to be uploaded.
+    </p>
+    <p>
+      <fa-icon [icon]="faFileImage" class="btn-lg"></fa-icon> - SAVE AS PNG Button : This will save the diagram has a PNG image file. This will not be able to be uploaded.
     </p>
     <p>
       Note on PDF: I am afraid I haven't figure out a way to embed the SVG image into a PDF using the utility libraries for this site. I am working on a way to do this.

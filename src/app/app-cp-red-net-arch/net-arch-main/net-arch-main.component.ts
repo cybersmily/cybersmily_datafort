@@ -2,7 +2,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FileLoaderService } from './../../shared/services/file-loader/file-loader.service';
 import { SaveFileService } from './../../shared/services/save-file.service';
 import { CPRedNetArchNode, CPRedIconTypeSettings } from './../models/net-arch-node';
-import { faFilePdf, faSave, faDice, faUpload, faQuestion, faSkullCrossbones, faLock, faCogs, faFile, faQuestionCircle, faImage, faCog } from '@fortawesome/free-solid-svg-icons';
+import { faFilePdf, faSave, faDice, faUpload, faQuestion, faSkullCrossbones, faLock, faCogs, faFile, faQuestionCircle, faImage, faCog, faFileImage } from '@fortawesome/free-solid-svg-icons';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { CPRedNetArchService } from './../service/c-p-red-net-arch.service';
 import { Component, OnInit, TemplateRef, ViewChild, ElementRef } from '@angular/core';
@@ -22,6 +22,7 @@ export class NetArchMainComponent implements OnInit {
   faQuestionCircle = faQuestionCircle;
   faImage = faImage;
   faCog = faCog;
+  faFileImage = faFileImage;
 
   @ViewChild('diagramSVG')
   private svgRef: ElementRef<HTMLElement>;
@@ -122,6 +123,11 @@ export class NetArchMainComponent implements OnInit {
   saveSVG() {
     const output = this.svgRef.nativeElement.querySelector('#cs-cpred-archdiagram');
     this.saveFile.SaveAsFile('Net Architect Diagram', output.outerHTML,'svg');
+  }
+
+  savePNG() {
+    const output = this.svgRef.nativeElement.querySelector('#cs-cpred-archdiagram');
+    this.saveFile.SaveAsPng('NetarchIMage.png', output);
   }
 
   load($event) {

@@ -29,7 +29,7 @@
     <g>
       <polygon points="-20,-10 -10,-20, 20,-20, 20,30, -20,30" style="fill:{{getBGColor(node)}};stroke:{{getColor(node)}};stroke-width:2"></polygon>
       <polygon points="-16,-6 -6,-16, 16,-16, 16,26, -16,26" style="fill:none;stroke:{{getColor(node)}};stroke-width:1"></polygon>
-      <svg *ngIf="node.level > 3" x="20" y="-20" style="overflow: visible;cursor:pointer;" (click)="removeNode(node.id, node.level)">
+      <svg *ngIf="node.level > 3" x="20" y="-20" style="overflow: visible;cursor:pointer;" class="hidden-print" (click)="removeNode(node.id, node.level)">
         <g>
           <circle cx="0" cy="0" r="5" style="fill:{{getBGColor(node)}};stroke:{{getColor(node)}};stroke-width:2"></circle>
           <line [attr.x1]="-3" [attr.y1]="0" [attr.x2]="3" [attr.y2]="0" style="stroke: {{iconColors.foreground}};stroke-width:3;"></line>
@@ -62,7 +62,7 @@
           <ng-container *ngSwitchCase="1">
             <ng-container *ngTemplateOutlet="circle;context:{y:y, node:node.branch[0], offset:offset}"></ng-container>
             <ng-container *ngIf="showAdd(node.level)">
-              <svg [attr.x]="(node.level * 60) + 20" [attr.y]="y + 30">
+              <svg [attr.x]="(node.level * 60) + 20" [attr.y]="y + 30" class="hidden-print">
                 <g>
                   <line [attr.x1]="0" [attr.y1]="0" [attr.x2]="0" [attr.y2]="10" style="stroke: {{iconColors.foreground}};stroke-width: 2;"></line>
                 </g>
@@ -77,7 +77,7 @@
           <ng-container *ngSwitchDefault>
           <ng-container *ngIf="showAdd(node.level)">
           <ng-container *ngTemplateOutlet="addNode;context:{y:y, x: (node.level * 60) + 55, node: node}"></ng-container>
-          <svg [attr.x]="(node.level * 60) + 40" [attr.y]="y + 5">
+          <svg [attr.x]="(node.level * 60) + 40" [attr.y]="y + 5" class="hidden-print">
             <g>
               <line [attr.x1]="0" [attr.y1]="0" [attr.x2]="10" [attr.y2]="0" style="stroke: {{iconColors.foreground}};stroke-width: 2;"></line>
             </g>
@@ -87,7 +87,7 @@
       </ng-container>
     </ng-template>
     <ng-template #addNode let-x="x" let-y="y" let-node="node">
-      <svg [attr.y]="y + 5" [attr.x]="x" style="overflow: visible;cursor:pointer; pointer-events: all;" (click)="addNewNode(node.id)">
+      <svg [attr.y]="y + 5" [attr.x]="x" style="overflow: visible;cursor:pointer; pointer-events: all;" class="hidden-print" (click)="addNewNode(node.id)">
         <g>
           <circle cx="0" cy="0" r="5" style="fill:{{iconColors.background}};stroke:none;"></circle>
           <line [attr.x1]="0" [attr.y1]="-3" [attr.x2]="0" [attr.y2]="3" style="stroke: {{iconColors.foreground}};stroke-width: 2;"></line>

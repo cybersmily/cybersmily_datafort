@@ -13,20 +13,28 @@
 </ng-container>
 <br>
 <div class="row">
+  <div class="col-6 col-md-4 col-lg-3">
+    Diagram Background:
+  </div>
   <div class="col">
-    Diagram Background: <span class="cs-color-swatch" [style.background-color]="iconColors.background" [popover]="colorPicker" [outsideClick]="true"
+      <span class="cs-color-swatch" [style.background-color]="iconColors.background" [popover]="colorPicker" [outsideClick]="true"
     (onShown)="setSelectedColor(iconColors.background)" (onHidden)="setColor('background')"></span>
   </div>
   </div>
   <div class="row">
-  <div class="col">
-    Diagram Text: <span class="cs-color-swatch" [style.background-color]="iconColors.foreground" [popover]="colorPicker" [outsideClick]="true"
+    <div class="col-6 col-md-4 col-lg-3">
+    Diagram Text:
+  </div>
+  <div class="col"><span class="cs-color-swatch" [style.background-color]="iconColors.foreground" [popover]="colorPicker" [outsideClick]="true"
     (onShown)="setSelectedColor(iconColors.foreground)" (onHidden)="setColor('foreground')"></span>
   </div>
 </div>
 <div class="row">
+  <div class="col-6 col-md-4 col-lg-3">
+    Diagram Border:
+  </div>
   <div class="col">
-    Diagram Border: <span class="cs-color-swatch" [style.background-color]="iconColors.border" [popover]="colorPicker" [outsideClick]="true"
+    <span class="cs-color-swatch" [style.background-color]="iconColors.border" [popover]="colorPicker" [outsideClick]="true"
     (onShown)="setSelectedColor(iconColors.border)" (onHidden)="setColor('border')"></span>
   </div>
 </div>
