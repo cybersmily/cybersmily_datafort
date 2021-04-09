@@ -20,9 +20,43 @@
 }
 </style>
   <g>
-    <rect x="1" y="1" rx="20" ry="20" [attr.width]="diagramWidth - 2" [attr.height]="diagramHeight - 2" style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:2;"></rect>
-    <rect x="6" y="6" rx="14" ry="14" [attr.width]="diagramWidth - 12" [attr.height]="diagramHeight - 12" style="fill:none;stroke:{{iconColors.border}};stroke-width:1;"></rect>
-    <text x="10" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">LEVEL</text>
+    <polygon
+    [attr.points]="getMainPolygon()"
+    style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:3;"></polygon>
+    <polygon
+    [attr.points]="getInnerPolygon()"
+    style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:1;"></polygon>
+    <line x1="105" y1="7" x2="105" y2="12" style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:1;"></line>
+    <line x1="120" y1="7" x2="120" y2="17" style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:1;"></line>
+    <line x1="115" y1="7" x2="115" y2="12" style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:1;"></line>
+    <line x1="110" y1="7" x2="110" y2="20" style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:1;"></line>
+    <circle [attr.cx]="110" cy="23" r="3" style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:1;"></circle>
+
+    <line x1="7" y1="55" x2="20" y2="55" style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:1;"></line>
+    <line x1="7" y1="60" x2="25" y2="60" style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:1;"></line>
+    <line x1="7" y1="65" x2="20" y2="65" style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:1;"></line>
+
+
+    <line x1="180" y1="7" x2="180" y2="20" style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:1;"></line>
+    <line x1="175" y1="7" x2="175" y2="30" style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:1;"></line>
+    <line x1="170" y1="7" x2="170" y2="15" style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:1;"></line>
+
+    <line x1="70%" [attr.y1]="diagramHeight-10" x2="70%" [attr.y2]="diagramHeight-20" style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:1;"></line>
+    <line x1="71%" [attr.y1]="diagramHeight-10" x2="71%" [attr.y2]="diagramHeight-15" style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:1;"></line>
+    <line x1="69%" [attr.y1]="diagramHeight-10" x2="69%" [attr.y2]="diagramHeight-18" style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:1;"></line>
+    <circle cx="70%" [attr.cy]="diagramHeight-20" r="3" style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:1;"></circle>
+
+    <line [attr.x1]="diagramWidth - 35" y1="23" [attr.x2]="diagramWidth - 35" y2="20%" style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:1;"></line>
+    <line [attr.x1]="diagramWidth - 30" y1="26" [attr.x2]="diagramWidth - 30" y2="35%" style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:1;"></line>
+    <line [attr.x1]="diagramWidth - 25" y1="29" [attr.x2]="diagramWidth - 25" y2="25%" style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:1;"></line>
+    <line [attr.x1]="diagramWidth - 20" y1="33" [attr.x2]="diagramWidth - 20" y2="30%" style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:1;"></line>
+    <circle [attr.cx]="diagramWidth - 30" cy="35%" r="3" style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:1;"></circle>
+    <line [attr.x1]="diagramWidth - 8" [attr.y1]="diagramHeight-35" [attr.x2]="diagramWidth - 30" [attr.y2]="diagramHeight-35" style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:1;"></line>
+    <line [attr.x1]="diagramWidth - 8" [attr.y1]="diagramHeight-38" [attr.x2]="diagramWidth - 25" [attr.y2]="diagramHeight-38" style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:1;"></line>
+    <line [attr.x1]="diagramWidth - 8" [attr.y1]="diagramHeight-32" [attr.x2]="diagramWidth - 20" [attr.y2]="diagramHeight-32" style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:1;"></line>
+    <!-- LEVELS -->
+    <text x="20" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">LEVEL</text>
+    <line x1="20" y1="35" x2="65" y2="35" style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:1;"></line>
     <text x="80" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">1</text>
     <text x="140" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">2</text>
     <text x="200" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">3</text>
@@ -78,12 +112,12 @@
       <!-- Create the connecting lines to the child floors-->
       <ng-container [ngSwitch]="node.branch ? (node.branch.length === 1 ? 1 : (node.branch.length > 1 ? 2 : -1)) : -1">
         <ng-container *ngSwitchCase="1">
-          <line *ngIf="node.branch.length === 1" [attr.x1]="20" [attr.y1]="10" [attr.x2]="40" [attr.y2]="10" style="stroke: {{iconColors.foreground}};stroke-width: 2;"></line>
+          <line *ngIf="node.branch.length === 1" [attr.x1]="20" [attr.y1]="10" [attr.x2]="40" [attr.y2]="10" style="stroke: {{iconColors.border}};stroke-width: 2;"></line>
         </ng-container>
         <ng-container *ngSwitchCase="2">
-          <line [attr.x1]="20" [attr.y1]="10" [attr.x2]="40" [attr.y2]="10" style="stroke: {{iconColors.foreground}};stroke-width: 2;"></line>
-          <line [attr.x1]="0" [attr.y1]="30" [attr.x2]="0" [attr.y2]="getOffset(node.branch[0].numberOfBranches ) + 20" style="stroke: {{iconColors.foreground}};stroke-width: 2;"></line>
-          <line [attr.x1]="0" [attr.y1]="getOffset(node.branch[0].numberOfBranches) + 20" [attr.x2]="40" [attr.y2]="getOffset(node.branch[0].numberOfBranches) + 20" style="stroke: {{iconColors.foreground}};stroke-width: 2;"></line>
+          <line [attr.x1]="20" [attr.y1]="10" [attr.x2]="40" [attr.y2]="10" style="stroke: {{iconColors.border}};stroke-width: 2;"></line>
+          <line [attr.x1]="0" [attr.y1]="30" [attr.x2]="0" [attr.y2]="getOffset(node.branch[0].numberOfBranches ) + 20" style="stroke: {{iconColors.border}};stroke-width: 2;"></line>
+          <line [attr.x1]="0" [attr.y1]="getOffset(node.branch[0].numberOfBranches) + 20" [attr.x2]="40" [attr.y2]="getOffset(node.branch[0].numberOfBranches) + 20" style="stroke: {{iconColors.border}};stroke-width: 2;"></line>
         </ng-container>
         <ng-container *ngSwitchDefault></ng-container>
       <!-- Detail tooltip for node-->
@@ -105,7 +139,7 @@
             <ng-container *ngIf="showAdd(node.level)">
               <svg [attr.x]="(node.level * 60) + 20" [attr.y]="y + 30" class="hidden-print">
                 <g>
-                  <line [attr.x1]="0" [attr.y1]="0" [attr.x2]="0" [attr.y2]="10" style="stroke: {{iconColors.foreground}};stroke-width: 2;"></line>
+                  <line [attr.x1]="0" [attr.y1]="0" [attr.x2]="0" [attr.y2]="10" style="stroke: {{iconColors.border}};stroke-width: 2;"></line>
                 </g>
               </svg>
               <ng-container *ngTemplateOutlet="addNode;context:{y:y + 40, x: (node.level * 60) + 20, node: node}"></ng-container>
@@ -121,7 +155,7 @@
           <ng-container *ngTemplateOutlet="addNode;context:{y:y, x: (node.level * 60) + 55, node: node}"></ng-container>
           <svg [attr.x]="(node.level * 60) + 40" [attr.y]="y + 5" class="hidden-print">
             <g>
-              <line [attr.x1]="0" [attr.y1]="0" [attr.x2]="10" [attr.y2]="0" style="stroke: {{iconColors.foreground}};stroke-width: 2;"></line>
+              <line [attr.x1]="0" [attr.y1]="0" [attr.x2]="10" [attr.y2]="0" style="stroke: {{iconColors.border}};stroke-width: 2;"></line>
             </g>
           </svg>
         </ng-container>

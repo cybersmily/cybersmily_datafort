@@ -199,8 +199,8 @@ export class CPRedIconTypeSettings implements iconTypeSettings {
     this.controlNode = {color: 'dimgray', bgColor: 'gainsboro'};
     this.program = {color: 'darkred', bgColor: 'lightpink'};
     this.file = {color: 'green', bgColor: 'lightgreen'};
-    this.background = '#DDDDDD';
-    this.foreground = '#888888';
+    this.background = '#888888';
+    this.foreground = '#DDDDDD';
     this.border = '#a9f5bc';
   }
 

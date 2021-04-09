@@ -39,6 +39,36 @@ export class NetArchNodeSvgComponent implements OnInit {
   iconOffset = 60;
   selectedId = '';
 
+  getMainPolygon() {
+    return `1,20
+    20,1
+    ${this.diagramWidth - 42},1
+    ${this.diagramWidth - 2},40
+    ${this.diagramWidth - 2},${this.diagramHeight - 22}
+    ${this.diagramWidth - 22},${this.diagramHeight - 2}
+    180,${this.diagramHeight - 2}
+    160,${this.diagramHeight - 22}
+    ${ this.node.numberOfBranches > 0? '160,130 140,110' : ''}
+    20, 110
+    2, 80
+    `;
+  }
+
+  getInnerPolygon() {
+    return `6,26
+    24,6
+    ${this.diagramWidth - 48},6
+    ${this.diagramWidth - 8},46
+    ${this.diagramWidth - 8},${this.diagramHeight - 28}
+    ${this.diagramWidth - 28},${this.diagramHeight - 10}
+    184,${this.diagramHeight - 10}
+    168,${this.diagramHeight - 26}
+    ${ this.node.numberOfBranches > 0? '166,124 146,104' : ''}
+    24, 104
+    6, 74
+    `;
+  }
+
   getOffset(num: number):number {
     return this.iconOffset + ( num * this.iconOffset);
   }

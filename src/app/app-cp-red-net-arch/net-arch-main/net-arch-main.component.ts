@@ -139,12 +139,12 @@ export class NetArchMainComponent implements OnInit {
 
   saveSVG() {
     const output = this.svgRef.nativeElement.querySelector('#cs-cpred-archdiagram');
-    this.saveFile.SaveAsFile('Net Architect Diagram', output.outerHTML,'svg');
+    this.saveFile.SaveAsFile('NetarchSVGDiagram', output.outerHTML,'svg');
   }
 
   savePNG() {
     const output = this.svgRef.nativeElement.querySelector('#cs-cpred-archdiagram');
-    this.saveFile.SaveAsPng('NetarchIMage.png', output);
+    this.saveFile.SaveAsPng('NetarchPNGDiagram.png', output);
   }
 
   load($event) {
