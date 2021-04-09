@@ -48,7 +48,7 @@ export class NetArchNodeSvgComponent implements OnInit {
     ${this.diagramWidth - 22},${this.diagramHeight - 2}
     180,${this.diagramHeight - 2}
     160,${this.diagramHeight - 22}
-    ${ this.node.numberOfBranches > 0? '160,130 140,110' : ''}
+    160,130 140,110
     20, 110
     2, 80
     `;
@@ -63,11 +63,13 @@ export class NetArchNodeSvgComponent implements OnInit {
     ${this.diagramWidth - 28},${this.diagramHeight - 10}
     184,${this.diagramHeight - 10}
     168,${this.diagramHeight - 26}
-    ${ this.node.numberOfBranches > 0? '166,124 146,104' : ''}
+    166,124 146,104
     24, 104
     6, 74
     `;
   }
+
+
 
   getOffset(num: number):number {
     return this.iconOffset + ( num * this.iconOffset);
@@ -115,8 +117,14 @@ export class NetArchNodeSvgComponent implements OnInit {
         return 'white';
     }
   }
+
+  splitName(name: string): Array<string> {
+    return name.split(' ');
+  }
+
   get diagramHeight(): number {
-    return (this.node.numberOfBranches * 75) + 130;
+    const ht = (this.node.numberOfBranches * 75) + 130;
+    return (ht < 300) ? 300 : ht;
   }
 
   get diagramWidth(): number {

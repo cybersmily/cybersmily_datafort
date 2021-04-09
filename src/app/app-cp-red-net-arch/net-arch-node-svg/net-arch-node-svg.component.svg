@@ -83,6 +83,25 @@
 <ng-template #circle let-y="y" let-node="node" let-offset="offset">
   <svg [attr.y]="y" [attr.x]="(node.level * 60) + 20" style="overflow: visible;" class="cs-floor-circle">
     <g>
+
+      <!-- Detail tooltip for node-->
+      <svg [attr.y]="-y + 115" [attr.x]="-(node.level * 60) + 10" width="120" height="185" style="overflow: visible;" class="hidden-print cs-floor-details">
+        <g>
+          <polygon points="1,1 102,1 122,21 122,182 1,182" style="fill:{{getBGColor(node)}};stroke:{{getColor(node)}};stroke-width:3"></polygon>
+          <polygon points="5,5 98,5 118,25 118,178 5,178" style="fill:{{getBGColor(node)}};stroke:{{getColor(node)}};stroke-width:1"></polygon>
+          <g transform='translate(-6,-8)'>
+            <svg [attr.x]="55" [attr.y]='20'>
+              <g>
+                <path transform='scale(0.06)' [attr.fill]="getColor(node)" [attr.d]="getIcon(node.type)" class="csd-net-icon"></path>
+              </g>
+            </svg>
+          </g>
+          <text x="23" y="23" text-anchor="middle" [attr.fill]="getColor(node)" style="font-size:18px;font-weight:bold">{{node.level}}.{{node.id}}</text>
+          <text x="60" y="60" text-anchor="middle" [attr.fill]="getColor(node)" style="font-size:18px">{{(node.type !== 'program')?'DV' + node.dv: ''}}</text>
+          <text *ngFor="let n of splitName(node.name);let i = index" x="60" [attr.y]="80 + (i * 20)" text-anchor="middle" [attr.fill]="getColor(node)" style="font-size:20px">{{n}}</text>
+          <text x="60" y="170" text-anchor="middle" [attr.fill]="getColor(node)" style="font-size:20px">{{node.cost|number}}eb</text>
+        </g>
+      </svg>
       <polygon points="-20,-10 -10,-20, 20,-20, 20,30, -20,30" style="fill:{{getBGColor(node)}};stroke:{{getColor(node)}};stroke-width:2"></polygon>
       <polygon points="-16,-6 -6,-16, 16,-16, 16,26, -16,26" style="fill:none;stroke:{{getColor(node)}};stroke-width:1"></polygon>
       <!-- Delete icon-->
@@ -120,66 +139,57 @@
           <line [attr.x1]="0" [attr.y1]="getOffset(node.branch[0].numberOfBranches) + 20" [attr.x2]="40" [attr.y2]="getOffset(node.branch[0].numberOfBranches) + 20" style="stroke: {{iconColors.border}};stroke-width: 2;"></line>
         </ng-container>
         <ng-container *ngSwitchDefault></ng-container>
-      <!-- Detail tooltip for node-->
-      <svg x="-35" y="-20" width="100" height="25" style="overflow: visible;" class="hidden-print cs-floor-details">
-        <g>
-          <rect x="-45" y="0" rx="2" ry="2" width="100%" height="100%" style="fill:{{getBGColor(node)}};stroke:{{getColor(node)}};stroke-width:1"></rect>
-          <text x="2" y="12" text-anchor="middle" [attr.fill]="iconColors.foreground">{{getName(node.name)}}</text>
-          <text x="2" y="20" text-anchor="middle" [attr.fill]="iconColors.foreground">{{(node.type !== 'program')?'DV' + node.dv: ''}}</text>
-        </g>
-      </svg>
-</ng-container>
-</g>
-</svg>
-<!-- Add the next floor(s) to the diagram.-->
-<ng-container [ngSwitch]="node.branch ? (node.branch.length === 1 ? 1 : (node.branch.length > 1 ? 2 : -1)) : -1">
-          <ng-container *ngSwitchCase="1">
-            <ng-container *ngTemplateOutlet="circle;context:{y:y, node:node.branch[0], offset:offset}"></ng-container>
-            <!-- Add new floor icon-->
-            <ng-container *ngIf="showAdd(node.level)">
-              <svg [attr.x]="(node.level * 60) + 20" [attr.y]="y + 30" class="hidden-print">
-                <g>
-                  <line [attr.x1]="0" [attr.y1]="0" [attr.x2]="0" [attr.y2]="10" style="stroke: {{iconColors.border}};stroke-width: 2;"></line>
-                </g>
-              </svg>
-              <ng-container *ngTemplateOutlet="addNode;context:{y:y + 40, x: (node.level * 60) + 20, node: node}"></ng-container>
-            </ng-container>
-          </ng-container>
-          <ng-container *ngSwitchCase="2">
-            <ng-container *ngTemplateOutlet="circle;context:{y:y, node:node.branch[0], offset:offset}"></ng-container>
-            <ng-container *ngTemplateOutlet="circle;context:{y:(y + getOffset(node.branch[0].numberOfBranches)) + 20, node:node.branch[1], offset:60 }"></ng-container>
-          </ng-container>
-          <ng-container *ngSwitchDefault>
-          <!-- Add new floor icon-->
-          <ng-container *ngIf="showAdd(node.level)">
+      </ng-container>
+    </g>
+  </svg>
+  <!-- Add the next floor(s) to the diagram.-->
+  <ng-container [ngSwitch]="node.branch ? (node.branch.length === 1 ? 1 : (node.branch.length > 1 ? 2 : -1)) : -1">
+    <ng-container *ngSwitchCase="1">
+      <ng-container *ngTemplateOutlet="circle;context:{y:y, node:node.branch[0], offset:offset}"></ng-container>
+        <!-- Add new floor icon-->
+        <ng-container *ngIf="showAdd(node.level)">
+          <svg [attr.x]="(node.level * 60) + 20" [attr.y]="y + 30" class="hidden-print">
+            <g>
+              <line [attr.x1]="0" [attr.y1]="0" [attr.x2]="0" [attr.y2]="10" style="stroke: {{iconColors.border}};stroke-width: 2;"></line>
+            </g>
+          </svg>
+        <ng-container *ngTemplateOutlet="addNode;context:{y:y + 40, x: (node.level * 60) + 20, node: node}"></ng-container>
+      </ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="2">
+      <ng-container *ngTemplateOutlet="circle;context:{y:y, node:node.branch[0], offset:offset}"></ng-container>
+        <ng-container *ngTemplateOutlet="circle;context:{y:(y + getOffset(node.branch[0].numberOfBranches)) + 20, node:node.branch[1], offset:60 }"></ng-container>
+      </ng-container>
+      <ng-container *ngSwitchDefault>
+        <!-- Add new floor icon-->
+        <ng-container *ngIf="showAdd(node.level)">
           <ng-container *ngTemplateOutlet="addNode;context:{y:y, x: (node.level * 60) + 55, node: node}"></ng-container>
           <svg [attr.x]="(node.level * 60) + 40" [attr.y]="y + 5" class="hidden-print">
             <g>
               <line [attr.x1]="0" [attr.y1]="0" [attr.x2]="10" [attr.y2]="0" style="stroke: {{iconColors.border}};stroke-width: 2;"></line>
             </g>
           </svg>
-        </ng-container>
-        </ng-container>
       </ng-container>
-    </ng-template>
-    <!-- END of Circle template -->
+    </ng-container>
+  </ng-container>
+</ng-template>
+<!-- END of Circle template -->
 
-
-    <!-- AddNode template -->
-    <ng-template #addNode let-x="x" let-y="y" let-node="node">
-      <svg [attr.y]="y + 5" [attr.x]="x" style="overflow: visible;cursor:pointer; pointer-events: all;" class="hidden-print cs-net-add" (click)="addNewNode(node.id)">
+<!-- AddNode template -->
+<ng-template #addNode let-x="x" let-y="y" let-node="node">
+  <svg [attr.y]="y + 5" [attr.x]="x" style="overflow: visible;cursor:pointer; pointer-events: all;" class="hidden-print cs-net-add" (click)="addNewNode(node.id)">
+    <g>
+      <circle cx="0" cy="0" r="5" style="fill:{{iconColors.background}};stroke:none;"></circle>
+      <line [attr.x1]="0" [attr.y1]="-3" [attr.x2]="0" [attr.y2]="3" style="stroke: {{iconColors.foreground}};stroke-width: 2;"></line>
+      <line [attr.x1]="-3" [attr.y1]="0" [attr.x2]="3" [attr.y2]="0" style="stroke: {{iconColors.foreground}};stroke-width: 2;"></line>
+      <circle cx="0" cy="0" r="5" style="fill:none;stroke:{{iconColors.foreground}};stroke-width:1;" ></circle>
+      <svg x="0" y="0" class="cs-net-tooltip" style="overflow: visible;">
         <g>
-          <circle cx="0" cy="0" r="5" style="fill:{{iconColors.background}};stroke:none;"></circle>
-          <line [attr.x1]="0" [attr.y1]="-3" [attr.x2]="0" [attr.y2]="3" style="stroke: {{iconColors.foreground}};stroke-width: 2;"></line>
-          <line [attr.x1]="-3" [attr.y1]="0" [attr.x2]="3" [attr.y2]="0" style="stroke: {{iconColors.foreground}};stroke-width: 2;"></line>
-          <circle cx="0" cy="0" r="5" style="fill:none;stroke:{{iconColors.foreground}};stroke-width:1;" ></circle>
-          <svg x="0" y="0" class="cs-net-tooltip" style="overflow: visible;">
-            <g>
-              <rect x="9" y="-10" rx="2" ry="2" width="30" height="20" style="fill:{{getBGColor(node)}};stroke:{{getColor(node)}};stroke-width:1" ></rect>
-              <text x="12" y="3" [attr.fill]="iconColors.foreground">Add</text>
-            </g>
-          </svg>
+          <rect x="9" y="-10" rx="2" ry="2" width="30" height="20" style="fill:{{getBGColor(node)}};stroke:{{getColor(node)}};stroke-width:1" ></rect>
+          <text x="12" y="3" [attr.fill]="iconColors.foreground">Add</text>
         </g>
       </svg>
-    </ng-template>
+    </g>
+  </svg>
+</ng-template>
 <!-- end of Add Node template -->
