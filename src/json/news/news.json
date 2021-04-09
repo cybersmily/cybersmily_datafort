@@ -3,6 +3,16 @@
     {
       "date": "2021-04",
       "entries": [
+        "<strong>04-10</strong> - Major update to the NET Arch generator for Cyberpunk Red. Got inspired/motivated by Dante The Badger over on Discord for his tool he created. Here's the list:",
+        "&nbsp;* Export to PNG format now.",
+        "&nbsp;* Add/Delete floors and branches. NOTE: Adding a new floor will always be a file, but you can change it after it is created. Also when adding floors manually there is no constraint to have multiple bottom levels. That is something that you need to manually keep track of.",
+        "&nbsp;* Color configuration for the icons, borders, text, and can be done on individual floors.",
+        "&nbsp;* Has the constraints for creating an arch (reroll programs/passwords, max controllers allowed, can't branch on first 2 floors, minimum of 3 floors...).",
+        "&nbsp;* Specifies the program names now (doesn't have their all their detes, you need to look in the core book for them.).",
+        "&nbsp;* Calculates the total cost (cost per floor and each floor value set).",
+        "There is still a bunch of manually work to do done when you create your own, but this tool should help you",
+        "There is a infrequent bug with rendering, but it isn't too bad all things considerd.",
+        "I still have qutie a bit left to do (adding demons...). Still don't have a PDF button, but you can use Chrome/Edge to do a print as PDF. The page should be formatted to remove the non-related elements on the page.",
         "<strong>04-01</strong> - Updated parts of the site that didn't adhere to the <a href='https://rtalsoriangames.com/homebrew-content-policy/'>R Talsorian Hombrew Policy</a>.",
         "Combat Tracker - remove the stats pulled from the source books for the templates. Added generic gangers and security guards. More will be added in the future.",
         "Combat Zone Generator - summarized the entries a bit more and corrected some mispellings. ",

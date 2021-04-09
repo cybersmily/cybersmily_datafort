@@ -118,18 +118,19 @@ export class CPRedNetArchNode implements NetArchNode {
   }
 
   deleteChild(id: string) : NetArchNode {
+    let found: NetArchNode;
     const index = this.branch.findIndex(n => n.id === id);
     if ( index > -1) {
-      return this.branch.splice(index, 1)[0];
+      found = this.branch.splice(index, 1)[0];
     } else {
-      this.branch.forEach( n => {
-        const found = n.deleteChild(id);
+      for( let i = 0; i < this.branch.length; i++ ){
+        found = this.branch[i].deleteChild(id);
         if(found) {
-          return found;
+          break;
         }
-      });
+      }
     }
-    return;
+    return found;
   }
 
   hasChild(id: string) : boolean {
