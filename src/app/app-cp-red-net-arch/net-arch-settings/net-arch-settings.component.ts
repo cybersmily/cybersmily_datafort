@@ -1,3 +1,4 @@
+import { faRedo } from '@fortawesome/free-solid-svg-icons';
 import { CPRedIconTypeSettings } from './../models/net-arch-node';
 import { Component, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -9,6 +10,8 @@ import { ColorEvent } from 'ngx-color';
   styleUrls: ['./net-arch-settings.component.css']
 })
 export class NetArchSettingsComponent implements OnInit {
+  faRedo = faRedo;
+
   @Input()
   iconColors: CPRedIconTypeSettings;
 
@@ -109,5 +112,10 @@ export class NetArchSettingsComponent implements OnInit {
 
   showModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, this.config);
+  }
+
+  reset() {
+    this.iconColors = new CPRedIconTypeSettings();
+    this.updateColors.emit(this.iconColors);
   }
 }

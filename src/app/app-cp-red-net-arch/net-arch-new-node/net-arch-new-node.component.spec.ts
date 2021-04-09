@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NetArchFormComponent } from './net-arch-form.component';
+import { NetArchNewNodeComponent } from './net-arch-new-node.component';
 
-describe('NetArchFormComponent', () => {
-  let component: NetArchFormComponent;
-  let fixture: ComponentFixture<NetArchFormComponent>;
+describe('NetArchNewNodeComponent', () => {
+  let component: NetArchNewNodeComponent;
+  let fixture: ComponentFixture<NetArchNewNodeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NetArchFormComponent ]
+      declarations: [ NetArchNewNodeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NetArchFormComponent);
+    fixture = TestBed.createComponent(NetArchNewNodeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

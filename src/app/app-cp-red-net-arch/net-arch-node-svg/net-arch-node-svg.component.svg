@@ -1,28 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" id="cs-cpred-archdiagram" [attr.width]="diagramWidth" [attr.height]="diagramHeight">
   <g>
-  <rect x="1" y="1" rx="20" ry="20" [attr.width]="diagramWidth - 2" [attr.height]="diagramHeight - 2"
-   style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:2;" ></rect>
-  <rect x="6" y="6" rx="14" ry="14" [attr.width]="diagramWidth - 12" [attr.height]="diagramHeight - 12"
-   style="fill:none;stroke:{{iconColors.border}};stroke-width:1;" ></rect>
-  <text x="10" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">LEVEL</text>
-  <text x="80" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">1</text>
-  <text x="140" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">2</text>
-  <text x="200" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">3</text>
-  <text *ngIf="node.numberOfLevels > 3" x="260" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">4</text>
-  <text *ngIf="node.numberOfLevels > 4" x="320" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">5</text>
-  <text *ngIf="node.numberOfLevels > 5" x="380" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">6</text>
-  <text *ngIf="node.numberOfLevels > 6" x="440" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">7</text>
-  <text *ngIf="node.numberOfLevels > 7" x="500" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">8</text>
-  <text *ngIf="node.numberOfLevels > 8" x="560" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">9</text>
-  <text *ngIf="node.numberOfLevels > 9" x="620" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">10</text>
-  <text *ngIf="node.numberOfLevels > 10" x="680" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">11</text>
-  <text *ngIf="node.numberOfLevels > 11" x="740" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">12</text>
-  <text *ngIf="node.numberOfLevels > 12" x="800" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">13</text>
-  <text *ngIf="node.numberOfLevels > 13" x="860" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">14</text>
-  <text *ngIf="node.numberOfLevels > 14" x="920" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">15</text>
-  <text *ngIf="node.numberOfLevels > 17" x="980" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">16</text>
-  <text *ngIf="node.numberOfLevels > 16" x="1040" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">17</text>
-  <text *ngIf="node.numberOfLevels > 17" x="1100" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">18</text>
+    <rect x="1" y="1" rx="20" ry="20" [attr.width]="diagramWidth - 2" [attr.height]="diagramHeight - 2" style="fill:{{iconColors.background}};stroke:{{iconColors.border}};stroke-width:2;"></rect>
+    <rect x="6" y="6" rx="14" ry="14" [attr.width]="diagramWidth - 12" [attr.height]="diagramHeight - 12" style="fill:none;stroke:{{iconColors.border}};stroke-width:1;"></rect>
+    <text x="10" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">LEVEL</text>
+    <text x="80" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">1</text>
+    <text x="140" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">2</text>
+    <text x="200" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">3</text>
+    <text *ngIf="node.numberOfLevels > 3" x="260" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">4</text>
+    <text *ngIf="node.numberOfLevels > 4" x="320" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">5</text>
+    <text *ngIf="node.numberOfLevels > 5" x="380" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">6</text>
+    <text *ngIf="node.numberOfLevels > 6" x="440" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">7</text>
+    <text *ngIf="node.numberOfLevels > 7" x="500" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">8</text>
+    <text *ngIf="node.numberOfLevels > 8" x="560" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">9</text>
+    <text *ngIf="node.numberOfLevels > 9" x="620" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">10</text>
+    <text *ngIf="node.numberOfLevels > 10" x="680" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">11</text>
+    <text *ngIf="node.numberOfLevels > 11" x="740" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">12</text>
+    <text *ngIf="node.numberOfLevels > 12" x="800" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">13</text>
+    <text *ngIf="node.numberOfLevels > 13" x="860" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">14</text>
+    <text *ngIf="node.numberOfLevels > 14" x="920" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">15</text>
+    <text *ngIf="node.numberOfLevels > 17" x="980" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">16</text>
+    <text *ngIf="node.numberOfLevels > 16" x="1040" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">17</text>
+    <text *ngIf="node.numberOfLevels > 17" x="1100" y="30" [attr.fill]="iconColors.foreground" style="font-weight: bold;">18</text>
     <ng-container *ngTemplateOutlet="circle;context:{node:node, y:60, offset:0}"></ng-container>
   </g>
 </svg>
@@ -31,6 +29,13 @@
     <g>
       <polygon points="-20,-10 -10,-20, 20,-20, 20,30, -20,30" style="fill:{{getBGColor(node)}};stroke:{{getColor(node)}};stroke-width:2"></polygon>
       <polygon points="-16,-6 -6,-16, 16,-16, 16,26, -16,26" style="fill:none;stroke:{{getColor(node)}};stroke-width:1"></polygon>
+      <svg *ngIf="node.level > 3" x="20" y="-20" style="overflow: visible;cursor:pointer;" (click)="removeNode(node.id, node.level)">
+        <g>
+          <circle cx="0" cy="0" r="5" style="fill:{{getBGColor(node)}};stroke:{{getColor(node)}};stroke-width:2"></circle>
+          <line [attr.x1]="-3" [attr.y1]="0" [attr.x2]="3" [attr.y2]="0" style="stroke: {{iconColors.foreground}};stroke-width:3;"></line>
+        </g>
+      </svg>
+      <line [attr.x1]="-3" [attr.y1]="0" [attr.x2]="3" [attr.y2]="0" style="stroke: {{iconColors.foreground}};stroke-width: 2;"></line>
       <g transform='translate(-6,-8)'>
         <svg [attr.x]="0" [attr.y]='0'>
           <g>
@@ -46,8 +51,8 @@
         </ng-container>
         <ng-container *ngSwitchCase="2">
           <line [attr.x1]="20" [attr.y1]="10" [attr.x2]="40" [attr.y2]="10" style="stroke: {{iconColors.foreground}};stroke-width: 2;"></line>
-          <line [attr.x1]="0" [attr.y1]="30" [attr.x2]="0" [attr.y2]="getOffset(node.branch[0].numberOfBranches )" style="stroke: {{iconColors.foreground}};stroke-width: 2;"></line>
-          <line [attr.x1]="0" [attr.y1]="getOffset(node.branch[0].numberOfBranches)" [attr.x2]="40" [attr.y2]="getOffset(node.branch[0].numberOfBranches)" style="stroke: {{iconColors.foreground}};stroke-width: 2;"></line>
+          <line [attr.x1]="0" [attr.y1]="30" [attr.x2]="0" [attr.y2]="getOffset(node.branch[0].numberOfBranches ) + 20" style="stroke: {{iconColors.foreground}};stroke-width: 2;"></line>
+          <line [attr.x1]="0" [attr.y1]="getOffset(node.branch[0].numberOfBranches) + 20" [attr.x2]="40" [attr.y2]="getOffset(node.branch[0].numberOfBranches) + 20" style="stroke: {{iconColors.foreground}};stroke-width: 2;"></line>
         </ng-container>
         <ng-container *ngSwitchDefault></ng-container>
 </ng-container>
@@ -56,12 +61,38 @@
 <ng-container [ngSwitch]="node.branch ? (node.branch.length === 1 ? 1 : (node.branch.length > 1 ? 2 : -1)) : -1">
           <ng-container *ngSwitchCase="1">
             <ng-container *ngTemplateOutlet="circle;context:{y:y, node:node.branch[0], offset:offset}"></ng-container>
+            <ng-container *ngIf="showAdd(node.level)">
+              <svg [attr.x]="(node.level * 60) + 20" [attr.y]="y + 30">
+                <g>
+                  <line [attr.x1]="0" [attr.y1]="0" [attr.x2]="0" [attr.y2]="10" style="stroke: {{iconColors.foreground}};stroke-width: 2;"></line>
+                </g>
+              </svg>
+              <ng-container *ngTemplateOutlet="addNode;context:{y:y + 40, x: (node.level * 60) + 20, node: node}"></ng-container>
+            </ng-container>
           </ng-container>
           <ng-container *ngSwitchCase="2">
             <ng-container *ngTemplateOutlet="circle;context:{y:y, node:node.branch[0], offset:offset}"></ng-container>
-            <ng-container *ngTemplateOutlet="circle;context:{y:(y + getOffset(node.branch[0].numberOfBranches)), node:node.branch[1], offset:60 }"></ng-container>
+            <ng-container *ngTemplateOutlet="circle;context:{y:(y + getOffset(node.branch[0].numberOfBranches)) + 20, node:node.branch[1], offset:60 }"></ng-container>
           </ng-container>
-          <ng-container *ngSwitchDefault></ng-container>
-</ng-container>
-</ng-template>
-
+          <ng-container *ngSwitchDefault>
+          <ng-container *ngIf="showAdd(node.level)">
+          <ng-container *ngTemplateOutlet="addNode;context:{y:y, x: (node.level * 60) + 55, node: node}"></ng-container>
+          <svg [attr.x]="(node.level * 60) + 40" [attr.y]="y + 5">
+            <g>
+              <line [attr.x1]="0" [attr.y1]="0" [attr.x2]="10" [attr.y2]="0" style="stroke: {{iconColors.foreground}};stroke-width: 2;"></line>
+            </g>
+          </svg>
+        </ng-container>
+        </ng-container>
+      </ng-container>
+    </ng-template>
+    <ng-template #addNode let-x="x" let-y="y" let-node="node">
+      <svg [attr.y]="y + 5" [attr.x]="x" style="overflow: visible;cursor:pointer; pointer-events: all;" (click)="addNewNode(node.id)">
+        <g>
+          <circle cx="0" cy="0" r="5" style="fill:{{iconColors.background}};stroke:none;"></circle>
+          <line [attr.x1]="0" [attr.y1]="-3" [attr.x2]="0" [attr.y2]="3" style="stroke: {{iconColors.foreground}};stroke-width: 2;"></line>
+          <line [attr.x1]="-3" [attr.y1]="0" [attr.x2]="3" [attr.y2]="0" style="stroke: {{iconColors.foreground}};stroke-width: 2;"></line>
+          <circle cx="0" cy="0" r="5" style="fill:none;stroke:{{iconColors.foreground}};stroke-width:1;" ></circle>
+        </g>
+      </svg>
+    </ng-template>

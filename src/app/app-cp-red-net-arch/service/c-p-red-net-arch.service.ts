@@ -52,8 +52,24 @@ export class CPRedNetArchService {
   }
 
   update(node: CPRedNetArchNode) {
-    console.log(node);
+    this.archArray = new Array<Array<CPRedNetArchNode>>();
+    this.fillArray(node);
+    this._architectAsArray.next(this.archArray);
     this._architect.next(new CPRedNetArchNode(node));
+  }
+
+  fillArray(node: CPRedNetArchNode) {
+    const index = node.level - 1;
+    if (!this.archArray[index]) {
+      this.archArray[index] = new Array<CPRedNetArchNode>();
+    }
+    this.archArray[index].push(node);
+    if (node.branch.length === 1) {
+      this.fillArray(node.branch[0]);
+    } else if(node.branch.length === 2) {
+      this.fillArray(node.branch[0]);
+      this.fillArray(node.branch[1]);
+    }
   }
 
   moveTo(id: number, level: number) {}

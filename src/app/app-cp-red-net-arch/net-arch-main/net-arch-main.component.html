@@ -59,7 +59,7 @@
 
   <div class="row" *ngIf="arch">
     <div class="col csd-print" #diagramSVG>
-      <cs-net-arch-node-svg *ngIf="arch && arch.branch.length" [node]="arch" [iconColors]="iconColors"></cs-net-arch-node-svg>
+      <cs-net-arch-node-svg *ngIf="arch && arch.branch.length" [node]="arch" [iconColors]="iconColors" [defaultDV]="defaultDV" (updateNode)="updateArch($event)"></cs-net-arch-node-svg>
     </div>
   </div>
   <hr>

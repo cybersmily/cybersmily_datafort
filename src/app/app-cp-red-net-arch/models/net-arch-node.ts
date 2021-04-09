@@ -132,6 +132,20 @@ export class CPRedNetArchNode implements NetArchNode {
     return;
   }
 
+  hasChild(id: string) : boolean {
+    if (this.id === id) {
+      return true;
+    } else {
+      let i = 0;
+      let found = false;
+      do {
+        found = (this.branch[i]) ? this.branch[i].hasChild(id) : false;
+        i++;
+      } while(!found && i < this.branch.length);
+      return found;
+    }
+  }
+
   update(node: CPRedNetArchNode) {
     if( node.id === this.id){
       this.type = node.type;
@@ -163,6 +177,9 @@ export interface iconTypeSettings {
   controlNode: iconSettings;
   program: iconSettings;
   file: iconSettings;
+  background: string;
+  foreground: string;
+  border: string;
 }
 
 export class CPRedIconTypeSettings implements iconTypeSettings {
@@ -173,8 +190,10 @@ export class CPRedIconTypeSettings implements iconTypeSettings {
   background: string;
   foreground: string;
   border: string;
+  key: string;
 
   constructor() {
+    this.key = "cs-cpred-netarch-settings";
     this.password = {color: 'darkgoldenrod', bgColor: 'lightgoldenrodyellow'};
     this.controlNode = {color: 'dimgray', bgColor: 'gainsboro'};
     this.program = {color: 'darkred', bgColor: 'lightpink'};
@@ -182,6 +201,29 @@ export class CPRedIconTypeSettings implements iconTypeSettings {
     this.background = '#DDDDDD';
     this.foreground = '#888888';
     this.border = '#a9f5bc';
+  }
+
+  import(settings: iconTypeSettings) {
+    this.password = settings.password;
+    this.controlNode = settings.controlNode;
+    this.program = settings.program;
+    this.file = settings.file;
+    this.background = settings.background;
+    this.foreground = settings.foreground;
+    this.border = settings.border;
+  }
+
+  export(): string {
+    const settings: iconTypeSettings = {
+      password: this.password,
+      controlNode: this.controlNode,
+      program: this.program,
+      file: this.file,
+      background: this.background,
+      foreground: this.foreground,
+      border: this.border
+    };
+    return JSON.stringify(settings);
   }
 }
 

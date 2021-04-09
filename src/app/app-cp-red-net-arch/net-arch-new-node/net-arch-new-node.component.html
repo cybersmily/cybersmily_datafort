@@ -1,0 +1,49 @@
+
+    <div class="col">
+      <div class="row">
+        <div class="col">
+          <input type="text" [(ngModel)]="node.name" style="width: 90%;" (change)="update()">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          Type: <select [(ngModel)]="node.type" (change)="changeType($event)">
+            <option value="controller">Control Node</option>
+            <option value="file">File</option>
+            <option value="password">Password</option>
+            <option value="program">Program</option>
+          </select>
+        </div>
+      </div>
+      <div class="row" *ngIf="node.type !== 'program'">
+        <div class="col">
+          DV: <input type="number" [(ngModel)]="node.dv" style="width:70px;" (change)="update()" min="6" max="30">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          Cost: <input type="number" [(ngModel)]="node.cost" (change)="update()">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          Description:
+          <br>
+          <textarea [(ngModel)]="node.desc" style="width:100%;min-height: 80px;" (change)="update()">
+          </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row" >
+      <div class="col">
+        Color: <span class="cs-color-swatch" [style.background-color]="color" [popover]="colorPicker" [outsideClick]="true"
+        (onShown)="setSelectedColor(node.color)" (onHidden)="changeIconColor()"></span>
+      </div>
+      <div class="col">
+        Background: <span class="cs-color-swatch" [style.background-color]="bgColor" [popover]="colorPicker" [outsideClick]="true"
+        (onShown)="setSelectedColor(node.bgColor)" (onHidden)="changeBgColor()"></span>
+      </div>
+    </div>
+    <ng-template #colorPicker>
+      <color-chrome [color]="selectedColor" (onChange)="changeColor($event)"></color-chrome>
+    </ng-template>

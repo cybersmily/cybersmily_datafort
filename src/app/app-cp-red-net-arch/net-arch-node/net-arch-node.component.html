@@ -5,10 +5,10 @@
         <div class="row">
           <div class="col-8">
             <span class="mr-2 font-weight-bold">{{node.id}}:</span>
-            <div class="node-icon" [style.background-color]="bgColor" [style.color]="color">
+            <div class="node-icon mr-2" [style.background-color]="bgColor" [style.color]="color">
               <fa-icon [icon]="getIcon(node.type)" class="mr-1"></fa-icon>
             </div>
-            {{node.name}}
+            <span class="text-capitalize">{{node.name}}</span>
             <span *ngIf="node.type !== 'program'">(DV{{node.dv}})</span>
             <fa-icon [icon]="faPen" style="width: 15px; height: 15px;" class="ml-2 hidden-print csd-btn"
             (click)="showModal(nodeSettings)"></fa-icon>

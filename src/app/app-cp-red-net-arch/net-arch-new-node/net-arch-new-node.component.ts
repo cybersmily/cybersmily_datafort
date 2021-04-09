@@ -1,62 +1,36 @@
-import { faSkullCrossbones, faCogs, faFile, faLock, faPen, faTimes, faThumbtack } from '@fortawesome/free-solid-svg-icons';
-import { CPRedNetArchNode, CPRedIconTypeSettings } from './../models/net-arch-node';
-import { Component, Input, OnInit, Output, EventEmitter, TemplateRef } from '@angular/core';
+import { CPRedNetArchNode, iconSettings, CPRedIconTypeSettings } from './../models/net-arch-node';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ColorEvent } from 'ngx-color';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
-  selector: 'cs-net-arch-node',
-  templateUrl: './net-arch-node.component.html',
-  styleUrls: ['./net-arch-node.component.css']
+  selector: 'cs-net-arch-new-node',
+  templateUrl: './net-arch-new-node.component.html',
+  styleUrls: ['./net-arch-new-node.component.css']
 })
-export class NetArchNodeComponent implements OnInit {
-
-  faSkullCrossbones = faSkullCrossbones;
-  faCogs = faCogs;
-  faFile = faFile;
-  faLock = faLock;
-  faPen = faPen;
-  faTimes = faTimes;
-  faThumbtack = faThumbtack;
-
-  modalRef: BsModalRef;
-  config = {
-    keyboard: true,
-    class: 'modal-dialog-centered'
-  };
-
-  @Input()
-  node: CPRedNetArchNode;
-
-  @Input()
-  defaultDV: number;
+export class NetArchNewNodeComponent implements OnInit {
+  node: CPRedNetArchNode = new CPRedNetArchNode();
 
   @Input()
   iconSettings: CPRedIconTypeSettings;
 
+  @Input()
+  defaultDV: number;
+
+  selectedColor: string;
+
   @Output()
   updateNode: EventEmitter<CPRedNetArchNode> = new EventEmitter<CPRedNetArchNode>();
 
-  constructor(private modalService: BsModalService) { }
+  constructor() { }
 
   ngOnInit(): void {
+    this.node = new CPRedNetArchNode();
+    this.node.dv = this.defaultDV;
   }
 
-  getIcon(type: string): any {
-    if (type) {
-      switch (type) {
-        case 'program':
-          return this.faSkullCrossbones;
-        case 'file':
-          return this.faFile;
-        case 'controller':
-          return this.faCogs;
-      }
-    }
-    return this.faLock;
+  update() {
+    this.updateNode.emit(this.node);
   }
-
-  selectedColor: string;
 
   get color(): string {
     if(this.node.color && this.node.color !== '') {
@@ -90,10 +64,6 @@ export class NetArchNodeComponent implements OnInit {
     }
   }
 
-  update() {
-    this.updateNode.emit(this.node);
-  }
-
   changeType(e) {
     this.node.type = e.target.value
     if(this.node.type !== 'program')  {
@@ -120,7 +90,5 @@ export class NetArchNodeComponent implements OnInit {
     this.selectedColor = color;
   }
 
-  showModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template, this.config);
-  }
+
 }

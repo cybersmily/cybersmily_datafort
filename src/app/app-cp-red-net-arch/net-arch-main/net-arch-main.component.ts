@@ -87,6 +87,9 @@ export class NetArchMainComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (window.localStorage && window.localStorage[this.iconColors.key]) {
+      this.iconColors.import(JSON.parse(window.localStorage[this.iconColors.key]));
+    }
     this.netArchService.architect.subscribe( arch => {
       this.arch = undefined;
       this.arch = arch;
@@ -118,8 +121,6 @@ export class NetArchMainComponent implements OnInit {
 
   saveSVG() {
     const output = this.svgRef.nativeElement.querySelector('#cs-cpred-archdiagram');
-    console.log(output.outerHTML);
-    //const output = this.svg.replace('<svg style="width:100%;"', '<svg xmlns="http://www.w3.org/2000/svg" width="1000"');
     this.saveFile.SaveAsFile('Net Architect Diagram', output.outerHTML,'svg');
   }
 
@@ -130,6 +131,7 @@ export class NetArchMainComponent implements OnInit {
   }
 
   updateArch($event: CPRedNetArchNode) {
+    this.floors = $event.numberOfFloors;
     this.arch.update($event);
     this.netArchService.update(this.arch);
   }
@@ -145,5 +147,6 @@ export class NetArchMainComponent implements OnInit {
 
   updateSettings(settings: CPRedIconTypeSettings) {
     this.iconColors = settings;
+    window.localStorage.setItem(this.iconColors.key, this.iconColors.export());
   }
 }

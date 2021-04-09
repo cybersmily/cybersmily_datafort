@@ -1,3 +1,4 @@
+<fa-icon [icon]="faRedo" class="csd-btn btn-xl float-right mr-3" title="Reset to the default colors." (click)="reset()"></fa-icon>
 <ng-container
   *ngTemplateOutlet="typeItem;context:{type:'Program', bgColor:iconColors.program.bgColor, color: iconColors.program.color}">
 </ng-container>
@@ -10,15 +11,20 @@
 <ng-container
   *ngTemplateOutlet="typeItem;context:{type:'Controller Node', bgColor:iconColors.controlNode.bgColor, color: iconColors.controlNode.color}">
 </ng-container>
+<br>
 <div class="row">
   <div class="col">
     Diagram Background: <span class="cs-color-swatch" [style.background-color]="iconColors.background" [popover]="colorPicker" [outsideClick]="true"
     (onShown)="setSelectedColor(iconColors.background)" (onHidden)="setColor('background')"></span>
   </div>
+  </div>
+  <div class="row">
   <div class="col">
     Diagram Text: <span class="cs-color-swatch" [style.background-color]="iconColors.foreground" [popover]="colorPicker" [outsideClick]="true"
     (onShown)="setSelectedColor(iconColors.foreground)" (onHidden)="setColor('foreground')"></span>
   </div>
+</div>
+<div class="row">
   <div class="col">
     Diagram Border: <span class="cs-color-swatch" [style.background-color]="iconColors.border" [popover]="colorPicker" [outsideClick]="true"
     (onShown)="setSelectedColor(iconColors.border)" (onHidden)="setColor('border')"></span>

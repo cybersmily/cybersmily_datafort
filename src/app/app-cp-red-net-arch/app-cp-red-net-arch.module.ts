@@ -14,9 +14,9 @@ import { AppCpRedNetArchRoutingModule } from './app-cp-red-net-arch-routing.modu
 import { NetArchMainComponent } from './net-arch-main/net-arch-main.component';
 import { NetArchDiagramComponent } from './net-arch-diagram/net-arch-diagram.component';
 import { NetArchInstructionsComponent } from './net-arch-instructions/net-arch-instructions.component';
-import { NetArchFormComponent } from './net-arch-form/net-arch-form.component';
 import { NetArchNodeSvgComponent } from './net-arch-node-svg/net-arch-node-svg.component';
 import { NetArchSettingsComponent } from './net-arch-settings/net-arch-settings.component';
+import { NetArchNewNodeComponent } from './net-arch-new-node/net-arch-new-node.component';
 
 
 @NgModule({
@@ -25,9 +25,9 @@ import { NetArchSettingsComponent } from './net-arch-settings/net-arch-settings.
     NetArchDiagramComponent,
     NetArchInstructionsComponent,
     NetArchNodeComponent,
-    NetArchFormComponent,
     NetArchNodeSvgComponent,
-    NetArchSettingsComponent
+    NetArchSettingsComponent,
+    NetArchNewNodeComponent
   ],
   imports: [
     CommonModule,
