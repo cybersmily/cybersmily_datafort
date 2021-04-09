@@ -43,6 +43,13 @@ export class NetArchNodeSvgComponent implements OnInit {
     return this.iconOffset + ( num * this.iconOffset);
   }
 
+  getName(name: string): string {
+    if (name.length < 21 ) {
+      return name;
+    }
+    return name.substring(0,18) + '...';
+  }
+
   getColor(node: CPRedNetArchNode): string {
     if (node.color !== '') {
       return node.color;

@@ -1,12 +1,1 @@
 
-.cs-net-tooltip {
-  display: none;
-}
-
-.cs-net-tooltip text {
-  font-size: 12px;
-}
-
-.csd-net-delete:hover .cs-net-tooltip, .cs-net-add:hover .cs-net-tooltip {
-  display: block;
-}
