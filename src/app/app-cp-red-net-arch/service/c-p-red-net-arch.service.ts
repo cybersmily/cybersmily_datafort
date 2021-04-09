@@ -29,6 +29,7 @@ export class CPRedNetArchService {
   svg = this._svg.asObservable();
 
   difficulty = 1;
+  controllerCount = 0;
 
   private charts: CPRedNetFloorCharts;
   private archArray = new Array<Array<CPRedNetArchNode>>(18);
@@ -39,7 +40,6 @@ export class CPRedNetArchService {
   private level = 3;
 
   constructor(private diceService: DiceService) {
-    this.charts = new CPRedNetFloorCharts();
   }
 
   addChild() {
@@ -75,6 +75,8 @@ export class CPRedNetArchService {
   moveTo(id: number, level: number) {}
 
   generateArch(rollFloors:boolean, rollDifficulty: boolean, floors: number) {
+    this.controllerCount = 0;
+    this.charts = new CPRedNetFloorCharts();
     this._architect.next( new CPRedNetArchNode());
     this.archArray = new Array<Array<CPRedNetArchNode>>(18);
     if (rollFloors) {
@@ -143,10 +145,36 @@ export class CPRedNetArchService {
     return node;
   }
 
+  get isControllerMaxed(): boolean {
+    if (this._floors.getValue() < 7 && this.controllerCount > 1) {
+      return true;
+    } else if(this._floors.getValue() < 13 && this.controllerCount > 2) {
+      return true;
+    }
+    return false;
+  }
+
   generateNetArchNode(isLobby: boolean): CPRedNetArchNode {
     const node = new CPRedNetArchNode();
-      const die = (isLobby) ? this.diceService.generateNumber(0, 5) : this.diceService.generateNumber(0, 15);
-      const floor = (isLobby) ? this.charts.lobby[die] : this.charts.floors[this.difficulty][die];
+    const lobby = this.charts.lobby;
+    const chart = this.charts.floors[this.difficulty];
+    let floor:any = {};
+    let die = 0;
+    do {
+      die = (isLobby) ? this.diceService.generateNumber(0, lobby.length - 1) : this.diceService.generateNumber(0, chart.length - 1);
+      floor = (isLobby) ? lobby[die] : chart[die];
+    } while(floor.type === 'controller' && this.isControllerMaxed);
+      if ( floor && (floor.type === 'program' || floor.type === 'password')) {
+        // remove a program/password from the list of options
+        if (isLobby) {
+          this.charts.lobby.splice(die, 1);
+        } else {
+          this.charts.floors[this.difficulty].splice(die, 1);
+        }
+      }
+      if (floor && floor.type === 'controller') {
+        this.controllerCount++;
+      }
       node.cost = floor.cost;
       node.desc = floor.name;
       node.name = floor.name;

@@ -23,8 +23,8 @@
         title="Save Net Architect as json file"></fa-icon>
       <fa-icon class="csd-menu-btn btn-lg csd-btn float-right" [icon]="faCog" title="Node Type Settings"
         (click)="openModal(archSettings)"></fa-icon>
-        <fa-icon class="csd-menu-btn btn-lg csd-btn float-right" [icon]="faQuestionCircle" title="Show instructions."
-          (click)="openModal(instructions)"></fa-icon>
+      <fa-icon class="csd-menu-btn btn-lg csd-btn float-right" [icon]="faQuestionCircle" title="Show instructions."
+        (click)="openModal(instructions)"></fa-icon>
     </div>
   </div>
   <div class="row hidden-print">
@@ -33,7 +33,7 @@
         title="Generate random Net Architect"></fa-icon>
       <span>
         <input type="checkbox" [(ngModel)]="randomDifficulty">
-        <span [ngClass]="{'net-arch-disable':randomDifficulty}" >
+        <span [ngClass]="{'net-arch-disable':randomDifficulty}">
           - Difficulty:
           <select [(ngModel)]="netArchService.difficulty" [disabled]='randomDifficulty'>
             <option [ngValue]="0">Basic</option>
@@ -45,14 +45,13 @@
         <br>
         <input type="checkbox" [(ngModel)]="randomFloors">
         <span [ngClass]="{'net-arch-disable':randomFloors}">
-          - Floors: <input type="number" min="3" max="18"
-            [(ngModel)]="numOfFloors" [disabled]="randomFloors">
+          - Floors: <input type="number" min="3" max="18" [(ngModel)]="numOfFloors" [disabled]="randomFloors">
         </span>
       </span>
     </div>
   </div>
   <br>
-  <div class="row csd-rounded">
+  <div *ngIf="arch.branch.length" class="row csd-rounded">
     <div class="col">
       <div class="row">
         <div class="col-6"></div>
@@ -60,30 +59,31 @@
         <div class="col">Total Cost: {{totalCost | number}}eb</div>
       </div>
       <hr>
-
-  <div class="row" *ngIf="arch">
-    <div class="col csd-print" #diagramSVG>
-      <cs-net-arch-node-svg *ngIf="arch && arch.branch.length" [node]="arch" [iconColors]="iconColors" [defaultDV]="defaultDV" (updateNode)="updateArch($event)"></cs-net-arch-node-svg>
-    </div>
-  </div>
-  <hr>
-  <div class="row" *ngIf="arch">
-    <div class="col csd-print csd-linebreak">
-      <div *ngFor="let arr of archArray;let i = index" class="row">
-        <div class="col">
-          <div *ngIf="arr && arr.length > 0" class="row">
-            <div class="col font-weight-bold">
-              LEVEL {{i + 1}}:
+      <div class="row">
+        <div class="col csd-print" #diagramSVG>
+          <cs-net-arch-node-svg *ngIf="arch && arch.branch.length" [node]="arch" [iconColors]="iconColors"
+            [defaultDV]="defaultDV" (updateNode)="updateArch($event)"></cs-net-arch-node-svg>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col csd-print csd-linebreak">
+          <div *ngFor="let arr of archArray;let i = index" class="row">
+            <div class="col">
+              <div *ngIf="arr && arr.length > 0" class="row">
+                <div class="col font-weight-bold">
+                  LEVEL {{i + 1}}:
+                </div>
+              </div>
+              <cs-net-arch-node *ngFor="let node of arr" [node]="node" [iconSettings]="iconColors"
+                (updateNode)="updateArch($event)" [defaultDV]="defaultDV"></cs-net-arch-node>
+              <hr>
             </div>
           </div>
-          <cs-net-arch-node *ngFor="let node of arr" [node]="node" [iconSettings]="iconColors" (updateNode)="updateArch($event)" [defaultDV]="defaultDV"></cs-net-arch-node>
-          <hr>
         </div>
       </div>
     </div>
   </div>
-</div>
-</div>
 </div>
 
 <ng-template #instructions>
