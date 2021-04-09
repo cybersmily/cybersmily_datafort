@@ -1,3 +1,8 @@
 .net-arch-disable,.net-arch-disable input {
   color: #cccccc !important;
 }
+
+.cs-net-cost {
+  font-size: x-small;
+  font-style: italic;
+}

@@ -42,7 +42,23 @@ export class NetArchMainComponent implements OnInit {
   numOfLevels: number = 3;
 
   randomFloors = true;
+  randomFloorNumber = 10;
   randomDifficulty = true;
+  difficulty: number = 0;
+
+  getDifficulty(id: number): string {
+    switch(id){
+      case 1:
+        return 'Standard';
+      case 2:
+        return 'Uncommon';
+      case 3:
+        return 'Advanced';
+      default:
+        return 'Basic';
+    }
+  }
+
 
   constructor(private dice: DiceService,
     private saveFile: SaveFileService,
@@ -105,7 +121,8 @@ export class NetArchMainComponent implements OnInit {
   }
 
   generate(): void {
-    this.netArchService.generateArch( this.randomFloors, this.randomDifficulty, this.numOfFloors);
+    this.netArchService.difficulty = this.difficulty;
+    this.netArchService.generateArch( this.randomFloors, this.randomDifficulty, this.randomFloorNumber);
   }
 
   removeArch() {
@@ -133,7 +150,7 @@ export class NetArchMainComponent implements OnInit {
   load($event) {
     this.fileLoader
     .importJSON($event.target.files[0])
-    .subscribe((data) => this.arch = new CPRedNetArchNode(data));
+    .subscribe((data) => this.netArchService.update(new CPRedNetArchNode(data)));
   }
 
   updateArch($event: CPRedNetArchNode) {

@@ -35,17 +35,17 @@
         <input type="checkbox" [(ngModel)]="randomDifficulty">
         <span [ngClass]="{'net-arch-disable':randomDifficulty}">
           - Difficulty:
-          <select [(ngModel)]="netArchService.difficulty" [disabled]='randomDifficulty'>
-            <option [ngValue]="0">Basic</option>
-            <option [ngValue]="1">Standard</option>
-            <option [ngValue]="2">Uncommon</option>
-            <option [ngValue]="3">Advanced</option>
+          <select [(ngModel)]="difficulty" [disabled]='randomDifficulty'>
+            <option [ngValue]="0">{{getDifficulty(0)}}</option>
+            <option [ngValue]="1">{{getDifficulty(1)}}</option>
+            <option [ngValue]="2">{{getDifficulty(2)}}</option>
+            <option [ngValue]="3">{{getDifficulty(3)}}</option>
           </select>
         </span>
         <br>
         <input type="checkbox" [(ngModel)]="randomFloors">
         <span [ngClass]="{'net-arch-disable':randomFloors}">
-          - Floors: <input type="number" min="3" max="18" [(ngModel)]="numOfFloors" [disabled]="randomFloors">
+          - Floors: <input type="number" min="3" max="18" [(ngModel)]="randomFloorNumber" [disabled]="randomFloors">
         </span>
       </span>
     </div>
@@ -54,8 +54,8 @@
   <div *ngIf="arch.branch.length" class="row csd-rounded">
     <div class="col">
       <div class="row">
-        <div class="col-6"></div>
-        <div class="col">Total Floors: {{floors}} ({{costPerFloor|number}}eb/floor)</div>
+        <div class="col-6">Difficulty: {{getDifficulty(netArchService.difficulty)}}</div>
+        <div class="col">Total Floors: {{floors}} <span class="cs-net-cost">({{costPerFloor|number}}eb ea.)</span> </div>
         <div class="col">Total Cost: {{totalCost | number}}eb</div>
       </div>
       <hr>

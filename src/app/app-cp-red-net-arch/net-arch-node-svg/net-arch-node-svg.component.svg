@@ -29,9 +29,16 @@
     <g>
       <polygon points="-20,-10 -10,-20, 20,-20, 20,30, -20,30" style="fill:{{getBGColor(node)}};stroke:{{getColor(node)}};stroke-width:2"></polygon>
       <polygon points="-16,-6 -6,-16, 16,-16, 16,26, -16,26" style="fill:none;stroke:{{getColor(node)}};stroke-width:1"></polygon>
-      <svg *ngIf="node.level > 3" x="20" y="-20" style="overflow: visible;cursor:pointer;" class="hidden-print" (click)="removeNode(node.id, node.level)">
+      <svg *ngIf="node.level > 3" x="20" y="-20" style="overflow: visible;cursor:pointer;" class="hidden-print csd-net-delete" (click)="removeNode(node.id, node.level)">
         <g>
-          <circle cx="0" cy="0" r="5" style="fill:{{getBGColor(node)}};stroke:{{getColor(node)}};stroke-width:2"></circle>
+          <circle cx="0" cy="0" r="5" style="fill:{{getBGColor(node)}};stroke:{{getColor(node)}};stroke-width:2" ></circle>
+          <svg x="5" y="0" style="overflow: visible;" class="cs-net-tooltip">
+            <g>
+              <rect x="0" y="-20" rx="2" ry="2" width="40" height="20" style="fill:{{getBGColor(node)}};stroke:{{getColor(node)}};stroke-width:1" ></rect>
+              <text x="2" y="-6" [attr.fill]="iconColors.foreground">Delete</text>
+            </g>
+          </svg>
+
           <line [attr.x1]="-3" [attr.y1]="0" [attr.x2]="3" [attr.y2]="0" style="stroke: {{iconColors.foreground}};stroke-width:3;"></line>
         </g>
       </svg>
@@ -87,12 +94,18 @@
       </ng-container>
     </ng-template>
     <ng-template #addNode let-x="x" let-y="y" let-node="node">
-      <svg [attr.y]="y + 5" [attr.x]="x" style="overflow: visible;cursor:pointer; pointer-events: all;" class="hidden-print" (click)="addNewNode(node.id)">
+      <svg [attr.y]="y + 5" [attr.x]="x" style="overflow: visible;cursor:pointer; pointer-events: all;" class="hidden-print cs-net-add" (click)="addNewNode(node.id)">
         <g>
           <circle cx="0" cy="0" r="5" style="fill:{{iconColors.background}};stroke:none;"></circle>
           <line [attr.x1]="0" [attr.y1]="-3" [attr.x2]="0" [attr.y2]="3" style="stroke: {{iconColors.foreground}};stroke-width: 2;"></line>
           <line [attr.x1]="-3" [attr.y1]="0" [attr.x2]="3" [attr.y2]="0" style="stroke: {{iconColors.foreground}};stroke-width: 2;"></line>
           <circle cx="0" cy="0" r="5" style="fill:none;stroke:{{iconColors.foreground}};stroke-width:1;" ></circle>
+          <svg x="0" y="0" class="cs-net-tooltip" style="overflow: visible;">
+            <g>
+              <rect x="9" y="-10" rx="2" ry="2" width="30" height="20" style="fill:{{getBGColor(node)}};stroke:{{getColor(node)}};stroke-width:1" ></rect>
+              <text x="12" y="3" [attr.fill]="iconColors.foreground">Add</text>
+            </g>
+          </svg>
         </g>
       </svg>
     </ng-template>

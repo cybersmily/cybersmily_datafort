@@ -79,11 +79,11 @@ export class NetArchNodeSvgComponent implements OnInit {
     }
   }
   get diagramHeight(): number {
-    return (this.node.numberOfBranches * 75) + 120;
+    return (this.node.numberOfBranches * 75) + 130;
   }
 
   get diagramWidth(): number {
-    return (this.node.numberOfLevels * this.iconOffset) + this.iconOffset + 30;
+    return (this.node.numberOfLevels * this.iconOffset) + this.iconOffset + 50;
   }
 
   get canAdd(): boolean {

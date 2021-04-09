@@ -110,8 +110,6 @@ export class CPRedNetArchService {
       let id = this.archArray[level][0].id;
       deleteNodes.forEach( n=> {
          const node = firstFloor.deleteChild(n.id);
-         console.log(id);
-         console.log(node);
          firstFloor.insertChild(id, node);
       });
     }
