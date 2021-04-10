@@ -10,6 +10,8 @@
   <hr>
   <div class="row hidden-print">
     <div class="col">
+      To get started, roll the <fa-icon style="color:red" [icon]="faDice"></fa-icon> dice below or click the <fa-icon
+        [icon]="faQuestionCircle"></fa-icon> to the right.
       <fa-icon class="csd-menu-btn btn-lg csd-btn float-right" [icon]="faImage" title="Save as a SVG image file"
         (click)="saveSVG()"></fa-icon>
       <fa-icon class="csd-menu-btn btn-lg csd-btn float-right" [icon]="faFileImage" title="Save as a PNG image file"
@@ -27,57 +29,71 @@
         (click)="openModal(instructions)"></fa-icon>
     </div>
   </div>
-  <div class="row hidden-print">
-    <div class="col-6">
-      <fa-icon class="csd-dice csd-menu-btn csd-btn csd-icon-xxl float-left mr-2" [icon]="faDice" (click)="generate()"
-        title="Generate random Net Architect"></fa-icon>
-      <span>
-        <input type="checkbox" [(ngModel)]="archSettings.randomDifficulty">
-        <span [ngClass]="{'net-arch-disable':archSettings.randomDifficulty}">
-          - Difficulty:
-          <select [(ngModel)]="difficulty" [disabled]='archSettings.randomDifficulty'>
-            <option [ngValue]="0">{{getDifficulty(0)}}</option>
-            <option [ngValue]="1">{{getDifficulty(1)}}</option>
-            <option [ngValue]="2">{{getDifficulty(2)}}</option>
-            <option [ngValue]="3">{{getDifficulty(3)}}</option>
-          </select>
-        </span>
-        <br>
-        <input type="checkbox" [(ngModel)]="archSettings.randomFloors">
-        <span [ngClass]="{'net-arch-disable':archSettings.randomFloors}">
-          - Floors: <input type="number" min="3" max="18" [(ngModel)]="randomFloorNumber" [disabled]="archSettings.randomFloors">
-        </span>
-      </span>
-    </div>
-  </div>
-  <br>
-  <div *ngIf="arch.branch.length" class="row csd-rounded">
-    <div class="col">
-      <div class="row">
-        <div class="col-6">Difficulty: {{getDifficulty(netArchService.difficulty)}}</div>
-        <div class="col">Total Floors: {{floors}} <span class="cs-net-cost">({{costPerFloor|number}}eb ea.)</span> </div>
-        <div class="col">Total Cost: {{totalCost | number}}eb</div>
-      </div>
-      <hr>
-      <div class="row">
-        <div class="col csd-print" #diagramSVG>
-          <cs-net-arch-node-svg *ngIf="arch && arch.branch.length" [node]="arch" [iconColors]="archSettings"
-            [defaultDV]="defaultDV" (updateNode)="updateArch($event)"></cs-net-arch-node-svg>
+  <div class="row">
+    <div class="col csd-rounded">
+      <div class="row hidden-print mt-3">
+        <div class="col-6">
+          <fa-icon class="csd-dice csd-menu-btn csd-btn csd-icon-xxl float-left mr-2" [icon]="faDice"
+            (click)="generate()" title="Generate random Net Architect"></fa-icon>
+          <span>
+            <input type="checkbox" [(ngModel)]="archSettings.randomDifficulty">
+            <span [ngClass]="{'net-arch-disable':archSettings.randomDifficulty}">
+              - Difficulty:
+              <select [(ngModel)]="difficulty" [disabled]='archSettings.randomDifficulty'>
+                <option [ngValue]="0">{{getDifficulty(0)}}</option>
+                <option [ngValue]="1">{{getDifficulty(1)}}</option>
+                <option [ngValue]="2">{{getDifficulty(2)}}</option>
+                <option [ngValue]="3">{{getDifficulty(3)}}</option>
+              </select>
+            </span>
+            <br>
+            <input type="checkbox" [(ngModel)]="archSettings.randomFloors">
+            <span [ngClass]="{'net-arch-disable':archSettings.randomFloors}">
+              - Floors: <input type="number" min="3" max="18" [(ngModel)]="randomFloorNumber"
+                [disabled]="archSettings.randomFloors">
+            </span>
+          </span>
         </div>
       </div>
-      <hr>
-      <div class="row">
-        <div class="col csd-print csd-linebreak">
-          <div *ngFor="let arr of archArray;let i = index" class="row">
-            <div class="col">
-              <div *ngIf="arr && arr.length > 0" class="row">
-                <div class="col font-weight-bold">
-                  LEVEL {{i + 1}}:
+      <br>
+      <div *ngIf="arch.branch.length">
+        <div class="col">
+          <div class="row csd-rounded">
+            <div class="col-6">Difficulty: {{getDifficulty(netArchService.difficulty)}}</div>
+            <div class="col">Total Floors: {{floors}} <span class="cs-net-cost">({{costPerFloor|number}}eb ea.)</span>
+            </div>
+            <div class="col">Total Cost: {{totalCost | number}}eb</div>
+          </div>
+          <div class="row">
+            <div class="col csd-print csd-rounded" #diagramSVG>
+              <cs-net-arch-node-svg *ngIf="arch && arch.branch.length" [node]="arch" [iconColors]="archSettings"
+                [defaultDV]="defaultDV" (updateNode)="updateArch($event)"></cs-net-arch-node-svg>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col csd-rounded">
+              <div class="row">
+                <div class="col csd-print csd-linebreak">
+                  <h5>KEY and DETAILS</h5>
                 </div>
               </div>
-              <cs-net-arch-node *ngFor="let node of arr" [node]="node" [iconSettings]="archSettings"
-                (updateNode)="updateArch($event)" [defaultDV]="defaultDV"></cs-net-arch-node>
-              <hr>
+              <div class="row">
+                <div class="col csd-print">
+                  <div *ngFor="let arr of archArray;let i = index" class="row">
+                    <div class="col">
+                      <div *ngIf="arr && arr.length > 0" class="row">
+                        <div class="col font-weight-bold">
+                          LEVEL {{i + 1}}:
+                        </div>
+                      </div>
+                      <cs-net-arch-node *ngFor="let node of arr" [node]="node" [iconSettings]="archSettings"
+                        (updateNode)="updateArch($event)" [defaultDV]="defaultDV"></cs-net-arch-node>
+                      <hr>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
