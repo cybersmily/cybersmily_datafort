@@ -1,16 +1,15 @@
 <div class="container">
   <div class="row">
-    <div class="col ">
+    <div class="col-6">
       <input class="cyber-edit-box" type="text" [(ngModel)]="newCyberware.name" placeholder="Enter name of cyberware">
     </div>
-    <div class="col-2 text-right">
+    <div class="col-4">
       Total Cost:
-    </div>
-    <div class="col-2">
       {{newCyberware.totalCost | number}}eb
     </div>
-    <div class="col-1 text-right">
-      <fa-icon [icon]="faSave" class="ml-1 csd-btn cyber-save" (click)="update()"></fa-icon>
+    <div class="col">
+      <fa-icon [icon]="faSave" class="ml-1 csd-btn cyber-save csd-icon-btn" (click)="update()"></fa-icon>
+      <fa-icon [icon]="faTrash" class="csd-btn cyber-save csd-icon-btn ml-3" (click)="delete()"></fa-icon>
     </div>
   </div>
   <div class="row small">

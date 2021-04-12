@@ -1,4 +1,4 @@
-import { faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faPlus, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Cp2020ArmorBlock } from './../../shared/models/cp2020character';
 import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
@@ -12,6 +12,7 @@ import { Cp2020ArmorLayer } from './../../shared/models/cp2020character/cp2020-a
 export class AppCharacterArmorComponent implements OnInit {
   faTrash = faTrash;
   faPlus = faPlus;
+  faShieldAlt = faShieldAlt;
 
   modalRef: BsModalRef;
   modalConfig = {

@@ -1,0 +1,22 @@
+import { faDice, faSave, faUpload, faFilePdf, faUndo, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'cs-app-character-instruction',
+  templateUrl: './app-character-instruction.component.html',
+  styleUrls: ['./app-character-instruction.component.css']
+})
+export class AppCharacterInstructionComponent implements OnInit {
+  faDice = faDice;
+  faSave = faSave;
+  faUpload = faUpload;
+  faFilePdf = faFilePdf;
+  faUndo = faUndo;
+  faShieldAlt = faShieldAlt;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}

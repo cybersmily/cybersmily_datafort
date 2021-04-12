@@ -1,0 +1,73 @@
+    <div>
+      This is an unofficial utility to create a Cyberpunk 2020 character.
+      Here you will be able to create, save, load, and print character sheets.
+      There is still a bit of work to be done, but this should help with starting out with the basics.
+    </div>
+    <br>
+    <div>
+      <h5>MENU</h5>
+      <ul class="list-unstyled">
+        <li><fa-icon class="csd-icon-btn" [icon]="faSave"></fa-icon> SAVE - this will save a text file with the character in JSON format. JSON is used to hold the data of the character to be uploaded later to this utility. The JSON is not quite legilble by normal people, so don't assume you can pass this file off to others. Save this a a PDF and share that with others.</li>
+        <li><fa-icon class="csd-icon-btn" [icon]="faUpload"></fa-icon> UPLOAD - click here and upload the file from the SAVE step. This will take the JSON data and use it to fill in the sheet.</li>
+        <li><fa-icon class="csd-icon-btn" [icon]="faUndo"></fa-icon> RESET - This will reset the sheet to all blank values. Make to save before doing this to the txt(JSON) file first if you want to keep the character.</li>
+        <li><fa-icon class="csd-icon-btn" [icon]="faFilePdf"></fa-icon> SAVE AS PDF - This will save the character sheet as a PDF. This cannot be uploaded back to the sheet, so if you don't click SAVE button, then the data will need to be re-entered again.</li>
+      </ul>
+    </div>
+    <br>
+    <div style="text-indent: -10px;margin: 10px;">
+      <h5>CHARACTER STATS</h5>
+      This section contains the Handle, Role, Character Points, Stats, Armor, Saves and Wounds.
+      <h6>HANDLE</h6>
+      Enter a name or have one randomly generated.
+      <h6>ROLE</h6>
+      This contains all of the published roles within Cyberpunk 2020. You can select one or randomly roll one. Once chosen, the speical ability for that role will appear in the skill section as well as all role skills being highlighted and have * prepended. Those role skills in which you need to choose between a few options will have @ infront of them.
+      <h6>CHARACTER POINTS</h6>
+      This box has the total number of character points for stats. If the stat total is different, a number will appear next to this box showing the different (black under, red over). You can also generate the Character Points by clicking <fa-icon class="csd-icon-btn" [icon]="faDice"></fa-icon> icon which will also display the dice numbers to the right.
+      <h6>STATS</h6>
+      This is all the various stats and secondary stats. Rolling here will take the value from the CHARACTER POINTS and distribute them points randomly to each of the stats. Clicking on the stat will allow you to modify the base value and add modifiers (say from cyberware) to the stat. The stat have a format of #/#. The number on the left is for the base stat. Number on the right is the modified. Wounds will also apply modifiers as well. This will mark the stat in red.
+      <h6>INITIATIVE</h6>
+      This box is for rolling initiative. Again you can add modifiers to the value to roll it.
+      <h6>ARMOR</h6>
+      This section displays the SP values of armor for the character. Click on <fa-icon class="csd-icon-btn" [icon]="faShieldAlt"></fa-icon> icon to add/edit/remove armor layers.
+      <h6>MANAGE ARMOR</h6>
+      This will open a dialog box to manager the character's armor. Simply add a name for it, the SP values in each location, the EV, and if it is hard armor or skinweave. Once added, check it off to say that it is being used. The 3 layer rule is implemented as well as the EV calculation as per rulebook.
+      <br>"There's a character profile box but I can't add an image. Why?" Well here's the rub. My site doesn't have a data store in the back end (I'm cheap). Which means if you have an image it would be a link to an image out on the interwebs. Now the issue is if you reference an image you don't own, my site will get dinged for it and lawsuits can come my way. That is why it's uneditable.
+    </div>
+    <br>
+    <div style="text-indent: -10px;margin: 10px;">
+      <h5>SKILLS</h5>
+      This section lists all of the characters skills. As mentioned in ROLE above, special ability and the role's skills will be displayed.
+      <br>Skill have 2 number boxes. The first is to enter the skill level. The second is for IP points. The last box is to check off if the skill is chipped. Once a value is enter, the [#] will display the skill level plus the stat.
+      <br>Hovering on a skill name will display the <fa-icon class="csd-icon-btn" [icon]="faDice"></fa-icon> icon so you can make a roll on the skill.
+      <br>REP is to track a character's reputation while IP is to track general IP for the character.
+    </div>
+    <br>
+    <div style="text-indent: -10px;margin: 10px;">
+      <h5>CYBERNETICS</h5>
+      This section is to list the cyberware a character has installed. This will calculate the total Humanity Cost and EB cost of all of the cyberware in the list. Humaity Cost will be subtracted from EMP stat as a modifier.
+      <br>To add new cyberware, click on an empty row or click on the + at the bottom of the list. This will open a dialog box to enter a piece of Cyberware. Enter all the data as you want. Make sure to choose the appropriate Type as this will display that Type's options.
+      <br>If #options is above 0 and the type of Cyberware supports options, then the options section will appear at the bottom. This lists all thhe options available from the book or you can add your own. Simply drag and drop the options you want, up to the #options limit.
+      <br>Once done entering, make sure to click the <fa-icon [icon]="faSave" class="csd-icon-btn"></fa-icon> icon to save the cyberware to the list.
+      <br>You can also randomly generate a piece of cyberware by click on the <fa-icon class="csd-icon-btn" [icon]="faDice"></fa-icon> icon. This will randomly select a piece of Cyberware for you. This is great for creating NPCs or quick characters.
+    </div>
+    <br>
+    <div style="text-indent: -10px;margin: 10px;">
+      <h5>LIFEPATH</h5>
+      This section is the LIFEPATH for the character. To randomly generate a life path, choose the source book you want, check if you want to have an event for every year and/or enter the number of years. If number of years is less than 1, it will randomly generate the years (2-12).
+      <br>Each section in the Life Path is editable with your own values, allowing you to enter existing characters.
+    </div>
+    <br>
+    <div style="text-indent: -10px;margin: 10px;">
+      <h5>GEAR</h5>
+      This section is to catpure all the gear a character has. There is no automation here other than totaling the cost and weight of the items.
+    </div>
+    <br>
+    <div style="text-indent: -10px;margin: 10px;">
+      <h5>NOTES</h5>
+      This section is a place to add any notes about the character.
+    </div>
+    <br>
+    <p>
+      If you see <fa-icon class="csd-icon-btn" [icon]="faDice"></fa-icon> icon, click it to get dice roll for a skill or save, or generate
+      random lifepath.
+    </p>

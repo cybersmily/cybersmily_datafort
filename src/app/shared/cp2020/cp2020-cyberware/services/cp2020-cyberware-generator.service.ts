@@ -25,7 +25,7 @@ export class Cp2020CyberwareGeneratorService {
               list.push(cyber);
             }
           }
-          return list;
+          return list.sort( (a,b) => a.name.localeCompare(b.name));
         })
       );
   }

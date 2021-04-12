@@ -15,6 +15,10 @@
   margin-bottom: 2px;
   margin-right: 4px;
   vertical-align: middle;
+  font-size: 12px;
+}
+.chargen-armor-label .csd-icon-btn {
+  font-size: small;
 }
 
 .chargen-armor-cell {

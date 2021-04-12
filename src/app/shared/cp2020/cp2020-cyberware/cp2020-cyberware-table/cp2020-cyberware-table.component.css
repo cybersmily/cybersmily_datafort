@@ -29,7 +29,7 @@
 }
 
 .cyber-name:hover fa-icon {
-  display: block;
+  display: inline-block;
 }
 
 .cyber-popover {

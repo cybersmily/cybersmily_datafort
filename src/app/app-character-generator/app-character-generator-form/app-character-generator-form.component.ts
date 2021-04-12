@@ -1,7 +1,7 @@
 import { CpPlayerWeaponList } from './../../shared/models/weapon';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { FileLoaderService } from './../../shared/services/file-loader/file-loader.service';
-import { faDice, faUpload, faFilePdf, faSave, faUndo } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faUpload, faFilePdf, faSave, faUndo, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerSkills } from './../../shared/models/cp2020character/cp2020-player-skills';
 import { SaveFileService } from './../../shared/services/save-file.service';
 import { LifePathResults } from './../../shared/models/lifepath/lifepath-results';
@@ -11,9 +11,10 @@ import { Cp2020ArmorBlock } from './../../shared/models/cp2020character/cp2020-a
 import { Cp2020StatBlock } from './../../shared/models/cp2020character/cp2020-stat-block';
 import { Cp2020PlayerCharacter } from './../../shared/models/cp2020character/cp2020-player-character';
 import { Cp2020CharacterGeneratorService } from './../../shared/services/chargen/cp2020-character-generator.service';
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, TemplateRef } from '@angular/core';
 import { Cp2020PlayerRole } from './../../shared/models/cp2020character/cp2020-player-role';
 import { Cp2020characterToPDF } from './../../shared/models/pdf/cp2020characterToPDF';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'cs-app-character-generator-form',
@@ -26,8 +27,15 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   faFilePdf = faFilePdf;
   faSave = faSave;
   faUndo = faUndo;
+  faQuestionCircle = faQuestionCircle;
 
   character: Cp2020PlayerCharacter;
+  modalRef: BsModalRef;
+  config = {
+    keyboard: true,
+    class: 'modal-dialog-centered modal-lg'
+  };
+
 
   @ViewChild('pdfCP2020Character', { static: false })
   pdfCP2020Character: ElementRef;
@@ -36,6 +44,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     private characterService: Cp2020CharacterGeneratorService,
     private saveFileService: SaveFileService,
     private fileLoader: FileLoaderService,
+    private modalService: BsModalService,
     private seo: SeoService
   ) { }
 
@@ -123,6 +132,11 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     this.fileLoader
       .importJSON($event.target.files[0])
       .subscribe((data) => this.characterService.changeCharacter(data));
+  }
+
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, this.config);
   }
 
   get combatSense(): number {

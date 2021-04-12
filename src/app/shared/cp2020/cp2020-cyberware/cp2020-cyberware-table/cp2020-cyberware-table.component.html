@@ -11,14 +11,12 @@
     <div class="col-1 text-center small">COST</div>
   </div>
   <div *ngFor="let cyber of cyberList.items;let i = index" class="csd-cyber-row row">
-    <div class="col cyber-name" [popover]="cyberDetails" [popoverContext]="{ item: cyber}" container="body"
-      placement="left top" triggers="mouseenter:mouseleave:click" containerClass="cyber-popover"
-      [outsideClick]="true">
-      <span class="csd-btn pl-1" (click)="editCyberware(i, cyberEdit)">
+    <div class="col cyber-name" title="{{cyber.notes}}">
+      <span class="csd-btn pl-1"(click)="editCyberware(i, cyberEdit)">
         {{cyber.toString()}}
+      <fa-icon [icon]="faPen" class="csd-btn small ml-1 csd-icon-btn"></fa-icon>
       </span>
-      <fa-icon [icon]="faTrash" class="float-right csd-btn small ml-2" (click)="delete(i)"></fa-icon>
-      <fa-icon [icon]="faPen" class="float-right csd-btn small ml-2" (click)="editCyberware(i, cyberEdit)"></fa-icon>
+      <fa-icon [icon]="faTrash" class="float-right csd-btn small ml-2 csd-icon-btn" (click)="delete(i)" title="Delete Cyberware"></fa-icon>
     </div>
     <div class="col-1 text-center small">{{cyber.totalHL}}</div>
     <div class="col-1 text-right small pr-1">{{cyber.totalCost | number}}</div>
@@ -44,7 +42,7 @@
   </div>
   <div class="modal-body container">
     <cs-cp2020-cyberware-editor [cyberware]="selectedCyberware" [index]="selectedIndex"
-      (changeCybeware)="update($event)"></cs-cp2020-cyberware-editor>
+      (changeCybeware)="update($event)" (deleteCyberware)="deleteFromModal($event)"></cs-cp2020-cyberware-editor>
   </div>
 </ng-template>
 

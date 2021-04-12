@@ -22,11 +22,11 @@ import { AppCharacterHandleComponent } from './app-character-handle/app-characte
 import { AppCharacterRoleComponent } from './app-character-role/app-character-role.component';
 import { AppCharacterArmorComponent } from './app-character-armor/app-character-armor.component';
 import { AppCharacterImageComponent } from './app-character-image/app-character-image.component';
-import { AppCharacterCyberwareComponent } from './app-character-cyberware/app-character-cyberware.component';
 import { AppCharacterLifepathComponent } from './app-character-lifepath/app-character-lifepath.component';
 import { AppCharacterGearComponent } from './app-character-gear/app-character-gear.component';
 import { AppCharacterSkillsComponent } from './app-character-skills/app-character-skills.component';
 import { AppCharacterSkillComponent } from './app-character-skill/app-character-skill.component';
+import { AppCharacterInstructionComponent } from './app-character-instruction/app-character-instruction.component';
 
 @NgModule({
   declarations: [
@@ -35,11 +35,11 @@ import { AppCharacterSkillComponent } from './app-character-skill/app-character-
     AppCharacterRoleComponent,
     AppCharacterArmorComponent,
     AppCharacterImageComponent,
-    AppCharacterCyberwareComponent,
     AppCharacterLifepathComponent,
     AppCharacterGearComponent,
     AppCharacterSkillsComponent,
-    AppCharacterSkillComponent
+    AppCharacterSkillComponent,
+    AppCharacterInstructionComponent
   ],
   imports: [
     CommonModule,

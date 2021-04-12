@@ -1,5 +1,5 @@
 <div class="chargen-section">
-  <table>
+  <table class="mb-2">
     <tr>
       <td class="chargen-label chargen-armor-label">Location</td>
       <td class="chargen-armor-space"></td>
@@ -12,7 +12,9 @@
       <td class="chargen-armor-cell">EV</td>
     </tr>
     <tr>
-      <td class="chargen-label chargen-armor-label">Armor SP</td>
+      <td class="chargen-label chargen-armor-label">Armor SP
+        <fa-icon class="csd-btn csd-icon-btn hidden-print float-right" [icon]="faShieldAlt" (click)="openModal(armorModal)"></fa-icon>
+      </td>
       <td class="chargen-armor-space"></td>
       <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'head'">{{armor.headSP}}</td>
       <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'torso'">{{armor.torsoSP}}</td>
@@ -23,7 +25,6 @@
       <td class="chargen-armor-cell">+{{armor.ev}}</td>
     </tr>
   </table>
-  <button class="btn btn-sm btn-secondary csd-rounded hidden-print" (click)="openModal(armorModal)">Manage Armor</button>
 </div>
 
 <ng-template #armorDamage>

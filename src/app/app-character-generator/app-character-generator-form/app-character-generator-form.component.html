@@ -1,31 +1,17 @@
 <div class="container">
   <div class="hidden-print">
     <h3>Cyberpunk 2020 Character Generator</h3>
-    <p>
-      This is a utility to create a Cyberpunk 2020 character.
-      Here you will be able to create, save, load, and print character sheets.
-      There is still a bit of work to be done, but this should help with starting out with the basics.
-    </p>
-    <p>
-      SAVE/UPLOAD - The data is save into a .txt file.
-      This is the JSON object of the character.
-      If you want to mess with it, back the file up before you edit it.
-      This is a free app and created in my spare time so if you broke it you bought it ;-).
-    </p>
-    <p>PDF - this will export the character sheet to a PDF file. This PDF file cannot be uploaded to the this sheet.
-      You will need to save the file as a txt file has mentioned above.
-    </p>
-    <p>
-      If you see <fa-icon [icon]="faDice"></fa-icon> icon, click it to get dice roll for a skill or save, or generate
-      random lifepath.
-    </p>
   </div>
   <div class="row hidden-print">
     <div class="col-12">
       <hr color="#999999" style="width:100%;">
       <p>
+        <fa-icon [icon]="faQuestionCircle" title="Instructions"
+          class="csd-chargen-btn csd-btn mr-2"
+          (click)="openModal(instructions)"
+          ></fa-icon>
         <fa-icon [icon]="faUndo" title="Reset the sheet to a blank character"
-        class="csd-chargen-btn csd-btn"
+        class="csd-chargen-btn csd-btn ml-2"
         (click)="resetCharacter()"
         ></fa-icon>
 
@@ -94,3 +80,15 @@
     </div>
   </div>
 </div>
+
+<ng-template #instructions>
+  <div class="modal-header">
+    <h4>CHARACTER GENERATOR CP2020 INSTRUCTIONS</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <cs-app-character-instruction></cs-app-character-instruction>
+  </div>
+</ng-template>

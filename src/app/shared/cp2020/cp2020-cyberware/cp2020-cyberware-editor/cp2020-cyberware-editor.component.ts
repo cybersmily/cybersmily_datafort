@@ -2,7 +2,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { DiceService } from './../../../services/dice/dice.service';
 import { Cp2020Surgeries } from './../../../models/cyberware/cp2020-surgeries';
 import { Cp2020Surgery } from './../../../models/cyberware/cp2020-surgery';
-import { faDice, faSave } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faSave, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { CyberDataService } from './../../../services/data/cyber-data.service';
 import { Component, OnInit, Input, Output, EventEmitter, TemplateRef} from '@angular/core';
 import { Cp2020PlayerCyber } from './../../../models/cyberware';
@@ -15,6 +15,8 @@ import { Cp2020PlayerCyber } from './../../../models/cyberware';
 export class Cp2020CyberwareEditorComponent implements OnInit {
   faDice = faDice;
   faSave = faSave;
+  faTrash = faTrash;
+
   modalRef: BsModalRef;
   modalConfig = {
     keyboard: true,
@@ -33,6 +35,9 @@ export class Cp2020CyberwareEditorComponent implements OnInit {
 
   @Output()
   changeCybeware: EventEmitter<{index: number, cyber: Cp2020PlayerCyber}> = new EventEmitter<{index: number, cyber: Cp2020PlayerCyber}>();
+
+  @Output()
+  deleteCyberware: EventEmitter<number> = new EventEmitter<number>();
 
   constructor(private cyberDataService: CyberDataService,
     private diceService: DiceService,
@@ -122,5 +127,9 @@ export class Cp2020CyberwareEditorComponent implements OnInit {
 
   closeModal() {
     this.modalRef.hide();
+  }
+
+  delete() {
+    this.deleteCyberware.emit(this.index);
   }
 }

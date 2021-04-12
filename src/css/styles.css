@@ -11,6 +11,11 @@ INPUT {
   background-color: #ddd;
   color: #333;
 }
+
+.csd-icon-btn {
+  color: red;
+}
+
 .csd-dice {
   color: red;
   cursor: pointer;

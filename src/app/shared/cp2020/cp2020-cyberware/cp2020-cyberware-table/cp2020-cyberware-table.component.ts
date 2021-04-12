@@ -49,6 +49,11 @@ export class Cp2020CyberwareTableComponent implements OnInit {
     this.changeList.emit(this.cyberList);
   }
 
+  deleteFromModal(index: number){
+    this.delete(index);
+    this.modalRef.hide();
+  }
+
   delete(index: number) {
     this.cyberList.items.splice(index, 1);
     this.updateList();
