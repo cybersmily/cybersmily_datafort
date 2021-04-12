@@ -39,8 +39,8 @@
           </cs-app-character-handle>
           <cs-app-character-role [role]="character.role" (changeRole)="changeRole($event)"></cs-app-character-role>
           <cs-cp2020-stats [stats]="character.stats" (changeStats)="changeStats($event)" [combatSense]="combatSense" ></cs-cp2020-stats>
-          <cs-app-character-armor [armor]="character.armor" (changeArmor)="changeArmor($event)">
-          </cs-app-character-armor>
+          <cs-cp2020-armor-table [armor]="character.armor" (changeArmor)="changeArmor($event)">
+          </cs-cp2020-armor-table>
           <cs-cp2020-save-wounds [stats]="character.stats" (changeStats)="changeStats($event)"></cs-cp2020-save-wounds>
         </div>
         <div class="col-sm-12 col-md-6">

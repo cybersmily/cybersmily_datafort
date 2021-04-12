@@ -10,4 +10,5 @@ isHard: boolean;
 isActive: boolean;
 ev: number;
 isSkinWeave: boolean;
+cost?: number;
 }

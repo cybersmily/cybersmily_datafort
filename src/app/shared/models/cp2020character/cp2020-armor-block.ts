@@ -1,3 +1,4 @@
+import { ArmorLayer } from './../armor/armor-layer';
 import { ArmorBlock } from '../armor/armor-block';
 import { ProportionalSpTable } from './../armor/proportional-sp-table';
 import { Cp2020ArmorLayer } from './cp2020-armor-layer';
@@ -64,6 +65,13 @@ export class Cp2020ArmorBlock implements ArmorBlock {
 
     get activeLayers(): Array<Cp2020ArmorLayer> {
       return this.layers.filter(l => l.isActive);
+    }
+
+    importLayers(layers: ArmorLayer[]) {
+      this.layers = new Array<Cp2020ArmorLayer>();
+      layers.forEach( layer => {
+        this.layers.push(new Cp2020ArmorLayer(layer));
+      });
     }
 
     addLayer(layer: Cp2020ArmorLayer) {

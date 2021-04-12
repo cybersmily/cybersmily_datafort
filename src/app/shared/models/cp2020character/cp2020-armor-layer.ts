@@ -12,6 +12,7 @@ export class Cp2020ArmorLayer  implements ArmorLayer {
   isActive: boolean;
   ev: number;
   isSkinWeave: boolean;
+  cost: number;
 
   constructor(param?: any) {
     this.name = (param && param.name) ? param.name : '';
@@ -25,5 +26,6 @@ export class Cp2020ArmorLayer  implements ArmorLayer {
     this.isActive = (param && param.isActive) ? param.isActive : false;
     this.ev = (param && param.ev) ? param.ev : 0;
     this.isSkinWeave = (param && param.isSkinWeave) ? param.isSkinWeave : false;
+    this.cost = (param && param.cost) ? param.cost : 0;
   }
 }

@@ -20,7 +20,7 @@ export class CmbtTrckArmorComponent implements OnInit {
   @Output()
   changeArmorBlock = new EventEmitter<Cp2020ArmorBlock>();
 
-  newArmorLayer: ArmorLayer = new Cp2020ArmorLayer();
+  newArmorLayer: Cp2020ArmorLayer = new Cp2020ArmorLayer();
 
   constructor(private oppCharts: CmbtTrckOppChartService) { }
 
