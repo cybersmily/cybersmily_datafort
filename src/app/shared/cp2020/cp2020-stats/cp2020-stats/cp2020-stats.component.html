@@ -1,54 +1,54 @@
 <div class="chargen-section row">
   <div *ngIf="showCharacterPoints" class="col">
-      <span class="chargen-label">CHARACTER POINTS</span>
-      <input [(ngModel)]="stats.BasePoints" (change)="onStatChange()" type="number" min="0" max="90"
-        class="chargen-input chargen-charpoint-input " />
-      <span *ngIf="stats.CurrentPoints !== 0"
-        [ngClass]="{'chargen-stats-over':isOver, 'chargen-stats-current':true}">{{stats.CurrentPoints}}</span>
-      <span class="hidden-print">
-        <fa-icon [icon]="faDice" class="chargen-point-dice" (click)="rollCharacterPoints()"
-          title="Roll for character points. Rolls 9d10, rerolling 1s."></fa-icon>
-        rolls: [{{rolls}}]
-      </span>
-    </div>
+    <span class="chargen-label">CHARACTER POINTS</span>
+    <input [(ngModel)]="stats.BasePoints" (change)="onStatChange()" type="number" min="0" max="90"
+      class="chargen-input chargen-charpoint-input " />
+    <span *ngIf="stats.CurrentPoints !== 0"
+      [ngClass]="{'chargen-stats-over':isOver, 'chargen-stats-current':true}">{{stats.CurrentPoints}}</span>
+    <span class="hidden-print">
+      <fa-icon [icon]="faDice" class="chargen-point-dice" (click)="rollCharacterPoints()"
+        title="Roll for character points. Rolls 9d10, rerolling 1s."></fa-icon>
+      rolls: [{{rolls}}]
+    </span>
+  </div>
 </div>
 <div class="chargen-section row">
   <div class="col">
-  <div class="chargen-label chargen-stats">STATS<fa-icon class="csd-dice ml-2" [icon]="faDice" (click)="rollStats()">
-    </fa-icon>
+    <div class="chargen-label chargen-stats">STATS<fa-icon class="csd-dice ml-2" [icon]="faDice" (click)="rollStats()">
+      </fa-icon>
+    </div>
   </div>
-</div>
-<div class="col">
-  <span class=" chargen-label">
-    Initiative&nbsp;&nbsp;
-    <fa-icon *ngIf="showRollInitiative"
-    [icon]="faDice" class="csd-dice hidden-print" (click)="openModal(initiative, true)"></fa-icon>
-</span>
-  <span class="stats-initiative csd-btn" (click)="openModal(initiative, false)">{{totalInitiative}}</span>
-</div>
-</div>
-<div class="chargen-stat-section row">
-  <div class="col">
-  <cs-cp2020-stat [stat]="stats.INT" [statName]="'INT'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
-  <cs-cp2020-stat [stat]="stats.REF" [statName]="'REF'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
-  <cs-cp2020-stat [stat]="stats.TECH" [statName]="'TECH'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
-  <cs-cp2020-stat [stat]="stats.COOL" [statName]="'COOL'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
-</div>
-</div>
-<div class="chargen-stat-section row">
-  <div class="col">
-  <cs-cp2020-stat [stat]="stats.ATTR" [statName]="'ATTR'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
-  <cs-cp2020-stat [stat]="stats.LUCK" [statName]="'LUCK'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
-  <cs-cp2020-stat [stat]="stats.MA" [statName]="'MA'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
-  <cs-cp2020-stat [stat]="stats.BODY" [statName]="'BODY'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+  <div *ngIf="showRollInitiative" class="col">
+    <span class=" chargen-label">
+      Initiative&nbsp;&nbsp;
+      <fa-icon *ngIf="showRollInitiative" [icon]="faDice" class="csd-dice hidden-print"
+        (click)="openModal(initiative, true)"></fa-icon>
+    </span>
+    <span class="stats-initiative csd-btn" (click)="openModal(initiative, false)">{{totalInitiative}}</span>
   </div>
 </div>
 <div class="chargen-stat-section row">
   <div class="col">
-  <cs-cp2020-stat [stat]="stats.EMP" [statName]="'EMP'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
-  Run [{{stats.Run}}m]
-  Leap [{{stats.Leap}}m]
-  Lift[{{stats.Lift}}kg]
+    <cs-cp2020-stat [stat]="stats.INT" [statName]="'INT'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+    <cs-cp2020-stat [stat]="stats.REF" [statName]="'REF'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+    <cs-cp2020-stat [stat]="stats.TECH" [statName]="'TECH'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+    <cs-cp2020-stat [stat]="stats.COOL" [statName]="'COOL'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+  </div>
+</div>
+<div class="chargen-stat-section row">
+  <div class="col">
+    <cs-cp2020-stat [stat]="stats.ATTR" [statName]="'ATTR'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+    <cs-cp2020-stat [stat]="stats.LUCK" [statName]="'LUCK'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+    <cs-cp2020-stat [stat]="stats.MA" [statName]="'MA'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+    <cs-cp2020-stat [stat]="stats.BODY" [statName]="'BODY'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+  </div>
+</div>
+<div class="chargen-stat-section row">
+  <div class="col">
+    <cs-cp2020-stat [stat]="stats.EMP" [statName]="'EMP'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+    Run [{{stats.Run}}m]
+    Leap [{{stats.Leap}}m]
+    Lift[{{stats.Lift}}kg]
   </div>
 </div>
 

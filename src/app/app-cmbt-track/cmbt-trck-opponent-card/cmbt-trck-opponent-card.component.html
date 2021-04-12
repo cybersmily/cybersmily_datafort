@@ -36,12 +36,17 @@
   </div>
   <div class='row'>
     <div class='col-12'>
+  <cs-cp2020-stats [stats]="currOpponent.stats" [showCharacterPoints]="false" [showRollInitiative]="false" (changeStats)="onStatBlockChange($event)"></cs-cp2020-stats>
+</div>
+</div>
+<div class='row'>
+    <div class='col-12'>
       <cs-cp2020-save-wounds [stats]="currOpponent.stats" (changeStats)="onStatBlockChange($event)"></cs-cp2020-save-wounds>
     </div>
   </div>
   <div class='row'>
     <div class='col-12'>
-      <cs-cmbt-trk-sp [armor]="currOpponent.armor" (updateArmor)="changeArmor($event)"></cs-cmbt-trk-sp>
+      <cs-cp2020-armor-table [armor]="currOpponent.armor" (changeArmor)="changeArmor($event)"></cs-cp2020-armor-table>
     </div>
   </div>
   <tabset>
@@ -55,12 +60,6 @@
         [handle]="currOpponent.name"
         >
         </cs-cp2020weapon-calculator>
-        <br>
-      </div>
-    </tab>
-    <tab heading="STATS" [customClass]="customClass">
-      <div class="csd-rounded">
-        <cs-cp2020-stats [stats]="currOpponent.stats" [showCharacterPoints]="false" [showRollInitiative]="false" (changeStats)="onStatBlockChange($event)"></cs-cp2020-stats>
         <br>
       </div>
     </tab>
@@ -87,12 +86,6 @@
             [showCalculator]="false"
             (changeWeapons)="changeWeapons($event)">
           </cs-cp2020weapontable>
-        <br>
-      </div>
-    </tab>
-    <tab heading="ARMOR" [customClass]="customClass">
-      <div class="csd-rounded">
-        <cs-cmbt-trck-armor [armorBlock]="currOpponent.armor" (changeArmorBlock)="changeArmor($event)"></cs-cmbt-trck-armor>
         <br>
       </div>
     </tab>

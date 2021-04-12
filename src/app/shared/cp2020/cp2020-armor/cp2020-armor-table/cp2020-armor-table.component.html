@@ -40,6 +40,7 @@
 <ng-template #armorModal>
     <div class="modal-header">
       <h4 id="armor-modal-name" class="modal-title pull-left">Armor Manager</h4>
+      <fa-icon [icon]="faDice" [ngClass]="{'csd-btn': true, 'csd-dice':true, 'd-none':!showRandom}" (click)="generate()"></fa-icon>
       <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
         <span aria-hidden="true">&times;</span>
       </button>

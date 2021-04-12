@@ -1,3 +1,4 @@
+import { ArmorDataService } from './../../services/data/armor-data.service';
 import { DiceService } from './../../services/dice/dice.service';
 import { CommonUiModule } from './../../modules/common-ui/common-ui.module';
 import { NgModule } from '@angular/core';
@@ -15,7 +16,8 @@ import { Cp2020ArmorTableComponent } from './cp2020-armor-table/cp2020-armor-tab
     CommonUiModule
   ],
   providers: [
-    DiceService
+    DiceService,
+    ArmorDataService
   ],
   exports: [
     Cp2020ArmorTableComponent

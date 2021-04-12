@@ -21,7 +21,6 @@ import { AppCharacterGeneratorRoutingModule } from './app-character-generator-ro
 import { AppCharacterGeneratorFormComponent } from './app-character-generator-form/app-character-generator-form.component';
 import { AppCharacterHandleComponent } from './app-character-handle/app-character-handle.component';
 import { AppCharacterRoleComponent } from './app-character-role/app-character-role.component';
-import { AppCharacterArmorComponent } from './app-character-armor/app-character-armor.component';
 import { AppCharacterImageComponent } from './app-character-image/app-character-image.component';
 import { AppCharacterLifepathComponent } from './app-character-lifepath/app-character-lifepath.component';
 import { AppCharacterGearComponent } from './app-character-gear/app-character-gear.component';
@@ -34,7 +33,6 @@ import { AppCharacterInstructionComponent } from './app-character-instruction/ap
     AppCharacterGeneratorFormComponent,
     AppCharacterHandleComponent,
     AppCharacterRoleComponent,
-    AppCharacterArmorComponent,
     AppCharacterImageComponent,
     AppCharacterLifepathComponent,
     AppCharacterGearComponent,

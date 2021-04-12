@@ -1,6 +1,6 @@
 export class Cp2020Stat {
   private _value: number;
-  private _adjusted: number;
+  private _adjusted?: number;
   private _multiplier?: number;
   private _woundMod: number;
   private _ev: number;
@@ -72,6 +72,33 @@ export class Cp2020Stat {
 
     return str;
   }
+
+  export(): cpStat {
+    return {
+      Base: this._value,
+      ev: this._ev,
+      Multiplier: this._multiplier,
+      WoundModifier: this._woundMod,
+      modifiers: this.modifiers
+    };
+  }
+
+  import( stat: cpStat) {
+    this._value = stat.Base;
+    this._ev = stat.ev;
+    this._multiplier = stat.Multiplier;
+    this._woundMod = stat.WoundModifier;
+    this.modifiers = stat.modifiers;
+  }
+}
+
+export interface cpStat {
+  Base: number;
+  ev: number;
+  Multiplier: number;
+  WoundModifier: number;
+  modifiers: Array<StatModifier>;
+
 }
 
 export interface StatModifier {

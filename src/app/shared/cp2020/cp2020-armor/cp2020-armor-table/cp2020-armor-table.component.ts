@@ -1,6 +1,8 @@
+import { DiceService } from './../../../services/dice/dice.service';
+import { ArmorDataService } from './../../../services/data/armor-data.service';
 import { Cp2020ArmorLayer } from './../../../models/cp2020character/cp2020-armor-layer';
 import { Cp2020ArmorBlock } from './../../../models/cp2020character/cp2020-armor-block';
-import { faShieldAlt, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faShieldAlt, faPlus, faTrash, faDice } from '@fortawesome/free-solid-svg-icons';
 import { Component, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
@@ -13,6 +15,7 @@ export class Cp2020ArmorTableComponent implements OnInit {
   faShieldAlt = faShieldAlt;
   faPlus = faPlus;
   faTrash = faTrash;
+  faDice = faDice;
 
   modalRef: BsModalRef;
   modalConfig = {
@@ -23,6 +26,9 @@ export class Cp2020ArmorTableComponent implements OnInit {
   @Input()
   armor = new Cp2020ArmorBlock();
 
+  @Input()
+  showRandom = false;
+
   @Output()
   changeArmor = new EventEmitter<Cp2020ArmorBlock>();
 
@@ -30,7 +36,9 @@ export class Cp2020ArmorTableComponent implements OnInit {
   selectedLocation = '';
   spDamage = 0;
 
-  constructor(private modalService: BsModalService) { }
+  constructor(private modalService: BsModalService,
+    private armorService: ArmorDataService,
+    private diceService: DiceService) { }
 
   ngOnInit() {
   }
@@ -77,5 +85,13 @@ export class Cp2020ArmorTableComponent implements OnInit {
   damage() {
     this.armor.damageSP(this.selectedLocation, this.spDamage);
     this.onChangeArmor();
+  }
+
+  generate() {
+    this.armorService.generateArmorLayer(this.diceService)
+    .subscribe( layer => {
+      this.armor.addLayer(layer);
+      this.onChangeArmor();
+    });
   }
 }
