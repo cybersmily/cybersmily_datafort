@@ -3,7 +3,7 @@ import { MaxMetalOption } from './max-metal-option';
 import { MaxMetalVehSpeed } from './max-metal-veh-speed';
 import { MaxMetalVehSdp } from './max-metal-veh-sdp';
 import { MaxMetalVehStat } from './max-metal-veh-stat';
-import { MaxMetalWeapon, MaxMetalWeaponList } from '../weapon';
+import { MaxMetalWeapon, MaxMetalWeaponList } from './../../cp2020/cp2020weapons/models';
 import { VehicleType } from './vehicle-type';
 
 export class MaxMetalVehicle {

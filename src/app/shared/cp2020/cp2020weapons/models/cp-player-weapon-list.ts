@@ -1,4 +1,4 @@
-import { DiceService } from './../../services/dice/dice.service';
+import { DiceService } from './../../../services/dice/dice.service';
 import { DataWeapon } from './data-weapon';
 import { CpPlayerWeapon } from './cp-player-weapon';
 export class CpPlayerWeaponList {

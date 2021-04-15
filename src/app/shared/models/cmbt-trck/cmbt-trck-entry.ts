@@ -1,5 +1,5 @@
 import { ArmorLayer } from '../armor/armor-layer';
-import { CpWeapon } from '../weapon/cp-weapon';
+import { CpWeapon } from '../../cp2020/cp2020weapons/models';
 
 export interface CmbtTrckEntry {
   name: string;

@@ -1,6 +1,6 @@
 import { Ammo } from './ammo';
 import { BaseWeapon } from './base-weapon';
-import { SourceBook } from '../sourcebook';
+import { SourceBook } from './../../../models/sourcebook';
 /**
  * Cyberpunk Weapon stats.
  * @export

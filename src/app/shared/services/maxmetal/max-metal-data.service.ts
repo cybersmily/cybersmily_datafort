@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 import {
         MaxMetalWeaponCategory,
         MaxMetalWeaponMount,
-        VehicleWeapon } from './../../models/weapon';
+        VehicleWeapon } from './../../cp2020/cp2020weapons/models';
 import { MaxMetalOption, VehicleType } from './../../models/maxmetal';
 import { DataService } from '../data.service';
 

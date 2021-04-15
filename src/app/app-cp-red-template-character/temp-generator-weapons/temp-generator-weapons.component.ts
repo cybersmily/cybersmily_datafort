@@ -1,4 +1,4 @@
-import { BaseWeapon } from '../../shared/models/weapon';
+import { BaseWeapon } from '../../shared/cp2020/cp2020weapons/models';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({

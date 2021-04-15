@@ -1,3 +1,5 @@
+import { WeaponcardcolumnComponent } from './weaponcardcolumn/weaponcardcolumn.component';
+import { WeaponcardComponent } from './weaponcard/weaponcard.component';
 import { DiceService } from './../../services/dice/dice.service';
 import { PipesModule } from './../../pipes/pipes.module';
 import { Cp2020weaponComponent } from './cp2020weapon/cp2020weapon.component';
@@ -18,7 +20,9 @@ import { MartialArtsDataService } from '../../services/data/martial-arts-data.se
     Cp2020weaponComponent,
     Cp2020weaponEditorComponent,
     Cp2020weaponSelectorComponent,
-    Cp2020weaponCalculatorComponent
+    Cp2020weaponCalculatorComponent,
+    WeaponcardComponent,
+    WeaponcardcolumnComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +36,9 @@ import { MartialArtsDataService } from '../../services/data/martial-arts-data.se
   exports: [
     Cp2020weapontableComponent,
     Cp2020weaponComponent,
-    Cp2020weaponCalculatorComponent
+    Cp2020weaponCalculatorComponent,
+    WeaponcardComponent,
+    WeaponcardcolumnComponent
   ]
 })
 export class Cp2020weaponsModule { }

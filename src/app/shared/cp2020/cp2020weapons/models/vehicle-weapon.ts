@@ -1,5 +1,5 @@
 import { CpWeapon } from './cp-weapon';
-import { SourceBook } from '../sourcebook';
+import { SourceBook } from '../../../models/sourcebook';
 import { MaxMetalAmmo } from './max-metal-ammo';
 
 export interface VehicleWeapon extends CpWeapon {

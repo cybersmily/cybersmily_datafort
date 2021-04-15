@@ -1,5 +1,5 @@
 import { JsonDataFiles } from './../../shared/json-data-files';
-import { MaxMetalWeaponMount } from '../../shared/models/weapon';
+import { MaxMetalWeaponMount } from '../../shared/cp2020/cp2020weapons/models';
 import { DataService } from './../../shared/services/data.service';
 import { Component, OnInit } from '@angular/core';
 

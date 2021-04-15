@@ -1,4 +1,4 @@
-import { SourceBook } from '../sourcebook';
+import { SourceBook } from './../../../models/sourcebook';
 import { MaxMetalAmmo, MaxMetalWeaponMount, VehicleWeapon } from '.';
 
 export class MaxMetalWeapon implements VehicleWeapon {

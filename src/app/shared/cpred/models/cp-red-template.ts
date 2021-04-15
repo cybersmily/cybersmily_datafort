@@ -1,4 +1,4 @@
-import { BaseWeapon } from '../../models/weapon';
+import { BaseWeapon } from './base-weapon';
 import { CpRedTemplateStatBlock } from './cp-red-template-stat-block';
 import { CpRedTemplateSkill } from './cp-red-template-skill';
 import { CpRedTemplateArmor } from './cp-red-template-armor';

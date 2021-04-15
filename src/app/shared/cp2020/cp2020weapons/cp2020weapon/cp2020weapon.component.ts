@@ -2,7 +2,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Cp2020PlayerSkill } from './../../../models/cp2020character';
 import { DiceService } from './../../../services/dice/dice.service';
 import { faPen, faTrash, faDice, faRedo } from '@fortawesome/free-solid-svg-icons';
-import { CpPlayerWeapon } from './../../../models/weapon/cp-player-weapon';
+import { CpPlayerWeapon } from './../models';
 import { Component, OnInit, Input, TemplateRef, Output, EventEmitter } from '@angular/core';
 
 @Component({

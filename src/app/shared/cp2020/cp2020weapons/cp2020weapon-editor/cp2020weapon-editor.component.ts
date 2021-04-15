@@ -1,5 +1,5 @@
 import { faSave } from '@fortawesome/free-solid-svg-icons';
-import { CpPlayerWeapon, WeaponProperties } from './../../../models/weapon';
+import { CpPlayerWeapon, WeaponProperties } from './../models';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({

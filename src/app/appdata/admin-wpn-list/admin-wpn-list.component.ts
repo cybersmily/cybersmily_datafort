@@ -1,12 +1,12 @@
-import { CPRedWeapon } from './../../shared/models/weapon/c-p-red-weapon';
+import { CPRedWeapon } from './../../shared/cpred/models';
 import { SourceBookList } from './../../shared/models/source-book-list';
-import { WeaponDataService } from './../../shared/services/data/weapon-data.service';
+import { WeaponDataService } from './../../shared/cp2020/cp2020weapons/services';
 import { Component, OnInit } from '@angular/core';
 import { faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
 import {
   DataWeapon,
   WeaponProperties
-} from './../../shared/models/weapon';
+} from './../../shared/cp2020/cp2020weapons/models';
 import { KeyValue } from '@angular/common';
 
 @Component({

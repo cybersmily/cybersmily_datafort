@@ -1,4 +1,4 @@
-import { CpWeapon } from '../../../models/weapon';
+import { CpWeapon } from '../models';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({

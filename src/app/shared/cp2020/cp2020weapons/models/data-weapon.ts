@@ -1,4 +1,4 @@
-import { SourceBook } from './../sourcebook';
+import { SourceBook } from './../../../models/sourcebook';
 import { CpWeapon } from './cp-weapon';
 
 export class DataWeapon implements CpWeapon {

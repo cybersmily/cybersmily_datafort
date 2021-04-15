@@ -7,8 +7,6 @@ export { Cp2020PlayerGear } from './cp2020-player-gear';
 export { Cp2020PlayerRole } from './cp2020-player-role';
 export { Cp2020PlayerSkill } from './cp2020-player-skill';
 export { Cp2020PlayerSkills } from './cp2020-player-skills';
-export { CpPlayerWeapon } from '../weapon';
-
 export { Cp2020Role } from './cp2020-role';
 export { Cp2020Skill } from './cp2020-skill';
 export { Cp2020Stat } from './cp2020-stat';

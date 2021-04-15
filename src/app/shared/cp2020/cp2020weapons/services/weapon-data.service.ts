@@ -1,10 +1,10 @@
-import { JsonDataFiles } from './../../json-data-files';
+import { JsonDataFiles } from './../../../json-data-files';
 import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { DataService } from '../data.service';
-import { SaveFileService } from '../save-file.service';
+import { DataService } from './../../../services/data.service';
+import { SaveFileService } from './../../../services/save-file.service';
 import { Observable, of } from 'rxjs';
-import { DataWeapon } from '../../models/weapon/data-weapon';
+import { DataWeapon } from './../models';
 
 @Injectable({
   providedIn: 'root'

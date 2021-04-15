@@ -1,6 +1,6 @@
 import { WeaponcardComponent } from './../weaponcard/weaponcard.component';
 import { AccordionComponent } from 'ngx-bootstrap/accordion';
-import { WeaponGroup, CpWeapon } from '../../../models/weapon';
+import { WeaponGroup, CpWeapon } from '../models';
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { faAngleDoubleDown, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
 

@@ -1,5 +1,5 @@
 import { SourceBook } from './../../shared/models/sourcebook';
-import { MaxMetalWeaponCategory, MaxMetalWeaponMount, VehicleWeapon, MaxMetalWeapon } from '../../shared/models/weapon';
+import { MaxMetalWeaponCategory, MaxMetalWeaponMount, VehicleWeapon, MaxMetalWeapon } from '../../shared/cp2020/cp2020weapons/models';
 import { MaxMetalDataService, MaxmetalService } from '../../shared/services/maxmetal';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 

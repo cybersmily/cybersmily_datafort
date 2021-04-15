@@ -1,4 +1,4 @@
-import { MaxMetalWeaponCategory } from './../../shared/models/weapon';
+import { MaxMetalWeaponCategory } from './../../shared/cp2020/cp2020weapons/models';
 import { MaxMetalDataService } from './../../shared/services/maxmetal';
 import { Component, OnInit } from '@angular/core';
 import {faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';

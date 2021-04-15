@@ -1,5 +1,5 @@
 import { OppCyberware } from './../../cp2020/cp2020-cyberware/models';
-import { CpPlayerWeapon } from './../../models/weapon';
+import { CpPlayerWeapon } from './../../cp2020/cp2020weapons/models';
 import { CmbtTrckOpponent } from './../../models/cmbt-trck';
 import { Cp2020PlayerCharacter } from './../../models/cp2020character';
 import { Injectable } from '@angular/core';

@@ -1,7 +1,7 @@
 import { faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
 import { SeoService } from './../../shared/services/seo/seo.service';
-import { WeaponDataService } from './../../shared/services/data/weapon-data.service';
-import { DataWeapon, WeaponProperties } from './../../shared/models/weapon';
+import { WeaponDataService } from './../../shared/cp2020/cp2020weapons/services';
+import { DataWeapon, WeaponProperties } from './../../shared/cp2020/cp2020weapons/models';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

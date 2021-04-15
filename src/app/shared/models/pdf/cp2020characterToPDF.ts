@@ -1,7 +1,7 @@
 import { Cp2020PlayerCyberList } from './../../cp2020/cp2020-cyberware/models';
 import { Cp2020PlayerSkills, Cp2020PlayerSkill } from './../cp2020character';
 import { LifePathResults } from './../lifepath/lifepath-results';
-import { CpPlayerWeaponList } from './../weapon/cp-player-weapon-list';
+import { CpPlayerWeaponList } from './../../cp2020/cp2020weapons/models';
 import { Cp2020PlayerGearList } from './../cp2020character/cp2020-player-gear-list';
 import { Cp2020ArmorBlock } from './../cp2020character/cp2020-armor-block';
 import { Cp2020StatBlock } from './../cp2020character/cp2020-stat-block';

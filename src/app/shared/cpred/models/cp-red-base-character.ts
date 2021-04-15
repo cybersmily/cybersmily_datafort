@@ -1,5 +1,5 @@
 import { CPRedLifepath } from './cpred-lifepath';
-import { BaseWeapon } from '../../models/weapon';
+import { BaseWeapon } from './base-weapon';
 import { CpRedBaseStats } from './cp-red-base-stats';
 import { CpRedTemplateArmor } from './cp-red-template-armor';
 export class CpRedBaseCharacter {

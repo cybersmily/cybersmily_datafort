@@ -1,10 +1,10 @@
 import { of } from 'rxjs';
-import { SaveFileService } from './../save-file.service';
-import { DataService } from './../data.service';
+import { SaveFileService } from '../../../services/save-file.service';
+import { DataService } from '../../../services/data.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { WeaponDataService } from './weapon-data.service';
-import { DataWeapon } from '../../models/weapon';
+import { DataWeapon } from './../models';
 
 describe('WeaponDataService', () => {
   let service: WeaponDataService;

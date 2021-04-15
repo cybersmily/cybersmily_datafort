@@ -1,11 +1,10 @@
-import { WeaponDataService } from './../../../services/data/weapon-data.service';
+import { WeaponDataService } from './../services';
 import { DiceService } from './../../../services/dice/dice.service';
-import { CpPlayerWeaponList } from './../../../models/weapon/cp-player-weapon-list';
+import { CpPlayerWeaponList, CpPlayerWeapon } from './../models';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { faDice, faPlus, faCrosshairs } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020StatBlock, Cp2020PlayerSkills } from './../../../models/cp2020character';
 import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
-import { CpPlayerWeapon } from './../../../models/weapon';
 
 @Component({
   selector: 'cs-cp2020weapontable',

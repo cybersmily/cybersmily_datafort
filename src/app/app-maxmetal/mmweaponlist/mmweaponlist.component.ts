@@ -1,4 +1,4 @@
-import { MaxMetalWeapon, MaxMetalWeaponList } from '../../shared/models/weapon';
+import { MaxMetalWeapon, MaxMetalWeaponList } from '../../shared/cp2020/cp2020weapons/models';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({

@@ -1,5 +1,5 @@
-import { CpPlayerWeapon, WeaponProperties, DataWeapon } from './../../../models/weapon';
-import { WeaponDataService } from './../../../services/data/weapon-data.service';
+import { CpPlayerWeapon, WeaponProperties, DataWeapon } from './../models';
+import { WeaponDataService } from './../services';
 import { faPlus, faSave } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 

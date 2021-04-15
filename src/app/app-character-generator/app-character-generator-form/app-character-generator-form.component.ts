@@ -1,5 +1,5 @@
 import { Cp2020PlayerCyberList } from './../../shared/cp2020/cp2020-cyberware/models';
-import { CpPlayerWeaponList } from './../../shared/models/weapon';
+import { CpPlayerWeaponList } from './../../shared/cp2020/cp2020weapons/models';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { FileLoaderService } from './../../shared/services/file-loader/file-loader.service';
 import { faDice, faUpload, faFilePdf, faSave, faUndo, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';

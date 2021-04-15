@@ -1,4 +1,4 @@
-import { MaxMetalWeaponMount } from '../../shared/models/weapon';
+import { MaxMetalWeaponMount } from '../../shared/cp2020/cp2020weapons/models/max-metal-weapon-mount';
 import { Component, OnInit, Input } from '@angular/core';
 import {faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
