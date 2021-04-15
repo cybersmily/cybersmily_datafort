@@ -1,7 +1,7 @@
 import { DiceService } from './../../../services/dice/dice.service';
-import { ArmorDataService } from './../../../services/data/armor-data.service';
-import { Cp2020ArmorLayer } from './../../../models/cp2020character/cp2020-armor-layer';
-import { Cp2020ArmorBlock } from './../../../models/cp2020character/cp2020-armor-block';
+import { ArmorDataService } from './../services/armor-data.service';
+import { Cp2020ArmorLayer } from './../models';
+import { Cp2020ArmorBlock } from './../models';
 import { faShieldAlt, faPlus, faTrash, faDice } from '@fortawesome/free-solid-svg-icons';
 import { Component, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';

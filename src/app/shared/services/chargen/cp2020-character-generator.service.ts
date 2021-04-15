@@ -3,8 +3,8 @@ import { Cp2020PlayerSkills, Cp2020PlayerSkill } from './../../models/cp2020char
 import { LifePathResults } from './../../models/lifepath/lifepath-results';
 import { Cp2020PlayerGearList } from './../../models/cp2020character/cp2020-player-gear-list';
 import { CpPlayerWeaponList, CpPlayerWeapon } from '../../cp2020/cp2020weapons/models';
-import { Cp2020ArmorBlock } from './../../models/cp2020character/cp2020-armor-block';
-import { Cp2020StatBlock } from './../../models/cp2020character/cp2020-stat-block';
+import { Cp2020ArmorBlock } from './../../cp2020/cp2020-armor/models';
+import { Cp2020StatBlock } from '../../cp2020/cp2020-stats/models/cp2020-stat-block';
 import { BehaviorSubject } from 'rxjs';
 import { Cp2020PlayerRole} from './../../models/cp2020character/cp2020-player-role';
 import { Cp2020PlayerCharacter } from '../../models/cp2020character';

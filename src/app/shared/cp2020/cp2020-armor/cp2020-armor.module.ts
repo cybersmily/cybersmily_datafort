@@ -1,4 +1,4 @@
-import { ArmorDataService } from './../../services/data/armor-data.service';
+import { ArmorDataService } from './services/armor-data.service';
 import { DiceService } from './../../services/dice/dice.service';
 import { CommonUiModule } from './../../modules/common-ui/common-ui.module';
 import { NgModule } from '@angular/core';

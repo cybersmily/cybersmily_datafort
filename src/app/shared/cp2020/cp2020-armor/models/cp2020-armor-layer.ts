@@ -1,4 +1,4 @@
-import { ArmorLayer } from './../armor/armor-layer';
+import { ArmorLayer } from './armor-layer';
 
 export class Cp2020ArmorLayer  implements ArmorLayer {
   name: string;

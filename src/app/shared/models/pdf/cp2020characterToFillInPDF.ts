@@ -4,7 +4,7 @@ import { Cp2020PlayerCyberList } from './../cyberware/cp2020-player-cyber-list';
 import { CpPlayerWeaponList } from './../weapon/cp-player-weapon-list';
 import { Cp2020PlayerGearList } from './../cp2020character/cp2020-player-gear-list';
 import { Cp2020ArmorBlock } from './../cp2020character/cp2020-armor-block';
-import { Cp2020StatBlock } from './../cp2020character/cp2020-stat-block';
+import { Cp2020StatBlock } from '../../cp2020/cp2020-stats/models/cp2020-stat-block';
 import { Cp2020PlayerCharacter } from '../cp2020character/cp2020-player-character';
 
 import {AcroFormCheckBox, AcroFormTextField, jsPDF} from 'jspdf';

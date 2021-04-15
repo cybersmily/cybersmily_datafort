@@ -1,6 +1,6 @@
 import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { Cp2020Stat, StatModifier } from './../../../models/cp2020character/cp2020-stat';
+import { Cp2020Stat, StatModifier } from './../models';
 import { Component, Input, OnInit, Output, EventEmitter, TemplateRef } from '@angular/core';
 
 @Component({

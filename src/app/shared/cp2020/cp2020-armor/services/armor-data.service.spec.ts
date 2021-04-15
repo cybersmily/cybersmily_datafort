@@ -1,10 +1,10 @@
 import { of } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { DataService } from './../data.service';
+import { DataService } from '../../../services/data.service';
 import { TestBed } from '@angular/core/testing';
 
 import { ArmorDataService } from './armor-data.service';
-import { Cp2020ArmorLayer } from '../../models/cp2020character';
+import { Cp2020ArmorLayer } from '../../../models/cp2020character';
 
 describe('ArmorDataService', () => {
   let service: ArmorDataService;

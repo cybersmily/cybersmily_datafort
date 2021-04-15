@@ -1,5 +1,5 @@
 import { DiceService } from './../../../services/dice/dice.service';
-import { Cp2020StatBlock } from './../../../models/cp2020character/cp2020-stat-block';
+import { Cp2020StatBlock } from '../../cp2020-stats/models/cp2020-stat-block';
 import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Component, OnInit, TemplateRef, Input, Output, EventEmitter } from '@angular/core';

@@ -2,7 +2,7 @@ import { Cp2020PlayerCyberList } from './../../shared/cp2020/cp2020-cyberware/mo
 import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerSkills } from './../../shared/models/cp2020character/cp2020-player-skills';
 import { Cp2020PlayerRole } from './../../shared/models/cp2020character/cp2020-player-role';
-import { Cp2020StatBlock } from './../../shared/models/cp2020character/cp2020-stat-block';
+import { Cp2020StatBlock } from '../../shared/cp2020/cp2020-stats/models/cp2020-stat-block';
 import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 
 @Component({

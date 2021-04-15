@@ -1,10 +1,10 @@
-import { DiceService } from './../dice/dice.service';
-import { JsonDataFiles } from './../../json-data-files';
+import { DiceService } from './../../../services/dice/dice.service';
+import { JsonDataFiles } from './../../../json-data-files';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-import { DataService } from './../data.service';
+import { DataService } from './../../../services/data.service';
 import { Injectable } from '@angular/core';
-import { Cp2020ArmorLayer } from '../../models/cp2020character/cp2020-armor-layer';
+import { Cp2020ArmorLayer } from './../models';
 
 @Injectable({
   providedIn: 'root'

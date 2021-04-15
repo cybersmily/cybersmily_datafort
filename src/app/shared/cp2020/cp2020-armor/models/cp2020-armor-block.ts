@@ -1,8 +1,7 @@
-import { ArmorLayer } from './../armor/armor-layer';
-import { ArmorBlock } from '../armor/armor-block';
-import { ProportionalSpTable } from './../armor/proportional-sp-table';
 import { Cp2020ArmorLayer } from './cp2020-armor-layer';
-
+import { ArmorLayer } from './armor-layer';
+import {ArmorBlock } from './armor-block';
+import {ProportionalSpTable } from './proportional-sp-table';
 /**
  * Maximum Armor
  *  Now, in addition to Encumberance Values, only a maximum of 31ayers of Armor can

@@ -1,9 +1,10 @@
+import { Cp2020StatBlock } from './../../cp2020-stats/models/cp2020-stat-block';
 import { WeaponDataService } from './../services';
 import { DiceService } from './../../../services/dice/dice.service';
 import { CpPlayerWeaponList, CpPlayerWeapon } from './../models';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { faDice, faPlus, faCrosshairs } from '@fortawesome/free-solid-svg-icons';
-import { Cp2020StatBlock, Cp2020PlayerSkills } from './../../../models/cp2020character';
+import { Cp2020PlayerSkills } from './../../../models/cp2020character';
 import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
 
 @Component({
