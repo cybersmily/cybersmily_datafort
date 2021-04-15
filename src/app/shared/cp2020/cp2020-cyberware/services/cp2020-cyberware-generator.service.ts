@@ -1,10 +1,9 @@
-import { Cp2020RandomCyberEntry } from './../../../models/cyberware/cp2020-random-cyber-entry';
 import { JsonDataFiles } from './../../../json-data-files';
 import { map } from 'rxjs/operators';
 import { DataService } from './../../../services/data.service';
 import { DiceService } from './../../../services/dice/dice.service';
 import { Observable } from 'rxjs';
-import { Cp2020PlayerCyber } from './../../../models/cyberware/cp2020-player-cyber';
+import { Cp2020PlayerCyber, Cp2020RandomCyberEntry } from './../models';
 import { Injectable } from '@angular/core';
 
 @Injectable({

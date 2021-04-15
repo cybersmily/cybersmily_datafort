@@ -1,3 +1,4 @@
+import { Cp2020PlayerCyberList } from './../../shared/cp2020/cp2020-cyberware/models';
 import { CpPlayerWeaponList } from './../../shared/models/weapon';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { FileLoaderService } from './../../shared/services/file-loader/file-loader.service';
@@ -6,7 +7,6 @@ import { Cp2020PlayerSkills } from './../../shared/models/cp2020character/cp2020
 import { SaveFileService } from './../../shared/services/save-file.service';
 import { LifePathResults } from './../../shared/models/lifepath/lifepath-results';
 import { Cp2020PlayerGearList } from './../../shared/models/cp2020character/cp2020-player-gear-list';
-import { Cp2020PlayerCyberList } from '../../shared/models/cyberware/cp2020-player-cyber-list';
 import { Cp2020ArmorBlock } from './../../shared/models/cp2020character/cp2020-armor-block';
 import { Cp2020StatBlock } from './../../shared/models/cp2020character/cp2020-stat-block';
 import { Cp2020PlayerCharacter } from './../../shared/models/cp2020character/cp2020-player-character';

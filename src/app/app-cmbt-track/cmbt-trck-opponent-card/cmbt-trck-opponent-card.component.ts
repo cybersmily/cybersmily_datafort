@@ -1,8 +1,8 @@
+import { OppCyberware } from './../../shared/cp2020/cp2020-cyberware/models';
 import { OpponentTrackerService } from './../services/opponent-tracker.service';
 import { CpPlayerWeaponList } from './../../shared/models/weapon/cp-player-weapon-list';
 import { CmbtTrckOpponent, CmbtTrckOppSelection, CmbtTrckTemplate } from '../../shared/models/cmbt-trck';
 import { OppTemplateService } from './../services/opp-template.service';
-import { OppCyberware } from './../../shared/models/cyberware';
 import { DataSkill } from './../../shared/models/data/data-skill';
 import { Cp2020ArmorBlock, Cp2020ArmorLayer, Cp2020Role, Cp2020PlayerSkill, Cp2020StatBlock} from './../../shared/models/cp2020character';
 import { SkillListService } from './../../shared/services/data/skill-list.service';

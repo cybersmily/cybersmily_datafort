@@ -1,6 +1,6 @@
+import { DataCyberware } from './../../../cp2020/cp2020-cyberware/models/data-cyberware';
 import { CyberwareCardComponent } from './../cyberware-card/cyberware-card.component';
 import { Component, OnInit, Input } from '@angular/core';
-import { DataCyberware } from './../../../models/cyberware';
 
 @Component({
   selector: 'cs-cyberwarecardcolumn',

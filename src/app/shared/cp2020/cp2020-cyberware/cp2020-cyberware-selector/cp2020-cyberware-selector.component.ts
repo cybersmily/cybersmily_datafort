@@ -1,9 +1,8 @@
 import { DiceService } from './../../../services/dice/dice.service';
-import { Cp2020PlayerCyber } from './../../../models/cyberware/cp2020-player-cyber';
+import { Cp2020PlayerCyber, DataCyberware } from './../models';
 import { faSave, faTrash, faPlus, faDice } from '@fortawesome/free-solid-svg-icons';
-import { CyberDataService } from './../../../services/data/cyber-data.service';
+import { CyberDataService } from './../services';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { DataCyberware } from './../../../models/cyberware';
 
 @Component({
   selector: 'cs-cp2020-cyberware-selector',

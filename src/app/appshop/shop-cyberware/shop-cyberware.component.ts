@@ -1,9 +1,8 @@
+import { DataCyberware } from './../../shared/cp2020/cp2020-cyberware/models';
 import { JsonDataFiles } from './../../shared/json-data-files';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { DataService } from './../../shared/services/data.service';
 import { Component, OnInit } from '@angular/core';
-import { DataCyberware } from '../../shared/models/cyberware';
-
 
 @Component({
   selector: 'cs-shop-cyberware',

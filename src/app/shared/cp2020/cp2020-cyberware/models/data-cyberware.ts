@@ -1,4 +1,4 @@
-import { SourceBook } from './../sourcebook';
+import { SourceBook } from './../../../models/sourcebook';
 import { BaseCyberware } from './baseCyberware';
 
 export class DataCyberware implements BaseCyberware {

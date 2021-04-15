@@ -1,6 +1,7 @@
+import { CyberDataService } from './../shared/cp2020/cp2020-cyberware/services';
+import { Cp2020CyberwareModule } from './../shared/cp2020/cp2020-cyberware/cp2020-cyberware.module';
 import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';
 import { PipesModule } from './../shared/pipes/pipes.module';
-import { CyberDataService } from './../shared/services/data/cyber-data.service';
 import { DataService } from './../shared/services/data.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -27,6 +28,7 @@ import { WpnListComponent } from './wpn-list/wpn-list.component';
     CommonModule,
     CommonUiModule,
     WeaponModule,
+    Cp2020CyberwareModule,
     DataSectionRoutingModule,
     PipesModule
   ],

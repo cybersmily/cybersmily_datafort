@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { DataService } from './../data.service';
+import { DataService } from '../../../services/data.service';
 import { TestBed } from '@angular/core/testing';
 
 import { CyberDataService } from './cyber-data.service';

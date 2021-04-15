@@ -1,6 +1,6 @@
+import { DataCyberware } from './../../shared/cp2020/cp2020-cyberware/models/data-cyberware';
 import { JsonDataFiles } from './../../shared/json-data-files';
 import { SeoService } from './../../shared/services/seo/seo.service';
-import { DataCyberware } from './../../shared/models/cyberware';
 import { Gear, CyberDeck } from './../../shared/models/gear';
 import { DataService } from './../../shared/services/data.service';
 import { Component, OnInit, ViewChild } from '@angular/core';

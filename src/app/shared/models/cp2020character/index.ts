@@ -2,8 +2,6 @@ export { Cp2020ArmorLayer } from './cp2020-armor-layer';
 export { Cp2020ArmorBlock } from './cp2020-armor-block';
 
 export { Cp2020PlayerCharacter } from './cp2020-player-character';
-export { Cp2020PlayerCyberList } from '../cyberware/cp2020-player-cyber-list';
-export { Cp2020PlayerCyber } from '../cyberware/cp2020-player-cyber';
 export { Cp2020PlayerGearList } from './cp2020-player-gear-list';
 export { Cp2020PlayerGear } from './cp2020-player-gear';
 export { Cp2020PlayerRole } from './cp2020-player-role';

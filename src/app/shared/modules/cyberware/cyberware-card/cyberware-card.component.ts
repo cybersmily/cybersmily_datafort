@@ -1,5 +1,5 @@
+import { DataCyberware } from './../../../cp2020/cp2020-cyberware/models';
 import { Component, OnInit, Input } from '@angular/core';
-import { DataCyberware } from './../../../models/cyberware';
 
 @Component({
   selector: 'cs-cyberware-card',

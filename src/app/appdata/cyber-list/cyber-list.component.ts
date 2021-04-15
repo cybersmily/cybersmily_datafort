@@ -1,7 +1,7 @@
+import { DataCyberware } from './../../shared/cp2020/cp2020-cyberware/models';
+import { CyberDataService } from './../../shared/cp2020/cp2020-cyberware/services';
 import { faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
 import { SeoService } from './../../shared/services/seo/seo.service';
-import { DataCyberware } from '../../shared/models/cyberware/data-cyberware';
-import { CyberDataService } from './../../shared/services/data/cyber-data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

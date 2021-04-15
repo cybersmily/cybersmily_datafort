@@ -1,5 +1,5 @@
+import { OppCyberware } from './../../shared/cp2020/cp2020-cyberware/models';
 import { JsonDataFiles } from './../../shared/json-data-files';
-import { OppCyberware } from './../../shared/models/cyberware';
 import { CpPlayerWeapon } from './../../shared/models/weapon';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { CmbtTrckEntry, CmbtTrckCharts} from '../../shared/models/cmbt-trck';

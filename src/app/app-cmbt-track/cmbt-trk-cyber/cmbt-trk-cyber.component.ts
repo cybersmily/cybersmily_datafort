@@ -1,6 +1,6 @@
+import { OppCyberware } from './../../shared/cp2020/cp2020-cyberware/models';
 import { faDice, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { CmbtTrckOppChartService } from './../services/cmbt-trck-opp-chart.service';
-import { OppCyberware } from './../../shared/models/cyberware';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({

@@ -1,9 +1,7 @@
 import { CacheKeys } from './../../cache-keys';
-import { Cp2020PlayerCyber } from './../../models/cyberware/cp2020-player-cyber';
 import { Cp2020PlayerSkills, Cp2020PlayerSkill } from './../../models/cp2020character';
 import { LifePathResults } from './../../models/lifepath/lifepath-results';
 import { Cp2020PlayerGearList } from './../../models/cp2020character/cp2020-player-gear-list';
-import { Cp2020PlayerCyberList } from '../../models/cyberware/cp2020-player-cyber-list';
 import { CpPlayerWeaponList, CpPlayerWeapon } from '../../models/weapon';
 import { Cp2020ArmorBlock } from './../../models/cp2020character/cp2020-armor-block';
 import { Cp2020StatBlock } from './../../models/cp2020character/cp2020-stat-block';
@@ -11,6 +9,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Cp2020PlayerRole} from './../../models/cp2020character/cp2020-player-role';
 import { Cp2020PlayerCharacter } from '../../models/cp2020character';
 import { Injectable } from '@angular/core';
+import { Cp2020PlayerCyber, Cp2020PlayerCyberList } from '../../cp2020/cp2020-cyberware/models';
 
 @Injectable({
   providedIn: 'root',

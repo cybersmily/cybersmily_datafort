@@ -1,11 +1,9 @@
+import { CyberDataService } from './../services';
+import { Cp2020PlayerCyber, Cp2020Surgery, Cp2020Surgeries } from './../models';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { DiceService } from './../../../services/dice/dice.service';
-import { Cp2020Surgeries } from './../../../models/cyberware/cp2020-surgeries';
-import { Cp2020Surgery } from './../../../models/cyberware/cp2020-surgery';
 import { faDice, faSave, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { CyberDataService } from './../../../services/data/cyber-data.service';
 import { Component, OnInit, Input, Output, EventEmitter, TemplateRef} from '@angular/core';
-import { Cp2020PlayerCyber } from './../../../models/cyberware';
 
 @Component({
   selector: 'cs-cp2020-cyberware-editor',

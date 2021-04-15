@@ -1,14 +1,12 @@
-import { JsonDataFiles } from './../../json-data-files';
-import { SaveFileService } from './../save-file.service';
-import { DataCyberware, Cp2020PlayerCyber } from './../../models/cyberware';
+import { JsonDataFiles } from './../../../json-data-files';
+import { SaveFileService } from './../../../services/save-file.service';
+import { DataService } from './../../../services/data.service';
+import { DataCyberware, Cp2020PlayerCyber } from './../models';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-import { DataService } from './../data.service';
 import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CyberDataService {
 
   private _cyberwareList: Array<DataCyberware>;
@@ -26,7 +24,7 @@ export class CyberDataService {
         this._cyberwareList = data;
         return this._cyberwareList;
       }),
-      map (results => {
+      map ( (results: Array<DataCyberware>) => {
         return results.sort( (a, b) => {
         if (a.type === b.type) {
           if (a.subtype === b.subtype) {
@@ -57,7 +55,7 @@ export class CyberDataService {
         this._cyberwareList = data;
         return this.getfilterOptions(type);
       }),
-      map (results => {
+      map ((results: Array<DataCyberware>) => {
         return results.sort( (a, b) => {
         if (a.type === b.type) {
           if (a.subtype === b.subtype) {

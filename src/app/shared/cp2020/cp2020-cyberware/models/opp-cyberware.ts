@@ -1,4 +1,3 @@
-import { SourceBook } from './../sourcebook';
 import { BaseCyberware } from './baseCyberware';
 export class OppCyberware implements BaseCyberware {
   name: string;
