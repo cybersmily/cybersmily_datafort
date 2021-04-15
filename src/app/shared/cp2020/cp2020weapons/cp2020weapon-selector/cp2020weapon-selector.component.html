@@ -13,6 +13,7 @@
     <fa-icon [icon]="faSave" [ngClass]="{'csd-btn float-right btn-lg': true, 'csd-disabled': isListEmpty()}" (click)="saveList()" title="Save selected weapons"></fa-icon>
   </div>
 </div>
+<div class="cs-wpn-selector-list">
 <ng-container *ngFor="let wpn of wpnList | contains:'name':searchTerm | filter:'category':searchCategory">
   <div class="row" >
     <div class="col-1"><input type="number" (change)="selected($event, wpn.name)" [value]="getCount(wpn.name)" min="0" class="wpn-count"/></div>
@@ -26,3 +27,4 @@
     </div>
   </div>
 </ng-container>
+</div>
