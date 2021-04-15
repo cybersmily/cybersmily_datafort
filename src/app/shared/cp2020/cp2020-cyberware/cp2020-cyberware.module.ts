@@ -1,3 +1,5 @@
+import { CyberwareCardComponent } from './cyberware-card/cyberware-card.component';
+import { CyberwareCardColumnComponent } from './cyberware-card-column/cyberware-card-column.component';
 import { Cp2020CyberwareGeneratorService, CyberDataService } from './services';
 import { DataService } from './../../services/data.service';
 import { PipesModule } from './../../pipes/pipes.module';
@@ -10,6 +12,8 @@ import { Cp2020CyberwareSelectorComponent } from './cp2020-cyberware-selector/cp
 import { Cp2020CyberwareEditorComponent } from './cp2020-cyberware-editor/cp2020-cyberware-editor.component';
 @NgModule({
   declarations: [
+    CyberwareCardComponent,
+    CyberwareCardColumnComponent,
     Cp2020CyberwareTableComponent,
     Cp2020CyberwareSelectorComponent,
     Cp2020CyberwareEditorComponent
@@ -26,6 +30,8 @@ import { Cp2020CyberwareEditorComponent } from './cp2020-cyberware-editor/cp2020
     Cp2020CyberwareGeneratorService
   ],
   exports: [
+    CyberwareCardComponent,
+    CyberwareCardColumnComponent,
     Cp2020CyberwareTableComponent,
     Cp2020CyberwareSelectorComponent,
     Cp2020CyberwareEditorComponent

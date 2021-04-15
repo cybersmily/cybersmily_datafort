@@ -1,3 +1,4 @@
+import { Cp2020CyberwareModule } from './../shared/cp2020/cp2020-cyberware/cp2020-cyberware.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -6,13 +7,12 @@ import { ShopCyberwareComponent } from './shop-cyberware/shop-cyberware.componen
 import { ShopGearComponent } from './shop-gear/shop-gear.component';
 import { ShopOtherComponent } from './shop-other/shop-other.component';
 
-import { CyberwareModule } from './../shared/modules/cyberware/cyberware.module';
 import { GearModule } from './../shared/modules/gear/gear.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    CyberwareModule,
+    Cp2020CyberwareModule,
     GearModule,
     ShopSectionRoutingModule
   ],

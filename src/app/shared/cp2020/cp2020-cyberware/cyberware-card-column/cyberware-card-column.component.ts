@@ -1,5 +1,4 @@
-import { DataCyberware } from './../../../cp2020/cp2020-cyberware/models/data-cyberware';
-import { CyberwareCardComponent } from './../cyberware-card/cyberware-card.component';
+import { DataCyberware } from '../models/data-cyberware';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({

@@ -1,4 +1,4 @@
-import { DataCyberware } from './../../../cp2020/cp2020-cyberware/models';
+import { DataCyberware } from '../models';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({

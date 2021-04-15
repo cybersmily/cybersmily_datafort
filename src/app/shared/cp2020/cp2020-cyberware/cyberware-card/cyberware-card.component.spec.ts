@@ -1,4 +1,4 @@
-import { CommonUiModule } from './../../common-ui/common-ui.module';
+import { CommonUiModule } from '../../../modules/common-ui/common-ui.module';
 import { DataCyberware } from './../../../models/cyberware';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
