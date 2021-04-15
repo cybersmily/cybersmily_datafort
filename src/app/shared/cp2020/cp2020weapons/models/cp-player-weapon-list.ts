@@ -10,6 +10,7 @@ export class CpPlayerWeaponList {
         { length: length },
         () => new CpPlayerWeapon()
       );
+      this.sort();
     } else {
       this.items = new Array<CpPlayerWeapon>();
     }
@@ -26,11 +27,11 @@ export class CpPlayerWeaponList {
   }
 
   addWeapon(weapon: CpPlayerWeapon) {
-    this.items.push(weapon);
+    this.add(weapon);
   }
 
   addDataWeapon(weapon: DataWeapon) {
-    this.items.push(new CpPlayerWeapon(weapon));
+    this.add(new CpPlayerWeapon(weapon));
   }
 
   addPlayerWeaponList(weapons: Array<CpPlayerWeapon>) {
@@ -48,6 +49,7 @@ export class CpPlayerWeaponList {
   updateWeapon(index: number, weapon: CpPlayerWeapon) {
     if (!isNaN(Number(index)) && index > -1 && weapon) {
       this.items[index] = weapon;
+      this.sort();
     }
   }
   generateWeapon(weaponList: Array<DataWeapon>, diceService: DiceService, count: number = 1) {
@@ -67,5 +69,25 @@ export class CpPlayerWeaponList {
       } while (this.items.some((w) => w.name === wpn.name) || tries < 10);
       this.addDataWeapon(wpn);
     }
+  }
+
+  private sort() {
+    this.items = this.items.sort( (a, b) => {
+      if (a.name === '' || !a.name) {return 1;}
+      if (b.name === '' || !b.name) {return -1;}
+      return a.name.localeCompare(b.name)});
+  }
+
+  private removeBlank() {
+    const index = this.items.findIndex( a => a.name === '' && a.notes === '' );
+    if (index > -1 ) {
+      this.items.splice(index, 1);
+    }
+  }
+
+  private add(weapon: CpPlayerWeapon) {
+    this.items.push(weapon);
+    this.removeBlank();
+    this.sort();
   }
 }
