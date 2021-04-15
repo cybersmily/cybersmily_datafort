@@ -1,7 +1,7 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { News } from '../../shared/models/articles/news';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { DataService } from './../../shared/services/data.service';
+import { DataService } from './../../shared/services/file-services/data.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';

@@ -1,6 +1,6 @@
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { JsonDataFiles } from './../../shared/json-data-files';
-import { DataService } from './../../shared/services/data.service';
+import { JsonDataFiles } from './../../shared/services/file-services';
+import { DataService } from './../../shared/services/file-services/data.service';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { GangData } from './../../shared/models/gang/gang-data';
 

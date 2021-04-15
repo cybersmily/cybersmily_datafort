@@ -1,4 +1,4 @@
-import { DataService } from './../data.service';
+import { DataService } from './../file-services';
 import { NrDeckDataService } from './nr-deck-data.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed, inject  } from '@angular/core/testing';

@@ -1,4 +1,4 @@
-import { JsonDataFiles } from './../../json-data-files';
+import { JsonDataFiles, DataService } from './../file-services';
 
 import { Observable, of, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -8,7 +8,6 @@ import {
         MaxMetalWeaponMount,
         VehicleWeapon } from './../../cp2020/cp2020weapons/models';
 import { MaxMetalOption, VehicleType } from './../../models/maxmetal';
-import { DataService } from '../data.service';
 
 @Injectable({
   providedIn: 'root'

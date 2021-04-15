@@ -17,7 +17,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MmgeneratorComponent } from './mmgenerator.component';
 import { MmweaponComponent } from '../mmweapon/mmweapon.component';
-import { DataService } from './../../shared/services/data.service';
+import { DataService } from './../../shared/services/file-services/data.service';
 
 describe('MmgeneratorComponent', () => {
   let component: MmgeneratorComponent;

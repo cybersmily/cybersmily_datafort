@@ -9,7 +9,7 @@ import { PipesModule } from './../../shared/pipes/pipes.module';
 import { CmbtTrkCyberComponent } from './../cmbt-trk-cyber/cmbt-trk-cyber.component';
 import { CmbtTrkSkillsComponent } from './../cmbt-trk-skills/cmbt-trk-skills.component';
 import { CmbtTrkSpComponent } from './../cmbt-trk-sp/cmbt-trk-sp.component';
-import { DataService } from './../../shared/services/data.service';
+import { DataService } from './../../shared/services/file-services/data.service';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 

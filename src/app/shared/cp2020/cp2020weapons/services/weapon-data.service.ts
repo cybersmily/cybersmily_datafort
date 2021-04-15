@@ -1,8 +1,6 @@
-import { JsonDataFiles } from './../../../json-data-files';
+import { SaveFileService, JsonDataFiles, DataService } from './../../../services/file-services';
 import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { DataService } from './../../../services/data.service';
-import { SaveFileService } from './../../../services/save-file.service';
 import { Observable, of } from 'rxjs';
 import { DataWeapon } from './../models';
 

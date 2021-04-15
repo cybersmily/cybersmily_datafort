@@ -1,8 +1,8 @@
 import { DiceService } from './../../../services/dice/dice.service';
-import { JsonDataFiles } from './../../../json-data-files';
+import { JsonDataFiles } from './../../../services/file-services';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-import { DataService } from './../../../services/data.service';
+import { DataService } from './../../../services/file-services/data.service';
 import { Injectable } from '@angular/core';
 import { Cp2020ArmorLayer } from './../models';
 

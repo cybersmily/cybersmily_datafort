@@ -1,4 +1,4 @@
-import { DataService } from './../shared/services/data.service';
+import { DataService } from './../shared/services/file-services/data.service';
 import {
   EthnicityGeneratorService,
   LifeEventsGeneratorService,

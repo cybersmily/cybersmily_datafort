@@ -1,7 +1,7 @@
 import { CmbtZoneBuildingService } from './../shared/services/cmbt-zone/cmbt-zone-building.service';
 import { CmbtZoneBlockService } from '../shared/services/cmbt-zone/cmbt-zone-block.service';
 import { CmbtZoneStreetObjectService } from '../shared/services/cmbt-zone/cmbt-zone-street-object.service';
-import { DataService } from './../shared/services/data.service';
+import { DataService } from './../shared/services/file-services/data.service';
 import { DiceService } from './../shared/services/dice/dice.service';
 import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';
 import { NgModule } from '@angular/core';

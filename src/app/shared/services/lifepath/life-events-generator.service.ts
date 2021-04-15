@@ -1,8 +1,7 @@
-import { JsonDataFiles } from './../../json-data-files';
+import { JsonDataFiles, DataService } from './../file-services';
 import { LifepathEventsList, LifepathEventsCharts } from './../../models/lifepath';
 import { Injectable } from '@angular/core';
 import { DiceService } from '../dice/dice.service';
-import { DataService } from '../data.service';
 import { Observable, of, from,  } from 'rxjs';
 import { map, flatMap } from 'rxjs/operators';
 

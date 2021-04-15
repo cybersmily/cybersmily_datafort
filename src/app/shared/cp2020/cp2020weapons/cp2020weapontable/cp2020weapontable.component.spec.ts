@@ -1,7 +1,7 @@
 import { Cp2020weaponCalculatorComponent } from './../cp2020weapon-calculator/cp2020weapon-calculator.component';
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { WeaponDataService } from './../../../services/data/weapon-data.service';
-import { DataService } from './../../../services/data.service';
+import { DataService } from './../../../services/file-services/data.service';
 import { BsModalService } from 'ngx-bootstrap';
 import { DiceService } from './../../../services/dice/dice.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';

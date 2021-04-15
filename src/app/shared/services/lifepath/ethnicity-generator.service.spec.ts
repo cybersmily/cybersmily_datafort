@@ -1,6 +1,6 @@
 import { DiceService } from './../dice/dice.service';
 import { HttpClientModule } from '@angular/common/http';
-import { DataService } from './../data.service';
+import { DataService } from './../file-services';
 import { TestBed, inject, async } from '@angular/core/testing';
 
 import { EthnicityGeneratorService } from './ethnicity-generator.service';

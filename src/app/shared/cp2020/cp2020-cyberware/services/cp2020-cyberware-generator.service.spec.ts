@@ -1,6 +1,6 @@
 import { CyberDataService } from './../../../services/data/cyber-data.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { DataService } from './../../../services/data.service';
+import { DataService } from './../../../services/file-services/data.service';
 import { DiceService } from './../../../services/dice/dice.service';
 import { TestBed, fakeAsync } from '@angular/core/testing';
 

@@ -11,7 +11,7 @@ import { FamilyGeneratorService } from './../shared/services/lifepath/family-gen
 import { MotivationGeneratorService } from './../shared/services/lifepath/motivation-generator.service';
 import { StyleGeneratorService } from './../shared/services/lifepath/style-generator.service';
 import { LifeEventsGeneratorService } from '../shared/services/lifepath/life-events-generator.service';
-import { DataService } from './../shared/services/data.service';
+import { DataService } from './../shared/services/file-services/data.service';
 import { DiceService } from './../shared/services/dice/dice.service';
 import { ModalModule, BsModalRef } from 'ngx-bootstrap/modal';
 import { NgModule } from '@angular/core';

@@ -1,9 +1,9 @@
-import { JsonDataFiles } from './../../shared/json-data-files';
+import { JsonDataFiles } from './../../shared/services/file-services';
 import { SeoService } from './../../shared/services/seo/seo.service';
-import { SaveFileService } from './../../shared/services/save-file.service';
+import { SaveFileService } from './../../shared/services/file-services';
 import { LifepathData, LifepathSource, LifepathChart, LifePathResults,
   LifepathChartSelection, LifepathFamily, LifepathEvent, LifepathEventsList, LifepathEthnicity } from '../../shared/models/lifepath';
-import { DataService } from './../../shared/services/data.service';
+import { DataService } from './../../shared/services/file-services/data.service';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 

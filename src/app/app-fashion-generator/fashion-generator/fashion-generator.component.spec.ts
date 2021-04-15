@@ -10,7 +10,7 @@ import { FashionListComponent } from './../fashion-list/fashion-list.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FashionGeneratorComponent } from './fashion-generator.component';
-import { DataService } from './../../shared/services/data.service';
+import { DataService } from './../../shared/services/file-services/data.service';
 import { Clothing, ClothingLists } from '../../shared/models/clothing';
 import { of } from 'rxjs';
 

@@ -8,7 +8,7 @@ import { OppTemplateService } from './../services/opp-template.service';
 import { DataSkill } from './../../shared/models/data/data-skill';
 import { Cp2020Role, Cp2020PlayerSkill } from './../../shared/models/cp2020character';
 import { SkillListService } from './../../shared/services/data/skill-list.service';
-import { DataService } from './../../shared/services/data.service';
+import { DataService } from './../../shared/services/file-services/data.service';
 import { Cp2020RolesDataService } from './../../shared/services/chargen/cp2020-roles-data.service';
 import { forkJoin } from 'rxjs';
 import { faDice, faTrash } from '@fortawesome/free-solid-svg-icons';

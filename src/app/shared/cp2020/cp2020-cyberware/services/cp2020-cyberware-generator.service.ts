@@ -1,6 +1,5 @@
-import { JsonDataFiles } from './../../../json-data-files';
+import { JsonDataFiles, DataService } from './../../../services/file-services';
 import { map } from 'rxjs/operators';
-import { DataService } from './../../../services/data.service';
 import { DiceService } from './../../../services/dice/dice.service';
 import { Observable } from 'rxjs';
 import { Cp2020PlayerCyber, Cp2020RandomCyberEntry } from './../models';

@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { DataService } from './../../shared/services/data.service';
+import { DataService } from './../../shared/services/file-services/data.service';
 import { TestBed } from '@angular/core/testing';
 
 import { OppTemplateService } from './opp-template.service';

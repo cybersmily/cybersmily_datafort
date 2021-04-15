@@ -1,4 +1,4 @@
-import { DataService } from './../../shared/services/data.service';
+import { DataService } from './../../shared/services/file-services/data.service';
 import { NrProgramOptionsService } from './../../shared/services/netrun/nr-program-options.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';

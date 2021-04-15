@@ -1,7 +1,7 @@
 import { SeoService } from './../../shared/services/seo/seo.service';
 
-import { SaveFileService } from './../../shared/services/save-file.service';
-import { DataService } from './../../shared/services/data.service';
+import { SaveFileService } from './../../shared/services/file-services';
+import { DataService } from './../../shared/services/file-services/data.service';
 import { Clothing, ClothingLists, PieceOfClothing, ClothingOption, ClothingArmor } from '../../shared/models/clothing';
 import { Component, OnInit } from '@angular/core';
 import { CS_CLOTHINGDATA_KEY } from './../../keys/storageKeys';

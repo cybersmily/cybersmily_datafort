@@ -2,7 +2,7 @@ import { DiceService } from './../../../services/dice/dice.service';
 import { PipesModule } from './../../../pipes/pipes.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
-import { DataService } from './../../../services/data.service';
+import { DataService } from './../../../services/file-services/data.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Cp2020CyberwareSelectorComponent } from './cp2020-cyberware-selector.component';

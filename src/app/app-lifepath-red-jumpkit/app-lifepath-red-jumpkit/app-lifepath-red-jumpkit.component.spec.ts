@@ -1,7 +1,7 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { HttpClientModule } from '@angular/common/http';
-import { DataService } from './../../shared/services/data.service';
+import { DataService } from './../../shared/services/file-services/data.service';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 

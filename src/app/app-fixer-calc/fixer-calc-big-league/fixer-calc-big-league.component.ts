@@ -1,8 +1,7 @@
-import { SaveFileService } from './../../shared/services/save-file.service';
+import { SaveFileService } from './../../shared/services/file-services';
 import { BigLeagueContact } from './../../shared/models/fixer/big-league-contact';
 import { FixerBigLeagueService } from './../../shared/services/fixer/fixer-big-league.service';
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import { BigLeagueCategories } from './../../shared/models/fixer/big-league-categories';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'cs-fixer-calc-big-league',

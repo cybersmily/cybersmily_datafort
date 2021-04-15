@@ -1,10 +1,10 @@
-import { JsonDataFiles } from '../../../json-data-files';
+import { JsonDataFiles } from './../../../services/file-services';
 import { map } from 'rxjs/operators';
 import { of, Observable, forkJoin } from 'rxjs';
 import { CPRedLifepathData } from '../../models/cpred-lifepath-data';
 import { Injectable } from '@angular/core';
 import { DiceService } from '../../../services/dice/dice.service';
-import { DataService } from '../../../services/data.service';
+import { DataService } from '../../../services/file-services/data.service';
 import { CPRedLifepath } from '../../models/cpred-lifepath';
 
 @Injectable({

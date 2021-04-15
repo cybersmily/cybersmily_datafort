@@ -1,11 +1,11 @@
 import { OppCyberware } from './../../shared/cp2020/cp2020-cyberware/models';
-import { JsonDataFiles } from './../../shared/json-data-files';
+import { JsonDataFiles } from './../../shared/services/file-services';
 import { CpPlayerWeapon } from './../../shared/cp2020/cp2020weapons/models';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { CmbtTrckEntry, CmbtTrckCharts} from '../../shared/models/cmbt-trck';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-import { DataService } from './../../shared/services/data.service';
+import { DataService } from './../../shared/services/file-services/data.service';
 import { Injectable } from '@angular/core';
 
 @Injectable({

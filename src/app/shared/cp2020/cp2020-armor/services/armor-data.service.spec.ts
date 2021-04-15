@@ -1,6 +1,6 @@
 import { of } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { DataService } from '../../../services/data.service';
+import { DataService } from '../../../services/file-services/data.service';
 import { TestBed } from '@angular/core/testing';
 
 import { ArmorDataService } from './armor-data.service';

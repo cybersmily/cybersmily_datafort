@@ -1,4 +1,4 @@
-import { DataService } from './../../shared/services/data.service';
+import { DataService } from './../../shared/services/file-services/data.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Corporation, CorporationCard } from '../../shared/models/corporation';
 import { Component, OnInit, Input, TemplateRef } from '@angular/core';

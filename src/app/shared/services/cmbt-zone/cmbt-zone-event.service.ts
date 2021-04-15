@@ -1,9 +1,9 @@
-import { JsonDataFiles } from './../../json-data-files';
+import { JsonDataFiles } from './../file-services';
 import { CMBT_ZONE_EVENT_TIME } from './../../models/cmbtzone/cmb-zone-event-time';
 import { DiceService } from './../dice/dice.service';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-import { DataService } from './../data.service';
+import { DataService } from './../file-services';
 import { CmbtZoneEventData } from './../../models/cmbtzone/cmbt-zone-event-data';
 import { CmbtZoneEvent } from './../../models/cmbtzone/cmbt-zone-event';
 import { Injectable } from '@angular/core';

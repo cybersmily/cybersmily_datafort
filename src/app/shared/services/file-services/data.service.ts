@@ -1,10 +1,9 @@
-import { JsonDataFiles } from './../json-data-files';
-import { CS_VERSION, CS_VERSION_KEY } from './../../keys/storageKeys';
+import { JsonDataFiles } from './json-data-files';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient,  HttpHeaders } from '@angular/common/http';
-import { ClothingLists } from '../models/clothing';
-import { News } from '../models/articles';
+import { ClothingLists } from './../../models/clothing';
+import { News } from './../../models/articles';
 
 @Injectable()
 export class DataService {

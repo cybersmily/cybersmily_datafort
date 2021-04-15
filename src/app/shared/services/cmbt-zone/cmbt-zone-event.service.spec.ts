@@ -1,4 +1,4 @@
-import { DataService } from './../data.service';
+import { DataService } from './../file-services';
 import { DiceService } from './../dice/dice.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';

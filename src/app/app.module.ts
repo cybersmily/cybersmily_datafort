@@ -5,10 +5,10 @@ import { AppFashionGeneratorModule } from './app-fashion-generator/app-fashion-g
 import { NpcProfileModalComponent } from './shared/modules/npcs/npcProfileModal/npcprofilemodal.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule, AppBootstrapModule } from './shared/modules';
-import { DataService } from './shared/services/data.service';
+import { DataService } from './shared/services/file-services/data.service';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { SaveFileService } from './shared/services/save-file.service';
+import { SaveFileService } from './shared/services/file-services';
 import { PipesModule } from './shared/pipes/pipes.module';
 
 @NgModule({

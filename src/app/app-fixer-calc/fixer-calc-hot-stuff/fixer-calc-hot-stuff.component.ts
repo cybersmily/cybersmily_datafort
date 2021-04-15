@@ -1,4 +1,4 @@
-import { SaveFileService } from './../../shared/services/save-file.service';
+import { SaveFileService } from './../../shared/services/file-services';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { HotStuffArea } from './../../shared/models/fixer/hot-stuff-area';
 import { FixerHotStuffService } from './../../shared/services/fixer/fixer-hot-stuff.service';

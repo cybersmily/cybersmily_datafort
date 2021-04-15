@@ -5,7 +5,7 @@ import { SeoService } from './../../shared/services/seo/seo.service';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { HttpClientModule } from '@angular/common/http';
-import { DataService } from './../../shared/services/data.service';
+import { DataService } from './../../shared/services/file-services/data.service';
 import { AppCharacterCyberwareComponent } from './../app-character-cyberware/app-character-cyberware.component';
 import { AppCharacterSkillComponent } from './../app-character-skill/app-character-skill.component';
 import { AppCharacterArmorComponent } from './../app-character-armor/app-character-armor.component';

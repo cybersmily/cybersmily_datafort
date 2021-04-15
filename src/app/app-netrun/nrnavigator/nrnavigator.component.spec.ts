@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NrnavigatorComponent } from './nrnavigator.component';
-import { DataService } from './../../shared/services/data.service';
+import { DataService } from './../../shared/services/file-services/data.service';
 
 describe('NrnavigatorComponent', () => {
   let component: NrnavigatorComponent;

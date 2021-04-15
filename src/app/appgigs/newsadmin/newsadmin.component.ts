@@ -1,9 +1,9 @@
 import { NewsReport } from './../../shared/models/gigs/news-report';
 import { NewsItem } from './../../shared/models/gigs/news-item';
-import { JsonDataFiles } from './../../shared/json-data-files';
+import { JsonDataFiles } from './../../shared/services/file-services';
 import { GigNewsItem } from './../../shared/models/gigs/gig-news-item';
-import { SaveFileService } from './../../shared/services/save-file.service';
-import { DataService } from './../../shared/services/data.service';
+import { SaveFileService } from './../../shared/services/file-services';
+import { DataService } from './../../shared/services/file-services/data.service';
 import { faAngleDoubleDown, faAngleDoubleRight, faPlus, faTrash, faPen, faSave } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit } from '@angular/core';
 

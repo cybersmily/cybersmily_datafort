@@ -3,7 +3,7 @@ import { CmbtZoneStreetObjectService } from './../../shared/services/cmbt-zone/c
 import { CmbtZoneBuildingService } from './../../shared/services/cmbt-zone/cmbt-zone-building.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { DiceService } from './../../shared/services/dice/dice.service';
-import { DataService } from './../../shared/services/data.service';
+import { DataService } from './../../shared/services/file-services/data.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CmbtZoneMapComponent } from './cmbt-zone-map.component';

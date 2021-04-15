@@ -1,7 +1,7 @@
 import { of } from 'rxjs';
 import { CmbtZoneData } from './../../models/cmbtzone/cmbt-zone-data';
 import { DiceService } from './../dice/dice.service';
-import { DataService } from './../data.service';
+import { DataService } from './../file-services';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 

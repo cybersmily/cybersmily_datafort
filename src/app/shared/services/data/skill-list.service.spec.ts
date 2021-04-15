@@ -1,6 +1,6 @@
 import { DataSkill } from './../../models/data/data-skill';
 import { HttpClientModule } from '@angular/common/http';
-import { DataService } from './../data.service';
+import { DataService } from './../file-services';
 import { TestBed } from '@angular/core/testing';
 
 import { SkillListService } from './skill-list.service';

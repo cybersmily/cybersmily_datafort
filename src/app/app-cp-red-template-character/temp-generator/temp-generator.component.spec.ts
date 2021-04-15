@@ -2,7 +2,7 @@ import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.modul
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DiceService } from './../../shared/services/dice/dice.service';
-import { DataService } from './../../shared/services/data.service';
+import { DataService } from './../../shared/services/file-services/data.service';
 import { FormsModule } from '@angular/forms';
 import { TempGeneratorWeaponsComponent } from './../temp-generator-weapons/temp-generator-weapons.component';
 import { TempGeneratorStatsComponent } from './../temp-generator-stats/temp-generator-stats.component';

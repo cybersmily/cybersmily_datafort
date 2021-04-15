@@ -1,8 +1,8 @@
 import { map } from 'rxjs/operators';
-import { JsonDataFiles } from './../../json-data-files';
+import { JsonDataFiles } from './../file-services';
 import { Observable, of, forkJoin } from 'rxjs';
 import { DiceService } from '../dice/dice.service';
-import { DataService } from '../data.service';
+import { DataService } from './../file-services';
 import { Injectable } from '@angular/core';
 
 @Injectable({

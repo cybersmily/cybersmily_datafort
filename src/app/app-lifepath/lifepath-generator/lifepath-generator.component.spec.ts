@@ -3,7 +3,7 @@ import { SeoService } from './../../shared/services/seo/seo.service';
 import { LifepathEthnicityComponent } from './../lifepath-ethnicity/lifepath-ethnicity.component';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { DataService } from './../../shared/services/data.service';
+import { DataService } from './../../shared/services/file-services/data.service';
 import { LifepathChartComponent } from './../lifepath-chart/lifepath-chart.component';
 import { FormsModule } from '@angular/forms';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';

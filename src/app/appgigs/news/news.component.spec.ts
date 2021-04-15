@@ -4,7 +4,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NewsComponent } from './news.component';
-import { DataService } from './../../shared/services/data.service';
+import { DataService } from './../../shared/services/file-services/data.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 const newsJson = {

@@ -1,9 +1,9 @@
-import { JsonDataFiles } from './../../json-data-files';
+import { JsonDataFiles } from './../file-services';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { CpDrugEffect } from '../../models/drug/cp-drug';
-import { DataService } from '../data.service';
+import { DataService } from './../file-services';
 
 @Injectable({
   providedIn: 'root'

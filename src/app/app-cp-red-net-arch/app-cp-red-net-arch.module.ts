@@ -1,6 +1,5 @@
 import { NetArchNodeComponent } from './net-arch-node/net-arch-node.component';
-import { SaveFileService } from './../shared/services/save-file.service';
-import { FileLoaderService } from './../shared/services/file-loader/file-loader.service';
+import { FileLoaderService, SaveFileService } from './../shared/services/file-services';
 import { CPRedNetArchService } from './service/c-p-red-net-arch.service';
 import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';
 import { DiceService } from './../shared/services/dice/dice.service';

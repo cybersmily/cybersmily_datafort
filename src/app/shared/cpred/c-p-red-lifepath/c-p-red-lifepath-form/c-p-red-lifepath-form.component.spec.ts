@@ -1,5 +1,5 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { DataService } from './../../../services/data.service';
+import { DataService } from './../../../services/file-services/data.service';
 import { DiceService } from './../../../services/dice/dice.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 

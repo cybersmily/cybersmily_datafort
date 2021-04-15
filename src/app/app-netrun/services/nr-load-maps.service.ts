@@ -1,7 +1,7 @@
 import { NRMap } from './../models/nr-map';
-import { JsonDataFiles } from './../../shared/json-data-files';
+import { JsonDataFiles } from './../../shared/services/file-services';
 import { Observable } from 'rxjs';
-import { DataService } from './../../shared/services/data.service';
+import { DataService } from './../../shared/services/file-services/data.service';
 import { Injectable } from '@angular/core';
 
 @Injectable({

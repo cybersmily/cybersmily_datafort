@@ -1,6 +1,5 @@
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { FileLoaderService } from './../../shared/services/file-loader/file-loader.service';
-import { SaveFileService } from './../../shared/services/save-file.service';
+import { FileLoaderService, SaveFileService } from './../../shared/services/file-services';
 import { CPRedNetArchNode, CPRedIconTypeSettings } from './../models/net-arch-node';
 import { faFilePdf, faSave, faDice, faUpload, faQuestion, faSkullCrossbones, faLock, faCogs, faFile, faQuestionCircle, faImage, faCog, faFileImage } from '@fortawesome/free-solid-svg-icons';
 import { DiceService } from './../../shared/services/dice/dice.service';

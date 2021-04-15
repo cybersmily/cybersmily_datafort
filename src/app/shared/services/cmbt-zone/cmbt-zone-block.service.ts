@@ -1,9 +1,9 @@
 import { DiceService } from './../dice/dice.service';
 import { map } from 'rxjs/operators';
-import { JsonDataFiles } from './../../json-data-files';
+import { JsonDataFiles } from './../file-services';
 import { Observable, of } from 'rxjs';
 import { CmbtZoneBlock } from './../../models/cmbtzone/cmbt-zone-block';
-import { DataService } from '../data.service';
+import { DataService } from './../file-services';
 import { Injectable } from '@angular/core';
 
 @Injectable({

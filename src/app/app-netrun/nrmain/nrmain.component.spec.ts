@@ -13,7 +13,7 @@ import { NrTraceviewComponent } from '../nr-traceview/nr-traceview.component';
 import { NrinstructComponent } from '../nrinstruct/nrinstruct.component';
 import { NrMapGridComponent } from '../nr-map-grid/nr-map-grid.component';
 import { NrDatafortComponent } from '../nr-datafort/nr-datafort.component';
-import { DataService } from './../../shared/services/data.service';
+import { DataService } from './../../shared/services/file-services/data.service';
 import { NrTrackerService } from '../services';
 import { DiceService } from './../../shared/services/dice/dice.service';
 

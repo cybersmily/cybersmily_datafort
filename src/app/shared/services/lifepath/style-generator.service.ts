@@ -1,10 +1,9 @@
-import { JsonDataFiles } from './../../json-data-files';
+import { JsonDataFiles, DataService } from './../file-services';
 import { LifepathDataStyles } from './../../models/lifepath/lifepath-data-styles';
 import { LifepathAppearance } from './../../models/lifepath/lifepath-appearance';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { DiceService } from './../dice/dice.service';
-import { DataService } from './../data.service';
 import { Injectable } from '@angular/core';
 
 @Injectable({

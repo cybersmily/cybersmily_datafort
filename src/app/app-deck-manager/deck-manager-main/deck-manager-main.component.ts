@@ -1,8 +1,7 @@
 import { DeckManagerToPdf } from './../../shared/models/pdf/deck-manager-to-pdf';
 import { Cp2020ProgramList } from './../../shared/models/netrun/cp2020-program-list';
 import { NrDeckManagerService } from './../../shared/services/netrun';
-import { SaveFileService } from './../../shared/services/save-file.service';
-import { FileLoaderService } from './../../shared/services/file-loader/file-loader.service';
+import { FileLoaderService, SaveFileService } from './../../shared/services/file-services';
 import { SeoService } from '../../shared/services/seo/seo.service';
 import { Component, OnInit } from '@angular/core';
 import { NetRunProgram, Cp2020DeckManager, Cp2020NetrunDeck } from '../../shared/models/netrun';

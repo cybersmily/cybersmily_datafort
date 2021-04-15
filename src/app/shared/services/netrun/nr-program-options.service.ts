@@ -1,8 +1,8 @@
-import { JsonDataFiles } from './../../json-data-files';
+import { JsonDataFiles } from './../file-services';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { NrProgramOption } from './../../models/netrun';
-import { DataService } from './../data.service';
+import { DataService } from './../file-services';
 import { Injectable } from '@angular/core';
 
 @Injectable({

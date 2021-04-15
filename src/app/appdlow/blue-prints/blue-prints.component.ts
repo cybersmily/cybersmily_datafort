@@ -1,5 +1,5 @@
-import { JsonDataFiles } from './../../shared/json-data-files';
-import { DataService } from './../../shared/services/data.service';
+import { JsonDataFiles } from './../../shared/services/file-services';
+import { DataService } from './../../shared/services/file-services/data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

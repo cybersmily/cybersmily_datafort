@@ -1,5 +1,5 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { DataService } from './../../shared/services/data.service';
+import { DataService } from './../../shared/services/file-services/data.service';
 import { DrugLabListComponent } from './../drug-lab-list/drug-lab-list.component';
 import { DrugLabGeneratorComponent } from './../drug-lab-generator/drug-lab-generator.component';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
