@@ -52,24 +52,6 @@ export class CpPlayerWeaponList {
       this.sort();
     }
   }
-  generateWeapon(weaponList: Array<DataWeapon>, diceService: DiceService, count: number = 1) {
-    if (count < 1 || count > weaponList.length - 1) {
-      return;
-    }
-    for (let i = 0; i < count; i++) {
-      let wpn: DataWeapon;
-      let tries = 0;
-      do {
-        const roll = diceService.generateNumber(
-          0,
-          weaponList.length - 1
-        );
-        wpn = weaponList[roll];
-        tries++;
-      } while (this.items.some((w) => w.name === wpn.name) || tries < 10);
-      this.addDataWeapon(wpn);
-    }
-  }
 
   private sort() {
     this.items = this.items.sort( (a, b) => {

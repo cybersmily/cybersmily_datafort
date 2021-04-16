@@ -21,3 +21,5 @@ export * from './max-metal-weapon-mount';
 export * from './weapon-properties';
 
 export * from './data-weapon';
+
+export * from './cp-weapon-list-param';
