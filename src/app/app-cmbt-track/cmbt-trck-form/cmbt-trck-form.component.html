@@ -1,22 +1,22 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <fa-icon [icon]="faSave" class="float-left btn-lg csd-btn" (click)="save()" title="Save to a json file. This is needed to reload the data."></fa-icon>
+      <fa-icon [icon]="faSave" class="float-left btn-lg csd-btn csd-icon-btn" (click)="save()" title="Save to a json file. This is needed to reload the data."></fa-icon>
       &nbsp;
 
       <input type="file" id="loadFile" title="load a combat tracker json file" name="Load" Style="display: none"
       (change)="load($event)" #inputFile (click)="inputFile.value = null" accept="text/plain;text/json" />
-      <label for="loadFile" class="float-left btn-lg csd-btn mr-1"><fa-icon [icon]="faUpload" title="load a combat tracker json file"></fa-icon></label>
+      <label for="loadFile" class="float-left btn-lg csd-btn mr-1"><fa-icon [icon]="faUpload" title="load a combat tracker json file" class=" csd-icon-btn"></fa-icon></label>
       &nbsp;
 
       <input type="file" id="importFile" title="Import a Cybersmily CP2020 JSON file as an opponent" name="Import" Style="display: none"
       (change)="import($event)" #inputFile (click)="inputFile.value = null" accept="text/plain;text/json" />
-      <label for="importFile" class="float-left btn-lg csd-btn mr-1"><fa-icon [icon]="faFileImport" title="Import a Cybersmily CP2020 JSON file as an opponent"></fa-icon></label>
+      <label for="importFile" class="float-left btn-lg csd-btn mr-1"><fa-icon [icon]="faFileImport" title="Import a Cybersmily CP2020 JSON file as an opponent" class=" csd-icon-btn"></fa-icon></label>
       &nbsp;
-      <fa-icon [icon]="faHelp" class="float-left btn-lg csd-btn" (click)="openModal(instructionModal)" title="Show instructions."></fa-icon>
+      <fa-icon [icon]="faHelp" class="float-left btn-lg csd-btn csd-icon-btn" (click)="openModal(instructionModal)" title="Show instructions."></fa-icon>
       &nbsp;
 
-      <fa-icon [icon]="faRedo" class="float-right btn-lg csd-btn" (click)="openModal(resetModal)" title="Reset tracker. Removing all the combatants."></fa-icon>
+      <fa-icon [icon]="faRedo" class="float-right btn-lg csd-btn csd-icon-btn" (click)="openModal(resetModal)" title="Reset tracker. Removing all the combatants."></fa-icon>
     </div>
   </div>
   <div class="row">
@@ -45,8 +45,8 @@
                <span class="cbtrck-opp-init-mods">[REF: {{opp.stats.REF.Adjusted}}]</span>
             </div>
             <div class="col-1">
-              <fa-icon [icon]="faCopy" class="pull-right csd-btn opp-delete" (click)="copyOpponent(i)" title="Copy opponent"></fa-icon>
-              <fa-icon [icon]="faTrash" class="pull-right csd-btn opp-delete" (click)="removeOpponent(i)" title="Delete opponent"></fa-icon>
+              <fa-icon [icon]="faCopy" class="pull-right csd-btn opp-delete csd-icon-btn" (click)="copyOpponent(i)" title="Copy opponent"></fa-icon>
+              <fa-icon [icon]="faTrash" class="pull-right csd-btn opp-delete csd-icon-btn" (click)="removeOpponent(i)" title="Delete opponent"></fa-icon>
             </div>
             <div class="col-12 opp-conditions">
               <span *ngIf="opp.stats.isStunned">*Stunned</span>
