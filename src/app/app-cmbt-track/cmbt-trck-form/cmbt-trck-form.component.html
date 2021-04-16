@@ -37,7 +37,7 @@
             <div class="col-3" [title]="showInitiativeTooltip(opp)">
               <input [(ngModel)]="opp.initRoll" type="number" (change)="changeInitiative()" class="csd-hide-spinner text-center" />
               <fa-icon [icon]="faDice" class="csd-btn opp-init csd-dice"
-              title="Roll initiative for this opponent" (click)="rollInitiative(i)"></fa-icon>
+              title="Roll initiative for this opponent" (click)="rollInitiative(opp.id)"></fa-icon>
             </div>
             <div class="col-8 cbttrk-opp-name csd-btn" (click)='selectOpponent(i)' title="Click to show opponent...">
                <span>{{opp.name}}</span>

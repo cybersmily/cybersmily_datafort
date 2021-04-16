@@ -58,8 +58,12 @@ export class OpponentTrackerService {
         opp.calculateInitiative(this.getDieRoll());
       });
     } else {
+      console.log(this._opponents.getValue());
+      console.log(id);
       const index = this._opponents.getValue().findIndex(o => o.id === id);
-      opps[index].calculateInitiative(this.getDieRoll());
+      if (index > -1 ) {
+        opps[index].calculateInitiative(this.getDieRoll());
+      }
     }
     this.sortInitiative(opps);
   }
