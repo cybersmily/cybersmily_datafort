@@ -1,4 +1,4 @@
-import { faDice, faSave, faUpload, faFilePdf, faUndo, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faSave, faUpload, faFilePdf, faUndo, faShieldAlt, faCog, faCrosshairs, faPen, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -13,6 +13,11 @@ export class AppCharacterInstructionComponent implements OnInit {
   faFilePdf = faFilePdf;
   faUndo = faUndo;
   faShieldAlt = faShieldAlt;
+  faCog = faCog;
+  faCrosshairs = faCrosshairs;
+  faPen = faPen;
+  faTrash = faTrash;
+  faPlus = faPlus;
 
   constructor() { }
 
