@@ -5,8 +5,8 @@
   </div>
   <div class="col-1 wpn-save">
     <fa-icon [icon]="faSave" [ngClass]="{
-        'float-right btn btn-lg csd-btn': true,
-        disabled: weapon.name === ''
+        'float-right btn btn-lg csd-btn csd-icon-btn': true,
+        disabled: newWeapon.name === ''
       }" title="Save weapon" (click)="update()"></fa-icon>
   </div>
 </div>

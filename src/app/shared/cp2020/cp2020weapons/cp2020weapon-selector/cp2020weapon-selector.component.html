@@ -10,7 +10,7 @@
   </div>
   <div class="col-9">
     <input type="text" placeholder="Search for part of name..." [(ngModel)]="searchTerm">
-    <fa-icon [icon]="faSave" [ngClass]="{'csd-btn float-right btn-lg': true, 'csd-disabled': isListEmpty()}" (click)="saveList()" title="Save selected weapons"></fa-icon>
+    <fa-icon [icon]="faSave" [ngClass]="{'csd-btn float-right btn-lg csd-icon-btn': true, 'csd-disabled': isListEmpty()}" (click)="saveList()" title="Save selected weapons"></fa-icon>
   </div>
 </div>
 <div class="cs-wpn-selector-list">

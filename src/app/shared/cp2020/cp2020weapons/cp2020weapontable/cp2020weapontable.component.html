@@ -7,7 +7,7 @@
         <fa-icon [ngClass]="{'csd-dice': true, 'd-none': !showRandomGenerator}" [icon]="faCog"
         title="Set settings" (click)="openModal(wpnSettings)"></fa-icon>&nbsp;&nbsp;
       <fa-icon [icon]="faCrosshairs" title="Show Combat Calculator"
-        [ngClass]="{'csd-btn': true, 'd-none': !showCalculator}" (click)="openModal(combatCalcModal)">
+        [ngClass]="{'csd-btn': true, 'csd-icon-btn': true, 'd-none': !showCalculator}" (click)="openModal(combatCalcModal)">
       </fa-icon>
     </div>
   </div>
