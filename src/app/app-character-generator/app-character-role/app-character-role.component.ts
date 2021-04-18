@@ -35,11 +35,23 @@ export class AppCharacterRoleComponent implements OnInit, OnChanges {
     this.setCurrentRole();
   }
 
+
+  /**
+   * When a role is changed in the input, this will emit the change up to the parent component.
+   *
+   * @memberof AppCharacterRoleComponent
+   */
   onRoleChange() {
     this.mergeRole();
     this.changeRole.emit(this.role);
   }
 
+
+  /**
+   * Randomly roll a role for the PC
+   *
+   * @memberof AppCharacterRoleComponent
+   */
   rollRole() {
     const roll = this.diceService.generateNumber(0, this.roles.length - 1);
     this.currentRole = roll;
@@ -47,6 +59,13 @@ export class AppCharacterRoleComponent implements OnInit, OnChanges {
     this.changeRole.emit(this.role);
   }
 
+
+  /**
+   * Copies the selected role to the current role of the PC.
+   *
+   * @private
+   * @memberof AppCharacterRoleComponent
+   */
   private mergeRole() {
     this.role.name = this.roles[this.currentRole].name;
     this.role.skills = JSON.parse(JSON.stringify(this.roles[this.currentRole].skills));;
@@ -64,6 +83,13 @@ export class AppCharacterRoleComponent implements OnInit, OnChanges {
     this.role.specialAbility.name = this.roles[this.currentRole].specialability.name;
   }
 
+
+  /**
+   * Loads the list of roles from a JSON file and fills in all the data.
+   *
+   * @private
+   * @memberof AppCharacterRoleComponent
+   */
   private loadRoleData() {
     this.rolesService.getRoles().subscribe( (data: any[] ) => {
       // remove the escape character for &
@@ -100,11 +126,27 @@ export class AppCharacterRoleComponent implements OnInit, OnChanges {
     });
   }
 
+
+  /**
+   * sets the proper index on the dropdown with the passed in role.
+   *
+   * @private
+   * @memberof AppCharacterRoleComponent
+   */
   private setCurrentRole() {
     const index = this.roles.findIndex( role => role.name === this.role.name);
     this.currentRole = index;
   }
 
+
+  /**
+   * Formats the sourebook info into a readable string.
+   *
+   * @param {string} src
+   * @param {number} pg
+   * @return {*}  {string}
+   * @memberof AppCharacterRoleComponent
+   */
   sourceInfo(src: string, pg: number): string {
     return 'Source: ' + SourceBookLookup.getSource(src) + ' pg. ' + pg;
   }

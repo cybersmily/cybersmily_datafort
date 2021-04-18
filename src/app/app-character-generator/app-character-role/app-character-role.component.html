@@ -1,6 +1,6 @@
 <div class="chargen-section">
   <span class="chargen-label">ROLE</span>
-  <select [(ngModel)]="currentRole" class="chargen-role-selection" (change)="onRoleChange()">
+  <select [(ngModel)]="currentRole" class="chargen-role-selection" (change)="onRoleChange()" [title]="sourceInfo(roles[currentRole].source, roles[currentRole].page)">
     <option *ngFor="let role of roles;let i = index"
     [ngValue]="i"
     [title]="sourceInfo(role.source, role.page)">{{((role.base)? role.base + ' - ' : '' ) + role.name}}</option>
