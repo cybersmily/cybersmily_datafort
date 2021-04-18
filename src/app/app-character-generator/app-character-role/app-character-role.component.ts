@@ -17,7 +17,7 @@ export class AppCharacterRoleComponent implements OnInit, OnChanges {
   @Input()
   role = new Cp2020PlayerRole();
 
-  currentRole = new Cp2020Role();
+  currentRole = 0;
 
   @Output()
   changeRole = new EventEmitter<Cp2020PlayerRole>();
@@ -27,6 +27,44 @@ export class AppCharacterRoleComponent implements OnInit, OnChanges {
   constructor( private rolesService: Cp2020RolesDataService, private diceService: DiceService) { }
 
   ngOnInit() {
+    this.loadRoleData();
+  }
+
+
+  ngOnChanges() {
+    this.setCurrentRole();
+  }
+
+  onRoleChange() {
+    this.mergeRole();
+    this.changeRole.emit(this.role);
+  }
+
+  rollRole() {
+    const roll = this.diceService.generateNumber(0, this.roles.length - 1);
+    this.currentRole = roll;
+    this.mergeRole();
+    this.changeRole.emit(this.role);
+  }
+
+  private mergeRole() {
+    this.role.name = this.roles[this.currentRole].name;
+    this.role.skills = JSON.parse(JSON.stringify(this.roles[this.currentRole].skills));;
+    if (this.roles[this.currentRole].secondary) {
+      this.role.secondary = JSON.parse(JSON.stringify(this.roles[this.currentRole].secondary));
+    } else {
+      this.role.secondary = undefined;
+    }
+    this.role.base = this.roles[this.currentRole].base;
+    this.role.source = this.roles[this.currentRole].source;
+    this.role.page = this.roles[this.currentRole].page;
+    this.role.specialAbility.description = this.roles[this.currentRole].specialability.description;
+    this.role.specialAbility.ipMod = this.roles[this.currentRole].specialability.ipmod;
+    this.role.specialAbility.stat = this.roles[this.currentRole].specialability.stat;
+    this.role.specialAbility.name = this.roles[this.currentRole].specialability.name;
+  }
+
+  private loadRoleData() {
     this.rolesService.getRoles().subscribe( (data: any[] ) => {
       // remove the escape character for &
       data = data.map( e => {
@@ -58,33 +96,13 @@ export class AppCharacterRoleComponent implements OnInit, OnChanges {
       this.currentRole = data[index];
       // remove the escape character from the JSON loading
       this.roles = data;
+      this.setCurrentRole();
     });
   }
 
-  ngOnChanges() {
+  private setCurrentRole() {
     const index = this.roles.findIndex( role => role.name === this.role.name);
-    this.currentRole = this.roles[index];
-  }
-
-  onRoleChange() {
-    this.role.name = this.currentRole.name;
-    this.role.skills = this.currentRole.skills;
-    if (this.currentRole.secondary) {
-      this.role.secondary = this.currentRole.secondary;
-    }
-    this.role.base = this.currentRole.base;
-    this.role.source = this.currentRole.source;
-    this.role.page = this.currentRole.page;
-    this.role.specialAbility.description = this.currentRole.specialability.description;
-    this.role.specialAbility.ipMod = this.currentRole.specialability.ipmod;
-    this.role.specialAbility.stat = this.currentRole.specialability.stat;
-    this.role.specialAbility.name = this.currentRole.specialability.name;
-    this.changeRole.emit(this.role);
-  }
-
-  rollRole() {
-    const roll = this.diceService.generateNumber(0, this.roles.length - 1);
-    this.currentRole = this.roles[roll];
+    this.currentRole = index;
   }
 
   sourceInfo(src: string, pg: number): string {
