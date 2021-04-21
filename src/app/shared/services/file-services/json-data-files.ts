@@ -39,6 +39,8 @@ export class JsonDataFiles {
   public static CP_GANGS_JSON = '/json/peeps/gangs/gangs.json';
   public static CP_GANGS_PATH = '/json/peeps/gangs/';
 
+  public static CP_HEADLINES_JSON ='/json/apps/headlines.json';
+
   public static CP2020_DRUG_EFFECTS_JSON = `/json/apps/rxlab/rxeffects.json`;
   public static CP2020_PROGRAM_OPTIONS_JSON =  `/json/apps/nrmap/program.json`;
   public static CP2020_DECK_DATA_JSON = '/json/apps/nrmap/nrdeckdata.json';

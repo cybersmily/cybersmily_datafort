@@ -3,6 +3,9 @@
     {
       "date": "2021-04",
       "entries": [
+        "<strong>04-??</strong> - A new app and more bug fixes:",
+        "&nbsp;* Fixed some issues on CP2020 character generator for skills.",
+        "&nbsp;* News Headline Generator app for both CP2020 and CP Read (look under Apps)",
         "<strong>04-17</strong> - Wow April has been productive for ths site. Done some clean up on the site. Here's the list:",
         "&nbsp;* behind the scenes code refactoring to make my life easier.",
         "&nbsp;* updating the CP 2020 Character Generator with more instructions on how to use.",
@@ -28,7 +31,6 @@
         "In other News, Wisdom of <a href='https://datafortress2020.com'>Datafortress 2020</a> and I are doing a twitch show. We are aiming to do it every other week on the <a href='https://www.twitch.tv/cyberpunkuncensored'>Cyberpunk Uncensored Twitch channel</a>. We currently are giving our review of Cyberpunk 2077, but more reviews and other topics will be talked about. We would love for you to check it out.",
         "Till next time.",
         "CYBER :D"
-
       ]
     },
     {

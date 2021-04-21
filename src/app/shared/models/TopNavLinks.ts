@@ -123,6 +123,7 @@ export interface SiteLinksGroup {
           {title: 'Drug Lab', link: 'apps/druglab', desc: 'Cyberpunk 2020 Drug Lab rules.'},
           {title: 'Fashion Calculator', link: 'apps/fashcalc', desc: 'Cyberpunk 2020 Clothes creation and list.'},
           {title: 'Fixer Calculator', link: 'apps/fixcalc', desc: 'Cyberpunk 2020 Fixe contact generator using rules from Wildside.'},
+          {title: 'Headline Generator', link: 'apps/headlines', desc: 'Utility to generate news headlines for Cyberpunk 2020/Red.'},
           {title: 'LifePath Generator', link: 'apps/lifepath', desc: 'Cyberpunk 2020 Lifepaht generator.'},
           {title: 'Max Metal Calculator', link: 'apps/maxmetal', desc: 'Cyberpunk 2020 vehicle designer using Maximum Metal rules.'},
           {title: 'Netrunner Navigator', link: 'apps/nrtrace',
@@ -137,6 +138,7 @@ export interface SiteLinksGroup {
         links: [
           {title: 'CP Red Jumpstart Kit Character', link: 'apps/qkpregen',
             desc: 'Cyberpunk Red Character generator based on tempates for the jumpstart kit.'},
+          {title: 'Headline Generator', link: 'apps/headlines', desc: 'Utility to generate news headlines for Cyberpunk 2020/Red.'},
           {title: 'LifePath Red Generator', link: 'apps/lpredjmp', desc: 'Cyberpunk Red lifepath generator.'},
           {title: 'NET Architect Generator', link: 'apps/rednet', desc: 'Cyberpunk Red NET Architect generator.'}
         ]

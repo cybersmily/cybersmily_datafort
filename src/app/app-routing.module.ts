@@ -42,6 +42,10 @@ export const mainRoutes: Routes = [
       { path: 'apps/rednet',
           loadChildren: () => import('./app-cp-red-net-arch/app-cp-red-net-arch.module')
           .then(m => m.AppCpRedNetArchModule) },
+  { path: 'apps/headlines',
+    loadChildren: () => import('./app-news-headlines/app-news-headlines.module')
+    .then(m => m.AppNewsHeadlinesModule) },
+
   { path: 'dlow', loadChildren: () => import('./appdlow/dlowsection.module').then(m => m.DlowSectionModule) },
   { path: '**', redirectTo: '/', pathMatch: 'full'}
 ];
