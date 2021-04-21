@@ -109,6 +109,30 @@
       "Make a friend on Public Security. Use him for inside info as +2 Streetwise on any PubSec situation.",
       "Triad/gang likes you. One favor a month, equivalent to Family SA +2. But don't overdo it.",
       "Find a teacher. Pick up any INT skill at +2, or add +1 to an existing skill."
+    ],
+    "IUCentralSoAm": [
+      "Education (you get extremely lucky and find someone to teach you start with +2 General Education)",
+      "Financial Windfall ([{1:100}] extra eb, which in most of Central or South America moves you to straight to upper middle class)",
+      "Make a Contact (gain the favor of someone influential = 1 favor a month)",
+      "Arms Training (Spend a year with a local police, military, rebel, cartel or mercenary group) add +1 Pistol and +1 Rifle to starting skills",
+      "Inherit a Weapon (any Central or South American melee weapon, or any standard (under 200eb value) firearm)",
+      "Make a friend with local Authority (local police, tribal leader, militia, rebel force, etc... +1 Authority)",
+      "Get a job as a guide (+2 wilderness survival to starting character skills)",
+      "Honor of Corporate R&D testing (recieve one piece of basic basic cyber or bioware, albiet at twice humanity cost, use DROCS rules to adjust)",
+      "Gain influence in a tribe or small community (+1 Family)",
+      "Find a driving instructor (+2 Driving to starting character skills)"
+    ],
+    "IUAfrican": [
+      "Education (you get extremely lucky and find someone to teach you start with +2 general education)",
+      "Financial Windfall ([{1:100}] extra eb, which in Africa moves you to straight to upper middle class)",
+      "Make a Contact (gain the favor of someone influential = 1 favor a month)",
+      "Arms Training (Spend a year with a local police, military, rebel, cartel or mercenary group) add +1 Pistol and +1 Rifle to starting skills",
+      "Inherit a Weapon (any African melee weapon, or any standard (under 200eb value) firearm)",
+      "Make a friend with local Authority (local police, tribal leader, militia, rebel force, etc... +1 Authority)",
+      "Get a job as a guide (+2 Wilderness Survival to starting character skills)",
+      "Honor of Corporate R&D testing (recieve one piece of basic basic cyber or bioware, albiet at twice humanity cost, use DROCS rules to adjust)",
+      "Gain influence in a tribe or small community (+1 Family)",
+      "Find a driving instructor (+2 Driving to starting character skills)"
     ]
   },
   "Disasters":{
@@ -172,6 +196,30 @@
           "Dishonorable Discharge: You did something beyond the pale. You went too far, and they gave you the boot. Lose all priveleges of rank, and you're out of the military with only 1,000eb. Period. Merc units might not hire you, either, with a black mark like that. You can't test for Promotion or Special Forces this year.",
           "Honorable Discharge: Someone wanted you out, and maneuvered you out of the service. Who knows, maybe the budget got cut again. You're out, with all priveleges of rank and long-service pay, if applicable.",
           "Mental/physical incapacitation: Breakdown. Who knows how it happened? Stress, bioplague, poison? [[It's some sort of nervous disorder, some bioplague perhaps - lose 1 pt REF.|It's some sort of nervous disorder, some bioplague perhaps - lose 1 pt REF.|It's some sort of nervous disorder, some bioplague perhaps - lose 1 pt REF.|It's a mental problem - anxiety attacks and phobias cause loss of 1 pt of COOL.|It's a mental problem - anxiety attacks and phobias cause loss of 1 pt of COOL.|It's a mental problem - anxiety attacks and phobias cause loss of 1 pt of COOL.|It's a mental problem - anxiety attacks and phobias cause loss of 1 pt of COOL.|Major psychosis - You hear vioces, shake, etc. So you Lose 1pt from COOL and 1 pt from REF. You are honorably discharged from the military, and can't test for Promotion or Special Forces this year.|Major psychosis - You hear vioces, shake, etc. So you Lose 1pt from COOL and 1 pt from REF. You are honorably discharged from the military, and can't test for Promotion or Special Forces this year.|Major psychosis - You hear vioces, shake, etc. So you Lose 1pt from COOL and 1 pt from REF. You are honorably discharged from the military, and can't test for Promotion or Special Forces this year.]]"
+      ],
+      "IUCentralSoAm": [
+        "Caught a tropical disease (-1 BOD)",
+        "Taken by police or soldiers for 'QUESTIONING' [[the authorities in this area know you|the authorities in this area know you|the authorities in this area know you|the authorities in this area know you|the authorities in this area know you|the authorities in this area know you|you are taken into custody whenever ANYTHING happens|you are taken into custody whenever ANYTHING happens|you are taken into custody whenever ANYTHING happens|you are jailed and beaten on sight and recieve -1 ATTR|you are jailed and beaten on sight and recieve -1 ATTR]]",
+        "Close encounter with dangerous animal (GM's choice of animal, when encountered you: [[fled in terror|fleed in terror|fleed in terror|attacke blindly|attacke blindly|attacke blindly|methodically hunt down and kill every one you can find|methodically hunt down and kill every one you can find|methodically hunt down and kill every one you can find|froze in horror unable to move]])",
+        "Loved one lost in violent incident (such as terrorist attack, Military crossfire, etc...)",
+        "Caught in middle of rebel conflict or regional war and hunted",
+        "Witnessed ethnic purge or community massacre ([[Suffer from terrible nightmares and often wake up screaming|Suffer from terrible nightmares and often wake up screaming|Suffer from terrible nightmares and often wake up screaming|Suffer from terrible nightmares and often wake up screaming|Suffer from terrible nightmares and often wake up screaming|Suffer from terrible nightmares and often wake up screaming|Suffer mental breakdown and develop major psychosis and suffer -1 EMP|Suffer mental breakdown and develop major psychosis and suffer -1 EMP|Suffer mental breakdown and develop major psychosis and suffer -1 EMP|Suffer mental breakdown and develop major psychosis and suffer -1 EMP]])",
+        "Stepped on a land mine (lost [[right arm|right arm|right arm|left arm|left arm|left arm|right leg|right leg|right leg|left leg|left leg|left leg]])",
+        "Home/Homelands taken by foreign corporation (family and friends relocated or shipped off to work for corp. in slave labor like conditions, you are left destitute, character only recieves absolute basics ie. what he can carry on his back, lose [{1:100}]eb starting cash)",
+        "Wanted by 'Death Squad' (if they catch you, they will torture and kill you)",
+        "Spent a year in prison"
+      ],
+      "IUAfrican": [
+        "Caught a tropical disease (-1 BOD)",
+        "Taken by police or soldiers for 'QUESTIONING' [[the authorities in this area know you|the authorities in this area know you|the authorities in this area know you|the authorities in this area know you|the authorities in this area know you|the authorities in this area know you|you are taken into custody whenever ANYTHING happens|you are taken into custody whenever ANYTHING happens|you are taken into custody whenever ANYTHING happens|you are jailed and beaten on sight and recieve -1 ATTR|you are jailed and beaten on sight and recieve -1 ATTR]]",
+        "Close encounter with dangerous animal (GM's choice of animal, when encountered you: [[fled in terror|fleed in terror|fleed in terror|attacke blindly|attacke blindly|attacke blindly|methodically hunt down and kill every one you can find|methodically hunt down and kill every one you can find|methodically hunt down and kill every one you can find|froze in horror unable to move]])",
+        "Loved one lost in violent incident (such as terrorist attack, Military crossfire, etc...)",
+        "Caught in middle of rebel conflict or regional war and hunted",
+        "Witnessed ethnic purge or community massacre ([[Suffer from terrible nightmares and often wake up screaming|Suffer from terrible nightmares and often wake up screaming|Suffer from terrible nightmares and often wake up screaming|Suffer from terrible nightmares and often wake up screaming|Suffer from terrible nightmares and often wake up screaming|Suffer from terrible nightmares and often wake up screaming|Suffer mental breakdown and develop major psychosis and suffer -1 EMP|Suffer mental breakdown and develop major psychosis and suffer -1 EMP|Suffer mental breakdown and develop major psychosis and suffer -1 EMP|Suffer mental breakdown and develop major psychosis and suffer -1 EMP]])",
+        "Stepped on a land mine (lost [[right arm|right arm|right arm|left arm|left arm|left arm|right leg|right leg|right leg|left leg|left leg|left leg]])",
+        "Home/Homelands taken by foreign corporation (family and friends relocated or shipped off to work for corp. in slave labor like conditions, you are left destitute, character only recieves absolute basics ie. what he can carry on his back, lose [{1:100}]eb starting cash)",
+        "Wanted by 'Death Squad' (if they catch you, they will torture and kill you)",
+        "Spent a year in prison"
       ]
     },
     "Response":{

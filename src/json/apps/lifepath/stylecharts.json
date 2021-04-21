@@ -48,7 +48,28 @@
 					"Kung fu pj's",
 					"HS Uniforms",
 					"SovUtilitarian"
-				]
+				],
+        "IU":[
+					"Leathers",
+					"Denim/Jeans",
+					"Corporate Suits",
+					"Coveralls/Jumpsuits",
+          "Short, Open",
+					"High Fashion",
+					"Cammos",
+					"Normal Clothes",
+					"Lingerie/Nude",
+          "Tribal Dress",
+          "Generic",
+          "Ethnic/Historical",
+          "Gi/Robes",
+          "Utilitarian",
+          "Lesiure Wear",
+          "Urban Flash",
+          "Big Suits",
+					"Bag Lady Chic",
+          "Paramilitary"
+        ]
 			},
 		  "hairstyle":{
 		    	"CP2020":[
@@ -98,7 +119,29 @@
 					"Neat + long",
 					"Braided ponytail",
 					"Tech cut"
-				]
+				],
+        "IU":[
+					"Mohawk",
+					"Long, ratty",
+					"Short, spiked",
+					"Wild, all over",
+					"Bald/shaved",
+					"Striped",
+					"Tinted dyed",
+					"Short, neat",
+					"Short, curly",
+					"Long, straight",
+          "Dreads",
+          "Long, natural",
+          "Braids, wraps",
+          "Shoulder length",
+          "Crew/fade out",
+          "Slicked back",
+          "Perm/big hair",
+          "Tied",
+          "Box fade",
+          "Tech cut"
+        ]
 			},
 		  "affectations": {
 		    	"CP2020":[
@@ -147,6 +190,28 @@
 					"Long fingernails",
 					"Androgyne makeup",
 					"Weird lenses (Preppy)"
+				],
+        "IU":[
+					"Tattoos",
+					"Mirrorshades",
+					"Scarring/branding",
+					"Spiked gloves",
+					"Nose rings",
+					"Earrings",
+					"Long fingernails",
+					"Heels",
+					"Weird lenses",
+					"Fingerless gloves",
+          "Jewelry",
+          "Piercings",
+          "Hats/caps",
+          "Gloves/Boots",
+          "Makeup/facepaint",
+          "Skin tints",
+          "Goggles & gear",
+          "Androgyne make-up",
+          "Bandanas/hairbands",
+          "Pouches/bags"
 				]
 			}
 		}

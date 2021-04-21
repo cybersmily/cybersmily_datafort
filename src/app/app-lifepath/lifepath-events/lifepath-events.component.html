@@ -1,16 +1,16 @@
 <div>
-  <h4 style="display:inline-block;">Life Events</h4>&nbsp;&nbsp;
-  <button class="btn-secondary csd-rounded" (click)="generateLifeEvents()">Generate</button>
+  <h4 class="d-inline mr-3">Life Events</h4>
+  <fa-icon [icon]="faDice" class="csd-btn csd-icon-xl csd-icon-btn" (click)="generateLifeEvents()"></fa-icon>
 </div>
-<div style="margin-left: 20px;">
-    <input [(ngModel)]="hasEventful" type="checkbox" id="csdHasEvents" name="No uneventful years" />
+<div class="ml-3">
+    <input [(ngModel)]="hasEventful" type="checkbox" id="csdHasEvents" name="No uneventful years" class="mr-2" />
   <label for="csdHasEvents"> Check to have all years eventful.</label>
 </div>
 <div class="csd-rounded csd-lifepath-sect">
-    <h6 style="display:inline-block;">Years: </h6>
-    <input type="text" [(ngModel)]="InputYear" style="width:50px;display:inline-block;text-align: center;margin-left: 5px;"
-      class="ng-pristine ng-untouched ng-valid">
-  <ul class="csd-lifeevent-lst">
-    <li *ngFor="let event of levents.Events">{{event.age}} - {{event.event}}</li>
+    <h6 class="d-inline">Years: </h6>
+    <input type="text" [(ngModel)]="InputYear" style="width:50px;"
+      class="ng-pristine ng-untouched ng-valid d-inline ml-2 text-center">
+  <ul class="csd-lifeevent-lst list-unstyled">
+    <li *ngFor="let event of levents.Events" class="ml-2">{{event.age}} - {{event.event}}</li>
   </ul>
 </div>

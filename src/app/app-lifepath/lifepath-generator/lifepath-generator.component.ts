@@ -1,3 +1,6 @@
+import { DiceService } from './../../shared/services/dice/dice.service';
+import { LifePathGeneratorService } from './../../shared/services/lifepath/life-path-generator.service';
+import { faDice, faFile, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { JsonDataFiles } from './../../shared/services/file-services';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { SaveFileService } from './../../shared/services/file-services';
@@ -13,6 +16,8 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./lifepath-generator.component.css']
 })
 export class LifepathGeneratorComponent implements OnInit {
+  faFile = faFile;
+  faFilePdf = faFilePdf;
 
   sourceList: LifepathSource[];
   motivationList: LifepathChart[];

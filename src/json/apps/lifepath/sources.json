@@ -11,6 +11,9 @@
 		{"title":"PacRim - Korea","value":"PacRimJapan-Korea"},
 		{"title":"PacRim - Korea (MP)","value":"PacRimJapan-ProtectServe-KoreaMP"},
 		{"title":"PacRim - China","value":"PacRimChina"},
-		{"title":"PacRim - Southeast Asia","value":"PacRimSEAsia"}
+		{"title":"PacRim - Southeast Asia","value":"PacRimSEAsia"},
+    {"title":"Interlock Unlimited (IU)","value":"IU"},
+    {"title":"IU - Central/South Am","value":"IUCentralSoAm"},
+    {"title":"IU - African","value":"IUAfrican"}
   ]
 }

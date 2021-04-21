@@ -11,7 +11,10 @@
 		{"title":"PacRim - Korea","value":"PacRimJapan-Korea"},
 		{"title":"PacRim - Korea (MP)","value":"PacRimJapan-ProtectServe-KoreaMP"},
 		{"title":"PacRim - China","value":"PacRimChina"},
-		{"title":"PacRim - Southeast Asia","value":"PacRimSEAsia"}
+		{"title":"PacRim - Southeast Asia","value":"PacRimSEAsia"},
+    {"title":"Interlock Unlimited (IU)","value":"IU"},
+    {"title":"IU - Central/South Am","value":"IUCentralSoAm"},
+    {"title":"IU - African","value":"IUAfrican"}
 	],
 	"origins":{
 		"CP2020": [
@@ -253,7 +256,28 @@
 					"Kung fu pj's",
 					"HS Uniforms",
 					"SovUtilitarian"
-				]
+				],
+        "IU":[
+					"Leathers",
+					"Denim/Jeans",
+					"Corporate Suits",
+					"Coveralls/Jumpsuits",
+          "Short, Open",
+					"High Fashion",
+					"Cammos",
+					"Normal Clothes",
+					"Lingerie/Nude",
+          "Tribal Dress",
+          "Generic",
+          "Ethnic/Historical",
+          "Gi/Robes",
+          "Utilitarian",
+          "Lesiure Wear",
+          "Urban Flash",
+          "Big Suits",
+					"Bag Lady Chic",
+          "Paramilitary"
+        ]
 			}
 		},
 		{
@@ -306,7 +330,29 @@
 					"Neat + long",
 					"Braided ponytail",
 					"Tech cut"
-				]
+				],
+        "IU":[
+					"Mohawk",
+					"Long, ratty",
+					"Short, spiked",
+					"Wild, all over",
+					"Bald/shaved",
+					"Striped",
+					"Tinted dyed",
+					"Short, neat",
+					"Short, curly",
+					"Long, straight",
+          "Dreads",
+          "Long, natural",
+          "Braids, wraps",
+          "Shoulder length",
+          "Crew/fade out",
+          "Slicked back",
+          "Perm/big hair",
+          "Tied",
+          "Box fade",
+          "Tech cut"
+        ]
 			}
 		},
 		{
@@ -358,6 +404,28 @@
 					"Long fingernails",
 					"Androgyne makeup",
 					"Weird lenses (Preppy)"
+				],
+        "IU":[
+					"Tattoos",
+					"Mirrorshades",
+					"Scarring/branding",
+					"Spiked gloves",
+					"Nose rings",
+					"Earrings",
+					"Long fingernails",
+					"Heels",
+					"Weird lenses",
+					"Fingerless gloves",
+          "Jewelry",
+          "Piercings",
+          "Hats/caps",
+          "Gloves/Boots",
+          "Makeup/facepaint",
+          "Skin tints",
+          "Goggles & gear",
+          "Androgyne make-up",
+          "Bandanas/hairbands",
+          "Pouches/bags"
 				]
 			}
 		}
@@ -435,7 +503,31 @@
 				"Highland tribe.",
 				"Pirates/Gangs/Smugglers.",
 				"Urban homeless/Street trash."
-			]
+			],
+      "IUCentralSoAm": [
+        "Tribal or isoldated small village family (The simple life, little concept of wealth or formal education)",
+        "Corporate work force family (Working the mines, fields, etc.. of a corporate holding, little more than slave labor)",
+        "Urban Poor Family (The largest urban group, not homeless, but almost)",
+        "Corporate Family (Actual employees of a corporation, usually foreign)",
+        "Urban Homeless Family (Shanty towns and alleyways)",
+        "Foreign national family (Your parents are foreigners, automatically better off than 90% of the country)",
+        "Middle class family (Comfortable life, not wealthy, but better off than most)",
+        "Refugee family (displaced and running from persecution)",
+        "Agricultural family (Farmers, working for landowners or on a corporate farm)",
+        "Political radical family (Family was comprised of Terrorists, Rebels, Political Activists)"
+      ],
+      "IUAfrican": [
+        "Tribal family (The simple life, little concept of wealth or formal education)",
+        "Corporate work force family (Working the mines, fields, etc.. of a corporate holding, little more than slave labor)",
+        "Urban Poor Family (The largest urban group, not homeless, but almost)",
+        "Corporate Family (Actual employees of a corporation, usually foreign)",
+        "Urban Homeless Family (Shanty towns and alleyways)",
+        "Foreign national family (Your parents are foreigners, automatically better off than 90% of the country)",
+        "Middle class family (Comfortable life, not wealthy, but better off than most)",
+        "Refugee family (displaced and running from persecution)",
+        "Agricultural family (Farmers, working for landowners or on a corporate farm)",
+        "Political radical family (Family was comprised of Terrorists, Rebels, Political Activists)"
+      ]
 		},
 		"parentSomethingHappen":{
 		    "CP2020":[
@@ -485,7 +577,31 @@
 				"Your parent(s) gave you up for adoption.",
 				"Your parent(s) became fanatics/radicals.",
 				"Your parent(s) sold you for money."
-			]
+			],
+      "IUCentralSoAm": [
+        "Your parent(s) died in conflict",
+        "Your parent(s) died in accident",
+        "Your parent(s) died in terrorist, rebel, military attack",
+        "Your parent(s) imprisoned or enslaved",
+        "Your parent(s) died of medical problem (Including disease and starvation) ",
+        "Your parent(s) incapicated or crippled",
+        "Your parent(s) died in ethnic cleansing",
+        "Your parent(s) were murdered",
+        "Your parent(s) exiled from tribe or community",
+        "Your parent(s) vanished"
+      ],
+      "IUAfrican": [
+        "Your parent(s) died in conflict",
+        "Your parent(s) died in accident",
+        "Your parent(s) died in terrorist, rebel, military attack",
+        "Your parent(s) imprisoned or enslaved",
+        "Your parent(s) died of medical problem (Including disease and starvation) ",
+        "Your parent(s) incapicated or crippled",
+        "Your parent(s) died in ethnic cleansing",
+        "Your parent(s) were murdered",
+        "Your parent(s) exiled from tribe or community",
+        "Your parent(s) vanished"
+      ]
 		},
 		"familyTragedy":{
 		    "CP2020":[
@@ -507,7 +623,23 @@
 				"Family was separated from the pack.",
 				"Family was held responsible for pack misfortune.",
 				"Family was involved in an intra-pack feud."
-			]
+			],
+      "IUCentralSoAm": [
+        "Family exiled from tribe or community",
+        "Family was last survivors of tribe or village",
+        "Family displaced and scattered during exodus",
+        "Family incurred wrath of corporate executive, rebel leader, politician or cartel leader",
+        "Family held responsible for village or community misfortune",
+        "Family involved in territorial, religious, or political conflict"
+      ],
+      "IUAfrican": [
+        "Family exiled from tribe or community",
+        "Family was last survivors of tribe or village",
+        "Family displaced and scattered during exodus",
+        "Family incurred wrath of corporate executive, rebel leader, politician or cartel leader",
+        "Family held responsible for village or community misfortune",
+        "Family involved in territorial, religious, or political conflict"
+      ]
 		},
 		"childhoodEnvironment":{
 		    "CP2020":[
@@ -552,7 +684,23 @@
 				"martial arts/religious training.",
 				"gang/pirates/smugglers.",
 				"worked in factory/store from age 8."
-			]
+			],
+      "IUCentralSoAm": [
+        "Spent happily",
+        "Spent unhappily due to circumstances beyond your control",
+        "Spent away or seperated from family",
+        "Spent in prison",
+        "Spent living on the street",
+        "Spent in corporate work program (basically slave labor)"
+      ],
+      "IUAfrican": [
+        "Spent happily",
+        "Spent unhappily due to circumstances beyond your control",
+        "Spent away or seperated from family",
+        "Spent in prison",
+        "Spent living on the street",
+        "Spent in corporate work program (basically slave labor)"
+      ]
 		},
 		"siblingFeeling":{
 		    "CP2020":[

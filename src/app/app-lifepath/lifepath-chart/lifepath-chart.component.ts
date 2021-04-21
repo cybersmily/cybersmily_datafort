@@ -1,3 +1,4 @@
+import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { DiceService } from '../../shared/services/dice/dice.service';
 import {
   LifePathGeneratorService
@@ -11,6 +12,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./lifepath-chart.component.css']
 })
 export class LifepathChartComponent implements OnInit {
+  faDice = faDice;
 
   selectedValues: any;
 

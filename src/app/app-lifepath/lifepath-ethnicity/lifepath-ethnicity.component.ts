@@ -1,3 +1,4 @@
+import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { LifepathEthnicity, LifepathEthnicityEntry } from './../../shared/models/lifepath';
 import { EthnicityGeneratorService } from './../../shared/services/lifepath/ethnicity-generator.service';
 import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
@@ -8,6 +9,7 @@ import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angu
   styleUrls: ['./lifepath-ethnicity.component.css']
 })
 export class LifepathEthnicityComponent implements OnInit, OnChanges {
+  faDice = faDice;
 
   @Input()
   lifepathSource: string;

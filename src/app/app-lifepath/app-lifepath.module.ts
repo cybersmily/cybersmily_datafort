@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';
 import { DataService } from './../shared/services/file-services/data.service';
 import {
   EthnicityGeneratorService,
@@ -22,6 +23,7 @@ import { DiceService } from '../shared/services/dice/dice.service';
 @NgModule({
   imports: [
     CommonModule,
+    CommonUiModule,
     FormsModule,
     AppLifepathRoutingModule
   ],

@@ -11,15 +11,17 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12">
-      <h4 style="display:inline-block;">Select Source:</h4>
+    <div class="col pt-3">
+      <h5 class="d-inline mr-3">Select Source:</h5>
       <span>
         <select [(ngModel)]="selectedSource" style="width:250px;" >
           <option *ngFor="let source of sourceList" [ngValue]="source.value">{{source.title}}</option>
         </select>
       </span>
-      <input type="button" title="Save" class="pull-right btn-secondary csd-rounded csd-fash-btn" value="Save"
-        (click)="saveFile()"  />
+     </div>
+     <div class="col">
+      <fa-icon [icon]="faFile" title="Save as Text File" class="float-right csd-btn btn csd-icon-xl csd-icon-btn"
+      (click)="saveFile()"></fa-icon>
     </div>
   </div>
   <div class="row">
@@ -29,7 +31,7 @@
       (valueChange)="onEthnicityGeneration($event)"></cs-lifepath-ethnicity>
     </div>
   </div>
-
+<br>
   <div class="row">
     <div class="col-12 col-md-4">
       <cs-lifepath-chart
@@ -44,7 +46,7 @@
       (generateValue)="onFamilyGeneration($event)"
       ></cs-lifepath-family>
     </div>
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-8">
         <cs-lifepath-chart
         [header]="'Motivations'"
         [chartData]="motivationList"
@@ -52,6 +54,7 @@
         [lifepathSource]="selectedSource"></cs-lifepath-chart>
     </div>
   </div>
+  <br>
   <div class="row">
     <div class="col-12">
         <br/>

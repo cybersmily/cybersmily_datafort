@@ -1,6 +1,6 @@
 <div>
-  <h4 style="display:inline-block;">{{header}}</h4>&nbsp;&nbsp;
-  <button class="btn-secondary csd-rounded" (click)="generateRandom(lifepathSource)">Generate</button>
+  <h4 class="d-inline mr-3">{{header}}</h4>
+  <fa-icon [icon]="faDice" class="csd-btn csd-icon-btn csd-icon-xl" (click)="generateRandom(lifepathSource)"></fa-icon>
 </div>
 <div class="csd-rounded csd-lifepath-sect">
   <div *ngFor="let chart of chartData; let i = index;">

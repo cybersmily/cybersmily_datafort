@@ -1,3 +1,4 @@
+import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { LifeEventsGeneratorService } from './../../shared/services/lifepath/life-events-generator.service';
 import { LifepathEventsList } from './../../shared/models/lifepath/lifepath-events-list';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
@@ -8,6 +9,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./lifepath-events.component.css']
 })
 export class LifepathEventsComponent implements OnInit {
+  faDice = faDice;
+
   @Input()
   lifepathSource: string;
 
