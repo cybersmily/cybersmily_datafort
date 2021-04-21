@@ -20,6 +20,13 @@ export class DiceService {
     return this.recurse(str);
   }
 
+
+  /**
+   * Rolls Cyberpunk 2020 d10 with 10s exploding.
+   *
+   * @return {*}  {DiceRolls}
+   * @memberof DiceService
+   */
   rollCP2020D10(): DiceRolls {
     const results = new DiceRolls();
     let roll = 0;
@@ -84,6 +91,16 @@ export class DiceService {
     return roll;
   }
 
+
+  /**
+   * Performs multiple, adds, substraction, and divide function on the dice.
+   *
+   * @private
+   * @param {string} str
+   * @param {DiceRolls} val
+   * @return {*}  {DiceRolls}
+   * @memberof DiceService
+   */
   private performOperation(str: string, val: DiceRolls): DiceRolls {
     if (str.match(/[\/\+\*\-]\d+/g) && typeof (val.total) !== 'undefined') {
       val.mod = str;
@@ -226,7 +243,7 @@ processResult(r: string): string {
    * @returns - string of the roll option from the chart.
    * @memberof DiceService
    */
-  rollOnChart(chart, source) {
+  rollOnChart(chart, source): string {
     if ((typeof (chart[source]) === 'undefined') && source.indexOf('-') > -1) {
       const v: string[] = source.split('-');
       if (v.length > 2) {
@@ -239,6 +256,12 @@ processResult(r: string): string {
         source = 'CP2020';
     }
     const c = chart[source];
-    return this.processResult(c[this.generateNumber(0, c.length - 1)]);
+
+    let result = c[this.generateNumber(0, c.length - 1)];
+    if (result === 'ROLL TWICE') {
+      result =  c[this.generateNumber(0, c.length - 2)];
+      result += ' & ' + c[this.generateNumber(0, c.length - 2)];
+    }
+    return result;
   }
 }
