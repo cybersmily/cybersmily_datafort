@@ -14,12 +14,17 @@ export class NetArchNodeSvgComponent implements OnInit {
   faCogs = faCogs;
   faSkullCrossbones = faSkullCrossbones;
 
+  levels: Array<number> = new Array<number>();
+
   modalRef: BsModalRef;
   config = {
     keyboard: true,
     class: 'modal-dialog-centered modal-lg'
   };
 
+  counter(levels: number): Array<any> {
+    return new Array<any>(levels);
+  }
 
   @Input()
   node: CPRedNetArchNode = new CPRedNetArchNode();

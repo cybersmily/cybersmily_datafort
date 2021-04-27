@@ -11,7 +11,6 @@ import { ColorChromeModule } from 'ngx-color/chrome';
 
 import { AppCpRedNetArchRoutingModule } from './app-cp-red-net-arch-routing.module';
 import { NetArchMainComponent } from './net-arch-main/net-arch-main.component';
-import { NetArchDiagramComponent } from './net-arch-diagram/net-arch-diagram.component';
 import { NetArchInstructionsComponent } from './net-arch-instructions/net-arch-instructions.component';
 import { NetArchNodeSvgComponent } from './net-arch-node-svg/net-arch-node-svg.component';
 import { NetArchSettingsComponent } from './net-arch-settings/net-arch-settings.component';
@@ -21,7 +20,6 @@ import { NetArchNewNodeComponent } from './net-arch-new-node/net-arch-new-node.c
 @NgModule({
   declarations: [
     NetArchMainComponent,
-    NetArchDiagramComponent,
     NetArchInstructionsComponent,
     NetArchNodeComponent,
     NetArchNodeSvgComponent,

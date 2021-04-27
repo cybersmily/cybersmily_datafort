@@ -9,10 +9,6 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class CPRedNetArchService {
-  faFile = faFile;
-  faLock = faLock;
-  faCogs = faCogs;
-  faSkullCrossbones = faSkullCrossbones;
 
   private _architect = new BehaviorSubject<CPRedNetArchNode>(
     new CPRedNetArchNode()
@@ -37,27 +33,33 @@ export class CPRedNetArchService {
   private ids = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   private idNum = 0;
 
-  private level = 3;
-
   constructor(private diceService: DiceService) {
   }
 
-  addChild() {
-    const node = this._architect.getValue();
-    this._architect.next(node);
-  }
-  removeChild() {
-    const node = this._architect.getValue();
-    this._architect.next(node);
-  }
 
-  update(node: CPRedNetArchNode) {
+  /**
+   * Updates the architect observables with a node and the array of nodes
+   *
+   * @param {CPRedNetArchNode} node
+   * @memberof CPRedNetArchService
+   */
+  update(node: CPRedNetArchNode, floors?:number) {
     this.archArray = new Array<Array<CPRedNetArchNode>>();
     this.fillArray(node);
+    if (floors) {
+      this._floors.next(floors);
+    }
     this._architectAsArray.next(this.archArray);
     this._architect.next(new CPRedNetArchNode(node));
   }
 
+
+  /**
+   * fills the node array with each level
+   *
+   * @param {CPRedNetArchNode} node
+   * @memberof CPRedNetArchService
+   */
   fillArray(node: CPRedNetArchNode) {
     const index = node.level - 1;
     if (!this.archArray[index]) {
@@ -72,35 +74,27 @@ export class CPRedNetArchService {
     }
   }
 
-  moveTo(id: number, level: number) { }
 
+  /**
+   * Generates an architect based on the number of floors and the  difficulty
+   *
+   * @param {boolean} rollFloors
+   * @param {boolean} rollDifficulty
+   * @param {number} floors
+   * @memberof CPRedNetArchService
+   */
   generateArch(rollFloors: boolean, rollDifficulty: boolean, floors: number) {
     this.controllerCount = 0;
     this.charts = new CPRedNetFloorCharts();
     this._architect.next(new CPRedNetArchNode());
     this.archArray = new Array<Array<CPRedNetArchNode>>(18);
-    if (rollFloors) {
-      floors = this.diceService.generateNumber(3, 18);
-      this._floors.next(floors);
-    } else {
-      floors = (floors && floors > 2) ? floors : 3;
-      this._floors.next(floors);
-    }
+    floors = this.generateNumberOfFloors(rollFloors, floors);
     if (rollDifficulty) {
       this.difficulty = this.diceService.generateNumber(0, 3);
     }
-    const firstFloor = this.generateNetArchNode(true);
-    firstFloor.level = 1;
-    firstFloor.id = this.ids[0];
-    this.archArray[0] = [firstFloor];
+    const firstFloor = this.generateLobby();
+    firstFloor.branch[0].addChild(this.generateFloor(floors - 2, 3));
 
-    const secondFloor = this.generateNetArchNode(true);
-    secondFloor.id = this.ids[1];
-    secondFloor.level = 2;
-    this.archArray[1] = [secondFloor];
-    this.idNum = 2;
-    secondFloor.addChild(this.generateFloor(floors - 2, 3));
-    firstFloor.addChild(secondFloor);
     // there can only be 1 node at the bottom floor
     const index = this.archArray.findIndex(n => !n);
     this.archArray.splice(index);
@@ -113,11 +107,59 @@ export class CPRedNetArchService {
         firstFloor.insertChild(id, node);
       });
     }
-    this._floors.next(firstFloor.numberOfFloors);
-    this._architectAsArray.next(this.archArray);
-    this._architect.next(firstFloor);
+    this.update(firstFloor, firstFloor.numberOfFloors);
   }
 
+
+  /**
+   * generate the number of floors based on parameters.
+   *
+   * @private
+   * @param {boolean} rollFloors
+   * @param {number} floors
+   * @return {*}
+   * @memberof CPRedNetArchService
+   */
+  private generateNumberOfFloors(rollFloors: boolean, floors: number) {
+    if (rollFloors) {
+      floors = this.diceService.generateNumber(3, 18);
+    } else {
+      floors = (floors && floors > 2) ? floors : 3;
+    }
+    return floors;
+  }
+
+  /**
+   * Generates the first 2 floors of the net arch.
+   *
+   * @private
+   * @return {*}  {CPRedNetArchNode}
+   * @memberof CPRedNetArchService
+   */
+  private generateLobby(): CPRedNetArchNode{
+    const firstFloor = this.generateNetArchNode(true);
+    firstFloor.level = 1;
+    firstFloor.id = this.ids[0];
+    this.archArray[0] = [firstFloor];
+
+    const secondFloor = this.generateNetArchNode(true);
+    secondFloor.id = this.ids[1];
+    secondFloor.level = 2;
+    this.archArray[1] = [secondFloor];
+    this.idNum = 2;
+    firstFloor.addChild(secondFloor);
+    return firstFloor;
+  }
+
+
+  /**
+   * Generates a floor for the architect
+   *
+   * @param {number} floor
+   * @param {number} level
+   * @return {*}  {CPRedNetArchNode}
+   * @memberof CPRedNetArchService
+   */
   generateFloor(floor: number, level: number): CPRedNetArchNode {
     floor--;
     const node = this.generateNetArchNode(false);
@@ -146,6 +188,14 @@ export class CPRedNetArchService {
     return node;
   }
 
+
+  /**
+   * Deteremines if the maximum allowed controller nodes has been reached.
+   *
+   * @readonly
+   * @type {boolean}
+   * @memberof CPRedNetArchService
+   */
   get isControllerMaxed(): boolean {
     if (this._floors.getValue() < 7 && this.controllerCount > 1) {
       return true;
@@ -155,6 +205,14 @@ export class CPRedNetArchService {
     return false;
   }
 
+
+  /**
+   * Genereates a floor node to be added to the architect
+   *
+   * @param {boolean} isLobby
+   * @return {*}  {CPRedNetArchNode}
+   * @memberof CPRedNetArchService
+   */
   generateNetArchNode(isLobby: boolean): CPRedNetArchNode {
     const node = new CPRedNetArchNode();
     const lobby = this.charts.lobby;
@@ -183,57 +241,4 @@ export class CPRedNetArchService {
     node.dv = floor.dv;
     return node;
   }
-
-  generateSVG() {
-    const node = this.createCircles(this._architect.getValue(), 50, 25);
-    let svg = `
-    <svg style="width:100%" height="${this.level * 100}">
-      <g>
-      ${node}
-      </g>
-    </svg>`;
-    this._svg.next(svg);
-  }
-
-  private createCircles(node: CPRedNetArchNode, x: number, offset: number): string {
-    this.level = (node.level < this.level) ? this.level : node.level;
-    let circle = `<circle cx='${x}%' cy='${node.level * 70}' r='15' fill='#000000'></circle>`;
-    circle += `<circle cx='${x}%' cy='${node.level * 70}' r='14' fill='#ffffff'></circle>`;
-    circle += `<g transform='translate(20,8)'><text x='${x}%' y='${(node.level * 70)}'>${node.id}</text></g>`;
-    circle += `<g transform='translate(-6,-8)'><svg x='${x}%' y='${(node.level * 70)}'><g>
-      <path transform='scale(0.03)'
-       fill="currentColor"
-       d="${this.getIcon(node.type)}"
-       class="csd-net-icon"
-       >
-      </path>
-      </g></svg></g>`;
-    circle += `<circle class='neticon' cx='${x}%' cy='${node.level * 70}' r='14' fill='#555555' fill-opacity='0.1' (mouseover)="hover(${node.id})"></circle>`;
-    if (node.branch && node.branch.length === 1) {
-      circle += this.createCircles(node.branch[0], x, offset);
-      circle += `<line x1="${x}%" y1="${(node.level * 70) + 15}" x2="${x}%" y2="${(node.level * 70) + 55}" style="stroke: rgb(0, 0, 0);stroke-width: 2;"></line>`;
-    }
-    if (node.branch && node.branch.length === 2) {
-      circle += this.createCircles(node.branch[0], (x - offset), (offset / 2));
-      circle += `<line x1="${x}%" y1="${(node.level * 70) + 15}" x2="${x}%" y2="${(node.level * 70) + 30}" style="stroke: rgb(0, 0, 0);stroke-width: 2;"></line>`;
-      circle += `<line x1="${(x - offset)}%" y1="${(node.level * 70) + 30}" x2="${(x + offset)}%" y2="${(node.level * 70) + 30}" style="stroke: rgb(0, 0, 0);stroke-width: 2;"></line>`;
-      circle += `<line x1="${(x - offset)}%" y1="${(node.level * 70) + 30}" x2="${(x - offset)}%" y2="${(node.level * 70) + 55}" style="stroke: rgb(0, 0, 0);stroke-width: 2;"></line>`;
-      circle += `<line x1="${(x + offset)}%" y1="${(node.level * 70) + 30}" x2="${(x + offset)}%" y2="${(node.level * 70) + 55}" style="stroke: rgb(0, 0, 0);stroke-width: 2;"></line>`;
-      circle += this.createCircles(node.branch[1], (x + offset), (offset / 2));
-    }
-    return circle;
-  }
-
-  private getIcon(type: string) {
-    switch (type) {
-      case 'file':
-        return this.faFile.icon[4];
-      case 'controller':
-        return this.faCogs.icon[4];
-      case 'program':
-        return this.faSkullCrossbones.icon[4];
-    }
-    return this.faLock.icon[4];
-  }
-
 }

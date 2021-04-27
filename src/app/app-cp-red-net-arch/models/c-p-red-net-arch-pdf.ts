@@ -1,5 +1,5 @@
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { CPRedNetArchNode } from './net-arch-node';
+import { CPRedNetArchNode } from './c-p-red-net-arch-node';
 import { jsPDF } from 'jspdf';
 
 export class CPRedNetArchPdf {
