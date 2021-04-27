@@ -1,5 +1,5 @@
 import { faRedo } from '@fortawesome/free-solid-svg-icons';
-import { CPRedIconTypeSettings } from './../models/net-arch-node';
+import { CPRedIconTypeSettings } from './../models';
 import { Component, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ColorEvent } from 'ngx-color';

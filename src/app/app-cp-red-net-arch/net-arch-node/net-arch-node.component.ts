@@ -1,5 +1,5 @@
 import { faSkullCrossbones, faCogs, faFile, faLock, faPen, faTimes, faThumbtack } from '@fortawesome/free-solid-svg-icons';
-import { CPRedNetArchNode, CPRedIconTypeSettings } from './../models/net-arch-node';
+import { CPRedNetArchNode, CPRedIconTypeSettings } from './../models';
 import { Component, Input, OnInit, Output, EventEmitter, TemplateRef } from '@angular/core';
 import { ColorEvent } from 'ngx-color';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';

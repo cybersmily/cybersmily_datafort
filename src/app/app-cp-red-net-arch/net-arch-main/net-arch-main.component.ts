@@ -1,11 +1,10 @@
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FileLoaderService, SaveFileService } from './../../shared/services/file-services';
-import { CPRedNetArchNode, CPRedIconTypeSettings } from './../models/net-arch-node';
+import { CPRedNetArchNode, CPRedIconTypeSettings } from './../models';
 import { faFilePdf, faSave, faDice, faUpload, faQuestion, faSkullCrossbones, faLock, faCogs, faFile, faQuestionCircle, faImage, faCog, faFileImage } from '@fortawesome/free-solid-svg-icons';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { CPRedNetArchService } from './../service/c-p-red-net-arch.service';
 import { Component, OnInit, TemplateRef, ViewChild, ElementRef } from '@angular/core';
-import { CPRedNetArchPdf } from '../models/c-p-red-net-arch-pdf';
 
 @Component({
   selector: 'cs-net-arch-main',

@@ -1,7 +1,6 @@
 import { faFile, faLock, faCogs, faSkullCrossbones } from '@fortawesome/free-solid-svg-icons';
-import { CPRedIconTypeSettings, NetArchNode } from './../models/net-arch-node';
+import { CPRedIconTypeSettings, CPRedNetArchNode, NetArchNode } from './../models';
 import { Component, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
-import { CPRedNetArchNode } from '../models/net-arch-node';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({

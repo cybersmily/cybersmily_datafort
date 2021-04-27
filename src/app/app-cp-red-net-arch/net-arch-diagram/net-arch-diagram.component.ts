@@ -1,5 +1,5 @@
 import { faSkullCrossbones, faCogs, faFile, faLock } from '@fortawesome/free-solid-svg-icons';
-import { CPRedNetArchNode } from './../models/net-arch-node';
+import { CPRedNetArchNode } from './../models';
 import { Component, Input, OnInit, OnChanges, Output, EventEmitter } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 

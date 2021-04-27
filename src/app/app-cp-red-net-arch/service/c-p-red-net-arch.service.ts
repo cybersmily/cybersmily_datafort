@@ -1,7 +1,7 @@
+import { CPRedNetArchNode } from './../models/c-p-red-net-arch-node';
 import { faFile, faLock, faCogs, faSkullCrossbones } from '@fortawesome/free-solid-svg-icons';
 import { CPRedNetFloorCharts } from './../models/c-p-red-net-floor-charts';
 import { DiceService } from './../../shared/services/dice/dice.service';
-import { CPRedNetArchNode, NetArchNode } from './../models/net-arch-node';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 
@@ -66,28 +66,28 @@ export class CPRedNetArchService {
     this.archArray[index].push(node);
     if (node.branch.length === 1) {
       this.fillArray(node.branch[0]);
-    } else if(node.branch.length === 2) {
+    } else if (node.branch.length === 2) {
       this.fillArray(node.branch[0]);
       this.fillArray(node.branch[1]);
     }
   }
 
-  moveTo(id: number, level: number) {}
+  moveTo(id: number, level: number) { }
 
-  generateArch(rollFloors:boolean, rollDifficulty: boolean, floors: number) {
+  generateArch(rollFloors: boolean, rollDifficulty: boolean, floors: number) {
     this.controllerCount = 0;
     this.charts = new CPRedNetFloorCharts();
-    this._architect.next( new CPRedNetArchNode());
+    this._architect.next(new CPRedNetArchNode());
     this.archArray = new Array<Array<CPRedNetArchNode>>(18);
     if (rollFloors) {
-      floors = this.diceService.generateNumber(3,18);
+      floors = this.diceService.generateNumber(3, 18);
       this._floors.next(floors);
     } else {
-      floors = (floors && floors > 2)? floors : 3;
+      floors = (floors && floors > 2) ? floors : 3;
       this._floors.next(floors);
     }
     if (rollDifficulty) {
-      this.difficulty = this.diceService.generateNumber(0,3);
+      this.difficulty = this.diceService.generateNumber(0, 3);
     }
     const firstFloor = this.generateNetArchNode(true);
     firstFloor.level = 1;
@@ -102,15 +102,15 @@ export class CPRedNetArchService {
     secondFloor.addChild(this.generateFloor(floors - 2, 3));
     firstFloor.addChild(secondFloor);
     // there can only be 1 node at the bottom floor
-    const index = this.archArray.findIndex( n => !n);
+    const index = this.archArray.findIndex(n => !n);
     this.archArray.splice(index);
     const level = this.archArray.length - 1;
     if (this.archArray[level] && this.archArray[level].length > 1) {
-      const deleteNodes =  this.archArray[level].splice(1);
+      const deleteNodes = this.archArray[level].splice(1);
       let id = this.archArray[level][0].id;
-      deleteNodes.forEach( n=> {
-         const node = firstFloor.deleteChild(n.id);
-         firstFloor.insertChild(id, node);
+      deleteNodes.forEach(n => {
+        const node = firstFloor.deleteChild(n.id);
+        firstFloor.insertChild(id, node);
       });
     }
     this._floors.next(firstFloor.numberOfFloors);
@@ -126,10 +126,10 @@ export class CPRedNetArchService {
     node.id = this.ids[this.idNum];
     this.idNum++;
     // other floor
-    if ( floor > 0) {
-      const isBranched = (this.diceService.generateNumber(1,10) > 6);
+    if (floor > 0) {
+      const isBranched = (this.diceService.generateNumber(1, 10) > 6);
       if (isBranched && floor > 1) {
-        const first = this.diceService.generateNumber(1,floor - 1);
+        const first = this.diceService.generateNumber(1, floor - 1);
         const second = floor - first;
         node.addChild(this.generateFloor(first, level));
         node.addChild(this.generateFloor(second, level));
@@ -138,7 +138,7 @@ export class CPRedNetArchService {
       }
     }
     const i = node.level - 1;
-    if(!this.archArray[i] ) {
+    if (!this.archArray[i]) {
       this.archArray[i] = new Array<CPRedNetArchNode>();
     }
     this.archArray[node.level - 1].push(node);
@@ -149,7 +149,7 @@ export class CPRedNetArchService {
   get isControllerMaxed(): boolean {
     if (this._floors.getValue() < 7 && this.controllerCount > 1) {
       return true;
-    } else if(this._floors.getValue() < 13 && this.controllerCount > 2) {
+    } else if (this._floors.getValue() < 13 && this.controllerCount > 2) {
       return true;
     }
     return false;
@@ -159,28 +159,28 @@ export class CPRedNetArchService {
     const node = new CPRedNetArchNode();
     const lobby = this.charts.lobby;
     const chart = this.charts.floors[this.difficulty];
-    let floor:any = {};
+    let floor: any = {};
     let die = 0;
     do {
       die = (isLobby) ? this.diceService.generateNumber(0, lobby.length - 1) : this.diceService.generateNumber(0, chart.length - 1);
       floor = (isLobby) ? lobby[die] : chart[die];
-    } while(floor.type === 'controller' && this.isControllerMaxed);
-      if ( floor && (floor.type === 'program' || floor.type === 'password')) {
-        // remove a program/password from the list of options
-        if (isLobby) {
-          this.charts.lobby.splice(die, 1);
-        } else {
-          this.charts.floors[this.difficulty].splice(die, 1);
-        }
+    } while (floor.type === 'controller' && this.isControllerMaxed);
+    if (floor && (floor.type === 'program' || floor.type === 'password')) {
+      // remove a program/password from the list of options
+      if (isLobby) {
+        this.charts.lobby.splice(die, 1);
+      } else {
+        this.charts.floors[this.difficulty].splice(die, 1);
       }
-      if (floor && floor.type === 'controller') {
-        this.controllerCount++;
-      }
-      node.cost = floor.cost;
-      node.desc = floor.name;
-      node.name = floor.name;
-      node.type = floor.type;
-      node.dv = floor.dv;
+    }
+    if (floor && floor.type === 'controller') {
+      this.controllerCount++;
+    }
+    node.cost = floor.cost;
+    node.desc = floor.name;
+    node.name = floor.name;
+    node.type = floor.type;
+    node.dv = floor.dv;
     return node;
   }
 
@@ -195,7 +195,7 @@ export class CPRedNetArchService {
     this._svg.next(svg);
   }
 
-  private createCircles(node:CPRedNetArchNode, x: number, offset: number): string {
+  private createCircles(node: CPRedNetArchNode, x: number, offset: number): string {
     this.level = (node.level < this.level) ? this.level : node.level;
     let circle = `<circle cx='${x}%' cy='${node.level * 70}' r='15' fill='#000000'></circle>`;
     circle += `<circle cx='${x}%' cy='${node.level * 70}' r='14' fill='#ffffff'></circle>`;
@@ -208,24 +208,24 @@ export class CPRedNetArchService {
        >
       </path>
       </g></svg></g>`;
-      circle += `<circle class='neticon' cx='${x}%' cy='${node.level * 70}' r='14' fill='#555555' fill-opacity='0.1' (mouseover)="hover(${node.id})"></circle>`;
+    circle += `<circle class='neticon' cx='${x}%' cy='${node.level * 70}' r='14' fill='#555555' fill-opacity='0.1' (mouseover)="hover(${node.id})"></circle>`;
     if (node.branch && node.branch.length === 1) {
       circle += this.createCircles(node.branch[0], x, offset);
       circle += `<line x1="${x}%" y1="${(node.level * 70) + 15}" x2="${x}%" y2="${(node.level * 70) + 55}" style="stroke: rgb(0, 0, 0);stroke-width: 2;"></line>`;
     }
     if (node.branch && node.branch.length === 2) {
-      circle += this.createCircles(node.branch[0], (x - offset), (offset/2));
+      circle += this.createCircles(node.branch[0], (x - offset), (offset / 2));
       circle += `<line x1="${x}%" y1="${(node.level * 70) + 15}" x2="${x}%" y2="${(node.level * 70) + 30}" style="stroke: rgb(0, 0, 0);stroke-width: 2;"></line>`;
       circle += `<line x1="${(x - offset)}%" y1="${(node.level * 70) + 30}" x2="${(x + offset)}%" y2="${(node.level * 70) + 30}" style="stroke: rgb(0, 0, 0);stroke-width: 2;"></line>`;
       circle += `<line x1="${(x - offset)}%" y1="${(node.level * 70) + 30}" x2="${(x - offset)}%" y2="${(node.level * 70) + 55}" style="stroke: rgb(0, 0, 0);stroke-width: 2;"></line>`;
       circle += `<line x1="${(x + offset)}%" y1="${(node.level * 70) + 30}" x2="${(x + offset)}%" y2="${(node.level * 70) + 55}" style="stroke: rgb(0, 0, 0);stroke-width: 2;"></line>`;
-      circle += this.createCircles(node.branch[1], (x + offset), (offset/2));
+      circle += this.createCircles(node.branch[1], (x + offset), (offset / 2));
     }
     return circle;
   }
 
   private getIcon(type: string) {
-    switch(type){
+    switch (type) {
       case 'file':
         return this.faFile.icon[4];
       case 'controller':

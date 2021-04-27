@@ -1,4 +1,4 @@
-import { CPRedNetArchNode, iconSettings, CPRedIconTypeSettings } from './../models/net-arch-node';
+import { CPRedIconTypeSettings, CPRedNetArchNode } from './../models';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ColorEvent } from 'ngx-color';
 
