@@ -1,3 +1,4 @@
+import { NetArchProgram } from './net-arch-program';
 import { NetArchNode } from './net-arch-node';
 
 export class CPRedNetArchNode implements NetArchNode {
@@ -11,7 +12,7 @@ export class CPRedNetArchNode implements NetArchNode {
   bgColor: string;
   color: string;
   branch: Array<CPRedNetArchNode>;
-  programs?:Array<any>;
+  programs?:Array<NetArchProgram>;
 
   constructor(param?: NetArchNode) {
     this.type = param ? param.type : 'file';
@@ -27,6 +28,12 @@ export class CPRedNetArchNode implements NetArchNode {
     if (param && param.branch && param.branch.length > 0) {
       param.branch.forEach( branch => {
         this.addChild( new CPRedNetArchNode(branch));
+      });
+    }
+    if (param && param.programs) {
+      this.programs = new Array<NetArchProgram>();
+      param.programs.forEach( prog => {
+        this.programs.push(prog);
       });
     }
   }
