@@ -1,0 +1,12 @@
+.cs-cpr-stat {
+  width: 80px;
+}
+
+.cs-cpr-stat-title {
+  display: block;
+  width:75px;
+  text-align: right;
+}
+
+.cs-cpr-stat-input {
+  width: 60px;}
