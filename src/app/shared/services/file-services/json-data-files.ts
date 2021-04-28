@@ -71,4 +71,8 @@ export class JsonDataFiles {
   public static CP2020_NETRUN_MAPDATA_JSON = `/json/apps/nrmap/data.json`;
   public static CP2020_NETRUN_MAPPATH_JSON = `/json/apps/nrmap/`;
 
+  public static CPRED_NET_ARCH_DEMONS_JSON = `/json/apps/rednet/demons.json`;
+  public static CPRED_NET_ARCH_CHARTS_JSON = `/json/apps/rednet/archcharts.json`;
+  public static CPRED_NET_ARCH_PROGRAMS_JSON = `/json/apps/rednet/programs.json`;
+
 }
