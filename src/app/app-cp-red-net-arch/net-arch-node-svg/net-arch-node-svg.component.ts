@@ -146,7 +146,6 @@ export class NetArchNodeSvgComponent implements OnInit {
   constructor(private modalService: BsModalService) {}
 
   ngOnInit(): void {
-    console.log(this.iconColors);
   }
 
   getIcon(type: string): any {

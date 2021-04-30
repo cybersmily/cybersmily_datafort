@@ -1,3 +1,5 @@
+import { DataService } from './../shared/services/file-services/data.service';
+import { CPRedNetArchChartsService } from './service/c-p-red-net-arch-charts.service';
 import { NetArchNodeComponent } from './net-arch-node/net-arch-node.component';
 import { FileLoaderService, SaveFileService } from './../shared/services/file-services';
 import { CPRedNetArchService } from './service/c-p-red-net-arch.service';
@@ -36,6 +38,8 @@ import { NetArchNewNodeComponent } from './net-arch-new-node/net-arch-new-node.c
   providers: [
     DiceService,
     CPRedNetArchService,
+    CPRedNetArchChartsService,
+    DataService,
     FileLoaderService,
     SaveFileService
   ]

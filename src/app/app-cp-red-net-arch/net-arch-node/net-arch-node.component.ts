@@ -1,7 +1,7 @@
-import { faSkullCrossbones, faCogs, faFile, faLock, faPen, faTimes, faThumbtack } from '@fortawesome/free-solid-svg-icons';
-import { CPRedNetArchNode, CPRedIconTypeSettings } from './../models';
-import { Component, Input, OnInit, Output, EventEmitter, TemplateRef } from '@angular/core';
-import { ColorEvent } from 'ngx-color';
+import { CPRedNetArchChartsService } from './../service/c-p-red-net-arch-charts.service';
+import { faSkullCrossbones, faCogs, faFile, faLock, faPen, faTimes, faThumbtack, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { CPRedNetArchNode, CPRedIconTypeSettings, NetArchProgram } from './../models';
+import { Component, Input, OnInit, Output, EventEmitter, TemplateRef, OnChanges } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
@@ -18,6 +18,7 @@ export class NetArchNodeComponent implements OnInit {
   faPen = faPen;
   faTimes = faTimes;
   faThumbtack = faThumbtack;
+  faPlus = faPlus;
 
   modalRef: BsModalRef;
   config = {
@@ -37,9 +38,14 @@ export class NetArchNodeComponent implements OnInit {
   @Output()
   updateNode: EventEmitter<CPRedNetArchNode> = new EventEmitter<CPRedNetArchNode>();
 
-  constructor(private modalService: BsModalService) { }
+  constructor(private modalService: BsModalService, private chartService: CPRedNetArchChartsService) { }
 
   ngOnInit(): void {
+  }
+
+  saveNode(node: CPRedNetArchNode) {
+    console.log('emitted',node);
+    this.updateNode.emit(node);
   }
 
   getIcon(type: string): any {
@@ -56,7 +62,6 @@ export class NetArchNodeComponent implements OnInit {
     return this.faLock;
   }
 
-  selectedColor: string;
 
   get color(): string {
     if(this.node.color && this.node.color !== '') {
@@ -90,34 +95,30 @@ export class NetArchNodeComponent implements OnInit {
     }
   }
 
+
   update() {
-    this.updateNode.emit(this.node);
+    if (this.node.type !== 'program') {
+      if (this.node.dv < 8) {
+        this.node.cost = 500;
+      } else if (this.node.dv < 10) {
+        this.node.cost = 1000;
+      } else if (this.node.dv < 12) {
+        this.node.cost = 5000;
+      } else if (this.node.dv > 11) {
+        this.node.cost = 10000;
+      }
+    }
   }
 
   changeType(e) {
     this.node.type = e.target.value
     if(this.node.type !== 'program')  {
       this.node.dv = this.defaultDV;
+      this.node.programs = undefined;
+    } else {
+      this.node.programs = new Array<NetArchProgram>();
     }
     this.update();
-  }
-
-  changeBgColor() {
-    this.node.bgColor = this.selectedColor;
-    this.update();
-  }
-
-  changeIconColor() {
-    this.node.color = this.selectedColor;
-    this.update();
-  }
-
-  changeColor($event: ColorEvent) {
-    this.selectedColor = $event.color.hex;
-  }
-
-  setSelectedColor(color: string) {
-    this.selectedColor = color;
   }
 
   showModal(template: TemplateRef<any>) {

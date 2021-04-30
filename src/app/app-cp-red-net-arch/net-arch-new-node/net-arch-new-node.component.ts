@@ -1,4 +1,6 @@
-import { CPRedIconTypeSettings, CPRedNetArchNode } from './../models';
+import { CPRedNetArchChartsService } from './../service/c-p-red-net-arch-charts.service';
+import { faFile, faSave, faSkullCrossbones, faCogs, faLock } from '@fortawesome/free-solid-svg-icons';
+import { CPRedIconTypeSettings, CPRedNetArchNode, NetArchProgram } from './../models';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ColorEvent } from 'ngx-color';
 
@@ -8,6 +10,18 @@ import { ColorEvent } from 'ngx-color';
   styleUrls: ['./net-arch-new-node.component.css']
 })
 export class NetArchNewNodeComponent implements OnInit {
+  faSave = faSave;
+  faSkullCrossbones = faSkullCrossbones;
+  faCogs = faCogs;
+  faFile = faFile;
+  faLock = faLock;
+
+  programList: Array<NetArchProgram> = new Array<NetArchProgram>();
+  selectedProgram: NetArchProgram;
+  selectedColor: string;
+  selectedNode: CPRedNetArchNode = new CPRedNetArchNode();
+
+  @Input()
   node: CPRedNetArchNode = new CPRedNetArchNode();
 
   @Input()
@@ -16,27 +30,44 @@ export class NetArchNewNodeComponent implements OnInit {
   @Input()
   defaultDV: number;
 
-  selectedColor: string;
 
   @Output()
   updateNode: EventEmitter<CPRedNetArchNode> = new EventEmitter<CPRedNetArchNode>();
 
-  constructor() { }
+  constructor( private chartService: CPRedNetArchChartsService) { }
 
   ngOnInit(): void {
-    this.node = new CPRedNetArchNode();
-    this.node.dv = this.defaultDV;
+    this.chartService.programs.subscribe(data => {
+      this.programList = data.sort( (a, b) => a.name.localeCompare(b.name));
+    });
+    this.selectedNode = new CPRedNetArchNode(this.node);
   }
 
-  update() {
-    this.updateNode.emit(this.node);
+  saveNode() {
+    console.log('emitted',this.selectedNode);
+    this.updateNode.emit(this.selectedNode);
   }
+
+  getIcon(type: string): any {
+    if (type) {
+      switch (type) {
+        case 'program':
+          return this.faSkullCrossbones;
+        case 'file':
+          return this.faFile;
+        case 'controller':
+          return this.faCogs;
+      }
+    }
+    return this.faLock;
+  }
+
 
   get color(): string {
-    if(this.node.color && this.node.color !== '') {
-      return this.node.color;
+    if(this.selectedNode.color && this.selectedNode.color !== '') {
+      return this.selectedNode.color;
     }
-    switch(this.node.type) {
+    switch(this.selectedNode.type) {
       case 'file':
         return this.iconSettings.file.color;
       case 'program':
@@ -49,10 +80,10 @@ export class NetArchNewNodeComponent implements OnInit {
   }
 
   get bgColor(): string {
-    if(this.node.bgColor && this.node.bgColor !== '') {
-      return this.node.bgColor;
+    if(this.selectedNode.bgColor && this.selectedNode.bgColor !== '') {
+      return this.selectedNode.bgColor;
     }
-    switch(this.node.type) {
+    switch(this.selectedNode.type) {
       case 'file':
         return this.iconSettings.file.bgColor;
       case 'program':
@@ -64,21 +95,38 @@ export class NetArchNewNodeComponent implements OnInit {
     }
   }
 
+  update() {
+    if (this.selectedNode.type !== 'program') {
+      if (this.selectedNode.dv < 8) {
+        this.selectedNode.cost = 500;
+      } else if (this.selectedNode.dv < 10) {
+        this.selectedNode.cost = 1000;
+      } else if (this.selectedNode.dv < 12) {
+        this.selectedNode.cost = 5000;
+      } else if (this.selectedNode.dv > 11) {
+        this.selectedNode.cost = 10000;
+      }
+    }
+  }
+
   changeType(e) {
-    this.node.type = e.target.value
-    if(this.node.type !== 'program')  {
-      this.node.dv = this.defaultDV;
+    this.selectedNode.type = e.target.value
+    if(this.selectedNode.type !== 'program')  {
+      this.selectedNode.dv = this.defaultDV;
+      this.selectedNode.programs = undefined;
+    } else {
+      this.selectedNode.programs = new Array<NetArchProgram>();
     }
     this.update();
   }
 
   changeBgColor() {
-    this.node.bgColor = this.selectedColor;
+    this.selectedNode.bgColor = this.selectedColor;
     this.update();
   }
 
   changeIconColor() {
-    this.node.color = this.selectedColor;
+    this.selectedNode.color = this.selectedColor;
     this.update();
   }
 
@@ -90,5 +138,32 @@ export class NetArchNewNodeComponent implements OnInit {
     this.selectedColor = color;
   }
 
+  deleteProgram(index: number) {
+    if (this.selectedNode.programs) {
+      this.selectedNode.programs.splice(index,1);
+      this.update();
+    }
+  }
+
+  addSelectedProgram() {
+    if (this.selectedNode.type === 'program') {
+      if (!this.selectedNode.programs) {
+        this.selectedNode["programs"] = new Array<NetArchProgram>();
+      }
+      if (this.selectedNode.programs.length < 3) {
+        console.log(this.selectedProgram);
+        this.selectedNode.programs.push( JSON.parse(JSON.stringify(this.selectedProgram)));
+        if (this.selectedNode.name === '') {
+          this.selectedNode.name = this.selectedProgram.name;
+        }
+        this.update();
+      }
+    }
+
+  }
+
+  addPrograms(count: number): boolean {
+    return count < 3;
+  }
 
 }

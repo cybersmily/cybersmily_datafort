@@ -1,9 +1,12 @@
+import { CPRedNetArchChartsService } from './c-p-red-net-arch-charts.service';
+import { DataService } from './../../shared/services/file-services/data.service';
 import { CPRedNetArchNode } from './../models/c-p-red-net-arch-node';
 import { faFile, faLock, faCogs, faSkullCrossbones } from '@fortawesome/free-solid-svg-icons';
-import { CPRedNetFloorCharts } from './../models/c-p-red-net-floor-charts';
+import { CPRedNetFloorChartEntry, CPRedNetFloorCharts } from './../models/c-p-red-net-floor-charts';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
+import { NetArchProgram } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -28,12 +31,13 @@ export class CPRedNetArchService {
   controllerCount = 0;
 
   private charts: CPRedNetFloorCharts;
+  private programList: Array<NetArchProgram>;
   private archArray = new Array<Array<CPRedNetArchNode>>(18);
 
   private ids = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   private idNum = 0;
 
-  constructor(private diceService: DiceService) {
+  constructor(private diceService: DiceService, private chartService: CPRedNetArchChartsService) {
   }
 
 
@@ -84,8 +88,41 @@ export class CPRedNetArchService {
    * @memberof CPRedNetArchService
    */
   generateArch(rollFloors: boolean, rollDifficulty: boolean, floors: number) {
-    this.controllerCount = 0;
     this.charts = new CPRedNetFloorCharts();
+    this.chartService.charts.subscribe( chart => {
+      this.programList = chart.programs;
+      chart.lobby.forEach( entry => {
+        const newEntry = new CPRedNetFloorChartEntry(entry);
+        if (newEntry.type === 'program') {
+          newEntry.programs = new Array<NetArchProgram>();
+          entry.programs.forEach( prog => {
+            const p = this.programList.find( item => item.name === prog);
+            newEntry.programs.push(p);
+          });
+        }
+        this.charts.lobby.push( newEntry);
+      });
+      chart.floors.forEach( chart => {
+        const list = new Array<CPRedNetFloorChartEntry>();
+        chart.forEach( entry => {
+          const newEntry = new CPRedNetFloorChartEntry(entry);
+          if (newEntry.type === 'program') {
+            newEntry.programs = new Array<NetArchProgram>();
+            entry.programs.forEach( prog => {
+              const p = this.programList.find( item => item.name === prog);
+              newEntry.programs.push(p);
+            });
+          }
+          list.push( new CPRedNetFloorChartEntry(newEntry));
+        });
+        this.charts.floors.push(list);
+      });
+      this.createArch(rollFloors,  rollDifficulty, floors);
+    });
+  }
+
+  createArch(rollFloors: boolean, rollDifficulty: boolean, floors: number){
+    this.controllerCount = 0;
     this._architect.next(new CPRedNetArchNode());
     this.archArray = new Array<Array<CPRedNetArchNode>>(18);
     floors = this.generateNumberOfFloors(rollFloors, floors);
@@ -214,7 +251,6 @@ export class CPRedNetArchService {
    * @memberof CPRedNetArchService
    */
   generateNetArchNode(isLobby: boolean): CPRedNetArchNode {
-    const node = new CPRedNetArchNode();
     const lobby = this.charts.lobby;
     const chart = this.charts.floors[this.difficulty];
     let floor: any = {};
@@ -234,11 +270,7 @@ export class CPRedNetArchService {
     if (floor && floor.type === 'controller') {
       this.controllerCount++;
     }
-    node.cost = floor.cost;
-    node.desc = floor.name;
-    node.name = floor.name;
-    node.type = floor.type;
-    node.dv = floor.dv;
+    const node = new CPRedNetArchNode(floor);
     return node;
   }
 }

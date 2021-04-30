@@ -63,7 +63,6 @@ export class HeadlinesToPDF {
     doc.text(headline, this._left, line);
     doc.setFont(this._font, 'normal');
     line += 7;
-    console.log(line);
     return line;
   }
 }

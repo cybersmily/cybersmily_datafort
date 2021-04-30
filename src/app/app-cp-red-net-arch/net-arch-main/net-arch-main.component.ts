@@ -35,7 +35,6 @@ export class NetArchMainComponent implements OnInit {
   archSettings: CPRedIconTypeSettings = new CPRedIconTypeSettings();
   archArray: Array<Array<CPRedNetArchNode>> = new Array<Array<CPRedNetArchNode>>();
   floors: number = 3;
-  netArchService: CPRedNetArchService = new CPRedNetArchService(this.dice);
   svg: string;
   numOfLevels: number = 3;
 
@@ -57,8 +56,8 @@ export class NetArchMainComponent implements OnInit {
     }
   }
 
-
   constructor(private dice: DiceService,
+    private netArchService:CPRedNetArchService,
     private saveFile: SaveFileService,
     private fileLoader: FileLoaderService,
     private modalService: BsModalService
@@ -102,9 +101,7 @@ export class NetArchMainComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.archSettings);
     if (window.localStorage && window.localStorage[this.archSettings.key]) {
-      console.log('here');
       this.archSettings.import(JSON.parse(window.localStorage[this.archSettings.key]));
     }
     this.netArchService.architect.subscribe( arch => {
@@ -155,6 +152,7 @@ export class NetArchMainComponent implements OnInit {
   }
 
   updateArch($event: CPRedNetArchNode) {
+    console.log('received', $event);
     this.floors = $event.numberOfFloors;
     this.arch.update($event);
     this.netArchService.update(this.arch);

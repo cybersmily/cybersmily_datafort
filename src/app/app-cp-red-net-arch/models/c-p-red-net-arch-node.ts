@@ -7,23 +7,23 @@ export class CPRedNetArchNode implements NetArchNode {
   name: string;
   desc: string;
   level: number;
-  cost: number;
+  _cost: number;
   dv: number;
   bgColor: string;
   color: string;
   branch: Array<CPRedNetArchNode>;
   programs?:Array<NetArchProgram>;
 
-  constructor(param?: NetArchNode) {
+  constructor(param?: any) {
     this.type = param ? param.type : 'file';
     this.name = param ? param.name : 'file';
     this.desc = param ? param.desc : '';
     this.level = param ? param.level : 0;
-    this.cost = param ? param.cost : 0;
+    this._cost = param ? param.cost : 0;
     this.dv = param ? param.dv : 0;
     this.id = param ?  param['id'] : '';
-    this.bgColor = param ? param.bgColor : '';
-    this.color = param ? param.color : '';
+    this.bgColor = param && param.bgColor ? param.bgColor : '';
+    this.color = param && param.color ? param.color : '';
     this.branch = new Array<CPRedNetArchNode>();
     if (param && param.branch && param.branch.length > 0) {
       param.branch.forEach( branch => {
@@ -36,6 +36,17 @@ export class CPRedNetArchNode implements NetArchNode {
         this.programs.push(prog);
       });
     }
+  }
+
+  get cost(): number {
+    if (this.programs && this.programs.length > 0) {
+      return (this.programs.reduce( (a, b) => a + b.cost, 0)) * this.programs.length;
+    }
+    return this._cost;
+  }
+
+  set cost(value: number) {
+    this._cost = value;
   }
 
   get totalCost(): number {
@@ -137,6 +148,7 @@ export class CPRedNetArchNode implements NetArchNode {
   }
 
   update(node: CPRedNetArchNode) {
+    console.log(node);
     if( node.id === this.id){
       this.type = node.type;
       this.name = node.name;
@@ -145,6 +157,7 @@ export class CPRedNetArchNode implements NetArchNode {
       this.dv = node.dv;
       this.bgColor = node.bgColor;
       this.color =node.color;
+      this.programs = node.programs;
       return;
     } else {
       if (this.branch.length > 0) {
@@ -152,6 +165,34 @@ export class CPRedNetArchNode implements NetArchNode {
       }
     }
     return;
+  }
+
+  export(): NetArchNode {
+    const result: NetArchNode = {
+      type: this.type,
+      name: this.name,
+      desc: this.desc,
+      level: this.level,
+      cost: this.cost,
+      dv: this.dv,
+      bgColor: this.bgColor,
+      color: this.color,
+      branch: new Array<NetArchNode>()
+    };
+    this.branch.forEach( node => {
+      result.branch.push(node.export());
+    });
+    if (this.programs && this.programs.length > 0) {
+      result.programs = new Array<NetArchProgram>();
+      this.programs.forEach( prog => {
+        result.programs.push(prog);
+      });
+    }
+    return result;
+  }
+
+  exportAsJSONString(): string {
+    return JSON.stringify(this.export());
   }
 
 }

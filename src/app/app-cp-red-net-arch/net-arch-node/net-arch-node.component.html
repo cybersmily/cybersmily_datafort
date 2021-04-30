@@ -1,5 +1,5 @@
 <div *ngIf="node" class="row ml-1">
-  <div class="col-6">
+  <div class="col">
     <div class="row net-node-info">
       <div class="col">
         <div class="row">
@@ -10,7 +10,7 @@
             </div>
             <h5 class="text-capitalize" style="display:inline-block">{{node.name}}</h5>
             <span *ngIf="node.type !== 'program'">&nbsp;(DV{{node.dv}})</span>
-            <fa-icon [icon]="faPen" style="width: 15px; height: 15px;" class="ml-2 hidden-print csd-btn"
+            <fa-icon [icon]="faPen" style="width: 15px; height: 15px;" class="csd-icon-btn ml-2 hidden-print csd-btn"
             (click)="showModal(nodeSettings)"></fa-icon>
           </div>
           <div class="col-3">
@@ -23,6 +23,22 @@
           <div class="col-1"></div>
           <div class="col">Description: <i>{{node.desc}}</i></div>
         </div>
+        <div *ngIf="node.programs" class="row">
+          <div class="col-1"></div>
+          <div class="col">Programs</div>
+        </div>
+        <div class="row" *ngFor="let prog of node.programs">
+          <div class="col-2"></div>
+          <div class="col-6">
+            {{prog.name}} (<i>icon: {{prog.icon}}</i>)
+          </div>
+          <div class="col-4 font-italic">
+            ({{prog.cost}}eb <span *ngIf="node.programs.length > 1">x{{node.programs.length}}</span>)
+            <span class="float-right">{{prog.source}}</span>
+          </div>
+        </div>
+        <br>
+        <br>
       </div>
     </div>
     <div class="row csd-rounded" *ngIf="isEdit">
@@ -37,53 +53,8 @@
     </button>
   </div>
   <div class="modal-body">
-    <div class="col">
-      <div class="row">
-        <div class="col">
-          <input type="text" [(ngModel)]="node.name" style="width: 90%;" (change)="update()">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          Type: <select [(ngModel)]="node.type" (change)="changeType($event)">
-            <option value="controller">Control Node</option>
-            <option value="file">File</option>
-            <option value="password">Password</option>
-            <option value="program">Program</option>
-          </select>
-        </div>
-      </div>
-      <div class="row" *ngIf="node.type !== 'program'">
-        <div class="col">
-          DV: <input type="number" [(ngModel)]="node.dv" style="width:70px;" (change)="update()" min="6" max="30">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          Cost: <input type="number" [(ngModel)]="node.cost" (change)="update()">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          Description:
-          <br>
-          <textarea [(ngModel)]="node.desc" style="width:100%;min-height: 80px;" (change)="update()">
-          </textarea>
-        </div>
-      </div>
-    </div>
-    <div class="row" >
-      <div class="col">
-        Color: <span class="cs-color-swatch" [style.background-color]="color" [popover]="colorPicker" [outsideClick]="true"
-        (onShown)="setSelectedColor(node.color)" (onHidden)="changeIconColor(type)"></span>
-      </div>
-      <div class="col">
-        Background: <span class="cs-color-swatch" [style.background-color]="bgColor" [popover]="colorPicker" [outsideClick]="true"
-        (onShown)="setSelectedColor(node.bgColor)" (onHidden)="changeBgColor()"></span>
-      </div>
-    </div>
+    <cs-net-arch-new-node [node]="node" [iconSettings]="iconSettings" [defaultDV]="defaultDV" (updateNode)="saveNode($event)" ></cs-net-arch-new-node>
   </div>
-
 </ng-template>
 <ng-template #colorPicker>
   <color-chrome [color]="selectedColor" (onChange)="changeColor($event)"></color-chrome>
