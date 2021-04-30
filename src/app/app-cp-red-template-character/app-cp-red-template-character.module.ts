@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';
 import { NameGeneratorService } from './../shared/services/namegen/name-generator.service';
 import { RedJumpkitLifepathService } from '../shared/cpred/services/cprlifepath/red-jumpkit-lifepath.service';
 import { CpRedTemplateGeneratorService } from '../shared/cpred/services/cpredpc/cp-red-template-generator.service';
@@ -26,7 +27,7 @@ import { TempGeneratorArmorComponent } from './temp-generator-armor/temp-generat
     TempGeneratorArmorComponent],
   imports: [
     CommonModule,
-    FormsModule,
+    CommonUiModule,
     AppCpRedTemplateCharacterRoutingModule
   ],
   providers: [

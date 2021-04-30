@@ -1,3 +1,4 @@
+import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { NameGeneratorService } from '../../shared/services/namegen/name-generator.service';
 import { DiceService } from './../../shared/services/dice/dice.service';
@@ -12,6 +13,7 @@ import { RedJumpkitLifepathService } from '../../shared/cpred/services/cprlifepa
   styleUrls: ['./temp-generator.component.css']
 })
 export class TempGeneratorComponent implements OnInit {
+  faDice = faDice;
 
   character: CpRedBaseCharacter;
   roles: string[];
