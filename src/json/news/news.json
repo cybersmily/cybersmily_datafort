@@ -1,6 +1,17 @@
 ﻿{
   "news": [
     {
+      "date": "2021-05",
+      "entries": [
+        "<strong>05-01</strong> - A more bug fixes and small tweaks:",
+        "&nbsp;* Fixed an issues on NET Architect for Cyberpunk Red.",
+        "&nbsp;* Small tweaks to NET Architect to allow you to choose programs to add",
+        "&nbsp;* Cosmetic changes to NET Architect",
+        "Till next time.",
+        "CYBER :D"
+      ]
+    },
+    {
       "date": "2021-04",
       "entries": [
         "<strong>04-25</strong> - A new app and more bug fixes:",
