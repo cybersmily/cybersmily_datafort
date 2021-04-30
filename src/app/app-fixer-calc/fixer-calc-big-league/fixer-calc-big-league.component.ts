@@ -1,4 +1,4 @@
-import { faSave, faRedo } from '@fortawesome/free-solid-svg-icons';
+import { faSave, faRedo, faFile } from '@fortawesome/free-solid-svg-icons';
 import { SaveFileService } from './../../shared/services/file-services';
 import { BigLeagueContact } from './../../shared/models/fixer/big-league-contact';
 import { FixerBigLeagueService } from './../../shared/services/fixer/fixer-big-league.service';
@@ -12,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
 export class FixerCalcBigLeagueComponent implements OnInit {
   faSave = faSave;
   faRedo = faRedo;
+  faFile = faFile;
 
   streetdeal = 5;
   contacts: Array<BigLeagueContact> = new Array<BigLeagueContact>();
