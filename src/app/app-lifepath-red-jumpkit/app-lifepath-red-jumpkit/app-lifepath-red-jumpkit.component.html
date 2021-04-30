@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <h2>Cyberpunk Red Jumpkit LifePath Generator</h2>
+      <h2>LifePath Generator for Cyberpunk Red Jumpkit</h2>
       <p>
-        This is my version of the CP red jumpkit lifepath generator.
+        This is an unofficial version of the CP red jumpkit lifepath generator.
         You can purchase Cyberpunk Red Jumpstart Kit from <a
           href="https://talsorianstore.com/collections/cyberpunk/products/cyberpunk-red-jumpstart-kit"
           alt="R. Talsorian" target="_blank">R. Talsorian Games here</a>
@@ -14,13 +14,13 @@
   </div>
   <div class="row">
     <div class="col-6">
-      <fa-icon class="csd-dice btn-lg" [icon]="faDice" (click)="generate()" title="Generate Cyberpunk Red Lifepath">
-      </fa-icon>
+      <fa-icon class="csd-dice csd-icon-btn csd-icon-xl" [icon]="faDice" (click)="generate()" title="Generate Cyberpunk Red Lifepath">
+      </fa-icon> - Click to generate lifepath
     </div>
     <div class="col-6">
-      <fa-icon class="csd-btn btn-lg float-right" [icon]="faFilePdf" (click)="saveAsPDF()"
+      <fa-icon class="csd-btn csd-icon-btn csd-icon-xl float-right" [icon]="faFilePdf" (click)="saveAsPDF()"
         title="Save Cyberpunk Red Lifepath as PDF"></fa-icon>
-      <fa-icon class="csd-btn btn-lg float-right" [icon]="faSave" (click)="saveFile()"
+      <fa-icon class="csd-btn csd-icon-btn csd-icon-xl float-right mr-4" [icon]="faSave" (click)="saveFile()"
         title="Save Cyberpunk Red Lifepath as Text"></fa-icon>
     </div>
   </div>
