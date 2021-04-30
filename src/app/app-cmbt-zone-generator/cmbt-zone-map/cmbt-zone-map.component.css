@@ -14,10 +14,10 @@
 
 :host >>> .customClass .btn-link {
   font-weight: bold;
-  color: #007bff;
   text-decoration: none;
 }
 
 .cmbt-zone-building-desc {
   font-size: small;
 }
+

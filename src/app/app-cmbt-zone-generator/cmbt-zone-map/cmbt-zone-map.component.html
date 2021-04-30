@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col">
-    <fa-icon [icon]="faFilePdf" class="csd-btn btn-lg float-right" (click)="printPDF()" title="Save as PDF"></fa-icon>
+    <fa-icon [icon]="faFilePdf" class="csd-icon-btn csd-icon-xl csd-btn float-right" (click)="printPDF()" title="Save as PDF"></fa-icon>
   </div>
 </div>
 <div class="row">
@@ -42,16 +42,15 @@
   <div class="col-12 col-lg-3 col-xl-4">
     <div class="row">
       <div class="col csd-rounded">
-        <tabset>
+        <tabset [justified]="true">
           <tab>
             <ng-template tabHeading>
-              <span class="small">BUILDINGS
-              &nbsp;&nbsp;
-              <fa-icon [icon]="faDice" class="csd-dice" (click)="rollBuildings()" title="Click to generate map"></fa-icon>
+              <span class="font-weight-bold">BUILDINGS
             </span>
             </ng-template>
             <div class="row">
-              <div class="col">Key for each block's buildings description</div>
+              <div class="col-1"><fa-icon [icon]="faDice" class="csd-dice csd-icon-btn csd-icon-xl mr-2" (click)="rollBuildings()" title="Click to generate map"></fa-icon></div>
+              <div class="col mt-2 ml-2">Key for each block's buildings description</div>
             </div>
             <div *ngFor="let building of buildings; let i = index" class="row">
               <div class="col">
@@ -69,13 +68,11 @@
           </tab>
           <tab>
             <ng-template tabHeading>
-              <span class="small">OBJECTS
-              &nbsp;&nbsp;
-              <fa-icon [icon]="faDice" class="csd-dice" (click)="rollStreetObjects()" title="Click to roll objects"></fa-icon>
-            </span>
+              <span class="font-weight-bold">OBJECTS</span>
             </ng-template>
             <div class="row">
-              <div class="col">Objects on the street. </div>
+              <div class="col-1"><fa-icon [icon]="faDice" class="csd-icon-btn csd-icon-xl csd-dice" (click)="rollStreetObjects()" title="Click to roll objects"></fa-icon></div>
+              <div class="col mt-2 ml-2">Objects on the street. </div>
             </div>
             <div *ngFor="let object of streetObjects; let i = index" class="row">
               <div class="col ml-2">
@@ -85,28 +82,30 @@
           </tab>
           <tab>
             <ng-template tabHeading>
-              <span class="small">
+              <span  class="font-weight-bold">
                 EVENTS
             </span>
             </ng-template>
             <div class="row">
-              <div class="col">What's currently happening on the street.
+              <div class="col-1">
+                <fa-icon [icon]="faDice" class="csd-icon-btn csd-icon-xl csd-dice" (click)="rollStreetEvents()" title="Click to roll events"></fa-icon>
               </div>
-            </div>
-            <div class="row small">
-              <div class="col-6">Time:
-                &nbsp;
-                <select [(ngModel)]="streetEventTime">
-                  <option [ngValue]="'daytime'">Daytime</option>
-                  <option [ngValue]="'evening'">Evening</option>
-                  <option [ngValue]="'aftermidnight'">After Midnight</option>
-                </select>
-              </div>
-                <div class="col-6">
-                Count:
-                &nbsp;
-                <input [(ngModel)]="streetEventCount" type="number" style="width: 50px;" min="1" class="text-center">
-                <fa-icon [icon]="faDice" class="csd-dice float-right" (click)="rollStreetEvents()" title="Click to roll events"></fa-icon>
+              <div class="col ml-2">
+                <div class="row">
+                  <div class="col">What's currently happening on the street.
+                  </div>
+                </div>
+                <div class="row small">
+                  <div class="col">Time:
+                    <select [(ngModel)]="streetEventTime" class="ml-1 mr-2 d-inline">
+                      <option [ngValue]="'daytime'">Daytime</option>
+                      <option [ngValue]="'evening'">Evening</option>
+                      <option [ngValue]="'aftermidnight'">After Midnight</option>
+                    </select>
+                    Count:
+                    <input [(ngModel)]="streetEventCount" type="number" style="width: 50px;" min="1" class="text-center ml-1">
+                  </div>
+                </div>
 
               </div>
             </div>
