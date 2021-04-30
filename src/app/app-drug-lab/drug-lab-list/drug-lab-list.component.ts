@@ -1,4 +1,4 @@
-import { faUndo, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faUndo, faTrash, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { DruglabToPDF } from './../../shared/models/pdf/druglab-to-pdf';
 import { Cp2020DrugList } from './../../shared/models/drug/cp2020-drug-list';
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
@@ -12,6 +12,7 @@ import * as jsPDF from 'jspdf';
 export class DrugLabListComponent implements OnInit {
   faUndo = faUndo;
   faTrash = faTrash;
+  faFilePdf = faFilePdf;
 
   @Input()
   drugList: Cp2020DrugList = new Cp2020DrugList();
