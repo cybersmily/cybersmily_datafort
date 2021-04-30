@@ -1,10 +1,10 @@
 <div class="row">
   <div class="col-12">
-    <button class="btn btn-secondary btn-sm csd-rounded pull-right hidden-print" title="Save the list as a text file."
-      (click)="save()">Save</button>
-    <button class="btn btn-secondary btn-sm csd-rounded pull-right hidden-print"
-      title="Reset Streetdeal and clear all areas/fields." (click)="reset()">Reset</button>
-    <h4>Hot Stuff</h4>
+    <fa-icon [icon]="faSave" class="csd-btn csd-icon-xl csd-icon-btn float-right hidden-print"
+      title="Save the list as a text file." (click)="save()"></fa-icon>
+    <h4 class="d-inline">Hot Stuff</h4>
+    <fa-icon [icon]="faRedo" class="csd-btn csd-icon-xl csd-icon-btn ml-2 hidden-print"
+      title="Reset Streetdeal and clear all areas/fields." (click)="reset()"></fa-icon>
     <div class="hidden-print">This system has a set amount of points that can be distributed amongst contacts.</div>
   </div>
 </div>
@@ -30,36 +30,37 @@
 <br>
 <div *ngIf="!reachedPoints as value; else elseNotReached" class="csd-rounded hidden-print hot-stuff-new">
   <div class="row">
-  <div class="col-auto"><fa-icon [icon]="faPlus" (click)="addArea()" [ngClass]="{'csd-btn': true,'csd-disabled': !canAdd}"
-    title="Add{{(canAdd)?'':' - must enter an area/field and roll 1 or above'}}"></fa-icon>
+    <div class="col-auto">
+      <fa-icon [icon]="faPlus" (click)="addArea()" [ngClass]="{'csd-btn csd-icon-xl': true,'csd-icon-btn': canAdd,'csd-disabled': !canAdd}"
+        title="Add{{(canAdd)?'':' - must enter an area/field and roll 1 or above'}}"></fa-icon>
+    </div>
+    <div class="col">
+      <div class="row">
+        <div class="col-5">
+          <span class="csd-required hot-stuff-new-area">
+            <input [(ngModel)]="newArea.area" type="text" placeholder="Enter area/field..."
+              title="Required. Cannot be an area/field that already exists.">
+          </span>
+        </div>
+        <div class="col">
+          <span class="csd-required">
+            <input [(ngModel)]="newArea.rolls" type="number" min="0" max="6" (change)="changeNewRolls()"
+              title="Must be a value between 1 and 6."> rolls
+          </span>
+        </div>
+        <div [ngClass]="{'col': true, 'hot-stuff-over': !isUnderPoints}">{{newArea.points}}pts</div>
+      </div>
+      <div *ngIf="exists" class="row">
+        <div class="col text-danger">!!The area already exists. Either delete the old one or rename this one.</div>
+      </div>
+      <div class="row">
+        <div class="col-10 hot-stuff-details">
+          <textarea [(ngModel)]="newArea.details" title="Details about the area to gain extra rolls"
+            placeholder="Enter details about the area/field..."></textarea>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col">
-    <div class="row">
-      <div class="col-5">
-        <span class="csd-required hot-stuff-new-area">
-          <input [(ngModel)]="newArea.area" type="text" placeholder="Enter area/field..."
-            title="Required. Cannot be an area/field that already exists.">
-        </span>
-      </div>
-      <div class="col">
-        <span class="csd-required">
-          <input [(ngModel)]="newArea.rolls" type="number" min="0" max="6" (change)="changeNewRolls()"
-            title="Must be a value between 1 and 6."> rolls
-        </span>
-      </div>
-      <div [ngClass]="{'col': true, 'hot-stuff-over': !isUnderPoints}" >{{newArea.points}}pts</div>
-    </div>
-    <div *ngIf="exists" class="row">
-      <div class="col text-danger">!!The area already exists. Either delete the old one or rename this one.</div>
-    </div>
-    <div class="row">
-      <div class="col-10 hot-stuff-details">
-        <textarea [(ngModel)]="newArea.details" title="Details about the area to gain extra rolls"
-          placeholder="Enter details about the area/field..."></textarea>
-      </div>
-    </div>
-  </div>
-</div>
 </div>
 <ng-template #elseNotReached>
   <div class="row hidden-print">

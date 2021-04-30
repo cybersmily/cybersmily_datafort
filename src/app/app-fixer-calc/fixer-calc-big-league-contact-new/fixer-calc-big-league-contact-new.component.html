@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-auto">
       <fa-icon [icon]="faPlus" (click)="createContact()"
-        [ngClass]="{'csd-btn': true, 'csd-disabled': !canAdd || overPoints}"
+        [ngClass]="{'csd-btn': true, 'csd-disabled': !canAdd || overPoints, 'csd-icon-xl csd-icon-btn': canAdd && !overPoints}"
         title="Add{{(canAdd)?'':' - disabled. Must enter unique name and choose all options to add new contact'}}">
       </fa-icon>
     </div>

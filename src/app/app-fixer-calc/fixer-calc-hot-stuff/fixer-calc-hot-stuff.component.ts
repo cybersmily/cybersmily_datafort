@@ -1,5 +1,5 @@
 import { SaveFileService } from './../../shared/services/file-services';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faSave, faRedo } from '@fortawesome/free-solid-svg-icons';
 import { HotStuffArea } from './../../shared/models/fixer/hot-stuff-area';
 import { FixerHotStuffService } from './../../shared/services/fixer/fixer-hot-stuff.service';
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
@@ -11,6 +11,9 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 })
 export class FixerCalcHotStuffComponent implements OnInit {
   faPlus = faPlus;
+  faSave = faSave;
+  faRedo = faRedo;
+
   streetdeal: number;
   newArea: HotStuffArea = new HotStuffArea();
   areas: Array<HotStuffArea> = new Array<HotStuffArea>();

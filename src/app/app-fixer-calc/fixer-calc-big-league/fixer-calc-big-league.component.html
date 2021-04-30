@@ -1,12 +1,8 @@
 <div class="row">
   <div class="col-12">
-    <button class="btn btn-secondary btn-sm csd-rounded pull-right hidden-print" (click)="save()"
-    title="Save the Big League contacts as a text file"
-    >Save</button>
-    <button class="btn btn-secondary btn-sm csd-rounded pull-right hidden-print" (click)="reset()"
-    title="Reset Streetdeal and clear all contacts"
-    >Reset</button>
-    <h4>Big League</h4>
+    <fa-icon [icon]="faSave" class="csd-btn csd-icon-xl csd-icon-btn float-right hidden-print" title="Save the Big League contacts as a text file" (click)="save()"></fa-icon>
+    <h4 class="d-inline">Big League</h4>
+    <fa-icon [icon]="faRedo" class="csd-btn csd-icon-xl csd-icon-btn ml-2 hidden-print" title="Reset Streetdeal and clear all contacts" (click)="reset()"></fa-icon>
     <div class="hidden-print">This system has a set amount of points that can be distributed amongst contacts.</div>
   </div>
 </div>
@@ -21,7 +17,7 @@
 <br>
 <div class="csd-rounded">
 <div class="row header-row">
-  <div class="col-3">Desciption/Name/field</div>
+  <div class="col-3">Description</div>
   <div class="col">Capacity</div>
   <div class="col">Reputation</div>
   <div class="col">Availablity</div>
