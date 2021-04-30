@@ -10,7 +10,7 @@
     <div class="col-4 col-md-3 col-lg-2">
       <span *ngIf="!isSaved" class="csd-program-unsaved">** UNSAVED **</span>
       <span class="float-right pl-2">
-        <fa-icon [icon]="faSave" class="csd-btn" (click)="save()" title="Add program to list."></fa-icon>
+        <fa-icon [icon]="faSave" class="csd-btn csd-icon-btn csd-icon-xl" (click)="save()" title="Add program to list."></fa-icon>
       </span>
       <span class="float-right">
         {{program.cost|number}}eb
@@ -45,7 +45,7 @@
   </div>
   <div class="row">
     <div class="col">
-      Options: {{optionList}} <fa-icon [icon]="faPlus" (click)="showOptions(programOptions)" class="csd-btn"
+      Options: {{optionList}} <fa-icon [icon]="faPlus" (click)="showOptions(programOptions)" class="csd-btn csd-icon-btn"
         title="Add/remove options"></fa-icon>
     </div>
   </div>

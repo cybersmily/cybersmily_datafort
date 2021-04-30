@@ -22,14 +22,14 @@
     <div class="col-1 text-center">+{{p.strength}}</div>
     <div class="col-1 text-center">{{p.mu}}</div>
     <div class="col-1">
-      <fa-icon [icon]="faTrash" class="csd-btn" (click)="delete(i)"></fa-icon>
+      <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn" (click)="delete(i)"></fa-icon>
     </div>
   </div>
   <hr>
 </ng-container>
   <div class="row">
     <div class="col csd-prog-lst-new btn" (click)="createNew();selectedProgram.show()">
-      <fa-icon [icon]="faPlus"></fa-icon>
+      <fa-icon [icon]="faPlus" class="csd-icon-btn csd-icon-xl"></fa-icon>
     </div>
   </div>
 </div>
