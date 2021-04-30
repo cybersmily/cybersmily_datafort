@@ -1,9 +1,8 @@
-<div class="row">
+<div class="row csd-rounded">
   <div class="col-12 col-md-11">
     <div class="row">
       <div class="col-12">TYPE: <span>{{currClothing.clothes.name}}</span>
-        <input type="button" title="Buy" class="pull-right btn-secondary csd-rounded csd-fash-btn" value="Buy"
-          (click)="purchase($event)" [disabled]="!isPurchaseable()" />
+        <fa-icon [icon]="faPlus" title="Buy" [ngClass]="{'csd-btn csd-icon-btn': isPurchaseable, 'csd-disabled':!isPurchaseable , 'float-right csd-icon-xl': true}" (click)="purchase($event)"></fa-icon>
       </div>
     </div>
     <div class="row">

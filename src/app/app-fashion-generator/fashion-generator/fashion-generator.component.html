@@ -18,10 +18,7 @@
     <div class="col-12 col-md-5">
       <cs-fashion-list [clothingList]="clothingList" [totalCost]="clothingTotal">
       </cs-fashion-list>
-      <div>
-        <input type="button" title="Save" class="pull-right btn-secondary csd-rounded csd-fash-btn" value="Save"
-        (click)="saveList()" [disabled]="isListEmpty()" />
-      </div>
+      <fa-icon [icon]="faSave" title="Save" [ngClass]="{'csd-btn csd-icon-btn': !isListEmpty, 'csd-disabled':isListEmpty , 'csd-icon-xl': true}" (click)="saveList()"></fa-icon>
     </div>
   </div>
 </div>

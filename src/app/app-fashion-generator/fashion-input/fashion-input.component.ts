@@ -1,3 +1,4 @@
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Clothing, PieceOfClothing, ClothingOption, ClothingArmor } from '../../shared/models/clothing';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
@@ -7,6 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./fashion-input.component.css']
 })
 export class FashionInputComponent implements OnInit {
+  faPlus = faPlus;
 
   currClothing: Clothing;
   spRatingsList: ClothingArmor[];
@@ -34,7 +36,7 @@ export class FashionInputComponent implements OnInit {
   @Output()
   purchaseClothing: EventEmitter<Clothing> = new EventEmitter<Clothing>();
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
     this.currClothing = new Clothing();
@@ -53,10 +55,10 @@ export class FashionInputComponent implements OnInit {
     if (this.currClothing.clothes.wt && this.currClothing.clothes.wt !== '') {
       const wt = this.currClothing.clothes.wt;
       this.spRatingsList = new Array();
-      this.spRatingsList.push({name: '', mod: 1, ev: 0, sp: 0 });
+      this.spRatingsList.push({ name: '', mod: 1, ev: 0, sp: 0 });
       this.armoringList.forEach((spRating, index) => {
-        if ( spRating.mod && spRating.mod.hasOwnProperty(wt)) {
-          const rating: ClothingArmor = {name: '', mod: 0, ev: 0, sp: 0 };
+        if (spRating.mod && spRating.mod.hasOwnProperty(wt)) {
+          const rating: ClothingArmor = { name: '', mod: 0, ev: 0, sp: 0 };
           rating.mod = spRating.mod ? spRating.mod[wt] : 0;
           rating.name = spRating.name;
           rating.ev = spRating.ev ? spRating.ev[wt] : 0;
@@ -79,11 +81,11 @@ export class FashionInputComponent implements OnInit {
   calculateTotal() {
     const price: number = Number(this.currClothing.clothes.cost);
     let mod = 1;
-    if ( this.currClothing.isLeather) {
+    if (this.currClothing.isLeather) {
       const leather: number = Number(this.currClothing.clothes.leather);
       mod = isNaN(leather) ? mod : (mod * leather);
     }
-    if ( this.currClothing.options.length > 0 ) {
+    if (this.currClothing.options.length > 0) {
       // process which optionsn are chosen and add them up
       this.currClothing.options.forEach(
         opt => {
@@ -99,19 +101,19 @@ export class FashionInputComponent implements OnInit {
       );
     }
     const style: number = Number(this.currClothing.style.mod);
-    if ( !isNaN(style) && style > 0) {
+    if (!isNaN(style) && style > 0) {
       mod = mod * style;
     }
     const quality: number = Number(this.currClothing.quality.mod);
-    if ( !isNaN(quality) && quality > 0) {
+    if (!isNaN(quality) && quality > 0) {
       mod = mod * quality;
     }
     const sp: number = Number(this.currClothing.spRating.mod);
-    if ( !isNaN(sp) && sp > 0) {
+    if (!isNaN(sp) && sp > 0) {
       mod = mod * sp;
     }
 
-    this.currClothing.totalCost =  mod * price;
+    this.currClothing.totalCost = mod * price;
   }
 
   /**
@@ -179,7 +181,9 @@ export class FashionInputComponent implements OnInit {
   purchase(event) {
     // to create a deep object of clothing, needed to do some
     // JSON manipulation to achieve a true copy of the the object
-    this.purchaseClothing.emit(JSON.parse(JSON.stringify(this.currClothing)));
+    if (this.isPurchaseable) {
+      this.purchaseClothing.emit(JSON.parse(JSON.stringify(this.currClothing)));
+    }
   }
 
   /**
@@ -188,11 +192,11 @@ export class FashionInputComponent implements OnInit {
    *                      and style have been selected.
    * @memberof FashionInputComponent
    */
-  isPurchaseable(): boolean {
-    if (this.currClothing.clothes.name && this.currClothing.quality.name && this.currClothing.style.name) {
+  get isPurchaseable(): boolean {
+    if (this.currClothing.clothes.name && this.currClothing.clothes.name !== ''
+      && this.currClothing.quality.name && this.currClothing.style.name) {
       return true;
     }
     return false;
-
   }
 }
