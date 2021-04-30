@@ -2,20 +2,30 @@
   <div class="row">
     <div class="col-12">
       <h2>News Headline Generator for Cyberpunk 2020/Red</h2>
-        <div>This unofficial utility extends the charts from Night City sourcebook and Cyberpunk Red core book to create news headlines for your Cyberpunk game. Titles generated will need some more work (like add/reword it, choose a specific corporation, person, nomad family, gang, etc.).</div>
-        <div>
-          <fa-icon [icon]="faDice" class="csd-btn csd-icon-xl csd-icon-btn" (click)="rollHeadlines()" title="Generate a random headline"></fa-icon> - roll for generic headlines.
-          <fa-icon [icon]="faFile" class="csd-btn csd-icon-xl csd-icon-btn float-right mr-3" (click)="saveAsText()" title="Save headlines as a text file"></fa-icon>
-          <fa-icon [icon]="faFilePdf" class="csd-btn csd-icon-xl csd-icon-btn float-right mr-3" (click)="saveAsPdf()" title="Save headlines as a PDF file"></fa-icon>
-        </div>
-    </div>
-  </div>
-  <div class="row">
-    <div *ngFor="let headline of headlines" class="col-12">
-      <h4>{{headline}}</h4>
+      <div>This unofficial utility extends the charts from Night City sourcebook and Cyberpunk Red core book to create
+        news headlines for your Cyberpunk game. Titles generated will need some more work (like add/reword it, choose a
+        specific corporation, person, nomad family, gang, etc.).</div>
+      <div>
+        <fa-icon [icon]="faDice" class="csd-btn csd-icon-xl csd-icon-btn" (click)="rollHeadlines()"
+          title="Generate a random headline"></fa-icon> - roll for generic headlines.
+        <fa-icon [icon]="faFile" class="csd-btn csd-icon-xl csd-icon-btn float-right mr-3" (click)="saveAsText()"
+          title="Save headlines as a text file"></fa-icon>
+        <fa-icon [icon]="faFilePdf" class="csd-btn csd-icon-xl csd-icon-btn float-right mr-3" (click)="saveAsPdf()"
+          title="Save headlines as a PDF file"></fa-icon>
+      </div>
     </div>
   </div>
   <br>
+  <div class="row csd-rounded">
+    <div class="col">
+      <div *ngFor="let headline of headlines" class="row pt-2">
+        <div class="col">
+          <h4>{{headline}}</h4>
+        </div>
+      </div>
+      <br>
+      <br>
+    </div>
+  </div>
   <br>
 </div>
-
