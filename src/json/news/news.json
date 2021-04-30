@@ -1,5 +1,6 @@
 ﻿{
   "news": [
+
     {
       "date": "2021-05",
       "entries": [
@@ -7,6 +8,14 @@
         "&nbsp;* Fixed an issues on NET Architect for Cyberpunk Red.",
         "&nbsp;* Small tweaks to NET Architect to allow you to choose programs to add",
         "&nbsp;* Cosmetic changes to NET Architect",
+        "&nbsp;* cosmetic tweaks to the Drug Lab Calc.",
+        "&nbsp;* cosmetic tweaks to the Combat Zone Generator.",
+        "&nbsp;* cosmetic tweaks to the Fashion Generator.",
+        "&nbsp;* cosmetic tweaks to headline generator",
+        "&nbsp;* cosmetic tweaks to Fixer Calc",
+        "&nbsp;* cosmetic tweaks to deck manager",
+        "&nbsp;* cosmetic tweaks to CP Red Jumpstart Kit generator",
+        "&nbsp;* cosmetic tweaks to CPJK Lifepath generator",
         "Till next time.",
         "CYBER :D"
       ]
