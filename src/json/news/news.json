@@ -4,8 +4,10 @@
     {
       "date": "2021-05",
       "entries": [
-        "<strong>05-01</strong> - A more bug fixes and small tweaks:",
-        "&nbsp;* Fixed an issues on NET Architect for Cyberpunk Red.",
+        "<strong>05-05</strong> - Small update to the Quick Netrunner Rules I have.",
+        "After some playtesting recently with the rules (which I wrote 20+years ago), I needed to update them a bit. Significant changes is the calculation of the Program Modifier, which I reworked to allow a super runner to crack into the most secured DataFort. I also update some of the tables as some of the results didn't make sense.",
+        "<strong>05-01</strong> - More bug fixes and small tweaks:",
+        "&nbsp;* Fixed an issues on NET Architect for Cyberpunk Red. Nodes didn't match the keys.",
         "&nbsp;* Small tweaks to NET Architect to allow you to choose programs to add",
         "&nbsp;* Cosmetic changes to NET Architect",
         "&nbsp;* cosmetic tweaks to the Drug Lab Calc.",

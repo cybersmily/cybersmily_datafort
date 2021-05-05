@@ -1,259 +1,395 @@
-<div class="row ">
-    <div class="col-sm-7">
-        <div>
-          These rules are to make netrunning a little faster.
-          They shouldn't take too much real time to do.
-          There are three steps to making a run: make a base link, intrusion, and outcome.
-        </div>
-        <div>
-          The runner first has to form a base link.
-          That is, what LDL they go through and the trace rating each gives them.
-          If they fail on the security roll the Ref can use the fumble rolls for any of the forts or the one in the book.
-        </div>
-        <div>
-          Next the runner attempts to break into the fort.
-          The runner gets to choose how, either through a wall or the code gate.
-          The runner and Ref determine success just like they would normally would.
-          If the runner is using a Noisy Program it will affect the outcome roll.
-          For every grid that the Noisy Program is heard from, add half that number to the DIFF of the fort (i.e. Hammer can be heard 10 spaces away, so add 5 to the DIFF of the Outcome DIFF).
-        </div>
-        <div>
-          And finally, the outcome.
-          A runner adds up all Anti-System, Evasion, and Anti-IC program strengths they are using (or are loaded in their deck) and divides it by 10.
-          This is the Program modifier.
-          A runner can only use one of each type of program.
-          Add the Deck speed, <span class="game-skill">Interface</span>, <span class="game-stat">INT</span>, the program modifier, plus a 1D10 to beat the Difficulty of the Fort.
-        </div>
-    </div>
-    <div class="col-sm-5">
-        <div class="csd-rounded csd-section">
-            <div class="row">
-                <div class="col-xs-10 col-sm-9"><h6>SYSTEM</h6></div>
-                <div class="col-xs-2"><h6>Base DIFF</h6></div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-xs-10 col-sm-9">Grey System: (Detection and Alarm)</div>
-                <div class="col-xs-2">10</div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-xs-10 col-sm-9">Level 1: (Anti-IC, Detection, and Alarms)</div>
-                <div class="col-xs-2">15</div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-xs-10 col-sm-9">Level 2: (As above plus Anti-System)</div>
-                <div class="col-xs-2">20</div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-xs-10 col-sm-9">Level 3: (As above plus non-fatal anti-personnel ICE)</div>
-                <div class="col-xs-2">25</div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-xs-10 col-sm-9">Black System: (Everything they can throw at them)</div>
-                <div class="col-xs-2">30</div>
-            </div>
-            <br>
-            <div><small>* - Add +5 to DIFF if there's a Sysop</small></div>
-            <div><small>* - Add +5 to DIFF if there's an AI</small></div>
-        </div>
-    </div>
+<div class="row">
+  <div class="col">
+    These rules are to make netrunning a little faster.
+    They shouldn't take too much real time to do.
+    There are three steps to making a run: Base Link, Intrusion, and Outcome.
+  </div>
 </div>
-<div class="row ">
+<div class="row">
+  <div class="col-12 col-lg-4">
+    <h5>Base Link</h5>
+    <div>
+      The runner first has to form a base link.
+      That is, what LDL they go through and the trace rating each gives them.
+      If they fail on the security roll the Ref can use the fumble rolls for any of the forts or the one in the book.
+    </div>
+  </div>
+  <div class="col-12 col-lg-4">
+    <h5>Intrusion</h5>
+    <div>
+      Next the runner attempts to break into the fort.
+      The runner gets to choose how, either through a wall or the code gate.
+      The runner and Ref determine success just like they would normally would.
+      If the runner is using a Noisy Program it will affect the outcome roll.
+      For every grid that the Noisy Program is heard from, add half that number to the DIFF of the fort (i.e. Hammer can
+      be heard 10 spaces away, so add 5 to the DIFF of the Outcome DIFF).
+    </div>
+  </div>
+  <div class="col-12 col-lg-4">
+    <h5>Outcome</h5>
+    <div>
+      This is the task that the runner is attempting to do.
+      A referee can require the runner to make several of these rolls depending on the actions taken within the
+      datafort.
+      To figure out the outcome, first step is to get the Program Modifier (PM).
+      For each program type of Anti-System, Evasion, and Anti-program/ICE gives you a bonus.
+      You can only use 1 program of each type during a run.
+      To calculate the total PM compare the program's str to the following: str 1-3 +1, str 4-6 +2, str 7-9 +3, and str
+      10 +4.
+      If the program is a specialty program (like Dogcatcher only affective against Dog programs), then it only is a PM
+      +1 if it has a str 5+ else no PM.
+      This is up to the referee to make the judgement on it.
+      The maximum PM acheivable is a +12 PM (very unlikely to have all str 10 programs, but you can dream).
+      <div>The formula to determine success for the outcome is:</div>
+      <div>
+        <small class="ml-3 ">INT + Interface + SPD + Program Mod. vs DF DIFF</small>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-12 col-lg-7">
     <div>
       If successful, the runner accesses what they were looking for.
       If they fail, consult the Margin of Failure chart below.
       If a runner rolls a 1, consult the fumble chart in Bartmoss Guide to the Net.
-      Protection programs might help a runner against attacks that hurt the him directly (i.e. physical damage, or <span class="game-stat">INT</span> damage).
-      To determine if the program is successful, the runner needs to roll 1d10 under the strength of the Protection program.
+      Protection programs might help a runner against attacks that hurt the him directly (i.e. physical damage, or <span
+        class="game-stat">INT</span> damage).
+      To determine if the program is successful, the runner needs to roll 1D10 under the strength of the Protection
+      program.
       If it fails then the runner is affected as the result indicates.
-      As you can see this is a very basic system, but will speed up game play if you have a runner in the party.</div>
+      As you can see this is a very basic system, but will speed up game play if you have a runner in the party.
+    </div>
+    <div>Another thing to note is trace attempts explode. So even if a runner beefs up their Bas Link to over 20, a trace can still have a small chance at success.</div>
+    <br>
+    <div>Example:</div>
+    <div class="font-italic">
+      I use either the net maps from the source books or use the Netrunner Navigator app on this site.
+      I was able to build up my Base Link to a 15. Not bad.</div>
+    <div class="font-italic">I plan on hitting the Militech Datafort (Black) today.
+      The referee determines the datawalls are str 9 and codegates str8.
+      I decide to hit the codegate as I'm running a Raffles (str4) on my deck.
+      Lucky for me I rolled an 8 + 4(str) = 12 and break into the datafort.
+    </div>
+    <div class="font-italic">
+      I need to steal a file within the system.
+      My current load out is a DeckKRASH (str4 Anti-system, +2PM), Invisibility (str3 evasion, +1PM) and a Killer IV
+      (str4 anti-program, +2PM).
+      This gives me a Program Modifier of +5.
+      I now roll 1d10. I get a 7 (roll) + 7 (Interface) + 8 (INT) + 3 (my deck's speed) + 5 (program modifier) giving me
+      a total of 30.
+      I barely succeeded. If there is an AI and/or Sysop in the fort, then it would be a failure and I would need to
+      consult the Margin of Failure table.
+      My netrunner might want to invest in improving his deck speed and getting some better programs soon.
+    </div>
+    <br>
+  </div>
+  <div class="col-12 col-lg-5">
+    <div class="csd-rounded csd-section">
+      <div class="row">
+        <div class="col-10">
+
+          <h6>DATAFORT DIFF</h6>
+        </div>
+        <div class="col-2">
+          <h6>Base DIFF</h6>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-10">Grey System: (Detection and Alarm)</div>
+        <div class="col-2">10</div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-10">Level 1: (Anti-IC, Detection, and Alarms)</div>
+        <div class="col-2">15</div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-10">Level 2: (As above plus Anti-System)</div>
+        <div class="col-2">20</div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-10">Level 3: (As above plus non-fatal anti-personnel ICE)</div>
+        <div class="col-2">25</div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-10">Black System: (Everything they can throw at them)</div>
+        <div class="col-2">30</div>
+      </div>
+      <br>
+      <div><small>* - Add +5 to DIFF if there's a Sysop</small></div>
+      <div><small>* - Add +5 to DIFF if there's an AI</small></div>
+    </div>
+  </div>
 </div>
 <h3 class="">Failure Chart</h3>
 <div class="row ">
-    <div class="col-4">
-        <h4>Datafort: Grey</h4>
-        <div class="csd-rounded csd-section">
-            <div class="row">
-                <div class="col-3"><h6>Margin<br>of<br>Failure</h6></div>
-                <div class="col-1"></div>
-                <div class="col-7"><h6>Results<br>of<br>Failure</h6></div>
-            </div>
-            <div class="row">
-                <div class="col-3">1-5</div>
-                <div class="col-1"></div>
-                <div class="col-7">Trace attempt (Str 4)</div>
-            </div>
-            <div class="row">
-                <div class="col-3">6-10</div>
-                <div class="col-1"></div>
-                <div class="col-7">Call into Netwatch. Arrives in d10+3 turns</div>
-            </div>
-            <div class="row">
-                <div class="col-3">11+</div>
-                <div class="col-1"></div>
-                <div class="col-7">NA</div>
-            </div>
+  <div class="col-12 col-md-6 col-lg-4 mb-2">
+    <h4>Datafort: Grey</h4>
+    <div class="csd-rounded csd-section">
+      <div class="row">
+        <div class="col-3">
+          <h6>Margin<br>of<br>Failure</h6>
         </div>
-    </div>
-    <div class="col-4">
-        <h4>Datafort: Level 1</h4>
-        <div class="csd-rounded csd-section">
-            <div class="row">
-              <div class="col-3"><h6>Margin<br>of<br>Failure</h6></div>
-              <div class="col-1"></div>
-              <div class="col-7"><h6>Results<br>of<br>Failure</h6></div>
-            </div>
-            <div class="row">
-                <div class="col-3">1-5</div>
-                <div class="col-1"></div>
-                <div class="col-7">Trace Attempt (Str 4)</div>
-            </div>
-            <div class="row">
-                <div class="col-3">6-10</div>
-                <div class="col-1"></div>
-                <div class="col-7">Call into Netwatch. Arrives in d10 turns </div>
-            </div>
-            <div class="row">
-                <div class="col-3">11+</div>
-                <div class="col-1"></div>
-                <div class="col-7">Lose a Program</div>
-            </div>
+        <div class="col-1"></div>
+        <div class="col-7">
+          <h6>Results<br>of<br>Failure</h6>
         </div>
+      </div>
+      <div class="row">
+        <div class="col-3">1-5</div>
+        <div class="col-1"></div>
+        <div class="col-7">Trace attempt (Str 4)</div>
+      </div>
+      <div class="row">
+        <div class="col-3">6-10</div>
+        <div class="col-1"></div>
+        <div class="col-7">Call into Netwatch. Warrant issued. Trace Attempt at str result 1-5 above.</div>
+      </div>
+      <div class="row">
+        <div class="col-3">11+</div>
+        <div class="col-1"></div>
+        <div class="col-7">NA</div>
+      </div>
     </div>
-    <div class="col-4">
-        <h4>Datafort: Level 2</h4>
-        <div class="csd-rounded csd-section">
-            <div class="row">
-              <div class="col-3"><h6>Margin<br>of<br>Failure</h6></div>
-              <div class="col-1"></div>
-              <div class="col-7"><h6>Results<br>of<br>Failure</h6></div>
-            </div>
-            <div class="row">
-                <div class="col-3">1-5</div>
-                <div class="col-1"></div>
-                <div class="col-7">Trace Attempt (Str5)</div>
-            </div>
-            <div class="row">
-                <div class="col-3">6-10</div>
-                  <div class="col-1"></div>
-                  <div class="col-7">Call into Netwatch. Arrives in D6 turns</div>
-            </div>
-            <div class="row">
-                <div class="col-3">11-15</div>
-                  <div class="col-1"></div>
-                  <div class="col-7">Lose a D3 Programs</div>
-            </div>
-            <div class="row">
-                <div class="col-3">16+</div>
-                  <div class="col-1"></div>
-                  <div class="col-7">Crash your Deck. Drops you out of the net</div>
-            </div>
+  </div>
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <h4>Datafort: Level 1</h4>
+    <div class="csd-rounded csd-section">
+      <div class="row">
+        <div class="col-3">
+          <h6>Margin<br>of<br>Failure</h6>
         </div>
-    </div>
-    <div class="col-4">
-        <h4>Datafort: Level 3</h4>
-        <div class="csd-rounded csd-section">
-            <div class="row">
-              <div class="col-3"><h6>Margin<br>of<br>Failure</h6></div>
-              <div class="col-1"></div>
-              <div class="col-7"><h6>Results<br>of<br>Failure</h6></div>
-            </div>
-            <div class="row">
-                <div class="col-3">1-5</div>
-                <div class="col-1"></div>
-                <div class="col-7">Trace Attempt (Str 7)</div>
-            </div>
-            <div class="row">
-                <div class="col-3">6-10</div>
-                <div class="col-1"></div>
-                <div class="col-7">Call into Netwatch. Arrives in D6 turns</div>
-            </div>
-            <div class="row">
-                <div class="col-3">11-15</div>
-                <div class="col-1"></div>
-                <div class="col-7">Lose a D3+1 Program</div>
-            </div>
-            <div class="row">
-                <div class="col-3">16+</div>
-                <div class="col-1"></div>
-                <div class="col-7">
-                    Roll a D6:
-                </div>
-            </div>
-            <div class="row">
-              <div class="col-2"></div>
-              <div class="col-9">
-                <div class="row"><div class="col-3">1-2</div><div class="col-9">Crash your Deck, drops runner off line</div></div>
-                <div class="row"><div class="col-3">3-4</div><div class="col-9">Erases d6 programs</div></div>
-                <div class="row"><div class="col-3">5-6</div><div class="col-9">Kills all memory</div></div>
-              </div>
-            </div>
+        <div class="col-1"></div>
+        <div class="col-7">
+          <h6>Results<br>of<br>Failure</h6>
         </div>
+      </div>
+      <div class="row">
+        <div class="col-3">1-5</div>
+        <div class="col-1"></div>
+        <div class="col-7">Trace Attempt (Str 4)</div>
+      </div>
+      <div class="row">
+        <div class="col-3">6-10</div>
+        <div class="col-1"></div>
+        <div class="col-7">Call into Netwatch. Warrant issued. Trace Attempt at str result 1-5 above.</div>
+      </div>
+      <div class="row">
+        <div class="col-3">11+</div>
+        <div class="col-1"></div>
+        <div class="col-7">Lose a Program</div>
+      </div>
     </div>
-    <div class="col-4">
-        <h4>Datafort: Black</h4>
-        <div class="csd-rounded csd-section">
-            <div class="row">
-              <div class="col-3"><h6>Margin<br>of<br>Failure</h6></div>
-              <div class="col-1"></div>
-              <div class="col-7"><h6>Results<br>of<br>Failure</h6></div>
-            </div>
-            <div class="row">
-                <div class="col-3">1-5</div>
-                <div class="col-1"></div>
-                <div class="col-7">Trace Attempt (Str 9)</div>
-            </div>
-            <div class="row">
-                <div class="col-3">6-10</div>
-                <div class="col-1"></div>
-                <div class="col-7">Call into Netwatch. Arrives in D6 turns</div>
-            </div>
-            <div class="row">
-                <div class="col-3">11-15</div>
-                <div class="col-1"></div>
-                <div class="col-7">Lose all Programs</div>
-            </div>
-            <div class="row">
-                <div class="col-3">16-20</div>
-                <div class="col-1"></div>
-                <div class="col-7">Roll a D10:</div>
-            </div>
-            <div class="row">
-              <div class="col-1"></div>
-              <div class="col-10">
-                  <div class="row"><div class="col-3">1-2</div><div class="col-9">Crash your Deck, drops runner offline</div></div>
-                  <div class="row"><div class="col-3">3-4</div><div class="col-9">Erases 1d6 programs</div></div>
-                  <div class="row"><div class="col-3">5-6</div><div class="col-9">Freezes system for d6 turns</div></div>
-                  <div class="row"><div class="col-3">7-8</div><div class="col-9">Kills all memory</div></div>
-                  <div class="row"><div class="col-3">9-10</div><div class="col-9">Kills CPU</div></div>
-              </div>
-            </div>
-            <div class="row">
-                <div class="col-3">21+</div>
-                <div class="col-1"></div>
-                <div class="col-7">Roll a D10: </div>
-            </div>
-            <div class="row">
-              <div class="col-1"></div>
-              <div class="col-10">
-                  <div class="row"><div class="col-3">1</div><div class="col-9">Glued for D10 turns</div></div>
-                  <div class="row"><div class="col-3">2</div><div class="col-9">Prevent Runner from Logging off</div></div>
-                  <div class="row"><div class="col-3">3</div><div class="col-9">Runner is in Coma</div></div>
-                  <div class="row"><div class="col-3">4</div><div class="col-9">1D6 physical damage</div></div>
-                  <div class="row"><div class="col-3">5</div><div class="col-9">1D10 Physical damage</div></div>
-                  <div class="row"><div class="col-3">6</div><div class="col-9">Causes fire in runner's deck</div></div>
-                  <div class="row"><div class="col-3">7</div><div class="col-9">1D6 <span class="game-stat">INT</span> damage</div></div>
-                  <div class="row"><div class="col-3">8</div><div class="col-9">2D6 <span class="game-stat">INT</span> damage</div></div>
-                  <div class="row"><div class="col-3">9</div><div class="col-9">Kills runner</div></div>
-                  <div class="row"><div class="col-3">10</div><div class="col-9">Erased Memory/new personality</div></div>
-              </div>
-            </div>
+  </div>
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <h4>Datafort: Level 2</h4>
+    <div class="csd-rounded csd-section">
+      <div class="row">
+        <div class="col-3">
+          <h6>Margin<br>of<br>Failure</h6>
         </div>
+        <div class="col-1"></div>
+        <div class="col-7">
+          <h6>Results<br>of<br>Failure</h6>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">1-5</div>
+        <div class="col-1"></div>
+        <div class="col-7">Trace Attempt (Str5)</div>
+      </div>
+      <div class="row">
+        <div class="col-3">6-10</div>
+        <div class="col-1"></div>
+        <div class="col-7">Call into Netwatch. Warrant issued. Trace Attempt at str result 1-5 above.</div>
+      </div>
+      <div class="row">
+        <div class="col-3">11-15</div>
+        <div class="col-1"></div>
+        <div class="col-7">Roll 1D10 below Deck DataWall strength or lose a D3 Programs</div>
+      </div>
+      <div class="row">
+        <div class="col-3">16+</div>
+        <div class="col-1"></div>
+        <div class="col-7">Roll 1D10 below Deck DataWall strength or crash your Deck. Drops you out of the net</div>
+      </div>
     </div>
+  </div>
+  <div class="col-12 col-md-6 col-lg-4">
+    <h4>Datafort: Level 3</h4>
+    <div class="csd-rounded csd-section">
+      <div class="row">
+        <div class="col-3">
+          <h6>Margin<br>of<br>Failure</h6>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-7">
+          <h6>Results<br>of<br>Failure</h6>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">1-5</div>
+        <div class="col-1"></div>
+        <div class="col-7">Trace Attempt (Str 7)</div>
+      </div>
+      <div class="row">
+        <div class="col-3">6-10</div>
+        <div class="col-1"></div>
+        <div class="col-7">Call into Netwatch. Warrant issued. Trace Attempt at str result 1-5 above.</div>
+      </div>
+      <div class="row">
+        <div class="col-3">11-15</div>
+        <div class="col-1"></div>
+        <div class="col-7">Roll 1D10 below Deck DataWall strength or lose a D3+1 Program. If successful still lose 1
+          program.</div>
+      </div>
+      <div class="row">
+        <div class="col-3">16+</div>
+        <div class="col-1"></div>
+        <div class="col-7">
+          Roll a D6:
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-9">
+          <div class="row">
+            <div class="col-3">1-2</div>
+            <div class="col-9">Roll 1D10 below Deck DataWall strength or crash your Deck, drops runner off line</div>
+          </div>
+          <div class="row">
+            <div class="col-3">3-4</div>
+            <div class="col-9">Roll 1D10 below Deck DataWall strength or erases D6 programs. If successful still lose 1
+              proram</div>
+          </div>
+          <div class="row">
+            <div class="col-3">5-6</div>
+            <div class="col-9">Roll 1D10 below Deck DataWall strength or lose all programs. If successful still lose 1D6
+              programs</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-6 col-lg-4">
+    <h4>Datafort: Black</h4>
+    <div class="csd-rounded csd-section">
+      <div class="row">
+        <div class="col-3">
+          <h6>Margin<br>of<br>Failure</h6>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-7">
+          <h6>Results<br>of<br>Failure</h6>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">1-5</div>
+        <div class="col-1"></div>
+        <div class="col-7">Trace Attempt (Str 9)</div>
+      </div>
+      <div class="row">
+        <div class="col-3">6-10</div>
+        <div class="col-1"></div>
+        <div class="col-7">Call into Netwatch. Warranet issued. Trace Attempt as result 1-5.</div>
+      </div>
+      <div class="row">
+        <div class="col-3">11-15</div>
+        <div class="col-1"></div>
+        <div class="col-7">Roll 1D10 below Deck DataWall strength or lose all programs. If successful still lose 1D6
+          programs</div>
+      </div>
+      <div class="row">
+        <div class="col-3">16-20</div>
+        <div class="col-1"></div>
+        <div class="col-7">Roll a D10:</div>
+      </div>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">1-2</div>
+            <div class="col-9">Roll 1D10 below Deck DataWall strength or crash your Deck, drops runner offline</div>
+          </div>
+          <div class="row">
+            <div class="col-3">3-4</div>
+            <div class="col-9">Roll 1D10 below Deck DataWall strength or erases 1D6 programs. If successful still lose 1
+              program</div>
+          </div>
+          <div class="row">
+            <div class="col-3">5-6</div>
+            <div class="col-9">Roll 1D10 below Deck DataWall strength or freezes system allowing for 1D6 Trace Attempt at str result 1-5 above.
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">7-8</div>
+            <div class="col-9">Roll 1D10 below Deck DataWall strength or lose all programs and memory. If successful
+              still lose 1D6 programs</div>
+          </div>
+          <div class="row">
+            <div class="col-3">9-10</div>
+            <div class="col-9">Roll 1D10 below Deck DataWall strength or cyberdeck destroyed</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">21+</div>
+        <div class="col-1"></div>
+        <div class="col-7">Roll a D10: </div>
+      </div>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">1</div>
+            <div class="col-9">Glued. 1D6 Trace Attempt at str result 1-5 above.</div>
+          </div>
+          <div class="row">
+            <div class="col-3">2</div>
+            <div class="col-9">Prevent Runner from Logging off. 1D10 Trace Attempt at str result 1-5 above.</div>
+          </div>
+          <div class="row">
+            <div class="col-3">3</div>
+            <div class="col-9">Runner is in Coma</div>
+          </div>
+          <div class="row">
+            <div class="col-3">4</div>
+            <div class="col-9">1D6 physical damage</div>
+          </div>
+          <div class="row">
+            <div class="col-3">5</div>
+            <div class="col-9">1D10 physical damage</div>
+          </div>
+          <div class="row">
+            <div class="col-3">6</div>
+            <div class="col-9">Roll 1D10 below Deck DataWall strength or causes fire in runner's deck</div>
+          </div>
+          <div class="row">
+            <div class="col-3">7</div>
+            <div class="col-9">1D6 <span class="game-stat">INT</span> damage</div>
+          </div>
+          <div class="row">
+            <div class="col-3">8</div>
+            <div class="col-9">2D6 <span class="game-stat">INT</span> damage</div>
+          </div>
+          <div class="row">
+            <div class="col-3">9</div>
+            <div class="col-9">2D6 <span class="game-stat">INT</span> damage and 1D10 physical damage</div>
+          </div>
+          <div class="row">
+            <div class="col-3">10</div>
+            <div class="col-9">Erased runner's memories/inserts new personality</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 </div>
