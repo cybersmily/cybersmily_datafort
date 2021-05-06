@@ -44,8 +44,8 @@ export class NetArchNodeComponent implements OnInit {
   }
 
   saveNode(node: CPRedNetArchNode) {
-    console.log('emitted',node);
     this.updateNode.emit(node);
+    this.modalRef.hide();
   }
 
   getIcon(type: string): any {

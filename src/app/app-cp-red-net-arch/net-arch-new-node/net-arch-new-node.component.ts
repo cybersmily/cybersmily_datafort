@@ -1,5 +1,5 @@
 import { CPRedNetArchChartsService } from './../service/c-p-red-net-arch-charts.service';
-import { faFile, faSave, faSkullCrossbones, faCogs, faLock } from '@fortawesome/free-solid-svg-icons';
+import { faFile, faSave, faSkullCrossbones, faCogs, faLock, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { CPRedIconTypeSettings, CPRedNetArchNode, NetArchProgram } from './../models';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ColorEvent } from 'ngx-color';
@@ -15,6 +15,8 @@ export class NetArchNewNodeComponent implements OnInit {
   faCogs = faCogs;
   faFile = faFile;
   faLock = faLock;
+  faPlus = faPlus;
+  faTrash = faTrash;
 
   programList: Array<NetArchProgram> = new Array<NetArchProgram>();
   selectedProgram: NetArchProgram;
@@ -160,6 +162,12 @@ export class NetArchNewNodeComponent implements OnInit {
       }
     }
 
+  }
+
+  removeProgram(index: number) {
+    if(this.selectedNode.programs) {
+      this.selectedNode.programs.splice(index, 1);
+    }
   }
 
   addPrograms(count: number): boolean {
