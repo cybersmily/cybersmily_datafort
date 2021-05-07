@@ -1,3 +1,4 @@
+import { Cp2020LifestyleModule } from './../shared/cp2020/cp2020-lifestyle/cp2020-lifestyle.module';
 import { Cp2020ArmorModule } from './../shared/cp2020/cp2020-armor/cp2020-armor.module';
 import { Cp2020WoundsModule } from './../shared/cp2020/cp2020wounds/cp2020wounds.module';
 import { Cp2020StatsModule } from './../shared/cp2020/cp2020-stats/cp2020-stats.module';
@@ -49,6 +50,7 @@ import { AppCharacterInstructionComponent } from './app-character-instruction/ap
     Cp2020StatsModule,
     Cp2020WoundsModule,
     Cp2020ArmorModule,
+    Cp2020LifestyleModule,
     ModalModule.forRoot()
   ],
   providers: [

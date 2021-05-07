@@ -1,12 +1,9 @@
-import { LifepathEvent } from './../../shared/models/lifepath/lifepath-event';
 import { LifePathGeneratorService } from './../../shared/services/lifepath/life-path-generator.service';
 import { TitleValue } from './../../shared/models/title-value';
 import { SourcesDataService } from './../../shared/services/lifepath/sources-data.service';
-import { Sibling } from './../../shared/models/lifepath/lifepath-sibling';
-import { LifePathResults } from './../../shared/models/lifepath/lifepath-results';
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
-import { faMars, faVenus, faDice, faTransgender, faNeuter, faPlus, faGenderless } from '@fortawesome/free-solid-svg-icons';
-// import { LifeEventsGeneratorService } from './../../shared/services/lifepath/life-events-generator.service';
+import { Sibling, LifePathResults, LifepathEvent } from './../../shared/models/lifepath';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { faMars, faVenus, faDice, faPlus, faGenderless, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'cs-app-character-lifepath',
@@ -19,11 +16,13 @@ export class AppCharacterLifepathComponent implements OnInit {
   faGenderless= faGenderless;
   faDice = faDice;
   faPlus = faPlus;
-
+  faTrash = faTrash;
 
   sources = new Array<TitleValue>();
   selectedSource = 'CP2020';
   years = 0;
+
+  newLifPath: LifePathResults;
 
   @Input()
   lifepath = new LifePathResults();
@@ -36,6 +35,7 @@ export class AppCharacterLifepathComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    this.newLifPath = new LifePathResults(this.lifepath);
     this.sourceService
     .getSources()
     .subscribe( sources => {
@@ -45,40 +45,45 @@ export class AppCharacterLifepathComponent implements OnInit {
 
   get siblings(): Array<Sibling> {
     if ( this.lifepath && this.lifepath.family.siblings) {
-      return this.lifepath.family.siblings.siblings.sort( (a, b) => a.age.localeCompare(b.age));
+      return this.newLifPath.family.siblings.siblings.sort( (a, b) => a.age.localeCompare(b.age));
     }
     return new Array<Sibling>();
   }
 
   get sibs(): number {
-    return this.lifepath.family.siblings.getSibCount();
+    return this.newLifPath.family.siblings.getSibCount();
   }
 
   get brothers(): number {
-    return this.lifepath.family.siblings.getBrothersCount();
+    return this.newLifPath.family.siblings.getBrothersCount();
   }
 
   get sisters(): number {
-    return this.lifepath.family.siblings.getSistersCount();
+    return this.newLifPath.family.siblings.getSistersCount();
   }
 
   onChangeLifePath() {
-    this.changeLifepath.emit(this.lifepath);
+    this.changeLifepath.emit(this.newLifPath);
   }
 
   roll() {
-    this.lifepath = new LifePathResults();
+    this.newLifPath = new LifePathResults();
     this.lifepathGenerator
     .generateLifePath(this.selectedSource, true, this.years.toString())
     .subscribe( lifepath => {
-      this.lifepath = lifepath;
+      this.newLifPath = lifepath;
     });
   }
 
   addSibling() {
     const sibling = new Sibling();
-    this.lifepath.family.siblings.siblings.push(sibling);
-    this.changeLifepath.emit(this.lifepath);
+    this.newLifPath.family.siblings.siblings.push(sibling);
+    this.changeLifepath.emit(this.newLifPath);
+  }
+
+  removeSibling(index: number) {
+    this.newLifPath.family.siblings.siblings.splice(index, 1);
+    this.changeLifepath.emit(this.newLifPath);
   }
 
   changeYear() {
@@ -89,8 +94,12 @@ export class AppCharacterLifepathComponent implements OnInit {
 
   addYear() {
     const year: LifepathEvent = {age: 0, event: ''};
-    this.lifepath.events.push(year);
-    this.changeLifepath.emit(this.lifepath);
+    this.newLifPath.events.push(year);
+    this.changeLifepath.emit(this.newLifPath);
   }
 
+  removeYear(index: number) {
+    this.newLifPath.events.splice(index, 1);
+    this.changeLifepath.emit(this.newLifPath);
+  }
 }

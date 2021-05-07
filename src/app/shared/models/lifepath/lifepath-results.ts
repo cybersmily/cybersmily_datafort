@@ -11,12 +11,20 @@ export class LifePathResults {
   ethnicity: LifepathEthnicity;
   events: LifepathEvent[];
 
-  constructor() {
-    this.motivations = new LifepathMotivations();
-    this.appearance = new LifepathAppearance();
-    this.family = new LifepathFamily();
-    this.ethnicity = new LifepathEthnicity();
-    this.events = new Array<LifepathEvent>();
+  constructor(param?: any) {
+    if (param) {
+      this.motivations = new LifepathMotivations(param.motivations);
+      this.appearance = new LifepathAppearance(param.appearance);
+      this.ethnicity = new LifepathEthnicity(param.ethnicity);
+      this.events = param.events || new Array<LifepathEvent>();
+      this.family = new LifepathFamily(param.family);
+    } else {
+      this.motivations = new LifepathMotivations();
+      this.appearance = new LifepathAppearance();
+      this.family = new LifepathFamily();
+      this.ethnicity = new LifepathEthnicity();
+      this.events = new Array<LifepathEvent>();
+    }
   }
 
   print(): string {

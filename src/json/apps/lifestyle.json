@@ -1,0 +1,59 @@
+{
+  "housing": {
+    "zones": {"combat": 1, "moderate": 2, "corporate": 4, "executive": 6},
+    "housing": [
+      {"name": "Coffin", "cost": 20, "unit": "day"},
+      {"name": "Arasaka Coffin", "cost": 40, "unit": "day"},
+      {"name": "Hotel Room", "cost": 100, "unit": "day"},
+      {"name": "Apt./Condo", "cost": 200, "unit": "month", "per": "room"},
+      {"name": "House", "cost": 150, "unit": "month", "per": "room"},
+      {"name": "Professional Apartments", "cost": 2500, "unit": "month"},
+      {"name": "Silverhand Studio", "cost": 600, "unit": "month"}
+    ]
+  },
+  "services": [
+    {"name": "Utilities", "cost": 100, "unit": "month"},
+    {"name": "Cell Phone", "cost": 100, "unit": "month"},
+    {"name": "Cell Phone - voicemail", "cost": 20, "unit": "month"},
+    {"name": "Cell Phone - conference call", "cost": 5, "unit": "month"},
+    {"name": "Landline", "cost": 30, "unit": "month"},
+    {"name": "Credchip Account", "cost": 20, "unit": "month"},
+    {"name": "Health Plan", "cost": 1000, "unit": "month"},
+    {"name": "Trauma Team", "cost": 500, "unit": "month"},
+    {"name": "Cable TV", "cost": 40, "unit": "month"},
+    {"name": "Cab Hailer", "cost": 10, "unit": "month"},
+    {"name": "Personal Body Alarm", "cost": 400, "unit": "month"},
+    {"name": "Party Time", "cost": 3000, "unit": "month"},
+    {"name": "Clean Sweep", "cost": 7000, "unit": "year"},
+    {"name": "All Food Membership", "cost": 25, "unit": "month"},
+    {"name": "International Companion Network", "cost": 10000, "unit": "month"},
+    {"name": "Child Care - Child Creche", "cost": 50, "unit": "day"},
+    {"name": "Child Care - Safe Child", "cost": 350, "unit": "day"}
+  ],
+  "food": {
+    "quality": {"fair": 1, "good": 2, "excellent": 3},
+    "type":[
+    {"name": "Kibble", "cost": 50, "unit":"week"},
+    {"name": "Generic Prepak", "cost": 150, "unit":"week"},
+    {"name": "Good Prepak", "cost": 200, "unit":"week"},
+    {"name": "Fresh Food", "cost": 300, "unit":"week"}
+  ]
+},
+  "entertainment": [
+    {"name":"Movie", "cost":10},
+    {"name":"Chip Rental", "cost":4},
+    {"name":"Braindance", "cost":20},
+    {"name":"Live Concert", "cost":50, "mods":{"super_star": 3, "star": 2, "concert": 1.5, "lecture": 0.6}},
+    {"name":"Sport Event", "cost":50},
+    {"name":"Fast Food Meal", "cost":5},
+    {"name":"Well Drink", "cost":3, "mods": {"fair": 1, "good": 2, "excellent": 3}},
+    {"name":"Restaurant Meal", "cost":20, "mods": {"fair": 1, "good": 2, "excellent": 3}},
+    {"name":"Data Term Use", "cost":5, "unit": "minute"},
+    {"name":"Mag Lev Chit", "cost":0.25, "unit": "station"},
+    {"name":"Taxi", "cost":3, "unit": "mile"},
+    {"name":"AV - Taxi", "cost":10, "unit": "mile"},
+    {"name":"Air/Oxygen", "cost":5, "unit": "minute"},
+    {"name": "Parking - Ground", "cost": 7, "unit": "hour"},
+    {"name": "Parking - Aero", "cost": 125, "unit": "day"}
+  ]
+}

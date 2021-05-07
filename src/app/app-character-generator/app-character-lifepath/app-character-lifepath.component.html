@@ -22,46 +22,46 @@
     <div class="col-12 col-lg-6">
       <!-- STYLE -->
       <div class="row pb-2">
-        <div class="col">
+        <div class="col pl-0">
           <div class="chargen-label d-block" style="width: 70px">Style</div>
-          <div class="chargen-lifepath-attr">Clothes <input [(ngModel)]="lifepath.appearance.clothes"
+          <div class="chargen-lifepath-attr">Clothes <input [(ngModel)]="newLifPath.appearance.clothes"
               (change)="onChangeLifePath()" type="text" class="pull-right" /></div>
-          <div class="chargen-lifepath-attr">Hair <input [(ngModel)]="lifepath.appearance.hairstyle"
+          <div class="chargen-lifepath-attr">Hair <input [(ngModel)]="newLifPath.appearance.hairstyle"
               (change)="onChangeLifePath()" type="text" class="pull-right" /></div>
-          <div class="chargen-lifepath-attr">Affectations <input [(ngModel)]="lifepath.appearance.affectations"
+          <div class="chargen-lifepath-attr">Affectations <input [(ngModel)]="newLifPath.appearance.affectations"
               (change)="onChangeLifePath()" type="text" class="pull-right" /></div>
-          <div class="chargen-lifepath-attr">Ethnicity <input [(ngModel)]="lifepath.ethnicity.name"
+          <div class="chargen-lifepath-attr">Ethnicity <input [(ngModel)]="newLifPath.ethnicity.name"
               (change)="onChangeLifePath()" type="text" class="pull-right" /></div>
-          <div class="chargen-lifepath-attr">Language <input [(ngModel)]="lifepath.ethnicity.language"
+          <div class="chargen-lifepath-attr">Language <input [(ngModel)]="newLifPath.ethnicity.language"
               (change)="onChangeLifePath()" type="text" class="pull-right" /></div>
         </div>
       </div>
       <!-- MOTIVATIONS -->
       <div class="row">
-        <div class="col">
+        <div class="col pl-0 pr-0">
           <div class="chargen-label d-block" style="width: 110px">Motivations</div>
-          <div class="chargen-lifepath-attr">Traits <input [(ngModel)]="lifepath.motivations.personality"
+          <div class="chargen-lifepath-attr">Traits <input [(ngModel)]="newLifPath.motivations.personality"
               (change)="onChangeLifePath()" type="text" class="pull-right" /></div>
-          <div class="chargen-lifepath-attr">Valued Person <input [(ngModel)]="lifepath.motivations.valuedperson"
+          <div class="chargen-lifepath-attr">Valued Person <input [(ngModel)]="newLifPath.motivations.valuedperson"
               (change)="onChangeLifePath()" type="text" class="pull-right" /></div>
-          <div class="chargen-lifepath-attr">Value Most <input [(ngModel)]="lifepath.motivations.valuemost"
+          <div class="chargen-lifepath-attr">Value Most <input [(ngModel)]="newLifPath.motivations.valuemost"
               (change)="onChangeLifePath()" type="text" class="pull-right" /></div>
-          <div class="chargen-lifepath-attr">Feel About People <input [(ngModel)]="lifepath.motivations.feelaboutpeople"
+          <div class="chargen-lifepath-attr">Feel About People <input [(ngModel)]="newLifPath.motivations.feelaboutpeople"
               (change)="onChangeLifePath()" type="text" class="pull-right" /></div>
-          <div class="chargen-lifepath-attr">Valued Possesion <input [(ngModel)]="lifepath.motivations.valuedpossession"
+          <div class="chargen-lifepath-attr">Valued Possesion <input [(ngModel)]="newLifPath.motivations.valuedpossession"
               (change)="onChangeLifePath()" type="text" class="pull-right" /></div>
         </div>
       </div>
       <!-- FAMILY-->
       <div class="row">
-        <div class="col">
+        <div class="col pl-0">
           <div class="chargen-label d-block" style="width: 180px">Family Background</div>
-          <textarea [(ngModel)]="lifepath.family.familyBackground" (change)="onChangeLifePath()"
+          <textarea [(ngModel)]="newLifPath.family.familyBackground" (change)="onChangeLifePath()"
             class="chargen-lifepath-family"></textarea>
         </div>
       </div>
       <div class="row">
-        <div class="col">
+        <div class="col pl-0">
             <span class="chargen-label">#Siblings</span>
             <span class="chargen-sibling" *ngIf="brothers > 0">
               <span>{{brothers}}</span>
@@ -77,25 +77,28 @@
             </span>
           </div>
       </div>
-      <div class="row" *ngFor="let sib of siblings">
-        <div class="col-4 pt-1">
-          <input type="text" [(ngModel)]="sib.name" (change)="onChangeLifePath()">
+      <div class="row border border-dark" *ngFor="let sib of siblings;let i = index">
+        <div class="col-6 pt-1">
+          <input type="text" [(ngModel)]="sib.name" (change)="onChangeLifePath()" style="width:100%;" placeholder="name of sibling">
         </div>
-        <div class="col-8 pt-1">
+        <div class="col-6 pt-1">
           <div class="row">
-            <div class="col">
+            <div class="col-5">
               <select [(ngModel)]="sib.gender" (change)="onChangeLifePath()">
                 <option value="brother">Brother</option>
                 <option value="sister">Sister</option>
                 <option value="sib">Sib</option>
               </select>
             </div>
-            <div class="col">
+            <div class="col-5">
               <select [(ngModel)]="sib.age" (change)="onChangeLifePath()">
                 <option value="older">Older</option>
                 <option value="younger">Younger</option>
                 <option value="same">Twin</option>
               </select>
+            </div>
+            <div class="col-2">
+              <fa-icon [icon]="faTrash" class="csd-icon-btn csd-btn float-right" (click)="removeSibling(i)"></fa-icon>
             </div>
           </div>
           <div class="row mb-2 pt-1">
@@ -126,14 +129,18 @@
       <div class="row chargen-lifepath-events-table">
         <div class="col pr-0">
           <div class="row">
-            <div class="col pl-0 pr-0">
+            <div class="col-2 col-md-1 pl-0 pr-0">
               Year
             </div>
           </div>
-          <div *ngFor="let event of lifepath.events" class="chargen-lifepath-event-row row border border-dark">
+          <div *ngFor="let event of newLifPath.events; let i = index" class="row border border-dark">
+            <div class="col-2 col-md-1 pl-0 pr-0">
+              <input [(ngModel)]="event.age" type="number" min="0" max="150" style="width:100%;" class="align-top pt-3 pb-3" />
+              <br>
+              <fa-icon [icon]="faTrash" class="csd-icon-btn csd-btn" (click)="removeYear(i)"></fa-icon>
+            </div>
             <div class="col pl-0 pr-0">
-              <input [(ngModel)]="event.age" type="number" min="0" max="150" style="width:9%;" class="align-top pt-3 pb-3" />
-              <textarea [(ngModel)]="event.event" class="chargen-life-event" rows="3" maxlength="140" style="width:90%;"></textarea>
+              <textarea [(ngModel)]="event.event" class="chargen-life-event" rows="3" maxlength="140" style="width:100%;"></textarea>
             </div>
           </div>
           <div class="row border border-dark">

@@ -3,8 +3,8 @@ import { Sibling } from './lifepath-sibling';
 export class Siblings {
   siblings: Sibling[];
 
-  constructor() {
-    this.siblings = new Array<Sibling>();
+  constructor(param?: any) {
+    this.siblings = (param && param.siblings) ? param.siblings : new Array<Sibling>();
   }
 
   getBrothersCount(): number {
