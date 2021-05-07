@@ -249,6 +249,11 @@ SELECT option.font-italic {
 
 @media print {
 
+  .csd-icon-btn {
+    display: none !important;
+  }
+
+
   .show-print {
     display: block;
   }
@@ -262,8 +267,13 @@ SELECT option.font-italic {
     padding-right: 0px !important;
   }
 
-  input {
+  input, textarea, select {
     border: none !important;
+    background-color: white !important;
+  }
+
+  select {
+    appearance: none;
   }
 
   .chargen-skills {

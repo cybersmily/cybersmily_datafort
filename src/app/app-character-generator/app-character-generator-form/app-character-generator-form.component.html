@@ -49,8 +49,7 @@
             [skills]="character.skills" (changeSKills)="changeSkills($event)"></cs-app-character-skills>
         </div>
       </div>
-      <div class="chargen-label chargen-fill chargen-page-header csd-linebreak">WEAPONS</div>
-      <div class="row print-fix">
+      <div class="row print-fix csd-linebreak no-gutters">
         <div class="col">
           <cs-cp2020weapontable [weapons]="character.weapons" [stats]="character.stats" [skills]="character.skills"
             [showRandomGenerator]="true" [showSelector]="true" [showCalculator]="true"
@@ -58,7 +57,7 @@
           </cs-cp2020weapontable>
         </div>
       </div>
-      <div class="row print-fix">
+      <div class="row print-fix csd-linebreak">
         <div class="col">
           <cs-app-character-gear [gear]="character.gear" (changeGear)="changeGear($event)"></cs-app-character-gear>
         </div>
@@ -70,7 +69,7 @@
         </div>
       </div>
       -->
-      <div class="row print-fix">
+      <div class="row print-fix csd-linebreak no-gutters">
         <div class="col">
           <cs-app-character-lifepath [lifepath]="character.lifepath" (changeLifepath)="changeLifepath($event)">
           </cs-app-character-lifepath>
