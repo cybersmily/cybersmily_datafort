@@ -1,10 +1,11 @@
+import { LifepathEvent } from './../../shared/models/lifepath/lifepath-event';
 import { LifePathGeneratorService } from './../../shared/services/lifepath/life-path-generator.service';
 import { TitleValue } from './../../shared/models/title-value';
 import { SourcesDataService } from './../../shared/services/lifepath/sources-data.service';
 import { Sibling } from './../../shared/models/lifepath/lifepath-sibling';
 import { LifePathResults } from './../../shared/models/lifepath/lifepath-results';
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
-import { faMars, faVenus, faDice } from '@fortawesome/free-solid-svg-icons';
+import { faMars, faVenus, faDice, faTransgender, faNeuter, faPlus, faGenderless } from '@fortawesome/free-solid-svg-icons';
 // import { LifeEventsGeneratorService } from './../../shared/services/lifepath/life-events-generator.service';
 
 @Component({
@@ -12,10 +13,14 @@ import { faMars, faVenus, faDice } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './app-character-lifepath.component.html',
   styleUrls: ['./app-character-lifepath.component.css']
 })
-export class AppCharacterLifepathComponent implements OnInit, OnChanges {
+export class AppCharacterLifepathComponent implements OnInit {
   faMars = faMars;
   faVenus = faVenus;
+  faGenderless= faGenderless;
   faDice = faDice;
+  faPlus = faPlus;
+
+
   sources = new Array<TitleValue>();
   selectedSource = 'CP2020';
   years = 0;
@@ -26,16 +31,11 @@ export class AppCharacterLifepathComponent implements OnInit, OnChanges {
   @Output()
   changeLifepath = new EventEmitter<LifePathResults>();
 
-  brothers = 0;
-  sisters  = 0;
-
   constructor( private sourceService: SourcesDataService,
     private lifepathGenerator: LifePathGeneratorService
     ) { }
 
   ngOnInit() {
-    this.brothers = this.lifepath.family.siblings.getBrothersCount();
-    this.sisters = this.lifepath.family.siblings.getSistersCount();
     this.sourceService
     .getSources()
     .subscribe( sources => {
@@ -43,24 +43,26 @@ export class AppCharacterLifepathComponent implements OnInit, OnChanges {
     });
   }
 
-
-  ngOnChanges() {
-    this.brothers = this.lifepath.family.siblings.getBrothersCount();
-    this.sisters = this.lifepath.family.siblings.getSistersCount();
+  get siblings(): Array<Sibling> {
+    if ( this.lifepath && this.lifepath.family.siblings) {
+      return this.lifepath.family.siblings.siblings.sort( (a, b) => a.age.localeCompare(b.age));
+    }
+    return new Array<Sibling>();
   }
 
-  onChangeEventRow() {
+  get sibs(): number {
+    return this.lifepath.family.siblings.getSibCount();
+  }
+
+  get brothers(): number {
+    return this.lifepath.family.siblings.getBrothersCount();
+  }
+
+  get sisters(): number {
+    return this.lifepath.family.siblings.getSistersCount();
   }
 
   onChangeLifePath() {
-    this.changeLifepath.emit(this.lifepath);
-  }
-
-  onChangeSiblings() {
-    const count = this.brothers + this.sisters;
-    this.lifepath.family.siblings.siblings = new Array<Sibling>(count);
-    this.lifepath.family.siblings.siblings.fill({gender: 'brother', feeling: '', age: ''}, 0, this.brothers);
-    this.lifepath.family.siblings.siblings.fill({gender: 'sister', feeling: '', age: ''}, this.brothers);
     this.changeLifepath.emit(this.lifepath);
   }
 
@@ -70,15 +72,25 @@ export class AppCharacterLifepathComponent implements OnInit, OnChanges {
     .generateLifePath(this.selectedSource, true, this.years.toString())
     .subscribe( lifepath => {
       this.lifepath = lifepath;
-      this.brothers = this.lifepath.family.siblings.getBrothersCount();
-      this.sisters = this.lifepath.family.siblings.getSistersCount();
     });
+  }
+
+  addSibling() {
+    const sibling = new Sibling();
+    this.lifepath.family.siblings.siblings.push(sibling);
+    this.changeLifepath.emit(this.lifepath);
   }
 
   changeYear() {
     if ( this.years > 12) {
       this.years = 12;
     }
+  }
+
+  addYear() {
+    const year: LifepathEvent = {age: 0, event: ''};
+    this.lifepath.events.push(year);
+    this.changeLifepath.emit(this.lifepath);
   }
 
 }

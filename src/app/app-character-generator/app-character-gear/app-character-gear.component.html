@@ -1,20 +1,44 @@
-<div class="chargen-section">
-  <div class="chargen-label">GEAR</div>
-  <table class="chargen-gear-table">
-    <tr>
-      <td>Type</td>
-      <td>Cost</td>
-      <td>Wt (kg)</td>
-    </tr>
-    <tr *ngFor="let row of gear.items">
-      <td><input [(ngModel)]="row.gear" min="0" type="text"/></td>
-      <td><input [(ngModel)]="row.cost" class="text-right" min="0" type="number" step="0.01"/></td>
-      <td><input [(ngModel)]="row.weight" class="text-right" min="0" type="number" step="0.01"/></td>
-    </tr>
-    <tr>
-      <td>Total Cost and weight</td>
-      <td class="text-right">{{gear.totalCost | number}}</td>
-      <td class="text-right">{{gear.totalWeight | number}}</td>
-    </tr>
-  </table>
+<div class="chargen-section container mr-0 pr-0">
+  <div class="chargen-label row mr-0 pr-0">
+    <div class="col mr-0 pr-0">
+      <h4>GEAR</h4>
+    </div>
+  </div>
+  <div class="row mr-0 pr-0">
+    <div class="col-12 col-lg-6 mr-0 pr-0">
+      <div class="row mr-0 pr-0">
+        <div class="col border border-dark">Type</div>
+        <div class="col-2 border border-dark">Cost</div>
+        <div class="col-2 border border-dark">Wt (kg)</div>
+      </div>
+      <div class="row mr-0 pr-0" *ngFor="let row of firstColumn">
+        <div class="col border border-dark pr-0 pl-0"><input [(ngModel)]="row.gear" min="0" type="text"
+            style="width:100%" /></div>
+        <div class="col-2 border border-dark pr-0 pl-0"><input [(ngModel)]="row.cost" class="text-right" min="0"
+            type="number" step="0.01" style="width:100%" /></div>
+        <div class="col-2 border border-dark pr-0 pl-0"><input [(ngModel)]="row.weight" class="text-right" min="0"
+            type="number" step="0.01" style="width:100%" /></div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6 mr-0 pr-0">
+      <div class="row mr-0 pr-0" >
+        <div class="d-none d-lg-block col border border-dark">Type</div>
+        <div class="d-none d-lg-block col-2 border border-dark">Cost</div>
+        <div class="d-none d-lg-block col-2 border border-dark">Wt (kg)</div>
+      </div>
+      <div class="row mr-0 pr-0" *ngFor="let row of secondColumn">
+        <div class="col border border-dark pr-0 pl-0"><input [(ngModel)]="row.gear" min="0" type="text"
+            style="width:100%" /></div>
+        <div class="col-2 border border-dark pr-0 pl-0"><input [(ngModel)]="row.cost" class="text-right" min="0"
+            type="number" step="0.01" style="width:100%" /></div>
+        <div class="col-2 border border-dark pr-0 pl-0"><input [(ngModel)]="row.weight" class="text-right" min="0"
+            type="number" step="0.01" style="width:100%" /></div>
+      </div>
+    </div>
+  </div>
+  <div class="row mr-0 pr-0">
+    <div class="col border border-dark">Total Cost and Weight</div>
+    <div class="col-2 border border-dark text-right">{{gear.totalCost | number}}eb</div>
+    <div class="col-2 border border-dark text-right">{{gear.totalWeight | number}}kg</div>
+  </div>
 </div>

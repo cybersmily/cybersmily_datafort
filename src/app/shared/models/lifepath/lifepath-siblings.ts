@@ -14,6 +14,11 @@ export class Siblings {
   getSistersCount(): number {
     return this.getGenderCount('sister');
   }
+
+  getSibCount(): number {
+    return this.getGenderCount('') + this.getGenderCount('sib');
+  }
+
   count(): number {
     return this.siblings.length;
   }

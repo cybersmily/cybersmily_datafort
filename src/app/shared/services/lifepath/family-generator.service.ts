@@ -205,9 +205,9 @@ private GetParentOptions(source): LifepahtParentOption {
         if (roll === 10) {
           sibling.age = 'same';
         } else if (roll < 6) {
-          sibling.age = 'older ';
+          sibling.age = 'older';
         } else {
-          sibling.age = 'younger ';
+          sibling.age = 'younger';
         }
         sibling.feeling = this.diceService.rollOnChart(chartData.siblingFeeling, source);
 

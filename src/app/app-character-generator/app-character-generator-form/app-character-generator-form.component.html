@@ -6,27 +6,22 @@
     <div class="col-12">
       <hr color="#999999" style="width:100%;">
       <p>
-        <fa-icon [icon]="faQuestionCircle" title="Instructions"
-          class="csd-chargen-btn csd-btn mr-2"
-          (click)="openModal(instructions)"
-          ></fa-icon>
-        <fa-icon [icon]="faUndo" title="Reset the sheet to a blank character"
-        class="csd-chargen-btn csd-btn ml-2"
-        (click)="resetCharacter()"
-        ></fa-icon>
+        <fa-icon [icon]="faQuestionCircle" title="Instructions" class="csd-chargen-btn csd-btn mr-2"
+          (click)="openModal(instructions)"></fa-icon>
+        <fa-icon [icon]="faUndo" title="Reset the sheet to a blank character" class="csd-chargen-btn csd-btn ml-2"
+          (click)="resetCharacter()"></fa-icon>
 
-        <fa-icon [icon]="faFilePdf"
-          class="csd-chargen-btn float-right csd-btn mr-2"
-          (click)="createPDF()"
+        <fa-icon [icon]="faFilePdf" class="csd-chargen-btn float-right csd-btn mr-2" (click)="createPDF()"
           title="Export as a PDF file"></fa-icon>
 
-          <input type="file" id="loadFile" title="load a character .txt file" name="Load" Style="display: none"
+        <input type="file" id="loadFile" title="load a character .txt file" name="Load" Style="display: none"
           (change)="loadCharacter($event)" #inputFile (click)="inputFile.value = null" accept="text/plain;text/json" />
-          <label for="loadFile" class="csd-btn float-right mr-2"><fa-icon [icon]="faUpload" title="load a character .txt file"></fa-icon></label>
+        <label for="loadFile" class="csd-btn float-right mr-2">
+          <fa-icon [icon]="faUpload" title="load a character .txt file"></fa-icon>
+        </label>
 
-          <fa-icon [icon]="faSave" title="Save the character to a file"
-            class="csd-chargen-btn csd-btn float-right mr-2"
-            (click)="saveCharacter()"></fa-icon>
+        <fa-icon [icon]="faSave" title="Save the character to a file" class="csd-chargen-btn csd-btn float-right mr-2"
+          (click)="saveCharacter()"></fa-icon>
       </p>
       <hr color="#999999" style="width:100%;">
     </div>
@@ -34,18 +29,17 @@
   <div class="row" #pdfCP2020Character>
     <div class="col">
       <div class="row">
-        <div class="col-sm-12 col-md-6">
+        <div class="col-sm-12 col-lg-6">
           <cs-app-character-handle [handle]="character.handle" (changeHandle)="changeHandle($event)">
           </cs-app-character-handle>
           <cs-app-character-role [role]="character.role" (changeRole)="changeRole($event)"></cs-app-character-role>
-          <cs-cp2020-stats [stats]="character.stats" (changeStats)="changeStats($event)" [combatSense]="combatSense" ></cs-cp2020-stats>
+          <cs-cp2020-stats [stats]="character.stats" (changeStats)="changeStats($event)" [combatSense]="combatSense">
+          </cs-cp2020-stats>
+        </div>
+        <div class="col-sm-12 col-lg-6">
           <cs-cp2020-armor-table [armor]="character.armor" (changeArmor)="changeArmor($event)" [showRandom]="true">
           </cs-cp2020-armor-table>
           <cs-cp2020-save-wounds [stats]="character.stats" (changeStats)="changeStats($event)"></cs-cp2020-save-wounds>
-        </div>
-        <div class="col-sm-12 col-md-6">
-          <cs-app-character-image [image]="character.image" (changeImage)="changeImage($event)">
-          </cs-app-character-image>
         </div>
       </div>
       <div class="row print-fix">
@@ -55,23 +49,31 @@
             [skills]="character.skills" (changeSKills)="changeSkills($event)"></cs-app-character-skills>
         </div>
       </div>
-      <div class="chargen-label chargen-fill chargen-page-header csd-linebreak">LIFEPATH, GEAR & WEAPONS</div>
+      <div class="chargen-label chargen-fill chargen-page-header csd-linebreak">WEAPONS</div>
       <div class="row print-fix">
-        <div class="col-sm-12 col-md-6">
-          <cs-app-character-lifepath [lifepath]="character.lifepath" (changeLifepath)="changeLifepath($event)">
-          </cs-app-character-lifepath>
-        </div>
-        <div class="col-sm-12 col-md-6">
-          <cs-app-character-gear [gear]="character.gear" (changeGear)="changeGear($event)"></cs-app-character-gear>
-          <cs-cp2020weapontable
-            [weapons]="character.weapons"
-            [stats]="character.stats"
-            [skills]="character.skills"
-            [showRandomGenerator]="true"
-            [showSelector]="true"
-            [showCalculator]="true"
+        <div class="col">
+          <cs-cp2020weapontable [weapons]="character.weapons" [stats]="character.stats" [skills]="character.skills"
+            [showRandomGenerator]="true" [showSelector]="true" [showCalculator]="true"
             (changeWeapons)="changeWeapons($event)">
           </cs-cp2020weapontable>
+        </div>
+      </div>
+      <div class="row print-fix">
+        <div class="col">
+          <cs-app-character-gear [gear]="character.gear" (changeGear)="changeGear($event)"></cs-app-character-gear>
+        </div>
+      </div>
+      <!--
+      <div class="row print-fix">
+        <div class="col">
+          <cs-cp2020-lifestyle></cs-cp2020-lifestyle>
+        </div>
+      </div>
+      -->
+      <div class="row print-fix">
+        <div class="col">
+          <cs-app-character-lifepath [lifepath]="character.lifepath" (changeLifepath)="changeLifepath($event)">
+          </cs-app-character-lifepath>
         </div>
       </div>
       <div class="chargen-label chargen-fill chargen-page-header csd-linebreak">NOTES</div>
