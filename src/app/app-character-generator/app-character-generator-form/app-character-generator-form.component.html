@@ -44,9 +44,9 @@
       </div>
       <div class="row print-fix">
         <div class="col-12">
-          <cs-app-character-skills [cyberware]="character.cyberware" (changeCyberware)="changeCyber($event)"
-            [stats]="character.stats" [role]="character.role" (changeSpecialAblity)="changeRole($event)"
-            [skills]="character.skills" (changeSKills)="changeSkills($event)"></cs-app-character-skills>
+          <cs-app-character-skills [stats]="character.stats" [role]="character.role"
+            (changeSpecialAblity)="changeRole($event)" [skills]="character.skills"
+            (changeSKills)="changeSkills($event)"></cs-app-character-skills>
         </div>
       </div>
       <div class="row print-fix csd-linebreak no-gutters">
@@ -55,6 +55,12 @@
             [showRandomGenerator]="true" [showSelector]="true" [showCalculator]="true"
             (changeWeapons)="changeWeapons($event)">
           </cs-cp2020weapontable>
+        </div>
+      </div>
+      <div class="row no-gutters">
+        <div class="col">
+          <cs-cp2020-cyberware-table [cyberList]="character.cyberware" class="col" (changeList)="changeCyber($event)">
+          </cs-cp2020-cyberware-table>
         </div>
       </div>
       <div class="row print-fix csd-linebreak">

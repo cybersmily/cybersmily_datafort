@@ -14,9 +14,6 @@ export class AppCharacterSkillsComponent implements OnInit {
   faDice = faDice;
 
   @Input()
-  cyberware = new Cp2020PlayerCyberList(10);
-
-  @Input()
   role =  new Cp2020PlayerRole();
 
   @Input()
@@ -24,9 +21,6 @@ export class AppCharacterSkillsComponent implements OnInit {
 
   @Input()
   skills = new Cp2020PlayerSkills();
-
-  @Output()
-  changeCyberware = new EventEmitter<Cp2020PlayerCyberList>();
 
   @Output()
   changeSpecialAblity = new EventEmitter<Cp2020PlayerRole>();
@@ -48,9 +42,4 @@ export class AppCharacterSkillsComponent implements OnInit {
   onChangeSpecialAbility() {
     this.changeSpecialAblity.emit(this.role);
   }
-
-  onChangeCyber(list: Cp2020PlayerCyberList) {
-    this.changeCyberware.emit(list);
-  }
-
 }
