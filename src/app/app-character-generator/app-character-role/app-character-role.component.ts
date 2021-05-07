@@ -147,7 +147,9 @@ export class AppCharacterRoleComponent implements OnInit, OnChanges {
    * @return {*}  {string}
    * @memberof AppCharacterRoleComponent
    */
-  sourceInfo(src: string, pg: number): string {
-    return 'Source: ' + SourceBookLookup.getSource(src) + ' pg. ' + pg;
+  sourceInfo(role: Cp2020Role): string {
+    if (role && role.source) {
+      return 'Source: ' + SourceBookLookup.getSource(role.source) + ' pg. ' + role.page;
+    }
   }
 }
