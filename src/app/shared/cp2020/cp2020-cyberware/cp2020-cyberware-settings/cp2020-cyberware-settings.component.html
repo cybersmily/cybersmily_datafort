@@ -1,0 +1,109 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <input type="checkbox" [(ngModel)]="default" (change)="update()">
+      USE DEFAULT CHART
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">TYPES:</div>
+    <div class="col">
+      <div class="row">
+        <div class="col">
+          <input type="checkbox">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="checkbox" (change)="updateType('BIOWARE')"> - Bioware
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="checkbox" (change)="updateType('BODY PLATING')"> - Body Plating
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="checkbox" (change)="updateType('CHIPWARE')"> - Chipware
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="checkbox" (change)="updateType('CYBERAUDIO')"> - Cyberaudio
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="checkbox" (change)="updateType('CYBERFOOT')"> - Cyberfoot
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="checkbox" (change)="updateType('CYBERHAND')"> - Cyberhand
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="checkbox" (change)="updateType('CYBERLIMB')"> - Cyberlimb
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="checkbox" (change)="updateType('CYBERNETIC SYSTEM')"> - Cybernetic System
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="checkbox" (change)="updateType('CYBEROPTIC')"> - Cyberoptic
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="checkbox" (change)="updateType('CYBERVOCAL')"> - Cybervocal
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="checkbox" (change)="updateType('CYBERWEAPON')"> - Cyberweapon
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="checkbox" (change)="updateType('FASHIONWARE')"> - Fashionware
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="checkbox" (change)="updateType('IMPLANT')"> - Implant
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="checkbox" (change)="updateType('LINEAR FRAMES')"> - Linear Frames
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="checkbox" (change)="updateType('NEURALWARE')"> - Neuralware
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">SUBTYPES:</div>
+    <div class="col">
+      <div class="row">
+        <div class="col">
+          <input type="checkbox">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">LIMITED TO UNDER: </div>
+    <div class="col">
+      <input type="number" min="0" [(ngModel)]="costLimit" (change)="update()"> eb
+    </div>
+  </div>
+</div>

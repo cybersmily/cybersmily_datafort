@@ -10,13 +10,15 @@ import { CommonModule } from '@angular/common';
 import { Cp2020CyberwareTableComponent } from './cp2020-cyberware-table/cp2020-cyberware-table.component';
 import { Cp2020CyberwareSelectorComponent } from './cp2020-cyberware-selector/cp2020-cyberware-selector.component';
 import { Cp2020CyberwareEditorComponent } from './cp2020-cyberware-editor/cp2020-cyberware-editor.component';
+import { Cp2020CyberwareSettingsComponent } from './cp2020-cyberware-settings/cp2020-cyberware-settings.component';
 @NgModule({
   declarations: [
     CyberwareCardComponent,
     CyberwareCardColumnComponent,
     Cp2020CyberwareTableComponent,
     Cp2020CyberwareSelectorComponent,
-    Cp2020CyberwareEditorComponent
+    Cp2020CyberwareEditorComponent,
+    Cp2020CyberwareSettingsComponent
   ],
   imports: [
     CommonModule,
