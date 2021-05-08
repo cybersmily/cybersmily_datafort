@@ -1,9 +1,11 @@
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { DiceRolls } from './../../shared/models/dice-rolls';
 import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { SourceBookLookup } from './../../shared/models/source-book-lookup';
 import { Cp2020RolesDataService } from './../../shared/services/chargen/cp2020-roles-data.service';
 import { Cp2020PlayerRole, Cp2020Role } from './../../shared/models/cp2020character';
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, TemplateRef } from '@angular/core';
 
 
 @Component({
@@ -12,19 +14,32 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angu
   styleUrls: ['./app-character-role.component.css']
 })
 export class AppCharacterRoleComponent implements OnInit, OnChanges {
+  modalRef: BsModalRef;
   faDice = faDice;
 
   @Input()
   role = new Cp2020PlayerRole();
+
+  @Input()
+  rep = 0;
 
   currentRole = 0;
 
   @Output()
   changeRole = new EventEmitter<Cp2020PlayerRole>();
 
+  @Output()
+  changeRep = new EventEmitter<number>();
+
   roles = new Array<Cp2020Role>();
 
-  constructor( private rolesService: Cp2020RolesDataService, private diceService: DiceService) { }
+  repRoll = new DiceRolls();
+  config = {
+    keyboard: true,
+    class: 'modal-dialog-centered'
+  };
+
+  constructor( private rolesService: Cp2020RolesDataService, private diceService: DiceService, private modalService: BsModalService) { }
 
   ngOnInit() {
     this.loadRoleData();
@@ -46,6 +61,9 @@ export class AppCharacterRoleComponent implements OnInit, OnChanges {
     this.changeRole.emit(this.role);
   }
 
+  updateRep() {
+    this.changeRep.emit(this.rep);
+  }
 
   /**
    * Randomly roll a role for the PC
@@ -138,6 +156,9 @@ export class AppCharacterRoleComponent implements OnInit, OnChanges {
     this.currentRole = index;
   }
 
+  rollRep() {
+    this.repRoll = this.diceService.rollCP2020D10();
+  }
 
   /**
    * Formats the sourebook info into a readable string.
@@ -151,5 +172,10 @@ export class AppCharacterRoleComponent implements OnInit, OnChanges {
     if (role && role.source) {
       return 'Source: ' + SourceBookLookup.getSource(role.source) + ' pg. ' + role.page;
     }
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.rollRep();
+    this.modalRef = this.modalService.show(template, this.config);
   }
 }

@@ -95,6 +95,10 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
 
   changeImage(value: string) { }
 
+  changeRep(value: number) {
+    this.characterService.changeRep(value);
+  }
+
   resetCharacter() {
     this.characterService.clearCharacter();
   }

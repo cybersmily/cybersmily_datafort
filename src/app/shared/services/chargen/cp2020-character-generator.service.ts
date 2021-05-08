@@ -168,6 +168,11 @@ export class Cp2020CharacterGeneratorService {
     this.updateCharacter();
   }
 
+  changeRep(value: number) {
+    this._currCharacter.skills.rep = value;
+    this.updateCharacter();
+  }
+
   /**
    * Get the character object from local storage.
    *
