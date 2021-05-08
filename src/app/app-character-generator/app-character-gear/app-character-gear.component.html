@@ -11,9 +11,11 @@
         <div class="col-2 border border-dark">Cost</div>
         <div class="col-2 border border-dark">Wt (kg)</div>
       </div>
-      <div class="row mr-0 pr-0" *ngFor="let row of firstColumn">
-        <div class="col border border-dark pr-0 pl-0"><input [(ngModel)]="row.gear" min="0" type="text"
-            style="width:100%" /></div>
+      <div class="row mr-0 pr-0" *ngFor="let row of firstColumn;let i = index">
+        <div class="col border border-dark pr-0 pl-0">
+          <input [(ngModel)]="row.gear" min="0" type="text" style="width:95%" />
+          <fa-icon [icon]="faTrash" class="csd-icon-btn csd-btn" (click)="removeGearRow(i, 1)"></fa-icon>
+        </div>
         <div class="col-2 border border-dark pr-0 pl-0"><input [(ngModel)]="row.cost" class="text-right" min="0"
             type="number" step="0.01" style="width:100%" /></div>
         <div class="col-2 border border-dark pr-0 pl-0"><input [(ngModel)]="row.weight" class="text-right" min="0"
@@ -21,19 +23,26 @@
       </div>
     </div>
     <div class="col-12 col-lg-6 mr-0 pr-0">
-      <div class="row mr-0 pr-0" >
+      <div class="row mr-0 pr-0">
         <div class="d-none d-lg-block col border border-dark">Type</div>
         <div class="d-none d-lg-block col-2 border border-dark">Cost</div>
         <div class="d-none d-lg-block col-2 border border-dark">Wt (kg)</div>
       </div>
-      <div class="row mr-0 pr-0" *ngFor="let row of secondColumn">
-        <div class="col border border-dark pr-0 pl-0"><input [(ngModel)]="row.gear" min="0" type="text"
-            style="width:100%" /></div>
+      <div class="row mr-0 pr-0" *ngFor="let row of secondColumn;let i = index">
+        <div class="col border border-dark pr-0 pl-0">
+          <input [(ngModel)]="row.gear" min="0" type="text" style="width:95%" />
+          <fa-icon [icon]="faTrash" class="csd-icon-btn csd-btn" (click)="removeGearRow(i, 2)"></fa-icon>
+        </div>
         <div class="col-2 border border-dark pr-0 pl-0"><input [(ngModel)]="row.cost" class="text-right" min="0"
             type="number" step="0.01" style="width:100%" /></div>
         <div class="col-2 border border-dark pr-0 pl-0"><input [(ngModel)]="row.weight" class="text-right" min="0"
             type="number" step="0.01" style="width:100%" /></div>
       </div>
+    </div>
+  </div>
+  <div class="row mr-0 pr-0">
+    <div class="col border border-dark text-center">
+      <fa-icon [icon]="faPlus" class="csd-icon-btn csd-btn" (click)="addGearRow()"></fa-icon>
     </div>
   </div>
   <div class="row mr-0 pr-0">
