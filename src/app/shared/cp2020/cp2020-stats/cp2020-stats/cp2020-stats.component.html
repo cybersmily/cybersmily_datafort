@@ -33,22 +33,20 @@
     <cs-cp2020-stat [stat]="stats.REF" [statName]="'REF'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
     <cs-cp2020-stat [stat]="stats.TECH" [statName]="'TECH'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
     <cs-cp2020-stat [stat]="stats.COOL" [statName]="'COOL'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+    <cs-cp2020-stat [stat]="stats.ATTR" [statName]="'ATTR'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
   </div>
 </div>
 <div class="chargen-stat-section row">
   <div class="col">
-    <cs-cp2020-stat [stat]="stats.ATTR" [statName]="'ATTR'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
     <cs-cp2020-stat [stat]="stats.LUCK" [statName]="'LUCK'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
     <cs-cp2020-stat [stat]="stats.MA" [statName]="'MA'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
     <cs-cp2020-stat [stat]="stats.BODY" [statName]="'BODY'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+    <cs-cp2020-stat [stat]="stats.EMP" [statName]="'EMP'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
   </div>
 </div>
 <div class="chargen-stat-section row">
   <div class="col">
-    <cs-cp2020-stat [stat]="stats.EMP" [statName]="'EMP'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
-    Run [{{stats.Run}}m]
-    Leap [{{stats.Leap}}m]
-    Lift[{{stats.Lift}}kg]
+    Run [{{stats.Run}}m] &nbsp;Leap [{{stats.Leap}}m]&nbsp;Lift[{{stats.Lift}}kg]&nbsp;Humanity [{{stats.Humanity}}]
   </div>
 </div>
 
