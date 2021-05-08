@@ -2,6 +2,11 @@
   padding-right: 30px;
 }
 
+.chargen-general-ip-input {
+  width: 70px;
+  text-align: right;
+}
+
 .chargen-skills-instructions {
   margin-left: 10px;
   font-size: 12px;
@@ -34,10 +39,11 @@
 
 .chargen-skill-stat {
   font-size: 14px;
-  font-weight: 300;
+  font-weight: bold;
   color: white;
   background: black;
   padding-left: 4px;
+  text-align: center;
 }
 
 

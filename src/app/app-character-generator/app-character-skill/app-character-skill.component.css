@@ -1,18 +1,18 @@
 .skill-name {
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .chargen-skill-input {
   width: 20px;
   height: 14px;
-  font-size: 10px;
+  font-size: 12px;
   text-align: right;
 }
 
 .chargen-skil-option {
   width: 80px;
   height: 14px;
-  font-size: 10px;
+  font-size: 12px;
   margin-left: 4px;
 }
 

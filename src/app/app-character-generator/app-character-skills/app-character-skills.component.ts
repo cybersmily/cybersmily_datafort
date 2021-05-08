@@ -1,9 +1,8 @@
-import { Cp2020PlayerCyberList } from './../../shared/cp2020/cp2020-cyberware/models';
 import { faDice } from '@fortawesome/free-solid-svg-icons';
-import { Cp2020PlayerSkills } from './../../shared/models/cp2020character/cp2020-player-skills';
+import { Cp2020PlayerSkill, Cp2020PlayerSkills } from './../../shared/models/cp2020character';
 import { Cp2020PlayerRole } from './../../shared/models/cp2020character/cp2020-player-role';
 import { Cp2020StatBlock } from '../../shared/cp2020/cp2020-stats/models/cp2020-stat-block';
-import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'cs-app-character-skills',
@@ -41,5 +40,22 @@ export class AppCharacterSkillsComponent implements OnInit {
 
   onChangeSpecialAbility() {
     this.changeSpecialAblity.emit(this.role);
+  }
+
+  getColumnOne(skills: Array<Cp2020PlayerSkill>): Array<Cp2020PlayerSkill> {
+    const multi = (skills.length%3 === 0) ? 0.33 : 0.34;
+    return skills.slice(0, Math.ceil(skills.length * multi));
+  }
+
+  getColumnTwo(skills: Array<Cp2020PlayerSkill>): Array<Cp2020PlayerSkill> {
+    const multi = (skills.length%3 === 0) ? 0.33 : 0.34;
+    const start = Math.ceil(skills.length * multi);
+    const end = Math.ceil(skills.length * 0.33);
+    return skills.slice(start, start + end);
+  }
+
+  getColumnThree(skills: Array<Cp2020PlayerSkill>): Array<Cp2020PlayerSkill> {
+    const multi = (skills.length%3 === 0) ? 0.66 : 0.67;
+    return skills.slice(Math.ceil(skills.length * multi));
   }
 }
