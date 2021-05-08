@@ -1,5 +1,5 @@
 <div class="row wpn-stats">
-  <div class="col-3">{{weapon.count && weapon.count > 1 ? weapon.count + ' ': ''}}{{weapon.name}}
+  <div class="col-3 col-lg-2">{{weapon.count && weapon.count > 1 ? weapon.count + ' ': ''}}{{weapon.name}}
     <fa-icon [icon]="faTrash" (click)="delete()" class="csd-btn csd-icon-btn" title="Delete weapon"></fa-icon>
     <fa-icon [icon]="faPen" (click)="openModal(editWeaponModal)" class="mr-2 csd-btn csd-icon-btn" title="Edit weapon"></fa-icon>
 
@@ -13,7 +13,7 @@
   </div>
   <div class="col-1 text-center">{{weapon.conc}}</div>
   <div class="col-1 text-center">{{weapon.avail}} </div>
-  <div class="col-2 text-center">{{weapon.damage}}
+  <div class="col-2 col-lg-1 text-center">{{weapon.damage}}
     <fa-icon *ngIf="weapon.damage && weapon.damage !== ''" [icon]="faDice" class="csd-dice" (click)="rollDamage()"
     [popover]="damageModal" popoverTitle="DAMAGE RESULTS"  [outsideClick]="true"
     containerClass="csd-rounded csd-popover" ></fa-icon>
@@ -27,6 +27,8 @@
     containerClass="csd-rounded csd-popover" [outsideClick]="true"
     ></fa-icon>
   </div>
+  <div class="col-1 d-none d-lg-inline-block text-center">{{weapon.range}} m</div>
+  <div class="col-1 d-none d-lg-inline-block text-center">{{weapon.cost}} eb</div>
 </div>
 <div class="row wpn-notes">
   <ng-container *ngIf="weapon.shots && weapon.shots > 1">
