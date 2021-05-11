@@ -1,5 +1,5 @@
 import { CommonUiModule } from '../../../modules/common-ui/common-ui.module';
-import { DataCyberware } from './../../../models/cyberware';
+import { DataCyberware } from './../models';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CyberwareCardComponent } from './cyberware-card.component';

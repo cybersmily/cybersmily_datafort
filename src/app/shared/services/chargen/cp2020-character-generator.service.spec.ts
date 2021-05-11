@@ -2,17 +2,16 @@ import { LifePathResults } from './../../models/lifepath/lifepath-results';
 import {
   Cp2020PlayerCharacter,
   Cp2020PlayerRole,
-  Cp2020StatBlock,
-  Cp2020ArmorBlock,
-  Cp2020PlayerCyberList,
   Cp2020PlayerGearList,
   Cp2020PlayerSkills
 } from './../../models/cp2020character';
 import { TestBed } from '@angular/core/testing';
 
-import { CpPlayerWeaponList } from './../../models/weapon';
-
 import { Cp2020CharacterGeneratorService } from './cp2020-character-generator.service';
+import { Cp2020StatBlock } from '../../cp2020/cp2020-stats/models';
+import { Cp2020ArmorBlock } from '../../cp2020/cp2020-armor/models';
+import { Cp2020PlayerCyberList } from '../../cp2020/cp2020-cyberware/models';
+import { CpPlayerWeaponList } from '../../cp2020/cp2020weapons/models';
 
 describe('Cp2020CharacterGeneratorService', () => {
 

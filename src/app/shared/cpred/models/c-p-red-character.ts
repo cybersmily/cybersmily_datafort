@@ -165,20 +165,18 @@ export class CPRedCharacterSheet {
         handle: '',
         aliases: '',
         notes: '',
-
-        role: cpRedRole;
-
+        role: undefined,
         stats: {
-          int: cpRedStat;
-          ref: cpRedStat;
-          dex: cpRedStat;
-          tech: cpRedStat;
-          cool: cpRedStat;
-          will: cpRedStat;
-          luck: cpRedStat;
-          move: cpRedStat;
-          body: cpRedStat;
-          emp: cpRedStat;
+          int: undefined,
+          ref: undefined,
+          dex: undefined,
+          tech: undefined,
+          cool: undefined,
+          will: undefined,
+          luck: undefined,
+          move: undefined,
+          body: undefined,
+          emp: undefined
         },
 
         humanity: 0,
@@ -203,9 +201,9 @@ export class CPRedCharacterSheet {
         housing: '',
         rent: '',
         lifestyle: '',
-        lifePath: cpRedLifePath;
+        lifePath: undefined,
 
-        cyberware: cpRedCharacterCyberware;
+        cyberware: undefined
 
       };
     }

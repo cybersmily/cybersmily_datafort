@@ -1,13 +1,10 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
-import { AccordionModule, CollapseModule } from 'ngx-bootstrap';
 import { DataService } from './../../shared/services/file-services/data.service';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MmmountsComponent } from './mmmounts.component';
 import { MmmountComponent } from '../mmmount/mmmount.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { HttpClient } from '@angular/common/http';
 
 describe('MmmountsComponent', () => {
   let component: MmmountsComponent;

@@ -1,4 +1,4 @@
-import { CyberDataService } from './../../../services/data/cyber-data.service';
+import { CyberDataService } from './cyber-data.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { DataService } from './../../../services/file-services/data.service';
 import { DiceService } from './../../../services/dice/dice.service';

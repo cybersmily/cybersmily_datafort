@@ -328,7 +328,7 @@ export class Cp2020PlayerSkills {
 
   }
 
-  private processRoleSkillArray(skillArray: Array<Cp2020PlayerSkill>, roleSkills: any[], isSecondary?: boolean) {    console.log(roleSkills);
+  private processRoleSkillArray(skillArray: Array<Cp2020PlayerSkill>, roleSkills: any[], isSecondary?: boolean) {
     // clean the flags
     if (!isSecondary) {
       skillArray.map( skill => { skill.isRoleSkill = false; skill.roleChoice = false; });

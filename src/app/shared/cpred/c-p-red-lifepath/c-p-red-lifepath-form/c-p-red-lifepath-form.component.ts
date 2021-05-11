@@ -1,7 +1,7 @@
 import { faFilePdf, faSave, faDice } from '@fortawesome/free-solid-svg-icons';
 import { CPRedCharacterPDFService } from './../../services/cprcharpdf/c-p-red-character-p-d-f.service';
 import { SeoService } from './../../../services/seo/seo.service';
-import { SaveFileService } from './../../../services/save-file.service';
+import { SaveFileService } from './../../../services/file-services';
 import { RedJumpkitLifepathService } from '../../services/cprlifepath/red-jumpkit-lifepath.service';
 import { CPRedLifepath } from '../../models/cpred-lifepath';
 import { Component, OnInit } from '@angular/core';

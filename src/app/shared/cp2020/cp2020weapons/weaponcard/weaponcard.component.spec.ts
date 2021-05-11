@@ -1,6 +1,5 @@
 import { CommonUiModule } from '../../../modules/common-ui/common-ui.module';
-import { CollapseModule } from 'ngx-bootstrap/collapse';
-import { CpWeapon } from '../../../models/weapon';
+import { CpWeapon } from '../../../cp2020/cp2020weapons/models';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WeaponcardComponent } from './weaponcard.component';

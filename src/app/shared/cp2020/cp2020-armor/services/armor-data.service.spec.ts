@@ -4,7 +4,7 @@ import { DataService } from '../../../services/file-services/data.service';
 import { TestBed } from '@angular/core/testing';
 
 import { ArmorDataService } from './armor-data.service';
-import { Cp2020ArmorLayer } from '../../../models/cp2020character';
+import { Cp2020ArmorLayer } from './../models';
 
 describe('ArmorDataService', () => {
   let service: ArmorDataService;

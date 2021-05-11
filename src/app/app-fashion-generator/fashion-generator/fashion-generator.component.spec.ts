@@ -1,7 +1,6 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { FormsModule } from '@angular/forms';
 import { FashionOptionsSelectorComponent } from './../fashion-options-selector/fashion-options-selector.component';
 import { FashionSelectorComponent } from './../fashion-selector/fashion-selector.component';
 import { FashionClothesSelectorComponent } from './../fashion-clothes-selector/fashion-clothes-selector.component';
@@ -95,15 +94,15 @@ describe('FashionGeneratorComponent', () => {
 
   it('should be empty', () => {
     component.clothingList = [];
-    expect(component.isListEmpty()).toBeTruthy();
+    expect(component.isListEmpty).toBeTruthy();
     component.addToList(pieceOfClothing);
-    expect(component.isListEmpty()).toBeFalsy();
+    expect(component.isListEmpty).toBeFalsy();
   });
 
   it('should not be empty', () => {
     component.clothingList = [];
     component.addToList(pieceOfClothing);
-    expect(component.isListEmpty()).toBeFalsy();
+    expect(component.isListEmpty).toBeFalsy();
   });
 
   it('should have clothingData instantiated', () => {

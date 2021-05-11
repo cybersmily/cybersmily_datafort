@@ -4,7 +4,8 @@ import { Cp2020PlayerCharacter } from './../../models/cp2020character/cp2020-pla
 import { TestBed, inject } from '@angular/core/testing';
 
 import { CharacterImporterService } from './character-importer.service';
-import { Cp2020PlayerCyber, CpPlayerWeapon } from '../../models/cp2020character';
+import { CpPlayerWeapon } from './../../cp2020/cp2020weapons/models';
+import { Cp2020PlayerCyber } from './../../cp2020/cp2020-cyberware/models';
 
 describe('CharacterImporterService', () => {
   let testCp2020PC: Cp2020PlayerCharacter;

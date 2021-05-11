@@ -144,9 +144,9 @@ describe('FashionInputComponent', () => {
 
   it('should not be purchasable', () => {
     component.changeClothing(testPiece);
-    expect(component.isPurchaseable()).toEqual(false);
+    expect(component.isPurchaseable).toEqual(false);
     component.selectQuality(testQualities[1]);
-    expect(component.isPurchaseable()).toEqual(false);
+    expect(component.isPurchaseable).toEqual(false);
   });
 
   it('should be purchasable', () => {
@@ -156,6 +156,6 @@ describe('FashionInputComponent', () => {
     expect(component.currClothing.clothes.name).toBeTruthy();
     expect(component.currClothing.quality.name).toBeTruthy();
     expect(component.currClothing.style.name).toBeTruthy();
-    expect(component.isPurchaseable()).toEqual(true);
+    expect(component.isPurchaseable).toEqual(true);
   });
 });

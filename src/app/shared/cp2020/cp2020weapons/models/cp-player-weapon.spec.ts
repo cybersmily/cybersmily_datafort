@@ -1,5 +1,5 @@
-import { DiceRolls } from './../dice-rolls';
-import { DiceService } from './../../services/dice/dice.service';
+import { DiceRolls } from './../../../models/dice-rolls';
+import { DiceService } from './../../../services/dice/dice.service';
 
 import { CpPlayerWeapon } from './';
 

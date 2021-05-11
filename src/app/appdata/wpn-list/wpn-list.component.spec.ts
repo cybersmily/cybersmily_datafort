@@ -1,6 +1,6 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { PipesModule } from './../../shared/pipes/pipes.module';
-import { WeaponDataService } from './../../shared/services/data/weapon-data.service';
+import { WeaponDataService } from './../../shared/cp2020/cp2020weapons/services';
 import { DataService } from './../../shared/services/file-services/data.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';

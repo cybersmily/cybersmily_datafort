@@ -6,7 +6,7 @@ import { DiceService } from './../../shared/services/dice/dice.service';
 import { TestBed } from '@angular/core/testing';
 
 import { CmbtTrckOppChartService } from './cmbt-trck-opp-chart.service';
-import { CpPlayerWeapon } from './../../shared/models/weapon';
+import { CpPlayerWeapon } from './../../shared/cp2020/cp2020weapons/models';
 
 describe('CmbtTrckOppChartService', () => {
   let service: CmbtTrckOppChartService;

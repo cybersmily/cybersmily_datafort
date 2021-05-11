@@ -1,5 +1,5 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
-import { BsModalRef } from 'ngx-bootstrap';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NrTraceviewComponent } from './nr-traceview.component';

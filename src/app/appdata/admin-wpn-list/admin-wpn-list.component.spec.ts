@@ -1,7 +1,7 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
-import { WeaponDataService } from './../../shared/services/data/weapon-data.service';
+import { WeaponDataService } from './../../shared/cp2020/cp2020weapons/services';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 

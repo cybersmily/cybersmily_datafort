@@ -4,7 +4,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NrMapCellComponent } from './nr-map-cell.component';
 import { NrDatafortComponent } from '../nr-datafort/nr-datafort.component';
-import { PopoverModule, TooltipModule } from 'ngx-bootstrap';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('NrMapCellComponent', () => {

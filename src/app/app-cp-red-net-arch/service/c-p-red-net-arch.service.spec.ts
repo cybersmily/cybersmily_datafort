@@ -19,7 +19,7 @@ describe('CPRedNetArchService', () => {
   });
 
   it('should generate architect', () => {
-    service.generateArch();
+    service.generateArch(false, false, 0);
     service.architect.subscribe( arch => {
     expect(arch).toBeTruthy();
   });

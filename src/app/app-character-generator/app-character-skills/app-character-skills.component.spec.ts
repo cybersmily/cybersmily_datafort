@@ -1,8 +1,7 @@
+import { Cp2020CyberwareModule } from './../../shared/cp2020/cp2020-cyberware/cp2020-cyberware.module';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { DiceService } from './../../shared/services/dice/dice.service';
-import { AppCharacterCyberwareComponent } from './../app-character-cyberware/app-character-cyberware.component';
 import { AppCharacterSkillComponent } from './../app-character-skill/app-character-skill.component';
-import { FormsModule } from '@angular/forms';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppCharacterSkillsComponent } from './app-character-skills.component';
@@ -15,11 +14,11 @@ describe('AppCharacterSkillsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         AppCharacterSkillsComponent,
-        AppCharacterSkillComponent,
-        AppCharacterCyberwareComponent
+        AppCharacterSkillComponent
       ],
       imports: [
-        CommonUiModule
+        CommonUiModule,
+        Cp2020CyberwareModule
       ],
       providers: [
         DiceService

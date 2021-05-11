@@ -1,15 +1,10 @@
-import { CommonUiModule } from './../../common-ui/common-ui.module';
+import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
-import { WeaponGroup } from '../../../models/weapon';
-import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { WeaponGroup } from '../../../cp2020/cp2020weapons/models';
 import { WeaponcardComponent } from './../weaponcard/weaponcard.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WeaponcardcolumnComponent } from './weaponcardcolumn.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { AccordionModule } from 'ngx-bootstrap/accordion';
-import { AnimationBuilder } from '@angular/animations';
 
 describe('WeaponcardcolumnComponent', () => {
   let component: WeaponcardcolumnComponent;

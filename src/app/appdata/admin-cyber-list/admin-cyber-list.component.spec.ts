@@ -2,7 +2,7 @@ import { PipesModule } from './../../shared/pipes/pipes.module';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './../../shared/services/file-services/data.service';
-import { SaveFileService } from './../../shared/services/save-file.service';
+import { SaveFileService } from './../../shared/services/file-services';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AdminCyberListComponent } from './admin-cyber-list.component';
