@@ -28,7 +28,8 @@ export class Cp2020PlayerSkill implements Skill {
       if (this.name.toLowerCase() === 'expert'
           || this.name.toLowerCase() === 'language'
           || this.name.toLowerCase() === 'other'
-          || this.name.toLowerCase() === 'martial art') {
+          || this.name.toLowerCase() === 'martial art'
+          || this.name.toLowerCase() === 'pilot') {
             this.option = (param.option) ? param.option : '';
 
       } else {
