@@ -1,3 +1,4 @@
+import { CyberDataService } from './../services/cyber-data.service';
 import { DiceService } from './../../../services/dice/dice.service';
 import { PipesModule } from './../../../pipes/pipes.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -24,7 +25,8 @@ describe('Cp2020CyberwareSelectorComponent', () => {
       ],
       providers: [
         DataService,
-        DiceService
+        DiceService,
+        CyberDataService
       ]
     })
     .compileComponents();

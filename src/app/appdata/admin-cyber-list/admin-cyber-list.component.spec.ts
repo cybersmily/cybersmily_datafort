@@ -1,3 +1,4 @@
+import { CyberDataService } from './../../shared/cp2020/cp2020-cyberware/services/cyber-data.service';
 import { PipesModule } from './../../shared/pipes/pipes.module';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -23,7 +24,8 @@ describe('AdminCyberListComponent', () => {
       ],
       providers: [
         SaveFileService,
-        DataService
+        DataService,
+        CyberDataService
       ]
     })
     .compileComponents();

@@ -13,7 +13,7 @@ export class NetArchSettingsComponent implements OnInit {
   faRedo = faRedo;
 
   @Input()
-  iconColors: CPRedIconTypeSettings;
+  iconColors: CPRedIconTypeSettings = new CPRedIconTypeSettings();
 
   @Output()
   updateColors: EventEmitter<CPRedIconTypeSettings> = new EventEmitter<CPRedIconTypeSettings>();

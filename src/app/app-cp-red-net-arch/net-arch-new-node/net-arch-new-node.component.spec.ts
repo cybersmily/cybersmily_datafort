@@ -1,3 +1,6 @@
+import { DataService } from './../../shared/services/file-services/data.service';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NetArchNewNodeComponent } from './net-arch-new-node.component';
@@ -8,7 +11,14 @@ describe('NetArchNewNodeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NetArchNewNodeComponent ]
+      declarations: [ NetArchNewNodeComponent ],
+      imports: [
+        CommonUiModule,
+        HttpClientModule
+      ],
+      providers: [
+        DataService
+      ]
     })
     .compileComponents();
   });

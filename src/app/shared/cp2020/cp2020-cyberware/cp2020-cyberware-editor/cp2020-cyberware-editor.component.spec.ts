@@ -1,3 +1,4 @@
+import { CyberDataService } from './../services/cyber-data.service';
 import { DataService } from './../../../services/file-services/data.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
@@ -19,7 +20,8 @@ describe('Cp2020CyberwareEditorComponent', () => {
       ],
       providers: [
         DiceService,
-        DataService
+        DataService,
+        CyberDataService
       ]
     })
     .compileComponents();

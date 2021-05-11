@@ -30,10 +30,10 @@ export class NetArchNodeSvgComponent implements OnInit {
   node: CPRedNetArchNode = new CPRedNetArchNode();
 
   @Input()
-  iconColors: CPRedIconTypeSettings;
+  iconColors: CPRedIconTypeSettings = new CPRedIconTypeSettings();
 
   @Input()
-  defaultDV: number;
+  defaultDV: number = 6;
 
   private ids = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 

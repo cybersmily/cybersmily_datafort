@@ -9,7 +9,10 @@ describe('CyberDataService', () => {
     imports: [
       HttpClientModule
     ],
-    providers: [DataService]
+    providers: [
+      DataService,
+      CyberDataService
+    ]
   }));
 
   it('should be created', () => {

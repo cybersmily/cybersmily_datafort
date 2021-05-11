@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NetArchSettingsComponent } from './net-arch-settings.component';
@@ -8,7 +9,10 @@ describe('NetArchSettingsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NetArchSettingsComponent ]
+      declarations: [ NetArchSettingsComponent ],
+      imports: [
+        CommonUiModule
+      ]
     })
     .compileComponents();
   });

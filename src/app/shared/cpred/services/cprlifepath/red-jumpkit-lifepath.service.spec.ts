@@ -76,7 +76,7 @@ describe('RedJumpkitLifepathService', () => {
   it('should generate Friends', (done) => {
     service.generateFriends().subscribe(data => {
       expect(data).toBeTruthy();
-      expect(data.length).toBeGreaterThanOrEqual(1);
+      expect(data.length).toBeGreaterThanOrEqual(0);
       expect(data[0]).not.toEqual('');
       done();
     });
@@ -85,7 +85,7 @@ describe('RedJumpkitLifepathService', () => {
   it('should generate Enemies', (done) => {
     service.generateEnemies().subscribe(data => {
       expect(data).toBeTruthy();
-      expect(data.length).toBeGreaterThanOrEqual(1);
+      expect(data.length).toBeGreaterThanOrEqual(0);
       expect(data[0]).not.toEqual('');
       done();
     });

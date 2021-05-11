@@ -1,3 +1,9 @@
+import { DiceService } from './../../../services/dice/dice.service';
+import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { DataService } from './../../../services/file-services/data.service';
+import { ArmorDataService } from './../services/armor-data.service';
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Cp2020ArmorTableComponent } from './cp2020-armor-table.component';
@@ -8,7 +14,16 @@ describe('Cp2020ArmorTableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Cp2020ArmorTableComponent ]
+      declarations: [ Cp2020ArmorTableComponent ],
+      imports: [
+        HttpClientModule,
+        CommonUiModule
+      ],
+      providers: [
+        DataService,
+        DiceService,
+        ArmorDataService
+      ]
     })
     .compileComponents();
   });

@@ -27,7 +27,7 @@ export class NetArchNewNodeComponent implements OnInit {
   node: CPRedNetArchNode = new CPRedNetArchNode();
 
   @Input()
-  iconSettings: CPRedIconTypeSettings;
+  iconSettings: CPRedIconTypeSettings = new CPRedIconTypeSettings();
 
   @Input()
   defaultDV: number;

@@ -1,3 +1,4 @@
+import { CyberDataService } from './../services/cyber-data.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Cp2020CyberwareGeneratorService } from './../services/cp2020-cyberware-generator.service';
 import { DiceService } from './../../../services/dice/dice.service';
@@ -21,6 +22,7 @@ describe('Cp2020CyberwareTableComponent', () => {
       providers: [
         DataService,
         DiceService,
+        CyberDataService,
         Cp2020CyberwareGeneratorService
       ]
     })

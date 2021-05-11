@@ -27,13 +27,13 @@ export class NetArchNodeComponent implements OnInit {
   };
 
   @Input()
-  node: CPRedNetArchNode;
+  node: CPRedNetArchNode = new CPRedNetArchNode();
 
   @Input()
-  defaultDV: number;
+  defaultDV: number = 6;
 
   @Input()
-  iconSettings: CPRedIconTypeSettings;
+  iconSettings: CPRedIconTypeSettings = new CPRedIconTypeSettings();
 
   @Output()
   updateNode: EventEmitter<CPRedNetArchNode> = new EventEmitter<CPRedNetArchNode>();

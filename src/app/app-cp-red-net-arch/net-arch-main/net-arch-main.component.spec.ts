@@ -1,3 +1,8 @@
+import { HttpClientModule } from '@angular/common/http';
+import { CPRedNetArchChartsService } from './../service/c-p-red-net-arch-charts.service';
+import { DataService } from './../../shared/services/file-services';
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
+import { DiceService } from './../../shared/services/dice/dice.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NetArchMainComponent } from './net-arch-main.component';
@@ -8,7 +13,16 @@ describe('NetArchMainComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NetArchMainComponent ]
+      declarations: [ NetArchMainComponent ],
+      imports: [
+        CommonUiModule,
+        HttpClientModule
+      ],
+      providers: [
+        DiceService,
+        DataService,
+        CPRedNetArchChartsService
+      ]
     })
     .compileComponents();
   }));

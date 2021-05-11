@@ -1,3 +1,6 @@
+import { DataService } from './../../shared/services/file-services/data.service';
+import { CPRedNetArchChartsService } from './c-p-red-net-arch-charts.service';
+import { HttpClientModule } from '@angular/common/http';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { TestBed } from '@angular/core/testing';
 
@@ -6,12 +9,24 @@ import { CPRedNetArchService } from './c-p-red-net-arch.service';
 describe('CPRedNetArchService', () => {
   let service: CPRedNetArchService;
   let dice: DiceService;
+  let chartService: CPRedNetArchChartsService;
+  let dataService: DataService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [DiceService]
+      imports: [
+        HttpClientModule
+      ],
+      providers: [
+        DiceService,
+        DataService,
+        CPRedNetArchChartsService
+      ]
     });
-    service = TestBed.inject(CPRedNetArchService);
+    dataService = TestBed.inject(DataService);
+    chartService = new CPRedNetArchChartsService(dataService);
+    dice = TestBed.inject(DiceService);
+    service = new CPRedNetArchService(dice, chartService);
   });
 
   it('should be created', () => {
