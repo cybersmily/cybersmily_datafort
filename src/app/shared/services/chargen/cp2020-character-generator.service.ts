@@ -82,7 +82,7 @@ export class Cp2020CharacterGeneratorService {
 
     if (value.skills) {
       if (value.skills.skills) {
-        this._currCharacter.skills.skills = value.skills.skills;
+        this._currCharacter.skills.importSkills(value.skills.skills);
       } else {
         // backwards compatible
         let combo: Array<Cp2020PlayerSkill> = value.skills.ATTR;
@@ -95,6 +95,7 @@ export class Cp2020CharacterGeneratorService {
         combo = combo.concat(value.skills.Other);
         this._currCharacter.skills.skills = combo;
       }
+      this._currCharacter.skills.setRoleSkills(this._currCharacter.role.skills);
       this._currCharacter.skills.calculateTotals();
       this._currCharacter.skills.ip = value.skills.ip;
       this._currCharacter.skills.rep = value.skills.rep;
