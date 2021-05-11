@@ -5,22 +5,37 @@
       <fa-icon [icon]="faDice" class="csd-dice csd-btn" title="Generate random cyberware" (click)="generateCyberware()"></fa-icon>
     </div>
   </div>
-  <div class="row csd-cyber-header">
-    <div class="col small pl-1">TYPE</div>
-    <div class="col-1 text-center small">HL</div>
-    <div class="col-1 text-center small">COST</div>
-  </div>
-  <div *ngFor="let cyber of cyberList.items;let i = index" class="csd-cyber-row row">
-    <div class="col cyber-name" title="{{cyber.notes}}">
-      <span class="csd-btn pl-1"(click)="editCyberware(i, cyberEdit)">
-        {{cyber.toString()}}
-      <fa-icon [icon]="faPen" class="csd-btn small ml-1 csd-icon-btn"></fa-icon>
-      </span>
-      <fa-icon [icon]="faTrash" class="float-right csd-btn small ml-2 csd-icon-btn" (click)="delete(i)" title="Delete Cyberware"></fa-icon>
+  <div class="row">
+    <div class="col">
+      <div class="row">
+        <div class="col small pl-1 border border-dark">TYPE</div>
+        <div class="col-1 text-center small border border-dark">HL</div>
+        <div class="col-1 pl-1 small border border-dark">COST</div>
+      </div>
     </div>
-    <div class="col-1 text-center small">{{cyber.totalHL}}</div>
-    <div class="col-1 text-right small pr-1">{{cyber.totalCost | number}}</div>
+    <div *ngIf="showTwoColumns" class="col d-none d-lg-inline-block">
+      <div class="row ">
+        <div class="col small pl-1 border border-dark">TYPE</div>
+        <div class="col-1 text-center small border border-dark">HL</div>
+        <div class="col-1 pl-1 text-center small border border-dark">COST</div>
+      </div>
   </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <ng-container
+           [ngTemplateOutlet]="cyberColumn"
+           [ngTemplateOutletContext]="{cyberList:getColumn(showTwoColumns)}">
+      </ng-container>
+    </div>
+    <div class="col" *ngIf="showTwoColumns">
+      <ng-container
+           [ngTemplateOutlet]="cyberColumn"
+           [ngTemplateOutletContext]="{cyberList:getColumnTwo(), isSecondColumn: true}">
+      </ng-container>
+    </div>
+  </div>
+
   <div class="row csd-cyber-row">
     <div class="col text-center csd-btn" (click)="openModal(cyberSelect)">
       <fa-icon class="csd-icon-btn" [icon]="faPlus"></fa-icon>
@@ -32,6 +47,21 @@
     <div class="col-1 small text-right pr-1">{{cyberList.totalCost | number}}</div>
   </div>
 </div>
+
+<ng-template #cyberColumn let-cyberList="cyberList" let-isSecondColumn="isSecondColumn">
+  <div *ngFor="let cyber of cyberList;let i = index" class="csd-cyber-row row">
+    <div class="col cyber-name" title="{{cyber.notes}}">
+      <span class="csd-btn pl-1"(click)="editCyberware(i, cyberEdit, isSecondColumn)">
+        {{cyber.toString()}}
+      <fa-icon [icon]="faPen" class="csd-btn small ml-1 csd-icon-btn"></fa-icon>
+      </span>
+      <fa-icon [icon]="faTrash" class="float-right csd-btn small ml-2 csd-icon-btn" (click)="delete(i, isSecondColumn)" title="Delete Cyberware"></fa-icon>
+    </div>
+    <div class="col-1 text-center small">{{cyber.totalHL}}</div>
+    <div class="col-1 text-right small pr-1">{{cyber.totalCost | number}}</div>
+  </div>
+
+</ng-template>
 
 <ng-template #cyberEdit>
   <div class="modal-header">

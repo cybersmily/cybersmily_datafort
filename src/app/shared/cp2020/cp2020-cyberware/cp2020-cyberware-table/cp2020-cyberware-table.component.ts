@@ -34,6 +34,9 @@ export class Cp2020CyberwareTableComponent implements OnInit {
   @Input()
   showAdd = true;
 
+  @Input()
+  showTwoColumns = false;
+
   @Output()
   changeList: EventEmitter<Cp2020PlayerCyberList> = new EventEmitter<Cp2020PlayerCyberList>();
 
@@ -54,7 +57,10 @@ export class Cp2020CyberwareTableComponent implements OnInit {
     this.modalRef.hide();
   }
 
-  delete(index: number) {
+  delete(index: number, isSecondColumn?:boolean) {
+    if(isSecondColumn) {
+      index = index + Math.ceil(this.cyberList.items.length/2);
+    }
     this.cyberList.items.splice(index, 1);
     this.updateList();
   }
@@ -65,11 +71,26 @@ export class Cp2020CyberwareTableComponent implements OnInit {
     this.closeModal();
   }
 
-  editCyberware(index: number, template: TemplateRef<any>) {
+  editCyberware(index: number, template: TemplateRef<any>, isSecondColumn?:boolean) {
+    if(isSecondColumn) {
+      index = index + Math.ceil(this.cyberList.items.length/2);
+    }
     this.selectedIndex = index;
     this.selectedCyberware = this.cyberList.items[index];
     this.openModal(template);
   }
+
+  getColumn(isTwoColumn: boolean): Array<Cp2020PlayerCyber> {
+    if (isTwoColumn) {
+      return this.cyberList.items.slice(0, Math.ceil(this.cyberList.items.length/2));
+    }
+    return this.cyberList.items;
+  }
+
+  getColumnTwo(): Array<Cp2020PlayerCyber> {
+    return this.cyberList.items.slice(Math.ceil(this.cyberList.items.length/2));
+  }
+
 
   add(cyberArray: Array<Cp2020PlayerCyber>) {
     // remove blank entries
