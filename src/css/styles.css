@@ -26,6 +26,18 @@ INPUT {
   font-size: x-large;
 }
 
+.csd-icon-lg {
+  font-size: large;
+}
+
+.csd-icon-xxl {
+  font-size: xx-large;
+}
+
+.csd-icon-sm {
+  font-size: small;
+}
+
 .cs-color-swatch {
   display: inline-block;
   height: 16px;

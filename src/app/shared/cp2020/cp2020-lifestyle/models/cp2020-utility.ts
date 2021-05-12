@@ -1,6 +1,6 @@
-export interface Cp2020Expense {
+export interface Cp2020Utility {
   name: string;
   unit: string;
-  cost: number;
   count: number;
+  cost: number;
 }

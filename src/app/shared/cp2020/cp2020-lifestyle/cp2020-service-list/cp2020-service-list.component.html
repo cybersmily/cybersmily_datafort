@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col">
+    <div class="row">
+      <div class="col">
+        <h5 class="cp2020-label d-inline-block">Utilities</h5>
+        <span class="float-right d-inline-block">Total: </span>
+      </div>
+    </div>
+    <ng-container *ngFor="let utility of utilityList" [ngTemplateOutlet]="cpFood" [ngTemplateOutletContext]="{utility:utility}">
+    </ng-container>
+    <div class="row">
+      <div class="col text-center">
+        <fa-icon [icon]="faPlus" class="csd-icon-btn csd-btn"></fa-icon>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #cpFood let-food="utility">
+  <div class="row">
+    <div class="col-1">
+      {{utility.count}}
+    </div>
+    <div class="col">
+      {{utility.name}}
+    </div>
+    <div class="col">
+      {{utility.unit}}
+    </div>
+    <div class="col-2">
+      {{utility.cost}}eb
+    </div>
+    <div class="col-1">
+      <fa-icon [icon]="faTrash" class="csd-icon-btn csd-btn"></fa-icon>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="col">
+    <div class="row">
+      <div class="col">
+        <h5 class="cp2020-label d-inline-block">Groceries</h5>
+        <span class="float-right d-inline-block">Total Cost: {{totalCost|number}}</span>
+      </div>
+    </div>
+    <ng-container *ngFor="let food of currFoodList; let i = index" [ngTemplateOutlet]="cpFood"
+      [ngTemplateOutletContext]="{food:food, index: i}">
+    </ng-container>
+    <div class="row">
+      <div class="col text-center">
+        <fa-icon [icon]="faPlus" class="csd-icon-btn csd-btn" title="Add a new food entry" (click)="openNewModal(cpFoodEditor)"></fa-icon>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #cpFood let-food="food" let-index="index">
+  <div class="row">
+    <div class="col-2">
+      <input type="number" style="width:40px;" class="text-right" min="0" [(ngModel)]="food.count">
+    </div>
+    <div class="col-4">
+      {{food.quality}} {{food.name}}
+    </div>
+    <div class="col-4">
+      {{food.cost|number}} (x{{food.qualityMod}})eb / {{food.unit}}
+    </div>
+    <div class="col-2">
+      {{(food.cost * food.count * food.qualityMod) | number}}eb
+      <fa-icon [icon]="faTrash" class="csd-icon-btn csd-btn" (click)="delete(index)" title="Delete food entry">
+      </fa-icon>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #cpFoodEditor>
+  <div class="modal-header">
+    <h4 id="armor-modal-name" class="modal-title pull-left">Grocery Selector</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body container">
+    <div class="row">
+      <div class="col">
+        <fa-icon [icon]="faPlus" title="Add to list" class="csd-icon-btn csd-btn csd-icon-xl float-right" (click)="add()"></fa-icon>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2 col-lg-1">
+        <input type="number" min="0" [(ngModel)]="selectedFood.count" class="w-100">
+      </div>
+      <div class="col-6 col-lg-4">
+        <select [(ngModel)]="selectedType" (change)="changeFood()">
+          <option *ngFor="let type of groceries" [ngValue]="type">{{type.name}} {{type.cost}}eb</option>
+        </select>
+      </div>
+      <div class="col-3 col-lg-2">
+        <select [(ngModel)]="selectedQuality" (change)="changeQuality()">
+          <option *ngFor="let quality of qualities" [ngValue]="quality">{{quality.name}} (x{{quality.mod}})</option>
+        </select>
+      </div>
+      <div class="col-2">
+        {{selectedFood.cost|number}}eb/{{selectedFood.unit}}
+      </div>
+      <div class="col-1">
+        {{(selectedFood.cost * selectedFood.count * selectedFood.qualityMod) | number}}eb
+      </div>
+    </div>
+  </div>
+</ng-template>

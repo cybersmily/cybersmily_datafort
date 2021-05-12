@@ -1,123 +1,48 @@
-<div class="cp2020-section container">
+<div class="cp2020-section container border border-dark">
   <div class="cp2020-label row">
     <div class="col"><h4>LIFESTYLE & EXPENSES</h4></div>
   </div>
   <div class="row pt-3 pb-2 border border-dark">
     <div class="col-1"><h4>Ebs <fa-icon [icon]="faEuroSign"></fa-icon></h4></div>
-    <div class="col">Credit: <input type="number"> </div>
-    <div class="col">Cash: <input type="number"> </div>
+    <div class="col">Credit: <input type="number" [(ngModel)]="currLifeStyle.credit"> </div>
+    <div class="col">Cash: <input type="number" [(ngModel)]="currLifeStyle.cash"> </div>
+    <div class="col">
+      Total: {{totalEb|number}}eb
+      <fa-icon [icon]="faCalculator" class="csd-icon-btn csd-btn float-right csd-icon-xl" title="Expense Calculator" (click)="showModal(expenseModal)"></fa-icon>
+
+    </div>
   </div>
 <!-- HOUSING-->
-  <div class="row border border-dark">
-    <div class="col">
-      <div class="row">
-        <div class="col">
-          <h5>HOUSING<fa-icon [icon]="faPlus"></fa-icon></h5>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          NAME
-        </div>
-        <div class="col">
-          LOCATION
-        </div>
-        <div class="col-1">COST</div>
-      </div>
-      <div class="row">
-        <div class="col">
-          house (size) <fa-icon [icon]="faPen"></fa-icon><fa-icon [icon]="faTrash"></fa-icon><fa-icon [icon]="faList"></fa-icon>
-        </div>
-        <div class="col">
-          Heywood
-        </div>
-        <div class="col-1">0000.00</div>
-      </div>
-      <div class="row">
-        <div class="col">
-        </div>
-        <div class="col-3">Total Cost: </div>
-        <div class="col-1">0000.00 </div>
-      </div>
-    </div>
-  </div>
-  <!-- UTILITIES-->
-  <div class="row border border-dark">
-    <div class="col">
-      <div class="row">
-        <div class="col">
-          <h5>UTILITIES<fa-icon [icon]="faPlus"></fa-icon></h5>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          NAME
-        </div>
-        <div class="col">
-          LOCATION
-        </div>
-        <div class="col-1">COST</div>
-      </div>
-      <div class="row">
-        <div class="col">
-          house (size) <fa-icon [icon]="faPen"></fa-icon><fa-icon [icon]="faTrash"></fa-icon><fa-icon [icon]="faList"></fa-icon>
-        </div>
-        <div class="col">
-          Heywood
-        </div>
-        <div class="col-1">0000.00</div>
-      </div>
-      <div class="row">
-        <div class="col">
-        </div>
-        <div class="col-3">Total Cost: </div>
-        <div class="col-1">0000.00 </div>
-      </div>
-    </div>
-  </div>
-  <div class="row border border-dark">
-    <div class="col">
-      <div class="row">
-        <div class="col">
-          <h5>ENTERTAINMENT & SERVICES<fa-icon [icon]="faPlus"></fa-icon></h5>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          NAME
-        </div>
-        <div class="col">
-          LOCATION
-        </div>
-        <div class="col-1">COST</div>
-      </div>
-      <div class="row">
-        <div class="col">
-          house (size) <fa-icon [icon]="faPen"></fa-icon><fa-icon [icon]="faTrash"></fa-icon><fa-icon [icon]="faList"></fa-icon>
-        </div>
-        <div class="col">
-          Heywood
-        </div>
-        <div class="col-1">0000.00</div>
-      </div>
-      <div class="row">
-        <div class="col">
-        </div>
-        <div class="col-3">Total Cost: </div>
-        <div class="col-1">0000.00 </div>
-      </div>
-    </div>
-  </div>
   <div class="row">
     <div class="col">
+      <cs-cp2020-housing-list></cs-cp2020-housing-list>
     </div>
   </div>
+  <hr>
   <div class="row">
-    <div class="col">
+    <div class="col-12 col-md-6">
+      <cs-cp2020-service-list></cs-cp2020-service-list>
+    </div>
+    <div class="col col-12 col-md-6">
+      <cs-cp2020-food-list [foodList]="currLifeStyle.food" (updateFood)="updateFood($event)"></cs-cp2020-food-list>
     </div>
   </div>
+  <hr>
   <div class="row">
     <div class="col">
+      <cs-cp2020-identity-list [identityList]="currLifeStyle.identities" (updateList)="updateIdentities($event)"></cs-cp2020-identity-list>
     </div>
   </div>
 </div>
+
+<ng-template #expenseModal>
+  <div class="modal-header">
+    <h4 id="armor-modal-name" class="modal-title pull-left">Expense Calculator</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body container">
+    <cs-cp2020-identity-list></cs-cp2020-identity-list>
+  </div>
+</ng-template>
