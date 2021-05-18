@@ -47,6 +47,7 @@ export const mainRoutes: Routes = [
     .then(m => m.AppNewsHeadlinesModule) },
 
   { path: 'dlow', loadChildren: () => import('./appdlow/dlowsection.module').then(m => m.DlowSectionModule) },
+  { path: 'beta', loadChildren: () => import('./app-beta-view/app-beta-view.module').then(m => m.AppBetaViewModule) },
   { path: '**', redirectTo: '/', pathMatch: 'full'}
 ];
 
