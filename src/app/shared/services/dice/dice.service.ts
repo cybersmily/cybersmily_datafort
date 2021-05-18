@@ -262,6 +262,6 @@ processResult(r: string): string {
       result =  c[this.generateNumber(0, c.length - 2)];
       result += ' & ' + c[this.generateNumber(0, c.length - 2)];
     }
-    return result;
+    return this.processResult(result);
   }
 }
