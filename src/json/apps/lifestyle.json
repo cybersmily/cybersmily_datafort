@@ -29,14 +29,6 @@
     {"name": "International Companion Network", "cost": 10000, "unit": "month"},
     {"name": "Child Care - Child Creche", "cost": 50, "unit": "day"},
     {"name": "Child Care - Safe Child", "cost": 350, "unit": "day"}
-  ],
-  "food": {
-    "quality": {"fair": 1, "good": 2, "excellent": 3},
-    "type":[
-    {"name": "Kibble", "cost": 50, "unit":"week"},
-    {"name": "Generic Prepak", "cost": 150, "unit":"week"},
-    {"name": "Good Prepak", "cost": 200, "unit":"week"},
-    {"name": "Fresh Food", "cost": 300, "unit":"week"}
   ]
 },
   "entertainment": [

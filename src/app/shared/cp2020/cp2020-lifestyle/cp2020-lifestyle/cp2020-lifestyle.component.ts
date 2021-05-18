@@ -28,9 +28,9 @@ export class Cp2020LifestyleComponent implements OnInit {
     credit: 100000,
     cash: 40000,
     housing: new Array<Cp2020Housing>(5).fill({name: 'test', count: 1, location: '', cost: 0, quality: '', qualityMod: 0, rooms: 0, desc: '', contents: new Array()}, 0, 5),
-    food: new Array<Cp2020Food>(5).fill({name: 'Kibble', count: 1, unit: 'week', cost: 50, quality: 'Fair', qualityMod: 1}, 0, 5),
+    food: new Array<Cp2020Food>(2).fill({name: 'Kibble', count: 1, unit: 'week', cost: 50, quality: 'Fair', qualityMod: 1}, 0, 2),
     utilities: new Array<Cp2020Utility>(5).fill({name: 'test', count: 1, unit: '', cost: 0}, 0, 5),
-    identities: new Array<Cp2020Identity>(5).fill({name: 'test', sin: '', desc: ''}, 0, 5)
+    identities: new Array<Cp2020Identity>(3).fill({name: 'test', sin: '', desc: ''}, 0, 3)
   };
 
   currLifeStyle: Cp2020Lifestyle = {
