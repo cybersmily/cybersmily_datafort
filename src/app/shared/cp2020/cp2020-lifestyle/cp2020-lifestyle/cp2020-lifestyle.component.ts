@@ -27,9 +27,9 @@ export class Cp2020LifestyleComponent implements OnInit {
   lifeStyle: Cp2020Lifestyle = {
     credit: 100000,
     cash: 40000,
-    housing: new Array<Cp2020Housing>(5).fill({name: 'test', count: 1, location: '', cost: 0, quality: '', qualityMod: 0, rooms: 0, desc: '', contents: new Array()}, 0, 5),
+    housing: new Array<Cp2020Housing>(5).fill({name: 'test', count: 1, location: 'Heywood', cost: 500, quality: 'Moderate', qualityMod: 2, rooms: 2, desc: 'housing description...', contents: new Array()}, 0, 5),
     food: new Array<Cp2020Food>(2).fill({name: 'Kibble', count: 1, unit: 'week', cost: 50, quality: 'Fair', qualityMod: 1}, 0, 2),
-    utilities: new Array<Cp2020Utility>(5).fill({name: 'test', count: 1, unit: '', cost: 0}, 0, 5),
+    utilities: new Array<Cp2020Utility>(5).fill({name: 'test', count: 1, unit: 'month', cost: 100}, 0, 5),
     identities: new Array<Cp2020Identity>(3).fill({name: 'test', sin: '', desc: ''}, 0, 3)
   };
 
@@ -53,6 +53,7 @@ export class Cp2020LifestyleComponent implements OnInit {
 
   ngOnInit(): void {
     this.currLifeStyle = JSON.parse(JSON.stringify(this.lifeStyle));
+    console.log(this.currLifeStyle.housing);
   }
 
   updateIdentities(identities: Array<Cp2020Identity>) {

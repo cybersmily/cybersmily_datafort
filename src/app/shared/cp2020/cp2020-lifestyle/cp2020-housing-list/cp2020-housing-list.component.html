@@ -1,1 +1,38 @@
-<p>cp2020-housing-list works!</p>
+<div class="row">
+  <div class="col">
+    <div class="row">
+      <div class="col">
+        <h5 class="cp2020-label d-inline-block">Housing</h5>
+        <span class="float-right d-inline-block">Total Cost: eb</span>
+      </div>
+    </div>
+    <ng-container *ngFor="let housing of housingList; let i = index" [ngTemplateOutlet]="cpHousing"
+    [ngTemplateOutletContext]="{housing:housing, index: i}">
+  </ng-container>
+    <div class="row">
+      <div class="col text-center">
+        <fa-icon [icon]="faPlus" class="csd-icon-btn csd-btn" title="Add a housing" ></fa-icon>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #cpHousing let-housing="housing" let-index="index">
+  <div class="row">
+    <div class="col-4">
+      {{housing.name}}
+    </div>
+    <div class="col-4">
+      {{housing.location}} ({{housing.quality}})
+    </div>
+    <div class="col-2">
+      {{housing.cost * housing.rooms |number}} (x{{housing.qualityMod}})eb
+    </div>
+    <div class="col-2">
+      {{(housing.cost * housing.count * housing.qualityMod * housing.rooms) | number}}eb
+      <fa-icon [icon]="faTrash" class="csd-icon-btn csd-btn" title="Delete food entry">
+      </fa-icon>
+    </div>
+  </div>
+</ng-template>

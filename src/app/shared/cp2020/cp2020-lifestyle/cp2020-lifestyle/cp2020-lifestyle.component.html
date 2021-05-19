@@ -15,7 +15,7 @@
 <!-- HOUSING-->
   <div class="row">
     <div class="col">
-      <cs-cp2020-housing-list></cs-cp2020-housing-list>
+      <cs-cp2020-housing-list [housingList]="currLifeStyle.housing"></cs-cp2020-housing-list>
     </div>
   </div>
   <hr>
@@ -43,6 +43,6 @@
     </button>
   </div>
   <div class="modal-body container">
-    <cs-cp2020-identity-list></cs-cp2020-identity-list>
+    <cs-cp2020-expense-list></cs-cp2020-expense-list>
   </div>
 </ng-template>
