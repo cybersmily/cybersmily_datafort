@@ -28,8 +28,7 @@
   <div class="row" *ngIf="id">
     <div class="col-8">
       <input [(ngModel)]="id.name" type="text" style="width:95%;" (change)="update(id, index, col)" placeholder="identity...">
-      <fa-icon [icon]="faTrash" title="Delete identity" class="csd-icon-btn csd-btn" (click)="delete(index, col)"></fa-icon>
-
+      <fa-icon *ngIf="index !== 0 || col !== 1" [icon]="faTrash" title="Delete identity" class="csd-icon-btn csd-btn" (click)="delete(index, col)"></fa-icon>
     </div>
     <div class="col-4">
       <input [(ngModel)]="id.sin" type="text" (change)="update(id, index, col)" class="w-100" placeholder="sin...">
