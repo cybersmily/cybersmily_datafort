@@ -26,7 +26,7 @@ export class Cp2020LifestyleComponent implements OnInit {
 
   @Input()
   lifeStyle: Cp2020Lifestyle = {
-    credit: new Array<Cp2020Credchip>(4).fill({
+    credchips: new Array<Cp2020Credchip>(4).fill({
        name: 'chip',
       amount: 400,
       writeable: false
@@ -51,7 +51,7 @@ export class Cp2020LifestyleComponent implements OnInit {
   };
 
   currLifeStyle: Cp2020Lifestyle = {
-    credit: new Array<Cp2020Credchip>(),
+    credchips: new Array<Cp2020Credchip>(),
     cash: 0,
     salary: 0,
     housing: new Array<Cp2020Housing>(),
@@ -68,7 +68,7 @@ export class Cp2020LifestyleComponent implements OnInit {
   }
 
   get totalCred(): number {
-    return this.currLifeStyle.credit.reduce((a,b) => a + b.amount, 0);
+    return this.currLifeStyle.credchips.reduce((a,b) => a + b.amount, 0);
   }
 
   constructor(private modalService: BsModalService) { }
@@ -97,8 +97,8 @@ export class Cp2020LifestyleComponent implements OnInit {
     this.update();
   }
 
-  updateCredit(credit: Array<Cp2020Credchip>) {
-    this.currLifeStyle.credit = credit.slice(0);
+  updateCredchips(credit: Array<Cp2020Credchip>) {
+    this.currLifeStyle.credchips = credit.slice(0);
     this.update();
   }
 

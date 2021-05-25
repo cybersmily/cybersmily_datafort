@@ -4,7 +4,7 @@
   </div>
   <div class="row pt-3 pb-2 border border-dark">
     <div class="col-12 col-lg-1"><h4><fa-icon [icon]="faEuroSign"></fa-icon><fa-icon [icon]="faDollarSign"></fa-icon></h4></div>
-    <div class="col-6 col-lg-3">Credchips ({{currLifeStyle.credit.length}}): {{totalCred | number}}eb
+    <div class="col-6 col-lg-3">Credchips ({{currLifeStyle.credchips.length}}): {{totalCred | number}}eb
       <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn ml-1" title="Edit Credchips" (click)="showModal(credchipModal)"></fa-icon>
     </div>
     <div class="col-6 col-lg-2">Cash: <input class="lifestyle-eb-input" type="number" [(ngModel)]="currLifeStyle.cash"> </div>
@@ -62,7 +62,6 @@
     </button>
   </div>
   <div class="modal-body container">
-    <cs-cp2020-credchip-list></cs-cp2020-credchip-list>
+    <cs-cp2020-credchip-list [credchips]="currLifeStyle.credchips" (updateCredchips)="updateCredchips($event)"></cs-cp2020-credchip-list>
   </div>
-
 </ng-template>

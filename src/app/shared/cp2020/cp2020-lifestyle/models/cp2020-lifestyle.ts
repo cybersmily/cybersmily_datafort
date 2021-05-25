@@ -6,7 +6,7 @@ import { Cp2020Credchip } from './cp2020-credchip';
 
 export interface Cp2020Lifestyle {
   cash: number;
-  credit: Array<Cp2020Credchip>;
+  credchips: Array<Cp2020Credchip>;
   salary: number;
   housing: Array<Cp2020Housing>;
   utilities: Array<Cp2020Utility>;
