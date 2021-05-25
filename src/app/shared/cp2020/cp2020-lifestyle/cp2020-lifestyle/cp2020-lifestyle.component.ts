@@ -1,6 +1,6 @@
 import { Cp2020Utility, Cp2020Food, Cp2020Housing, Cp2020Lifestyle, Cp2020Identity, Cp2020Credchip } from './../models';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { faPlus, faTrash, faPen, faRedo, faEuroSign, faList, faCalculator } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faTrash, faPen, faRedo, faEuroSign, faList, faCalculator, faDollarSign } from '@fortawesome/free-solid-svg-icons';
 import { Component, Input, OnInit, Output, TemplateRef, EventEmitter } from '@angular/core';
 
 @Component({
@@ -14,6 +14,7 @@ export class Cp2020LifestyleComponent implements OnInit {
   faPen = faPen;
   faRedo = faRedo;
   faEuroSign = faEuroSign;
+  faDollarSign = faDollarSign;
   faList = faList;
   faCalculator = faCalculator;
 

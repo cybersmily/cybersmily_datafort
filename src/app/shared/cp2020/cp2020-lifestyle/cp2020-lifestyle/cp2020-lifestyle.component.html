@@ -3,16 +3,18 @@
     <div class="col"><h4>LIFESTYLE & EXPENSES</h4></div>
   </div>
   <div class="row pt-3 pb-2 border border-dark">
-    <div class="col-1"><h4>Ebs <fa-icon [icon]="faEuroSign"></fa-icon></h4></div>
-    <div class="col">Credchips ({{currLifeStyle.credit.length}}): {{totalCred | number}}eb <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn" title="Edit Credchips"></fa-icon></div>
-    <div class="col">Cash: <input class="lifestyle-eb-input" type="number" [(ngModel)]="currLifeStyle.cash"> </div>
-    <div class="col">
+    <div class="col-12 col-lg-1"><h4><fa-icon [icon]="faEuroSign"></fa-icon><fa-icon [icon]="faDollarSign"></fa-icon></h4></div>
+    <div class="col-6 col-lg-3">Credchips ({{currLifeStyle.credit.length}}): {{totalCred | number}}eb
+      <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn ml-1" title="Edit Credchips" (click)="showModal(credchipModal)"></fa-icon>
+    </div>
+    <div class="col-6 col-lg-2">Cash: <input class="lifestyle-eb-input" type="number" [(ngModel)]="currLifeStyle.cash"> </div>
+    <div class="col-6 col-lg-2">
       Total: {{totalEb|number}}eb
     </div>
-    <div class="col">
+    <div class="col-5 col-lg-3">
       Salary: <input class="lifestyle-eb-input" type="number" [(ngModel)]="currLifeStyle.salary">
     </div>
-    <div class="col-2">
+    <div class="col-1">
       <fa-icon [icon]="faCalculator" class="csd-icon-btn csd-btn float-right csd-icon-xl" title="Expense Calculator" (click)="showModal(expenseModal)"></fa-icon>
     </div>
   </div>
@@ -59,6 +61,7 @@
     </button>
   </div>
   <div class="modal-body container">
+    <cs-cp2020-credchip-list></cs-cp2020-credchip-list>
   </div>
 
 </ng-template>
