@@ -60,6 +60,8 @@ export class Cp2020LifestyleComponent implements OnInit {
     identities: new Array<Cp2020Identity>()
   };
 
+  amountDue: number = 0;
+
   @Output()
   updateLifeStyle: EventEmitter<Cp2020Lifestyle> = new EventEmitter<Cp2020Lifestyle>();
 
@@ -110,14 +112,18 @@ export class Cp2020LifestyleComponent implements OnInit {
     this.modalRef = this.modalService.show(template, this.modalConfig);
   }
 
-  pay(payment: Cp2020Payment) {
+  updateAmounts(amounts: {credchips: Array<Cp2020Credchip>, cash: number, amountDue: number}) {
     this.modalRef.hide();
-    if( payment.type === 'cash') {
-      this.currLifeStyle.cash -= payment.amount;
-    } else {
-      // open credchip modal to choose which credchip to spend on.
-    }
+    this.currLifeStyle.cash = amounts.cash;
+    this.currLifeStyle.credchips = amounts.credchips.slice(0);
+    this.amountDue = amounts.amountDue;
     this.update();
+  }
+
+  pay(amount: number, template: TemplateRef<any>) {
+    this.modalRef.hide();
+    this.amountDue += amount;
+    this.showModal(template);
   }
 
   closeModal() {

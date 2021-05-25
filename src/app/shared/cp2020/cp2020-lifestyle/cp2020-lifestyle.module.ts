@@ -10,6 +10,7 @@ import { Cp2020ServiceListComponent } from './cp2020-service-list/cp2020-service
 import { Cp2020IdentityListComponent } from './cp2020-identity-list/cp2020-identity-list.component';
 import { Cp2020FoodListComponent } from './cp2020-food-list/cp2020-food-list.component';
 import { Cp2020CredchipListComponent } from './cp2020-credchip-list/cp2020-credchip-list.component';
+import { Cp2020PaymentComponent } from './cp2020-payment/cp2020-payment.component';
 
 
 
@@ -21,7 +22,8 @@ import { Cp2020CredchipListComponent } from './cp2020-credchip-list/cp2020-credc
     Cp2020ServiceListComponent,
     Cp2020IdentityListComponent,
     Cp2020FoodListComponent,
-    Cp2020CredchipListComponent
+    Cp2020CredchipListComponent,
+    Cp2020PaymentComponent
   ],
   imports: [
     CommonModule,

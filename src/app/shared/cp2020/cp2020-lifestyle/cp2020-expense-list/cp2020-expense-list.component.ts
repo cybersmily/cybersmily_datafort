@@ -19,7 +19,7 @@ export class Cp2020ExpenseListComponent implements OnInit {
   credit: number = 0;
 
   @Output()
-  pay: EventEmitter<Cp2020Payment> = new EventEmitter<Cp2020Payment>();
+  payAmount: EventEmitter<number> = new EventEmitter<number>();
 
   get firstColumn(): Array<Cp2020Expense> {
     return this.expensesList.slice(0, Math.ceil(this.expensesList.length/2));
@@ -43,12 +43,8 @@ export class Cp2020ExpenseListComponent implements OnInit {
     this.totalCost = this.expensesList.reduce( (a,b) => a + ((b.count) ? (b.count * b.cost) : 0), 0);
   }
 
-  payCash() {
-    this.pay.emit({amount: this.totalCost, type: 'cash'});
-  }
-
-  payCredit() {
-    this.pay.emit({amount: this.totalCost, type: 'cred'});
+  pay() {
+    this.payAmount.emit(this.totalCost);
   }
 
 }

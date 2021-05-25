@@ -18,6 +18,10 @@
       <fa-icon [icon]="faCalculator" class="csd-icon-btn csd-btn float-right csd-icon-xl"
         title="Expense Calculator" (click)="showModal(expenseModal)"></fa-icon>
     </div>
+    <div *ngIf="amountDue > 0" class="col-12">
+      Outstanding Payment: {{amountDue | number}}eb
+      <button class="btn btn-dark csd-btn ml-2" (click)="showModal(paymentModal)">PAY</button>
+    </div>
   </div>
 <!-- HOUSING-->
   <div class="row">
@@ -50,11 +54,23 @@
     </button>
   </div>
   <div class="modal-body container">
-    <cs-cp2020-expense-list [cash]="currLifeStyle.cash" [cred]="totalCred"  (pay)="pay($event)"></cs-cp2020-expense-list>
+    <cs-cp2020-expense-list [cash]="currLifeStyle.cash" [cred]="totalCred"  (payAmount)="pay($event, paymentModal)"></cs-cp2020-expense-list>
   </div>
 </ng-template>
 
 <ng-template #credchipModal>
+  <div class="modal-header">
+    <h4 id="armor-modal-name" class="modal-title pull-left">Pay Amount Due</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body container">
+    <cs-cp2020-credchip-list [credchips]="currLifeStyle.credchips" (updateCredchips)="updateCredchips($event)"></cs-cp2020-credchip-list>
+  </div>
+</ng-template>
+
+<ng-template #paymentModal>
   <div class="modal-header">
     <h4 id="armor-modal-name" class="modal-title pull-left">Credchips</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
@@ -62,6 +78,6 @@
     </button>
   </div>
   <div class="modal-body container">
-    <cs-cp2020-credchip-list [credchips]="currLifeStyle.credchips" (updateCredchips)="updateCredchips($event)"></cs-cp2020-credchip-list>
+    <cs-cp2020-payment [credchips]="currLifeStyle.credchips" [cash]="currLifeStyle.cash" [amountDue]="amountDue" (updateAmounts)="updateAmounts($event)"></cs-cp2020-payment>
   </div>
 </ng-template>

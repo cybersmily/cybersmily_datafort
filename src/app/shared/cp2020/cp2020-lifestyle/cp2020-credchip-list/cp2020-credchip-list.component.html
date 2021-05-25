@@ -1,17 +1,18 @@
 
 <div class="row">
-  <div class="col">Total Funds: {{totalValue | number}}eb ({{this.currCredchips.length}})</div>
+  <div class="col-6">Total Funds: {{totalValue | number}}eb ({{this.currCredchips.length}})</div>
 </div>
 <hr>
 <div class="row">
   <div class="col">Name</div>
   <div class="col">Amount</div>
   <div class="col text-center">Writeable</div>
-  <div class="col"></div>
+  <div class="col d-none d-md-block">
+  </div>
 </div>
 <div *ngFor="let cred of currCredchips;let i = index" class="row">
   <div class="col">
-    <input type="text" placeholder="enter name..." title="Name of chip" [(ngModel)]="cred.name" (change)="update()" style="width:90%">
+    <input type="text" placeholder="enter name..." title="Name of chip" [(ngModel)]="cred.name" (change)="update()" style="width:85%">
     <fa-icon [icon]="faTrash" title="Delete Credchip" class="csd-btn csd-icon-btn float-right" (click)="delete(i)"></fa-icon>
   </div>
   <div class="col">
@@ -20,11 +21,11 @@
   <div class="col text-center">
     <input type="checkbox" title="Is rewritable chip" [(ngModel)]="cred.writeable" (change)="update()">
   </div>
-  <div class="col">
+  <div class="col d-none d-md-block">
   </div>
 </div>
 <div class="row">
-  <div class="col text-center" title="Add a new Credchip" (click)="add()">
+  <div class="col-12 col-md-9 text-center" title="Add a new Credchip" (click)="add()">
     <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-xl"></fa-icon>
   </div>
 </div>
