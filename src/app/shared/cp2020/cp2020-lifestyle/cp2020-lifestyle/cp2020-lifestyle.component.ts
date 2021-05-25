@@ -92,7 +92,7 @@ export class Cp2020LifestyleComponent implements OnInit {
     this.update();
   }
 
-  updateHosing(housing: Array<Cp2020Housing>) {
+  updateHousing(housing: Array<Cp2020Housing>) {
     this.currLifeStyle.housing = housing;
     this.update();
   }
@@ -129,10 +129,14 @@ export class Cp2020LifestyleComponent implements OnInit {
   }
 
   pay(amount: number, template: TemplateRef<any>) {
-    this.modalRef.hide();
+    if (this.modalRef) {
+      this.modalRef.hide();
+    }
     this.amountDue += amount;
     this.showModal(template);
   }
+
+
 
   closeModal() {
     this.modalRef.hide();

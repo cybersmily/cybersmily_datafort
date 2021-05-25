@@ -26,7 +26,7 @@
 <!-- HOUSING-->
   <div class="row">
     <div class="col">
-      <cs-cp2020-housing-list [housingList]="currLifeStyle.housing"></cs-cp2020-housing-list>
+      <cs-cp2020-housing-list [housingList]="currLifeStyle.housing" (updateHousing)="updateHousing($event)" (payHousing)="pay($event, paymentModal)"></cs-cp2020-housing-list>
     </div>
   </div>
   <hr>
@@ -72,7 +72,7 @@
 
 <ng-template #paymentModal>
   <div class="modal-header">
-    <h4 id="armor-modal-name" class="modal-title pull-left">Credchips</h4>
+    <h4 id="armor-modal-name" class="modal-title pull-left">Pay debts</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
       <span aria-hidden="true">&times;</span>
     </button>

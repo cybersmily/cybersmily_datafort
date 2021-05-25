@@ -27,6 +27,9 @@ export class Cp2020HousingListComponent implements OnInit {
   @Output()
   updateHousing: EventEmitter<Array<Cp2020Housing>> = new EventEmitter<Array<Cp2020Housing>>();
 
+  @Output()
+  payHousing: EventEmitter<number> = new EventEmitter<number>();
+
   currHousing: Array<Cp2020Housing>  = new Array<Cp2020Housing>();
   modalTitle: string = 'Housing';
 
@@ -138,6 +141,10 @@ export class Cp2020HousingListComponent implements OnInit {
     }
     this.update();
     this.modalRef.hide();
+  }
+
+  pay(amountDue: number) {
+    this.payHousing.emit(amountDue);
   }
 
 }

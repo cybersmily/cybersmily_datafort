@@ -3,8 +3,9 @@
     <div class="row">
       <div class="col">
         <h5 class="cp2020-label d-inline-block">Housing</h5>
-        <span class="float-right d-inline-block">Total Cost: {{totalCost | number}}eb</span>
       </div>
+      <div class="col text-right">Total Cost: {{totalCost | number}}eb</div>
+      <div class="col-1"></div>
     </div>
     <ng-container *ngFor="let housing of currHousing; let i = index" [ngTemplateOutlet]="cpHousing"
     [ngTemplateOutletContext]="{housing:housing, index: i}">
@@ -20,18 +21,19 @@
 
 <ng-template #cpHousing let-housing="housing" let-index="index">
   <div class="row">
-    <div class="col-4">
+    <div class="col">
       {{housing.name}}
       <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn ml-1" (click)="edit(index, newHousing)"></fa-icon>
       <fa-icon [icon]="faTrash" class="csd-icon-btn csd-btn ml-2" title="Delete housing" (click)="delete(index)"></fa-icon>
     </div>
-    <div class="col-4">
-      {{housing.location}} ({{housing.quality}})
+    <div class="col">
+      {{housing.location}}
     </div>
-    <div class="col-2">
-    </div>
-    <div class="col-2 text-right">
+    <div class="col text-right">
       {{getCost(housing)  | number}}eb
+    </div>
+    <div class="col-1">
+      <button class="btn btn-dark btn-sm mb-1" (click)="pay(getCost(housing))">PAY</button>
     </div>
   </div>
 </ng-template>
