@@ -33,7 +33,7 @@ export class Cp2020LifestyleComponent implements OnInit {
     }, 0, 4),
     cash: 40000,
     salary: 2000,
-    housing: new Array<Cp2020Housing>(5).fill({
+    housing: new Array<Cp2020Housing>(2).fill({
       name: 'test',
       count: 1,
       location: 'Heywood',
