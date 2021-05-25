@@ -3,15 +3,15 @@
     <div class="row">
       <div class="col">
         <h5 class="cp2020-label d-inline-block">Housing</h5>
-        <span class="float-right d-inline-block">Total Cost: eb</span>
+        <span class="float-right d-inline-block">Total Cost: {{totalCost | number}}eb</span>
       </div>
     </div>
-    <ng-container *ngFor="let housing of housingList; let i = index" [ngTemplateOutlet]="cpHousing"
+    <ng-container *ngFor="let housing of currHousing; let i = index" [ngTemplateOutlet]="cpHousing"
     [ngTemplateOutletContext]="{housing:housing, index: i}">
   </ng-container>
     <div class="row">
       <div class="col text-center">
-        <fa-icon [icon]="faPlus" class="csd-icon-btn csd-btn" title="Add a housing" ></fa-icon>
+        <fa-icon [icon]="faPlus" class="csd-icon-btn csd-btn" title="Add a housing" (click)="add(newHousing)"></fa-icon>
       </div>
     </div>
   </div>
@@ -22,17 +22,101 @@
   <div class="row">
     <div class="col-4">
       {{housing.name}}
+      <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn ml-1" (click)="edit(index, newHousing)"></fa-icon>
+      <fa-icon [icon]="faTrash" class="csd-icon-btn csd-btn ml-2" title="Delete housing" (click)="delete(index)"></fa-icon>
     </div>
     <div class="col-4">
       {{housing.location}} ({{housing.quality}})
     </div>
     <div class="col-2">
-      {{housing.cost * housing.rooms |number}} (x{{housing.qualityMod}})eb
     </div>
-    <div class="col-2">
-      {{(housing.cost * housing.count * housing.qualityMod * housing.rooms) | number}}eb
-      <fa-icon [icon]="faTrash" class="csd-icon-btn csd-btn" title="Delete food entry">
-      </fa-icon>
+    <div class="col-2 text-right">
+      {{getCost(housing)  | number}}eb
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #newHousing>
+  <div class="modal-header">
+    <h4 id="armor-modal-name" class="modal-title pull-left">{{modalTitle}}</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body container">
+    <div class="row">
+      <div class="col-2">Name:</div>
+      <div class="col">
+        <input type="text" placeholder="Enter a name..." [(ngModel)]="selectedHousing.name">
+        <fa-icon [icon]="faSave" class="csd-btn csd-icon-btn csd-icon-xl float-right" title="Save housing changes" (click)="saveHousing()"></fa-icon>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2">Type:</div>
+      <div class="col">
+        <select [(ngModel)]="selectedHousing.cost">
+          <option [ngValue]="200">Apt./Condo</option>
+          <option [ngValue]="150">House</option>
+        </select>
+        {{selectedHousing.cost}}eb/room
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2">Rooms:</div>
+      <div class="col">
+        <input type="number" min="0" [(ngModel)]="selectedHousing.rooms">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2">Quality:</div>
+      <div class="col">
+        <select [(ngModel)]="selectedHousing.qualityMod">
+          <option [ngValue]="1">Combat Zone</option>
+          <option [ngValue]="2">Moderate Zone</option>
+          <option [ngValue]="4">Corporate Zone</option>
+          <option [ngValue]="6">Executive Zone</option>
+        </select>
+        X {{selectedHousing.qualityMod}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2">Location:</div>
+      <div class="col">
+        <input type="text" placeholder="Enter location..." [(ngModel)]="selectedHousing.location">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2">Description:</div>
+      <div class="col">
+        <textarea [(ngModel)]="selectedHousing.desc" placeholder="Enter a description..."></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2">Utitlies:</div>
+      <div class="col">
+        <div class="row" *ngFor="let u of selectedHousing.utilities; let i = index">
+          <div class="col-1"><input type="checkbox" [checked]="getUtilitySelected(i)" (change)="toogleUtility($event, i)" ></div>
+          <div class="col">{{u.name}}:</div>
+          <div class="col">{{u.cost}}eb</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2">Contents:</div>
+      <div class="col">
+        <div class="row" *ngFor="let item of selectedHousing.contents; let i = index">
+          <div class="col">
+            <input type="text" [(ngModel)]="selectedHousing.contents[i]" >
+            <fa-icon [icon]="faTrash" class="ml-2 csd-btn csd-icon-btn" title="Add content"></fa-icon>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn" title="Add content"></fa-icon>
+            <input type="text">
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </ng-template>

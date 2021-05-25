@@ -37,13 +37,21 @@ export class Cp2020LifestyleComponent implements OnInit {
       name: 'test',
       count: 1,
       location: 'Heywood',
-      cost: 500,
+      cost: 150,
       quality: 'Moderate',
       qualityMod: 2,
       rooms: 2,
-      utilities: new Array<Cp2020Utility>(),
+      utilities: [
+        {name:'Utilities (Elect./Water)', cost:100, unit:'month', count: 0},
+        {name:'Landline', cost:30, unit:'month', count: 0},
+        {name:'Cable TV', cost:40, unit:'month', count: 0}
+      ],
       desc: 'housing description...',
-      contents: new Array()
+      contents: [
+        'Washer',
+        'Bed',
+        'Chair'
+      ]
     }, 0, 5),
     food: new Array<Cp2020Food>(2).fill({name: 'Kibble', count: 1, unit: 'week', cost: 50, quality: 'Fair', qualityMod: 1}, 0, 2),
     utilities: new Array<Cp2020Utility>(5).fill({name: 'test', count: 1, unit: 'month', cost: 100}, 0, 5),
