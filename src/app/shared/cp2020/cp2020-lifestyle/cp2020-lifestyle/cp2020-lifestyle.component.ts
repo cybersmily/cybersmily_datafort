@@ -1,4 +1,4 @@
-import { Cp2020Utility, Cp2020Food, Cp2020Housing, Cp2020Lifestyle, Cp2020Identity, Cp2020Credchip } from './../models';
+import { Cp2020Utility, Cp2020Food, Cp2020Housing, Cp2020Lifestyle, Cp2020Identity, Cp2020Credchip, Cp2020Payment } from './../models';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { faPlus, faTrash, faPen, faRedo, faEuroSign, faList, faCalculator, faDollarSign } from '@fortawesome/free-solid-svg-icons';
 import { Component, Input, OnInit, Output, TemplateRef, EventEmitter } from '@angular/core';
@@ -75,41 +75,49 @@ export class Cp2020LifestyleComponent implements OnInit {
 
   ngOnInit(): void {
     this.currLifeStyle = JSON.parse(JSON.stringify(this.lifeStyle));
-    console.log(this.currLifeStyle.housing);
   }
 
   updateIdentities(identities: Array<Cp2020Identity>) {
     this.currLifeStyle.identities = identities;
-    this.updateLifeStyle.emit(this.currLifeStyle);
+    this.update();
   }
 
   updateHosing(housing: Array<Cp2020Housing>) {
     this.currLifeStyle.housing = housing;
-    this.updateLifeStyle.emit(this.currLifeStyle);
+    this.update();
   }
 
   updateUtilities(utilities: Array<Cp2020Utility>) {
     this.currLifeStyle.utilities = utilities;
-    this.updateLifeStyle.emit(this.currLifeStyle);
+    this.update();
   }
 
   updateFood(food: Array<Cp2020Food>) {
     this.currLifeStyle.food = food;
-    this.updateLifeStyle.emit(this.currLifeStyle);
-  }
-
-  updateCash(cash: number) {
-    this.currLifeStyle.cash = cash;
-    this.updateLifeStyle.emit(this.currLifeStyle);
+    this.update();
   }
 
   updateCredit(credit: Array<Cp2020Credchip>) {
     this.currLifeStyle.credit = credit.slice(0);
+    this.update();
+  }
+
+  update() {
     this.updateLifeStyle.emit(this.currLifeStyle);
   }
 
   showModal(template: TemplateRef<any>){
     this.modalRef = this.modalService.show(template, this.modalConfig);
+  }
+
+  pay(payment: Cp2020Payment) {
+    this.modalRef.hide();
+    if( payment.type === 'cash') {
+      this.currLifeStyle.cash -= payment.amount;
+    } else {
+      // open credchip modal to choose which credchip to spend on.
+    }
+    this.update();
   }
 
   closeModal() {

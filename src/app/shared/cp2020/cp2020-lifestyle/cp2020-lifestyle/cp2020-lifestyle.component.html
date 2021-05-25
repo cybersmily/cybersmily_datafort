@@ -15,7 +15,8 @@
       Salary: <input class="lifestyle-eb-input" type="number" [(ngModel)]="currLifeStyle.salary">
     </div>
     <div class="col-1">
-      <fa-icon [icon]="faCalculator" class="csd-icon-btn csd-btn float-right csd-icon-xl" title="Expense Calculator" (click)="showModal(expenseModal)"></fa-icon>
+      <fa-icon [icon]="faCalculator" class="csd-icon-btn csd-btn float-right csd-icon-xl"
+        title="Expense Calculator" (click)="showModal(expenseModal)"></fa-icon>
     </div>
   </div>
 <!-- HOUSING-->
@@ -49,7 +50,7 @@
     </button>
   </div>
   <div class="modal-body container">
-    <cs-cp2020-expense-list></cs-cp2020-expense-list>
+    <cs-cp2020-expense-list [cash]="currLifeStyle.cash" [cred]="totalCred"  (pay)="pay($event)"></cs-cp2020-expense-list>
   </div>
 </ng-template>
 
