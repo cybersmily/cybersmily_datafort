@@ -4,12 +4,16 @@
   </div>
   <div class="row pt-3 pb-2 border border-dark">
     <div class="col-1"><h4>Ebs <fa-icon [icon]="faEuroSign"></fa-icon></h4></div>
-    <div class="col">Credit: <input type="number" [(ngModel)]="currLifeStyle.credit"> </div>
-    <div class="col">Cash: <input type="number" [(ngModel)]="currLifeStyle.cash"> </div>
+    <div class="col">Credchips ({{currLifeStyle.credit.length}}): {{totalCred | number}}eb <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn" title="Edit Credchips"></fa-icon></div>
+    <div class="col">Cash: <input class="lifestyle-eb-input" type="number" [(ngModel)]="currLifeStyle.cash"> </div>
     <div class="col">
       Total: {{totalEb|number}}eb
+    </div>
+    <div class="col">
+      Salary: <input class="lifestyle-eb-input" type="number" [(ngModel)]="currLifeStyle.salary">
+    </div>
+    <div class="col-2">
       <fa-icon [icon]="faCalculator" class="csd-icon-btn csd-btn float-right csd-icon-xl" title="Expense Calculator" (click)="showModal(expenseModal)"></fa-icon>
-
     </div>
   </div>
 <!-- HOUSING-->
@@ -45,4 +49,16 @@
   <div class="modal-body container">
     <cs-cp2020-expense-list></cs-cp2020-expense-list>
   </div>
+</ng-template>
+
+<ng-template #credchipModal>
+  <div class="modal-header">
+    <h4 id="armor-modal-name" class="modal-title pull-left">Credchips</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body container">
+  </div>
+
 </ng-template>
