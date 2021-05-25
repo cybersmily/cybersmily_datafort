@@ -49,7 +49,7 @@ export class LifepathGeneratorComponent implements OnInit {
 
   getLifepathData() {
     this.dataService
-    .GetJson(JsonDataFiles.CP2020_LIFEPTAH_JSON)
+    .GetJson(JsonDataFiles.CP2020_LIFEPATH_JSON)
     .subscribe(
       resultObj => {
         this.parseLifepathData(resultObj);

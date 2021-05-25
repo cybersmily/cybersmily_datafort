@@ -26,7 +26,7 @@ export class FamilyGeneratorService {
   private GetChartData(): Observable<FamilyChart> {
     if (!this.chartData) {
       return this.dataService
-      .GetJson(JsonDataFiles.CP2020_LIFEPTAH_FAMILY_JSON)
+      .GetJson(JsonDataFiles.CP2020_LIFEPATH_FAMILY_JSON)
       .pipe(map(data => this.chartData = data));
     }
     return of(this.chartData);

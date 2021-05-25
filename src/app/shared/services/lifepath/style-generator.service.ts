@@ -54,7 +54,7 @@ export class StyleGeneratorService {
   private getChartData(): Observable<LifepathDataStyles> {
     if (!this.stylesChart) {
       return this.dataService
-      .GetJson(JsonDataFiles.CP2020_LIFEPTAH_STYLE_JSON)
+      .GetJson(JsonDataFiles.CP2020_LIFEPATH_STYLE_JSON)
       .pipe(
         map (data => this.stylesChart = data.styles)
       );

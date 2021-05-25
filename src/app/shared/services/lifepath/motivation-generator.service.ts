@@ -65,7 +65,7 @@ export class MotivationGeneratorService {
   private getChartData(): Observable<any> {
     if (!this.motivationChart) {
       return this.dataService
-      .GetJson(JsonDataFiles.CP2020_LIFEPTAH_MOTIVATION_JSON)
+      .GetJson(JsonDataFiles.CP2020_LIFEPATH_MOTIVATION_JSON)
       .pipe(
         map (data => this.motivationChart = data.motivations)
       );

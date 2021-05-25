@@ -1,3 +1,4 @@
+import { DiceService } from './../../services/dice/dice.service';
 import { DataService } from './../../services/file-services/data.service';
 import { CommonUiModule } from './../../modules/common-ui/common-ui.module';
 import { NgModule } from '@angular/core';
@@ -12,16 +13,29 @@ import { Cp2020FoodListComponent } from './cp2020-food-list/cp2020-food-list.com
 
 
 @NgModule({
-  declarations: [Cp2020LifestyleComponent, Cp2020HousingListComponent, Cp2020ExpenseListComponent, Cp2020ServiceListComponent, Cp2020IdentityListComponent, Cp2020FoodListComponent],
+  declarations: [
+    Cp2020LifestyleComponent,
+    Cp2020HousingListComponent,
+    Cp2020ExpenseListComponent,
+    Cp2020ServiceListComponent,
+    Cp2020IdentityListComponent,
+    Cp2020FoodListComponent
+  ],
   imports: [
     CommonModule,
     CommonUiModule
   ],
   providers: [
-    DataService
+    DataService,
+    DiceService
   ],
   exports: [
-    Cp2020LifestyleComponent
+    Cp2020LifestyleComponent,
+    Cp2020HousingListComponent,
+    Cp2020ExpenseListComponent,
+    Cp2020ServiceListComponent,
+    Cp2020IdentityListComponent,
+    Cp2020FoodListComponent
   ]
 })
 export class Cp2020LifestyleModule { }

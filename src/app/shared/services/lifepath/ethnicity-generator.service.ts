@@ -71,7 +71,7 @@ export class EthnicityGeneratorService {
   private getChartData(): Observable<any> {
     if (!this.ethnicityChart) {
       return this.dataService
-      .GetJson(JsonDataFiles.CP2020_LIFEPTAH_ETHNICITY_JSON)
+      .GetJson(JsonDataFiles.CP2020_LIFEPATH_ETHNICITY_JSON)
       .pipe(
         map (data => this.ethnicityChart = data)
       );

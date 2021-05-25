@@ -28,7 +28,7 @@ export class LifeEventsGeneratorService {
   private GetChartData(): Observable<LifepathEventsCharts> {
     if (!this.chartData) {
       return this.dataService
-      .GetJson(JsonDataFiles.CP2020_LIFEPTAH_EVENTS_JSON)
+      .GetJson(JsonDataFiles.CP2020_LIFEPATH_EVENTS_JSON)
       .pipe(map(data => this.chartData = data));
     }
     return of(this.chartData);

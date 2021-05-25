@@ -53,13 +53,15 @@ export class JsonDataFiles {
   public static CP2020_MAXMETAL_MOUNTS_JSON =  `/json/apps/maxmetal/mmweaponmounts.json`;
   public static CP2020_MAXMETAL_TYPES_JSON =  `/json/apps/maxmetal/mmTypes.json`;
 
-  public static CP2020_LIFEPTAH_STYLE_JSON = `/json/apps/lifepath/stylecharts.json`;
-  public static CP2020_LIFEPTAH_SOURCES_JSON = `/json/apps/lifepath/sources.json`;
-  public static CP2020_LIFEPTAH_MOTIVATION_JSON = `/json/apps/lifepath/motivationcharts.json`;
-  public static CP2020_LIFEPTAH_EVENTS_JSON = `/json/apps/lifepath/eventcharts.json`;
-  public static CP2020_LIFEPTAH_FAMILY_JSON = `/json/apps/lifepath/familycharts.json`;
-  public static CP2020_LIFEPTAH_ETHNICITY_JSON = `/json/apps/lifepath/ethnicitychart.json`;
-  public static CP2020_LIFEPTAH_JSON = `/json/apps/lifepath.json`;
+  public static CP2020_LIFEPATH_STYLE_JSON = `/json/apps/lifepath/stylecharts.json`;
+  public static CP2020_LIFEPATH_SOURCES_JSON = `/json/apps/lifepath/sources.json`;
+  public static CP2020_LIFEPATH_MOTIVATION_JSON = `/json/apps/lifepath/motivationcharts.json`;
+  public static CP2020_LIFEPATH_EVENTS_JSON = `/json/apps/lifepath/eventcharts.json`;
+  public static CP2020_LIFEPATH_FAMILY_JSON = `/json/apps/lifepath/familycharts.json`;
+  public static CP2020_LIFEPATH_ETHNICITY_JSON = `/json/apps/lifepath/ethnicitychart.json`;
+  public static CP2020_LIFEPATH_JSON = `/json/apps/lifepath.json`;
+
+  public static CP2020_LIFESTYLE_EXPENSES_JSON = `/json/apps/lifestyle/expenses.json`;
 
   public static CP2020_CMBTTRCK_GEAR_JSON = `/json/apps/cbttrk/gearchart.json`;
   public static CP2020_CMBTTRCK_MODIFIERS_JSON = `/json/apps/cbttrk/modifiers.json`;
