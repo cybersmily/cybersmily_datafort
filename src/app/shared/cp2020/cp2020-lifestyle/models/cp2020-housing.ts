@@ -1,11 +1,11 @@
-import { Cp2020Utility } from "./cp2020-utility";
+import { Cp2020Services } from "./cp2020-services";
 
 export interface Cp2020Housing {
   name: string;
   quality: string;
   desc: string;
   contents: Array<string>;
-  utilities: Array<Cp2020Utility>;
+  utilities: Array<Cp2020Services>;
   location: string;
   qualityMod: number;
   rooms: number;

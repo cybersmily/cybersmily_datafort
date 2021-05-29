@@ -1,6 +1,6 @@
-import { Cp2020Utility, Cp2020Food, Cp2020Housing, Cp2020Lifestyle, Cp2020Identity, Cp2020Credchip, Cp2020Payment } from './../models';
+import { Cp2020Services, Cp2020Food, Cp2020Housing, Cp2020Lifestyle, Cp2020Identity, Cp2020Credchip, Cp2020Payment } from './../models';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { faPlus, faTrash, faPen, faRedo, faEuroSign, faList, faCalculator, faDollarSign } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faTrash, faPen, faRedo, faEuroSign, faList, faCalculator, faDollarSign, faQuestion, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 import { Component, Input, OnInit, Output, TemplateRef, EventEmitter } from '@angular/core';
 
 @Component({
@@ -17,6 +17,7 @@ export class Cp2020LifestyleComponent implements OnInit {
   faDollarSign = faDollarSign;
   faList = faList;
   faCalculator = faCalculator;
+  faQuestionCircle = faQuestionCircle;
 
   modalRef: BsModalRef;
   modalConfig = {
@@ -25,50 +26,27 @@ export class Cp2020LifestyleComponent implements OnInit {
   };
 
   @Input()
-  lifeStyle: Cp2020Lifestyle = {
-    credchips: new Array<Cp2020Credchip>(4).fill({
-       name: 'chip',
-      amount: 400,
-      writeable: false
-    }, 0, 4),
-    cash: 40000,
-    salary: 2000,
-    housing: new Array<Cp2020Housing>(2).fill({
-      name: 'test',
-      count: 1,
-      location: 'Heywood',
-      cost: 150,
-      quality: 'Moderate',
-      qualityMod: 2,
-      rooms: 2,
-      utilities: [
-        {name:'Utilities (Elect./Water)', cost:100, unit:'month', count: 0},
-        {name:'Landline', cost:30, unit:'month', count: 0},
-        {name:'Cable TV', cost:40, unit:'month', count: 0}
-      ],
-      desc: 'housing description...',
-      contents: [
-        'Washer',
-        'Bed',
-        'Chair'
-      ]
-    }, 0, 5),
-    food: new Array<Cp2020Food>(2).fill({name: 'Kibble', count: 1, unit: 'week', cost: 50, quality: 'Fair', qualityMod: 1}, 0, 2),
-    utilities: new Array<Cp2020Utility>(5).fill({name: 'test', count: 1, unit: 'month', cost: 100}, 0, 5),
-    identities: new Array<Cp2020Identity>(3).fill({name: 'test', sin: '', desc: ''}, 0, 3)
+  lifeStyle: Cp2020Lifestyle =  {
+    credchips: new Array<Cp2020Credchip>(),
+    cash: 0,
+    debt: 0,
+    salary: 0,
+    housing: new Array<Cp2020Housing>(),
+    food: new Array<Cp2020Food>(),
+    services: new Array<Cp2020Services>(),
+    identities: new Array<Cp2020Identity>()
   };
 
   currLifeStyle: Cp2020Lifestyle = {
     credchips: new Array<Cp2020Credchip>(),
     cash: 0,
+    debt: 0,
     salary: 0,
     housing: new Array<Cp2020Housing>(),
     food: new Array<Cp2020Food>(),
-    utilities: new Array<Cp2020Utility>(),
+    services: new Array<Cp2020Services>(),
     identities: new Array<Cp2020Identity>()
   };
-
-  amountDue: number = 0;
 
   @Output()
   updateLifeStyle: EventEmitter<Cp2020Lifestyle> = new EventEmitter<Cp2020Lifestyle>();
@@ -85,6 +63,7 @@ export class Cp2020LifestyleComponent implements OnInit {
 
   ngOnInit(): void {
     this.currLifeStyle = JSON.parse(JSON.stringify(this.lifeStyle));
+    this.createDummyData();
   }
 
   updateIdentities(identities: Array<Cp2020Identity>) {
@@ -97,8 +76,8 @@ export class Cp2020LifestyleComponent implements OnInit {
     this.update();
   }
 
-  updateUtilities(utilities: Array<Cp2020Utility>) {
-    this.currLifeStyle.utilities = utilities;
+  updateServices(services: Array<Cp2020Services>) {
+    this.currLifeStyle.services = services;
     this.update();
   }
 
@@ -124,7 +103,7 @@ export class Cp2020LifestyleComponent implements OnInit {
     this.modalRef.hide();
     this.currLifeStyle.cash = amounts.cash;
     this.currLifeStyle.credchips = amounts.credchips.slice(0);
-    this.amountDue = amounts.amountDue;
+    this.currLifeStyle.debt = amounts.amountDue;
     this.update();
   }
 
@@ -132,10 +111,54 @@ export class Cp2020LifestyleComponent implements OnInit {
     if (this.modalRef) {
       this.modalRef.hide();
     }
-    this.amountDue += amount;
+    this.currLifeStyle.debt += amount;
     this.showModal(template);
   }
 
+  createDummyData() {
+    this.currLifeStyle = {
+      credchips: new Array<Cp2020Credchip>(4).fill( { name:'', amount: 100, writeable: false }),
+      cash: 40000,
+      salary: 2000,
+      debt: 1200,
+      housing: new Array<Cp2020Housing>(2).fill({
+        name: 'test',
+        count: 1,
+        location: 'Heywood',
+        cost: 150,
+        quality: 'Moderate',
+        qualityMod: 2,
+        rooms: 2,
+        utilities: [
+          {name:'Utilities (Elect./Water)', cost:100, unit:'month', count: 0},
+          {name:'Landline', cost:30, unit:'month', count: 0},
+          {name:'Cable TV', cost:40, unit:'month', count: 0}
+        ],
+        desc: 'housing description...',
+        contents: [
+          'Washer',
+          'Bed',
+          'Chair'
+        ]
+      }, 0, 5),
+      food: new Array<Cp2020Food>(2).fill({name: 'Kibble', count: 1, unit: 'week', cost: 50, quality: 'Fair', qualityMod: 1}, 0, 2),
+      services: new Array<Cp2020Services>(),
+      identities: new Array<Cp2020Identity>(3).fill({name: 'John Smith', sin: '', desc: ''}, 0, 3)
+    };
+    this.currLifeStyle.credchips.forEach( (chip, i) => { this.currLifeStyle.credchips[i] =  { name:'chip ' + i, amount: 100 + ( i * 100), writeable: (i%2 === 0 ) }; });
+    this.currLifeStyle.services = [
+      {
+        name: 'Cell Phone',
+        cost: 100,
+        count: 1,
+        unit: 'month',
+        options:[
+          {name: "Voicemail", cost: 20, unit: "month", count: 0},
+          {name: "Conference call", cost: 5, unit: "month", count: 0}
+        ]
+      }
+    ]
+  }
 
 
   closeModal() {

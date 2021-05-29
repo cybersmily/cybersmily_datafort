@@ -1,6 +1,6 @@
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { Cp2020Utility } from './../models/cp2020-utility';
-import { faPlus, faTrash, faPen, faSave } from '@fortawesome/free-solid-svg-icons';
+import { Cp2020Services } from '../models/cp2020-services';
+import { faPlus, faTrash, faPen, faSave, faEuroSign } from '@fortawesome/free-solid-svg-icons';
 import { Component, Input, OnInit, Output, EventEmitter, TemplateRef } from '@angular/core';
 import { Cp2020Housing } from '../models';
 
@@ -14,6 +14,7 @@ export class Cp2020HousingListComponent implements OnInit {
   faTrash = faTrash;
   faPen = faPen;
   faSave = faSave;
+  faEuroSign = faEuroSign;
 
   modalRef: BsModalRef;
   modalConfig = {
@@ -33,7 +34,7 @@ export class Cp2020HousingListComponent implements OnInit {
   currHousing: Array<Cp2020Housing>  = new Array<Cp2020Housing>();
   modalTitle: string = 'Housing';
 
-  utilities: Array<Cp2020Utility> = [
+  utilities: Array<Cp2020Services> = [
     {name:'Utilities (Elect./Water)', cost:100, unit:'month', count: 0},
     {name:'Landline', cost:30, unit:'month', count: 0},
     {name:'Cable TV', cost:40, unit:'month', count: 0}

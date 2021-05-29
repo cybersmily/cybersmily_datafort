@@ -1,0 +1,17 @@
+[
+  {"name": "Cell Phone", "cost": 100, "unit": "month", "options":[
+    {"name": "Voicemail", "cost": 20, "unit": "month", "count": 0},
+    {"name": "Conference call", "cost": 5, "unit": "month", "count": 0}
+  ]},
+  {"name": "Credchip Account", "cost": 20, "unit": "month"},
+  {"name": "Health Plan", "cost": 1000, "unit": "month"},
+  {"name": "Trauma Team", "cost": 500, "unit": "month"},
+  {"name": "Cab Hailer", "cost": 10, "unit": "month"},
+  {"name": "Personal Body Alarm", "cost": 400, "unit": "month"},
+  {"name": "Party Time", "cost": 3000, "unit": "month"},
+  {"name": "Clean Sweep", "cost": 7000, "unit": "year"},
+  {"name": "All Food Membership", "cost": 25, "unit": "month"},
+  {"name": "International Companion Network", "cost": 10000, "unit": "month"},
+  {"name": "Child Care - Child Creche", "cost": 50, "unit": "day"},
+  {"name": "Child Care - Safe Child", "cost": 350, "unit": "day"}
+]

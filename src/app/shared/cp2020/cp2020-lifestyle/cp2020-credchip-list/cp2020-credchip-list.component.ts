@@ -26,7 +26,7 @@ export class Cp2020CredchipListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.currCredchips = this.credchips.slice(0);
+    this.currCredchips = this.credchips.slice();
   }
 
   update() {

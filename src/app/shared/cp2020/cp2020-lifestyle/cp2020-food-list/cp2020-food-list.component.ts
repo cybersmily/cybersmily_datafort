@@ -1,5 +1,5 @@
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faPlus, faEuroSign } from '@fortawesome/free-solid-svg-icons';
 import { Component, Input, OnInit, Output, EventEmitter, TemplateRef } from '@angular/core';
 import { Cp2020Food } from '../models';
 
@@ -11,6 +11,7 @@ import { Cp2020Food } from '../models';
 export class Cp2020FoodListComponent implements OnInit {
   faTrash = faTrash;
   faPlus = faPlus;
+  faEuroSign = faEuroSign;
 
   modalRef: BsModalRef;
   config = {
@@ -38,6 +39,9 @@ export class Cp2020FoodListComponent implements OnInit {
 
   @Output()
   updateFood: EventEmitter<Array<Cp2020Food>> = new EventEmitter<Array<Cp2020Food>>();
+
+  @Output()
+  pay: EventEmitter<number> = new EventEmitter<number>();
 
   currFoodList: Array<Cp2020Food> = new Array<Cp2020Food>();
 
@@ -86,6 +90,8 @@ export class Cp2020FoodListComponent implements OnInit {
       this.currFoodList.push(JSON.parse(JSON.stringify(this.selectedFood)));
     }
     this.updateFood.emit(this.currFoodList);
+    this.pay.emit(this.selectedFood.count * this.selectedFood.cost * this.selectedFood.qualityMod);
+    this.closeModal();
   }
 
   openNewModal(template: TemplateRef<any>) {
@@ -94,5 +100,6 @@ export class Cp2020FoodListComponent implements OnInit {
     this.selectedType = this.groceries[0];
     this.modalRef = this.modalService.show(template, this.config);
   }
+
 
 }

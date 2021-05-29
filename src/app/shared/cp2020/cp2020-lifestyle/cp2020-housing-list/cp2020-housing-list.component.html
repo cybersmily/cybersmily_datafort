@@ -33,7 +33,7 @@
       {{getCost(housing)  | number}}eb
     </div>
     <div class="col-1">
-      <button class="btn btn-dark btn-sm mb-1" (click)="pay(getCost(housing))">PAY</button>
+      <fa-icon [icon]="faEuroSign" class="csd-btn csd-icon-btn" title="Pay" (click)="pay(getCost(housing))"></fa-icon>
     </div>
   </div>
 </ng-template>

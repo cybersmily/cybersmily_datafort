@@ -62,6 +62,7 @@ export class JsonDataFiles {
   public static CP2020_LIFEPATH_JSON = `/json/apps/lifepath.json`;
 
   public static CP2020_LIFESTYLE_EXPENSES_JSON = `/json/apps/lifestyle/expenses.json`;
+  public static CP2020_LIFESTYLE_SERVICES_JSON = `/json/apps/lifestyle/services.json`;
 
   public static CP2020_CMBTTRCK_GEAR_JSON = `/json/apps/cbttrk/gearchart.json`;
   public static CP2020_CMBTTRCK_MODIFIERS_JSON = `/json/apps/cbttrk/modifiers.json`;
