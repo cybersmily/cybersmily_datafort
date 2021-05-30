@@ -4,7 +4,7 @@
     <input [(ngModel)]="stats.BasePoints" (change)="onStatChange()" type="number" min="0" max="90"
       class="chargen-input chargen-charpoint-input " />
     <span *ngIf="stats.CurrentPoints !== 0"
-      [ngClass]="{'chargen-stats-over':isOver, 'chargen-stats-current':true}">{{stats.CurrentPoints}}</span>
+      [ngClass]="{'chargen-stats-over':isOver, 'chargen-stats-current':true, 'ml-2': true}">{{stats.CurrentPoints}}</span>
     <span class="hidden-print">
       <fa-icon [icon]="faDice" class="chargen-point-dice" (click)="rollCharacterPoints()"
         title="Roll for character points. Rolls 9d10, rerolling 1s."></fa-icon>

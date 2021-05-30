@@ -10,6 +10,7 @@ import { Cp2020PlayerRole} from './../../models/cp2020character/cp2020-player-ro
 import { Cp2020PlayerCharacter } from '../../models/cp2020character';
 import { Injectable } from '@angular/core';
 import { Cp2020PlayerCyber, Cp2020PlayerCyberList } from '../../cp2020/cp2020-cyberware/models';
+import { Cp2020Lifestyle } from '../../cp2020/cp2020-lifestyle/models';
 
 @Injectable({
   providedIn: 'root',
@@ -54,6 +55,10 @@ export class Cp2020CharacterGeneratorService {
       value.weapons.items.forEach((w) => {
         this._currCharacter.weapons.items.push(new CpPlayerWeapon(w));
       });
+    }
+
+    if (value.lifeStyle) {
+      this._currCharacter.lifeStyle = JSON.parse(JSON.stringify(value.lifeStyle));
     }
 
     if (value.cyberware) {
@@ -153,6 +158,11 @@ export class Cp2020CharacterGeneratorService {
 
   changeLifepath(value: LifePathResults) {
     this._currCharacter.lifepath = value;
+    this.updateCharacter();
+  }
+
+  changeLifeStyle(value: Cp2020Lifestyle) {
+    this._currCharacter.lifeStyle = value;
     this.updateCharacter();
   }
 

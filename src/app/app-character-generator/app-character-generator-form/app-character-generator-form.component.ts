@@ -14,6 +14,7 @@ import { Component, OnInit, ViewChild, ElementRef, TemplateRef } from '@angular/
 import { Cp2020PlayerRole } from './../../shared/models/cp2020character/cp2020-player-role';
 import { Cp2020characterToPDF } from './../../shared/models/pdf/cp2020characterToPDF';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { Cp2020Lifestyle } from './../../shared/cp2020/cp2020-lifestyle/models';
 
 @Component({
   selector: 'cs-app-character-generator-form',
@@ -87,6 +88,10 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
 
   changeLifepath(value: LifePathResults) {
     this.characterService.changeLifepath(value);
+  }
+
+  changeLifestyle(value: Cp2020Lifestyle) {
+    this.characterService.changeLifeStyle(value);
   }
 
   changeSkills(value: Cp2020PlayerSkills) {

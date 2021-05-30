@@ -70,6 +70,7 @@
       </div>
       <div class="row print-fix">
         <div class="col">
+          <cs-cp2020-lifestyle [lifeStyle]="character.lifeStyle" (updateLifeStyle)="changeLifestyle($event)"></cs-cp2020-lifestyle>
         </div>
       </div>
       <div class="row print-fix csd-linebreak no-gutters">
@@ -80,7 +81,6 @@
       </div>
       <div class="chargen-label chargen-fill chargen-page-header csd-linebreak">NOTES</div>
       <textarea [(ngModel)]="character.notes" class="chargen-notes"></textarea>
-
     </div>
   </div>
 </div>
