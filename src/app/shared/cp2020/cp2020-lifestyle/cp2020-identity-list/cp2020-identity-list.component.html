@@ -7,11 +7,11 @@
     </div>
 
     <div class="row">
-      <div class="col">
+      <div class="col-12 col-lg-6">
         <ng-container *ngFor="let id of firstColumn; let i = index" [ngTemplateOutlet]="cpIdentities" [ngTemplateOutletContext]="{id:id, index: i, col: 1}">
         </ng-container>
       </div>
-      <div class="col">
+      <div class="col-12 col-lg-6">
         <ng-container *ngFor="let id of secondColumn; let i = index" [ngTemplateOutlet]="cpIdentities" [ngTemplateOutletContext]="{id:id, index: i, col: 2}">
         </ng-container>
       </div>
