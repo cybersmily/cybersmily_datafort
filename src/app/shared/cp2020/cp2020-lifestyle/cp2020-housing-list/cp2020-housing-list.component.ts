@@ -1,7 +1,7 @@
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Cp2020Services } from '../models/cp2020-services';
 import { faPlus, faTrash, faPen, faSave, faEuroSign } from '@fortawesome/free-solid-svg-icons';
-import { Component, Input, OnInit, Output, EventEmitter, TemplateRef } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, TemplateRef, OnChanges } from '@angular/core';
 import { Cp2020Housing } from '../models';
 
 @Component({
@@ -9,7 +9,7 @@ import { Cp2020Housing } from '../models';
   templateUrl: './cp2020-housing-list.component.html',
   styleUrls: ['./cp2020-housing-list.component.css']
 })
-export class Cp2020HousingListComponent implements OnInit {
+export class Cp2020HousingListComponent implements OnInit, OnChanges {
   faPlus = faPlus;
   faTrash = faTrash;
   faPen = faPen;
@@ -83,6 +83,10 @@ export class Cp2020HousingListComponent implements OnInit {
   constructor(private modalService: BsModalService) { }
 
   ngOnInit(): void {
+    this.currHousing = this.housingList.slice(0);
+  }
+
+  ngOnChanges(): void {
     this.currHousing = this.housingList.slice(0);
   }
 

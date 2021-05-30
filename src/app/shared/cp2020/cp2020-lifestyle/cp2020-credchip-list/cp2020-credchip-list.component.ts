@@ -1,5 +1,5 @@
 import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, OnChanges } from '@angular/core';
 import { Cp2020Credchip } from '../models';
 
 @Component({
@@ -7,7 +7,7 @@ import { Cp2020Credchip } from '../models';
   templateUrl: './cp2020-credchip-list.component.html',
   styleUrls: ['./cp2020-credchip-list.component.css']
 })
-export class Cp2020CredchipListComponent implements OnInit {
+export class Cp2020CredchipListComponent implements OnInit, OnChanges {
   faPlus = faPlus;
   faTrash = faTrash;
 
@@ -26,6 +26,10 @@ export class Cp2020CredchipListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.currCredchips = this.credchips.slice();
+  }
+
+  ngOnChanges(): void {
     this.currCredchips = this.credchips.slice();
   }
 

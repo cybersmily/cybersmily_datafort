@@ -2,7 +2,7 @@ import { LifePathGeneratorService } from './../../shared/services/lifepath/life-
 import { TitleValue } from './../../shared/models/title-value';
 import { SourcesDataService } from './../../shared/services/lifepath/sources-data.service';
 import { Sibling, LifePathResults, LifepathEvent } from './../../shared/models/lifepath';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { faMars, faVenus, faDice, faPlus, faGenderless, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -10,7 +10,7 @@ import { faMars, faVenus, faDice, faPlus, faGenderless, faTrash } from '@fortawe
   templateUrl: './app-character-lifepath.component.html',
   styleUrls: ['./app-character-lifepath.component.css']
 })
-export class AppCharacterLifepathComponent implements OnInit {
+export class AppCharacterLifepathComponent implements OnInit, OnChanges {
   faMars = faMars;
   faVenus = faVenus;
   faGenderless= faGenderless;
@@ -41,6 +41,10 @@ export class AppCharacterLifepathComponent implements OnInit {
     .subscribe( sources => {
       this.sources = sources;
     });
+  }
+
+  ngOnChanges() {
+    this.newLifPath = new LifePathResults(this.lifepath);
   }
 
   get siblings(): Array<Sibling> {

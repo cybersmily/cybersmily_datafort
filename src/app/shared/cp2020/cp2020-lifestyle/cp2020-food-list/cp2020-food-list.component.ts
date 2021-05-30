@@ -1,6 +1,6 @@
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { faTrash, faPlus, faEuroSign } from '@fortawesome/free-solid-svg-icons';
-import { Component, Input, OnInit, Output, EventEmitter, TemplateRef } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, TemplateRef, OnChanges } from '@angular/core';
 import { Cp2020Food } from '../models';
 
 @Component({
@@ -8,7 +8,7 @@ import { Cp2020Food } from '../models';
   templateUrl: './cp2020-food-list.component.html',
   styleUrls: ['./cp2020-food-list.component.css']
 })
-export class Cp2020FoodListComponent implements OnInit {
+export class Cp2020FoodListComponent implements OnInit, OnChanges {
   faTrash = faTrash;
   faPlus = faPlus;
   faEuroSign = faEuroSign;
@@ -56,6 +56,10 @@ export class Cp2020FoodListComponent implements OnInit {
   constructor(private modalService: BsModalService) { }
 
   ngOnInit(): void {
+    this.currFoodList = JSON.parse(JSON.stringify(this.foodList));
+  }
+
+  ngOnChanges(): void {
     this.currFoodList = JSON.parse(JSON.stringify(this.foodList));
   }
 

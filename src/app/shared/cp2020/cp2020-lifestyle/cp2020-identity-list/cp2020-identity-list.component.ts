@@ -1,5 +1,5 @@
 import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, OnChanges } from '@angular/core';
 import { Cp2020Identity } from '../models/cp2020-identity';
 
 @Component({
@@ -7,7 +7,7 @@ import { Cp2020Identity } from '../models/cp2020-identity';
   templateUrl: './cp2020-identity-list.component.html',
   styleUrls: ['./cp2020-identity-list.component.css']
 })
-export class Cp2020IdentityListComponent implements OnInit {
+export class Cp2020IdentityListComponent implements OnInit, OnChanges {
   faPlus = faPlus;
   faTrash = faTrash;
 
@@ -24,6 +24,10 @@ export class Cp2020IdentityListComponent implements OnInit {
   ngOnInit(): void {
     this.idList = JSON.parse(JSON.stringify(this.identityList));
   }
+  ngOnChanges(): void {
+    this.idList = JSON.parse(JSON.stringify(this.identityList));
+  }
+
 
   get firstColumn(): Array<Cp2020Identity> {
     const i = Math.ceil(this.idList.length/2);

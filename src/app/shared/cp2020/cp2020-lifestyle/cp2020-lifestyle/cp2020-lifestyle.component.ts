@@ -1,14 +1,14 @@
 import { Cp2020Services, Cp2020Food, Cp2020Housing, Cp2020Lifestyle, Cp2020Identity, Cp2020Credchip, Cp2020Payment } from './../models';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { faPlus, faTrash, faPen, faRedo, faEuroSign, faList, faCalculator, faDollarSign,  faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
-import { Component, Input, OnInit, Output, TemplateRef, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, TemplateRef, EventEmitter, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'cs-cp2020-lifestyle',
   templateUrl: './cp2020-lifestyle.component.html',
   styleUrls: ['./cp2020-lifestyle.component.css']
 })
-export class Cp2020LifestyleComponent implements OnInit {
+export class Cp2020LifestyleComponent implements OnInit, OnChanges {
   faPlus = faPlus;
   faTrash = faTrash;
   faPen = faPen;
@@ -62,6 +62,10 @@ export class Cp2020LifestyleComponent implements OnInit {
   constructor(private modalService: BsModalService) { }
 
   ngOnInit(): void {
+    this.currLifeStyle = JSON.parse(JSON.stringify(this.lifeStyle));
+  }
+
+  ngOnChanges(): void {
     this.currLifeStyle = JSON.parse(JSON.stringify(this.lifeStyle));
   }
 

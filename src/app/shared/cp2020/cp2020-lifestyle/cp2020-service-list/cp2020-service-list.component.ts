@@ -3,14 +3,14 @@ import { JsonDataFiles } from './../../../services/file-services/json-data-files
 import { DataService } from './../../../services/file-services/data.service';
 import { Cp2020Services } from '../models/cp2020-services';
 import { faTrash, faPlus, faList, faDollarSign, faEuroSign } from '@fortawesome/free-solid-svg-icons';
-import { Component, Input, OnInit, Output, EventEmitter, TemplateRef } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, TemplateRef, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'cs-cp2020-service-list',
   templateUrl: './cp2020-service-list.component.html',
   styleUrls: ['./cp2020-service-list.component.css']
 })
-export class Cp2020ServiceListComponent implements OnInit {
+export class Cp2020ServiceListComponent implements OnInit, OnChanges {
   faTrash = faTrash;
   faPlus = faPlus;
   faList = faList;
@@ -52,6 +52,10 @@ export class Cp2020ServiceListComponent implements OnInit {
     .subscribe( data => {
       this.servicesData = data;
     });
+  }
+
+  ngOnChanges(): void {
+    this.currServices = JSON.parse(JSON.stringify(this.servicesList));
   }
 
   calculateMonthlyCost(service: Cp2020Services): number {
