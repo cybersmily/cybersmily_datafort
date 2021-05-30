@@ -1,3 +1,4 @@
+import { Cp2020Identity } from './../../cp2020/cp2020-lifestyle/models/cp2020-identity';
 import { Cp2020Housing } from './../../cp2020/cp2020-lifestyle/models/cp2020-housing';
 import { Cp2020Lifestyle } from './../../cp2020/cp2020-lifestyle/models/cp2020-lifestyle';
 import { Cp2020PlayerCyber } from './../../cp2020/cp2020-cyberware/models/cp2020-player-cyber';
@@ -815,6 +816,9 @@ export class Cp2020characterToPDF {
     // Money
     line = this.addMoney(doc, lifestyle, left, line, ht, recth);
     line = this.addHousing(doc, lifestyle, left, line, ht, recth);
+    line = this.addServices(doc, lifestyle, left, line, ht, recth);
+    line = this.addGroceries(doc, lifestyle, left, line, ht, recth);
+    line = this.addIdenties(doc, lifestyle, left, line, ht, recth);
 
   }
 
@@ -854,11 +858,11 @@ export class Cp2020characterToPDF {
     // add each housing
     let housingRect = recth;
     lifestyle.housing.forEach( housing => {
-      const result = this.printHousing(doc, housing, left +3, line);
+      const result = this.printHousing(doc, housing, left + 2, line);
       line = result.line;
       housingRect += result.recth;
     });
-    doc.rect(left, startLine, 200, housingRect, 'S');
+    doc.rect(left, startLine, 200, housingRect - ht, 'S');
 
     return line;
   }
@@ -886,10 +890,10 @@ export class Cp2020characterToPDF {
     doc.text(`${housing.name} - ${housing.rooms} room ${type} in ${zone} Zone - ${cost}eb/month`, left, line);
     line += ht;
     recth += ht;
-    doc.text(`Loation: ${housing. location}`, left + 2, line);
+    doc.text(`Loation: ${housing. location}`, left + 3, line);
     line += ht;
     recth += ht;
-    doc.text(`Description: `, left + 2, line);
+    doc.text(`Description: `, left + 3, line);
     const desc: Array<string> = doc.splitTextToSize(housing.desc, 175);
     desc.forEach(d => {
       doc.text(d.trim(), left + 20, line);
@@ -900,11 +904,11 @@ export class Cp2020characterToPDF {
       line += ht;
       recth += ht;
     }
-    doc.text(`Utilities: ${housing.utilities.map( u => { if (u.count > 0) { return u.name}}).join(' ')}`, left + 2, line);
+    doc.text(`Utilities: ${housing.utilities.map( u => { if (u.count > 0) { return u.name}}).join(' ')}`, left + 3, line);
     line += ht;
     recth += ht;
 
-    doc.text(`Contents:`, left + 2, line);
+    doc.text(`Contents:`, left + 3, line);
     const contents = housing.contents.join(', ');
     const con: Array<string> = doc.splitTextToSize(contents, 175);
     con.forEach(d => {
@@ -917,5 +921,105 @@ export class Cp2020characterToPDF {
       recth += ht;
     }
     return {line: line, recth: recth};
+  }
+
+  private addServices(doc: jsPDF, lifestyle: Cp2020Lifestyle, left: number, line: number, ht: number, recth: number): number {
+    const startLine = line;
+    doc.rect(left, line, 20, recth, 'FD');
+    doc.setTextColor('white');
+    doc.text('Services', left + 2, line + 4);
+    doc.setTextColor('black');
+    let totalMonthlyCost = lifestyle.services.reduce((a, b) => a + b.cost, 0);
+    lifestyle.services.forEach(srv => {
+      if(srv.options) {
+        totalMonthlyCost += srv.options.reduce((a, b) => a + (b.cost * b.count), 0);
+      }
+    });
+    doc.text(`Monthly Cost: ${totalMonthlyCost}eb`, this._midPage + 65, line + 4);
+    line += ht * 2;
+    const services = lifestyle.services.map( s => {
+      let txt = s.name;
+      let cost = s.cost;
+      if(s.options){
+        let opt  = '';
+        opt + s.options.map(o => (o.count > 0) ? o.name : undefined).join(', ');
+        if (opt !== '') {
+          txt += ` [${opt}]`;
+        }
+        cost += s.options.reduce((a, b) => a + (b.cost * b.count), 0);
+      }
+      txt += ` (${cost}eb)`;
+      return txt;
+    });
+    const srv: Array<string> = doc.splitTextToSize(services.join(', '), 175);
+    srv.forEach(d => {
+      doc.text(d.trim(), left + 3, line);
+      line += ht;
+      recth += ht;
+    });
+    if(srv.length < 0) {
+      line += ht;
+      recth += ht;
+    }
+    doc.rect(left, startLine, 200, recth + ht, 'S');
+    return line;
+  }
+
+  private addGroceries(doc: jsPDF, lifestyle: Cp2020Lifestyle, left: number, line: number, ht: number, recth: number): number {
+    const startLine = line;
+    doc.rect(left, line, 20, recth, 'FD');
+    doc.setTextColor('white');
+    doc.text('Groceries', left + 2, line + 4);
+    doc.setTextColor('black');
+    line += ht * 2;
+    const groceries = lifestyle.food.map( food => `${food.count} ${food.unit}${food.count > 1 ? 's':''} of ${food.quality} ${food.name}`);
+    const food: Array<string> = doc.splitTextToSize(groceries.join(', '), 175);
+    food.forEach(d => {
+      doc.text(d.trim(), left + 3, line);
+      line += ht;
+      recth += ht;
+    });
+    if(food.length < 0) {
+      line += ht;
+      recth += ht;
+    }
+    doc.rect(left, startLine, 200, recth + ht, 'S');
+    return line;
+  }
+
+  private addIdenties(doc: jsPDF, lifestyle: Cp2020Lifestyle, left: number, line: number, ht: number, recth: number): number {
+    const startLine = line;
+    doc.rect(left, line, 20, recth, 'FD');
+    doc.setTextColor('white');
+    doc.text('Identities', left + 2, line + 4);
+    doc.setTextColor('black');
+    line += ht;
+
+    const index = Math.ceil(lifestyle.identities.length/2);
+    const colOne = lifestyle.identities.slice(0,index);
+    const colTwo = lifestyle.identities.slice(index);
+    this.printIdentities(doc, colTwo, this._midPage, line, ht);
+    line = this.printIdentities(doc, colOne, left, line, ht);
+
+    doc.rect(left, startLine, 200, (line - startLine) + ht, 'S');
+
+    return line;
+  }
+
+  private printIdentities(doc: jsPDF, identities: Array<Cp2020Identity>, left: number, line: number, ht: number): number {
+    identities.forEach( id => {
+      doc.text(`${id.name} ${id.sin !== ''? 'S.I.N.: ' + id.sin:''}`, left + 2, line + 4);
+      line += ht;
+      const desc: Array<string> = doc.splitTextToSize(`Description: ${id.desc}`, 95);
+      desc.forEach(d => {
+        doc.text(d.trim(), left + 2, line);
+        line += ht;
+      });
+      if(desc.length < 0) {
+        line += ht;
+      }
+
+    });
+    return line;
   }
 }
