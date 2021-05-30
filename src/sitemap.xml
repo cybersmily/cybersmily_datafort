@@ -2,15 +2,15 @@
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9" >
 	<url>
 		<loc>https://cybersmily.net/index.html</loc>
-		<lastmod>2021-05-09</lastmod>
+		<lastmod>2021-05-30</lastmod>
 	</url>
 	<url>
 		<loc>https://cybersmily.net/apps/chargen</loc>
-		<lastmod>2021-05-09</lastmod>
+		<lastmod>2021-05-30</lastmod>
 	</url>
 	<url>
 		<loc>https://cybersmily.net/apps/cmbttrk</loc>
-		<lastmod>2021-05-09</lastmod>
+		<lastmod>2021-05-30</lastmod>
 	</url>
 	<url>
 		<loc>https://cybersmily.net/apps/rednet</loc>
@@ -202,6 +202,6 @@
 	</url>
 	<url>
 		<loc>https://cybersmily.net/gigs/wns7</loc>
-		<lastmod>2021-04-17</lastmod>
+		<lastmod>2021-05-30</lastmod>
 	</url>
 </urlset>

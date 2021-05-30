@@ -4,6 +4,11 @@
     {
       "date": "2021-05",
       "entries": [
+        "<strong>05-30</strong> - Major update to the Character Generator for CyberPunk 2020, LifeStyle sectoin. This section will allow you to track the character's money, expenses, and identities. This also has a calculator for spending on entertainment and one off services. I want to thank all of the people over on the Datafortress 2020 Facebook group for voting on it and thanks to Wisdom 000 for hosting the poll. That poll I did also gave me clarity on some other new apps/features to add to the site. I will be doing other polls in the coming months as well. My next app to tackle will be a Night Market generator, which was in second place.",
+        "Also this release I fixed some bugs in a few areas of the site. One major area was the pdf generation of Character Generator for Cyberpunk 2020. That had a few issues and I cleared up most of them. If you see any bugs, please let me know by clicking on the email icon in the upper right corner.",
+        "Lastly, thank you everyone who continues to use this site. I have seen may comments in various social outlets letting me know that my work is appreciated. This site is a work of passion for me and glad to know that others enjoy it. Thank you.",
+        "Till next time.",
+        "CYBER :D",
         "<strong>05-09</strong> - Fix some major bugs this week with the Red Net Arch generator and the CP2020 character generator.",
               "Speaking of Characer Generator for Cyberpunk 2020, I am/will be doing a major overhaul of it. Posted a poll to hear what people would like to see next on the site. I have prioritize what features and apps will be happeing to the site in the coming months. One at the top of the list is to add some new sections into the CP2020 Character Generator. Fo that I needed to do a pit of redesign. Here's what was done so far:",
               "&nbsp;* Remove the area where an image would be place. Reason I never implemented was I didn't have a place to store images for you and I won't allow an external link onto the site (for reasons).",
