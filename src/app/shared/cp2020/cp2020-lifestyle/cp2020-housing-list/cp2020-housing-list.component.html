@@ -8,8 +8,8 @@
       <div class="col-1"></div>
     </div>
     <ng-container *ngFor="let housing of currHousing; let i = index" [ngTemplateOutlet]="cpHousing"
-    [ngTemplateOutletContext]="{housing:housing, index: i}">
-  </ng-container>
+      [ngTemplateOutletContext]="{housing:housing, index: i}">
+    </ng-container>
     <div class="row">
       <div class="col text-center">
         <fa-icon [icon]="faPlus" class="csd-icon-btn csd-btn" title="Add a housing" (click)="add(newHousing)"></fa-icon>
@@ -24,13 +24,14 @@
     <div class="col">
       {{housing.name}}
       <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn ml-1" (click)="edit(index, newHousing)"></fa-icon>
-      <fa-icon [icon]="faTrash" class="csd-icon-btn csd-btn ml-2" title="Delete housing" (click)="delete(index)"></fa-icon>
+      <fa-icon [icon]="faTrash" class="csd-icon-btn csd-btn ml-2" title="Delete housing" (click)="delete(index)">
+      </fa-icon>
     </div>
     <div class="col">
       {{housing.location}}
     </div>
     <div class="col text-right">
-      {{getCost(housing)  | number}}eb
+      {{getCost(housing) | number}}eb
     </div>
     <div class="col-1">
       <fa-icon [icon]="faEuroSign" class="csd-btn csd-icon-btn" title="Pay" (click)="pay(getCost(housing))"></fa-icon>
@@ -50,7 +51,8 @@
       <div class="col-2">Name:</div>
       <div class="col">
         <input type="text" placeholder="Enter a name..." [(ngModel)]="selectedHousing.name">
-        <fa-icon [icon]="faSave" class="csd-btn csd-icon-btn csd-icon-xl float-right" title="Save housing changes" (click)="saveHousing()"></fa-icon>
+        <fa-icon [icon]="faSave" class="csd-btn csd-icon-btn csd-icon-xl float-right" title="Save housing changes"
+          (click)="saveHousing()"></fa-icon>
       </div>
     </div>
     <div class="row">
@@ -90,14 +92,15 @@
     <div class="row">
       <div class="col-2">Description:</div>
       <div class="col">
-        <textarea [(ngModel)]="selectedHousing.desc" placeholder="Enter a description..."></textarea>
+        <textarea [(ngModel)]="selectedHousing.desc" placeholder="Enter a description..." class="w-100"></textarea>
       </div>
     </div>
     <div class="row">
       <div class="col-2">Utitlies:</div>
       <div class="col">
         <div class="row" *ngFor="let u of selectedHousing.utilities; let i = index">
-          <div class="col-1"><input type="checkbox" [checked]="getUtilitySelected(i)" (change)="toogleUtility($event, i)" ></div>
+          <div class="col-1"><input type="checkbox" [checked]="getUtilitySelected(i)"
+              (change)="toogleUtility($event, i)"></div>
           <div class="col">{{u.name}}:</div>
           <div class="col">{{u.cost}}eb</div>
         </div>
@@ -106,19 +109,33 @@
     <div class="row">
       <div class="col-2">Contents:</div>
       <div class="col">
-        <div class="row" *ngFor="let item of selectedHousing.contents; let i = index">
-          <div class="col">
-            <input type="text" [(ngModel)]="selectedHousing.contents[i]" >
-            <fa-icon [icon]="faTrash" class="ml-2 csd-btn csd-icon-btn" title="Add content"></fa-icon>
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <div class="row" *ngFor="let item of contentColOne; let i = index">
+              <div class="col-12 col-">
+                {{item}}
+                <fa-icon [icon]="faTrash" class="ml-2 csd-btn csd-icon-btn" title="Add content"(click)="deleteContent(i)"></fa-icon>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="row" *ngFor="let item of contentColTwo; let i = index">
+              <div class="col-12 col-">
+                {{item}}
+                <fa-icon [icon]="faTrash" class="ml-2 csd-btn csd-icon-btn" title="Add content" (click)="deleteContent(i + contentColTwoIndex)"></fa-icon>
+              </div>
+            </div>
           </div>
         </div>
         <div class="row">
-          <div class="col">
-            <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn" title="Add content"></fa-icon>
-            <input type="text">
+          <div class="col col-md-6 text-center">
+            <input type="text" [(ngModel)]="newContent" placeholder="Enter item name..." style="width: 85%;">
+            <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn ml-2" title="Add content" (click)="addContent()"></fa-icon>
           </div>
         </div>
       </div>
     </div>
   </div>
 </ng-template>
+
+

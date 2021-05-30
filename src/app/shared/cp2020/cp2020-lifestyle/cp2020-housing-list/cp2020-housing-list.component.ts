@@ -57,6 +57,7 @@ export class Cp2020HousingListComponent implements OnInit {
     contents: new Array<string>()
   };
   selectedIndex: number = -1;
+  newContent: string = '';
 
   get totalCost(): number {
     let cost = 0;
@@ -65,6 +66,18 @@ export class Cp2020HousingListComponent implements OnInit {
       cost += h.utilities.reduce((a, b) => a +  (b.cost * b.count), 0);
     });
     return cost;
+  }
+
+  get contentColOne(): Array<string> {
+    return this.selectedHousing.contents.slice(0, this.contentColTwoIndex);
+  }
+
+  get contentColTwo(): Array<string> {
+    return this.selectedHousing.contents.slice(this.contentColTwoIndex);
+  }
+
+  get contentColTwoIndex(): number {
+    return Math.ceil(this.selectedHousing.contents.length/2);
   }
 
   constructor(private modalService: BsModalService) { }
@@ -103,6 +116,14 @@ export class Cp2020HousingListComponent implements OnInit {
     this.showModal(template);
   }
 
+  addContent() {
+    if (this.newContent !== '') {
+      this.selectedHousing.contents.push(this.newContent);
+      this.newContent = '';
+      this.update();
+    }
+  }
+
   edit(index: number,template: TemplateRef<any>) {
     this.modalTitle = 'Edit Housing';
     this.selectedHousing = JSON.parse(JSON.stringify( this.currHousing[index]));
@@ -112,6 +133,11 @@ export class Cp2020HousingListComponent implements OnInit {
 
   delete(index: number) {
     this.currHousing.splice(index, 1);
+    this.update();
+  }
+
+  deleteContent(index: number) {
+    this.selectedHousing.contents.splice(index, 1);
     this.update();
   }
 
