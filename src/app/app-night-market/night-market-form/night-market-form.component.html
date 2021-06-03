@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2>Night Market Generator for Cyberpunk Red</h2>
+      <div>This unofficial utility is for generating a list of items that would be available in a Night Market. For full details please reference p338 of <a href="https://talsorianstore.com/collections/cyberpunk/products/cyberpunk-red">Cyberpunk Red Core boook</a></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <fa-icon [icon]="faDice" class="csd-btn csd-icon-btn csd-icon-xl" title="Roll for market" (click)="generate()"></fa-icon>
+      - Roll for items
+    </div>
+    <div class="col-12 col-md-6">
+      <input type="checkbox" [(ngModel)]="randomRollNoItems"> - Randomly roll number of items
+    </div>
+  </div>
+  <div class="row" *ngIf="!randomRollNoItems">
+    <div class="col-6 d-none d-md-block">
+    </div>
+    <div class="col-12 col-md-6">
+      <input type="number" min="1" max="10" title="Number of items to generate for each category" [(ngModel)]="numberOfItems"
+      style="width:60px" class="text-right ml-2" > number of items to generate
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6" *ngFor="let cat of itemList">
+      <h4>{{cat.category}} ({{cat.items.length}})</h4>
+      <div *ngFor="let item of cat.items" class="row">
+        <div class="col" >
+          {{item}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+</div>

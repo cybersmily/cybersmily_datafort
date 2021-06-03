@@ -78,4 +78,6 @@ export class JsonDataFiles {
   public static CPRED_NET_ARCH_CHARTS_JSON = `/json/apps/rednet/archcharts.json`;
   public static CPRED_NET_ARCH_PROGRAMS_JSON = `/json/apps/rednet/programs.json`;
 
+  public static CPRED_NIGHTMARKET_CHART_JSON =`/json/apps/nightmarketchart.json`;
+
 }

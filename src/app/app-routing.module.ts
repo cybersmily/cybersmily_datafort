@@ -45,7 +45,9 @@ export const mainRoutes: Routes = [
   { path: 'apps/headlines',
     loadChildren: () => import('./app-news-headlines/app-news-headlines.module')
     .then(m => m.AppNewsHeadlinesModule) },
-
+  { path: 'apps/nightmarket',
+      loadChildren: () => import('./app-night-market/app-night-market.module')
+      .then(m => m.AppNightMarketModule) },
   { path: 'dlow', loadChildren: () => import('./appdlow/dlowsection.module').then(m => m.DlowSectionModule) },
   { path: 'beta', loadChildren: () => import('./app-beta-view/app-beta-view.module').then(m => m.AppBetaViewModule) },
   { path: '**', redirectTo: '/', pathMatch: 'full'}

@@ -1,6 +1,12 @@
 ﻿{
   "news": [
-
+    { "date":"2021-06",
+      "entries":[
+              "<strong>06-05</strong> - Another release. I know... so soon. This wasn't too much of a biggie. It's a Night Market generator for Cyberpunk Red. Nothing too complex but something I know people are looking for. This was the second item in that Poll I did.",
+              "In other news me and Wisdom 000 from <a href='https://datafortress2020.com'>Datafortress 2020</a> are continuing our broadcast over on <a href='https://www.twitch.tv/cyberpunkuncensored'>Cyberpunk Uncensored Twitch</a> channel every other Tuesday. We've complete our assessment of Cyberpunk 2077 and a 2 part review of Cyberpunk Red. Come check us out we air 7PM EDT/6PM CDT/4PM PDT. Also I'm in a game with Reservoir Panda again being hosted on CP Uncensored Twitch Sundays. Though Technical issues have been causing a slow start to that campaign.",
+              "Till next time.",
+              "CYBER :D"
+    ]},
     {
       "date": "2021-05",
       "entries": [
