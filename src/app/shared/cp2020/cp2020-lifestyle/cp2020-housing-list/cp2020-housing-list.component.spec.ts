@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Cp2020HousingListComponent } from './cp2020-housing-list.component';
@@ -8,7 +9,8 @@ describe('Cp2020HousingListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Cp2020HousingListComponent ]
+      declarations: [ Cp2020HousingListComponent ],
+      imports: [CommonUiModule]
     })
     .compileComponents();
   });

@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Cp2020IdentityListComponent } from './cp2020-identity-list.component';
@@ -8,7 +9,8 @@ describe('Cp2020IdentityListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Cp2020IdentityListComponent ]
+      declarations: [ Cp2020IdentityListComponent ],
+      imports: [CommonUiModule]
     })
     .compileComponents();
   });

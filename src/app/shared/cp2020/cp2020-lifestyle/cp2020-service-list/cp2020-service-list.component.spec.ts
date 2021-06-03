@@ -1,3 +1,6 @@
+import { DataService } from './../../../services/file-services/data.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Cp2020ServiceListComponent } from './cp2020-service-list.component';
@@ -8,7 +11,14 @@ describe('Cp2020ServiceListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Cp2020ServiceListComponent ]
+      declarations: [ Cp2020ServiceListComponent ],
+      imports: [
+        HttpClientTestingModule,
+        CommonUiModule
+      ],
+      providers: [
+        DataService
+      ]
     })
     .compileComponents();
   });

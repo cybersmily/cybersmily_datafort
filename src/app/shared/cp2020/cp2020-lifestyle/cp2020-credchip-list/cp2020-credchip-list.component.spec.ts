@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Cp2020CredchipListComponent } from './cp2020-credchip-list.component';
@@ -8,7 +9,8 @@ describe('Cp2020CredchipListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Cp2020CredchipListComponent ]
+      declarations: [ Cp2020CredchipListComponent ],
+      imports: [CommonUiModule]
     })
     .compileComponents();
   });
