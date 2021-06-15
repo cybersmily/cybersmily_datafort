@@ -10,13 +10,16 @@
         <h3 style="display:inline-block">{{report.title}}</h3>
         <fa-icon [icon]="accordion.groups[i].isOpen?faAngleDoubleDown:faAngleDoubleRight" size="2x"></fa-icon>
       </div>
-      <div class="csd-box csd-rounded row" *ngFor="let comment of report.reports; let ri = index" style="position:relative">
+      <div class="csd-box csd-rounded row" *ngFor="let comment of report.reports; let ri = index"
+        style="position:relative">
         <div class="col-2">
           <div class="float-left">
             <img src="/img/peeps/th/th_{{comment.img}}.png" alt="{{comment.reporter}}" />
             <br>
-            <input type="text" [(ngModel)]="comment.img" [typeahead]="images" style="width: 100%;">
-            <input type="text" [(ngModel)]="comment.reporter" [typeahead]="reporters" style="width: 100%;">
+            image: {{comment.img}}
+            <br>
+            <input type="text" [(ngModel)]="comment.reporter" [typeahead]="rprtrs" typeaheadOptionField="reporter"
+              style="width: 100%;" (change)="changeReporter($event, i, ri)">
           </div>
         </div>
         <div class="col">
@@ -29,14 +32,19 @@
       </div>
       <br>
       <div class="row">
-        <div class="col">
+        <div class="col-1">
           <fa-icon [icon]="faPlus" class="csd-btn" (click)="addReport(i)"></fa-icon>
-          Image: <input type="text" [(ngModel)]="newNewsReport.img" [typeahead]="images">
         </div>
-        <div class="col">Reporter: <input type="text" [(ngModel)]="newNewsReport.reporter" [typeahead]="reporters"> </div>
-      </div>
-      <div class="row">
-        <div class="col">Commentary:<br>
+        <div class="col-2">
+          <img src="/img/peeps/th/th_{{newNewsReport.img}}.png" alt="{{newNewsReport.reporter}}" />
+          <br>
+          image: {{newNewsReport.img}}
+        </div>
+        <div class="col">
+          Reporter: <input type="text" [(ngModel)]="newNewsReport.reporter" [typeahead]="rprtrs"
+            typeaheadOptionField="reporter" (change)="changeNewReport(event)">
+          <br>
+          Commentary:<br>
           <textarea type="text" [(ngModel)]="newNewsReport.commentary" style="width: 100%"></textarea>
         </div>
       </div>
@@ -50,7 +58,7 @@
     </div>
   </div>
   <div class="row csd-box csd-rounded" *ngFor="let report of newNewsItem.reports; let i = index">
-    <div class="col">
+    <div>
       Image: <input type="text" [(ngModel)]="report.img" [typeahead]="images"> &nbsp;&nbsp;&nbsp;
       Reporter: <input type="text" [(ngModel)]="report.reporter" [typeahead]="reporters">
       <fa-icon [icon]="faTrash" class="csd-btn float-right" (click)="deleteNewNewsReport(i)"></fa-icon>
@@ -60,18 +68,21 @@
       <textarea type="text" [(ngModel)]="report.commentary" style="width:100%"></textarea>
     </div>
   </div>
-
   <br>
   <br>
   <div class="row">
-    <div class="col">
+    <div class="col-1">
       <fa-icon [icon]="faPlus" class="csd-btn" (click)="addNewReport()"></fa-icon>
-      Image: <input type="text" [(ngModel)]="newNewsReport.img" [typeahead]="images">
     </div>
-    <div class="col">Reporter: <input type="text" [(ngModel)]="newNewsReport.reporter" [typeahead]="reporters"> </div>
-  </div>
-  <div class="row">
-    <div class="col">Commentary:<br>
+    <div>
+      <img src="/img/peeps/th/th_{{newNewsReport.img}}.png" alt="{{newNewsReport.reporter}}" />
+      <br>
+      Image: {{newNewsReport.img}}
+    </div>
+    <div class="col">
+      Reporter: <input type="text" [(ngModel)]="newNewsReport.reporter" [typeahead]="rprtrs"
+        typeaheadOptionField="reporter" (change)="changeNewReport($event)">
+      <br>Commentary:<br>
       <textarea type="text" [(ngModel)]="newNewsReport.commentary" style="width: 100%"></textarea>
     </div>
   </div>

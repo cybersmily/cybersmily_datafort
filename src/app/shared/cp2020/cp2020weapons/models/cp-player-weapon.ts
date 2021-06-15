@@ -21,6 +21,7 @@ export class CpPlayerWeapon implements CpWeapon {
   avail: string;
   damage: string;
   ammo: string;
+  ammoType?: string;
   shots: number;
   rof: number;
   rel: string;
@@ -31,6 +32,7 @@ export class CpPlayerWeapon implements CpWeapon {
   source?: SourceBook;
   count?: number;
   thrown?: boolean;
+  options?: Array<any>;
   _currentShots: Array<boolean>;
 
   private selectShot = -1;

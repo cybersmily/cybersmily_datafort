@@ -30,18 +30,15 @@ export const mainRoutes: Routes = [
   { path: 'apps/fixcalc',
     loadChildren: () => import('./app-fixer-calc/app-fixer-calc.module')
     .then(m => m.AppFixerCalcModule) },
-  { path: 'apps/wpncust',
-    loadChildren: () => import('./app-wpn-customizer/app-wpn-customizer.module')
-    .then(m => m.AppWpnCustomizerModule) },
   { path: 'apps/druglab',
       loadChildren: () => import('./app-drug-lab/app-drug-lab.module')
       .then(m => m.AppDrugLabModule) },
   { path: 'apps/deckmgr',
       loadChildren: () => import('./app-deck-manager/app-deck-manager.module')
       .then(m => m.AppDeckManagerModule) },
-      { path: 'apps/rednet',
-          loadChildren: () => import('./app-cp-red-net-arch/app-cp-red-net-arch.module')
-          .then(m => m.AppCpRedNetArchModule) },
+  { path: 'apps/rednet',
+      loadChildren: () => import('./app-cp-red-net-arch/app-cp-red-net-arch.module')
+      .then(m => m.AppCpRedNetArchModule) },
   { path: 'apps/headlines',
     loadChildren: () => import('./app-news-headlines/app-news-headlines.module')
     .then(m => m.AppNewsHeadlinesModule) },

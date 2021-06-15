@@ -22,8 +22,19 @@ export class NewsadminComponent implements OnInit {
 
   newsItems: GigNewsItem = new GigNewsItem();
 
-  newNewsItem: NewsItem = { title: '', reports: new Array<NewsReport>()};
+  newNewsItem: NewsItem = { title: 'Nightly Report 2022-00-00', reports: new Array<NewsReport>()};
   newNewsReport: NewsReport = {img: 'tphillips', reporter: 'Tom Phillps', commentary: ''};
+
+  rprtrs: Array<{img: string, reporter: string}> = [
+    { img: 'tphillips',  reporter: 'Tom Phillips'},
+    { img: 'itomoda',  reporter: 'Isha Tomoda'},
+    { img: 'phendricks',  reporter: 'Porche Hendricks'},
+    { img: 'htorres',  reporter: 'Harden Torres'},
+    { img: 'glitg',  reporter: 'Glit G'},
+    { img: 'mayor',  reporter: 'Mayor Ebunike'},
+    { img: 'asstmayor' ,  reporter: 'Assistant Mayor Haakenson'},
+    { img: 'macv',  reporter:  'Mac V'}
+  ];
 
   images: Array<string> = [
     'tphillips',
@@ -76,7 +87,7 @@ export class NewsadminComponent implements OnInit {
 
   addNewReport() {
     this.newNewsItem.reports.push({
-      img: this.newNewsReport.img,
+      img: this.rprtrs.find( r => r.reporter === this.newNewsReport.reporter).img,
       reporter: this.newNewsReport.reporter,
       commentary: this.newNewsReport.commentary
     });
@@ -92,10 +103,22 @@ export class NewsadminComponent implements OnInit {
 
   addReport(i) {
     this.newsItems.news[i].reports.push({
-      img: this.newNewsReport.img,
+      img: this.rprtrs.find( r => r.reporter === this.newNewsReport.reporter).img,
       reporter: this.newNewsReport.reporter,
       commentary: this.newNewsReport.commentary
     });
+  }
+
+  changeReporter(event, newsIndex: number, reportIndex: number) {
+    const reporter = this.newsItems.news[newsIndex].reports[reportIndex].reporter;
+    const img = this.rprtrs.find( r => r.reporter === reporter).img;
+    this.newsItems.news[newsIndex].reports[reportIndex].img = img;
+  }
+
+  changeNewReport(event) {
+    const reporter = this.newNewsReport.reporter;
+    const img = this.rprtrs.find( r => r.reporter === reporter).img;
+    this.newNewsReport.img = img;
   }
 
 }
