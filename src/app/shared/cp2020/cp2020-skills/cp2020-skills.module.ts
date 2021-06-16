@@ -14,6 +14,11 @@ import { Cp2020SkillListShortComponent } from './cp2020-skill-list-short/cp2020-
     Cp2020SkillComponent,
     Cp2020SkillListFullComponent,
     Cp2020SkillListShortComponent],
+  exports: [
+    Cp2020SkillComponent,
+    Cp2020SkillListFullComponent,
+    Cp2020SkillListShortComponent
+  ],
   imports: [
     CommonModule,
     CommonUiModule,

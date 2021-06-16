@@ -44,9 +44,9 @@
       </div>
       <div class="row print-fix">
         <div class="col-12">
-          <cs-app-character-skills [stats]="character.stats" [role]="character.role"
+          <cs-cp2020-skill-list-full [stats]="character.stats" [role]="character.role"
             (changeSpecialAblity)="changeRole($event)" [skills]="character.skills"
-            (changeSKills)="changeSkills($event)"></cs-app-character-skills>
+            (changeSKills)="changeSkills($event)"></cs-cp2020-skill-list-full>
         </div>
       </div>
       <div class="row print-fix csd-linebreak no-gutters">

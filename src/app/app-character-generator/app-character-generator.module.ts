@@ -1,3 +1,4 @@
+import { Cp2020SkillsModule } from './../shared/cp2020/cp2020-skills/cp2020-skills.module';
 import { Cp2020LifestyleModule } from './../shared/cp2020/cp2020-lifestyle/cp2020-lifestyle.module';
 import { Cp2020ArmorModule } from './../shared/cp2020/cp2020-armor/cp2020-armor.module';
 import { Cp2020WoundsModule } from './../shared/cp2020/cp2020wounds/cp2020wounds.module';
@@ -25,8 +26,6 @@ import { AppCharacterRoleComponent } from './app-character-role/app-character-ro
 import { AppCharacterImageComponent } from './app-character-image/app-character-image.component';
 import { AppCharacterLifepathComponent } from './app-character-lifepath/app-character-lifepath.component';
 import { AppCharacterGearComponent } from './app-character-gear/app-character-gear.component';
-import { AppCharacterSkillsComponent } from './app-character-skills/app-character-skills.component';
-import { AppCharacterSkillComponent } from './app-character-skill/app-character-skill.component';
 import { AppCharacterInstructionComponent } from './app-character-instruction/app-character-instruction.component';
 
 @NgModule({
@@ -37,8 +36,6 @@ import { AppCharacterInstructionComponent } from './app-character-instruction/ap
     AppCharacterImageComponent,
     AppCharacterLifepathComponent,
     AppCharacterGearComponent,
-    AppCharacterSkillsComponent,
-    AppCharacterSkillComponent,
     AppCharacterInstructionComponent
   ],
   imports: [
@@ -51,6 +48,7 @@ import { AppCharacterInstructionComponent } from './app-character-instruction/ap
     Cp2020WoundsModule,
     Cp2020ArmorModule,
     Cp2020LifestyleModule,
+    Cp2020SkillsModule,
     ModalModule.forRoot()
   ],
   providers: [
