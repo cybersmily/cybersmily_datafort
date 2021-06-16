@@ -73,7 +73,7 @@
 </div>
 <div class="row">
   <div class="col">
-    <span *ngIf="isStunned" class="chargen-damaged"><input type="checkbox" [(ngModel)]="isStunned">*STUNNED*&nbsp;&nbsp;</span>
+    <span class="chargen-damaged mr-3">Is Stunned: <input type="checkbox" [(ngModel)]="isStunned"></span>
     <span *ngIf="isDying" class="small chargen-damaged">DEATH STATE: <input type="number" [(ngModel)]="deathState"
         min="0" max="10" class="chargen-death-state"></span>
   </div>
