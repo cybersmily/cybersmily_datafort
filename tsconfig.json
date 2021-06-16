@@ -18,5 +18,9 @@
     ],
     "module": "es2020",
     "baseUrl": "./"
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "preserveWhitespaces": true
   }
 }
