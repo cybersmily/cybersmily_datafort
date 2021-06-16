@@ -1,6 +1,7 @@
-import { SourceBook } from './../sourcebook';
-import { DataSkill } from './../data/data-skill';
-import { Skill } from '../character/skill';
+import { SourceBook } from '../../../models/sourcebook';
+import { DataSkill } from '../../../models/data/data-skill';
+import { Skill } from '../../../models/character/skill';
+import { StatModifier } from '../../cp2020-stats/models';
 
 export class Cp2020PlayerSkill implements Skill {
   name: string;
@@ -16,6 +17,7 @@ export class Cp2020PlayerSkill implements Skill {
   isSecondarySkill?: boolean;
   chipped?: boolean;
   maBonuses?: MartialBonuses;
+  modifiers?: Array<StatModifier>;
 
   constructor(param?: SkillParameters) {
     if (param) {
@@ -41,6 +43,7 @@ export class Cp2020PlayerSkill implements Skill {
       this.roleChoice = (param.ischoice !== undefined && param.ischoice !== null) ? param.ischoice : false;
       this.isSA = (param.sa !== undefined && param.sa !== null) ? param.sa : false;
       this.maBonuses = (param.maBonuses) ? param.maBonuses : undefined;
+      this.modifiers = param.modifiers ? param.modifiers : new Array<StatModifier>();
     } else {
       this.name = '';
       this.stat = '';
@@ -85,6 +88,7 @@ export interface SkillParameters {
   ischoice?: boolean;
   chipped?: boolean;
   maBonuses?: MartialBonuses;
+  modifiers?: Array<StatModifier>;
 }
 
 export interface MartialBonuses {

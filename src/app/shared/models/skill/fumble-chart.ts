@@ -1,4 +1,4 @@
-import { Cp2020PlayerSkill } from './../cp2020character/cp2020-player-skill';
+import { Cp2020PlayerSkill } from '../../cp2020/cp2020-skills/models/cp2020-player-skill';
 export class FumbleChart {
   static getResults(roll: number, skill: Cp2020PlayerSkill): string {
     const stat = skill.stat;

@@ -1,5 +1,5 @@
 import { DiceRolls } from './../../../models/dice-rolls';
-import { Cp2020PlayerSkill } from './../../../models/cp2020character/cp2020-player-skill';
+import { Cp2020PlayerSkill } from '../../cp2020-skills/models/cp2020-player-skill';
 import { DiceService } from './../../../services/dice/dice.service';
 import { SourceBook } from './../../../models/sourcebook';
 import { WeaponRanges } from './weapon-ranges';

@@ -1,5 +1,5 @@
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { Cp2020PlayerSkill } from './../../../models/cp2020character';
+import { Cp2020PlayerSkill } from './../../../cp2020/cp2020-skills/models';
 import { DiceService } from './../../../services/dice/dice.service';
 import { faPen, faTrash, faDice, faRedo } from '@fortawesome/free-solid-svg-icons';
 import { CpPlayerWeapon } from './../models';

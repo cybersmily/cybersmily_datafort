@@ -6,7 +6,7 @@ import { DiceService } from './../../../services/dice/dice.service';
 import { CpPlayerWeaponList, CpPlayerWeapon } from './../models';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { faDice, faPlus, faCrosshairs, faCog } from '@fortawesome/free-solid-svg-icons';
-import { Cp2020PlayerSkills } from './../../../models/cp2020character';
+import { Cp2020PlayerSkills } from './../../cp2020-skills/models';
 import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
 
 @Component({

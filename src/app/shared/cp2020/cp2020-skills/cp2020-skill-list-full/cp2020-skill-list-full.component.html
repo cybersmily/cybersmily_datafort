@@ -1,0 +1,72 @@
+<div class="chargen-section">
+  <div class="cp2020-label row no-gutters">
+    <div class="col">
+      <h4 class="d-inline-block">SKILLS</h4>
+      <span class="float-right">
+        General IP: <input [(ngModel)]="skills.ip" type="number" class="chargen-general-ip-input" (change)="onChangeSkill()" />
+      </span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <span class="chargen-skills-instructions">
+        [ROLE:&nbsp;{{skills.RoleTotal + role.specialAbility.value}}]&nbsp;&nbsp;[SECONDARY:&nbsp;{{skills.OtherTotal}}]&nbsp;&nbsp;&nbsp;&nbsp;
+        (#) is the combined stat + skill. [#] is the skill level. Checkbox is if chipped. Role skills are highlighted with *, @ is choose one as role, ! is for secondary skill.</span>
+    </div>
+  </div>
+
+
+  <ng-container [ngTemplateOutlet]="SkillSection"
+    [ngTemplateOutletContext]="{title:'SPECIAL ABILITIES', stat:(role.specialAbility.stat !== ''? stats[role.specialAbility.stat] : null), skills: [role.specialAbility], spclAbility: true}">
+  </ng-container>
+
+
+  <ng-container [ngTemplateOutlet]="SkillSection"
+    [ngTemplateOutletContext]="{title:'ATTR', stat:stats.ATTR, skills: skills.ATTR, spclAbility: false}">
+  </ng-container>
+
+  <ng-container [ngTemplateOutlet]="SkillSection"
+    [ngTemplateOutletContext]="{title:'BODY', stat:stats.BODY, skills: skills.BODY, spclAbility: false}">
+  </ng-container>
+
+  <ng-container [ngTemplateOutlet]="SkillSection"
+    [ngTemplateOutletContext]="{title:'COOL/WILL', stat:stats.COOL, skills: skills.COOL, spclAbility: false}">
+  </ng-container>
+
+  <ng-container [ngTemplateOutlet]="SkillSection"
+    [ngTemplateOutletContext]="{title:'EMPATHY', stat:stats.EMP, skills: skills.EMP, spclAbility: false}">
+  </ng-container>
+
+  <ng-container [ngTemplateOutlet]="SkillSection"
+    [ngTemplateOutletContext]="{title:'INT', stat:stats.INT, skills: skills.INT, spclAbility: false}">
+  </ng-container>
+
+  <ng-container [ngTemplateOutlet]="SkillSection"
+    [ngTemplateOutletContext]="{title:'REF', stat:stats.REF, skills: skills.REF, spclAbility: false}">
+  </ng-container>
+
+  <ng-container [ngTemplateOutlet]="SkillSection"
+    [ngTemplateOutletContext]="{title:'TECH', stat:stats.TECH, skills: skills.TECH, spclAbility: false}">
+  </ng-container>
+
+  <ng-container [ngTemplateOutlet]="SkillSection"
+    [ngTemplateOutletContext]="{title:'OTHER', stat:undefined, skills: skills.Other, spclAbility: false}">
+  </ng-container>
+</div>
+
+<ng-template #SkillSection let-title="title" let-stat="stat" let-skills="skills" let-spclAbility="spclAbility">
+  <div class="row no-gutters border border-dark mt-1 mb-1">
+    <div class="col-12">
+      <div class="chargen-skill-stat">{{title}}</div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 order-1 pl-1 pr-1 border-lg border-dark">
+      <cs-app-character-skill *ngFor="let skill of getColumnOne(skills)" [skill]="skill" (changeSkill)="onChangeSkill($event)" [stat]="stat" [isSpecialAbility]="spclAbility"></cs-app-character-skill>
+    </div>
+    <div class="col-12 col-md-6 order-md-3 order-lg-2 col-lg-4 pl-1 pr-1 border-lg border-dark">
+      <cs-app-character-skill *ngFor="let skill of getColumnTwo(skills)" [skill]="skill" (changeSkill)="onChangeSkill($event)" [stat]="stat" [isSpecialAbility]="spclAbility" ></cs-app-character-skill>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4  order-md-2 order-lg-3 pl-1 pr-1 border-lg border-dark">
+      <cs-app-character-skill *ngFor="let skill of getColumnThree(skills)" [skill]="skill" (changeSkill)="onChangeSkill($event)" [stat]="stat" [isSpecialAbility]="spclAbility" ></cs-app-character-skill>
+    </div>
+  </div>
+</ng-template>

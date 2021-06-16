@@ -1,3 +1,4 @@
+import { Cp2020Role } from './../../shared/models/cp2020character';
 import { Cp2020StatBlock } from './../../shared/cp2020/cp2020-stats/models/cp2020-stat-block';
 import { Cp2020ArmorLayer, Cp2020ArmorBlock } from './../../shared/cp2020/cp2020-armor/models';
 import { OppCyberware } from './../../shared/cp2020/cp2020-cyberware/models';
@@ -6,7 +7,7 @@ import { OpponentTrackerService } from './../services/opponent-tracker.service';
 import { CmbtTrckOpponent, CmbtTrckOppSelection, CmbtTrckTemplate } from '../../shared/models/cmbt-trck';
 import { OppTemplateService } from './../services/opp-template.service';
 import { DataSkill } from './../../shared/models/data/data-skill';
-import { Cp2020Role, Cp2020PlayerSkill } from './../../shared/models/cp2020character';
+import { Cp2020PlayerSkill } from './../../shared/cp2020/cp2020-skills/models';
 import { SkillListService } from './../../shared/services/data/skill-list.service';
 import { DataService } from './../../shared/services/file-services/data.service';
 import { Cp2020RolesDataService } from './../../shared/services/chargen/cp2020-roles-data.service';

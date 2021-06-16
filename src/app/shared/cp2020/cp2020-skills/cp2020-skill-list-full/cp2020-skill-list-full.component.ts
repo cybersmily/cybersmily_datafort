@@ -1,15 +1,15 @@
 import { faDice } from '@fortawesome/free-solid-svg-icons';
-import { Cp2020PlayerSkill, Cp2020PlayerSkills } from './../../shared/cp2020/cp2020-skills/models';
-import { Cp2020PlayerRole } from './../../shared/models/cp2020character/cp2020-player-role';
-import { Cp2020StatBlock } from '../../shared/cp2020/cp2020-stats/models/cp2020-stat-block';
+import { Cp2020PlayerSkill, Cp2020PlayerSkills } from './../models';
+import { Cp2020PlayerRole } from './../../../models/cp2020character/cp2020-player-role';
+import { Cp2020StatBlock } from '../../cp2020-stats/models/cp2020-stat-block';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-app-character-skills',
-  templateUrl: './app-character-skills.component.html',
-  styleUrls: ['./app-character-skills.component.css']
+  selector: 'cs-cp2020-skill-list-full',
+  templateUrl: './cp2020-skill-list-full.component.html',
+  styleUrls: ['./cp2020-skill-list-full.component.css']
 })
-export class AppCharacterSkillsComponent implements OnInit {
+export class Cp2020SkillListFullComponent implements OnInit {
   faDice = faDice;
 
   @Input()
@@ -58,4 +58,5 @@ export class AppCharacterSkillsComponent implements OnInit {
     const multi = (skills.length%3 === 0) ? 0.66 : 0.67;
     return skills.slice(Math.ceil(skills.length * multi));
   }
+
 }

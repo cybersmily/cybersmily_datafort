@@ -4,7 +4,7 @@ import { CpPlayerWeaponList } from './../../shared/cp2020/cp2020weapons/models';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { FileLoaderService, SaveFileService } from './../../shared/services/file-services';
 import { faDice, faUpload, faFilePdf, faSave, faUndo, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
-import { Cp2020PlayerSkills } from './../../shared/models/cp2020character/cp2020-player-skills';
+import { Cp2020PlayerSkills } from './../../shared/cp2020/cp2020-skills/models/cp2020-player-skills';
 import { LifePathResults } from './../../shared/models/lifepath/lifepath-results';
 import { Cp2020PlayerGearList } from './../../shared/models/cp2020character/cp2020-player-gear-list';
 import { Cp2020StatBlock } from '../../shared/cp2020/cp2020-stats/models/cp2020-stat-block';

@@ -1,17 +1,17 @@
-import { Cp2020Stat } from './../../shared/cp2020/cp2020-stats/models/cp2020-stat';
-import { FumbleChart } from './../../shared/models/skill/fumble-chart';
-import { DiceService } from './../../shared/services/dice/dice.service';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
-import { Cp2020PlayerSkill } from '../../shared/cp2020/cp2020-skills/models/cp2020-player-skill';
+import { Cp2020Stat } from './../../cp2020-stats/models/cp2020-stat';
+import { FumbleChart } from './../../../models/skill/fumble-chart';
+import { DiceService } from './../../../services/dice/dice.service';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { Cp2020PlayerSkill } from '../models/cp2020-player-skill';
 import { faDice } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'cs-app-character-skill',
-  templateUrl: './app-character-skill.component.html',
-  styleUrls: ['./app-character-skill.component.css']
+  selector: 'cs-cp2020-skill',
+  templateUrl: './cp2020-skill.component.html',
+  styleUrls: ['./cp2020-skill.component.css']
 })
-export class AppCharacterSkillComponent implements OnInit {
+export class Cp2020SkillComponent implements OnInit {
   modalRef: BsModalRef;
   dieRoll = 0;
   totalRoll = 0;
@@ -59,4 +59,5 @@ export class AppCharacterSkillComponent implements OnInit {
     this.totalRoll = this.dieRoll + this.skill.value + ((this.stat) ? this.stat.Adjusted : 0);
     this.modalRef = this.modalService.show(template, {class: 'modal-dialog-centered'});
   }
+
 }

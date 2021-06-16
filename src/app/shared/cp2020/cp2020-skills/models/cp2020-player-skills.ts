@@ -3,6 +3,7 @@ export class Cp2020PlayerSkills {
   RoleTotal: number;
   OtherTotal: number;
   skills: Array<Cp2020PlayerSkill>;
+
   rep: number;
   ip: number;
 
@@ -189,6 +190,10 @@ export class Cp2020PlayerSkills {
       this.skills.push(new Cp2020PlayerSkill({name: 'Other', option: '', ipmod: 1, stat: ''}));
     }
 
+  }
+
+  get SkillsWithValues(): Array<Cp2020PlayerSkill> {
+    return this.skills.filter( skill => skill.value > 0);
   }
 
   get ATTR(): Array<Cp2020PlayerSkill> {

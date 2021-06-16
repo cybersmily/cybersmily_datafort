@@ -1,9 +1,8 @@
 import { Cp2020StatBlock } from './../../cp2020/cp2020-stats/models/cp2020-stat-block';
 import { OppCyberware } from './../../cp2020/cp2020-cyberware/models/opp-cyberware';
-import { Cp2020PlayerSkills } from './../cp2020character/cp2020-player-skills';
+import { Cp2020PlayerSkills, Cp2020PlayerSkill } from './../../cp2020/cp2020-skills/models';
 import { Cp2020ArmorBlock } from './../../cp2020/cp2020-armor/models';
 import { CpPlayerWeapon, CpPlayerWeaponList, CombatModifiers } from './../../cp2020/cp2020weapons/models';
-import { Cp2020PlayerSkill } from '../cp2020character';
 import { CmbtTrckOppTemplate } from './cmbt-trck-opp-template';
 
 export class CmbtTrckOpponent {

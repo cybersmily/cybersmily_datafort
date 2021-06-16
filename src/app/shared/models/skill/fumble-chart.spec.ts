@@ -1,4 +1,4 @@
-import { Cp2020PlayerSkill } from './../cp2020character/cp2020-player-skill';
+import { Cp2020PlayerSkill } from '../../cp2020/cp2020-skills/models/cp2020-player-skill';
 import { FumbleChart } from './fumble-chart';
 import { TestBed } from '@angular/core/testing';
 

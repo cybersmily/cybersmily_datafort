@@ -1,4 +1,4 @@
-import { Cp2020PlayerSkill } from './../../models/cp2020character/cp2020-player-skill';
+import { Cp2020PlayerSkill } from '../../cp2020/cp2020-skills/models/cp2020-player-skill';
 import { CmbtTrckOpponent } from './../../models/cmbt-trck/cmbt-trck-opponent';
 import { Cp2020PlayerCharacter } from './../../models/cp2020character/cp2020-player-character';
 import { TestBed, inject } from '@angular/core/testing';

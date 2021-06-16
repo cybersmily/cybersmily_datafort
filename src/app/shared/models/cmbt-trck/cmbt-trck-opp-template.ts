@@ -1,7 +1,7 @@
 import { OppCyberware } from './../../cp2020/cp2020-cyberware/models/opp-cyberware';
 import { ArmorBlock } from '../../cp2020/cp2020-armor/models/armor-block';
 import { CpPlayerWeapon } from './../../cp2020/cp2020weapons/models';
-import { Cp2020PlayerSkill } from '../cp2020character';
+import { Cp2020PlayerSkill } from './../../cp2020/cp2020-skills/models';
 export interface CmbtTrckOppTemplate {
     handle: string;
     role: string;

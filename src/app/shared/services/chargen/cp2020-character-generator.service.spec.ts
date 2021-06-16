@@ -2,9 +2,9 @@ import { LifePathResults } from './../../models/lifepath/lifepath-results';
 import {
   Cp2020PlayerCharacter,
   Cp2020PlayerRole,
-  Cp2020PlayerGearList,
-  Cp2020PlayerSkills
+  Cp2020PlayerGearList
 } from './../../models/cp2020character';
+import {Cp2020PlayerSkills} from './../../cp2020/cp2020-skills/models';
 import { TestBed } from '@angular/core/testing';
 
 import { Cp2020CharacterGeneratorService } from './cp2020-character-generator.service';

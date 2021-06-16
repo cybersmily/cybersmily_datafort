@@ -1,9 +1,9 @@
 import { Cp2020MartialArt } from './../../../models/skill/cp2020-martial-art';
 import { MartialArtsDataService } from './../../../services/data/martial-arts-data.service';
 import { DiceRolls } from './../../../models/dice-rolls';
-import { Cp2020PlayerSkills } from './../../../models/cp2020character/cp2020-player-skills';
+import { Cp2020PlayerSkills } from './../../../cp2020/cp2020-skills/models/cp2020-player-skills';
 import { DiceService } from './../../../services/dice/dice.service';
-import { Cp2020PlayerSkill } from './../../../models/cp2020character/cp2020-player-skill';
+import { Cp2020PlayerSkill } from '../../cp2020-skills/models/cp2020-player-skill';
 import { CpPlayerWeaponList, CpPlayerWeapon, CombatRange } from './../models';
 import { faDice, faRedo } from '@fortawesome/free-solid-svg-icons';
 import {
