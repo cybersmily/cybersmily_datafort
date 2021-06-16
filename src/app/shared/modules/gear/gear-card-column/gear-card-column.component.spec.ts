@@ -1,6 +1,6 @@
 import { CommonUiModule } from './../../common-ui/common-ui.module';
 import { GearCardComponent } from './../gear-card/gear-card.component';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { GearCardColumnComponent } from './gear-card-column.component';
 import { Gear } from '../../../models/gear';
@@ -21,7 +21,7 @@ describe('GearCardColumnComponent', () => {
     }
   ];
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         GearCardColumnComponent,

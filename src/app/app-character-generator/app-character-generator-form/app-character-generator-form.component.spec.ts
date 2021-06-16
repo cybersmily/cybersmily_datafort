@@ -14,7 +14,7 @@ import { AppCharacterRoleComponent } from './../app-character-role/app-character
 import { AppCharacterLifepathComponent } from './../app-character-lifepath/app-character-lifepath.component';
 import { AppCharacterImageComponent } from './../app-character-image/app-character-image.component';
 import { AppCharacterHandleComponent } from './../app-character-handle/app-character-handle.component';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AppCharacterGeneratorFormComponent } from './app-character-generator-form.component';
 import { AppCharacterGearComponent } from '../app-character-gear/app-character-gear.component';
@@ -23,7 +23,7 @@ describe('AppCharacterGeneratorFormComponent', () => {
   let component: AppCharacterGeneratorFormComponent;
   let fixture: ComponentFixture<AppCharacterGeneratorFormComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppCharacterGeneratorFormComponent,

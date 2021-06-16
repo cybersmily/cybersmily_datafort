@@ -1,6 +1,6 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { MmoptionComponent } from './../mmoption/mmoption.component';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MmoptionslistComponent } from './mmoptionslist.component';
 
@@ -8,7 +8,7 @@ describe('MmoptionslistComponent', () => {
   let component: MmoptionslistComponent = new MmoptionslistComponent();
   let fixture: ComponentFixture<MmoptionslistComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         MmoptionslistComponent,

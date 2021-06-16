@@ -1,5 +1,5 @@
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { Cp2020weaponEditorComponent } from './cp2020weapon-editor.component';
 
@@ -7,7 +7,7 @@ describe('Cp2020weaponEditorComponent', () => {
   let component: Cp2020weaponEditorComponent;
   let fixture: ComponentFixture<Cp2020weaponEditorComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [Cp2020weaponEditorComponent],
       imports: [CommonUiModule]

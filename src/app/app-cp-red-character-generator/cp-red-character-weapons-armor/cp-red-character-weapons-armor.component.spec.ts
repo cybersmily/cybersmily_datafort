@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CpRedCharacterWeaponsArmorComponent } from './cp-red-character-weapons-armor.component';
 
@@ -6,7 +6,7 @@ describe('CpRedCharacterWeaponsArmorComponent', () => {
   let component: CpRedCharacterWeaponsArmorComponent;
   let fixture: ComponentFixture<CpRedCharacterWeaponsArmorComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ CpRedCharacterWeaponsArmorComponent ]
     })

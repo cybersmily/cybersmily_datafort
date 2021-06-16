@@ -1,7 +1,7 @@
 import { DiceService } from './../dice/dice.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './../file-services';
-import { TestBed, inject, async } from '@angular/core/testing';
+import { TestBed, inject, waitForAsync } from '@angular/core/testing';
 
 import { EthnicityGeneratorService } from './ethnicity-generator.service';
 import { ExpectedConditions } from 'protractor';
@@ -18,7 +18,7 @@ describe('EthnicityGeneratorService', () => {
   });
 
 
-  it('should have ethnicity', async(inject([EthnicityGeneratorService], (service: EthnicityGeneratorService) => {
+  it('should have ethnicity', waitForAsync(inject([EthnicityGeneratorService], (service: EthnicityGeneratorService) => {
     service.GenerateEthnicity('CP2020').subscribe( data => {
       expect(data.length > 0).toBeTruthy('Does not have data.');
       expect(data[0]).toBeTruthy('Does not have one ethnicity.');

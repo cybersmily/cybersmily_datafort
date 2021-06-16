@@ -1,7 +1,7 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { DataService } from './../../shared/services/file-services/data.service';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NrgridboxComponent } from './nrgridbox.component';
 import { NRMapCell } from '../models';
@@ -11,7 +11,7 @@ describe('NrgridboxComponent', () => {
   let fixture: ComponentFixture<NrgridboxComponent>;
   let cell: NRMapCell;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         NrgridboxComponent

@@ -1,6 +1,6 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { MaxMetalOption } from '../../shared/models/maxmetal';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MmoptionComponent } from './mmoption.component';
 
@@ -9,7 +9,7 @@ describe('MmoptionComponent', () => {
   let fixture: ComponentFixture<MmoptionComponent>;
   let option: MaxMetalOption;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ MmoptionComponent ],
       imports: [CommonUiModule]

@@ -1,5 +1,5 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { LifepathChartComponent } from './lifepath-chart.component';
 import { DiceService } from './../../shared/services/dice/dice.service';
@@ -8,7 +8,7 @@ describe('LifepathChartComponent', () => {
   let component: LifepathChartComponent;
   let fixture: ComponentFixture<LifepathChartComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ LifepathChartComponent ],
       imports: [CommonUiModule],

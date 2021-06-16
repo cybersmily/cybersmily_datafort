@@ -9,7 +9,7 @@ import { FixerBigLeagueService } from './../../shared/services/fixer/fixer-big-l
 import { FixerHotStuffService } from './../../shared/services/fixer/fixer-hot-stuff.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { FixerCalcMainComponent } from './fixer-calc-main.component';
 
@@ -17,7 +17,7 @@ describe('FixerCalcMainComponent', () => {
   let component: FixerCalcMainComponent;
   let fixture: ComponentFixture<FixerCalcMainComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         CommonUiModule

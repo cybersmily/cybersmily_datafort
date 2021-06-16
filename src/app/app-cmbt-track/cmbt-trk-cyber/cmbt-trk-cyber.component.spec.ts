@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './../../shared/services/file-services/data.service';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { FormsModule } from '@angular/forms';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CmbtTrkCyberComponent } from './cmbt-trk-cyber.component';
 
@@ -12,7 +12,7 @@ describe('CmbtTrkCyberComponent', () => {
   let component: CmbtTrkCyberComponent;
   let fixture: ComponentFixture<CmbtTrkCyberComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         CommonUiModule,

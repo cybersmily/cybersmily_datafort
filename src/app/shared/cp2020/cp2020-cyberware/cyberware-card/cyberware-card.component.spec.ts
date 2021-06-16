@@ -1,6 +1,6 @@
 import { CommonUiModule } from '../../../modules/common-ui/common-ui.module';
 import { DataCyberware } from './../models';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CyberwareCardComponent } from './cyberware-card.component';
 
@@ -21,7 +21,7 @@ describe('CyberwareCardComponent', () => {
     source: {book: 'CP2020', page: 12}
   };
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ CyberwareCardComponent ],
       imports: [CommonUiModule]

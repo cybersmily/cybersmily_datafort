@@ -1,6 +1,6 @@
 import { CommonUiModule } from './../../common-ui/common-ui.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NpcProfileModalComponent } from './npcprofilemodal.component';
 import { DataService } from './../../../services/file-services/data.service';
@@ -9,7 +9,7 @@ describe('NpcProfileComponent', () => {
   let component: NpcProfileModalComponent;
   let fixture: ComponentFixture<NpcProfileModalComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         NpcProfileModalComponent

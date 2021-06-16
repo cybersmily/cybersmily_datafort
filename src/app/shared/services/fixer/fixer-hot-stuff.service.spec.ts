@@ -1,5 +1,5 @@
 import { HotStuffArea } from './../../models/fixer/hot-stuff-area';
-import { TestBed, inject, async } from '@angular/core/testing';
+import { TestBed, inject, waitForAsync } from '@angular/core/testing';
 
 import { FixerHotStuffService } from './fixer-hot-stuff.service';
 
@@ -23,7 +23,7 @@ describe('FixerHotStuffService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should have Streeteal of 5', async(inject([FixerHotStuffService], (service: FixerHotStuffService) => {
+  it('should have Streeteal of 5', waitForAsync(inject([FixerHotStuffService], (service: FixerHotStuffService) => {
     service.reset();
     service.setStreetdeal(5);
     service.model.subscribe( data => {
@@ -35,7 +35,7 @@ describe('FixerHotStuffService', () => {
     });
   })));
 
-  it('should add areas', async(inject([FixerHotStuffService], (service: FixerHotStuffService) => {
+  it('should add areas', waitForAsync(inject([FixerHotStuffService], (service: FixerHotStuffService) => {
     service.reset();
     service.setStreetdeal(5);
     service.addArea(areas[0]);
@@ -47,7 +47,7 @@ describe('FixerHotStuffService', () => {
     });
   })));
 
-  it('should not add areas', async(inject([FixerHotStuffService], (service: FixerHotStuffService) => {
+  it('should not add areas', waitForAsync(inject([FixerHotStuffService], (service: FixerHotStuffService) => {
     service.reset();
     service.setStreetdeal(5);
     service.addArea(areas[5]);
@@ -58,7 +58,7 @@ describe('FixerHotStuffService', () => {
     });
   })));
 
-  it('should delete areas', async(inject([FixerHotStuffService], (service: FixerHotStuffService) => {
+  it('should delete areas', waitForAsync(inject([FixerHotStuffService], (service: FixerHotStuffService) => {
     service.reset();
     service.setStreetdeal(5);
     service.addArea(areas[0]);
@@ -71,7 +71,7 @@ describe('FixerHotStuffService', () => {
     });
   })));
 
-  it('should clear areas', async(inject([FixerHotStuffService], (service: FixerHotStuffService) => {
+  it('should clear areas', waitForAsync(inject([FixerHotStuffService], (service: FixerHotStuffService) => {
     service.reset();
     service.setStreetdeal(5);
     service.addArea(areas[0]);

@@ -3,7 +3,7 @@ import { MartialArtsDataService } from './../../../services/data/martial-arts-da
 import { DiceService } from './../../../services/dice/dice.service';
 import { DataService } from './../../../services/file-services/data.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { Cp2020weaponCalculatorComponent } from './cp2020weapon-calculator.component';
 
@@ -11,7 +11,7 @@ describe('Cp2020weaponCalculatorComponent', () => {
   let component: Cp2020weaponCalculatorComponent;
   let fixture: ComponentFixture<Cp2020weaponCalculatorComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ Cp2020weaponCalculatorComponent ],
       imports: [HttpClientTestingModule, CommonUiModule],

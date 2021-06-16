@@ -4,7 +4,7 @@ import { Cp2020weaponEditorComponent } from './../cp2020weapon-editor/cp2020weap
 import { WeaponDataService } from './../services/weapon-data.service';
 import { DiceService } from './../../../services/dice/dice.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { Cp2020weaponComponent } from './cp2020weapon.component';
 
@@ -12,7 +12,7 @@ describe('Cp2020weaponComponent', () => {
   let component: Cp2020weaponComponent;
   let fixture: ComponentFixture<Cp2020weaponComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [Cp2020weaponComponent, Cp2020weaponEditorComponent],
       imports: [HttpClientTestingModule, CommonUiModule],

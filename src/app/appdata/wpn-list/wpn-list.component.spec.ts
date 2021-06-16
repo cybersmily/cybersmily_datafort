@@ -3,7 +3,7 @@ import { PipesModule } from './../../shared/pipes/pipes.module';
 import { WeaponDataService } from './../../shared/cp2020/cp2020weapons/services';
 import { DataService } from './../../shared/services/file-services/data.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { WpnListComponent } from './wpn-list.component';
 
@@ -11,7 +11,7 @@ describe('WpnListComponent', () => {
   let component: WpnListComponent;
   let fixture: ComponentFixture<WpnListComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [WpnListComponent],
       imports: [

@@ -1,5 +1,5 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { TempGeneratorWeaponsComponent } from './temp-generator-weapons.component';
 
@@ -7,7 +7,7 @@ describe('TempGeneratorWeaponsComponent', () => {
   let component: TempGeneratorWeaponsComponent;
   let fixture: ComponentFixture<TempGeneratorWeaponsComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ TempGeneratorWeaponsComponent ],
       imports: [CommonUiModule]

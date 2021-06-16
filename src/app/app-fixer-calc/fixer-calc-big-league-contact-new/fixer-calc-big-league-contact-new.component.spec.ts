@@ -1,5 +1,5 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { FixerCalcBigLeagueContactNewComponent } from './fixer-calc-big-league-contact-new.component';
 
@@ -7,7 +7,7 @@ describe('FixerCalcBigLeagueContactNewComponent', () => {
   let component: FixerCalcBigLeagueContactNewComponent;
   let fixture: ComponentFixture<FixerCalcBigLeagueContactNewComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ FixerCalcBigLeagueContactNewComponent ],
       imports: [CommonUiModule]

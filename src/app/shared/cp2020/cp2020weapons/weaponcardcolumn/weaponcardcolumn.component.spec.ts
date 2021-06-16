@@ -2,7 +2,7 @@ import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WeaponGroup } from '../../../cp2020/cp2020weapons/models';
 import { WeaponcardComponent } from './../weaponcard/weaponcard.component';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { WeaponcardcolumnComponent } from './weaponcardcolumn.component';
 
@@ -74,7 +74,7 @@ describe('WeaponcardcolumnComponent', () => {
       ]}
   ];
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         WeaponcardcolumnComponent,

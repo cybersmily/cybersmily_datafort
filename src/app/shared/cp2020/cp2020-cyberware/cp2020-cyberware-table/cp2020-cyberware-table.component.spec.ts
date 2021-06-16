@@ -4,7 +4,7 @@ import { Cp2020CyberwareGeneratorService } from './../services/cp2020-cyberware-
 import { DiceService } from './../../../services/dice/dice.service';
 import { DataService } from './../../../services/file-services/data.service';
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { Cp2020CyberwareTableComponent } from './cp2020-cyberware-table.component';
 
@@ -12,7 +12,7 @@ describe('Cp2020CyberwareTableComponent', () => {
   let component: Cp2020CyberwareTableComponent;
   let fixture: ComponentFixture<Cp2020CyberwareTableComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ Cp2020CyberwareTableComponent ],
       imports: [

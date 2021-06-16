@@ -3,7 +3,7 @@ import { FamilyGeneratorService } from './../../shared/services/lifepath/family-
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { DataService } from './../../shared/services/file-services/data.service';
 import { DiceService } from './../../shared/services/dice/dice.service';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { LifepathFamilyComponent } from './lifepath-family.component';
 import { Siblings, LifepathFamily } from './../../shared/models/lifepath';
@@ -13,7 +13,7 @@ describe('LifepathFamilyComponent', () => {
   let fixture: ComponentFixture<LifepathFamilyComponent>;
   let testFamily: LifepathFamily;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ LifepathFamilyComponent ],
       imports: [

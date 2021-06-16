@@ -2,7 +2,7 @@ import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.modul
 import { CorporationCard } from '../../shared/models/corporation';
 import { DataService } from './../../shared/services/file-services/data.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CorporationCardComponent } from './corporation-card.component';
 
@@ -10,7 +10,7 @@ describe('CorporationCardComponent', () => {
   let component: CorporationCardComponent;
   let fixture: ComponentFixture<CorporationCardComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ CorporationCardComponent ],
       imports: [

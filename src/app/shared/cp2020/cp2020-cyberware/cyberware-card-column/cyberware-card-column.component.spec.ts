@@ -1,7 +1,7 @@
 import { CommonUiModule } from '../../../modules/common-ui/common-ui.module';
 import { CyberwareCardComponent } from '../cyberware-card/cyberware-card.component';
 import { DataCyberware } from './../models';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CyberwareCardColumnComponent } from './cyberware-card-column.component';
 
@@ -50,7 +50,7 @@ describe('CyberwareCardColumnComponent', () => {
     }
   ];
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         CyberwareCardColumnComponent,

@@ -4,7 +4,7 @@ import { DiceService } from './../../shared/services/dice/dice.service';
 import { DataService } from './../../shared/services/file-services/data.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AppCharacterLifepathComponent } from './app-character-lifepath.component';
 
@@ -12,7 +12,7 @@ describe('AppCharacterLifepathComponent', () => {
   let component: AppCharacterLifepathComponent;
   let fixture: ComponentFixture<AppCharacterLifepathComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppCharacterLifepathComponent

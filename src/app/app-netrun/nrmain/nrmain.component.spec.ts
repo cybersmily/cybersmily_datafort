@@ -5,7 +5,7 @@ import { NrMapCellComponent } from './../nr-map-cell/nr-map-cell.component';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { FormsModule } from '@angular/forms';
 import { NrnavigatorComponent } from './../nrnavigator/nrnavigator.component';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NrmainComponent } from './nrmain.component';
 import { NrdebugComponent } from '../nrdebug/nrdebug.component';
@@ -21,7 +21,7 @@ describe('NrmainComponent', () => {
   let component: NrmainComponent;
   let fixture: ComponentFixture<NrmainComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         NrmainComponent,

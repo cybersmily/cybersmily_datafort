@@ -7,7 +7,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Cp2020weaponEditorComponent } from './../cp2020weapon-editor/cp2020weapon-editor.component';
 import { Cp2020weaponSelectorComponent } from './../cp2020weapon-selector/cp2020weapon-selector.component';
 import { Cp2020weaponComponent } from './../cp2020weapon/cp2020weapon.component';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { Cp2020weapontableComponent } from './cp2020weapontable.component';
 
@@ -15,7 +15,7 @@ describe('Cp2020weapontableComponent', () => {
   let component: Cp2020weapontableComponent;
   let fixture: ComponentFixture<Cp2020weapontableComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         Cp2020weapontableComponent,

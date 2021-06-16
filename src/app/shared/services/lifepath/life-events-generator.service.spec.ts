@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './../file-services';
 import { DiceService } from './../dice/dice.service';
-import { TestBed, inject, async } from '@angular/core/testing';
+import { TestBed, inject, waitForAsync } from '@angular/core/testing';
 
 import { LifeEventsGeneratorService } from './life-events-generator.service';
 
@@ -19,7 +19,7 @@ describe('LifeEventsGeneratorService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should have Nothing Happened Event', async(inject([LifeEventsGeneratorService], (service: LifeEventsGeneratorService) => {
+  it('should have Nothing Happened Event', waitForAsync(inject([LifeEventsGeneratorService], (service: LifeEventsGeneratorService) => {
     service.GenerateLifeEvents('CP2020', '1', false).subscribe( data => {
       const events = data.Events;
       const results = events.some(e => e.event.toLowerCase().includes('nothing happened'));
@@ -33,7 +33,7 @@ describe('LifeEventsGeneratorService', () => {
     });
   })));
 
-  it('should have Nothing Happened Event', async(inject([LifeEventsGeneratorService], (service: LifeEventsGeneratorService) => {
+  it('should have Nothing Happened Event', waitForAsync(inject([LifeEventsGeneratorService], (service: LifeEventsGeneratorService) => {
     service.GenerateLifeEvents('CP2020', '50', false).subscribe( data => {
       const events = data.Events;
       const results = events.some(e => e.event.toLowerCase().includes('nothing happened'));
@@ -41,7 +41,7 @@ describe('LifeEventsGeneratorService', () => {
     });
   })));
 
-  it('should not have Nothing Happened Event', async(inject([LifeEventsGeneratorService], (service: LifeEventsGeneratorService) => {
+  it('should not have Nothing Happened Event', waitForAsync(inject([LifeEventsGeneratorService], (service: LifeEventsGeneratorService) => {
     service.GenerateLifeEvents('CP2020', '50', true).subscribe( data => {
       const events = data.Events;
       const results = !(events.some(e => e.event.toLowerCase().includes('nothing happened')));
@@ -49,7 +49,7 @@ describe('LifeEventsGeneratorService', () => {
     });
   })));
 
-  it('should have Big Win/Lose', async(inject([LifeEventsGeneratorService], (service: LifeEventsGeneratorService) => {
+  it('should have Big Win/Lose', waitForAsync(inject([LifeEventsGeneratorService], (service: LifeEventsGeneratorService) => {
     service.GenerateLifeEvents('CP2020', '50', true).subscribe( data => {
       const events = data.Events;
       const results = (events.some(e => e.event.toLowerCase().includes('big win') || e.event.toLowerCase().includes('big lose')));
@@ -57,7 +57,7 @@ describe('LifeEventsGeneratorService', () => {
     });
   })));
 
-  it('should have Made a Friend', async(inject([LifeEventsGeneratorService], (service: LifeEventsGeneratorService) => {
+  it('should have Made a Friend', waitForAsync(inject([LifeEventsGeneratorService], (service: LifeEventsGeneratorService) => {
     service.GenerateLifeEvents('CP2020', '50', true).subscribe( data => {
       const events = data.Events;
       const results = (events.some(e => e.event.toLowerCase().includes('made a friend')
@@ -66,7 +66,7 @@ describe('LifeEventsGeneratorService', () => {
     });
   })));
 
-  it('should have Romantic Involvement', async(inject([LifeEventsGeneratorService], (service: LifeEventsGeneratorService) => {
+  it('should have Romantic Involvement', waitForAsync(inject([LifeEventsGeneratorService], (service: LifeEventsGeneratorService) => {
     service.GenerateLifeEvents('CP2020', '50', true).subscribe( data => {
       const events = data.Events;
       const results = (events.some(e => e.event.toLowerCase().includes('romantic involvement')));

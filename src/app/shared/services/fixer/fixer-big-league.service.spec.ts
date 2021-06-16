@@ -1,5 +1,5 @@
 import { BigLeagueContact } from './../../models/fixer/big-league-contact';
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, inject, waitForAsync } from '@angular/core/testing';
 
 import { FixerBigLeagueService } from './fixer-big-league.service';
 import { BigLeagueCategory } from '../../models/fixer/big-league-category';
@@ -62,7 +62,7 @@ describe('FixerBigLeagueService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should have Streeteal of 5', async(inject([FixerBigLeagueService], (service: FixerBigLeagueService) => {
+  it('should have Streeteal of 5', waitForAsync(inject([FixerBigLeagueService], (service: FixerBigLeagueService) => {
     service.reset();
     service.setStreetdeal(5);
     service.model.subscribe( data => {
@@ -74,7 +74,7 @@ describe('FixerBigLeagueService', () => {
     });
   })));
 
-  it('should add Contact', async(inject([FixerBigLeagueService], (service: FixerBigLeagueService) => {
+  it('should add Contact', waitForAsync(inject([FixerBigLeagueService], (service: FixerBigLeagueService) => {
     service.reset();
     service.setStreetdeal(5);
     service.addContact(contacts.snitch); // 5 pts
@@ -88,7 +88,7 @@ describe('FixerBigLeagueService', () => {
     });
   })));
 
-  it('should not  add Contacts', async(inject([FixerBigLeagueService], (service: FixerBigLeagueService) => {
+  it('should not  add Contacts', waitForAsync(inject([FixerBigLeagueService], (service: FixerBigLeagueService) => {
     service.reset();
     service.setStreetdeal(5);
     service.addContact(contacts.verycapable);  // 200 pts
@@ -99,7 +99,7 @@ describe('FixerBigLeagueService', () => {
     });
   })));
 
-  it('should delete Contact', async(inject([FixerBigLeagueService], (service: FixerBigLeagueService) => {
+  it('should delete Contact', waitForAsync(inject([FixerBigLeagueService], (service: FixerBigLeagueService) => {
     service.reset();
     service.setStreetdeal(5);
     service.addContact(contacts.snitch); // 5 pts
@@ -115,7 +115,7 @@ describe('FixerBigLeagueService', () => {
     });
   })));
 
-  it('should clear Contacts', async(inject([FixerBigLeagueService], (service: FixerBigLeagueService) => {
+  it('should clear Contacts', waitForAsync(inject([FixerBigLeagueService], (service: FixerBigLeagueService) => {
     service.reset();
     service.setStreetdeal(5);
     service.addContact(contacts.snitch); // 5 pts
@@ -129,7 +129,7 @@ describe('FixerBigLeagueService', () => {
     });
   })));
 
-  it('should update Contacts', async(inject([FixerBigLeagueService], (service: FixerBigLeagueService) => {
+  it('should update Contacts', waitForAsync(inject([FixerBigLeagueService], (service: FixerBigLeagueService) => {
     service.reset();
     service.setStreetdeal(5);
     service.addContact(contacts.snitch); // 5 pts

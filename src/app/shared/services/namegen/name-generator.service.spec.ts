@@ -1,7 +1,7 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { DataService } from './../file-services';
 import { DiceService } from './../dice/dice.service';
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NameGeneratorService } from './name-generator.service';
 import { HttpClient } from '@angular/common/http';

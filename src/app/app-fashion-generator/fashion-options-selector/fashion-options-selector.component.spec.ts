@@ -1,5 +1,5 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { FashionOptionsSelectorComponent } from './fashion-options-selector.component';
 
@@ -7,7 +7,7 @@ describe('FashionOptionsSelectorComponent', () => {
   let component: FashionOptionsSelectorComponent;
   let fixture: ComponentFixture<FashionOptionsSelectorComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ FashionOptionsSelectorComponent ],
       imports: [CommonUiModule]

@@ -1,6 +1,6 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { DataService } from './../../shared/services/file-services/data.service';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MmmountsComponent } from './mmmounts.component';
 import { MmmountComponent } from '../mmmount/mmmount.component';
@@ -12,7 +12,7 @@ describe('MmmountsComponent', () => {
   let httpClientSpy: { get: jasmine.Spy};
   let dataservice: DataService;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         MmmountsComponent,

@@ -6,7 +6,7 @@ import { MmweaponlistComponent } from './../mmweaponlist/mmweaponlist.component'
 import { MmoptionsformComponent } from './../mmoptionsform/mmoptionsform.component';
 import { MmweaponformComponent } from './../mmweaponform/mmweaponform.component';
 import { MminputComponent } from './../mminput/mminput.component';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MmbuilderComponent } from './mmbuilder.component';
 import { LongpressDirective } from './../../shared/directives/longpress.directive';
@@ -16,7 +16,7 @@ describe('MmbuilderComponent', () => {
   let component: MmbuilderComponent;
   let fixture: ComponentFixture<MmbuilderComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         MmbuilderComponent,

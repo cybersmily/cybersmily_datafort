@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CyberDataService } from './../../shared/cp2020/cp2020-cyberware/services';
 import { DataService } from './../../shared/services/file-services/data.service';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CyberListComponent } from './cyber-list.component';
 
@@ -12,7 +12,7 @@ describe('CyberListComponent', () => {
   let component: CyberListComponent;
   let fixture: ComponentFixture<CyberListComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ CyberListComponent ],
       imports: [

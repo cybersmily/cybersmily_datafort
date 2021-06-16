@@ -3,7 +3,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { DataService } from './../../shared/services/file-services/data.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MmaccessoriesComponent } from './mmaccessories.component';
 import { MmweaponComponent } from '../mmweapon/mmweapon.component';
@@ -13,7 +13,7 @@ describe('MmaccessoriesComponent', () => {
   let component: MmaccessoriesComponent;
   let fixture: ComponentFixture<MmaccessoriesComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         MmaccessoriesComponent,

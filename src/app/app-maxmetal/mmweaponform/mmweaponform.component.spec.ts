@@ -3,7 +3,7 @@ import { MaxmetalService } from './../../shared/services/maxmetal/maxmetal.servi
 import { DataService } from './../../shared/services/file-services/data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MmweaponformComponent } from './mmweaponform.component';
 
@@ -11,7 +11,7 @@ describe('MmmweaponformComponent', () => {
   let component: MmweaponformComponent;
   let fixture: ComponentFixture<MmweaponformComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ MmweaponformComponent ],
       imports: [

@@ -1,5 +1,5 @@
 import { CommonUiModule } from './../../common-ui/common-ui.module';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NpcCardColumnComponent } from './npc-card-column.component';
 import { NpcCard } from '../../../models/character';
@@ -21,7 +21,7 @@ describe('NpcCardColumnComponent', () => {
     }
   ];
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         NpcCardColumnComponent,

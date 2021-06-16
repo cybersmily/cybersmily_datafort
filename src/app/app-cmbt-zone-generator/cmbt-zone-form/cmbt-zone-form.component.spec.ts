@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CmbtZoneFormComponent } from './cmbt-zone-form.component';
 
@@ -6,7 +6,7 @@ describe('CmbtZoneFormComponent', () => {
   let component: CmbtZoneFormComponent;
   let fixture: ComponentFixture<CmbtZoneFormComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ CmbtZoneFormComponent ]
     })

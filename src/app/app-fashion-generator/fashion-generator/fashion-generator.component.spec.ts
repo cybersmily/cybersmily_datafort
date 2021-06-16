@@ -6,7 +6,7 @@ import { FashionSelectorComponent } from './../fashion-selector/fashion-selector
 import { FashionClothesSelectorComponent } from './../fashion-clothes-selector/fashion-clothes-selector.component';
 import { FashionInputComponent } from './../fashion-input/fashion-input.component';
 import { FashionListComponent } from './../fashion-list/fashion-list.component';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { FashionGeneratorComponent } from './fashion-generator.component';
 import { DataService } from './../../shared/services/file-services/data.service';
@@ -19,7 +19,7 @@ describe('FashionGeneratorComponent', () => {
   let pieceOfClothing: Clothing;
   let clothingList: ClothingLists;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         FashionGeneratorComponent,

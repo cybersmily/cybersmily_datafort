@@ -1,7 +1,7 @@
 import { DiceService } from './../dice/dice.service';
 import { DataService } from './../file-services';
 import { HttpClientModule } from '@angular/common/http';
-import { TestBed, inject, async } from '@angular/core/testing';
+import { TestBed, inject, waitForAsync } from '@angular/core/testing';
 
 import { StyleGeneratorService } from './style-generator.service';
 
@@ -19,7 +19,7 @@ describe('StyleGeneratorService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should have motivations', async(inject([StyleGeneratorService], (service: StyleGeneratorService) => {
+  it('should have motivations', waitForAsync(inject([StyleGeneratorService], (service: StyleGeneratorService) => {
     service.GenerateStyles('CP2020').subscribe( data => {
       expect(data).toBeTruthy('Does not have data.');
       expect(data.affectations && data.affectations !== '').toBeTruthy('Does not have affectations.');

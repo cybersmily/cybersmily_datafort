@@ -4,7 +4,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { FixerHotStuffService } from './../../shared/services/fixer/fixer-hot-stuff.service';
 import { FixerBigLeagueService } from './../../shared/services/fixer/fixer-big-league.service';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { FixerCalcHotStuffComponent } from './fixer-calc-hot-stuff.component';
 
@@ -12,7 +12,7 @@ describe('FixerCalcHotStuffComponent', () => {
   let component: FixerCalcHotStuffComponent;
   let fixture: ComponentFixture<FixerCalcHotStuffComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         CommonUiModule

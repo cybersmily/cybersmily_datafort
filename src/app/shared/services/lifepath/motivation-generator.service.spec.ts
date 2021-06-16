@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './../file-services';
 import { DiceService } from './../dice/dice.service';
-import { TestBed, inject, async } from '@angular/core/testing';
+import { TestBed, inject, waitForAsync } from '@angular/core/testing';
 
 import { MotivationGeneratorService } from './motivation-generator.service';
 
@@ -21,7 +21,7 @@ describe('MotivationGeneratorService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should have motivations', async(inject([MotivationGeneratorService], (service: MotivationGeneratorService) => {
+  it('should have motivations', waitForAsync(inject([MotivationGeneratorService], (service: MotivationGeneratorService) => {
     service.GenerateMotivation('CP2020').subscribe( data => {
       expect(data).toBeTruthy();
       expect(data.feelaboutpeople && data.feelaboutpeople !== '').toBeTruthy('Does not have feelaboutpeople property.');

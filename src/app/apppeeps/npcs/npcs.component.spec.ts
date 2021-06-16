@@ -1,5 +1,5 @@
 import { ActivatedRoute } from '@angular/router';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NpcsComponent } from './npcs.component';
 import { NpcCardColumnComponent } from './../../shared/modules/npcs/npc-card-column/npc-card-column.component';

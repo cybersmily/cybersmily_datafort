@@ -1,6 +1,6 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { DiceService } from './../../shared/services/dice/dice.service';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NrDatafortComponent } from './nr-datafort.component';
 import { DataService } from './../../shared/services/file-services/data.service';
@@ -15,7 +15,7 @@ describe('NrDatafortComponent', () => {
   let row: number;
   let column: number;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ NrDatafortComponent ],
       imports: [

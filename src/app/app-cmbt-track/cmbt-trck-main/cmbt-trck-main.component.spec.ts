@@ -15,7 +15,7 @@ import { CmbtTrkCyberComponent } from './../cmbt-trk-cyber/cmbt-trk-cyber.compon
 import { CmbtTrkSkillsComponent } from './../cmbt-trk-skills/cmbt-trk-skills.component';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { CmbtTrckOpponentCardComponent } from './../cmbt-trck-opponent-card/cmbt-trck-opponent-card.component';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CmbtTrckMainComponent } from './cmbt-trck-main.component';
 
@@ -23,7 +23,7 @@ describe('CmbtTrckMainComponent', () => {
   let component: CmbtTrckMainComponent;
   let fixture: ComponentFixture<CmbtTrckMainComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         CommonUiModule,

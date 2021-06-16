@@ -1,6 +1,6 @@
 import { DataService } from './../file-services';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { TestBed, inject, async } from '@angular/core/testing';
+import { TestBed, inject, waitForAsync } from '@angular/core/testing';
 
 import { MartialArtsDataService } from './martial-arts-data.service';
 
@@ -16,7 +16,7 @@ describe('MartialArtsDataService', () => {
     });
   });
 
-  it('should be created', async(inject([MartialArtsDataService], (service: MartialArtsDataService)  => {
+  it('should be created', waitForAsync(inject([MartialArtsDataService], (service: MartialArtsDataService)  => {
     expect(service).toBeTruthy();
   })));
 });

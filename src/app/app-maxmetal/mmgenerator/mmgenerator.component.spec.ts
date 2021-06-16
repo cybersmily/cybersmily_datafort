@@ -13,7 +13,7 @@ import { MminputComponent } from './../mminput/mminput.component';
 import { MmmountsComponent } from './../mmmounts/mmmounts.component';
 import { MmaccessoriesComponent } from './../mmaccessories/mmaccessories.component';
 import { MmbuilderComponent } from './../mmbuilder/mmbuilder.component';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MmgeneratorComponent } from './mmgenerator.component';
 import { MmweaponComponent } from '../mmweapon/mmweapon.component';
@@ -23,7 +23,7 @@ describe('MmgeneratorComponent', () => {
   let component: MmgeneratorComponent;
   let fixture: ComponentFixture<MmgeneratorComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         MmgeneratorComponent,

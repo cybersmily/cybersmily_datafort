@@ -1,6 +1,6 @@
 import { DataService } from './../../shared/services/file-services/data.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NewsadminComponent } from './newsadmin.component';
 
@@ -8,7 +8,7 @@ describe('NewsadminComponent', () => {
   let component: NewsadminComponent;
   let fixture: ComponentFixture<NewsadminComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ NewsadminComponent ],
       imports: [

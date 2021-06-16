@@ -3,7 +3,7 @@ import { SeoService } from './../../shared/services/seo/seo.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './../../shared/services/file-services/data.service';
 import { DiceService } from './../../shared/services/dice/dice.service';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AppLifepathRedJumpkitComponent } from './app-lifepath-red-jumpkit.component';
 
@@ -11,7 +11,7 @@ describe('AppLifepathRedJumpkitComponent', () => {
   let component: AppLifepathRedJumpkitComponent;
   let fixture: ComponentFixture<AppLifepathRedJumpkitComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppLifepathRedJumpkitComponent

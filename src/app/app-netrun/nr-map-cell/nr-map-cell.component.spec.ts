@@ -1,6 +1,6 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { DataService } from './../../shared/services/file-services/data.service';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NrMapCellComponent } from './nr-map-cell.component';
 import { NrDatafortComponent } from '../nr-datafort/nr-datafort.component';
@@ -10,7 +10,7 @@ describe('NrMapCellComponent', () => {
   let component: NrMapCellComponent;
   let fixture: ComponentFixture<NrMapCellComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         NrMapCellComponent,

@@ -4,7 +4,7 @@ import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.modul
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './../../shared/services/file-services/data.service';
 import { SaveFileService } from './../../shared/services/file-services';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AdminCyberListComponent } from './admin-cyber-list.component';
 
@@ -12,7 +12,7 @@ describe('AdminCyberListComponent', () => {
   let component: AdminCyberListComponent;
   let fixture: ComponentFixture<AdminCyberListComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         AdminCyberListComponent

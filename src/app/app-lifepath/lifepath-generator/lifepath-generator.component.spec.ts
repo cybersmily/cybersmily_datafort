@@ -6,7 +6,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { DataService } from './../../shared/services/file-services/data.service';
 import { LifepathChartComponent } from './../lifepath-chart/lifepath-chart.component';
 import { FormsModule } from '@angular/forms';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { LifepathGeneratorComponent } from './lifepath-generator.component';
 import { LifepathFamilyComponent } from '../lifepath-family/lifepath-family.component';
@@ -16,7 +16,7 @@ describe('LifepathGeneratorComponent', () => {
   let component: LifepathGeneratorComponent;
   let fixture: ComponentFixture<LifepathGeneratorComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         LifepathGeneratorComponent,

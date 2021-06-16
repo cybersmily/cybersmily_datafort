@@ -3,7 +3,7 @@ import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.modul
 import { FashionOptionsSelectorComponent } from './../fashion-options-selector/fashion-options-selector.component';
 import { FashionSelectorComponent } from './../fashion-selector/fashion-selector.component';
 import { FashionClothesSelectorComponent } from './../fashion-clothes-selector/fashion-clothes-selector.component';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { FashionInputComponent } from './fashion-input.component';
 
@@ -19,7 +19,7 @@ describe('FashionInputComponent', () => {
   let testArmor: ClothingArmor;
   let testArmorArray: Array<ClothingArmor>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         FashionInputComponent,
