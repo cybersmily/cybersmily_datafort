@@ -36,6 +36,7 @@ export class CmbtTrkSkillsComponent implements OnInit, OnChanges {
   skills: Array<DataSkill> = new Array<DataSkill>();
   skillResults = '';
 
+
   constructor(private diceRoll: DiceService, private skillList: SkillListService) { }
 
   ngOnInit() {
@@ -89,9 +90,13 @@ export class CmbtTrkSkillsComponent implements OnInit, OnChanges {
     }
 
     this.skillResults = status + total.join(' + ') + '(Rolls)  + '
-    + this.opponent.stats[skill.stat.toUpperCase()].Adjusted
+    + this.getStatValue(skill.stat.toUpperCase())
     + '(stat) + '
     +  skill.value + '(skill) = ' + result;
+  }
+
+  getStatValue(stat: string): number {
+    return this.opponent.stats[stat.toUpperCase()].Adjusted;
   }
 
   generateSkillLevels() {

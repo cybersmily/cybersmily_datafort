@@ -43,7 +43,7 @@
             <div class="col-8 opp-skill-name">
               <fa-icon [icon]="faTrash" class="opp-skill-delete csd-btn" title="Remove skill" (click)="deleteSkill(i)">
               </fa-icon>
-              {{(skill.roleChoice)?'@':''}}{{skill.name|parse}} [{{skill.stat|uppercase}}]
+              {{(skill.roleChoice)?'@':''}}{{skill.name|parse}} [{{skill.stat|uppercase}}]  ({{skill.value + getStatValue(skill.stat.toUpperCase())}})
 
             </div>
             <div class="col-2">
