@@ -75,7 +75,7 @@ describe('NrMapDataService', () => {
       ]
     };
 
-    spyOn(loadService, 'nrMapData').and.returnValue(of(testNRData));
+    // spyOn(loadService, 'nrMapData').and.returnValue(of(testNRData));
     spyOn(loadService, 'getNRMap').and.callFake( (param) => {
       if (param === 'reg/afr.json') {
         return of(testAfrikaniMap);

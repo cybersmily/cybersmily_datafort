@@ -1,3 +1,4 @@
+import { of } from 'rxjs';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { DataService } from './../file-services';
 import { DiceService } from './../dice/dice.service';
@@ -42,7 +43,7 @@ describe('NameGeneratorService', async () => {
       expect(service).toBeTruthy();
     });
     it('should generate name from loading the file', (done: DoneFn) => {
-      spyOn(dataService, 'GetJson').and.returnValue([testNameData]);
+      spyOn(dataService, 'GetJson').and.returnValue(of([testNameData]));
       service.generateName().subscribe(data => {
         expect(data).toBeTruthy();
         expect(data).not.toContain('undefine');

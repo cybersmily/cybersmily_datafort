@@ -73,7 +73,9 @@ describe('NrTrackerService', () => {
     });
 
     it('should be undefined', () => {
-      spyOn(dice, 'rollDice').and.returnValue(3);
+      const die = new DiceRolls();
+      die.rolls.push(3);
+      spyOn(dice, 'rollDice').and.returnValue(die);
       const result = service.hackLDL(undefined);
       expect(result).toBeUndefined();
     });
