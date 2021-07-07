@@ -1,0 +1,38 @@
+{
+  "food": [
+    "Ramen noodles",
+    "Pizza",
+    "Hamburgers",
+    "Smash",
+    "Sushi",
+    "Hot Meat",
+    "1kg bags of kibble",
+    "Canned Coffee",
+    "Canned Juice",
+    "Canned Soft Drinks"
+  ],
+  "personal": [
+    "Canned T-shirts",
+    "Sex Toys",
+    "Umbrellas",
+    "Ties",
+    "Surgical Masks",
+    "Underwear",
+    "Floral Arrangements",
+    "Guns & Ammo",
+    "Braindance Chips",
+    "Video Games"
+  ],
+  "weird": [
+    "Pet Wigs",
+    "Bug Snacks",
+    "Balls of Lettuce",
+    "Flying Fish Soup",
+    "Vat-Grown Seafood",
+    "Canned Smells",
+    "Live Rhinoceros Beetles",
+    "Paper Cosplay Costumes",
+    "Bizarre Capsule Toys",
+    "Used Panties"
+  ]
+}
