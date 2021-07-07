@@ -405,6 +405,21 @@ export class Cp2020PlayerSkills {
     }
   }
 
+  addSkill(skill: Cp2020PlayerSkill) {
+    this.skills.push(skill);
+  }
+  deleteSkill(skill: Cp2020PlayerSkill) {
+    const index = this.skills.findIndex(sk => {
+      if (skill.option) {
+        return sk.name.toLocaleLowerCase() === skill.name.toLocaleLowerCase() && sk.option.toLocaleLowerCase() === skill.option.toLocaleLowerCase();
+      }
+      return sk.name.toLocaleLowerCase() === skill.name.toLocaleLowerCase();
+    });
+    if (index > -1) {
+      this.skills.splice(index, 1);
+    }
+  }
+
   addExpert( skillName: string) {
     const index = this.INT.findIndex(sk => sk.name.toLowerCase() === 'expert');
     this.INT[index].option = skillName.replace('Expert: ', '');

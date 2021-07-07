@@ -1,1 +1,27 @@
-<p>cp2020-skill-list-short works!</p>
+<div class="chargen-section">
+  <div class="cp2020-label row no-gutters">
+    <div class="col">
+      <h4 class="d-inline-block">SKILLS</h4>
+      <span class="float-right">
+        General IP: <input [(ngModel)]="skills.ip" type="number" class="chargen-general-ip-input" (change)="onChangeSkill()" />
+      </span>
+    </div>
+  </div>
+
+<ng-template #SkillSection let-title="title" let-stat="stat" let-skills="skills" let-spclAbility="spclAbility">
+  <div class="row no-gutters border border-dark mt-1 mb-1">
+    <div class="col-12">
+      <div class="chargen-skill-stat">{{title}}</div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 order-1 pl-1 pr-1 border-lg border-dark">
+      <cs-cp2020-skill *ngFor="let skill of getColumnOne(skills)" [skill]="skill" (changeSkill)="onChangeSkill($event)" [stat]="stat" [isSpecialAbility]="spclAbility"></cs-cp2020-skill>
+    </div>
+    <div class="col-12 col-md-6 order-md-3 order-lg-2 col-lg-4 pl-1 pr-1 border-lg border-dark">
+      <cs-cp2020-skill *ngFor="let skill of getColumnTwo(skills)" [skill]="skill" (changeSkill)="onChangeSkill($event)" [stat]="stat" [isSpecialAbility]="spclAbility" ></cs-cp2020-skill>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4  order-md-2 order-lg-3 pl-1 pr-1 border-lg border-dark">
+      <cs-cp2020-skill *ngFor="let skill of getColumnThree(skills)" [skill]="skill" (changeSkill)="onChangeSkill($event)" [stat]="stat" [isSpecialAbility]="spclAbility" ></cs-cp2020-skill>
+    </div>
+  </div>
+</ng-template>
+
