@@ -6,10 +6,13 @@ import { CommonModule } from '@angular/common';
 
 import { AppNightMarketRoutingModule } from './app-night-market-routing.module';
 import { NightMarketFormComponent } from './night-market-form/night-market-form.component';
+import { VenditFormComponent } from './vendit-form/vendit-form.component';
+import { BodegasFormComponent } from './bodegas-form/bodegas-form.component';
+import { EconomyFormComponent } from './economy-form/economy-form.component';
 
 
 @NgModule({
-  declarations: [NightMarketFormComponent],
+  declarations: [NightMarketFormComponent, VenditFormComponent, BodegasFormComponent, EconomyFormComponent],
   imports: [
     CommonModule,
     CommonUiModule,

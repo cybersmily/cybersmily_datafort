@@ -1,9 +1,9 @@
-import { NightMarketFormComponent } from './night-market-form/night-market-form.component';
+import { EconomyFormComponent } from './economy-form/economy-form.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const nmRoutes: Routes = [{
-  path: '', component: NightMarketFormComponent
+  path: '', component: EconomyFormComponent
 }];
 
 @NgModule({

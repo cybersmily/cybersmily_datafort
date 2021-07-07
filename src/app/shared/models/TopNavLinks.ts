@@ -141,7 +141,9 @@ export interface SiteLinksGroup {
           {title: 'Headline Generator', link: 'apps/headlines', desc: 'Utility to generate news headlines for Cyberpunk 2020/Red.'},
           {title: 'LifePath Red Generator', link: 'apps/lpredjmp', desc: 'Cyberpunk Red lifepath generator.'},
           {title: 'NET Architect Generator', link: 'apps/rednet', desc: 'Cyberpunk Red NET Architect generator.'},
-          {title: 'Night Market Generator', link: 'apps/nightmarket', desc: 'Night Market generator for Cyberpunk Red.'}
+          {title: 'Night Market Generator', link: 'apps/nightmarket', desc: 'Night Market generator for Cyberpunk Red.'},
+          {title: 'Bodegas Generator', link: 'apps/nightmarket', desc: 'Bodegas generator for Cyberpunk Red.'},
+          {title: 'Vendit Generator', link: 'apps/nightmarket', desc: 'Vendit generator for Cyberpunk Red.'}
         ]
       });
       this.menuItems.push({

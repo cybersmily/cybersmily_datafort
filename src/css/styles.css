@@ -7,6 +7,10 @@ INPUT {
   margin-bottom: 3px !important;
 }
 
+INPUT.csd-number {
+  width: 50px;
+}
+
 .csd-box {
   background-color: #ddd;
   color: #333;
