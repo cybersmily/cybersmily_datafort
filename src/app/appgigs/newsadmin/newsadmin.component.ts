@@ -23,7 +23,7 @@ export class NewsadminComponent implements OnInit {
   newsItems: GigNewsItem = new GigNewsItem();
 
   newNewsItem: NewsItem = { title: 'Nightly Report 2022-00-00', reports: new Array<NewsReport>()};
-  newNewsReport: NewsReport = {img: 'tphillips', reporter: 'Tom Phillps', commentary: ''};
+  newNewsReport: NewsReport = {img: 'tphillips', reporter: 'Tom Phillips', commentary: ''};
 
   rprtrs: Array<{img: string, reporter: string}> = [
     { img: 'tphillips',  reporter: 'Tom Phillips'},
@@ -86,9 +86,11 @@ export class NewsadminComponent implements OnInit {
   }
 
   addNewReport() {
+    const reporter = this.rprtrs.find( r => r.reporter === this.newNewsReport.reporter);
+    console.log(reporter);
     this.newNewsItem.reports.push({
-      img: this.rprtrs.find( r => r.reporter === this.newNewsReport.reporter).img,
-      reporter: this.newNewsReport.reporter,
+      img: reporter.img,
+      reporter: reporter.reporter,
       commentary: this.newNewsReport.commentary
     });
     this.newNewsReport = {img: 'tphillips', reporter: 'Tom Phillps', commentary: ''};
@@ -102,8 +104,9 @@ export class NewsadminComponent implements OnInit {
   }
 
   addReport(i) {
+    const reporter = this.rprtrs.find( r => r.reporter === this.newNewsReport.reporter);
     this.newsItems.news[i].reports.push({
-      img: this.rprtrs.find( r => r.reporter === this.newNewsReport.reporter).img,
+      img: reporter.img,
       reporter: this.newNewsReport.reporter,
       commentary: this.newNewsReport.commentary
     });
