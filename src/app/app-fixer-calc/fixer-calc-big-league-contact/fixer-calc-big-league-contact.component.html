@@ -1,7 +1,9 @@
 <div *ngIf="!editMode; else inEditMode">
 <div class="row">
   <div class="col-3">{{contact.name}}</div>
-  <div class="col" title="Skill check {{(contact.capability)?contact.capability.effect:''}}">{{(contact.capability)?contact.capability.name:''}})({{contact.cost}}pts)</div>
+  <div class="col" title="Skill check {{(contact.capability)?contact.capability.effect:''}}">
+    {{(contact.capability)?contact.capability.name:''}}({{(contact.capability)?contact.capability.cost:0}}pts)
+  </div>
   <div class="col" title="{{(contact.reputation)?contact.reputation.effect:''}}">{{(contact.reputation)?contact.reputation.name+'(x'+contact.reputation.multiplier+')':''}}</div>
   <div class="col" title="Availablity Check {{(contact.availability)?contact.availability.effect:''}}">{{(contact.availability)?contact.availability.name+'(x'+contact.availability.multiplier+')':''}}</div>
   <div class="col" title="{{(contact.reliability)?contact.reliability.effect:''}}">{{(contact.reliability)?contact.reliability.name+'(x'+contact.reliability.multiplier+')':''}}</div>

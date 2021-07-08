@@ -1,3 +1,4 @@
+import { DiceService } from './../../shared/services/dice/dice.service';
 import { FixerCalcBigLeagueContactNewComponent } from './../fixer-calc-big-league-contact-new/fixer-calc-big-league-contact-new.component';
 import { FixerCalcBigLeagueContactComponent } from './../fixer-calc-big-league-contact/fixer-calc-big-league-contact.component';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
@@ -21,7 +22,8 @@ describe('FixerCalcBigLeagueComponent', () => {
         CommonUiModule
       ],
       providers: [
-        FixerBigLeagueService
+        FixerBigLeagueService,
+        DiceService
       ]
     })
     .compileComponents();

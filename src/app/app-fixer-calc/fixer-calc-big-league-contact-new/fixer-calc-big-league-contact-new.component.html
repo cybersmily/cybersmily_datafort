@@ -13,7 +13,9 @@
           <span class="csd-required">
             <input [(ngModel)]="newContact.name" type="text"
               title="Enter the unique name/short description. Ex. 'Police Sgt', 'Militech Middle Management', 'Fence near docks'"
-              placeholder="Enter contact..." class="big-league-new-contact" /></span>
+              placeholder="Enter contact..." class="big-league-new-contact" />
+          </span>
+          <fa-icon [icon]="faDice" class="csd-btn csd-icon-btn" title="Generate a random contact" (click)="generateContact()"></fa-icon>
         </div>
         <div class="col-auto big-league-select">
           <span class="csd-required">

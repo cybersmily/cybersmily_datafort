@@ -12,7 +12,11 @@
     title="Streetdeal skill level"
     (change)="changeStreetdeal()" class="text-center">
   </div>
-  <div class="col-6">Contact Points Used: {{spentPoints}}/{{totalPoints}}</div>
+  <div class="col-6">
+    Contact Points Used: {{spentPoints}}/{{totalPoints}}
+    <fa-icon *ngIf="canGenerateContacts" [icon]="faDice" class="csd-btn csd-icon-btn csd-icon-xl float-right" title="Generate list of contacts" (click)="generateContacts()"></fa-icon>
+
+  </div>
 </div>
 <br>
 <div class="csd-rounded">
@@ -36,6 +40,7 @@
 <br>
 <cs-fixer-calc-big-league-contact-new [availablePoints]="availablePoints"
 [contacts]="contacts"
+[contactTypes]="contactList"
 (addContact)="addContact($event)"
 class="hidden-print"
 ></cs-fixer-calc-big-league-contact-new>

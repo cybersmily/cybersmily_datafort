@@ -1,3 +1,5 @@
+import { FixerBigLeagueService } from './../../shared/services/fixer/fixer-big-league.service';
+import { DiceService } from './../../shared/services/dice/dice.service';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
@@ -10,7 +12,11 @@ describe('FixerCalcBigLeagueContactNewComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ FixerCalcBigLeagueContactNewComponent ],
-      imports: [CommonUiModule]
+      imports: [CommonUiModule],
+      providers: [
+        DiceService,
+        FixerBigLeagueService
+      ]
     })
     .compileComponents();
   }));
