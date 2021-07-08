@@ -1,3 +1,5 @@
+import { DataService } from './../shared/services/file-services/data.service';
+import { DiceService } from './../shared/services/dice/dice.service';
 import { SaveFileService } from './../shared/services/file-services';
 import { FixerHotStuffService } from './../shared/services/fixer/fixer-hot-stuff.service';
 import { FixerBigLeagueService } from './../shared/services/fixer/fixer-big-league.service';
@@ -31,7 +33,9 @@ import { FixerCalcBigLeagueContactComponent } from './fixer-calc-big-league-cont
   providers: [
     FixerBigLeagueService,
     FixerHotStuffService,
-    SaveFileService
+    SaveFileService,
+    DiceService,
+    DataService
   ]
 })
 export class AppFixerCalcModule {

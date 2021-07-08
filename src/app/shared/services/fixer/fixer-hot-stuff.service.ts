@@ -1,7 +1,9 @@
+import { DiceService } from './../dice/dice.service';
 import { HotStuffModel } from './../../models/fixer/hot-stuff-model';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { HotStuffArea } from './../../models/fixer/hot-stuff-area';
 import { Injectable } from '@angular/core';
+import { ChartItem } from '../../cp2020/cp2020-fixerCalc/fixerchart';
 
 @Injectable({
   providedIn: 'root'
@@ -51,6 +53,41 @@ export class FixerHotStuffService {
     const index = this.curModel.areas.findIndex( a => a.area === area.area);
     this.curModel.areas[index] = area;
     this.updateModel();
+  }
+
+  randomlyGenerate(dice: DiceService, fields: Array<string>) {
+    // check to see if there are available points
+    let numOfRolls = this.getMaxRoll(this.totalPoints - this.spentPoints);
+    // loop until there is no more possible rolls
+    while(numOfRolls > 0) {
+      // generate an area
+      const area = new HotStuffArea();
+      // check to make sure there are no duplicate areas
+      do {
+        area.area = fields[dice.generateNumber(0, fields.length - 1)];
+      } while(this.curModel.areas.some(f => f.area === area.area));
+      area.rolls = dice.generateNumber(1, numOfRolls);
+      this.curModel.areas.push(area);
+      this.curModel.areas.sort( (a, b) => (a.area > b.area) ? 1 : -1);
+      this.updateModel();
+      numOfRolls = this.getMaxRoll(this.totalPoints - this.spentPoints);
+    }
+  }
+
+  private getMaxRoll(remaingPoints: number): number {
+    // return the number of rolls based on available points
+    if (remaingPoints < 4) {
+      return 0;
+    } else if(remaingPoints > 3 && remaingPoints < 8) {
+      return 1;
+    } else if(remaingPoints > 7 && remaingPoints < 16) {
+      return 2;
+    } else if(remaingPoints > 15 && remaingPoints < 32) {
+      return 3;
+    } else if(remaingPoints > 31 && remaingPoints < 64) {
+      return 4;
+    }
+    return 5;
   }
 
   reset() {

@@ -2,11 +2,11 @@
   <div class="col-5">
     <span>{{area.area}}</span>
   </div>
-  <div class="col-3">
+  <div class="col-3 text-center">
   <span *ngIf="!editMode">{{area.rolls}}</span>
   <input *ngIf="editMode" type="number" min="0" max="6" [(ngModel)]="area.rolls">
   </div>
-  <div class="col-3">{{area.points}}</div>
+  <div class="col-3 text-center">{{area.points}}</div>
   <div class="col-1">
     <fa-icon *ngIf="!editMode" [icon]="faPen" (click)="onEdit()"
       class="csd-btn csd-icon-btn hidden-print"

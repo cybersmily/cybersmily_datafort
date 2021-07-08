@@ -1,3 +1,6 @@
+import { DiceService } from './../../shared/services/dice/dice.service';
+import { DataService } from './../../shared/services/file-services/data.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { FixerCalcBigLeagueContactNewComponent } from './../fixer-calc-big-league-contact-new/fixer-calc-big-league-contact-new.component';
@@ -20,7 +23,8 @@ describe('FixerCalcMainComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        CommonUiModule
+        CommonUiModule,
+        HttpClientTestingModule
       ],
       declarations: [
         FixerCalcMainComponent,
@@ -33,7 +37,9 @@ describe('FixerCalcMainComponent', () => {
       providers: [
         FixerHotStuffService,
         FixerBigLeagueService,
-        SeoService
+        SeoService,
+        DataService,
+        DiceService
       ]
     })
     .compileComponents();

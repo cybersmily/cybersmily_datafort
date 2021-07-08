@@ -9,19 +9,22 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-6">Streetdeal:
+  <div class="col-3">Streetdeal:
     <input [(ngModel)]="streetdeal" type="number" min="0" max="10" (change)="changeStreetdeal()" class="text-center"
       title="Streetdeal skill level">
   </div>
   <div class="col-6">Network Points Used: {{spentPoints}}/{{totalPoints}}
+  </div>
+  <div class="col-3 text-right">
+    <fa-icon *ngIf="canRoll" [icon]="faDice" class="csd-btn csd-icon-btn csd-icon-xl" title="Generate randomly" (click)="generate()"></fa-icon>
   </div>
 </div>
 <br>
 <div class="csd-rounded">
   <div class="row header-row">
     <div class="col-5">Area/Field </div>
-    <div class="col-3">Extra Rolls</div>
-    <div class="col-3">Network Points</div>
+    <div class="col-3 text-center">Extra Rolls</div>
+    <div class="col-3 text-center">Network Points</div>
     <div class="col-1"></div>
   </div>
   <cs-fixer-calc-hot-stuff-area *ngFor="let a of areas; let i = index" [area]="a" [index]="i"
@@ -41,6 +44,7 @@
             <input [(ngModel)]="newArea.area" type="text" placeholder="Enter area/field..."
               title="Required. Cannot be an area/field that already exists.">
           </span>
+          <fa-icon [icon]="faDice" class="csd-btn csd-icon-btn" title="Randomly generate area of expertise" (click)="generateArea()"></fa-icon>
         </div>
         <div class="col">
           <span class="csd-required">

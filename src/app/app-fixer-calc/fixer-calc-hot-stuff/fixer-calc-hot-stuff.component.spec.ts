@@ -1,7 +1,7 @@
+import { DataService } from './../../shared/services/file-services/data.service';
+import { DiceService } from './../../shared/services/dice/dice.service';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { FixerCalcHotStuffAreaComponent } from './../fixer-calc-hot-stuff-area/fixer-calc-hot-stuff-area.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FormsModule } from '@angular/forms';
 import { FixerHotStuffService } from './../../shared/services/fixer/fixer-hot-stuff.service';
 import { FixerBigLeagueService } from './../../shared/services/fixer/fixer-big-league.service';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
@@ -23,7 +23,9 @@ describe('FixerCalcHotStuffComponent', () => {
       ],
       providers: [
         FixerBigLeagueService,
-        FixerHotStuffService
+        FixerHotStuffService,
+        DiceService,
+        DataService
       ]
     })
     .compileComponents();
