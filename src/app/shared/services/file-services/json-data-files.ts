@@ -33,6 +33,8 @@ export class JsonDataFiles {
   public static CP2020_SHOP_CYBERWARE_JSON =  `/json/shop/shopcyber.json`;
   public static CP2020_SHOP_OTHER_JSON =  `/json/shop/shopother.json`;
 
+  public static CP2020_FIXER_CONTACTS_JSON = `/json/apps/fixercalc/fixercontacts.json`;
+
   // APPS data
   public static CP_NAMES_JSON = `/json/apps/namegen/names.json`;
   public static CP_COLORS_JSON = `/json/apps/namegen/colors.json`;
