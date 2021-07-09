@@ -1,7 +1,9 @@
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { DiceService } from './../../shared/services/dice/dice.service';
-import { faPlus, faDice } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faDice, faCog } from '@fortawesome/free-solid-svg-icons';
 import { Clothing, PieceOfClothing, ClothingOption, ClothingArmor } from '../../shared/models/clothing';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
+import { CP2020ClothingRandomSettings } from './../../shared/models/clothing/clothing-random-settings';
 
 @Component({
   selector: 'cs-fashion-input',
@@ -11,9 +13,16 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class FashionInputComponent implements OnInit {
   faPlus = faPlus;
   faDice = faDice;
+  faCog = faCog;
+
+  modalRef: BsModalRef;
 
   currClothing: Clothing;
   spRatingsList: ClothingArmor[];
+  settings: CP2020ClothingRandomSettings = new CP2020ClothingRandomSettings();
+  currSettings = this.settings;
+
+  localStorageKey = "csd-fashion-settings";
 
   // piece of clothes
   @Input()
@@ -38,11 +47,15 @@ export class FashionInputComponent implements OnInit {
   @Output()
   purchaseClothing: EventEmitter<Clothing> = new EventEmitter<Clothing>();
 
-  constructor(private dice: DiceService) { }
+  constructor(private dice: DiceService, private modalService: BsModalService) { }
 
   ngOnInit() {
     this.currClothing = new Clothing();
     this.spRatingsList = new Array();
+    const settings = JSON.parse(localStorage.getItem(this.localStorageKey));
+    if (settings) {
+      this.currSettings = settings;
+    }
   }
 
 
@@ -52,38 +65,51 @@ export class FashionInputComponent implements OnInit {
    * @memberof FashionInputComponent
    */
   generate() {
-    this.currClothing = new Clothing();
-    this.currClothing.clothes = this.clothes[this.dice.generateNumber(0, this.clothes.length - 1)];
-    this.currClothing.quality = this.qualityList[this.dice.generateNumber(0, this.qualityList.length - 1)];
-    this.currClothing.style = this.styleList[this.dice.generateNumber(0, this.styleList.length - 1)];
-
-    // set the SP rating list to randomly choose a SP
-    this.setSPRatingList();
-    // randomly generate SP rating
-    let spRoll = this.dice.generateNumber(0, this.spRatingsList.length + 3);
-    spRoll = spRoll - 4;
-    if (spRoll > -1) {
-      this.currClothing.spRating = this.spRatingsList[spRoll];
-    }
-
-    // roll number of options with a low chance of getting them.
-    let numOfOptions = this.dice.generateNumber(0, this.optionsList.length + 3);
-    numOfOptions = numOfOptions - 3;
-    if ( numOfOptions > 0) {
-      for( let i = 0; i < numOfOptions; i++)
-      {
-        let newOpt;
-        do {
-          newOpt = this.optionsList[this.dice.generateNumber(0, this.optionsList.length - 1)];
-        } while(this.currClothing.options.some( opt => opt.name === newOpt.name));
-        this.currClothing.options.push(newOpt);
+    do {
+      this.currClothing = new Clothing();
+      this.currClothing.clothes = this.clothes[this.dice.generateNumber(0, this.clothes.length - 1)];
+      // check if a default was set.
+      if (this.currSettings.quality !== '') {
+        this.currClothing.quality = this.qualityList.filter(q => q.name === this.currSettings.quality)[0];
+      } else {
+        this.currClothing.quality = this.qualityList[this.dice.generateNumber(0, this.qualityList.length - 1)];
       }
-    }
-    //check if it can be leather
-    if (typeof this.currClothing.clothes.leather !== 'undefined') {
-      this.currClothing.isLeather = (this.dice.generateNumber(0,10) < 3);
-    }
-    this.calculateTotal();
+      if (this.currSettings.style !== '') {
+        this.currClothing.style = this.styleList.filter(q => q.name === this.currSettings.style)[0];
+      } else {
+        this.currClothing.style = this.styleList[this.dice.generateNumber(0, this.styleList.length - 1)];
+      }
+
+      // set the SP rating list to randomly choose a SP
+      this.setSPRatingList();
+      // randomly generate SP rating
+      const spMod = (this.currSettings.isArmor ? -1 : 3);
+      let spRoll = this.dice.generateNumber(0, this.spRatingsList.length + spMod);
+      spRoll = spRoll + (this.currSettings.isArmor ? 0 : -4);
+      if (spRoll > -1) {
+        this.currClothing.spRating = this.spRatingsList[spRoll];
+      }
+
+      if (this.currSettings.hasOptions) {
+        // roll number of options with a low chance of getting them.
+        let numOfOptions = this.dice.generateNumber(0, this.optionsList.length + 3);
+        numOfOptions = numOfOptions - 3;
+        if (numOfOptions > 0) {
+          for (let i = 0; i < numOfOptions; i++) {
+            let newOpt;
+            do {
+              newOpt = this.optionsList[this.dice.generateNumber(0, this.optionsList.length - 1)];
+            } while (this.currClothing.options.some(opt => opt.name === newOpt.name));
+            this.currClothing.options.push(newOpt);
+          }
+        }
+      }
+      //check if it can be leather
+      if (typeof this.currClothing.clothes.leather !== 'undefined') {
+        this.currClothing.isLeather = this.currSettings.isLeather ? true : (this.dice.generateNumber(0, 10) < 3);
+      }
+      this.calculateTotal();
+    } while (this.currClothing.totalCost >= this.currSettings.maxCost)
 
   }
 
@@ -98,6 +124,16 @@ export class FashionInputComponent implements OnInit {
     this.currClothing.clothes = event;
     this.setSPRatingList();
     this.calculateTotal();
+  }
+
+
+  /**
+   * Save the current settings to local storage.
+   *
+   * @memberof FashionInputComponent
+   */
+  changeSettings() {
+    localStorage.setItem(this.localStorageKey, JSON.stringify(this.currSettings));
   }
 
   private setSPRatingList() {
@@ -127,41 +163,7 @@ export class FashionInputComponent implements OnInit {
    * @memberof FashionInputComponent
    */
   calculateTotal() {
-    const price: number = Number(this.currClothing.clothes.cost);
-    let mod = 1;
-    if (this.currClothing.isLeather) {
-      const leather: number = Number(this.currClothing.clothes.leather);
-      mod = isNaN(leather) ? mod : (mod * leather);
-    }
-    if (this.currClothing.options.length > 0) {
-      // process which optionsn are chosen and add them up
-      this.currClothing.options.forEach(
-        opt => {
-          if (isNaN(opt.mod)) {
-            const optMod = opt.mod[this.currClothing.clothes.wt];
-            if (!isNaN(optMod)) {
-              mod = mod * optMod;
-            }
-          } else {
-            mod = mod * Number(opt.mod);
-          }
-        }
-      );
-    }
-    const style: number = Number(this.currClothing.style.mod);
-    if (!isNaN(style) && style > 0) {
-      mod = mod * style;
-    }
-    const quality: number = Number(this.currClothing.quality.mod);
-    if (!isNaN(quality) && quality > 0) {
-      mod = mod * quality;
-    }
-    const sp: number = Number(this.currClothing.spRating.mod);
-    if (!isNaN(sp) && sp > 0) {
-      mod = mod * sp;
-    }
-
-    this.currClothing.totalCost = mod * price;
+    this.currClothing.calculateTotal();
   }
 
   /**
@@ -233,6 +235,11 @@ export class FashionInputComponent implements OnInit {
       this.purchaseClothing.emit(JSON.parse(JSON.stringify(this.currClothing)));
     }
   }
+
+  showModal(template: TemplateRef<any>){
+    this.modalRef = this.modalService.show(template);
+  }
+
 
   /**
    * isPurchaseable is a validator for determining if the currClothing can be purchased.

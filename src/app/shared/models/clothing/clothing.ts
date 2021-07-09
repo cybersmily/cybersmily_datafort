@@ -24,6 +24,52 @@ export class Clothing {
       this.isLeather = false;
       this.options = new Array();
     }
+
+    /**
+   * Calculates the total cost of the piece of clothing.
+   * Each modifier is multiplied together and then
+   * multiplied the PieceOfClothing base cost.
+   * @memberof FashionInputComponent
+   */
+  calculateTotal() {
+    const price: number = Number(this.clothes.cost);
+    let mod = 1;
+    if (this.isLeather) {
+      const leather: number = Number(this.clothes.leather);
+      mod = isNaN(leather) ? mod : (mod * leather);
+    }
+    if (this.options.length > 0) {
+      // process which optionsn are chosen and add them up
+      this.options.forEach(
+        opt => {
+          if (isNaN(opt.mod)) {
+            const optMod = opt.mod[this.clothes.wt];
+            if (!isNaN(optMod)) {
+              mod = mod * optMod;
+            }
+          } else {
+            mod = mod * Number(opt.mod);
+          }
+        }
+      );
+    }
+    const style: number = Number(this.style.mod);
+    if (!isNaN(style) && style > 0) {
+      mod = mod * style;
+    }
+    const quality: number = Number(this.quality.mod);
+    if (!isNaN(quality) && quality > 0) {
+      mod = mod * quality;
+    }
+    const sp: number = Number(this.spRating.mod);
+    if (!isNaN(sp) && sp > 0) {
+      mod = mod * sp;
+    }
+
+    this.totalCost = Math.ceil(mod * price);
+  }
+
+
 }
 
 
