@@ -1,7 +1,11 @@
+import { LifeEventsGeneratorService } from './../../shared/services/lifepath/life-events-generator.service';
+import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
+import { forkJoin } from 'rxjs';
+import { DataService } from './../../shared/services/file-services/data.service';
 import { NrDeckChassis } from './../../shared/models/netrun/nr-deck-chassis';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { NrDeckDataService } from './../../shared/services/netrun/nr-deck-data.service';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020NetrunDeck, NrDeckData, NrDeckOption } from '../../shared/models/netrun';
 import { Component, OnInit, TemplateRef, EventEmitter, Output, Input, OnChanges } from '@angular/core';
 
@@ -12,6 +16,7 @@ import { Component, OnInit, TemplateRef, EventEmitter, Output, Input, OnChanges 
 })
 export class DeckFormComponent implements OnInit, OnChanges {
   faPlus = faPlus;
+  faSearch = faSearch;
   modalRef: BsModalRef;
 
   @Input()
@@ -20,6 +25,7 @@ export class DeckFormComponent implements OnInit, OnChanges {
   selectedChassis: NrDeckChassis;
 
   deckData: NrDeckData = { chassis: [], options: new Array<NrDeckOption>()};
+  deckListData: Array<Cp2020NetrunDeck> = new Array<Cp2020NetrunDeck>();
 
   @Output()
   update: EventEmitter<Cp2020NetrunDeck> = new EventEmitter<Cp2020NetrunDeck>();
@@ -29,12 +35,16 @@ export class DeckFormComponent implements OnInit, OnChanges {
   };
 
   constructor(private deckDataService: NrDeckDataService,
-    private modalService: BsModalService) { }
+    private modalService: BsModalService,
+    private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.deckDataService.getDeckData()
+    forkJoin([
+      this.deckDataService.getDeckData(),
+      this.dataService.GetJson(JsonDataFiles.CP2020_DECKS_PROGRAMS_JSON)
+    ])
     .subscribe( data => {
-      this.deckData = data;
+      this.deckData = data[0];
       if (this.deck.options.length > 0){
         this.deck.options.forEach( opt => {
           const i = this.deckData.options.findIndex( o => o.name === opt.name);
@@ -44,6 +54,14 @@ export class DeckFormComponent implements OnInit, OnChanges {
         });
       }
       this.selectedChassis = this.deck.type;
+
+      // load the list of decks
+      if (data[1].decks && Array.isArray(data[1].decks)){
+        data[1].decks.forEach(deck => {
+          const newDeck = new Cp2020NetrunDeck(deck);
+          this.deckListData.push(newDeck);
+        });
+      }
     });
 
   }
@@ -52,7 +70,7 @@ export class DeckFormComponent implements OnInit, OnChanges {
     this.selectedChassis = this.deck.type;
   }
 
-  showOptions(template: TemplateRef<any>) {
+  showModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, this.config);
   }
 
@@ -73,5 +91,10 @@ export class DeckFormComponent implements OnInit, OnChanges {
 
   compare(a: NrDeckChassis, b: NrDeckChassis) {
     return a  && b ? a.name === b.name : a === b;
+  }
+
+  selectDeck(index: number) {
+    this.deck = this.deckListData[index];
+    this.modalRef.hide();
   }
 }

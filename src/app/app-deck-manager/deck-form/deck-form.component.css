@@ -19,3 +19,7 @@ textarea {
   width: 40px;
   text-align: right;
 }
+
+.csd-deck-list-item:hover {
+  background-color: #AAA;
+}

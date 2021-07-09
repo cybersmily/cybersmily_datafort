@@ -7,6 +7,7 @@
     <div class="col">
       Name: <input type="text" [(ngModel)]="deck.name" placeholder="Enter name of the deck..."
         title="Name of the cyberdeck" class="csd-deck-name">
+        <fa-icon [icon]="faSearch" class="csd-btn csd-icon-btn ml-2" title="Lookup source decks..." (click)="showModal(deckListModal)"></fa-icon>
       <span class="float-right">
         {{deck.cost|number}}eb
       </span>
@@ -79,3 +80,33 @@
     </div>
   </div>
 </div>
+<ng-template #deckListModal class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Deck from Cyberpunk 2020 Sources</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="showModal(deckListModal)">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col">Name</div>
+        <div class="col-2">Chassis</div>
+        <div class="col-1 text-center">Spd</div>
+        <div class="col-1 text-center">DW</div>
+        <div class="col-1 text-center">MU</div>
+        <div class="col text-center">Book Cost</div>
+      </div>
+      <div class="row csd-deck-list-item" *ngFor="let deck of deckListData;let i = index" (click)="selectDeck(i)">
+        <div class="col small">{{deck.name}}</div>
+        <div class="col-2 small">{{deck.type.name}}</div>
+        <div class="col-1 text-center small">{{deck.speed}}</div>
+        <div class="col-1 text-center small">{{deck.dataWall}}</div>
+        <div class="col-1 text-center small">{{deck.mu}}</div>
+        <div class="col text-center small">{{deck.bookPrice | number}}eb</div>
+      </div>
+    </div>
+    </div>
+  </div>
+</ng-template>

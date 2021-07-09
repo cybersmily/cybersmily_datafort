@@ -1,3 +1,4 @@
+import { DataService } from './../shared/services/file-services/data.service';
 import { PipesModule } from './../shared/pipes/pipes.module';
 import { SourcebookPipe } from './../shared/pipes/sourcebook.pipe';
 import { FormsModule } from '@angular/forms';
@@ -26,6 +27,8 @@ import { DeckFormComponent } from './deck-form/deck-form.component';
     PipesModule,
     AppDeckManagerRoutingModule
   ],
-  providers: []
+  providers: [
+    DataService
+  ]
 })
 export class AppDeckManagerModule { }
