@@ -60,7 +60,8 @@ export class DeckManagerMainComponent implements OnInit {
   }
 
   save() {
-    this.saveFile.SaveAsFile('NR Deck Manager', JSON.stringify(this.deckManagerModel), 'json');
+    const fileName = this.deckManagerModel.deck.name.replace(/\s/g, '').replace(/[&\/\\#,+()$~%.'":*?<>{}@]/g,'_');
+    this.saveFile.SaveAsFile(`NRDeck_${fileName}`, JSON.stringify(this.deckManagerModel), 'json');
   }
 
 

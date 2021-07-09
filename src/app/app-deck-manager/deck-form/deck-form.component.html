@@ -19,6 +19,11 @@
         <option *ngFor="let chassis of deckData.chassis" [ngValue]="chassis" [selected]="selectedChassis && selectedChassis.name === chassis.name">{{chassis.name}}</option>
       </select>
     </div>
+    <div class="col">
+      Book Price:
+      <input type="number" [(ngModel)]="deck.bookPrice" style="width: 50%;"
+        min="0" title="Price from the source book" (change)="updateDeck()">
+    </div>
   </div>
   <div class="row">
     <div class="col-12 col-sm-6 col-lg-4">
@@ -38,8 +43,12 @@
     </div>
   </div>
   <div class="row">
+    <div class="col-1"></div>
     <div class="col">
-      <div *ngFor="let opt of deck.options" tooltip="{{opt.description}}" class="pull-left">{{opt.name}};&nbsp;</div>
+      <div *ngFor="let opt of deck.options" tooltip="{{opt.description}}" class="pull-left d-inline">
+        <span *ngIf="opt.count > 1">{{opt.count}}&nbsp;</span>
+        {{opt.name}};&nbsp;
+      </div>
     </div>
   </div>
   <div class="row">

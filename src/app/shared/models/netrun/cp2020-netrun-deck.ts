@@ -14,6 +14,7 @@ export class Cp2020NetrunDeck implements NrDeck {
   programs: Array<NrProgram>;
   description: string;
   codeGate: number;
+  bookPrice: number;
 
   constructor(param?: any) {
     this.name = (param) ? param.name : '';
@@ -27,12 +28,14 @@ export class Cp2020NetrunDeck implements NrDeck {
     this.options = (param) ? param.options : new Array<NrDeckOption>();
     this.programs = (param) ? param.programs : new Array<NrProgram>();
     this.description = (param) ? param.description : '';
+    this.bookPrice = (param) ? param.bookPrice : 0;
   }
 
   get mu(): number {
     let mu = this._mu;
     mu += ((this.doubleMu) ? 10 : 0);
-    mu += this.options.reduce( (a, b) => a + ((b.mods && b.mods['mu']) ? b.mods['mu'] : 0), 0);
+    mu += this.options.reduce( (a, b) => a + ((b.mods && b.mods['mu']) ? b.mods['mu'] * b.count : 0), 0);
+
     return mu;
   }
 
