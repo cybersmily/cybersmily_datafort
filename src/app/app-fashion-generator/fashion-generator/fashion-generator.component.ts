@@ -76,6 +76,11 @@ export class FashionGeneratorComponent implements OnInit {
     this.clothingTotal += Number(event.totalCost);
   }
 
+   /**
+   * Save the current list of clothing to a text file.
+   *
+   * @memberof FashionGeneratorComponent
+   */
   saveList() {
     if (!this.isListEmpty) {
       let output = '';

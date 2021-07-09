@@ -16,7 +16,9 @@ export class FashionOptionsSelectorComponent implements OnInit {
   @Output()
   checkOption: EventEmitter<ClothingOption[]> = new EventEmitter<ClothingOption[]>();
 
-  selectedOptions: ClothingOption[];
+  @Input()
+  selectedOptions: ClothingOption[] = new Array<ClothingOption>();
+
   constructor() { }
 
   ngOnInit() {
@@ -35,6 +37,18 @@ export class FashionOptionsSelectorComponent implements OnInit {
       return value[this.currWeight];
     }
     return value;
+  }
+
+
+  /**
+   * Check to see if the option is selected.
+   *
+   * @param {string} optName
+   * @return {*}  {boolean}
+   * @memberof FashionOptionsSelectorComponent
+   */
+  isChecked(optName: string):boolean {
+    return this.selectedOptions.some(opt => opt.name === optName);
   }
 
   toggleOption(optionName: string) {

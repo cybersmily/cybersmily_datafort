@@ -1,4 +1,5 @@
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { DiceService } from './../../shared/services/dice/dice.service';
+import { faPlus, faDice } from '@fortawesome/free-solid-svg-icons';
 import { Clothing, PieceOfClothing, ClothingOption, ClothingArmor } from '../../shared/models/clothing';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
@@ -9,6 +10,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class FashionInputComponent implements OnInit {
   faPlus = faPlus;
+  faDice = faDice;
 
   currClothing: Clothing;
   spRatingsList: ClothingArmor[];
@@ -36,11 +38,53 @@ export class FashionInputComponent implements OnInit {
   @Output()
   purchaseClothing: EventEmitter<Clothing> = new EventEmitter<Clothing>();
 
-  constructor() { }
+  constructor(private dice: DiceService) { }
 
   ngOnInit() {
     this.currClothing = new Clothing();
     this.spRatingsList = new Array();
+  }
+
+
+  /**
+   * Randomly generate clothing
+   *
+   * @memberof FashionInputComponent
+   */
+  generate() {
+    this.currClothing = new Clothing();
+    this.currClothing.clothes = this.clothes[this.dice.generateNumber(0, this.clothes.length - 1)];
+    this.currClothing.quality = this.qualityList[this.dice.generateNumber(0, this.qualityList.length - 1)];
+    this.currClothing.style = this.styleList[this.dice.generateNumber(0, this.styleList.length - 1)];
+
+    // set the SP rating list to randomly choose a SP
+    this.setSPRatingList();
+    // randomly generate SP rating
+    let spRoll = this.dice.generateNumber(0, this.spRatingsList.length + 3);
+    spRoll = spRoll - 4;
+    if (spRoll > -1) {
+      this.currClothing.spRating = this.spRatingsList[spRoll];
+    }
+
+    // roll number of options with a low chance of getting them.
+    let numOfOptions = this.dice.generateNumber(0, this.optionsList.length + 3);
+    numOfOptions = numOfOptions - 3;
+    if ( numOfOptions > 0) {
+      for( let i = 0; i < numOfOptions; i++)
+      {
+        let newOpt;
+        do {
+          newOpt = this.optionsList[this.dice.generateNumber(0, this.optionsList.length - 1)];
+        } while(this.currClothing.options.some( opt => opt.name === newOpt.name));
+        this.currClothing.options.push(newOpt);
+      }
+    }
+    //check if it can be leather
+    if (typeof this.currClothing.clothes.leather !== 'undefined') {
+      this.currClothing.isLeather = (this.dice.generateNumber(0,10) < 3);
+    }
+    this.calculateTotal();
+
   }
 
   /**
@@ -52,6 +96,11 @@ export class FashionInputComponent implements OnInit {
   changeClothing(event: PieceOfClothing) {
     this.currClothing = new Clothing();
     this.currClothing.clothes = event;
+    this.setSPRatingList();
+    this.calculateTotal();
+  }
+
+  private setSPRatingList() {
     if (this.currClothing.clothes.wt && this.currClothing.clothes.wt !== '') {
       const wt = this.currClothing.clothes.wt;
       this.spRatingsList = new Array();
@@ -69,7 +118,6 @@ export class FashionInputComponent implements OnInit {
     } else {
       this.spRatingsList = this.armoringList;
     }
-    this.calculateTotal();
   }
 
   /**

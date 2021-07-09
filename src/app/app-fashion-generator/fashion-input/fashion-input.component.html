@@ -3,6 +3,7 @@
     <div class="row">
       <div class="col-12">TYPE: <span>{{currClothing.clothes.name}}</span>
         <fa-icon [icon]="faPlus" title="Buy" [ngClass]="{'csd-btn csd-icon-btn': isPurchaseable, 'csd-disabled':!isPurchaseable , 'float-right csd-icon-xl': true}" (click)="purchase($event)"></fa-icon>
+        <fa-icon [icon]="faDice" title="Randomly generate clothing" class="csd-btn csd-icon-btn float-right csd-icon-xl ml-2 mr-2" (click)="generate()" ></fa-icon>
       </div>
     </div>
     <div class="row">
@@ -14,7 +15,10 @@
       <div class="col-12">Total Cost: <span>{{currClothing.totalCost | number}}</span>eb</div>
     </div>
     <div>
-      <cs-fashion-clothes-selector [clothing]="clothes" (selectClothing)="changeClothing($event)"
+      <cs-fashion-clothes-selector [clothing]="clothes"
+        [currSelection]="currClothing.clothes"
+        [isLeather]="currClothing.isLeather"
+        (selectClothing)="changeClothing($event)"
         (selectLeather)="selectLeather($event)"></cs-fashion-clothes-selector>
       <cs-fashion-selector [label]="'Style'" [data]="styleList"
         [selectedValue]="currClothing.style"
@@ -31,6 +35,7 @@
         (selectOption)="selectSPRating($event)"></cs-fashion-selector>
       <cs-fashion-options-selector
         [options]="optionsList"
+        [selectedOptions]="currClothing.options"
         (checkOption)="selectOptions($event)"
         [currWeight]="currClothing.clothes.wt"></cs-fashion-options-selector>
     </div>

@@ -12,11 +12,15 @@ export class FashionClothesSelectorComponent implements OnInit {
   @Input()
   clothing: PieceOfClothing[];
 
+  @Input()
   currSelection: PieceOfClothing;
+
+  @Input()
   isLeather: boolean;
 
   @Output()
   selectClothing: EventEmitter<PieceOfClothing> = new EventEmitter<PieceOfClothing>();
+
   @Output()
   selectLeather: EventEmitter<Boolean> = new EventEmitter<Boolean>();
 

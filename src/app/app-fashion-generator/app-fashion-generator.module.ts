@@ -1,3 +1,4 @@
+import { DiceService } from './../shared/services/dice/dice.service';
 import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';
 import { AppFashionGeneratorRoutingModule } from './app-fashion-generator-routing.module';
 import { NgModule } from '@angular/core';
@@ -22,6 +23,9 @@ import { FashionOptionsSelectorComponent } from './fashion-options-selector/fash
     FashionSelectorComponent,
     FashionClothesSelectorComponent,
     FashionOptionsSelectorComponent
+  ],
+  providers: [
+    DiceService
   ],
   declarations: [
     FashionInputComponent,
