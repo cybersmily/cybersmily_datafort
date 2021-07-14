@@ -2,7 +2,7 @@
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9" >
 	<url>
 		<loc>https://cybersmily.net/index.html</loc>
-		<lastmod>2021-07-08</lastmod>
+		<lastmod>2021-07-15</lastmod>
 	</url>
 	<url>
 		<loc>https://cybersmily.net/apps/chargen</loc>
@@ -30,7 +30,7 @@
 	</url>
 	<url>
 		<loc>https://cybersmily.net/apps/fixcalc</loc>
-		<lastmod>2021-05-01</lastmod>
+		<lastmod>2021-07-15</lastmod>
 	</url>
 	<url>
 		<loc>https://cybersmily.net/apps/qkpregen</loc>
@@ -42,7 +42,7 @@
 	</url>
 	<url>
 		<loc>https://cybersmily.net/apps/fashcalc</loc>
-		<lastmod>2021-05-01</lastmod>
+		<lastmod>2021-07-15</lastmod>
 	</url>
 	<url>
 		<loc>https://cybersmily.net/apps/lifepath</loc>
@@ -62,7 +62,7 @@
 	</url>
 	<url>
 		<loc>https://cybersmily.net/apps/deckmgr</loc>
-		<lastmod>2021-05-01</lastmod>
+		<lastmod>2021-07-15</lastmod>
 	</url>
 	<url>
 		<loc>https://cybersmily.net/data/chrome2</loc>

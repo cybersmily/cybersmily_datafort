@@ -2,7 +2,7 @@
   "news": [
     { "date":"2021-07",
       "entries":[
-              "<strong>07-??</strong> - Add a few random dice rolling within some of the CP2020 apps. Add a random generator for the Fixer Calculator to help out filling out quickly or give some ideas on what to add to them. Great for NPC fixers. Fashion calculator got some Randomized love as well. Now you can random roll a piece of clothing.",
+              "<strong>07-15</strong> - Add a few random dice rolling within some of the CP2020 apps. Add a random generator for the Fixer Calculator to help out filling out quickly or give some ideas on what to add to them. Great for NPC fixers. Fashion calculator got some Randomized love as well. Now you can random roll a piece of clothing.",
               "Another app updated was the Deck Manager for Cyberpunk 2020. It now has a lookup for published cyberdecks from Bartmoss Brainware Blowout.",
               "The above were on whim to implement. There is a list that is out there that I still need to work on.",
               "<ul><li>Weapon Builder for CP2020</li><li>Vehicle section on Character generator for CP2020</li><li>Integrate the fashion calculator with the Character Generator for CP2020</li><li>Character Generator for CP Red</li><li>Cyberdeck Manager inserted into the Character generator</li><li>Finally, create and extending a LifePath generator for CP Red</li></ul>",
