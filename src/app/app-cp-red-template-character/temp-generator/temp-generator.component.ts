@@ -1,3 +1,4 @@
+import { CPRedLifePathService } from './../../shared/cpred/services/cpredlifepath/c-p-red-life-path.service';
 import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { NameGeneratorService } from '../../shared/services/namegen/name-generator.service';
@@ -5,7 +6,6 @@ import { DiceService } from './../../shared/services/dice/dice.service';
 import { CpRedTemplateGeneratorService } from '../../shared/cpred/services/cpredpc/cp-red-template-generator.service';
 import { CpRedBaseCharacter } from '../../shared/cpred/models/cp-red-base-character';
 import { Component, OnInit } from '@angular/core';
-import { RedJumpkitLifepathService } from '../../shared/cpred/services/cprlifepath/red-jumpkit-lifepath.service';
 
 @Component({
   selector: 'cs-temp-generator',
@@ -20,7 +20,7 @@ export class TempGeneratorComponent implements OnInit {
 
   constructor( private templateGenerator: CpRedTemplateGeneratorService,
     private dice: DiceService,
-    private lifepathService: RedJumpkitLifepathService,
+    private lifepathService: CPRedLifePathService,
     private nameService: NameGeneratorService,
     private seo: SeoService
       ) {
@@ -45,7 +45,7 @@ export class TempGeneratorComponent implements OnInit {
     const role = this.roles[roll];
     this.templateGenerator.generateCharacter(role).subscribe(data => {
       this.character = data;
-      this.lifepathService.generateLifePath().subscribe( (lifepath) => {
+      this.lifepathService.generateJumpStart().subscribe( (lifepath) => {
         this.character.lifepath = lifepath;
           this.nameService.generateName().subscribe( name => {
             this.character.name = name;

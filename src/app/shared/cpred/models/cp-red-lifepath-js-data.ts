@@ -1,4 +1,4 @@
-export class CPRedLifepathData {
+export class CPRedLifepathJumpStartData {
   background: string[];
   motivation: string[];
   goals: string[];

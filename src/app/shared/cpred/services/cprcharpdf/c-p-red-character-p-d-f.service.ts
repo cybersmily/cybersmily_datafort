@@ -1,4 +1,4 @@
-import { CPRedLifepath } from './../../models/cpred-lifepath';
+import { CPRedLifepathJumpStart } from '../../models/cp-red-lifepath-js';
 import { Injectable } from '@angular/core';
 import { jsPDF } from 'jspdf';
 
@@ -29,7 +29,7 @@ export class CPRedCharacterPDFService {
   }
 
 
-  generateLifePahtPDF(lifepath: CPRedLifepath) {
+  generateLifePahtPDF(lifepath: CPRedLifepathJumpStart) {
     const doc = this.setupDoc();
     this.createLifePathFullPage(doc, lifepath);
     doc.save(`CPRED_LIFEPATH.pdf`);
@@ -101,7 +101,7 @@ export class CPRedCharacterPDFService {
     doc.lines(acc, left, top, [1, 1], style, true);
   }
 
-  private createLifePathFullPage(doc: jsPDF, lifePath: CPRedLifepath) {
+  private createLifePathFullPage(doc: jsPDF, lifePath: CPRedLifepathJumpStart) {
     let line = this._top;
     let left = this._left;
     this.createBackgroundBox(doc, 'FD', line, left, this._pageHeight, this._pageWidth, 10, 'red');
@@ -119,7 +119,7 @@ export class CPRedCharacterPDFService {
     line = this.createLifePathSection(doc, 'FRIENDS', lifePath.friends, line, left, 50);
 
     // Enemies
-    line = this.createLifePathSection(doc, 'ROMANCE', lifePath.enemies, line, left, 50);
+    line = this.createLifePathSection(doc, 'ENEMIES', lifePath.enemies, line, left, 50);
 
     // Romance
     line = this.createLifePathSection(doc, 'ROMANCE', [lifePath.romance], line, left, 25);

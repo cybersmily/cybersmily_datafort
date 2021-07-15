@@ -12,8 +12,10 @@ export const mainRoutes: Routes = [
   { path: 'apps/fashcalc', loadChildren: () => import('./app-fashion-generator/app-fashion-generator.module')
   .then(m => m.AppFashionGeneratorModule) },
   { path: 'apps/lifepath', loadChildren: () => import('./app-lifepath/app-lifepath.module').then(m => m.AppLifepathModule) },
-  { path: 'apps/lpredjmp', loadChildren: () => import('./app-lifepath-red-jumpkit/app-lifepath-red-jumpkit.module')
-  .then(m => m.AppLifepathRedJumpkitModule) },
+  { path: 'apps/lpredjmp', loadChildren: () => import('./app-cp-red-lifepath/app-cp-red-lifepath.module')
+  .then(m => m.AppCpRedLifepathModule) },
+  { path: 'apps/redlifepath', loadChildren: () => import('./app-cp-red-lifepath/app-cp-red-lifepath.module')
+      .then(m => m.AppCpRedLifepathModule) },
   { path: 'apps/maxmetal', loadChildren: () => import('./app-maxmetal/app-maxmetal.module').then(m => m.AppMaxmetalModule) },
   { path: 'apps/nrtrace', loadChildren: () => import('./app-netrun/app-netrun.module').then(m => m.AppNetrunModule) },
   { path: 'apps/qkpregen',

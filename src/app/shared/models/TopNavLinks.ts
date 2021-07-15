@@ -138,8 +138,8 @@ export interface SiteLinksGroup {
         links: [
           {title: 'CP Red Jumpstart Kit Character', link: 'apps/qkpregen',
             desc: 'Cyberpunk Red Character generator based on tempates for the jumpstart kit.'},
+          {title: 'LifePath for Cyberpunk Red', link: 'apps/redlifepath', desc: 'Lifepath generator for Cyberpunk Red.'},
           {title: 'Headline Generator', link: 'apps/headlines', desc: 'Utility to generate news headlines for Cyberpunk 2020/Red.'},
-          {title: 'LifePath Red Generator', link: 'apps/lpredjmp', desc: 'Cyberpunk Red lifepath generator.'},
           {title: 'NET Architect Generator', link: 'apps/rednet', desc: 'Cyberpunk Red NET Architect generator.'},
           {title: 'Night Market Generator', link: 'apps/nightmarket', desc: 'Night Market generator for Cyberpunk Red.'},
           {title: 'Bodegas Generator', link: 'apps/nightmarket', desc: 'Bodegas generator for Cyberpunk Red.'},

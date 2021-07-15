@@ -1,8 +1,7 @@
+import { CPRedLifePathService } from './../shared/cpred/services/cpredlifepath/c-p-red-life-path.service';
 import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';
 import { CPRedCharacterPDFService } from './../shared/cpred/services/cprcharpdf/c-p-red-character-p-d-f.service';
-import { RedJumpkitLifepathService } from '../shared/cpred/services/cprlifepath/red-jumpkit-lifepath.service';
 import { DiceService } from './../shared/services/dice/dice.service';
-import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -20,7 +19,7 @@ import { AppLifepathRedJumpkitComponent } from './app-lifepath-red-jumpkit/app-l
   ],
   providers: [
     DiceService,
-    RedJumpkitLifepathService,
+    CPRedLifePathService,
     CPRedCharacterPDFService
   ]
 })

@@ -1,4 +1,4 @@
-import { CPRedLifepath } from './cpred-lifepath';
+import { CPRedLifepathJumpStart } from './cp-red-lifepath-js';
 import { BaseWeapon } from './base-weapon';
 import { CpRedBaseStats } from './cp-red-base-stats';
 import { CpRedTemplateArmor } from './cp-red-template-armor';
@@ -11,7 +11,7 @@ export class CpRedBaseCharacter {
   weapons: BaseWeapon[];
   cyberware: string[];
   gear: string[];
-  lifepath: CPRedLifepath;
+  lifepath: CPRedLifepathJumpStart;
 
   constructor() {
     this.name = '';
@@ -22,6 +22,6 @@ export class CpRedBaseCharacter {
     this.weapons = new Array<BaseWeapon>();
     this.cyberware = new Array<string>();
     this.gear = new Array<string>();
-    this.lifepath = new CPRedLifepath();
+    this.lifepath = new CPRedLifepathJumpStart();
   }
 }

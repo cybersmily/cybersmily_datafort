@@ -1,4 +1,4 @@
-import { CPRedLifepath } from '../../shared/cpred/models/cpred-lifepath';
+import { CPRedLifepathJumpStart } from '../../shared/cpred/models/cp-red-lifepath-js';
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 @Component({
@@ -9,7 +9,7 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 export class TempGeneratorLifepathComponent implements OnInit, OnChanges {
 
   @Input()
-  lifepath: CPRedLifepath;
+  lifepath: CPRedLifepathJumpStart;
 
   background: Array<string>;
   motivation: Array<string>;

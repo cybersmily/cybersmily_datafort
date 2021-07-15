@@ -1,9 +1,9 @@
+import { CPRedLifePathService } from './../../shared/cpred/services/cpredlifepath/c-p-red-life-path.service';
 import { faFilePdf, faSave, faDice } from '@fortawesome/free-solid-svg-icons';
 import { CPRedCharacterPDFService } from './../../shared/cpred/services/cprcharpdf/c-p-red-character-p-d-f.service';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { SaveFileService } from './../../shared/services/file-services';
-import { RedJumpkitLifepathService } from '../../shared/cpred/services/cprlifepath/red-jumpkit-lifepath.service';
-import { CPRedLifepath } from '../../shared/cpred/models/cpred-lifepath';
+import { CPRedLifepathJumpStart } from '../../shared/cpred/models/cp-red-lifepath-js';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -17,9 +17,9 @@ export class AppLifepathRedJumpkitComponent implements OnInit {
   faDice = faDice;
 
   enabled = false;
-  LifePath = new CPRedLifepath();
+  LifePath = new CPRedLifepathJumpStart();
 
-  constructor(private lifepathService: RedJumpkitLifepathService,
+  constructor(private lifepathService: CPRedLifePathService,
               private saveFileService: SaveFileService,
               private pdfService: CPRedCharacterPDFService,
               private seo: SeoService) {}
@@ -30,55 +30,15 @@ export class AppLifepathRedJumpkitComponent implements OnInit {
       '2020-07, Cybersmily\'s Datafort Cyberpunk  Red Jumpstart Kit Lifepath is an application to generate a character\'s lifepath.'
     );
     this.enabled = true;
-    this.LifePath = new CPRedLifepath();
+    this.LifePath = new CPRedLifepathJumpStart();
   }
 
   generate() {
     this.lifepathService
-    .generateLifePath()
-    .subscribe(data => this.LifePath = data);
-  }
-
-  generateBackground() {
-    this.lifepathService
-    .generateBackground()
-    .subscribe( data => this.LifePath.background = data);
-  }
-
-  generateMotivation() {
-    this.lifepathService
-    .generateMotivation()
-    .subscribe( data => this.LifePath.motivation = data);
-  }
-
-  generateGoals() {
-    this.lifepathService
-    .generateGoals()
-    .subscribe( data => this.LifePath.goals = data);
-  }
-
-  generateRomance() {
-    this.lifepathService
-    .generateRomance()
-    .subscribe( data => this.LifePath.romance = data);
-  }
-
-  generatePersonality() {
-    this.lifepathService
-    .generatePersonality()
-    .subscribe( data => this.LifePath.personality = data);
-  }
-
-  generateFriends() {
-    this.lifepathService
-    .generateFriends()
-    .subscribe( data => this.LifePath.friends = data);
-  }
-
-  generateEnemies() {
-    this.lifepathService
-    .generateEnemies()
-    .subscribe( data => this.LifePath.enemies = data);
+    .generateJumpStart()
+    .subscribe(data => {
+      this.LifePath = data;
+    });
   }
 
   saveFile() {
@@ -87,7 +47,6 @@ export class AppLifepathRedJumpkitComponent implements OnInit {
 
   saveAsPDF() {
     this.pdfService.generateLifePahtPDF(this.LifePath);
-
   }
 
 }

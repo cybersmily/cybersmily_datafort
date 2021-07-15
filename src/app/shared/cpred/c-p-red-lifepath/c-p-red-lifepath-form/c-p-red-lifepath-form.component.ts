@@ -3,7 +3,7 @@ import { CPRedCharacterPDFService } from './../../services/cprcharpdf/c-p-red-ch
 import { SeoService } from './../../../services/seo/seo.service';
 import { SaveFileService } from './../../../services/file-services';
 import { RedJumpkitLifepathService } from '../../services/cprlifepath/red-jumpkit-lifepath.service';
-import { CPRedLifepath } from '../../models/cpred-lifepath';
+import { CPRedLifepathJumpStart } from '../../models/cp-red-lifepath-js';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -18,7 +18,7 @@ export class CPRedLifepathFormComponent implements OnInit {
   faDice = faDice;
 
   enabled = false;
-  LifePath = new CPRedLifepath();
+  LifePath = new CPRedLifepathJumpStart();
 
   constructor(private lifepathService: RedJumpkitLifepathService,
               private saveFileService: SaveFileService,
@@ -31,7 +31,7 @@ export class CPRedLifepathFormComponent implements OnInit {
       '2020-07, Cybersmily\'s Datafort Cyberpunk  Red Jumpstart Kit Lifepath is an application to generate a character\'s lifepath.'
     );
     this.enabled = true;
-    this.LifePath = new CPRedLifepath();
+    this.LifePath = new CPRedLifepathJumpStart();
   }
 
   generate() {
