@@ -20,7 +20,10 @@ export class CpRedLifepathMainComponent implements OnInit {
   faFilePdf = faFilePdf;
   faSave = faSave;
   modalRef: BsModalRef;
-  modalConfig = {};
+  modalConfig = {
+    keyboard: true,
+    class: 'modal-dialog-centered'
+  };
 
   jumpstartLifepath: CPRedLifepathJumpStart = new CPRedLifepathJumpStart();
   coreLifePath: CpRedLifepathCore = new CpRedLifepathCore();
