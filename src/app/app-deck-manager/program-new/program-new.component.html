@@ -6,6 +6,7 @@
     <div class="col-8 col-md-7 col-lg-9">
       <input type="text" [(ngModel)]="program.name" placeholder="Enter name of program..." class="csd-program-name"
         title="Name of the program" (change)="updated()">
+      <fa-icon class="csd-btn csd-icon-btn float-right" [icon]="faSearch" title="Lookup a program from source" (click)="showOptions(programSelections)"></fa-icon>
     </div>
     <div class="col-4 col-md-3 col-lg-2">
       <span *ngIf="!isSaved" class="csd-program-unsaved">** UNSAVED **</span>
@@ -14,6 +15,13 @@
       </span>
       <span class="float-right">
         {{program.cost|number}}eb
+      </span>
+    </div>
+  </div>
+  <div *ngIf="program.bookCost" class="row">
+    <div class="col">
+      <span class="float-right">
+        ({{program.bookCost|number}}eb Listed)
       </span>
     </div>
   </div>
@@ -38,10 +46,9 @@
         DIFF: {{program.diff}}
       </div>
       <div class="pull-right p1-2 ml-2">
-        MU: {{program.mu}}
+        MU: {{program.mu}}<span *ngIf="program.bookMu" class="ml-1">({{program.bookMu}} listed)</span>
       </div>
     </div>
-
   </div>
   <div class="row">
     <div class="col">
@@ -73,6 +80,47 @@
     <div class="row">
       <div *ngFor="let opt of options; let i = index" class="col-6" title="{{opt.description}}">
         <input type="checkbox" [checked]="isChecked(opt.name)" (change)="checkOption(i)"> {{opt.name}} ({{opt.diff}})
+      </div>
+    </div>
+  </div>
+</ng-template>
+<ng-template #programSelections>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Program List</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col">Class</div>
+      <div class="col">Name</div>
+      <div class="col-1">STR</div>
+      <div class="col-1">MU</div>
+      <div class="col-2">Cost</div>
+    </div>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col"><input type="text" [(ngModel)]="searchTerm"></div>
+      <div class="col-1"></div>
+      <div class="col-1"></div>
+      <div class="col-2"></div>
+    </div>
+    <div *ngFor="let prog of programList|contains:'name':searchTerm; let i = index" class="row csd-prog-selection" title="{{prog.desc}}" (click)="addProgram(prog)">
+      <div class="col">
+        {{prog.class}}
+      </div>
+      <div class="col">
+        {{prog.name}}
+      </div>
+      <div class="col-1">
+        {{prog.str}}
+      </div>
+      <div class="col-1">
+        {{prog.mu}}
+      </div>
+      <div class="col-2">
+        {{prog.cost|number}}eb
       </div>
     </div>
   </div>

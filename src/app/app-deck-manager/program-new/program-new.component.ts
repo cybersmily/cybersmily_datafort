@@ -1,5 +1,7 @@
+import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
+import { DataService } from './../../shared/services/file-services/data.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { faPlus, faDiceSix, faSave } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faDiceSix, faSave, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { forkJoin } from 'rxjs';
 import { NrProgramOptionsService } from './../../shared/services/netrun/nr-program-options.service';
 import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
@@ -13,9 +15,16 @@ import { NrProgram, NrProgramOption, NetRunProgram } from './../../shared/models
 export class ProgramNewComponent implements OnInit {
   faPlus = faPlus;
   faSave = faSave;
+  faSearch = faSearch;
   classes: Array<NrProgramOption> = new Array<NrProgramOption>();
   options: Array<NrProgramOption> = new Array<NrProgramOption>();
+  programList: Array<any> = new Array<any>();
   modalRef: BsModalRef;
+  modalConfig: {
+    keyboard: true,
+    class: 'modal-dialog-centered modal-lg'
+  };
+  searchTerm: string = '';
 
   isSaved = true;
 
@@ -26,15 +35,19 @@ export class ProgramNewComponent implements OnInit {
   updateProgram: EventEmitter<NetRunProgram> = new EventEmitter<NetRunProgram>();
 
   constructor(private programData: NrProgramOptionsService,
-    private modalService: BsModalService) { }
+    private modalService: BsModalService,
+    private dataService: DataService) { }
 
   ngOnInit(): void {
     const classesData =  this.programData.classes;
     const optionData = this.programData.options;
-    forkJoin([classesData, optionData])
+    const progList = this.dataService.GetJson(JsonDataFiles.CP2020_DECKS_PROGRAMS_JSON);
+    forkJoin([classesData, optionData, progList])
     .subscribe( data => {
       this.classes = data[0];
       this.options = data[1];
+      this.programList = data[2].programs
+      .sort((a, b) => (a.class > b.class) ? 1 : (a.class === b.class) ? ((a.name > b.name) ? 1 : -1) : -1 );
     });
   }
 
@@ -44,7 +57,7 @@ export class ProgramNewComponent implements OnInit {
   }
 
   get optionList(): string {
-    return this.program.options.map(o => o.name).join(' ');
+    return this.program.options.map(o => o.name).join('; ');
   }
 
   save() {
@@ -69,10 +82,35 @@ export class ProgramNewComponent implements OnInit {
   }
 
   showOptions(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
+    this.modalRef = this.modalService.show(template, this.modalConfig);
   }
 
   compare(a: NrProgramOption, b: NrProgramOption) {
     return a  && b ? a.name === b.name : a === b;
+  }
+
+  addProgram(prog: any) {
+    this.program = new NetRunProgram();
+    this.program.name = prog.name;
+    this.program.description = prog.description;
+    this.program.strength = prog.str;
+    const i = this.classes.findIndex( c => c.name.toLocaleLowerCase() === prog.class.toLocaleLowerCase());
+    if(i > -1 ) {
+      this.program.class = this.classes[i];
+    } else {
+      this.program.class = {name: prog.class, description: '', diff: 10};
+    }
+    if(Array.isArray(prog.options)) {
+      prog.options.forEach(opt => {
+        const index = this.options.findIndex(o => o.name.toLocaleLowerCase() === opt.toLocaleLowerCase());
+        if (index > -1) {
+          this.program.options.push(this.options[index]);
+        }
+      });
+    }
+    this.program.bookCost = prog.cost;
+    this.program.bookMu = prog.mu;
+    this.modalRef.hide();
+    console.log(this.program);
   }
 }

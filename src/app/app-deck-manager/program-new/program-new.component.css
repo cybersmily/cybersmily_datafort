@@ -13,5 +13,10 @@ textarea {
 }
 
 .csd-program-name {
-  width: 100%;
+  width: 90%;
+}
+
+.csd-prog-selection:hover {
+  background-color: #CCC;
+  font-size: larger;
 }

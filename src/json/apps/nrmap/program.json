@@ -1,13 +1,14 @@
 {
   "classes":[
     {"name":"Alarm"                   , "diff":15,"description":"This function alerts sytesm or Netrunners."                                         },
+    {"name":"Ambush"                  , "diff":20,"description":"Invisible ICE lying in wait."                                         },
     {"name":"Anti-Compiler (Assassin)", "diff":20,"description":"Destroys demons/daemons."                                                           },
     {"name":"Anti-Personnel"          , "diff":20,"description":"Attacks Netrunners doing 1D6 damage or mind wipe."                                  },
     {"name":"Anti-Personnel+"         , "diff":25,"description":"Attacks Netrunners doing 2D6 damage or mind wipe."                                  },
     {"name":"Anti-Program"            , "diff":20,"description":"Attacks programs doing 1D6."                                                        },
     {"name":"Anti-Program+"           , "diff":25,"description":"Attacks programs doing 2D6."                                                        },
     {"name":"Anti-System"             , "diff":15,"description":"Damages computer system."                                                           },
-    {"name":"Demon/Daemon"            , "diff":10,"description":"Reduce the size of the program."                                                    },
+    {"name":"Compiler"            , "diff":10,"description":"Reduce the size of the program."                                                    },
     {"name":"Controller"              , "diff":10,"description":"Control machines/remotes."                                                          },
     {"name":"Decryption"              , "diff":15,"description":"Opens codes and locks."                                                             },
     {"name":"Detection"               , "diff":10,"description":"Detects intruders."                                                                 },
@@ -23,8 +24,10 @@
     {"name":"Protection(12pt)"        , "diff":25,"description":"Stops 12pts damage to Netrunner/Deck."                                              },
     {"name":"Protection(15pt)"        , "diff":30,"description":"Stops 15pts damage to Netrunner/Deck."                                              },
     {"name":"Protection(18pt)"        , "diff":35,"description":"Stops 18pts damage to Netrunner/Deck."                                              },
+    {"name":"Rache Special"           , "diff":35,"description":"Specially designed by Rache Bartmoss.", "hide":true                                 },
     {"name":"Software Editor"         , "diff":25,"description":"Overwrite/rewrite VR."                                                              },
     {"name":"Stealth"                 , "diff":15,"description":"Program/runner hard to detect."                                                     },
+    {"name":"Transportaion"           , "diff":15,"description":"Affects storage/movement of deck/system."                                           },
     {"name":"Utility"                 , "diff":10,"description":"Reads/Write files, copies things, improve deck speed, stores damaged programs, etc."}
   ],
   "options":[
@@ -45,6 +48,7 @@
     {"name":"One Use", "diff":-10,"description":"Derezzes after 1 use."},
     {"name":"Pseudo-Intellect", "diff":6,"description":"Has INT 6."},
     {"name":"Recognition", "diff":2,"description":"Recognizes programs/runners."},
+    {"name":"Self-Modifying Code", "diff":15,"description":"Learning program that may crash or grow in strength." },
     {"name":"Speed", "diff":2,"description":"+2 deck speed."},
     {"name":"Trace", "diff":2,"description":"Follow program/runner through NET."}
   ]
