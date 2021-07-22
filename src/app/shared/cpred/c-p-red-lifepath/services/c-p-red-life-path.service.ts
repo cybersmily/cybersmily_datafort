@@ -1,8 +1,9 @@
-import { CpRedLifepathSettings } from './../../models/cp-red-lifepath-settings';
-import { CpRedLifepathCoreData } from './../../models/cp-red-lifepath-core-data';
-import { CPRedLifepathJumpStartData } from './../../models/cp-red-lifepath-js-data';
-import { CpRedLifepathCore } from './../../models/cp-red-lifepath-core';
-import { CPRedLifepathJumpStart } from './../../models/cp-red-lifepath-js';
+import {
+  CPRedLifePathCore,
+  CPRedLifePathSettings,
+  CpRedLifepathCoreData, CPRedLifepathJumpStartData,
+  CPRedLifepathJumpStart
+} from './../models';
 import { JsonDataFiles } from './../../../services/file-services/json-data-files';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
@@ -16,11 +17,11 @@ import { Injectable } from '@angular/core';
 export class CPRedLifePathService {
 
   private _lifePathData: any;
-  settings: CpRedLifepathSettings;
+  settings: CPRedLifePathSettings;
 
   constructor(private dataService: DataService,
     private dice: DiceService) {
-      this.settings = new CpRedLifepathSettings();
+      this.settings = new CPRedLifePathSettings();
     }
 
   get LifePathJumpStartChart(): Observable<CPRedLifepathJumpStartData> {
@@ -56,14 +57,23 @@ export class CPRedLifePathService {
       lifepath.motivation = this.rollOnChart(chart.motivation);
       lifepath.goals = this.rollOnChart(chart.goals);
       lifepath.personality = this.rollOnChart(chart.personality);
-      lifepath.friends = this.rollMultiChart(chart.friends,this.settings.numOfFriends);
-      lifepath.enemies = this.rollMultiChart(chart.friends,this.settings.numOfEnemies);
+      lifepath.friends = this.rollMultiChart(chart.friends,this.settings.friendsDice);
+      lifepath.enemies = this.rollMultiChart(chart.friends,this.settings.enemyDice);
       lifepath.romance = this.rollOnChart(chart.romance);
       return lifepath;
     }));
   }
-  generateCore(role:string): Observable<CpRedLifepathCore>{
-    return null;
+
+  generateCore(role:string): Observable<CPRedLifePathCore>{
+    return this.LifePathCoreChart.pipe( map( data => {
+      return this.createLifePath(data, role);
+    }));
+  }
+
+  private createLifePath(chart: CpRedLifepathCoreData ,role:string): CPRedLifePathCore {
+    const lifepath = new CPRedLifePathCore();
+
+    return lifepath;
   }
 
   private rollOnChart(chart: Array<any>): any {

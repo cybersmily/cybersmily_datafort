@@ -1,4 +1,4 @@
-import { CPRedLifePathService } from './../../shared/cpred/services/cpredlifepath/c-p-red-life-path.service';
+import { CPRedLifePathService } from './../../shared/cpred/c-p-red-lifepath/services/c-p-red-life-path.service';
 import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { NameGeneratorService } from '../../shared/services/namegen/name-generator.service';

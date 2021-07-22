@@ -1,4 +1,4 @@
-import { CPRedLifepathJumpStart } from './cp-red-lifepath-js';
+import { CPRedLifepathJumpStart } from './../c-p-red-lifepath/models';
 import { BaseWeapon } from './base-weapon';
 import { CpRedBaseStats } from './cp-red-base-stats';
 import { CpRedTemplateArmor } from './cp-red-template-armor';

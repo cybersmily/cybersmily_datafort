@@ -1,4 +1,4 @@
-import { CPRedLifepathJumpStart } from './../../shared/cpred/models/cp-red-lifepath-js';
+import { CPRedLifepathJumpStart } from './../models';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({

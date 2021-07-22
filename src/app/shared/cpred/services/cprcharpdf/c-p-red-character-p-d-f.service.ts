@@ -1,4 +1,4 @@
-import { CPRedLifepathJumpStart } from '../../models/cp-red-lifepath-js';
+import { CPRedLifepathJumpStart } from './../../c-p-red-lifepath/models/cp-red-lifepath-js';
 import { Injectable } from '@angular/core';
 import { jsPDF } from 'jspdf';
 

@@ -1,4 +1,4 @@
-export interface CPRedLifePathSettings {
+export class CPRedLifePathSettings {
   minFriends: number;
   maxFriends: number;
   friendsDice: string;
@@ -8,4 +8,10 @@ export interface CPRedLifePathSettings {
   minLovers: number;
   maxLovers: number;
   loversDice: string;
+
+  constructor() {
+    this.friendsDice = "1d10-7";
+    this.enemyDice = "1d10-7";
+    this.loversDice = "1d10-7";
+  }
 }

@@ -1,10 +1,8 @@
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { CPRedCharacterPDFService } from './../../shared/cpred/services/cprcharpdf/c-p-red-character-p-d-f.service';
 import { SaveFileService } from './../../shared/services/file-services/save-file.service';
-import { Subscriber } from 'rxjs';
-import { CPRedLifePathService } from './../../shared/cpred/services/cpredlifepath/c-p-red-life-path.service';
-import { CpRedLifepathCore } from './../../shared/cpred/models/cp-red-lifepath-core';
-import { CPRedLifepathJumpStart } from './../../shared/cpred/models/cp-red-lifepath-js';
+import { CPRedLifePathService } from './../../shared/cpred/c-p-red-lifepath/services/c-p-red-life-path.service';
+import { CPRedLifepathJumpStart, CPRedLifePathCore } from './../../shared/cpred/c-p-red-lifepath/models';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { faDice, faCog, faFilePdf, faSave } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit, TemplateRef } from '@angular/core';
@@ -26,7 +24,7 @@ export class CpRedLifepathMainComponent implements OnInit {
   };
 
   jumpstartLifepath: CPRedLifepathJumpStart = new CPRedLifepathJumpStart();
-  coreLifePath: CpRedLifepathCore = new CpRedLifepathCore();
+  coreLifePath: CPRedLifePathCore = new CPRedLifePathCore();
 
   selectedSystem: string = 'jumpstart';
   selectedRole: string = '';

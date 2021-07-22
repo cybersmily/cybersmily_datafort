@@ -1,17 +1,14 @@
-import { RedJumpkitLifepathService } from './../services/cprlifepath/red-jumpkit-lifepath.service';
+import { CpRedLifepathJumpstartComponent } from './cp-red-lifepath-jumpstart/cp-red-lifepath-jumpstart.component';
+import { CpRedLifepathCoreComponent } from './cp-red-lifepath-core/cp-red-lifepath-core.component';
+import { CPRedLifePathService } from './services/c-p-red-life-path.service';
 import { DiceService } from './../../services/dice/dice.service';
 import { CommonUiModule } from './../../modules/common-ui/common-ui.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CPRedLifepathFormComponent } from './c-p-red-lifepath-form/c-p-red-lifepath-form.component';
-import { CPRedLifePathGeneratorComponent } from './services/c-p-red-life-path-generator/c-p-red-life-path-generator.component';
-
-
-
 @NgModule({
   declarations: [
-    CPRedLifepathFormComponent,
-    CPRedLifePathGeneratorComponent
+    CpRedLifepathCoreComponent,
+    CpRedLifepathJumpstartComponent
   ],
   imports: [
     CommonModule,
@@ -19,10 +16,11 @@ import { CPRedLifePathGeneratorComponent } from './services/c-p-red-life-path-ge
   ],
   providers: [
     DiceService,
-    RedJumpkitLifepathService
+    CPRedLifePathService
   ],
   exports: [
-    CPRedLifepathFormComponent
+    CpRedLifepathCoreComponent,
+    CpRedLifepathJumpstartComponent
   ]
 })
 export class CPRedLifepathModule { }
