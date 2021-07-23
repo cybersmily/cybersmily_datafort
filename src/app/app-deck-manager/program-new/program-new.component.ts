@@ -111,6 +111,5 @@ export class ProgramNewComponent implements OnInit {
     this.program.bookCost = prog.cost;
     this.program.bookMu = prog.mu;
     this.modalRef.hide();
-    console.log(this.program);
   }
 }

@@ -54,10 +54,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
       "2020-07-01 Cybersmily's Datafort Cyberpunk 2020 Character Generator. This app can print to PDF and save/load the character sheet"
     );
     this.characterService.character.subscribe((data) => {
-      console.log('onINit', data);
       this.character = data;
-      console.log('onInit-character', this.character);
-
     });
   }
 
@@ -140,7 +137,6 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
    * @memberof AppCharacterGeneratorFormComponent
    */
   loadCharacter($event) {
-    console.log('loadcharacter',$event);
     this.fileLoader
       .importJSON($event.target.files[0])
       .subscribe((data) => this.characterService.changeCharacter(data) );

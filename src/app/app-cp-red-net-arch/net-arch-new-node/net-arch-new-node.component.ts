@@ -46,7 +46,6 @@ export class NetArchNewNodeComponent implements OnInit {
   }
 
   saveNode() {
-    console.log('emitted',this.selectedNode);
     this.updateNode.emit(this.selectedNode);
   }
 
@@ -153,7 +152,6 @@ export class NetArchNewNodeComponent implements OnInit {
         this.selectedNode["programs"] = new Array<NetArchProgram>();
       }
       if (this.selectedNode.programs.length < 3) {
-        console.log(this.selectedProgram);
         this.selectedNode.programs.push( JSON.parse(JSON.stringify(this.selectedProgram)));
         if (this.selectedNode.name === '') {
           this.selectedNode.name = this.selectedProgram.name;

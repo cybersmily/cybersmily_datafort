@@ -87,7 +87,6 @@ export class NewsadminComponent implements OnInit {
 
   addNewReport() {
     const reporter = this.rprtrs.find( r => r.reporter === this.newNewsReport.reporter);
-    console.log(reporter);
     this.newNewsItem.reports.push({
       img: reporter.img,
       reporter: reporter.reporter,

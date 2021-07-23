@@ -152,7 +152,6 @@ export class NetArchMainComponent implements OnInit {
   }
 
   updateArch($event: CPRedNetArchNode) {
-    console.log('received', $event);
     this.floors = $event.numberOfFloors;
     this.arch.update($event);
     this.netArchService.update(this.arch);

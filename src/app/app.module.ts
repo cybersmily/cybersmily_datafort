@@ -9,7 +9,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { SaveFileService, DataService } from './shared/services/file-services';
 import { PipesModule } from './shared/pipes/pipes.module';
-
 @NgModule({
   declarations: [
     AppComponent,

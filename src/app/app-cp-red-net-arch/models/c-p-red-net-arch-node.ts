@@ -148,7 +148,6 @@ export class CPRedNetArchNode implements NetArchNode {
   }
 
   update(node: CPRedNetArchNode) {
-    console.log(node);
     if( node.id === this.id){
       this.type = node.type;
       this.name = node.name;
