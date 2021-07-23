@@ -58,9 +58,7 @@ export class Cp2020SkillComponent implements OnInit {
   constructor(private modalService: BsModalService, private dice: DiceService) { }
 
   ngOnInit() {
-    console.log('Skill loading', this.skill);
     this.currSkill = new Cp2020PlayerSkill(this.skill);
-    console.log('Skill after',this.currSkill);
     if (this.currSkill.isSecondarySkill) {
     }
   }
