@@ -70,7 +70,7 @@
       </div>
       <div *ngFor="let a of armor.layers;let i = index" class="row">
         <div class="col-4">
-          <input [(ngModel)]="a.isActive" type="checkbox"
+          <input [(ngModel)]="a.isActive" type="checkbox" [disabled]="!canAddLayer(a)"
             title="Activate the layer. May not activate if 3 layer rule or if doubling up on hard armor for the layer."
             (click)="changeActive(i)">
           {{a.name}} ({{a.isHard? 'Hard':'Soft'}})

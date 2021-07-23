@@ -157,19 +157,19 @@ export class Cp2020ArmorBlock implements ArmorBlock {
 
     getTotalSP(location: string): number {
       if (this.layers.length > 0) {
-      const armor = this.layers.filter(l => l.isActive && l[location] > 0).sort( (a, b) => a[location] > b[location] ? 1 : -1);
+      const armor = this.layers.filter(l => l.isActive && l[location] > 0).sort( (a, b) => b[location] - a[location]);
       // can't have more than 3 layers.
-      if (armor.length > 3 || armor.length < 1) {
+      if ( armor.length < 1) {
         return 0;
       }
       let sp = armor[0][location];
       if (armor[1]) {
         const bonus = ProportionalSpTable.getBonusNumber(Math.abs(armor[1][location] - sp));
-        sp = bonus + armor[1][location];
+        sp += bonus;
       }
       if (armor[2]) {
         const bonus = ProportionalSpTable.getBonusNumber(Math.abs(armor[2][location] - sp));
-        sp = bonus + armor[2][location];
+        sp += bonus;
       }
       return sp;
     }
