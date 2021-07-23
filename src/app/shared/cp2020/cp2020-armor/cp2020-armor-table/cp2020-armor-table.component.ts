@@ -1,10 +1,12 @@
+import { Cp2020SDP } from './../models/cp2020-s-d-p';
 import { DiceService } from './../../../services/dice/dice.service';
 import { ArmorDataService } from './../services/armor-data.service';
 import { Cp2020ArmorLayer } from './../models';
 import { Cp2020ArmorBlock } from './../models';
-import { faShieldAlt, faPlus, faTrash, faDice } from '@fortawesome/free-solid-svg-icons';
+import { faShieldAlt, faPlus, faTrash, faDice, faPen } from '@fortawesome/free-solid-svg-icons';
 import { Component, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'cs-cp2020-armor-table',
@@ -15,6 +17,7 @@ export class Cp2020ArmorTableComponent implements OnInit {
   faShieldAlt = faShieldAlt;
   faPlus = faPlus;
   faTrash = faTrash;
+  faPen = faPen;
   faDice = faDice;
 
   locations: Array<string> = ['head','torso', 'rarm', 'larm', 'rleg', 'lleg'];
@@ -37,6 +40,23 @@ export class Cp2020ArmorTableComponent implements OnInit {
   newLayer = new Cp2020ArmorLayer();
   selectedLocation = '';
   spDamage = 0;
+
+  getSDPStyle(sdp: Cp2020SDP): string {
+    if(sdp.destroyed !== 0 && sdp.curr >= sdp.destroyed){
+      return ' chargen-sdp-dest';
+    } else if(sdp.damaged !== 0 && sdp.curr >= sdp.damaged ) {
+      return ' chargen-sdp-dmg';
+    }
+    return '';
+  }
+  getSDPStatus(sdp: Cp2020SDP): string {
+    if(sdp.destroyed !== 0 && sdp.curr >= sdp.destroyed){
+      return 'Destroyed!!';
+    } else if(sdp.damaged !== 0 && sdp.curr >= sdp.damaged ) {
+      return 'Impaired';
+    }
+    return '';
+  }
 
   constructor(private modalService: BsModalService,
     private armorService: ArmorDataService,
@@ -117,5 +137,10 @@ export class Cp2020ArmorTableComponent implements OnInit {
       this.armor.addLayer(layer);
       this.onChangeArmor();
     });
+  }
+
+  resetSDP(location: string) {
+    this.armor.sdp[location] = { curr: 0, damaged: 0, destroyed: 0};
+    this.onChangeArmor();
   }
 }

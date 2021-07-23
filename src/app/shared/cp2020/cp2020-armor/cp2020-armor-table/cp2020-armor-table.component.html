@@ -13,16 +13,62 @@
     </tr>
     <tr>
       <td class="chargen-label chargen-armor-label">Armor SP
-        <fa-icon class="csd-btn csd-icon-btn hidden-print float-right" [icon]="faShieldAlt" (click)="openModal(armorModal)"></fa-icon>
+        <fa-icon class="csd-btn csd-icon-btn hidden-print float-right" [icon]="faShieldAlt"
+          title="Manage/Configure Armor" (click)="openModal(armorModal)"></fa-icon>
       </td>
       <td class="chargen-armor-space"></td>
-      <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'head'">{{armor.headSP}}</td>
-      <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'torso'">{{armor.torsoSP}}</td>
-      <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'rarm'">{{armor.rArmSP}}</td>
-      <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'larm'">{{armor.lArmSP}}</td>
-      <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'rleg'">{{armor.rLegSP}}</td>
-      <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'lleg'">{{armor.lLegSP}}</td>
+      <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'head'">
+        {{armor.headSP}}</td>
+      <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'torso'">
+        {{armor.torsoSP}}</td>
+      <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'rarm'">
+        {{armor.rArmSP}}</td>
+      <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'larm'">
+        {{armor.lArmSP}}</td>
+      <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'rleg'">
+        {{armor.rLegSP}}</td>
+      <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'lleg'">
+        {{armor.lLegSP}}</td>
       <td class="chargen-armor-cell">+{{armor.ev}}</td>
+    </tr>
+    <tr>
+      <td class="chargen-label chargen-armor-label">SDP
+        <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn hidden-print float-right" (click)="openModal(sdpModal)"
+          title="Manage/Configure SDP"></fa-icon>
+      </td>
+      <td class="chargen-armor-space"></td>
+      <td class="chargen-armor-cell">
+        <input *ngIf="armor.sdp.head.destroyed > 0" [(ngModel)]="armor.sdp.head.curr" type="number" min=0 (change)="onChangeArmor()"
+          [max]="armor.sdp.head.destroyed" class="csd-number {{getSDPStyle(armor.sdp.head)}}"
+          title="Max {{armor.sdp.head.destroyed}}">
+        <div *ngIf="armor.sdp.head.curr >= armor.sdp.head.damaged">{{getSDPStatus(armor.sdp.head)}}</div>
+      </td>
+      <td class="chargen-armor-cell"><input *ngIf="armor.sdp.torso.destroyed > 0" [(ngModel)]="armor.sdp.torso.curr" (change)="onChangeArmor()"
+          type="number" min=0 [max]="armor.sdp.torso.destroyed" class="csd-number {{getSDPStyle(armor.sdp.torso)}}"
+          title="Max {{armor.sdp.torso.destroyed}}">
+        <div *ngIf="armor.sdp.torso.curr >= armor.sdp.torso.damaged">{{getSDPStatus(armor.sdp.torso)}}</div>
+      </td>
+      <td class="chargen-armor-cell"><input *ngIf="armor.sdp.rarm.destroyed > 0" [(ngModel)]="armor.sdp.rarm.curr" (change)="onChangeArmor()"
+          type="number" min=0 [max]="armor.sdp.rarm.destroyed" class="csd-number {{getSDPStyle(armor.sdp.rarm)}}"
+          title="Max {{armor.sdp.rarm.destroyed}}">
+        <div *ngIf="armor.sdp.rarm.curr >= armor.sdp.rarm.damaged">{{getSDPStatus(armor.sdp.rarm)}}</div>
+      </td>
+      <td class="chargen-armor-cell"><input *ngIf="armor.sdp.larm.destroyed > 0" [(ngModel)]="armor.sdp.larm.curr" (change)="onChangeArmor()"
+          type="number" min=0 [max]="armor.sdp.larm.destroyed" class="csd-number {{getSDPStyle(armor.sdp.larm)}}"
+          title="Max {{armor.sdp.larm.destroyed}}">
+        <div *ngIf="armor.sdp.larm.curr >= armor.sdp.larm.damaged">{{getSDPStatus(armor.sdp.larm)}}</div>
+      </td>
+      <td class="chargen-armor-cell"><input *ngIf="armor.sdp.rleg.destroyed > 0" [(ngModel)]="armor.sdp.rleg.curr" (change)="onChangeArmor()"
+          type="number" min=0 [max]="armor.sdp.rleg.destroyed" class="csd-number {{getSDPStyle(armor.sdp.rleg)}}"
+          title="Max {{armor.sdp.rleg.destroyed}}">
+        <div *ngIf="armor.sdp.rleg.curr >= armor.sdp.rleg.damaged">{{getSDPStatus(armor.sdp.rleg)}}</div>
+      </td>
+      <td class="chargen-armor-cell"><input *ngIf="armor.sdp.lleg.destroyed > 0" [(ngModel)]="armor.sdp.lleg.curr" (change)="onChangeArmor()"
+          type="number" min=0 [max]="armor.sdp.lleg.destroyed" class="csd-number {{getSDPStyle(armor.sdp.lleg)}}"
+          title="Max {{armor.sdp.lleg.destroyed}}">
+        <div *ngIf="armor.sdp.lleg.curr >= armor.sdp.lleg.damaged">{{getSDPStatus(armor.sdp.lleg)}}</div>
+      </td>
+      <td class="chargen-armor-cell"></td>
     </tr>
   </table>
 </div>
@@ -32,82 +78,162 @@
     <div class="col-1"></div>
     <div class="col">SP Damage: <input [(ngModel)]="spDamage" type="number" value="1">
       &nbsp;&nbsp;
-      <button class="btn btn-sm btn-secondary csd-rounded" (click)="damage()">Apply</button></div>
+      <button class="btn btn-sm btn-secondary csd-rounded" (click)="damage()">Apply</button>
+    </div>
     <div class="col-1"></div>
   </div>
 </ng-template>
 
 <ng-template #armorModal>
-    <div class="modal-header">
-      <h4 id="armor-modal-name" class="modal-title pull-left">Armor Manager</h4>
-      <fa-icon [icon]="faDice" [ngClass]="{'csd-btn': true, 'csd-dice':true, 'd-none':!showRandom}" (click)="generate()"></fa-icon>
-      <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
-        <span aria-hidden="true">&times;</span>
-      </button>
+  <div class="modal-header">
+    <h4 id="armor-modal-name" class="modal-title pull-left">Armor Manager</h4>
+    <fa-icon [icon]="faDice" [ngClass]="{'csd-btn': true, 'csd-dice':true, 'd-none':!showRandom}" (click)="generate()">
+    </fa-icon>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body container">
+    <div class="row">
+      <div class="col-4">Name</div>
+      <div class="col-1 text-center">Head</div>
+      <div class="col-1 text-center">Torso</div>
+      <div class="col-1 text-center">R Arm</div>
+      <div class="col-1 text-center">L Arm</div>
+      <div class="col-1 text-center">R Leg</div>
+      <div class="col-1 text-center">L Leg</div>
+      <div class="col-1 text-center">EV</div>
+      <div class="col-1"></div>
     </div>
-    <div class="modal-body container">
-      <div class="row">
-        <div class="col-4">Name</div>
-        <div class="col-1 text-center">Head</div>
-        <div class="col-1 text-center">Torso</div>
-        <div class="col-1 text-center">R Arm</div>
-        <div class="col-1 text-center">L Arm</div>
-        <div class="col-1 text-center">R Leg</div>
-        <div class="col-1 text-center">L Leg</div>
-        <div class="col-1 text-center">EV</div>
-        <div class="col-1"></div>
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col-1 text-center">{{armor.headSP}}</div>
+      <div class="col-1 text-center">{{armor.torsoSP}}</div>
+      <div class="col-1 text-center">{{armor.rArmSP}}</div>
+      <div class="col-1 text-center">{{armor.lArmSP}}</div>
+      <div class="col-1 text-center">{{armor.rLegSP}}</div>
+      <div class="col-1 text-center">{{armor.lLegSP}}</div>
+      <div class="col-1 text-center">{{armor.ev}}</div>
+      <div class="col-1"></div>
+    </div>
+    <div *ngFor="let a of armor.layers;let i = index" class="row">
+      <div class="col-4">
+        <input [(ngModel)]="a.isActive" type="checkbox" [disabled]="!canAddLayer(a)"
+          title="Activate the layer. May not activate if 3 layer rule or if doubling up on hard armor for the layer."
+          (click)="changeActive(i)">
+        {{a.name}} ({{a.isHard? 'Hard':'Soft'}})
       </div>
-      <div class="row">
-        <div class="col-4"></div>
-        <div class="col-1 text-center">{{armor.headSP}}</div>
-        <div class="col-1 text-center">{{armor.torsoSP}}</div>
-        <div class="col-1 text-center">{{armor.rArmSP}}</div>
-        <div class="col-1 text-center">{{armor.lArmSP}}</div>
-        <div class="col-1 text-center">{{armor.rLegSP}}</div>
-        <div class="col-1 text-center">{{armor.lLegSP}}</div>
-        <div class="col-1 text-center">{{armor.ev}}</div>
-        <div class="col-1"></div>
+      <div class="col-1"><input [(ngModel)]="a.head" type="number" min="0" (change)="onChangeArmor()"
+          class="text-right"></div>
+      <div class="col-1"><input [(ngModel)]="a.torso" type="number" min="0" (change)="onChangeArmor()"
+          class="text-right"></div>
+      <div class="col-1"><input [(ngModel)]="a.rarm" type="number" min="0" (change)="onChangeArmor()"
+          class="text-right"></div>
+      <div class="col-1"><input [(ngModel)]="a.larm" type="number" min="0" (change)="onChangeArmor()"
+          class="text-right"></div>
+      <div class="col-1"><input [(ngModel)]="a.rleg" type="number" min="0" (change)="onChangeArmor()"
+          class="text-right"></div>
+      <div class="col-1"><input [(ngModel)]="a.lleg" type="number" min="0" (change)="onChangeArmor()"
+          class="text-right"></div>
+      <div class="col-1"><input [(ngModel)]="a.ev" type="number" min="0" (change)="onChangeArmor()" class="text-right">
       </div>
-      <div *ngFor="let a of armor.layers;let i = index" class="row">
-        <div class="col-4">
-          <input [(ngModel)]="a.isActive" type="checkbox" [disabled]="!canAddLayer(a)"
-            title="Activate the layer. May not activate if 3 layer rule or if doubling up on hard armor for the layer."
-            (click)="changeActive(i)">
-          {{a.name}} ({{a.isHard? 'Hard':'Soft'}})
-        </div>
-        <div class="col-1"><input [(ngModel)]="a.head" type="number" min="0" (change)="onChangeArmor()" class="text-right"></div>
-        <div class="col-1"><input [(ngModel)]="a.torso" type="number" min="0" (change)="onChangeArmor()" class="text-right"></div>
-        <div class="col-1"><input [(ngModel)]="a.rarm" type="number" min="0" (change)="onChangeArmor()" class="text-right"></div>
-        <div class="col-1"><input [(ngModel)]="a.larm" type="number" min="0" (change)="onChangeArmor()" class="text-right"></div>
-        <div class="col-1"><input [(ngModel)]="a.rleg" type="number" min="0" (change)="onChangeArmor()" class="text-right"></div>
-        <div class="col-1"><input [(ngModel)]="a.lleg" type="number" min="0" (change)="onChangeArmor()" class="text-right"></div>
-        <div class="col-1"><input [(ngModel)]="a.ev" type="number" min="0" (change)="onChangeArmor()" class="text-right"></div>
-        <div class="col-1">
-          <fa-icon [icon]="faTrash" class="csd-btn" title="Delete item" (click)="removeLayer(i)"></fa-icon>
-        </div>
+      <div class="col-1">
+        <fa-icon [icon]="faTrash" class="csd-btn" title="Delete item" (click)="removeLayer(i)"></fa-icon>
       </div>
-      <br>
-      <br>
-      <div class="row csd-rounded">
-        <div class="col-12">
-          <div class="row">
-            <div class="col-1"><fa-icon [ngClass]="{'csd-btn':true,'btn': true,'btn-secondary':true,'btn-sm':true,'csd-rounded':true,'csd-disabled':addDisable}" [icon]="faPlus" (click)="addLayer()" title="Add new layer"></fa-icon></div>
-            <div class="col-4">Name<br><input [(ngModel)]="newLayer.name" type="text"></div>
-            <div class="col-1">Head<br><input [(ngModel)]="newLayer.head" type="number" min="0"></div>
-            <div class="col-1">Torso<br><input [(ngModel)]="newLayer.torso" type="number" min="0"></div>
-            <div class="col-1">RArm<br><input [(ngModel)]="newLayer.rarm" type="number" min="0"></div>
-            <div class="col-1">LArm<br><input [(ngModel)]="newLayer.larm" type="number" min="0"></div>
-            <div class="col-1">RLeg<br><input [(ngModel)]="newLayer.rleg" type="number" min="0"></div>
-            <div class="col-1">LLeg<br><input [(ngModel)]="newLayer.lleg" type="number" min="0"></div>
+    </div>
+    <br>
+    <br>
+    <div class="row csd-rounded">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-1">
+            <fa-icon
+              [ngClass]="{'csd-btn':true,'btn': true,'btn-secondary':true,'btn-sm':true,'csd-rounded':true,'csd-disabled':addDisable}"
+              [icon]="faPlus" (click)="addLayer()" title="Add new layer"></fa-icon>
           </div>
-          <br>
-          <div class="row">
-            <div class="col-5"></div>
-            <div class="col-2">EV <input [(ngModel)]="newLayer.ev" type="number" min="0"></div>
-            <div class="col-2">Is Hard Armor <input [(ngModel)]="newLayer.isHard" type="checkbox"></div>
-            <div class="col-2">Is Skinweave <input [(ngModel)]="newLayer.isSkinWeave" type="checkbox"></div>
-          </div>
+          <div class="col-4">Name<br><input [(ngModel)]="newLayer.name" type="text"></div>
+          <div class="col-1">Head<br><input [(ngModel)]="newLayer.head" type="number" min="0"></div>
+          <div class="col-1">Torso<br><input [(ngModel)]="newLayer.torso" type="number" min="0"></div>
+          <div class="col-1">RArm<br><input [(ngModel)]="newLayer.rarm" type="number" min="0"></div>
+          <div class="col-1">LArm<br><input [(ngModel)]="newLayer.larm" type="number" min="0"></div>
+          <div class="col-1">RLeg<br><input [(ngModel)]="newLayer.rleg" type="number" min="0"></div>
+          <div class="col-1">LLeg<br><input [(ngModel)]="newLayer.lleg" type="number" min="0"></div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-5"></div>
+          <div class="col-2">EV <input [(ngModel)]="newLayer.ev" type="number" min="0"></div>
+          <div class="col-2">Is Hard Armor <input [(ngModel)]="newLayer.isHard" type="checkbox"></div>
+          <div class="col-2">Is Skinweave <input [(ngModel)]="newLayer.isSkinWeave" type="checkbox"></div>
         </div>
       </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #sdpModal>
+  <div class="modal-header">
+    <h4 id="armor-modal-name" class="modal-title pull-left">SDP Manager</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body container">
+    <div class="row">
+      <div class="col-3 text-center"></div>
+      <div class="col-1 text-center">Head <fa-icon *ngIf="armor.sdp.head.destroyed > 0" [icon]="faTrash" class="csd-btn csd-icon-btn" title="Reset location" (click)="resetSDP('head')"></fa-icon></div>
+      <div class="col-1 text-center">Torso <fa-icon *ngIf="armor.sdp.torso.destroyed > 0" [icon]="faTrash" class="csd-btn csd-icon-btn" title="Reset location" (click)="resetSDP('torso')"></fa-icon></div>
+      <div class="col-1 text-center">R Arm <fa-icon *ngIf="armor.sdp.rarm.destroyed > 0" [icon]="faTrash" class="csd-btn csd-icon-btn" title="Reset location" (click)="resetSDP('rarm')"></fa-icon></div>
+      <div class="col-1 text-center">L Arm <fa-icon *ngIf="armor.sdp.larm.destroyed > 0" [icon]="faTrash" class="csd-btn csd-icon-btn" title="Reset location" (click)="resetSDP('larm')"></fa-icon></div>
+      <div class="col-1 text-center">R Leg <fa-icon *ngIf="armor.sdp.rleg.destroyed > 0" [icon]="faTrash" class="csd-btn csd-icon-btn" title="Reset location" (click)="resetSDP('rleg')"></fa-icon></div>
+      <div class="col-1 text-center">L Leg <fa-icon *ngIf="armor.sdp.lleg.destroyed > 0" [icon]="faTrash" class="csd-btn csd-icon-btn" title="Reset location" (click)="resetSDP('lleg')"></fa-icon></div>
+    </div>
+    <div class="row">
+      <div class="col-3">Current Damaged</div>
+      <div class="col-1 text-center"><input type="number" min=0 [max]="armor.sdp.head.destroyed"
+          class="csd-number text-center" [(ngModel)]="armor.sdp.head.curr" (change)="onChangeArmor()"></div>
+      <div class="col-1 text-center"><input type="number" min=0 [max]="armor.sdp.torso.destroyed"
+          class="csd-number text-center" [(ngModel)]="armor.sdp.torso.curr" (change)="onChangeArmor()"></div>
+      <div class="col-1 text-center"><input type="number" min=0 [max]="armor.sdp.rarm.destroyed"
+          class="csd-number text-center" [(ngModel)]="armor.sdp.rarm.curr" (change)="onChangeArmor()"></div>
+      <div class="col-1 text-center"><input type="number" min=0 [max]="armor.sdp.larm.destroyed"
+          class="csd-number text-center" [(ngModel)]="armor.sdp.larm.curr" (change)="onChangeArmor()"></div>
+      <div class="col-1 text-center"><input type="number" min=0 [max]="armor.sdp.rleg.destroyed"
+          class="csd-number text-center" [(ngModel)]="armor.sdp.rleg.curr" (change)="onChangeArmor()"></div>
+      <div class="col-1 text-center"><input type="number" min=0 [max]="armor.sdp.lleg.destroyed"
+          class="csd-number text-center" [(ngModel)]="armor.sdp.lleg.curr" (change)="onChangeArmor()"></div>
+    </div>
+    <div class="row">
+      <div class="col-3">Impaired</div>
+      <div class="col-1 text-center"><input type="number" min=0 class="csd-number text-center"
+          [(ngModel)]="armor.sdp.head.damaged" (change)="onChangeArmor()"></div>
+      <div class="col-1 text-center"><input type="number" min=0 class="csd-number text-center"
+          [(ngModel)]="armor.sdp.torso.damaged" (change)="onChangeArmor()"></div>
+      <div class="col-1 text-center"><input type="number" min=0 class="csd-number text-center"
+          [(ngModel)]="armor.sdp.rarm.damaged" (change)="onChangeArmor()"></div>
+      <div class="col-1 text-center"><input type="number" min=0 class="csd-number text-center"
+          [(ngModel)]="armor.sdp.larm.damaged" (change)="onChangeArmor()"></div>
+      <div class="col-1 text-center"><input type="number" min=0 class="csd-number text-center"
+          [(ngModel)]="armor.sdp.rleg.damaged" (change)="onChangeArmor()"></div>
+      <div class="col-1 text-center"><input type="number" min=0 class="csd-number text-center"
+          [(ngModel)]="armor.sdp.lleg.damaged" (change)="onChangeArmor()"></div>
+    </div>
+    <div class="row">
+      <div class="col-3">destroyed</div>
+      <div class="col-1 text-center"><input type="number" [min]="armor.sdp.head.damaged" class="csd-number text-center"
+          [(ngModel)]="armor.sdp.head.destroyed" (change)="onChangeArmor()"></div>
+      <div class="col-1 text-center"><input type="number" [min]="armor.sdp.torso.damaged" class="csd-number text-center"
+          [(ngModel)]="armor.sdp.torso.destroyed" (change)="onChangeArmor()"></div>
+      <div class="col-1 text-center"><input type="number" [min]="armor.sdp.rarm.damaged" class="csd-number text-center"
+          [(ngModel)]="armor.sdp.rarm.destroyed" (change)="onChangeArmor()"></div>
+      <div class="col-1 text-center"><input type="number" [min]="armor.sdp.larm.damaged" class="csd-number text-center"
+          [(ngModel)]="armor.sdp.larm.destroyed" (change)="onChangeArmor()"></div>
+      <div class="col-1 text-center"><input type="number" [min]="armor.sdp.rleg.damaged" class="csd-number text-center"
+          [(ngModel)]="armor.sdp.rleg.destroyed" (change)="onChangeArmor()"></div>
+      <div class="col-1 text-center"><input type="number" [min]="armor.sdp.lleg.damaged" class="csd-number text-center"
+          [(ngModel)]="armor.sdp.lleg.destroyed" (change)="onChangeArmor()"></div>
+    </div>
+    <br>
+    <br>
   </div>
 </ng-template>

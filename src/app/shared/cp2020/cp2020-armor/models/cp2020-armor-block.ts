@@ -1,3 +1,4 @@
+import { Cp2020SDPBlock } from './cp2020-s-d-p-block';
 import { Cp2020ArmorLayer } from './cp2020-armor-layer';
 import { ArmorLayer } from './armor-layer';
 import {ArmorBlock } from './armor-block';
@@ -23,6 +24,7 @@ import {ProportionalSpTable } from './proportional-sp-table';
  */
 export class Cp2020ArmorBlock implements ArmorBlock {
     layers: Array<Cp2020ArmorLayer>;
+    sdp: Cp2020SDPBlock;
 
     constructor(param?: any) {
       this.layers = (param && param.layers) ? param.layers : new Array<Cp2020ArmorLayer>();
@@ -47,6 +49,7 @@ export class Cp2020ArmorBlock implements ArmorBlock {
         newLayer.isActive = true;
         this.layers.push(newLayer);
       }
+      this.sdp = (param) ? new Cp2020SDPBlock(param.sdp) : new Cp2020SDPBlock();
     }
 
 
