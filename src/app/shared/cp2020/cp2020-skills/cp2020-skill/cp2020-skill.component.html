@@ -1,41 +1,175 @@
 <div
-[ngClass]="{'article': true, 'chargen-skill-is-role': skill.isRoleSkill,'chargen-skill-is-secodary ': skill.isSecondarySkill, 'chargen-role-choice': skill.roleChoice, 'chargen-skill': true}"
->
-    <span [ngClass]="{'rounded': true, 'sa-name': isSpecialAbility, 'skill-name': true }">{{skill.name}}<fa-icon [icon]="faDice"
-      title="Click to Roll" (click)="onClick(chargenSkillRoll)"></fa-icon></span>
-    <input *ngIf="skill.option || skill.option === ''" [(ngModel)]="skill.option" type="text" class="chargen-skil-option"/>
-    <span *ngIf="skill.ipMod > 1" class="skill-name">({{skill.ipMod}}) </span>
-    <span class="dots"></span>
-    <span class="skill-inputs pull-right">
-      <span [ngClass]="{'d-none':isSpecialAbility}" title="Skill + Stat">
-        [{{ skill.value + ((stat)?stat.Adjusted:0 )}}]
-      </span>
-      &nbsp;
-      <input [(ngModel)]="skill.value" (change)="onChangeSkill()"
-        min="0" max="10" type="number"
-        title="Skill Value"
-        [ngClass]="{'chargen-skill-input': true, 'chargen-skill-has-value': (skill.value > 0)}" />
-      &nbsp;
-      <input [(ngModel)]="skill.ip" (change)="onChangeSkill()"
-        min="0" max="1000" type="number"
-        Title="SKill IP"
-        [ngClass]="{'chargen-skill-input': true, 'chargen-skill-has-value': (skill.value > 0)}" />
-      &nbsp;
-      <input [(ngModel)]="skill.chipped" type="checkbox" title="Skill is chipped?" [ngClass]="{'d-none':isSpecialAbility}"></span>
+  [ngClass]="{'article': true, 'chargen-skill-is-role': currSkill.isRoleSkill,'chargen-skill-is-secodary ': currSkill.isSecondarySkill, 'chargen-role-choice': currSkill.roleChoice, 'chargen-skill': true}">
+  <fa-icon [icon]="faDice" title="Click to Roll" (click)="onClick(chargenSkillRoll)"></fa-icon>
+  <span [ngClass]="{'rounded': true, 'sa-name': isSpecialAbility, 'skill-name': true, 'csd-btn': true }"
+    (click)="showModal(skillDetails)">
+    {{currSkill.name}}
+    <span *ngIf="currSkill.option">: {{currSkill.option}}</span>
+    <span *ngIf="currSkill.option === ''">: {{currSkill.option}}</span>
+    <span  class="skill-name">({{currSkill.ipMod}}) </span>
+  </span>
+  <span class="dots"></span>
+  <span class="skill-inputs pull-right">
+    <span [ngClass]="{'d-none':isSpecialAbility}" title="Skill + Stat">
+      [{{ currSkill.value + ((stat)?stat.Adjusted:0 )}}]
+    </span>
+    &nbsp;
+    <input [(ngModel)]="currSkill.value" (change)="onChangeSkill()" min="0" max="10" type="number" title="Skill Value"
+      [ngClass]="{'chargen-skill-input': true, 'chargen-skill-has-value': (currSkill.value > 0)}" />
+    &nbsp;
+    <input [(ngModel)]="currSkill.ip" (change)="onChangeSkill()" min="0" max="1000" type="number" Title="SKill IP"
+      [ngClass]="{'chargen-skill-input': true, 'chargen-skill-has-value': (currSkill.value > 0)}" />
+    &nbsp;
+    <input [(ngModel)]="currSkill.chipped" type="checkbox" title="Skill is chipped?"
+      [ngClass]="{'d-none':isSpecialAbility}" (change)="onChangeSkill()"></span>
 </div>
 <ng-template #chargenSkillRoll>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">{{skill.name}}{{(skill.option ? ': ' + skill.option : '')}} Dice Roll</h4>
+    <h4 class="modal-title pull-left">{{currSkill.name}}{{(currSkill.option ? ': ' + currSkill.option : '')}} Dice Roll
+    </h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
     <div>
-    {{skill.value}}(skill) + <span *ngIf="stat">{{stat.Adjusted}}(stat) +</span> {{dieRoll}}(roll) = {{totalRoll}} total
+      {{currSkill.value}}(skill) + <span *ngIf="stat">{{stat.Adjusted}}(stat) +</span> {{dieRoll}}(roll) +
+      {{modifierTotal}}(modifiers) = {{totalRoll}}
+      total
+    </div>
+    <div>
+      {{rollMessage}}
+    </div>
   </div>
-  <div>
-    {{rollMessage}}
+</ng-template>
+<ng-template #skillDetails>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">{{currSkill.name}}
+    </h4>
+    <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn csd-icon-xl ml-2" title="delete skill"
+      (click)="deleteSkill()"></fa-icon>
+
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col">Subskill: <input [(ngModel)]="currSkill.option" (change)="onChangeSkill()" type="text"
+          title="Skill option fi require" placeholder="optional if a subskill" /></div>
+      <div class="col-4">
+        <input [(ngModel)]="currSkill.chipped" (change)="onChangeSkill()" type="checkbox"
+        title="Skill is chipped" /> Chipped
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">STAT ({{currSkill.stat}}): {{stat.Adjusted}}</div>
+      <div class="col-4">Value:
+        <input [(ngModel)]="currSkill.value" (change)="onChangeSkill()" min="0" max="10" type="number"
+          title="Skill Value" class="csd-number text-right" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">IP (x<input type="number" min="1" [(ngModel)]="currSkill.ipMod" class="csd-number text-right">):
+        <input [(ngModel)]="currSkill.ip" (change)="onChangeSkill()" min="0" max="1000" type="number" Title="SKill IP"
+          class="csd-number text-right" />
+      </div>
+      <div class="col-4">Next Level: {{nextLevelIP}} ip</div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <input type="checkbox" [(ngModel)]="currSkill.isSA" (change)="onChangeSkill()"> Special Ability
+      </div>
+      <div class="col">
+        <input type="checkbox" [(ngModel)]="currSkill.isRoleSkill" (change)="onChangeSkill()"> Role Skill
+      </div>
+      <div class="col">
+        <span *ngIf="currSkill.stat.toLowerCase() === 'ref'">
+          <input type="checkbox" [value]="isMA" (change)="toggleMA()"> Martial Art
+        </span>
+      </div>
+    </div>
+    <div *ngIf="isMA" class="row">
+      <div class="col">
+        <div class="row">
+          <div class="col">Strike</div>
+          <div class="col">Disarm</div>
+          <div class="col">Dodge</div>
+          <div class="col">Hold</div>
+        </div>
+        <div class="row">
+          <div class="col"><input type="number" class="csd-number text-right" [(ngModel)]="currSkill.maBonuses.strike" (change)="onChangeSkill()">
+          </div>
+          <div class="col"><input type="number" class="csd-number text-right" [(ngModel)]="currSkill.maBonuses.disarm" (change)="onChangeSkill()">
+          </div>
+          <div class="col"><input type="number" class="csd-number text-right" [(ngModel)]="currSkill.maBonuses.dodge" (change)="onChangeSkill()">
+          </div>
+          <div class="col"><input type="number" class="csd-number text-right" [(ngModel)]="currSkill.maBonuses.hold" (change)="onChangeSkill()">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">Punch</div>
+          <div class="col">Sweep</div>
+          <div class="col">Grapple</div>
+          <div class="col">Choke</div>
+        </div>
+        <div class="row">
+          <div class="col"><input type="number" class="csd-number text-right" [(ngModel)]="currSkill.maBonuses.punch" (change)="onChangeSkill()">
+          </div>
+          <div class="col"><input type="number" class="csd-number text-right" [(ngModel)]="currSkill.maBonuses.sweep" (change)="onChangeSkill()">
+          </div>
+          <div class="col"><input type="number" class="csd-number text-right" [(ngModel)]="currSkill.maBonuses.grapple" (change)="onChangeSkill()">
+          </div>
+          <div class="col"><input type="number" class="csd-number text-right" [(ngModel)]="currSkill.maBonuses.choke" (change)="onChangeSkill()">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">Kick</div>
+          <div class="col">Block</div>
+          <div class="col">Throw</div>
+          <div class="col">Escape</div>
+        </div>
+        <div class="row">
+          <div class="col"><input type="number" class="csd-number text-right" [(ngModel)]="currSkill.maBonuses.kick" (change)="onChangeSkill()">
+          </div>
+          <div class="col"><input type="number" class="csd-number text-right" [(ngModel)]="currSkill.maBonuses.block" (change)="onChangeSkill()">
+          </div>
+          <div class="col"><input type="number" class="csd-number text-right" [(ngModel)]="currSkill.maBonuses.throw" (change)="onChangeSkill()">
+          </div>
+          <div class="col"><input type="number" class="csd-number text-right" [(ngModel)]="currSkill.maBonuses.escape" (change)="onChangeSkill()">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">Ram</div>
+          <div class="col"></div>
+          <div class="col"></div>
+          <div class="col"></div>
+        </div>
+        <div class="row">
+          <div class="col"><input type="number" class="csd-number text-right" [(ngModel)]="currSkill.maBonuses.ram" (change)="onChangeSkill()">
+          </div>
+          <div class="col"></div>
+          <div class="col"></div>
+          <div class="col"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">Modifiers:</div>
+    </div>
+    <div class="row" *ngFor="let mod of currSkill.modifiers">
+      <div class="col-1"></div>
+      <div class="col">{{mod.name}}: <span *ngIf="mod.mod > 0">+</span>{{mod.mod}}</div>
+    </div>
+    <div class="row">
+      <div class="col-1">
+        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-lg float-right" title="Add modifier"
+          (click)="addModifier()"></fa-icon>
+      </div>
+      <div class="col">
+        <input [(ngModel)]="newModifier.name" type="text" Title="Modifier value" />:
+        <input [(ngModel)]="newModifier.mod" type="number" Title="Modifier value" class="csd-number text-right" />
+      </div>
+    </div>
   </div>
 </ng-template>

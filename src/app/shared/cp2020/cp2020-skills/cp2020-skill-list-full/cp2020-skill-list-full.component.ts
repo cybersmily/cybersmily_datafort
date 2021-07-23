@@ -32,11 +32,13 @@ export class Cp2020SkillListFullComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    console.log(this.skills);
-    console.log(this.skills.BODY);
   }
 
-  onChangeSkill() {
+  onChangeSkill(skill?:Cp2020PlayerSkill) {
+
+    if(skill) {
+      this.skills.editSkill(skill);
+    }
     this.changeSKills.emit(this.skills);
   }
 
@@ -44,21 +46,14 @@ export class Cp2020SkillListFullComponent implements OnInit {
     this.changeSpecialAblity.emit(this.role);
   }
 
-  getColumnOne(skills: Array<Cp2020PlayerSkill>): Array<Cp2020PlayerSkill> {
-    const multi = (skills.length%3 === 0) ? 0.33 : 0.34;
-    return skills.slice(0, Math.ceil(skills.length * multi));
+  onNewSkill(skill: Cp2020PlayerSkill) {
+    this.skills.addSkill(skill);
+    this.onChangeSkill();
   }
 
-  getColumnTwo(skills: Array<Cp2020PlayerSkill>): Array<Cp2020PlayerSkill> {
-    const multi = (skills.length%3 === 0) ? 0.33 : 0.34;
-    const start = Math.ceil(skills.length * multi);
-    const end = Math.ceil(skills.length * 0.33);
-    return skills.slice(start, start + end);
-  }
-
-  getColumnThree(skills: Array<Cp2020PlayerSkill>): Array<Cp2020PlayerSkill> {
-    const multi = (skills.length%3 === 0) ? 0.66 : 0.67;
-    return skills.slice(Math.ceil(skills.length * multi));
+  onDeleteSkill(skill:Cp2020PlayerSkill) {
+    this.skills.deleteSkill(skill);
+    this.onChangeSkill();
   }
 
 }

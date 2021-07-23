@@ -420,6 +420,13 @@ export class Cp2020PlayerSkills {
     }
   }
 
+  editSkill(skill: Cp2020PlayerSkill) {
+    const i = this.skills.findIndex( sk => sk.name.toLowerCase() === skill.name.toLowerCase() && sk.option === skill.option);
+    if(i > -1) {
+      this.skills[i] = new Cp2020PlayerSkill(skill);
+    }
+  }
+
   addExpert( skillName: string) {
     const index = this.INT.findIndex(sk => sk.name.toLowerCase() === 'expert');
     this.INT[index].option = skillName.replace('Expert: ', '');

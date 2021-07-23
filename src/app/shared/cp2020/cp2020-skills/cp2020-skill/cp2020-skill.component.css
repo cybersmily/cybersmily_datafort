@@ -10,7 +10,7 @@
 }
 
 .chargen-skil-option {
-  width: 80px;
+  width: 110px;
   height: 14px;
   font-size: 12px;
   margin-left: 4px;
@@ -85,23 +85,33 @@ input.chargen-skill-input[type=number] {
     ". . . . . . . . . . . . . . . . . . . . "
 }
 
-span.skill-name:hover {
+.chargen-skill:hover {
   background-color: #BBB;
-  font-size: 13px;
   padding-right: 3px;
   padding-left: 3px;
   cursor: default;
 }
+.chargen-skill:hover .skill-name {
+  font-size: 18px;
+}
+.chargen-skill:hover input {
+  height: 22px;
+}
 
-span.skill-name .ng-fa-icon {
+.chargen-skill:hover input.chargen-skil-option {
+  margin-top: 4px;
+}
+
+
+.chargen-skill .ng-fa-icon {
   display: none;
   cursor: pointer;
-  margin-left:3px;
+  margin-right:3px;
   color: red;
   font-size: 20px;
 }
 
-span.skill-name:hover .ng-fa-icon {
+.chargen-skill:hover .ng-fa-icon {
   display: inline-block;
 }
 

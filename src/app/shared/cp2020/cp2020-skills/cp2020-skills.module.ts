@@ -1,3 +1,4 @@
+import { Cp2020SkillStatSectionComponent } from './cp2020-skill-stat-section/cp2020-skill-stat-section.component';
 import { DiceService } from './../../services/dice/dice.service';
 import { DataService } from './../../services/file-services/data.service';
 import { CommonUiModule } from './../../modules/common-ui/common-ui.module';
@@ -15,11 +16,14 @@ import { Cp2020SkillNewComponent } from './cp2020-skill-new/cp2020-skill-new.com
     Cp2020SkillComponent,
     Cp2020SkillListFullComponent,
     Cp2020SkillListShortComponent,
-    Cp2020SkillNewComponent],
+    Cp2020SkillNewComponent,
+    Cp2020SkillStatSectionComponent
+  ],
   exports: [
     Cp2020SkillComponent,
     Cp2020SkillListFullComponent,
-    Cp2020SkillListShortComponent
+    Cp2020SkillListShortComponent,
+    Cp2020SkillStatSectionComponent
   ],
   imports: [
     CommonModule,

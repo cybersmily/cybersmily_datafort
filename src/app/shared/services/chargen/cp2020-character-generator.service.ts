@@ -38,7 +38,6 @@ export class Cp2020CharacterGeneratorService {
   }
 
   changeCharacter(value: any) {
-    console.log('changeCharacter',value);
     this._currCharacter = new Cp2020PlayerCharacter();
     this._currCharacter.handle = value.handle ? value.handle : '';
     if (value.role) {
@@ -216,7 +215,6 @@ export class Cp2020CharacterGeneratorService {
   updateCharacter() {
     this.saveToStorage();
     this._character.next(this._currCharacter);
-    console.log('updateCharacter',this._character.value);
   }
 
   clearCharacter() {

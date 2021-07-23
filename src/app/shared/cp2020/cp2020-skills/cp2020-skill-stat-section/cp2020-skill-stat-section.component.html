@@ -1,0 +1,40 @@
+<div class="row no-gutters border border-dark mt-1">
+  <div class="col-12">
+    <div class="chargen-skill-stat">{{title}}</div>
+  </div>
+</div>
+<div class="row no-gutters border border-dark mb-1">
+  <div class="col">
+    <div class="row no-gutters">
+      <div class="col-12 col-md-6 col-lg-4 order-1 pl-1 pr-1 border-lg border-dark">
+        <cs-cp2020-skill *ngFor="let skill of getColumnOne()" [skill]="skill" (changeSkill)="onChangeSkill($event)"
+          [stat]="stat" [isSpecialAbility]="spclAbility" (delete)="deleteCurrentSkill($event)"></cs-cp2020-skill>
+      </div>
+      <div class="col-12 col-md-6 order-md-3 order-lg-2 col-lg-4 pl-1 pr-1 border-lg border-dark">
+        <cs-cp2020-skill *ngFor="let skill of getColumnTwo()" [skill]="skill" (changeSkill)="onChangeSkill($event)"
+          [stat]="stat" [isSpecialAbility]="spclAbility" (delete)="deleteCurrentSkill($event)"></cs-cp2020-skill>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4  order-md-2 order-lg-3 pl-1 pr-1 border-lg border-dark">
+        <cs-cp2020-skill *ngFor="let skill of getColumnThree()" [skill]="skill" (changeSkill)="onChangeSkill($event)"
+          [stat]="stat" [isSpecialAbility]="spclAbility" (delete)="deleteCurrentSkill($event)"></cs-cp2020-skill>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-center">
+        <fa-icon [icon]="faPlus" class="csd-icon-btn csd-btn csd-icon-sm" title="Add a new skill" (click)="showModal(newSkillTemplate)"></fa-icon>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #newSkillTemplate >
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">New {{title}} Skill</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <cs-cp2020-skill-new [stat]="skills[0].stat.toLowerCase()" (updateSkill)="addNewSkill($event)" ></cs-cp2020-skill-new>
+  </div>
+</ng-template>
