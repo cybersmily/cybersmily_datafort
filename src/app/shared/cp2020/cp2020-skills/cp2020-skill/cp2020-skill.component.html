@@ -63,7 +63,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col">STAT ({{currSkill.stat}}): {{stat.Adjusted}}</div>
+      <div class="col">STAT ({{currSkill.stat.toUpperCase()}}): {{stat.Adjusted}}</div>
       <div class="col-4">Value:
         <input [(ngModel)]="currSkill.value" (change)="onChangeSkill()" min="0" max="10" type="number"
           title="Skill Value" class="csd-number text-right" />

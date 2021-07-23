@@ -196,36 +196,40 @@ export class Cp2020PlayerSkills {
     return this.skills.filter( skill => skill.value > 0);
   }
 
+  get specialAbilites(): Array<Cp2020PlayerSkill> {
+    return this.skills.filter( sk => sk.isSA);
+  }
+
   get ATTR(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter( sk => sk.stat.toLowerCase() === 'attr');
+    return this.skills.filter( sk => sk.stat.toLowerCase() === 'attr' && !sk.isSA);
   }
 
   get BODY(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter( sk => sk.stat.toLowerCase() === 'body');
+    return this.skills.filter( sk => sk.stat.toLowerCase() === 'body' && !sk.isSA);
   }
 
   get COOL(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter((sk) => sk.stat.toLowerCase() === 'cool');
+    return this.skills.filter((sk) => sk.stat.toLowerCase() === 'cool' && !sk.isSA);
   }
 
   get EMP(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter((sk) => sk.stat.toLowerCase() === 'emp');
+    return this.skills.filter((sk) => sk.stat.toLowerCase() === 'emp' && !sk.isSA);
   }
 
   get INT(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter((sk) => sk.stat.toLowerCase() === 'int');
+    return this.skills.filter((sk) => sk.stat.toLowerCase() === 'int' && !sk.isSA);
   }
 
   get REF(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter( sk => sk.stat.toLowerCase() === 'ref');
+    return this.skills.filter( sk => sk.stat.toLowerCase() === 'ref' && !sk.isSA);
   }
 
   get TECH(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter((sk) => sk.stat.toLowerCase() === 'tech');
+    return this.skills.filter((sk) => sk.stat.toLowerCase() === 'tech' && !sk.isSA);
   }
 
   get Other(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter((sk) => sk.name.toLowerCase() === 'other');
+    return this.skills.filter((sk) => sk.name.toLowerCase() === 'other' && !sk.isSA);
   }
 
   get RoleSKills(): Array<Cp2020PlayerSkill> {

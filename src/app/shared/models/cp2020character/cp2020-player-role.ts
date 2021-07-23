@@ -12,6 +12,8 @@ export class Cp2020PlayerRole {
     this.name = '';
     this.base = '';
     this.specialAbility = new Cp2020PlayerSkill();
+    this.specialAbility.isSA = true;
+    this.specialAbility.isRoleSkill = true;
     this.skills = new Array();
     this.source = '';
     this.page = 0;
@@ -29,6 +31,8 @@ export class Cp2020PlayerRole {
       this.specialAbility.stat = (sa.stat) ? sa.stat : 0;
       this.specialAbility.value = (sa.value) ? sa.value : 0;
       this.specialAbility.ip = (sa.ip) ? sa.ip : 0;
+      this.specialAbility.isSA = true;
+      this.specialAbility.isRoleSkill = true;
     }
 
     this.skills = (value.skills) ? value.skills : new Array();

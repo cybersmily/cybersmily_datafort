@@ -1,3 +1,4 @@
+import { CpPlayerWeapon } from './../../cp2020weapons/models/cp-player-weapon';
 import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerSkill, Cp2020PlayerSkills } from './../models';
 import { Cp2020PlayerRole } from './../../../models/cp2020character/cp2020-player-role';
@@ -29,15 +30,25 @@ export class Cp2020SkillListFullComponent implements OnInit {
 
   skillTotals = { role: {}, other: {}};
 
+  get specialAbilities(): Array<Cp2020PlayerSkill> {
+    const sa = new Array<Cp2020PlayerSkill>(...this.skills.specialAbilites);
+    sa.unshift(this.role.specialAbility);
+    return sa;
+  }
+
   constructor() {}
 
   ngOnInit() {
   }
 
   onChangeSkill(skill?:Cp2020PlayerSkill) {
-
     if(skill) {
-      this.skills.editSkill(skill);
+      if (skill.name === this.role.specialAbility.name) {
+        this.role.specialAbility = new Cp2020PlayerSkill(skill);
+        this.changeSpecialAblity.emit(this.role);
+      } else {
+        this.skills.editSkill(skill);
+      }
     }
     this.changeSKills.emit(this.skills);
   }

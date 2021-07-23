@@ -19,7 +19,7 @@
   </div>
 
   <cs-cp2020-skill-stat-section [title]="'SPECIAL ABILITIES'"
-    [stat]="(role.specialAbility.stat !== ''? stats[role.specialAbility.stat] : null)" [skills]="[role.specialAbility]"
+    [stat]="(role.specialAbility.stat !== ''? stats[role.specialAbility.stat] : null)" [skills]="specialAbilities"
     [isSpecialAbility]="true" (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)"></cs-cp2020-skill-stat-section>
   <cs-cp2020-skill-stat-section [title]="'ATTR'" [stat]="stats.ATTR" [skills]="skills.ATTR" [isSpecialAbility]="false"
     (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)"></cs-cp2020-skill-stat-section>
