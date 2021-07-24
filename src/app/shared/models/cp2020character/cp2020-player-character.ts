@@ -21,6 +21,7 @@ export class Cp2020PlayerCharacter {
   skills: Cp2020PlayerSkills;
   notes: string;
   image: string;
+  isIU: boolean;
 
   constructor() {
     this.handle = '';
@@ -45,5 +46,6 @@ export class Cp2020PlayerCharacter {
     this.lifepath.events = Array.from({length: 12}, () => ({age: 0, event: ''}));
     this.notes = '';
     this.image = '';
+    this.isIU = false;
   }
 }

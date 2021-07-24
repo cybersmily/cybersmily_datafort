@@ -110,6 +110,8 @@ export class Cp2020CharacterGeneratorService {
       this._currCharacter.notes = value.notes;
     }
 
+    this._currCharacter.isIU = value.isIU;
+
     this.updateCharacter();
   }
 

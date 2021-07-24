@@ -1,0 +1,86 @@
+<div class="row border border-dark">
+  <div class="col">
+
+    <div class="row small">
+      <div class="col-2 text-center">Initiative</div>
+      <div class="col text-center">Combat Sense</div>
+      <div class="col text-center">Other Modifiers</div>
+      <div class="col text-center">Reaction Total (RT)</div>
+    </div>
+    <div class="row">
+      <div class="col-2 text-center">{{stats.REF.Adjusted}}</div>
+      <div class="col text-center">{{combatSense.value}}</div>
+      <div class="col text-center">{{stats.totalInitModifiers}}</div>
+      <div class="col text-center">{{reactionTotal}}</div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="row">
+      <div class="col-7 text-center">
+        <h5>COMBAT SKILLS</h5>
+      </div>
+      <div class="col-1"></div>
+      <div class="col text-center">
+        <h5>COMBAT ACTIONS</h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-lg-6">
+        <div class="row small">
+          <div class="col-4">Combat Skill</div>
+          <div class="col-1 text-center">Skill Level</div>
+          <div class="col-1 text-center">Mods</div>
+          <div class="col-1 text-center">+REF</div>
+          <div class="col-1"></div>
+          <div class="col-1 text-center">Skill +RT</div>
+          <div class="col-1 text-center">Quick CA</div>
+          <div class="col-1 text-center">Normal CA</div>
+          <div class="col-1 text-center">Full CA</div>
+        </div>
+      </div>
+      <div class="d-none d-lg-block col-lg-6">
+        <div class="row small">
+          <div class="col-4">Combat Skill</div>
+          <div class="col-1 text-center">Skill Level</div>
+          <div class="col-1 text-center">Mods</div>
+          <div class="col-1 text-center">+REF</div>
+          <div class="col-1"></div>
+          <div class="col-1 text-center">Skill +RT</div>
+          <div class="col-1 text-center">Quick CA</div>
+          <div class="col-1 text-center">Normal CA</div>
+          <div class="col-1 text-center">Full CA</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-lg-6">
+        <div class="row" *ngFor="let skill of skills.slice(0, skills.length/2)">
+          <div class="col-4">{{skill.name}}</div>
+          <div class="col-1 text-center">{{skill.value}}</div>
+          <div class="col-1 text-center">{{skill.totalModifiers}}</div>
+          <div class="col-1 text-center">{{stats.REF.Adjusted + skill.totalModifiers + skill.value}}</div>
+          <div class="col-1 text-center"></div>
+          <div class="col-1 text-center">{{skill.value + reactionTotal}}</div>
+          <div class="col-1 text-center">{{getQuickAction(skill.value + reactionTotal)}}</div>
+          <div class="col-1 text-center">{{getNormalAction(skill.value + reactionTotal)}}</div>
+          <div class="col-1 text-center">{{getFullAction(skill.value + reactionTotal)}}</div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6">
+        <div class="row" *ngFor="let skill of skills.slice(skills.length/2)">
+          <div class="col-4">{{skill.name}}</div>
+          <div class="col-1 text-center">{{skill.value}}</div>
+          <div class="col-1 text-center">{{skill.totalModifiers}}</div>
+          <div class="col-1 text-center">{{stats.REF.Adjusted + skill.totalModifiers + skill.value}}</div>
+          <div class="col-1 text-center"></div>
+          <div class="col-1 text-center">{{skill.value + reactionTotal}}</div>
+          <div class="col-1 text-center">{{getQuickAction(skill.value + reactionTotal)}}</div>
+          <div class="col-1 text-center">{{getNormalAction(skill.value + reactionTotal)}}</div>
+          <div class="col-1 text-center">{{getFullAction(skill.value + reactionTotal)}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

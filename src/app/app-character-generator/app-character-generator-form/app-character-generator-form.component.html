@@ -10,7 +10,9 @@
           (click)="openModal(instructions)"></fa-icon>
         <fa-icon [icon]="faUndo" title="Reset the sheet to a blank character" class="csd-chargen-btn csd-btn ml-2"
           (click)="resetCharacter()"></fa-icon>
-
+        <span title="Use Interlock Unlimited rules">
+          <input type="checkbox" [(ngModel)]="character.isIU" (change)="changeCharacter()"> IU
+        </span>
         <fa-icon [icon]="faFilePdf" class="csd-chargen-btn float-right csd-btn mr-2" (click)="createPDF()"
           title="Export as a PDF file"></fa-icon>
 
@@ -52,7 +54,7 @@
       <div class="row print-fix csd-linebreak no-gutters">
         <div class="col">
           <cs-cp2020weapontable [weapons]="character.weapons" [stats]="character.stats" [skills]="character.skills"
-            [showRandomGenerator]="true" [showSelector]="true" [showCalculator]="true"
+            [showRandomGenerator]="true" [showSelector]="true" [showCalculator]="true" [showIU]="character.isIU"
             (changeWeapons)="changeWeapons($event)">
           </cs-cp2020weapontable>
         </div>

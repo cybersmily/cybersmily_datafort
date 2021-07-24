@@ -1,3 +1,4 @@
+import { Cp2020weaponsModule } from './../shared/cp2020/cp2020weapons/cp2020weapons.module';
 import { DataService } from './../shared/services/file-services/data.service';
 import { DiceService } from './../shared/services/dice/dice.service';
 import { Cp2020LifestyleModule } from './../shared/cp2020/cp2020-lifestyle/cp2020-lifestyle.module';
@@ -14,6 +15,7 @@ import { BetaViewMainComponent } from './beta-view-main/beta-view-main.component
   imports: [
     CommonUiModule,
     Cp2020LifestyleModule,
+    Cp2020weaponsModule,
     CommonModule,
     AppBetaViewRoutingModule
   ],

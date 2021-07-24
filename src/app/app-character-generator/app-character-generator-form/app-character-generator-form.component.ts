@@ -58,6 +58,10 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     });
   }
 
+  changeCharacter(){
+    this.characterService.changeCharacter(this.character);
+  }
+
   changeHandle(value: string) {
     this.characterService.changeHandle(value);
   }

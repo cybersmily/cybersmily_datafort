@@ -306,6 +306,7 @@ export class Cp2020PlayerSkills {
         s.name.toLowerCase() === 'fencing' ||
         s.name.toLowerCase() === 'rifle' ||
         s.name.toLowerCase() === 'pistol' ||
+        s.name.toLowerCase() === 'handgun' ||
         s.name.toLowerCase() === 'submachinegun' ||
         s.name.toLowerCase() === 'archery' ||
         s.name.toLowerCase() === 'heavy weapons'

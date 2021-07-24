@@ -1,4 +1,17 @@
 <div class="cp2020-section container">
+  <ng-container *ngIf="showIU">
+  <div class="cp2020-label row">
+    <div class="col">
+      INTERLOCK UNLIMITED COMBAT ACTIONS
+    </div>
+  </div>
+  <div class="row border border-dark">
+    <div class="col">
+      <cs-i-u-combat-actions [skills]="skills.getCombatSkills()" [stats]="stats"></cs-i-u-combat-actions>
+    </div>
+  </div>
+  <br>
+</ng-container>
   <div class="cp2020-label row">
     <div class="col">
       WEAPONS&nbsp;&nbsp;

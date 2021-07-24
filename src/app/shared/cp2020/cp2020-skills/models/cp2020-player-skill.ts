@@ -19,6 +19,13 @@ export class Cp2020PlayerSkill implements Skill {
   maBonuses?: MartialBonuses;
   modifiers?: Array<StatModifier>;
 
+  get totalModifiers(): number {
+    if (this.modifiers) {
+      return this.modifiers.reduce( (a, b) => a + b.mod, 0);
+    }
+    return 0;
+  }
+
   constructor(param?: SkillParameters) {
     if (param) {
       this.name = (param.name) ? param.name : '';

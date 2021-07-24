@@ -111,6 +111,9 @@ export class Cp2020StatBlock implements Cp2020Stats {
     this.setHCCost();
   }
 
+  get totalInitModifiers(): number {
+    return this.initiativeModifiers.reduce((a,b) => a + b.mod, 0);
+  }
 
   get Run(): number {
     return (this.MA.Adjusted) * 3;
