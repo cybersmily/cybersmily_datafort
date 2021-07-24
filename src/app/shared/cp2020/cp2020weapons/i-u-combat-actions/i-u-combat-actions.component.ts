@@ -31,14 +31,17 @@ export class IUCombatActionsComponent implements OnInit {
   }
 
   getQuickAction(value: number) {
-    return Math.ceil(value/5);
+    const ret = Math.floor(value/5);
+    return ret < 1 ? 1 : ret;
   }
 
   getNormalAction(value: number) {
-    return Math.ceil(value/10);
+    const ret = Math.floor(value/10);
+    return ret < 1 ? 1 : ret;
   }
 
   getFullAction(value: number) {
-    return Math.ceil(value/15);
+    const ret = Math.floor(value/15);
+    return ret < 1 ? 1 : ret;
   }
 }
