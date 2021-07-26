@@ -3,7 +3,7 @@ import { TitleValue } from './../../shared/models/title-value';
 import { SourcesDataService } from './../../shared/services/lifepath/sources-data.service';
 import { Sibling, LifePathResults, LifepathEvent } from './../../shared/models/lifepath';
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
-import { faMars, faVenus, faDice, faPlus, faGenderless, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faMars, faVenus, faDice, faPlus, faGenderless, faTrash, faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'cs-app-character-lifepath',
@@ -17,6 +17,13 @@ export class AppCharacterLifepathComponent implements OnInit, OnChanges {
   faDice = faDice;
   faPlus = faPlus;
   faTrash = faTrash;
+  faChevronRight = faChevronRight;
+  faChevronDown = faChevronDown;
+
+  isCollapsed = false;
+  get collapseChevron():any {
+    return (this.isCollapsed) ? this.faChevronRight : this.faChevronDown;
+  }
 
   sources = new Array<TitleValue>();
   selectedSource = 'CP2020';

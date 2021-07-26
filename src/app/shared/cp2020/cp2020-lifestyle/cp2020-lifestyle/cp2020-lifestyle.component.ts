@@ -1,6 +1,6 @@
 import { Cp2020Services, Cp2020Food, Cp2020Housing, Cp2020Lifestyle, Cp2020Identity, Cp2020Credchip, Cp2020Payment } from './../models';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { faPlus, faTrash, faPen, faRedo, faEuroSign, faList, faCalculator, faDollarSign,  faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faTrash, faPen, faRedo, faEuroSign, faList, faCalculator, faDollarSign, faQuestionCircle, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Component, Input, OnInit, Output, TemplateRef, EventEmitter, OnChanges } from '@angular/core';
 
 @Component({
@@ -18,12 +18,20 @@ export class Cp2020LifestyleComponent implements OnInit, OnChanges {
   faList = faList;
   faCalculator = faCalculator;
   faQuestionCircle = faQuestionCircle;
+  faChevronDown = faChevronDown;
+  faChevronRight = faChevronRight;
 
   modalRef: BsModalRef;
   modalConfig = {
     keyboard: true,
     class: 'modal-dialog-centered modal-lg'
   };
+
+
+  isCollapsed = false;
+  get collapseChevron():any {
+    return (this.isCollapsed) ? this.faChevronRight : this.faChevronDown;
+  }
 
   @Input()
   lifeStyle: Cp2020Lifestyle =  {

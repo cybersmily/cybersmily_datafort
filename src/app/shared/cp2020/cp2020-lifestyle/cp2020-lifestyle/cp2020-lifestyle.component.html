@@ -1,55 +1,69 @@
-<div class="cp2020-section container border border-dark">
-  <div class="cp2020-label row">
-    <div class="col"><h4>LIFESTYLE & EXPENSES</h4>
-    </div>
-  </div>
-  <div class="row pt-3 pb-2">
+<div class="cp2020-section border border-dark">
+  <div class="cp2020-label row no-gutters">
     <div class="col">
-      <h5 class="cp2020-label d-inline-block">Money</h5>
-      <fa-icon [icon]="faCalculator" class="csd-icon-btn csd-btn float-right csd-icon-xl"
-        title="Expense Calculator" (click)="showModal(expenseModal)"></fa-icon>
+      <h4 class="d-inline-block csd-btn mr-4" (click)="isCollapsed = !isCollapsed">
+        LIFESTYLE & EXPENSES
+        <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ml-2"></fa-icon>
+      </h4>
     </div>
   </div>
-  <div class="row">
-    <div class="col-12 col-lg-3">
-      Total: {{totalEb | number}}eb
+  <div [collapse]="isCollapsed">
+    <div class="row no-gutters pt-3 pb-2">
+      <div class="col ml-0 pl-0">
+        <h5 class="cp2020-label d-inline-block">Money</h5>
+        <fa-icon [icon]="faCalculator" class="csd-icon-btn csd-btn float-right csd-icon-xl" title="Expense Calculator"
+          (click)="showModal(expenseModal)"></fa-icon>
+      </div>
     </div>
-    <div class="col-6 col-lg-3">Credchips ({{currLifeStyle.credchips.length}}): {{totalCred | number}}eb
-      <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn ml-1" title="Edit Credchips" (click)="showModal(credchipModal)"></fa-icon>
+    <div class="row">
+      <div class="col-12 col-lg-3">
+        Total: {{totalEb | number}}eb
+      </div>
+      <div class="col-6 col-lg-3">Credchips ({{currLifeStyle.credchips.length}}): {{totalCred | number}}eb
+        <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn ml-1" title="Edit Credchips"
+          (click)="showModal(credchipModal)"></fa-icon>
+      </div>
+      <div class="col-6 col-lg-2">Cash: <input class="lifestyle-eb-input" type="number"
+          [(ngModel)]="currLifeStyle.cash">
+      </div>
+      <div class="col-5 col-lg-3">
+        Salary: <input class="lifestyle-eb-input" type="number" [(ngModel)]="currLifeStyle.salary">
+        <fa-icon [icon]="faPlus" class="csd-icon-btn csd-btn ml-1" title="Add salary" (click)="showModal(addSalary)">
+        </fa-icon>
+      </div>
+      <div class="col-1">
+      </div>
+      <div *ngIf="currLifeStyle.debt > 0" class="col-12">
+        Debt: {{currLifeStyle.debt | number}}eb
+        <fa-icon [icon]="faEuroSign" class="csd-btn csd-icon-btn csd-icon-xl ml-2" title="Pay debt"
+          (click)="showModal(paymentModal)"></fa-icon>
+      </div>
     </div>
-    <div class="col-6 col-lg-2">Cash: <input class="lifestyle-eb-input" type="number" [(ngModel)]="currLifeStyle.cash"> </div>
-    <div class="col-5 col-lg-3">
-      Salary: <input class="lifestyle-eb-input" type="number" [(ngModel)]="currLifeStyle.salary">
-      <fa-icon [icon]="faPlus" class="csd-icon-btn csd-btn ml-1"
-        title="Add salary" (click)="showModal(addSalary)"></fa-icon>
+    <hr>
+    <!-- HOUSING-->
+    <div class="row no-gutters">
+      <div class="col ml-0 pl-0">
+        <cs-cp2020-housing-list [housingList]="currLifeStyle.housing" (updateHousing)="updateHousing($event)"
+          (payHousing)="pay($event, paymentModal)"></cs-cp2020-housing-list>
+      </div>
     </div>
-    <div class="col-1">
+    <hr>
+    <div class="row no-gutters">
+      <div class="col-12 col-lg-6 ml-0 pl-0">
+        <cs-cp2020-service-list [servicesList]="currLifeStyle.services" (updateServices)="updateServices($event)"
+          (pay)="pay($event, paymentModal)"></cs-cp2020-service-list>
+      </div>
+      <div class="col col-12 col-lg-6 ml-0 pl-0">
+        <cs-cp2020-food-list [foodList]="currLifeStyle.food" (updateFood)="updateFood($event)"
+          (pay)="pay($event, paymentModal)"></cs-cp2020-food-list>
+      </div>
     </div>
-    <div *ngIf="currLifeStyle.debt > 0" class="col-12">
-      Debt: {{currLifeStyle.debt | number}}eb
-      <fa-icon [icon]="faEuroSign" class="csd-btn csd-icon-btn csd-icon-xl ml-2" title="Pay debt" (click)="showModal(paymentModal)"></fa-icon>
-    </div>
-  </div>
-  <hr>
-<!-- HOUSING-->
-  <div class="row">
-    <div class="col">
-      <cs-cp2020-housing-list [housingList]="currLifeStyle.housing" (updateHousing)="updateHousing($event)" (payHousing)="pay($event, paymentModal)"></cs-cp2020-housing-list>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-12 col-lg-6">
-      <cs-cp2020-service-list [servicesList]="currLifeStyle.services" (updateServices)="updateServices($event)" (pay)="pay($event, paymentModal)"></cs-cp2020-service-list>
-    </div>
-    <div class="col col-12 col-lg-6">
-      <cs-cp2020-food-list [foodList]="currLifeStyle.food" (updateFood)="updateFood($event)" (pay)="pay($event, paymentModal)"></cs-cp2020-food-list>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col">
-      <cs-cp2020-identity-list [identityList]="currLifeStyle.identities" (updateList)="updateIdentities($event)"></cs-cp2020-identity-list>
+    <hr>
+    <div class="row no-gutters">
+      <div class="col ml-0 pl-0">
+        <cs-cp2020-identity-list [identityList]="currLifeStyle.identities" (updateList)="updateIdentities($event)">
+        </cs-cp2020-identity-list>
+      </div>
     </div>
   </div>
 </div>
@@ -62,7 +76,8 @@
     </button>
   </div>
   <div class="modal-body container">
-    <cs-cp2020-expense-list [cash]="currLifeStyle.cash" [cred]="totalCred"  (payAmount)="pay($event, paymentModal)"></cs-cp2020-expense-list>
+    <cs-cp2020-expense-list [cash]="currLifeStyle.cash" [cred]="totalCred" (payAmount)="pay($event, paymentModal)">
+    </cs-cp2020-expense-list>
   </div>
 </ng-template>
 
@@ -74,7 +89,8 @@
     </button>
   </div>
   <div class="modal-body container">
-    <cs-cp2020-credchip-list [credchips]="currLifeStyle.credchips" (updateCredchips)="updateCredchips($event)"></cs-cp2020-credchip-list>
+    <cs-cp2020-credchip-list [credchips]="currLifeStyle.credchips" (updateCredchips)="updateCredchips($event)">
+    </cs-cp2020-credchip-list>
   </div>
 </ng-template>
 
@@ -87,7 +103,8 @@
     </button>
   </div>
   <div class="modal-body container">
-    <cs-cp2020-credchip-list [credchips]="currLifeStyle.credchips" (updateCredchips)="updateCredchips($event)"></cs-cp2020-credchip-list>
+    <cs-cp2020-credchip-list [credchips]="currLifeStyle.credchips" (updateCredchips)="updateCredchips($event)">
+    </cs-cp2020-credchip-list>
   </div>
 </ng-template>
 
@@ -99,6 +116,7 @@
     </button>
   </div>
   <div class="modal-body container">
-    <cs-cp2020-payment [credchips]="currLifeStyle.credchips" [cash]="currLifeStyle.cash" [amountDue]="currLifeStyle.debt" (updateAmounts)="updateAmounts($event)"></cs-cp2020-payment>
+    <cs-cp2020-payment [credchips]="currLifeStyle.credchips" [cash]="currLifeStyle.cash"
+      [amountDue]="currLifeStyle.debt" (updateAmounts)="updateAmounts($event)"></cs-cp2020-payment>
   </div>
 </ng-template>

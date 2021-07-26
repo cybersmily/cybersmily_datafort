@@ -5,7 +5,7 @@ import { WeaponDataService } from './../services';
 import { DiceService } from './../../../services/dice/dice.service';
 import { CpPlayerWeaponList, CpPlayerWeapon } from './../models';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { faDice, faPlus, faCrosshairs, faCog, faCalculator } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faPlus, faCrosshairs, faCog, faCalculator, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerSkills } from './../../cp2020-skills/models';
 import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
 
@@ -20,6 +20,14 @@ export class Cp2020weapontableComponent implements OnInit {
   faCrosshairs = faCrosshairs;
   faCog = faCog;
   faCalculator = faCalculator;
+  faChevronDown = faChevronDown;
+  faChevronRight = faChevronRight;
+
+  isCollapsed = false;
+
+  get collapseChevron(): any {
+    return (this.isCollapsed) ? faChevronRight : this.faChevronDown;
+  }
 
   modalRef: BsModalRef;
   modalConfig = {

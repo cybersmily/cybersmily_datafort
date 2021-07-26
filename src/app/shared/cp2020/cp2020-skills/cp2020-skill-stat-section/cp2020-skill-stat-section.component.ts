@@ -1,5 +1,5 @@
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerSkill } from './../models/cp2020-player-skill';
 import { Cp2020Stat } from './../../cp2020-stats/models/cp2020-stat';
 import { Component, Input, OnInit, Output, EventEmitter, TemplateRef, OnChanges } from '@angular/core';
@@ -11,10 +11,14 @@ import { Component, Input, OnInit, Output, EventEmitter, TemplateRef, OnChanges 
 })
 export class Cp2020SkillStatSectionComponent implements OnInit, OnChanges {
   faPlus = faPlus;
+  faChevronRight = faChevronRight;
+  faChevronDown = faChevronDown;
+
   modalRef: BsModalRef;
   modalConfig = {
 
   };
+  isCollapsed = false;
 
   @Input()
   title: string = '';
@@ -38,6 +42,10 @@ export class Cp2020SkillStatSectionComponent implements OnInit, OnChanges {
 
   @Output()
   deleteSkill = new EventEmitter<Cp2020PlayerSkill>();
+
+  get collapseArrow():any {
+    return (this.isCollapsed) ? this.faChevronRight : this.faChevronDown;
+  }
 
   constructor(private modalService: BsModalService) { }
 

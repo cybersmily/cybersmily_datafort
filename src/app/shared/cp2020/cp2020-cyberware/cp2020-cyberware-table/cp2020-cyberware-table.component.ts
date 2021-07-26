@@ -1,7 +1,7 @@
 import { CyberDataService } from './../services';
 import { Cp2020CyberwareGeneratorService } from './../services/cp2020-cyberware-generator.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { faDice, faPlus, faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faPlus, faPen, faTrash, faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerCyberList, Cp2020PlayerCyber } from './../models';
 import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
 
@@ -15,6 +15,13 @@ export class Cp2020CyberwareTableComponent implements OnInit {
   faPlus = faPlus;
   faPen = faPen;
   faTrash = faTrash;
+  faChevronRight = faChevronRight;
+  faChevronDown = faChevronDown;
+
+  isCollapsed = false;
+  get collapseChevron():any {
+    return (this.isCollapsed) ? this.faChevronRight : this.faChevronDown;
+  }
 
   modalRef: BsModalRef;
   modalConfig = {

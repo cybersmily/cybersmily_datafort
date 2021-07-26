@@ -1,12 +1,6 @@
-.cp2020-weapons-table {
-  width: 100%;
-}
-
 .cp2020-wpn-hdr div, .cp2020-wpn-add {
   font-size: small;
   border:1px solid black;
-  padding: 0px 0px;
-  margin: 0px 0px;
 }
 
 .cp2020-wpn-hdr {
@@ -16,21 +10,10 @@
 .cp2020-wpn-add {
   cursor: pointer;
   text-align: center;
-  padding: 5px 5px;
 }
 
 .cp2020-wpn-add:hover {
   background-color: #AAA;
-}
-
-.wpn-narrow {
-  width: 30px;
-  display: inline-block;
-}
-
-.wpn-col {
-  width: 55px;
-  display: inline-block;
 }
 
 input.wpn-notes {
@@ -39,6 +22,6 @@ input.wpn-notes {
   display: inline-block;
 }
 
-.wpn-name {
-  width: 100%;
+.wpn-narrow {
+  padding: 0px 0px;
 }

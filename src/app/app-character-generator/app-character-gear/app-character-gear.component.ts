@@ -1,4 +1,4 @@
-import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faTrash, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerGearList } from './../../shared/models/cp2020character/cp2020-player-gear-list';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Cp2020PlayerGear } from './../../shared/models/cp2020character';
@@ -11,6 +11,13 @@ import { Cp2020PlayerGear } from './../../shared/models/cp2020character';
 export class AppCharacterGearComponent implements OnInit {
   faPlus = faPlus;
   faTrash = faTrash;
+  faChevronDown = faChevronDown;
+  faChevronRight = faChevronRight;
+
+  isCollapsed = false;
+  get collapseChevron():any {
+    return (this.isCollapsed) ? this.faChevronRight : this.faChevronDown;
+  }
 
   @Input()
   gear = new Cp2020PlayerGearList(25);

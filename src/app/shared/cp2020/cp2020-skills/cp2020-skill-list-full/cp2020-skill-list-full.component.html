@@ -1,40 +1,54 @@
 <div class="chargen-section">
   <div class="cp2020-label row no-gutters">
     <div class="col">
-      <h4 class="d-inline-block">SKILLS</h4>
+      <h4 class="d-inline-block csd-btn" (click)="isCollapsed = !isCollapsed">
+        SKILLS
+        <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ml-2"></fa-icon>
+      </h4>
       <span class="float-right">
         General IP: <input [(ngModel)]="skills.ip" type="number" class="chargen-general-ip-input"
           (change)="onChangeSkill()" />
       </span>
     </div>
   </div>
-  <div class="row">
-    <div class="col-12">
-      <span class="chargen-skills-instructions">
-        [ROLE:&nbsp;{{skills.RoleTotal +
-        role.specialAbility.value}}]&nbsp;&nbsp;[SECONDARY:&nbsp;{{skills.OtherTotal}}]&nbsp;&nbsp;&nbsp;&nbsp;
-        (#) is the combined stat + skill. [#] is the skill level. Checkbox is if chipped. Role skills are highlighted
-        with *, @ is choose one as role, ! is for secondary skill.</span>
+  <div [collapse]="isCollapsed">
+    <div class="row">
+      <div class="col-12">
+        <span class="chargen-skills-instructions">
+          [ROLE:&nbsp;{{skills.RoleTotal +
+          role.specialAbility.value}}]&nbsp;&nbsp;[SECONDARY:&nbsp;{{skills.OtherTotal}}]&nbsp;&nbsp;&nbsp;&nbsp;
+          (#) is the combined stat + skill. [#] is the skill level. Checkbox is if chipped. Role skills are highlighted
+          with *, @ is choose one as role, ! is for secondary skill.</span>
+      </div>
     </div>
-  </div>
 
-  <cs-cp2020-skill-stat-section [title]="'SPECIAL ABILITIES'"
-    [stat]="(role.specialAbility.stat !== ''? stats[role.specialAbility.stat] : null)" [skills]="specialAbilities"
-    [sa]="true" (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)"></cs-cp2020-skill-stat-section>
-  <cs-cp2020-skill-stat-section [title]="'ATTR'" [stat]="stats.ATTR" [skills]="skills.ATTR" [sa]="false"
-    (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)"></cs-cp2020-skill-stat-section>
-  <cs-cp2020-skill-stat-section [title]="'BODY'" [stat]="stats.BODY" [skills]="skills.BODY" [sa]="false"
-    (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)"></cs-cp2020-skill-stat-section>
-  <cs-cp2020-skill-stat-section [title]="'COOL/WILL'" [stat]="stats.COOL" [skills]="skills.COOL"
-    [sa]="false" (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)"></cs-cp2020-skill-stat-section>
-  <cs-cp2020-skill-stat-section [title]="'EMPATHY'" [stat]="stats.EMP" [skills]="skills.EMP" [sa]="false"
-    (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)"></cs-cp2020-skill-stat-section>
-  <cs-cp2020-skill-stat-section [title]="'INT'" [stat]="stats.INT" [skills]="skills.INT" [sa]="false"
-    (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)"></cs-cp2020-skill-stat-section>
-  <cs-cp2020-skill-stat-section [title]="'REF'" [stat]="stats.REF" [skills]="skills.REF" [sa]="false"
-    (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)"></cs-cp2020-skill-stat-section>
-  <cs-cp2020-skill-stat-section [title]="'TECH'" [stat]="stats.TECH" [skills]="skills.TECH" [sa]="false"
-    (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)"></cs-cp2020-skill-stat-section>
-  <cs-cp2020-skill-stat-section [title]="'OTHER'" [stat]="undefined" [skills]="skills.Other" [sa]="false"
-    (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)"></cs-cp2020-skill-stat-section>
+    <cs-cp2020-skill-stat-section [title]="'SPECIAL ABILITIES'"
+      [stat]="(role.specialAbility.stat !== ''? stats[role.specialAbility.stat] : null)" [skills]="specialAbilities"
+      [sa]="true" (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)"
+      (deleteSkill)="onDeleteSkill($event)"></cs-cp2020-skill-stat-section>
+    <cs-cp2020-skill-stat-section [title]="'ATTR'" [stat]="stats.ATTR" [skills]="skills.ATTR" [sa]="false"
+      (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)">
+    </cs-cp2020-skill-stat-section>
+    <cs-cp2020-skill-stat-section [title]="'BODY'" [stat]="stats.BODY" [skills]="skills.BODY" [sa]="false"
+      (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)">
+    </cs-cp2020-skill-stat-section>
+    <cs-cp2020-skill-stat-section [title]="'COOL/WILL'" [stat]="stats.COOL" [skills]="skills.COOL" [sa]="false"
+      (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)">
+    </cs-cp2020-skill-stat-section>
+    <cs-cp2020-skill-stat-section [title]="'EMPATHY'" [stat]="stats.EMP" [skills]="skills.EMP" [sa]="false"
+      (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)">
+    </cs-cp2020-skill-stat-section>
+    <cs-cp2020-skill-stat-section [title]="'INT'" [stat]="stats.INT" [skills]="skills.INT" [sa]="false"
+      (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)">
+    </cs-cp2020-skill-stat-section>
+    <cs-cp2020-skill-stat-section [title]="'REF'" [stat]="stats.REF" [skills]="skills.REF" [sa]="false"
+      (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)">
+    </cs-cp2020-skill-stat-section>
+    <cs-cp2020-skill-stat-section [title]="'TECH'" [stat]="stats.TECH" [skills]="skills.TECH" [sa]="false"
+      (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)">
+    </cs-cp2020-skill-stat-section>
+    <cs-cp2020-skill-stat-section [title]="'OTHER'" [stat]="undefined" [skills]="skills.Other" [sa]="false"
+      (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)">
+    </cs-cp2020-skill-stat-section>
+  </div>
 </div>

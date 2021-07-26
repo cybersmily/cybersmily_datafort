@@ -1,7 +1,10 @@
 <div class="chargen-section chargen-border">
   <div class="cp2020-label row no-gutters">
     <div class="col">
-      <h4 class="d-inline-block">LIFEPATH</h4>
+      <h4 class="d-inline-block csd-btn mr-4" (click)="isCollapsed = !isCollapsed">
+        LIFEPATH
+        <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ml-2"></fa-icon>
+      </h4>
       <div class="d-inline-block hidden-print">
         <fa-icon [icon]="faDice" class="chargen-lifepath-dice" (click)="roll()"
           title="Randomly generate lifepath">
@@ -17,7 +20,7 @@
       </div>
     </div>
   </div>
-  <div class="row no-gutters pt-2">
+  <div [collapse]="isCollapsed" class="row no-gutters pt-2">
     <div class="col-12 col-lg-6">
       <!-- STYLE -->
       <div class="row">

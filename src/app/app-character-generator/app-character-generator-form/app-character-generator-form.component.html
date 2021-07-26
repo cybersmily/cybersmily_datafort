@@ -34,7 +34,8 @@
         <div class="col-sm-12 col-lg-6">
           <cs-app-character-handle [handle]="character.handle" (changeHandle)="changeHandle($event)">
           </cs-app-character-handle>
-          <cs-app-character-role [role]="character.role" (changeRole)="changeRole($event)" [rep]="character.skills.rep" (changeRep)="changeRep($event)"></cs-app-character-role>
+          <cs-app-character-role [role]="character.role" (changeRole)="changeRole($event)" [rep]="character.skills.rep"
+            (changeRep)="changeRep($event)"></cs-app-character-role>
           <cs-cp2020-stats [stats]="character.stats" (changeStats)="changeStats($event)" [combatSense]="combatSense">
           </cs-cp2020-stats>
         </div>
@@ -59,12 +60,14 @@
           </cs-cp2020weapontable>
         </div>
       </div>
-      <div class="row no-gutters">
+      <div class="row print-fix csd-linebreak no-gutters">
         <div class="col">
-          <cs-cp2020-cyberware-table [cyberList]="character.cyberware" class="col" (changeList)="changeCyber($event)" [showTwoColumns]="true">
-          </cs-cp2020-cyberware-table>
-        </div>
-      </div>
+      <cs-cp2020-cyberware-table [cyberList]="character.cyberware" (changeList)="changeCyber($event)"
+            [showTwoColumns]="true">
+      </cs-cp2020-cyberware-table>
+    </div>
+  </div>
+
       <div class="row print-fix csd-linebreak">
         <div class="col">
           <cs-app-character-gear [gear]="character.gear" (changeGear)="changeGear($event)"></cs-app-character-gear>
@@ -72,7 +75,8 @@
       </div>
       <div class="row print-fix">
         <div class="col">
-          <cs-cp2020-lifestyle [lifeStyle]="character.lifeStyle" (updateLifeStyle)="changeLifestyle($event)"></cs-cp2020-lifestyle>
+          <cs-cp2020-lifestyle [lifeStyle]="character.lifeStyle" (updateLifeStyle)="changeLifestyle($event)">
+          </cs-cp2020-lifestyle>
         </div>
       </div>
       <div class="row print-fix csd-linebreak no-gutters">
@@ -81,8 +85,13 @@
           </cs-app-character-lifepath>
         </div>
       </div>
-      <div class="chargen-label chargen-fill chargen-page-header csd-linebreak">NOTES</div>
-      <textarea [(ngModel)]="character.notes" class="chargen-notes"></textarea>
+      <div class="chargen-label chargen-fill chargen-page-header csd-linebreak">
+        <h4 class="d-inline-block csd-btn mr-4" (click)="isCollapsed = !isCollapsed">
+          NOTES
+          <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ml-2"></fa-icon>
+        </h4>
+      </div>
+      <textarea [collapse]="isCollapsed" [(ngModel)]="character.notes" class="chargen-notes"></textarea>
     </div>
   </div>
 </div>
