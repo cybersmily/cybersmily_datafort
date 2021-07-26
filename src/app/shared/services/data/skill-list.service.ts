@@ -31,7 +31,7 @@ export class SkillListService {
 
   get SpecialAbilities(): Observable<Array<DataSkill>> {
     return this.Skills.pipe( map( sk => {
-      return sk.filter( s => s.isspecialability);
+      return sk.filter( s => s.sa);
     }));
   }
 

@@ -28,7 +28,7 @@ export class Cp2020SkillStatSectionComponent implements OnInit, OnChanges {
   currSkills: Array<Cp2020PlayerSkill> = new Array<Cp2020PlayerSkill>();
 
   @Input()
-  isSpecialAbility: boolean = false;
+  sa: boolean = false;
 
   @Output()
   changeSkill = new EventEmitter<Cp2020PlayerSkill>();

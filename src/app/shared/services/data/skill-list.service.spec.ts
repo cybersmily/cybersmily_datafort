@@ -22,9 +22,9 @@ describe('SkillListService', () => {
     dataService = TestBed.inject(DataService);
     service = new SkillListService(dataService);
     testSkillList = new Array<DataSkill>();
-    testSkillList.push({ name: 'test1', stat: 'INT', ipmod: 1, source: 'CP2020', page: 2, isspecialability: false, description: '' });
-    testSkillList.push({ name: 'test2', stat: 'REF', ipmod: 1, source: 'CP2020', page: 6, isspecialability: true, description: '' });
-    testSkillList.push({ name: 'test3', stat: 'EMP', ipmod: 1, source: 'CP2020', page: 3, isspecialability: false, description: '' });
+    testSkillList.push({ name: 'test1', stat: 'INT', ipmod: 1, source: 'CP2020', page: 2, sa: false, description: '' });
+    testSkillList.push({ name: 'test2', stat: 'REF', ipmod: 1, source: 'CP2020', page: 6, sa: true, description: '' });
+    testSkillList.push({ name: 'test3', stat: 'EMP', ipmod: 1, source: 'CP2020', page: 3, sa: false, description: '' });
   });
 
   it('should be created', () => {

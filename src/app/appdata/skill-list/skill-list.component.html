@@ -16,11 +16,11 @@
     <td><input [(ngModel)]="filters.sa" type="search" placeholder="search on is special ability" class="skill-search"/></td>
     <td><input [(ngModel)]="filters.source" type="search" placeholder="search on source" class="skill-search"/></td>
   </tr>
-  <tr *ngFor="let sk of skillList |filter:'name': filters.name|filter:'stat': filters.stat|sourcebookFilter:filters.source|filter:'isspecialability': filters.searchSpclAbility"
+  <tr *ngFor="let sk of skillList |filter:'name': filters.name|filter:'stat': filters.stat|sourcebookFilter:filters.source|filter:'sa': filters.searchSpclAbility"
       style="vertical-align: top;">
     <td>{{sk.name | parse}}<span *ngIf="sk.option || sk.option === ''">: {{sk.option}}</span></td>
     <td class="text-center">{{sk.stat}}</td>
-    <td class="text-center">{{(sk.isspecialability)?'Yes':'No'}}</td>
+    <td class="text-center">{{(sk.sa)?'Yes':'No'}}</td>
     <td class="text-center">{{sk.source|sourcebook}} pg. {{sk.page}}</td>
   </tr>
 </table>

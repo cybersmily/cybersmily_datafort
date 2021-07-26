@@ -4,6 +4,6 @@ export interface DataSkill {
   ipmod: number;
   source: string;
   page: number;
-  isspecialability: boolean;
+  sa: boolean;
   description: string;
 }

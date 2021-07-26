@@ -1,3 +1,5 @@
+import { JsonDataFiles } from './../file-services/json-data-files';
+import { DataService } from './../file-services/data.service';
 import { CacheKeys } from './../../cache-keys';
 import { Cp2020PlayerSkills, Cp2020PlayerSkill } from './../../cp2020/cp2020-skills/models';
 import { LifePathResults } from './../../models/lifepath/lifepath-results';
@@ -23,7 +25,7 @@ export class Cp2020CharacterGeneratorService {
 
   private _currCharacter: Cp2020PlayerCharacter;
 
-  constructor() {
+  constructor(private dataService: DataService) {
     if (
       window.localStorage &&
       window.localStorage.getItem(CacheKeys.CP2020_CHAR_GEN)
@@ -33,7 +35,7 @@ export class Cp2020CharacterGeneratorService {
       );
       this.changeCharacter(character);
     } else {
-      this._currCharacter = new Cp2020PlayerCharacter();
+      this.clearCharacter();
     }
   }
 
@@ -220,8 +222,14 @@ export class Cp2020CharacterGeneratorService {
   }
 
   clearCharacter() {
-    this._currCharacter = new Cp2020PlayerCharacter();
     window.localStorage.removeItem(CacheKeys.CP2020_CHAR_GEN);
-    this._character.next(this._currCharacter);
+    // get the skill data to load to character
+    this.dataService.GetJson(JsonDataFiles.CP2020_SKILLS_DATA_LIST_JSON)
+    .subscribe( (data) => {
+      this._currCharacter = new Cp2020PlayerCharacter();
+      this._currCharacter.skills = new Cp2020PlayerSkills(data);
+      this._character.next(this._currCharacter);
+    });
+
   }
 }

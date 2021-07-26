@@ -14,13 +14,13 @@
       <div class="chargen-skill-stat">{{title}}</div>
     </div>
     <div class="col-12 col-md-6 col-lg-4 order-1 pl-1 pr-1 border-lg border-dark">
-      <cs-cp2020-skill *ngFor="let skill of getColumnOne(skills)" [skill]="skill" (changeSkill)="onChangeSkill($event)" [stat]="stat" [isSpecialAbility]="spclAbility"></cs-cp2020-skill>
+      <cs-cp2020-skill *ngFor="let skill of getColumnOne(skills)" [skill]="skill" (changeSkill)="onChangeSkill($event)" [stat]="stat" [sa]="spclAbility"></cs-cp2020-skill>
     </div>
     <div class="col-12 col-md-6 order-md-3 order-lg-2 col-lg-4 pl-1 pr-1 border-lg border-dark">
-      <cs-cp2020-skill *ngFor="let skill of getColumnTwo(skills)" [skill]="skill" (changeSkill)="onChangeSkill($event)" [stat]="stat" [isSpecialAbility]="spclAbility" ></cs-cp2020-skill>
+      <cs-cp2020-skill *ngFor="let skill of getColumnTwo(skills)" [skill]="skill" (changeSkill)="onChangeSkill($event)" [stat]="stat" [sa]="spclAbility" ></cs-cp2020-skill>
     </div>
     <div class="col-12 col-md-6 col-lg-4  order-md-2 order-lg-3 pl-1 pr-1 border-lg border-dark">
-      <cs-cp2020-skill *ngFor="let skill of getColumnThree(skills)" [skill]="skill" (changeSkill)="onChangeSkill($event)" [stat]="stat" [isSpecialAbility]="spclAbility" ></cs-cp2020-skill>
+      <cs-cp2020-skill *ngFor="let skill of getColumnThree(skills)" [skill]="skill" (changeSkill)="onChangeSkill($event)" [stat]="stat" [sa]="spclAbility" ></cs-cp2020-skill>
     </div>
   </div>
 </ng-template>

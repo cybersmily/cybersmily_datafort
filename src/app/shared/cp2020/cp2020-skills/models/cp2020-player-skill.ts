@@ -64,7 +64,7 @@ export class Cp2020PlayerSkill implements Skill {
     return {
       name: this.name,
       stat: this.stat,
-      isspecialability: (this.isSA) ? this.isSA : false,
+      sa: (this.isSA) ? this.isSA : false,
       ipmod : this.ipMod,
       description: (this.description) ? this.description : '',
       source: '',
@@ -74,7 +74,7 @@ export class Cp2020PlayerSkill implements Skill {
 
   fromDataSkill(skill: DataSkill) {
     this.name = skill.name;
-    this.isSA = skill.isspecialability;
+    this.isSA = skill.sa;
     this.description = skill.description;
     this.ipMod = skill.ipmod;
     this.stat = skill.stat.toUpperCase();

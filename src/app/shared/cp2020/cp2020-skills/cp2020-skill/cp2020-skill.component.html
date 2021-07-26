@@ -1,7 +1,7 @@
 <div
   [ngClass]="{'article': true, 'chargen-skill-is-role': currSkill.isRoleSkill,'chargen-skill-is-secodary ': currSkill.isSecondarySkill, 'chargen-role-choice': currSkill.roleChoice, 'chargen-skill': true}">
   <fa-icon [icon]="faDice" title="Click to Roll" (click)="onClick(chargenSkillRoll)"></fa-icon>
-  <span [ngClass]="{'rounded': true, 'sa-name': isSpecialAbility, 'skill-name': true, 'csd-btn': true }"
+  <span [ngClass]="{'rounded': true, 'sa-name': sa, 'skill-name': true, 'csd-btn': true }"
     (click)="showModal(skillDetails)">
     {{currSkill.name}}
     <span *ngIf="currSkill.option">: {{currSkill.option}}</span>
@@ -10,7 +10,7 @@
   </span>
   <span class="dots"></span>
   <span class="skill-inputs pull-right">
-    <span [ngClass]="{'d-none':isSpecialAbility}" title="Skill + Stat">
+    <span [ngClass]="{'d-none':sa}" title="Skill + Stat">
       [{{ currSkill.value + ((stat)?stat.Adjusted:0 )}}]
     </span>
     &nbsp;
@@ -21,7 +21,7 @@
       [ngClass]="{'chargen-skill-input': true, 'chargen-skill-has-value': (currSkill.value > 0)}" />
     &nbsp;
     <input [(ngModel)]="currSkill.chipped" type="checkbox" title="Skill is chipped?"
-      [ngClass]="{'d-none':isSpecialAbility}" (change)="onChangeSkill()"></span>
+      [ngClass]="{'d-none':sa}" (change)="onChangeSkill()"></span>
 </div>
 <ng-template #chargenSkillRoll>
   <div class="modal-header">

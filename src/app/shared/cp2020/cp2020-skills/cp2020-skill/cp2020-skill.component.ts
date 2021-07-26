@@ -31,7 +31,7 @@ export class Cp2020SkillComponent implements OnInit {
   stat = new Cp2020Stat();
 
   @Input()
-  isSpecialAbility = false;
+  sa = false;
 
   @Output()
   changeSkill = new EventEmitter<Cp2020PlayerSkill>();

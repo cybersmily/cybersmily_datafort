@@ -42,8 +42,8 @@ export class CmbtTrkSkillsComponent implements OnInit, OnChanges {
   ngOnInit() {
     if (this.skills.length < 1) {
       this.skillList.Skills.subscribe( list => {
-        this.skills = list.filter( sk => !sk.isspecialability);
-        this.specialAbilites = list.filter( sk => sk.isspecialability);
+        this.skills = list.filter( sk => !sk.sa);
+        this.specialAbilites = list.filter( sk => sk.sa);
       });
     }
   }
