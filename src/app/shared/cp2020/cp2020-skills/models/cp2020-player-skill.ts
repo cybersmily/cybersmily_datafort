@@ -28,7 +28,7 @@ export class Cp2020PlayerSkill implements Skill {
 
   constructor(param?: SkillParameters) {
     if (param) {
-      this.name = (param.name) ? param.name : '';
+      this.name = (param.name) ? param.name.replace('\\&','&') : '';
       this.description = (param.desc) ? param.desc : '';
       this.stat = (param.stat) ? param.stat : '';
       this.value = (param.value) ? param.value : 0;
