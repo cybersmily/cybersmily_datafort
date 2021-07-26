@@ -14,6 +14,9 @@ export const mainRoutes: Routes = [
   { path: 'apps/lifepath', loadChildren: () => import('./app-lifepath/app-lifepath.module').then(m => m.AppLifepathModule) },
   { path: 'apps/lpredjmp', loadChildren: () => import('./app-cp-red-lifepath/app-cp-red-lifepath.module')
   .then(m => m.AppCpRedLifepathModule) },
+  { path: 'apps/cp2077', loadChildren: () => import('./app-cp2077-drop-tracker/app-cp2077-drop-tracker.module')
+      .then(m => m.AppCp2077DropTrackerModule) },
+
   { path: 'apps/redlifepath', loadChildren: () => import('./app-cp-red-lifepath/app-cp-red-lifepath.module')
       .then(m => m.AppCpRedLifepathModule) },
   { path: 'apps/maxmetal', loadChildren: () => import('./app-maxmetal/app-maxmetal.module').then(m => m.AppMaxmetalModule) },

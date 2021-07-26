@@ -1,0 +1,430 @@
+<div class="ml-5">
+  <div class="row hidden-print">
+    <div class="col">
+      <h2>CP2077 Drop Tacker
+        <fa-icon [icon]="faSave" class="csd-btn csd-icon-btn csd-icon-xxl ml-5" (click)="save()"></fa-icon>
+        <fa-icon [icon]="faUpload" class="csd-btn csd-icon-btn csd-icon-xxl ml-5" (click)="upload()"></fa-icon>
+      </h2>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col">
+      Character: <select [(ngModel)]="selectedCharacter" (change)="changeQuality()">
+        <option value="cf">Corp Female</option>
+        <option value="cf">Corp Male</option>
+        <option value="nf">Nomad Female</option>
+        <option value="nm">Nomad Male</option>
+        <option value="sf">Streetkid Female</option>
+        <option value="sm">Streetkid Male</option>
+      </select>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col">
+      Total - this character {{currCount | number}}; total collected: {{totalItemsCollected | number}}; Total Items: {{
+      totalItems | number}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <tabset #locationTabs>
+        <tab heading="Head({{head.length}})">
+          <ng-container *ngTemplateOutlet="tabListData;context:{list:head}">
+          </ng-container>
+        </tab>
+        <tab heading="Face({{face.length}})">
+          <ng-container *ngTemplateOutlet="tabListData;context:{list:face}">
+          </ng-container>
+        </tab>
+        <tab heading="Outer({{outerTorso.length}})">
+          <ng-container *ngTemplateOutlet="tabListData;context:{list:outerTorso}">
+          </ng-container>
+        </tab>
+        <tab heading="Inner({{innerTorso.length}})">
+          <ng-container *ngTemplateOutlet="tabListData;context:{list:innerTorso}">
+          </ng-container>
+        </tab>
+        <tab heading="Legs({{leggings.length}})">
+          <ng-container *ngTemplateOutlet="tabListData;context:{list:leggings}">
+          </ng-container>
+        </tab>
+        <tab heading="Feet({{footWear.length}})">
+          <ng-container *ngTemplateOutlet="tabListData;context:{list:footWear}">
+          </ng-container>
+        </tab>
+        <tab heading="Full Body({{fullbody.length}})">
+          <ng-container *ngTemplateOutlet="tabListData;context:{list:fullbody}">
+          </ng-container>
+        </tab>
+        <tab heading="Missing({{missing.length}})">
+          <div class="row" *ngFor="let item of missing">
+            <div class="col-2">
+              {{getLocation(item.location)}}
+            </div>
+            <div class="col">
+              {{item.name}}
+            </div>
+          </div>
+        </tab>
+        <tab heading="Unknown({{unknown.length}})">
+          <div class="row" *ngFor="let item of unknown">
+            <div class="col-2">
+              {{getLocation(item.location)}}
+            </div>
+            <div class="col">
+              {{item.name}}
+            </div>
+          </div>
+        </tab>
+        <tab heading="Sex Based({{sex.length}})">
+          <div class="row" *ngFor="let item of sex">
+            <div class="col-2">
+              {{getLocation(item.location)}}
+            </div>
+            <div class="col">
+              {{item.name}}
+            </div>
+          </div>
+        </tab>
+
+        <tab heading="All({{totalMissing.length}})">
+          <div class="row" *ngFor="let item of totalMissing">
+            <div class="col-2">
+              {{getLocation(item.location)}}
+            </div>
+            <div class="col">
+              {{item.name}}
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+</div>
+
+<ng-template #tabListData let-list="list">
+  <div class="row small mt-5">
+    <div class="col-2">
+      Name
+    </div>
+    <div class="col-1 text-center">
+      Quality
+    </div>
+    <div class="col ">
+      <div class="csd-cp2077-cell rotate align-bottom csd-btn" (click)="onKill($event,'animals',1)"
+        (contextmenu)="onKill($event,'animals',-1)">
+        Animals
+      </div>
+      <div class="csd-cp2077-cell rotate csd-btn" (click)="onKill($event,'maelstrom',1)"
+        (contextmenu)="onKill($event,'maelstrom',-1)">
+        Maelstrom
+      </div>
+      <div class="csd-cp2077-cell rotate csd-btn" (click)="onKill($event,'scav',1)" (contextmenu)="onKill($event,'scav',-1)">
+        Scav
+      </div>
+      <div class="csd-cp2077-cell rotate csd-btn" (click)="onKill($event,'sixthstreet',1)"
+        (contextmenu)="onKill($event,'sixthstreet',-1)">
+        Sixth
+      </div>
+      <div class="csd-cp2077-cell rotate csd-btn" (click)="onKill($event,'tygerclaw',1)"
+        (contextmenu)="onKill($event,'tygerclaw',-1)">
+        Tyger
+      </div>
+      <div class=" csd-cp2077-cell rotate csd-btn" (click)="onKill($event,'valentinos',1)"
+        (contextmenu)="onKill($event,'valentinos',-1)">
+        Valentinos
+      </div>
+      <div class=" csd-cp2077-cell rotate csd-btn" (click)="onKill($event,'voodooboys',1)"
+        (contextmenu)="onKill($event,'voodooboys',-1)">
+        VoodooBoy
+      </div>
+      <div class=" csd-cp2077-cell rotate csd-btn" (click)="onKill($event,'wraiths',1)"
+        (contextmenu)="onKill($event,'wraiths',-1)">
+        Wraiths
+      </div>
+      <div class=" csd-cp2077-cell rotate csd-btn csd-cp2077-left" (click)="onKill($event,'arasaka',1)"
+        (contextmenu)="onKill($event,'arasaka',-1)">
+        Arasaka
+      </div>
+      <div class=" csd-cp2077-cell rotate csd-btn" (click)="onKill($event,'kangtao',1)"
+        (contextmenu)="onKill($event,'kangtao',-1)">
+        KangTao
+      </div>
+      <div class=" csd-cp2077-cell rotate csd-btn" (click)="onKill($event,'merc',1)"
+        (contextmenu)="onClick($event,item.name,'merc',-1)">
+        Merc
+      </div>
+      <div class=" csd-cp2077-cell rotate csd-btn" (click)="onKill($event,'militech',1)"
+        (contextmenu)="onKill($event,'militech',-1)">
+        Militech
+      </div>
+      <div class=" csd-cp2077-cell rotate csd-cp2077-left">
+        Quest
+      </div>
+      <div class="csd-cp2077-cell rotate">
+        Container
+      </div>
+      <div class="csd-cp2077-cell rotate csd-cp2077-left">
+        Arroyo
+      </div>
+      <div class="csd-cp2077-cell rotate">
+        Rancho
+      </div>
+      <div class="csd-cp2077-cell rotate csd-cp2077-left">
+        Pacifica
+      </div>
+      <div class="csd-cp2077-cell rotate csd-cp2077-left">
+        Badlands
+      </div>
+      <div class="csd-cp2077-cell rotate csd-cp2077-left">
+        Kabuki
+      </div>
+      <div class="csd-cp2077-cell rotate">
+        LittleChina
+      </div>
+      <div class="csd-cp2077-cell rotate">
+        NorthSide
+      </div>
+      <div class="csd-cp2077-cell rotate csd-cp2077-left">
+        JapanTown
+      </div>
+      <div class="csd-cp2077-cell rotate">
+        CharterHill
+      </div>
+      <div class="csd-cp2077-cell rotate csd-cp2077-left">
+        Wellsprings
+      </div>
+      <div class="csd-cp2077-cell rotate">
+        Glens
+      </div>
+      <div class="csd-cp2077-cell rotate">
+        CityCenter
+      </div>
+    </div>
+  </div>
+  <div class="row small mt-2">
+    <div class="col-2">
+      <input type="text" [(ngModel)]="filterName">
+    </div>
+    <div class="col-1 text-center">
+    </div>
+    <div class="col border border-dark">
+      <div class="csd-cp2077-cell text-center csd-btn" (click)="onKill($event,'animals',1)"
+        (contextmenu)="onKill($event,'animals',-1)">
+        {{kills.animals}}
+      </div>
+      <div class="csd-cp2077-cell text-center csd-btn" (click)="onKill($event,'maelstrom',1)"
+        (contextmenu)="onKill($event,'maelstrom',-1)">
+        {{kills.maelstrom}}
+      </div>
+      <div class="csd-cp2077-cell text-center csd-btn" (click)="onKill($event,'scav',1)"
+        (contextmenu)="onKill($event,'scav',-1)">
+        {{kills.scav}}
+      </div>
+      <div class="csd-cp2077-cell text-center csd-btn" (click)="onKill($event,'sixthstreet',1)"
+        (contextmenu)="onKill($event,'sixthstreet',-1)">
+        {{kills.sixthstreet}}
+      </div>
+      <div class="csd-cp2077-cell text-center csd-btn" (click)="onKill($event,'tygerclaw',1)"
+        (contextmenu)="onKill($event,'tygerclaw',-1)">
+        {{kills.tygerclaw}}
+      </div>
+      <div class=" csd-cp2077-cell text-center csd-btn" (click)="onKill($event,'valentinos',1)"
+        (contextmenu)="onKill($event,'valentinos',-1)">
+        {{kills.valentinos}}
+      </div>
+      <div class=" csd-cp2077-cell text-center csd-btn" (click)="onKill($event,'voodooboys',1)"
+        (contextmenu)="onKill($event,'voodooboys',-1)">
+        {{kills.voodooboys}}
+      </div>
+      <div class=" csd-cp2077-cell text-center csd-btn" (click)="onKill($event,'wraiths',1)"
+        (contextmenu)="onKill($event,'wraiths',-1)">
+        {{kills.wraiths}}
+      </div>
+      <div class=" csd-cp2077-cell text-center csd-cp2077-left csd-btn" (click)="onKill($event,'arasaka',1)"
+        (contextmenu)="onKill($event,'arasaka',-1)">
+        {{kills.arasaka}}
+      </div>
+      <div class=" csd-cp2077-cell text-center csd-btn" (click)="onKill($event,'kangtao',1)"
+        (contextmenu)="onKill($event,'kangtao',-1)">
+        {{kills.kangtao}}
+      </div>
+      <div class=" csd-cp2077-cell text-center csd-btn" (click)="onKill($event,'merc',1)"
+        (contextmenu)="onKill($event,'merc',-1)">
+        {{kills.merc}}
+      </div>
+      <div class=" csd-cp2077-cell text-center csd-btn" (click)="onKill($event,'militech',1)"
+        (contextmenu)="onKill($event,'militech',-1)">
+        {{kills.militech}}
+      </div>
+      <div class=" csd-cp2077-cell csd-cp2077-left">
+        &nbsp;
+      </div>
+      <div class="csd-cp2077-cell">
+      </div>
+      <div class="csd-cp2077-cell csd-cp2077-left">
+        &nbsp;
+      </div>
+      <div class="csd-cp2077-cell">
+      </div>
+      <div class="csd-cp2077-cell csd-cp2077-left">
+        &nbsp;
+      </div>
+      <div class="csd-cp2077-cell csd-cp2077-left">
+        &nbsp;
+      </div>
+      <div class="csd-cp2077-cell csd-cp2077-left">
+        &nbsp;
+      </div>
+      <div class="csd-cp2077-cell">
+      </div>
+      <div class="csd-cp2077-cell">
+      </div>
+      <div class="csd-cp2077-cell csd-cp2077-left">
+        &nbsp;
+      </div>
+      <div class="csd-cp2077-cell">
+      </div>
+      <div class="csd-cp2077-cell csd-cp2077-left">
+        &nbsp;
+      </div>
+      <div class="csd-cp2077-cell">
+      </div>
+      <div class="csd-cp2077-cell">
+      </div>
+    </div>
+  </div>
+  <div class="row csd-cp2077-items">
+    <div class="col">
+
+      <div class="row small csd-cp2077-entry border border-dark" *ngFor="let item of list|filter:'name':filterName">
+        <div [ngClass]="{'col-2': true, 'csd-cp2077-name': true,'csd-cp2077-missing': IsMissing(item.name)}">
+          {{item.name}}
+        </div>
+        <div class="col-1 text-center">
+          <select [(ngModel)]="item[selectedCharacter]" (change)="changeQuality()">
+            <option value=""></option>
+            <option value="W">W</option>
+            <option value="G">G</option>
+            <option value="B">B</option>
+            <option value="P">P</option>
+            <option value="L">L</option>
+            <option value="U">U</option>
+            <option value="?">?</option>
+            <option value="-">NA</option>
+          </select>
+        </div>
+        <div class="col csd-cp2077-left">
+          <div class="csd-cp2077-cell text-center csd-btn ml-1" (click)="onClick($event,item.name,'animals',1)"
+            (contextmenu)="onClick($event,item.name,'animals',-1)">
+            {{item.animals}}
+          </div>
+          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'maelstrom',1)"
+            (contextmenu)="onClick($event,item.name,'maelstrom',-1)">
+            {{item.maelstrom}}
+          </div>
+          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'scav',1)"
+            (contextmenu)="onClick($event,item.name,'scav',-1)">
+            {{item.scav}}
+          </div>
+          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'sixthstreet',1)"
+            (contextmenu)="onClick($event,item.name,'sixthstreet',-1)">
+            {{item.sixthstreet}}
+          </div>
+          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'tygerclaw',1)"
+            (contextmenu)="onClick($event,item.name,'tygerclaw',-1)">
+            {{item.tygerclaw}}
+          </div>
+          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'valentinos',1)"
+            (contextmenu)="onClick($event,item.name,'valentinos',-1)">
+            {{item.valentinos}}
+          </div>
+          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'voodooboys',1)"
+            (contextmenu)="onClick($event,item.name,'voodooboys',-1)">
+            {{item.voodooboys}}
+          </div>
+          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'wraiths',1)"
+            (contextmenu)="onClick($event,item.name,'wraiths',-1)">
+            {{item.wraiths}}
+          </div>
+          <div class="csd-cp2077-cell text-center csd-cp2077-left csd-btn"
+            (click)="onClick($event,item.name,'arasaka',1)" (contextmenu)="onClick($event,item.name,'arasaka',-1)">
+            {{item.arasaka}}
+          </div>
+          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'kangtao',1)"
+            (contextmenu)="onClick($event,item.name,'kangtao',-1)">
+            {{item.kangtao}}
+          </div>
+          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'merc',1)"
+            (contextmenu)="onClick($event,item.name,'merc',-1)">
+            {{item.merc}}
+          </div>
+          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'militech',1)"
+            (contextmenu)="onClick($event,item.name,'militech',-1)">
+            {{item.militech}}
+          </div>
+          <div class="csd-cp2077-cell text-center csd-cp2077-left csd-btn" (click)="onClick($event,item.name,'quest',1)"
+            (contextmenu)="onClick($event,item.name,'quest',-1)">
+            {{item.quest}}
+          </div>
+          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'container',1)"
+            (contextmenu)="onClick($event,item.name,'container',-1)">
+            {{item.container}}
+          </div>
+          <div class="csd-cp2077-cell text-center csd-cp2077-left csd-btn"
+            (click)="onClick($event,item.name,'arroyo',1)" (contextmenu)="onClick($event,item.name,'arroyo',-1)">
+            {{item.arroyo}}
+          </div>
+          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'rancho',1)"
+            (contextmenu)="onClick($event,item.name,'rancho',-1)">
+            {{item.rancho}}
+          </div>
+          <div class="csd-cp2077-cell text-center csd-cp2077-left csd-btn"
+            (click)="onClick($event,item.name,'pacifica',1)" (contextmenu)="onClick($event,item.name,'pacifica',-1)">
+            {{item.pacifica}}
+          </div>
+          <div class="csd-cp2077-cell text-center csd-cp2077-left csd-btn"
+            (click)="onClick($event,item.name,'badlands',1)" (contextmenu)="onClick($event,item.name,'badlands',-1)">
+            {{item.badlands}}
+          </div>
+          <div class="csd-cp2077-cell text-center csd-cp2077-left csd-btn"
+            (click)="onClick($event,item.name,'kabuki',1)" (contextmenu)="onClick($event,item.name,'kabuki',-1)">
+            {{item.kabuki}}
+          </div>
+          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'littlechina',1)"
+            (contextmenu)="onClick($event,item.name,'littlechina',-1)">
+            {{item.littlechina}}
+          </div>
+          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'northside',1)"
+            (contextmenu)="onClick($event,item.name,'northside',-1)">
+            {{item.northside}}
+          </div>
+          <div class="csd-cp2077-cell text-center csd-cp2077-left csd-btn"
+            (click)="onClick($event,item.name,'japantown',1)" (contextmenu)="onClick($event,item.name,'japantown',-1)">
+            {{item.japantown}}
+          </div>
+          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'charterhill',1)"
+            (contextmenu)="onClick($event,item.name,'charterhill',-1)">
+            {{item.charterhill}}
+          </div>
+          <div class="csd-cp2077-cell text-center csd-cp2077-left csd-btn"
+            (click)="onClick($event,item.name,'wellsprings',1)"
+            (contextmenu)="onClick($event,item.name,'wellsprings',-1)">
+            {{item.wellsprings}}
+          </div>
+          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'theglens',1)"
+            (contextmenu)="onClick($event,item.name,'theglens',-1)">
+            {{item.theglens}}
+          </div>
+          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'citycenter',1)"
+            (contextmenu)="onClick($event,item.name,'citycenter',-1)">
+            {{item.citycenter}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+</ng-template>

@@ -1,0 +1,55 @@
+.csd-cp2077-entry:hover {
+  background-color: #CCC;
+  font-size: 20px;
+}
+
+.csd-cp2077-cell {
+  width: 30px;
+  display: inline-block;
+
+}
+.csd-cp2077-cell.rotate:hover {
+  background-color: #CCC;
+}
+
+.csd-cp2077-missing {
+  background-color: yellow;
+}
+
+.csd-cp2077-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+
+.csd-cp2077-items {
+  height: 300px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.csd-cp2077-left {
+  border-left: 2px black solid;
+}
+
+.rotate {
+  transform: rotate(-90deg);
+  /* Legacy vendor prefixes that you probably don't need... */
+
+  /* Safari */
+  -webkit-transform: rotate(-90deg);
+
+  /* Firefox */
+  -moz-transform: rotate(-90deg);
+
+  /* IE */
+  -ms-transform: rotate(-90deg);
+
+  /* Opera */
+  -o-transform: rotate(-90deg);
+
+  /* Internet Explorer */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+}

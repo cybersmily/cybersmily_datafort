@@ -1,0 +1,52 @@
+export class Cp2077TrackerEntry {
+  location: number;
+  name: string;
+  cm: string;
+  cf: string;
+  nm: string;
+  nf: string;
+  sm: string;
+  sf: string;
+  sixthstreet:number;
+  animals:number;
+  maelstrom:number;
+  scav:number;
+  tygerclaw:number;
+  valentinos:number;
+  voodooboys:number;
+  wraiths:number;
+  arasaka:number;
+  militech:number;
+  kangtao:number;
+  merc:number;
+  netwatch:number;
+
+  sixthstreetKills:number;
+  animalsKills:number;
+  maelstromKills:number;
+  scavKills:number;
+  tygerclawKills:number;
+  valentinosKills:number;
+  voodooboysKills:number;
+  wraithsKills:number;
+  arasakaKills:number;
+  militechKills:number;
+  kangtaoKills:number;
+  mercKills:number;
+  netwatchKills:number;
+
+  container:number;
+  quest:number;
+  rancho:number;
+  arroyo:number;
+  pacifica:number;
+  badlands:number;
+  kabuki:number;
+  littlechina:number;
+  northside:number;
+  japantown:number;
+  charterhill:number;
+  wellsprings:number;
+  theglens:number;
+  citycenter:number;
+}

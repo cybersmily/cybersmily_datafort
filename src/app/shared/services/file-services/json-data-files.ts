@@ -8,7 +8,7 @@ export class JsonDataFiles {
   // DATA lists
   public static CP2020_ROLES_LIST_JSON = `/json/apps/chargen/cp2020rolesext.json`;
   public static CP2020_WEAPON_DATA_LIST_JSON = `/json/wpns/cp2020weapons.json`;
-  public static CP2020_SKILLS_DATA_LIST_JSON = `/json/apps/cpskills.json`;
+  public static CP2020_SKILLS_DATA_LIST_JSON = `/json/apps/chargen/cp2020skills.json`;
   public static CP2020_MARTIAL_ARTS_LIST_JSON = '/json/wpns/cp2020martialarts.json';
   public static CP2020_CYBERWARE_DATA_LIST_JSON = `/json/data/cyberware.json`;
   public static CP2020_CYBERWARE_RANDOM_ENTRIES_JSON = `/json/data/cyberRandomEntries.json`;
@@ -84,5 +84,7 @@ export class JsonDataFiles {
   public static CPRED_NIGHTMARKET_CHART_JSON =`/json/apps/redeconomy/nightmarketchart.json`;
   public static CPRED_VENDIT_CHART_JSON =`/json/apps/redeconomy/vendit.json`;
   public static CPRED_BODEGAS_CHART_JSON =`/json/apps/redeconomy/bodegas.json`;
+
+  public static CP2077_TRACKER_DATA_JSON =`/json/apps/cp2077tracker.json`;
 
 }
