@@ -2,15 +2,15 @@
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9" >
 	<url>
 		<loc>https://cybersmily.net/index.html</loc>
-		<lastmod>2021-07-15</lastmod>
+		<lastmod>2021-07-29</lastmod>
 	</url>
 	<url>
 		<loc>https://cybersmily.net/apps/chargen</loc>
-		<lastmod>2021-05-30</lastmod>
+		<lastmod>2021-07-27</lastmod>
 	</url>
 	<url>
 		<loc>https://cybersmily.net/apps/cmbttrk</loc>
-		<lastmod>2021-07-08</lastmod>
+		<lastmod>2021-07-27</lastmod>
 	</url>
 	<url>
 		<loc>https://cybersmily.net/apps/rednet</loc>
@@ -38,7 +38,7 @@
 	</url>
   <url>
 		<loc>https://cybersmily.net/apps/lpredjmp</loc>
-		<lastmod>2021-05-01</lastmod>
+		<lastmod>2021-07-27</lastmod>
 	</url>
 	<url>
 		<loc>https://cybersmily.net/apps/fashcalc</loc>
@@ -62,7 +62,7 @@
 	</url>
 	<url>
 		<loc>https://cybersmily.net/apps/deckmgr</loc>
-		<lastmod>2021-07-15</lastmod>
+		<lastmod>2021-07-27</lastmod>
 	</url>
 	<url>
 		<loc>https://cybersmily.net/data/chrome2</loc>
@@ -82,7 +82,7 @@
 	</url>
 	<url>
 		<loc>https://cybersmily.net/data/skills</loc>
-		<lastmod>2020-04-02</lastmod>
+		<lastmod>2021-07-27</lastmod>
 	</url>
 	<url>
 		<loc>https://cybersmily.net/data/cyber</loc>
