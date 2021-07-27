@@ -1,7 +1,7 @@
 import { HeadlinesToPDF } from './../../shared/models/pdf/headlines-to-pdf';
 import { SaveFileService } from './../../shared/services/file-services/save-file.service';
 import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
-import { faDice, faFile, faFilePdf } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faFile, faFilePdf, faRedo } from '@fortawesome/free-solid-svg-icons';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { DataService } from './../../shared/services/file-services/data.service';
 import { Component, OnInit } from '@angular/core';
@@ -15,13 +15,15 @@ export class AppHeadlinesFormComponent implements OnInit {
   faDice = faDice;
   faFile = faFile;
   faFilePdf = faFilePdf;
+  faRedo = faRedo;
 
   headlines: Array<string> = new Array<string>();
 
+  numOfHeadlines: number = 1;
+
   topics: Array<string> = new Array<string>();
-  subjects: Array<string> = new Array<string>();
-  verbs: Array<string> = new Array<string>();
-  objects: Array<string> = new Array<string>();
+  subjects: Array<Array<string>> = new Array<Array<string>>();
+  verbs: Array<Array<string>> = new Array<Array<string>>();
 
   constructor(private dataService: DataService,
     private dice: DiceService,
@@ -33,22 +35,39 @@ export class AppHeadlinesFormComponent implements OnInit {
       this.topics = data.topics;
       this.subjects = data.subjects;
       this.verbs = data.verbs;
-      this.objects = data.objects;
     });
   }
 
   rollHeadlines() {
-    let headline = '';
-    let die = this.dice.generateNumber(0, this.topics.length - 1);
-    headline += `${this.topics[die].toLocaleUpperCase()} - `;
-    die = this.dice.generateNumber(0, this.subjects.length - 1);
-    headline += `${this.subjects[die]} `;
-    die = this.dice.generateNumber(0, this.verbs.length - 1);
-    headline += `${this.verbs[die]} `;
-    die = this.dice.generateNumber(0, this.objects.length - 1);
-    headline += `${this.objects[die]}`;
-    this.headlines.push(headline);
+    for(let i = 0; i < this.numOfHeadlines; i++) {
+      this.headlines.push(this.generateHeadline());
+    }
     this.headlines.sort((a,b) => a.localeCompare(b));
+  }
+
+  private generateHeadline(): string {
+    let die = this.dice.generateNumber(0, this.topics.length - 1);
+    const topic = this.topics[die].toLocaleUpperCase();
+
+    let num = this.dice.generateNumber(0, 1);
+    const subject = this.generateSubject(num);
+
+    die = this.dice.generateNumber(0, this.verbs.length - 1);
+    const verb = this.verbs[die][num];
+
+    num = this.dice.generateNumber(0, 1);
+    const objective = this.generateSubject(num);
+
+    return `${topic} - ${subject} ${verb} ${objective}`;
+  }
+
+  private generateSubject(num: number): string {
+    let result = '';
+    do {
+      const die = this.dice.generateNumber(0, this.subjects.length - 1);
+      result = this.subjects[die][num];
+    } while(result === '');
+    return result;
   }
 
   saveAsText() {
@@ -62,6 +81,10 @@ export class AppHeadlinesFormComponent implements OnInit {
   saveAsPdf() {
     const pdf = new HeadlinesToPDF();
     pdf.generatePdf(this.headlines);
+  }
+
+  clear() {
+    this.headlines = new Array<string>();
   }
 
 }
