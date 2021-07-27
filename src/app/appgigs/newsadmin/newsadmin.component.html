@@ -58,9 +58,13 @@
     </div>
   </div>
   <div class="row csd-box csd-rounded" *ngFor="let report of newNewsItem.reports; let i = index">
-    <div>
-      Image: <input type="text" [(ngModel)]="report.img" [typeahead]="images"> &nbsp;&nbsp;&nbsp;
-      Reporter: <input type="text" [(ngModel)]="report.reporter" [typeahead]="reporters">
+    <div class="col-2 text-center">
+      <img src="/img/peeps/th/th_{{report.img}}.png" alt="{{report.reporter}}" />
+      <br>
+      {{report.img}}
+    </div>
+    <div class="col">
+      Reporter: <input type="text" [(ngModel)]="report.reporter" [typeahead]="reporters" (change)="changeReporterOnNew($event,i)">
       <fa-icon [icon]="faTrash" class="csd-btn float-right" (click)="deleteNewNewsReport(i)"></fa-icon>
       <br>
       Commentary:

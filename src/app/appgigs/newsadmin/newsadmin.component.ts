@@ -21,6 +21,7 @@ export class NewsadminComponent implements OnInit {
   faSave = faSave;
 
   newsItems: GigNewsItem = new GigNewsItem();
+  key: string = 'wnsnews_adm';
 
   newNewsItem: NewsItem = { title: 'Nightly Report 2022-00-00', reports: new Array<NewsReport>()};
   newNewsReport: NewsReport = {img: 'tphillips', reporter: 'Tom Phillips', commentary: ''};
@@ -70,6 +71,7 @@ export class NewsadminComponent implements OnInit {
     .subscribe((news: GigNewsItem) => {
       news.news = news.news.sort( (a, b) => b.title.localeCompare(a.title));
       this.newsItems = news;
+      this.newNewsItem.reports.push({img: 'tphillips', reporter: 'Tom Phillips', commentary: 'Hello Night City and welcome to WNS 7 News Force team. I\'m Tom Phillips.<br/>'});
     });
   }
 
@@ -82,7 +84,8 @@ export class NewsadminComponent implements OnInit {
       title: this.newNewsItem.title,
       reports: [...this.newNewsItem.reports]
     });
-    this.newNewsItem = { title: '', reports: new Array<NewsReport>()};
+    this.newNewsItem = { title: 'Nightly Report 2022-00-00', reports: new Array<NewsReport>()};
+    this.newNewsItem.reports.push({img: 'tphillips', reporter: 'Tom Phillips', commentary: 'Hello Night City and welcome to WNS 7 News Force team. I\'m Tom Phillips.<br/>'});
   }
 
   addNewReport() {
@@ -92,7 +95,7 @@ export class NewsadminComponent implements OnInit {
       reporter: reporter.reporter,
       commentary: this.newNewsReport.commentary
     });
-    this.newNewsReport = {img: 'tphillips', reporter: 'Tom Phillps', commentary: ''};
+    this.newNewsReport = {img: 'tphillips', reporter: 'Tom Phillips', commentary: ''};
   }
   deleteNewNewsReport(index: number) {
     this.newNewsItem.reports.splice(index, 1);
@@ -122,5 +125,12 @@ export class NewsadminComponent implements OnInit {
     const img = this.rprtrs.find( r => r.reporter === reporter).img;
     this.newNewsReport.img = img;
   }
+
+  changeReporterOnNew(event, reportIndex: number) {
+    const reporter = this.newNewsItem.reports[reportIndex].reporter;
+    const img = this.rprtrs.find( r => r.reporter === reporter).img;
+    this.newNewsItem.reports[reportIndex].img = img;
+  }
+
 
 }
