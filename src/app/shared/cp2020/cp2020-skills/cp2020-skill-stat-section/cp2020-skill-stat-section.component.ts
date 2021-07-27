@@ -47,6 +47,10 @@ export class Cp2020SkillStatSectionComponent implements OnInit, OnChanges {
     return (this.isCollapsed) ? this.faChevronRight : this.faChevronDown;
   }
 
+  get columnLength(): number {
+    return Math.ceil(this.currSkills.length * ((this.currSkills.length%3 === 0) ? 0.33 : 0.34));
+  }
+
   constructor(private modalService: BsModalService) { }
 
   ngOnInit(): void {
@@ -60,20 +64,16 @@ export class Cp2020SkillStatSectionComponent implements OnInit, OnChanges {
   }
 
   getColumnOne(): Array<Cp2020PlayerSkill> {
-    const multi = (this.currSkills.length%3 === 0) ? 0.33 : 0.34;
-    return this.currSkills.slice(0, Math.ceil(this.currSkills.length * multi));
+    console.log(this.title, this.currSkills);
+    return this.currSkills.slice(0,this.columnLength);
   }
 
   getColumnTwo(): Array<Cp2020PlayerSkill> {
-    const multi = (this.currSkills.length%3 === 0) ? 0.33 : 0.34;
-    const start = Math.ceil(this.currSkills.length * multi);
-    const end = Math.ceil(this.currSkills.length * 0.33);
-    return this.currSkills.slice(start, start + end);
+    return this.currSkills.slice(this.columnLength, this.columnLength * 2);
   }
 
   getColumnThree(): Array<Cp2020PlayerSkill> {
-    const multi = (this.currSkills.length%3 === 0) ? 0.66 : 0.67;
-    return this.currSkills.slice(Math.ceil(this.currSkills.length * multi));
+    return this.currSkills.slice(this.columnLength * 2);
   }
 
   onChangeSkill(skill: Cp2020PlayerSkill) {
