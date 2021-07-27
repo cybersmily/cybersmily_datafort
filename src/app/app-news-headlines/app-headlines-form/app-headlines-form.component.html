@@ -7,7 +7,9 @@
         specific corporation, person, nomad family, gang, etc.).</div>
       <div>
         <fa-icon [icon]="faDice" class="csd-btn csd-icon-xl csd-icon-btn" (click)="rollHeadlines()"
-          title="Generate a random headline"></fa-icon> - roll for generic headlines.
+          title="Generate a random headline"></fa-icon> - roll <input type="number" class="csd-number text-right" [(ngModel)]="numOfHeadlines" min="1"> generic headlines.
+        <fa-icon [icon]="faRedo" class="csd-btn csd-icon-xl csd-icon-btn m1-2" (click)="clear()"
+            title="Reset headlines"></fa-icon>
         <fa-icon [icon]="faFile" class="csd-btn csd-icon-xl csd-icon-btn float-right mr-3" (click)="saveAsText()"
           title="Save headlines as a text file"></fa-icon>
         <fa-icon [icon]="faFilePdf" class="csd-btn csd-icon-xl csd-icon-btn float-right mr-3" (click)="saveAsPdf()"
