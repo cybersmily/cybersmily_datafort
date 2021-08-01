@@ -1,3 +1,5 @@
+import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
+import { DataService } from './../../shared/services/file-services/data.service';
 import { CPRedLifePathService } from './../../shared/cpred/c-p-red-lifepath/services/c-p-red-life-path.service';
 import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { SeoService } from './../../shared/services/seo/seo.service';
@@ -22,6 +24,7 @@ export class TempGeneratorComponent implements OnInit {
     private dice: DiceService,
     private lifepathService: CPRedLifePathService,
     private nameService: NameGeneratorService,
+    private dataService: DataService,
     private seo: SeoService
       ) {
   }
@@ -45,8 +48,9 @@ export class TempGeneratorComponent implements OnInit {
     const role = this.roles[roll];
     this.templateGenerator.generateCharacter(role).subscribe(data => {
       this.character = data;
-      this.lifepathService.generateJumpStart().subscribe( (lifepath) => {
-        this.character.lifepath = lifepath;
+      this.dataService.GetJson(JsonDataFiles.CPRED_LIFEPATH_CHART_JSON)
+      .subscribe( data => {
+        this.character.lifepath = this.lifepathService.generateJumpStart(data.jumpstart);
           this.nameService.generateName().subscribe( name => {
             this.character.name = name;
           });

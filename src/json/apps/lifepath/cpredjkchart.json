@@ -1,4 +1,8 @@
 {
+  "systems": [
+    "jumpstart",
+    "corebook"
+  ],
   "jumpstart": {
     "background": [
       "Your family lost everything through betrayal.",
@@ -397,9 +401,9 @@
       "Just themselves and even they won't go out of their way.",
       "Just themselves.",
       "Just themselves and a close friend.",
-      "Themselves and a few [{1:3}] friends.",
-      "Themselves and a few [{1:5}] friends.",
-      "An entire gang (at least [{6:16}] people).",
+      "Themselves and a few {{1:3}} friends.",
+      "Themselves and a few {{1:5}} friends.",
+      "An entire gang (at least {{6:16}} people).",
       "The local cops or other Lawmen.",
       "A powerful gang lord or small Corporation.",
       "A powerful Corporation.",
@@ -434,7 +438,7 @@
         "role": "Rockerboy",
         "charts": [
           "[type]",
-          "(solo)(group)[reason]",
+          "(solo::group)[reason]",
           "[venues]",
           "[enemy]"
         ],
@@ -860,7 +864,7 @@
           "[boss]"
         ],
         "type": {
-          "name": "Type",
+          "name": "Corporate Type",
           "chart": [
             "Financial",
             "Media and Communications",
@@ -875,7 +879,7 @@
           ]
         },
         "division": {
-          "name": "Divsion work in",
+          "name": "Divsion works in",
           "chart": [
             "Procurement",
             "Manufacturing",
@@ -886,7 +890,7 @@
           ]
         },
         "morals": {
-          "name": "Corp",
+          "name": "Corporation ethics",
           "chart": [
             "Always working for good, fully supporting ethical practices.",
             "Operates as a fair and honest business all the time.",
@@ -897,7 +901,7 @@
           ]
         },
         "location": {
-          "name": "Corp based",
+          "name": "Corporation based",
           "chart": [
             "One city",
             "Several cities",

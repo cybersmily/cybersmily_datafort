@@ -1,6 +1,9 @@
+import { CPRedLifePathCore } from './../../c-p-red-lifepath/models/c-p-red-life-path-core';
+import { PDFCPRedLifePathJs } from './../../c-p-red-lifepath/models/pdf-c-p-red-life-path-js';
 import { CPRedLifepathJumpStart } from './../../c-p-red-lifepath/models/cp-red-lifepath-js';
 import { Injectable } from '@angular/core';
 import { jsPDF } from 'jspdf';
+import { PDFCPRedLifePathCore } from '../../c-p-red-lifepath/models/pdf-c-p-red-life-path-core';
 
 @Injectable({
   providedIn: 'root'
@@ -29,11 +32,16 @@ export class CPRedCharacterPDFService {
   }
 
 
-  generateLifePahtPDF(lifepath: CPRedLifepathJumpStart) {
+  generateLifePathJumpStartPDF(lifepath: CPRedLifepathJumpStart) {
     const doc = this.setupDoc();
-    this.createLifePathFullPage(doc, lifepath);
+    PDFCPRedLifePathJs.creatdPDF(doc, lifepath, this._left, this._top, this._lineheight, this._pageHeight, this._pageWidth, this._font, this._fontSize);
     doc.save(`CPRED_LIFEPATH.pdf`);
+  }
 
+  generateLifePathCorePDF(lifepath:CPRedLifePathCore) {
+    const doc = this.setupDoc();
+    PDFCPRedLifePathCore.creatdPDF(doc, lifepath, this._left, this._top, this._lineheight,  this._pageHeight, this._pageWidth, this._font, this._fontSize);
+    doc.save(`CPRED_LIFEPATH.pdf`);
   }
 
   private setupDoc(): jsPDF {
@@ -100,55 +108,4 @@ export class CPRedCharacterPDFService {
     doc.setDrawColor(color);
     doc.lines(acc, left, top, [1, 1], style, true);
   }
-
-  private createLifePathFullPage(doc: jsPDF, lifePath: CPRedLifepathJumpStart) {
-    let line = this._top;
-    let left = this._left;
-    this.createBackgroundBox(doc, 'FD', line, left, this._pageHeight, this._pageWidth, 10, 'red');
-    // Background
-    line += 10;
-    left += 5;
-    line = this.createLifePathSection(doc, 'BACKGROUND', [lifePath.background], line, left, 50);
-    // Motivation
-    line = this.createLifePathSection(doc, 'MOTIVATION', [lifePath.motivation], line, left, 25);
-
-    // Goals
-    line = this.createLifePathSection(doc, 'GOALS', [lifePath.goals], line, left, 25);
-
-    // Friends
-    line = this.createLifePathSection(doc, 'FRIENDS', lifePath.friends, line, left, 50);
-
-    // Enemies
-    line = this.createLifePathSection(doc, 'ENEMIES', lifePath.enemies, line, left, 50);
-
-    // Romance
-    line = this.createLifePathSection(doc, 'ROMANCE', [lifePath.romance], line, left, 25);
-
-    // Personality
-    line = this.createLifePathSection(doc, 'PERSONALITY', [lifePath.personality], line, left, 25);
-  }
-
-  private createLifePathSection(doc: jsPDF, title: string, text: Array<string>, line: number, left: number, height: number): number {
-    doc.setFont(this._font, 'bold');
-    doc.setFontSize(this._fontSize);
-    doc.setTextColor('white');
-    doc.text(title, left, line + Math.floor(height / 2), {baseline: 'middle'});
-    doc.setFillColor('white');
-    doc.setFont(this._font, 'normal');
-    doc.rect(left + 45, line, 140, height, 'F');
-    doc.setTextColor('black');
-    doc.setFontSize(this._fontSize - 1);
-    let textLine = line + 3;
-    const textLeft = left + 50;
-    text.forEach( str => {
-      const textArray: Array<string> = doc.splitTextToSize(str, 130);
-      textArray.forEach( txt => {
-        doc.text(txt, textLeft, textLine, {baseline: 'top'} );
-        textLine += this._lineheight;
-      });
-    });
-    doc.setFontSize(this._fontSize);
-    return line + height + 3;
-  }
-
 }

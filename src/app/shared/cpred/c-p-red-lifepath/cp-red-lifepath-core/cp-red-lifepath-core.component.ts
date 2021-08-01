@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { CPRedLifePathCore } from './../models/c-p-red-life-path-core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'cs-cp-red-lifepath-core',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cp-red-lifepath-core.component.css']
 })
 export class CpRedLifepathCoreComponent implements OnInit {
+
+  @Input()
+  coreLifePath: CPRedLifePathCore = new CPRedLifePathCore();
 
   constructor() { }
 

@@ -229,6 +229,15 @@ processResult(r: string): string {
         c = c.replace('[{' + d + '}]', dieRoll.toString());
       }
     }
+    if (typeof (c) !== 'undefined' && c.indexOf('{{') > -1) {
+      const d: string = c.substring(c.indexOf('{{') + 2, c.indexOf('}}'));
+      const i: number = parseInt(d.split(':')[1]);
+      const n: number = parseInt(d.split(':')[0]);
+      if (!isNaN(i) && !isNaN(n)) {
+        const dieRoll = this.generateNumber(n, i);
+        c = c.replace('{{' + d + '}}', dieRoll.toString());
+      }
+    }
     return c;
   }
 

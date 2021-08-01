@@ -3,40 +3,50 @@
     <div class="col-12">
       <h2>Life Path Generator Cyberpunk Red</h2>
       <p>
-      This unofficial utility is for generating a character's Lifepath. This will allow you to use either the Jumpstart Kit or Core Red book for the system.
-      It will also generate the roles lifepath as well if you use the Core book system.
+        This unofficial utility is for generating a character's Lifepath. This will allow you to use either the
+        Jumpstart Kit or Core Red book for the system.
+        It will also generate the roles lifepath as well if you use the Core book system.
       </p>
     </div>
   </div>
   <div class="row hidden-print">
-    <div class="col-6">
+    <div class="col">
       <span>System: </span>
-      <select [(ngModel)]="selectedSystem">
+      <select [(ngModel)]="selectedSystem" (change)="changeSystem()">
         <option value="corebook">Core Rulebook</option>
         <option value="jumpstart">Jumpstart Kit</option>
       </select>
-      <select class="ml-2" *ngIf="selectedSystem == 'corebook'" [(ngModel)]="selectedRole">
-        <option value="Exec">Exec</option>
-        <option value="Fixer">Fixer</option>
-        <option value="Lawman">Lawman</option>
-        <option value="Media">Media</option>
-        <option value="Medtech">Medtech</option>
-        <option value="Netrunner">Netrunner</option>
-        <option value="Nomad">Nomad</option>
-        <option value="Rockerboy">Rockerboy</option>
-        <option value="Solo">Solo</option>
-        <option value="Tech">Tech</option>
-      </select>
-      <fa-icon class="csd-btn csd-icon-btn csd-icon-xl ml-2" [icon]="faDice" title="Generate Lifepath" (click)="generate()"></fa-icon>
-    </div>
-    <div class="col-6">
-      <fa-icon class="csd-btn csd-icon-btn csd-icon-xl float-right mr-2" [icon]="faSave" title="Save to file" (click)="saveFile()"></fa-icon>
-      <fa-icon class="csd-btn csd-icon-btn csd-icon-xl float-right mr-2" [icon]="faFilePdf" title="Save as PDF" (click)="saveAsPDF()"></fa-icon>
-      <fa-icon class="csd-btn csd-icon-btn csd-icon-xl float-right mr-2" [icon]="faCog" title="Change settings" (click)="showModal(lifepathSettings)"></fa-icon>
+      <ng-container *ngIf="selectedSystem == 'corebook'">
+        <span class="ml-2">Role: </span>
+        <select [(ngModel)]="selectedRole" (change)="changeRole()">
+          <option *ngFor="let role of roles" [value]="role">{{role}}</option>
+        </select>
+      </ng-container>
+      <fa-icon class="csd-btn csd-icon-btn csd-icon-xl ml-2" [icon]="faDice" title="Generate Lifepath"
+        (click)="generate()"></fa-icon>
+      <fa-icon class="csd-btn csd-icon-btn csd-icon-xl float-right mr-2" [icon]="faSave" title="Save to file"
+        (click)="saveFile()"></fa-icon>
+      <fa-icon class="csd-btn csd-icon-btn csd-icon-xl float-right mr-2" [icon]="faFilePdf" title="Save as PDF"
+        (click)="saveAsPDF()"></fa-icon>
+      <fa-icon class="csd-btn csd-icon-btn csd-icon-xl float-right mr-2" [icon]="faCog" title="Change settings"
+        (click)="showModal(lifepathSettings)"></fa-icon>
     </div>
   </div>
-  <cs-cp-red-lifepath-core *ngIf="coreLifePath && selectedSystem == 'corebook'"></cs-cp-red-lifepath-core>
-  <cs-cp-red-lifepath-jumpstart *ngIf="jumpstartLifepath && selectedSystem == 'jumpstart'" [lifepath]="jumpstartLifepath"></cs-cp-red-lifepath-jumpstart>
+  <div class="row" *ngIf="parameters.length > 0">
+    <div class="col">
+      <span *ngFor="let p of parameters">
+        {{p.display}}
+        <input class="ml-1 mr-2" type="checkbox" [(ngModel)]="roleParam[p.name]" *ngIf="!p.options">
+        <select class="ml-1 mr-2" *ngIf="p.options" [(ngModel)]="roleParam[p.name]">
+          <option *ngFor="let opt of p.options" [value]="opt">{{opt}}</option>
+        </select>
+      </span>
+    </div>
+  </div>
+  <cs-cp-red-lifepath-core *ngIf="coreLifePath && selectedSystem == 'corebook'" [coreLifePath]="coreLifePath">
+  </cs-cp-red-lifepath-core>
+  <cs-cp-red-lifepath-jumpstart *ngIf="jumpstartLifepath && selectedSystem == 'jumpstart'"
+    [lifepath]="jumpstartLifepath"></cs-cp-red-lifepath-jumpstart>
   <br>
   <br>
 </div>
@@ -44,15 +54,26 @@
   <div class="modal-content">
     <div class="modal-header">
       <h4 class="modal-title pull-left">Lifepath Random Settings</h4>
+      <fa-icon [icon]="faRedo" class="ml-2 csd-btn csd-icon-btn csd-icon-xl" (click)="resetSettings()"></fa-icon>
       <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
+
+      <div class="row">
+        <div class="col">
+          Default System: <select [(ngModel)]="lifepathService.settings.defaultSystem" (change)="changeSettings()">
+            <option value="corebook">Core Rulebook</option>
+            <option value="jumpstart">Jumpstart Kit</option>
+          </select>
+        </div>
+      </div>
+
       <div class="row">
         <div class="col">
           Number of Friends:
-          <select class="float-right" [(ngModel)]="lifepathService.settings.numOfFriends" >
+          <select class="float-right" [(ngModel)]="lifepathService.settings.friendsDice" (change)="changeSettings()">
             <option value="1d10-7">1d10 - 7</option>
             <option value="1d10-6">1d10 - 6</option>
             <option value="1d6-3">1d6 - 3</option>
@@ -67,7 +88,7 @@
       <div class="row">
         <div class="col">
           Number of Enemies:
-          <select class="float-right" [(ngModel)]="lifepathService.settings.numOfEnemies" >
+          <select class="float-right" [(ngModel)]="lifepathService.settings.enemyDice" (change)="changeSettings()">
             <option value="1d10-7">1d10 - 7</option>
             <option value="1d10-6">1d10 - 6</option>
             <option value="1d6-3">1d6 - 3</option>
@@ -82,7 +103,7 @@
       <div class="row">
         <div class="col">
           Number of Romances:
-          <select class="float-right" [(ngModel)]="lifepathService.settings.numOfRomances" >
+          <select class="float-right" [(ngModel)]="lifepathService.settings.loversDice" (change)="changeSettings()">
             <option value="1d10-7">1d10 - 7</option>
             <option value="1d10-6">1d10 - 6</option>
             <option value="1d6-3">1d6 - 3</option>
@@ -91,6 +112,14 @@
             <option value="1d4">1d4</option>
             <option value="1d3">1d3</option>
             <option value="1d3+1">1d3 + 1</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          Default Role:
+          <select [(ngModel)]="lifepathService.settings.defaultRole" (change)="changeSettings()">
+            <option *ngFor="let role of roles" [value]="role">{{role}}</option>
           </select>
         </div>
       </div>
