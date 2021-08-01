@@ -39,6 +39,12 @@ export class Cp2077TrackerMainComponent implements OnInit {
 
   }
 
+  missingOnThisV(name: string): boolean {
+    return this.data.some(item =>
+      name === item.name && item[this.selectedCharacter] === ''
+    );
+  }
+
   get totalItems(): number {
     return this.data.length;
   }

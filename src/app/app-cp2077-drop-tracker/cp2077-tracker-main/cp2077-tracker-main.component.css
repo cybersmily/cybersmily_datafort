@@ -53,3 +53,22 @@
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 
 }
+
+.csd-cp2077-gang-even {
+  background-color: #CCC;
+}
+.csd-cp2077-gang-odd {
+  background-color: #AAA;
+}
+
+.csd-cp2077-stores-even {
+  background-color: #C9C;
+}
+.csd-cp2077-stores-odd {
+  background-color: #CBC;
+}
+
+.csd-cp2077-missingV {
+  background-color: red;
+
+}

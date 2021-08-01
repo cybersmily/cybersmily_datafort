@@ -111,30 +111,30 @@
       Quality
     </div>
     <div class="col ">
-      <div class="csd-cp2077-cell rotate align-bottom csd-btn" (click)="onKill($event,'animals',1)"
+      <div class="csd-cp2077-cell rotate align-bottom csd-btn csd-cp2077-gang-even" (click)="onKill($event,'animals',1)"
         (contextmenu)="onKill($event,'animals',-1)">
         Animals
       </div>
-      <div class="csd-cp2077-cell rotate csd-btn" (click)="onKill($event,'maelstrom',1)"
+      <div class="csd-cp2077-cell rotate csd-btn csd-cp2077-gang-odd" (click)="onKill($event,'maelstrom',1)"
         (contextmenu)="onKill($event,'maelstrom',-1)">
         Maelstrom
       </div>
-      <div class="csd-cp2077-cell rotate csd-btn" (click)="onKill($event,'scav',1)" (contextmenu)="onKill($event,'scav',-1)">
+      <div class="csd-cp2077-cell rotate csd-btn csd-cp2077-gang-even" (click)="onKill($event,'scav',1)" (contextmenu)="onKill($event,'scav',-1)">
         Scav
       </div>
-      <div class="csd-cp2077-cell rotate csd-btn" (click)="onKill($event,'sixthstreet',1)"
+      <div class="csd-cp2077-cell rotate csd-btn csd-cp2077-gang-odd" (click)="onKill($event,'sixthstreet',1)"
         (contextmenu)="onKill($event,'sixthstreet',-1)">
         Sixth
       </div>
-      <div class="csd-cp2077-cell rotate csd-btn" (click)="onKill($event,'tygerclaw',1)"
+      <div class="csd-cp2077-cell rotate csd-btn csd-cp2077-gang-even" (click)="onKill($event,'tygerclaw',1)"
         (contextmenu)="onKill($event,'tygerclaw',-1)">
         Tyger
       </div>
-      <div class=" csd-cp2077-cell rotate csd-btn" (click)="onKill($event,'valentinos',1)"
+      <div class=" csd-cp2077-cell rotate csd-btn csd-cp2077-gang-odd" (click)="onKill($event,'valentinos',1)"
         (contextmenu)="onKill($event,'valentinos',-1)">
         Valentinos
       </div>
-      <div class=" csd-cp2077-cell rotate csd-btn" (click)="onKill($event,'voodooboys',1)"
+      <div class=" csd-cp2077-cell rotate csd-btn csd-cp2077-gang-even" (click)="onKill($event,'voodooboys',1)"
         (contextmenu)="onKill($event,'voodooboys',-1)">
         VoodooBoy
       </div>
@@ -209,35 +209,35 @@
     <div class="col-1 text-center">
     </div>
     <div class="col border border-dark">
-      <div class="csd-cp2077-cell text-center csd-btn" (click)="onKill($event,'animals',1)"
+      <div class="csd-cp2077-cell text-center csd-btn csd-cp2077-gang-even" (click)="onKill($event,'animals',1)"
         (contextmenu)="onKill($event,'animals',-1)">
         {{kills.animals}}
       </div>
-      <div class="csd-cp2077-cell text-center csd-btn" (click)="onKill($event,'maelstrom',1)"
+      <div class="csd-cp2077-cell text-center csd-btn csd-cp2077-gang-odd" (click)="onKill($event,'maelstrom',1)"
         (contextmenu)="onKill($event,'maelstrom',-1)">
         {{kills.maelstrom}}
       </div>
-      <div class="csd-cp2077-cell text-center csd-btn" (click)="onKill($event,'scav',1)"
+      <div class="csd-cp2077-cell text-center csd-btn csd-cp2077-gang-even" (click)="onKill($event,'scav',1)"
         (contextmenu)="onKill($event,'scav',-1)">
         {{kills.scav}}
       </div>
-      <div class="csd-cp2077-cell text-center csd-btn" (click)="onKill($event,'sixthstreet',1)"
+      <div class="csd-cp2077-cell text-center csd-btn csd-cp2077-gang-odd" (click)="onKill($event,'sixthstreet',1)"
         (contextmenu)="onKill($event,'sixthstreet',-1)">
         {{kills.sixthstreet}}
       </div>
-      <div class="csd-cp2077-cell text-center csd-btn" (click)="onKill($event,'tygerclaw',1)"
+      <div class="csd-cp2077-cell text-center csd-btn csd-cp2077-gang-even" (click)="onKill($event,'tygerclaw',1)"
         (contextmenu)="onKill($event,'tygerclaw',-1)">
         {{kills.tygerclaw}}
       </div>
-      <div class=" csd-cp2077-cell text-center csd-btn" (click)="onKill($event,'valentinos',1)"
+      <div class=" csd-cp2077-cell text-center csd-btn csd-cp2077-gang-odd" (click)="onKill($event,'valentinos',1)"
         (contextmenu)="onKill($event,'valentinos',-1)">
         {{kills.valentinos}}
       </div>
-      <div class=" csd-cp2077-cell text-center csd-btn" (click)="onKill($event,'voodooboys',1)"
+      <div class=" csd-cp2077-cell text-center csd-btn csd-cp2077-gang-even" (click)="onKill($event,'voodooboys',1)"
         (contextmenu)="onKill($event,'voodooboys',-1)">
         {{kills.voodooboys}}
       </div>
-      <div class=" csd-cp2077-cell text-center csd-btn" (click)="onKill($event,'wraiths',1)"
+      <div class=" csd-cp2077-cell text-center csd-btn csd-cp2077-gang-odd" (click)="onKill($event,'wraiths',1)"
         (contextmenu)="onKill($event,'wraiths',-1)">
         {{kills.wraiths}}
       </div>
@@ -301,8 +301,9 @@
         <div [ngClass]="{'col-2': true, 'csd-cp2077-name': true,'csd-cp2077-missing': IsMissing(item.name)}">
           {{item.name}}
         </div>
+
         <div class="col-1 text-center">
-          <select [(ngModel)]="item[selectedCharacter]" (change)="changeQuality()">
+          <select [(ngModel)]="item[selectedCharacter]" [ngClass]="{'csd-cp2077-missingV': missingOnThisV(item.name)}" (change)="changeQuality()">
             <option value=""></option>
             <option value="W">W</option>
             <option value="G">G</option>
@@ -315,35 +316,35 @@
           </select>
         </div>
         <div class="col csd-cp2077-left">
-          <div class="csd-cp2077-cell text-center csd-btn ml-1" (click)="onClick($event,item.name,'animals',1)"
+          <div class="csd-cp2077-cell text-center csd-btn ml-1 csd-cp2077-gang-even" (click)="onClick($event,item.name,'animals',1)"
             (contextmenu)="onClick($event,item.name,'animals',-1)">
             {{item.animals}}
           </div>
-          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'maelstrom',1)"
+          <div class="csd-cp2077-cell text-center csd-btn csd-cp2077-gang-odd" (click)="onClick($event,item.name,'maelstrom',1)"
             (contextmenu)="onClick($event,item.name,'maelstrom',-1)">
             {{item.maelstrom}}
           </div>
-          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'scav',1)"
+          <div class="csd-cp2077-cell text-center csd-btn csd-cp2077-gang-even" (click)="onClick($event,item.name,'scav',1)"
             (contextmenu)="onClick($event,item.name,'scav',-1)">
             {{item.scav}}
           </div>
-          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'sixthstreet',1)"
+          <div class="csd-cp2077-cell text-center csd-btn csd-cp2077-gang-odd" (click)="onClick($event,item.name,'sixthstreet',1)"
             (contextmenu)="onClick($event,item.name,'sixthstreet',-1)">
             {{item.sixthstreet}}
           </div>
-          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'tygerclaw',1)"
+          <div class="csd-cp2077-cell text-center csd-btn csd-cp2077-gang-even" (click)="onClick($event,item.name,'tygerclaw',1)"
             (contextmenu)="onClick($event,item.name,'tygerclaw',-1)">
             {{item.tygerclaw}}
           </div>
-          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'valentinos',1)"
+          <div class="csd-cp2077-cell text-center csd-btn csd-cp2077-gang-odd" (click)="onClick($event,item.name,'valentinos',1)"
             (contextmenu)="onClick($event,item.name,'valentinos',-1)">
             {{item.valentinos}}
           </div>
-          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'voodooboys',1)"
+          <div class="csd-cp2077-cell text-center csd-btn csd-cp2077-gang-even" (click)="onClick($event,item.name,'voodooboys',1)"
             (contextmenu)="onClick($event,item.name,'voodooboys',-1)">
             {{item.voodooboys}}
           </div>
-          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'wraiths',1)"
+          <div class="csd-cp2077-cell text-center csd-btn csd-cp2077-gang-odd" (click)="onClick($event,item.name,'wraiths',1)"
             (contextmenu)="onClick($event,item.name,'wraiths',-1)">
             {{item.wraiths}}
           </div>
@@ -371,52 +372,52 @@
             (contextmenu)="onClick($event,item.name,'container',-1)">
             {{item.container}}
           </div>
-          <div class="csd-cp2077-cell text-center csd-cp2077-left csd-btn"
+          <div class="csd-cp2077-cell text-center csd-cp2077-left csd-btn csd-cp2077-stores-even"
             (click)="onClick($event,item.name,'arroyo',1)" (contextmenu)="onClick($event,item.name,'arroyo',-1)">
             {{item.arroyo}}
           </div>
-          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'rancho',1)"
+          <div class="csd-cp2077-cell text-center csd-btn csd-cp2077-stores-odd" (click)="onClick($event,item.name,'rancho',1)"
             (contextmenu)="onClick($event,item.name,'rancho',-1)">
             {{item.rancho}}
           </div>
-          <div class="csd-cp2077-cell text-center csd-cp2077-left csd-btn"
+          <div class="csd-cp2077-cell text-center csd-cp2077-left csd-btn csd-cp2077-stores-even"
             (click)="onClick($event,item.name,'pacifica',1)" (contextmenu)="onClick($event,item.name,'pacifica',-1)">
             {{item.pacifica}}
           </div>
-          <div class="csd-cp2077-cell text-center csd-cp2077-left csd-btn"
+          <div class="csd-cp2077-cell text-center csd-cp2077-left csd-btn csd-cp2077-stores-odd"
             (click)="onClick($event,item.name,'badlands',1)" (contextmenu)="onClick($event,item.name,'badlands',-1)">
             {{item.badlands}}
           </div>
-          <div class="csd-cp2077-cell text-center csd-cp2077-left csd-btn"
+          <div class="csd-cp2077-cell text-center csd-cp2077-left csd-btn csd-cp2077-stores-even"
             (click)="onClick($event,item.name,'kabuki',1)" (contextmenu)="onClick($event,item.name,'kabuki',-1)">
             {{item.kabuki}}
           </div>
-          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'littlechina',1)"
+          <div class="csd-cp2077-cell text-center csd-btn csd-cp2077-stores-odd" (click)="onClick($event,item.name,'littlechina',1)"
             (contextmenu)="onClick($event,item.name,'littlechina',-1)">
             {{item.littlechina}}
           </div>
-          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'northside',1)"
+          <div class="csd-cp2077-cell text-center csd-btn csd-cp2077-stores-even" (click)="onClick($event,item.name,'northside',1)"
             (contextmenu)="onClick($event,item.name,'northside',-1)">
             {{item.northside}}
           </div>
-          <div class="csd-cp2077-cell text-center csd-cp2077-left csd-btn"
+          <div class="csd-cp2077-cell text-center csd-cp2077-left csd-btn csd-cp2077-stores-odd"
             (click)="onClick($event,item.name,'japantown',1)" (contextmenu)="onClick($event,item.name,'japantown',-1)">
             {{item.japantown}}
           </div>
-          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'charterhill',1)"
+          <div class="csd-cp2077-cell text-center csd-btn csd-cp2077-stores-even" (click)="onClick($event,item.name,'charterhill',1)"
             (contextmenu)="onClick($event,item.name,'charterhill',-1)">
             {{item.charterhill}}
           </div>
-          <div class="csd-cp2077-cell text-center csd-cp2077-left csd-btn"
+          <div class="csd-cp2077-cell text-center csd-cp2077-left csd-btn csd-cp2077-stores-odd"
             (click)="onClick($event,item.name,'wellsprings',1)"
             (contextmenu)="onClick($event,item.name,'wellsprings',-1)">
             {{item.wellsprings}}
           </div>
-          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'theglens',1)"
+          <div class="csd-cp2077-cell text-center csd-btn csd-cp2077-stores-even" (click)="onClick($event,item.name,'theglens',1)"
             (contextmenu)="onClick($event,item.name,'theglens',-1)">
             {{item.theglens}}
           </div>
-          <div class="csd-cp2077-cell text-center csd-btn" (click)="onClick($event,item.name,'citycenter',1)"
+          <div class="csd-cp2077-cell text-center csd-btn csd-cp2077-stores-odd" (click)="onClick($event,item.name,'citycenter',1)"
             (contextmenu)="onClick($event,item.name,'citycenter',-1)">
             {{item.citycenter}}
           </div>
