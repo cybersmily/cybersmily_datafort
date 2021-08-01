@@ -1,5 +1,15 @@
 ﻿{
   "news": [
+    { "date":"2021-08",
+      "entries":[
+        "<strong>08-??</strong> - This month starts off with the following:",
+        "&nbsp;* Fixed a bug with the skills not aligning right in the CP2020 character generator.",
+        "&nbsp;* Fixed verb tense in Headline generator and added some more terms.",
+        "&nbsp;* the Core Lifepath generator for Cyberpunk Red is now available. Yes, it does role lifepaths and prints to PDF.",
+        "&nbsp;* Gig WNS News gets update a few times in a month. These are news happening with my ongoing campaign set during the 4th Corporate war. Check them out.",
+        "Till next time.",
+        "CYBER :D"
+    ]},
     { "date":"2021-07",
       "entries":[
         "<strong>07-27</strong> - More stuff is here!",

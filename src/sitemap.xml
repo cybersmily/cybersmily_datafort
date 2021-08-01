@@ -2,11 +2,11 @@
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9" >
 	<url>
 		<loc>https://cybersmily.net/index.html</loc>
-		<lastmod>2021-07-29</lastmod>
+		<lastmod>2021-08-01</lastmod>
 	</url>
 	<url>
 		<loc>https://cybersmily.net/apps/chargen</loc>
-		<lastmod>2021-07-27</lastmod>
+		<lastmod>2021-08-01</lastmod>
 	</url>
 	<url>
 		<loc>https://cybersmily.net/apps/cmbttrk</loc>
@@ -18,7 +18,7 @@
 	</url>
 	<url>
 		<loc>https://cybersmily.net/apps/headlines</loc>
-		<lastmod>2021-05-01</lastmod>
+		<lastmod>2021-08-01</lastmod>
 	</url>
 	<url>
 		<loc>https://cybersmily.net/apps/cmbtzone</loc>
@@ -34,11 +34,15 @@
 	</url>
 	<url>
 		<loc>https://cybersmily.net/apps/qkpregen</loc>
-		<lastmod>2021-05-01</lastmod>
+		<lastmod>2021-08-01</lastmod>
 	</url>
   <url>
 		<loc>https://cybersmily.net/apps/lpredjmp</loc>
-		<lastmod>2021-07-27</lastmod>
+		<lastmod>2021-08-01</lastmod>
+	</url>
+  <url>
+		<loc>https://cybersmily.net/apps/redlifepath</loc>
+		<lastmod>2021-08-01</lastmod>
 	</url>
 	<url>
 		<loc>https://cybersmily.net/apps/fashcalc</loc>
@@ -46,7 +50,7 @@
 	</url>
 	<url>
 		<loc>https://cybersmily.net/apps/lifepath</loc>
-		<lastmod>2021-04-22</lastmod>
+		<lastmod>2021-08-01</lastmod>
 	</url>
 	<url>
 		<loc>https://cybersmily.net/apps/maxmetal</loc>
@@ -206,6 +210,6 @@
 	</url>
 	<url>
 		<loc>https://cybersmily.net/gigs/wns7</loc>
-		<lastmod>2021-05-30</lastmod>
+		<lastmod>2021-08-01</lastmod>
 	</url>
 </urlset>
