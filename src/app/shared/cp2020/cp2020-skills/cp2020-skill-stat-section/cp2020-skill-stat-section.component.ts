@@ -64,7 +64,6 @@ export class Cp2020SkillStatSectionComponent implements OnInit, OnChanges {
   }
 
   getColumnOne(): Array<Cp2020PlayerSkill> {
-    console.log(this.title, this.currSkills);
     return this.currSkills.slice(0,this.columnLength);
   }
 

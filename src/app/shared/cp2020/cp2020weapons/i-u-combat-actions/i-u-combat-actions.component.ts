@@ -27,7 +27,6 @@ export class IUCombatActionsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('iu oninit', this.skills, this.stats.REF, this.combatSense);
   }
 
   getQuickAction(value: number) {
