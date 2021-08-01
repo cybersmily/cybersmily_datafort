@@ -504,7 +504,7 @@
       {
         "role": "Solo",
         "charts": [
-          "[type:Type]",
+          "[type]",
           "[morals]",
           "[territory]",
           "[enemies]"
@@ -731,8 +731,7 @@
           "(partner)[partner]",
           "[workspace]",
           "[clients]",
-          "[supplies]",
-          "[enemies]"
+          "[supplies]"
         ],
         "param": [
           {
