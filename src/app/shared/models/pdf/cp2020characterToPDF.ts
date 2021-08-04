@@ -622,7 +622,20 @@ export class Cp2020characterToPDF {
           }
         }
         shotsHt += ht;
-        doc.rect(leftMargin, line, 100, shotsHt + ht, 'S');
+        doc.rect(leftMargin, line, 100, shotsHt, 'S');
+      }
+      let noteHeight = 0;
+      if (w.options && w.options.length > 0) {
+        let noteLine = line + shotsHt + ht - 2;
+        let left =  leftMargin + 5;
+        const opts = w.options.map( o => `${o.count} ${o.name}`).join(', ');
+        const optText = doc.splitTextToSize(`Options: ${opts}`, 90);;
+        optText.forEach(txt => {
+          noteHeight += ht;
+          doc.text(txt, left, noteLine);
+          noteLine += ht - 2;
+        });
+        doc.rect(leftMargin, line + shotsHt, 100, noteHeight, 'S');
       }
 
       let rectHt = ht;
@@ -638,7 +651,7 @@ export class Cp2020characterToPDF {
           rectHt += ht;
         });
       }
-      const adjHt = (rectHt > shotsHt) ? (rectHt - ht) : shotsHt;
+      const adjHt = (rectHt > shotsHt + noteHeight) ? (rectHt - ht) : shotsHt + noteHeight;
       doc.rect(this._midPage, startLine, 100, adjHt + ht, 'S');
       line += adjHt;
     });
