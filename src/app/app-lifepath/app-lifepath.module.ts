@@ -7,7 +7,7 @@ import {
   StyleGeneratorService,
   MotivationGeneratorService,
   LifePathGeneratorService
- } from '../shared/services/lifepath';
+ } from '../shared/cp2020/cp2020-lifepath/services';
 import { LifepathChartComponent } from './lifepath-chart/lifepath-chart.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

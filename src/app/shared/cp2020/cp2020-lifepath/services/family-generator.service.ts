@@ -1,10 +1,9 @@
-import { JsonDataFiles } from './../file-services';
+import { JsonDataFiles, DataService } from './../../../services/file-services';
 import { map, flatMap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-import { LifepathFamily, FamilyChart, LifepahtParentOption, Sibling, Siblings } from '../../models/lifepath';
+import { LifepathFamily, FamilyChart, LifepahtParentOption, Sibling, Siblings } from './../models';
 import { Injectable } from '@angular/core';
-import { DiceService } from '../dice/dice.service';
-import { DataService } from './../file-services';
+import { DiceService } from './../../../services/dice/dice.service';
 
 @Injectable({
   providedIn: 'root'

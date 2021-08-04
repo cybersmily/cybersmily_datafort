@@ -15,3 +15,5 @@ export * from './lifepath-results';
 export * from './lifepath-sibling';
 export * from './lifepath-siblings';
 export * from './lifepath-source';
+export * from './lifepath-data-styles';
+export * from './lifepath-data-motivation';

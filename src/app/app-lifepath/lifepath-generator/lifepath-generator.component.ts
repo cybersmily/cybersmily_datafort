@@ -1,14 +1,11 @@
-import { DiceService } from './../../shared/services/dice/dice.service';
-import { LifePathGeneratorService } from './../../shared/services/lifepath/life-path-generator.service';
-import { faDice, faFile, faFilePdf } from '@fortawesome/free-solid-svg-icons';
+import { faFile, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { JsonDataFiles } from './../../shared/services/file-services';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { SaveFileService } from './../../shared/services/file-services';
 import { LifepathData, LifepathSource, LifepathChart, LifePathResults,
-  LifepathChartSelection, LifepathFamily, LifepathEvent, LifepathEventsList, LifepathEthnicity } from '../../shared/models/lifepath';
+  LifepathChartSelection, LifepathFamily, LifepathEventsList, LifepathEthnicity } from '../../shared/cp2020/cp2020-lifepath/models';
 import { DataService } from './../../shared/services/file-services/data.service';
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'cs-lifepath-generator',

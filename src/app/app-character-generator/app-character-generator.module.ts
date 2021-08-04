@@ -7,12 +7,12 @@ import { NameGeneratorService } from './../shared/services/namegen/name-generato
 import { Cp2020CyberwareModule } from './../shared/cp2020/cp2020-cyberware/cp2020-cyberware.module';
 import { Cp2020weaponsModule } from './../shared/cp2020/cp2020weapons/cp2020weapons.module';
 import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';
-import { LifePathGeneratorService } from './../shared/services/lifepath/life-path-generator.service';
-import { EthnicityGeneratorService } from './../shared/services/lifepath/ethnicity-generator.service';
-import { FamilyGeneratorService } from './../shared/services/lifepath/family-generator.service';
-import { MotivationGeneratorService } from './../shared/services/lifepath/motivation-generator.service';
-import { StyleGeneratorService } from './../shared/services/lifepath/style-generator.service';
-import { LifeEventsGeneratorService } from '../shared/services/lifepath/life-events-generator.service';
+import { LifePathGeneratorService } from './../shared/cp2020/cp2020-lifepath/services';
+import { EthnicityGeneratorService } from './../shared/cp2020/cp2020-lifepath/services';
+import { FamilyGeneratorService } from './../shared/cp2020/cp2020-lifepath/services';
+import { MotivationGeneratorService } from './../shared/cp2020/cp2020-lifepath/services';
+import { StyleGeneratorService } from './../shared/cp2020/cp2020-lifepath/services';
+import { LifeEventsGeneratorService } from '../shared/cp2020/cp2020-lifepath/services';
 import { DataService } from './../shared/services/file-services/data.service';
 import { DiceService } from './../shared/services/dice/dice.service';
 import { ModalModule, BsModalRef } from 'ngx-bootstrap/modal';

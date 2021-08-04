@@ -2,7 +2,7 @@ import { JsonDataFiles } from './../file-services/json-data-files';
 import { DataService } from './../file-services/data.service';
 import { CacheKeys } from './../../cache-keys';
 import { Cp2020PlayerSkills, Cp2020PlayerSkill } from './../../cp2020/cp2020-skills/models';
-import { LifePathResults } from './../../models/lifepath/lifepath-results';
+import { LifePathResults } from './../../cp2020/cp2020-lifepath/models';
 import { Cp2020PlayerGearList } from './../../models/cp2020character/cp2020-player-gear-list';
 import { CpPlayerWeaponList, CpPlayerWeapon } from '../../cp2020/cp2020weapons/models';
 import { Cp2020ArmorBlock } from './../../cp2020/cp2020-armor/models';

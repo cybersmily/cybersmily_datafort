@@ -6,7 +6,7 @@ import { DiceService } from './../../shared/services/dice/dice.service';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { LifepathFamilyComponent } from './lifepath-family.component';
-import { Siblings, LifepathFamily } from './../../shared/models/lifepath';
+import { Siblings, LifepathFamily } from '../../shared/cp2020/cp2020-lifepath/models';
 
 describe('LifepathFamilyComponent', () => {
   let component: LifepathFamilyComponent;

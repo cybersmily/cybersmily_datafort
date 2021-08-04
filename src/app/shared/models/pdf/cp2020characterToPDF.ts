@@ -5,7 +5,7 @@ import { Cp2020PlayerCyber } from './../../cp2020/cp2020-cyberware/models/cp2020
 import { Cp2020ArmorBlock } from './../../cp2020/cp2020-armor/models/cp2020-armor-block';
 import { Cp2020PlayerCyberList } from './../../cp2020/cp2020-cyberware/models';
 import { Cp2020PlayerSkills, Cp2020PlayerSkill } from './../../cp2020/cp2020-skills/models';
-import { LifePathResults } from './../lifepath/lifepath-results';
+import { LifePathResults } from './../../cp2020/cp2020-lifepath/models';
 import { CpPlayerWeaponList } from './../../cp2020/cp2020weapons/models';
 import { Cp2020PlayerGearList } from './../cp2020character/cp2020-player-gear-list';
 import { Cp2020PlayerGear } from './../cp2020character/cp2020-player-gear';
@@ -13,7 +13,7 @@ import { Cp2020StatBlock } from '../../cp2020/cp2020-stats/models/cp2020-stat-bl
 import { Cp2020PlayerCharacter } from '../cp2020character/cp2020-player-character';
 
 import { jsPDF } from 'jspdf';
-import { LifepathEvent } from '../lifepath';
+import { LifepathEvent } from '../../cp2020/cp2020-lifepath/models';
 
 export class Cp2020characterToPDF {
   private _character: Cp2020PlayerCharacter;

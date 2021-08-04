@@ -1,6 +1,6 @@
 import { faDice } from '@fortawesome/free-solid-svg-icons';
-import { LifeEventsGeneratorService } from './../../shared/services/lifepath/life-events-generator.service';
-import { LifepathEventsList } from './../../shared/models/lifepath/lifepath-events-list';
+import { LifeEventsGeneratorService } from './../../shared/cp2020/cp2020-lifepath/services';
+import { LifepathEventsList } from './../../shared/cp2020/cp2020-lifepath/models';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({

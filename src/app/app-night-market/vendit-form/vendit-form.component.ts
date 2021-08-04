@@ -1,5 +1,4 @@
 import { VenditItem } from './../models/vendit-item';
-import { LifeEventsGeneratorService } from './../../shared/services/lifepath/life-events-generator.service';
 import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
 import { VenditChart } from './../models/vendit-chart';

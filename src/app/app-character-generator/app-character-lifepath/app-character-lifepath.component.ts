@@ -1,7 +1,6 @@
-import { LifePathGeneratorService } from './../../shared/services/lifepath/life-path-generator.service';
+import { LifePathGeneratorService, SourcesDataService } from './../../shared/cp2020/cp2020-lifepath/services';
 import { TitleValue } from './../../shared/models/title-value';
-import { SourcesDataService } from './../../shared/services/lifepath/sources-data.service';
-import { Sibling, LifePathResults, LifepathEvent } from './../../shared/models/lifepath';
+import { Sibling, LifePathResults, LifepathEvent } from '../../shared/cp2020/cp2020-lifepath/models';
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { faMars, faVenus, faDice, faPlus, faGenderless, faTrash, faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 

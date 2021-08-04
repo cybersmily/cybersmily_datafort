@@ -1,4 +1,3 @@
-import { LifeEventsGeneratorService } from './../../shared/services/lifepath/life-events-generator.service';
 import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
 import { forkJoin } from 'rxjs';
 import { DataService } from './../../shared/services/file-services/data.service';

@@ -1,4 +1,3 @@
-import { LifepathEvent } from './../../models/lifepath/lifepath-event';
 import { map } from 'rxjs/operators';
 import { MotivationGeneratorService } from './motivation-generator.service';
 import { StyleGeneratorService } from './style-generator.service';
@@ -6,7 +5,7 @@ import { EthnicityGeneratorService } from './ethnicity-generator.service';
 import { FamilyGeneratorService } from './family-generator.service';
 import { Observable, of, forkJoin } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { LifePathResults } from '../../models/lifepath';
+import { LifePathResults } from './../models';
 import { LifeEventsGeneratorService } from './life-events-generator.service';
 
 @Injectable({

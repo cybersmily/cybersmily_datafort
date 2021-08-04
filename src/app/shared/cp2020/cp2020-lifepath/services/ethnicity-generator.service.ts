@@ -1,10 +1,9 @@
-import { JsonDataFiles } from './../file-services';
-import { LifepathEthnicityEntry, LifepathEthnicity } from './../../models/lifepath';
+import { LifepathEthnicityEntry, LifepathEthnicity } from './../models';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { DataService } from './../file-services';
-import { DiceService } from '../dice/dice.service';
+import { DataService, JsonDataFiles } from './../../../services/file-services';
+import { DiceService } from './../../../services/dice/dice.service';
 
 @Injectable({
   providedIn: 'root'

@@ -1,8 +1,7 @@
-import { JsonDataFiles } from './../file-services';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-import { TitleValue } from './../../models/title-value';
-import { DataService } from './../file-services';
+import { TitleValue } from './../../../models/title-value';
+import { DataService, JsonDataFiles } from './../../../services/file-services';
 import { Injectable } from '@angular/core';
 
 @Injectable({
