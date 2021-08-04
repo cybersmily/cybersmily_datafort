@@ -1,6 +1,6 @@
 import { faDice } from '@fortawesome/free-solid-svg-icons';
-import { FamilyGeneratorService } from '../../shared/cp2020/cp2020-lifepath/services';
-import { LifepathFamily } from '../../shared/cp2020/cp2020-lifepath/models';
+import { FamilyGeneratorService } from './../services';
+import { LifepathFamily } from './../models';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({

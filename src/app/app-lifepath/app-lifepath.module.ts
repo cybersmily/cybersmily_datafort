@@ -1,3 +1,4 @@
+import { Cp2020LifepathModule } from './../shared/cp2020/cp2020-lifepath/cp2020-lifepath.module';
 import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';
 import { DataService } from './../shared/services/file-services/data.service';
 import {
@@ -8,31 +9,22 @@ import {
   MotivationGeneratorService,
   LifePathGeneratorService
  } from '../shared/cp2020/cp2020-lifepath/services';
-import { LifepathChartComponent } from './lifepath-chart/lifepath-chart.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AppLifepathRoutingModule } from './app-lifepath-routing.module';
 import { LifepathGeneratorComponent } from './lifepath-generator/lifepath-generator.component';
-import { LifepathFamilyComponent } from './lifepath-family/lifepath-family.component';
-import { LifepathEventsComponent } from './lifepath-events/lifepath-events.component';
-import { LifepathEthnicityComponent } from './lifepath-ethnicity/lifepath-ethnicity.component';
-import { FormsModule } from '@angular/forms';
 import { DiceService } from '../shared/services/dice/dice.service';
 
 @NgModule({
   imports: [
     CommonModule,
     CommonUiModule,
-    FormsModule,
+    Cp2020LifepathModule,
     AppLifepathRoutingModule
   ],
   declarations: [
-    LifepathGeneratorComponent,
-    LifepathFamilyComponent,
-    LifepathEventsComponent,
-    LifepathChartComponent,
-    LifepathEthnicityComponent
+    LifepathGeneratorComponent
   ],
   providers: [
     DiceService,

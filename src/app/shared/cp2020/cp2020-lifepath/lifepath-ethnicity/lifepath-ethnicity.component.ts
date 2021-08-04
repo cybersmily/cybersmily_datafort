@@ -1,6 +1,6 @@
 import { faDice } from '@fortawesome/free-solid-svg-icons';
-import { LifepathEthnicity, LifepathEthnicityEntry } from '../../shared/cp2020/cp2020-lifepath/models';
-import { EthnicityGeneratorService } from './../../shared/cp2020/cp2020-lifepath/services';
+import { LifepathEthnicity, LifepathEthnicityEntry } from '../models';
+import { EthnicityGeneratorService } from './../services';
 import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 
 @Component({

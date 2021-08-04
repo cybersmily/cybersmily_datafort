@@ -4,7 +4,7 @@ import { LifepathEthnicityComponent } from './../lifepath-ethnicity/lifepath-eth
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { DataService } from './../../shared/services/file-services/data.service';
-import { LifepathChartComponent } from './../lifepath-chart/lifepath-chart.component';
+import { LifepathChartComponent } from '../../shared/cp2020/cp2020-lifepath/lifepath-chart/lifepath-chart.component';
 import { FormsModule } from '@angular/forms';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 

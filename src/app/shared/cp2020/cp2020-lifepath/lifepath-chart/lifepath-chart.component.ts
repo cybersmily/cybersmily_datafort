@@ -1,6 +1,6 @@
 import { faDice } from '@fortawesome/free-solid-svg-icons';
-import { DiceService } from '../../shared/services/dice/dice.service';
-import { LifepathChart, LifepathChartSelection } from '../../shared/cp2020/cp2020-lifepath/models';
+import { DiceService } from '../../../services/dice/dice.service';
+import { LifepathChart, LifepathChartSelection } from '../models';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
