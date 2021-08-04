@@ -81,8 +81,19 @@
   <div></div>
 </div>
 <div class="row">
+  <div class="col">Options ({{newWeapon.options?newWeapon.options.length:0}}):
+  </div>
+</div>
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col">
+    <cs-cp2020weapon-options [weapon]="newWeapon" (updateOptions)="updateOptions($event)"></cs-cp2020weapon-options>
+  </div>
+</div>
+<div class="row">
   <div class="col-2 col-lg-1">Notes:</div>
   <div class="col-10 col-lg-11">
     <textarea [(ngModel)]="newWeapon.notes" type="text" class="wpn-notes"></textarea>
   </div>
 </div>
+

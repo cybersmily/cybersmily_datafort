@@ -54,6 +54,10 @@ export class Cp2020weaponComponent implements OnInit {
     this.selectedSkill = (this.skill.length === 1) ? this.skill[0] : new Cp2020PlayerSkill();
   }
 
+  get options(): string {
+    return this.weapon.options ? this.weapon.options.map( opt => `${opt.count} ${opt.name}`).join(', ') : '';
+  }
+
   rollReliability() {
     this.reliabilityResults = this.weapon.checkReliability(this.diceService);
   }
@@ -82,6 +86,8 @@ export class Cp2020weaponComponent implements OnInit {
 
   update(wpn: CpPlayerWeapon) {
     this.weapon = wpn;
+    console.log('weapon', wpn);
+    console.log('afterweapon', this.weapon);
     this.updateWeapon.emit({index: this.index, weapon: this.weapon});
   }
 
