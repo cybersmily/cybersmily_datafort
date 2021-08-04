@@ -1,3 +1,4 @@
+import { CpPlayerWeaponOption } from './cp-player-weapon-option';
 import { DiceRolls } from './../../../models/dice-rolls';
 import { Cp2020PlayerSkill } from '../../cp2020-skills/models/cp2020-player-skill';
 import { DiceService } from './../../../services/dice/dice.service';
@@ -32,8 +33,10 @@ export class CpPlayerWeapon implements CpWeapon {
   source?: SourceBook;
   count?: number;
   thrown?: boolean;
-  options?: Array<any>;
+  options?: Array<CpPlayerWeaponOption>;
+  extraMagazines?: number;
   _currentShots: Array<boolean>;
+  _currentMagazines: Array<boolean>;
 
   private selectShot = -1;
 
@@ -90,6 +93,9 @@ export class CpPlayerWeapon implements CpWeapon {
     this.source = param ? param.source : undefined;
     this.count = param ? param.count : 0;
     this.thrown = param ? param.thrown : undefined;
+    if(param && param.options) {
+      this.options = param.options.map( opt => new CpPlayerWeaponOption(opt));
+    }
   }
 
   get currentShots(): Array<boolean> {

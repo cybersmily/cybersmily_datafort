@@ -12,6 +12,8 @@ import { Cp2020weaponSelectorComponent } from './cp2020weapon-selector/cp2020wea
 import { Cp2020weaponCalculatorComponent } from './cp2020weapon-calculator/cp2020weapon-calculator.component';
 import { MartialArtsDataService } from '../../services/data/martial-arts-data.service';
 import { IUCombatActionsComponent } from './i-u-combat-actions/i-u-combat-actions.component';
+import { Cp2020ammoComponent } from './cp2020ammo/cp2020ammo.component';
+import { Cp2020weaponOptionsComponent } from './cp2020weapon-options/cp2020weapon-options.component';
 
 
 
@@ -24,7 +26,9 @@ import { IUCombatActionsComponent } from './i-u-combat-actions/i-u-combat-action
     Cp2020weaponCalculatorComponent,
     WeaponcardComponent,
     WeaponcardcolumnComponent,
-    IUCombatActionsComponent
+    IUCombatActionsComponent,
+    Cp2020ammoComponent,
+    Cp2020weaponOptionsComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +45,8 @@ import { IUCombatActionsComponent } from './i-u-combat-actions/i-u-combat-action
     Cp2020weaponCalculatorComponent,
     WeaponcardComponent,
     WeaponcardcolumnComponent,
-    IUCombatActionsComponent
+    IUCombatActionsComponent,
+    Cp2020weaponOptionsComponent
   ]
 })
 export class Cp2020weaponsModule { }

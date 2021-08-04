@@ -9,6 +9,7 @@ export * from './combat-modifier';
 export * from './combat-modifiers';
 
 export * from './cp-player-weapon';
+export * from './cp-player-weapon-option';
 export * from './cp-player-weapon-list';
 
 export * from './max-metal-weapon';
