@@ -21,6 +21,7 @@ export class MaxMetalVehicle {
   description: string;
   offRoad: boolean;
   cost: number;
+  bookCost: number;
   options: MaxMetalVehOptList;
   costTally: string;
 
@@ -39,6 +40,7 @@ export class MaxMetalVehicle {
     this.manuever = { curr: 0, cost: 1 };
     this.weapons = new MaxMetalWeaponList();
     this.cost = 0;
+    this.bookCost = 0;
     this.options = new MaxMetalVehOptList();
     this.costTally = '';
   }

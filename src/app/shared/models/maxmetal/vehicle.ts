@@ -21,6 +21,7 @@ export interface Vehicle {
   type?: string;
   mass?: string;
   cost?: string;
+  bookCost?: number;
   options?: string;
   source?: SourceBook;
 }
