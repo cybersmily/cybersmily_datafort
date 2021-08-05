@@ -24,3 +24,8 @@ export * from './weapon-properties';
 export * from './data-weapon';
 
 export * from './cp-weapon-list-param';
+
+export * from './cp-2020-ammo';
+export * from './cp-2020-ammo-data';
+export * from './cp-2020-ammo-types';
+export * from './cp-2020-player-ammo';

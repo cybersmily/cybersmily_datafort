@@ -9,6 +9,7 @@ export class JsonDataFiles {
   public static CP2020_ROLES_LIST_JSON = `/json/apps/chargen/cp2020rolesext.json`;
   public static CP2020_WEAPON_DATA_LIST_JSON = `/json/wpns/cp2020weapons.json`;
   public static CP2020_WEAPON_OPTIONS_LIST_JSON = `/json/wpns/cp2020weaponoptions.json`;
+  public static CP2020_WEAPON_AMMO_LIST_JSON = `/json/wpns/cp2020weaponammo.json`;
   public static CP2020_SKILLS_DATA_LIST_JSON = `/json/apps/chargen/cp2020skills.json`;
   public static CP2020_MARTIAL_ARTS_LIST_JSON = '/json/wpns/cp2020martialarts.json';
   public static CP2020_CYBERWARE_DATA_LIST_JSON = `/json/data/cyberware.json`;
