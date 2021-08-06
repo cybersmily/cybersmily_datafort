@@ -52,7 +52,7 @@
         <fa-icon class="csd-icon-btn" [icon]="faPlus"></fa-icon>
       </div>
     </div>
-    <cs-cp2020ammo></cs-cp2020ammo>
+    <cs-cp2020ammo [ammoList]="weapons.ammo" (updateAmmo)="updateAmmo($event)"></cs-cp2020ammo>
   </div>
 
 </div>

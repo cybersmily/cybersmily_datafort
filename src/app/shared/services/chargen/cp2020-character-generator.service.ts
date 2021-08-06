@@ -1,3 +1,4 @@
+import { Cp2020PlayerAmmo } from './../../cp2020/cp2020weapons/models/cp-2020-player-ammo';
 import { JsonDataFiles } from './../file-services/json-data-files';
 import { DataService } from './../file-services/data.service';
 import { CacheKeys } from './../../cache-keys';
@@ -52,11 +53,14 @@ export class Cp2020CharacterGeneratorService {
       this._currCharacter.armor = new Cp2020ArmorBlock(value.armor);
       this._currCharacter.stats.REF.ev = this._currCharacter.armor.ev;
     }
-    if (value.weapons && value.weapons.items) {
-      this._currCharacter.weapons.items = new Array<CpPlayerWeapon>();
-      value.weapons.items.forEach((w) => {
+    if (value.weapons ) {
+      if (value.weapons.items) {
+        this._currCharacter.weapons.items = new Array<CpPlayerWeapon>();
+        value.weapons.items.forEach((w) => {
         this._currCharacter.weapons.items.push(new CpPlayerWeapon(w));
       });
+      }
+      this._currCharacter.weapons.ammo = (value.weapons.ammo)?new Array<Cp2020PlayerAmmo>(...value.weapons.ammo):new Array<Cp2020PlayerAmmo>();
     }
 
     if (value.lifeStyle) {

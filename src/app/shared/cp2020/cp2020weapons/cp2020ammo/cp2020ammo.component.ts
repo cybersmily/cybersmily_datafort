@@ -2,7 +2,7 @@ import { Cp2020PlayerAmmo } from './../models/cp-2020-player-ammo';
 import { JsonDataFiles } from './../../../services/file-services/json-data-files';
 import { DataService } from './../../../services/file-services/data.service';
 import { faPlus, faTrash, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { Cp2020Ammo, Cp2020AmmoTypes } from '../models';
 @Component({
   selector: 'cs-cp2020ammo',
@@ -17,6 +17,9 @@ export class Cp2020ammoComponent implements OnInit {
 
   @Input()
   ammoList: Array<Cp2020PlayerAmmo> = new Array<Cp2020PlayerAmmo>();
+
+  @Output()
+  updateAmmo: EventEmitter<Array<Cp2020PlayerAmmo>> = new EventEmitter<Array<Cp2020PlayerAmmo>>();
 
   ammoDataList: Array<Cp2020Ammo> = new Array<Cp2020Ammo>();
   ammoTypeList: Array<Cp2020AmmoTypes> = new Array<Cp2020AmmoTypes>();
@@ -69,11 +72,8 @@ export class Cp2020ammoComponent implements OnInit {
       newAmmo.subtype = (ammo.subtype ? ` ${ammo.subtype}`: '');
       newAmmo.notes = ammo.notes;
       if(ammo.hasTypes && this.selectedAmmoSubtypeIndex > -1) {
-        console.log('got here');
         newAmmo.subtype = this.ammoTypeList[this.selectedAmmoSubtypeIndex].type;
         newAmmo.notes += ` ${this.ammoTypeList[this.selectedAmmoSubtypeIndex].notes}`;
-        console.log(newAmmo.subtype);
-
       }
       newAmmo.cost = this.selectedCost;
       newAmmo.rounds = ammo.perBox;
@@ -85,10 +85,14 @@ export class Cp2020ammoComponent implements OnInit {
       } else {
         this.ammoList.push(newAmmo);
       }
-
     }
+
+    this.updateAmmo.emit(this.ammoList);
   }
 
-  delete() {}
+  delete(index: number) {
+    this.ammoList.splice(index, 1);
+    this.updateAmmo.emit(this.ammoList);
+  }
 
 }

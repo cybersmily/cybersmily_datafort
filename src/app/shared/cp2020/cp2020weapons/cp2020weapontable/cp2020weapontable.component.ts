@@ -3,7 +3,7 @@ import { DataWeapon } from './../models/data-weapon';
 import { Cp2020StatBlock } from './../../cp2020-stats/models/cp2020-stat-block';
 import { WeaponDataService } from './../services';
 import { DiceService } from './../../../services/dice/dice.service';
-import { CpPlayerWeaponList, CpPlayerWeapon } from './../models';
+import { CpPlayerWeaponList, CpPlayerWeapon, Cp2020PlayerAmmo } from './../models';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { faDice, faPlus, faCrosshairs, faCog, faCalculator, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerSkills } from './../../cp2020-skills/models';
@@ -112,6 +112,10 @@ export class Cp2020weapontableComponent implements OnInit {
     this.modalRef.hide();
   }
 
+  updateAmmo(ammo: Array<Cp2020PlayerAmmo>){
+    this.weapons.ammo = new Array<Cp2020PlayerAmmo>(...ammo);
+    this.changeWeapons.emit(this.weapons);
+  }
 
   paramChecked(value: Array<string>, item: string): boolean {
     return value && value.some((t) => { return t === item});

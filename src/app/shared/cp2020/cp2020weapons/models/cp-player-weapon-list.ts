@@ -1,8 +1,9 @@
-import { DiceService } from './../../../services/dice/dice.service';
 import { DataWeapon } from './data-weapon';
 import { CpPlayerWeapon } from './cp-player-weapon';
+import { Cp2020PlayerAmmo } from './cp-2020-player-ammo';
 export class CpPlayerWeaponList {
   items: Array<CpPlayerWeapon>;
+  ammo: Array<Cp2020PlayerAmmo>;
 
   constructor(length?: number) {
     if (length) {
@@ -14,6 +15,7 @@ export class CpPlayerWeaponList {
     } else {
       this.items = new Array<CpPlayerWeapon>();
     }
+    this.ammo = new Array<Cp2020PlayerAmmo>();
   }
 
   get totalCost(): number {

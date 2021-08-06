@@ -96,8 +96,6 @@ export class Cp2020weaponComponent implements OnInit {
 
   update(wpn: CpPlayerWeapon) {
     this.weapon = wpn;
-    console.log('weapon', wpn);
-    console.log('afterweapon', this.weapon);
     this.updateWeapon.emit({index: this.index, weapon: this.weapon});
   }
 
