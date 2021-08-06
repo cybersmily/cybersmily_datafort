@@ -1,5 +1,5 @@
 <div class="row wpn-stats">
-  <div class="col-3 col-lg-2">{{weapon.count && weapon.count > 1 ? weapon.count + ' ': ''}}{{weapon.name}}
+  <div class="col-3 col-lg-2"><span class="csd-btn" (click)="openModal(editWeaponModal)">{{weapon.count && weapon.count > 1 ? weapon.count + ' ': ''}}{{weapon.name}}</span>
     <fa-icon [icon]="faTrash" (click)="delete()" class="csd-btn csd-icon-btn" title="Delete weapon"></fa-icon>
     <fa-icon [icon]="faPen" (click)="openModal(editWeaponModal)" class="mr-2 csd-btn csd-icon-btn" title="Edit weapon">
     </fa-icon>
@@ -28,25 +28,16 @@
   <div class="col-1 d-none d-lg-inline-block text-center">{{weapon.range}} m</div>
   <div class="col-1 d-none d-lg-inline-block text-center">{{weapon.cost}} eb</div>
 </div>
-<div class="row wpn-notes" *ngIf="weapon.shots && weapon.shots > 1">
+<div class="row wpn-notes" *ngIf="weapon.magazines">
   <div class="col-1"></div>
-  <div class="col-2">
-    shots ({{weapon.shotsUsed}}/{{weapon.shots}}):
+  <div class="col-3">
+    magazines ({{weapon.magazines.length}}):
+    <select [(ngModel)]="weapon.currMagIndex">
+      <option *ngFor="let mag of weapon.magazines;let i = index" [value]="i">{{mag.used}}/{{mag.capacity}} {{mag.ammo}} {{mag.subtype}}</option>
+    </select>
   </div>
-  <div class="col-9">
-    <span class="wpn-shot csd-btn" *ngFor="let shot of weapon.currentShots;let i = index" (click)="weapon.expendShot(i)"
-      title="{{i + 1}}">{{ shot ? 'x' : ''}}</span>
-    &nbsp;&nbsp;
-    <fa-icon *ngIf="weapon.isEmpty" [icon]="faRedo" class="csd-btn" (click)="reload()" title="Reload"></fa-icon>
-  </div>
-</div>
-<div class="row wpn-notes" *ngIf="weapon.extraMagazines">
-  <div class="col-1"></div>
-  <div class="col-2">
-    Magazines ({{weapon.extraMagazines}}):
-  </div>
-  <div class="col-9">
-    <span class="wpn-shot csd-btn" *ngFor="let shot of weapon.extraMagazines;let i = index"
+  <div class="col-8">
+    <span class="wpn-shot csd-btn" *ngFor="let shot of currMagazineShots;let i = index"
       (click)="weapon.expendShot(i)" title="{{i + 1}}">{{ shot ? 'x' : ''}}</span>
     &nbsp;&nbsp;
     <fa-icon *ngIf="weapon.isEmpty" [icon]="faRedo" class="csd-btn" (click)="reload()" title="Reload"></fa-icon>

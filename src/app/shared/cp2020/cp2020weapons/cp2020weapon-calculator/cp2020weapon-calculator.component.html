@@ -44,17 +44,19 @@
         </div>
       </div>
 
-      <div class="row" *ngIf="selectedWeapon.shots && selectedWeapon.shots > 1">
+      <div class="row small" *ngIf="selectedWeapon.magazines">
         <div class="col-1"></div>
-        <div class="col-2 cmbt-section">
-          shots ({{ selectedWeapon.shotsUsed }}/{{ selectedWeapon.shots }}):
+        <div class="col-4">
+          magazines ({{selectedWeapon.magazines.length}}):
+          <select [(ngModel)]="selectedWeapon.currMagIndex">
+            <option *ngFor="let mag of selectedWeapon.magazines;let i = index" [value]="i">{{mag.used}}/{{mag.capacity}}  {{mag.ammo}} {{mag.subtype}}</option>
+          </select>
         </div>
         <div class="col">
-          <span class="wpn-shot csd-btn" *ngFor="let shot of selectedWeapon.currentShots; let i = index"
-            (click)="selectedWeapon.expendShot(i)" title="{{ i + 1 }}">{{ shot ? "x" : "" }}</span>
+          <span class="wpn-shot csd-btn" *ngFor="let shot of currMagazineShots;let i = index"
+            (click)="selectedWeapon.expendShot(i)" title="{{i + 1}}">{{ shot ? 'x' : ''}}</span>
           &nbsp;&nbsp;
-          <fa-icon *ngIf="selectedWeapon.isEmpty" [icon]="faRedo" class="csd-btn" (click)="selectedWeapon.reload()"
-            title="Reload"></fa-icon>
+          <fa-icon *ngIf="selectedWeapon.isEmpty" [icon]="faRedo" class="csd-btn" (click)="reload()" title="Reload"></fa-icon>
         </div>
         <div class="col-2"></div>
       </div>

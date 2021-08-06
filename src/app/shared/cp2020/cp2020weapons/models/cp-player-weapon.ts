@@ -7,6 +7,7 @@ import { WeaponRanges } from './weapon-ranges';
 import { CombatRange } from './combat-range';
 import { FumbleChart } from './../../../models/skill/fumble-chart';
 import { CpWeapon } from '.';
+import { Cp2020WeaponMagazine } from './cp-2020-weapon-magazine';
 
 
 export interface toHitResults {
@@ -34,11 +35,8 @@ export class CpPlayerWeapon implements CpWeapon {
   count?: number;
   thrown?: boolean;
   options?: Array<CpPlayerWeaponOption>;
-  extraMagazines?: number;
-  _currentShots: Array<boolean>;
-  _currentMagazines: Array<boolean>;
-
-  private selectShot = -1;
+  magazines?: Array<Cp2020WeaponMagazine>;
+  currMagIndex?: number;
 
   constructor(param?) {
     // weapon prop is deprecated. There for backward support
@@ -84,6 +82,16 @@ export class CpPlayerWeapon implements CpWeapon {
     } else {
       this.rof = param && param.rof ? 0 : undefined;
     }
+    if (this.shots > 1) {
+      this.magazines = new Array();
+      this.magazines.push({ammo:this.ammo, capacity: this.shots, used: 0, cost: 0, multiplier: 1});
+    }
+    if (param && param.magazines) {
+      this.magazines = new Array(...param.magazines);
+    }
+
+    this.currMagIndex = param && param.currMagIndex? param.currMagIndex : (this.magazines) ? 0 : undefined;
+
     this.cost = param ? param.cost : 0;
     this.range = param && param.range ? param.range : this.getDefaultRange();
     this.rel = param && param.rel ? param.rel.toUpperCase() : '';
@@ -96,13 +104,6 @@ export class CpPlayerWeapon implements CpWeapon {
     if(param && param.options) {
       this.options = param.options.map( opt => new CpPlayerWeaponOption(opt));
     }
-  }
-
-  get currentShots(): Array<boolean> {
-    if (!this._currentShots) {
-      this._currentShots = new Array<boolean>(this.shots).fill(false);
-    }
-    return this._currentShots;
   }
 
   private getDefaultRange(): number {
@@ -125,26 +126,6 @@ export class CpPlayerWeapon implements CpWeapon {
     return 0;
   }
 
-  get shotsUsed(): number {
-    if (this.currentShots) {
-      return this.currentShots.filter((s) => s).length;
-    }
-    return 0;
-  }
-
-  get shotsRemaining(): number {
-    if (this.currentShots) {
-      return this.currentShots.filter((s) => !s).length;
-    }
-    return 0;
-  }
-  get isEmpty(): boolean {
-    if (this.currentShots) {
-      return !this.currentShots.some((s) => !s);
-    }
-    return false;
-  }
-
   get isRangedWeapon(): boolean {
     return (
       this.type.toLowerCase() !== 'mel' ||
@@ -152,23 +133,26 @@ export class CpPlayerWeapon implements CpWeapon {
     );
   }
 
-  reload() {
-    if (this.currentShots) {
-      this.selectShot = -1;
-      this.currentShots.fill(false);
+  get currMag(): Cp2020WeaponMagazine {
+    if (this.magazines && this.currMagIndex > -1) {
+      return this.magazines[this.currMagIndex];
     }
   }
 
+  get isEmpty(): boolean {
+    return (this.currMag ) ? this.currMag.used >= this.currMag.capacity : false;
+  }
+
+  get shotsRemaining(): number {
+    return (this.currMag ) ? this.currMag.capacity - this.currMag.used : 1;
+  }
+
+  reload() {
+  }
+
   expendShot(index: number) {
-    if (this.currentShots) {
-      if (index === this.selectShot) {
-        this.currentShots[index] = !this.currentShots[index];
-      } else {
-        this.currentShots.fill(true, 0, index + 1);
-        this.currentShots.fill(false, index + 1);
-      }
-      this.selectShot = this.currentShots[index] ? index : index - 1;
-    }
+    const mod = (index + 1) !== this.magazines[this.currMagIndex].used ? 1 : 0;
+    this.magazines[this.currMagIndex].used = index + mod;
   }
 
   fire(
@@ -178,10 +162,8 @@ export class CpPlayerWeapon implements CpWeapon {
     shots?: number
   ): string {
     const roll = diceService.rollCP2020D10();
-    if (this.currentShots) {
-      const usedShots = shots ? shots : 1;
-      const index = this.currentShots.lastIndexOf(true) + 1;
-      this.currentShots.fill(true, index, index + usedShots);
+    if (this.currMagIndex > -1 && !isNaN(shots)) {
+      this.magazines[this.currMagIndex].used += shots;
     }
     const result = this.toHitCalulation(stat, skillValue);
     return `${roll.show(true)} = ${roll.total + result.total}`;

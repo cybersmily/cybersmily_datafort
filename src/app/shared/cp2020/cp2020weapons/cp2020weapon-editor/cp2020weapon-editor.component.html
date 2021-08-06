@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-2">Name:</div>
   <div class="col-9 wpn-name">
-    <input [(ngModel)]="newWeapon.name" type="text"/>
+    <input [(ngModel)]="newWeapon.name" type="text" />
   </div>
   <div class="col-1 wpn-save">
     <fa-icon [icon]="faSave" [ngClass]="{
@@ -21,11 +21,7 @@
   </div>
   <div class="col-3 col-lg-1">WA:</div>
   <div class="col-3 col-lg-2">
-    <input
-      [(ngModel)]="newWeapon.wa"
-      type="number"
-      class="text-uppercase text-center wpn-narrow"
-    />
+    <input [(ngModel)]="newWeapon.wa" type="number" class="text-uppercase text-center wpn-narrow" />
   </div>
   <div class="col-3 col-lg-2">Concealment:</div>
   <div class="col-3 col-lg-1">
@@ -33,7 +29,7 @@
       <option [ngValue]="undefined"></option>
       <option *ngFor="let conc of concealments" [ngValue]="conc.code">{{
         conc.code
-      }}</option>
+        }}</option>
     </select>
   </div>
   <div class="col-3 col-lg-2">Availability:</div>
@@ -42,7 +38,7 @@
       <option [ngValue]="undefined"></option>
       <option *ngFor="let avail of availabilities" [ngValue]="avail.code">{{
         avail.code
-      }}</option>
+        }}</option>
     </select>
   </div>
 </div>
@@ -50,6 +46,10 @@
   <div class="col-3 col-lg-1">Damage:</div>
   <div class="col-3 col-lg-2">
     <input [(ngModel)]="newWeapon.damage" type="text" class="text-uppercase wpn-dmg" placeholder="ex. 2d6+3" />
+  </div>
+  <div class="col-3 col-lg-1">Ammo:</div>
+  <div class="col-3 col-lg-2">
+    <input [(ngModel)]="newWeapon.ammo" type="text" class="text-uppercase wpn-dmg" placeholder="ex. 9mm" />
   </div>
   <div class="col-3 col-lg-1">#Shots:</div>
   <div class="col-3 col-lg-2">
@@ -59,17 +59,18 @@
   <div class="col-3 col-lg-1">
     <input [(ngModel)]="newWeapon.rof" type="number" class="text-uppercase wpn-col" />
   </div>
+</div>
+<div class="row">
   <div class="col-3 col-lg-2">Reliability:</div>
   <div class="col-3 col-lg-1">
     <select [(ngModel)]="newWeapon.rel">
       <option [ngValue]="undefined"></option>
       <option *ngFor="let rel of reliabilites" [ngValue]="rel.code">{{
         rel.code
-      }}</option>
+        }}</option>
     </select>
   </div>
-</div>
-<div class="row">
+
   <div class="col-3 col-lg-1">Range:</div>
   <div class="col-3 col-lg-2">
     <input [(ngModel)]="newWeapon.range" type="number" class="text-uppercase wpn-col" />m
@@ -79,6 +80,26 @@
     <input [(ngModel)]="newWeapon.cost" type="number" class="text-uppercase wpn-col" />eb
   </div>
   <div></div>
+</div>
+<div class="row" *ngIf="newWeapon.magazines">
+  <div class="col-2">Magazines ({{newWeapon.magazines.length}}):
+    <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn ml-1" title="Add a new magazine" (click)="openModal(newMagazine)"></fa-icon>
+  </div>
+  <div class="col">
+    <div class="row">
+      <div class="col">Ammo</div>
+      <div class="col">Spent/Capacity</div>
+      <div class="col"></div>
+    </div>
+    <div class="row" *ngFor="let mag of newWeapon.magazines;let i = index">
+      <div class="col">
+        {{mag.ammo}} {{mag.subtype}}
+        <fa-icon *ngIf="newWeapon.magazines.length > 1" [icon]="faTrash" class="csd-btn csd-icon-btn ml-1" title="Delete magazine" (click)="delteMagazine(i)"></fa-icon>
+      </div>
+      <div class="col">{{mag.used}}/{{mag.capacity}}<span *ngIf="mag.multiplier > 1">(x{{mag.multiplier}})</span></div>
+      <div class="col"></div>
+    </div>
+  </div>
 </div>
 <div class="row">
   <div class="col">Options ({{newWeapon.options?newWeapon.options.length:0}}):
@@ -97,3 +118,46 @@
   </div>
 </div>
 
+<ng-template #newMagazine>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">New Weapon Magazine</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body container">
+    <div class="row">
+      <div class="col-2 col-lg-1 pr-3">Base</div>
+      <div class="col-2 col-lg-1">Multipler</div>
+      <div class="col">Casing</div>
+      <div class="col">Subtype</div>
+      <div class="col">Cost</div>
+    </div>
+    <div class="row">
+      <div class="col-2 col-lg-1">
+        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn mr-1" title="Add magazine" (click)="addMagazine()"></fa-icon>
+        {{newWeapon.shots}}
+      </div>
+      <div class="col-2 col-lg-1">
+        <select [(ngModel)]="newMagMultiplier">
+          <option value="1">x1</option>
+          <option value="2">x2</option>
+          <option value="3">x3</option>
+          <option value="4">x4</option>
+          <option value="5">x5</option>
+        </select>
+      </div>
+      <div class="col">
+        <select [(ngModel)]="newMagType">
+          <option value="5">Caseless</option>
+          <option value="1">Cased</option>
+          <option value="3">Heavy Weapon</option>
+        </select>
+      </div>
+      <div class="col">
+        <input type="text" [(ngModel)]="newMagSubtype">
+      </div>
+      <div class="col">{{newMagCost|number}}eb</div>
+    </div>
+  </div>
+</ng-template>

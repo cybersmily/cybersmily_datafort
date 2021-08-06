@@ -1,7 +1,7 @@
 import { Cp2020PlayerAmmo } from './../models/cp-2020-player-ammo';
 import { JsonDataFiles } from './../../../services/file-services/json-data-files';
 import { DataService } from './../../../services/file-services/data.service';
-import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faTrash, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Component, Input, OnInit } from '@angular/core';
 import { Cp2020Ammo, Cp2020AmmoTypes } from '../models';
 @Component({
@@ -12,12 +12,18 @@ import { Cp2020Ammo, Cp2020AmmoTypes } from '../models';
 export class Cp2020ammoComponent implements OnInit {
   faPlus = faPlus;
   faTrash = faTrash;
+  faChevronDown = faChevronDown;
+  faChevronRight = faChevronRight;
 
   @Input()
   ammoList: Array<Cp2020PlayerAmmo> = new Array<Cp2020PlayerAmmo>();
 
   ammoDataList: Array<Cp2020Ammo> = new Array<Cp2020Ammo>();
   ammoTypeList: Array<Cp2020AmmoTypes> = new Array<Cp2020AmmoTypes>();
+  isCollapsed: boolean = false;
+  get collapseChevron(): any {
+    return (this.isCollapsed) ? faChevronRight : this.faChevronDown;
+  }
 
   selectedAmmoIndex: number = -1;
   selectedAmmoSubtypeIndex: number = -1;
@@ -59,19 +65,21 @@ export class Cp2020ammoComponent implements OnInit {
     if (this.selectedAmmoIndex > - 1){
       const newAmmo = new Cp2020PlayerAmmo();
       const ammo = this.ammoDataList[this.selectedAmmoIndex];
-      console.log('Selected Ammo', ammo);
-      newAmmo.name = ammo.type + (ammo.subtype ? ` ${ammo.subtype}`: '');
+      newAmmo.name = ammo.type;
+      newAmmo.subtype = (ammo.subtype ? ` ${ammo.subtype}`: '');
       newAmmo.notes = ammo.notes;
       if(ammo.hasTypes && this.selectedAmmoSubtypeIndex > -1) {
-        newAmmo.name += ` ${this.ammoTypeList[this.selectedAmmoSubtypeIndex].type}`;
+        console.log('got here');
+        newAmmo.subtype = this.ammoTypeList[this.selectedAmmoSubtypeIndex].type;
         newAmmo.notes += ` ${this.ammoTypeList[this.selectedAmmoSubtypeIndex].notes}`;
+        console.log(newAmmo.subtype);
 
       }
       newAmmo.cost = this.selectedCost;
       newAmmo.rounds = ammo.perBox;
       newAmmo.perBox = ammo.perBox;
 
-      const found = this.ammoList.findIndex( a => a.name === newAmmo.name);
+      const found = this.ammoList.findIndex( a => a.name === newAmmo.name && a.subtype === newAmmo.subtype);
       if (found > -1) {
         this.ammoList[found].rounds += newAmmo.rounds;
       } else {

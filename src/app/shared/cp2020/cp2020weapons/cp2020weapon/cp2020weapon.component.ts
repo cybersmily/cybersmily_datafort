@@ -4,6 +4,8 @@ import { DiceService } from './../../../services/dice/dice.service';
 import { faPen, faTrash, faDice, faRedo } from '@fortawesome/free-solid-svg-icons';
 import { CpPlayerWeapon } from './../models';
 import { Component, OnInit, Input, TemplateRef, Output, EventEmitter } from '@angular/core';
+import { Cp2020WeaponMagazine } from '../models/cp-2020-weapon-magazine';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'cs-cp2020weapon',
@@ -54,6 +56,15 @@ export class Cp2020weaponComponent implements OnInit {
     this.selectedSkill = (this.skill.length === 1) ? this.skill[0] : new Cp2020PlayerSkill();
   }
 
+  get currMagazineShots(): Array<boolean> {
+    if (this.weapon.currMag) {
+      const arr = Array<boolean>(this.weapon.currMag.capacity);
+      arr.fill(true,0, this.weapon.currMag.used).fill(false, this.weapon.currMag.used);
+      return arr;
+    }
+    return new Array();
+  }
+
   get options(): string {
     return this.weapon.options ? this.weapon.options.map( opt => `${opt.count} ${opt.name}`).join(', ') : '';
   }
@@ -61,7 +72,6 @@ export class Cp2020weaponComponent implements OnInit {
   rollReliability() {
     this.reliabilityResults = this.weapon.checkReliability(this.diceService);
   }
-
 
   rollDamage() {
     this.damageRoll = this.weapon.rollDamage(this.diceService, 1, this.BodDamageMod).join('<br>');

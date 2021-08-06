@@ -176,6 +176,14 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
       }
     }
   }
+  get currMagazineShots(): Array<boolean> {
+    if (this.selectedWeapon.currMag) {
+      const arr = Array<boolean>(this.selectedWeapon.currMag.capacity);
+      arr.fill(true,0, this.selectedWeapon.currMag.used).fill(false, this.selectedWeapon.currMag.used);
+      return arr;
+    }
+    return new Array();
+  }
 
   get filteredList(): Array<CpPlayerWeapon> {
     return this.weaponList.items.filter((wpn) => wpn.name !== '');
