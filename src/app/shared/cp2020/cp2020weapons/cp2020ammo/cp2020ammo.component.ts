@@ -29,7 +29,7 @@ export class Cp2020ammoComponent implements OnInit {
   }
 
   selectedAmmoIndex: number = -1;
-  selectedAmmoSubtypeIndex: number = -1;
+  selectedAmmoSubtypeIndex: number = 0;
 
   constructor(private dataService: DataService) { }
 

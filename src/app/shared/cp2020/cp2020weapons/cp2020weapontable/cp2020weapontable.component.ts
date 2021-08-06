@@ -59,6 +59,9 @@ export class Cp2020weapontableComponent implements OnInit {
   @Input()
   showIU = false;
 
+  @Input()
+  showAmmo = false;
+
   @Output()
   changeWeapons: EventEmitter<CpPlayerWeaponList> = new EventEmitter<CpPlayerWeaponList>();
 

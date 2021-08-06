@@ -8,50 +8,53 @@
         </h4>
       </div>
     </div>
-    <div class="row border border-dark">
-      <div class="col-1 border border-dark">Rounds</div>
-      <div class="col border border-dark">Type</div>
-      <div class="col border border-dark">Cost</div>
-    </div>
-    <div class="row border border-dark" *ngFor="let ammo of ammoList;let i = index">
-      <div class="col-1 border border-dark">
-        <input type="number" title="Number of rounds available" class="csd-number" [(ngModel)]="ammo.rounds">
-      </div>
-      <div class="col border border-dark">{{ammo.name}} {{ammo.subtype}}</div>
-      <div class="col border border-dark">{{ammo.cost|number}}eb/{{ammo.perBox}} rounds</div>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col">
-        Type
-      </div>
-      <div class="col-3">
-      </div>
-      <div class="col-2">Rds/Box: </div>
-      <div class="col-2">Cost/box: </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn mr-2" (click)="add()"></fa-icon>
-        <select [(ngModel)]="selectedAmmoIndex">
-          <option [ngValue]="-1"></option>
-          <option *ngFor="let ammo of ammoDataList;let i = index" [value]="i">{{ammo.type}}<span *ngIf="ammo.subtype"> -
-              {{ammo.subtype}}</span></option>
-        </select>
-      </div>
-      <div class="col-3">
-        <select *ngIf="hasSubtype(selectedAmmoIndex)" [(ngModel)]="selectedAmmoSubtypeIndex">
-          <option [ngValue]="-1"></option>
-          <option *ngFor="let type of ammoTypeList;let i = index" [value]="i">{{type.type}} (x{{type.costMultiplier}})
-          </option>
-        </select>
-      </div>
-      <div class="col-2">{{roundsPerBox}}</div>
-      <div class="col-2">{{selectedCost|number}}eb</div>
-    </div>
 
-    <div class="row">
-      <div class="col"></div>
+    <div [collapse]="isCollapsed" class="row mb-4">
+      <div class="col">
+
+        <div class="row border border-dark">
+          <div class="col-1 border border-dark">Rounds</div>
+          <div class="col border border-dark">Type</div>
+          <div class="col border border-dark">Cost</div>
+        </div>
+        <div class="row border border-dark" *ngFor="let ammo of ammoList;let i = index">
+          <div class="col-1 border border-dark">
+            <input type="number" title="Number of rounds available" class="csd-number" [(ngModel)]="ammo.rounds">
+          </div>
+          <div class="col border border-dark">{{ammo.name}} {{ammo.subtype}}</div>
+          <div class="col border border-dark">{{ammo.cost|number}}eb/{{ammo.perBox}} rounds</div>
+        </div>
+        <div class="row">
+          <div class="col">
+            Type
+          </div>
+          <div class="col-3">
+          </div>
+          <div class="col-2">Rds/Box: </div>
+          <div class="col-2">Cost/box: </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn mr-2" (click)="add()"></fa-icon>
+            <select [(ngModel)]="selectedAmmoIndex">
+              <option *ngIf="0 > selectedAmmoIndex" [ngValue]="-1" class="small"><i>choose ammo...</i></option>
+              <option *ngFor="let ammo of ammoDataList;let i = index" [value]="i">{{ammo.type}}<span
+                  *ngIf="ammo.subtype"> -
+                  {{ammo.subtype}}</span></option>
+            </select>
+          </div>
+          <div class="col-3">
+            <select *ngIf="hasSubtype(selectedAmmoIndex)" [(ngModel)]="selectedAmmoSubtypeIndex">
+              <option *ngFor="let type of ammoTypeList;let i = index" [value]="i">{{type.type}}
+                (x{{type.costMultiplier}})
+              </option>
+            </select>
+          </div>
+          <div class="col-2">{{roundsPerBox}}</div>
+          <div class="col-2">{{selectedCost|number}}eb</div>
+        </div>
+
+      </div>
     </div>
 
   </div>
