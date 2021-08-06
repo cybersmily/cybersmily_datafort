@@ -17,6 +17,10 @@
     <fa-icon *ngIf="weapon.damage && weapon.damage !== ''" [icon]="faDice" class="csd-dice" (click)="rollDamage()"
       [popover]="damageModal" popoverTitle="DAMAGE RESULTS" [outsideClick]="true"
       containerClass="csd-rounded csd-popover"></fa-icon>
+      <ng-container *ngIf="weapon.ammo && weapon.ammo !== ''">
+      <br>
+      {{weapon.ammo}}
+    </ng-container>
   </div>
   <div class="col-1 text-center">{{weapon.shots}}</div>
   <div class="col-1 text-center">{{weapon.rof}}</div>
