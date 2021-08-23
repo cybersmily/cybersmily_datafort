@@ -1,5 +1,7 @@
+import { CpPlayerWeapon } from './../models/cp-player-weapon';
 import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Cp2020WeaponMagazine } from '../models/cp-2020-weapon-magazine';
 
 @Component({
   selector: 'cs-cp2020magazines',
@@ -11,23 +13,26 @@ export class Cp2020magazinesComponent implements OnInit {
   faTrash = faTrash;
 
   @Input()
-  magazines: any;
-
-  @Input()
-  shots: number = 0;
-
-  @Input()
-  ammo: string = '';
+  weapon: CpPlayerWeapon = new CpPlayerWeapon();
 
   @Output()
-  updateMagazines: EventEmitter<Array<any>> = new EventEmitter<Array<any>>();
+  updateMagazines: EventEmitter<Array<Cp2020WeaponMagazine>> = new EventEmitter<Array<Cp2020WeaponMagazine>>();
 
   newMagMultiplier: number =1;
   newMagType: number = 5;
   newMagSubtype: string = '';
 
   get newMagCost(): number {
-    return this.shots * this.newMagMultiplier * this.newMagType;
+    return this.weapon.shots * this.newMagMultiplier * this.magType;
+  }
+
+  get magType(): number {
+    if (this.weapon.cased ) {
+      return 1;
+    } else if(this.weapon.type.toLowerCase() === 'hvy') {
+      return 3;
+    }
+    return 0.5;
   }
 
   constructor() { }
@@ -37,18 +42,20 @@ export class Cp2020magazinesComponent implements OnInit {
 
   addMagazine() {
     const mag = {
-      ammo: this.ammo,
+      ammo: this.weapon.ammo,
       used: 0,
-      capacity: (this.shots * this.newMagMultiplier),
+      capacity: (this.weapon.shots * this.newMagMultiplier),
       cost: this.newMagCost,
       multiplier: this.newMagMultiplier,
       subtype: (this.newMagSubtype != '') ? this.newMagSubtype : undefined
     };
-    this.magazines.push(mag);
+    this.weapon.magazines.push(mag);
+    this.updateMagazines.emit(new Array(...this.weapon.magazines));
   }
 
   delteMagazine(index: number) {
-    this.magazines.splice(index, 1);
+    this.weapon.magazines.splice(index, 1);
+    this.updateMagazines.emit(new Array(...this.weapon.magazines));
   }
 
 }

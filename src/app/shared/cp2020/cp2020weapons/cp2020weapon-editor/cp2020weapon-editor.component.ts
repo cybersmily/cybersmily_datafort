@@ -54,6 +54,10 @@ export class Cp2020weaponEditorComponent implements OnInit {
     this.newWeapon.options = new Array(...options);
   }
 
+  updateMagazines(magazines: Array<Cp2020WeaponMagazine>) {
+    this.newWeapon.magazines = magazines;
+  }
+
   openModal(template: TemplateRef<any>){
     this.modalRef = this.modalService.show(template, this.modalConfig);
   }

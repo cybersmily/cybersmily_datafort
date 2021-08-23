@@ -31,6 +31,7 @@ export class CpPlayerWeapon implements CpWeapon {
   cost: number;
   notes: string;
   range: number;
+  cased?: boolean;
   source?: SourceBook;
   count?: number;
   thrown?: boolean;
@@ -40,28 +41,23 @@ export class CpPlayerWeapon implements CpWeapon {
 
   constructor(param?) {
     // weapon prop is deprecated. There for backward support
-    this.name =
-      param && param.weapon
-        ? param.weapon
-        : param && param.name
-          ? param.name
-          : '';
-    this.type = param ? param.type : '';
+    this.name = param?.weapon || param?.name || '';
+    this.type = param?.type || '';
     // WA need to see if there is a + in it
-    if (param && param.wa && typeof param.wa === 'string') {
+    if (param?.wa && typeof param.wa === 'string') {
       this.wa =
         param && !isNaN(Number(String(param.wa).replace('+', '')))
           ? Number(String(param.wa).replace('+', ''))
           : 0;
     } else {
-      this.wa = param ? param.wa : undefined;
+      this.wa = param?.wa;
     }
-    this.conc = param && param.conc ? param.conc.toUpperCase() : 'N';
-    this.avail = param && param.avail ? param.avail.toUpperCase() : 'C';
-    this.damage = param ? param.damage : '';
-    this.ammo = param ? param.ammo : '';
+    this.conc = param?.conc.toUpperCase() || 'N';
+    this.avail = param?.avail.toUpperCase() || 'C';
+    this.damage = param?.damage || '';
+    this.ammo = param?.ammo || '';
     // shots could be a string for backward capability.
-    if (param && param.shots && typeof param.shots === 'string') {
+    if (param?.shots && typeof param.shots === 'string') {
       this.shots =
         param && !isNaN(Number(String(param.shots).replace('+', '')))
           ? Number(String(param.shots).replace('+', ''))
@@ -72,7 +68,7 @@ export class CpPlayerWeapon implements CpWeapon {
       this.shots = param && param.shots ? 0 : undefined;
     }
     // RoF could be a string for backward capability.
-    if (param && param.rof && typeof param.rof === 'string') {
+    if (param?.rof && typeof param.rof === 'string') {
       this.wa =
         param && !isNaN(Number(String(param.rof).replace('+', '')))
           ? Number(String(param.rof).replace('+', ''))
@@ -90,18 +86,18 @@ export class CpPlayerWeapon implements CpWeapon {
       this.magazines = new Array(...param.magazines);
     }
 
-    this.currMagIndex = param && param.currMagIndex? param.currMagIndex : (this.magazines) ? 0 : undefined;
+    this.currMagIndex = param?.currMagIndex || (this.magazines) ? 0 : undefined;
 
-    this.cost = param ? param.cost : 0;
-    this.range = param && param.range ? param.range : this.getDefaultRange();
-    this.rel = param && param.rel ? param.rel.toUpperCase() : '';
-    this.jammed =
-      param && param.jammed !== undefined ? param.jammed : false;
-    this.notes = param ? param.notes : '';
-    this.source = param ? param.source : undefined;
-    this.count = param ? param.count : 0;
-    this.thrown = param ? param.thrown : undefined;
-    if(param && param.options) {
+    this.cost = param?.cost || 0;
+    this.range = param?.range || this.getDefaultRange();
+    this.rel = param?.rel.toUpperCase() || '';
+    this.jammed = param?.jammed || false;
+    this.notes = param?.notes || '';
+    this.source = param?.source;
+    this.count = param?.count || 0;
+    this.thrown = param?.thrown;
+    this.cased = param?.cased || false;
+    if(param?.options) {
       this.options = param.options.map( opt => new CpPlayerWeaponOption(opt));
     }
   }
