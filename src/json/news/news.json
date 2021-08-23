@@ -3,9 +3,9 @@
     { "date":"2021-08",
       "entries":[
         "<strong>08-??</strong> - Tackled some of my backlog with this release.",
-        "&nbsp;* Implemented weapon options to help with modifying your weapon.",
-        "&nbsp;* ",
-        "&nbsp;* ",
+        "&nbsp;* CP2020 Char generator - Implemented weapon options to help with modifying your weapon.",
+        "&nbsp;* CP2020 Char generator - Implemented ammo section to keep track of what's available.",
+        "&nbsp;* CP2020 Char generator - Implemented magazine manager for weapons.",
         "&nbsp;* ",
         "<strong>08-01</strong> - This month starts off with the following:",
         "&nbsp;* Fixed a bug with the skills not aligning right in the CP2020 character generator.",

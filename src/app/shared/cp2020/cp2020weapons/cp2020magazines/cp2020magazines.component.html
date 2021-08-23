@@ -18,7 +18,7 @@
         title="Delete magazine" (click)="delteMagazine(i)"></fa-icon>
     </div>
     <div class="col">{{mag.used}}/{{mag.capacity}}<span *ngIf="mag.multiplier > 1">(x{{mag.multiplier}})</span></div>
-    <div class="col"></div>
+    <div class="col"><span *ngIf="mag.capacity > weapon.shots * 2" class="small"> Conc. reduced 1 level; -1(P,SMG)/-2(RIF,SHG) Snapshot</span></div>
   </div>
   <div class="row">
     <div class="col-1"></div>
