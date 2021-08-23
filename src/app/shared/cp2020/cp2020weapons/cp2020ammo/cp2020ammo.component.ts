@@ -53,6 +53,17 @@ export class Cp2020ammoComponent implements OnInit {
     return Math.ceil( cost);
   }
 
+  get columnOne(): Array<Cp2020PlayerAmmo> {
+    const arr = this.ammoList.slice(0, Math.ceil(this.ammoList.length/2));
+    console.log('arr', arr);
+    console.log('ammo', this.ammoList);
+    return arr;
+  }
+
+  get columnTwo(): Array<Cp2020PlayerAmmo> {
+    return this.ammoList.slice(Math.ceil(this.ammoList.length/2));
+  }
+
   get roundsPerBox(): number {
     if (this.selectedAmmoIndex < 0) {
       return 0;

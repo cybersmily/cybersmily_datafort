@@ -2,28 +2,50 @@
   <div class="col">
     <div class="cp2020-label row">
       <div class="col">
-        <h4 class="d-inline-block csd-btn mr-4" (click)="isCollapsed = !isCollapsed">
+        <h5 class="d-inline-block csd-btn" (click)="isCollapsed = !isCollapsed">
           AMMO
           <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ml-1"></fa-icon>
-        </h4>
+        </h5>
       </div>
     </div>
 
-    <div [collapse]="isCollapsed" class="row mb-4">
+    <div [collapse]="isCollapsed" class="row mb-4 small">
       <div class="col">
-
         <div class="row border border-dark">
-          <div class="col-1 border border-dark">Rounds</div>
-          <div class="col border border-dark">Type</div>
-          <div class="col border border-dark">Cost</div>
-        </div>
-        <div class="row border border-dark" *ngFor="let ammo of ammoList;let i = index">
-          <div class="col-1 border border-dark">
-            <input type="number" title="Number of rounds available" class="csd-number" [(ngModel)]="ammo.rounds">
+          <div class="col-12 col-md-6">
+            <div class="row">
+              <div class="col-2 col-md-3 col-lg-2 border border-dark">Rounds</div>
+              <div class="col border border-dark">Type</div>
+              <div class="col-2 col-md-3 col-lg-2 border border-dark">Cost</div>
+            </div>
           </div>
-          <div class="col border border-dark">{{ammo.name}} {{ammo.subtype}}</div>
-          <div class="col border border-dark">{{ammo.cost|number}}eb/{{ammo.perBox}} rounds</div>
+          <div class="col-12 col-md-6 d-none d-md-block">
+            <div class="row">
+              <div class="col-2 col-md-3 col-lg-2  border border-dark">Rounds</div>
+              <div class="col border border-dark">Type</div>
+              <div class="col-2 col-md-3 col-lg-2 border border-dark">Cost</div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="row border border-dark" *ngFor="let ammo of columnOne;let i = index">
+              <div class="col-2 col-md-3 col-lg-2 border border-dark">
+                <input type="number" title="Number of rounds available" class="csd-number" [(ngModel)]="ammo.rounds">
+              </div>
+              <div class="col border border-dark">{{ammo.name}} {{ammo.subtype}}</div>
+              <div class="col-2 col-md-3 col-lg-2 border border-dark">{{ammo.cost|number}}eb/{{ammo.perBox}}</div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="row border border-dark" *ngFor="let ammo of columnTwo;let i = index">
+              <div class="col-2 col-md-3 col-lg-2 border border-dark">
+                <input type="number" title="Number of rounds available" class="csd-number" [(ngModel)]="ammo.rounds">
+              </div>
+              <div class="col border border-dark">{{ammo.name}} {{ammo.subtype}}</div>
+              <div class="col-2 col-md-3 col-lg-2 border border-dark">{{ammo.cost|number}}eb/{{ammo.perBox}}</div>
+            </div>
+          </div>
         </div>
+
         <div class="row">
           <div class="col">
             Type
