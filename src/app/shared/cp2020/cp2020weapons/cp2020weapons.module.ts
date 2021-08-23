@@ -14,6 +14,7 @@ import { MartialArtsDataService } from '../../services/data/martial-arts-data.se
 import { IUCombatActionsComponent } from './i-u-combat-actions/i-u-combat-actions.component';
 import { Cp2020ammoComponent } from './cp2020ammo/cp2020ammo.component';
 import { Cp2020weaponOptionsComponent } from './cp2020weapon-options/cp2020weapon-options.component';
+import { Cp2020magazinesComponent } from './cp2020magazines/cp2020magazines.component';
 
 
 
@@ -28,7 +29,8 @@ import { Cp2020weaponOptionsComponent } from './cp2020weapon-options/cp2020weapo
     WeaponcardcolumnComponent,
     IUCombatActionsComponent,
     Cp2020ammoComponent,
-    Cp2020weaponOptionsComponent
+    Cp2020weaponOptionsComponent,
+    Cp2020magazinesComponent
   ],
   imports: [
     CommonModule,

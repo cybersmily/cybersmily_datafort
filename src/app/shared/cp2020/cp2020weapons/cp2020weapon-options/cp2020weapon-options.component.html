@@ -1,42 +1,57 @@
-<div class="row">
-  <div class="col">
-    <div class="row">
-      <div class="col-1">
-        #
-      </div>
-      <div class="col">
-        Name
-      </div>
-      <div class="col-3">
-        Cost ({{totalOptionCosts | number}}eb)
-      </div>
+<div class=" csd-rounded">
+  <div class="row">
+    <div class="col">Options ({{weapon.options?weapon.options.length:0}}):
     </div>
-    <ng-container  *ngFor="let opt of options;let i = index">
-    <div class="row">
-      <div class="col-1">
-        <input type="number" min="0" class="csd-number" [(ngModel)]="opt.count" title="Count of this option" (change)="update()">
-      </div>
-      <div class="col">
-        {{opt.name}}
-        <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn ml-1" title="Delete option" (click)="delete(i)"></fa-icon>
-      </div>
-      <div class="col-3">
-        {{opt.totalCost * opt.count}}eb
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        {{opt.notes}} <span class="float-right small">{{opt.source.book | sourcebook}} pg.{{opt.source.page}}</span>
-      </div>
-    </div>
-  </ng-container>
-    <div class="row">
-      <div class="col text-center">
-        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-xl" (click)="openModal(optionModal)"></fa-icon>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col">
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col-1">
+              #
+            </div>
+            <div class="col">
+              Name
+            </div>
+            <div class="col-3">
+              Cost ({{totalOptionCosts | number}}eb)
+            </div>
+          </div>
+          <ng-container *ngFor="let opt of options;let i = index">
+            <div class="row">
+              <div class="col-1">
+                <input type="number" min="0" class="csd-number" [(ngModel)]="opt.count" title="Count of this option"
+                  (change)="update()">
+              </div>
+              <div class="col">
+                {{opt.name}}
+                <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn ml-1" title="Delete option" (click)="delete(i)">
+                </fa-icon>
+              </div>
+              <div class="col-3">
+                {{opt.totalCost * opt.count}}eb
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                {{opt.notes}} <span class="float-right small">{{opt.source.book | sourcebook}}
+                  pg.{{opt.source.page}}</span>
+              </div>
+            </div>
+          </ng-container>
+          <div class="row">
+            <div class="col text-center">
+              <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-xl" (click)="openModal(optionModal)">
+              </fa-icon>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -69,7 +84,7 @@
       <div class="col">
         {{opt.name}}
       </div>
-      <div class="col-2" >
+      <div class="col-2">
         {{getOptionCost(opt)|number}}eb
       </div>
     </div>

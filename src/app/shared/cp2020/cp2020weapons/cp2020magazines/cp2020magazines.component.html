@@ -1,0 +1,42 @@
+<div class="row" *ngIf="magazines">
+  <div class="col-2">Magazines ({{magazines.length}}):
+  </div>
+  <div class="col">
+    <div class="row">
+      <div class="col">Ammo</div>
+      <div class="col">Spent/Capacity</div>
+      <div class="col"></div>
+    </div>
+    <div class="row" *ngFor="let mag of magazines;let i = index">
+      <div class="col">
+        {{mag.ammo}} {{mag.subtype}}
+        <fa-icon *ngIf="magazines.length > 1" [icon]="faTrash" class="csd-btn csd-icon-btn ml-1" title="Delete magazine"
+          (click)="delteMagazine(i)"></fa-icon>
+      </div>
+      <div class="col">{{mag.used}}/{{mag.capacity}}<span *ngIf="mag.multiplier > 1">(x{{mag.multiplier}})</span></div>
+      <div class="col"></div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn mr-1" title="Add magazine" (click)="addMagazine()">
+        </fa-icon>
+        <select [(ngModel)]="newMagType">
+          <option value="5">Caseless</option>
+          <option value="1">Cased</option>
+          <option value="3">Heavy Weapon</option>
+        </select>
+        <input type="text" [(ngModel)]="newMagSubtype">
+      </div>
+      <div class="col">
+        <select [(ngModel)]="newMagMultiplier">
+          <option value="1">x1</option>
+          <option value="2">x2</option>
+          <option value="3">x3</option>
+          <option value="4">x4</option>
+          <option value="5">x5</option>
+        </select>
+      </div>
+      <div class="col">{{newMagCost|number}}eb</div>
+    </div>
+  </div>
+</div>

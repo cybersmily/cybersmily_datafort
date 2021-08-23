@@ -55,8 +55,6 @@ export class Cp2020ammoComponent implements OnInit {
 
   get columnOne(): Array<Cp2020PlayerAmmo> {
     const arr = this.ammoList.slice(0, Math.ceil(this.ammoList.length/2));
-    console.log('arr', arr);
-    console.log('ammo', this.ammoList);
     return arr;
   }
 

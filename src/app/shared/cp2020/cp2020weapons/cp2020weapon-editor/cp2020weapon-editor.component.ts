@@ -27,13 +27,7 @@ export class Cp2020weaponEditorComponent implements OnInit {
     class: 'modal-dialog-centered modal-lg'
   };
 
-  newMagMultiplier: number =1;
-  newMagType: number = 5;
-  newMagSubtype: string = '';
 
-  get newMagCost(): number {
-    return this.newWeapon.shots * this.newMagMultiplier * this.newMagType;
-  }
 
   @Input()
   weapon: CpPlayerWeapon = new CpPlayerWeapon();
@@ -68,19 +62,5 @@ export class Cp2020weaponEditorComponent implements OnInit {
     this.modalRef.hide();
   }
 
-  addMagazine() {
-    const mag = {
-      ammo: this.weapon.ammo,
-      used: 0,
-      capacity: (this.weapon.shots * this.newMagMultiplier),
-      cost: this.newMagCost,
-      multiplier: this.newMagMultiplier,
-      subtype: (this.newMagSubtype != '') ? this.newMagSubtype : undefined
-    };
-    this.newWeapon.magazines.push(mag);
-  }
 
-  delteMagazine(index: number) {
-    this.newWeapon.magazines.splice(index, 1);
-  }
 }

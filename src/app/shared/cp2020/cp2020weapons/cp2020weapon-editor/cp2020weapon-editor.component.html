@@ -81,36 +81,8 @@
   </div>
   <div></div>
 </div>
-<div class="row" *ngIf="newWeapon.magazines">
-  <div class="col-2">Magazines ({{newWeapon.magazines.length}}):
-    <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn ml-1" title="Add a new magazine" (click)="openModal(newMagazine)"></fa-icon>
-  </div>
-  <div class="col">
-    <div class="row">
-      <div class="col">Ammo</div>
-      <div class="col">Spent/Capacity</div>
-      <div class="col"></div>
-    </div>
-    <div class="row" *ngFor="let mag of newWeapon.magazines;let i = index">
-      <div class="col">
-        {{mag.ammo}} {{mag.subtype}}
-        <fa-icon *ngIf="newWeapon.magazines.length > 1" [icon]="faTrash" class="csd-btn csd-icon-btn ml-1" title="Delete magazine" (click)="delteMagazine(i)"></fa-icon>
-      </div>
-      <div class="col">{{mag.used}}/{{mag.capacity}}<span *ngIf="mag.multiplier > 1">(x{{mag.multiplier}})</span></div>
-      <div class="col"></div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col">Options ({{newWeapon.options?newWeapon.options.length:0}}):
-  </div>
-</div>
-<div class="row">
-  <div class="col-1"></div>
-  <div class="col">
-    <cs-cp2020weapon-options [weapon]="newWeapon" (updateOptions)="updateOptions($event)"></cs-cp2020weapon-options>
-  </div>
-</div>
+<cs-cp2020weapon-options [weapon]="newWeapon" (updateOptions)="updateOptions($event)"></cs-cp2020weapon-options>
+<cs-cp2020magazines [magazines]="newWeapon.magazines" [shots]="newWeapon.shots" [ammo]="newWeapon.ammo" *ngIf="newWeapon.magazines"></cs-cp2020magazines>
 <div class="row">
   <div class="col-2 col-lg-1">Notes:</div>
   <div class="col-10 col-lg-11">
@@ -118,46 +90,3 @@
   </div>
 </div>
 
-<ng-template #newMagazine>
-  <div class="modal-header">
-    <h4 class="modal-title pull-left">New Weapon Magazine</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body container">
-    <div class="row">
-      <div class="col-2 col-lg-1 pr-3">Base</div>
-      <div class="col-2 col-lg-1">Multipler</div>
-      <div class="col">Casing</div>
-      <div class="col">Subtype</div>
-      <div class="col">Cost</div>
-    </div>
-    <div class="row">
-      <div class="col-2 col-lg-1">
-        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn mr-1" title="Add magazine" (click)="addMagazine()"></fa-icon>
-        {{newWeapon.shots}}
-      </div>
-      <div class="col-2 col-lg-1">
-        <select [(ngModel)]="newMagMultiplier">
-          <option value="1">x1</option>
-          <option value="2">x2</option>
-          <option value="3">x3</option>
-          <option value="4">x4</option>
-          <option value="5">x5</option>
-        </select>
-      </div>
-      <div class="col">
-        <select [(ngModel)]="newMagType">
-          <option value="5">Caseless</option>
-          <option value="1">Cased</option>
-          <option value="3">Heavy Weapon</option>
-        </select>
-      </div>
-      <div class="col">
-        <input type="text" [(ngModel)]="newMagSubtype">
-      </div>
-      <div class="col">{{newMagCost|number}}eb</div>
-    </div>
-  </div>
-</ng-template>

@@ -2,7 +2,12 @@
   "news": [
     { "date":"2021-08",
       "entries":[
-        "<strong>08-??</strong> - This month starts off with the following:",
+        "<strong>08-??</strong> - Tackled some of my backlog with this release.",
+        "&nbsp;* Implemented weapon options to help with modifying your weapon.",
+        "&nbsp;* ",
+        "&nbsp;* ",
+        "&nbsp;* ",
+        "<strong>08-01</strong> - This month starts off with the following:",
         "&nbsp;* Fixed a bug with the skills not aligning right in the CP2020 character generator.",
         "&nbsp;* Fixed verb tense in Headline generator and added some more terms.",
         "&nbsp;* the Core Lifepath generator for Cyberpunk Red is now available. Yes, it does role lifepaths and prints to PDF.",
