@@ -14,13 +14,15 @@ export class AppCharacterGearComponent implements OnInit {
   faChevronDown = faChevronDown;
   faChevronRight = faChevronRight;
 
-  isCollapsed = false;
   get collapseChevron():any {
     return (this.isCollapsed) ? this.faChevronRight : this.faChevronDown;
   }
 
   @Input()
   gear = new Cp2020PlayerGearList(25);
+
+  @Input()
+  isCollapsed = false;
 
   @Output()
   changeGear = new EventEmitter<Cp2020PlayerGearList>();

@@ -28,7 +28,6 @@ export class Cp2020LifestyleComponent implements OnInit, OnChanges {
   };
 
 
-  isCollapsed = false;
   get collapseChevron():any {
     return (this.isCollapsed) ? this.faChevronRight : this.faChevronDown;
   }
@@ -44,6 +43,9 @@ export class Cp2020LifestyleComponent implements OnInit, OnChanges {
     services: new Array<Cp2020Services>(),
     identities: new Array<Cp2020Identity>()
   };
+
+  @Input()
+  isCollapsed = false;
 
   @Output()
   updateLifeStyle: EventEmitter<Cp2020Lifestyle> = new EventEmitter<Cp2020Lifestyle>();

@@ -18,7 +18,6 @@ export class Cp2020CyberwareTableComponent implements OnInit {
   faChevronRight = faChevronRight;
   faChevronDown = faChevronDown;
 
-  isCollapsed = false;
   get collapseChevron():any {
     return (this.isCollapsed) ? this.faChevronRight : this.faChevronDown;
   }
@@ -43,6 +42,9 @@ export class Cp2020CyberwareTableComponent implements OnInit {
 
   @Input()
   showTwoColumns = false;
+
+  @Input()
+  isCollapsed = false;
 
   @Output()
   changeList: EventEmitter<Cp2020PlayerCyberList> = new EventEmitter<Cp2020PlayerCyberList>();

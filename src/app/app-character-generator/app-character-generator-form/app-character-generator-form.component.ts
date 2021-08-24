@@ -1,3 +1,4 @@
+import { Cp2020CharGenSettings } from './../../shared/cp2020/models/cp2020-char-gen-settings';
 import { Cp2020ArmorBlock } from './../../shared/cp2020/cp2020-armor/models/cp2020-armor-block';
 import { Cp2020PlayerCyberList } from './../../shared/cp2020/cp2020-cyberware/models';
 import { CpPlayerWeaponList } from './../../shared/cp2020/cp2020weapons/models';
@@ -38,6 +39,11 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   }
 
   character: Cp2020PlayerCharacter;
+  charGenSettings: Cp2020CharGenSettings = new Cp2020CharGenSettings();
+  charGenSettingsKey: string = 'CP2020_CharGenSettings';
+
+  isNotesCollapsed = false;
+
   modalRef: BsModalRef;
   config = {
     keyboard: true,
@@ -63,6 +69,9 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     );
     this.characterService.character.subscribe((data) => {
       this.character = data;
+      this.charGenSettings.isIU = this.character.isIU;
+      this.loadSettings();
+      this.isNotesCollapsed = this.charGenSettings.isCollapsed;
     });
   }
 
@@ -154,7 +163,20 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
       .subscribe((data) => this.characterService.changeCharacter(data) );
   }
 
+  loadSettings() {
+    const settings:string = window.localStorage.getItem(this.charGenSettingsKey);
+    this.charGenSettings = new Cp2020CharGenSettings(JSON.parse(settings));
+  }
 
+  saveSettings() {
+    window.localStorage.setItem(this.charGenSettingsKey, JSON.stringify(this.charGenSettings));
+  }
+
+  saveIU() {
+    this.character.isIU = this.charGenSettings.isIU;
+    this.changeCharacter();
+    this.saveSettings;
+  }
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, this.config);
   }

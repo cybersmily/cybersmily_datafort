@@ -10,7 +10,7 @@
           (click)="openModal(instructions)"></fa-icon>
         <fa-icon [icon]="faUndo" title="Reset the sheet to a blank character" class="csd-chargen-btn csd-btn ml-2"
           (click)="resetCharacter()"></fa-icon>
-        <fa-icon [icon]="faCog" class="csd-chargen-btn float-right csd-btn mr-2" title="Show form settings"></fa-icon>
+        <fa-icon [icon]="faCog" class="csd-chargen-btn float-right csd-btn mr-2" title="Show form settings" (click)="openModal(charFormSettings)"></fa-icon>
         <fa-icon [icon]="faFilePdf" class="csd-chargen-btn float-right csd-btn mr-2" (click)="createPDF()"
           title="Export as a PDF file"></fa-icon>
 
@@ -47,13 +47,16 @@
         <div class="col-12">
           <cs-cp2020-skill-list-full [stats]="character.stats" [role]="character.role"
             (changeSpecialAblity)="changeRole($event)" [skills]="character.skills"
+            [isCollapsed]="charGenSettings.isCollapsed"
             (changeSKills)="changeSkills($event)"></cs-cp2020-skill-list-full>
         </div>
       </div>
       <div class="row print-fix csd-linebreak no-gutters">
         <div class="col">
           <cs-cp2020weapontable [weapons]="character.weapons" [stats]="character.stats" [skills]="character.skills"
-            [showRandomGenerator]="true" [showSelector]="true" [showCalculator]="true" [showIU]="character.isIU" [showAmmo]="true"
+            [showRandomGenerator]="true" [showSelector]="true" [showCalculator]="true" [showIU]="character.isIU"
+            [showAmmo]="true"
+            [isCollapsed] = "charGenSettings.isCollapsed"
             (changeWeapons)="changeWeapons($event)">
           </cs-cp2020weapontable>
         </div>
@@ -61,35 +64,35 @@
       <div class="row print-fix csd-linebreak no-gutters">
         <div class="col">
           <cs-cp2020-cyberware-table [cyberList]="character.cyberware" (changeList)="changeCyber($event)"
-            [showTwoColumns]="true">
+            [showTwoColumns]="true" [isCollapsed]="charGenSettings.isCollapsed">
           </cs-cp2020-cyberware-table>
         </div>
       </div>
 
       <div class="row print-fix csd-linebreak">
         <div class="col">
-          <cs-app-character-gear [gear]="character.gear" (changeGear)="changeGear($event)"></cs-app-character-gear>
+          <cs-app-character-gear [gear]="character.gear" (changeGear)="changeGear($event)" [isCollapsed]="charGenSettings.isCollapsed"></cs-app-character-gear>
         </div>
       </div>
       <div class="row print-fix">
         <div class="col">
-          <cs-cp2020-lifestyle [lifeStyle]="character.lifeStyle" (updateLifeStyle)="changeLifestyle($event)">
+          <cs-cp2020-lifestyle [lifeStyle]="character.lifeStyle" [isCollapsed]="charGenSettings.isCollapsed" (updateLifeStyle)="changeLifestyle($event)">
           </cs-cp2020-lifestyle>
         </div>
       </div>
       <div class="row print-fix csd-linebreak no-gutters">
         <div class="col">
-          <cs-app-character-lifepath [lifepath]="character.lifepath" (changeLifepath)="changeLifepath($event)">
+          <cs-app-character-lifepath [lifepath]="character.lifepath" [isCollapsed]="charGenSettings.isCollapsed" (changeLifepath)="changeLifepath($event)">
           </cs-app-character-lifepath>
         </div>
       </div>
       <div class="chargen-label chargen-fill chargen-page-header csd-linebreak">
-        <h4 class="d-inline-block csd-btn mr-4" (click)="isCollapsed = !isCollapsed">
+        <h4 class="d-inline-block csd-btn mr-4" (click)="isNotesCollapsed = !isNotesCollapsed">
           NOTES
           <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ml-2"></fa-icon>
         </h4>
       </div>
-      <textarea [collapse]="isCollapsed" [(ngModel)]="character.notes" class="chargen-notes"></textarea>
+      <textarea [collapse]="isNotesCollapsed" [(ngModel)]="character.notes" class="chargen-notes"></textarea>
     </div>
   </div>
 </div>
@@ -116,12 +119,12 @@
   <div class="modal-body">
     <div class="row">
       <div class="col">
-        <input type="checkbox" [(ngModel)]="character.isIU" (change)="changeCharacter()"> Use Interlock Unlimited
+        <input type="checkbox" [(ngModel)]="charGenSettings.isIU" (change)="saveIU()"> Use Interlock Unlimited
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <input type="checkbox" [(ngModel)]="character.isIU"> Collapse all on start
+        <input type="checkbox" [(ngModel)]="charGenSettings.isCollapsed" (change)="saveSettings()"> Expand all section on start
       </div>
     </div>
     <div class="row">

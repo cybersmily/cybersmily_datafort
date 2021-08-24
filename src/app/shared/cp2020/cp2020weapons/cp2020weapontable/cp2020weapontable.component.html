@@ -1,22 +1,24 @@
 <div class="cp2020-section">
   <ng-container *ngIf="showIU">
-    <div class="cp2020-label row">
+    <div class="cp2020-label row mb-2">
       <div class="col">
-        INTERLOCK UNLIMITED COMBAT ACTIONS
+        <h4 class="d-inline-block csd-btn mr-4" (click)="isIUCollapsed = !isIUCollapsed">
+        IU COMBAT ACTIONS
+        <fa-icon [icon]="collapseChevron(isIUCollapsed)" class="csd-icon-btn csd-icon-xl ml-1"></fa-icon>
+        </h4>
       </div>
     </div>
-    <div class="row border border-dark">
+    <div class="row border border-dark" [collapse]="isIUCollapsed">
       <div class="col">
         <cs-i-u-combat-actions [skills]="skills.getCombatSkills()" [stats]="stats"></cs-i-u-combat-actions>
       </div>
     </div>
-    <br>
   </ng-container>
   <div class="cp2020-label row">
     <div class="col">
-      <h4 class="d-inline-block csd-btn mr-4" (click)="isCollapsed = !isCollapsed">
+      <h4 class="d-inline-block csd-btn mr-4" (click)="isWeaponsCollapsed = !isWeaponsCollapsed">
         WEAPONS
-        <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ml-1"></fa-icon>
+        <fa-icon [icon]="collapseChevron(isWeaponsCollapsed)" class="csd-icon-btn csd-icon-xl ml-1"></fa-icon>
       </h4>
 
       <fa-icon [ngClass]="{'csd-dice': true, 'ml-2': true, 'd-none': !showRandomGenerator}" [icon]="faDice"
@@ -29,7 +31,7 @@
       </fa-icon>
     </div>
   </div>
-  <div [collapse]="isCollapsed" class="container">
+  <div [collapse]="isWeaponsCollapsed" class="container">
     <div class="row cp2020-wpn-hdr">
       <div class="wpn-name col-3 col-lg-2"><span class="wpn-name">Name</span></div>
       <div class="col-1 wpn-narrow text-center">Type</div>
@@ -54,7 +56,6 @@
     </div>
     <cs-cp2020ammo *ngIf="showAmmo" [ammoList]="weapons.ammo" (updateAmmo)="updateAmmo($event)"></cs-cp2020ammo>
   </div>
-
 </div>
 
 <ng-template #newWeaponModal>

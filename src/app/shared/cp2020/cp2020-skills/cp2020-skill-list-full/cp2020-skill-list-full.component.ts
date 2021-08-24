@@ -15,8 +15,6 @@ export class Cp2020SkillListFullComponent implements OnInit {
   faChevronDown = faChevronDown;
   faChevronRight = faChevronRight;
 
-  isCollapsed = false;
-
   get collapseChevron(): any {
     return (this.isCollapsed)? this.faChevronRight : this.faChevronDown;
   }
@@ -29,6 +27,9 @@ export class Cp2020SkillListFullComponent implements OnInit {
 
   @Input()
   skills = new Cp2020PlayerSkills();
+
+  @Input()
+  isCollapsed = false;
 
   @Output()
   changeSpecialAblity = new EventEmitter<Cp2020PlayerRole>();
@@ -49,6 +50,7 @@ export class Cp2020SkillListFullComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
+    console.log(this.isCollapsed);
   }
 
   onChangeSkill(skill?:Cp2020PlayerSkill) {

@@ -23,10 +23,12 @@ export class Cp2020weapontableComponent implements OnInit {
   faChevronDown = faChevronDown;
   faChevronRight = faChevronRight;
 
-  isCollapsed = false;
+  isIUCollapsed = false;
+  isWeaponsCollapsed = false;
 
-  get collapseChevron(): any {
-    return (this.isCollapsed) ? faChevronRight : this.faChevronDown;
+
+  collapseChevron(isCollapsed: boolean): any {
+    return (isCollapsed) ? faChevronRight : this.faChevronDown;
   }
 
   modalRef: BsModalRef;
@@ -62,6 +64,9 @@ export class Cp2020weapontableComponent implements OnInit {
   @Input()
   showAmmo = false;
 
+  @Input()
+  isCollapsed = false;
+
   @Output()
   changeWeapons: EventEmitter<CpPlayerWeaponList> = new EventEmitter<CpPlayerWeaponList>();
 
@@ -73,6 +78,8 @@ export class Cp2020weapontableComponent implements OnInit {
       subtype: ['LIGHT','MEDIUM','HEAVY','ASSAULT'],
       availability: ['E', 'C']
     };
+    this.isIUCollapsed = this.isCollapsed;
+    this.isWeaponsCollapsed = this.isCollapsed;
   }
 
   updateWeapon(data: {index: number, weapon: CpPlayerWeapon}) {
