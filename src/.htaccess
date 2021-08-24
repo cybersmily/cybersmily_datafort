@@ -7,8 +7,8 @@ RewriteRule ^(.*)$ https://cybersmily.net/$1 [R,L]
 RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
 RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
 RewriteRule ^ - [L]
+
 # not rewrite css, js and images
 RewriteCond %{REQUEST_URI} !\.(?:css|js|map|jpe?g|gif|png|fcw|pdf|svg|json|zip|htm?l|tff|woff?2|eot|xml|ico|doc?x|xls?x)$ [NC]
-
 # If the requested resource doesn't exist, use index.html
 RewriteRule ^ /index.html
