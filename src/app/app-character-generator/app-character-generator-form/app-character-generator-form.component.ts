@@ -35,7 +35,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
 
   isCollapsed = false;
   get collapseChevron():any {
-    return (this.isCollapsed) ? this.faChevronRight : this.faChevronDown;
+    return (this.isNotesCollapsed) ? this.faChevronRight : this.faChevronDown;
   }
 
   character: Cp2020PlayerCharacter;
