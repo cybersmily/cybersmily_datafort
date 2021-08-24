@@ -19,7 +19,6 @@ export class AppCharacterLifepathComponent implements OnInit, OnChanges {
   faChevronRight = faChevronRight;
   faChevronDown = faChevronDown;
 
-  isCollapsed = false;
   get collapseChevron():any {
     return (this.isCollapsed) ? this.faChevronRight : this.faChevronDown;
   }
@@ -27,11 +26,36 @@ export class AppCharacterLifepathComponent implements OnInit, OnChanges {
   sources = new Array<TitleValue>();
   selectedSource = 'CP2020';
   years = 0;
+  eventful = false;
 
   newLifPath: LifePathResults;
 
   @Input()
   lifepath = new LifePathResults();
+
+  @Input()
+  showDice = true;
+
+  @Input()
+  showSources = true;
+
+  @Input()
+  showAlwaysEvents = true;
+
+  @Input()
+  showYears = true;
+
+  @Input()
+  source: string = 'CP2020';
+
+  @Input()
+  isAlwaysEventful: boolean = false;
+
+  @Input()
+  eventYears: number = 0;
+
+  @Input()
+  isCollapsed = false;
 
   @Output()
   changeLifepath = new EventEmitter<LifePathResults>();
@@ -46,6 +70,8 @@ export class AppCharacterLifepathComponent implements OnInit, OnChanges {
     .getSources()
     .subscribe( sources => {
       this.sources = sources;
+      this.years = this.eventYears;
+      this.selectedSource = this.source;
     });
   }
 
@@ -79,7 +105,7 @@ export class AppCharacterLifepathComponent implements OnInit, OnChanges {
   roll() {
     this.newLifPath = new LifePathResults();
     this.lifepathGenerator
-    .generateLifePath(this.selectedSource, true, this.years.toString())
+    .generateLifePath(this.selectedSource, this.eventful, this.years.toString())
     .subscribe( lifepath => {
       this.newLifPath = lifepath;
     });
