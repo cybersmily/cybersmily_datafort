@@ -144,6 +144,10 @@ export class CpPlayerWeapon implements CpWeapon {
   }
 
   reload() {
+    const i = this.magazines.findIndex( mag => mag.used < mag.capacity);
+    if(i > -1) {
+      this.currMagIndex = i;
+    }
   }
 
   expendShot(index: number) {

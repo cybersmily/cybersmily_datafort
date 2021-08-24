@@ -28,9 +28,9 @@ export class Cp2020PlayerCharacter {
     this.role = new Cp2020PlayerRole();
     this.stats = new Cp2020StatBlock();
     this.armor = new Cp2020ArmorBlock();
-    this.cyberware = new Cp2020PlayerCyberList(16);
-    this.gear = new Cp2020PlayerGearList(25);
-    this.weapons = new CpPlayerWeaponList(10);
+    this.cyberware = new Cp2020PlayerCyberList(4);
+    this.gear = new Cp2020PlayerGearList(24);
+    this.weapons = new CpPlayerWeaponList(3);
     this.skills = new Cp2020PlayerSkills();
     this.lifepath = new LifePathResults();
     this.lifeStyle = {
