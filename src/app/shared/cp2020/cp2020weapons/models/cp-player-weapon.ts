@@ -52,8 +52,8 @@ export class CpPlayerWeapon implements CpWeapon {
     } else {
       this.wa = param?.wa;
     }
-    this.conc = param?.conc.toUpperCase() || 'N';
-    this.avail = param?.avail.toUpperCase() || 'C';
+    this.conc = param?.conc?.toUpperCase() || 'N';
+    this.avail = param?.avail?.toUpperCase() || 'C';
     this.damage = param?.damage || '';
     this.ammo = param?.ammo || '';
     // shots could be a string for backward capability.
@@ -90,7 +90,7 @@ export class CpPlayerWeapon implements CpWeapon {
 
     this.cost = param?.cost || 0;
     this.range = param?.range || this.getDefaultRange();
-    this.rel = param?.rel.toUpperCase() || '';
+    this.rel = param?.rel?.toUpperCase() || '';
     this.jammed = param?.jammed || false;
     this.notes = param?.notes || '';
     this.source = param?.source;
