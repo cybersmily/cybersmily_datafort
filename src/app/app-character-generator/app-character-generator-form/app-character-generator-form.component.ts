@@ -1,3 +1,5 @@
+import { TitleValue } from './../../shared/models/title-value';
+import { SourcesDataService } from './../../shared/cp2020/cp2020-lifepath/services/sources-data.service';
 import { Cp2020CharGenSettings } from './../../shared/cp2020/models/cp2020-char-gen-settings';
 import { Cp2020ArmorBlock } from './../../shared/cp2020/cp2020-armor/models/cp2020-armor-block';
 import { Cp2020PlayerCyberList } from './../../shared/cp2020/cp2020-cyberware/models';
@@ -39,6 +41,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   }
 
   character: Cp2020PlayerCharacter;
+  sources = new Array<TitleValue>();
   charGenSettings: Cp2020CharGenSettings = new Cp2020CharGenSettings();
   charGenSettingsKey: string = 'CP2020_CharGenSettings';
 
@@ -57,6 +60,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   constructor(
     private characterService: Cp2020CharacterGeneratorService,
     private saveFileService: SaveFileService,
+    private sourceService: SourcesDataService,
     private fileLoader: FileLoaderService,
     private modalService: BsModalService,
     private seo: SeoService
@@ -72,6 +76,11 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
       this.charGenSettings.isIU = this.character.isIU;
       this.loadSettings();
       this.isNotesCollapsed = this.charGenSettings.isCollapsed;
+    });
+    this.sourceService
+    .getSources()
+    .subscribe( sources => {
+      this.sources = sources;
     });
   }
 
@@ -177,6 +186,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     this.changeCharacter();
     this.saveSettings;
   }
+
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, this.config);
   }

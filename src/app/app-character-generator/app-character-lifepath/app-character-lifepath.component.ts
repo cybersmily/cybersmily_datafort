@@ -34,18 +34,6 @@ export class AppCharacterLifepathComponent implements OnInit, OnChanges {
   lifepath = new LifePathResults();
 
   @Input()
-  showDice = true;
-
-  @Input()
-  showSources = true;
-
-  @Input()
-  showAlwaysEvents = true;
-
-  @Input()
-  showYears = true;
-
-  @Input()
   source: string = 'CP2020';
 
   @Input()
@@ -71,12 +59,16 @@ export class AppCharacterLifepathComponent implements OnInit, OnChanges {
     .subscribe( sources => {
       this.sources = sources;
       this.years = this.eventYears;
+      this.eventful = this.isAlwaysEventful;
       this.selectedSource = this.source;
     });
   }
 
   ngOnChanges() {
     this.newLifPath = new LifePathResults(this.lifepath);
+    this.years = this.eventYears;
+    this.eventful = this.isAlwaysEventful;
+    this.selectedSource = this.source;
   }
 
   get siblings(): Array<Sibling> {

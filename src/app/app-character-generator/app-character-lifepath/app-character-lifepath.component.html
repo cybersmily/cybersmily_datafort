@@ -5,17 +5,21 @@
         LIFEPATH
         <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ml-2"></fa-icon>
       </h4>
-      <fa-icon [icon]="faDice" class="chargen-lifepath-dice hidden-print" (click)="roll()"
+      <fa-icon *ngIf="!isCollapsed" [icon]="faDice" class="chargen-lifepath-dice hidden-print" (click)="roll()"
         title="Randomly generate lifepath">
       </fa-icon>
-      <select [(ngModel)]="selectedSource" class=" hidden-print">
+      <select *ngIf="!isCollapsed" [(ngModel)]="selectedSource" class=" hidden-print">
         <option value="?" selected="selected"></option>
         <option *ngFor="let opt of sources" value="{{opt.value}}">{{opt.title}}</option>
       </select>
+      <span *ngIf="!isCollapsed">
       <input class="chargen-always-event hidden-print" type="checkbox" [(ngModel)]="eventful"
         title="check if you want to have an event for each year of Life Events"> always an event
+      </span>
+      <span *ngIf="!isCollapsed">
       <input [(ngModel)]="years" class="chargen-years-event text-center hidden-print" type="number" min="0" max="12"
         title="Enter the number of years to roll, 0-12. 0 will be randomly determined." (change)="changeYear()"> years
+      </span>
     </div>
   </div>
   <div class="row mt-1" [collapse]="isCollapsed">

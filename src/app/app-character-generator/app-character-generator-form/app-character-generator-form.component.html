@@ -82,7 +82,12 @@
       </div>
       <div class="row print-fix csd-linebreak no-gutters">
         <div class="col">
-          <cs-app-character-lifepath [lifepath]="character.lifepath" [isCollapsed]="charGenSettings.isCollapsed" (changeLifepath)="changeLifepath($event)">
+          <cs-app-character-lifepath [lifepath]="character.lifepath"
+          [isCollapsed]="charGenSettings.isCollapsed"
+          [isAlwaysEventful]="charGenSettings.lifePathEvents"
+          [eventYears]="charGenSettings.lifePathYears"
+          [source]="charGenSettings.lifePathSource"
+          (changeLifepath)="changeLifepath($event)">
           </cs-app-character-lifepath>
         </div>
       </div>
@@ -119,42 +124,12 @@
   <div class="modal-body">
     <div class="row">
       <div class="col">
-        <input type="checkbox" [(ngModel)]="charGenSettings.isIU" (change)="saveIU()"> Use Interlock Unlimited
+        Use Interlock Unlimited: <input type="checkbox" [(ngModel)]="charGenSettings.isIU" (change)="saveIU()">
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <input type="checkbox" [(ngModel)]="charGenSettings.isCollapsed" (change)="saveSettings()"> Expand all section on start
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <div class="row">
-          <div class="col">
-            SKILLS
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <div class="row">
-          <div class="col">
-            WEAPONS
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-          </div>
-        </div>
+        Expand all section on start: <input type="checkbox" [(ngModel)]="charGenSettings.isCollapsed" (change)="saveSettings()">
       </div>
     </div>
     <div class="row">
@@ -165,18 +140,25 @@
           </div>
         </div>
         <div class="row">
+          <div class="col-1"></div>
           <div class="col">
             System to Use:
+            <select [(ngModel)]="charGenSettings.lifePathSource" class=" hidden-print">
+              <option value="?" selected="selected"></option>
+              <option *ngFor="let opt of sources" value="{{opt.value}}">{{opt.title}}</option>
+            </select>
           </div>
         </div>
         <div class="row">
+          <div class="col-1"></div>
           <div class="col">
-            Always have an event
+            Always have an event: <input type="checkbox" [(ngModel)]="charGenSettings.lifePathEvents" (change)="saveSettings()">
           </div>
         </div>
         <div class="row">
+          <div class="col-1"></div>
           <div class="col">
-            Roll for years
+            Roll for years (leave 0 for random): <input type="number" min="0" class="csd-number" [(ngModel)]="charGenSettings.lifePathYears" (change)="saveSettings()">
           </div>
         </div>
       </div>
