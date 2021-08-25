@@ -1,14 +1,14 @@
 { "handle": "",
-  "role": "",
-  "int": 5,
-  "ref": 7,
-  "tech": 5,
-  "cool": 6,
-  "attr": 6,
-  "luck": 6,
+  "role": "Corporate",
+  "int": 9,
+  "ref": 6,
+  "tech": 4,
+  "cool": 8,
+  "attr": 7,
+  "luck": 5,
   "ma": 6,
-  "body": 7,
-  "emp": 6,
+  "body": 5,
+  "emp": 7,
   "armor": {
     "layers": [
       {
@@ -26,18 +26,17 @@
         }
     ]
   },
-  "sa": {"name":"", "stat": "", "value": 0},
+  "sa": {"name":"Resource", "stat": "COOL", "value": 6},
   "skills": [
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0}
+    {"name":"Awareness", "stat": "INT", "value": 5},
+    {"name":"Human Perception", "stat": "EMP", "value": 4},
+    {"name":"Education", "stat": "INT", "value": 2},
+    {"name":"Library Search", "stat": "INT", "value": 3},
+    {"name":"Social", "stat": "EMP", "value": 4},
+    {"name":"Persuasion", "stat": "EMP", "value": 5},
+    {"name":"Stock Market", "stat": "INT", "value": 3},
+    {"name":"Wardrobe & Style", "stat": "ATTR", "value": 4},
+    {"name":"Personal Grooming", "stat": "ATTR", "value": 4}
   ],
   "cyberware": [
     {"name":""},

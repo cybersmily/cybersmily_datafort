@@ -1,13 +1,13 @@
 { "handle": "",
-  "role": "",
-  "int": 5,
+  "role": "Techie",
+  "int": 8,
   "ref": 7,
-  "tech": 5,
-  "cool": 6,
-  "attr": 6,
+  "tech": 9,
+  "cool": 4,
+  "attr": 5,
   "luck": 6,
-  "ma": 6,
-  "body": 7,
+  "ma": 7,
+  "body": 5,
   "emp": 6,
   "armor": {
     "layers": [
@@ -26,18 +26,17 @@
         }
     ]
   },
-  "sa": {"name":"", "stat": "", "value": 0},
+  "sa": {"name":"Jury Rig", "stat": "TECH", "value": 6},
   "skills": [
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0}
+    {"name":"Awareness/Notice", "stat": "INT", "value": 4},
+    {"name":"Basic Tech", "stat": "TECH", "value": 5},
+    {"name":"CyberTech", "stat": "TECH", "value": 4},
+    {"name":"Teaching", "stat": "INT", "value": 2},
+    {"name":"Education", "stat": "INT", "value": 3},
+    {"name":"Electronics", "stat": "TECH", "value": 5},
+    {"name":"Weaponsmith", "stat": "TECH", "value": 4},
+    {"name":"AeroTech", "stat": "TECH", "value": 3},
+    {"name":"Elect. Security", "stat": "TECH", "value": 4}
   ],
   "cyberware": [
     {"name":""},

@@ -1,14 +1,14 @@
 { "handle": "",
-  "role": "",
-  "int": 5,
-  "ref": 7,
-  "tech": 5,
-  "cool": 6,
-  "attr": 6,
-  "luck": 6,
+  "role": "Media",
+  "int": 7,
+  "ref": 5,
+  "tech": 6,
+  "cool": 9,
+  "attr": 7,
+  "luck": 5,
   "ma": 6,
-  "body": 7,
-  "emp": 6,
+  "body": 4,
+  "emp": 8,
   "armor": {
     "layers": [
       {
@@ -26,18 +26,17 @@
         }
     ]
   },
-  "sa": {"name":"", "stat": "", "value": 0},
+  "sa": {"name":"Credibility", "stat": "COOL", "value": 6},
   "skills": [
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0}
+    {"name":"Awareness/Notice", "stat": "INT", "value": 4},
+    {"name":"Composition", "stat": "INT", "value": 4},
+    {"name":"Education", "stat": "INT", "value": 2},
+    {"name":"Persuasion", "stat": "EMP", "value": 4},
+    {"name":"Human Perception", "stat": "EMP", "value": 5},
+    {"name":"Social", "stat": "EMP", "value": 4},
+    {"name":"Streetwise", "stat": "COOL", "value": 3},
+    {"name":"Photo & Film", "stat": "TECH", "value": 3},
+    {"name":"Interview", "stat": "EMP", "value": 5}
   ],
   "cyberware": [
     {"name":""},

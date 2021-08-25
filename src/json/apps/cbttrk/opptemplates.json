@@ -1,10 +1,21 @@
 {
   "templates":[
-    { "type": "Ganger", "name": "Low level", "json": "ganger-low", "desc": "Low level ganger that isn't much of a threat.", "source": "", "page":0 },
-    { "type": "Ganger", "name": "Mid level", "json": "ganger-medium", "desc": "Mid level ganger has better armor, firearms, and a bit of cyber.", "source": "", "page":0 },
-    { "type": "Ganger", "name": "High level", "json": "ganger-high", "desc": "High level ganger has better armor, firearms, and cyber to challenge a PC.", "source": "", "page":0 },
-    { "type": "Secuirty Guard", "name": "Low level",  "json": "guard-low", "desc": "Low level guard that isn't much of a threat.", "source": "", "page":0 },
-    { "type": "Secuirty Guard", "name": "Mid level",  "json": "guard-medium", "desc": "Mid level guard has better armor, firearms, and a bit of cyber.", "source": "", "page":0 },
-    { "type": "Secuirty Guard", "name": "High level", "json": "guard-high", "desc": "High level guard has better armor, firearms, and cyber to challenge a PC.", "source": "", "page":0 }
+    { "type": "Ganger"        , "name": "Low level" , "json": "ganger-low"   , "desc": "Low level ganger that isn't much of a threat."                             , "source": "", "page":0 },
+    { "type": "Ganger"        , "name": "Mid level" , "json": "ganger-medium", "desc": "Mid level ganger has better armor, firearms, and a bit of cyber."          , "source": "", "page":0 },
+    { "type": "Ganger"        , "name": "High level", "json": "ganger-high"  , "desc": "High level ganger has better armor, firearms, and cyber to challenge a PC.", "source": "", "page":0 },
+    { "type": "Secuirty Guard", "name": "Low level" , "json": "guard-low"    , "desc": "Low level guard that isn't much of a threat."                              , "source": "", "page":0 },
+    { "type": "Secuirty Guard", "name": "Mid level" , "json": "guard-medium" , "desc": "Mid level guard has better armor, firearms, and a bit of cyber."           , "source": "", "page":0 },
+    { "type": "Secuirty Guard", "name": "High level", "json": "guard-high"   , "desc": "High level guard has better armor, firearms, and cyber to challenge a PC." , "source": "", "page":0 },
+    { "type": "Solo"          , "name": "Blank"     , "json": "solo"         , "desc": "Blank Solo."                                                               , "source": "", "page":0 },
+    { "type": "Nomad"         , "name": "Blank"     , "json": "nomad"        , "desc": "Blank Nomad."                                                              , "source": "", "page":0 },
+    { "type": "Rocker"        , "name": "Blank"     , "json": "rockerboy"    , "desc": "Blank Rocker."                                                             , "source": "", "page":0 },
+    { "type": "Techie"        , "name": "Blank"     , "json": "techie"       , "desc": "Blank Techie."                                                             , "source": "", "page":0 },
+    { "type": "Netrunner"     , "name": "Blank"     , "json": "netrunner"    , "desc": "Blank Netrunner."                                                              , "source": "", "page":0 },
+    { "type": "Med Tech"      , "name": "Blank"     , "json": "medtech"      , "desc": "Blank Med Tech."                                                              , "source": "", "page":0 },
+    { "type": "Media"         , "name": "Blank"     , "json": "media"        , "desc": "Blank Media."                                                              , "source": "", "page":0 },
+    { "type": "Fixer"         , "name": "Blank"     , "json": "fixer"        , "desc": "Blank Fixer."                                                              , "source": "", "page":0 },
+    { "type": "Corporate"     , "name": "Blank"     , "json": "corporate"        , "desc": "Blank Corporate."                                                              , "source": "", "page":0 },
+    { "type": "Cop"         , "name": "Blank"     , "json": "cop"        , "desc": "Blank Cop."                                                              , "source": "", "page":0 }
+
   ]
 }

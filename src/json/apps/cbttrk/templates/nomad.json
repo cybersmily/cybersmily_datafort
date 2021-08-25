@@ -1,14 +1,14 @@
 { "handle": "",
-  "role": "",
+  "role": "Nomad",
   "int": 5,
-  "ref": 7,
-  "tech": 5,
-  "cool": 6,
+  "ref": 8,
+  "tech": 7,
+  "cool": 9,
   "attr": 6,
-  "luck": 6,
+  "luck": 4,
   "ma": 6,
-  "body": 7,
-  "emp": 6,
+  "body":7,
+  "emp": 5,
   "armor": {
     "layers": [
       {
@@ -26,18 +26,17 @@
         }
     ]
   },
-  "sa": {"name":"", "stat": "", "value": 0},
+  "sa": {"name":"Family", "stat": "COOL", "value": 6},
   "skills": [
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0}
+    {"name":"Awareness", "stat": "INT", "value": 3},
+    {"name":"Endurance", "stat": "BODY", "value": 2},
+    {"name":"Melee", "stat": "REF", "value": 4},
+    {"name":"Rifle", "stat": "REF", "value": 4},
+    {"name":"Drive", "stat": "REF", "value": 5},
+    {"name":"Basic Tech", "stat": "TECH", "value": 5},
+    {"name":"Wilderness Survival", "stat": "INT", "value": 3},
+    {"name":"Brawling", "stat": "REF", "value": 4},
+    {"name":"Athletics", "stat": "REF", "value": 4}
   ],
   "cyberware": [
     {"name":""},

@@ -1,14 +1,14 @@
 { "handle": "",
-  "role": "",
-  "int": 5,
-  "ref": 7,
-  "tech": 5,
-  "cool": 6,
-  "attr": 6,
+  "role": "Med Tech",
+  "int": 8,
+  "ref": 5,
+  "tech": 9,
+  "cool": 7,
+  "attr": 4,
   "luck": 6,
   "ma": 6,
-  "body": 7,
-  "emp": 6,
+  "body": 5,
+  "emp": 7,
   "armor": {
     "layers": [
       {
@@ -26,18 +26,17 @@
         }
     ]
   },
-  "sa": {"name":"", "stat": "", "value": 0},
+  "sa": {"name":"Medical Tech", "stat": "TECH", "value": 6},
   "skills": [
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0}
+    {"name":"Awareness/Notice", "stat": "INT", "value": 4},
+    {"name":"Basic Tech", "stat": "TECH", "value": 3},
+    {"name":"Diagnose", "stat": "INT", "value": 5},
+    {"name":"Education", "stat": "INT", "value": 4},
+    {"name":"Cryotank Operation", "stat": "TECH", "value": 5},
+    {"name":"Library Search", "stat": "INT", "value": 3},
+    {"name":"Pharmaceuticals", "stat": "TECH", "value": 4},
+    {"name":"Zoology", "stat": "INT", "value": 2},
+    {"name":"Human Perception", "stat": "EMP", "value": 4}
   ],
   "cyberware": [
     {"name":""},

@@ -1,14 +1,14 @@
-{ "handle": "",
-  "role": "",
-  "int": 5,
-  "ref": 7,
+{ "handle": "Blank Solo",
+  "role": "Solo",
+  "int": 6,
+  "ref": 9,
   "tech": 5,
-  "cool": 6,
+  "cool": 7,
   "attr": 6,
-  "luck": 6,
-  "ma": 6,
-  "body": 7,
-  "emp": 6,
+  "luck": 5,
+  "ma": 7,
+  "body": 8,
+  "emp": 4,
   "armor": {
     "layers": [
       {
@@ -26,18 +26,17 @@
         }
     ]
   },
-  "sa": {"name":"", "stat": "", "value": 0},
+  "sa": {"name":"Combat Sense", "stat": "", "value": 6},
   "skills": [
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0}
+    {"name":"Awareness", "stat": "INT", "value": 5},
+    {"name":"Handgun", "stat": "REF", "value": 5},
+    {"name":"Martial Arts", "stat": "REF", "value": 4},
+    {"name":"Melee", "stat": "REF", "value": 3},
+    {"name":"Weapons Tech", "stat": "TECH", "value": 2},
+    {"name":"Rifle", "stat": "REF", "value": 4},
+    {"name":"Athletics", "stat": "REF", "value": 3},
+    {"name":"SMG", "stat": "REF", "value": 4},
+    {"name":"Stealth", "stat": "REF", "value": 4}
   ],
   "cyberware": [
     {"name":""},

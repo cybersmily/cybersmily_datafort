@@ -1,14 +1,14 @@
 { "handle": "",
-  "role": "",
-  "int": 5,
+  "role": "Netrunner",
+  "int": 9,
   "ref": 7,
-  "tech": 5,
+  "tech": 8,
   "cool": 6,
-  "attr": 6,
+  "attr": 5,
   "luck": 6,
-  "ma": 6,
-  "body": 7,
-  "emp": 6,
+  "ma": 4,
+  "body": 5,
+  "emp": 7,
   "armor": {
     "layers": [
       {
@@ -26,18 +26,17 @@
         }
     ]
   },
-  "sa": {"name":"", "stat": "", "value": 0},
+  "sa": {"name":"Interface", "stat": "", "value": 6},
   "skills": [
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0},
-    {"name":"", "stat": "", "value": 0}
+    {"name":"Awareness/Notice", "stat": "INT", "value": 4},
+    {"name":"Basic Tech", "stat": "TECH", "value": 3},
+    {"name":"Education", "stat": "INT", "value": 3},
+    {"name":"System Knowledge", "stat": "INT", "value": 5},
+    {"name":"CyberTech", "stat": "TECH", "value": 2},
+    {"name":"Cyberdeck Design", "stat": "TECH", "value": 4},
+    {"name":"Composition", "stat": "INT", "value": 4},
+    {"name":"Electronics", "stat": "TECH", "value": 4},
+    {"name":"Programming", "stat": "INT", "value": 5}
   ],
   "cyberware": [
     {"name":""},
