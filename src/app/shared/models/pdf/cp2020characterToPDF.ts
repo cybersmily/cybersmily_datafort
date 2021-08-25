@@ -1,3 +1,4 @@
+import { Cp2020ArmorLayer } from './../../cp2020/cp2020-armor/models/cp2020-armor-layer';
 import { Cp2020Identity } from './../../cp2020/cp2020-lifestyle/models/cp2020-identity';
 import { Cp2020Housing } from './../../cp2020/cp2020-lifestyle/models/cp2020-housing';
 import { Cp2020Lifestyle } from './../../cp2020/cp2020-lifestyle/models/cp2020-lifestyle';
@@ -14,6 +15,7 @@ import { Cp2020PlayerCharacter } from '../cp2020character/cp2020-player-characte
 
 import { jsPDF } from 'jspdf';
 import { LifepathEvent } from '../../cp2020/cp2020-lifepath/models';
+import { LinearGradientElement } from 'canvg';
 
 export class Cp2020characterToPDF {
   private _character: Cp2020PlayerCharacter;
@@ -100,6 +102,9 @@ export class Cp2020characterToPDF {
     doc.addPage();
     let line = this._top;
     line = this.addWeapons(doc, this._character.weapons, this._left, line);
+    line = this.addArmor(doc, this._character.armor, this._left, line);
+    doc.addPage();
+    line = this._top;
     line = this.addCyberware(doc, this._character.cyberware, this._left, line);
     line = this.addGear(doc, this._character.gear, this._left, line);
   }
@@ -332,30 +337,13 @@ export class Cp2020characterToPDF {
   }
 
   private addSkills(doc: jsPDF, sa: Cp2020PlayerSkill, skills: Cp2020PlayerSkills, stats: Cp2020StatBlock, left: number, line: number) {
-    doc.setFillColor('black');
-    doc.rect(this._left, line, 22, this._lineheight, 'DF');
-    doc.setTextColor('white');
-    doc.setFont(this._font, 'bold');
-    doc.text('SKILLS', left + 3, line + 5);
-    doc.setTextColor('black');
-    doc.rect(this._left + 20, line, 15, this._lineheight, 'S');
-    doc.text('IP:', left + 23, line + 5);
-    doc.text(skills.ip.toString(), left + 28, line + 5);
-    doc.setFont(this._font, 'normal');
-    doc.setFontSize(6);
-    doc.text('Skills show level| level + stat in box []. X next to box is chipped', left + 38, line + 3);
-    line += 7;
+    line = this.printSkillSectionTitle(doc, line, left, skills.ip.toString());
     const colWidth = 50;
     let col = left;
     line += 4;
-    doc.setFontSize(9);
-    doc.setFont(this._font, 'bold');
-    doc.text('SPECIAL ABILITY', left, line);
-    doc.setFont(this._font, 'normal');
-    doc.setFontSize(8);
-    doc.text(sa.name, col + 35, line);
-    doc.text(`[${sa.value}|${sa.value}]`, col + 60, line);
-    line += 4;
+
+    // SPECIAL ABILITIES SKILLS
+    line = this.printSkills(doc, skills.specialAbilites, 'SPECIAL ABILITY', undefined, line, col);
 
     // ATTR SKILLS
     line = this.printSkills(doc, skills.ATTR, 'ATTR', stats.ATTR.Adjusted, line, col);
@@ -366,7 +354,14 @@ export class Cp2020characterToPDF {
     // EMPATHY SKILLS
     line = this.printSkills(doc, skills.EMP, 'EMPATHY', stats.EMP.Adjusted, line, col);
     // INT SKILLS
-    line = this.printSkills(doc, skills.INT, 'INT', stats.INT.Adjusted, line, col);
+    line = this.printSkills(doc, skills.INT.slice(0,92), 'INT', stats.INT.Adjusted, line, col);
+    if (skills.skills.length > 180 ||  skills.INT.length > 92) {
+      doc.addPage();
+      line = this._top + 10;
+      line = this.printSkillSectionTitle(doc, line, left, skills.ip.toString());
+      line += 4;
+      line = this.printSkills(doc, skills.INT.slice(92), 'INT (continued)', stats.INT.Adjusted, line, col);
+    }
     // REF SKILLS
     line = this.printSkills(doc, skills.REF, 'REF', stats.REF.Adjusted, line, col);
 
@@ -377,35 +372,50 @@ export class Cp2020characterToPDF {
     line += 6;
   }
 
+  private printSkillSectionTitle(doc: jsPDF, line: number, left: number, ip: string): number {
+    doc.setFillColor('black');
+    doc.rect(this._left, line, 22, this._lineheight, 'DF');
+    doc.setTextColor('white');
+    doc.setFont(this._font, 'bold');
+    doc.text('SKILLS', left + 3, line + 5);
+    doc.setTextColor('black');
+    doc.rect(this._left + 20, line, 15, this._lineheight, 'S');
+    doc.text('IP:', left + 23, line + 5);
+    doc.text(ip, left + 28, line + 5);
+    doc.setFont(this._font, 'normal');
+    doc.setFontSize(6);
+    doc.text('Skills show level| level + stat in box []. X next to box is chipped', left + 38, line + 3);
+    line += 7;
+    return line;
+  }
+
   private printSkills(doc: jsPDF, skills: Array<Cp2020PlayerSkill>, statName: string, stat: number, line: number, col: number): number {
     doc.setFont(this._font, 'bold');
     doc.setFontSize(8);
-    doc.text(`${statName} (${stat})`, col + 1, line);
+    doc.text(`${statName} (${stat ?? 'NA'})`, col + 1, line);
     doc.setFont(this._font, 'normal');
     let currline = line + 4;
     doc.setFontSize(8);
-    let index = Math.ceil(skills.length / 5);
-    const colWidth = 40;
+    let index = Math.ceil(skills.length / 4);
+    const colWidth = 53;
     const colOne = skills.slice(0, index);
     const colTwo = skills.slice(index, index * 2);
     const colThree = skills.slice(index * 2, index * 3);
-    const colFour = skills.slice(index * 3, index * 4);
-    const colFive = skills.slice(index * 4, index * 5);
+    const colFour = skills.slice(index * 3);
     this.printSkillColumn(doc, colOne, stat, currline, col);
     this.printSkillColumn(doc, colTwo, stat, currline, colWidth);
     this.printSkillColumn(doc, colThree, stat, currline, colWidth * 2);
     this.printSkillColumn(doc, colFour, stat, currline, colWidth * 3);
-    this.printSkillColumn(doc, colFive, stat, currline, colWidth * 4);
+    //this.printSkillColumn(doc, colFive, stat, currline, colWidth * 4);
     doc.rect(this._left, line - 3, 200, (colOne.length * 4) + 4, 'S');
     return currline + (colOne.length * 4);
   }
 
   private printSkillColumn(doc: jsPDF, skills: Array<Cp2020PlayerSkill>, stat: number, line: number, col: number) {
     skills.forEach(s => {
-      const name = s.name + ((s.option) ? ` - ${s.option}` : '');
-      doc.text(`[${s.value}|${s.value + stat}] ${(s.chipped) ? 'X' : ''}`, col + 2, line);
+      const name = `${s.name}${((s.option) ? ` - ${s.option}` : '')}${s.isSA && s.stat !== '' ? '(' + s.stat + ')': ''}`;
+      doc.text(`[${s.value}|${s.value + (stat ?? 0)}] ${(s.chipped) ? 'X' : ''}`, col + 2, line);
       doc.text(name, col + 9, line);
-
       line += 4;
     });
   }
@@ -656,6 +666,92 @@ export class Cp2020characterToPDF {
       line += adjHt;
     });
     doc.setFontSize(this._fontSize);
+    return line + 6;
+  }
+
+  private addArmor(doc: jsPDF, armor: Cp2020ArmorBlock, left: number, line: number): number {
+    doc.setFillColor('black');
+    doc.rect(left, line, 200, 7, 'DF');
+    doc.setTextColor('white');
+    doc.setFont(this._font, 'bold');
+    doc.text('ARMOR', left + 2, line + 5);
+    doc.setTextColor('black');
+    doc.setFont(this._font, 'normal');
+    doc.setFontSize(7);
+    const ht = 5;
+    const leftMargin = left;
+    line += 7;
+    // header
+    doc.rect(left, line, 30, ht, 'S');
+    doc.text('Name', left + 1, line + 4);
+    left += 30;
+    doc.rect(left, line, 10, ht, 'S');
+    doc.text('Head', left + 1, line + 4);
+    left += 10;
+    doc.rect(left, line, 10, ht, 'S');
+    doc.text('Torso', left + 1, line + 4);
+    left += 10;
+    doc.rect(left, line, 10, ht, 'S');
+    doc.text('R Arm', left + 1, line + 4);
+    left += 10;
+    doc.rect(left, line, 10, ht, 'S');
+    doc.text('L Arm', left + 1, line + 4);
+    left += 10;
+    doc.rect(left, line, 10, ht, 'S');
+    doc.text('R Leg', left + 1, line + 4);
+    left += 10;
+    doc.rect(left, line, 10, ht, 'S');
+    doc.text('L Leg', left + 1, line + 4);
+    left += 10;
+    doc.rect(left, line, 10, ht, 'S');
+    doc.text('EV', left + 1, line + 4);
+    left += 10;
+    doc.rect(left, line, 10, ht, 'S');
+    doc.text('Hard', left + 1, line + 4);
+    left += 10;
+    doc.rect(left, line, 15, ht, 'S');
+    doc.text('Skinweave', left + 1, line + 4);
+    left += 15;
+    doc.rect(left, line, 75, ht, 'S');
+    left += 70;
+
+    armor.layers.forEach( layer => {
+      line += 5;
+      left = leftMargin;
+      doc.rect(left, line, 30, ht, 'S');
+      doc.text(`${layer.isActive? '* ': ''}${layer.name}`, left + 1, line + 4);
+      left += 30;
+      doc.rect(left, line, 10, ht, 'S');
+      doc.text(layer.head.toString(), left + 1, line + 4);
+      left += 10;
+      doc.rect(left, line, 10, ht, 'S');
+      doc.text(layer.torso.toString(), left + 1, line + 4);
+      left += 10;
+      doc.rect(left, line, 10, ht, 'S');
+      doc.text(layer.rarm.toString(), left + 1, line + 4);
+      left += 10;
+      doc.rect(left, line, 10, ht, 'S');
+      doc.text(layer.larm.toString(), left + 1, line + 4);
+      left += 10;
+      doc.rect(left, line, 10, ht, 'S');
+      doc.text(layer.rleg.toString(), left + 1, line + 4);
+      left += 10;
+      doc.rect(left, line, 10, ht, 'S');
+      doc.text(layer.lleg.toString(), left + 1, line + 4);
+      left += 10;
+      doc.rect(left, line, 10, ht, 'S');
+      doc.text(layer.ev.toString(), left + 1, line + 4);
+      left += 10;
+      doc.rect(left, line, 10, ht, 'S');
+      doc.text(layer.isHard ? 'Y': 'N', left + 1, line + 4);
+      left += 10;
+      doc.rect(left, line, 15, ht, 'S');
+      doc.text(layer.isSkinWeave ? 'Y' : 'N', left + 1, line + 4);
+      left += 15;
+      doc.rect(left, line, 75, ht, 'S');
+      left += 70;
+
+    });
     return line + 6;
   }
 

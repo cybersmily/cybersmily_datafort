@@ -1,5 +1,11 @@
 {
   "ammo": [
+    {"type": "Light Pistol/SMG" , "hasTypes": true, "perBox":             100, "cost": 15 ,"source": {"book":"BH" ,"page": 43 }},
+    {"type": "Medium Pistol/SMG", "hasTypes": true, "perBox":             100, "cost": 30 ,"source": {"book":"BH" ,"page": 43 }},
+    {"type": "Heavy Pistol/SMG" , "hasTypes": true, "perBox":             100, "cost": 36 ,"source": {"book":"BH" ,"page": 43 }},
+    {"type": "Very Heavy Pistol" , "hasTypes": true, "perBox":             100, "cost": 40 ,"source": {"book":"BH" ,"page": 43 }},
+    {"type": "Assault Rifle"    , "hasTypes": true, "perBox":             100, "cost": 40 ,"source": {"book":"BH" ,"page": 43 }},
+
     {"type": "bolt"             , "subtype" : "Target", "perBox":             12 , "cost": 30 ,"source": {"book":"BH" ,"page": 46 }},
     {"type": "bolt"             , "subtype" : "Broadhead", "perBox":          12 , "cost": 50 ,"source": {"book":"BH" ,"page": 46 }},
     {"type": "bolt"             , "subtype" : "Stun", "perBox":               12 , "cost": 25 ,"source": {"book":"BH" ,"page": 46 }},
@@ -22,7 +28,6 @@
     {"type": ".357 mag"         , "hasTypes": true, "perBox":                 100, "cost": 30 ,"source": {"book":"BH" ,"page": 43 }},
     {"type": ".38"              , "hasTypes": true, "perBox":                 100, "cost": 30 ,"source": {"book":"BH" ,"page": 43 }},
     {"type": ".410g"            , "perBox"  :                                 100, "cost": 30 ,"source": {"book":"BH" ,"page": 13 }},
-    {"type": ".41c"             , "hasTypes": true, "perBox":                 100, "cost": 30 ,"source": {"book":"BH" ,"page": 43 }},
     {"type": ".41"              , "hasTypes": true, "perBox":                 100, "cost": 30 ,"source": {"book":"BH" ,"page": 43 }},
     {"type": ".44"              , "hasTypes": true, "perBox":                 100, "cost": 40 ,"source": {"book":"BH" ,"page": 43 }},
     {"type": ".44 mag"          , "hasTypes": true, "perBox":                 100, "cost": 40 ,"source": {"book":"BH" ,"page": 43 }},
@@ -46,7 +51,6 @@
     {"type": "5.2mm et"         , "perBox"  :                                 50 , "cost": 50 ,"source": {"book":"BH" ,"page": 14 }},
     {"type": "5.5mm"            , "hasTypes": true, "perBox":                 100, "cost": 45 ,"source": {"book":"BH" ,"page": 27 }},
     {"type": "5.56mm"           , "hasTypes": true, "perBox":                 100, "cost": 40 ,"source": {"book":"BH" ,"page": 43 }},
-    {"type": "5.56mm cased"     , "hasTypes": true, "perBox":                 100, "cost": 120,"source": {"book":"BH" ,"page": 43 }},
     {"type": "5.7mm"            , "hasTypes": true, "perBox":                 100, "cost": 40 ,"source": {"book":"BH" ,"page": 32 }},
     {"type": "6mm"              , "hasTypes": true, "perBox":                 100, "cost": 15 ,"source": {"book":"BH" ,"page": 43 }},
     {"type": "6.5mm"            , "hasTypes": true, "perBox":                 100, "cost": 40 ,"source": {"book":"BH" ,"page": 43 }},
@@ -55,7 +59,6 @@
     {"type": "7.56mm"           , "hasTypes": true, "perBox":                 100, "cost": 40 ,"source": {"book":"BH" ,"page": 43 }},
     {"type": "8.5mm ramjet"     , "perBox"  :                                 100, "cost": 40 ,"source": {"book":"BH" ,"page": 32 }},
     {"type": "9mm"              , "hasTypes": true, "perBox":                 100, "cost": 30 ,"source": {"book":"BH" ,"page": 43 }},
-    {"type": "9mm cased"        , "hasTypes": true, "perBox":                 100, "cost": 90 ,"source": {"book":"BH" ,"page": 43 }},
     {"type": "9mm gyro"         , "perBox"  :                                 100, "cost": 30 ,"source": {"book":"BH" ,"page": 13 }},
     {"type": "9mm bolt"         , "perBox"  :                                 100, "cost": 30 ,"source": {"book":"BH" ,"page": 12 }},
     {"type": "10mm"             , "hasTypes": true, "perBox":                 100, "cost": 30 ,"source": {"book":"BH" ,"page": 43 }},
