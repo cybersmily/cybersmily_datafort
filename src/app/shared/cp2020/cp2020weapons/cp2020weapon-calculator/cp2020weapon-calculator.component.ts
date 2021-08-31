@@ -252,7 +252,6 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
     total = this.selectedWeaponBracket.diff;
     total += this.aimedTurns;
     total += this.fireModeModifier;
-    total += this.targetMovementModified;
     total += this.targetSize;
     total += this.targetActionModifier;
     total += this.sightSmartModifier;
