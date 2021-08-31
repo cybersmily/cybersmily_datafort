@@ -1,3 +1,4 @@
+import { NewsReport } from './../../shared/models/gigs/news-report';
 import { NewsItems } from './../../shared/models/gigs';
 import { JsonDataFiles } from './../../shared/services/file-services';
 import { SeoService } from './../../shared/services/seo/seo.service';
@@ -18,6 +19,21 @@ export class NewsComponent implements OnInit {
   @ViewChild('accordion', {static: false}) accordion: AccordionComponent;
 
   newsItems: NewsItems;
+  selectedReporter = '';
+  searchText = '';
+  isOpen = false;
+
+  reporters: Array<string> = [
+    'Tom Phillips',
+    'Isha Tomoda',
+    'Porche Hendricks',
+    'Harden Torres',
+    'Glit G',
+    'Mayor Ebunike',
+    'Assistant Mayor Haakenson',
+    'Mac V'
+  ];
+
   constructor(private dataService: DataService, private seo: SeoService) { }
 
   ngOnInit() {
@@ -26,6 +42,13 @@ export class NewsComponent implements OnInit {
       '2020-07, Cybersmily\'s Datafort Cyberpunk 2020 News are blurbs from Night City nightly teams team.'
     );
     this.loadNews();
+  }
+  getFilteredReports(reports:Array<NewsReport>):Array<NewsReport> {
+    if (this.selectedReporter === '' && this.searchText === '') {
+      return reports;
+    }
+    return reports.filter(rpt => (this.selectedReporter !== '' && rpt.reporter  === this.selectedReporter) || this.selectedReporter === '')
+    .filter(rpt => (this.searchText !== '' && rpt.commentary.toLowerCase().includes(this.searchText.toLowerCase())) || this.searchText === '');
   }
 
   loadNews() {

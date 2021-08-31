@@ -1,16 +1,23 @@
 <div class="container">
   <div class="row">
     <div class="col">
+      <input type="text" placeholder="search...">
+      <select [(ngModel)]="selectedReporter">
+        <option value=""></option>
+        <option *ngFor="let rptr of reporters" [value]="rptr">{{rptr}}</option>
+      </select>
+      <button (click)="isOpen = !isOpen">Toggle</button>
       <fa-icon [icon]="faSave" class="csd-btn float-right btn-lg" (click)="saveFile()" title="Save file"></fa-icon>
     </div>
   </div>
   <accordion #accordion>
-    <accordion-group *ngFor="let report of newsItems.news; let i = index">
+    <accordion-group [isOpen]="isOpen" *ngFor="let report of newsItems.news; let i = index">
       <div accordion-heading>
         <h3 style="display:inline-block">{{report.title}}</h3>
         <fa-icon [icon]="accordion.groups[i].isOpen?faAngleDoubleDown:faAngleDoubleRight" size="2x"></fa-icon>
       </div>
-      <div class="csd-box csd-rounded row" *ngFor="let comment of report.reports; let ri = index"
+      <div class="csd-box csd-rounded row"
+      *ngFor="let comment of getFilteredReports(report.reports); let ri = index"
         style="position:relative">
         <div class="col-2">
           <div class="float-left">

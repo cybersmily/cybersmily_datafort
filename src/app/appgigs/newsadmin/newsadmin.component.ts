@@ -19,6 +19,7 @@ export class NewsadminComponent implements OnInit {
   faTrash = faTrash;
   faPen = faPen;
   faSave = faSave;
+  isOpen = false;
 
   newsItems: GigNewsItem = new GigNewsItem();
   key: string = 'wnsnews_adm';
@@ -59,6 +60,9 @@ export class NewsadminComponent implements OnInit {
     'Mac V'
   ];
 
+  selectedReporter = '';
+  searchText = '';
+
   constructor(private dataService: DataService, private saveService: SaveFileService) { }
 
   ngOnInit(): void {
@@ -73,6 +77,15 @@ export class NewsadminComponent implements OnInit {
       this.newsItems = news;
       this.newNewsItem.reports.push({img: 'tphillips', reporter: 'Tom Phillips', commentary: 'Hello Night City and welcome to WNS 7 News Force team. I\'m Tom Phillips.<br/>'});
     });
+  }
+
+
+  getFilteredReports(reports:Array<NewsReport>):Array<NewsReport> {
+    if (this.selectedReporter === '' && this.searchText === '') {
+      return reports;
+    }
+
+    return reports.filter(rpt => rpt.reporter === this.selectedReporter);
   }
 
   saveFile() {
@@ -112,6 +125,7 @@ export class NewsadminComponent implements OnInit {
       reporter: this.newNewsReport.reporter,
       commentary: this.newNewsReport.commentary
     });
+    this.newNewsReport = {img: 'tphillips', reporter: 'Tom Phillips', commentary: ''};
   }
 
   changeReporter(event, newsIndex: number, reportIndex: number) {
