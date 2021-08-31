@@ -50,7 +50,6 @@ export class Cp2020SkillListFullComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    console.log(this.isCollapsed);
   }
 
   onChangeSkill(skill?:Cp2020PlayerSkill) {
