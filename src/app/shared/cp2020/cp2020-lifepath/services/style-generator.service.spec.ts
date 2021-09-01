@@ -1,5 +1,5 @@
-import { DiceService } from './../dice/dice.service';
-import { DataService } from './../file-services';
+import { DiceService } from './../../../services/dice/dice.service';
+import { DataService } from './../../../services/file-services';
 import { HttpClientModule } from '@angular/common/http';
 import { TestBed, inject, waitForAsync } from '@angular/core/testing';
 

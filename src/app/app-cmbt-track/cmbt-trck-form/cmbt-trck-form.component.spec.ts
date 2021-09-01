@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Cp2020ArmorModule } from './../../shared/cp2020/cp2020-armor/cp2020-armor.module';
 import { Cp2020WoundsModule } from './../../shared/cp2020/cp2020wounds/cp2020wounds.module';
 import { Cp2020StatsModule } from './../../shared/cp2020/cp2020-stats/cp2020-stats.module';
@@ -31,6 +32,7 @@ describe('CmbtTrckFormComponent', () => {
       imports: [
         CommonUiModule,
         PipesModule,
+        BrowserAnimationsModule,
         Cp2020weaponsModule,
         Cp2020StatsModule,
         Cp2020WoundsModule,

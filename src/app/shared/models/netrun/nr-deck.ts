@@ -7,7 +7,7 @@ export interface NrDeck {
   type: NrDeckChassis;
   dataWall: number;
   speed: number;
-  mu: number;
+  totalMU: number;
   doubleMu: boolean;
   options: Array<NrDeckOption>;
   programs?: Array<NrProgram>;

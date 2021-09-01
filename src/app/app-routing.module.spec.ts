@@ -3,8 +3,7 @@ import { PeepSectionModule } from './apppeeps/peepsection.module';
 import { ModSectionModule } from './appmod/modsection.module';
 import { GigSectionModule } from './appgigs/gigsection.module';
 import { DataSectionModule } from './appdata/datasection.module';
-import { NgxUiLoaderModule } from 'ngx-ui-loader';
-import { AppLifepathRedJumpkitModule } from './app-lifepath-red-jumpkit/app-lifepath-red-jumpkit.module';
+import { AppCpRedLifepathModule } from './app-cp-red-lifepath/app-cp-red-lifepath.module';
 import { AppLifepathModule } from './app-lifepath/app-lifepath.module';
 import { AppCharacterGeneratorModule } from './app-character-generator/app-character-generator.module';
 import { AppCpRedTemplateCharacterModule } from './app-cp-red-template-character/app-cp-red-template-character.module';
@@ -25,9 +24,8 @@ import { HomeComponent } from './apphome/home/home.component';
 import { AppComponent } from './app.component';
 import { Router, RouterModule } from '@angular/router';
 import { AppRoutingModule, mainRoutes } from './app-routing.module';
-import { TestBed, fakeAsync, tick, ComponentFixture, flush, flushMicrotasks } from '@angular/core/testing';
+import { TestBed, fakeAsync, ComponentFixture, flush, flushMicrotasks } from '@angular/core/testing';
 import { Location } from '@angular/common';
-import { NgModuleFactoryLoader, Component, NgModule } from '@angular/core';
 
 
 describe('AppRoutingModule', () => {
@@ -51,7 +49,7 @@ describe('AppRoutingModule', () => {
         AppFashionGeneratorModule,
         AppFixerCalcModule,
         AppLifepathModule,
-        AppLifepathRedJumpkitModule,
+        AppCpRedLifepathModule,
         AppMaxmetalModule,
         AppNetrunModule,
         BrowserAnimationsModule,

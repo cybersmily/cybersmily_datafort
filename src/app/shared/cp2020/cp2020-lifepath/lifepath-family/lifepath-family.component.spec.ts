@@ -1,12 +1,12 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { FamilyGeneratorService } from './../../shared/services/lifepath/family-generator.service';
-import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
-import { DataService } from './../../shared/services/file-services/data.service';
-import { DiceService } from './../../shared/services/dice/dice.service';
+import { FamilyGeneratorService } from './../services/family-generator.service';
+import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
+import { DataService } from './../../../services/file-services/data.service';
+import { DiceService } from './../../../services/dice/dice.service';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { LifepathFamilyComponent } from './lifepath-family.component';
-import { Siblings, LifepathFamily } from '../../shared/cp2020/cp2020-lifepath/models';
+import { Siblings, LifepathFamily } from './../models';
 
 describe('LifepathFamilyComponent', () => {
   let component: LifepathFamilyComponent;

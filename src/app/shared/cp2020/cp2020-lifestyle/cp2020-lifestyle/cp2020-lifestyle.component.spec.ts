@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -10,7 +11,10 @@ describe('Cp2020LifestyleComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ Cp2020LifestyleComponent ],
-      imports: [CommonUiModule]
+      imports: [
+        CommonUiModule,
+        BrowserAnimationsModule
+      ]
     })
     .compileComponents();
   });

@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { HttpClientModule } from '@angular/common/http';
 import { DiceService } from './../../shared/services/dice/dice.service';
@@ -17,6 +18,7 @@ describe('AppCharacterLifepathComponent', () => {
       ],
       imports: [
         CommonUiModule,
+        BrowserAnimationsModule,
         HttpClientModule
       ],
       providers: [

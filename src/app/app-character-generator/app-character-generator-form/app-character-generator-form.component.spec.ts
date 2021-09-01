@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Cp2020SkillsModule } from './../../shared/cp2020/cp2020-skills/cp2020-skills.module';
 import { Cp2020ArmorModule } from './../../shared/cp2020/cp2020-armor/cp2020-armor.module';
 import { Cp2020CyberwareModule } from './../../shared/cp2020/cp2020-cyberware/cp2020-cyberware.module';
@@ -35,6 +36,7 @@ describe('AppCharacterGeneratorFormComponent', () => {
       imports: [
         CommonUiModule,
         HttpClientModule,
+        BrowserAnimationsModule,
         Cp2020weaponsModule,
         Cp2020StatsModule,
         Cp2020WoundsModule,

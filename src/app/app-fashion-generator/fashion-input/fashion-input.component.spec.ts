@@ -1,3 +1,4 @@
+import { DiceService } from './../../shared/services/dice/dice.service';
 import { ClothingOption, PieceOfClothing, Clothing, ClothingArmor } from './../../shared/models/clothing';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { FashionOptionsSelectorComponent } from './../fashion-options-selector/fashion-options-selector.component';
@@ -27,7 +28,12 @@ describe('FashionInputComponent', () => {
         FashionSelectorComponent,
         FashionOptionsSelectorComponent
       ],
-      imports: [CommonUiModule]
+      imports: [
+        CommonUiModule
+      ],
+      providers: [
+        DiceService
+      ]
     })
       .compileComponents();
   }));
@@ -39,16 +45,15 @@ describe('FashionInputComponent', () => {
       { name: 'bodyarms', cost: 15, wt: 'Lt', loc: 'body|arms'},
       { name: 'leatherfeet', cost: 25, wt: 'Med', leather:'1.5', loc: 'feet'}
     ];
-    testClothing = {
-      clothes: {name: 'test', cost: 0, wt: '0', loc: 'all'},
-      type: {name: 'testType', mod: 0},
-      style: {name: 'testStyle', mod: 0},
-      quality: {name: 'testQualtiy', mod: 0},
-      spRating: {name: 'test', mod: 0, sp: 0, ev: 0},
-      ev: 0,
-      totalCost: 0,
-      options: []
-    };
+    testClothing = new Clothing();
+    testClothing.clothes = {name: 'test', cost: 0, wt: '0', loc: 'all'};
+    testClothing.type = {name: 'testType', mod: 0};
+    testClothing.style = {name: 'testStyle', mod: 0};
+    testClothing.quality = {name: 'testQualtiy', mod: 0};
+    testClothing.spRating = {name: 'test', mod: 0, sp: 0, ev: 0};
+    testClothing.ev = 0;
+    testClothing.totalCost = 0;
+    testClothing.options = new Array<any>();
     testOptions = [
       { name: 'test', mod: { Lt: 4.0, Med: 3.0, Hvy: 1.5 }, desc: '', effect: 'test effect' },
       { name: 'test3', mod: 3, desc: '', effect: 'test effect' },

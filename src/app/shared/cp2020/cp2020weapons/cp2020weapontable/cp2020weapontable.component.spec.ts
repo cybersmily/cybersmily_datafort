@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Cp2020weaponCalculatorComponent } from './../cp2020weapon-calculator/cp2020weapon-calculator.component';
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { WeaponDataService } from './../services/weapon-data.service';
@@ -24,7 +25,11 @@ describe('Cp2020weapontableComponent', () => {
         Cp2020weaponEditorComponent,
         Cp2020weaponCalculatorComponent
       ],
-      imports: [HttpClientTestingModule, CommonUiModule],
+      imports: [
+        HttpClientTestingModule,
+        CommonUiModule,
+        BrowserAnimationsModule
+      ],
       providers: [DiceService, WeaponDataService, DataService]
     })
     .compileComponents();

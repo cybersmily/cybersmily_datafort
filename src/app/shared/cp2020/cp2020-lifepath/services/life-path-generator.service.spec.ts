@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
-import { DataService } from './../file-services';
-import { DiceService } from './../dice/dice.service';
+import { DataService } from './../../../services/file-services';
+import { DiceService } from './../../../services/dice/dice.service';
 import { TestBed, inject, waitForAsync } from '@angular/core/testing';
 
 import { LifePathGeneratorService } from './life-path-generator.service';

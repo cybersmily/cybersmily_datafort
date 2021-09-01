@@ -8,7 +8,7 @@ export class Cp2020NetrunDeck implements NrDeck {
   type: NrDeckChassis;
   dataWall: number;
   speed: number;
-  private _mu = 10;
+  private _mu: number = 10;
   doubleMu: boolean;
   options: Array<NrDeckOption>;
   programs: Array<NrProgram>;
@@ -17,26 +17,29 @@ export class Cp2020NetrunDeck implements NrDeck {
   bookPrice: number;
 
   constructor(param?: any) {
-    this.name = (param) ? param.name : '';
-    this.type = (param) ? param.type : undefined;
-    this.dataWall = (param) ? param.dataWall : 2;
-    this.codeGate = (param) ? param.codeGate : 0;
-    this.speed = (param) ? param.speed : 0;
-    const mu = (param) ? Number(param._mu) : 10;
+    this.name = param?.name ?? '';
+    this.type = param?.type ?? undefined;
+    this.dataWall = param?.dataWall ?? 2;
+    this.codeGate = param?.codeGate ?? 0;
+    this.speed = param?.speed ?? 0;
+    const mu = Number(param?._mu ?? ( param?.totalMU ?? 10));
     this._mu = (isNaN(mu) ? 10 : mu);
-    this.doubleMu = (param) ? param.doubleMu : false;
-    this.options = (param) ? param.options : new Array<NrDeckOption>();
-    this.programs = (param) ? param.programs : new Array<NrProgram>();
-    this.description = (param) ? param.description : '';
-    this.bookPrice = (param) ? param.bookPrice : 0;
+    this.doubleMu = param?.doubleMu ?? false;
+    this.options = param?.options ?? new Array<NrDeckOption>();
+    this.programs = param?.programs ?? new Array<NrProgram>();
+    this.description = param?.description ?? '';
+    this.bookPrice = param?.bookPrice ?? 0;
+  }
+
+  get totalMU(): number {
+    let mu = this._mu;
+    mu += ((this.doubleMu) ? 10 : 0);
+    mu += this.options.reduce( (a, b) => a + ((b.mods?.mu ?? 0) * (b.count ?? 1)) , 0);
+    return mu;
   }
 
   get mu(): number {
-    let mu = this._mu;
-    mu += ((this.doubleMu) ? 10 : 0);
-    mu += this.options.reduce( (a, b) => a + ((b.mods && b.mods['mu']) ? b.mods['mu'] * b.count : 0), 0);
-
-    return mu;
+    return this._mu;
   }
 
   set mu(value: number) {

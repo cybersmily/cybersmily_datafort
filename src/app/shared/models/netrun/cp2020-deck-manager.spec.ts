@@ -15,7 +15,7 @@ describe('Cp2020DeckManager', () => {
       deck: {
         name: 'test',
         type: { name: 'cellular', description: '', cost: 1000 },
-        mu: 20,
+        totalMU: 20,
         doubleMu: true,
         dataWall: 5,
         speed: 3,

@@ -60,7 +60,7 @@ export class NameGeneratorService {
         return name.replace('i', 'y');
       } else if (name.includes('y')) {
         return name.replace('y', 'i');
-      } else if (name) {
+      } else if (typeof name === 'string') {
         return name.replace('s', 'z');
       }
     }

@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { Cp2020PlayerAmmo } from './../../cp2020/cp2020weapons/models/cp-2020-player-ammo';
 import { JsonDataFiles } from './../file-services/json-data-files';
 import { DataService } from './../file-services/data.service';
@@ -8,7 +9,7 @@ import { Cp2020PlayerGearList } from './../../models/cp2020character/cp2020-play
 import { CpPlayerWeaponList, CpPlayerWeapon } from '../../cp2020/cp2020weapons/models';
 import { Cp2020ArmorBlock } from './../../cp2020/cp2020-armor/models';
 import { Cp2020StatBlock } from '../../cp2020/cp2020-stats/models/cp2020-stat-block';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Cp2020PlayerRole} from './../../models/cp2020character/cp2020-player-role';
 import { Cp2020PlayerCharacter } from '../../models/cp2020character';
 import { Injectable } from '@angular/core';
@@ -225,15 +226,19 @@ export class Cp2020CharacterGeneratorService {
     this._character.next(this._currCharacter);
   }
 
-  clearCharacter() {
+  clearCharacter(): Observable<Cp2020PlayerCharacter> {
     window.localStorage.removeItem(CacheKeys.CP2020_CHAR_GEN);
+    this._currCharacter = new Cp2020PlayerCharacter();
+    this._character.next(this._currCharacter);
     // get the skill data to load to character
-    this.dataService.GetJson(JsonDataFiles.CP2020_SKILLS_DATA_LIST_JSON)
-    .subscribe( (data) => {
-      this._currCharacter = new Cp2020PlayerCharacter();
+    return this.dataService
+    .GetJson(JsonDataFiles.CP2020_SKILLS_DATA_LIST_JSON)
+    .pipe(
+    map( (data) => {
       this._currCharacter.skills = new Cp2020PlayerSkills(data);
       this._character.next(this._currCharacter);
-    });
+      return this._currCharacter;
+    }));
 
   }
 }

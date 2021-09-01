@@ -1,3 +1,6 @@
+import { DataService } from './../../../services/file-services/data.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Cp2020weaponOptionsComponent } from './cp2020weapon-options.component';
@@ -8,7 +11,14 @@ describe('Cp2020weaponOptionsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Cp2020weaponOptionsComponent ]
+      declarations: [ Cp2020weaponOptionsComponent ],
+      imports: [
+        CommonUiModule,
+        HttpClientTestingModule
+      ],
+      providers: [
+        DataService
+      ]
     })
     .compileComponents();
   });

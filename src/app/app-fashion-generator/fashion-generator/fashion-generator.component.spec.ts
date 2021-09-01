@@ -1,3 +1,4 @@
+import { DiceService } from './../../shared/services/dice/dice.service';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -35,6 +36,7 @@ describe('FashionGeneratorComponent', () => {
         ],
        providers: [
          DataService,
+         DiceService,
          SeoService
       ]
     })
@@ -44,16 +46,15 @@ describe('FashionGeneratorComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(FashionGeneratorComponent);
     component = fixture.componentInstance;
-    pieceOfClothing = {
-      clothes: {name: 'test', cost: 0, wt: '0', loc: 'all'},
-      type: {name: 'testType', mod: 0},
-      style: {name: 'testStyle', mod: 0},
-      quality: {name: 'testQualtiy', mod: 0},
-      spRating: {name: 'test', mod: 0, sp: 0, ev: 0},
-      ev: 0,
-      totalCost: 0,
-      options: []
-    };
+    pieceOfClothing = new Clothing();
+    pieceOfClothing.clothes = {name: 'test', cost: 0, wt: '0', loc: 'all'};
+    pieceOfClothing.type = {name: 'testType', mod: 0};
+    pieceOfClothing.style = {name: 'testStyle', mod: 0};
+    pieceOfClothing.quality = {name: 'testQualtiy', mod: 0};
+    pieceOfClothing.spRating = {name: 'test', mod: 0, sp: 0, ev: 0};
+    pieceOfClothing.ev = 0;
+    pieceOfClothing.totalCost = 0;
+    pieceOfClothing.options = new Array<any>();
     clothingList = {
       Clothes: [
         { name: 'leatherwaist', cost: 10, wt: 'Lt', leather: 1.5, loc: 'waist'},

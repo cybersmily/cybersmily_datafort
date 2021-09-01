@@ -12,7 +12,7 @@ describe('Cp2020NetrunDeck', () => {
       type: { name: 'cellular', description: '', cost: 1000 },
       dataWall: 5,
       speed: 2,
-      mu: 10,
+      totalMU: 10,
       doubleMu: false,
       options: [
         {
@@ -57,23 +57,26 @@ describe('Cp2020NetrunDeck', () => {
     expect(deck.type.name).toEqual(testNrDeck.type.name);
     expect(deck.dataWall).toEqual(testNrDeck.dataWall);
     expect(deck.speed).toEqual(testNrDeck.speed);
-    expect(deck.mu).toEqual(testNrDeck.mu + 2); // options should increase the mu
     expect(deck.doubleMu).toEqual(testNrDeck.doubleMu);
     expect(deck.description).toEqual(testNrDeck.description);
     expect(deck.options.length).toEqual(testNrDeck.options.length);
     expect(deck.options[0].name).toEqual(testNrDeck.options[0].name);
+    expect(deck.options[1].name).toEqual(testNrDeck.options[1].name);
+    expect(deck.options[2].name).toEqual(testNrDeck.options[2].name);
+
+    expect(deck.totalMU).toEqual(testNrDeck.totalMU + 2); // options should increase the mu
   });
 
   it('should mu calculate', () => {
-    expect(deck.mu).toEqual(10);
+    expect(deck.totalMU).toEqual(10);
     deck.mu = 13;
-    expect(deck.mu).toEqual(13);
+    expect(deck.totalMU).toEqual(13);
     deck.mu = -12;
-    expect(deck.mu).toEqual(0);
+    expect(deck.totalMU).toEqual(0);
     deck = new Cp2020NetrunDeck(testNrDeck);
-    expect(deck.mu).toEqual(12);
+    expect(deck.totalMU).toEqual(12);
     deck.doubleMu = true;
-    expect(deck.mu).toEqual(22);
+    expect(deck.totalMU).toEqual(22);
   });
 
   it('should calculate cost', () => {

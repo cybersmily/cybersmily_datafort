@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DiceService } from './../../../services/dice/dice.service';
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
@@ -11,7 +12,10 @@ describe('Cp2020SkillListFullComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ Cp2020SkillListFullComponent ],
-      imports: [CommonUiModule],
+      imports: [
+        CommonUiModule,
+        BrowserAnimationsModule
+      ],
       providers: [DiceService]
     })
     .compileComponents();

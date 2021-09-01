@@ -81,7 +81,7 @@ export class DeckManagerToPdf {
     }
     doc.text(`Speed: +${deck.speed}`, this._left, line);
     doc.text(`DataWall: ${deck.dataWall}`, this._left + 60, line, { align: 'right'});
-    doc.text(`MU: ${deck.mu}`, this._left + 120, line, { align: 'right'});
+    doc.text(`MU: ${deck.totalMU}`, this._left + 120, line, { align: 'right'});
     line += 7;
     const options  = deck.options.map(o => (o.count && o.count > 1 ? o.count + ' ' : '' ) + o.name).join(', ');
     const optList: Array<string> = doc.splitTextToSize(`Options: ${options}`, 200);

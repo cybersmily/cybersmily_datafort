@@ -1,3 +1,7 @@
+import { PipesModule } from './../../shared/pipes/pipes.module';
+import { DataService } from './../../shared/services/file-services/data.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Cp2077TrackerMainComponent } from './cp2077-tracker-main.component';
@@ -8,7 +12,12 @@ describe('Cp2077TrackerMainComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Cp2077TrackerMainComponent ]
+      declarations: [ Cp2077TrackerMainComponent ],
+      imports: [CommonUiModule,
+        HttpClientTestingModule,
+        PipesModule
+      ],
+      providers: [DataService]
     })
     .compileComponents();
   });

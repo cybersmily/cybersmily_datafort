@@ -147,6 +147,8 @@ export class CpPlayerWeapon implements CpWeapon {
     const i = this.magazines.findIndex( mag => mag.used < mag.capacity);
     if(i > -1) {
       this.currMagIndex = i;
+    } else {
+      this.magazines[0].used = 0;
     }
   }
 

@@ -131,15 +131,16 @@ describe('CpPlayerWeapon', () => {
     it('should be empty', () => {
       testWeapon.expendShot(9);
       expect(testWeapon.isEmpty).toBeTruthy();
-      expect(testWeapon.shotsUsed).toEqual(10);
     });
 
     it('should be able to reload', () => {
       testWeapon.expendShot(9);
+      expect(testWeapon.currMag.used).toEqual(10);
       expect(testWeapon.isEmpty).toBeTruthy();
       testWeapon.reload();
+      expect(testWeapon.currMagIndex).toEqual(0);
+      expect(testWeapon.currMag.used).toEqual(0);
       expect(testWeapon.isEmpty).toBeFalsy();
-      expect(testWeapon.shotsUsed).toEqual(0);
     });
   });
 

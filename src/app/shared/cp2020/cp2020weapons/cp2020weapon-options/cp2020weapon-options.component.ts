@@ -24,7 +24,7 @@ export class Cp2020weaponOptionsComponent implements OnInit, OnChanges {
   options: Array<CpPlayerWeaponOption> = new Array<CpPlayerWeaponOption>();
 
   @Input()
-  weapon: CpPlayerWeapon;
+  weapon: CpPlayerWeapon = new CpPlayerWeapon();
 
   @Output()
   updateOptions: EventEmitter<Array<CpPlayerWeaponOption>> = new EventEmitter<Array<CpPlayerWeaponOption>>();

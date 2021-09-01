@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CyberDataService } from './../services/cyber-data.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Cp2020CyberwareGeneratorService } from './../services/cp2020-cyberware-generator.service';
@@ -17,7 +18,8 @@ describe('Cp2020CyberwareTableComponent', () => {
       declarations: [ Cp2020CyberwareTableComponent ],
       imports: [
         CommonUiModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        BrowserAnimationsModule
       ],
       providers: [
         DataService,

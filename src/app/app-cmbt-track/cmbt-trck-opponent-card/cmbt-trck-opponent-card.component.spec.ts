@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Cp2020StatsModule } from './../../shared/cp2020/cp2020-stats/cp2020-stats.module';
 import { Cp2020WoundsModule } from './../../shared/cp2020/cp2020wounds/cp2020wounds.module';
 import { Cp2020weaponsModule } from './../../shared/cp2020/cp2020weapons/cp2020weapons.module';
@@ -28,6 +29,7 @@ describe('CmbtTrckOpponentCardComponent', () => {
       ],
       imports: [
         CommonUiModule,
+        BrowserAnimationsModule,
         PipesModule,
         HttpClientModule,
         Cp2020weaponsModule,

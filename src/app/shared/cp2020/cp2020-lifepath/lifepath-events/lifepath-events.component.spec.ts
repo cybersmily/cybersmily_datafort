@@ -1,10 +1,10 @@
-import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
+import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { HttpClientModule } from '@angular/common/http';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService } from './../../../services/file-services/data.service';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { LifepathEventsComponent } from './lifepath-events.component';
-import { DiceService } from './../../shared/services/dice/dice.service';
+import { DiceService } from './../../../services/dice/dice.service';
 
 describe('LifepathEventsComponent', () => {
   let component: LifepathEventsComponent;
