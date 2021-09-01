@@ -9,12 +9,12 @@ export class CPRedNetFloorChartEntry {
   programs?: Array<NetArchProgram>;
 
   constructor(param?:any){
-    this.name = (param && param.name)? param.name : '';
-    this.type = (param && param.type)? param.type : '';
-    this.dv = (param && param.dv)? param.dv : 0;
-    this.cost = (param && param.cost)? param.cost : 0;
-    this.desc = (param && param.desc)? param.desc : '';
-    this.programs = (param)? param.programs : undefined;
+    this.name = param?.name ?? '';
+    this.type = param?.type ?? '';
+    this.dv = param?.dv ?? 0;
+    this.cost = param?.cost ?? 0;
+    this.desc = param?.desc ?? '';
+    this.programs = param?.programs ?? undefined;
   }
 }
 

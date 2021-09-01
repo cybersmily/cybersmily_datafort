@@ -12,10 +12,10 @@ export class CPRedNetArchitect implements NetArchitect {
   iconSettings: iconTypeSettings;
 
   constructor(param?: NetArchitect) {
-    this.name = param? param.name: '';
-    this.description = param? param.description: '';
-    this.demons = param? param.demons: new Array<string>();
-    this.iconSettings = param? param.iconSettings: new CPRedIconTypeSettings();
-    this.nodes = param? new CPRedNetArchNode(param.nodes): new CPRedNetArchNode();
+    this.name = param?.name ?? '';
+    this.description = param?.description ?? '';
+    this.demons = param?.demons  ?? new Array<string>();
+    this.iconSettings = param?.iconSettings ?? new CPRedIconTypeSettings();
+    this.nodes = param ? new CPRedNetArchNode(param.nodes): new CPRedNetArchNode();
   }
 }
