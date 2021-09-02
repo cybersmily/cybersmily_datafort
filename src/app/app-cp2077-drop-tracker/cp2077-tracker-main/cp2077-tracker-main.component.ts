@@ -1,4 +1,4 @@
-import { CP2077KIlls } from './../models/cp2077-kills';
+import { CP2077Kills } from './../models/cp2077-kills';
 import { faSave, faUpload } from '@fortawesome/free-solid-svg-icons';
 import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
 import { Cp2077TrackerEntry } from './../models/cp2077-tracker-entry';
@@ -16,7 +16,7 @@ export class Cp2077TrackerMainComponent implements OnInit {
   faUpload = faUpload;
 
   data: Array<Cp2077TrackerEntry> = new Array<Cp2077TrackerEntry>();
-  kills: CP2077KIlls = new CP2077KIlls();
+  kills: CP2077Kills = new CP2077Kills();
 
   selectedCharacter: string = 'cf';
   filterName: string = '';

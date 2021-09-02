@@ -1,4 +1,4 @@
-export class CP2077KIlls {
+export class CP2077Kills {
   sixthstreet: number;
   animals: number;
   maelstrom: number;
@@ -13,7 +13,7 @@ export class CP2077KIlls {
   merc: number;
   netwatch: number;
 
-  constuctor() {
+  constructor() {
     this.sixthstreet = 0;
     this.animals = 0;
     this.maelstrom = 0;
