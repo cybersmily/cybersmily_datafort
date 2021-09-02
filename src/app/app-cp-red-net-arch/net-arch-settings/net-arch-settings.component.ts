@@ -97,15 +97,15 @@ export class NetArchSettingsComponent implements OnInit {
   resetBgColor(color: string, type: string) {
     const base = new CPRedIconTypeSettings();
     if (type === 'Program') {
-      this.iconColors.program.bgColor = this.selectedColor;
+      this.iconColors.program.bgColor = base.program.bgColor;
     } else if(type === 'File') {
-      this.iconColors.file.bgColor = this.selectedColor;
+      this.iconColors.file.bgColor = base.file.bgColor;
     }
     else if(type === 'Password') {
-      this.iconColors.password.bgColor = this.selectedColor;
+      this.iconColors.password.bgColor = base.password.bgColor;
     }
     else if(type === 'Controller Node') {
-      this.iconColors.controlNode.bgColor = this.selectedColor;
+      this.iconColors.controlNode.bgColor = base.controlNode.bgColor;
     }
     this.updateColors.emit(this.iconColors);
   }

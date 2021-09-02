@@ -215,24 +215,28 @@ describe('NetArchSettingsComponent', () => {
     it('should change color for Program', () => {
       expect(component.iconColors.program.bgColor).toEqual(testColor);
       component.resetBgColor('','Program');
+      fixture.detectChanges();
       expect(component.iconColors.program.bgColor).toEqual(iconColors.program.bgColor);
     });
 
     it('should change color for File', () => {
       expect(component.iconColors.file.bgColor).toEqual(testColor);
       component.resetBgColor('','File');
+      fixture.detectChanges();
       expect(component.iconColors.file.bgColor).toEqual(iconColors.file.bgColor);
     });
 
     it('should change color for Controller Node', () => {
       expect(component.iconColors.controlNode.bgColor).toEqual(testColor);
       component.resetBgColor('','Controller Node');
+      fixture.detectChanges();
       expect(component.iconColors.controlNode.bgColor).toEqual(iconColors.controlNode.bgColor);
     });
 
     it('should change color for Password', () => {
       expect(component.iconColors.password.bgColor).toEqual(testColor);
       component.resetBgColor('','Password');
+      fixture.detectChanges();
       expect(component.iconColors.password.bgColor).toEqual(iconColors.password.bgColor);
     });
   });
