@@ -35,6 +35,7 @@ export class CPRedLifePathCore {
     this.family = new CPRedLifePathFamily(param && param.family);
     this.role = param? param.role : new Array<KeyValue<string, string>>();
   }
+
   print(): string {
     let output = '';
     output += 'LIFEPATH\r\n';
