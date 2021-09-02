@@ -6,14 +6,9 @@ import {
   CPRedLifePathCore,
   CPRedLifePathSettings,
   CpRedLifepathCoreData, CPRedLifepathJumpStartData,
-  CPRedLifepathJumpStart,
-  CpRedLifepathCoreRoleChartItem
+  CPRedLifepathJumpStart
 } from './../models';
-import { JsonDataFiles } from './../../../services/file-services/json-data-files';
-import { map } from 'rxjs/operators';
-import { Observable, of } from 'rxjs';
 import { DiceService } from './../../../services/dice/dice.service';
-import { DataService } from './../../../services/file-services/data.service';
 import { Injectable } from '@angular/core';
 import { KeyValue } from '@angular/common';
 
