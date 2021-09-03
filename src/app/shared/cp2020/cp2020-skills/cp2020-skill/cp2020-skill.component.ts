@@ -3,7 +3,7 @@ import { Cp2020Stat, StatModifier } from './../../cp2020-stats/models/cp2020-sta
 import { FumbleChart } from './../../../models/skill/fumble-chart';
 import { DiceService } from './../../../services/dice/dice.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { Cp2020PlayerSkill, MartialBonuses } from '../models/cp2020-player-skill';
+import { Cp2020PlayerSkill, MartialBonuses } from '../models';
 import { faDice, faTrash, faPen, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({

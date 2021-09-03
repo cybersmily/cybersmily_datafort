@@ -8,9 +8,9 @@ export class Cp2020PlayerSkills {
   rep: number;
   ip: number;
 
-  constructor(dataList?:Array<DataSkill>) {
+  constructor(dataList?:Array<DataSkill>, includeOther?: boolean) {
     this.skills = new Array<Cp2020PlayerSkill>();
-    this.initiateSkills(dataList);
+    this.initiateSkills(dataList, includeOther);
     this.RoleTotal = 0;
     this.OtherTotal = 0;
     this.rep = 0;
@@ -30,15 +30,17 @@ export class Cp2020PlayerSkills {
     });
   }
 
-  private initiateSkills(skillList?:Array<DataSkill>) {
+  private initiateSkills(skillList?:Array<DataSkill>, includeOther?: boolean) {
     if(skillList) {
       skillList.forEach(sk => {
         this.skills.push(new Cp2020PlayerSkill(sk));
       });
     }
     // Other
-    for ( let i = 0; i < 7; i++) {
-      this.skills.push(new Cp2020PlayerSkill({name: 'Other', option: '', ipmod: 1, stat: ''}));
+    if(includeOther){
+      for ( let i = 0; i < 7; i++) {
+        this.skills.push(new Cp2020PlayerSkill({name: 'Other', option: '', ipmod: 1, stat: ''}));
+      }
     }
 
   }
