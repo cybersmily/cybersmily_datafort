@@ -12,6 +12,16 @@ export class Cp2020CyberwareGeneratorService {
 
   constructor(private dice: DiceService, private data: DataService) { }
 
+
+  /**
+   * Generates a random list of cyberware based on the cyberList parameter and
+   * the cyberware random entries file.
+   *
+   * @param {number} numberOfCyber - number of pieces of Cyberware to generate
+   * @param {Array<Cp2020PlayerCyber>} cyberList - list of cyberware to pull from
+   * @return {*}  {Observable<Array<Cp2020PlayerCyber>>}
+   * @memberof Cp2020CyberwareGeneratorService
+   */
   generateCyberList(numberOfCyber: number, cyberList: Array<Cp2020PlayerCyber>): Observable<Array<Cp2020PlayerCyber>> {
     return this.data.GetJson(JsonDataFiles.CP2020_CYBERWARE_RANDOM_ENTRIES_JSON)
       .pipe(
