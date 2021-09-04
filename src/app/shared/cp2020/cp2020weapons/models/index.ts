@@ -8,6 +8,8 @@ export * from './combat-range';
 export * from './combat-modifier';
 export * from './combat-modifiers';
 
+export * from './cp-2020-combat-modifiers';
+
 export * from './cp-player-weapon';
 export * from './cp-player-weapon-option';
 export * from './cp-player-weapon-list';
