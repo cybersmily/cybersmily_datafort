@@ -2,7 +2,7 @@ import { Cp2020StatBlock } from './../../cp2020/cp2020-stats/models/cp2020-stat-
 import { OppCyberware } from './../../cp2020/cp2020-cyberware/models/opp-cyberware';
 import { Cp2020PlayerSkills, Cp2020PlayerSkill } from './../../cp2020/cp2020-skills/models';
 import { Cp2020ArmorBlock } from './../../cp2020/cp2020-armor/models';
-import { CpPlayerWeapon, CpPlayerWeaponList, CombatModifiers } from './../../cp2020/cp2020weapons/models';
+import { CpPlayerWeapon, CpPlayerWeaponList, Cp2020CombatModifiers } from './../../cp2020/cp2020weapons/models';
 import { CmbtTrckOppTemplate } from './cmbt-trck-opp-template';
 
 export class CmbtTrckOpponent {
@@ -18,7 +18,7 @@ export class CmbtTrckOpponent {
   private _skills: Array<Cp2020PlayerSkill>;
   weapons: Array<CpPlayerWeapon>;
   gear: Array<string>;
-  modifiers: CombatModifiers;
+  modifiers: Cp2020CombatModifiers;
 
   constructor(param?, newId?: boolean) {
     this.name = param && param.name ? param.name : '';
@@ -49,7 +49,7 @@ export class CmbtTrckOpponent {
         this.weapons.push(new CpPlayerWeapon(w));
       });
     }
-    this.modifiers = new CombatModifiers();
+    this.modifiers = new Cp2020CombatModifiers();
     if (param && param.modifiers) {
       this.modifiers.target = param.modifiers.target;
       this.modifiers.attacker = param.modifiers.attacker;
