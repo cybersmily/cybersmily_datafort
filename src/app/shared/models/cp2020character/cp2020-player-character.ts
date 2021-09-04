@@ -6,7 +6,7 @@ import { Cp2020PlayerGearList } from './cp2020-player-gear-list';
 import { Cp2020ArmorBlock } from './../../cp2020/cp2020-armor/models';
 import { Cp2020StatBlock } from '../../cp2020/cp2020-stats/models/cp2020-stat-block';
 import { Cp2020PlayerRole } from './cp2020-player-role';
-import { Cp2020Lifestyle, Cp2020Credchip, Cp2020Housing, Cp2020Services, Cp2020Food, Cp2020Identity } from '../../cp2020/cp2020-lifestyle/models';
+import { Cp2020Lifestyle, Cp2020Credchip, CpHousing, Cp2020Services, Cp2020Food, Cp2020Identity } from '../../cp2020/cp2020-lifestyle/models';
 
 export class Cp2020PlayerCharacter {
   handle: string;
@@ -38,7 +38,7 @@ export class Cp2020PlayerCharacter {
       credchips: new Array<Cp2020Credchip>(),
       debt: 0,
       salary: 0,
-      housing: new Array<Cp2020Housing>(),
+      housing: new Array<CpHousing>(),
       services: new Array<Cp2020Services>(),
       food: new Array<Cp2020Food>(),
       identities: new Array<Cp2020Identity>()

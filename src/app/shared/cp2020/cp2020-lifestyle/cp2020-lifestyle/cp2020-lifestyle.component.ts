@@ -1,4 +1,4 @@
-import { Cp2020Services, Cp2020Food, Cp2020Housing, Cp2020Lifestyle, Cp2020Identity, Cp2020Credchip, Cp2020Payment } from './../models';
+import { Cp2020Services, Cp2020Food, CpHousing, Cp2020Lifestyle, Cp2020Identity, Cp2020Credchip, Cp2020Payment } from './../models';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { faPlus, faTrash, faPen, faRedo, faEuroSign, faList, faCalculator, faDollarSign, faQuestionCircle, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Component, Input, OnInit, Output, TemplateRef, EventEmitter, OnChanges } from '@angular/core';
@@ -38,7 +38,7 @@ export class Cp2020LifestyleComponent implements OnInit, OnChanges {
     cash: 0,
     debt: 0,
     salary: 0,
-    housing: new Array<Cp2020Housing>(),
+    housing: new Array<CpHousing>(),
     food: new Array<Cp2020Food>(),
     services: new Array<Cp2020Services>(),
     identities: new Array<Cp2020Identity>()
@@ -55,7 +55,7 @@ export class Cp2020LifestyleComponent implements OnInit, OnChanges {
     cash: 0,
     debt: 0,
     salary: 0,
-    housing: new Array<Cp2020Housing>(),
+    housing: new Array<CpHousing>(),
     food: new Array<Cp2020Food>(),
     services: new Array<Cp2020Services>(),
     identities: new Array<Cp2020Identity>()
@@ -84,7 +84,7 @@ export class Cp2020LifestyleComponent implements OnInit, OnChanges {
     this.update();
   }
 
-  updateHousing(housing: Array<Cp2020Housing>) {
+  updateHousing(housing: Array<CpHousing>) {
     this.currLifeStyle.housing = housing;
     this.update();
   }

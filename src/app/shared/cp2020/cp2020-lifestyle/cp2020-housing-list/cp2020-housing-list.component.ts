@@ -1,8 +1,9 @@
+import { Cp2020Housing } from './../models/cp2020-housing';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Cp2020Services } from '../models/cp2020-services';
 import { faPlus, faTrash, faPen, faSave, faEuroSign } from '@fortawesome/free-solid-svg-icons';
 import { Component, Input, OnInit, Output, EventEmitter, TemplateRef, OnChanges } from '@angular/core';
-import { Cp2020Housing } from '../models';
+import { CpHousing } from '../models';
 
 @Component({
   selector: 'cs-cp2020-housing-list',
@@ -23,10 +24,10 @@ export class Cp2020HousingListComponent implements OnInit, OnChanges {
   };
 
   @Input()
-  housingList: Array<Cp2020Housing> = new Array<Cp2020Housing>();
+  housingList: Array<CpHousing> = new Array<CpHousing>();
 
   @Output()
-  updateHousing: EventEmitter<Array<Cp2020Housing>> = new EventEmitter<Array<Cp2020Housing>>();
+  updateHousing: EventEmitter<Array<CpHousing>> = new EventEmitter<Array<CpHousing>>();
 
   @Output()
   payHousing: EventEmitter<number> = new EventEmitter<number>();
@@ -40,32 +41,13 @@ export class Cp2020HousingListComponent implements OnInit, OnChanges {
     {name:'Cable TV', cost:40, unit:'month', count: 0}
   ];
 
-  selectedHousing: Cp2020Housing = {
-    name: '',
-    count: 1,
-    location: '',
-    cost: 0,
-    quality: '',
-    qualityMod: 1,
-    rooms: 1,
-    utilities: [
-      {name:'Utilities (Elect./Water)', cost:100, unit:'month', count: 0},
-      {name:'Landline', cost:30, unit:'month', count: 0},
-      {name:'Cable TV', cost:40, unit:'month', count: 0}
-    ],
-    desc: '',
-    contents: new Array<string>()
-  };
+  selectedHousing: Cp2020Housing = new Cp2020Housing({utilities: this.utilities});
+
   selectedIndex: number = -1;
   newContent: string = '';
 
   get totalCost(): number {
-    let cost = 0;
-    this.currHousing.forEach( h => {
-      cost += h.cost * h.rooms * h.qualityMod;
-      cost += h.utilities.reduce((a, b) => a +  (b.cost * b.count), 0);
-    });
-    return cost;
+    return this.currHousing.reduce( (a,b) => a + b.totalCost, 0);
   }
 
   get contentColOne(): Array<string> {
@@ -83,11 +65,11 @@ export class Cp2020HousingListComponent implements OnInit, OnChanges {
   constructor(private modalService: BsModalService) { }
 
   ngOnInit(): void {
-    this.currHousing = this.housingList.slice(0);
+    this.currHousing = this.housingList.map(housing => new Cp2020Housing(housing));
   }
 
   ngOnChanges(): void {
-    this.currHousing = this.housingList.slice(0);
+    this.currHousing = this.housingList.map(housing => new Cp2020Housing(housing));
   }
 
   showModal(template: TemplateRef<any>){
@@ -98,26 +80,17 @@ export class Cp2020HousingListComponent implements OnInit, OnChanges {
     this.modalRef.hide();
   }
 
+  refreshSelected() {
+    this.selectedHousing = new Cp2020Housing({utilities: this.utilities});
+    this.selectedIndex = -1;
+  }
+
   add(template: TemplateRef<any>) {
     this.modalTitle = 'New Housing';
-    this.selectedHousing = {
-      name: 'Rental',
-      count: 1,
-      location: 'Night City',
-      cost: 200,
-      quality: '',
-      qualityMod: 1,
-      rooms: 1,
-      utilities: [
-        {name:'Utilities (Elect./Water)', cost:100, unit:'month', count: 1},
-        {name:'Landline', cost:30, unit:'month', count: 0},
-        {name:'Cable TV', cost:40, unit:'month', count: 0}
-      ],
-      desc: '',
-      contents: new Array<string>()
+    this.refreshSelected();
+    if(template) {
+      this.showModal(template);
     }
-    this.selectedIndex = -1;
-    this.showModal(template);
   }
 
   addContent() {
@@ -132,31 +105,34 @@ export class Cp2020HousingListComponent implements OnInit, OnChanges {
     this.modalTitle = 'Edit Housing';
     this.selectedHousing = JSON.parse(JSON.stringify( this.currHousing[index]));
     this.selectedIndex = index;
-    this.showModal(template);
+    if(template){
+      this.showModal(template);
+    }
   }
 
   delete(index: number) {
-    this.currHousing.splice(index, 1);
-    this.update();
+    if (index >= 0) {
+      if (index === this.selectedIndex) {
+        this.refreshSelected();
+      }
+      this.currHousing.splice(index, 1);
+      this.update();
+    }
   }
 
   deleteContent(index: number) {
-    this.selectedHousing.contents.splice(index, 1);
-    this.update();
+    if (index >= 0) {
+      this.selectedHousing.contents.splice(index, 1);
+      this.update();
+    }
   }
 
   update() {
     this.updateHousing.emit(this.currHousing.slice(0));
   }
 
-  toogleUtility(e, index: number) {
+  toggleUtility(e, index: number) {
     this.selectedHousing.utilities[index].count = (this.selectedHousing.utilities[index].count > 0) ? 0 : 1;
-  }
-
-  getCost(housing: Cp2020Housing): number {
-    let cost = housing.rooms * housing.cost * housing.qualityMod;
-    cost += housing.utilities.reduce((a,b)=>a + (b.cost * b.count), 0);
-    return cost;
   }
 
   getUtilitySelected(index: number): boolean {
@@ -164,14 +140,16 @@ export class Cp2020HousingListComponent implements OnInit, OnChanges {
   }
 
   saveHousing() {
-    const housing: Cp2020Housing = JSON.parse(JSON.stringify(this.selectedHousing));
-    if (this.selectedIndex < 0) {
-      this.currHousing.push(housing);
+    const housing: CpHousing = this.selectedHousing as CpHousing;
+    if (this.selectedIndex < 0 || this.selectedIndex > this.currHousing.length - 1) {
+      this.currHousing.push(new Cp2020Housing(housing));
     } else {
-      this.currHousing[this.selectedIndex] = housing;
+      this.currHousing[this.selectedIndex] = new Cp2020Housing(housing);
     }
     this.update();
-    this.modalRef.hide();
+    if(this.modalRef) {
+      this.modalRef.hide();
+    }
   }
 
   pay(amountDue: number) {

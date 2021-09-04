@@ -1,6 +1,6 @@
 import { Cp2020ArmorLayer } from './../../cp2020/cp2020-armor/models/cp2020-armor-layer';
 import { Cp2020Identity } from './../../cp2020/cp2020-lifestyle/models/cp2020-identity';
-import { Cp2020Housing } from './../../cp2020/cp2020-lifestyle/models/cp2020-housing';
+import { CpHousing } from '../../cp2020/cp2020-lifestyle/models/cp-housing';
 import { Cp2020Lifestyle } from './../../cp2020/cp2020-lifestyle/models/cp2020-lifestyle';
 import { Cp2020PlayerCyber } from './../../cp2020/cp2020-cyberware/models/cp2020-player-cyber';
 import { Cp2020ArmorBlock } from './../../cp2020/cp2020-armor/models/cp2020-armor-block';
@@ -976,7 +976,7 @@ export class Cp2020characterToPDF {
     return line;
   }
 
-  private printHousing(doc: jsPDF, housing: Cp2020Housing, left: number, line: number): {line: number, recth: number} {
+  private printHousing(doc: jsPDF, housing: CpHousing, left: number, line: number): {line: number, recth: number} {
     const ht = 6;
     let recth = ht;
     const type = housing.cost === 200 ? 'Apt./Condo' : 'House';
