@@ -79,6 +79,7 @@ export class CyberDataService {
   }
 
   private getfilterOptions(type: string): Array<DataCyberware> {
+    if(type) {
     return this._cyberwareList
     .filter( cyber =>
       cyber.type.toLowerCase() === type.toLowerCase()
@@ -86,6 +87,8 @@ export class CyberDataService {
         || cyber.subtype.toLowerCase() === 'builtin'
       )
     );
+    }
+    return new Array<DataCyberware>();
   }
 
   save() {
@@ -98,14 +101,27 @@ export class CyberDataService {
 
   add(cyberware: DataCyberware) {
     const cyber = new DataCyberware(cyberware);
-    this._cyberwareList.push(cyber);
+    if(this._cyberwareList) {
+      this._cyberwareList.push(cyber);
+    } else {
+      this.CyberwareList.subscribe(data => {
+        this._cyberwareList.push(cyber);
+      });
+    }
   }
 
   delete(name: string, type: string, subtype: string) {
-    const i = this._cyberwareList.findIndex( c => {
-      return (c.name === name && c.type === type && c.subtype === subtype);
-    });
-    this._cyberwareList.splice(i, 1 );
+    if(this._cyberwareList) {
+      const i = this._cyberwareList.findIndex( c => {
+        return (c.name === name && c.type === type && c.subtype === subtype);
+      });
+     this._cyberwareList.splice(i, 1 );
+    } else {
+      this.CyberwareList.subscribe(data => {
+        this.delete(name, type, subtype);
+      });
+
+    }
 
   }
 }

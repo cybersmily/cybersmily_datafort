@@ -65,19 +65,21 @@ export class ProgramNewComponent implements OnInit {
     this.isSaved = true;
   }
 
-  isChecked(optName: string) {
+  isChecked(optName: string): boolean {
     return this.program.options.some( (opt: NrProgramOption) => opt.name === optName);
   }
 
   checkOption(index: number) {
-    const option = this.options[index];
-    if (this.isChecked(option.name)) {
-      const i = this.program.options.findIndex(opt => opt.name === option.name);
-      this.program.description = this.program.description.replace(option.description, ' ');
-      this.program.options.splice(i, 1);
-    } else {
-      this.program.options.push(option);
-      this.program.description = `${this.program.description}${option.description} `;
+    if (index > -1 && index < this.options.length) {
+      const option = this.options[index];
+      if (this.isChecked(option.name)) {
+        const i = this.program.options.findIndex(opt => opt.name === option.name);
+        this.program.description = this.program.description.replace(option.description, ' ');
+        this.program.options.splice(i, 1);
+      } else {
+        this.program.options.push(option);
+        this.program.description = `${this.program.description}${option.description} `;
+      }
     }
   }
 
@@ -85,7 +87,7 @@ export class ProgramNewComponent implements OnInit {
     this.modalRef = this.modalService.show(template, this.modalConfig);
   }
 
-  compare(a: NrProgramOption, b: NrProgramOption) {
+  compare(a: NrProgramOption, b: NrProgramOption): boolean {
     return a  && b ? a.name === b.name : a === b;
   }
 
@@ -104,12 +106,15 @@ export class ProgramNewComponent implements OnInit {
       prog.options.forEach(opt => {
         const index = this.options.findIndex(o => o.name.toLocaleLowerCase() === opt.toLocaleLowerCase());
         if (index > -1) {
-          this.program.options.push(this.options[index]);
+          const option = this.options[index];
+          this.program.options.push({name: option.name, description: option.description, diff: option.diff});
         }
       });
     }
     this.program.bookCost = prog.cost;
     this.program.bookMu = prog.mu;
-    this.modalRef.hide();
+    if (this.modalRef) {
+      this.modalRef.hide();
+    }
   }
 }

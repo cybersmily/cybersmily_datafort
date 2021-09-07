@@ -15,16 +15,16 @@ export class DataCyberware implements BaseCyberware {
   desc?: string; // flavor text of the item.
 
   constructor(param?) {
-    this.type = (param) ? param.type : '';
-    this.subtype = (param) ? param.subtype : '';
-    this.name = (param) ? (param.cyber ? param.cyber : ((param.name) ? param.name : '')) : '';
-    this.notes =  (param) ? param.notes : '';
+    this.type = param?.type ?? '';
+    this.subtype = param?.subtype ?? '';
+    this.name = param?.cyber ?? param?.name ?? '';
+    this.notes =  param?.notes ?? '';
     this.cost = (param) ? ((typeof param.cost === 'string') ? Number(param.cost) : param.cost) : 0;
-    this.hc = (param) ? param.hc : '';
-    this.surgery = (param) ? param.surgery : '';
-    this.abbrev = (param && param.abbrev) ? param.abbrev : '';
-    this.source =  (param) ? param.source : {book: '', page: 0};
-    this.desc = (param) ? param.desc : '';
-    this.numOptions = (param && param.numOptions) ? param.numOptions : 0;
+    this.hc = param?.hc ?? '';
+    this.surgery = param?.surgery ?? '';
+    this.abbrev = param?.abbrev ?? '';
+    this.source =  param?.source ?? {book: '', page: 0};
+    this.desc = param?.desc ?? '';
+    this.numOptions = param?.numOptions ?? 0;
   }
 }
