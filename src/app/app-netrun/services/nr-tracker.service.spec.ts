@@ -1,14 +1,11 @@
 import { DiceRolls } from './../../shared/models/dice-rolls';
 import { NR_TRACE_SUCCESS } from './../models/nr-constants';
 import { NRDataFort } from './../models/nr-data-fort';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { TestBed, inject } from '@angular/core/testing';
 
 import { NrTrackerService } from './nr-tracker.service';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { NRTraceItem } from '../models';
-import { doesNotReject } from 'assert';
-import { exception } from 'console';
 
 describe('NrTrackerService', () => {
   let service: NrTrackerService;
