@@ -32,13 +32,14 @@ export class NightMarketFormComponent implements OnInit {
 
   generate() {
     if (this.charts) {
+      const numOfItems = (this.randomRollNoItems) ? this.numberOfItems : this.diceService.generateNumber(1, 10) ;
       this.itemList = new Array<NightMarketListing>();
-      this.itemList.push(this.rollTable());
-      this.itemList.push(this.rollTable());
+      this.itemList.push(this.rollTable(numOfItems));
+      this.itemList.push(this.rollTable(numOfItems));
     }
   }
 
-  rollTable(): NightMarketListing {
+  rollTable(numberOfItems: number): NightMarketListing {
     const result: NightMarketListing = {category: '', items: new Array<string>()};
     let roll = this.diceService.generateNumber(0, this.charts.length - 1);
     while (this.currChartIndex === roll) {
@@ -47,21 +48,17 @@ export class NightMarketFormComponent implements OnInit {
     const chart = this.charts[roll];
     result.category = chart.name;
     this.currChartIndex = roll;
-
-    const numOfItems = (this.randomRollNoItems) ? this.diceService.generateNumber(1, 10) : this.numberOfItems;
-    let rolls = new Array<number>();
+    const numOfItems = numberOfItems > chart.chart.length ? chart.chart.length : ( numberOfItems < 1 ? 1: numberOfItems);
     let items = chart.chart.slice();
     for (let i = 0; i < numOfItems; i++) {
-      do {
-        roll = this.diceService.generateNumber(0, items.length - 1);
-      } while(rolls.includes(roll));
-      rolls.push(roll);
+      roll = this.diceService.generateNumber(0, items.length - 1);
       const item = items[roll];
       let output = item.name;
       if(item.price) {
         output += ` ${item.price}eb (${CPRedPriceCategoryLookup.priceCategoryLookup(item.price)})`;
       }
       result.items.push(output);
+      items.splice(roll, 1);
     }
 
     result.items.sort((a, b) => {
