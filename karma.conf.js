@@ -9,6 +9,7 @@ module.exports = function (config) {
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
+      require('karma-verbose-reporter'),
       require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
@@ -17,7 +18,7 @@ module.exports = function (config) {
     },
     coverageReporter: {
       dir: require('path').join(__dirname, 'coverage'),
-      reports: [ 'html', 'lcovonly', 'text-summary' ],
+      reports: [ 'html', 'text-summary' ],
       fixWebpackSourcePaths: true,
       watermarks: {
         statements: [ 50, 75 ],
@@ -36,6 +37,11 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
-    singleRun: false
+    flags: ['--no-sandbox', '--disable-gpu'],
+    browserDisconnectTimeout: 10000,
+    browserDisconnectTolerance: 3,
+    browserNoActivityTimeout: 10000,
+    singleRun: false,
+    failOnFailingTestSuite: false
   });
 };
