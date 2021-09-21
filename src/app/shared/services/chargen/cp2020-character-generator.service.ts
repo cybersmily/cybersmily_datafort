@@ -1,3 +1,4 @@
+import { Cp2020IuSkillConverterService } from './../../cp2020/services/cp2020-iu-skill-converter.service';
 import { map } from 'rxjs/operators';
 import { Cp2020PlayerAmmo } from './../../cp2020/cp2020weapons/models/cp-2020-player-ammo';
 import { JsonDataFiles } from './../file-services/json-data-files';
@@ -27,7 +28,7 @@ export class Cp2020CharacterGeneratorService {
 
   private _currCharacter: Cp2020PlayerCharacter;
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService, private skillConverter: Cp2020IuSkillConverterService) {
     if (
       window.localStorage &&
       window.localStorage.getItem(CacheKeys.CP2020_CHAR_GEN)
@@ -193,6 +194,29 @@ export class Cp2020CharacterGeneratorService {
     this.updateCharacter();
   }
 
+  changeIU(value: boolean) {
+    this._currCharacter.isIU = value;
+    const fileName = (value)? JsonDataFiles.IU_SKILLS_DATA_LIST_JSON : JsonDataFiles.CP2020_SKILLS_DATA_LIST_JSON;
+    this.dataService.GetJson(fileName)
+    .subscribe( skillData => {
+      if(value) {
+        this.skillConverter
+      .convertCP2020SkillsToIU(skillData, this._currCharacter.skills)
+      .subscribe( mapped => {
+        this._currCharacter.skills = mapped;
+        this.updateCharacter();
+      });
+      } else {
+        this.skillConverter
+        .convertIUSkillsToCP2020(skillData, this._currCharacter.skills)
+        .subscribe( mapped => {
+          this._currCharacter.skills = mapped;
+          this.updateCharacter();
+        });
+      }
+    });
+  }
+
   /**
    * Get the character object from local storage.
    *
@@ -226,16 +250,19 @@ export class Cp2020CharacterGeneratorService {
     this._character.next(this._currCharacter);
   }
 
-  clearCharacter(): Observable<Cp2020PlayerCharacter> {
+  clearCharacter(isIU?: boolean): Observable<Cp2020PlayerCharacter> {
     window.localStorage.removeItem(CacheKeys.CP2020_CHAR_GEN);
     this._currCharacter = new Cp2020PlayerCharacter();
+    this._currCharacter.isIU = isIU || false;
     this._character.next(this._currCharacter);
+    const fileName: string = this._currCharacter.isIU ? JsonDataFiles.IU_SKILLS_DATA_LIST_JSON : JsonDataFiles.CP2020_SKILLS_DATA_LIST_JSON;
+    const showOther = !(this._currCharacter.isIU ?? false);
     // get the skill data to load to character
     return this.dataService
-    .GetJson(JsonDataFiles.CP2020_SKILLS_DATA_LIST_JSON)
+    .GetJson(fileName)
     .pipe(
     map( (data) => {
-      this._currCharacter.skills = new Cp2020PlayerSkills(data);
+      this._currCharacter.skills = new Cp2020PlayerSkills(data, showOther);
       this._character.next(this._currCharacter);
       return this._currCharacter;
     }));

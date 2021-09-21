@@ -73,8 +73,9 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     );
     this.characterService.character.subscribe((data) => {
       this.character = data;
-      this.charGenSettings.isIU = this.character.isIU;
       this.loadSettings();
+      this.charGenSettings.isIU = this.character.isIU;
+      this.saveSettings();
       this.isNotesCollapsed = this.charGenSettings.isCollapsed;
     });
     this.sourceService
@@ -135,7 +136,9 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   }
 
   resetCharacter() {
-    this.characterService.clearCharacter();
+    this.characterService
+    .clearCharacter(this.charGenSettings.isIU)
+    .subscribe(data => data);
   }
 
   updateNotes() {
@@ -182,9 +185,8 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   }
 
   saveIU() {
-    this.character.isIU = this.charGenSettings.isIU;
-    this.changeCharacter();
-    this.saveSettings;
+    this.characterService.changeIU(this.charGenSettings.isIU);
+    this.saveSettings();
   }
 
   openModal(template: TemplateRef<any>) {

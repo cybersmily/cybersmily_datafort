@@ -24,6 +24,10 @@ export class IUCombatActionsComponent implements OnInit {
     return this.stats.REF.Adjusted + this.combatSense.value + this.initMod;
   }
 
+  get initiativeSkill(): number {
+    return this.skills.find(sk => sk.name.toLowerCase() === 'initiative')?.value || 0;
+  }
+
   constructor() { }
 
   ngOnInit(): void {

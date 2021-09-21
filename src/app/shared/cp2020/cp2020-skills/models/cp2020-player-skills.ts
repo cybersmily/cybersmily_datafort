@@ -23,6 +23,7 @@ export class Cp2020PlayerSkills {
       if(i > -1) {
         const sk = new Cp2020PlayerSkill(skill);
         sk.ipMod = this.skills[i].ipMod;
+        sk.stat = this.skills[i].stat;
         this.skills[i] = sk;
       } else {
         this.skills.push(skill);
@@ -112,14 +113,14 @@ export class Cp2020PlayerSkills {
     let list = new Array<Cp2020PlayerSkill>();
     switch (type.toLowerCase()) {
       case 'p':
-        list = this.REF.filter((s) => s.name.toLowerCase().startsWith('handgun'));
+        list = this.REF.filter((s) => s.name.toLowerCase().startsWith('handgun') || s?.option?.toLowerCase() === 'handgun');
         break;
       case 'smg':
-        list = this.REF.filter((s) => s.name.toLowerCase().startsWith('submachinegun'));
+        list = this.REF.filter((s) => s.name.toLowerCase().startsWith('submachinegun') || s?.option?.toLowerCase() === 'sub machinegun');
         break;
       case 'rif':
       case 'sht':
-        list = this.REF.filter((s) => s.name.toLowerCase().startsWith('rifle'));
+        list = this.REF.filter((s) => s.name.toLowerCase().startsWith('rifle') || s?.option?.toLowerCase() === 'rifle');
         break;
       case 'mel':
         list = this.getPhysicalCombatSkills();
@@ -128,7 +129,7 @@ export class Cp2020PlayerSkills {
         );
         break;
       case 'hvy':
-        list = this.REF.filter((s) => s.name.toLowerCase().startsWith('heavy weapons'));
+        list = this.REF.filter((s) => s.name.toLowerCase().startsWith('heavy weapons') || s?.option?.toLowerCase() === 'heavy weapons');
         break;
       default:
         list = this.getCombatSkills();
@@ -143,8 +144,8 @@ export class Cp2020PlayerSkills {
     return this.REF.filter(
       (s) =>
         s.name.toLowerCase() === 'melee' ||
-        s.name.toLowerCase() === 'brawling' ||
-        s.name.toLowerCase().toLowerCase().startsWith('martial') ||
+        s.name.toLowerCase().startsWith('brawling') ||
+        s.name.toLowerCase().startsWith('martial') ||
         s.name.toLowerCase() === 'fencing'
     );
 
@@ -154,7 +155,7 @@ export class Cp2020PlayerSkills {
     return this.REF.filter(
       (s) =>
         s.name.toLowerCase() === 'melee' ||
-        s.name.toLowerCase() === 'brawling' ||
+        s.name.toLowerCase().startsWith('brawling') ||
         s.name.toLowerCase().startsWith('martial')  ||
         s.name.toLowerCase() === 'fencing' ||
         s.name.toLowerCase() === 'rifle' ||
@@ -162,7 +163,14 @@ export class Cp2020PlayerSkills {
         s.name.toLowerCase() === 'handgun' ||
         s.name.toLowerCase() === 'submachinegun' ||
         s.name.toLowerCase() === 'archery' ||
-        s.name.toLowerCase() === 'heavy weapons'
+        s.name.toLowerCase() === 'heavy weapons' ||
+        s.name.toLowerCase() === 'initiative' ||
+        s?.option?.toLowerCase() === 'archery' ||
+        s?.option?.toLowerCase() === 'rifle' ||
+        s?.option?.toLowerCase() === 'handgun' ||
+        s?.option?.toLowerCase() === 'sub machinegun' ||
+        s?.option?.toLowerCase() === 'archery' ||
+        s?.option?.toLowerCase() === 'heavy weapons'
     );
   }
 
