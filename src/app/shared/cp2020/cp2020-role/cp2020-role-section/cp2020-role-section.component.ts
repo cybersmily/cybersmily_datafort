@@ -35,6 +35,9 @@ export class Cp2020RoleSectionComponent implements OnInit, OnChanges {
   @Output()
   changePrimaryRole = new EventEmitter<Cp2020PlayerRole>();
 
+  @Output()
+  changeSecondaryRoles = new EventEmitter<Array<Cp2020PlayerRole>>();
+
   currentPrimary: Cp2020PlayerRole = new Cp2020PlayerRole();
   currentSecondary: Array<Cp2020PlayerRole> = new Array<Cp2020PlayerRole>();
 
@@ -75,6 +78,16 @@ export class Cp2020RoleSectionComponent implements OnInit, OnChanges {
     this.changePrimaryRole.emit(value);
   }
 
+   /**
+   * When a role is changed in the input, this will emit the change up to the parent component.
+   *
+   * @memberof AppCharacterRoleComponent
+   */
+   onSecondaryChange(value: Cp2020PlayerRole, index: number) {
+     this.currentSecondary[index] = value;
+      this.changeSecondaryRoles.emit(this.currentSecondary);
+    }
+
   /**
    * Randomly roll a role for the PC
    *
@@ -87,7 +100,9 @@ export class Cp2020RoleSectionComponent implements OnInit, OnChanges {
     });
   }
 
-  rollSecondary(index?: number) {
+  addSecondary() {
+    this.currentSecondary.push(new Cp2020PlayerRole());
+    this.changeSecondaryRoles.emit(this.currentSecondary);
   }
 
   openModal(template: TemplateRef<any>) {

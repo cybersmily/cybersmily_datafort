@@ -43,11 +43,13 @@
     <div class="row">
       <div class="col">
         Secondary
+        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-lg" (click)="addSecondary()"></fa-icon>
       </div>
     </div>
-    <div class="row">
+    <div  *ngFor="let role of currentSecondary;let i = index" class="row pb-4">
       <div class="col">
-
+        <cs-cp2020-role-editor [role]="role" [isIU]="isIU" (updateRole)="onSecondaryChange($event, i)">
+        </cs-cp2020-role-editor>
       </div>
     </div>
   </div>
