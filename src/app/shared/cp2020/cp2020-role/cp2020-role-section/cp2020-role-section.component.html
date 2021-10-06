@@ -1,19 +1,27 @@
 <div class="chargen-section row">
-  <div class="col-2">
-    <span class="chargen-label">
-      ROLE
-    </span>
-  </div>
-  <div class="col small">
-    Primary: {{currentPrimary.name}}
-    <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn csd-icon-sm ml-1" (click)="openModal(primaryRoleEditor)"></fa-icon>
-    <fa-icon [icon]="faDice" class="csd-icon-btn csd-btn ml-1" (click)="rollPrimaryRole()"></fa-icon>
-  </div>
-</div>
-<div class="chargen-section row">
-  <div class="col-2"></div>
-  <div class="col small">
-    Secondary: {{secondaryList}}
+  <div class="col">
+    <div class="d-inline-block align-top">
+      <span class="chargen-label">
+        ROLE
+        <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn csd-icon-sm ml-1" (click)="openModal(primaryRoleEditor)">
+        </fa-icon>
+        <fa-icon [icon]="faDice" class="csd-icon-btn csd-btn ml-3" (click)="rollPrimaryRole()"></fa-icon>
+      </span>
+    </div>
+    <div class="d-inline-block pr-2 ml-2">
+      <div class="row">
+        <div class="col">
+          <span class="font-weight-bold">PRIMARY:</span>
+          <span class="ml-1">{{currentPrimary.name}}</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col small">
+          <span class="font-weight-bold">SECONDARY:</span>
+          <span class="ml-1">{{secondaryList}}</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -30,7 +38,8 @@
         Primary
       </div>
     </div>
-    <cs-cp2020-role-editor [role]="currentPrimary" [isIU]="isIU" (updateRole)="onPrimaryChange($event)"></cs-cp2020-role-editor>
+    <cs-cp2020-role-editor [role]="currentPrimary" [isIU]="isIU" (updateRole)="onPrimaryChange($event)">
+    </cs-cp2020-role-editor>
     <div class="row">
       <div class="col">
         Secondary
@@ -43,5 +52,3 @@
     </div>
   </div>
 </ng-template>
-
-
