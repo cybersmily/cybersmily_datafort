@@ -26,28 +26,28 @@
       [stat]="(role.specialAbility.stat !== ''? stats[role.specialAbility.stat] : null)" [skills]="specialAbilities"
       [sa]="true" (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)"
       (deleteSkill)="onDeleteSkill($event)"></cs-cp2020-skill-stat-section>
-    <cs-cp2020-skill-stat-section [title]="'ATTR'" [stat]="stats.ATTR" [skills]="skills.ATTR" [sa]="false"
+    <cs-cp2020-skill-stat-section [title]="'ATTR'" [stat]="stats.ATTR" [skills]="currentSkills.ATTR" [sa]="false"
       (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)">
     </cs-cp2020-skill-stat-section>
-    <cs-cp2020-skill-stat-section [title]="'BODY'" [stat]="stats.BODY" [skills]="skills.BODY" [sa]="false"
+    <cs-cp2020-skill-stat-section [title]="'BODY'" [stat]="stats.BODY" [skills]="currentSkills.BODY" [sa]="false"
       (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)">
     </cs-cp2020-skill-stat-section>
-    <cs-cp2020-skill-stat-section [title]="'COOL/WILL'" [stat]="stats.COOL" [skills]="skills.COOL" [sa]="false"
+    <cs-cp2020-skill-stat-section [title]="'COOL/WILL'" [stat]="stats.COOL" [skills]="currentSkills.COOL" [sa]="false"
       (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)">
     </cs-cp2020-skill-stat-section>
-    <cs-cp2020-skill-stat-section [title]="'EMPATHY'" [stat]="stats.EMP" [skills]="skills.EMP" [sa]="false"
+    <cs-cp2020-skill-stat-section [title]="'EMPATHY'" [stat]="stats.EMP" [skills]="currentSkills.EMP" [sa]="false"
       (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)">
     </cs-cp2020-skill-stat-section>
-    <cs-cp2020-skill-stat-section [title]="'INT'" [stat]="stats.INT" [skills]="skills.INT" [sa]="false"
+    <cs-cp2020-skill-stat-section [title]="'INT'" [stat]="stats.INT" [skills]="currentSkills.INT" [sa]="false"
       (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)">
     </cs-cp2020-skill-stat-section>
-    <cs-cp2020-skill-stat-section [title]="'REF'" [stat]="stats.REF" [skills]="skills.REF" [sa]="false"
+    <cs-cp2020-skill-stat-section [title]="'REF'" [stat]="stats.REF" [skills]="currentSkills.REF" [sa]="false"
       (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)">
     </cs-cp2020-skill-stat-section>
-    <cs-cp2020-skill-stat-section [title]="'TECH'" [stat]="stats.TECH" [skills]="skills.TECH" [sa]="false"
+    <cs-cp2020-skill-stat-section [title]="'TECH'" [stat]="stats.TECH" [skills]="currentSkills.TECH" [sa]="false"
       (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)">
     </cs-cp2020-skill-stat-section>
-    <cs-cp2020-skill-stat-section [title]="'OTHER'" [stat]="undefined" [skills]="skills.Other" [sa]="false"
+    <cs-cp2020-skill-stat-section [title]="'OTHER'" [stat]="undefined" [skills]="currentSkills.Other" [sa]="false"
       (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)">
     </cs-cp2020-skill-stat-section>
   </div>

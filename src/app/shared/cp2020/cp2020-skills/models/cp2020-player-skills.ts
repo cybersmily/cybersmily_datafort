@@ -18,7 +18,7 @@ export class Cp2020PlayerSkills {
     this.ip = 0;
   }
 
-  importSkills(skills: Array<Cp2020PlayerSkill>) {
+  importSkills(skills: Array<Cp2020PlayerSkill>, roleSkills?: any[]) {
     skills.forEach(skill => {
       const i = this.skills.findIndex(s => s.name === skill.name && s.option === skill.option);
       if (i > -1) {
@@ -30,6 +30,9 @@ export class Cp2020PlayerSkills {
         this.skills.push(skill);
       }
     });
+    if(roleSkills) {
+      this.setRoleSkills(roleSkills);
+    }
   }
 
   private initiateSkills(skillList?: Array<DataSkill>, includeOther?: boolean) {

@@ -26,7 +26,7 @@ export class Cp2020SkillListFullComponent implements OnInit, OnChanges {
   stats = new Cp2020StatBlock();
 
   @Input()
-  skills = new Cp2020PlayerSkills();
+  skills:Cp2020PlayerSkills = new Cp2020PlayerSkills();
 
   @Input()
   isCollapsed = false;
@@ -38,10 +38,13 @@ export class Cp2020SkillListFullComponent implements OnInit, OnChanges {
   changeSKills = new EventEmitter<Cp2020PlayerSkills>();
 
   skillTotals = { role: {}, other: {}};
+  currentSkills: Cp2020PlayerSkills = new Cp2020PlayerSkills();
 
   get specialAbilities(): Array<Cp2020PlayerSkill> {
-    const sa = new Array<Cp2020PlayerSkill>(...this.skills.specialAbilites).filter(sk => sk.name.toLowerCase() !== this.role.specialAbility.name.toLowerCase());
+    const sa = new Array<Cp2020PlayerSkill>(...this.currentSkills.specialAbilites)
+    .filter(sk => sk.name.toLowerCase() !== this.role.specialAbility.name.toLowerCase());
     if(this.role.specialAbility && this.role.specialAbility.name !== '') {
+      this.role.specialAbility.isRoleSkill = true;
       sa.unshift(this.role.specialAbility);
     }
     return sa;
@@ -50,9 +53,11 @@ export class Cp2020SkillListFullComponent implements OnInit, OnChanges {
   constructor() {}
 
   ngOnInit() {
+    this.currentSkills.importSkills(this.skills.skills, this.role.skills);
   }
 
   ngOnChanges() {
+    this.currentSkills.importSkills(this.skills.skills, this.role.skills);
   }
 
   onChangeSkill(skill?:Cp2020PlayerSkill) {
@@ -61,10 +66,10 @@ export class Cp2020SkillListFullComponent implements OnInit, OnChanges {
         this.role.specialAbility = new Cp2020PlayerSkill(skill);
         this.changeSpecialAblity.emit(this.role);
       } else {
-        this.skills.editSkill(skill);
+        this.currentSkills.editSkill(skill);
       }
     }
-    this.changeSKills.emit(this.skills);
+    this.changeSKills.emit(this.currentSkills);
   }
 
   onChangeSpecialAbility() {
@@ -72,12 +77,12 @@ export class Cp2020SkillListFullComponent implements OnInit, OnChanges {
   }
 
   onNewSkill(skill: Cp2020PlayerSkill) {
-    this.skills.addSkill(skill);
+    this.currentSkills.addSkill(skill);
     this.onChangeSkill();
   }
 
   onDeleteSkill(skill:Cp2020PlayerSkill) {
-    this.skills.deleteSkill(skill);
+    this.currentSkills.deleteSkill(skill);
     this.onChangeSkill();
   }
 

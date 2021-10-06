@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, TemplateRef, OnChanges } from '@angular/core';
 import { Cp2020Stat, StatModifier } from './../../cp2020-stats/models/cp2020-stat';
 import { FumbleChart } from './../../../models/skill/fumble-chart';
 import { DiceService } from './../../../services/dice/dice.service';
@@ -11,7 +11,7 @@ import { faDice, faTrash, faPen, faPlus } from '@fortawesome/free-solid-svg-icon
   templateUrl: './cp2020-skill.component.html',
   styleUrls: ['./cp2020-skill.component.css']
 })
-export class Cp2020SkillComponent implements OnInit {
+export class Cp2020SkillComponent implements OnInit, OnChanges {
   modalRef: BsModalRef;
   dieRoll = 0;
   totalRoll = 0;
@@ -61,6 +61,8 @@ export class Cp2020SkillComponent implements OnInit {
     this.currSkill = new Cp2020PlayerSkill(this.skill);
     if (this.currSkill.isSecondarySkill) {
     }
+  }
+  ngOnChanges() {
   }
 
   onChangeSkill() {
