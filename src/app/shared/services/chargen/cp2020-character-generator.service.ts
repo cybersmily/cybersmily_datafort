@@ -49,11 +49,15 @@ export class Cp2020CharacterGeneratorService {
       this._currCharacter.role.import(value.role);
     }
     if (value.secondaryRoles) {
+      console.log('changeCharacter', value.secondaryRoles);
+      this._currCharacter.secondaryRoles = new Array<Cp2020PlayerRole>();
+
       value.secondaryRoles.forEach( role => {
         const newRole =  new Cp2020PlayerRole();
         newRole.import(role);
         this._currCharacter.secondaryRoles.push(newRole);
       });
+      console.log('currCharacter', this._currCharacter.secondaryRoles);
     }
     if (value.stats) {
       this._currCharacter.stats.import(value.stats);
@@ -158,6 +162,7 @@ export class Cp2020CharacterGeneratorService {
       }
     });
     this._currCharacter.skills.calculateTotals();
+    console.log('updating secondary roles', this._currCharacter.secondaryRoles);
     this.updateCharacter();
   }
 
@@ -255,6 +260,7 @@ export class Cp2020CharacterGeneratorService {
    * @memberof Cp2020CharacterGeneratorService
    */
   saveToStorage() {
+    console.log('saveToStorage', this._currCharacter.secondaryRoles);
     window.localStorage.setItem(
       CacheKeys.CP2020_CHAR_GEN,
       JSON.stringify(this._currCharacter)

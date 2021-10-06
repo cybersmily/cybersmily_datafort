@@ -97,6 +97,12 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     this.characterService.changeRole(value);
   }
 
+
+  changeSeconaryRole(value: Array<Cp2020PlayerRole>) {
+    this.characterService.changeSecondaryRoles(value);
+  }
+
+
   changeStats(value: Cp2020StatBlock) {
     this.characterService.changeStats(value);
   }
