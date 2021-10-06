@@ -1,12 +1,13 @@
+import { Cp2020IuSkillConverterService } from './../../cp2020/services/cp2020-iu-skill-converter.service';
 import { DiceService } from './../dice/dice.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { DataService } from './../file-services/data.service';
 import { LifePathResults } from './../../cp2020/cp2020-lifepath/models';
 import {
   Cp2020PlayerCharacter,
-  Cp2020PlayerRole,
   Cp2020PlayerGearList
 } from './../../models/cp2020character';
+import { Cp2020PlayerRole } from './../../cp2020/cp2020-role/models';
 import {Cp2020PlayerSkills} from './../../cp2020/cp2020-skills/models';
 import { TestBed, waitForAsync } from '@angular/core/testing';
 
@@ -20,6 +21,7 @@ describe('Cp2020CharacterGeneratorService', () => {
 
   let service: Cp2020CharacterGeneratorService;
   let dataService: DataService;
+  let cp2020IUSkillConverter: Cp2020IuSkillConverterService;
 
   let newCharacter = new Cp2020PlayerCharacter();
   beforeEach(waitForAsync(() => {
@@ -29,7 +31,8 @@ describe('Cp2020CharacterGeneratorService', () => {
         ],
        providers: [
          DataService,
-         DiceService
+         DiceService,
+         Cp2020IuSkillConverterService
       ]
     })
     .compileComponents();
@@ -64,7 +67,8 @@ describe('Cp2020CharacterGeneratorService', () => {
     newCharacter.notes = 'Testing the code.';
     newCharacter.image = 'test-image';
     dataService = TestBed.inject(DataService);
-    service = new Cp2020CharacterGeneratorService(dataService);
+    cp2020IUSkillConverter = new Cp2020IuSkillConverterService(dataService);
+    service = new Cp2020CharacterGeneratorService(dataService, cp2020IUSkillConverter);
   });
 
   it('should be created', () => {

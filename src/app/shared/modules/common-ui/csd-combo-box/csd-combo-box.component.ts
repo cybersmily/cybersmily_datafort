@@ -7,7 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angu
   styleUrls: ['./csd-combo-box.component.css']
 })
 export class CsdComboBoxComponent implements OnInit, OnChanges {
-  @Input() list: string[];
+  @Input() list: string[] = new Array<string>();
 
   @Input()
   inputItem = '';

@@ -22,7 +22,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { CmbtTrckOpponentCardComponent } from './cmbt-trck-opponent-card.component';
 import { CmbtTrckOpponent } from './../../shared/models/cmbt-trck';
 import { OppCyberware } from './../../shared/cp2020/cp2020-cyberware/models';
-import { Cp2020Role } from './../../shared/models/cp2020character';
+import { Cp2020Role } from './../../shared/cp2020/cp2020-role/models';
 import { Cp2020PlayerSkill } from './../../shared/cp2020/cp2020-skills/models';
 
 describe('CmbtTrckOpponentCardComponent', () => {

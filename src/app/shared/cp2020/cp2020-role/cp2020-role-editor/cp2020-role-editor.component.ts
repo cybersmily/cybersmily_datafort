@@ -3,7 +3,6 @@ import { forkJoin } from 'rxjs';
 import { JsonDataFiles } from './../../../services/file-services/json-data-files';
 import { DiceService } from './../../../services/dice/dice.service';
 import { Cp2020RolesDataService } from './../services/cp2020-roles-data.service';
-import { DataService } from './../../../services/file-services/data.service';
 import { Cp2020PlayerRole } from './../models/cp2020-player-role';
 import { Component, Input, OnInit, Output, EventEmitter, OnChanges } from '@angular/core';
 import { Cp2020Role } from '../models';

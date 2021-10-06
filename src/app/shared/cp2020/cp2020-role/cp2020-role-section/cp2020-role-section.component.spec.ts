@@ -1,3 +1,9 @@
+import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { Cp2020RolesDataService } from './../services/cp2020-roles-data.service';
+import { DiceService } from './../../../services/dice/dice.service';
+import { DataService } from './../../../services/file-services/data.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Cp2020RoleSectionComponent } from './cp2020-role-section.component';
@@ -8,7 +14,16 @@ describe('Cp2020RoleSectionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Cp2020RoleSectionComponent ]
+      declarations: [ Cp2020RoleSectionComponent ],
+      imports: [
+        HttpClientTestingModule,
+        CommonUiModule
+      ],
+      providers: [
+        DataService,
+        DiceService,
+        Cp2020RolesDataService
+      ]
     })
     .compileComponents();
   });
