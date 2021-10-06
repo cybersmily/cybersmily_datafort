@@ -1,5 +1,4 @@
-import { Cp2020StatBlock } from './../../shared/cp2020/cp2020-stats/models/cp2020-stat-block';
-import { Cp2020PlayerSkills } from './../../shared/cp2020/cp2020-skills/models/cp2020-player-skills';
+import { Cp2020PlayerRole } from './../../shared/cp2020/cp2020-role/models/cp2020-player-role';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,12 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BetaViewMainComponent implements OnInit {
 
-  skills: Cp2020PlayerSkills = new Cp2020PlayerSkills();
-  stats: Cp2020StatBlock = new Cp2020StatBlock();
+  selectRole: Cp2020PlayerRole = new Cp2020PlayerRole();
+  isIU: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  update($event: Cp2020PlayerRole){
+    this.selectRole = new Cp2020PlayerRole();
+    this.selectRole.import($event);
+    console.log('selectedRole', this.selectRole);
   }
 
 }

@@ -1,10 +1,8 @@
 import { JsonDataFiles } from './../../shared/services/file-services';
 import { SeoService } from './../../shared/services/seo/seo.service';
-import { SourceBookLookup } from './../../shared/models/source-book-lookup';
-import { Cp2020Role } from './../../shared/models/cp2020character/cp2020-role';
+import { Cp2020Role } from './../../shared/cp2020/cp2020-role/models/cp2020-role';
 import { DataService } from './../../shared/services/file-services/data.service';
 import { Component, OnInit } from '@angular/core';
-import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 @Component({
   selector: 'cs-role-list',

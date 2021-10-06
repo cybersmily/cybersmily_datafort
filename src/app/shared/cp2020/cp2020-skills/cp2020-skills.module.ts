@@ -8,6 +8,7 @@ import { Cp2020SkillComponent } from './cp2020-skill/cp2020-skill.component';
 import { Cp2020SkillListFullComponent } from './cp2020-skill-list-full/cp2020-skill-list-full.component';
 import { Cp2020SkillListShortComponent } from './cp2020-skill-list-short/cp2020-skill-list-short.component';
 import { Cp2020SkillNewComponent } from './cp2020-skill-new/cp2020-skill-new.component';
+import { Cp2020RepSectionComponent } from './cp2020-rep-section/cp2020-rep-section.component';
 
 
 
@@ -17,13 +18,15 @@ import { Cp2020SkillNewComponent } from './cp2020-skill-new/cp2020-skill-new.com
     Cp2020SkillListFullComponent,
     Cp2020SkillListShortComponent,
     Cp2020SkillNewComponent,
-    Cp2020SkillStatSectionComponent
+    Cp2020SkillStatSectionComponent,
+    Cp2020RepSectionComponent
   ],
   exports: [
     Cp2020SkillComponent,
     Cp2020SkillListFullComponent,
     Cp2020SkillListShortComponent,
-    Cp2020SkillStatSectionComponent
+    Cp2020SkillStatSectionComponent,
+    Cp2020RepSectionComponent
   ],
   imports: [
     CommonModule,

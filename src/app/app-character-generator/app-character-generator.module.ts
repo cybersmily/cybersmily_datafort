@@ -1,3 +1,4 @@
+import { Cp2020RoleModule } from './../shared/cp2020/cp2020-role/cp2020-role.module';
 import { Cp2020SkillsModule } from './../shared/cp2020/cp2020-skills/cp2020-skills.module';
 import { Cp2020LifestyleModule } from './../shared/cp2020/cp2020-lifestyle/cp2020-lifestyle.module';
 import { Cp2020ArmorModule } from './../shared/cp2020/cp2020-armor/cp2020-armor.module';
@@ -49,6 +50,7 @@ import { AppCharacterInstructionComponent } from './app-character-instruction/ap
     Cp2020ArmorModule,
     Cp2020LifestyleModule,
     Cp2020SkillsModule,
+    Cp2020RoleModule,
     ModalModule.forRoot()
   ],
   providers: [

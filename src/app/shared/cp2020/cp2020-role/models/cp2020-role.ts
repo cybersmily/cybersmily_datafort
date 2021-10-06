@@ -1,4 +1,4 @@
-import { Cp2020Skill } from '../../cp2020/cp2020-skills/models/cp2020-skill';
+import { Cp2020Skill } from './../../cp2020-skills/models/cp2020-skill';
 export class Cp2020Role {
   name: string;
   base: string;

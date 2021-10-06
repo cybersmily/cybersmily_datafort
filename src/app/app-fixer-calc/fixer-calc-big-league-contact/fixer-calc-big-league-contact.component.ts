@@ -1,4 +1,3 @@
-import { Cp2020Role } from './../../shared/models/cp2020character/cp2020-role';
 import { BigLeagueCategories } from './../../shared/models/fixer/big-league-categories';
 import { faPen, faTrash, faSave } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';

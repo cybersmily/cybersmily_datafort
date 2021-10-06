@@ -1,7 +1,7 @@
 import { CpPlayerWeapon } from './../../cp2020weapons/models/cp-player-weapon';
 import { faDice, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerSkill, Cp2020PlayerSkills } from './../models';
-import { Cp2020PlayerRole } from './../../../models/cp2020character/cp2020-player-role';
+import { Cp2020PlayerRole } from '../../cp2020-role/models/cp2020-player-role';
 import { Cp2020StatBlock } from '../../cp2020-stats/models/cp2020-stat-block';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 

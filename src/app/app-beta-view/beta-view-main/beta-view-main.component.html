@@ -6,7 +6,17 @@
   </div>
   <div class="row">
     <div class="col-12">
-      <cs-i-u-combat-actions [skills]="skills.getCombatSkills()" [stats]="stats"></cs-i-u-combat-actions>
+      isIU: <input type="checkbox" [(ngModel)]="isIU">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <cs-cp2020-role-section [primaryRole]="selectRole" [isIU]="isIU"></cs-cp2020-role-section>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <cs-cp2020-role-editor [role]="selectRole" [isIU]="isIU" (updateRole)="update($event)"></cs-cp2020-role-editor>
     </div>
   </div>
 </div>

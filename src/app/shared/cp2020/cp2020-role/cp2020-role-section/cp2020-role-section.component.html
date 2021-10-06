@@ -1,0 +1,47 @@
+<div class="chargen-section row">
+  <div class="col-2">
+    <span class="chargen-label">
+      ROLE
+    </span>
+  </div>
+  <div class="col small">
+    Primary: {{currentPrimary.name}}
+    <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn csd-icon-sm ml-1" (click)="openModal(primaryRoleEditor)"></fa-icon>
+    <fa-icon [icon]="faDice" class="csd-icon-btn csd-btn ml-1" (click)="rollPrimaryRole()"></fa-icon>
+  </div>
+</div>
+<div class="chargen-section row">
+  <div class="col-2"></div>
+  <div class="col small">
+    Secondary: {{secondaryList}}
+  </div>
+</div>
+
+<ng-template #primaryRoleEditor>
+  <div class="modal-header">
+    <h4>ROLES</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col">
+        Primary
+      </div>
+    </div>
+    <cs-cp2020-role-editor [role]="currentPrimary" [isIU]="isIU" (updateRole)="onPrimaryChange($event)"></cs-cp2020-role-editor>
+    <div class="row">
+      <div class="col">
+        Secondary
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+

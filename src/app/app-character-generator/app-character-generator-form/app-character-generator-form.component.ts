@@ -14,7 +14,7 @@ import { Cp2020StatBlock } from '../../shared/cp2020/cp2020-stats/models/cp2020-
 import { Cp2020PlayerCharacter } from './../../shared/models/cp2020character/cp2020-player-character';
 import { Cp2020CharacterGeneratorService } from './../../shared/services/chargen/cp2020-character-generator.service';
 import { Component, OnInit, ViewChild, ElementRef, TemplateRef } from '@angular/core';
-import { Cp2020PlayerRole } from './../../shared/models/cp2020character/cp2020-player-role';
+import { Cp2020PlayerRole } from '../../shared/cp2020/cp2020-role/models/cp2020-player-role';
 import { Cp2020characterToPDF } from './../../shared/models/pdf/cp2020characterToPDF';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Cp2020Lifestyle } from './../../shared/cp2020/cp2020-lifestyle/models';
@@ -94,6 +94,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   }
 
   changeRole(value: Cp2020PlayerRole) {
+    console.log('changeRole', value);
     this.characterService.changeRole(value);
   }
 
@@ -137,8 +138,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
 
   resetCharacter() {
     this.characterService
-    .clearCharacter(this.charGenSettings.isIU)
-    .subscribe(data => data);
+    .clearCharacter(this.charGenSettings.isIU);
   }
 
   updateNotes() {

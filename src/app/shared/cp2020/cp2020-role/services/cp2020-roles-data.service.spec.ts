@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { DataService } from './../file-services';
+import { DataService } from '../../../services/file-services';
 import { TestBed } from '@angular/core/testing';
 
 import { Cp2020RolesDataService } from './cp2020-roles-data.service';

@@ -1,4 +1,4 @@
-import { Cp2020Role } from './../../shared/models/cp2020character';
+import { Cp2020Role } from './../../shared/cp2020/cp2020-role/models';
 import { Cp2020StatBlock } from './../../shared/cp2020/cp2020-stats/models/cp2020-stat-block';
 import { Cp2020ArmorLayer, Cp2020ArmorBlock } from './../../shared/cp2020/cp2020-armor/models';
 import { OppCyberware } from './../../shared/cp2020/cp2020-cyberware/models';
@@ -10,7 +10,7 @@ import { DataSkill } from './../../shared/models/data/data-skill';
 import { Cp2020PlayerSkill } from './../../shared/cp2020/cp2020-skills/models';
 import { SkillListService } from './../../shared/services/data/skill-list.service';
 import { DataService } from './../../shared/services/file-services/data.service';
-import { Cp2020RolesDataService } from './../../shared/services/chargen/cp2020-roles-data.service';
+import { Cp2020RolesDataService } from './../../shared/cp2020/cp2020-role/services/cp2020-roles-data.service';
 import { forkJoin } from 'rxjs';
 import { faDice, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';

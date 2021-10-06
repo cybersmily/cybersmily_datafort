@@ -7,6 +7,7 @@ export class JsonDataFiles {
 
   // DATA lists
   public static CP2020_ROLES_LIST_JSON = `/json/apps/chargen/cp2020rolesext.json`;
+  public static IU_ROLES_LIST_JSON = `/json/apps/chargen/iuroles.json`;
   public static CP2020_WEAPON_DATA_LIST_JSON = `/json/wpns/cp2020weapons.json`;
   public static CP2020_WEAPON_OPTIONS_LIST_JSON = `/json/wpns/cp2020weaponoptions.json`;
   public static CP2020_WEAPON_AMMO_LIST_JSON = `/json/wpns/cp2020weaponammo.json`;

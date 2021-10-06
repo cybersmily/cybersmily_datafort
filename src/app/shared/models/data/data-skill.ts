@@ -1,5 +1,6 @@
 export interface DataSkill {
   name: string;
+  option?: string;
   stat: string;
   ipmod: number;
   source: string;

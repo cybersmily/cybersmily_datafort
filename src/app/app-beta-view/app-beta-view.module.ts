@@ -1,3 +1,4 @@
+import { Cp2020RoleModule } from './../shared/cp2020/cp2020-role/cp2020-role.module';
 import { Cp2020weaponsModule } from './../shared/cp2020/cp2020weapons/cp2020weapons.module';
 import { DataService } from './../shared/services/file-services/data.service';
 import { DiceService } from './../shared/services/dice/dice.service';
@@ -17,7 +18,8 @@ import { BetaViewMainComponent } from './beta-view-main/beta-view-main.component
     Cp2020LifestyleModule,
     Cp2020weaponsModule,
     CommonModule,
-    AppBetaViewRoutingModule
+    AppBetaViewRoutingModule,
+    Cp2020RoleModule
   ],
   providers: [
     DiceService,

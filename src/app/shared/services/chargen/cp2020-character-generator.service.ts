@@ -11,7 +11,7 @@ import { CpPlayerWeaponList, CpPlayerWeapon } from '../../cp2020/cp2020weapons/m
 import { Cp2020ArmorBlock } from './../../cp2020/cp2020-armor/models';
 import { Cp2020StatBlock } from '../../cp2020/cp2020-stats/models/cp2020-stat-block';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Cp2020PlayerRole} from './../../models/cp2020character/cp2020-player-role';
+import { Cp2020PlayerRole} from '../../cp2020/cp2020-role/models/cp2020-player-role';
 import { Cp2020PlayerCharacter } from '../../models/cp2020character';
 import { Injectable } from '@angular/core';
 import { Cp2020PlayerCyber, Cp2020PlayerCyberList } from '../../cp2020/cp2020-cyberware/models';
@@ -47,6 +47,13 @@ export class Cp2020CharacterGeneratorService {
     this._currCharacter.handle = value.handle ? value.handle : '';
     if (value.role) {
       this._currCharacter.role.import(value.role);
+    }
+    if (value.secondaryRoles) {
+      value.secondaryRoles.forEach( role => {
+        const newRole =  new Cp2020PlayerRole();
+        newRole.import(role);
+        this._currCharacter.secondaryRoles.push(newRole);
+      });
     }
     if (value.stats) {
       this._currCharacter.stats.import(value.stats);
@@ -131,10 +138,27 @@ export class Cp2020CharacterGeneratorService {
   changeRole(value: Cp2020PlayerRole) {
     this._currCharacter.role = value;
     // set the role skills
-    this._currCharacter.skills.setRoleSkills(value.skills);
-    if (value.secondary) {
-      this._currCharacter.skills.setSecondarySkills(value.secondary);
+    if (!this._currCharacter.isIU) {
+      this._currCharacter.skills.setRoleSkills(value.skills);
+      if (value.secondary) {
+        this._currCharacter.skills.setSecondarySkills(value.secondary);
+      }
     }
+    this._currCharacter.skills.calculateTotals();
+    this.updateCharacter();
+  }
+
+  changeSecondaryRoles(value: Array<Cp2020PlayerRole>) {
+    value.forEach( role => {
+      this._currCharacter.secondaryRoles = value;
+      // set the role skills
+      if (!this._currCharacter.isIU) {
+        this._currCharacter.skills.setRoleSkills(role.skills);
+        if (role.secondary) {
+          this._currCharacter.skills.setSecondarySkills(role.secondary);
+        }
+      }
+    });
     this._currCharacter.skills.calculateTotals();
     this.updateCharacter();
   }
@@ -250,7 +274,7 @@ export class Cp2020CharacterGeneratorService {
     this._character.next(this._currCharacter);
   }
 
-  clearCharacter(isIU?: boolean): Observable<Cp2020PlayerCharacter> {
+  clearCharacter(isIU?: boolean) {
     window.localStorage.removeItem(CacheKeys.CP2020_CHAR_GEN);
     this._currCharacter = new Cp2020PlayerCharacter();
     this._currCharacter.isIU = isIU || false;
@@ -258,14 +282,12 @@ export class Cp2020CharacterGeneratorService {
     const fileName: string = this._currCharacter.isIU ? JsonDataFiles.IU_SKILLS_DATA_LIST_JSON : JsonDataFiles.CP2020_SKILLS_DATA_LIST_JSON;
     const showOther = !(this._currCharacter.isIU ?? false);
     // get the skill data to load to character
-    return this.dataService
+    this.dataService
     .GetJson(fileName)
-    .pipe(
-    map( (data) => {
+    .subscribe( (data) => {
       this._currCharacter.skills = new Cp2020PlayerSkills(data, showOther);
       this._character.next(this._currCharacter);
       return this._currCharacter;
-    }));
-
+    });
   }
 }

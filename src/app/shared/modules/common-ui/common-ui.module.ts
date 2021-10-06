@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
@@ -10,12 +11,16 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { NgModule } from '@angular/core';
+import { CsdComboBoxComponent } from './csd-combo-box/csd-combo-box.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    CsdComboBoxComponent
+  ],
   imports: [
+    CommonModule,
     FormsModule,
     AccordionModule.forRoot(),
     BsDropdownModule,
@@ -39,7 +44,8 @@ import { NgModule } from '@angular/core';
     TabsModule,
     TooltipModule,
     TypeaheadModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    CsdComboBoxComponent
   ],
   providers: [
     BsModalService,

@@ -221,7 +221,7 @@ export class Cp2020PlayerSkills {
           j--;
         }
       } else {
-        const found = skillArray.findIndex( s => s.name.toLowerCase() === rSkills[index].toLowerCase());
+        const found = skillArray.findIndex( s => s.name?.toLowerCase() === rSkills[index]?.toLowerCase());
         if (found > -1) {
           skillArray[found].isRoleSkill = true;
           skillArray[found].isSecondarySkill = isSecondary;
@@ -246,7 +246,7 @@ export class Cp2020PlayerSkills {
           if (sk.indexOf('Expert') > -1 ) {
             this.addExpert( sk);
           } else {
-            const found = this.Other.findIndex( skill => skill.option.toLowerCase() === sk.toLowerCase());
+            const found = this.Other.findIndex( skill => skill.option?.toLowerCase() === sk?.toLowerCase());
             if (found < 0) {
               const i = this.Other.findIndex( skill => skill.option === '');
               this.Other[i].option = sk;
@@ -256,14 +256,16 @@ export class Cp2020PlayerSkills {
           }
         });
       } else {
-        if (roleSkills[index].indexOf('Expert') > -1 ) {
+        if (roleSkills[index]?.indexOf('Expert') > -1 ) {
           this.addExpert( roleSkills[index]);
         } else {
-          const found = this.Other.findIndex( sk => sk.option.toLowerCase() === roleSkills[index].toLowerCase());
+          const found = this.Other.findIndex( sk => sk.option?.toLowerCase() === roleSkills[index]?.toLowerCase());
           if (found < 0) {
             const i = this.Other.findIndex( sk => sk.option === '');
-            this.Other[i].option = roleSkills[index];
-            this.Other[i].isRoleSkill = true;
+            if ( i > -1) {
+              this.Other[i].option = roleSkills[index];
+              this.Other[i].isRoleSkill = true;
+            }
           }
         }
       }

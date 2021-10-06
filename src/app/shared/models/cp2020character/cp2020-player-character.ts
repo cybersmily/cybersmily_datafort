@@ -5,12 +5,13 @@ import { CpPlayerWeaponList } from './../../cp2020/cp2020weapons/models';
 import { Cp2020PlayerGearList } from './cp2020-player-gear-list';
 import { Cp2020ArmorBlock } from './../../cp2020/cp2020-armor/models';
 import { Cp2020StatBlock } from '../../cp2020/cp2020-stats/models/cp2020-stat-block';
-import { Cp2020PlayerRole } from './cp2020-player-role';
+import { Cp2020PlayerRole } from '../../cp2020/cp2020-role/models/cp2020-player-role';
 import { Cp2020Lifestyle, Cp2020Credchip, CpHousing, Cp2020Services, Cp2020Food, Cp2020Identity } from '../../cp2020/cp2020-lifestyle/models';
 
 export class Cp2020PlayerCharacter {
   handle: string;
   role: Cp2020PlayerRole;
+  secondaryRoles: Array<Cp2020PlayerRole>;
   stats: Cp2020StatBlock;
   armor: Cp2020ArmorBlock;
   cyberware: Cp2020PlayerCyberList;
@@ -26,6 +27,7 @@ export class Cp2020PlayerCharacter {
   constructor() {
     this.handle = '';
     this.role = new Cp2020PlayerRole();
+    this.secondaryRoles = new Array<Cp2020PlayerRole>();
     this.stats = new Cp2020StatBlock();
     this.armor = new Cp2020ArmorBlock();
     this.cyberware = new Cp2020PlayerCyberList(4);

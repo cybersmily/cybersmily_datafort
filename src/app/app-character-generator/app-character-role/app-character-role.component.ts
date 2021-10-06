@@ -3,8 +3,8 @@ import { DiceRolls } from './../../shared/models/dice-rolls';
 import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { SourceBookLookup } from './../../shared/models/source-book-lookup';
-import { Cp2020RolesDataService } from './../../shared/services/chargen/cp2020-roles-data.service';
-import { Cp2020PlayerRole, Cp2020Role } from './../../shared/models/cp2020character';
+import { Cp2020RolesDataService } from './../../shared/cp2020/cp2020-role/services/cp2020-roles-data.service';
+import { Cp2020PlayerRole, Cp2020Role } from './../../shared/cp2020/cp2020-role/models';
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, TemplateRef } from '@angular/core';
 
 
