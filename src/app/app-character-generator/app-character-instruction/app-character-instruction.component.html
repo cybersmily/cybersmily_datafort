@@ -3,6 +3,9 @@
   Here you will be able to create, save, load, and print character sheets.
   There is still a bit of work to be done, but this should help with starting out with the basics.
 </div>
+<div>
+  This also allows the ability to create Interlock Unlimited characters as well. Go into the settings to change it.
+</div>
 <br>
 <div>
   <h5>MENU</h5>
@@ -31,24 +34,31 @@
 <br>
 <div style="text-indent: -10px;margin: 10px;">
   <h5>CHARACTER STATS</h5>
-  This section contains the Handle, Role, Character Points, Stats, Armor, Saves and Wounds.
+  <p>This section contains the Handle, Role, Character Points, Stats, Armor, Saves and Wounds.</p>
   <h6>HANDLE</h6>
-  Enter a name or have one randomly generated.
+  <p>Enter a name or have one randomly generated.</p>
   <h6>ROLE</h6>
-  This contains all of the published roles within Cyberpunk 2020. You can select one or randomly roll one. Once chosen,
+  <p>This contains all of the published roles within Cyberpunk 2020. You can select one or randomly roll one. Once chosen,
   the speical ability for that role will appear in the skill section as well as all role skills being highlighted and
-  have * prepended. Those role skills in which you need to choose between a few options will have @ infront of them.
+  have * prepended. Those role skills in which you need to choose between a few options will have @ infront of them.</p>
+  <p>The primary role can be randomly rolled by clicking <fa-icon class="csd-icon-btn" [icon]="faDice"></fa-icon>.
+    This will randomly generate and set the primary role</p>
+  <p>Setting the Primary and Secondary roles can be added through the editor by clicking on the <fa-icon class="csd-icon-btn" [icon]="faPen"></fa-icon>.
+    This will open a popup to change the skills associated with the role. You will also need to set the skills with options as well.
+  </p>
   <h6>CHARACTER POINTS</h6>
-  This box has the total number of character points for stats. If the stat total is different, a number will appear next
+  <p>This box has the total number of character points for stats. If the stat total is different, a number will appear next
   to this box showing the different (black under, red over). You can also generate the Character Points by clicking
   <fa-icon class="csd-icon-btn" [icon]="faDice"></fa-icon> icon which will also display the dice numbers to the right.
+    </p>
   <h6>STATS</h6>
-  This is all the various stats and secondary stats. Rolling here will take the value from the CHARACTER POINTS and
+  <p>This is all the various stats and secondary stats. Rolling here will take the value from the CHARACTER POINTS and
   distribute them points randomly to each of the stats. Clicking on the stat will allow you to modify the base value and
   add modifiers (say from cyberware) to the stat. The stat have a format of #/#. The number on the left is for the base
   stat. Number on the right is the modified. Wounds will also apply modifiers as well. This will mark the stat in red.
+</p>
   <h6>INITIATIVE</h6>
-  This box is for rolling initiative. Again you can add modifiers to the value to roll it.
+  <p>This box is for rolling initiative. Again you can add modifiers to the value to roll it.</p>
   <h6>ARMOR</h6>
   This section displays the SP values of armor for the character. Click on <fa-icon class="csd-icon-btn"
     [icon]="faShieldAlt"></fa-icon> icon to add/edit/remove armor layers.
