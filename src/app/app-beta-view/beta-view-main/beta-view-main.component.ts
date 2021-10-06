@@ -19,7 +19,6 @@ export class BetaViewMainComponent implements OnInit {
   update($event: Cp2020PlayerRole){
     this.selectRole = new Cp2020PlayerRole();
     this.selectRole.import($event);
-    console.log('selectedRole', this.selectRole);
   }
 
 }
