@@ -43,7 +43,7 @@ export class Cp2020RoleSectionComponent implements OnInit, OnChanges {
 
 
   get secondaryList(): string {
-    return this.secondaryRoles.map( r => r.name).join(', ');
+    return this.currentSecondary.map( r => r.name).join(', ');
   }
 
  constructor(private modalService: BsModalService, private rolesService: Cp2020RolesDataService, private diceService: DiceService) {
