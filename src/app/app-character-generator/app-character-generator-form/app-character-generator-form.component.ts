@@ -94,7 +94,6 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   }
 
   changeRole(value: Cp2020PlayerRole) {
-    console.log('changeRole', value);
     this.characterService.changeRole(value);
   }
 

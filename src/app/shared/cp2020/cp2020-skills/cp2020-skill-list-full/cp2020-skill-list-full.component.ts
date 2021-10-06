@@ -3,14 +3,14 @@ import { faDice, faChevronDown, faChevronRight } from '@fortawesome/free-solid-s
 import { Cp2020PlayerSkill, Cp2020PlayerSkills } from './../models';
 import { Cp2020PlayerRole } from '../../cp2020-role/models/cp2020-player-role';
 import { Cp2020StatBlock } from '../../cp2020-stats/models/cp2020-stat-block';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'cs-cp2020-skill-list-full',
   templateUrl: './cp2020-skill-list-full.component.html',
   styleUrls: ['./cp2020-skill-list-full.component.css']
 })
-export class Cp2020SkillListFullComponent implements OnInit {
+export class Cp2020SkillListFullComponent implements OnInit, OnChanges {
   faDice = faDice;
   faChevronDown = faChevronDown;
   faChevronRight = faChevronRight;
@@ -50,6 +50,9 @@ export class Cp2020SkillListFullComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
+  }
+
+  ngOnChanges() {
   }
 
   onChangeSkill(skill?:Cp2020PlayerSkill) {
