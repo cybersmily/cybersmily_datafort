@@ -49,15 +49,12 @@ export class Cp2020CharacterGeneratorService {
       this._currCharacter.role.import(value.role);
     }
     if (value.secondaryRoles) {
-      console.log('changeCharacter', value.secondaryRoles);
       this._currCharacter.secondaryRoles = new Array<Cp2020PlayerRole>();
-
       value.secondaryRoles.forEach( role => {
         const newRole =  new Cp2020PlayerRole();
         newRole.import(role);
         this._currCharacter.secondaryRoles.push(newRole);
       });
-      console.log('currCharacter', this._currCharacter.secondaryRoles);
     }
     if (value.stats) {
       this._currCharacter.stats.import(value.stats);
@@ -119,7 +116,19 @@ export class Cp2020CharacterGeneratorService {
         combo = combo.concat(value.skills.Other);
         this._currCharacter.skills.skills = combo;
       }
-      this._currCharacter.skills.setRoleSkills(this._currCharacter.role.skills);
+      // set the role skills
+      let roleSkills = [...this._currCharacter.role.skills];
+      this._currCharacter.secondaryRoles.forEach( role => {
+        roleSkills = roleSkills.concat(role.skills);
+      });
+      this._currCharacter.skills.setRoleSkills(roleSkills);
+      // add/update special abilities
+      let spclAbilities = [this._currCharacter.role.specialAbility];
+      spclAbilities= spclAbilities.concat(this._currCharacter.secondaryRoles.map(role => role.specialAbility));
+      spclAbilities.forEach( sa => {
+        this._currCharacter.skills.addSpecialAbility(sa);
+      });
+
       this._currCharacter.skills.calculateTotals();
       this._currCharacter.skills.ip = value.skills.ip;
       this._currCharacter.skills.rep = value.skills.rep;
@@ -142,7 +151,11 @@ export class Cp2020CharacterGeneratorService {
   changeRole(value: Cp2020PlayerRole) {
     this._currCharacter.role = value;
     // set the role skills
-    this._currCharacter.skills.setRoleSkills(value.skills);
+    let roleSkills = [...this._currCharacter.role.skills];
+      this._currCharacter.secondaryRoles.forEach( role => {
+        roleSkills = [...new Set([...roleSkills, ...role.skills])];
+      });
+    this._currCharacter.skills.setRoleSkills(roleSkills);
     if (value.secondary) {
       this._currCharacter.skills.setSecondarySkills(value.secondary);
     }
@@ -151,16 +164,12 @@ export class Cp2020CharacterGeneratorService {
   }
 
   changeSecondaryRoles(value: Array<Cp2020PlayerRole>) {
-    value.forEach( role => {
-      this._currCharacter.secondaryRoles = value;
-      // set the role skills
-      if (!this._currCharacter.isIU) {
-        this._currCharacter.skills.setRoleSkills(role.skills);
-        if (role.secondary) {
-          this._currCharacter.skills.setSecondarySkills(role.secondary);
-        }
-      }
-    });
+    this._currCharacter.secondaryRoles = value;
+    let roleSkills = [...this._currCharacter.role.skills];
+      this._currCharacter.secondaryRoles.forEach( role => {
+        roleSkills = [...new Set([...roleSkills, ...role.skills])];
+        this._currCharacter.skills.setSecondarySkills(role.secondary);
+      });
     this._currCharacter.skills.calculateTotals();
     console.log('updating secondary roles', this._currCharacter.secondaryRoles);
     this.updateCharacter();

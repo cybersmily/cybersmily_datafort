@@ -29,10 +29,7 @@ export class Cp2020SkillNewComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.currSkill = JSON.parse(JSON.stringify(this.skill));
-    if(this.stat) {
-      this.currSkill.stat = this.stat;
-    }
+    this.currSkill =  new Cp2020PlayerSkill(this.skill);
   }
 
   update(){

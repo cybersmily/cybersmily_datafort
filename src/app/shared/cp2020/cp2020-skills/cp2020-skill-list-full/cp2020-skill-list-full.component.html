@@ -15,15 +15,13 @@
     <div class="row">
       <div class="col-12">
         <span class="chargen-skills-instructions">
-          [ROLE:&nbsp;{{skills.RoleTotal +
-          role.specialAbility.value}}]&nbsp;&nbsp;[SECONDARY:&nbsp;{{skills.OtherTotal}}]&nbsp;&nbsp;&nbsp;&nbsp;
+          [ROLE:&nbsp;{{skills.RoleTotal}}]&nbsp;&nbsp;[SECONDARY:&nbsp;{{skills.OtherTotal}}]&nbsp;&nbsp;&nbsp;&nbsp;
           (#) is the combined stat + skill. [#] is the skill level. Checkbox is if chipped. Role skills are highlighted
           with *, @ is choose one as role, ! is for secondary skill.</span>
       </div>
     </div>
 
-    <cs-cp2020-skill-stat-section [title]="'SPECIAL ABILITIES'"
-      [stat]="(role.specialAbility.stat !== ''? stats[role.specialAbility.stat] : null)" [skills]="specialAbilities"
+    <cs-cp2020-skill-stat-section [title]="'SPECIAL ABILITIES'" [skills]="currentSkills.specialAbilites"
       [sa]="true" (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)"
       (deleteSkill)="onDeleteSkill($event)"></cs-cp2020-skill-stat-section>
     <cs-cp2020-skill-stat-section [title]="'ATTR'" [stat]="stats.ATTR" [skills]="currentSkills.ATTR" [sa]="false"

@@ -51,6 +51,10 @@ export class Cp2020SkillStatSectionComponent implements OnInit, OnChanges {
     return Math.ceil(this.currSkills.length * ((this.currSkills.length%3 === 0) ? 0.33 : 0.34));
   }
 
+  get statName(): string {
+    return this.skills.length > 0 && this.skills[0].stat ? this.skills[0].stat.toLowerCase() : '';
+  }
+
   constructor(private modalService: BsModalService) { }
 
   ngOnInit(): void {

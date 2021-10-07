@@ -1,4 +1,3 @@
-import { Subscriber } from 'rxjs';
 import { DataSkill } from './../../../models/data/data-skill';
 import { Cp2020PlayerSkill } from './cp2020-player-skill';
 export class Cp2020PlayerSkills {
@@ -18,7 +17,8 @@ export class Cp2020PlayerSkills {
     this.ip = 0;
   }
 
-  importSkills(skills: Array<Cp2020PlayerSkill>, roleSkills?: any[]) {
+
+  importSkills(skills: Array<Cp2020PlayerSkill>, roleSkills?: any[], specialAbilites?: Array<Cp2020PlayerSkill>) {
     skills.forEach(skill => {
       const i = this.skills.findIndex(s => s.name === skill.name && s.option === skill.option);
       if (i > -1) {
@@ -32,6 +32,9 @@ export class Cp2020PlayerSkills {
     });
     if(roleSkills) {
       this.setRoleSkills(roleSkills);
+    }
+    if(specialAbilites) {
+
     }
   }
 
@@ -59,31 +62,31 @@ export class Cp2020PlayerSkills {
   }
 
   get ATTR(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter(sk => sk.stat.toLowerCase() === 'attr' && !sk.isSA);
+    return this.skills.filter(sk => sk.stat && sk.stat.toLowerCase() === 'attr' && !sk.isSA);
   }
 
   get BODY(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter(sk => sk.stat.toLowerCase() === 'body' && !sk.isSA);
+    return this.skills.filter(sk => sk.stat && sk.stat.toLowerCase() === 'body' && !sk.isSA);
   }
 
   get COOL(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter((sk) => sk.stat.toLowerCase() === 'cool' && !sk.isSA);
+    return this.skills.filter((sk) => sk.stat && sk.stat.toLowerCase() === 'cool' && !sk.isSA);
   }
 
   get EMP(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter((sk) => sk.stat.toLowerCase() === 'emp' && !sk.isSA);
+    return this.skills.filter((sk) => sk.stat && sk.stat.toLowerCase() === 'emp' && !sk.isSA);
   }
 
   get INT(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter((sk) => sk.stat.toLowerCase() === 'int' && !sk.isSA);
+    return this.skills.filter((sk) => sk.stat && sk.stat.toLowerCase() === 'int' && !sk.isSA);
   }
 
   get REF(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter(sk => sk.stat.toLowerCase() === 'ref' && !sk.isSA);
+    return this.skills.filter(sk => sk.stat && sk.stat.toLowerCase() === 'ref' && !sk.isSA);
   }
 
   get TECH(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter((sk) => sk.stat.toLowerCase() === 'tech' && !sk.isSA);
+    return this.skills.filter((sk) => sk.stat && sk.stat.toLowerCase() === 'tech' && !sk.isSA);
   }
 
   get Other(): Array<Cp2020PlayerSkill> {
@@ -179,6 +182,12 @@ export class Cp2020PlayerSkills {
   }
 
   setRoleSkills(roleSkills: any[]) {
+    console.log('setRoleSkills', roleSkills);
+    this.skills = this.skills.map( sk => {
+      sk.isRoleSkill = false;
+      sk.roleChoice = false;
+      return sk;
+    });
     // set the isRoleSkill flag
     let skills = this.processRoleSkillArray(this.COOL, roleSkills);
     skills = this.processRoleSkillArray(this.EMP, skills);
@@ -204,9 +213,8 @@ export class Cp2020PlayerSkills {
   }
 
   private processRoleSkillArray(skillArray: Array<Cp2020PlayerSkill>, roleSkills: any[], isSecondary?: boolean) {
-    // clean the flags
-    if (!isSecondary) {
-      skillArray.map(skill => { skill.isRoleSkill = false; skill.roleChoice = false; });
+    if (!Array.isArray(roleSkills)) {
+      return;
     }
     // find if a role skill
     let rSkills = roleSkills.slice();
@@ -251,7 +259,7 @@ export class Cp2020PlayerSkills {
   addToOthers(roleSkills: any[]) {
     // reset all the skills.
     this.Other.map(skill => { skill.isRoleSkill = false; skill.roleChoice = false; });
-    let index = roleSkills.length - 1;
+    let index = roleSkills ? roleSkills.length - 1 : -1 ;
     // loop through the role array of skills.
     while (index >= 0) {
       // check if the role skill is an array of choices
@@ -291,6 +299,19 @@ export class Cp2020PlayerSkills {
   addSkill(skill: Cp2020PlayerSkill) {
     this.skills.push(skill);
   }
+
+  addSpecialAbility(skill: Cp2020PlayerSkill) {
+    console.log('addSpecialAbility', skill);
+    skill.isSA = true;
+    const found = this.skills.findIndex( sk => sk.name.toLowerCase() === skill.name.toLowerCase());
+    if(found > -1 && this.skills[found].value > skill.value) {
+      console.log('found', found, this.skills[found]);
+      this.skills[found] = new Cp2020PlayerSkill(skill);
+    } else {
+      this.skills.push(skill);
+    }
+  }
+
   deleteSkill(skill: Cp2020PlayerSkill) {
     const index = this.skills.findIndex(sk => {
       if (skill.option) {
