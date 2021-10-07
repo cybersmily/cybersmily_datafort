@@ -182,7 +182,6 @@ export class Cp2020PlayerSkills {
   }
 
   setRoleSkills(roleSkills: any[]) {
-    console.log('setRoleSkills', roleSkills);
     this.skills = this.skills.map( sk => {
       sk.isRoleSkill = false;
       sk.roleChoice = false;
@@ -301,7 +300,7 @@ export class Cp2020PlayerSkills {
   }
 
   addSpecialAbility(skill: Cp2020PlayerSkill) {
-    console.log('addSpecialAbility', skill);
+    if (skill && skill.name !== '') {
     skill.isSA = true;
     const found = this.skills.findIndex( sk => sk.name.toLowerCase() === skill.name.toLowerCase());
     if(found > -1 && this.skills[found].value > skill.value) {
@@ -310,6 +309,7 @@ export class Cp2020PlayerSkills {
     } else {
       this.skills.push(skill);
     }
+  }
   }
 
   deleteSkill(skill: Cp2020PlayerSkill) {

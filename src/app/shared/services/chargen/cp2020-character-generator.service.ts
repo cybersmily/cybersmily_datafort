@@ -10,7 +10,7 @@ import { Cp2020PlayerGearList } from './../../models/cp2020character/cp2020-play
 import { CpPlayerWeaponList, CpPlayerWeapon } from '../../cp2020/cp2020weapons/models';
 import { Cp2020ArmorBlock } from './../../cp2020/cp2020-armor/models';
 import { Cp2020StatBlock } from '../../cp2020/cp2020-stats/models/cp2020-stat-block';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { Cp2020PlayerRole} from '../../cp2020/cp2020-role/models/cp2020-player-role';
 import { Cp2020PlayerCharacter } from '../../models/cp2020character';
 import { Injectable } from '@angular/core';
@@ -29,17 +29,7 @@ export class Cp2020CharacterGeneratorService {
   private _currCharacter: Cp2020PlayerCharacter;
 
   constructor(private dataService: DataService, private skillConverter: Cp2020IuSkillConverterService) {
-    if (
-      window.localStorage &&
-      window.localStorage.getItem(CacheKeys.CP2020_CHAR_GEN)
-    ) {
-      const character = JSON.parse(
-        window.localStorage.getItem(CacheKeys.CP2020_CHAR_GEN)
-      );
-      this.changeCharacter(character);
-    } else {
-      this.clearCharacter();
-    }
+    this.loadFromStorage();
   }
 
   changeCharacter(value: any) {
@@ -139,8 +129,8 @@ export class Cp2020CharacterGeneratorService {
     }
 
     this._currCharacter.isIU = value.isIU;
-
-    this.updateCharacter();
+    this.saveToStorage();
+    this._character.next(this._currCharacter);
   }
 
   changeHandle(value: string) {
@@ -171,7 +161,6 @@ export class Cp2020CharacterGeneratorService {
         this._currCharacter.skills.setSecondarySkills(role.secondary);
       });
     this._currCharacter.skills.calculateTotals();
-    console.log('updating secondary roles', this._currCharacter.secondaryRoles);
     this.updateCharacter();
   }
 
@@ -259,8 +248,18 @@ export class Cp2020CharacterGeneratorService {
    * @returns {string}
    * @memberof Cp2020CharacterGeneratorService
    */
-  getFromStorage(): string {
-    return window.localStorage.getItem(CacheKeys.CP2020_CHAR_GEN);
+  loadFromStorage() {
+    if (
+      window.localStorage &&
+      window.localStorage.getItem(CacheKeys.CP2020_CHAR_GEN)
+    ) {
+      const character = JSON.parse(
+        window.localStorage.getItem(CacheKeys.CP2020_CHAR_GEN)
+      );
+      this.changeCharacter(character);
+    } else {
+      this.clearCharacter();
+    }
   }
 
   /**
@@ -269,7 +268,6 @@ export class Cp2020CharacterGeneratorService {
    * @memberof Cp2020CharacterGeneratorService
    */
   saveToStorage() {
-    console.log('saveToStorage', this._currCharacter.secondaryRoles);
     window.localStorage.setItem(
       CacheKeys.CP2020_CHAR_GEN,
       JSON.stringify(this._currCharacter)
@@ -283,8 +281,7 @@ export class Cp2020CharacterGeneratorService {
    * @memberof Cp2020CharacterGeneratorService
    */
   updateCharacter() {
-    this.saveToStorage();
-    this._character.next(this._currCharacter);
+    this.changeCharacter(this._currCharacter);
   }
 
   clearCharacter(isIU?: boolean) {
