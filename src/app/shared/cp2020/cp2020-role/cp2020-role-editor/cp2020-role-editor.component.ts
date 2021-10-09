@@ -39,6 +39,7 @@ export class Cp2020RoleEditorComponent implements OnInit, OnChanges {
   roleData: Array<Cp2020Role> = new Array<Cp2020Role>();
 
   roleList: Array<string> = new Array<string>();
+  selectedRole: Cp2020Role = new Cp2020Role();
   roleSkills: Array<any> = new Array<any>();
   cp2020NumOfSkill: number = 9;
   iuNumOfSkill: number = 3;
@@ -70,6 +71,10 @@ export class Cp2020RoleEditorComponent implements OnInit, OnChanges {
     const roles = this.roleService.getRoles(this.isIU);
     forkJoin({roles}).subscribe(data => {
       this.roleData = data.roles;
+      const found = this.roleData.findIndex( role => role.name.toLowerCase() === this.currentRole.name.toLowerCase());
+      if (found > -1) {
+        this.selectedRole = this.roleData[found];
+      }
       this.roleList = this.roleData.map( role => (role.base ? `${role.base} - `: ``) + role.name );
     });
   }
@@ -136,7 +141,7 @@ export class Cp2020RoleEditorComponent implements OnInit, OnChanges {
     return Array.isArray(skill);
   }
 
-  typeaheadOnBlur(event: TypeaheadMatch) {
-    this.optionOnBlur = event.item;
+  getSkillOptions(index: number): Array<string> {
+    return this.selectedRole.skills[index];
   }
 }

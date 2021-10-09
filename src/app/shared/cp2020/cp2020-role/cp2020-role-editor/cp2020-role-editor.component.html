@@ -38,7 +38,7 @@
     </div>
     <div class="row">
       <div *ngFor="let skill of roleSkills; let i = index" class="col-6 col-lg-4">
-        <input *ngIf="!isArray(skill);else elseArray" type="text"
+        <input *ngIf="!isArray(selectedRole.skills[i]);else elseArray" type="text"
         [value]="currentRole.skills[i]"
         (change)="updateSkill($event, i)"
         style="width: 100%"
@@ -46,7 +46,7 @@
         <ng-template #elseArray>
           <select [(ngModel)]="currentRole.skills[i]" (change)="update()">
             <option value=""></option>
-            <option *ngFor="let sk of skill" [value]="sk">{{sk}}</option>
+            <option *ngFor="let sk of getSkillOptions(i)" [value]="sk">{{sk}}</option>
           </select>
         </ng-template>
       </div>
