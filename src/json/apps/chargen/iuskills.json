@@ -116,6 +116,7 @@
   {"name":"Sculpt"                                                       , "ipmod":1,"stat":"TECH","source":"IU" ,"page":14  ,"sa":false,"description":"" },
   {"name":"Sewing"                                                       , "ipmod":1,"stat":"TECH","source":"IU" ,"page":14  ,"sa":false,"description":"" },
   {"name":"Tattooing"                                                    , "ipmod":1,"stat":"TECH","source":"IU" ,"page":14  ,"sa":false,"description":"" },
+  {"name":"Tech"                           ,"option":""              , "ipmod":1,"stat":"TECH","source":"IU" ,"page":14  ,"sa":false,"description":"" },
   {"name":"Tech"                           ,"option":"Aero"              , "ipmod":1,"stat":"TECH","source":"IU" ,"page":14  ,"sa":false,"description":"" },
   {"name":"Tech"                           ,"option":"AV"                , "ipmod":1,"stat":"TECH","source":"IU" ,"page":14  ,"sa":false,"description":"" },
   {"name":"Tech"                           ,"option":"Basic"             , "ipmod":1,"stat":"TECH","source":"IU" ,"page":14  ,"sa":false,"description":"" },
