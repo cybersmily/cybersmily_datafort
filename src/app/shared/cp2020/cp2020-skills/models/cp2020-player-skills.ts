@@ -220,7 +220,7 @@ export class Cp2020PlayerSkills {
       if (Array.isArray(roleSkill)) {
         let j = rSkills[index].length - 1;
         while (j >= 0) {
-          rSkills = this.setRoleSkill(roleSkill[j], skillArray, rSkills, index, isSecondary, true);
+          rSkills[index] = this.setRoleSkill(roleSkill[j], skillArray, rSkills[index], j, isSecondary, true);
           j--;
         }
       } else {
@@ -240,7 +240,7 @@ export class Cp2020PlayerSkills {
       const option = parsed[1].trim();
       found = skillArray.findIndex(s => s.name.toLowerCase() === name && s.option && s.option.toLowerCase() === option);
     } else {
-      found = skillArray.findIndex(s => s.name?.toLowerCase() === skillToFind);
+      found = skillArray.findIndex(s => s.name?.toLowerCase() === skillToFind.toLowerCase());
     }
 
     if (found > -1) {
@@ -267,10 +267,12 @@ export class Cp2020PlayerSkills {
           } else {
             const found = this.Other.findIndex(skill => skill.option?.toLowerCase() === sk?.toLowerCase());
             if (found < 0) {
-              const i = this.Other.findIndex(skill => skill.option === '');
-              this.Other[i].option = sk;
-              this.Other[i].isRoleSkill = true;
-              this.Other[i].roleChoice = true;
+              const newSkill = new Cp2020PlayerSkill(sk);
+              newSkill.name = 'Other';
+              newSkill.option = sk;
+              newSkill.isRoleSkill = true;
+              newSkill.roleChoice = true;
+              this.skills.push(newSkill);
             }
           }
         });

@@ -83,7 +83,12 @@ export class Cp2020RoleEditorComponent implements OnInit, OnChanges {
       this.currentRole.specialAbility = new Cp2020PlayerSkill(role.specialability);
       this.roleSkills = role.skills.map(sk => sk);
       this.currentRole.skills = role.skills.map( sk => {
-        return (Array.isArray(sk) ? sk.join(' or ') : sk.replace("\\&", '&'));
+        if(Array.isArray(sk)) {
+          sk = sk.map( s => s.replace("\\&", '&'));
+        } else {
+          sk = sk.replace("\\&", '&');
+        }
+        return sk;
       });
     } else {
       this.currentRole.specialAbility = new Cp2020PlayerSkill();
