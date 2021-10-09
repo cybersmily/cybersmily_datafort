@@ -35,10 +35,14 @@ export class Cp2020SkillListFullComponent implements OnInit, OnChanges {
   constructor() {}
 
   ngOnInit() {
+    console.log('fulllist-init', this.skills.skills);
+    this.currentSkills = new Cp2020PlayerSkills();
     this.currentSkills.importSkills(this.skills.skills);
   }
 
   ngOnChanges() {
+    console.log('fulllist-change', this.skills.skills);
+    this.currentSkills = new Cp2020PlayerSkills();
     this.currentSkills.importSkills(this.skills.skills);
   }
 
@@ -46,6 +50,7 @@ export class Cp2020SkillListFullComponent implements OnInit, OnChanges {
     if(skill) {
       this.currentSkills.editSkill(skill);
     }
+    console.log('skill full list - onChange', this.currentSkills);
     this.changeSKills.emit(this.currentSkills);
   }
 
