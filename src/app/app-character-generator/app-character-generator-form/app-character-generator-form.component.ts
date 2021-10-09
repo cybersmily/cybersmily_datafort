@@ -132,7 +132,6 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   }
 
   changeSkills(value: Cp2020PlayerSkills) {
-    console.log('genForm - skills updated', value);
     this.characterService.changeSkills(value);
   }
 

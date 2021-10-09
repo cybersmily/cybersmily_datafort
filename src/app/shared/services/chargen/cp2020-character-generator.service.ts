@@ -32,9 +32,7 @@ export class Cp2020CharacterGeneratorService {
   }
 
   changeCharacter(value: any) {
-    console.log('changeCharacter', value);
     this._currCharacter = new Cp2020PlayerCharacter();
-    console.log('new char object', this._currCharacter.skills);
     this._currCharacter.handle = value.handle ? value.handle : '';
     if (value.role) {
       this._currCharacter.role.import(value.role);
@@ -95,7 +93,6 @@ export class Cp2020CharacterGeneratorService {
     if (value.skills) {
       this._currCharacter.skills = undefined;
       this._currCharacter.skills = new Cp2020PlayerSkills();
-      console.log('importing skills', this._currCharacter.skills, value.skills.skills);
       if (value.skills.skills) {
         this._currCharacter.skills.importSkills(value.skills.skills);
       } else {
@@ -110,14 +107,12 @@ export class Cp2020CharacterGeneratorService {
         combo = combo.concat(value.skills.Other);
         this._currCharacter.skills.skills = combo;
       }
-      console.log('setting role skills', this._currCharacter.skills);
       // set the role skills
       let roleSkills = [...value.role.skills];
       value?.secondaryRoles?.forEach( role => {
         roleSkills = roleSkills.concat(role.skills);
       });
       this._currCharacter.skills.setRoleSkills(roleSkills);
-      console.log('adding spcl abilites', this._currCharacter.skills);
       // add/update special abilities
       let spclAbilities = [new Cp2020PlayerSkill(value.role.specialAbility)];
       spclAbilities= spclAbilities.concat(value.secondaryRoles?.map(role => new Cp2020PlayerSkill(role.specialAbility)));
@@ -199,7 +194,6 @@ export class Cp2020CharacterGeneratorService {
   changeSkills(value: Cp2020PlayerSkills) {
     // TODO: update the role skills for the character
     // remove the options
-    console.log('changeSkills', value);
     this._currCharacter.skills = new Cp2020PlayerSkills();
     this._currCharacter.skills.importSkills(value.skills);
     this._currCharacter.skills.calculateTotals();

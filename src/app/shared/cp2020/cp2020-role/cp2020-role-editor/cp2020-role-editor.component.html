@@ -4,8 +4,12 @@
     Role:
     <input type="text" [(ngModel)]="currentRole.name"
     [typeahead]="roleList"
+    (onKeyUp)="updateRoleName()"
     (change)="updateRoleName()"
+    (typeaheadOnSelect)="updateRoleName()"
     >
+    {{optionOnBlur}}
+    <fa-icon *ngIf="showDelete" [icon]="faTrash" class="csd-btn csd-icon-btn csd-icon-lg ml-3" (click)="delete()"></fa-icon>
   </div>
 </div>
 <div class="row ml-1">

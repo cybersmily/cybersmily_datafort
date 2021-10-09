@@ -108,4 +108,12 @@ export class Cp2020RoleSectionComponent implements OnInit, OnChanges {
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, this.config);
   }
+
+  deleteRole(role: Cp2020PlayerRole) {
+    const found = this.currentSecondary.findIndex(r => r.name === role.name);
+    if (found > -1) {
+      this.currentSecondary.splice(found, 1);
+      this.changeSecondaryRoles.emit(this.currentSecondary);
+    }
+  }
 }

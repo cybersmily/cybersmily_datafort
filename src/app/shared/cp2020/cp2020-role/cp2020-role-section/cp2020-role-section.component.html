@@ -5,13 +5,13 @@
         ROLE
         <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn csd-icon-sm ml-1" (click)="openModal(primaryRoleEditor)">
         </fa-icon>
-        <fa-icon [icon]="faDice" class="csd-icon-btn csd-btn ml-3" (click)="rollPrimaryRole()"></fa-icon>
       </span>
     </div>
     <div class="d-inline-block pr-2 ml-2">
       <div class="row">
         <div class="col">
           <span class="font-weight-bold">PRIMARY:</span>
+          <fa-icon [icon]="faDice" class="csd-icon-btn csd-btn ml-1 mr-1" (click)="rollPrimaryRole()"></fa-icon>
           <span class="ml-1">{{currentPrimary.name}}</span>
         </div>
       </div>
@@ -48,7 +48,10 @@
     </div>
     <div  *ngFor="let role of currentSecondary;let i = index" class="row pb-4">
       <div class="col">
-        <cs-cp2020-role-editor [role]="role" [isIU]="isIU" (updateRole)="onSecondaryChange($event, i)">
+        <cs-cp2020-role-editor [role]="role" [isIU]="isIU"
+          (updateRole)="onSecondaryChange($event, i)"
+          (deleteRole)="deleteRole($event)"
+          [showDelete]="true">
         </cs-cp2020-role-editor>
       </div>
     </div>

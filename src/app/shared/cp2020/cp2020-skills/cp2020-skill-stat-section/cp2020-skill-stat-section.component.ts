@@ -59,13 +59,11 @@ export class Cp2020SkillStatSectionComponent implements OnInit, OnChanges {
   constructor(private modalService: BsModalService) { }
 
   ngOnInit(): void {
-    console.log('statlist-init', this.skills);
     this.currSkills = new Array(...this.skills);
     this.currSkills.sort( (a,b) => (a.name.toLowerCase() === b.name.toLowerCase() && a.option && b.option) ? a.option.localeCompare(b.option) : a.name.localeCompare(b.name));
   }
 
   ngOnChanges(): void {
-    console.log('statlist-change', this.skills);
     this.currSkills = new Array(...this.skills);
     this.currSkills.sort( (a,b) => (a.name.toLowerCase() === b.name.toLowerCase() && a.option && b.option) ? a.option.localeCompare(b.option) : a.name.localeCompare(b.name));
   }

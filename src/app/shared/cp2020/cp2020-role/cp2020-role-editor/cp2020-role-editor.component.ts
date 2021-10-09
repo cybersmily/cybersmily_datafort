@@ -1,4 +1,4 @@
-import { faSearch, faSearchLocation } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faSearchLocation, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { forkJoin } from 'rxjs';
 import { JsonDataFiles } from './../../../services/file-services/json-data-files';
 import { DiceService } from './../../../services/dice/dice.service';
@@ -7,6 +7,7 @@ import { Cp2020PlayerRole } from './../models/cp2020-player-role';
 import { Component, Input, OnInit, Output, EventEmitter, OnChanges } from '@angular/core';
 import { Cp2020Role } from '../models';
 import { Cp2020PlayerSkill } from '../../cp2020-skills/models';
+import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 
 @Component({
   selector: 'cs-cp2020-role-editor',
@@ -15,6 +16,8 @@ import { Cp2020PlayerSkill } from '../../cp2020-skills/models';
 })
 export class Cp2020RoleEditorComponent implements OnInit, OnChanges {
   faSearch = faSearch;
+  faTrash = faTrash;
+  optionOnBlur: any;
 
   @Input()
   role: Cp2020PlayerRole = new Cp2020PlayerRole();
@@ -22,8 +25,14 @@ export class Cp2020RoleEditorComponent implements OnInit, OnChanges {
   @Input()
   isIU: boolean = false;
 
+  @Input()
+  showDelete: boolean = false;
+
   @Output()
   updateRole: EventEmitter<Cp2020PlayerRole> = new EventEmitter<Cp2020PlayerRole>();
+
+  @Output()
+  deleteRole: EventEmitter<Cp2020PlayerRole> = new EventEmitter<Cp2020PlayerRole>();
 
   currentRole: Cp2020PlayerRole = new Cp2020PlayerRole();
 
@@ -90,9 +99,12 @@ export class Cp2020RoleEditorComponent implements OnInit, OnChanges {
   updateSkill(event, index) {
     if(index > -1 && index < this.currentRole.skills.length){
       this.currentRole.skills[index] = event.target.value;
-      console.log('currentRole.Skills', this.currentRole.skills);
       this.update();
     }
+  }
+
+  delete() {
+    this.deleteRole.emit(this.currentRole);
   }
 
 
@@ -117,5 +129,9 @@ export class Cp2020RoleEditorComponent implements OnInit, OnChanges {
    */
    isArray(skill:any): boolean {
     return Array.isArray(skill);
+  }
+
+  typeaheadOnBlur(event: TypeaheadMatch) {
+    this.optionOnBlur = event.item;
   }
 }
