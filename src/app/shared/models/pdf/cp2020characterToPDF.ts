@@ -77,19 +77,21 @@ export class Cp2020characterToPDF {
   createFirstPage(doc: jsPDF) {
     let line = this._top;
     // add Handle
-    this.addHandle(doc, this._character.handle, line);
+    line = this.addHandle(doc, this._character.handle, line);
 
     // character image
     this.addCharImage(doc);
 
     // Role
-    this.addRole(doc, this._character.role.name, line + 8);
+    line = this.addRole(doc, this._character.role.name, line);
+    const secRole = this._character.secondaryRoles.map(role => role.name);
+    line = this.addSecondaryRole(doc, secRole.join(', '), line);
 
     // get combat sense
     const combatSense = (this._character.role.specialAbility.name.toLocaleLowerCase() === 'combat sense') ? this._character.role.specialAbility.value : 0;
 
     // STATS
-    line = this.addStats(doc, this._character.stats, this._character.skills.rep, line + 16, combatSense);
+    line = this.addStats(doc, this._character.stats, this._character.skills.rep, line, combatSense);
 
     // Armor
     line = this.addArmorBlock(doc, this._character.armor, line);
@@ -147,7 +149,7 @@ export class Cp2020characterToPDF {
 
   }
 
-  private addHandle(doc: jsPDF, handle: string, line: number) {
+  private addHandle(doc: jsPDF, handle: string, line: number): number {
     let rw = 22;
     doc.rect(this._left, line, rw, this._lineheight, 'DF');
     doc.setTextColor('white');
@@ -158,20 +160,50 @@ export class Cp2020characterToPDF {
     doc.setTextColor('black');
     doc.setFont(this._font, 'normal');
     doc.text(handle, rw + 1, line + 5);
+    return line + 8;
   }
 
-  private addRole(doc: jsPDF, role: string, line: number) {
+  private addRole(doc: jsPDF, role: string, line: number): number {
     doc.setFillColor('black');
-    let rw = 22;
+    let rw = 18;
     doc.rect(this._left, line, rw, this._lineheight, 'DF');
     doc.setTextColor('white');
     doc.setFont(this._font, 'bold');
     doc.text('ROLE:', this._left + 3, line + 5);
     rw = this._left + rw;
-    doc.rect(rw, line, 70, this._lineheight, 'S');
+    doc.rect(rw, line, 75, this._lineheight, 'S');
     doc.setTextColor('black');
+    doc.setFontSize(this._fontSize - 4);
     doc.setFont(this._font, 'normal');
+
     doc.text(role, rw + 1, line + 5);
+    doc.setFontSize(this._fontSize);
+    return line + 8;
+  }
+
+  private addSecondaryRole(doc: jsPDF, roles: string, line: number): number {
+    let rw = 20;
+    // determine if all roles will fit
+    let txt = new Array<string>();
+    txt = doc.splitTextToSize(roles, 74);
+    let txtHt = txt.length * this._lineheight;
+    txtHt = (txtHt < 1) ? this._lineheight : txtHt;
+    rw = this._left + rw;
+    doc.rect(this._left, line - 1, 93, txtHt, 'S');
+    doc.setTextColor('black');
+    doc.setFont(this._font, 'bold');
+    doc.setFontSize(this._fontSize - 3);
+    doc.text('SECONDARY:', this._left + 1, line + 4);
+    doc.setFont(this._font, 'normal');
+    line = line + 4;
+    txt.forEach( t => {
+      doc.text(t, rw + 1, line);
+      line += 4;
+    });
+
+
+    doc.setFontSize(this._fontSize);
+    return line;
   }
 
   private addCharImage(doc: jsPDF) {
