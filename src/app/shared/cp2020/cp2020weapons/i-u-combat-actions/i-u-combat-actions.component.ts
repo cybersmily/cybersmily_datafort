@@ -19,6 +19,7 @@ export class IUCombatActionsComponent implements OnInit {
   skills: Array<Cp2020PlayerSkill> = new Array<Cp2020PlayerSkill>();
 
   initMod: number = 0;
+  combatSkills: Array<Cp2020PlayerSkill> = new Array<Cp2020PlayerSkill>();
 
   get reactionTotal(): number {
     return this.stats.REF.Adjusted + this.combatSense.value + this.initMod;
@@ -31,6 +32,10 @@ export class IUCombatActionsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.combatSkills = this.skills
+    .filter( sk => !sk.name.startsWith('Init'))
+    .sort((a,b) => ( (a.option ? a.option : a.name ) > (b.option ? b.option : b.name ))? 1 : -1);
+    console.log(this.skills);
   }
 
   getQuickAction(value: number) {
@@ -46,5 +51,16 @@ export class IUCombatActionsComponent implements OnInit {
   getFullAction(value: number) {
     const ret = Math.floor(value/15);
     return ret < 1 ? 1 : ret;
+  }
+
+  getColumn(column: number): Array<Cp2020PlayerSkill> {
+    switch(column) {
+      case 1:
+        return this.combatSkills.slice(0,Math.ceil(this.combatSkills.length/2));
+      case 2:
+        return this.combatSkills.slice(Math.ceil(this.combatSkills.length/2));
+      default:
+        return this.combatSkills;
+    }
   }
 }

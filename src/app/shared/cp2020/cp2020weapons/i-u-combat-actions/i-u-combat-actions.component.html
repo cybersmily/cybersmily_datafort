@@ -56,31 +56,29 @@
     </div>
     <div class="row">
       <div class="col-12 col-lg-6">
-        <div class="row" *ngFor="let skill of skills.slice(0, skills.length/2)">
-          <div class="col-4">{{skill.name}}</div>
-          <div class="col-1 text-center">{{skill.value}}</div>
-          <div class="col-1 text-center">{{skill.totalModifiers}}</div>
-          <div class="col-1 text-center">{{stats.REF.Adjusted + skill.totalModifiers + skill.value}}</div>
-          <div class="col-1 text-center"></div>
-          <div class="col-1 text-center">{{skill.value + reactionTotal}}</div>
-          <div class="col-1 text-center">{{getQuickAction(skill.value + reactionTotal)}}</div>
-          <div class="col-1 text-center">{{getNormalAction(skill.value + reactionTotal)}}</div>
-          <div class="col-1 text-center">{{getFullAction(skill.value + reactionTotal)}}</div>
-        </div>
+        <ng-container  *ngFor="let skill of getColumn(1)"
+        [ngTemplateOutlet]="combatSkillRow"
+        [ngTemplateOutletContext]="{skill:skill}"></ng-container>
       </div>
       <div class="col-12 col-lg-6">
-        <div class="row" *ngFor="let skill of skills.slice(skills.length/2)">
-          <div class="col-4">{{skill.name}}</div>
-          <div class="col-1 text-center">{{skill.value}}</div>
-          <div class="col-1 text-center">{{skill.totalModifiers}}</div>
-          <div class="col-1 text-center">{{stats.REF.Adjusted + skill.totalModifiers + skill.value}}</div>
-          <div class="col-1 text-center"></div>
-          <div class="col-1 text-center">{{skill.value + reactionTotal}}</div>
-          <div class="col-1 text-center">{{getQuickAction(skill.value + reactionTotal)}}</div>
-          <div class="col-1 text-center">{{getNormalAction(skill.value + reactionTotal)}}</div>
-          <div class="col-1 text-center">{{getFullAction(skill.value + reactionTotal)}}</div>
-        </div>
+        <ng-container  *ngFor="let skill of getColumn(2)"
+        [ngTemplateOutlet]="combatSkillRow"
+        [ngTemplateOutletContext]="{skill:skill}"></ng-container>
       </div>
     </div>
   </div>
 </div>
+
+<ng-template #combatSkillRow let-skill="skill">
+  <div class="row">
+    <div class="col-4">{{(skill.option && skill.option !== '')? skill.option :skill.name}}</div>
+    <div class="col-1 text-center">{{skill.value}}</div>
+    <div class="col-1 text-center">{{skill.totalModifiers}}</div>
+    <div class="col-1 text-center">{{stats.REF.Adjusted + skill.totalModifiers + skill.value}}</div>
+    <div class="col-1 text-center"></div>
+    <div class="col-1 text-center">{{skill.value + reactionTotal}}</div>
+    <div class="col-1 text-center">{{getQuickAction(skill.value + reactionTotal)}}</div>
+    <div class="col-1 text-center">{{getNormalAction(skill.value + reactionTotal)}}</div>
+    <div class="col-1 text-center">{{getFullAction(skill.value + reactionTotal)}}</div>
+  </div>
+</ng-template>
