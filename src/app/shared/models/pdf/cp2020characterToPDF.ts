@@ -16,6 +16,7 @@ import { Cp2020PlayerCharacter } from '../cp2020character/cp2020-player-characte
 import { jsPDF } from 'jspdf';
 import { LifepathEvent } from '../../cp2020/cp2020-lifepath/models';
 import { LinearGradientElement } from 'canvg';
+import { Cp2020Vehicle } from '../../cp2020/cp2020-vehicles/models';
 
 export class Cp2020characterToPDF {
   private _character: Cp2020PlayerCharacter;
@@ -35,6 +36,10 @@ export class Cp2020characterToPDF {
     doc.setFontSize(this._fontSize);
     this.createFirstPage(doc);
     this.createSecondPage(doc);
+    console.log(this._character.vehicles);
+    if(this._character.vehicles.length > 0) {
+      this.createVehiclesPage(doc);
+    }
     this.createThirdPage(doc);
     this.createFourthPage(doc);
     this.createFifthPage(doc);
@@ -109,6 +114,16 @@ export class Cp2020characterToPDF {
     line = this._top;
     line = this.addCyberware(doc, this._character.cyberware, this._left, line);
     line = this.addGear(doc, this._character.gear, this._left, line);
+  }
+
+  createVehiclesPage(doc: jsPDF) {
+    doc.addPage();
+    doc.setFillColor('black');
+    doc.rect(this._left, this._top, 200, 7, 'DF');
+    doc.setTextColor('white');
+    doc.setFont(this._font, 'bold');
+    doc.text('VEHICLES', this._left + 2, this._top + 5);
+    this.addVehicles(doc, this._character.vehicles, this._left, this._top + 7);
   }
 
   createThirdPage(doc: jsPDF) {
@@ -553,6 +568,69 @@ export class Cp2020characterToPDF {
     });
     doc.setFontSize(this._fontSize);
 
+  }
+
+  private addVehicles(doc: jsPDF, vehicles: Array<Cp2020Vehicle>, left: number, line: number) {
+    doc.setTextColor('black');
+    doc.setFont(this._font, 'normal');
+
+    console.log('addVehicles', vehicles, left, line);
+    let newLine = line;
+    vehicles.forEach((veh, i) => {
+      line = (i%2 === 1) ? newLine : line;
+      left = (i%2 === 1) ? this._left : left + 100;
+      line = this.addVehicleDetail(doc, veh, left, line);
+      line += 10;
+    });
+  }
+
+  private addVehicleDetail(doc: jsPDF, vehicle: Cp2020Vehicle, left: number, line: number): number {
+    console.log('addVehicleDetail', vehicle, left, line);
+    const height = line;
+    line += 4;
+    const ht = 5;
+    const colOneLeft = left + 3;
+    const colTwoLeft = left + 50;
+    doc.setFont(this._font, 'bold');
+    doc.setFontSize(this._fontSize);
+    doc.text(vehicle.name, left + 1, line);
+    doc.setFont(this._font, 'normal');
+    doc.setFontSize(this._fontSize - 3);
+    line += ht;
+    doc.text(`Type: ${vehicle.type}`, colOneLeft, line);
+    doc.text(`SDP/SP: ${vehicle.sdp}/${vehicle.sp}`, colTwoLeft, line);
+    line += ht;
+    doc.text(`Speed: ${vehicle.speed}mph`, colOneLeft, line);
+    doc.text(`Acc/Dec: ${vehicle.accelerate}mph/${vehicle.decelerate}mph`, colTwoLeft, line);
+    line += ht;
+    doc.text(`Range: ${vehicle.range}miles`, colOneLeft, line);
+    doc.text(`Manuever: ${vehicle.manuever}`, colTwoLeft, line);
+    line += ht;
+    doc.text(`Crew/Passengers: ${vehicle.crew}/${vehicle.passengers}`, colOneLeft, line);
+    doc.text(`Cargo: ${vehicle.cargo}`, colTwoLeft, line);
+    line += ht;
+    doc.text(`OffRoad: ${vehicle.offRoad}`, colOneLeft, line);
+    doc.text(`Cost: ${vehicle.cost}eb`, colTwoLeft, line);
+    line += ht;
+    const wpnstring = vehicle.weapons.map(wpn => wpn.name).join(', ');
+    const wpnText = doc.splitTextToSize(`Weapons: ${wpnstring}`, 100);
+    wpnText.forEach(txt => {
+      doc.text(txt, colOneLeft, line);
+      line += ht;
+    });
+    const optstring = vehicle.options.map(opt => opt.name).join(', ');
+    const optText = doc.splitTextToSize(`Options: ${optstring}`, 100);
+    optText.forEach(txt => {
+      doc.text(txt, colOneLeft, line);
+      line += ht;
+    });
+    const desc = doc.splitTextToSize(`Description: ${vehicle.description}`, 100);
+    doc.text(desc, colOneLeft, line);
+    line += ht;
+
+    doc.rect(left, height, 100, line - height, 'S');
+
+    return line;
   }
 
   private addWeapons(doc: jsPDF, weapons: CpPlayerWeaponList, left: number, line: number): number {
