@@ -11,6 +11,11 @@ INPUT.csd-number {
   width: 50px;
 }
 
+
+INPUT.csd-number-sm {
+  width: 35px;
+}
+
 .csd-box {
   background-color: #ddd;
   color: #333;

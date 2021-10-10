@@ -10,22 +10,24 @@
         (click)="isEditable = !isEditable"></fa-icon>
     </div>
   </div>
-  <div class="row">
+  <div class="row small">
     <div class="col">
       <span>Type: </span>
       <span *ngIf="!isEditable">{{currVehicle.type}}</span>
-      <input *ngIf="isEditable" type="text" [(ngModel)]="currVehicle.type" style="width:80%">
-
+      <select *ngIf="isEditable" [(ngModel)]="currVehicle.type">
+        <option value=""></option>
+        <option *ngFor="let type of types" [value]="type">{{type}}</option>
+      </select>
     </div>
     <div class="col">SDP/SP:
       <span *ngIf="!isEditable">{{currVehicle.sdp}}/{{currVehicle.sp}}</span>
       <span *ngIf="isEditable">
-        <input type="number" min="0" class="csd-number" [(ngModel)]="currVehicle.sdp">/
-        <input type="number" min="0" class="csd-number" [(ngModel)]="currVehicle.sp">
+        <input type="number" min="0" max="3750" class="csd-number" [(ngModel)]="currVehicle.sdp">/
+        <input type="number" min="0" max="maxSP" class="csd-number" [(ngModel)]="currVehicle.sp">
       </span>
     </div>
   </div>
-  <div class="row">
+  <div class="row small">
     <div class="col">Speed:
       <span *ngIf="!isEditable">{{currVehicle.speed}} mph</span>
       <span *ngIf="isEditable">
@@ -35,12 +37,12 @@
     <div class="col">Acc/Dec:
       <span *ngIf="!isEditable">{{currVehicle.accelerate}}mph/{{currVehicle.decelerate}}mph</span>
       <span *ngIf="isEditable">
-        <input type="number" min="0" class="csd-number" [(ngModel)]="currVehicle.accelerate">/
-        <input type="number" min="0" class="csd-number" [(ngModel)]="currVehicle.decelerate">
+        <input type="number" min="0" max="100" class="csd-number-sm" [(ngModel)]="currVehicle.accelerate">/
+        <input type="number" min="0" max="75" class="csd-number-sm" [(ngModel)]="currVehicle.decelerate">
       </span>
     </div>
   </div>
-  <div class="row">
+  <div class="row small">
     <div class="col">Range:
       <span *ngIf="!isEditable">{{currVehicle.range}} mph</span>
       <span *ngIf="isEditable">
@@ -50,16 +52,16 @@
     <div class="col">Manuever:
       <span *ngIf="!isEditable">{{currVehicle.manuever}} mph</span>
       <span *ngIf="isEditable">
-        <input type="number" min="0" class="csd-number" [(ngModel)]="currVehicle.manuever">
+        <input type="number" min="0" max="5" class="csd-number-sm" [(ngModel)]="currVehicle.manuever">
       </span>
     </div>
   </div>
-  <div class="row">
+  <div class="row small">
     <div class="col">Crew/Passenger:
       <span *ngIf="!isEditable">{{currVehicle.crew}}/{{currVehicle.passengers}}</span>
       <span *ngIf="isEditable">
-        <input type="number" min="0" class="csd-number" [(ngModel)]="currVehicle.crew">/
-        <input type="number" min="0" class="csd-number" [(ngModel)]="currVehicle.passengers">
+        <input type="number" min="0" class="csd-number-sm" [(ngModel)]="currVehicle.crew">/
+        <input type="number" min="0" class="csd-number-sm" [(ngModel)]="currVehicle.passengers">
       </span>
     </div>
     <div class="col">Cargo:
@@ -69,7 +71,7 @@
       </span>
     </div>
   </div>
-  <div class="row">
+  <div class="row small">
     <div class="col">is Off-Road:
       <span *ngIf="!isEditable">{{currVehicle.offRoad ? 'yes': 'no'}} </span>
       <span *ngIf="isEditable">
@@ -83,7 +85,7 @@
       </span>
     </div>
   </div>
-  <div class="row">
+  <div class="row small">
     <div class="col">
       <div class="row">
         <div class="col">Weapons</div>
@@ -135,7 +137,7 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row small">
     <div class="col">
       <span *ngIf="!isEditable">{{'Description: ' + currVehicle.description}}</span>
       <span *ngIf="isEditable">

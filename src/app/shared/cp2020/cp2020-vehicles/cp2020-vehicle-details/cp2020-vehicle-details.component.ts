@@ -1,6 +1,6 @@
-import { VehicleOption } from './../models/vehicle-option';
-import { Cp2020VehicleWeapon } from './../../cp2020weapons/models/vehicle-weapon';
-import { Cp2020Vehicle } from './../models/cp2020-vehicle';
+import { VehicleType } from './../models/vehicle-type';
+import { Cp2020VehicleWeapon } from './../../cp2020weapons/models';
+import { Cp2020Vehicle, Cp2020VehicleTypes } from './../models';
 import { faPen, faPlus, faTrash, faSave } from '@fortawesome/free-solid-svg-icons';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
@@ -29,6 +29,14 @@ export class Cp2020VehicleDetailsComponent implements OnInit {
 
   currVehicle: Cp2020Vehicle = new Cp2020Vehicle();
   isEditable: boolean = false;
+
+  get types(): Array<string> {
+    return Cp2020VehicleTypes.types;
+  }
+
+  get maxSP(): number {
+    return Math.ceil(this.currVehicle.sdp/2);
+  }
 
   constructor() { }
 
