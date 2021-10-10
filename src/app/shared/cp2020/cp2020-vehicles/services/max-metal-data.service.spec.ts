@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { DataService } from './../file-services';
+import { DataService } from './../../../services/file-services';
 import { TestBed, inject, waitForAsync } from '@angular/core/testing';
 
 import { MaxMetalDataService } from './max-metal-data.service';

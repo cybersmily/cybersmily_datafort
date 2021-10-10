@@ -1,5 +1,5 @@
 import { MaxMetalVehicle } from './max-metal-vehicle';
-import { MaxMetalWeapon} from './../../cp2020/cp2020weapons/models';
+import { MaxMetalWeapon} from './../../cp2020weapons/models';
 import { VehicleType } from './vehicle-type';
 import { TestBed } from '@angular/core/testing';
 import { MaxMetalOption } from './max-metal-option';

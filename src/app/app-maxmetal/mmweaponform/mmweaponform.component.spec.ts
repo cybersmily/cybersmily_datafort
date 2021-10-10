@@ -1,8 +1,7 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
-import { MaxmetalService } from './../../shared/services/maxmetal/maxmetal.service';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { MaxmetalService } from './../../shared/cp2020/cp2020-vehicles/services';
+import { DataService } from './../../shared/services/file-services';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MmweaponformComponent } from './mmweaponform.component';

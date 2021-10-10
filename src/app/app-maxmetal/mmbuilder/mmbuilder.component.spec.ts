@@ -10,7 +10,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MmbuilderComponent } from './mmbuilder.component';
 import { LongpressDirective } from './../../shared/directives/longpress.directive';
-import { MaxmetalService } from '../../shared/services/maxmetal/maxmetal.service';
+import { MaxmetalService } from '../../shared/cp2020/cp2020-vehicles/services';
 
 describe('MmbuilderComponent', () => {
   let component: MmbuilderComponent;

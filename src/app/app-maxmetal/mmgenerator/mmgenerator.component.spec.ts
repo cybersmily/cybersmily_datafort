@@ -5,7 +5,7 @@ import { MmoptionslistComponent } from './../mmoptionslist/mmoptionslist.compone
 import { MmweaponlistComponent } from './../mmweaponlist/mmweaponlist.component';
 import { MmoptionsformComponent } from './../mmoptionsform/mmoptionsform.component';
 import { MmweaponformComponent } from './../mmweaponform/mmweaponform.component';
-import { MaxmetalService } from '../../shared/services/maxmetal/maxmetal.service';
+import { MaxmetalService } from '../../shared/cp2020/cp2020-vehicles/services';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MmmountComponent } from './../mmmount/mmmount.component';
 import { MmoptionComponent } from './../mmoption/mmoption.component';
