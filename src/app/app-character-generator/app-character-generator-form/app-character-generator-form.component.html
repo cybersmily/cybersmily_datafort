@@ -79,7 +79,7 @@
       </div>
       <div class="row print-fix csd-linebreak">
         <div class="col">
-          <cs-cp2020-vehicle-table [isCollapsed]="charGenSettings.isCollapsed"></cs-cp2020-vehicle-table>
+          <cs-cp2020-vehicle-table [vehicles]="character.vehicles" [isCollapsed]="charGenSettings.isCollapsed" (update)="changeVehicles($event)"></cs-cp2020-vehicle-table>
         </div>
       </div>
 

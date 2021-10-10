@@ -10,3 +10,5 @@ export * from './vehicle-mass';
 export * from './vehicle-min-max';
 export * from './vehicle-sdp';
 export * from './vehicle-type';
+export * from './cp2020-vehicle';
+export * from './vehicle-base';

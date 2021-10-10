@@ -1,3 +1,4 @@
+import { Cp2020Vehicle } from './../../cp2020/cp2020-vehicles/models/cp2020-vehicle';
 import { Cp2020IuSkillConverterService } from './../../cp2020/services/cp2020-iu-skill-converter.service';
 import { Cp2020PlayerAmmo } from './../../cp2020/cp2020weapons/models/cp-2020-player-ammo';
 import { JsonDataFiles } from './../file-services/json-data-files';
@@ -75,6 +76,10 @@ export class Cp2020CharacterGeneratorService {
 
     if (value.gear) {
       this._currCharacter.gear.items = value.gear.items;
+    }
+
+    if(value.vehicles) {
+      this._currCharacter.vehicles = value.vehicles.map(veh => new Cp2020Vehicle(veh));
     }
 
     if (value.lifepath) {
@@ -197,6 +202,12 @@ export class Cp2020CharacterGeneratorService {
     this._currCharacter.skills = new Cp2020PlayerSkills();
     this._currCharacter.skills.importSkills(value.skills);
     this._currCharacter.skills.calculateTotals();
+    this.updateCharacter();
+  }
+
+  changeVehicles(value: Array<Cp2020Vehicle>) {
+    this._currCharacter.vehicles = [...value];
+    console.log('characterService',this._currCharacter.vehicles);
     this.updateCharacter();
   }
 

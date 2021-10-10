@@ -36,14 +36,17 @@ export class Cp2020VehicleTableComponent implements OnInit {
 
   addVehicle() {
     this.currVehicles.push(new Cp2020Vehicle());
+    this.update.emit(this.currVehicles);
   }
 
   updateVehicle(vehicle: Cp2020Vehicle, index: number) {
     this.currVehicles[index] = new Cp2020Vehicle(vehicle);
+    this.update.emit(this.currVehicles);
   }
 
   deleteVehicle(index: number) {
     this.currVehicles.splice(index, 1);
+    this.update.emit(this.currVehicles);
   }
 
 }

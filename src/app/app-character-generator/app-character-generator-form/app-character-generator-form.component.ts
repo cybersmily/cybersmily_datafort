@@ -18,6 +18,7 @@ import { Cp2020PlayerRole } from '../../shared/cp2020/cp2020-role/models/cp2020-
 import { Cp2020characterToPDF } from './../../shared/models/pdf/cp2020characterToPDF';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Cp2020Lifestyle } from './../../shared/cp2020/cp2020-lifestyle/models';
+import { Cp2020Vehicle } from './../../shared/cp2020/cp2020-vehicles/models';
 
 @Component({
   selector: 'cs-app-character-generator-form',
@@ -117,6 +118,11 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
 
   changeGear(value: Cp2020PlayerGearList) {
     this.characterService.changeGear(value);
+  }
+
+  changeVehicles(value: Array<Cp2020Vehicle>) {
+    console.log(value);
+    this.characterService.changeVehicles(value);
   }
 
   changeWeapons(value: CpPlayerWeaponList) {
