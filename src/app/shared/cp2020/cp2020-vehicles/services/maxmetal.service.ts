@@ -1,6 +1,5 @@
-import { MaxMetalOption } from './../../models/maxmetal/max-metal-option';
-import { MaxMetalWeapon } from './../../cp2020/cp2020weapons/models';
-import { MaxMetalVehicle, VehicleType } from '../../models/maxmetal';
+import { MaxMetalWeapon } from './../../cp2020weapons/models';
+import { MaxMetalOption, MaxMetalVehicle, VehicleType } from './../models';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 

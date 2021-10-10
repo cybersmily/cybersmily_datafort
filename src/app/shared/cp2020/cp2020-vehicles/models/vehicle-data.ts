@@ -1,11 +1,11 @@
-import { SourceBook } from '../sourcebook';
+import { SourceBook } from '../../../models/sourcebook';
 
 /**
  * Vehicle attributes for the CP 2020
  * @export
  * @interface Vehicle
  */
-export interface Vehicle {
+export interface VehicleData {
   name: string;
   description: string;
   topspeed?: number;

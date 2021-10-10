@@ -1,3 +1,4 @@
+import { Cp2020VehiclesModule } from './../shared/cp2020/cp2020-vehicles/cp2020-vehicles.module';
 import { Cp2020RoleModule } from './../shared/cp2020/cp2020-role/cp2020-role.module';
 import { Cp2020SkillsModule } from './../shared/cp2020/cp2020-skills/cp2020-skills.module';
 import { Cp2020LifestyleModule } from './../shared/cp2020/cp2020-lifestyle/cp2020-lifestyle.module';
@@ -23,7 +24,6 @@ import { CommonModule } from '@angular/common';
 import { AppCharacterGeneratorRoutingModule } from './app-character-generator-routing.module';
 import { AppCharacterGeneratorFormComponent } from './app-character-generator-form/app-character-generator-form.component';
 import { AppCharacterHandleComponent } from './app-character-handle/app-character-handle.component';
-import { AppCharacterRoleComponent } from './app-character-role/app-character-role.component';
 import { AppCharacterImageComponent } from './app-character-image/app-character-image.component';
 import { AppCharacterLifepathComponent } from './app-character-lifepath/app-character-lifepath.component';
 import { AppCharacterGearComponent } from './app-character-gear/app-character-gear.component';
@@ -33,7 +33,6 @@ import { AppCharacterInstructionComponent } from './app-character-instruction/ap
   declarations: [
     AppCharacterGeneratorFormComponent,
     AppCharacterHandleComponent,
-    AppCharacterRoleComponent,
     AppCharacterImageComponent,
     AppCharacterLifepathComponent,
     AppCharacterGearComponent,
@@ -51,6 +50,7 @@ import { AppCharacterInstructionComponent } from './app-character-instruction/ap
     Cp2020LifestyleModule,
     Cp2020SkillsModule,
     Cp2020RoleModule,
+    Cp2020VehiclesModule,
     ModalModule.forRoot()
   ],
   providers: [

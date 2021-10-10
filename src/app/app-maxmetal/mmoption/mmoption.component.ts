@@ -1,4 +1,4 @@
-import { MaxMetalOption } from '../../shared/models/maxmetal';
+import { MaxMetalOption } from '../../shared/cp2020/cp2020-vehicles/models';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({

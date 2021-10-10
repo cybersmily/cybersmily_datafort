@@ -1,6 +1,6 @@
 import { JsonDataFiles } from './../../shared/services/file-services';
 import { SeoService } from './../../shared/services/seo/seo.service';
-import { Vehicle } from '../../shared/models/maxmetal';
+import { VehicleData } from '../../shared/cp2020/cp2020-vehicles/models';
 import { DataService } from './../../shared/services/file-services/data.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Chrome2Component implements OnInit {
 
-  vehicleList: Vehicle[];
+  vehicleList: VehicleData[];
   title: string;
   updated: string;
 

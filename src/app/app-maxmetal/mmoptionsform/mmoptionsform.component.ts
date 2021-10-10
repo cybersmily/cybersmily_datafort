@@ -1,7 +1,5 @@
-import { MaxMetalOptionCategory } from './../../shared/models/maxmetal/max-metal-option-category';
-import { MaxMetalVehicle } from './../../shared/models/maxmetal/max-metal-vehicle';
-import { MaxMetalOption } from './../../shared/models/maxmetal/max-metal-option';
-import { MaxMetalDataService } from '../../shared/services/maxmetal/max-metal-data.service';
+import { MaxMetalVehicle, MaxMetalOption } from './../../shared/cp2020/cp2020-vehicles/models';
+import { MaxMetalDataService } from '../../shared/cp2020/cp2020-vehicles/services';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({

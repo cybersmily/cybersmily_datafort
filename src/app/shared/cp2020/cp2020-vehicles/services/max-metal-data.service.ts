@@ -1,4 +1,4 @@
-import { JsonDataFiles, DataService } from './../file-services';
+import { JsonDataFiles, DataService } from './../../../services/file-services';
 
 import { Observable, of, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 import {
         MaxMetalWeaponCategory,
         MaxMetalWeaponMount,
-        VehicleWeapon } from './../../cp2020/cp2020weapons/models';
-import { MaxMetalOption, VehicleType } from './../../models/maxmetal';
+        VehicleWeapon } from './../../cp2020weapons/models';
+import { MaxMetalOption, VehicleType } from './../models';
 
 @Injectable({
   providedIn: 'root'

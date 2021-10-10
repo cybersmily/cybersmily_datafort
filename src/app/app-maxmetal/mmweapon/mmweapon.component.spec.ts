@@ -1,5 +1,5 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
-import { MaxMetalOption } from '../../shared/models/maxmetal';
+import { MaxMetalOption } from '../../shared/cp2020/cp2020-vehicles/models';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MmweaponComponent } from './mmweapon.component';

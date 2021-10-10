@@ -1,8 +1,8 @@
 import { MaxMetalWeaponCategory } from './../../shared/cp2020/cp2020weapons/models';
-import { MaxMetalDataService } from './../../shared/services/maxmetal';
+import { MaxMetalDataService } from '../../shared/cp2020/cp2020-vehicles/services';
 import { Component, OnInit } from '@angular/core';
 import {faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { MaxMetalOption } from './../../shared/models/maxmetal';
+import { MaxMetalOption } from '../../shared/cp2020/cp2020-vehicles/models';
 
 @Component({
   selector: 'cs-mmaccessories',

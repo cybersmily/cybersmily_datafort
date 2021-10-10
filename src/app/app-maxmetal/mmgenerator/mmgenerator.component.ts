@@ -2,7 +2,7 @@ import { JsonDataFiles } from './../../shared/services/file-services';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { DataService } from './../../shared/services/file-services/data.service';
 import { Component, OnInit } from '@angular/core';
-import { VehicleType } from '../../shared/models/maxmetal';
+import { VehicleType } from '../../shared/cp2020/cp2020-vehicles/models';
 
 @Component({
   selector: 'cs-mmgenerator',

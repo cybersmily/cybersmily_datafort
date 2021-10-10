@@ -1,4 +1,4 @@
-import { VehicleType, MaxMetalVehSdp } from '../../models/maxmetal';
+import { VehicleType, MaxMetalVehSdp } from './../models';
 import { TestBed, inject } from '@angular/core/testing';
 
 import { MaxmetalService } from './maxmetal.service';

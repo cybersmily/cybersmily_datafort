@@ -1,6 +1,7 @@
-import { SourceBook } from './../sourcebook';
-import { MaxMetalVehicle } from './max-metal-vehicle';
-export class MaxMetalOption {
+import { VehicleOption } from './vehicle-option';
+import { SourceBook } from './../../../models/sourcebook';
+
+export class MaxMetalOption implements VehicleOption {
   type: string;
   name: string;
   spaces: string;

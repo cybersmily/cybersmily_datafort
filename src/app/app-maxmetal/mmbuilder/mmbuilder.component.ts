@@ -1,8 +1,8 @@
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { SaveFileService } from './../../shared/services/file-services';
-import { MaxMetalOption } from './../../shared/models/maxmetal/max-metal-option';
-import { MaxmetalService } from '../../shared/services/maxmetal/maxmetal.service';
-import { MaxMetalVehicle, VehicleType } from '../../shared/models/maxmetal';
+import { MaxMetalOption } from './../../shared/cp2020/cp2020-vehicles/models';
+import { MaxmetalService } from '../../shared/cp2020/cp2020-vehicles/services';
+import { MaxMetalVehicle, VehicleType } from '../../shared/cp2020/cp2020-vehicles/models';
 import { MaxMetalWeapon } from '../../shared/cp2020/cp2020weapons/models/max-metal-weapon';
 import { Component, OnInit, Input, TemplateRef, ViewChild } from '@angular/core';
 

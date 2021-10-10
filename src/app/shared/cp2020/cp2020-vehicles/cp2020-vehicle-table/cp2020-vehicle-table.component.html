@@ -1,0 +1,29 @@
+<div class="cp2020-section border border-dark">
+  <div class="cp2020-label row no-gutters">
+    <div class="col">
+      <h4 class="d-inline-block csd-btn mr-4" (click)="isCollapsed = !isCollapsed">
+        VEHICLES
+        <fa-icon [icon]="collapseChevron(isCollapsed)" class="csd-icon-btn csd-icon-xl ml-1"></fa-icon>
+      </h4>
+    </div>
+  </div>
+  <div [collapse]="isCollapsed">
+    <div class="row no-gutters">
+      <div class="col-12 col-lg-6" *ngFor="let vehicle of currVehicles;let i = index">
+        <cs-cp2020-vehicle-details
+        [vehicle]="vehicle"
+        [index]="i"
+        (update)="updateVehicle($event, i)"
+        (delete)="deleteVehicle($event)"
+        ></cs-cp2020-vehicle-details>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col csd-btn" (click)="addVehicle()">
+        <fa-icon [icon]="faPlus"
+        class="csd-btn csd-icon-btn csd-icon-xl">
+      </fa-icon>
+      </div>
+    </div>
+  </div>
+</div>
