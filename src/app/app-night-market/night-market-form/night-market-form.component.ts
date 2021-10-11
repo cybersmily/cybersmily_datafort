@@ -1,5 +1,6 @@
+import { MarketsToPDF } from './../models/marketsToPDF';
 import { CPRedPriceCategoryLookup } from './../../shared/cpred/models/c-p-red-price-category-lookup';
-import { faDice } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
 import { NightMarketListing, NightMarketCategory } from '../../shared/cpred/models/night-market-chart';
@@ -13,6 +14,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NightMarketFormComponent implements OnInit {
   faDice = faDice;
+  faFilePdf = faFilePdf;
 
   charts: Array<NightMarketCategory>;
   currChartIndex: number = -1;
@@ -32,14 +34,14 @@ export class NightMarketFormComponent implements OnInit {
 
   generate() {
     if (this.charts) {
-      const numOfItems = (this.randomRollNoItems) ? this.numberOfItems : this.diceService.generateNumber(1, 10) ;
       this.itemList = new Array<NightMarketListing>();
-      this.itemList.push(this.rollTable(numOfItems));
-      this.itemList.push(this.rollTable(numOfItems));
+      this.itemList.push(this.rollTable());
+      this.itemList.push(this.rollTable());
     }
   }
 
-  rollTable(numberOfItems: number): NightMarketListing {
+  rollTable(): NightMarketListing {
+    const numberOfItems = (this.randomRollNoItems) ? this.diceService.generateNumber(1, 10) : this.numberOfItems;
     const result: NightMarketListing = {category: '', items: new Array<string>()};
     let roll = this.diceService.generateNumber(0, this.charts.length - 1);
     while (this.currChartIndex === roll) {
@@ -67,6 +69,10 @@ export class NightMarketFormComponent implements OnInit {
       return a > b ? 1 : b > a ? -1 : 0;
     });
     return result;
+  }
+
+  saveAsPDF() {
+    MarketsToPDF.createNighMarketPDF(this.itemList);
   }
 
 }

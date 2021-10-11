@@ -6,6 +6,11 @@
     </div>
     <div class="col-12 col-md-6">
       <input type="checkbox" [(ngModel)]="randomRollNoItems"> - Randomly roll number of items
+      <fa-icon [icon]="faFilePdf"
+        class="csd-btn csd-icon-btn csd-icon-xl float-right"
+        title="Export to PDF"
+        (click)="saveAsPDF()"
+      ></fa-icon>
     </div>
   </div>
   <div class="row" *ngIf="!randomRollNoItems">
