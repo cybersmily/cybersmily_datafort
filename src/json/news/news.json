@@ -3,6 +3,7 @@
     { "date":"2021-10",
       "entries":[
         "<strong>10-??</strong> - Been on a bit of a hiatus. Real life pulled me in a few directions and took me longer to implement some of the changes with this release. Enjoy!",
+        "&nbsp;* CP2020 Char generator - Implemented Secondary Roles. Now you can add more roles to the sheet. This section also allows you to select the role skills when there are choices.",
         "&nbsp;* CP2020 Char generator - Implemented IU Roles and Skills. There are still some automation needed, but it is a start. Blame Wisdom 000 for that.",
         "&nbsp;* CP2020 Char generator - Implemented Vehicle section. Now you can keep track of a character's vehicles.",
         "&nbsp;* CP2020 Char generator - Implemented magazine manager for weapons.",
