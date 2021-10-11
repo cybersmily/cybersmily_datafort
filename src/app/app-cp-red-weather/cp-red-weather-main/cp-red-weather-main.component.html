@@ -4,35 +4,32 @@
       <h2>Weather Generator for Cyberpunk Red/Cyberpunk 2020</h2>
       <p>
         This unofficial utility is for generating a daily/weekly/monthly weather for your game.
+        These charts are taken from R Talsorian's downloadable
+        <a href="https://rtalsoriangames.com/wp-content/uploads/2021/07/RTG-CPR-NightCityWeather.pdf" alt="Night City Weather.pdf">
+        Night City Weather</a>. You will need to download it to lookup the effects of some of the weather.
       </p>
     </div>
   </div>
   <div class="row hidden-print">
     <div class="col">
-      System:
-      <select [(ngModel)]="system" (change)="changeSystem()">
+      <fa-icon [icon]="faDice" class="csd-btn csd-icon-btn csd-icon-xl mr-2" (click)="rollWeather()"></fa-icon>      System:
+      <select [(ngModel)]="system" (change)="changeSystem()" class="mr-3">
         <option value="cpred">Cyberpunk Red</option>
       </select>
-    </div>
-    <div class="col">
       Season:
-      <select [(ngModel)]="season">
+      <select [(ngModel)]="season" class="mr-3">
         <option value="spring">Spring</option>
         <option value="summer">Summer</option>
         <option value="autumn">Autumn</option>
         <option value="winter">Winter</option>
       </select>
-    </div>
-    <div class="col">
       Time Range:
       <select [(ngModel)]="timeRange">
         <option [value]="1">Day</option>
         <option [value]="7">Week</option>
         <option [value]="30">Month</option>
       </select>
-    </div>
-    <div class="col">
-      <fa-icon [icon]="faDice" class="csd-btn csd-icon-btn csd-icon-lg" (click)="rollWeather()"></fa-icon>
+      <fa-icon [icon]="faFilePdf" class="csd-btn csd-icon-btn csd-icon-xl float-right" (click)="saveToPDF()"></fa-icon>      System:
     </div>
   </div>
   <br>

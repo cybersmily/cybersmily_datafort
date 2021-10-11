@@ -143,7 +143,8 @@ export interface SiteLinksGroup {
           {title: 'NET Architect Generator', link: 'apps/rednet', desc: 'Cyberpunk Red NET Architect generator.'},
           {title: 'Night Market Generator', link: 'apps/nightmarket', desc: 'Night Market generator for Cyberpunk Red.'},
           {title: 'Bodegas Generator', link: 'apps/nightmarket', desc: 'Bodegas generator for Cyberpunk Red.'},
-          {title: 'Vendit Generator', link: 'apps/nightmarket', desc: 'Vendit generator for Cyberpunk Red.'}
+          {title: 'Vendit Generator', link: 'apps/nightmarket', desc: 'Vendit generator for Cyberpunk Red.'},
+          {title: 'Weather Generator', link: 'apps/weather', desc: 'Weather generator for Cyberpunk Red/2020.'}
         ]
       });
       this.menuItems.push({

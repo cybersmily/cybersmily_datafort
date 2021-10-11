@@ -1,6 +1,7 @@
+import { CpRedDayWeatherPdf } from './../models/cp-red-day-weather-pdf';
 import { CpRedDayWeather } from './../models/cp-red-day-weather';
 import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
-import { faDice } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { DataService } from './../../shared/services/file-services/data.service';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { Component, OnInit } from '@angular/core';
@@ -13,6 +14,7 @@ import { CpRedWeatherChart } from '../models/cp-red-weather-chart';
 })
 export class CpRedWeatherMainComponent implements OnInit {
   faDice = faDice;
+  faFilePdf = faFilePdf;
 
   charts: Array<CpRedWeatherChart> = new Array<CpRedWeatherChart>();
   selectedChart: CpRedWeatherChart = new CpRedWeatherChart();
@@ -24,10 +26,10 @@ export class CpRedWeatherMainComponent implements OnInit {
 
   get monthResults(): Array<any> {
     return [
-      this.results.slice(0,6),
-      this.results.slice(7,13),
-      this.results.slice(14,20),
-      this.results.slice(21,27),
+      this.results.slice(0,7),
+      this.results.slice(7,14),
+      this.results.slice(14,21),
+      this.results.slice(21,28),
       this.results.slice(28)
     ];
   }
@@ -52,6 +54,7 @@ export class CpRedWeatherMainComponent implements OnInit {
     this.results = new Array<CpRedDayWeather>();
     let currCondition = '';
     let conditionDuration = 0;
+    console.log(this.timeRange);
     for(let i = 0; i < this.timeRange; i++) {
       const seasonChart = this.selectedChart[this.season];
       let die = this.dice.generateNumber(0, seasonChart.tempatures.length - 1);
@@ -79,9 +82,8 @@ export class CpRedWeatherMainComponent implements OnInit {
             currCondition = condition;
           }
         }
-      } else {
-        conditionDuration--;
       }
+      conditionDuration--;
       if (condition.includes('Cold Snap')) {
         temp = 30 - this.dice.generateNumber(1,20);
       }
@@ -90,6 +92,11 @@ export class CpRedWeatherMainComponent implements OnInit {
       }
       this.results.push({tempature: temp, condition: condition});
     }
+    console.log(this.results);
+  }
+
+  saveToPDF() {
+    CpRedDayWeatherPdf.createWeatherPDF(this.results);
   }
 
   toCelsius(temp: number) {
