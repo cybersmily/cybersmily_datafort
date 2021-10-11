@@ -84,6 +84,7 @@ export class CpRedWeatherMainComponent implements OnInit {
         }
       }
       conditionDuration--;
+
       if (condition.includes('Cold Snap')) {
         temp = 30 - this.dice.generateNumber(1,20);
       }
@@ -92,7 +93,6 @@ export class CpRedWeatherMainComponent implements OnInit {
       }
       this.results.push({tempature: temp, condition: condition});
     }
-    console.log(this.results);
   }
 
   saveToPDF() {

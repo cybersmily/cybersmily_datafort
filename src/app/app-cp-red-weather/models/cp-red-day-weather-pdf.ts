@@ -15,11 +15,18 @@ export class CpRedDayWeatherPdf {
     const doc: jsPDF = this.setupDoc();
     let col = this._left;
     let line = this._top;
+    doc.setFillColor('red');
+    doc.setTextColor('white');
+    const ht = results.length > 7 ? 205
+     : 60;
+    doc.roundedRect(15, 3, 254, ht, 3, 3, 'F');
     doc.setFont(this._font, 'bold');
     doc.setFontSize(15);
     doc.text('CYBERPUNK WEATHER', this._midPage, line, { align: 'center' });
     doc.setFontSize(this._fontSize);
     line += 4;
+    doc.setTextColor('black');
+    doc.setFillColor('white');
     this.drawWeather(doc, results, col + 15, line);
     doc.save('CP_Weather.pdf');
   }
@@ -63,13 +70,16 @@ export class CpRedDayWeatherPdf {
         line += 38;
         margin = left;
       }
+      doc.setFont(this._font, 'bold');
       const center = margin + 17;
       doc.setFontSize(12);
-      doc.rect(margin, line, 34, 37, 'S');
+      doc.setFillColor('white');
+      doc.roundedRect(margin, line, 34, 37, 3, 3, 'F');
       const dayOfWeek = (results.length < 2) ? 'TODAY' : this._daysOfWekk[i%7];
       doc.text(dayOfWeek, center, line + 5, {align: 'center'});
       this.setTemp(doc, day.tempature, center, line);
       doc.setFontSize(8);
+      doc.setFont(this._font, 'normal');
       const cond = doc.splitTextToSize(day.condition, 30);
       doc.text(cond, center, line + 27, {align: 'center'});
       margin += 35;

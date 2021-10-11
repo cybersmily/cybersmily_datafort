@@ -12,7 +12,10 @@
   </div>
   <div class="row hidden-print">
     <div class="col">
-      <fa-icon [icon]="faDice" class="csd-btn csd-icon-btn csd-icon-xl mr-2" (click)="rollWeather()"></fa-icon>      System:
+      <fa-icon [icon]="faDice" class="csd-btn csd-icon-btn csd-icon-xl mr-2"
+      (click)="rollWeather()" title="Generate weather"
+      ></fa-icon>
+      System:
       <select [(ngModel)]="system" (change)="changeSystem()" class="mr-3">
         <option value="cpred">Cyberpunk Red</option>
       </select>
@@ -29,7 +32,10 @@
         <option [value]="7">Week</option>
         <option [value]="30">Month</option>
       </select>
-      <fa-icon [icon]="faFilePdf" class="csd-btn csd-icon-btn csd-icon-xl float-right" (click)="saveToPDF()"></fa-icon>      System:
+      <fa-icon [icon]="faFilePdf"
+        class="csd-btn csd-icon-btn csd-icon-xl float-right"
+        title="Export to PDF"
+        (click)="saveToPDF()"></fa-icon>
     </div>
   </div>
   <br>
