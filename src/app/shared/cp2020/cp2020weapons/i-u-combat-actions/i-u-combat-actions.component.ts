@@ -35,7 +35,6 @@ export class IUCombatActionsComponent implements OnInit {
     this.combatSkills = this.skills
     .filter( sk => !sk.name.startsWith('Init'))
     .sort((a,b) => ( (a.option ? a.option : a.name ) > (b.option ? b.option : b.name ))? 1 : -1);
-    console.log(this.skills);
   }
 
   getQuickAction(value: number) {

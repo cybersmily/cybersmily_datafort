@@ -59,7 +59,6 @@ export class Cp2020VehicleDetailsComponent implements OnInit {
 
   addWeapon() {
     this.currVehicle.weapons.push(new Cp2020VehicleWeapon());
-    console.log(this.currVehicle.weapons);
   }
 
   deleteWeapon(index: number) {

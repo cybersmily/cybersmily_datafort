@@ -121,7 +121,6 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   }
 
   changeVehicles(value: Array<Cp2020Vehicle>) {
-    console.log(value);
     this.characterService.changeVehicles(value);
   }
 

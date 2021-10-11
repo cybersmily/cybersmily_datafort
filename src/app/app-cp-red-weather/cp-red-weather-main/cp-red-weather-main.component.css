@@ -1,0 +1,9 @@
+.cp-week-day {
+  display: inline-block;
+  width: 14%;
+}
+
+.cp-day {
+  display: inline-block;
+  width: 150px;
+}

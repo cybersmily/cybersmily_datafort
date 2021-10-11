@@ -36,7 +36,6 @@ export class Cp2020characterToPDF {
     doc.setFontSize(this._fontSize);
     this.createFirstPage(doc);
     this.createSecondPage(doc);
-    console.log(this._character.vehicles);
     if(this._character.vehicles.length > 0) {
       this.createVehiclesPage(doc);
     }
@@ -574,7 +573,6 @@ export class Cp2020characterToPDF {
     doc.setTextColor('black');
     doc.setFont(this._font, 'normal');
 
-    console.log('addVehicles', vehicles, left, line);
     let newLine = line;
     vehicles.forEach((veh, i) => {
       line = (i%2 === 1) ? newLine : line;
@@ -585,7 +583,6 @@ export class Cp2020characterToPDF {
   }
 
   private addVehicleDetail(doc: jsPDF, vehicle: Cp2020Vehicle, left: number, line: number): number {
-    console.log('addVehicleDetail', vehicle, left, line);
     const height = line;
     line += 4;
     const ht = 5;

@@ -47,6 +47,9 @@ export const mainRoutes: Routes = [
   { path: 'apps/headlines',
     loadChildren: () => import('./app-news-headlines/app-news-headlines.module')
     .then(m => m.AppNewsHeadlinesModule) },
+  { path: 'apps/weather',
+    loadChildren: () => import('./app-cp-red-weather/app-cp-red-weather.module')
+    .then(m => m.AppCpRedWeatherModule) },
   { path: 'apps/nightmarket',
       loadChildren: () => import('./app-night-market/app-night-market.module')
       .then(m => m.AppNightMarketModule) },

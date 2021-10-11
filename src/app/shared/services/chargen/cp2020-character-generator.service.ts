@@ -207,7 +207,6 @@ export class Cp2020CharacterGeneratorService {
 
   changeVehicles(value: Array<Cp2020Vehicle>) {
     this._currCharacter.vehicles = [...value];
-    console.log('characterService',this._currCharacter.vehicles);
     this.updateCharacter();
   }
 

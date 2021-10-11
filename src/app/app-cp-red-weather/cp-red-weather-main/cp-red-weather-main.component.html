@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="row hidden-print">
+    <div class="col-12">
+      <h2>Weather Generator for Cyberpunk Red/Cyberpunk 2020</h2>
+      <p>
+        This unofficial utility is for generating a daily/weekly/monthly weather for your game.
+      </p>
+    </div>
+  </div>
+  <div class="row hidden-print">
+    <div class="col">
+      System:
+      <select [(ngModel)]="system" (change)="changeSystem()">
+        <option value="cpred">Cyberpunk Red</option>
+      </select>
+    </div>
+    <div class="col">
+      Season:
+      <select [(ngModel)]="season">
+        <option value="spring">Spring</option>
+        <option value="summer">Summer</option>
+        <option value="autumn">Autumn</option>
+        <option value="winter">Winter</option>
+      </select>
+    </div>
+    <div class="col">
+      Time Range:
+      <select [(ngModel)]="timeRange">
+        <option [value]="1">Day</option>
+        <option [value]="7">Week</option>
+        <option [value]="30">Month</option>
+      </select>
+    </div>
+    <div class="col">
+      <fa-icon [icon]="faDice" class="csd-btn csd-icon-btn csd-icon-lg" (click)="rollWeather()"></fa-icon>
+    </div>
+  </div>
+  <br>
+  <div *ngIf="results.length === 1" class="row">
+    <div class="col text-center">
+      <div class="csd-rounded cp-day">
+        <div class="large align-top">
+          <h1 class="d-inline-block">TODAY</h1>
+        </div>
+        <hr>
+        <div class="large align-top">
+          <h1 class="d-inline-block">{{results[0].tempature}}<span class="align-top h6">&#176;F</span></h1>
+        </div>
+        <div class="large align-top">
+          <h1 class="d-inline-block">{{toCelsius(results[0].tempature)}}<span class="align-top h6">&#176;C</span></h1>
+        </div>
+        <div>{{results[0].condition}}</div>
+      </div>
+
+    </div>
+  </div>
+  <div *ngIf="results.length === 7" class="row">
+    <div class="col">
+      <ng-container *ngTemplateOutlet="weekWeather;context:{results:results}"></ng-container>
+    </div>
+  </div>
+  <ng-container *ngIf="results.length > 7">
+  <div *ngFor="let week of monthResults" class="row">
+    <div class="col">
+      <ng-container *ngTemplateOutlet="weekWeather;context:{results:week}"></ng-container>
+    </div>
+  </div>
+</ng-container>
+  <br>
+  <br>
+</div>
+
+<ng-template #weekWeather let-results="results">
+  <div *ngFor="let day of results; let i = index" class="csd-rounded cp-week-day align-top text-center">
+    <div class="large align-top">
+      <h5 class="d-inline-block">{{daysOfWeek[i]}}</h5>
+    </div>
+    <hr>
+    <div class="large align-top">
+      <h5 class="d-inline-block">{{day.tempature}}<span class="align-top h6">&#176;F</span></h5>
+    </div>
+    <div class="large align-top">
+      <h5 class="d-inline-block">{{toCelsius(day.tempature)}}<span class="align-top h6">&#176;C</span></h5>
+    </div>
+    <div class="small">{{day.condition}}</div>
+  </div>
+</ng-template>

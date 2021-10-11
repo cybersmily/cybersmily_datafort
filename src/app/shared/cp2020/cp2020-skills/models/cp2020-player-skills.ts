@@ -331,10 +331,6 @@ export class Cp2020PlayerSkills {
       skills[i] = new Cp2020PlayerSkill(skill);
     }
     this.skills = [...skills];
-    console.log('updating skill', skills[i]);
-    console.log('editSkill', this.skills);
-    console.log('updating skill', this.skills[i]);
-
   }
 
   addExpert(skillName: string) {

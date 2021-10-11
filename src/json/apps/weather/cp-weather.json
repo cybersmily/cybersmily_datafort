@@ -1,0 +1,60 @@
+[ {
+    "system": "cpred",
+    "winter": {
+      "tempatures": [ 35, 40, 50, 50, 60],
+      "conditions": [
+        "Clear",
+        "Light Rain/Sleet",
+        "Overcast",
+        "Overcast",
+        "Heavy Rain/Sleet",
+        "Strange"
+      ]
+    },
+    "spring": {
+      "tempatures": [40, 50, 50, 50, 60, 70],
+      "conditions": [
+        "Clear",
+        "Light Rain",
+        "Overcast",
+        "Light Rain",
+        "Heavy Rain",
+        "Strange"
+      ]
+    },
+    "summer": {
+      "tempatures": [60, 70, 70, 80, 80, 90],
+      "conditions": [
+        "Light Rain",
+        "Clear",
+        "Overcast",
+        "Overcast",
+        "Clear",
+        "Strange"
+      ]
+    },
+    "autumn": {
+      "tempatures": [40, 60, 60, 60, 70, 80],
+      "conditions": [
+        "Light Rain/Sleet",
+        "Clear",
+        "Overcast",
+        "Overcast",
+        "Clear",
+        "Strange"
+      ]
+    },
+    "strange": [
+      {"condition": "Radioactive Windstorm", "duration":"1d6*10", "timeperiod": "minutes"},
+      {"condition": "Ash Storm", "duration":"1d6*10", "timeperiod": "minutes"},
+      {"condition": "Flooding", "duration":"1d6", "timeperiod": "days"},
+      {"condition": "Blood Rain", "duration":"1d6", "timeperiod": "hours"},
+      {"condition": "Acid Rain", "duration":"1d6", "timeperiod": "hours"},
+      {"condition": "Deadly Thunderstorm", "duration":"1d6*10", "timeperiod": "minute"},
+      {"condition": "Inversion Smog", "duration":"1d6", "timeperiod": "days"},
+      {"condition": "Cold Snap/Heat Wave", "duration":"1d6", "timeperiod": "days"},
+      {"condition": "Dust Storm", "duration":"1d6*10", "timeperiod": "minutes"},
+      {"condition": "Blackout", "duration":"1d6", "timeperiod": "days"}
+    ]
+  }
+]

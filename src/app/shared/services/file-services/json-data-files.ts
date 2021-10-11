@@ -90,6 +90,8 @@ export class JsonDataFiles {
   public static CPRED_VENDIT_CHART_JSON =`/json/apps/redeconomy/vendit.json`;
   public static CPRED_BODEGAS_CHART_JSON =`/json/apps/redeconomy/bodegas.json`;
 
+  public static CPRED_WEAHTER_CHART_JSON =`/json/apps/weather/cp-weather.json`;
+
   public static CP2077_TRACKER_DATA_JSON =`/json/apps/cp2077tracker.json`;
 
 }
