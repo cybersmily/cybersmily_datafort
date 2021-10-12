@@ -35,13 +35,14 @@ export class NightMarketFormComponent implements OnInit {
   generate() {
     if (this.charts) {
       this.itemList = new Array<NightMarketListing>();
-      this.itemList.push(this.rollTable());
-      this.itemList.push(this.rollTable());
+      let numberOfItems = (this.randomRollNoItems) ? this.diceService.generateNumber(1, 10) : this.numberOfItems;
+      this.itemList.push(this.rollTable(numberOfItems));
+      numberOfItems = (this.randomRollNoItems) ? this.diceService.generateNumber(1, 10) : this.numberOfItems;
+      this.itemList.push(this.rollTable(numberOfItems));
     }
   }
 
-  rollTable(): NightMarketListing {
-    const numberOfItems = (this.randomRollNoItems) ? this.diceService.generateNumber(1, 10) : this.numberOfItems;
+  rollTable(numberOfItems): NightMarketListing {
     const result: NightMarketListing = {category: '', items: new Array<string>()};
     let roll = this.diceService.generateNumber(0, this.charts.length - 1);
     while (this.currChartIndex === roll) {

@@ -91,7 +91,7 @@ describe('NightMarketFormComponent', () => {
     });
 
     it('should generate max number items for each category', () => {
-      component.randomRollNoItems = true;
+      component.randomRollNoItems = false;
       component.numberOfItems = 11;
       component.generate();
       expect(component.itemList).toBeTruthy();
@@ -101,7 +101,7 @@ describe('NightMarketFormComponent', () => {
     });
 
     it('should generate max number items for each category', () => {
-      component.randomRollNoItems = true;
+      component.randomRollNoItems = false;
       component.numberOfItems = 11;
       component.generate();
       expect(component.itemList).toBeTruthy();
@@ -111,7 +111,7 @@ describe('NightMarketFormComponent', () => {
     });
 
     it('should generate minimum of 1 item for each category', () => {
-      component.randomRollNoItems = true;
+      component.randomRollNoItems = false;
       component.numberOfItems = 0;
       component.generate();
       expect(component.itemList).toBeTruthy();
