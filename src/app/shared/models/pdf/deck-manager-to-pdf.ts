@@ -1,8 +1,8 @@
-import { Cp2020NetrunDeck } from './../netrun/cp2020-netrun-deck';
-import { Cp2020ProgramList } from './../netrun/cp2020-program-list';
-import { Cp2020DeckManager } from './../netrun/cp2020-deck-manager';
+import { Cp2020NetrunDeck } from './../../cp2020/cp2020-decks/models';
+import { Cp2020ProgramList } from './../../cp2020/cp2020-decks/models';
+import { Cp2020DeckManager } from './../../cp2020/cp2020-decks/models';
 import { jsPDF } from 'jspdf';
-import { NetRunProgram } from '../netrun';
+import { NetRunProgram } from '../../cp2020/cp2020-decks/models';
 
 export class DeckManagerToPdf {
   private static _left = 5;

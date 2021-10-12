@@ -1,11 +1,11 @@
 import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
 import { forkJoin } from 'rxjs';
 import { DataService } from './../../shared/services/file-services/data.service';
-import { NrDeckChassis } from './../../shared/models/netrun/nr-deck-chassis';
+import { NrDeckChassis } from './../../shared/cp2020/cp2020-decks/models';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { NrDeckDataService } from './../../shared/services/netrun/nr-deck-data.service';
 import { faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
-import { Cp2020NetrunDeck, NrDeckData, NrDeckOption } from '../../shared/models/netrun';
+import { Cp2020NetrunDeck, NrDeckData, NrDeckOption } from '../../shared/cp2020/cp2020-decks/models';
 import { Component, OnInit, TemplateRef, EventEmitter, Output, Input, OnChanges } from '@angular/core';
 
 @Component({

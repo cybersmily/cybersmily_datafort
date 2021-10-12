@@ -1,4 +1,4 @@
-import { SourceBook } from './../sourcebook';
+import { SourceBook } from './../../../models/sourcebook';
 export interface NrDeckOption {
   name: string;
   cost: number | string;

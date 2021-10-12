@@ -1,10 +1,10 @@
 import { DeckManagerToPdf } from './../../shared/models/pdf/deck-manager-to-pdf';
-import { Cp2020ProgramList } from './../../shared/models/netrun/cp2020-program-list';
+import { Cp2020ProgramList } from './../../shared/cp2020/cp2020-decks/models';
 import { NrDeckManagerService } from './../../shared/services/netrun';
 import { FileLoaderService, SaveFileService } from './../../shared/services/file-services';
 import { SeoService } from '../../shared/services/seo/seo.service';
 import { Component, OnInit } from '@angular/core';
-import { NetRunProgram, Cp2020DeckManager, Cp2020NetrunDeck } from '../../shared/models/netrun';
+import { NetRunProgram, Cp2020DeckManager, Cp2020NetrunDeck } from '../../shared/cp2020/cp2020-decks/models';
 import { faTrash, faFilePdf, faSave, faUndo, faUpload, faAngleDoubleDown,
   faAngleDoubleRight, faPlus } from '@fortawesome/free-solid-svg-icons';
 
