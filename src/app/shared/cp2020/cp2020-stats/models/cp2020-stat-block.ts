@@ -21,8 +21,9 @@ export class Cp2020StatBlock implements Cp2020Stats {
   isStunned: boolean;
   deathState: number;
   initiativeModifiers: Array<StatModifier>;
+  private _isIU: boolean;
 
-  constructor() {
+  constructor(isIU?: boolean) {
     this._basePoints = 0;
     this.INT = new Cp2020Stat();
     this.REF = new Cp2020Stat();
@@ -40,6 +41,7 @@ export class Cp2020StatBlock implements Cp2020Stats {
     this.isStunned = false;
     this.deathState = 0;
     this.initiativeModifiers = new Array<StatModifier>();
+    this._isIU = isIU;
   }
 
   import( value: any ) {
@@ -128,7 +130,7 @@ export class Cp2020StatBlock implements Cp2020Stats {
   }
 
   get Save(): number {
-    const save = this.BODY.Adjusted - this.StunSaveMod;
+    const save = ((this._isIU) ? this.COOL.Adjusted :  this.BODY.Adjusted) - this.StunSaveMod;
     return ( (save < 0) ? 0 : save );
   }
 

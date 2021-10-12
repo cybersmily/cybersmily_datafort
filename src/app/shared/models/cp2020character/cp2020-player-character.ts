@@ -26,11 +26,11 @@ export class Cp2020PlayerCharacter {
   image: string;
   isIU: boolean;
 
-  constructor() {
+  constructor(isIU?: boolean) {
     this.handle = '';
     this.role = new Cp2020PlayerRole();
     this.secondaryRoles = new Array<Cp2020PlayerRole>();
-    this.stats = new Cp2020StatBlock();
+    this.stats = new Cp2020StatBlock(isIU);
     this.armor = new Cp2020ArmorBlock();
     this.cyberware = new Cp2020PlayerCyberList(4);
     this.gear = new Cp2020PlayerGearList(24);
@@ -51,6 +51,6 @@ export class Cp2020PlayerCharacter {
     this.lifepath.events = Array.from({length: 12}, () => ({age: 0, event: ''}));
     this.notes = '';
     this.image = '';
-    this.isIU = false;
+    this.isIU = isIU ?? false;
   }
 }
