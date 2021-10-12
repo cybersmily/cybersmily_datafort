@@ -5,7 +5,7 @@ import { faPlus, faDiceSix, faSave, faSearch } from '@fortawesome/free-solid-svg
 import { forkJoin } from 'rxjs';
 import { NrProgramOptionsService } from './../../shared/services/netrun/nr-program-options.service';
 import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
-import { NrProgram, NrProgramOption, NetRunProgram } from './../../shared/cp2020/cp2020-decks/models';
+import { NrProgram, NrProgramOption, NetRunProgram } from '../../shared/cp2020/cp2020-netrun-gear/models';
 
 @Component({
   selector: 'cs-program-new',

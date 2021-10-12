@@ -1,8 +1,6 @@
-import { NrProgram } from './../netrun/nr-program';
-import { Cp2020ProgramList } from './../netrun/cp2020-program-list';
+import { Cp2020ProgramList, NrProgram,  Cp2020DeckManager, Cp2020NetrunDeck } from './../../cp2020/cp2020-netrun-gear/models';
 import { jsPDF } from 'jspdf';
 import { DeckManagerToPdf } from './deck-manager-to-pdf';
-import { Cp2020DeckManager, Cp2020NetrunDeck } from '../netrun';
 
 describe('DeckManagerToPdf', () => {
 

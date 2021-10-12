@@ -1,7 +1,7 @@
 import { JsonDataFiles } from './../file-services';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-import { NrProgramOption } from './../../cp2020/cp2020-decks/models';
+import { NrProgramOption } from '../../cp2020/cp2020-netrun-gear/models';
 import { DataService } from './../file-services';
 import { Injectable } from '@angular/core';
 

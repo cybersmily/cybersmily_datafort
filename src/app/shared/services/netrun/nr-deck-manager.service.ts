@@ -1,10 +1,10 @@
-import { Cp2020ProgramList } from './../../cp2020/cp2020-decks/models';
-import { Cp2020NetrunDeck } from './../../cp2020/cp2020-decks/models';
+import { Cp2020ProgramList } from '../../cp2020/cp2020-netrun-gear/models';
+import { Cp2020NetrunDeck } from '../../cp2020/cp2020-netrun-gear/models';
 import { CacheKeys } from './../../cache-keys';
 import { BehaviorSubject } from 'rxjs';
-import { Cp2020DeckManager } from './../../cp2020/cp2020-decks/models';
+import { Cp2020DeckManager } from '../../cp2020/cp2020-netrun-gear/models';
 import { Injectable } from '@angular/core';
-import { NrDeckManager } from '../../cp2020/cp2020-decks/models';
+import { NrDeckManager } from '../../cp2020/cp2020-netrun-gear/models';
 
 @Injectable({
   providedIn: 'root'

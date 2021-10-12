@@ -3,7 +3,7 @@ import { map } from 'rxjs/operators';
 import { JsonDataFiles } from './../file-services';
 import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { NrDeckData } from '../../cp2020/cp2020-decks/models';
+import { NrDeckData } from '../../cp2020/cp2020-netrun-gear/models';
 
 @Injectable({
   providedIn: 'root'

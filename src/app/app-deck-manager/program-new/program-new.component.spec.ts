@@ -1,5 +1,5 @@
-import { NetRunProgram } from './../../shared/models/netrun/net-run-program';
-import { NrProgramOption } from './../../shared/models/netrun/nr-program-option';
+import { NetRunProgram } from './../../shared/cp2020/cp2020-netrun-gear/models';
+import { NrProgramOption } from './../../shared/cp2020/cp2020-netrun-gear/models';
 import { of } from 'rxjs';
 import { DataService } from './../../shared/services/file-services/data.service';
 import { NrProgramOptionsService } from './../../shared/services/netrun/nr-program-options.service';
