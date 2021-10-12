@@ -9,4 +9,4 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ]
 })
-export class Cp2020DecksModule { }
+export class Cp2020NetrunGear { }
