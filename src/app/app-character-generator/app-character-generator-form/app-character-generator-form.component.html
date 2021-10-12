@@ -38,7 +38,9 @@
           (changeSecondaryRoles)="changeSeconaryRole($event)"
           [isIU]="character.isIU"></cs-cp2020-role-section>
           <cs-cp2020-rep-section [rep]="character.skills.rep" (changeRep)="changeRep($event)"></cs-cp2020-rep-section>
-          <cs-cp2020-stats [stats]="character.stats" (changeStats)="changeStats($event)" [combatSense]="combatSense">
+          <cs-cp2020-stats [stats]="character.stats" (changeStats)="changeStats($event)"
+            [combatSense]="combatSense"
+            [initiativeSkill]="initiative">
           </cs-cp2020-stats>
         </div>
         <div class="col-sm-12 col-lg-6">

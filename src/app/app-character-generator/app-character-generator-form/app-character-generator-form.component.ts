@@ -211,4 +211,12 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     }
     return result;
   }
+
+  get initiative(): number {
+    if (!this.character.isIU){
+      return -1;
+    }
+    const found = this.character.skills.skills.find(sk => sk.name.toLowerCase() === 'initiative');
+    return found ? found.value : 0;
+  }
 }

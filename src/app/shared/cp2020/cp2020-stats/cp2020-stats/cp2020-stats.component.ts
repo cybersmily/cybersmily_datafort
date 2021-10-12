@@ -1,3 +1,4 @@
+import { Cp2020PlayerSkill } from './../../cp2020-skills/models/cp2020-player-skill';
 import { Cp2020StatBlock } from './../models/cp2020-stat-block';
 import { DiceRolls } from './../../../models/dice-rolls';
 import { StatModifier, Cp2020Stat } from './../models';
@@ -35,6 +36,9 @@ export class Cp2020StatsComponent implements OnInit {
 
   @Input()
   combatSense = 0;
+
+  @Input()
+  initiativeSkill: number = -1;
 
 
   @Input()
@@ -125,6 +129,7 @@ export class Cp2020StatsComponent implements OnInit {
   get totalInitiative(): number {
     let total = this.stats.REF.Adjusted;
     total += this.combatSense;
+    total += this.initiativeSkill > 0 ? this.initiativeSkill : 0;
     total += this.stats.initiativeModifiers.reduce( (a, b) => a + b.mod, 0);
     return total;
   }

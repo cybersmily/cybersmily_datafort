@@ -62,6 +62,10 @@
       <div class="col text-right">REF:</div>
       <div class="col">{{stats.REF.Adjusted}}</div>
     </div>
+    <div *ngIf="initiativeSkill > -1" class="row">
+      <div class="col text-right">Initiative:</div>
+      <div class="col">{{initiativeSkill}}</div>
+    </div>
     <div class="row" *ngIf="combatSense > 0">
       <div class="col text-right">Combat Sense:</div>
       <div class="col">+{{combatSense}}</div>
