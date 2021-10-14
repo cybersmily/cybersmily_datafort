@@ -1,7 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { DataService } from './../../shared/services/file-services/data.service';
-import { ProgramNewComponent } from './../program-new/program-new.component';
-import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
+import { DataService } from '../../../services/file-services/data.service';
+import { ProgramNewComponent } from '../program-new/program-new.component';
+import { CommonUiModule } from '../../../modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ProgramListComponent } from './program-list.component';

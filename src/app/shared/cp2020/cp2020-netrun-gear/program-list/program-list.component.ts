@@ -1,7 +1,7 @@
-import { Cp2020ProgramList } from '../../shared/cp2020/cp2020-netrun-gear/models';
+import { Cp2020ProgramList } from '../models';
 import { faTrash, faFilePdf, faSave, faUndo, faUpload, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
-import { NetRunProgram } from '../../shared/cp2020/cp2020-netrun-gear/models';
+import { NetRunProgram } from '../models';
 
 @Component({
   selector: 'cs-program-list',

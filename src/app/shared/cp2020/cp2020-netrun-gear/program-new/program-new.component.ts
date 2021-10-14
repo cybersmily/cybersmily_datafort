@@ -1,11 +1,11 @@
-import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { JsonDataFiles } from '../../../services/file-services/json-data-files';
+import { DataService } from '../../../services/file-services/data.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { faPlus, faDiceSix, faSave, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { forkJoin } from 'rxjs';
-import { NrProgramOptionsService } from './../../shared/services/netrun/nr-program-options.service';
+import { NrProgramOptionsService } from '../../../services/netrun/nr-program-options.service';
 import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
-import { NrProgram, NrProgramOption, NetRunProgram } from '../../shared/cp2020/cp2020-netrun-gear/models';
+import { NrProgram, NrProgramOption, NetRunProgram } from '../models';
 
 @Component({
   selector: 'cs-program-new',

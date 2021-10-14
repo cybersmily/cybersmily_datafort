@@ -1,10 +1,10 @@
-import { NetRunProgram } from './../../shared/cp2020/cp2020-netrun-gear/models';
-import { NrProgramOption } from './../../shared/cp2020/cp2020-netrun-gear/models';
+import { NetRunProgram } from '../models';
+import { NrProgramOption } from '../models';
 import { of } from 'rxjs';
-import { DataService } from './../../shared/services/file-services/data.service';
-import { NrProgramOptionsService } from './../../shared/services/netrun/nr-program-options.service';
+import { DataService } from '../../../services/file-services/data.service';
+import { NrProgramOptionsService } from '../../../services/netrun/nr-program-options.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
+import { CommonUiModule } from '../../../modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ProgramNewComponent } from './program-new.component';

@@ -1,11 +1,11 @@
-import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
+import { JsonDataFiles } from '../../../services/file-services/json-data-files';
 import { forkJoin } from 'rxjs';
-import { DataService } from './../../shared/services/file-services/data.service';
-import { NrDeckChassis } from '../../shared/cp2020/cp2020-netrun-gear/models';
+import { DataService } from '../../../services/file-services/data.service';
+import { NrDeckChassis } from '../models';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { NrDeckDataService } from './../../shared/services/netrun/nr-deck-data.service';
-import { faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
-import { Cp2020NetrunDeck, NrDeckData, NrDeckOption } from '../../shared/cp2020/cp2020-netrun-gear/models';
+import { NrDeckDataService } from '../../../services/netrun/nr-deck-data.service';
+import { faPlus, faSearch, faChevronDown, faChevronRight, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { Cp2020NetrunDeck, NrDeckData, NrDeckOption } from '../models';
 import { Component, OnInit, TemplateRef, EventEmitter, Output, Input, OnChanges } from '@angular/core';
 
 @Component({
@@ -16,22 +16,33 @@ import { Component, OnInit, TemplateRef, EventEmitter, Output, Input, OnChanges 
 export class DeckFormComponent implements OnInit, OnChanges {
   faPlus = faPlus;
   faSearch = faSearch;
+  faChevronDown = faChevronDown;
+  faChevronRight = faChevronRight;
+  faTrash = faTrash;
+
   modalRef: BsModalRef;
+  config = {
+    keyboard: true
+
+  };
 
   @Input()
   deck: Cp2020NetrunDeck = new Cp2020NetrunDeck();
+
+  @Input()
+  cyberDecks: Array<Cp2020NetrunDeck> = new Array<Cp2020NetrunDeck>();
+
+  @Output()
+  update: EventEmitter<Cp2020NetrunDeck> = new EventEmitter<Cp2020NetrunDeck>();
+
+  @Output()
+  updateCyberdecks: EventEmitter<Array<Cp2020NetrunDeck>> = new EventEmitter<Array<Cp2020NetrunDeck>>();
 
   selectedChassis: NrDeckChassis;
 
   deckData: NrDeckData = { chassis: [], options: new Array<NrDeckOption>()};
   deckListData: Array<Cp2020NetrunDeck> = new Array<Cp2020NetrunDeck>();
-
-  @Output()
-  update: EventEmitter<Cp2020NetrunDeck> = new EventEmitter<Cp2020NetrunDeck>();
-
-  config = {
-    keyboard: true
-  };
+  currCyberdecks: Array<Cp2020NetrunDeck> = new Array<Cp2020NetrunDeck>();
 
   constructor(private deckDataService: NrDeckDataService,
     private modalService: BsModalService,
@@ -96,4 +107,8 @@ export class DeckFormComponent implements OnInit, OnChanges {
     this.deck = this.deckListData[index];
     this.modalRef.hide();
   }
+
+  addDeck() {}
+
+  deleteDeck(index: number) {}
 }
