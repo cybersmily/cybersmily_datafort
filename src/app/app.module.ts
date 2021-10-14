@@ -9,10 +9,12 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { SaveFileService, DataService } from './shared/services/file-services';
 import { PipesModule } from './shared/pipes/pipes.module';
+import { Cp2020CyberdeckListComponent } from './shared/cp2020/cp2020-netrun-gear/cp2020-cyberdeck-list/cp2020-cyberdeck-list.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NpcProfileModalComponent
+    NpcProfileModalComponent,
+    Cp2020CyberdeckListComponent
   ],
   imports: [
     AppBootstrapModule,

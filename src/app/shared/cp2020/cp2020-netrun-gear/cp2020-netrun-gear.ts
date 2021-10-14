@@ -1,20 +1,18 @@
 import { PipesModule } from './../../pipes/pipes.module';
-import { DeckFormComponent } from './deck-form/deck-form.component';
-import { ProgramListComponent } from './program-list/program-list.component';
-import { ProgramNewComponent } from './program-new/program-new.component';
+import { Cp2020DeckFormComponent } from './cp2020-deck-form/cp2020-deck-form.component';
+import { Cp2020ProgramListComponent } from './cp2020-program-list/cp2020-program-list.component';
+import { Cp2020ProgramNewComponent } from './cp2020-program-new/cp2020-program-new.component';
 import { DiceService } from './../../services/dice/dice.service';
 import { DataService } from './../../services/file-services/data.service';
 import { CommonUiModule } from './../../modules/common-ui/common-ui.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-
-
 @NgModule({
   declarations: [
-    ProgramNewComponent,
-    ProgramListComponent,
-    DeckFormComponent
+    Cp2020ProgramNewComponent,
+    Cp2020ProgramListComponent,
+    Cp2020DeckFormComponent
   ],
   imports: [
     CommonModule,
@@ -26,9 +24,9 @@ import { CommonModule } from '@angular/common';
     DiceService
   ],
   exports: [
-    ProgramNewComponent,
-    ProgramListComponent,
-    DeckFormComponent
+    Cp2020ProgramNewComponent,
+    Cp2020ProgramListComponent,
+    Cp2020DeckFormComponent
   ]
 })
 export class Cp2020NetrunGear { }

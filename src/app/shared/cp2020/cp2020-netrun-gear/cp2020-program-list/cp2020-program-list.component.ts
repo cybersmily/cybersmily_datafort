@@ -5,10 +5,10 @@ import { NetRunProgram } from '../models';
 
 @Component({
   selector: 'cs-program-list',
-  templateUrl: './program-list.component.html',
-  styleUrls: ['./program-list.component.css']
+  templateUrl: './cp2020-program-list.component.html',
+  styleUrls: ['./cp2020-program-list.component.css']
 })
-export class ProgramListComponent implements OnInit {
+export class Cp2020ProgramListComponent implements OnInit {
   faTrash = faTrash;
   faFilePdf = faFilePdf;
   faSave = faSave;

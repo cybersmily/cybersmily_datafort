@@ -9,10 +9,10 @@ import { NrProgram, NrProgramOption, NetRunProgram } from '../models';
 
 @Component({
   selector: 'cs-program-new',
-  templateUrl: './program-new.component.html',
-  styleUrls: ['./program-new.component.css']
+  templateUrl: './cp2020-program-new.component.html',
+  styleUrls: ['./cp2020-program-new.component.css']
 })
-export class ProgramNewComponent implements OnInit {
+export class Cp2020ProgramNewComponent implements OnInit {
   faPlus = faPlus;
   faSave = faSave;
   faSearch = faSearch;

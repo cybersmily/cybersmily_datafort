@@ -1,34 +1,32 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { DataService } from '../../../services/file-services/data.service';
-import { ProgramNewComponent } from '../program-new/program-new.component';
+import { NrDeckDataService } from '../../../services/netrun/nr-deck-data.service';
 import { CommonUiModule } from '../../../modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { ProgramListComponent } from './program-list.component';
+import { Cp2020DeckFormComponent } from './cp2020-deck-form.component';
 
-describe('ProgramListComponent', () => {
-  let component: ProgramListComponent;
-  let fixture: ComponentFixture<ProgramListComponent>;
+describe('DeckFormComponent', () => {
+  let component: Cp2020DeckFormComponent;
+  let fixture: ComponentFixture<Cp2020DeckFormComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        ProgramListComponent,
-        ProgramNewComponent
-      ],
-      providers: [
-        DataService
-      ],
+      declarations: [ Cp2020DeckFormComponent ],
       imports: [
         CommonUiModule,
         HttpClientTestingModule
+      ],
+      providers: [
+        NrDeckDataService,
+        DataService
       ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProgramListComponent);
+    fixture = TestBed.createComponent(Cp2020DeckFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

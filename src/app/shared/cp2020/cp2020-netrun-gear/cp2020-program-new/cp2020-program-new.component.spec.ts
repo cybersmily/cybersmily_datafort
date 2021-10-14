@@ -7,11 +7,11 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CommonUiModule } from '../../../modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { ProgramNewComponent } from './program-new.component';
+import { Cp2020ProgramNewComponent } from './cp2020-program-new.component';
 
 describe('ProgramNewComponent', () => {
-  let component: ProgramNewComponent;
-  let fixture: ComponentFixture<ProgramNewComponent>;
+  let component: Cp2020ProgramNewComponent;
+  let fixture: ComponentFixture<Cp2020ProgramNewComponent>;
   let nrProgramOptionsService: NrProgramOptionsService;
   let dataService: DataService;
   let options: Array<NrProgramOption>;
@@ -20,7 +20,7 @@ describe('ProgramNewComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ProgramNewComponent],
+      declarations: [Cp2020ProgramNewComponent],
       imports: [
         CommonUiModule,
         HttpClientTestingModule
@@ -34,7 +34,7 @@ describe('ProgramNewComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProgramNewComponent);
+    fixture = TestBed.createComponent(Cp2020ProgramNewComponent);
     nrProgramOptionsService = TestBed.inject(NrProgramOptionsService);
     dataService = TestBed.inject(DataService);
     component = fixture.componentInstance;
