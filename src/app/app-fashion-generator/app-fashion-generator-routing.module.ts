@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const fashionRoutes: Routes = [
   {
-    path: 'apps/fashcalc',
+    path: '',
     component: FashionGeneratorComponent
   }
 ];

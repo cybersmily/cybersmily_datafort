@@ -9,8 +9,7 @@ export const mainRoutes: Routes = [
   { path: 'shop', loadChildren: () => import('./appshop/shopsection.module').then(m => m.ShopSectionModule)},
   { path: 'peeps', loadChildren: () => import('./apppeeps/peepsection.module').then(m => m.PeepSectionModule)},
   { path: 'gigs', loadChildren: () => import('./appgigs/gigsection.module').then(m => m.GigSectionModule)},
-  { path: 'apps/fashcalc', loadChildren: () => import('./app-fashion-generator/app-fashion-generator.module')
-  .then(m => m.AppFashionGeneratorModule) },
+  { path: 'apps/fashcalc', loadChildren: () => import('./app-fashion-generator/app-fashion-generator.module').then(m => m.AppFashionGeneratorModule) },
   { path: 'apps/lifepath', loadChildren: () => import('./app-lifepath/app-lifepath.module').then(m => m.AppLifepathModule) },
   { path: 'apps/lpredjmp', loadChildren: () => import('./app-cp-red-lifepath/app-cp-red-lifepath.module')
   .then(m => m.AppCpRedLifepathModule) },
