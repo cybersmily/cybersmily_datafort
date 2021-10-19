@@ -1,12 +1,12 @@
-import { NrDeck } from './nr-deck';
-import { Cp2020NetrunDeck } from './cp2020-netrun-deck';
+import { Cyberdeck } from './cyberdeck';
+import { Cp2020Cyberdeck } from './cp2020-cyberdeck';
 
-describe('Cp2020NetrunDeck', () => {
-  let deck: Cp2020NetrunDeck;
-  let testNrDeck: NrDeck;
+describe('Cp2020Cyberdeck', () => {
+  let deck: Cp2020Cyberdeck;
+  let testNrDeck: Cyberdeck;
 
   beforeEach(() => {
-    deck = new Cp2020NetrunDeck();
+    deck = new Cp2020Cyberdeck();
     testNrDeck = {
       name: 'test',
       type: { name: 'cellular', description: '', cost: 1000 },
@@ -50,7 +50,7 @@ describe('Cp2020NetrunDeck', () => {
   });
 
   it('should create an instance for a NrDeck', () => {
-    deck = new Cp2020NetrunDeck(testNrDeck);
+    deck = new Cp2020Cyberdeck(testNrDeck);
     expect(deck).toBeTruthy();
     expect(testNrDeck).toBeTruthy();
     expect(deck.name).toEqual(testNrDeck.name);
@@ -73,7 +73,7 @@ describe('Cp2020NetrunDeck', () => {
     expect(deck.totalMU).toEqual(13);
     deck.mu = -12;
     expect(deck.totalMU).toEqual(0);
-    deck = new Cp2020NetrunDeck(testNrDeck);
+    deck = new Cp2020Cyberdeck(testNrDeck);
     expect(deck.totalMU).toEqual(12);
     deck.doubleMu = true;
     expect(deck.totalMU).toEqual(22);
@@ -81,7 +81,7 @@ describe('Cp2020NetrunDeck', () => {
 
   it('should calculate cost', () => {
     expect(deck.cost).toEqual(0);
-    deck = new Cp2020NetrunDeck(testNrDeck);
+    deck = new Cp2020Cyberdeck(testNrDeck);
     expect(deck.cost).toEqual(16600);
     deck.doubleMu = true;
     expect(deck.cost).toEqual(26600);

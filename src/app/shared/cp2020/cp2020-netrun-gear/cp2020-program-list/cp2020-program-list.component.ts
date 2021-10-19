@@ -1,7 +1,7 @@
 import { Cp2020ProgramList } from '../models';
 import { faTrash, faFilePdf, faSave, faUndo, faUpload, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
-import { NetRunProgram } from '../models';
+import { Cp2020Program } from '../models';
 
 @Component({
   selector: 'cs-program-list',
@@ -16,7 +16,7 @@ export class Cp2020ProgramListComponent implements OnInit {
   faUpload = faUpload;
   faPlus = faPlus;
 
-  program: NetRunProgram = new NetRunProgram();
+  program: Cp2020Program = new Cp2020Program();
 
   modalTitle = 'New';
 
@@ -46,7 +46,7 @@ export class Cp2020ProgramListComponent implements OnInit {
 
   createNew() {
     this.modalTitle = 'New';
-    this.program = new NetRunProgram();
+    this.program = new Cp2020Program();
   }
 
   load(index: number) {
@@ -54,7 +54,7 @@ export class Cp2020ProgramListComponent implements OnInit {
     this.updateList.emit(this.programList);
   }
 
-  update(prog: NetRunProgram) {
+  update(prog: Cp2020Program) {
     this.programList.updateProgram(prog);
     this.updateList.emit(this.programList);
   }

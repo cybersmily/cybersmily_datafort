@@ -1,7 +1,7 @@
 import { JsonDataFiles } from './../file-services';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-import { NrProgramOption } from '../../cp2020/cp2020-netrun-gear/models';
+import { ProgramOption } from '../../cp2020/cp2020-netrun-gear/models';
 import { DataService } from './../file-services';
 import { Injectable } from '@angular/core';
 
@@ -10,12 +10,12 @@ import { Injectable } from '@angular/core';
 })
 export class NrProgramOptionsService {
 
-  private _classes: Array<NrProgramOption> = new Array<NrProgramOption>();
-  private _options: Array<NrProgramOption> = new Array<NrProgramOption>();
+  private _classes: Array<ProgramOption> = new Array<ProgramOption>();
+  private _options: Array<ProgramOption> = new Array<ProgramOption>();
 
   constructor(private data: DataService) { }
 
-  get classes(): Observable<Array<NrProgramOption>> {
+  get classes(): Observable<Array<ProgramOption>> {
     if (this._classes.length < 1 ) {
       return this.getJson()
       .pipe(
@@ -27,7 +27,7 @@ export class NrProgramOptionsService {
     }
   }
 
-  get options(): Observable<Array<NrProgramOption>> {
+  get options(): Observable<Array<ProgramOption>> {
     if (this._classes.length < 1 ) {
       return this.getJson()
       .pipe(
@@ -39,7 +39,7 @@ export class NrProgramOptionsService {
     }
   }
 
-  getJson(): Observable<Array<NrProgramOption>> {
+  getJson(): Observable<Array<ProgramOption>> {
     return this.data.GetJson(JsonDataFiles.CP2020_PROGRAM_OPTIONS_JSON)
       .pipe(
         map( data => {

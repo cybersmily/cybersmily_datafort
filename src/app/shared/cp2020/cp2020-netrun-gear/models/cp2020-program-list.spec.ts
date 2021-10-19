@@ -1,10 +1,10 @@
-import { NetRunProgram } from './net-run-program';
-import { NrProgramList } from './nr-program-list';
+import { Cp2020Program } from './cp2020-program';
+import { ProgramList } from './program-list';
 import { Cp2020ProgramList } from './cp2020-program-list';
 
 describe('Cp2020ProgramList', () => {
   let list: Cp2020ProgramList;
-  let importList: NrProgramList;
+  let importList: ProgramList;
   let loadedList: Cp2020ProgramList;
   let testValues: Array<{
     loaded: boolean;
@@ -23,7 +23,7 @@ describe('Cp2020ProgramList', () => {
 
     for (let i = 0; i < 10; i++) {
       importList.programs.push(
-        new NetRunProgram({
+        new Cp2020Program({
           name: `program${i}`,
           class: { name: 'anti-program', diff: i * 5, description: '' },
           _str: i,
@@ -119,7 +119,7 @@ describe('Cp2020ProgramList', () => {
   it('should add pogram to list', () => {
     for (let i = 0; i < 5; i++) {
       list.add(
-        new NetRunProgram({
+        new Cp2020Program({
           name: `program${i}`,
           class: { name: 'anti-program', diff: i * 5, description: '' },
           _str: i,

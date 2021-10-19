@@ -1,5 +1,5 @@
-import { NetRunProgram } from '../models';
-import { NrProgramOption } from '../models';
+import { Cp2020Program } from '../models';
+import { ProgramOption } from '../models';
 import { of } from 'rxjs';
 import { DataService } from '../../../services/file-services/data.service';
 import { NrProgramOptionsService } from '../../../services/netrun/nr-program-options.service';
@@ -14,8 +14,8 @@ describe('ProgramNewComponent', () => {
   let fixture: ComponentFixture<Cp2020ProgramNewComponent>;
   let nrProgramOptionsService: NrProgramOptionsService;
   let dataService: DataService;
-  let options: Array<NrProgramOption>;
-  let classes: Array<NrProgramOption>;
+  let options: Array<ProgramOption>;
+  let classes: Array<ProgramOption>;
   let programList: any;
 
   beforeEach(waitForAsync(() => {
@@ -39,20 +39,20 @@ describe('ProgramNewComponent', () => {
     dataService = TestBed.inject(DataService);
     component = fixture.componentInstance;
 
-    options = new Array<NrProgramOption>();
+    options = new Array<ProgramOption>();
     options.push({name: 'a', diff: 1, description: 'testing'});
     options.push({name: 'b', diff: 1, description: 'testing'});
     options.push({name: 'a', diff: 1, description: 'testing'});
 
-    classes = new Array<NrProgramOption>();
+    classes = new Array<ProgramOption>();
     classes.push({name: 'a', diff: 1, description: 'testing'});
     classes.push({name: 'b', diff: 1, description: 'testing'});
     classes.push({name: 'a', diff: 1, description: 'testing'});
 
-    programList = { programs: new Array<NetRunProgram>() };
-    programList.programs.push(new NetRunProgram({name: 'prog1', description: '', icon: '', class: {}, options: new Array<NrProgramOption>(), loaded: true, _str: 1}));
-    programList.programs.push(new NetRunProgram({name: 'prog2', description: '', icon: '', class: {}, options: new Array<NrProgramOption>(), loaded: true, _str: 1}));
-    programList.programs.push(new NetRunProgram({name: 'prog3', description: '', icon: '', class: {}, options: new Array<NrProgramOption>(), loaded: true, _str: 1}));
+    programList = { programs: new Array<Cp2020Program>() };
+    programList.programs.push(new Cp2020Program({name: 'prog1', description: '', icon: '', class: {}, options: new Array<ProgramOption>(), loaded: true, _str: 1}));
+    programList.programs.push(new Cp2020Program({name: 'prog2', description: '', icon: '', class: {}, options: new Array<ProgramOption>(), loaded: true, _str: 1}));
+    programList.programs.push(new Cp2020Program({name: 'prog3', description: '', icon: '', class: {}, options: new Array<ProgramOption>(), loaded: true, _str: 1}));
 
     spyOnProperty(nrProgramOptionsService, 'classes', 'get').and.returnValue(of(classes));
     spyOnProperty(nrProgramOptionsService, 'options', 'get').and.returnValue(of(options));
@@ -127,9 +127,9 @@ describe('ProgramNewComponent', () => {
 
   describe('compare()', () => {
     it('should compare NrProgramOption', () => {
-      const optionA:NrProgramOption = {name: 'a', diff: 1, description: ''};
-      const optionB:NrProgramOption = {name: 'b', diff: 1, description: ''};
-      const optionC:NrProgramOption = {name: 'a', diff: 1, description: ''};
+      const optionA:ProgramOption = {name: 'a', diff: 1, description: ''};
+      const optionB:ProgramOption = {name: 'b', diff: 1, description: ''};
+      const optionC:ProgramOption = {name: 'a', diff: 1, description: ''};
       expect(component.compare(optionA, optionC)).toBeTruthy();
       expect(component.compare(optionA, optionB)).toBeFalse();
     });

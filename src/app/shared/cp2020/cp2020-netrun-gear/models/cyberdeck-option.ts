@@ -1,5 +1,5 @@
 import { SourceBook } from '../../../models/sourcebook';
-export interface NrDeckOption {
+export interface CyberdeckOption {
   name: string;
   cost: number | string;
   slot?: number;

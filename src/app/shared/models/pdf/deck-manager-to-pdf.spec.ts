@@ -1,16 +1,16 @@
-import { Cp2020ProgramList, NrProgram,  Cp2020DeckManager, Cp2020NetrunDeck } from './../../cp2020/cp2020-netrun-gear/models';
+import { Cp2020ProgramList, Program,  Cp2020CyberdeckManager, Cp2020Cyberdeck } from './../../cp2020/cp2020-netrun-gear/models';
 import { jsPDF } from 'jspdf';
 import { DeckManagerToPdf } from './deck-manager-to-pdf';
 
 describe('DeckManagerToPdf', () => {
 
   let jspdf: jsPDF;
-  let deckManager: Cp2020DeckManager;
+  let deckManager: Cp2020CyberdeckManager;
 
   beforeEach(() => {
     jspdf = new jsPDF();
-    deckManager = new Cp2020DeckManager();
-    deckManager.deck = new Cp2020NetrunDeck();
+    deckManager = new Cp2020CyberdeckManager();
+    deckManager.deck = new Cp2020Cyberdeck();
     deckManager.deck.name = 'test';
     deckManager.deck.speed = 2;
     deckManager.programList = new Cp2020ProgramList();

@@ -1,5 +1,5 @@
 import { PipesModule } from './../../pipes/pipes.module';
-import { Cp2020DeckFormComponent } from './cp2020-deck-form/cp2020-deck-form.component';
+import { Cp2020CyberdeckFormComponent } from './cp2020-cyberdeck-form/cp2020-cyberdeck-form.component';
 import { Cp2020ProgramListComponent } from './cp2020-program-list/cp2020-program-list.component';
 import { Cp2020ProgramNewComponent } from './cp2020-program-new/cp2020-program-new.component';
 import { DiceService } from './../../services/dice/dice.service';
@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
   declarations: [
     Cp2020ProgramNewComponent,
     Cp2020ProgramListComponent,
-    Cp2020DeckFormComponent
+    Cp2020CyberdeckFormComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +26,7 @@ import { CommonModule } from '@angular/common';
   exports: [
     Cp2020ProgramNewComponent,
     Cp2020ProgramListComponent,
-    Cp2020DeckFormComponent
+    Cp2020CyberdeckFormComponent
   ]
 })
 export class Cp2020NetrunGear { }

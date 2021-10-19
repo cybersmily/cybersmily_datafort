@@ -1,13 +1,13 @@
-import { NetRunProgram } from './net-run-program';
-import { NrProgramList } from './nr-program-list';
-import { NrProgram } from './nr-program';
+import { Cp2020Program } from './cp2020-program';
+import { ProgramList } from './program-list';
+import { Program } from './program';
 
-export class Cp2020ProgramList implements NrProgramList {
+export class Cp2020ProgramList implements ProgramList {
 
-  private _programs: Array<NetRunProgram>;
+  private _programs: Array<Cp2020Program>;
 
   constructor(param?: any) {
-    this._programs = new Array<NetRunProgram>();
+    this._programs = new Array<Cp2020Program>();
     if (param) {
       if (param._programs && Array.isArray(param._programs)) {
         param._programs.forEach((p) => {
@@ -22,7 +22,7 @@ export class Cp2020ProgramList implements NrProgramList {
     }
   }
 
-  get programs(): Array<NetRunProgram> {
+  get programs(): Array<Cp2020Program> {
     return this._programs;
   }
 
@@ -34,7 +34,7 @@ export class Cp2020ProgramList implements NrProgramList {
     return this._programs.reduce( (a, b) => a +  b.cost, 0);
   }
 
-  getByIndex(index: number): NetRunProgram {
+  getByIndex(index: number): Cp2020Program {
     if (index > -1 && index < this._programs.length) {
       return this._programs[index];
     }
@@ -47,7 +47,7 @@ export class Cp2020ProgramList implements NrProgramList {
     }
   }
 
-  getByName(name: string): NetRunProgram {
+  getByName(name: string): Cp2020Program {
     const i = this._programs.findIndex(p  => p.name === name);
     if (i > -1) {
       return this.getByIndex(i);
@@ -55,20 +55,20 @@ export class Cp2020ProgramList implements NrProgramList {
     return undefined;
   }
 
-  add(program: NrProgram) {
+  add(program: Program) {
     if (!this._programs.some( p => p.name === program.name)) {
-      this._programs.push(new NetRunProgram(program));
+      this._programs.push(new Cp2020Program(program));
       this._programs.sort( (a, b) => {
-        if ( a.class.name.toLowerCase() === b.class.name.toLowerCase() ) {
-          return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1;
+        if ( a.class?.name?.toLowerCase() === b.class?.name?.toLowerCase() ) {
+          return a.name?.toLowerCase() > b.name?.toLowerCase() ? 1 : -1;
 
         }
-        return a.class.name.toLowerCase() > b.class.name.toLowerCase() ? 1 : -1;
+        return a.class?.name?.toLowerCase() > b.class?.name?.toLowerCase() ? 1 : -1;
       });
     }
   }
 
-  remove(program: NrProgram) {
+  remove(program: Program) {
     const i = this._programs.findIndex(p => p.name === program.name);
     if (i > -1) {
       this._programs.splice(i, 1);
@@ -81,11 +81,11 @@ export class Cp2020ProgramList implements NrProgramList {
     }
   }
 
-  updateProgram(prog: NetRunProgram) {
+  updateProgram(prog: Cp2020Program) {
     const i = this._programs.findIndex(p => p.name === prog.name);
     if (i > -1 ) {
       // update the existing program
-      this._programs[i] = new NetRunProgram(prog);
+      this._programs[i] = new Cp2020Program(prog);
     } else {
       // add a new program.
       this.add(prog);
@@ -93,6 +93,6 @@ export class Cp2020ProgramList implements NrProgramList {
   }
 
   clear() {
-    this._programs = new Array<NetRunProgram>();
+    this._programs = new Array<Cp2020Program>();
   }
 }

@@ -1,8 +1,8 @@
-import { Cp2020NetrunDeck } from '../../cp2020/cp2020-netrun-gear/models';
+import { Cp2020Cyberdeck } from '../../cp2020/cp2020-netrun-gear/models';
 import { Cp2020ProgramList } from '../../cp2020/cp2020-netrun-gear/models';
-import { Cp2020DeckManager } from '../../cp2020/cp2020-netrun-gear/models';
+import { Cp2020CyberdeckManager } from '../../cp2020/cp2020-netrun-gear/models';
 import { jsPDF } from 'jspdf';
-import { NetRunProgram } from '../../cp2020/cp2020-netrun-gear/models';
+import { Cp2020Program } from '../../cp2020/cp2020-netrun-gear/models';
 
 export class DeckManagerToPdf {
   private static _left = 5;
@@ -11,7 +11,7 @@ export class DeckManagerToPdf {
   private static _fontSize = 11;
   private static _font = '';
 
-  static generatePdf( manager: Cp2020DeckManager) {
+  static generatePdf( manager: Cp2020CyberdeckManager) {
     const doc: jsPDF = this.setupDoc();
 
     let line = this._top;
@@ -67,7 +67,7 @@ export class DeckManagerToPdf {
     return line;
   }
 
-  private static addDeck(doc: jsPDF, deck: Cp2020NetrunDeck, line: number): number {
+  private static addDeck(doc: jsPDF, deck: Cp2020Cyberdeck, line: number): number {
     doc.setFont('bold');
     doc.setFontSize(13);
     doc.text(deck.name, this._left, line);
@@ -125,7 +125,7 @@ export class DeckManagerToPdf {
     return line;
   }
 
-  private static addProgram(doc: jsPDF, prog: NetRunProgram, line: number, column: number ): number {
+  private static addProgram(doc: jsPDF, prog: Cp2020Program, line: number, column: number ): number {
     doc.setFont(this._font, 'bold');
     doc.setFontSize(13);
     doc.rect(column, line - 3, 3, 3, 'S');

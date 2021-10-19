@@ -1,12 +1,12 @@
-import { NrProgramOption } from './nr-program-option';
-import { NrProgram } from './nr-program';
+import { ProgramOption } from './program-option';
+import { Program } from './program';
 
-export class NetRunProgram implements NrProgram {
+export class Cp2020Program implements Program {
   name: string;
   description: string;
   icon: string;
-  class: NrProgramOption;
-  options: Array<NrProgramOption>;
+  class: ProgramOption;
+  options: Array<ProgramOption>;
   loaded:  boolean;
   private _str: number;
   bookMu?: number;
@@ -17,7 +17,7 @@ export class NetRunProgram implements NrProgram {
     this.description = (param && param.description) ? param.description : '';
     this.icon = (param && param.icon) ? param.icon : '';
     this.class = (param && param.class) ? param.class : {};
-    this.options = (param && param.options) ? param.options : new Array<NrProgramOption>();
+    this.options = (param && param.options) ? param.options : new Array<ProgramOption>();
     this.loaded = (param && param.loaded) ? true : false;
     this._str = (param) ? ((param._str) ? param._str : (param.str)? param.str : 0): 0;
   }

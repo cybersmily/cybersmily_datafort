@@ -1,14 +1,14 @@
-export * from './nr-deck';
-export * from './nr-deck-data';
-export * from './nr-deck-chassis';
-export * from './nr-deck-option';
-export * from './nr-deck-manager';
+export * from './cyberdeck';
+export * from './cyberdeck-data';
+export * from './cyberdeck-chassis';
+export * from './cyberdeck-option';
+export * from './cyberdeck-manager';
 
-export * from './nr-program-list';
-export * from './nr-program';
-export * from './nr-program-option';
-export * from './net-run-program';
+export * from './program-list';
+export * from './program';
+export * from './program-option';
+export * from './cp2020-program';
 
-export * from './cp2020-deck-manager';
-export * from './cp2020-netrun-deck';
+export * from './cp2020-cyberdeck-manager';
+export * from './cp2020-cyberdeck';
 export * from './cp2020-program-list';

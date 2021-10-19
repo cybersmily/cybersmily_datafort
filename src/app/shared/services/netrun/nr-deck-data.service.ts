@@ -3,17 +3,17 @@ import { map } from 'rxjs/operators';
 import { JsonDataFiles } from './../file-services';
 import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { NrDeckData } from '../../cp2020/cp2020-netrun-gear/models';
+import { CyberdeckData } from '../../cp2020/cp2020-netrun-gear/models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NrDeckDataService {
-  private _deckData: NrDeckData;
+  private _deckData: CyberdeckData;
 
   constructor(private file: DataService) { }
 
-  getDeckData(): Observable<NrDeckData> {
+  getDeckData(): Observable<CyberdeckData> {
     if (this._deckData) {
       return of(this._deckData);
     }

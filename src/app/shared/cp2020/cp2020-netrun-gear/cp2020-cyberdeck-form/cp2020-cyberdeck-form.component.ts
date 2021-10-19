@@ -1,46 +1,46 @@
 import { JsonDataFiles } from '../../../services/file-services/json-data-files';
 import { forkJoin } from 'rxjs';
 import { DataService } from '../../../services/file-services/data.service';
-import { NrDeckChassis } from '../models';
+import { CyberdeckChassis } from '../models';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { NrDeckDataService } from '../../../services/netrun/nr-deck-data.service';
 import { faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
-import { Cp2020NetrunDeck, NrDeckData, NrDeckOption } from '../models';
+import { Cp2020Cyberdeck, CyberdeckData, CyberdeckOption } from '../models';
 import { Component, OnInit, TemplateRef, EventEmitter, Output, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'cs-deck-form',
-  templateUrl: './cp2020-deck-form.component.html',
-  styleUrls: ['./cp2020-deck-form.component.css']
+  templateUrl: './cp2020-cyberdeck-form.component.html',
+  styleUrls: ['./cp2020-cyberdeck-form.component.css']
 })
-export class Cp2020DeckFormComponent implements OnInit, OnChanges {
+export class Cp2020CyberdeckFormComponent implements OnInit, OnChanges {
   faPlus = faPlus;
   faSearch = faSearch;
   modalRef: BsModalRef;
 
   @Input()
-  deck: Cp2020NetrunDeck = new Cp2020NetrunDeck();
+  deck: Cp2020Cyberdeck = new Cp2020Cyberdeck();
 
-  selectedChassis: NrDeckChassis;
+  selectedChassis: CyberdeckChassis;
 
-  deckData: NrDeckData = { chassis: [], options: new Array<NrDeckOption>()};
-  deckListData: Array<Cp2020NetrunDeck> = new Array<Cp2020NetrunDeck>();
+  deckData: CyberdeckData = { chassis: [], options: new Array<CyberdeckOption>()};
+  deckListData: Array<Cp2020Cyberdeck> = new Array<Cp2020Cyberdeck>();
 
   @Output()
-  update: EventEmitter<Cp2020NetrunDeck> = new EventEmitter<Cp2020NetrunDeck>();
+  update: EventEmitter<Cp2020Cyberdeck> = new EventEmitter<Cp2020Cyberdeck>();
 
   config = {
     keyboard: true,
     class: 'modal-dialog-centered modal-lg'
   };
-  currDeck: Cp2020NetrunDeck = new Cp2020NetrunDeck();
+  currDeck: Cp2020Cyberdeck = new Cp2020Cyberdeck();
 
   constructor(private deckDataService: NrDeckDataService,
     private modalService: BsModalService,
     private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.currDeck = new Cp2020NetrunDeck(this.deck);
+    this.currDeck = new Cp2020Cyberdeck(this.deck);
     forkJoin([
       this.deckDataService.getDeckData(),
       this.dataService.GetJson(JsonDataFiles.CP2020_DECKS_PROGRAMS_JSON)
@@ -60,7 +60,7 @@ export class Cp2020DeckFormComponent implements OnInit, OnChanges {
       // load the list of decks
       if (data[1].decks && Array.isArray(data[1].decks)){
         data[1].decks.forEach(deck => {
-          const newDeck = new Cp2020NetrunDeck(deck);
+          const newDeck = new Cp2020Cyberdeck(deck);
           this.deckListData.push(newDeck);
         });
       }
@@ -77,7 +77,7 @@ export class Cp2020DeckFormComponent implements OnInit, OnChanges {
   }
 
 
-  checkOption(opt: NrDeckOption) {
+  checkOption(opt: CyberdeckOption) {
     this.currDeck.updateOption(opt);
     this.updateDeck();
   }
@@ -91,7 +91,7 @@ export class Cp2020DeckFormComponent implements OnInit, OnChanges {
     this.updateDeck();
   }
 
-  compare(a: NrDeckChassis, b: NrDeckChassis) {
+  compare(a: CyberdeckChassis, b: CyberdeckChassis) {
     return a  && b ? a.name === b.name : a === b;
   }
 

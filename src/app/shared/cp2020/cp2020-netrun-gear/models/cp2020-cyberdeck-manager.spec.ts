@@ -1,17 +1,17 @@
 import { Cp2020ProgramList } from './cp2020-program-list';
-import { Cp2020NetrunDeck } from './cp2020-netrun-deck';
-import { NetRunProgram } from './net-run-program';
-import { NrDeckManager } from './nr-deck-manager';
-import { Cp2020DeckManager } from './cp2020-deck-manager';
+import { Cp2020Cyberdeck } from './cp2020-cyberdeck';
+import { Cp2020Program } from './cp2020-program';
+import { CyberdeckManager } from './cyberdeck-manager';
+import { Cp2020CyberdeckManager } from './cp2020-cyberdeck-manager';
 
-describe('Cp2020DeckManager', () => {
-  let manager: Cp2020DeckManager;
-  let importManager: Cp2020DeckManager;
+describe('Cp2020CyberdeckManager', () => {
+  let manager: Cp2020CyberdeckManager;
+  let importManager: Cp2020CyberdeckManager;
 
 
   beforeEach(() => {
-    manager = new Cp2020DeckManager();
-    importManager = new Cp2020DeckManager({
+    manager = new Cp2020CyberdeckManager();
+    importManager = new Cp2020CyberdeckManager({
       deck: {
         name: 'test',
         type: { name: 'cellular', description: '', cost: 1000 },
@@ -24,7 +24,7 @@ describe('Cp2020DeckManager', () => {
       },
       programList: new Cp2020ProgramList({
         _programs: [
-          new NetRunProgram(
+          new Cp2020Program(
             {
               name: 'program1',
               class: { name: 'anti-personal', diff: 10, description: 'test program class' },
@@ -50,7 +50,7 @@ describe('Cp2020DeckManager', () => {
   });
 
   it('should create from other deck object', () => {
-    manager = new Cp2020DeckManager(importManager);
+    manager = new Cp2020CyberdeckManager(importManager);
     expect(manager).toBeTruthy();
     expect(importManager).toBeTruthy();
     expect(manager.deck).toBeTruthy(importManager);

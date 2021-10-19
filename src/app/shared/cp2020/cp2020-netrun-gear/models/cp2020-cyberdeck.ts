@@ -1,17 +1,17 @@
-import { NrDeckChassis } from './nr-deck-chassis';
-import { NrDeck } from './nr-deck';
-import { NrDeckOption } from './nr-deck-option';
-import { NrProgram } from './nr-program';
+import { CyberdeckChassis } from './cyberdeck-chassis';
+import { Cyberdeck } from './cyberdeck';
+import { CyberdeckOption } from './cyberdeck-option';
+import { Program } from './program';
 
-export class Cp2020NetrunDeck implements NrDeck {
+export class Cp2020Cyberdeck implements Cyberdeck {
   name: string;
-  type: NrDeckChassis;
+  type: CyberdeckChassis;
   dataWall: number;
   speed: number;
   private _mu: number = 10;
   doubleMu: boolean;
-  options: Array<NrDeckOption>;
-  programs: Array<NrProgram>;
+  options: Array<CyberdeckOption>;
+  programs: Array<Program>;
   description: string;
   codeGate: number;
   bookPrice: number;
@@ -25,8 +25,8 @@ export class Cp2020NetrunDeck implements NrDeck {
     const mu = Number(param?._mu ?? ( param?.totalMU ?? 10));
     this._mu = (isNaN(mu) ? 10 : mu);
     this.doubleMu = param?.doubleMu ?? false;
-    this.options = param?.options ?? new Array<NrDeckOption>();
-    this.programs = param?.programs ?? new Array<NrProgram>();
+    this.options = param?.options ?? new Array<CyberdeckOption>();
+    this.programs = param?.programs ?? new Array<Program>();
     this.description = param?.description ?? '';
     this.bookPrice = param?.bookPrice ?? 0;
   }
@@ -77,9 +77,9 @@ export class Cp2020NetrunDeck implements NrDeck {
     return spd;
   }
 
-  updateOption(opt: NrDeckOption) {
+  updateOption(opt: CyberdeckOption) {
     if (opt.count && opt.count > 0 ) {
-      if (!this.options.some( (o: NrDeckOption) => o.name === opt.name)) {
+      if (!this.options.some( (o: CyberdeckOption) => o.name === opt.name)) {
         this.options.push(opt);
       } else {
         const i = this.options.findIndex( o => o.name === opt.name);

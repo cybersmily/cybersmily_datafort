@@ -4,15 +4,15 @@ import { NrDeckDataService } from '../../../services/netrun/nr-deck-data.service
 import { CommonUiModule } from '../../../modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { Cp2020DeckFormComponent } from './cp2020-deck-form.component';
+import { Cp2020CyberdeckFormComponent } from './cp2020-cyberdeck-form.component';
 
 describe('DeckFormComponent', () => {
-  let component: Cp2020DeckFormComponent;
-  let fixture: ComponentFixture<Cp2020DeckFormComponent>;
+  let component: Cp2020CyberdeckFormComponent;
+  let fixture: ComponentFixture<Cp2020CyberdeckFormComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ Cp2020DeckFormComponent ],
+      declarations: [ Cp2020CyberdeckFormComponent ],
       imports: [
         CommonUiModule,
         HttpClientTestingModule
@@ -26,7 +26,7 @@ describe('DeckFormComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(Cp2020DeckFormComponent);
+    fixture = TestBed.createComponent(Cp2020CyberdeckFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

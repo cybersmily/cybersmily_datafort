@@ -4,7 +4,7 @@ import { NrDeckManagerService } from './../../shared/services/netrun';
 import { FileLoaderService, SaveFileService } from './../../shared/services/file-services';
 import { SeoService } from '../../shared/services/seo/seo.service';
 import { Component, OnInit } from '@angular/core';
-import { NetRunProgram, Cp2020DeckManager, Cp2020NetrunDeck } from '../../shared/cp2020/cp2020-netrun-gear/models';
+import { Cp2020Program, Cp2020CyberdeckManager, Cp2020Cyberdeck } from '../../shared/cp2020/cp2020-netrun-gear/models';
 import { faTrash, faFilePdf, faSave, faUndo, faUpload, faAngleDoubleDown,
   faAngleDoubleRight, faPlus } from '@fortawesome/free-solid-svg-icons';
 
@@ -26,9 +26,9 @@ export class DeckManagerMainComponent implements OnInit {
 
   showInstructions = false;
 
-  deckManagerModel: Cp2020DeckManager = new Cp2020DeckManager();
+  deckManagerModel: Cp2020CyberdeckManager = new Cp2020CyberdeckManager();
 
-  newProgram: NetRunProgram = new NetRunProgram();
+  newProgram: Cp2020Program = new Cp2020Program();
 
   constructor(private seo: SeoService,
     private deckManagerService: NrDeckManagerService,
@@ -43,7 +43,7 @@ export class DeckManagerMainComponent implements OnInit {
     });
   }
 
-  updateDeck($event: Cp2020NetrunDeck) {
+  updateDeck($event: Cp2020Cyberdeck) {
     this.deckManagerService.updateDeck($event);
   }
 
@@ -70,7 +70,7 @@ export class DeckManagerMainComponent implements OnInit {
     if ( file && file.name.indexOf('.json') > 0 ) {
       this.file.importJSON(file)
       .subscribe( (data: any) =>  {
-        this.deckManagerService.upload(new Cp2020DeckManager(data));
+        this.deckManagerService.upload(new Cp2020CyberdeckManager(data));
       });
     } else {
       alert('Please choose a json file to upload');

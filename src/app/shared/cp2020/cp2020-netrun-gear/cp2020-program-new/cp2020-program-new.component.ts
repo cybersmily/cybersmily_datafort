@@ -5,7 +5,7 @@ import { faPlus, faDiceSix, faSave, faSearch } from '@fortawesome/free-solid-svg
 import { forkJoin } from 'rxjs';
 import { NrProgramOptionsService } from '../../../services/netrun/nr-program-options.service';
 import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
-import { NrProgram, NrProgramOption, NetRunProgram } from '../models';
+import { Program, ProgramOption, Cp2020Program } from '../models';
 
 @Component({
   selector: 'cs-program-new',
@@ -16,8 +16,8 @@ export class Cp2020ProgramNewComponent implements OnInit {
   faPlus = faPlus;
   faSave = faSave;
   faSearch = faSearch;
-  classes: Array<NrProgramOption> = new Array<NrProgramOption>();
-  options: Array<NrProgramOption> = new Array<NrProgramOption>();
+  classes: Array<ProgramOption> = new Array<ProgramOption>();
+  options: Array<ProgramOption> = new Array<ProgramOption>();
   programList: Array<any> = new Array<any>();
   modalRef: BsModalRef;
   modalConfig: {
@@ -29,10 +29,10 @@ export class Cp2020ProgramNewComponent implements OnInit {
   isSaved = true;
 
   @Input()
-  program: NetRunProgram = new NetRunProgram();
+  program: Cp2020Program = new Cp2020Program();
 
   @Output()
-  updateProgram: EventEmitter<NetRunProgram> = new EventEmitter<NetRunProgram>();
+  updateProgram: EventEmitter<Cp2020Program> = new EventEmitter<Cp2020Program>();
 
   constructor(private programData: NrProgramOptionsService,
     private modalService: BsModalService,
@@ -53,7 +53,7 @@ export class Cp2020ProgramNewComponent implements OnInit {
 
   updated() {
     this.isSaved = false;
-    this.program = new NetRunProgram(this.program);
+    this.program = new Cp2020Program(this.program);
   }
 
   get optionList(): string {
@@ -66,7 +66,7 @@ export class Cp2020ProgramNewComponent implements OnInit {
   }
 
   isChecked(optName: string): boolean {
-    return this.program.options.some( (opt: NrProgramOption) => opt.name === optName);
+    return this.program.options.some( (opt: ProgramOption) => opt.name === optName);
   }
 
   checkOption(index: number) {
@@ -87,12 +87,12 @@ export class Cp2020ProgramNewComponent implements OnInit {
     this.modalRef = this.modalService.show(template, this.modalConfig);
   }
 
-  compare(a: NrProgramOption, b: NrProgramOption): boolean {
+  compare(a: ProgramOption, b: ProgramOption): boolean {
     return a  && b ? a.name === b.name : a === b;
   }
 
   addProgram(prog: any) {
-    this.program = new NetRunProgram();
+    this.program = new Cp2020Program();
     this.program.name = prog.name;
     this.program.description = prog.description;
     this.program.strength = prog.str;
