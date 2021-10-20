@@ -7,7 +7,8 @@
     <div class="col">
       Name: <input type="text" [(ngModel)]="deck.name" placeholder="Enter name of the deck..."
         title="Name of the cyberdeck" class="csd-deck-name">
-        <fa-icon [icon]="faSearch" class="csd-btn csd-icon-btn ml-2" title="Lookup source decks..." (click)="showModal(deckListModal)"></fa-icon>
+      <fa-icon [icon]="faSearch" class="csd-btn csd-icon-btn ml-2" title="Lookup source decks..."
+        (click)="showModal(deckListModal)"></fa-icon>
       <span class="float-right">
         {{deck.cost|number}}eb
       </span>
@@ -17,24 +18,28 @@
     <div class="col">
       Type: <select [(ngModel)]="selectedChassis" (change)="changeType()" [compareWith]="compare">
         <option [ngValue]="undefined"></option>
-        <option *ngFor="let chassis of deckData.chassis" [ngValue]="chassis" [selected]="selectedChassis && selectedChassis.name === chassis.name">{{chassis.name}}</option>
+        <option *ngFor="let chassis of deckData.chassis" [ngValue]="chassis"
+          [selected]="selectedChassis && selectedChassis.name === chassis.name">{{chassis.name}}</option>
       </select>
     </div>
     <div class="col">
       Book Price:
-      <input type="number" [(ngModel)]="deck.bookPrice" style="width: 50%;"
-        min="0" title="Price from the source book" (change)="updateDeck()">
+      <input type="number" [(ngModel)]="deck.bookPrice" style="width: 50%;" min="0" title="Price from the source book"
+        (change)="updateDeck()">
     </div>
   </div>
   <div class="row">
     <div class="col-12 col-sm-6 col-lg-4">
-      Speed: <input type="number" [(ngModel)]="deck.speed" min="-5" max="5" class="csd-deck-input" (change)="updateDeck()">
+      Speed: <input type="number" [(ngModel)]="deck.speed" min="-5" max="5" class="csd-deck-input"
+        (change)="updateDeck()">
     </div>
     <div class="col-12 col-sm-6 col-lg-4">
-      Data Wall: <input type="number" [(ngModel)]="deck.dataWall" min="2" max="10" class="csd-deck-input" (change)="updateDeck()">
+      Data Wall: <input type="number" [(ngModel)]="deck.dataWall" min="2" max="10" class="csd-deck-input"
+        (change)="updateDeck()">
     </div>
     <div class="col-12 col-sm-6 col-lg-4">
-      MU: {{deck.mu}} <input type="checkbox" [(ngModel)]="deck.doubleMu" (change)="updateDeck()" title="Double stock size (10).">
+      MU: {{deck.mu}} <input type="checkbox" [(ngModel)]="deck.doubleMu" (change)="updateDeck()"
+        title="Double stock size (10).">
     </div>
   </div>
   <div class="row">
@@ -59,54 +64,40 @@
     </div>
   </div>
 </div>
-<div bsModal #deckOptions="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name1">
+<div bsModal #deckOptions="bs-modal" class="modal fade" tabindex="-1" role="dialog"
+  aria-labelledby="dialog-sizes-name1">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-    <div class="modal-header">
-      <h4 class="modal-title pull-left">Deck Options</h4>
-      <button type="button" class="close pull-right" aria-label="Close" (click)="deckOptions.hide()">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <div class="opt-columns">
-        <div *ngFor="let opt of deckData.options; let i = index"
-          title="{{opt.description}} ~ {{opt.source.book | sourcebook}} pg. {{opt.source.page}}">
-          <input type="number" [(ngModel)]="opt.count" min="0" (change)="checkOption(opt)" class="opt-count">
-          {{opt.name}} ({{ opt.cost.toString().includes('*') ? opt.cost : opt.cost | number}} eb)
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Deck Options</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="deckOptions.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="opt-columns">
+          <div *ngFor="let opt of deckData.options; let i = index"
+            title="{{opt.description}} ~ {{opt.source.book | sourcebook}} pg. {{opt.source.page}}">
+            <input type="number" [(ngModel)]="opt.count" min="0" (change)="checkOption(opt)" class="opt-count">
+            {{opt.name}} ({{ opt.cost.toString().includes('*') ? opt.cost : opt.cost | number}} eb)
+          </div>
         </div>
       </div>
-    </div>
     </div>
   </div>
 </div>
 <ng-template #deckListModal class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name1">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-    <div class="modal-header">
-      <h4 class="modal-title pull-left">Deck from Cyberpunk 2020 Sources</h4>
-      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <div class="row">
-        <div class="col">Name</div>
-        <div class="col-2">Chassis</div>
-        <div class="col-1 text-center">Spd</div>
-        <div class="col-1 text-center">DW</div>
-        <div class="col-1 text-center">MU</div>
-        <div class="col text-center">Book Cost</div>
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Cyberdecks from Cyberpunk 2020 Sources</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <div class="row csd-deck-list-item" *ngFor="let deck of deckListData;let i = index" (click)="selectDeck(i)">
-        <div class="col small">{{deck.name}}</div>
-        <div class="col-2 small">{{deck.type.name}}</div>
-        <div class="col-1 text-center small">{{deck.speed}}</div>
-        <div class="col-1 text-center small">{{deck.dataWall}}</div>
-        <div class="col-1 text-center small">{{deck.mu}}</div>
-        <div class="col text-center small">{{deck.bookPrice | number}}eb</div>
+      <div class="modal-body">
+        <cs-cp2020-cyberdeck-selector (selectCyberdeck)="selectCyberdeck($event)"></cs-cp2020-cyberdeck-selector>
       </div>
-    </div>
     </div>
   </div>
 </ng-template>

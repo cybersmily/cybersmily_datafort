@@ -41,12 +41,12 @@ export class Cp2020ProgramNewComponent implements OnInit {
   ngOnInit(): void {
     const classesData =  this.programData.classes;
     const optionData = this.programData.options;
-    const progList = this.dataService.GetJson(JsonDataFiles.CP2020_DECKS_PROGRAMS_JSON);
+    const progList = this.dataService.GetJson(JsonDataFiles.CP2020_PROGRAM_LIST_JSON);
     forkJoin([classesData, optionData, progList])
     .subscribe( data => {
       this.classes = data[0];
       this.options = data[1];
-      this.programList = data[2].programs
+      this.programList = data[2]
       .sort((a, b) => (a.class > b.class) ? 1 : (a.class === b.class) ? ((a.name > b.name) ? 1 : -1) : -1 );
     });
   }

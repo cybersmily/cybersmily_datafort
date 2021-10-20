@@ -1,3 +1,4 @@
+import { Cp2020CyberdeckSelectorComponent } from './cp2020-cyberdeck-selector/cp2020-cyberdeck-selector.component';
 import { PipesModule } from './../../pipes/pipes.module';
 import { Cp2020CyberdeckFormComponent } from './cp2020-cyberdeck-form/cp2020-cyberdeck-form.component';
 import { Cp2020ProgramListComponent } from './cp2020-program-list/cp2020-program-list.component';
@@ -12,7 +13,8 @@ import { CommonModule } from '@angular/common';
   declarations: [
     Cp2020ProgramNewComponent,
     Cp2020ProgramListComponent,
-    Cp2020CyberdeckFormComponent
+    Cp2020CyberdeckFormComponent,
+    Cp2020CyberdeckSelectorComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { CommonModule } from '@angular/common';
   exports: [
     Cp2020ProgramNewComponent,
     Cp2020ProgramListComponent,
-    Cp2020CyberdeckFormComponent
+    Cp2020CyberdeckFormComponent,
+    Cp2020CyberdeckSelectorComponent
   ]
 })
 export class Cp2020NetrunGear { }

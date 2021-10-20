@@ -1,5 +1,3 @@
-import { JsonDataFiles } from '../../../services/file-services/json-data-files';
-import { forkJoin } from 'rxjs';
 import { DataService } from '../../../services/file-services/data.service';
 import { CyberdeckChassis } from '../models';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
@@ -41,12 +39,9 @@ export class Cp2020CyberdeckFormComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.currDeck = new Cp2020Cyberdeck(this.deck);
-    forkJoin([
-      this.deckDataService.getDeckData(),
-      this.dataService.GetJson(JsonDataFiles.CP2020_DECKS_PROGRAMS_JSON)
-    ])
+    this.deckDataService.getDeckData()
     .subscribe( data => {
-      this.deckData = data[0];
+      this.deckData = data;
       if (this.deck.options.length > 0){
         this.deck.options.forEach( opt => {
           const i = this.deckData.options.findIndex( o => o.name === opt.name);
@@ -56,14 +51,6 @@ export class Cp2020CyberdeckFormComponent implements OnInit, OnChanges {
         });
       }
       this.selectedChassis = this.deck.type;
-
-      // load the list of decks
-      if (data[1].decks && Array.isArray(data[1].decks)){
-        data[1].decks.forEach(deck => {
-          const newDeck = new Cp2020Cyberdeck(deck);
-          this.deckListData.push(newDeck);
-        });
-      }
     });
 
   }
@@ -95,8 +82,9 @@ export class Cp2020CyberdeckFormComponent implements OnInit, OnChanges {
     return a  && b ? a.name === b.name : a === b;
   }
 
-  selectDeck(index: number) {
-    this.currDeck = this.deckListData[index];
+  selectCyberdeck(cyberdeck: Cp2020Cyberdeck) {
+    this.currDeck = cyberdeck;
+    this.updateDeck();
     this.modalRef.hide();
   }
 }
