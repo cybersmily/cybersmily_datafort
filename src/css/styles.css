@@ -9,6 +9,7 @@ INPUT {
 
 INPUT.csd-number {
   width: 50px;
+  text-align: right;
 }
 
 

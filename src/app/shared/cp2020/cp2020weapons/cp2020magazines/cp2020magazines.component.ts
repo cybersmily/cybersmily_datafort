@@ -18,9 +18,10 @@ export class Cp2020magazinesComponent implements OnInit {
   @Output()
   updateMagazines: EventEmitter<Array<Cp2020WeaponMagazine>> = new EventEmitter<Array<Cp2020WeaponMagazine>>();
 
-  newMagMultiplier: number =1;
-  newMagType: number = 5;
-  newMagSubtype: string = '';
+  newMagMultiplier = 1;
+  newMagType = 5;
+  newMagSubtype = '';
+  newMagCapacity = 0;
 
   get newMagCost(): number {
     return this.weapon.shots * this.newMagMultiplier * this.magType;
@@ -38,13 +39,22 @@ export class Cp2020magazinesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.newMagCapacity = this.weapon.shots;
+  }
+
+  changeMultiply(): void {
+    this.newMagCapacity = this.weapon.shots * this.newMagMultiplier;
+  }
+
+  changeCapacity(): void {
+    this.newMagMultiplier = Math.ceil(this.newMagCapacity/this.weapon.shots);
   }
 
   addMagazine() {
     const mag = {
       ammo: this.weapon.ammo,
       used: 0,
-      capacity: (this.weapon.shots * this.newMagMultiplier),
+      capacity: this.newMagCapacity,
       cost: this.newMagCost,
       multiplier: this.newMagMultiplier,
       subtype: (this.newMagSubtype != '') ? this.newMagSubtype : undefined
