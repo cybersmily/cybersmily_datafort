@@ -23,7 +23,7 @@ export class CpRedWeatherMainComponent implements OnInit {
   timeRange: number = 1;
   system: string = 'cpred';
   results: Array<CpRedDayWeather> = new Array<CpRedDayWeather>();
-  daysOfWeek: Array<string> = ['SUNDAY','MONDAY','TUESDAY', 'WEDNESDAY','THURSDAY','FRIDAY','SATURDAY'];
+  daysOfWeek: Array<string> = ['SUN','MON','TUE', 'WED','THU','FRI','SAT'];
 
   get monthResults(): Array<any> {
     return [
@@ -70,7 +70,7 @@ export class CpRedWeatherMainComponent implements OnInit {
           const strange = this.selectedChart.strange[die];
           const duration = this.dice.rollMoreDice(strange.duration);
           if(strange.condition.toLowerCase().includes('cold snap/heat wave')) {
-            if (temp < 60) {
+            if (temp < 60 || (this.season === 'winter' && temp === 60)) {
               strange.condition = 'Cold Snap';
               currCondition = 'Cold Snap';
             } else {
@@ -100,9 +100,4 @@ export class CpRedWeatherMainComponent implements OnInit {
   saveToPDF() {
     CpRedDayWeatherPdf.createWeatherPDF(this.results);
   }
-
-  toCelsius(temp: number) {
-    return Math.ceil(((temp - 32) /1.8) * 10) / 10;
-  }
-
 }
