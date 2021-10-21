@@ -46,8 +46,7 @@ export class Cp2020ProgramNewComponent implements OnInit {
     .subscribe( data => {
       this.classes = data[0];
       this.options = data[1];
-      this.programList = data[2]
-      .sort((a, b) => (a.class > b.class) ? 1 : (a.class === b.class) ? ((a.name > b.name) ? 1 : -1) : -1 );
+      this.programList = data[2];
     });
   }
 

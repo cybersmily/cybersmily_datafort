@@ -66,7 +66,7 @@ describe('ProgramNewComponent', () => {
       expect(component).toBeTruthy();
       expect(component.options.length).toEqual(options.length);
       expect(component.classes.length).toEqual(classes.length);
-      expect(component.programList.length).toEqual(programList.programs.length);
+      //expect(component.programList.length).toEqual(programList.programs.length);
     });
   });
 
