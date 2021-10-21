@@ -18,11 +18,9 @@ export class Cp2020CyberdeckSelectorComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    console.log('ngOnInit Cyberdeck-Selector');
     this.dataService
     .GetJson(JsonDataFiles.CP2020_CYBERDECK_LIST_JSON)
     .subscribe( data => {
-      console.log('loaded cyberdecks', data);
       this.deckListData = data.map( deck => new Cp2020Cyberdeck(deck));
     });
   }

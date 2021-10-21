@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { CpRedDayWeatherPdf } from './../models/cp-red-day-weather-pdf';
 import { CpRedDayWeather } from './../models/cp-red-day-weather';
 import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
@@ -34,9 +35,11 @@ export class CpRedWeatherMainComponent implements OnInit {
     ];
   }
 
-  constructor(private dataService: DataService, private dice: DiceService) { }
+  constructor(private dataService: DataService, private dice: DiceService, private seo: SeoService) { }
 
   ngOnInit(): void {
+    this.seo.updateMeta('Cybersmily\'s Datafort Weather Generator for Cyberpunk Red',
+    'Cybersmily\'s Datafort Weather Generator will generate weather for a day/week/month for Cyberpunk 2020/Cyberpunk Red. ');
     this.dataService
     .GetJson(JsonDataFiles.CPRED_WEAHTER_CHART_JSON)
     .subscribe( data => {
@@ -54,7 +57,6 @@ export class CpRedWeatherMainComponent implements OnInit {
     this.results = new Array<CpRedDayWeather>();
     let currCondition = '';
     let conditionDuration = 0;
-    console.log(this.timeRange);
     for(let i = 0; i < this.timeRange; i++) {
       const seasonChart = this.selectedChart[this.season];
       let die = this.dice.generateNumber(0, seasonChart.tempatures.length - 1);

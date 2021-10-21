@@ -46,7 +46,7 @@ export class NrDeckManagerService {
   }
 
   updateDeck(deck: Cp2020Cyberdeck) {
-    this.curDeckManager.deck = deck;
+    this.curDeckManager.deck = new Cp2020Cyberdeck(deck);
     this.updateModel(this.curDeckManager);
   }
 

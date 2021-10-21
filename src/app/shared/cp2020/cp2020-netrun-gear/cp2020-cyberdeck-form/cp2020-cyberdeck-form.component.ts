@@ -57,6 +57,7 @@ export class Cp2020CyberdeckFormComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     this.selectedChassis = this.currDeck.type;
+    this.currDeck = new Cp2020Cyberdeck(this.deck);
   }
 
   showModal(template: TemplateRef<any>) {
