@@ -8,6 +8,8 @@ export interface CpHousing {
   utilities: Array<Cp2020Services>;
   location: string;
   qualityMod: number;
+  owns: boolean;
+  mortgage: number;
   rooms: number;
   count: number;
   cost: number;

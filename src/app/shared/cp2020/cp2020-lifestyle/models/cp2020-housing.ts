@@ -9,6 +9,8 @@ export class Cp2020Housing implements CpHousing {
   location: string;
   qualityMod: number;
   rooms: number;
+  owns: boolean;
+  mortgage: number;
   count: number;
   cost: number;
 
@@ -20,13 +22,15 @@ export class Cp2020Housing implements CpHousing {
     this.utilities = param?.utilities ?? new Array<Cp2020Services>();
     this.location = param?.location ?? '';
     this.qualityMod = param?.qualityMod ?? 1;
+    this.owns = param?.owns ?? false;
     this.rooms = param?.rooms ?? 1;
     this.count = param?.count ?? 1;
     this.cost = param?.cost ?? 0;
+    this.mortgage = param?.mortgage ?? 0;
   }
 
   get totalCost(): number {
-    let cost = this.rooms * this.cost * this.qualityMod;
+    let cost = (this.owns) ? this.mortgage : this.rooms * this.cost * this.qualityMod;
     cost += this.utilityCosts;
     return cost * this.count;
   }

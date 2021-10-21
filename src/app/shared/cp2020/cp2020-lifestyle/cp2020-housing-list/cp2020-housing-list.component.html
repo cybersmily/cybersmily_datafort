@@ -23,6 +23,7 @@
   <div class="row">
     <div class="col">
       {{housing.name}}
+      <span *ngIf="housing.owns">(owned)</span>
       <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn ml-1" (click)="edit(index, newHousing)"></fa-icon>
       <fa-icon [icon]="faTrash" class="csd-icon-btn csd-btn ml-2" title="Delete housing" (click)="delete(index)">
       </fa-icon>
@@ -34,7 +35,7 @@
       {{housing.totalCost | number}}eb
     </div>
     <div class="col-1">
-      <fa-icon [icon]="faEuroSign" class="csd-btn csd-icon-btn" title="Pay" (click)="pay(getCost(housing))"></fa-icon>
+      <fa-icon [icon]="faEuroSign" class="csd-btn csd-icon-btn" title="Pay" (click)="pay(housing.totalCost)"></fa-icon>
     </div>
   </div>
 </ng-template>
@@ -56,13 +57,30 @@
       </div>
     </div>
     <div class="row">
+      <div class="col-2">Owned:</div>
+      <div class="col">
+        <input type="checkbox" title="Character owns the proptery, not renting" [(ngModel)]="selectedHousing.owns">
+      </div>
+    </div>
+    <div class="row">
       <div class="col-2">Type:</div>
       <div class="col">
         <select [(ngModel)]="selectedHousing.cost">
           <option [ngValue]="200">Apt./Condo</option>
           <option [ngValue]="150">House</option>
         </select>
+      </div>
+    </div>
+    <div *ngIf="!selectedHousing.owns" class="row">
+      <div class="col-2">Rent:</div>
+      <div class="col">
         {{selectedHousing.cost}}eb/room
+      </div>
+    </div>
+    <div *ngIf="selectedHousing.owns" class="row">
+      <div class="col-2">Mortgage:</div>
+      <div class="col">
+        <input type="number" min="0" [(ngModel)]="selectedHousing.mortgage">
       </div>
     </div>
     <div class="row">
@@ -100,7 +118,7 @@
       <div class="col">
         <div class="row" *ngFor="let u of selectedHousing.utilities; let i = index">
           <div class="col-1"><input type="checkbox" [checked]="getUtilitySelected(i)"
-              (change)="toogleUtility($event, i)"></div>
+              (change)="toggleUtility($event, i)"></div>
           <div class="col">{{u.name}}:</div>
           <div class="col">{{u.cost}}eb</div>
         </div>
