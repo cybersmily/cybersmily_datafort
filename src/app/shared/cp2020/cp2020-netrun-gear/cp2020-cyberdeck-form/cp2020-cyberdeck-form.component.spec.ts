@@ -6,7 +6,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { Cp2020CyberdeckFormComponent } from './cp2020-cyberdeck-form.component';
 
-describe('DeckFormComponent', () => {
+describe('Cp2020CyberdeckFormComponent', () => {
   let component: Cp2020CyberdeckFormComponent;
   let fixture: ComponentFixture<Cp2020CyberdeckFormComponent>;
 
