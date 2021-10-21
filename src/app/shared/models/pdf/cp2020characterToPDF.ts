@@ -869,7 +869,6 @@ export class Cp2020characterToPDF {
   }
 
   private addLifePath(doc: jsPDF, lifepath: LifePathResults, left: number, line: number) {
-    console.log('characterPDF', lifepath);
     const ht = 6.5;
     const recth = 6;
     let startLine = line;
