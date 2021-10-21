@@ -1,3 +1,4 @@
+import { CelsiusPipe } from './../../shared/pipes/celsius.pipe';
 import { CpRedDayWeather } from './cp-red-day-weather';
 import { jsPDF } from 'jspdf';
 
@@ -70,6 +71,9 @@ export class CpRedDayWeatherPdf {
         line += 38;
         margin = left;
       }
+      if(results.length === 1) {
+        margin = left + 117;
+      }
       doc.setFont(this._font, 'bold');
       const center = margin + 17;
       doc.setFontSize(12);
@@ -94,7 +98,7 @@ export class CpRedDayWeatherPdf {
     doc.text('O F', center, line + 8, {align: 'left'});
 
     doc.setFontSize(22);
-    const celsius = Math.ceil(((temp - 32) /1.8) * 10) / 10;
+    const celsius = new CelsiusPipe().transform(temp);
     doc.text(celsius.toString(), center, line + 21, {align: 'right'});
     doc.setFontSize(8);
     doc.text('O C', center, line + 17, {align: 'left'});
