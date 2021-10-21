@@ -100,6 +100,7 @@ export class AppCharacterLifepathComponent implements OnInit, OnChanges {
     .generateLifePath(this.selectedSource, this.eventful, this.years.toString())
     .subscribe( lifepath => {
       this.newLifPath = lifepath;
+      this.onChangeLifePath();
     });
   }
 

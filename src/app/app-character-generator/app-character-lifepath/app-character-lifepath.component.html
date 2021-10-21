@@ -146,7 +146,7 @@
           <fa-icon [icon]="faTrash" class="csd-icon-btn csd-btn" (click)="removeYear(i)"></fa-icon>
         </div>
         <div class="col pl-0 pr-0">
-          <textarea [(ngModel)]="event.event" class="chargen-life-event" rows="3" maxlength="140"
+          <textarea [(ngModel)]="event.event" class="chargen-life-event" rows="3" (change)="onChangeLifePath()"
             style="width:100%;"></textarea>
         </div>
       </div>

@@ -1,4 +1,3 @@
-import { Cp2020ArmorLayer } from './../../cp2020/cp2020-armor/models/cp2020-armor-layer';
 import { Cp2020Identity } from './../../cp2020/cp2020-lifestyle/models/cp2020-identity';
 import { CpHousing } from '../../cp2020/cp2020-lifestyle/models/cp-housing';
 import { Cp2020Lifestyle } from './../../cp2020/cp2020-lifestyle/models/cp2020-lifestyle';
@@ -15,7 +14,6 @@ import { Cp2020PlayerCharacter } from '../cp2020character/cp2020-player-characte
 
 import { jsPDF } from 'jspdf';
 import { LifepathEvent } from '../../cp2020/cp2020-lifepath/models';
-import { LinearGradientElement } from 'canvg';
 import { Cp2020Vehicle } from '../../cp2020/cp2020-vehicles/models';
 
 export class Cp2020characterToPDF {
@@ -871,6 +869,7 @@ export class Cp2020characterToPDF {
   }
 
   private addLifePath(doc: jsPDF, lifepath: LifePathResults, left: number, line: number) {
+    console.log('characterPDF', lifepath);
     const ht = 6.5;
     const recth = 6;
     let startLine = line;
@@ -978,20 +977,10 @@ export class Cp2020characterToPDF {
     doc.setTextColor('black');
     doc.rect(left, line, 10, recth, 'S');
     doc.text('YEAR', left + 1, line + 5);
-    doc.rect(left + 10, line, 90, recth, 'S');
+    doc.rect(left + 10, line, 190, recth, 'S');
     doc.text('EVENT', left + 12, line + 5);
-    doc.rect(this._midPage, line, 10, recth, 'S');
-    doc.text('YEAR', this._midPage + 1, line + 5);
-    doc.rect(this._midPage + 10, line, 90, recth, 'S');
-    doc.text('EVENT', this._midPage + 12, line + 5);
     line += ht;
-
-    const lpIndex = Math.ceil(lifepath.events.length / 2);
-    const eventsOne = lifepath.events.slice(0, lpIndex);
-    const eventsTwo = lifepath.events.slice(lpIndex);
-    startLine = line;
-    line = this.printLifeEvents(doc, eventsOne, left, line, ht);
-    this.printLifeEvents(doc, eventsTwo, this._midPage, startLine, ht);
+    line = this.printLifeEvents(doc, lifepath.events, left, line, ht);
     doc.setFont(this._font, 'normal');
   }
 
@@ -999,11 +988,16 @@ export class Cp2020characterToPDF {
     const recth = 6;
     events.forEach(e => {
       if (e.event && e.event.trim() !== '') {
-        const details: Array<string> = doc.splitTextToSize(e.event, 87);
+        const details: Array<string> = doc.splitTextToSize(e.event, 185);
+
+      if((line + details.length * 5) > this._pageHeight) {
+        doc.addPage();
+        line = this._top;
+      }
         const h = (recth * details.length) + 1;
         doc.rect(left, line, 10, h, 'S');
         doc.text(e.age ? e.age.toString() : '', left + 1, line + 5);
-        doc.rect(left + 10, line, 90, h, 'S');
+        doc.rect(left + 10, line, 190, h, 'S');
         let lineHt = line - 1;
         details.forEach(d => {
           doc.text(d.trim(), left + 11, lineHt + 5);
@@ -1013,9 +1007,13 @@ export class Cp2020characterToPDF {
       } else {
         doc.rect(left, line, 10, recth, 'S');
         doc.text(e.age ? e.age.toString() : '', left + 1, line + 5);
-        doc.rect(left + 10, line, 90, recth, 'S');
+        doc.rect(left + 10, line, 190, recth, 'S');
         doc.text('', left + 11, line + 5);
         line += ht;
+      }
+      if(line > this._pageHeight) {
+        doc.addPage();
+        line = this._top;
       }
     });
     return line;
