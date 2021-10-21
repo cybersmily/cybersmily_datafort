@@ -8,6 +8,7 @@ import { PipesModule } from './../../pipes/pipes.module';
 import { CommonUiModule } from './../../modules/common-ui/common-ui.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Cp2020LifepathSectionComponent } from './cp2020-lifepath-section/cp2020-lifepath-section.component';
 
 
 
@@ -16,7 +17,8 @@ import { CommonModule } from '@angular/common';
     LifepathChartComponent,
     LifepathEthnicityComponent,
     LifepathEventsComponent,
-    LifepathFamilyComponent
+    LifepathFamilyComponent,
+    Cp2020LifepathSectionComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +33,8 @@ import { CommonModule } from '@angular/common';
     LifepathChartComponent,
     LifepathEthnicityComponent,
     LifepathEventsComponent,
-    LifepathFamilyComponent
+    LifepathFamilyComponent,
+    Cp2020LifepathSectionComponent
   ]
 })
 export class Cp2020LifepathModule { }

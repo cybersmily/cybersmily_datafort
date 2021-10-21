@@ -1,15 +1,15 @@
-import { LifePathGeneratorService, SourcesDataService } from './../../shared/cp2020/cp2020-lifepath/services';
-import { TitleValue } from './../../shared/models/title-value';
-import { Sibling, LifePathResults, LifepathEvent } from '../../shared/cp2020/cp2020-lifepath/models';
+import { LifePathGeneratorService, SourcesDataService } from './../services';
+import { TitleValue } from './../../../models/title-value';
+import { Sibling, LifePathResults, LifepathEvent } from './../models';
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { faMars, faVenus, faDice, faPlus, faGenderless, faTrash, faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'cs-app-character-lifepath',
-  templateUrl: './app-character-lifepath.component.html',
-  styleUrls: ['./app-character-lifepath.component.css']
+  selector: 'cs-cp2020-lifepath-section',
+  templateUrl: './cp2020-lifepath-section.component.html',
+  styleUrls: ['./cp2020-lifepath-section.component.css']
 })
-export class AppCharacterLifepathComponent implements OnInit, OnChanges {
+export class Cp2020LifepathSectionComponent implements OnInit {
   faMars = faMars;
   faVenus = faVenus;
   faGenderless= faGenderless;
@@ -131,4 +131,5 @@ export class AppCharacterLifepathComponent implements OnInit, OnChanges {
     this.newLifPath.events.splice(index, 1);
     this.changeLifepath.emit(this.newLifPath);
   }
+
 }

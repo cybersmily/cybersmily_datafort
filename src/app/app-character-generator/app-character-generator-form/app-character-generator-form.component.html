@@ -93,13 +93,13 @@
       </div>
       <div class="row print-fix csd-linebreak no-gutters">
         <div class="col">
-          <cs-app-character-lifepath [lifepath]="character.lifepath"
+          <cs-cp2020-lifepath-section [lifepath]="character.lifepath"
           [isCollapsed]="charGenSettings.isCollapsed"
           [isAlwaysEventful]="charGenSettings.lifePathEvents"
           [eventYears]="charGenSettings.lifePathYears"
           [source]="charGenSettings.lifePathSource"
           (changeLifepath)="changeLifepath($event)">
-          </cs-app-character-lifepath>
+        </cs-cp2020-lifepath-section>
         </div>
       </div>
       <div class="chargen-label chargen-fill chargen-page-header csd-linebreak">
