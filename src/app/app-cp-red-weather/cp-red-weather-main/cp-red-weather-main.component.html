@@ -50,7 +50,7 @@
           <h1 class="d-inline-block">{{results[0].tempature}}<span class="align-top h6">&#176;F</span></h1>
         </div>
         <div class="large align-top">
-          <h1 class="d-inline-block">{{toCelsius(results[0].tempature)}}<span class="align-top h6">&#176;C</span></h1>
+          <h1 class="d-inline-block">{{results[0].tempature | celsius}}<span class="align-top h6">&#176;C</span></h1>
         </div>
         <div>{{results[0].condition}}</div>
       </div>
@@ -83,7 +83,7 @@
       <h5 class="d-inline-block">{{day.tempature}}<span class="align-top h6">&#176;F</span></h5>
     </div>
     <div class="large align-top">
-      <h5 class="d-inline-block">{{toCelsius(day.tempature)}}<span class="align-top h6">&#176;C</span></h5>
+      <h5 class="d-inline-block">{{day.tempature | celsius}}<span class="align-top h6">&#176;C</span></h5>
     </div>
     <div class="small">{{day.condition}}</div>
   </div>

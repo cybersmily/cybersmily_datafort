@@ -6,6 +6,7 @@ import { SourcebookPipe } from './sourcebook.pipe';
 import { SourcebookFilterPipe } from './sourcebook-filter.pipe';
 import { ContainsPipe } from './contains.pipe';
 import { OrderbyPipe } from './orderby.pipe';
+import { CelsiusPipe } from './celsius.pipe';
 
 
 
@@ -16,7 +17,8 @@ import { OrderbyPipe } from './orderby.pipe';
     SourcebookFilterPipe,
     ParsePipe,
     ContainsPipe,
-    OrderbyPipe
+    OrderbyPipe,
+    CelsiusPipe
   ],
   imports: [
     CommonModule
@@ -27,7 +29,8 @@ import { OrderbyPipe } from './orderby.pipe';
     SourcebookFilterPipe,
     ParsePipe,
     ContainsPipe,
-    OrderbyPipe
+    OrderbyPipe,
+    CelsiusPipe
   ]
 })
 export class PipesModule { }

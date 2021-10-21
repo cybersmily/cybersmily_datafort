@@ -1,3 +1,4 @@
+import { PipesModule } from './../shared/pipes/pipes.module';
 import { DiceService } from './../shared/services/dice/dice.service';
 import { DataService } from './../shared/services/file-services/data.service';
 import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';
@@ -15,7 +16,8 @@ import { CpRedWeatherMainComponent } from './cp-red-weather-main/cp-red-weather-
   imports: [
     CommonModule,
     CommonUiModule,
-    AppCpRedWeatherRoutingModule
+    AppCpRedWeatherRoutingModule,
+    PipesModule
   ],
   providers: [
     DataService,
