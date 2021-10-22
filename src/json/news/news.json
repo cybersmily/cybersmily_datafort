@@ -2,6 +2,14 @@
   "news": [
     { "date":"2021-10",
       "entries":[
+        "<strong>10-24</strong> - A few updates to various sections.",
+        "&nbsp;* CP2020 Deck Manager - Fixed a bunch of bugs with this, mainly the issues around MU for published decks not reflected correctly.",
+        "&nbsp;* CP2020 Char generator - magazine capacity can now be manually set if you want to make it unique (Thanks to Mikhail over on discord).",
+        "&nbsp;* CP2020 Char generator - Ammo items can now be deleted in the ammo section. Thought I had one there, but apparently not. (Again, one from Mikhail).",
+        "&nbsp;* CP2020 Char generator - Life Events can now have more data. Keep in mind too much data might have issues for the sticky data, but if you save the sheet to file, this shouldn't be a problemt (thank Mikhail for that).",
+        "&nbsp;* CP2020 Char generator - Life Style housing bugs fixed. Should allow utility toggling and pay properly.",
+        "&nbsp;* CP2020 Char generator - Life Style housing added a choice to own property instead of renting, just in case you character is luckly enough to own. (another one of Mikhail's)",
+        "&nbsp;* CPRed Weather generator - fixed a bug with cold snap/heat weave durinig winter. Winters won't have 100+ degree days.",
         "<strong>10-11</strong> - Been on a bit of a hiatus. Real life pulled me in a few directions and took me longer to implement some of the changes with this release. Enjoy!",
         "&nbsp;* CP2020 Char generator - Implemented Secondary Roles. Now you can add more roles to the sheet. This section also allows you to select the role skills when there are choices.",
         "&nbsp;* CP2020 Char generator - Implemented IU Roles and Skills. There are still some automation needed, but it is a start. Blame Wisdom 000 for that.",
