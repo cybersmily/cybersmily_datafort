@@ -25,9 +25,9 @@ describe('Cp2020HousingListComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
     housingList = [
-      {name: 'test1', cost: 200, qualityMod: 1, rooms: 1, contents: ['item1','item2'], utilities: [], count: 1, desc: '', quality: '', location: '', owns: false},
-      {name: 'test2', cost: 200, qualityMod: 1, rooms: 4, contents: ['item1','item2'], utilities: [], count: 1, desc: '', quality: '', location: '', owns: false},
-      {name: 'test3', cost: 500, qualityMod: 2, rooms: 2, contents: ['item1','item2'], utilities: [], count: 1, desc: '', quality: '', location: '', owns: false}
+      {name: 'test1', cost: 200, qualityMod: 1, rooms: 1, contents: ['item1','item2'], utilities: [], count: 1, desc: '', quality: '', location: '', owns: false, mortgage: 0},
+      {name: 'test2', cost: 200, qualityMod: 1, rooms: 4, contents: ['item1','item2'], utilities: [], count: 1, desc: '', quality: '', location: '', owns: false, mortgage: 0},
+      {name: 'test3', cost: 500, qualityMod: 2, rooms: 2, contents: ['item1','item2'], utilities: [], count: 1, desc: '', quality: '', location: '', owns: false, mortgage: 0}
     ];
     housing1 = new Cp2020Housing(housingList[0]);
     housing2 = new Cp2020Housing(housingList[1]);
