@@ -10,7 +10,6 @@ import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.modul
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './../../shared/services/file-services/data.service';
-import { AppCharacterLifepathComponent } from './../app-character-lifepath/app-character-lifepath.component';
 import { AppCharacterImageComponent } from './../app-character-image/app-character-image.component';
 import { AppCharacterHandleComponent } from './../app-character-handle/app-character-handle.component';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
@@ -28,7 +27,6 @@ describe('AppCharacterGeneratorFormComponent', () => {
         AppCharacterGeneratorFormComponent,
         AppCharacterHandleComponent,
         AppCharacterImageComponent,
-        AppCharacterLifepathComponent,
         AppCharacterGearComponent
       ],
       imports: [
