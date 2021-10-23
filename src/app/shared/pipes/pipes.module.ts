@@ -7,6 +7,8 @@ import { SourcebookFilterPipe } from './sourcebook-filter.pipe';
 import { ContainsPipe } from './contains.pipe';
 import { OrderbyPipe } from './orderby.pipe';
 import { CelsiusPipe } from './celsius.pipe';
+import { WeightNamePipe } from './weight-name.pipe';
+import { ArmorOptionModPipe } from './armor-option-mod.pipe';
 
 
 
@@ -18,7 +20,9 @@ import { CelsiusPipe } from './celsius.pipe';
     ParsePipe,
     ContainsPipe,
     OrderbyPipe,
-    CelsiusPipe
+    CelsiusPipe,
+    WeightNamePipe,
+    ArmorOptionModPipe
   ],
   imports: [
     CommonModule
@@ -30,7 +34,9 @@ import { CelsiusPipe } from './celsius.pipe';
     ParsePipe,
     ContainsPipe,
     OrderbyPipe,
-    CelsiusPipe
+    CelsiusPipe,
+    WeightNamePipe,
+    ArmorOptionModPipe
   ]
 })
 export class PipesModule { }
