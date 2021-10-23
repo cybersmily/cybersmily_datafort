@@ -9,8 +9,7 @@ export interface ArmorRandomSettings {
 }
 
 export class CP2020ArmorRandomSettings implements ArmorRandomSettings {
-  isArmor: boolean = false;
-  armor: ArmorSettingsChoices;
+  armor: ArmorSettingsChoices = ArmorSettingsChoices.both;
   isLeather: boolean = false;
   style: string = '';
   quality: string = '';

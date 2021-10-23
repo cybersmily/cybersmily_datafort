@@ -38,9 +38,9 @@ export class ArmorCostCalculatorService {
       mod = mod * quality;
     }
     // get the sp
-    const sp = spChart.filter(entry => entry.sp === armor.baseSP);
+    const sp = spChart.filter(entry => entry.sp === armor.baseSP)[0];
     if (sp) {
-      mod = mod * (sp[armor.clothes.wt] ?? 1);
+      mod = mod * (sp.mod[armor.clothes.wt] ?? 1);
     }
 
     return Math.ceil(mod * price);

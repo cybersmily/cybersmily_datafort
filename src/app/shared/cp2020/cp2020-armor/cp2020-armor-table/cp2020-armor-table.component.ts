@@ -130,11 +130,13 @@ export class Cp2020ArmorTableComponent implements OnInit {
   }
 
   generate() {
+    /*
     this.armorService.generateArmorLayer(this.diceService)
     .subscribe( layer => {
       this.armor.addPiece(layer);
       this.onChangeArmor();
     });
+    */
   }
 
   resetSDP(location: string) {

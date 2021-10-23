@@ -31,8 +31,8 @@ export class ArmorGeneratorService {
       } else {
         armor.style = dice.rollRandomItem<ArmorOption>(clothingLists.styles);
       }
-
-      if (settings.armor !== ArmorSettingsChoices.cloth) {
+      let canBeArmor:boolean = (settings.armor === ArmorSettingsChoices.both) ? !!dice.generateNumber(0,1) : settings.armor === ArmorSettingsChoices.armor;
+      if (canBeArmor) {
         const spValues = clothingLists.armorChart.filter(item => item.mod[armor.clothes.wt]);
         let spRoll = dice.rollRandomItem<ArmorSpChartEntry>(spValues);
         armor.baseSP = spRoll.sp;

@@ -1,8 +1,8 @@
+import { SourceBook } from './../../../models/sourcebook';
 import { ArmorLocations } from './armor-locations';
 import { ArmorPiece } from './armor-piece';
 import { PieceOfClothing } from './piece-of-clothing';
 import { ArmorOption } from './armor-option';
-import { KeyValue } from '@angular/common';
 
 export class Cp2020ArmorPiece implements ArmorPiece {
   name: string;
@@ -20,6 +20,7 @@ export class Cp2020ArmorPiece implements ArmorPiece {
   isSkinWeave: boolean;
   isLeather: boolean;
   cost: number;
+  source?:SourceBook;
 
   constructor(param?: any) {
     this.name = param?.name ?? '';
@@ -37,7 +38,7 @@ export class Cp2020ArmorPiece implements ArmorPiece {
       name: param?.style?.name ?? '',
       mod:  param?.style?.mod ?? 1
     };
-    this.options = param?.optoins.map(opt => opt) ?? new Array<ArmorOption>();
+    this.options = param?.optoins?.map(opt => opt) ?? new Array<ArmorOption>();
 
     this.baseSP = param?.baseSP ?? 0;
     this.locations = param?.locations ?? {};
@@ -80,6 +81,9 @@ export class Cp2020ArmorPiece implements ArmorPiece {
     // set the locations to the baseSP
     for(const key in this.locations) {
       this.locations[key] = this.baseSP;
+    }
+    if(param?.source) {
+      this.source = {book: param.source.book, page: param.source.page};
     }
   }
 }

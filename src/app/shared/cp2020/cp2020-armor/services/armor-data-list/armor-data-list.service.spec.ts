@@ -31,7 +31,7 @@ describe('ArmorDataService', () => {
 
   it('should get armor list from file', (done) => {
     spyOn(dataService, 'GetJson').and.returnValue(of(testArmor));
-    service.getArmorList().subscribe( list => {
+    service.getData().subscribe( list => {
       expect(list).toBeTruthy();
       expect(list.length).toBeGreaterThanOrEqual(1);
       done();
@@ -40,7 +40,7 @@ describe('ArmorDataService', () => {
 
   it('should get armor list from cache', (done) => {
     service['armorList'] = [...testArmor];
-    service.getArmorList().subscribe( list => {
+    service.getData().subscribe( list => {
       expect(list).toBeTruthy();
       expect(list.length).toBeGreaterThanOrEqual(1);
       done();

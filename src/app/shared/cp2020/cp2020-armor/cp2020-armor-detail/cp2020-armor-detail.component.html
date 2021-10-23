@@ -1,38 +1,66 @@
-<div class="row csd-rounded">
-  <div class="col-12 col-md-11">
+<div class="row">
+  <div class="col-12">
+    Name:
+    <input class="w-75" type="text" placeholder="Enter name..." [(ngModel)]="currArmor.name">
+    <fa-icon [icon]="faDice" title="Randomly generate clothing"
+      class="csd-btn csd-icon-btn float-right csd-icon-lg"
+      (click)="generate()"
+      ></fa-icon>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6 col-lg-3">
+    Cost: {{currArmor.cost | number}}eb
+  </div>
+  <div class="col-6 col-lg-4 small">
+    <span class="text-capitalize">Weight: {{currArmor.clothes.wt | weightName}}</span>
+    <span class="ml-2">EV: {{currArmor.ev}}</span>
+  </div>
+  <div class="col-12 col-lg-5 small">
+    Locations: <span class="text-capitalize">{{currArmor.clothes.loc}}</span>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12"></div>
+</div>
+<div class="row">
+  <div class="col-12 col-lg-8">
+    Clothing Type: <select [(ngModel)]="currArmor.clothes" (change)="changeClothing()">
+      <option *ngFor="let type of armorAttributes.clothes" [ngValue]="type">{{type.name}} ({{type.cost}}eb)</option>
+    </select>
+  </div>
+  <div class="col-12 col-lg-4">
+    <span *ngIf="currArmor.clothes.name !== ''">SP:
+      <select [(ngModel)]="selectedSP">
+        <option *ngFor="let sp of spValues" [ngValue]="sp">{{sp.sp}}</option>
+      </select>
+    </span>
+    <span *ngIf="currArmor.clothes.leather" class="ml-4 small">
+      <input type="checkbox" [(ngModel)]="currArmor.isLeather" (change)="update()"> Leather
+    </span>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 col-md-6">
+    Style: <select [(ngModel)]="currArmor.style" (change)="update()">
+      <option *ngFor="let style of armorAttributes.styles" [ngValue]="style">{{style.name}} (x{{style.mod}})
+      </option>
+    </select>
+  </div>
+  <div class="col-12 col-md-6">
+    Quality: <select [(ngModel)]="currArmor.quality" (change)="update()">
+      <option *ngFor="let quality of armorAttributes.qualities" [ngValue]="quality">{{quality.name}}
+        (x{{quality.mod}})</option>
+    </select>
+  </div>
+</div>
+<div class="row">
+  <div class="col-2">Options:</div>
+  <div class="col-10">
     <div class="row">
-      <div class="col-12">TYPE: <span></span>
-        <fa-icon [icon]="faDice" title="Randomly generate clothing"
-          class="csd-btn csd-icon-btn float-right csd-icon-xl ml-2 mr-2" ></fa-icon>
-        </div>
-    </div>
-    <div class="row">
-      <!--
-      <div class="col-5">Locations: <span>{{currClothing.clothes.loc}}</span></div>
-      <div class="col-4">Weight: <span>{{currClothing.clothes.wt}}</span></div>
-      <div class="col-3">EV: <span>{{currClothing.ev}}</span></div>
-    </div>
-    <div class="row">
-      <div class="col-12">Total Cost: <span>{{currClothing.cost | number}}</span>eb</div>
-    </div>
-    <div>
-      <!--
-      <cs-fashion-clothes-selector [clothing]="clothes" [currSelection]="currClothing.clothes"
-        [isLeather]="currClothing.isLeather" (selectClothing)="changeClothing($event)"
-        (selectLeather)="selectLeather($event)"></cs-fashion-clothes-selector>
-      <cs-fashion-selector [label]="'Style'" [data]="styleList" [selectedValue]="currClothing.style" [isRequired]="true"
-        (selectOption)="selectStyle($event)">
-      </cs-fashion-selector>
-      <cs-fashion-selector [label]="'Quality'" [data]="qualityList" [selectedValue]="currClothing.quality"
-        [isRequired]="true" (selectOption)="selectQuality($event)"></cs-fashion-selector>
-      <cs-fashion-selector [label]="'SP Rating'" [data]="spRatingsList" [selectedValue]="currClothing.spRating"
-        [isRequired]="false" (selectOption)="selectSPRating($event)"></cs-fashion-selector>
-      <cs-fashion-options-selector [options]="optionsList" [selectedOptions]="currClothing.options"
-        (checkOption)="selectOptions($event)" [currWeight]="currClothing.clothes.wt"></cs-fashion-options-selector>
-        -->
+      <div class="col-12" *ngFor="let opt of armorAttributes.options" [title]="opt.effect">
+        <input type="checkbox" [checked]="getOptionValue(opt.name)" (change)="changeOption($event, opt)"> {{opt.name}} (x{{opt.mod | armorOptionMod:currArmor.clothes.wt }})
+      </div>
     </div>
   </div>
 </div>
-<ng-template #fashionSettings>
-</ng-template>
-

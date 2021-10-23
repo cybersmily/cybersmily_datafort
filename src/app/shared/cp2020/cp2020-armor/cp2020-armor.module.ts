@@ -1,3 +1,4 @@
+import { PipesModule } from './../../pipes/pipes.module';
 import { ArmorCostCalculatorService } from './services/armor-cost-calculator/armor-cost-calculator.service';
 import { ArmorDataListService } from './services/armor-data-list/armor-data-list.service';
 import { DiceService } from './../../services/dice/dice.service';
@@ -26,7 +27,8 @@ import { ArmorSettingsComponent } from './armor-settings/armor-settings.componen
   ],
   imports: [
     CommonModule,
-    CommonUiModule
+    CommonUiModule,
+    PipesModule
   ],
   providers: [
     DiceService,
