@@ -2,7 +2,6 @@ import { JsonDataFiles } from './../json-data-files';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient,  HttpHeaders } from '@angular/common/http';
-import { ArmorAttributeLists } from './../../../cp2020/cp2020-armor/models';
 import { News } from './../../../models/articles';
 
 @Injectable()

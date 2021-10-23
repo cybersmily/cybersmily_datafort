@@ -60,6 +60,7 @@
 	{"name":"Polychromic Material","mod":5,"desc":"", "effect":""}
 ],
 "armorChart":[
+	{"sp":0,"mod":{"lt":1,   "med":1, "hvy":1 }, "ev":{"lt":0,  "med":0,"hvy":0}},
 	{"sp":4,"mod":{"lt":1.1,   "med":1.05, "hvy":1.0 }, "ev":{"lt":0,  "med":0,"hvy":0}},
 	{"sp":5,"mod":{"lt":1.15,  "med":1.05, "hvy":1.0 }, "ev":{"lt":0,  "med":0,"hvy":0}},
 	{"sp":6,"mod":{"lt":1.2,   "med":1.1,  "hvy":1.05}, "ev":{"lt":0,  "med":0,"hvy":0}},
