@@ -10,14 +10,21 @@
     <p>Click on Save button to print a text file of the clothing list you have created.</p>
   </div>
   <div id="fcSelectorControls" class="row">
-    <div class="col-12 col-md-7">
+    <div class="col-12 col-md-6 csd-rounded">
+      <div class="row">
+        <div class="col">
+          <h4>Design Clothing</h4>
+        </div>
+      </div>
       <cs-cp2020-armor-detail >
       </cs-cp2020-armor-detail>
     </div>
+    <!--
     <div class="col-12 col-md-5">
       <cs-cp2020-clothing-list>
       </cs-cp2020-clothing-list>
       <fa-icon [icon]="faFile" title="Save" [ngClass]="{'csd-btn csd-icon-btn': !isListEmpty, 'csd-disabled':isListEmpty , 'csd-icon-xl': true}" (click)="saveList()"></fa-icon>
     </div>
+    -->
   </div>
 </div>
