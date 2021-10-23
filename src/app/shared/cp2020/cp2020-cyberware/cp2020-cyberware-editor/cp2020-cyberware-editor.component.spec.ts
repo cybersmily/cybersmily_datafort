@@ -1,5 +1,5 @@
 import { CyberDataService } from './../services/cyber-data.service';
-import { DataService } from './../../../services/file-services/data.service';
+import { DataService } from './../../../services/file-services';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { DiceService } from './../../../services/dice/dice.service';

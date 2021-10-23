@@ -1,4 +1,4 @@
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService } from './../../shared/services/file-services';
 import { CPRedNetArchChartsService } from './c-p-red-net-arch-charts.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DiceService } from './../../shared/services/dice/dice.service';

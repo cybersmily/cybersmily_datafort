@@ -4,7 +4,7 @@ import { SeoService } from './../../shared/services/seo/seo.service';
 import { SaveFileService } from './../../shared/services/file-services';
 import { LifepathData, LifepathSource, LifepathChart, LifePathResults,
   LifepathChartSelection, LifepathFamily, LifepathEventsList, LifepathEthnicity } from '../../shared/cp2020/cp2020-lifepath/models';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService } from './../../shared/services/file-services';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

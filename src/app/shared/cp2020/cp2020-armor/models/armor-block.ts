@@ -1,5 +1,7 @@
-import { ArmorLayer } from './armor-layer';
+import { Cp2020SDPBlock } from './cp2020-sdp-block';
+import { Cp2020ArmorPiece } from './cp2020-armor-piece';
 
 export interface ArmorBlock {
-  layers: Array<ArmorLayer>;
+  armorPieces: Array<Cp2020ArmorPiece>;
+  sdp: Cp2020SDPBlock;
 }

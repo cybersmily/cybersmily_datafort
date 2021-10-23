@@ -3,7 +3,7 @@ import { PipesModule } from './../../shared/pipes/pipes.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CyberDataService } from './../../shared/cp2020/cp2020-cyberware/services';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService } from './../../shared/services/file-services';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CyberListComponent } from './cyber-list.component';

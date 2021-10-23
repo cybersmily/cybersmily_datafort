@@ -1,7 +1,7 @@
 import { of } from 'rxjs';
 import { CmbtTrckCharts } from './../../shared/models/cmbt-trck/cmbt-trck-charts';
 import { HttpClientModule } from '@angular/common/http';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService } from './../../shared/services/file-services';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { TestBed } from '@angular/core/testing';
 

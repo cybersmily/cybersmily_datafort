@@ -1,15 +1,15 @@
 import { Cp2020Role } from './../../shared/cp2020/cp2020-role/models';
 import { Cp2020StatBlock } from './../../shared/cp2020/cp2020-stats/models/cp2020-stat-block';
-import { Cp2020ArmorLayer, Cp2020ArmorBlock } from './../../shared/cp2020/cp2020-armor/models';
+import { Cp2020ArmorPiece, Cp2020ArmorBlock } from './../../shared/cp2020/cp2020-armor/models';
 import { OppCyberware } from './../../shared/cp2020/cp2020-cyberware/models';
 import { CpPlayerWeaponList } from './../../shared/cp2020/cp2020weapons/models';
 import { OpponentTrackerService } from './../services/opponent-tracker.service';
-import { CmbtTrckOpponent, CmbtTrckOppSelection, CmbtTrckTemplate } from '../../shared/models/cmbt-trck';
+import { CmbtTrckOpponent,  CmbtTrckTemplate } from '../../shared/models/cmbt-trck';
 import { OppTemplateService } from './../services/opp-template.service';
 import { DataSkill } from './../../shared/models/data/data-skill';
 import { Cp2020PlayerSkill } from './../../shared/cp2020/cp2020-skills/models';
 import { SkillListService } from './../../shared/services/data/skill-list.service';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService } from './../../shared/services/file-services';
 import { Cp2020RolesDataService } from './../../shared/cp2020/cp2020-role/services/cp2020-roles-data.service';
 import { forkJoin } from 'rxjs';
 import { faDice, faTrash } from '@fortawesome/free-solid-svg-icons';
@@ -113,11 +113,11 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
     // add any armor to as layers
     this.currOpponent.cyberware.filter( c => c.armor)
     .forEach( c => {
-      const a = new Cp2020ArmorLayer(c.armor);
+      const a = new Cp2020ArmorPiece(c.armor);
       a.name = c.name;
       a.isActive = true;
       a.isSkinWeave = c.name.toLowerCase().includes('skinweave');
-      this.currOpponent.armor.addLayer(a);
+      this.currOpponent.armor.addPiece(a);
     });
     this.updateOpponent();
   }

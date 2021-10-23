@@ -1,5 +1,5 @@
 import { DiceService } from './../../shared/services/dice/dice.service';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService } from './../../shared/services/file-services';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
@@ -10,8 +10,6 @@ import { FixerCalcHotStuffComponent } from './../fixer-calc-hot-stuff/fixer-calc
 import { FixerCalcBigLeagueComponent } from './../fixer-calc-big-league/fixer-calc-big-league.component';
 import { FixerBigLeagueService } from './../../shared/services/fixer/fixer-big-league.service';
 import { FixerHotStuffService } from './../../shared/services/fixer/fixer-hot-stuff.service';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FormsModule } from '@angular/forms';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { FixerCalcMainComponent } from './fixer-calc-main.component';

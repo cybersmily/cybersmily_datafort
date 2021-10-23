@@ -7,7 +7,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AdminWpnListComponent } from './admin-wpn-list.component';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService } from './../../shared/services/file-services';
 import { PipesModule } from './../../shared/pipes/pipes.module';
 
 describe('AdminWpnListComponent', () => {

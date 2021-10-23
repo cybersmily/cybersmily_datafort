@@ -1,0 +1,34 @@
+<div class="cp2020-section border border-dark">
+  <div class="cp2020-label row no-gutters">
+    <div class="col">
+      <h4 class="d-inline-block csd-btn mr-4" (click)="isCollapsed = !isCollapsed">
+        ARMOR/CLOTHING
+        <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ml-2"></fa-icon>
+      </h4>
+      <fa-icon *ngIf="!isCollapsed" [icon]="faDice" class="csd-dice csd-btn" title="Generate random cyberware" >
+      </fa-icon>
+    </div>
+  </div>
+  <div class="row mt-1" [collapse]="isCollapsed">
+    <div class="col">
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col">
+              ARMOR
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col">
+              CLOTHING
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

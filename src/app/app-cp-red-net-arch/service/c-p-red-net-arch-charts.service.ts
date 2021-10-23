@@ -2,7 +2,7 @@ import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
 import { CPRedArchCharts } from './../models/c-p-red-arch-charts';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService } from './../../shared/services/file-services';
 import { Injectable } from '@angular/core';
 import { NetArchProgram } from '../models';
 import { CPRedDemon } from '../models/c-p-red-demon';

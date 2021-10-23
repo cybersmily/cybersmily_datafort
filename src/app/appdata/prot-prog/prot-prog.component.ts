@@ -1,8 +1,7 @@
-import { JsonDataFiles } from './../../shared/services/file-services';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { AccordionComponent } from 'ngx-bootstrap/accordion';
-import { ProgramGroup, Program } from '../../shared/models/gear';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { ProgramGroup } from '../../shared/models/gear';
+import { DataService, JsonDataFiles } from './../../shared/services/file-services';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { faAngleDoubleDown, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
 

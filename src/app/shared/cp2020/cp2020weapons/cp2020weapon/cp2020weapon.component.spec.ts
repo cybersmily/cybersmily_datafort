@@ -1,5 +1,5 @@
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
-import { DataService } from './../../../services/file-services/data.service';
+import { DataService } from './../../../services/file-services';
 import { Cp2020weaponEditorComponent } from './../cp2020weapon-editor/cp2020weapon-editor.component';
 import { WeaponDataService } from './../services/weapon-data.service';
 import { DiceService } from './../../../services/dice/dice.service';

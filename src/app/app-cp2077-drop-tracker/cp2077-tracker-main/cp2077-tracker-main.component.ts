@@ -2,8 +2,8 @@ import { CP2077Kills } from './../models/cp2077-kills';
 import { faSave, faUpload } from '@fortawesome/free-solid-svg-icons';
 import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
 import { Cp2077TrackerEntry } from './../models/cp2077-tracker-entry';
-import { SaveFileService } from './../../shared/services/file-services/save-file.service';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { SaveFileService } from './../../shared/services/file-services';
+import { DataService } from './../../shared/services/file-services';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

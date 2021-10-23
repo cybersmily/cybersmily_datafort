@@ -1,11 +1,9 @@
 import { CPRedNetArchChartsService } from './c-p-red-net-arch-charts.service';
-import { DataService } from './../../shared/services/file-services/data.service';
 import { CPRedNetArchNode } from './../models/c-p-red-net-arch-node';
-import { faFile, faLock, faCogs, faSkullCrossbones } from '@fortawesome/free-solid-svg-icons';
 import { CPRedNetFloorChartEntry, CPRedNetFloorCharts } from './../models/c-p-red-net-floor-charts';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { NetArchProgram } from '../models';
 
 @Injectable({

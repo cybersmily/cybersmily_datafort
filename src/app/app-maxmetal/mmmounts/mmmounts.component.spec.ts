@@ -1,5 +1,5 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService } from './../../shared/services/file-services';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MmmountsComponent } from './mmmounts.component';

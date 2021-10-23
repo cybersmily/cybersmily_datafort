@@ -1,6 +1,5 @@
 import { Cp2020PlayerAmmo } from './../models/cp-2020-player-ammo';
-import { JsonDataFiles } from './../../../services/file-services/json-data-files';
-import { DataService } from './../../../services/file-services/data.service';
+import { JsonDataFiles, DataService } from './../../../services/file-services';
 import { faPlus, faTrash, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { Cp2020Ammo, Cp2020AmmoTypes } from '../models';

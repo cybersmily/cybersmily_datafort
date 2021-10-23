@@ -74,6 +74,10 @@ export class DiceService {
     return r;
   }
 
+  rollRandomItem<T>(list: Array<T>): T {
+    return list[this.generateNumber(0, list.length -1)];
+  }
+
   /**
    *Generate a random number between the min and max parameters.
    * @param {number} min - minimum value to return

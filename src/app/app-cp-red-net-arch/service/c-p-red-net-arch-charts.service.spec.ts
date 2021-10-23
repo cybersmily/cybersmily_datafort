@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService } from './../../shared/services/file-services';
 import { TestBed } from '@angular/core/testing';
 
 import { CPRedNetArchChartsService } from './c-p-red-net-arch-charts.service';

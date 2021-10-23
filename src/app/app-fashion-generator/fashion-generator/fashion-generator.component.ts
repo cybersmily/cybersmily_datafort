@@ -1,11 +1,10 @@
 import { SeoService } from './../../shared/services/seo/seo.service';
 
 import { SaveFileService } from './../../shared/services/file-services';
-import { DataService } from './../../shared/services/file-services/data.service';
-import { Clothing, ClothingLists, PieceOfClothing, ClothingOption, ClothingArmor } from '../../shared/models/clothing';
+import { DataService } from './../../shared/services/file-services';
+import { Cp2020ArmorPiece, ArmorAttributeLists } from '../../shared/cp2020/cp2020-armor/models';
 import { Component, OnInit } from '@angular/core';
-import { CS_CLOTHINGDATA_KEY } from './../../keys/storageKeys';
-import { faFile, fas, faSave } from '@fortawesome/free-solid-svg-icons';
+import { faFile, faSave } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'cs-fashion-generator',
@@ -15,20 +14,20 @@ import { faFile, fas, faSave } from '@fortawesome/free-solid-svg-icons';
 export class FashionGeneratorComponent implements OnInit {
   faFile = faFile;
   faSave = faSave;
-  clothingList: Clothing[];
+  clothingList: Cp2020ArmorPiece[];
   clothingTotal: number;
 
-  clothingData: ClothingLists;
+  clothingData: ArmorAttributeLists;
   constructor(private dataService: DataService,
     private saveFileService: SaveFileService,
     private seo: SeoService) {
     // create dumby object while waiting for the real data to load.
     this.clothingData = {
-      Clothes: new Array(),
-      Style: new Array(),
-      Quality: new Array(),
-      Armoring: new Array(),
-      Options: new Array()
+      clothes: new Array(),
+      styles: new Array(),
+      qualities: new Array(),
+      armorChart: new Array(),
+      options: new Array()
     };
   }
 
@@ -47,6 +46,7 @@ export class FashionGeneratorComponent implements OnInit {
    * @memberof FashionGeneratorComponent
    */
   getClothingData() {
+    /*
     this.dataService.GetAppDataClothes()
       .subscribe(
         resultObj => {
@@ -54,15 +54,16 @@ export class FashionGeneratorComponent implements OnInit {
         },
         error => console.log('Error :: ' + error)
       );
+      */
   }
   /**
    * parse the option data
    * @param {any} data - data to be parsed.
    * @memberof FashionGeneratorComponent
    */
-  parseClothingData(data: ClothingLists) {
+  parseClothingData(data: ArmorAttributeLists) {
     this.clothingData = data;
-    this.clothingData.Clothes.sort((a, b) => a.name.localeCompare(b.name));
+    this.clothingData.clothes.sort((a, b) => a.name.localeCompare(b.name));
   }
 
   /**
@@ -71,9 +72,9 @@ export class FashionGeneratorComponent implements OnInit {
    * @param {Clothing} event - Clothing objec to add to list.
    * @memberof FashionGeneratorComponent
    */
-  addToList(event: Clothing) {
+  addToList(event: Cp2020ArmorPiece) {
     this.clothingList.push(event);
-    this.clothingTotal += Number(event.totalCost);
+    this.clothingTotal += Number(event.cost);
   }
 
    /**
@@ -91,9 +92,6 @@ export class FashionGeneratorComponent implements OnInit {
           output += 'leather ';
         }
         output += item.clothes.name;
-        if (item.spRating.sp > 0) {
-          output += '(SP:' + item.spRating.sp + '/EV:' + item.spRating.ev + ')';
-        }
         if (item.options.length > 0) {
           output += '[';
           item.options.forEach((opt, ind) => {
@@ -104,7 +102,7 @@ export class FashionGeneratorComponent implements OnInit {
           });
           output += ']';
         }
-        output += ' - ' + item.totalCost.toLocaleString() + 'eb';
+        output += ' - ' + item.cost.toLocaleString() + 'eb';
         output += '\r\n';
       });
       output += 'TOTAL COST: ' + this.clothingTotal.toLocaleString() + 'eb';

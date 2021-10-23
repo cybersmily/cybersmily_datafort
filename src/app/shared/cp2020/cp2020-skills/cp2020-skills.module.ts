@@ -1,6 +1,6 @@
 import { Cp2020SkillStatSectionComponent } from './cp2020-skill-stat-section/cp2020-skill-stat-section.component';
 import { DiceService } from './../../services/dice/dice.service';
-import { DataService } from './../../services/file-services/data.service';
+import { DataService } from './../../services/file-services';
 import { CommonUiModule } from './../../modules/common-ui/common-ui.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

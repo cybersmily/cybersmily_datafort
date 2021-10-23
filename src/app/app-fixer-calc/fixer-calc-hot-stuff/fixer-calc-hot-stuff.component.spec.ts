@@ -1,4 +1,4 @@
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService } from './../../shared/services/file-services';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { FixerCalcHotStuffAreaComponent } from './../fixer-calc-hot-stuff-area/fixer-calc-hot-stuff-area.component';

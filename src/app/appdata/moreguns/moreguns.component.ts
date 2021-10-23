@@ -1,7 +1,7 @@
 import { JsonDataFiles } from './../../shared/services/file-services';
 import { SeoService } from './../../shared/services/seo/seo.service';
-import { CpWeapon, WeaponGroup } from '../../shared/cp2020/cp2020weapons/models';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { WeaponGroup } from '../../shared/cp2020/cp2020weapons/models';
+import { DataService } from './../../shared/services/file-services';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

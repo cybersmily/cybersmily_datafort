@@ -3,7 +3,7 @@ import { of } from 'rxjs';
 import { Cp2020PlayerCyber } from './../models/cp2020-player-cyber';
 import { CyberDataService } from './cyber-data.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { DataService } from './../../../services/file-services/data.service';
+import { DataService } from './../../../services/file-services';
 import { DiceService } from './../../../services/dice/dice.service';
 import { TestBed } from '@angular/core/testing';
 

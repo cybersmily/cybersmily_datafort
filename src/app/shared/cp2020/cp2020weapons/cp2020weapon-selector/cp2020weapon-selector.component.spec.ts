@@ -1,6 +1,6 @@
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { PipesModule } from './../../../pipes/pipes.module';
-import { DataService } from './../../../services/file-services/data.service';
+import { DataService } from './../../../services/file-services';
 import { WeaponDataService } from './../services/weapon-data.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';

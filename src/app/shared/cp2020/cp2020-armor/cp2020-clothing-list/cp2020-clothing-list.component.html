@@ -1,0 +1,24 @@
+   <div class="hdr-row row">
+      <div class="col cloth">Clothing</div>
+      <div class="col cloth-loc text-center">Locations</div>
+      <div class="col cloth-ev text-center">EV</div>
+      <div class="col cloth-cost text-center">Cost</div>
+  </div>
+  <div class="row" *ngFor="let clothing of clothingList">
+      <div class="col cloth-item">
+          <span>{{clothing.quality.name}}</span>
+          <span>{{clothing.style.name}}</span>
+          <span *ngIf="clothing.isLeather">leather</span>
+          <span>{{clothing.clothes.name}}</span>
+          <br />
+          <span *ngFor="let opt of clothing.options" class="cloth-options"> *{{opt.name}}</span>
+        </div>
+      <div class="col text-center"><span>{{clothing.clothes.loc}}</span></div>
+      <div class="col text-center"><span>{{clothing.ev}}</span></div>
+      <div class="col text-right"><span>{{clothing.totalCost | number}}eb</span></div>
+  </div>
+  <div class="row">
+      <div class="col cloth-total">TOTAL:</div>
+      <div class="col text-right"><span>{{totalCost | number}}</span>eb</div>
+  </div>
+

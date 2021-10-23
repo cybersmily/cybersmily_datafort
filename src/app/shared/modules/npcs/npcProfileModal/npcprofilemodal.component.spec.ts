@@ -3,7 +3,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NpcProfileModalComponent } from './npcprofilemodal.component';
-import { DataService } from './../../../services/file-services/data.service';
+import { DataService } from './../../../services/file-services';
 
 describe('NpcProfileComponent', () => {
   let component: NpcProfileModalComponent;

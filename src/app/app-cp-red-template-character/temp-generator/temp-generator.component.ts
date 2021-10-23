@@ -1,5 +1,5 @@
 import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService } from './../../shared/services/file-services';
 import { CPRedLifePathService } from './../../shared/cpred/c-p-red-lifepath/services/c-p-red-life-path.service';
 import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { SeoService } from './../../shared/services/seo/seo.service';

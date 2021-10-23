@@ -1,8 +1,7 @@
 import { DataCyberware } from './../../shared/cp2020/cp2020-cyberware/models/data-cyberware';
-import { JsonDataFiles } from './../../shared/services/file-services';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { Gear, CyberDeck } from './../../shared/models/gear';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService, JsonDataFiles } from './../../shared/services/file-services';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AccordionComponent } from 'ngx-bootstrap/accordion';
 import { faAngleDoubleDown, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';

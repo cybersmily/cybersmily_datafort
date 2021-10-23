@@ -1,7 +1,7 @@
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { HttpClientModule } from '@angular/common/http';
 import { DiceService } from './../../../services/dice/dice.service';
-import { DataService } from './../../../services/file-services/data.service';
+import { DataService } from './../../../services/file-services';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { LifepathEthnicityComponent } from './lifepath-ethnicity.component';

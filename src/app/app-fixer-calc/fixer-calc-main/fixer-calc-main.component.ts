@@ -1,5 +1,5 @@
 import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService } from './../../shared/services/file-services';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { Component, OnInit } from '@angular/core';
 import { FixerCharts } from './../../shared/cp2020/cp2020-fixerCalc/fixerchart';

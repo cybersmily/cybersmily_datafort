@@ -2,7 +2,7 @@ import { LifepathFamilyComponent } from './lifepath-family/lifepath-family.compo
 import { LifepathEventsComponent } from './lifepath-events/lifepath-events.component';
 import { LifepathEthnicityComponent } from './lifepath-ethnicity/lifepath-ethnicity.component';
 import { LifepathChartComponent } from './lifepath-chart/lifepath-chart.component';
-import { DataService } from './../../services/file-services/data.service';
+import { DataService } from './../../services/file-services';
 import { DiceService } from './../../services/dice/dice.service';
 import { PipesModule } from './../../pipes/pipes.module';
 import { CommonUiModule } from './../../modules/common-ui/common-ui.module';

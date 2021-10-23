@@ -1,5 +1,5 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { DataService } from '../../../services/file-services/data.service';
+import { DataService } from '../../../services/file-services';
 import { Cp2020ProgramNewComponent } from '../cp2020-program-new/cp2020-program-new.component';
 import { CommonUiModule } from '../../../modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';

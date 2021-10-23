@@ -1,7 +1,6 @@
-import { JsonDataFiles } from './../../shared/services/file-services';
+import { JsonDataFiles, DataService } from './../../shared/services/file-services';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../shared/services/file-services/data.service';
 
 @Component({
   selector: 'cs-shop-other',

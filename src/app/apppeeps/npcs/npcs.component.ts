@@ -1,5 +1,5 @@
 import { SeoService } from './../../shared/services/seo/seo.service';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService } from './../../shared/services/file-services';
 import { NpcCard } from '../../shared/models/character';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';

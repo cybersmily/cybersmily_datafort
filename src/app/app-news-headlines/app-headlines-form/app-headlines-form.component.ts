@@ -1,9 +1,7 @@
 import { HeadlinesToPDF } from './../../shared/models/pdf/headlines-to-pdf';
-import { SaveFileService } from './../../shared/services/file-services/save-file.service';
-import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
 import { faDice, faFile, faFilePdf, faRedo } from '@fortawesome/free-solid-svg-icons';
 import { DiceService } from './../../shared/services/dice/dice.service';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService, SaveFileService, JsonDataFiles } from './../../shared/services/file-services';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

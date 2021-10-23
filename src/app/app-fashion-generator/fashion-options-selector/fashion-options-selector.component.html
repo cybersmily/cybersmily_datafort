@@ -1,5 +1,0 @@
-<div>OPTIONS({{selectedOptions.length}})</div>
-<div *ngFor="let o of options" class="row">
-  <div class="col-9"><input type="checkbox" (change)="toggleOption(o.name)" [checked]="isChecked(o.name)"/> - <span >{{o.name}}</span></div>
-  <div class="col-3">X<span >{{isWeightBase(o.mod)}}</span></div>
-</div>

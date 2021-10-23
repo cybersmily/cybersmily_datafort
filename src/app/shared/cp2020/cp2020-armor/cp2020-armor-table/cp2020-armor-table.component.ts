@@ -1,12 +1,10 @@
-import { Cp2020SDP } from './../models/cp2020-s-d-p';
+import { Cp2020SDP } from '../models/cp2020-sdp';
 import { DiceService } from './../../../services/dice/dice.service';
-import { ArmorDataService } from './../services/armor-data.service';
-import { Cp2020ArmorLayer } from './../models';
-import { Cp2020ArmorBlock } from './../models';
+import { ArmorDataListService } from '../services/armor-data-list/armor-data-list.service';
+import { Cp2020ArmorPiece, Cp2020ArmorBlock } from './../models';
 import { faShieldAlt, faPlus, faTrash, faDice, faPen } from '@fortawesome/free-solid-svg-icons';
 import { Component, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'cs-cp2020-armor-table',
@@ -37,7 +35,7 @@ export class Cp2020ArmorTableComponent implements OnInit {
   @Output()
   changeArmor = new EventEmitter<Cp2020ArmorBlock>();
 
-  newLayer = new Cp2020ArmorLayer();
+  newLayer = new Cp2020ArmorPiece();
   selectedLocation = '';
   spDamage = 0;
 
@@ -59,7 +57,7 @@ export class Cp2020ArmorTableComponent implements OnInit {
   }
 
   constructor(private modalService: BsModalService,
-    private armorService: ArmorDataService,
+    private armorService: ArmorDataListService,
     private diceService: DiceService) { }
 
   ngOnInit() {
@@ -69,19 +67,19 @@ export class Cp2020ArmorTableComponent implements OnInit {
     return (this.newLayer.name === '');
   }
 
-  canAddLayer(layer: Cp2020ArmorLayer): boolean {
+  canAddLayer(layer: Cp2020ArmorPiece): boolean {
     let result = true;
     if(!layer.isActive) {
       // loop through each of the location to see if the current layer can be added.
       this.locations.every( location => {
-        const locationLayers = this.armor.activeLayers.filter(l => l[location] > 0);
+        const locationLayers = this.armor.activePiece.filter(l => l[location] > 0);
         // check if the current layer isn't adding more than 3 layers
-        if(layer[location] > 0 && locationLayers.length > 2) {
+        if(layer.locations[location] > 0 && locationLayers.length > 2) {
           result = false;
           return false;
         }
         // check if the current layer is adding another hard layer
-        if(layer[location] > 0 && layer.isHard && locationLayers.some(l => l.isHard)) {
+        if(layer.locations[location] > 0 && layer.isHard && locationLayers.some(l => l.isHard)) {
           result = false;
           return false;
         }
@@ -105,23 +103,23 @@ export class Cp2020ArmorTableComponent implements OnInit {
 
   addLayer() {
     if (!this.addDisable) {
-      this.armor.addLayer(this.newLayer);
-      this.newLayer = new Cp2020ArmorLayer();
+      this.armor.addPiece(this.newLayer);
+      this.newLayer = new Cp2020ArmorPiece();
       this.onChangeArmor();
     }
   }
 
   removeLayer(index: number) {
-    this.armor.removeLayer(this.armor.layers[index]);
+    this.armor.removePiece(this.armor.armorPieces[index]);
     this.onChangeArmor();
   }
 
   changeActive(index: number) {
-    const layer = this.armor.layers[index];
+    const layer = this.armor.armorPieces[index];
     if (layer.isActive) {
-      this.armor.deactivateLayer(layer);
+      this.armor.deactivatePiece(layer);
     } else {
-      this.armor.activateLayer(layer);
+      this.armor.activatePiece(layer);
     }
     this.onChangeArmor();
   }
@@ -134,7 +132,7 @@ export class Cp2020ArmorTableComponent implements OnInit {
   generate() {
     this.armorService.generateArmorLayer(this.diceService)
     .subscribe( layer => {
-      this.armor.addLayer(layer);
+      this.armor.addPiece(layer);
       this.onChangeArmor();
     });
   }

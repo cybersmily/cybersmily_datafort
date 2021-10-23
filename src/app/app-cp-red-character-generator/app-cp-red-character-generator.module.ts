@@ -1,7 +1,5 @@
 import { CPRedStatsModule } from './../shared/cpred/c-p-red-stats/c-p-red-stats.module';
-import { FileLoaderService } from './../shared/services/file-services/file-loader.service';
-import { DataService } from './../shared/services/file-services/data.service';
-import { SaveFileService } from './../shared/services/file-services/save-file.service';
+import { FileLoaderService, DataService, SaveFileService } from './../shared/services/file-services';
 import { DiceService } from './../shared/services/dice/dice.service';
 import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';
 import { NgModule } from '@angular/core';

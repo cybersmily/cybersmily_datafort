@@ -19,7 +19,7 @@ import { AppCmbtTrackModule } from './app-cmbt-track/app-cmbt-track.module';
 import { DlowSectionModule } from './appdlow/dlowsection.module';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { DataService } from './shared/services/file-services/data.service';
+import { DataService } from './shared/services/file-services';
 import { HomeComponent } from './apphome/home/home.component';
 import { AppComponent } from './app.component';
 import { Router, RouterModule } from '@angular/router';

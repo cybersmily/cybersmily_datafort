@@ -1,4 +1,4 @@
-import { DataService } from './../../services/file-services/data.service';
+import { DataService } from './../../services/file-services';
 import { DiceService } from './../../services/dice/dice.service';
 import { PipesModule } from './../../pipes/pipes.module';
 import { CommonUiModule } from './../../modules/common-ui/common-ui.module';

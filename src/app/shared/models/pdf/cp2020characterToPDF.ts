@@ -819,7 +819,7 @@ export class Cp2020characterToPDF {
     left += 15;
     doc.rect(left, line, 75, ht, 'S');
     left += 70;
-
+    /* TODO: Update armor/clothing
     armor.layers.forEach( layer => {
       line += 5;
       left = leftMargin;
@@ -857,6 +857,7 @@ export class Cp2020characterToPDF {
       left += 70;
 
     });
+    */
     return line + 6;
   }
 

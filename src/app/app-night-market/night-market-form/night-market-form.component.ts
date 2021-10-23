@@ -4,7 +4,7 @@ import { faDice, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
 import { NightMarketListing, NightMarketCategory } from '../../shared/cpred/models/night-market-chart';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService } from './../../shared/services/file-services';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

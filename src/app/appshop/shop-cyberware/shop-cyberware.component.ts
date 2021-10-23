@@ -1,7 +1,6 @@
 import { DataCyberware } from './../../shared/cp2020/cp2020-cyberware/models';
-import { JsonDataFiles } from './../../shared/services/file-services';
 import { SeoService } from './../../shared/services/seo/seo.service';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService, JsonDataFiles } from './../../shared/services/file-services';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

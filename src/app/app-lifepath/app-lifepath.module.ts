@@ -1,6 +1,6 @@
 import { Cp2020LifepathModule } from './../shared/cp2020/cp2020-lifepath/cp2020-lifepath.module';
 import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';
-import { DataService } from './../shared/services/file-services/data.service';
+import { DataService } from './../shared/services/file-services';
 import {
   EthnicityGeneratorService,
   LifeEventsGeneratorService,

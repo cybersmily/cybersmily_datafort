@@ -1,7 +1,7 @@
 import { CyberwareCardComponent } from './cyberware-card/cyberware-card.component';
 import { CyberwareCardColumnComponent } from './cyberware-card-column/cyberware-card-column.component';
 import { Cp2020CyberwareGeneratorService, CyberDataService } from './services';
-import { DataService } from './../../services/file-services/data.service';
+import { DataService } from './../../services/file-services';
 import { PipesModule } from './../../pipes/pipes.module';
 import { DiceService } from './../../services/dice/dice.service';
 import { CommonUiModule } from './../../modules/common-ui/common-ui.module';

@@ -1,5 +1,5 @@
 import { SaveFileService, JsonDataFiles } from './../../../services/file-services';
-import { DataService } from './../../../services/file-services/data.service';
+import { DataService } from './../../../services/file-services';
 import { DataCyberware, Cp2020PlayerCyber } from './../models';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';

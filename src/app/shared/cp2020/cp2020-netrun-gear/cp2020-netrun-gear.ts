@@ -4,7 +4,7 @@ import { Cp2020CyberdeckFormComponent } from './cp2020-cyberdeck-form/cp2020-cyb
 import { Cp2020ProgramListComponent } from './cp2020-program-list/cp2020-program-list.component';
 import { Cp2020ProgramNewComponent } from './cp2020-program-new/cp2020-program-new.component';
 import { DiceService } from './../../services/dice/dice.service';
-import { DataService } from './../../services/file-services/data.service';
+import { DataService } from './../../services/file-services';
 import { CommonUiModule } from './../../modules/common-ui/common-ui.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

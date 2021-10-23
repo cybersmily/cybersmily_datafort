@@ -1,9 +1,8 @@
 import { NewsReport } from './../../shared/models/gigs/news-report';
 import { NewsItems } from './../../shared/models/gigs';
-import { JsonDataFiles } from './../../shared/services/file-services';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { DataService } from '../../shared/services/file-services/data.service';
+import { DataService, JsonDataFiles } from '../../shared/services/file-services';
 import { AccordionComponent } from 'ngx-bootstrap/accordion';
 import { faAngleDoubleDown, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
 

@@ -1,7 +1,6 @@
-import { Cp2020Program } from '../models';
-import { ProgramOption } from '../models';
+import { Cp2020Program, ProgramOption } from '../models';
 import { of } from 'rxjs';
-import { DataService } from '../../../services/file-services/data.service';
+import { DataService } from '../../../services/file-services';
 import { NrProgramOptionsService } from '../../../services/netrun/nr-program-options.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CommonUiModule } from '../../../modules/common-ui/common-ui.module';

@@ -1,7 +1,7 @@
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { DiceService } from './../../../services/dice/dice.service';
-import { DataService } from './../../../services/file-services/data.service';
+import { DataService } from './../../../services/file-services';
 import { Cp2020RolesDataService } from './../services/cp2020-roles-data.service';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 

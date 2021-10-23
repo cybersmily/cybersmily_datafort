@@ -1,7 +1,7 @@
 import { of } from 'rxjs';
-import { SaveFileService } from './../../shared/services/file-services/save-file.service';
+import { SaveFileService } from './../../shared/services/file-services';
 import { PipesModule } from './../../shared/pipes/pipes.module';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService } from './../../shared/services/file-services';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';

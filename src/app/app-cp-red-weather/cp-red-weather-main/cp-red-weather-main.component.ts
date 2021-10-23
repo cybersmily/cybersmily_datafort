@@ -3,7 +3,7 @@ import { CpRedDayWeatherPdf } from './../models/cp-red-day-weather-pdf';
 import { CpRedDayWeather } from './../models/cp-red-day-weather';
 import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
 import { faDice, faFilePdf } from '@fortawesome/free-solid-svg-icons';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService } from './../../shared/services/file-services';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { Component, OnInit } from '@angular/core';
 import { CpRedWeatherChart } from '../models/cp-red-weather-chart';

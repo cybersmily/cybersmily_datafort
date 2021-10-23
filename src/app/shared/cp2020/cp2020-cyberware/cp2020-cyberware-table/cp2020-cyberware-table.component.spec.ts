@@ -3,7 +3,7 @@ import { CyberDataService } from './../services/cyber-data.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Cp2020CyberwareGeneratorService } from './../services/cp2020-cyberware-generator.service';
 import { DiceService } from './../../../services/dice/dice.service';
-import { DataService } from './../../../services/file-services/data.service';
+import { DataService } from './../../../services/file-services';
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 

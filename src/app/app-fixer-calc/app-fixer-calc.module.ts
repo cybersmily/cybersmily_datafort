@@ -1,4 +1,4 @@
-import { DataService } from './../shared/services/file-services/data.service';
+import { DataService } from './../shared/services/file-services';
 import { DiceService } from './../shared/services/dice/dice.service';
 import { SaveFileService } from './../shared/services/file-services';
 import { FixerHotStuffService } from './../shared/services/fixer/fixer-hot-stuff.service';

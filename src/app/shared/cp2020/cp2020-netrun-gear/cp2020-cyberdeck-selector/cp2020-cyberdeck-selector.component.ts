@@ -1,5 +1,4 @@
-import { JsonDataFiles } from './../../../services/file-services/json-data-files';
-import { DataService } from './../../../services/file-services/data.service';
+import { DataService, JsonDataFiles } from './../../../services/file-services';
 import { Cp2020Cyberdeck } from './../models/cp2020-cyberdeck';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 

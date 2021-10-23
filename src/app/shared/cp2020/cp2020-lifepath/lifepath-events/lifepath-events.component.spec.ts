@@ -1,6 +1,6 @@
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { HttpClientModule } from '@angular/common/http';
-import { DataService } from './../../../services/file-services/data.service';
+import { DataService } from './../../../services/file-services';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { LifepathEventsComponent } from './lifepath-events.component';

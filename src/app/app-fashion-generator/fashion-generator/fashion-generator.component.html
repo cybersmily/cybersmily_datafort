@@ -11,13 +11,12 @@
   </div>
   <div id="fcSelectorControls" class="row">
     <div class="col-12 col-md-7">
-      <cs-fashion-input [clothes]="clothingData.Clothes" [styleList]="clothingData.Style" [qualityList]="clothingData.Quality"
-        [armoringList]="clothingData.Armoring" [optionsList]="clothingData.Options" (purchaseClothing)="addToList($event)">
-      </cs-fashion-input>
+      <cs-cp2020-armor-detail >
+      </cs-cp2020-armor-detail>
     </div>
     <div class="col-12 col-md-5">
-      <cs-fashion-list [clothingList]="clothingList" [totalCost]="clothingTotal">
-      </cs-fashion-list>
+      <cs-cp2020-clothing-list>
+      </cs-cp2020-clothing-list>
       <fa-icon [icon]="faFile" title="Save" [ngClass]="{'csd-btn csd-icon-btn': !isListEmpty, 'csd-disabled':isListEmpty , 'csd-icon-xl': true}" (click)="saveList()"></fa-icon>
     </div>
   </div>

@@ -1,8 +1,7 @@
 import { DiceService } from './../../../services/dice/dice.service';
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
-import { BsModalService } from 'ngx-bootstrap/modal';
-import { DataService } from './../../../services/file-services/data.service';
-import { ArmorDataService } from './../services/armor-data.service';
+import { DataService } from './../../../services/file-services';
+import { ArmorDataListService } from '../services/armor-data-list/armor-data-list.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -22,7 +21,7 @@ describe('Cp2020ArmorTableComponent', () => {
       providers: [
         DataService,
         DiceService,
-        ArmorDataService
+        ArmorDataListService
       ]
     })
     .compileComponents();

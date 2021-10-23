@@ -1,7 +1,6 @@
-import { JsonDataFiles } from './../../shared/services/file-services';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { Cp2020Role } from './../../shared/cp2020/cp2020-role/models/cp2020-role';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService, JsonDataFiles } from './../../shared/services/file-services';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

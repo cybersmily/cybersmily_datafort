@@ -1,8 +1,8 @@
-import { Cp2020SDPBlock } from './cp2020-s-d-p-block';
-import { Cp2020ArmorLayer } from './cp2020-armor-layer';
-import { ArmorLayer } from './armor-layer';
+import { Cp2020ArmorPiece } from './cp2020-armor-piece';
+import { Cp2020SDPBlock } from './cp2020-sdp-block';
 import { ArmorBlock } from './armor-block';
-import { ProportionalSpTable } from './proportional-sp-table';
+import {ProportionalSpTable} from './proportional-sp-table';
+
 /**
  * Maximum Armor
  *  Now, in addition to Encumberance Values, only a maximum of 31ayers of Armor can
@@ -23,41 +23,46 @@ import { ProportionalSpTable } from './proportional-sp-table';
  * @class Cp2020ArmorBlock
  */
 export class Cp2020ArmorBlock implements ArmorBlock {
-  layers: Array<Cp2020ArmorLayer>;
+  armorPieces: Array<Cp2020ArmorPiece>;
   sdp: Cp2020SDPBlock;
 
   constructor(param?: any) {
-    this.layers = (param && param.layers) ? param.layers : new Array<Cp2020ArmorLayer>();
+    this.armorPieces = param?.armorPieces?.map(piece => piece) ?? new Array<Cp2020ArmorPiece>();
     // used for backward compatible
-    if (param && (param.head > 0
+    if (param && Array.isArray(param.layers)) {
+      param.layers.forEach(layer => {
+        this.armorPieces.push(new Cp2020ArmorPiece(layer));
+      });
+    } else if (param && (param.head > 0
       || param.torso > 0
       || param.rarm > 0
       || param.larm > 0
       || param.rleg > 0
       || param.lleg > 0)) {
-      const newLayer = new Cp2020ArmorLayer();
-      newLayer.name = 'Misc.';
-      newLayer.head = param.head;
-      newLayer.torso = param.torso;
-      newLayer.rarm = param.rarm;
-      newLayer.larm = param.larm;
-      newLayer.rleg = param.rleg;
-      newLayer.lleg = param.lleg;
-      newLayer.ev = 0;
-      newLayer.isHard = false;
-      newLayer.isSkinWeave = false;
-      newLayer.isActive = true;
-      this.layers.push(newLayer);
+      this.armorPieces.push(new Cp2020ArmorPiece({
+        name: 'Misc.',
+        head: param.head, torso: param.torso,
+        rarm: param.rarm, larm: param.larm,
+        rleg: param.rleg, lleg: param.lleg,
+        ev: 0, isHard: false, isSkinWeave: false, isActive: true
+      }));
     }
     this.sdp = (param) ? new Cp2020SDPBlock(param.sdp) : new Cp2020SDPBlock();
   }
 
 
+  /**
+   * ev returns the total ev cost for all the layers
+   *
+   * @readonly
+   * @type {number}
+   * @memberof Cp2020ArmorBlock
+   */
   get ev(): number {
-    const torso = this.layers.filter(l => l.torso > 0 && !l.isSkinWeave && l.isActive);
-    const legs = this.layers.filter(l => (l.rleg > 0 || l.lleg > 0) && !l.isSkinWeave && l.isActive);
-    const arms = this.layers.filter(l => (l.rarm > 0 || l.larm > 0) && !l.isSkinWeave && l.isActive);
-    let armorEv = this.layers.reduce(((a, b) => {
+    const torso = this.armorPieces.filter(l => l.locations?.torso > 0 && !l.isSkinWeave && l.isActive);
+    const legs = this.armorPieces.filter(l => (l.locations?.rleg > 0 || l.locations?.lleg > 0) && !l.isSkinWeave && l.isActive);
+    const arms = this.armorPieces.filter(l => (l.locations?.rarm > 0 || l.locations?.larm > 0) && !l.isSkinWeave && l.isActive);
+    let armorEv = this.armorPieces.reduce(((a, b) => {
       return a + (b.isActive ? b.ev : 0);
     }), 0);
     const armor = torso.length > arms.length ? torso : (arms.length > legs.length ? arms : legs);
@@ -65,27 +70,35 @@ export class Cp2020ArmorBlock implements ArmorBlock {
     return armorEv;
   }
 
-  get activeLayers(): Array<Cp2020ArmorLayer> {
-    return this.layers.filter(l => l.isActive);
+  /**
+   * get the active layers
+   *
+   * @readonly
+   * @type {Array<Cp2020ArmorPiece>}
+   * @memberof Cp2020ArmorBlock
+   */
+  get activePiece(): Array<Cp2020ArmorPiece> {
+    return this.armorPieces.filter(l => l.isActive);
   }
 
-  importLayers(layers: ArmorLayer[]) {
-    this.layers = new Array<Cp2020ArmorLayer>();
-    layers.forEach(layer => {
-      this.layers.push(new Cp2020ArmorLayer(layer));
-    });
+  get armor(): Array<Cp2020ArmorPiece> {
+    return this.armorPieces.filter(piece => piece.baseSP > 0);
   }
 
-  addLayer(layer: Cp2020ArmorLayer) {
-    if (layer.isActive && this.layers.length > 2) {
+  get Clothing(): Array<Cp2020ArmorPiece> {
+    return this.armorPieces.filter(piece => piece.baseSP < 1);
+  }
+
+  addPiece(layer: Cp2020ArmorPiece) {
+    if (layer.isActive && this.armorPieces.length > 2) {
       layer.isActive = false;
     }
-    if (!this.layers.some(l => l.name === layer.name)) {
-      this.layers.push(layer);
+    if (!this.armorPieces.some(l => l.name === layer.name)) {
+      this.armorPieces.push(layer);
     }
   }
 
-  activateLayer(layer: Cp2020ArmorLayer) {
+  activatePiece(layer: Cp2020ArmorPiece) {
     // verify that the new layer doesn't break rules
     const canActivate = (
       this.ableToActivate(layer, 'head')
@@ -96,18 +109,18 @@ export class Cp2020ArmorBlock implements ArmorBlock {
       && this.ableToActivate(layer, 'lleg')
     );
     if (canActivate) {
-      const index = this.layers.findIndex(l => l.name === layer.name);
-      this.layers[index].isActive = true;
+      const index = this.armorPieces.findIndex(l => l.name === layer.name);
+      this.armorPieces[index].isActive = true;
     }
   }
 
-  deactivateLayer(layer: Cp2020ArmorLayer) {
-    const index = this.layers.findIndex(l => l.name === layer.name);
-    this.layers[index].isActive = false;
+  deactivatePiece(layer: Cp2020ArmorPiece) {
+    const index = this.armorPieces.findIndex(l => l.name === layer.name);
+    this.armorPieces[index].isActive = false;
   }
 
-  ableToActivate(layer: Cp2020ArmorLayer, location: string): boolean {
-    if (layer[location] < 1) {
+  ableToActivate(layer: Cp2020ArmorPiece, location: string): boolean {
+    if (layer.locations[location] !== undefined && layer.locations[location] < 1) {
       return true;
     }
     if (this.hasThreeLayer(location)) {
@@ -121,17 +134,18 @@ export class Cp2020ArmorBlock implements ArmorBlock {
 
 
   hasThreeLayer(location: string): boolean {
-    const active = this.layers.filter(l => l.isActive && l[location] > 0);
+    const active = this.armorPieces
+      .filter(l => l.isActive && l.locations.hasOwnProperty(location));
     return (active.length >= 3);
   }
 
   hasHardLayer(location: string): boolean {
-    return this.layers.some(l => l.isActive && l[location] > 0 && l.isHard);
+    return this.armorPieces.some(l => l.isActive && l.locations.hasOwnProperty(location) && l.isHard);
   }
 
-  removeLayer(layer: Cp2020ArmorLayer) {
-    const index = this.layers.findIndex(l => l.name === layer.name);
-    this.layers.splice(index, 1);
+  removePiece(layer: Cp2020ArmorPiece) {
+    const index = this.armorPieces.findIndex(l => l.name === layer.name);
+    this.armorPieces.splice(index, 1);
   }
 
   get headSP(): number {
@@ -159,21 +173,18 @@ export class Cp2020ArmorBlock implements ArmorBlock {
   }
 
   getTotalSP(location: string): number {
-    if (this.layers.length > 0) {
-      const armor = this.layers
-                    .filter(l => l.isActive && l[location] > 0).sort((a, b) => a[location] - b[location]);
-      // can't have more than 3 layers.
-      if (armor.length < 1) {
-        return 0;
-      }
-      let sp = armor[0][location];
-      if (armor[1]) {
-        const bonus = ProportionalSpTable.getBonusNumber(Math.abs(armor[1][location] - sp));
-        sp = armor[1][location] + bonus;
-      }
-      if (armor[2]) {
-        const bonus = ProportionalSpTable.getBonusNumber(Math.abs(armor[2][location] - sp));
-        sp = armor[2][location] + bonus;
+    const armor = this.armorPieces
+      .filter(l => l.isActive && l.locations.hasOwnProperty(location))
+      .sort((a, b) => a.order - b.order);
+    // can't have more than 3 layers.
+    if (armor.length > 0) {
+      let sp = 0;
+      for (let i = 0; i < armor.length; i++) {
+        if (i < 1) {
+          sp = armor[i][location];
+        } else {
+          sp = ProportionalSpTable.calculateNewSP(sp,armor[i].locations[location]);
+        }
       }
       return sp;
     }
@@ -181,11 +192,11 @@ export class Cp2020ArmorBlock implements ArmorBlock {
   }
 
   damageSP(location: string, damage: number) {
-    const armor = this.layers.map(l => {
-      if (l.isActive && l[location] > 0) {
-        l[location] -= damage;
+    this.armorPieces = this.armorPieces.map( layer => {
+      if(layer.locations[location] !== undefined && layer.isActive) {
+        layer.locations[location] -= damage;
       }
-      return l;
+      return layer;
     });
   }
 }

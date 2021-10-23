@@ -1,10 +1,10 @@
 import { CPRedLifePathSettings } from './../../shared/cpred/c-p-red-lifepath/models/c-p-red-life-path-settings';
 import { CpRedLifepathCoreRoleChartParam } from './../../shared/cpred/c-p-red-lifepath/models/cp-red-lifepath-core-role-chart-param';
 import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService } from './../../shared/services/file-services';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { CPRedCharacterPDFService } from './../../shared/cpred/services/cprcharpdf/c-p-red-character-p-d-f.service';
-import { SaveFileService } from './../../shared/services/file-services/save-file.service';
+import { SaveFileService } from './../../shared/services/file-services';
 import { CPRedLifePathService } from './../../shared/cpred/c-p-red-lifepath/services/c-p-red-life-path.service';
 import { CPRedLifepathJumpStart, CPRedLifePathCore } from './../../shared/cpred/c-p-red-lifepath/models';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';

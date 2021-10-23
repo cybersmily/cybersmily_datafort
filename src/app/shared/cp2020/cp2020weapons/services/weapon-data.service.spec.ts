@@ -1,6 +1,5 @@
 import { of } from 'rxjs';
-import { SaveFileService } from '../../../services/file-services';
-import { DataService } from '../../../services/file-services/data.service';
+import { DataService, SaveFileService } from '../../../services/file-services';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { WeaponDataService } from './weapon-data.service';

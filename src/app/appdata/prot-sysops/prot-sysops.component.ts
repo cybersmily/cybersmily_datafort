@@ -1,7 +1,7 @@
-import { JsonDataFiles } from './../../shared/services/file-services';
+import {  } from './../../shared/services/file-services';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { Sysop } from '../../shared/models/character';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService, JsonDataFiles } from './../../shared/services/file-services';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

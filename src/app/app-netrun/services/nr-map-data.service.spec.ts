@@ -3,7 +3,7 @@ import { of } from 'rxjs';
 import { NRMap } from './../models/nr-map';
 import { NrLoadMapsService } from './nr-load-maps.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService } from './../../shared/services/file-services';
 import { TestBed } from '@angular/core/testing';
 
 import { NrMapDataService } from './nr-map-data.service';

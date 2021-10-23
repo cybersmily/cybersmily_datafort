@@ -1,7 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FamilyGeneratorService } from './../services/family-generator.service';
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
-import { DataService } from './../../../services/file-services/data.service';
+import { DataService } from './../../../services/file-services';
 import { DiceService } from './../../../services/dice/dice.service';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 

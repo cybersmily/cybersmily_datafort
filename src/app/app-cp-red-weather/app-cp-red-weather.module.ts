@@ -1,6 +1,6 @@
 import { PipesModule } from './../shared/pipes/pipes.module';
 import { DiceService } from './../shared/services/dice/dice.service';
-import { DataService } from './../shared/services/file-services/data.service';
+import { DataService } from './../shared/services/file-services';
 import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

@@ -3,7 +3,7 @@ import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
 import { VenditChart } from './../models/vendit-chart';
 import { DiceService } from './../../shared/services/dice/dice.service';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService } from './../../shared/services/file-services';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

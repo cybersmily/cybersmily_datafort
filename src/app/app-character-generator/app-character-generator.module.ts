@@ -16,7 +16,7 @@ import { FamilyGeneratorService } from './../shared/cp2020/cp2020-lifepath/servi
 import { MotivationGeneratorService } from './../shared/cp2020/cp2020-lifepath/services';
 import { StyleGeneratorService } from './../shared/cp2020/cp2020-lifepath/services';
 import { LifeEventsGeneratorService } from '../shared/cp2020/cp2020-lifepath/services';
-import { DataService } from './../shared/services/file-services/data.service';
+import { DataService } from './../shared/services/file-services';
 import { DiceService } from './../shared/services/dice/dice.service';
 import { ModalModule, BsModalRef } from 'ngx-bootstrap/modal';
 import { NgModule } from '@angular/core';

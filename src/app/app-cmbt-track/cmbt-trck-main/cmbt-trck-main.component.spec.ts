@@ -9,7 +9,7 @@ import { CmbtTrckFormComponent } from './../cmbt-trck-form/cmbt-trck-form.compon
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { CmbtTrckGearComponent } from './../cmbt-trck-gear/cmbt-trck-gear.component';
 import { HttpClientModule } from '@angular/common/http';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService } from './../../shared/services/file-services';
 import { PipesModule } from './../../shared/pipes/pipes.module';
 import { CmbtTrkCyberComponent } from './../cmbt-trk-cyber/cmbt-trk-cyber.component';
 import { CmbtTrkSkillsComponent } from './../cmbt-trk-skills/cmbt-trk-skills.component';

@@ -1,4 +1,4 @@
-import { DataService } from '../../../services/file-services/data.service';
+import { DataService } from '../../../services/file-services';
 import { CyberdeckChassis } from '../models';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { NrDeckDataService } from '../../../services/netrun/nr-deck-data.service';

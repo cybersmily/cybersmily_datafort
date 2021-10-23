@@ -1,5 +1,4 @@
-import { JsonDataFiles } from './../../shared/services/file-services';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { JsonDataFiles, DataService } from './../../shared/services/file-services';
 import { BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
 

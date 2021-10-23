@@ -1,6 +1,5 @@
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { JsonDataFiles } from './../../../services/file-services/json-data-files';
-import { DataService } from './../../../services/file-services/data.service';
+import { DataService, JsonDataFiles } from './../../../services/file-services';
 import { Cp2020Services } from '../models/cp2020-services';
 import { faTrash, faPlus, faList, faDollarSign, faEuroSign } from '@fortawesome/free-solid-svg-icons';
 import { Component, Input, OnInit, Output, EventEmitter, TemplateRef, OnChanges } from '@angular/core';

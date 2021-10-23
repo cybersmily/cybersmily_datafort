@@ -1,6 +1,6 @@
 import { DataCyberware } from './../models/data-cyberware';
 import { of } from 'rxjs';
-import { DataService } from './../../../services/file-services/data.service';
+import { DataService } from './../../../services/file-services';
 import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 

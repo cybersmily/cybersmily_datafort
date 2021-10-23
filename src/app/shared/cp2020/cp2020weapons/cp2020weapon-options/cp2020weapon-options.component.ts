@@ -1,6 +1,5 @@
-import { JsonDataFiles } from './../../../services/file-services/json-data-files';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { DataService } from './../../../services/file-services/data.service';
+import { DataService, JsonDataFiles } from './../../../services/file-services';
 import { faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { CpPlayerWeaponOption, CpPlayerWeapon } from './../models';
 import { Component, Input, OnInit, Output, EventEmitter, TemplateRef, OnChanges } from '@angular/core';

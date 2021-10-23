@@ -1,8 +1,7 @@
-import { JsonDataFiles } from './../../shared/services/file-services';
 import { CmbtTrckOppTemplate } from '../../shared/models/cmbt-trck/cmbt-trck-opp-template';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService, JsonDataFiles } from './../../shared/services/file-services';
 import { CmbtTrckTemplate } from '../../shared/models/cmbt-trck/cmbt-trck-template';
 import { Injectable } from '@angular/core';
 

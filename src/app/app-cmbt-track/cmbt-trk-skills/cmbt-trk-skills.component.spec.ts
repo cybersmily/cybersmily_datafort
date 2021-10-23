@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService } from './../../shared/services/file-services';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { PipesModule } from './../../shared/pipes/pipes.module';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';

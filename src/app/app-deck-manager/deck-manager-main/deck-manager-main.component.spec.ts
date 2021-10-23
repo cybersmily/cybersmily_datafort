@@ -1,5 +1,5 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService } from './../../shared/services/file-services';
 import { Cp2020CyberdeckFormComponent } from '../../shared/cp2020/cp2020-netrun-gear/cp2020-cyberdeck-form/cp2020-cyberdeck-form.component';
 import { Cp2020ProgramNewComponent } from '../../shared/cp2020/cp2020-netrun-gear/cp2020-program-new/cp2020-program-new.component';
 import { Cp2020ProgramListComponent } from '../../shared/cp2020/cp2020-netrun-gear/cp2020-program-list/cp2020-program-list.component';

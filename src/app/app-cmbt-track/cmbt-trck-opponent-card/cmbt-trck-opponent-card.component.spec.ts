@@ -1,7 +1,6 @@
 import { faDice, faThumbtack, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020StatBlock } from './../../shared/cp2020/cp2020-stats/models/cp2020-stat-block';
-import { Cp2020ArmorLayer } from './../../shared/cp2020/cp2020-armor/models/cp2020-armor-layer';
-import { Cp2020ArmorBlock } from './../../shared/cp2020/cp2020-armor/models/cp2020-armor-block';
+import { Cp2020ArmorPiece, Cp2020ArmorBlock } from './../../shared/cp2020/cp2020-armor/models';
 import { CpPlayerWeaponList } from './../../shared/cp2020/cp2020weapons/models/cp-player-weapon-list';
 import { CpPlayerWeapon } from './../../shared/cp2020/cp2020weapons/models/cp-player-weapon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PipesModule } from './../../shared/pipes/pipes.module';
 import { CmbtTrkCyberComponent } from './../cmbt-trk-cyber/cmbt-trk-cyber.component';
 import { CmbtTrkSkillsComponent } from './../cmbt-trk-skills/cmbt-trk-skills.component';
-import { DataService } from './../../shared/services/file-services/data.service';
+import { DataService } from './../../shared/services/file-services';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
@@ -222,8 +221,8 @@ describe('CmbtTrckOpponentCardComponent', () => {
       ];
       component.changeCyber(cyber);
       fixture.detectChanges();
-      expect(component.opponent.armor.activeLayers.length).toEqual(1);
-      expect(component.currOpponent.armor.activeLayers.length).toEqual(1);
+      expect(component.opponent.armor.activePiece.length).toEqual(1);
+      expect(component.currOpponent.armor.activePiece.length).toEqual(1);
     });
   });
 
@@ -249,17 +248,17 @@ describe('CmbtTrckOpponentCardComponent', () => {
 
   describe('changeArmor()', ()=> {
     it('should change armor', ()=> {
-      expect(component.currOpponent.armor.activeLayers.length).toEqual(0);
+      expect(component.currOpponent.armor.activePiece.length).toEqual(0);
       const armor = new Cp2020ArmorBlock();
-      const layer = new Cp2020ArmorLayer();
+      const layer = new Cp2020ArmorPiece();
       layer.name = 'test layer';
-      layer.torso = 12;
+      layer.locations['torso'] = 12;
       layer.isActive = true;
       layer.ev = 1;
-      armor.addLayer(layer);
+      armor.addPiece(layer);
       component.changeArmor(armor);
       fixture.autoDetectChanges();
-      expect(component.currOpponent.armor.activeLayers.length).toEqual(1);
+      expect(component.currOpponent.armor.activePiece.length).toEqual(1);
       expect(component.currOpponent.stats.REF.ev).toEqual(1);
     });
   });

@@ -1,8 +1,7 @@
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
-import { BsModalService } from 'ngx-bootstrap/modal';
 import { Cp2020RolesDataService } from './../services/cp2020-roles-data.service';
 import { DiceService } from './../../../services/dice/dice.service';
-import { DataService } from './../../../services/file-services/data.service';
+import { DataService } from './../../../services/file-services';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 

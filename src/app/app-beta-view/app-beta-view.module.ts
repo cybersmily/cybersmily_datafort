@@ -1,6 +1,6 @@
 import { Cp2020RoleModule } from './../shared/cp2020/cp2020-role/cp2020-role.module';
 import { Cp2020weaponsModule } from './../shared/cp2020/cp2020weapons/cp2020weapons.module';
-import { DataService } from './../shared/services/file-services/data.service';
+import { DataService } from './../shared/services/file-services';
 import { DiceService } from './../shared/services/dice/dice.service';
 import { Cp2020LifestyleModule } from './../shared/cp2020/cp2020-lifestyle/cp2020-lifestyle.module';
 import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';

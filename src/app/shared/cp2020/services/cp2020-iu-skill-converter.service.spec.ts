@@ -1,5 +1,5 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { DataService } from './../../services/file-services/data.service';
+import { DataService } from './../../services/file-services';
 import { TestBed } from '@angular/core/testing';
 
 import { Cp2020IuSkillConverterService } from './cp2020-iu-skill-converter.service';

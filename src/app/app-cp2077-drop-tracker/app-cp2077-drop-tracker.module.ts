@@ -1,7 +1,7 @@
 import { PipesModule } from './../shared/pipes/pipes.module';
 import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';
-import { SaveFileService } from './../shared/services/file-services/save-file.service';
-import { DataService } from './../shared/services/file-services/data.service';
+import { SaveFileService } from './../shared/services/file-services';
+import { DataService } from './../shared/services/file-services';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 

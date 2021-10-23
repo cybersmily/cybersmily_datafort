@@ -1,8 +1,7 @@
 import { Cp2020Vehicle } from './../../cp2020/cp2020-vehicles/models/cp2020-vehicle';
 import { Cp2020IuSkillConverterService } from './../../cp2020/services/cp2020-iu-skill-converter.service';
 import { Cp2020PlayerAmmo } from './../../cp2020/cp2020weapons/models/cp-2020-player-ammo';
-import { JsonDataFiles } from './../file-services/json-data-files';
-import { DataService } from './../file-services/data.service';
+import { DataService, JsonDataFiles } from './../file-services';
 import { CacheKeys } from './../../cache-keys';
 import { Cp2020PlayerSkills, Cp2020PlayerSkill } from './../../cp2020/cp2020-skills/models';
 import { LifePathResults } from './../../cp2020/cp2020-lifepath/models';
