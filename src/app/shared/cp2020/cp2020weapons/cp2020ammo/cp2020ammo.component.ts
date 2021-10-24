@@ -99,6 +99,7 @@ export class Cp2020ammoComponent implements OnInit {
   }
 
   delete(index: number, column: number) {
+    index += column > 1 ? this.columnOne.length: 0;
     this.ammoList.splice(index, 1);
     this.updateAmmo.emit(this.ammoList);
   }
