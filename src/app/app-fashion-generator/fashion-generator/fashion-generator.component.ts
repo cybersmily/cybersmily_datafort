@@ -1,10 +1,12 @@
+import { StorageKeys } from './../../shared/enums/storage-keys';
+import { LocalStorageManagerService } from './../../shared/services/local-storage-manager/local-storage-manager.service';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { CP2020ArmorRandomSettings } from './../../shared/cp2020/cp2020-armor/models/armor-random-settings';
 import { SeoService } from './../../shared/services/seo/seo.service';
-
 import { SaveFileService } from './../../shared/services/file-services';
-import { DataService } from './../../shared/services/file-services';
-import { Cp2020ArmorPiece, ArmorAttributeLists } from '../../shared/cp2020/cp2020-armor/models';
-import { Component, OnInit } from '@angular/core';
-import { faFile, faSave } from '@fortawesome/free-solid-svg-icons';
+import { Cp2020ArmorPiece } from '../../shared/cp2020/cp2020-armor/models';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { faFile, faSave, faFilePdf, faPlus, faRedo, faCog } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'cs-fashion-generator',
@@ -14,21 +16,23 @@ import { faFile, faSave } from '@fortawesome/free-solid-svg-icons';
 export class FashionGeneratorComponent implements OnInit {
   faFile = faFile;
   faSave = faSave;
-  clothingList: Cp2020ArmorPiece[];
-  clothingTotal: number;
+  faFilePdf = faFilePdf;
+  faPlus = faPlus;
+  faRedo = faRedo;
+  faCog = faCog;
 
-  clothingData: ArmorAttributeLists;
-  constructor(private dataService: DataService,
+  modalRef: BsModalRef;
+  config = {};
+
+  armorList = Array<Cp2020ArmorPiece>();
+  currArmor = new Cp2020ArmorPiece();
+  settings = new CP2020ArmorRandomSettings();
+
+  constructor(
+    private modalService: BsModalService,
+    private localStorageService: LocalStorageManagerService,
     private saveFileService: SaveFileService,
     private seo: SeoService) {
-    // create dumby object while waiting for the real data to load.
-    this.clothingData = {
-      clothes: new Array(),
-      styles: new Array(),
-      qualities: new Array(),
-      armorChart: new Array(),
-      options: new Array()
-    };
   }
 
   ngOnInit() {
@@ -36,81 +40,32 @@ export class FashionGeneratorComponent implements OnInit {
       'Cyberpunk 2020 Fashion Calculator',
       '2020-07, Cybersmily\'s Datafort Cyberpunk 2020 Fashion Calculator is an application to generate a character clothes using the Chromebook 3 supplement.'
     );
-    this.clothingList = new Array();
-    this.getClothingData();
-    this.clothingTotal = 0;
+    this.settings = this.localStorageService.retrive(StorageKeys.ARMOR_GENERATOR_SETTINGS) ?? new CP2020ArmorRandomSettings();
+
   }
 
-  /**
-   * Get the clothing data from the json file or from local storage.
-   * @memberof FashionGeneratorComponent
-   */
-  getClothingData() {
-    /*
-    this.dataService.GetAppDataClothes()
-      .subscribe(
-        resultObj => {
-          this.parseClothingData(resultObj);
-        },
-        error => console.log('Error :: ' + error)
-      );
-      */
-  }
-  /**
-   * parse the option data
-   * @param {any} data - data to be parsed.
-   * @memberof FashionGeneratorComponent
-   */
-  parseClothingData(data: ArmorAttributeLists) {
-    this.clothingData = data;
-    this.clothingData.clothes.sort((a, b) => a.name.localeCompare(b.name));
+  updateArmor(event: Cp2020ArmorPiece) {
+    this.currArmor = new Cp2020ArmorPiece(event);
   }
 
-  /**
-   * addToList will add a Clothing to the clothingList
-   * and then pass it to the list componenent to display.
-   * @param {Clothing} event - Clothing objec to add to list.
-   * @memberof FashionGeneratorComponent
-   */
-  addToList(event: Cp2020ArmorPiece) {
-    this.clothingList.push(event);
-    this.clothingTotal += Number(event.cost);
+  clearArmor() {
+    this.currArmor = new Cp2020ArmorPiece();
   }
 
-   /**
-   * Save the current list of clothing to a text file.
-   *
-   * @memberof FashionGeneratorComponent
-   */
-  saveList() {
-    if (!this.isListEmpty) {
-      let output = '';
-      this.clothingList.forEach((item, index) => {
-        output += item.quality.name + ' ';
-        output += item.style.name + ' ';
-        if (item.isLeather) {
-          output += 'leather ';
-        }
-        output += item.clothes.name;
-        if (item.options.length > 0) {
-          output += '[';
-          item.options.forEach((opt, ind) => {
-            output += opt.name;
-            if (ind < item.options.length - 1) {
-              output += '|';
-            }
-          });
-          output += ']';
-        }
-        output += ' - ' + item.cost.toLocaleString() + 'eb';
-        output += '\r\n';
-      });
-      output += 'TOTAL COST: ' + this.clothingTotal.toLocaleString() + 'eb';
-      this.saveFileService.SaveAsFile('CP2020FashionList', output);
-    }
+  addArmor() {
+    this.armorList.push(new Cp2020ArmorPiece(this.currArmor));
   }
 
-  get isListEmpty(): boolean {
-    return this.clothingList.length < 1;
+  updateArmorList(list: Array<Cp2020ArmorPiece>) {
+    this.armorList = list.map(armor => armor);
   }
+
+  updateSettings(settings: CP2020ArmorRandomSettings) {
+    this.localStorageService.store(StorageKeys.ARMOR_GENERATOR_SETTINGS, this.settings);
+  }
+
+  showModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, this.config);
+  }
+
 }

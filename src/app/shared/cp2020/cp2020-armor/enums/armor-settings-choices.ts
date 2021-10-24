@@ -1,3 +1,3 @@
 export enum ArmorSettingsChoices {
-  cloth, armor, both
+  armor, both, cloth
 }

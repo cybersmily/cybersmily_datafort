@@ -26,13 +26,13 @@
 <div class="row">
   <div class="col-12 col-lg-8">
     Clothing Type: <select [(ngModel)]="currArmor.clothes" (change)="changeClothing()">
-      <option *ngFor="let type of armorAttributes.clothes" [ngValue]="type">{{type.name}} ({{type.cost}}eb)</option>
+      <option *ngFor="let type of armorAttributes.clothes" [value]="type">{{type.name}} ({{type.cost}}eb)</option>
     </select>
   </div>
   <div class="col-12 col-lg-4">
     <span *ngIf="currArmor.clothes.name !== ''">SP:
       <select [(ngModel)]="selectedSP">
-        <option *ngFor="let sp of spValues" [ngValue]="sp">{{sp.sp}}</option>
+        <option *ngFor="let sp of spValues" [value]="sp">{{sp.sp}}</option>
       </select>
     </span>
     <span *ngIf="currArmor.clothes.leather" class="ml-4 small">
@@ -43,13 +43,13 @@
 <div class="row">
   <div class="col-12 col-md-6">
     Style: <select [(ngModel)]="currArmor.style" (change)="update()">
-      <option *ngFor="let style of armorAttributes.styles" [ngValue]="style">{{style.name}} (x{{style.mod}})
+      <option *ngFor="let style of armorAttributes.styles" [value]="style">{{style.name}} (x{{style.mod}})
       </option>
     </select>
   </div>
   <div class="col-12 col-md-6">
     Quality: <select [(ngModel)]="currArmor.quality" (change)="update()">
-      <option *ngFor="let quality of armorAttributes.qualities" [ngValue]="quality">{{quality.name}}
+      <option *ngFor="let quality of armorAttributes.qualities" [value]="quality">{{quality.name}}
         (x{{quality.mod}})</option>
     </select>
   </div>

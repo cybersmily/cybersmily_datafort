@@ -41,7 +41,8 @@ import { ArmorSettingsComponent } from './armor-settings/armor-settings.componen
     Cp2020ClothingListComponent,
     Cp2020ArmorListComponent,
     Cp2020ArmorNewComponent,
-    Cp2020ArmorDetailComponent
+    Cp2020ArmorDetailComponent,
+    ArmorSettingsComponent
   ]
 })
 export class Cp2020ArmorModule { }

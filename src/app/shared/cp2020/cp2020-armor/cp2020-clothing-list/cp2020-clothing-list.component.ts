@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Cp2020ArmorPiece } from '../models';
 
 @Component({
@@ -8,18 +8,33 @@ import { Cp2020ArmorPiece } from '../models';
 })
 export class Cp2020ClothingListComponent implements OnInit {
 
-  @Input()
-  clothingList: Cp2020ArmorPiece[];
+  currList = new Array<Cp2020ArmorPiece>();
 
   @Input()
-  totalCost: number;
+  armorList = new Array<Cp2020ArmorPiece>();
 
-  constructor() {
-    this.clothingList = new Array();
-    this.totalCost = 0;
-   }
+  @Output()
+  change = new EventEmitter<Array<Cp2020ArmorPiece>>();
+
+  get totalCost(): number {
+    return this.armorList.reduce( (a, b) => a + b.cost, 0);
+  }
+
+  constructor() {}
 
   ngOnInit() {
+    this.currList = this.armorList
+      .map(armor => armor)
+      .sort( (a, b) => a.name.localeCompare(b.name));
+  }
+
+  delete(index: number) {
+    this.currList.splice(index, 1);
+    this.update();
+  }
+
+  update() {
+    this.change.emit(this.currList);
   }
 
 }

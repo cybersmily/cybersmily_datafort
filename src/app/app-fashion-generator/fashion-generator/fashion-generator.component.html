@@ -13,18 +13,28 @@
     <div class="col-12 col-md-6 csd-rounded">
       <div class="row">
         <div class="col">
-          <h4>Design Clothing</h4>
+          <h4 class="d-inline-block">Design Clothing</h4>
+          <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-lg ml-2 float-right" (click)="addArmor()"></fa-icon>
+          <fa-icon [icon]="faCog" class="csd-btn csd-icon-btn csd-icon-lg ml-2 float-right" (click)="showModal(settingsModal)"></fa-icon>
+          <fa-icon [icon]="faRedo" class="csd-btn csd-icon-btn csd-icon-lg ml-2 float-right" (click)="clearArmor()"></fa-icon>
         </div>
       </div>
-      <cs-cp2020-armor-detail >
+      <cs-cp2020-armor-detail [armor]="currArmor" [settings]="settings" (change)="updateArmor($event)" >
       </cs-cp2020-armor-detail>
     </div>
-    <!--
     <div class="col-12 col-md-5">
-      <cs-cp2020-clothing-list>
-      </cs-cp2020-clothing-list>
-      <fa-icon [icon]="faFile" title="Save" [ngClass]="{'csd-btn csd-icon-btn': !isListEmpty, 'csd-disabled':isListEmpty , 'csd-icon-xl': true}" (click)="saveList()"></fa-icon>
+      <cs-cp2020-clothing-list [armorList]="armorList" (change)="updateArmorList($event)"></cs-cp2020-clothing-list>
     </div>
-    -->
   </div>
 </div>
+<ng-template #settingsModal>
+  <div class="modal-header">
+    <h4>RANDOM GENERATOR SETTINGS</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <cs-armor-settings [settings]="settings" (change)="updateSettings($event)"></cs-armor-settings>
+  </div>
+</ng-template>

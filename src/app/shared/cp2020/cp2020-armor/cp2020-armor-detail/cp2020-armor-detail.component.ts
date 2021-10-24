@@ -5,7 +5,7 @@ import { ArmorCostCalculatorService,
 import { DiceService } from './../../../services/dice/dice.service';
 import { faDice } from '@fortawesome/free-solid-svg-icons';
 
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { Cp2020ArmorPiece, ArmorSpChartEntry, Cp2020ArmorAttributeLists, ArmorOption, CP2020ArmorRandomSettings } from './../models';
 
 @Component({
@@ -13,7 +13,7 @@ import { Cp2020ArmorPiece, ArmorSpChartEntry, Cp2020ArmorAttributeLists, ArmorOp
   templateUrl: './cp2020-armor-detail.component.html',
   styleUrls: ['./cp2020-armor-detail.component.css']
 })
-export class Cp2020ArmorDetailComponent implements OnInit {
+export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
   faDice = faDice;
 
   currArmor = new Cp2020ArmorPiece();
@@ -39,7 +39,6 @@ export class Cp2020ArmorDetailComponent implements OnInit {
     this.currArmor.baseSP = value.sp;
     this.currArmor.ev = value.ev[this.currArmor.clothes.wt] ?? 0;
     this.update();
-
   }
 
   constructor(private dice: DiceService,
@@ -53,7 +52,11 @@ export class Cp2020ArmorDetailComponent implements OnInit {
     .subscribe( data => {
       this.armorAttributes = new Cp2020ArmorAttributeLists(data);
     });
+  }
 
+  ngOnChanges() {
+    console.log('onChange', this.currArmor);
+    this.currArmor = new Cp2020ArmorPiece(this.armor);
   }
 
   getOptionValue(optionName: string) {
@@ -79,7 +82,9 @@ export class Cp2020ArmorDetailComponent implements OnInit {
   }
 
   generate() {
+    console.log('generate - start', this.currArmor);
     this.currArmor = this.armorGeneratorService.generate(this.settings, this.dice, this.armorAttributes);
+    console.log('generated', this.currArmor);
     this.spValues = this.armorAttributes.armorChart.filter( sp => sp.mod[this.currArmor.clothes.wt] !== undefined);
     const style = this.currArmor.style.name;
     const quality = this.currArmor.quality.name;
@@ -88,6 +93,7 @@ export class Cp2020ArmorDetailComponent implements OnInit {
     const type =  this.currArmor.clothes.name;
     this.currArmor.name = `${style} ${quality} ${armored}${leather}${type}`;
     this.update();
+    console.log('generate', this.currArmor);
   }
 
   update() {
