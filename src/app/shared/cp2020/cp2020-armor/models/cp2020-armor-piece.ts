@@ -35,10 +35,10 @@ export class Cp2020ArmorPiece implements ArmorPiece {
       mod:  param?.style?.mod ?? 1
     };
     this.quality = {
-      name: param?.style?.name ?? '',
-      mod:  param?.style?.mod ?? 1
+      name: param?.quality?.name ?? '',
+      mod:  param?.quality?.mod ?? 1
     };
-    this.options = param?.optoins?.map(opt => opt) ?? new Array<ArmorOption>();
+    this.options = param?.options?.map(opt => opt) ?? new Array<ArmorOption>();
 
     this.baseSP = param?.baseSP ?? 0;
     this.locations = param?.locations ?? {};

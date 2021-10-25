@@ -29,11 +29,11 @@ export class ArmorCostCalculatorService {
         }
       );
     }
-    const style: number = Number(armor.style.mod);
+    const style: number = Number(armor.style?.mod);
     if (!isNaN(style) && style > 0) {
       mod = mod * style;
     }
-    const quality: number = Number(armor.quality.mod);
+    const quality: number = Number(armor.quality?.mod);
     if (!isNaN(quality) && quality > 0) {
       mod = mod * quality;
     }

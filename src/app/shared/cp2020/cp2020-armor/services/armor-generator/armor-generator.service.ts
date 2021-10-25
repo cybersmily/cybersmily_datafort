@@ -24,23 +24,24 @@ export class ArmorGeneratorService {
 
     do {
       // check if a default was set.
-      if (settings.quality !== '' && armor.cost < settings.maxCost) {
+      if (settings.quality !== '' ) {
         armor.quality = clothingLists.qualities.filter(q => q.name === settings.quality)[0];
       } else {
         armor.quality = dice.rollRandomItem<ArmorOption>(clothingLists.qualities);
       }
 
-      if (settings.style !== '' && armor.cost < settings.maxCost) {
+      if (settings.style !== '') {
         armor.style = clothingLists.styles.filter(q => q.name === settings.style)[0];
       } else {
         armor.style = dice.rollRandomItem<ArmorOption>(clothingLists.styles);
       }
 
-      let canBeArmor: boolean = (settings.armor === ArmorSettingsChoices.both) ? !!dice.generateNumber(0, 1) : settings.armor === ArmorSettingsChoices.armor;
-      if (canBeArmor && armor.cost < settings.maxCost) {
+      // if both, 50/50 chance to make it armor
+      let canBeArmor: boolean = (settings.armor == ArmorSettingsChoices.both) ? dice.generateNumber(0, 1) === 1 : settings.armor == ArmorSettingsChoices.armor;
+      if (canBeArmor) {
         const spValues = clothingLists.armorChart.filter(item => item.mod[armor.clothes.wt]);
         let spRoll = dice.rollRandomItem<ArmorSpChartEntry>(spValues);
-        armor.baseSP = spRoll.sp;
+        armor.baseSP = spRoll.sp || 4;
         armor.ev = spRoll.ev[armor.clothes.wt] ?? 0;
       }
 
@@ -49,10 +50,9 @@ export class ArmorGeneratorService {
         // roll number of options with a low chance of getting them.
         let numOfOptions = dice.generateNumber(0, clothingLists.options.length + 3);
         numOfOptions = numOfOptions - 3;
-        numOfOptions = numOfOptions > clothingLists.options.length ? clothingLists.options.length : numOfOptions;
         for (let i = 0; i < numOfOptions; i++) {
           const newOpt = dice.rollRandomItem<ArmorOption>(clothingLists.options);
-          if (!armor.options.some(opt => opt.name === newOpt.name) && armor.cost < settings.maxCost) {
+          if (!armor.options.some(opt => opt.name === newOpt.name) ) {
             armor.options.push(newOpt);
           }
         }

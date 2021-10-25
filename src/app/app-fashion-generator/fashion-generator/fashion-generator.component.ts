@@ -45,7 +45,10 @@ export class FashionGeneratorComponent implements OnInit {
   }
 
   updateArmor(event: Cp2020ArmorPiece) {
-    this.currArmor = new Cp2020ArmorPiece(event);
+    if(event?.name !== '' && event?.clothes){
+      this.currArmor = new Cp2020ArmorPiece(event);
+    }
+
   }
 
   clearArmor() {
