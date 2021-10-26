@@ -72,7 +72,7 @@ export class Cp2020ArmorTableComponent implements OnInit {
     if(!layer.isActive) {
       // loop through each of the location to see if the current layer can be added.
       this.locations.every( location => {
-        const locationLayers = this.armor.activePiece.filter(l => l[location] > 0);
+        const locationLayers = this.armor.activePieces.filter(l => l[location] > 0);
         // check if the current layer isn't adding more than 3 layers
         if(layer.locations[location] > 0 && locationLayers.length > 2) {
           result = false;

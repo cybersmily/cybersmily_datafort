@@ -11,12 +11,12 @@
   </div>
   <div class="row">
     <div class="col-12">
-      <cs-cp2020-role-section [primaryRole]="selectRole" [isIU]="isIU"></cs-cp2020-role-section>
+      <cs-cp2020-armor-table [armor]="armorBlock" (changeArmor)="update($event)"></cs-cp2020-armor-table>
     </div>
   </div>
   <div class="row">
     <div class="col-12">
-      <cs-cp2020-role-editor [role]="selectRole" [isIU]="isIU" (updateRole)="update($event)"></cs-cp2020-role-editor>
+      <cs-cp2020-armor-section [armor]="armorBlock" (changeArmor)="update($event)"></cs-cp2020-armor-section>
     </div>
   </div>
 </div>

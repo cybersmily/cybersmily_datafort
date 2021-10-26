@@ -77,7 +77,7 @@ export class Cp2020ArmorBlock implements ArmorBlock {
    * @type {Array<Cp2020ArmorPiece>}
    * @memberof Cp2020ArmorBlock
    */
-  get activePiece(): Array<Cp2020ArmorPiece> {
+  get activePieces(): Array<Cp2020ArmorPiece> {
     return this.armorPieces.filter(l => l.isActive);
   }
 

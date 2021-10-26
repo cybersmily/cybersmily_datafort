@@ -1,3 +1,4 @@
+import { Cp2020ArmorModule } from './../shared/cp2020/cp2020-armor/cp2020-armor.module';
 import { Cp2020RoleModule } from './../shared/cp2020/cp2020-role/cp2020-role.module';
 import { Cp2020weaponsModule } from './../shared/cp2020/cp2020weapons/cp2020weapons.module';
 import { DataService } from './../shared/services/file-services';
@@ -17,6 +18,7 @@ import { BetaViewMainComponent } from './beta-view-main/beta-view-main.component
     CommonUiModule,
     Cp2020LifestyleModule,
     Cp2020weaponsModule,
+    Cp2020ArmorModule,
     CommonModule,
     AppBetaViewRoutingModule,
     Cp2020RoleModule
