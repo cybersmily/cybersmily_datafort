@@ -85,7 +85,7 @@ export class Cp2020ArmorBlock implements ArmorBlock {
     return this.armorPieces.filter(piece => piece.baseSP > 0);
   }
 
-  get Clothing(): Array<Cp2020ArmorPiece> {
+  get clothing(): Array<Cp2020ArmorPiece> {
     return this.armorPieces.filter(piece => piece.baseSP < 1);
   }
 
@@ -93,9 +93,9 @@ export class Cp2020ArmorBlock implements ArmorBlock {
     if (layer.isActive && this.armorPieces.length > 2) {
       layer.isActive = false;
     }
-    if (!this.armorPieces.some(l => l.name === layer.name)) {
-      this.armorPieces.push(layer);
-    }
+    console.log('addPiece', layer);
+    this.armorPieces.push(layer);
+    console.log('list', this.armorPieces);
   }
 
   activatePiece(layer: Cp2020ArmorPiece) {
@@ -176,6 +176,7 @@ export class Cp2020ArmorBlock implements ArmorBlock {
     const armor = this.armorPieces
       .filter(l => l.isActive && l.locations.hasOwnProperty(location))
       .sort((a, b) => a.order - b.order);
+
     // can't have more than 3 layers.
     if (armor.length > 0) {
       let sp = 0;

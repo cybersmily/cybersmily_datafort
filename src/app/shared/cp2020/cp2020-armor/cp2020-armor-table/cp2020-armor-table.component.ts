@@ -94,6 +94,8 @@ export class Cp2020ArmorTableComponent implements OnInit {
   }
 
   openModal(template: TemplateRef<any>) {
+    console.log('OpenModal',this.armor.armor);
+    console.log('OpenModal',this.armor);
     this.modalRef = this.modalService.show(template, this.modalConfig);
   }
 

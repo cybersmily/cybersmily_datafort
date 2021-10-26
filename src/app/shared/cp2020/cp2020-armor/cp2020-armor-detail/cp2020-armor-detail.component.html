@@ -24,24 +24,11 @@
     Locations: <span class="text-capitalize">{{currArmor.clothes.loc}}</span>
   </div>
 </div>
-<div class="row">
-  <div class="col-12"></div>
-</div>
-<div class="row">
-  <div class="col-12 col-xl-8">
+<div class="row mb-2">
+  <div class="col-12">
     Clothing Type: <select [(ngModel)]="selectedClothing" (change)="changeClothing()">
-      <option *ngFor="let type of armorAttributes.clothes" [ngValue]="type">{{type.name}} ({{type.cost}}eb)</option>
+      <option *ngFor="let type of armorAttributes.clothes" [ngValue]="type">{{type.name}} {{type.loc? '['+type.loc+']' : ''}}   {{type.cost}}eb</option>
     </select>
-  </div>
-  <div class="col-12 col-xl-4">
-    <span *ngIf="currArmor.clothes.name !== ''">SP:
-      <select [(ngModel)]="selectedSP">
-        <option *ngFor="let sp of spValues" [ngValue]="sp">{{sp.sp}}</option>
-      </select>
-    </span>
-    <span *ngIf="selectedClothing?.leather" class="ml-4 small">
-      <input type="checkbox" [(ngModel)]="currArmor.isLeather" (change)="update()"> Leather
-    </span>
   </div>
 </div>
 <div class="row">
@@ -58,6 +45,43 @@
     </select>
   </div>
 </div>
+<div class="row mb-2">
+  <div class="col-1"></div>
+  <div class="col-11 small">
+    <span *ngIf="currArmor.clothes.name !== ''">
+      <input class="ml-4 " type="checkbox" [(ngModel)]="currArmor.isHard" (change)="update()"> Hard Armor
+    </span>
+    <span *ngIf="selectedClothing?.leather" class="ml-4">
+      <input type="checkbox" [(ngModel)]="currArmor.isLeather" (change)="update()"> Leather
+    </span>
+  </div>
+</div>
+<ng-container *ngIf="currArmor.clothes.loc != ''">
+<div class="row mb-2 small">
+  <div class="col-2"></div>
+  <div class="col-1">HEAD</div>
+  <div class="col-1">TORSO</div>
+  <div class="col-1">R.ARM</div>
+  <div class="col-1">L.ARM</div>
+  <div class="col-1">R.LEG</div>
+  <div class="col-1">L.LEG</div>
+  <div class="col"></div>
+</div>
+<div class="row mb-2 small">
+  <div class="col-2">SP:
+    <select [(ngModel)]="selectedSP">
+      <option *ngFor="let sp of spValues" [ngValue]="sp">{{sp.sp}}</option>
+    </select>
+  </div>
+  <div class="col-1">{{currArmor.locations?.head ?? ''}}</div>
+  <div class="col-1">{{currArmor.locations?.torso ?? ''}}</div>
+  <div class="col-1">{{currArmor.locations?.rarm ?? ''}}</div>
+  <div class="col-1">{{currArmor.locations?.larm ?? ''}}</div>
+  <div class="col-1">{{currArmor.locations?.rleg ?? ''}}</div>
+  <div class="col-1">{{currArmor.locations?.lleg ?? ''}}</div>
+  <div class="col"></div>
+</div>
+</ng-container>
 <div class="row">
   <div class="col-2">Options:</div>
   <div class="col-10">

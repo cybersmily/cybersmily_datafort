@@ -22,7 +22,6 @@ export class ArmorGeneratorService {
     const armor = new Cp2020ArmorPiece();
     armor.clothes = dice.rollRandomItem<PieceOfClothing>(clothingLists.clothes);
 
-
     do {
       // check if a default was set.
       if (settings.quality !== '' ) {
@@ -39,11 +38,25 @@ export class ArmorGeneratorService {
 
       // if both, 50/50 chance to make it armor
       let canBeArmor: boolean = (settings.armor == ArmorSettingsChoices.both) ? dice.generateNumber(0, 1) === 1 : settings.armor == ArmorSettingsChoices.armor;
-      if (canBeArmor) {
+      if (canBeArmor && armor.clothes.loc !== '') {
         const spValues = clothingLists.armorChart.filter(item => item.mod[armor.clothes.wt]);
         let spRoll = dice.rollRandomItem<ArmorSpChartEntry>(spValues);
         armor.baseSP = spRoll.sp || 4;
         armor.ev = spRoll.ev[armor.clothes.wt] ?? 0;
+        if(armor.clothes.loc.includes('head')) {
+          armor.locations['head'] =  armor.baseSP;
+        }
+        if(armor.clothes.loc.includes('torso')) {
+          armor.locations['torso'] =  armor.baseSP;
+        }
+        if(armor.clothes.loc.includes('arms')) {
+          armor.locations['rarm'] =  armor.baseSP;
+          armor.locations['larm'] =  armor.baseSP;
+        }
+        if(armor.clothes.loc.includes('legs')) {
+          armor.locations['rleg'] =  armor.baseSP;
+          armor.locations['lleg'] =  armor.baseSP;
+        }
       }
 
       if (settings.hasOptions) {

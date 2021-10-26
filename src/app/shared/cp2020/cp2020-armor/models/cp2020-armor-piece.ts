@@ -42,6 +42,8 @@ export class Cp2020ArmorPiece implements ArmorPiece {
 
     this.baseSP = param?.baseSP ?? 0;
     this.locations = param?.locations ?? {};
+    console.log('locations', this.locations);
+    console.log('armor', this);
 
     this.ev = param?.ev ?? 0;
     this.order = param?.order ?? 0;

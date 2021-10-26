@@ -107,33 +107,33 @@
     </div>
     <div class="row">
       <div class="col-4"></div>
-      <div class="col-1 text-center">{{armor.headSP}}</div>
-      <div class="col-1 text-center">{{armor.torsoSP}}</div>
-      <div class="col-1 text-center">{{armor.rArmSP}}</div>
-      <div class="col-1 text-center">{{armor.lArmSP}}</div>
-      <div class="col-1 text-center">{{armor.rLegSP}}</div>
-      <div class="col-1 text-center">{{armor.lLegSP}}</div>
+      <div class="col-1 text-center">{{armor.location?.head ?? 0}}</div>
+      <div class="col-1 text-center">{{armor.locations?.torso ?? 0}}</div>
+      <div class="col-1 text-center">{{armor.locations?.rArm ?? 0}}</div>
+      <div class="col-1 text-center">{{armor.locations?.lArm ?? 0}}</div>
+      <div class="col-1 text-center">{{armor.locations?.rLeg ?? 0}}</div>
+      <div class="col-1 text-center">{{armor.locations?.lLeg ?? 0}}</div>
       <div class="col-1 text-center">{{armor.ev}}</div>
       <div class="col-1"></div>
     </div>
-    <div *ngFor="let a of armor.layers;let i = index" class="row">
+    <div *ngFor="let a of armor.armorPieces;let i = index" class="row">
       <div class="col-4">
         <input [(ngModel)]="a.isActive" type="checkbox" [disabled]="!canAddLayer(a)"
           title="Activate the layer. May not activate if 3 layer rule or if doubling up on hard armor for the layer."
           (click)="changeActive(i)">
         {{a.name}} ({{a.isHard? 'Hard':'Soft'}})
       </div>
-      <div class="col-1"><input [(ngModel)]="a.head" type="number" min="0" (change)="onChangeArmor()"
+      <div class="col-1"><input [(ngModel)]="a.locations.head" type="number" min="0" (change)="onChangeArmor()"
           class="text-right"></div>
-      <div class="col-1"><input [(ngModel)]="a.torso" type="number" min="0" (change)="onChangeArmor()"
+      <div class="col-1"><input [(ngModel)]="a.locations.torso" type="number" min="0" (change)="onChangeArmor()"
           class="text-right"></div>
-      <div class="col-1"><input [(ngModel)]="a.rarm" type="number" min="0" (change)="onChangeArmor()"
+      <div class="col-1"><input [(ngModel)]="a.locations.rarm" type="number" min="0" (change)="onChangeArmor()"
           class="text-right"></div>
-      <div class="col-1"><input [(ngModel)]="a.larm" type="number" min="0" (change)="onChangeArmor()"
+      <div class="col-1"><input [(ngModel)]="a.locations.larm" type="number" min="0" (change)="onChangeArmor()"
           class="text-right"></div>
-      <div class="col-1"><input [(ngModel)]="a.rleg" type="number" min="0" (change)="onChangeArmor()"
+      <div class="col-1"><input [(ngModel)]="a.locations.rleg" type="number" min="0" (change)="onChangeArmor()"
           class="text-right"></div>
-      <div class="col-1"><input [(ngModel)]="a.lleg" type="number" min="0" (change)="onChangeArmor()"
+      <div class="col-1"><input [(ngModel)]="a.locations.lleg" type="number" min="0" (change)="onChangeArmor()"
           class="text-right"></div>
       <div class="col-1"><input [(ngModel)]="a.ev" type="number" min="0" (change)="onChangeArmor()" class="text-right">
       </div>
@@ -143,29 +143,9 @@
     </div>
     <br>
     <br>
-    <div class="row csd-rounded">
-      <div class="col-12">
-        <div class="row">
-          <div class="col-1">
-            <fa-icon
-              [ngClass]="{'csd-btn':true,'btn': true,'btn-secondary':true,'btn-sm':true,'csd-rounded':true,'csd-disabled':addDisable}"
-              [icon]="faPlus" (click)="addLayer()" title="Add new layer"></fa-icon>
-          </div>
-          <div class="col-4">Name<br><input [(ngModel)]="newLayer.name" type="text"></div>
-          <div class="col-1">Head<br><input [(ngModel)]="newLayer.head" type="number" min="0"></div>
-          <div class="col-1">Torso<br><input [(ngModel)]="newLayer.torso" type="number" min="0"></div>
-          <div class="col-1">RArm<br><input [(ngModel)]="newLayer.rarm" type="number" min="0"></div>
-          <div class="col-1">LArm<br><input [(ngModel)]="newLayer.larm" type="number" min="0"></div>
-          <div class="col-1">RLeg<br><input [(ngModel)]="newLayer.rleg" type="number" min="0"></div>
-          <div class="col-1">LLeg<br><input [(ngModel)]="newLayer.lleg" type="number" min="0"></div>
-        </div>
-        <br>
-        <div class="row">
-          <div class="col-5"></div>
-          <div class="col-2">EV <input [(ngModel)]="newLayer.ev" type="number" min="0"></div>
-          <div class="col-2">Is Hard Armor <input [(ngModel)]="newLayer.isHard" type="checkbox"></div>
-          <div class="col-2">Is Skinweave <input [(ngModel)]="newLayer.isSkinWeave" type="checkbox"></div>
-        </div>
+    <div class="row">
+      <div class="col-12 text-center">
+        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-lg"></fa-icon>
       </div>
     </div>
   </div>

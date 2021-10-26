@@ -40,7 +40,9 @@ export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
 
   set selectedSP(value: ArmorSpChartEntry) {
     this.currArmor.baseSP = value.sp;
+    this.setLocationSP();
     this.currArmor.ev = value.ev[this.currArmor.clothes.wt] ?? 0;
+    console.log('changeSP', this.currArmor);
     this.update();
   }
 
@@ -78,6 +80,7 @@ export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
     if(this.currArmor.name === '') {
       this.currArmor.name = this.currArmor.clothes.name;
     }
+    this.setLocationSP();
     this.update();
   }
 
@@ -117,6 +120,36 @@ export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
     this.selectedClothing = this.armorAttributes.clothes.find(cloth => cloth.name === this.currArmor.clothes.name);
     this.selectedQuality = this.armorAttributes.qualities.find(quality => quality.name === this.currArmor.quality.name);
     this.selectedStyle = this.armorAttributes.styles.find(style => style.name === this.currArmor.style.name);
+  }
+
+  private setLocationSP() {
+    if(this.currArmor.clothes.loc.includes('head')) {
+      this.currArmor.locations.head = this.currArmor.baseSP;
+    } else {
+      delete this.currArmor.locations.head;
+    }
+
+    if(this.currArmor.clothes.loc.includes('torso')) {
+      this.currArmor.locations.torso = this.currArmor.baseSP;
+    } else {
+      delete this.currArmor.locations.torso;
+    }
+
+    if(this.currArmor.clothes.loc.includes('arm')) {
+      this.currArmor.locations.rarm = this.currArmor.baseSP;
+      this.currArmor.locations.larm = this.currArmor.baseSP;
+    } else {
+      delete this.currArmor.locations.rarm;
+      delete this.currArmor.locations.larm;
+    }
+
+    if(this.currArmor.clothes.loc.includes('leg')) {
+      this.currArmor.locations.rleg = this.currArmor.baseSP;
+      this.currArmor.locations.lleg = this.currArmor.baseSP;
+    } else {
+      delete this.currArmor.locations.rleg;
+      delete this.currArmor.locations.lleg;
+    }
   }
 
 }
