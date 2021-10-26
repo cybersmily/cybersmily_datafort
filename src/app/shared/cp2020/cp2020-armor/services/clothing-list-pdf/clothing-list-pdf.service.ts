@@ -52,7 +52,7 @@ export class ClothingListPdfService {
   private addPieceToDoc(line: number, armor: Cp2020ArmorPiece): number {
     let text = `${armor.name}`;
     if (armor.baseSP > 0) {
-      text += ` (${armor.baseSP} SP, ${armor.ev} EV)`;
+      text += ` [SP:${armor.baseSP} (${armor.clothes.loc}) EV:${armor.ev}]`;
     }
     this._doc.text(text, PdfPageSettings.MARGIN_LEFT, line, {align: 'left'});
     this._doc.text(`${armor.cost.toLocaleString()}eb`, PdfPageSettings.MARING_RIGHT, line, {align: 'right'});

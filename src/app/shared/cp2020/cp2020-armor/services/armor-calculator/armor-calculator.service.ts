@@ -1,11 +1,12 @@
-import { ArmorPiece } from './../../models/armor-piece';
+import { ArmorLocations } from '../../models/armor-locations';
+import { ArmorPiece } from '../../models/armor-piece';
 import { Injectable } from '@angular/core';
 import { ArmorSpChartEntry } from '../../models';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ArmorCostCalculatorService {
+export class ArmorCalculatorService {
 
   constructor() { }
 
@@ -44,5 +45,27 @@ export class ArmorCostCalculatorService {
     }
 
     return Math.ceil(mod * price);
+  }
+
+  setLocationSP(sp: number, locations: string):ArmorLocations {
+    const armorLocations: ArmorLocations = {}
+    if(locations.includes('head')) {
+      armorLocations.head = sp;
+    }
+
+    if(locations.includes('torso')) {
+      armorLocations.torso = sp;
+    }
+
+    if(locations.includes('arm')) {
+      armorLocations.rarm = sp;
+      armorLocations.larm = sp;
+    }
+
+    if(locations.includes('leg')) {
+      armorLocations.rleg = sp;
+      armorLocations.lleg = sp;
+    }
+    return armorLocations;
   }
 }

@@ -1,4 +1,4 @@
-import { ArmorCostCalculatorService } from './../armor-cost-calculator/armor-cost-calculator.service';
+import { ArmorCalculatorService } from '../armor-calculator/armor-calculator.service';
 import { DiceService } from './../../../../services/dice/dice.service';
 import {
   CP2020ArmorRandomSettings, Cp2020ArmorPiece, ArmorOption, ArmorSpChartEntry,
@@ -12,7 +12,7 @@ import { ArmorSettingsChoices } from '../../enums';
 })
 export class ArmorGeneratorService {
 
-  constructor(private armorCostCalculator: ArmorCostCalculatorService) { }
+  constructor(private armorCostCalculator: ArmorCalculatorService) { }
 
   generate(settings: CP2020ArmorRandomSettings,
     dice: DiceService,

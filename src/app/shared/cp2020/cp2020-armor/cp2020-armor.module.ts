@@ -5,7 +5,7 @@ import {
   ArmorDataAttributesService,
   ArmorGeneratorService } from './services';
 import { PipesModule } from './../../pipes/pipes.module';
-import { ArmorCostCalculatorService } from './services/armor-cost-calculator/armor-cost-calculator.service';
+import { ArmorCalculatorService } from './services/armor-calculator/armor-calculator.service';
 import { ArmorDataListService } from './services/armor-data-list/armor-data-list.service';
 import { DiceService } from './../../services/dice/dice.service';
 import { CommonUiModule } from './../../modules/common-ui/common-ui.module';
@@ -39,7 +39,7 @@ import { ArmorSettingsComponent } from './armor-settings/armor-settings.componen
   providers: [
     DiceService,
     ArmorDataListService,
-    ArmorCostCalculatorService,
+    ArmorCalculatorService,
     ArmorGeneratorService,
     ArmorDataAttributesService,
     ArmorListService,

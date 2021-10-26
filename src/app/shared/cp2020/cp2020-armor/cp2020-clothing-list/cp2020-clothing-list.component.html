@@ -2,29 +2,48 @@
       <div class="row">
         <div class="col">
           <h4 class="d-inline-block">Clothing List</h4>
-          <fa-icon [icon]="faFilePdf" class="csd-btn csd-icon-btn csd-icon-lg ml-2 float-right" (click)="savePdf()"></fa-icon>
-          <fa-icon [icon]="faRedo" class="csd-btn csd-icon-btn csd-icon-lg ml-2 float-right" (click)="clearArmorList()"></fa-icon>
-          <fa-icon [icon]="faDice" class="csd-btn csd-icon-btn csd-icon-lg ml-2 float-right" (click)="showModal(numberOfArmorToRoll)"></fa-icon>
+          <fa-icon [icon]="faFilePdf"
+            title="Save list as a PDF..."
+           class="csd-btn csd-icon-btn csd-icon-lg ml-2 float-right" (click)="savePdf()"></fa-icon>
+          <fa-icon [icon]="faRedo" class="csd-btn csd-icon-btn csd-icon-lg ml-2 float-right"
+            title="Reset the list"
+            (click)="clearArmorList()"></fa-icon>
+          <fa-icon [icon]="faDice"
+            title="Randomly generate items..."
+            class="csd-btn csd-icon-btn csd-icon-lg ml-2 float-right" (click)="showModal(numberOfArmorToRoll)"></fa-icon>
         </div>
       </div>
       <div class="hdr-row row">
-      <div class="col cloth">Clothing</div>
-      <div class="col-1 cloth-ev text-center">SP</div>
-      <div class="col-1 cloth-ev text-center">EV</div>
-      <div class="col-3 cloth-cost text-center">Cost</div>
+      <div class="col cloth text-truncate">Clothing</div>
+      <div class="col-2 cloth-cost text-right">Cost</div>
   </div>
-  <div class="row" *ngFor="let armor of currList; let i = index">
+  <ng-container *ngFor="let armor of currList; let i = index">
+  <div class="row">
       <div class="col cloth-item text-truncate">{{armor.name}}</div>
-      <div class="col-1 cloth-ev text-center">{{armor.baseSP}}</div>
-      <div class="col-1 text-center">{{armor.ev}}</div>
       <div class="col-3 text-right">
         {{armor?.cost | number}}eb
         <fa-icon [icon]="faTrash"
+          title="Delete item"
           class="csd-btn csd-icon-btn"
           (click)="delete(i)"
         ></fa-icon>
       </div>
   </div>
+  <div *ngIf="armor.quality?.effect" class="row small">
+      <div class="col-1"></div>
+      <div class="col">*{{armor.quality?.effect}}</div>
+  </div>
+  <div *ngIf="armor.baseSP > 0" class="row small">
+      <div class="col-1"></div>
+      <div class="col-1 text-capitalize">{{armor.clothes?.wt}}</div>
+      <div class="col">SP: {{armor.baseSP}} ({{armor.clothes?.loc}}) EV: {{armor.ev}}</div>
+  </div>
+  <div *ngIf="armor.options?.length > 0" class="row small">
+      <div class="col-1"></div>
+      <div class="col">Options: {{getOptionsString(armor)}}
+      </div>
+  </div>
+  </ng-container>
   <hr>
   <div class="row">
       <div class="col cloth-total">TOTAL:</div>

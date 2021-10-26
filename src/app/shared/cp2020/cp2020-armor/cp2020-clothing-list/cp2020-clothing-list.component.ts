@@ -1,13 +1,12 @@
 import { ClothingListPdfService } from './../services/clothing-list-pdf/clothing-list-pdf.service';
 import { ArmorRandomGenSettingsService } from './../services/armor-random-gen-settings/armor-random-gen-settings.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { forkJoin } from 'rxjs';
 import { ArmorDataAttributesService } from './../services/armor-data-attributes/armor-data-attributes.service';
 import { DiceService } from './../../../services/dice/dice.service';
 import { ArmorGeneratorService } from './../services/armor-generator/armor-generator.service';
 import { faFilePdf, faRedo, faTrash, faDice } from '@fortawesome/free-solid-svg-icons';
 import { ArmorListService } from './../services/armor-list/armor-list.service';
-import { Component, Input, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Cp2020ArmorPiece, Cp2020ArmorAttributeLists, CP2020ArmorRandomSettings } from '../models';
 
 @Component({
@@ -75,6 +74,11 @@ export class Cp2020ClothingListComponent implements OnInit {
       .generateArray(this.settings, this.dice, this.armorAttributes, this.numberOfPieces)
     );
     this.modalRef?.hide();
+  }
+
+  getOptionsString(armor: Cp2020ArmorPiece): string {
+    const options = armor.options.map(opt => `${opt.name} (${opt?.effect})`).join(', ');
+    return `${options}`;
   }
 
   savePdf() {

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ArmorCostCalculatorService } from './armor-cost-calculator.service';
+import { ArmorCalculatorService } from './armor-calculator.service';
 
 describe('ArmorCostCalculatorService', () => {
-  let service: ArmorCostCalculatorService;
+  let service: ArmorCalculatorService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ArmorCostCalculatorService);
+    service = TestBed.inject(ArmorCalculatorService);
   });
 
   it('should be created', () => {
