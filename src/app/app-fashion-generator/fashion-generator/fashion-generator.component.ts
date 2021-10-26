@@ -1,3 +1,4 @@
+import { ArmorListService } from './../../shared/cp2020/cp2020-armor/services/armor-list/armor-list.service';
 import { StorageKeys } from './../../shared/enums/storage-keys';
 import { LocalStorageManagerService } from './../../shared/services/local-storage-manager/local-storage-manager.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
@@ -32,7 +33,8 @@ export class FashionGeneratorComponent implements OnInit {
     private modalService: BsModalService,
     private localStorageService: LocalStorageManagerService,
     private saveFileService: SaveFileService,
-    private seo: SeoService) {
+    private seo: SeoService,
+    private armorListService: ArmorListService) {
   }
 
   ngOnInit() {
@@ -41,26 +43,17 @@ export class FashionGeneratorComponent implements OnInit {
       '2020-07, Cybersmily\'s Datafort Cyberpunk 2020 Fashion Calculator is an application to generate a character clothes using the Chromebook 3 supplement.'
     );
     this.settings = this.localStorageService.retrive(StorageKeys.ARMOR_GENERATOR_SETTINGS) ?? new CP2020ArmorRandomSettings();
-
   }
 
   updateArmor(event: Cp2020ArmorPiece) {
     if(event?.name !== '' && event?.clothes){
       this.currArmor = new Cp2020ArmorPiece(event);
     }
-
   }
 
-  clearArmor() {
-    this.currArmor = new Cp2020ArmorPiece();
-  }
 
   addArmor() {
-    this.armorList.push(new Cp2020ArmorPiece(this.currArmor));
-  }
-
-  updateArmorList(list: Array<Cp2020ArmorPiece>) {
-    this.armorList = list.map(armor => armor);
+    this.armorListService.add(this.currArmor);
   }
 
   updateSettings(settings: CP2020ArmorRandomSettings) {

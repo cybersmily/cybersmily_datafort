@@ -3,9 +3,13 @@
     Name:
     <input class="w-75" type="text" placeholder="Enter name..." [(ngModel)]="currArmor.name">
     <fa-icon [icon]="faDice" title="Randomly generate clothing"
-      class="csd-btn csd-icon-btn float-right csd-icon-lg"
+      class="csd-btn csd-icon-btn float-right ml-1"
       (click)="generate()"
       ></fa-icon>
+        <fa-icon [icon]="faRedo"
+          title="Reset the form"
+          class="csd-btn csd-icon-btn ml-1 float-right"
+          (click)="refresh()"></fa-icon>
   </div>
 </div>
 <div class="row">
@@ -62,10 +66,5 @@
         <input type="checkbox" [checked]="getOptionValue(opt.name)" (change)="changeOption($event, opt)"> {{opt.name}} (x{{opt.mod | armorOptionMod:currArmor.clothes.wt }})
       </div>
     </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col">
-    {{currArmor | json}}
   </div>
 </div>

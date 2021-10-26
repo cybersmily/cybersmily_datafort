@@ -1,21 +1,50 @@
-   <div class="hdr-row row">
-      <div class="col cloth">Clothing</div>
-      <div class="col cloth-loc text-center">Locations</div>
-      <div class="col cloth-ev text-center">EV</div>
-      <div class="col cloth-cost text-center">Cost</div>
-  </div>
-  <div class="row" *ngFor="let armor of armorList">
-      <div class="col cloth-item">
-          <span>{{armor.clothes.name}}</span>
-          <br />
-          <span *ngFor="let opt of armor.options" class="cloth-options"> *{{opt.name}}</span>
+
+      <div class="row">
+        <div class="col">
+          <h4 class="d-inline-block">Clothing List</h4>
+          <fa-icon [icon]="faFilePdf" class="csd-btn csd-icon-btn csd-icon-lg ml-2 float-right" (click)="savePdf()"></fa-icon>
+          <fa-icon [icon]="faRedo" class="csd-btn csd-icon-btn csd-icon-lg ml-2 float-right" (click)="clearArmorList()"></fa-icon>
+          <fa-icon [icon]="faDice" class="csd-btn csd-icon-btn csd-icon-lg ml-2 float-right" (click)="showModal(numberOfArmorToRoll)"></fa-icon>
         </div>
-      <div class="col text-center"><span>{{armor.clothes.loc}}</span></div>
-      <div class="col text-center"><span>{{armor.ev}}</span></div>
-      <div class="col text-right"><span>{{armor.cost | number}}eb</span></div>
+      </div>
+      <div class="hdr-row row">
+      <div class="col cloth">Clothing</div>
+      <div class="col-1 cloth-ev text-center">SP</div>
+      <div class="col-1 cloth-ev text-center">EV</div>
+      <div class="col-3 cloth-cost text-center">Cost</div>
   </div>
+  <div class="row" *ngFor="let armor of currList; let i = index">
+      <div class="col cloth-item text-truncate">{{armor.name}}</div>
+      <div class="col-1 cloth-ev text-center">{{armor.baseSP}}</div>
+      <div class="col-1 text-center">{{armor.ev}}</div>
+      <div class="col-3 text-right">
+        {{armor?.cost | number}}eb
+        <fa-icon [icon]="faTrash"
+          class="csd-btn csd-icon-btn"
+          (click)="delete(i)"
+        ></fa-icon>
+      </div>
+  </div>
+  <hr>
   <div class="row">
       <div class="col cloth-total">TOTAL:</div>
-      <div class="col text-right"><span>{{totalCost | number}}</span>eb</div>
+      <div class="col text-right pr-5">{{totalCost | number}}eb</div>
   </div>
+  <ng-template #numberOfArmorToRoll>
+    <div class="modal-body">
+      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+      <div class="text-center">
+      Number of pieced to create:
+      </div>
+      <div class="text-center">
+       <input type="number" min="1" class="csd-number" [(ngModel)]="numberOfPieces">
+      <fa-icon [icon]="faDice" title="Roll Random Armor"
+        class="csd-btn csd-icon-btn csd-icon-xl ml-2"
+        (click)="generate()"
+      ></fa-icon>
+    </div>
+    </div>
+  </ng-template>
 

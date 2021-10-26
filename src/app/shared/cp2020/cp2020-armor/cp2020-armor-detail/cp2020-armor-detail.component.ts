@@ -1,9 +1,10 @@
+import { ArmorRandomGenSettingsService } from './../services/armor-random-gen-settings/armor-random-gen-settings.service';
 import { ArmorGeneratorService } from './../services/armor-generator/armor-generator.service';
 import { ArmorCostCalculatorService,
   ArmorDataAttributesService } from './../services';
 
 import { DiceService } from './../../../services/dice/dice.service';
-import { faDice } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faRedo } from '@fortawesome/free-solid-svg-icons';
 
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { Cp2020ArmorPiece, ArmorSpChartEntry, Cp2020ArmorAttributeLists, PieceOfClothing, ArmorOption, CP2020ArmorRandomSettings } from './../models';
@@ -15,6 +16,7 @@ import { Cp2020ArmorPiece, ArmorSpChartEntry, Cp2020ArmorAttributeLists, PieceOf
 })
 export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
   faDice = faDice;
+  faRedo = faRedo;
 
   currArmor = new Cp2020ArmorPiece();
   armorAttributes = new Cp2020ArmorAttributeLists();
@@ -23,14 +25,11 @@ export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
   selectedClothing: PieceOfClothing;
   selectedQuality: ArmorOption;
   selectedStyle: ArmorOption;
-
+  settings = new CP2020ArmorRandomSettings();
 
   // piece of clothes
   @Input()
   armor = new Cp2020ArmorPiece();
-
-  @Input()
-  settings = new CP2020ArmorRandomSettings();
 
   @Output()
   change = new EventEmitter<Cp2020ArmorPiece>();
@@ -48,7 +47,9 @@ export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
   constructor(private dice: DiceService,
     private armorDataAttributesService: ArmorDataAttributesService,
     private costCalculatorService: ArmorCostCalculatorService,
-    private armorGeneratorService: ArmorGeneratorService) { }
+    private armorGeneratorService: ArmorGeneratorService,
+    private randomSettings: ArmorRandomGenSettingsService
+    ) { }
 
   ngOnInit() {
     this.currArmor = new Cp2020ArmorPiece(this.armor);
@@ -56,6 +57,9 @@ export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
     .subscribe( data => {
       this.armorAttributes = new Cp2020ArmorAttributeLists(data);
       this.setSelected();
+    });
+    this.randomSettings.settings.subscribe( settings => {
+      this.settings = settings;
     });
   }
 
@@ -87,18 +91,19 @@ export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
     this.update();
   }
 
+ refresh() {
+   this.currArmor = new Cp2020ArmorPiece();
+   this.setSelected();
+   this.update();
+ }
+
+
   generate() {
     this.currArmor = this.armorGeneratorService.generate(this.settings, this.dice, this.armorAttributes);
     this.setSelected();
 
     this.spValues = this.armorAttributes.armorChart.filter( sp => sp.mod[this.currArmor.clothes.wt] !== undefined);
-    const style = this.currArmor.style.name;
-    const quality = this.currArmor.quality.name;
-    const armored = this.currArmor.baseSP > 0 ? `Armored ` : '';
-    const leather = this.currArmor.isLeather ? 'Leather ' : '';
-    const type =  this.currArmor.clothes.name;
-    this.currArmor.name = `${style} ${quality} ${armored}${leather}${type}`;
-    this.update();
+     this.update();
   }
 
   update() {

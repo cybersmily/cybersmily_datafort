@@ -22,6 +22,7 @@ export class ArmorGeneratorService {
     const armor = new Cp2020ArmorPiece();
     armor.clothes = dice.rollRandomItem<PieceOfClothing>(clothingLists.clothes);
 
+
     do {
       // check if a default was set.
       if (settings.quality !== '' ) {
@@ -58,11 +59,16 @@ export class ArmorGeneratorService {
         }
       }
       //check if it can be leather
-      if (typeof armor.clothes.leather !== 'undefined' && armor.cost < settings.maxCost) {
+      if (typeof armor.clothes?.leather !== 'undefined' && armor.cost < settings.maxCost) {
         armor.isLeather = settings.isLeather ? true : (dice.generateNumber(0, 10) < 3);
       }
       armor.cost = this.armorCostCalculator.calculateCost(armor, clothingLists.armorChart);
     } while (armor.cost > settings.maxCost);
+    armor.name = armor.style.name;
+    armor.name += ` ${armor.quality.name} `;
+    armor.name += armor.baseSP > 0 ? `Armored ` : '';
+    armor.name += armor.isLeather ? 'Leather ' : '';
+    armor.name +=  armor.clothes.name;
 
     return armor;
   }

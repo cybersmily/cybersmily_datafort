@@ -1,3 +1,4 @@
+import { ArmorRandomGenSettingsService } from './../services/armor-random-gen-settings/armor-random-gen-settings.service';
 import { CP2020ArmorRandomSettings, Cp2020ArmorAttributeLists } from './../models';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { ArmorDataAttributesService } from '../services';
@@ -9,19 +10,16 @@ import { ArmorDataAttributesService } from '../services';
 })
 export class ArmorSettingsComponent implements OnInit {
 
-  @Input()
-  settings = new CP2020ArmorRandomSettings();
-
-  @Output()
-  change = new EventEmitter<CP2020ArmorRandomSettings>();
-
   currSettings = new CP2020ArmorRandomSettings();
   armorAttributes = new Cp2020ArmorAttributeLists();
 
-  constructor(private armorDataAttributesService: ArmorDataAttributesService) { }
+  constructor(private armorDataAttributesService: ArmorDataAttributesService,
+    private randomSettingsService: ArmorRandomGenSettingsService) { }
 
   ngOnInit(): void {
-    this.currSettings = this.settings;
+    this.randomSettingsService.settings.subscribe( settings => {
+      this.currSettings = settings;
+    });
     this.armorDataAttributesService.getData()
     .subscribe(data => {
       this.armorAttributes = data;
@@ -30,7 +28,7 @@ export class ArmorSettingsComponent implements OnInit {
 
   update() {
     this.currSettings.maxCost = this.currSettings.maxCost < 100 ? 100 : this.currSettings.maxCost;
-    this.change.emit(this.currSettings);
+    this.randomSettingsService.update(this.currSettings);
   }
 
 }

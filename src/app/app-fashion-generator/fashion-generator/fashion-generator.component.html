@@ -10,20 +10,25 @@
     <p>Click on Save button to print a text file of the clothing list you have created.</p>
   </div>
   <div id="fcSelectorControls" class="row">
-    <div class="col-12 col-md-6 csd-rounded">
+    <div class="col-12 col-lg-6 csd-rounded">
       <div class="row">
         <div class="col">
           <h4 class="d-inline-block">Design Clothing</h4>
-          <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-lg ml-2 float-right" (click)="addArmor()"></fa-icon>
-          <fa-icon [icon]="faCog" class="csd-btn csd-icon-btn csd-icon-lg ml-2 float-right" (click)="showModal(settingsModal)"></fa-icon>
-          <fa-icon [icon]="faRedo" class="csd-btn csd-icon-btn csd-icon-lg ml-2 float-right" (click)="clearArmor()"></fa-icon>
+          <fa-icon [icon]="faPlus"
+            class="csd-btn csd-icon-btn csd-icon-xl ml-2 float-right"
+            title="Add to the list..."
+            (click)="addArmor()"></fa-icon>
+          <fa-icon [icon]="faCog"
+            class="csd-btn csd-icon-btn csd-icon-xl ml-2 float-right"
+            title="Change random parameter settings for create a piece of armor"
+            (click)="showModal(settingsModal)"></fa-icon>
         </div>
       </div>
-      <cs-cp2020-armor-detail [armor]="currArmor" [settings]="settings" (change)="updateArmor($event)" >
+      <cs-cp2020-armor-detail [armor]="currArmor" (change)="updateArmor($event)" >
       </cs-cp2020-armor-detail>
     </div>
-    <div class="col-12 col-md-5">
-      <cs-cp2020-clothing-list [armorList]="armorList" (change)="updateArmorList($event)"></cs-cp2020-clothing-list>
+    <div class="col csd-rounded">
+      <cs-cp2020-clothing-list></cs-cp2020-clothing-list>
     </div>
   </div>
 </div>
@@ -35,6 +40,6 @@
     </button>
   </div>
   <div class="modal-body">
-    <cs-armor-settings [settings]="settings" (change)="updateSettings($event)"></cs-armor-settings>
+    <cs-armor-settings></cs-armor-settings>
   </div>
 </ng-template>
