@@ -1,11 +1,6 @@
-import { Cp2020ArmorPiece } from './../models/cp2020-armor-piece';
-import { ArmorGeneratorService } from './../services/armor-generator/armor-generator.service';
-import { Cp2020ArmorAttributeLists } from './../models/armor-attribute-lists';
-import { CP2020ArmorRandomSettings } from './../models/armor-random-settings';
-import { ArmorDataAttributesService } from './../services/armor-data-attributes/armor-data-attributes.service';
+import { ArmorGeneratorService, ArmorDataAttributesService, ArmorRandomGenSettingsService } from './../services';
 import { DiceService } from './../../../services/dice/dice.service';
-import { Cp2020ArmorBlock } from './../models/cp2020-armor-block';
-import { ArmorRandomGenSettingsService } from './../services/armor-random-gen-settings/armor-random-gen-settings.service';
+import { Cp2020ArmorBlock, Cp2020ArmorPiece,Cp2020ArmorAttributeLists, CP2020ArmorRandomSettings  } from './../models';
 import { Component, Input, Output, OnInit, TemplateRef, EventEmitter } from '@angular/core';
 import { faDice, faPlus, faTrash, faChevronRight, faChevronDown, faCog, faSave } from '@fortawesome/free-solid-svg-icons';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -38,6 +33,16 @@ export class Cp2020ArmorSectionComponent implements OnInit {
 
   get collapseChevron():any {
     return (this.isCollapsed) ? this.faChevronRight : this.faChevronDown;
+  }
+
+  get columnOne(): Array<Cp2020ArmorPiece> {
+    const len = Math.ceil(this.armorBlock.armorPieces.length/2);
+    return this.armorBlock.armorPieces.slice(0, len);
+  }
+
+  get columnTwo(): Array<Cp2020ArmorPiece> {
+    const len = Math.ceil(this.armorBlock.armorPieces.length/2);
+    return this.armorBlock.armorPieces.slice(len);
   }
 
   @Input()
@@ -81,6 +86,7 @@ export class Cp2020ArmorSectionComponent implements OnInit {
       .push(...this.armorGeneratorService
           .generateArray(this.settings, this.dice, this.armorAttributes, this.numberOfPieces)
       );
+    this.update();
     this.modalRef?.hide();
   }
 
@@ -90,6 +96,7 @@ export class Cp2020ArmorSectionComponent implements OnInit {
     } else {
       this.armorBlock.deactivatePiece(index);
     }
+    this.update();
   }
 
   saveArmor() {
@@ -100,7 +107,13 @@ export class Cp2020ArmorSectionComponent implements OnInit {
       // is a new item
       this.armorBlock.addPiece(this.selectedArmor);
     }
+    this.update();
     this.closeArmorDetailModal();
+  }
+
+  deleteArmor(index: number) {
+    this.armorBlock.armorPieces.splice(index, 1);
+    this.update();
   }
 
   selectIndex(index: number, template: TemplateRef<any>) {
@@ -114,5 +127,9 @@ export class Cp2020ArmorSectionComponent implements OnInit {
     if(armor.clothes && armor.quality) {
       this.selectedArmor = new Cp2020ArmorPiece(armor);
     }
+  }
+
+  update() {
+    this.changeArmor.emit(this.armorBlock);
   }
 }

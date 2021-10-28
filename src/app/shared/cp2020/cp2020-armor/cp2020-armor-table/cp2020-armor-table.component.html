@@ -14,19 +14,19 @@
     <tr>
       <td class="chargen-label chargen-armor-label">Armor SP</td>
       <td class="chargen-armor-space"></td>
-      <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'head'">
+      <td class="chargen-armor-cell csd-btn" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'head'">
         {{armor.headSP}}</td>
-      <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'torso'">
+      <td class="chargen-armor-cell csd-btn" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'torso'">
         {{armor.torsoSP}}</td>
-      <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'rarm'">
+      <td class="chargen-armor-cell csd-btn" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'rarm'">
         {{armor.rArmSP}}</td>
-      <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'larm'">
+      <td class="chargen-armor-cell csd-btn" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'larm'">
         {{armor.lArmSP}}</td>
-      <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'rleg'">
+      <td class="chargen-armor-cell csd-btn" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'rleg'">
         {{armor.rLegSP}}</td>
-      <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'lleg'">
+      <td class="chargen-armor-cell csd-btn" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'lleg'">
         {{armor.lLegSP}}</td>
-      <td class="chargen-armor-cell">+{{armor.ev}}</td>
+      <td class="chargen-armor-cell ">+{{armor.ev}}</td>
     </tr>
     <tr>
       <td class="chargen-label chargen-armor-label">SDP
@@ -35,33 +35,35 @@
       </td>
       <td class="chargen-armor-space"></td>
       <td class="chargen-armor-cell">
-        <input *ngIf="armor.sdp.head.destroyed > 0" [(ngModel)]="armor.sdp.head.curr" type="number" min=0 (change)="onChangeArmor()"
-          [max]="armor.sdp.head.destroyed" class="csd-number {{getSDPStyle(armor.sdp.head)}}"
+        <input *ngIf="armor.sdp.head.destroyed > 0" [(ngModel)]="armor.sdp.head.curr" type="number" min=0
+        (change)="onChangeArmor()"
+          [max]="armor.sdp.head.destroyed" class="csd-number csd-btn {{getSDPStyle(armor.sdp.head)}}"
           title="Max {{armor.sdp.head.destroyed}}">
         <div *ngIf="armor.sdp.head.curr >= armor.sdp.head.damaged">{{getSDPStatus(armor.sdp.head)}}</div>
       </td>
       <td class="chargen-armor-cell"><input *ngIf="armor.sdp.torso.destroyed > 0" [(ngModel)]="armor.sdp.torso.curr" (change)="onChangeArmor()"
-          type="number" min=0 [max]="armor.sdp.torso.destroyed" class="csd-number {{getSDPStyle(armor.sdp.torso)}}"
+          type="number" min=0 [max]="armor.sdp.torso.destroyed" class="csd-number csd-btn {{getSDPStyle(armor.sdp.torso)}}"
           title="Max {{armor.sdp.torso.destroyed}}">
         <div *ngIf="armor.sdp.torso.curr >= armor.sdp.torso.damaged">{{getSDPStatus(armor.sdp.torso)}}</div>
       </td>
       <td class="chargen-armor-cell"><input *ngIf="armor.sdp.rarm.destroyed > 0" [(ngModel)]="armor.sdp.rarm.curr" (change)="onChangeArmor()"
-          type="number" min=0 [max]="armor.sdp.rarm.destroyed" class="csd-number {{getSDPStyle(armor.sdp.rarm)}}"
+          type="number" min=0 [max]="armor.sdp.rarm.destroyed" class="csd-number csd-btn {{getSDPStyle(armor.sdp.rarm)}}"
           title="Max {{armor.sdp.rarm.destroyed}}">
         <div *ngIf="armor.sdp.rarm.curr >= armor.sdp.rarm.damaged">{{getSDPStatus(armor.sdp.rarm)}}</div>
       </td>
-      <td class="chargen-armor-cell"><input *ngIf="armor.sdp.larm.destroyed > 0" [(ngModel)]="armor.sdp.larm.curr" (change)="onChangeArmor()"
-          type="number" min=0 [max]="armor.sdp.larm.destroyed" class="csd-number {{getSDPStyle(armor.sdp.larm)}}"
+      <td class="chargen-armor-cell"><input *ngIf="armor.sdp.larm.destroyed > 0" [(ngModel)]="armor.sdp.larm.curr"
+         (change)="onChangeArmor()"
+          type="number" min=0 [max]="armor.sdp.larm.destroyed" class="csd-number csd-btn {{getSDPStyle(armor.sdp.larm)}}"
           title="Max {{armor.sdp.larm.destroyed}}">
         <div *ngIf="armor.sdp.larm.curr >= armor.sdp.larm.damaged">{{getSDPStatus(armor.sdp.larm)}}</div>
       </td>
       <td class="chargen-armor-cell"><input *ngIf="armor.sdp.rleg.destroyed > 0" [(ngModel)]="armor.sdp.rleg.curr" (change)="onChangeArmor()"
-          type="number" min=0 [max]="armor.sdp.rleg.destroyed" class="csd-number {{getSDPStyle(armor.sdp.rleg)}}"
+          type="number" min=0 [max]="armor.sdp.rleg.destroyed" class="csd-number csd-btn {{getSDPStyle(armor.sdp.rleg)}}"
           title="Max {{armor.sdp.rleg.destroyed}}">
         <div *ngIf="armor.sdp.rleg.curr >= armor.sdp.rleg.damaged">{{getSDPStatus(armor.sdp.rleg)}}</div>
       </td>
       <td class="chargen-armor-cell"><input *ngIf="armor.sdp.lleg.destroyed > 0" [(ngModel)]="armor.sdp.lleg.curr" (change)="onChangeArmor()"
-          type="number" min=0 [max]="armor.sdp.lleg.destroyed" class="csd-number {{getSDPStyle(armor.sdp.lleg)}}"
+          type="number" min=0 [max]="armor.sdp.lleg.destroyed" class="csd-number csd-btn {{getSDPStyle(armor.sdp.lleg)}}"
           title="Max {{armor.sdp.lleg.destroyed}}">
         <div *ngIf="armor.sdp.lleg.curr >= armor.sdp.lleg.damaged">{{getSDPStatus(armor.sdp.lleg)}}</div>
       </td>
@@ -101,17 +103,17 @@
     <div class="row">
       <div class="col-3">Current Damaged</div>
       <div class="col-1 text-center"><input type="number" min=0 [max]="armor.sdp.head.destroyed"
-          class="csd-number text-center" [(ngModel)]="armor.sdp.head.curr" (change)="onChangeArmor()"></div>
+          class="csd-number text-center csd-btn" [(ngModel)]="armor.sdp.head.curr" (change)="onChangeArmor()"></div>
       <div class="col-1 text-center"><input type="number" min=0 [max]="armor.sdp.torso.destroyed"
-          class="csd-number text-center" [(ngModel)]="armor.sdp.torso.curr" (change)="onChangeArmor()"></div>
+          class="csd-number text-center csd-btn" [(ngModel)]="armor.sdp.torso.curr" (change)="onChangeArmor()"></div>
       <div class="col-1 text-center"><input type="number" min=0 [max]="armor.sdp.rarm.destroyed"
-          class="csd-number text-center" [(ngModel)]="armor.sdp.rarm.curr" (change)="onChangeArmor()"></div>
+          class="csd-number text-center csd-btn" [(ngModel)]="armor.sdp.rarm.curr" (change)="onChangeArmor()"></div>
       <div class="col-1 text-center"><input type="number" min=0 [max]="armor.sdp.larm.destroyed"
-          class="csd-number text-center" [(ngModel)]="armor.sdp.larm.curr" (change)="onChangeArmor()"></div>
+          class="csd-number text-center csd-btn" [(ngModel)]="armor.sdp.larm.curr" (change)="onChangeArmor()"></div>
       <div class="col-1 text-center"><input type="number" min=0 [max]="armor.sdp.rleg.destroyed"
-          class="csd-number text-center" [(ngModel)]="armor.sdp.rleg.curr" (change)="onChangeArmor()"></div>
+          class="csd-number text-center csd-btn" [(ngModel)]="armor.sdp.rleg.curr" (change)="onChangeArmor()"></div>
       <div class="col-1 text-center"><input type="number" min=0 [max]="armor.sdp.lleg.destroyed"
-          class="csd-number text-center" [(ngModel)]="armor.sdp.lleg.curr" (change)="onChangeArmor()"></div>
+          class="csd-number text-center csd-btn" [(ngModel)]="armor.sdp.lleg.curr" (change)="onChangeArmor()"></div>
     </div>
     <div class="row">
       <div class="col-3">Impaired</div>

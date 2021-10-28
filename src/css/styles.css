@@ -241,6 +241,10 @@ SELECT option.font-italic {
   display: none;
 }
 
+.bg-black {
+  background-color: black;
+}
+
 @-moz-document url-prefix() {
 @media print {
   .print-fix {

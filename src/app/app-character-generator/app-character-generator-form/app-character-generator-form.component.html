@@ -77,7 +77,7 @@
 
       <div class="row print-fix csd-linebreak">
         <div class="col">
-          <cs-cp2020-armor-section [isCollapsed]="charGenSettings.isCollapsed"></cs-cp2020-armor-section>
+          <cs-cp2020-armor-section [isCollapsed]="charGenSettings.isCollapsed" [armorBlock]="character.armor" (changeArmor)="changeArmor($event)"></cs-cp2020-armor-section>
         </div>
       </div>
 
