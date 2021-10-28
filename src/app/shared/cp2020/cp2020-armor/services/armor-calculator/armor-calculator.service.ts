@@ -2,6 +2,7 @@ import { ArmorLocations } from '../../models/armor-locations';
 import { ArmorPiece } from '../../models/armor-piece';
 import { Injectable } from '@angular/core';
 import { ArmorSpChartEntry } from '../../models';
+import { Console } from 'console';
 
 @Injectable({
   providedIn: 'root'
@@ -48,7 +49,7 @@ export class ArmorCalculatorService {
   }
 
   setLocationSP(sp: number, locations: string):ArmorLocations {
-    const armorLocations: ArmorLocations = {}
+    const armorLocations: ArmorLocations = {};
     if(locations.includes('head')) {
       armorLocations.head = sp;
     }
@@ -66,6 +67,7 @@ export class ArmorCalculatorService {
       armorLocations.rleg = sp;
       armorLocations.lleg = sp;
     }
+    console.log(armorLocations);
     return armorLocations;
   }
 }

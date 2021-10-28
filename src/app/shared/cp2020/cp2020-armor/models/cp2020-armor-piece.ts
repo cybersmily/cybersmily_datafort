@@ -41,6 +41,7 @@ export class Cp2020ArmorPiece implements ArmorPiece {
     };
     this.options = param?.options?.map(opt => opt) ?? new Array<ArmorOption>();
 
+    console.log('constructor', param?.baseSP, param);
     this.baseSP = param?.baseSP ?? 0;
     this.locations = param?.locations ?? {};
 

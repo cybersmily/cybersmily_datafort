@@ -119,9 +119,9 @@ export class Cp2020ArmorTableComponent implements OnInit {
   changeActive(index: number) {
     const layer = this.armor.armorPieces[index];
     if (layer.isActive) {
-      this.armor.deactivatePiece(layer);
+      this.armor.deactivatePiece(index);
     } else {
-      this.armor.activatePiece(layer);
+      this.armor.activatePiece(index);
     }
     this.onChangeArmor();
   }

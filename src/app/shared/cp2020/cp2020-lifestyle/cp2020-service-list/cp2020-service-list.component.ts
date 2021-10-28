@@ -17,7 +17,9 @@ export class Cp2020ServiceListComponent implements OnInit, OnChanges {
   faEuroSign = faEuroSign;
 
   modalRef: BsModalRef;
-  modalConfig = {};
+  modalConfig = {
+    keyboard: true,
+    class: 'modal-dialog-centered modal-lg'};
 
   @Input()
   servicesList: Array<Cp2020Services> = new Array<Cp2020Services>();

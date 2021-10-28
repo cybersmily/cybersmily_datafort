@@ -12,10 +12,7 @@
       <td class="chargen-armor-cell">EV</td>
     </tr>
     <tr>
-      <td class="chargen-label chargen-armor-label">Armor SP
-        <fa-icon class="csd-btn csd-icon-btn hidden-print float-right" [icon]="faShieldAlt"
-          title="Manage/Configure Armor" (click)="openModal(armorModal)"></fa-icon>
-      </td>
+      <td class="chargen-label chargen-armor-label">Armor SP</td>
       <td class="chargen-armor-space"></td>
       <td class="chargen-armor-cell" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'head'">
         {{armor.headSP}}</td>
@@ -81,73 +78,6 @@
       <button class="btn btn-sm btn-secondary csd-rounded" (click)="damage()">Apply</button>
     </div>
     <div class="col-1"></div>
-  </div>
-</ng-template>
-
-<ng-template #armorModal>
-  <div class="modal-header">
-    <h4 id="armor-modal-name" class="modal-title pull-left">Armor Manager</h4>
-    <fa-icon [icon]="faDice" [ngClass]="{'csd-btn': true, 'csd-dice':true, 'd-none':!showRandom}" (click)="generate()">
-    </fa-icon>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body container">
-    <div class="row">
-      <div class="col-4">Name</div>
-      <div class="col-1 text-center">Head</div>
-      <div class="col-1 text-center">Torso</div>
-      <div class="col-1 text-center">R Arm</div>
-      <div class="col-1 text-center">L Arm</div>
-      <div class="col-1 text-center">R Leg</div>
-      <div class="col-1 text-center">L Leg</div>
-      <div class="col-1 text-center">EV</div>
-      <div class="col-1"></div>
-    </div>
-    <div class="row">
-      <div class="col-4"></div>
-      <div class="col-1 text-center">{{armor.location?.head ?? 0}}</div>
-      <div class="col-1 text-center">{{armor.locations?.torso ?? 0}}</div>
-      <div class="col-1 text-center">{{armor.locations?.rArm ?? 0}}</div>
-      <div class="col-1 text-center">{{armor.locations?.lArm ?? 0}}</div>
-      <div class="col-1 text-center">{{armor.locations?.rLeg ?? 0}}</div>
-      <div class="col-1 text-center">{{armor.locations?.lLeg ?? 0}}</div>
-      <div class="col-1 text-center">{{armor.ev}}</div>
-      <div class="col-1"></div>
-    </div>
-    <div *ngFor="let a of armor.armorPieces;let i = index" class="row">
-      <div class="col-4">
-        <input [(ngModel)]="a.isActive" type="checkbox" [disabled]="!canAddLayer(a)"
-          title="Activate the layer. May not activate if 3 layer rule or if doubling up on hard armor for the layer."
-          (click)="changeActive(i)">
-        {{a.name}} ({{a.isHard? 'Hard':'Soft'}})
-      </div>
-      <div class="col-1"><input [(ngModel)]="a.locations.head" type="number" min="0" (change)="onChangeArmor()"
-          class="text-right"></div>
-      <div class="col-1"><input [(ngModel)]="a.locations.torso" type="number" min="0" (change)="onChangeArmor()"
-          class="text-right"></div>
-      <div class="col-1"><input [(ngModel)]="a.locations.rarm" type="number" min="0" (change)="onChangeArmor()"
-          class="text-right"></div>
-      <div class="col-1"><input [(ngModel)]="a.locations.larm" type="number" min="0" (change)="onChangeArmor()"
-          class="text-right"></div>
-      <div class="col-1"><input [(ngModel)]="a.locations.rleg" type="number" min="0" (change)="onChangeArmor()"
-          class="text-right"></div>
-      <div class="col-1"><input [(ngModel)]="a.locations.lleg" type="number" min="0" (change)="onChangeArmor()"
-          class="text-right"></div>
-      <div class="col-1"><input [(ngModel)]="a.ev" type="number" min="0" (change)="onChangeArmor()" class="text-right">
-      </div>
-      <div class="col-1">
-        <fa-icon [icon]="faTrash" class="csd-btn" title="Delete item" (click)="removeLayer(i)"></fa-icon>
-      </div>
-    </div>
-    <br>
-    <br>
-    <div class="row">
-      <div class="col-12 text-center">
-        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-lg"></fa-icon>
-      </div>
-    </div>
   </div>
 </ng-template>
 

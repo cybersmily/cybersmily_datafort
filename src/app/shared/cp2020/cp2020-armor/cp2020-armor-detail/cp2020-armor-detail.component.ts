@@ -32,7 +32,7 @@ export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
   armor = new Cp2020ArmorPiece();
 
   @Output()
-  change = new EventEmitter<Cp2020ArmorPiece>();
+  updateArmor = new EventEmitter<Cp2020ArmorPiece>();
 
   get selectedSP(): ArmorSpChartEntry {
     return this.spValues.filter(sp => sp.sp === this.currArmor.baseSP)[0];
@@ -75,6 +75,7 @@ export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
 
   changeClothing() {
     this.currArmor.clothes = this.selectedClothing;
+    this.currArmor.baseSP = 0;
     this.spValues = this.armorAttributes.armorChart.filter( sp => sp.mod[this.currArmor.clothes.wt] !== undefined);
     if(this.currArmor.name === '') {
       this.currArmor.name = this.currArmor.clothes.name;
@@ -103,21 +104,22 @@ export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
   generate() {
     this.currArmor = this.armorGeneratorService.generate(this.settings, this.dice, this.armorAttributes);
     this.setSelected();
-
     this.spValues = this.armorAttributes.armorChart.filter( sp => sp.mod[this.currArmor.clothes.wt] !== undefined);
      this.update();
   }
 
   update() {
-    this.currArmor.style = this.selectedStyle;
-    this.currArmor.quality = this.selectedQuality;
+    this.currArmor.style = this.selectedStyle ?? {name: '', mod: 1};
+    this.currArmor.quality = this.selectedQuality ?? {name: '', mod: 1};
     this.currArmor.cost = this.armorCalculatorService.calculateCost(this.currArmor, this.armorAttributes.armorChart);
-    this.change.emit(this.currArmor);
+    this.updateArmor.emit(this.currArmor);
   }
 
   private setSelected() {
     this.selectedClothing = this.armorAttributes.clothes.find(cloth => cloth.name === this.currArmor.clothes.name);
     this.selectedQuality = this.armorAttributes.qualities.find(quality => quality.name === this.currArmor.quality.name);
     this.selectedStyle = this.armorAttributes.styles.find(style => style.name === this.currArmor.style.name);
+    this.spValues = this.armorAttributes.armorChart.filter( sp => sp.mod[this.currArmor.clothes.wt] !== undefined);
+
   }
 }

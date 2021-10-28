@@ -1,6 +1,4 @@
 import { Cp2020ArmorBlock } from './../../shared/cp2020/cp2020-armor/models/cp2020-armor-block';
-import { ArmorBlock } from './../../shared/cp2020/cp2020-armor/models/armor-block';
-import { Cp2020PlayerRole } from './../../shared/cp2020/cp2020-role/models/cp2020-player-role';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

@@ -22,7 +22,7 @@
             (click)="showModal(settingsModal)"></fa-icon>
         </div>
       </div>
-      <cs-cp2020-armor-detail [armor]="currArmor" (change)="updateArmor($event)" >
+      <cs-cp2020-armor-detail [armor]="currArmor" (updateArmor)="updateArmor($event)" >
       </cs-cp2020-armor-detail>
     </div>
     <div class="col csd-rounded">

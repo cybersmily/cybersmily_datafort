@@ -1,51 +1,54 @@
+<div class="content">
   <div class="cp2020-label row">
     <div class="col">
       <h4 class="d-inline-block csd-btn mr-4" (click)="isCollapsed = !isCollapsed">
         ARMOR/CLOTHING
         <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ml-2"></fa-icon>
       </h4>
-      <fa-icon  *ngIf="!isCollapsed" [icon]="faDice"
-            title="Randomly generate items..."
-            class="csd-btn csd-icon-btn csd-icon-lg ml-2 float-right" (click)="showModal(numberOfArmorToRoll)"></fa-icon>
-      <fa-icon *ngIf="!isCollapsed" [icon]="faCog"
-        class="csd-btn csd-icon-btn csd-icon-lg ml-2"
-        title="Change random parameter settings for create a piece of armor"
-        (click)="showModal(settingsModal)"></fa-icon>
+      <fa-icon *ngIf="!isCollapsed" [icon]="faDice" title="Randomly generate items..."
+        class="csd-btn csd-icon-btn csd-icon-lg ml-2" (click)="showModal(numberOfArmorToRoll)"></fa-icon>
+      <fa-icon *ngIf="!isCollapsed" [icon]="faCog" class="csd-btn csd-icon-btn csd-icon-lg ml-2"
+        title="Change random parameter settings for create a piece of armor" (click)="showModal(settingsModal)">
+      </fa-icon>
     </div>
   </div>
   <div class="row border border-dark" [collapse]="isCollapsed">
     <div class="col">
       <div class="row">
         <div class="col">
-          <ng-container [ngTemplateOutlet]="armorList" [ngTemplateOutletContext]="{armorList:armor.armor}"></ng-container>
+          <ng-container [ngTemplateOutlet]="clothingList"></ng-container>
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <ng-container [ngTemplateOutlet]="clothingList" [ngTemplateOutletContext]="{clothingList:armor.armorPieces}"></ng-container>
+          <ng-container [ngTemplateOutlet]="armorList" [ngTemplateOutletContext]="{armorList:armorBlock.activePieces}">
+          </ng-container>
         </div>
       </div>
     </div>
   </div>
+</div>
 
 <ng-template #armorList let-armorList="armorList">
   <div class="row">
     <div class="col">
-      ARMOR
+      ACTIVE ARMOR
     </div>
-    <div class="col-1 text-center">HEAD</div>
-    <div class="col-1 text-center">TORSO</div>
-    <div class="col-1 text-center">RARM</div>
-    <div class="col-1 text-center">LARM</div>
-    <div class="col-1 text-center">RLEG</div>
-    <div class="col-1 text-center">LLEG</div>
-    <div class="col-1 text-center">EV</div>
-    <div class="col-1 text-center">Active</div>
+    <div class="col-1 text-center small">SP</div>
+    <div class="col-1 text-center small">HEAD</div>
+    <div class="col-1 text-center small">TORSO</div>
+    <div class="col-1 text-center small">RARM</div>
+    <div class="col-1 text-center small">LARM</div>
+    <div class="col-1 text-center small">RLEG</div>
+    <div class="col-1 text-center small">LLEG</div>
+    <div class="col-1 text-center small">EV</div>
+    <div class="col-1 text-center small"></div>
   </div>
-  <div *ngFor="let armor of armorList;let i = index" class="row">
+  <div *ngFor="let armor of armorList;let i = index" class="row small">
     <div class="col">
       {{armor.name}}
     </div>
+    <div class="col-1 text-center">{{armor.baseSP}}</div>
     <div class="col-1 text-center">{{armor.locations?.head ?? 0}}</div>
     <div class="col-1 text-center">{{armor.locations?.torso ?? 0}}</div>
     <div class="col-1 text-center">{{armor.locations?.rarm ?? 0}}</div>
@@ -53,21 +56,39 @@
     <div class="col-1 text-center">{{armor.locations?.rleg ?? 0}}</div>
     <div class="col-1 text-center">{{armor.locations?.lleg ?? 0}}</div>
     <div class="col-1 text-center">{{armor.ev}}</div>
-    <div class="col-1 text-center">{{armor.isActive}}</div>
+    <div class="col-1 text-center">{{armor.isHard? 'Hard' : 'Soft'}}</div>
   </div>
 </ng-template>
-<ng-template #clothingList let-clothingList="clothingList">
+<ng-template #clothingList>
   <div class="row">
     <div class="col">
-      Clothing
+      ARMOR/CLOTHING LIST
     </div>
   </div>
-  <div *ngFor="let clothing of clothingList;let i = index" class="row">
-    <div class="col-4 text-truncate border">
-      {{clothing.name}}
+  <div class="row small no-gutters">
+    <div class="col-12 col-md-6">
+      <div class="row small no-gutters">
+        <div class="col text-truncate border ">Name</div>
+        <div class="col-1 text-center border">SP</div>
+        <div class="col-1 text-truncate text-center border">Cost</div>
+      </div>
+      <div *ngFor="let clothing of armorBlock.armorPieces;let i = index" class="row small no-gutters">
+        <div class="col text-truncate border ">
+          <input type="checkbox" class="mr-2" [checked]="clothing.isActive" (change)="activePiece($event,i)">
+          <span class="csd-btn" (click)="selectIndex(i, armorDetailModal)">{{clothing.name}}</span>
+        </div>
+        <div class="col-1 text-center border">{{clothing.baseSP}}</div>
+        <div class="col-1 text-truncate text-right border">
+          {{clothing.cost | number}}eb
+        </div>
+      </div>
     </div>
-    <div class="col-2 col-md-1 text-truncate text-right border">
-      {{clothing.cost | number}}eb
+    <div class="col-12 col-md-6"></div>
+  </div>
+  <div class="row">
+    <div class="col text-center">
+      <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-lg"
+        title="Add new armor/clothing..." (click)="showModal(armorDetailModal)">></fa-icon>
     </div>
   </div>
 </ng-template>
@@ -84,20 +105,35 @@
   </div>
 </ng-template>
 
+
+<ng-template #armorDetailModal>
+  <div class="modal-header">
+    <h4>ARMOR/CLOTHING DETAILS</h4>
+    <fa-icon [icon]="faSave" class="csd-btn csd-icon-btn csd-icon-xl ml-4"
+      title="Save to list..."
+      (click)="saveArmor()"
+    ></fa-icon>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="closeArmorDetailModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <cs-cp2020-armor-detail [armor]="selectedArmor" (updateArmor)="updateSelectedArmor($event)"></cs-cp2020-armor-detail>
+  </div>
+</ng-template>
+
 <ng-template #numberOfArmorToRoll>
   <div class="modal-body">
     <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
       <span aria-hidden="true" class="visually-hidden">&times;</span>
     </button>
     <div class="text-center">
-    Number of pieced to create:
+      Number of pieced to create:
     </div>
     <div class="text-center">
-     <input type="number" min="1" class="csd-number" [(ngModel)]="numberOfPieces">
-    <fa-icon [icon]="faDice" title="Roll Random Armor"
-      class="csd-btn csd-icon-btn csd-icon-xl ml-2"
-      (click)="generate()"
-    ></fa-icon>
-  </div>
+      <input type="number" min="1" class="csd-number" [(ngModel)]="numberOfPieces">
+      <fa-icon [icon]="faDice" title="Roll Random Armor" class="csd-btn csd-icon-btn csd-icon-xl ml-2"
+        (click)="generate()"></fa-icon>
+    </div>
   </div>
 </ng-template>

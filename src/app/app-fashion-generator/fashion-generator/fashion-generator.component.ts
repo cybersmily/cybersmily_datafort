@@ -23,7 +23,10 @@ export class FashionGeneratorComponent implements OnInit {
   faCog = faCog;
 
   modalRef: BsModalRef;
-  config = {};
+  config = {
+    keyboard: true,
+    class: 'modal-dialog-centered modal-lg'
+  };
 
   armorList = Array<Cp2020ArmorPiece>();
   currArmor = new Cp2020ArmorPiece();

@@ -1,6 +1,6 @@
 export class ProportionalSpTable {
   static calculateNewSP(spFirst: number, spSecond: number): number {
-    const delta = Math.abs(spFirst - spSecond);
+    const delta = this.getBonusNumber(Math.abs(spFirst - spSecond));
     return delta + (spFirst > spSecond ? spFirst : spSecond);
   }
 

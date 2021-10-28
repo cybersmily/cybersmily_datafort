@@ -93,12 +93,17 @@ export class Cp2020ArmorBlock implements ArmorBlock {
     if (layer.isActive && this.armorPieces.length > 2) {
       layer.isActive = false;
     }
-    console.log('addPiece', layer);
-    this.armorPieces.push(layer);
-    console.log('list', this.armorPieces);
+    this.armorPieces.push(new Cp2020ArmorPiece(layer));
   }
 
-  activatePiece(layer: Cp2020ArmorPiece) {
+  updatePiece(layer: Cp2020ArmorPiece, index: number) {
+    if(index > -1 && index < this.armorPieces.length) {
+      this.armorPieces[index] = new Cp2020ArmorPiece(layer);
+    }
+  }
+
+  activatePiece(index: number) {
+    const layer = this.armorPieces[index];
     // verify that the new layer doesn't break rules
     const canActivate = (
       this.ableToActivate(layer, 'head')
@@ -109,13 +114,11 @@ export class Cp2020ArmorBlock implements ArmorBlock {
       && this.ableToActivate(layer, 'lleg')
     );
     if (canActivate) {
-      const index = this.armorPieces.findIndex(l => l.name === layer.name);
       this.armorPieces[index].isActive = true;
     }
   }
 
-  deactivatePiece(layer: Cp2020ArmorPiece) {
-    const index = this.armorPieces.findIndex(l => l.name === layer.name);
+  deactivatePiece(index: number) {
     this.armorPieces[index].isActive = false;
   }
 
@@ -173,20 +176,21 @@ export class Cp2020ArmorBlock implements ArmorBlock {
   }
 
   getTotalSP(location: string): number {
-    const armor = this.armorPieces
-      .filter(l => l.isActive && l.locations.hasOwnProperty(location))
+    const activeArmor = this.armorPieces
+      .filter(l => l.isActive && l.locations?.[location])
       .sort((a, b) => a.order - b.order);
 
     // can't have more than 3 layers.
-    if (armor.length > 0) {
+    if (activeArmor.length > 0) {
       let sp = 0;
-      for (let i = 0; i < armor.length; i++) {
+      for (let i = 0; i < activeArmor.length; i++) {
         if (i < 1) {
-          sp = armor[i][location];
+          sp = activeArmor[i].locations[location];
         } else {
-          sp = ProportionalSpTable.calculateNewSP(sp,armor[i].locations[location]);
+          sp = ProportionalSpTable.calculateNewSP(sp,activeArmor[i].locations[location]);
         }
       }
+      console.log('getTotalSP', sp);
       return sp;
     }
     return 0;
@@ -194,8 +198,9 @@ export class Cp2020ArmorBlock implements ArmorBlock {
 
   damageSP(location: string, damage: number) {
     this.armorPieces = this.armorPieces.map( layer => {
-      if(layer.locations[location] !== undefined && layer.isActive) {
+      if(layer.locations[location] !== undefined && layer.isActive ) {
         layer.locations[location] -= damage;
+        layer.locations[location] = layer.locations[location]  > 0 ? layer.locations[location] : 0;
       }
       return layer;
     });
