@@ -4,11 +4,11 @@ import { ArmorCalculatorService,
   ArmorDataAttributesService } from './../services';
 
 import { DiceService } from './../../../services/dice/dice.service';
-import { faDice, faRedo } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faRedo, faSearch } from '@fortawesome/free-solid-svg-icons';
 
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, TemplateRef } from '@angular/core';
 import { Cp2020ArmorPiece, ArmorSpChartEntry, Cp2020ArmorAttributeLists, PieceOfClothing, ArmorOption, CP2020ArmorRandomSettings } from './../models';
-import { faThemeisle } from '@fortawesome/free-brands-svg-icons';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'cs-cp2020-armor-detail',
@@ -18,6 +18,13 @@ import { faThemeisle } from '@fortawesome/free-brands-svg-icons';
 export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
   faDice = faDice;
   faRedo = faRedo;
+  faSearch = faSearch;
+
+  modalRef: BsModalRef;
+  config = {
+    keyboard: true,
+    class: 'modal-dialog-centered modal-xl'
+  }
 
   currArmor = new Cp2020ArmorPiece();
   armorAttributes = new Cp2020ArmorAttributeLists();
@@ -50,7 +57,8 @@ export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
     private armorDataAttributesService: ArmorDataAttributesService,
     private armorCalculatorService: ArmorCalculatorService,
     private armorGeneratorService: ArmorGeneratorService,
-    private randomSettings: ArmorRandomGenSettingsService
+    private randomSettings: ArmorRandomGenSettingsService,
+    private modalService: BsModalService
     ) { }
 
   ngOnInit() {
@@ -127,6 +135,22 @@ export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
     }
     this.currArmor.clothes.loc = locations.join('|');
     this.currArmor.locations = this.armorCalculatorService.setLocationSP(this.currArmor.baseSP, this.currArmor.clothes.loc);
+  }
+
+  addSourceArmor(armor:Cp2020ArmorPiece) {
+    this.currArmor = armor;
+    this.closeModal();
+    this.setSelected();
+  }
+
+  showModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, this.config);
+  }
+
+  closeModal() {
+    if(this.modalRef) {
+      this.modalRef.hide();
+    }
   }
 
   private setSelected() {

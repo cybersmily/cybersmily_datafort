@@ -23,7 +23,7 @@ export class Cp2020ArmorSectionComponent implements OnInit {
   modalRef: BsModalRef;
   config: {
     keyboard: true,
-    class: 'modal-dialog-centered modal-lg'};
+    class: 'modal-dialog-centered modal-xl'};
   numberOfPieces = 1;
 
   settings = new CP2020ArmorRandomSettings();

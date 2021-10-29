@@ -2,6 +2,8 @@
   <div class="col-12">
     Name:
     <input class="w-75" type="text" placeholder="Enter name..." [(ngModel)]="currArmor.name">
+    <fa-icon [icon]="faSearch" title="Select armor from source material" class="csd-btn csd-icon-btn float-right ml-1"
+      (click)="showModal(armorSourceList)"></fa-icon>
     <fa-icon [icon]="faDice" title="Randomly generate clothing" class="csd-btn csd-icon-btn float-right ml-1"
       (click)="generate()"></fa-icon>
     <fa-icon [icon]="faRedo" title="Reset the form" class="csd-btn csd-icon-btn ml-1 float-right" (click)="refresh()">
@@ -112,3 +114,17 @@
     </div>
   </div>
 </div>
+
+<ng-template #armorSourceList>
+  <div class="modal-header">
+    <h4 id="armor-modal-name" class="modal-title pull-left">Armor List</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body container">
+    <cs-cp2020-source-armor-list (selectedArmor)="addSourceArmor($event)"></cs-cp2020-source-armor-list>
+    <br>
+    <br>
+  </div>
+</ng-template>
