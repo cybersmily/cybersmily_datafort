@@ -20,7 +20,7 @@
         WEAPONS
         <fa-icon [icon]="collapseChevron(isWeaponsCollapsed)" class="csd-icon-btn csd-icon-xl ml-1"></fa-icon>
       </h4>
-
+      <ng-container *ngIf="!isWeaponsCollapsed">
       <fa-icon [ngClass]="{'csd-dice': true, 'ml-2': true, 'd-none': !showRandomGenerator}" [icon]="faDice"
         (click)="randomGenerateWeapon()" title="Add random weapon"></fa-icon>
       <fa-icon [ngClass]="{'csd-dice': true, 'ml-2': true, 'd-none': !showRandomGenerator}" [icon]="faCog"
@@ -29,6 +29,7 @@
         [ngClass]="{'csd-btn': true, 'csd-icon-btn': true,  'ml-2': true,'d-none': !showCalculator}"
         (click)="openModal(combatCalcModal)">
       </fa-icon>
+    </ng-container>
     </div>
   </div>
   <div [collapse]="isWeaponsCollapsed" class="container">

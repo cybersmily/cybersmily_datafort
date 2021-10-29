@@ -5,7 +5,7 @@
         CYBERNETICS
         <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ml-2"></fa-icon>
       </h4>
-      <fa-icon [icon]="faDice" class="csd-dice csd-btn" title="Generate random cyberware" (click)="generateCyberware()">
+      <fa-icon *ngIf="!isCollapsed" [icon]="faDice" class="csd-dice csd-btn" title="Generate random cyberware" (click)="generateCyberware()">
       </fa-icon>
     </div>
   </div>
