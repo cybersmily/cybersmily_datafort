@@ -1,5 +1,6 @@
 ﻿{
 "clothes":[
+  {"name":""             ,"cost":0,"wt":"","leather":1,"loc":""},
 	{"name":"Belt"             ,"cost":10,"wt":"lt","leather":1.5,"loc":"waist"},
 	{"name":"Top Blouse"       ,"cost":15,"wt":"lt","loc":"torso|arms"},
 	{"name":"Body Armor (Full)"  ,"cost":150,"wt":"hvy","leather":1.5,"loc":"head|torso|arms|legs"  },

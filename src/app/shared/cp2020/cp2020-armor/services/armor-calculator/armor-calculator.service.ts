@@ -67,7 +67,6 @@ export class ArmorCalculatorService {
       armorLocations.rleg = sp;
       armorLocations.lleg = sp;
     }
-    console.log(armorLocations);
     return armorLocations;
   }
 }

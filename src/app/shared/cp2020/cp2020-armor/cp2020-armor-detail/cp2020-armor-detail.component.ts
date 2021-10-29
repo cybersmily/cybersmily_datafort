@@ -8,6 +8,7 @@ import { faDice, faRedo } from '@fortawesome/free-solid-svg-icons';
 
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { Cp2020ArmorPiece, ArmorSpChartEntry, Cp2020ArmorAttributeLists, PieceOfClothing, ArmorOption, CP2020ArmorRandomSettings } from './../models';
+import { faThemeisle } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'cs-cp2020-armor-detail',
@@ -39,9 +40,9 @@ export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
   }
 
   set selectedSP(value: ArmorSpChartEntry) {
-    this.currArmor.baseSP = value.sp;
-    this.currArmor.locations = this.armorCalculatorService.setLocationSP(value.sp, this.currArmor.clothes.loc);
-    this.currArmor.ev = value.ev[this.currArmor.clothes.wt] ?? 0;
+    this.currArmor.baseSP = value?.sp ?? this.currArmor.baseSP;
+    this.currArmor.locations = this.armorCalculatorService.setLocationSP(value?.sp, this.currArmor.clothes.loc);
+    this.currArmor.ev = value?.ev[this.currArmor.clothes.wt] ?? 0;
     this.update();
   }
 
@@ -75,7 +76,6 @@ export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
 
   changeClothing() {
     this.currArmor.clothes = this.selectedClothing;
-    this.currArmor.baseSP = 0;
     this.spValues = this.armorAttributes.armorChart.filter( sp => sp.mod[this.currArmor.clothes.wt] !== undefined);
     if(this.currArmor.name === '') {
       this.currArmor.name = this.currArmor.clothes.name;
@@ -100,7 +100,6 @@ export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
    this.update();
  }
 
-
   generate() {
     this.currArmor = this.armorGeneratorService.generate(this.settings, this.dice, this.armorAttributes);
     this.setSelected();
@@ -115,11 +114,29 @@ export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
     this.updateArmor.emit(this.currArmor);
   }
 
+  getLocation(location: string): boolean {
+    return this.currArmor.clothes.loc.includes(location);
+  }
+
+  checkLocation(location:string) {
+    const locations = this.currArmor.clothes.loc.split('|');
+    if(locations.includes(location)) {
+      locations.splice(locations.findIndex( loc => loc === location), 1);
+    } else {
+      locations.push(location);
+    }
+    this.currArmor.clothes.loc = locations.join('|');
+    this.currArmor.locations = this.armorCalculatorService.setLocationSP(this.currArmor.baseSP, this.currArmor.clothes.loc);
+  }
+
   private setSelected() {
     this.selectedClothing = this.armorAttributes.clothes.find(cloth => cloth.name === this.currArmor.clothes.name);
     this.selectedQuality = this.armorAttributes.qualities.find(quality => quality.name === this.currArmor.quality.name);
     this.selectedStyle = this.armorAttributes.styles.find(style => style.name === this.currArmor.style.name);
-    this.spValues = this.armorAttributes.armorChart.filter( sp => sp.mod[this.currArmor.clothes.wt] !== undefined);
-
+    this.spValues = this.armorAttributes.armorChart.filter( sp => this.currArmor.clothes.wt === '' || sp.mod[this.currArmor.clothes.wt] !== undefined);
+    const index = this.spValues.findIndex(sp => sp.sp === this.currArmor.baseSP);
+    if( index < 0){
+      this.selectedSP = this.spValues[this.spValues.length -1];
+    }
   }
 }

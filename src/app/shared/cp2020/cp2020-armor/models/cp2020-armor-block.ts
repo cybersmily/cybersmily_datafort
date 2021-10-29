@@ -190,7 +190,6 @@ export class Cp2020ArmorBlock implements ArmorBlock {
           sp = ProportionalSpTable.calculateNewSP(sp,activeArmor[i].locations[location]);
         }
       }
-      console.log('getTotalSP', sp);
       return sp;
     }
     return 0;

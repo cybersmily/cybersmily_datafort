@@ -40,8 +40,6 @@ export class Cp2020ArmorPiece implements ArmorPiece {
       effect: param?.quality?.effect
     };
     this.options = param?.options?.map(opt => opt) ?? new Array<ArmorOption>();
-
-    console.log('constructor', param?.baseSP, param);
     this.baseSP = param?.baseSP ?? 0;
     this.locations = param?.locations ?? {};
 
@@ -54,30 +52,45 @@ export class Cp2020ArmorPiece implements ArmorPiece {
 
     this.cost = param?.cost ?? 0;
 
+    const locations = new Array<string>();
+
     // set legacy armor values
     if(param?.head) {
       this.locations.head = 0;
       this.baseSP = (param.head > this.baseSP) ? param.head : this.baseSP;
+      locations.push('head');
     }
     if(param?.torso) {
       this.locations.torso = 0;
       this.baseSP = (param.torso > this.baseSP) ? param.torso : this.baseSP;
+      locations.push('torso');
     }
     if(param?.rarm) {
       this.locations.rarm = 0;
       this.baseSP = (param.rarm > this.baseSP) ? param.rarm : this.baseSP;
+      locations.push('arms');
     }
     if(param?.larm) {
       this.locations.larm = 0;
       this.baseSP = (param.larm > this.baseSP) ? param.larm : this.baseSP;
+      if(!locations.includes('arms')) {
+        locations.push('arms');
+      }
     }
     if(param?.rleg) {
       this.locations.rleg = 0;
       this.baseSP = (param.rleg > this.baseSP) ? param.rleg : this.baseSP;
+      locations.push('legs');
     }
     if(param?.lleg) {
       this.locations.lleg = 0;
       this.baseSP = (param.lleg > this.baseSP) ? param.lleg : this.baseSP;
+      if(!locations.includes('legs')) {
+        locations.push('legs');
+      }
+    }
+    if(locations.length > 0) {
+      this.clothes.loc = locations.join('|');
     }
 
     // set the locations to the baseSP
