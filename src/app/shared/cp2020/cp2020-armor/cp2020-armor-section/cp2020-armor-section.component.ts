@@ -2,7 +2,7 @@ import { ArmorGeneratorService, ArmorDataAttributesService, ArmorRandomGenSettin
 import { DiceService } from './../../../services/dice/dice.service';
 import { Cp2020ArmorBlock, Cp2020ArmorPiece,Cp2020ArmorAttributeLists, CP2020ArmorRandomSettings  } from './../models';
 import { Component, Input, Output, OnInit, TemplateRef, EventEmitter } from '@angular/core';
-import { faDice, faPlus, faTrash, faChevronRight, faChevronDown, faCog, faSave } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faPlus, faTrash, faChevronRight, faChevronDown, faCog, faSave, faWrench } from '@fortawesome/free-solid-svg-icons';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
@@ -16,6 +16,7 @@ export class Cp2020ArmorSectionComponent implements OnInit {
   faPlus = faPlus;
   faTrash = faTrash;
   faSave = faSave;
+  faWrench = faWrench;
 
   faChevronRight = faChevronRight;
   faChevronDown = faChevronDown;
@@ -113,6 +114,17 @@ export class Cp2020ArmorSectionComponent implements OnInit {
 
   deleteArmor(index: number) {
     this.armorBlock.armorPieces.splice(index, 1);
+    this.update();
+  }
+
+  repair(armor: Cp2020ArmorPiece){
+    const sp = armor.baseSP;
+    const locations = {};
+    Object.keys(armor.locations)
+      .forEach(loc => {
+        locations[loc] = sp;
+    });
+    armor.locations = locations;
     this.update();
   }
 

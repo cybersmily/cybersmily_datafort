@@ -1,6 +1,6 @@
-<div class="content">
+<div class="content pl-3 pr-3">
   <div class="cp2020-label row">
-    <div class="col">
+    <div class="col pl-1">
       <h4 class="d-inline-block csd-btn mr-4" (click)="isCollapsed = !isCollapsed">
         ARMOR/CLOTHING
         <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ml-2"></fa-icon>
@@ -62,6 +62,8 @@
   <div *ngFor="let armor of armorList;let i = index" class="row small">
     <div class="col border border-dark">
       {{armor.name}}
+      <fa-icon [icon]="faWrench" class="csd-btn csd-icon-btn float-right" title="Repair all locations"
+      (click)="repair(armor)"></fa-icon>
     </div>
     <div class="col-1 text-center border border-dark">{{armor.baseSP}}</div>
     <div class="col-1 text-center border border-dark">{{armor.locations?.head ?? 0}}</div>
@@ -121,7 +123,9 @@
 <ng-template #clothingDataRow let-armor="armor" let-index="index">
   <div class="row small">
     <div class="col text-truncate border border-dark">
-      <input type="checkbox" class="mr-2" [checked]="armor.isActive" (change)="activePiece($event,index)"
+      <input type="checkbox" class="mr-2" [checked]="armor.isActive"
+      title="Activate/wear this piece of clothing"
+      (change)="activePiece($event,index)"
       [disabled]="!armorBlock.ableToActivate(armor) && !armor.isActive">
       <span class="csd-btn" (click)="selectIndex(index, armorDetailModal)">{{armor.name}}</span>
       <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn float-right"></fa-icon>
