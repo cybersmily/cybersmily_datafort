@@ -11,6 +11,7 @@ import { DiceService } from './../../services/dice/dice.service';
 import { CommonUiModule } from './../../modules/common-ui/common-ui.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Cp2020SourceArmorListComponent } from './cp2020-source-armor-list/cp2020-source-armor-list.component';
 import { Cp2020ArmorTableComponent } from './cp2020-armor-table/cp2020-armor-table.component';
 import { Cp2020ArmorSectionComponent } from './cp2020-armor-section/cp2020-armor-section.component';
 import { Cp2020ClothingListComponent } from './cp2020-clothing-list/cp2020-clothing-list.component';
@@ -29,7 +30,8 @@ import { ArmorSettingsComponent } from './armor-settings/armor-settings.componen
     Cp2020ArmorListComponent,
     Cp2020ArmorNewComponent,
     Cp2020ArmorDetailComponent,
-    ArmorSettingsComponent
+    ArmorSettingsComponent,
+    Cp2020SourceArmorListComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +55,8 @@ import { ArmorSettingsComponent } from './armor-settings/armor-settings.componen
     Cp2020ArmorListComponent,
     Cp2020ArmorNewComponent,
     Cp2020ArmorDetailComponent,
-    ArmorSettingsComponent
+    ArmorSettingsComponent,
+    Cp2020SourceArmorListComponent
   ]
 })
 export class Cp2020ArmorModule { }
