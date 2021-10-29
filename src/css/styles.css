@@ -22,6 +22,22 @@ INPUT.csd-number-sm {
   color: #333;
 }
 
+.csd-cell-disabled {
+  background-color: #ddd;
+  color: #999;
+}
+
+.csd-highlight {
+  font-weight: bold;
+  color: red;
+}
+.csd-highlight::before {
+  content: '*';
+}
+.csd-highlight::after {
+  content: '*';
+}
+
 .csd-icon-btn {
   color: red;
 }
