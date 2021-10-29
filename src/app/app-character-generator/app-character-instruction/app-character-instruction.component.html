@@ -85,51 +85,6 @@
 </div>
 <br>
 <div style="text-indent: -10px;margin: 10px;">
-  <h5>CYBERNETICS</h5>
-  This section is to list the cyberware a character has installed. This will calculate the total Humanity Cost and EB
-  cost of all of the cyberware in the list. Humaity Cost will be subtracted from EMP stat as a modifier.
-  <br>To add new cyberware, click on an empty row or click on the + at the bottom of the list. This will open a dialog
-  box to enter a piece of Cyberware. Enter all the data as you want. Make sure to choose the appropriate Type as this
-  will display that Type's options.
-  <br>If #options is above 0 and the type of Cyberware supports options, then the options section will appear at the
-  bottom. This lists all thhe options available from the book or you can add your own. Simply drag and drop the options
-  you want, up to the #options limit.
-  <br>Once done entering, make sure to click the <fa-icon [icon]="faSave" class="csd-icon-btn"></fa-icon> icon to save
-  the cyberware to the list.
-  <br>You can also randomly generate a piece of cyberware by click on the <fa-icon class="csd-icon-btn" [icon]="faDice">
-  </fa-icon> icon. This will randomly select a piece of Cyberware for you. This is great for creating NPCs or quick
-  characters.
-</div>
-<br>
-<div style="text-indent: -10px;margin: 10px;">
-  <h5>LIFESTYLE & EXPENSES</h5>
-  This section is track the characters money, expenses, and identites.
-  <br>
-  MONEY - In this section you can enter how much cash and credchips the character has.
-  It also can keep track of any debt. You can also track your salary and add it to your current holdings.
-  The Calculator button is to calculate and pay any immediate services, like cab fare.
-  <br>
-  HOUSING - Place to keep tracking of the character's living arrangements.
-  This section will calculate the monthly cost of each of them.
-  It will also have a section to leave items there and list the contents.
-  <br>
-  SERVICES - This is where you can track your other monthly services, like cell phone.
-  <br>
-  GROCERIES - Here is your available food stuff where you can track how much you have left and if you need to buy more.
-  <br>
-  IDENTITIES - This section is to track the character's identities, whether real or fake ones.
-</div>
-
-<br>
-<div style="text-indent: -10px;margin: 10px;">
-  <h5>LIFEPATH</h5>
-  This section is the LIFEPATH for the character. To randomly generate a life path, choose the source book you want,
-  check if you want to have an event for every year and/or enter the number of years. If number of years is less than 1,
-  it will randomly generate the years (2-12).
-  <br>Each section in the Life Path is editable with your own values, allowing you to enter existing characters.
-</div>
-<br>
-<div style="text-indent: -10px;margin: 10px;">
   <h5>WEAPONS</h5>
   This section stores all the weapons for a character.
   There are 3 icon buttons in the header:
@@ -169,11 +124,100 @@ There you can add more magazines to check track. </p>
 </div>
 <br>
 <div style="text-indent: -10px;margin: 10px;">
+  <h5>CYBERNETICS</h5>
+  This section is to list the cyberware a character has installed. This will calculate the total Humanity Cost and EB
+  cost of all of the cyberware in the list. Humaity Cost will be subtracted from EMP stat as a modifier.
+  <br>To add new cyberware, click on an empty row or click on the + at the bottom of the list. This will open a dialog
+  box to enter a piece of Cyberware. Enter all the data as you want. Make sure to choose the appropriate Type as this
+  will display that Type's options.
+  <br>If #options is above 0 and the type of Cyberware supports options, then the options section will appear at the
+  bottom. This lists all thhe options available from the book or you can add your own. Simply drag and drop the options
+  you want, up to the #options limit.
+  <br>Once done entering, make sure to click the <fa-icon [icon]="faSave" class="csd-icon-btn"></fa-icon> icon to save
+  the cyberware to the list.
+  <br>You can also randomly generate a piece of cyberware by click on the <fa-icon class="csd-icon-btn" [icon]="faDice">
+  </fa-icon> icon. This will randomly select a piece of Cyberware for you. This is great for creating NPCs or quick
+  characters.
+</div>
+<br>
+<div style="text-indent: -10px;margin: 10px;">
+  <h5>ARMOR/CLOTHING</h5>
+  This section is to store all character clothes and armor.
+  This section consists of the dice and settings in the title bar, Armor/Clothing list, and Active Armor list.
+  <p>The dice icon on the title bar is to randomly generate clothes uses the rules from Chromebook 4.
+    To tweak the randomness click on the cog next to the dice icon to narrow the generator's randomness.
+    The clothes will be automatically added to the Armor/Clothing list.
+  </p>
+  <p>
+    Armor/Clothing List is all of the character's clothing, listed alphabetically.
+    each item will display the name of the item, the SP (if any), and the cost in eb.
+    The checkbox before the name is to activate the armor.
+    This will be disable if one of the locations of the armor already has 3 layers or already has a hard layer.
+    If an item is activated it will show in the Active Armor section.
+    The trash icon will remove the item from the list.
+  </p>
+  <p>
+    Active Armor section contains all the pieces of clothing/armor that are being worn/active.
+    These items will be calculated and refelcted in the armor table location at the top of the page.
+    Damage from that table will also go back to this section, showing the current SP for a location.
+    The SP field shows the armors base SP value. Those location that are below it will be highlighted.
+    To fix the armor click on the wrench icon. This will set all the locations back to the base SP.
+  </p>
+
+</div>
+<br>
+<div style="text-indent: -10px;margin: 10px;">
   <h5>GEAR</h5>
   This section is to catpure all the gear a character has. There is no automation here other than totaling the cost and
   weight of the items.
 </div>
 <br>
+<div style="text-indent: -10px;margin: 10px;">
+  <h5>VEHICLES</h5>
+  This section is to add vehicles the character may have.
+  <p>
+  To add vehicle click on the + sign. This will add a blank vehicle to the list.
+  </p>
+  <p>To modify the vehicle click on the pen icon.
+  Here the various fields will fields will be editable.
+  For Weapons and options, you can add each one as a text field.
+  Once you update all the details of the vehicle, click on the save icon.
+</p>
+<p>
+  To remove the vehcile click on the trashcan icon.
+</p>
+</div>
+<br>
+<div style="text-indent: -10px;margin: 10px;">
+  <h5>LIFESTYLE & EXPENSES</h5>
+  This section is track the characters money, expenses, and identites.
+  <br>
+  MONEY - In this section you can enter how much cash and credchips the character has.
+  It also can keep track of any debt. You can also track your salary and add it to your current holdings.
+  The Calculator button is to calculate and pay any immediate services, like cab fare.
+  <br>
+  HOUSING - Place to keep tracking of the character's living arrangements.
+  This section will calculate the monthly cost of each of them.
+  It will also have a section to leave items there and list the contents.
+  <br>
+  SERVICES - This is where you can track your other monthly services, like cell phone.
+  <br>
+  GROCERIES - Here is your available food stuff where you can track how much you have left and if you need to buy more.
+  <br>
+  IDENTITIES - This section is to track the character's identities, whether real or fake ones.
+</div>
+
+<br>
+<div style="text-indent: -10px;margin: 10px;">
+  <h5>LIFEPATH</h5>
+  This section is the LIFEPATH for the character. To randomly generate a life path, choose the source book you want,
+  check if you want to have an event for every year and/or enter the number of years. If number of years is less than 1,
+  it will randomly generate the years (2-12).
+  <br>Each section in the Life Path is editable with your own values, allowing you to enter existing characters.
+</div>
+<br>
+
+
 <div style="text-indent: -10px;margin: 10px;">
   <h5>NOTES</h5>
   This section is a place to add any notes about the character.
