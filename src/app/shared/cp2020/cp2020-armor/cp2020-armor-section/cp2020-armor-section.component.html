@@ -121,7 +121,8 @@
 <ng-template #clothingDataRow let-armor="armor" let-index="index">
   <div class="row small">
     <div class="col text-truncate border border-dark">
-      <input type="checkbox" class="mr-2" [checked]="armor.isActive" (change)="activePiece($event,i)">
+      <input type="checkbox" class="mr-2" [checked]="armor.isActive" (change)="activePiece($event,index)"
+      [disabled]="!armorBlock.ableToActivate(armor) && !armor.isActive">
       <span class="csd-btn" (click)="selectIndex(index, armorDetailModal)">{{armor.name}}</span>
       <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn float-right"></fa-icon>
     </div>

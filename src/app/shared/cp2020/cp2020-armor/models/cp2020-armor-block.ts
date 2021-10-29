@@ -1,7 +1,7 @@
 import { Cp2020ArmorPiece } from './cp2020-armor-piece';
 import { Cp2020SDPBlock } from './cp2020-sdp-block';
 import { ArmorBlock } from './armor-block';
-import {ProportionalSpTable} from './proportional-sp-table';
+import { ProportionalSpTable } from './proportional-sp-table';
 
 /**
  * Maximum Armor
@@ -97,24 +97,21 @@ export class Cp2020ArmorBlock implements ArmorBlock {
   }
 
   updatePiece(layer: Cp2020ArmorPiece, index: number) {
-    if(index > -1 && index < this.armorPieces.length) {
+    if (index > -1 && index < this.armorPieces.length) {
       this.armorPieces[index] = new Cp2020ArmorPiece(layer);
     }
   }
 
   activatePiece(index: number) {
-    const layer = this.armorPieces[index];
-    // verify that the new layer doesn't break rules
-    const canActivate = (
-      this.ableToActivate(layer, 'head')
-      && this.ableToActivate(layer, 'torso')
-      && this.ableToActivate(layer, 'rarm')
-      && this.ableToActivate(layer, 'larm')
-      && this.ableToActivate(layer, 'rleg')
-      && this.ableToActivate(layer, 'lleg')
-    );
-    if (canActivate) {
-      this.armorPieces[index].isActive = true;
+    console.log('activating index', index);
+    if (index > -1 && index < this.armorPieces.length) {
+      const layer = this.armorPieces[index];
+      console.log('activating', layer, index);
+      // verify that the new layer doesn't break rules
+      const canActivate = this.ableToActivate(layer);
+      if (canActivate) {
+        this.armorPieces[index].isActive = true;
+      }
     }
   }
 
@@ -122,17 +119,12 @@ export class Cp2020ArmorBlock implements ArmorBlock {
     this.armorPieces[index].isActive = false;
   }
 
-  ableToActivate(layer: Cp2020ArmorPiece, location: string): boolean {
-    if (layer.locations[location] !== undefined && layer.locations[location] < 1) {
-      return true;
-    }
-    if (this.hasThreeLayer(location)) {
-      return false;
-    }
-    if (layer.isHard && this.hasHardLayer(location)) {
-      return false;
-    }
-    return true;
+  ableToActivate(layer: Cp2020ArmorPiece): boolean {
+    console.log('armor', layer?.name);
+    const found = Object.keys(layer.locations).filter(location => {
+      return this.hasThreeLayer(location) || (layer.isHard && this.hasHardLayer(location))
+    });
+    return found.length < 1;
   }
 
 
@@ -187,7 +179,7 @@ export class Cp2020ArmorBlock implements ArmorBlock {
         if (i < 1) {
           sp = activeArmor[i].locations[location];
         } else {
-          sp = ProportionalSpTable.calculateNewSP(sp,activeArmor[i].locations[location]);
+          sp = ProportionalSpTable.calculateNewSP(sp, activeArmor[i].locations[location]);
         }
       }
       return sp;
@@ -196,10 +188,10 @@ export class Cp2020ArmorBlock implements ArmorBlock {
   }
 
   damageSP(location: string, damage: number) {
-    this.armorPieces = this.armorPieces.map( layer => {
-      if(layer.locations[location] !== undefined && layer.isActive ) {
+    this.armorPieces = this.armorPieces.map(layer => {
+      if (layer.locations[location] !== undefined && layer.isActive) {
         layer.locations[location] -= damage;
-        layer.locations[location] = layer.locations[location]  > 0 ? layer.locations[location] : 0;
+        layer.locations[location] = layer.locations[location] > 0 ? layer.locations[location] : 0;
       }
       return layer;
     });
