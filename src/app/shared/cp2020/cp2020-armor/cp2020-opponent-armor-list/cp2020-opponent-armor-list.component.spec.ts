@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Cp2020OpponenentListComponent } from './cp2020-opponenent-list.component';
+import { Cp2020OpponentArmorListComponent } from './cp2020-opponent-armor-list.component';
 
 describe('Cp2020OpponenentListComponent', () => {
-  let component: Cp2020OpponenentListComponent;
-  let fixture: ComponentFixture<Cp2020OpponenentListComponent>;
+  let component: Cp2020OpponentArmorListComponent;
+  let fixture: ComponentFixture<Cp2020OpponentArmorListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Cp2020OpponenentListComponent ]
+      declarations: [ Cp2020OpponentArmorListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(Cp2020OpponenentListComponent);
+    fixture = TestBed.createComponent(Cp2020OpponentArmorListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

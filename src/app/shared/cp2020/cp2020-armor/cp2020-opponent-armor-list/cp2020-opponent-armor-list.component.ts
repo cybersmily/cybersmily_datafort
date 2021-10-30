@@ -1,15 +1,15 @@
-import { Cp2020ArmorPiece } from './../models/cp2020-armor-piece';
+import { Cp2020ArmorPiece } from '../models/cp2020-armor-piece';
 import { faWrench, faTrash, faPlus, faDice, faSave } from '@fortawesome/free-solid-svg-icons';
-import { Cp2020ArmorBlock } from './../models/cp2020-armor-block';
+import { Cp2020ArmorBlock } from '../models/cp2020-armor-block';
 import { Component, Input, OnInit, Output, TemplateRef, EventEmitter } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
-  selector: 'cs-cp2020-opponenent-list',
-  templateUrl: './cp2020-opponenent-list.component.html',
-  styleUrls: ['./cp2020-opponenent-list.component.css']
+  selector: 'cs-cp2020-opponent-armor-list',
+  templateUrl: './cp2020-opponent-armor-list.component.html',
+  styleUrls: ['./cp2020-opponent-armor-list.component.css']
 })
-export class Cp2020OpponenentListComponent implements OnInit {
+export class Cp2020OpponentArmorListComponent implements OnInit {
   faWrench = faWrench;
   faTrash = faTrash;
   faPlus = faPlus;

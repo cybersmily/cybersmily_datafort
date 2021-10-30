@@ -19,7 +19,7 @@ import { Cp2020ArmorListComponent } from './cp2020-armor-list/cp2020-armor-list.
 import { Cp2020ArmorNewComponent } from './cp2020-armor-new/cp2020-armor-new.component';
 import { Cp2020ArmorDetailComponent } from './cp2020-armor-detail/cp2020-armor-detail.component';
 import { ArmorSettingsComponent } from './armor-settings/armor-settings.component';
-import { Cp2020OpponenentListComponent } from './cp2020-opponenent-list/cp2020-opponenent-list.component';
+import { Cp2020OpponentArmorListComponent } from './cp2020-opponent-armor-list/cp2020-opponent-armor-list.component';
 
 
 
@@ -33,7 +33,7 @@ import { Cp2020OpponenentListComponent } from './cp2020-opponenent-list/cp2020-o
     Cp2020ArmorDetailComponent,
     ArmorSettingsComponent,
     Cp2020SourceArmorListComponent,
-    Cp2020OpponenentListComponent
+    Cp2020OpponentArmorListComponent
   ],
   imports: [
     CommonModule,
@@ -59,7 +59,7 @@ import { Cp2020OpponenentListComponent } from './cp2020-opponenent-list/cp2020-o
     Cp2020ArmorDetailComponent,
     ArmorSettingsComponent,
     Cp2020SourceArmorListComponent,
-    Cp2020OpponenentListComponent
+    Cp2020OpponentArmorListComponent
   ]
 })
 export class Cp2020ArmorModule { }
