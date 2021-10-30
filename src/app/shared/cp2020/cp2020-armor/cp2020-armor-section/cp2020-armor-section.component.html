@@ -33,9 +33,7 @@
 
 <ng-template #armorList let-armorList="armorList">
   <div class="row bg-black font-weight-bold text-white">
-    <div class="col border border-dark">
-      ACTIVE ARMOR
-    </div>
+    <div class="col border border-dark">ACTIVE ARMOR</div>
     <div class="col-1 text-center border border-dark small">SP</div>
     <div class="col-1 text-center border border-dark small">HEAD</div>
     <div class="col-1 text-center border border-dark small">TORSO</div>
@@ -47,8 +45,7 @@
     <div class="col-1 text-center border border-dark small"></div>
   </div>
   <div *ngIf="armorList.length &lt; 1" class="row small">
-    <div class="col border border-dark">&nbsp;
-    </div>
+    <div class="col border border-dark">&nbsp;</div>
     <div class="col-1 text-center border border-dark"></div>
     <div class="col-1 text-center border border-dark"></div>
     <div class="col-1 text-center border border-dark"></div>
@@ -124,16 +121,13 @@
   <div class="row small">
     <div class="col text-truncate border border-dark">
       <input type="checkbox" class="mr-2" [checked]="armor.isActive"
-      title="Activate/wear this piece of clothing"
-      (change)="activePiece($event,index)"
+      title="Activate/wear this piece of clothing" (change)="activePiece($event,index)"
       [disabled]="!armorBlock.ableToActivate(armor) && !armor.isActive">
       <span class="csd-btn" (click)="selectIndex(index, armorDetailModal)">{{armor.name}}</span>
       <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn float-right"></fa-icon>
     </div>
     <div class="col-1 text-center border border-dark">{{armor.baseSP}}</div>
-    <div class="col-2 text-right border border-dark">
-      {{armor.cost | number}}eb
-    </div>
+    <div class="col-2 text-right border border-dark">{{armor.cost | number}}eb</div>
   </div>
 </ng-template>
 

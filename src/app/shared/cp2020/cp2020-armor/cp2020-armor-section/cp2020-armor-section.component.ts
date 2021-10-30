@@ -113,18 +113,13 @@ export class Cp2020ArmorSectionComponent implements OnInit {
   }
 
   deleteArmor(index: number) {
-    this.armorBlock.armorPieces.splice(index, 1);
+    this.armorBlock.removePiece(index);
     this.update();
   }
 
   repair(armor: Cp2020ArmorPiece){
-    const sp = armor.baseSP;
-    const locations = {};
-    Object.keys(armor.locations)
-      .forEach(loc => {
-        locations[loc] = sp;
-    });
-    armor.locations = locations;
+    console.log('repair',armor);
+    armor.locations = this.armorBlock.repairArmorAllLocations(armor.baseSP, armor.locations);
     this.update();
   }
 

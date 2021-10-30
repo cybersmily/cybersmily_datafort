@@ -56,37 +56,9 @@ export class Cp2020ArmorTableComponent implements OnInit {
     return '';
   }
 
-  constructor(private modalService: BsModalService,
-    private armorService: ArmorDataListService,
-    private diceService: DiceService) { }
+  constructor(private modalService: BsModalService) { }
 
   ngOnInit() {
-  }
-
-  get addDisable(): boolean {
-    return (this.newLayer.name === '');
-  }
-
-  canAddLayer(layer: Cp2020ArmorPiece): boolean {
-    let result = true;
-    if(!layer.isActive) {
-      // loop through each of the location to see if the current layer can be added.
-      this.locations.every( location => {
-        const locationLayers = this.armor.activePieces.filter(l => l[location] > 0);
-        // check if the current layer isn't adding more than 3 layers
-        if(layer.locations[location] > 0 && locationLayers.length > 2) {
-          result = false;
-          return false;
-        }
-        // check if the current layer is adding another hard layer
-        if(layer.locations[location] > 0 && layer.isHard && locationLayers.some(l => l.isHard)) {
-          result = false;
-          return false;
-        }
-        return true;
-      });
-    }
-    return result;
   }
 
   onChangeArmor() {
@@ -101,42 +73,9 @@ export class Cp2020ArmorTableComponent implements OnInit {
     this.modalRef.hide();
   }
 
-  addLayer() {
-    if (!this.addDisable) {
-      this.armor.addPiece(this.newLayer);
-      this.newLayer = new Cp2020ArmorPiece();
-      this.onChangeArmor();
-    }
-  }
-
-  removeLayer(index: number) {
-    this.armor.removePiece(this.armor.armorPieces[index]);
-    this.onChangeArmor();
-  }
-
-  changeActive(index: number) {
-    const layer = this.armor.armorPieces[index];
-    if (layer.isActive) {
-      this.armor.deactivatePiece(index);
-    } else {
-      this.armor.activatePiece(index);
-    }
-    this.onChangeArmor();
-  }
-
   damage() {
     this.armor.damageSP(this.selectedLocation, this.spDamage);
     this.onChangeArmor();
-  }
-
-  generate() {
-    /*
-    this.armorService.generateArmorLayer(this.diceService)
-    .subscribe( layer => {
-      this.armor.addPiece(layer);
-      this.onChangeArmor();
-    });
-    */
   }
 
   resetSDP(location: string) {

@@ -1,3 +1,4 @@
+import { ArmorLocations } from './armor-locations';
 import { Cp2020ArmorPiece } from './cp2020-armor-piece';
 import { Cp2020SDPBlock } from './cp2020-sdp-block';
 import { ArmorBlock } from './armor-block';
@@ -135,9 +136,20 @@ export class Cp2020ArmorBlock implements ArmorBlock {
     return this.armorPieces.some(l => l.isActive && l.locations.hasOwnProperty(location) && l.isHard);
   }
 
-  removePiece(layer: Cp2020ArmorPiece) {
-    const index = this.armorPieces.findIndex(l => l.name === layer.name);
+  removePiece(index: number) {
     this.armorPieces.splice(index, 1);
+  }
+
+  repairArmorAllLocations(baseSP: number, locations:ArmorLocations): ArmorLocations {
+    if (baseSP > 0 && locations) {
+      const newlocations = {};
+      Object.keys(locations)
+        .forEach(loc => {
+          newlocations[loc] = baseSP;
+      });
+      return newlocations;
+    }
+    return {};
   }
 
   get headSP(): number {
