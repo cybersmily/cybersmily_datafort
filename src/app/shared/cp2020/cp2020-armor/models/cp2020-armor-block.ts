@@ -103,10 +103,8 @@ export class Cp2020ArmorBlock implements ArmorBlock {
   }
 
   activatePiece(index: number) {
-    console.log('activating index', index);
     if (index > -1 && index < this.armorPieces.length) {
       const layer = this.armorPieces[index];
-      console.log('activating', layer, index);
       // verify that the new layer doesn't break rules
       const canActivate = this.ableToActivate(layer);
       if (canActivate) {
@@ -120,7 +118,6 @@ export class Cp2020ArmorBlock implements ArmorBlock {
   }
 
   ableToActivate(layer: Cp2020ArmorPiece): boolean {
-    console.log('armor', layer?.name);
     const found = Object.keys(layer.locations).filter(location => {
       return this.hasThreeLayer(location) || (layer.isHard && this.hasHardLayer(location))
     });

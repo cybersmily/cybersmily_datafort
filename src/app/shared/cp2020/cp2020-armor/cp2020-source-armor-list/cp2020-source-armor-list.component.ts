@@ -18,7 +18,6 @@ export class Cp2020SourceArmorListComponent implements OnInit {
 
   ngOnInit(): void {
     this.armorDataListService.getData().subscribe( list => {
-      console.log(list);
       this.armorList = list.map( armor => new Cp2020ArmorPiece(armor));
     });
   }

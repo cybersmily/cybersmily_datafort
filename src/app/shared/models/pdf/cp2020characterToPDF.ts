@@ -1,3 +1,4 @@
+import { Cp2020ArmorPDFSectionService } from './../../cp2020/cp2020-armor/services/cp2020-armor-pdf-section/cp2020-armor-pdf-section.service';
 import { Cp2020Identity } from './../../cp2020/cp2020-lifestyle/models/cp2020-identity';
 import { CpHousing } from '../../cp2020/cp2020-lifestyle/models/cp-housing';
 import { Cp2020Lifestyle } from './../../cp2020/cp2020-lifestyle/models/cp2020-lifestyle';
@@ -26,6 +27,9 @@ export class Cp2020characterToPDF {
   private _fontSize = 11;
   private _pageHeight = 290;
   private _font = 'Arial';
+
+  constructor(private armorPdfService: Cp2020ArmorPDFSectionService) {
+  }
 
   generatePdf(character: Cp2020PlayerCharacter) {
     this._character = character;
@@ -775,90 +779,7 @@ export class Cp2020characterToPDF {
   }
 
   private addArmor(doc: jsPDF, armor: Cp2020ArmorBlock, left: number, line: number): number {
-    doc.setFillColor('black');
-    doc.rect(left, line, 200, 7, 'DF');
-    doc.setTextColor('white');
-    doc.setFont(this._font, 'bold');
-    doc.text('ARMOR', left + 2, line + 5);
-    doc.setTextColor('black');
-    doc.setFont(this._font, 'normal');
-    doc.setFontSize(7);
-    const ht = 5;
-    const leftMargin = left;
-    line += 7;
-    // header
-    doc.rect(left, line, 30, ht, 'S');
-    doc.text('Name', left + 1, line + 4);
-    left += 30;
-    doc.rect(left, line, 10, ht, 'S');
-    doc.text('Head', left + 1, line + 4);
-    left += 10;
-    doc.rect(left, line, 10, ht, 'S');
-    doc.text('Torso', left + 1, line + 4);
-    left += 10;
-    doc.rect(left, line, 10, ht, 'S');
-    doc.text('R Arm', left + 1, line + 4);
-    left += 10;
-    doc.rect(left, line, 10, ht, 'S');
-    doc.text('L Arm', left + 1, line + 4);
-    left += 10;
-    doc.rect(left, line, 10, ht, 'S');
-    doc.text('R Leg', left + 1, line + 4);
-    left += 10;
-    doc.rect(left, line, 10, ht, 'S');
-    doc.text('L Leg', left + 1, line + 4);
-    left += 10;
-    doc.rect(left, line, 10, ht, 'S');
-    doc.text('EV', left + 1, line + 4);
-    left += 10;
-    doc.rect(left, line, 10, ht, 'S');
-    doc.text('Hard', left + 1, line + 4);
-    left += 10;
-    doc.rect(left, line, 15, ht, 'S');
-    doc.text('Skinweave', left + 1, line + 4);
-    left += 15;
-    doc.rect(left, line, 75, ht, 'S');
-    left += 70;
-    /* TODO: Update armor/clothing
-    armor.layers.forEach( layer => {
-      line += 5;
-      left = leftMargin;
-      doc.rect(left, line, 30, ht, 'S');
-      doc.text(`${layer.isActive? '* ': ''}${layer.name}`, left + 1, line + 4);
-      left += 30;
-      doc.rect(left, line, 10, ht, 'S');
-      doc.text(layer.head.toString(), left + 1, line + 4);
-      left += 10;
-      doc.rect(left, line, 10, ht, 'S');
-      doc.text(layer.torso.toString(), left + 1, line + 4);
-      left += 10;
-      doc.rect(left, line, 10, ht, 'S');
-      doc.text(layer.rarm.toString(), left + 1, line + 4);
-      left += 10;
-      doc.rect(left, line, 10, ht, 'S');
-      doc.text(layer.larm.toString(), left + 1, line + 4);
-      left += 10;
-      doc.rect(left, line, 10, ht, 'S');
-      doc.text(layer.rleg.toString(), left + 1, line + 4);
-      left += 10;
-      doc.rect(left, line, 10, ht, 'S');
-      doc.text(layer.lleg.toString(), left + 1, line + 4);
-      left += 10;
-      doc.rect(left, line, 10, ht, 'S');
-      doc.text(layer.ev.toString(), left + 1, line + 4);
-      left += 10;
-      doc.rect(left, line, 10, ht, 'S');
-      doc.text(layer.isHard ? 'Y': 'N', left + 1, line + 4);
-      left += 10;
-      doc.rect(left, line, 15, ht, 'S');
-      doc.text(layer.isSkinWeave ? 'Y' : 'N', left + 1, line + 4);
-      left += 15;
-      doc.rect(left, line, 75, ht, 'S');
-      left += 70;
-
-    });
-    */
-    return line + 6;
+    return this.armorPdfService.createCp2020ArmorSection(doc, armor, this._font, left, line);
   }
 
   private printLifepathLine(doc: jsPDF, title: string, value: string, margin: number, left: number, line: number): number {
