@@ -1,3 +1,4 @@
+import { Cp2020CyberdeckManager } from './../../cp2020/cp2020-netrun-gear/models/cp2020-cyberdeck-manager';
 import { Cp2020Vehicle } from './../../cp2020/cp2020-vehicles/models/cp2020-vehicle';
 import { Cp2020IuSkillConverterService } from './../../cp2020/services/cp2020-iu-skill-converter.service';
 import { Cp2020PlayerAmmo } from './../../cp2020/cp2020weapons/models/cp-2020-player-ammo';
@@ -32,6 +33,7 @@ export class Cp2020CharacterGeneratorService {
   }
 
   changeCharacter(value: any) {
+    console.log(value);
     this._currCharacter = new Cp2020PlayerCharacter(value?.isIU);
     this._currCharacter.handle = value.handle ? value.handle : '';
     if (value.role) {
@@ -79,6 +81,11 @@ export class Cp2020CharacterGeneratorService {
 
     if(value.vehicles) {
       this._currCharacter.vehicles = value.vehicles.map(veh => new Cp2020Vehicle(veh));
+    }
+
+    if(value.cyberdeckPrograms) {
+      console.log('setting Cyberdeck', value.cyberdeckPrograms)
+      this._currCharacter.cyberdeckPrograms = new Cp2020CyberdeckManager(value.cyberdeckPrograms);
     }
 
     if (value.lifepath) {
@@ -203,6 +210,12 @@ export class Cp2020CharacterGeneratorService {
     this.updateCharacter();
   }
 
+  changeCyberdeckPrograms(value: Cp2020CyberdeckManager) {
+    console.log('changeCyberdeckPrograms', value);
+    this._currCharacter.cyberdeckPrograms = new Cp2020CyberdeckManager(value);
+    this.updateCharacter();
+  }
+
   changeVehicles(value: Array<Cp2020Vehicle>) {
     this._currCharacter.vehicles = [...value];
     this.updateCharacter();
@@ -262,6 +275,7 @@ export class Cp2020CharacterGeneratorService {
    * @memberof Cp2020CharacterGeneratorService
    */
   saveToStorage() {
+    console.log('saveToStorage', this._currCharacter);
     window.localStorage.setItem(
       CacheKeys.CP2020_CHAR_GEN,
       JSON.stringify(this._currCharacter)
@@ -275,6 +289,7 @@ export class Cp2020CharacterGeneratorService {
    * @memberof Cp2020CharacterGeneratorService
    */
   updateCharacter() {
+    console.log('updateCharacter', this._currCharacter);
     this.changeCharacter(JSON.parse(JSON.stringify( this._currCharacter)));
   }
 

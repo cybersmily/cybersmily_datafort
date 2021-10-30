@@ -1,3 +1,4 @@
+import { Cp2020NetrunGearModule } from '../shared/cp2020/cp2020-netrun-gear/cp2020-netrun-gear.module';
 import { Cp2020LifepathModule } from './../shared/cp2020/cp2020-lifepath/cp2020-lifepath.module';
 import { Cp2020VehiclesModule } from './../shared/cp2020/cp2020-vehicles/cp2020-vehicles.module';
 import { Cp2020RoleModule } from './../shared/cp2020/cp2020-role/cp2020-role.module';
@@ -51,6 +52,7 @@ import { AppCharacterInstructionComponent } from './app-character-instruction/ap
     Cp2020RoleModule,
     Cp2020VehiclesModule,
     Cp2020LifepathModule,
+    Cp2020NetrunGearModule,
     ModalModule.forRoot()
   ],
   providers: [

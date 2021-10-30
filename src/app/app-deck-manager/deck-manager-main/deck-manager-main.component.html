@@ -76,10 +76,10 @@
   </div>
 </div>
   <div class="row">
-    <div class="col-12 col-lg-6">
-      <cs-deck-form [deck]="deckManagerModel.deck" (update)="updateDeck($event)"></cs-deck-form>
+    <div class="col-12 col-lg-6 csd-rounded">
+      <cs-cp2020-cyberdeck-form [deck]="deckManagerModel.deck" (update)="updateDeck($event)"></cs-cp2020-cyberdeck-form>
     </div>
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-lg-6 csd-rounded">
       <cs-program-list [programList]="deckManagerModel.programList"
         [maxMu]="deckManagerModel.deck.mu"
         (updateList)="uploadList($event)">

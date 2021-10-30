@@ -7,7 +7,7 @@ import { Cp2020Cyberdeck, CyberdeckData, CyberdeckOption } from '../models';
 import { Component, OnInit, TemplateRef, EventEmitter, Output, Input, OnChanges } from '@angular/core';
 
 @Component({
-  selector: 'cs-deck-form',
+  selector: 'cs-cp2020-cyberdeck-form',
   templateUrl: './cp2020-cyberdeck-form.component.html',
   styleUrls: ['./cp2020-cyberdeck-form.component.css']
 })

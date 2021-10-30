@@ -1,0 +1,25 @@
+<div class="content pl-3 pr-3">
+  <div class="cp2020-label row">
+    <div class="col pl-1">
+      <h4 class="d-inline-block csd-btn mr-4" (click)="isCollapsed = !isCollapsed">
+        CYBERDECKS AND PROGRAMS
+        <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ml-2"></fa-icon>
+      </h4>
+    </div>
+  </div>
+  <div class="row border border-dark" [collapse]="isCollapsed">
+    <div class="col">
+      <div class="row">
+        <div class="col-12 col-lg-6 border border-dark">
+          <cs-cp2020-cyberdeck-form [deck]="currManager.deck" (update)="updateDeck($event)"></cs-cp2020-cyberdeck-form>
+          <br>
+        </div>
+        <div class="col col-lg-6 border border-dark">
+          <cs-program-list [programList]="currManager.programList"
+          [maxMu]="currManager.deck.mu"
+          (updateList)="uploadList($event)"></cs-program-list>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

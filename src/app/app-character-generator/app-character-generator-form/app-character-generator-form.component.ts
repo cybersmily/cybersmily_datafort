@@ -1,3 +1,5 @@
+import { Cp2020ArmorPDFSectionService } from './../../shared/cp2020/cp2020-armor/services/cp2020-armor-pdf-section/cp2020-armor-pdf-section.service';
+import { Cp2020CyberdeckManager } from './../../shared/cp2020/cp2020-netrun-gear/models/cp2020-cyberdeck-manager';
 import { TitleValue } from './../../shared/models/title-value';
 import { SourcesDataService } from './../../shared/cp2020/cp2020-lifepath/services/sources-data.service';
 import { Cp2020CharGenSettings } from './../../shared/cp2020/models/cp2020-char-gen-settings';
@@ -64,6 +66,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     private sourceService: SourcesDataService,
     private fileLoader: FileLoaderService,
     private modalService: BsModalService,
+    private armorPDFService: Cp2020ArmorPDFSectionService,
     private seo: SeoService
   ) { }
 
@@ -120,6 +123,10 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     this.characterService.changeGear(value);
   }
 
+  changeCyberdeckPrograms(value: Cp2020CyberdeckManager) {
+    this.characterService.changeCyberdeckPrograms(value);
+  }
+
   changeVehicles(value: Array<Cp2020Vehicle>) {
     this.characterService.changeVehicles(value);
   }
@@ -168,7 +175,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   }
 
   createPDF() {
-    const characterToPDF = new Cp2020characterToPDF();
+    const characterToPDF = new Cp2020characterToPDF(this.armorPDFService);
     characterToPDF.generatePdf(this.character);
   }
 

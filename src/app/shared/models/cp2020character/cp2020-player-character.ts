@@ -1,3 +1,4 @@
+import { Cp2020CyberdeckManager } from './../../cp2020/cp2020-netrun-gear/models/cp2020-cyberdeck-manager';
 import { Cp2020Vehicle } from './../../cp2020/cp2020-vehicles/models/cp2020-vehicle';
 import { Cp2020PlayerCyberList } from './../../cp2020/cp2020-cyberware/models';
 import { Cp2020PlayerSkills } from './../../cp2020/cp2020-skills/models';
@@ -19,6 +20,7 @@ export class Cp2020PlayerCharacter {
   gear: Cp2020PlayerGearList;
   weapons: CpPlayerWeaponList;
   vehicles: Array<Cp2020Vehicle>;
+  cyberdeckPrograms: Cp2020CyberdeckManager;
   lifepath: LifePathResults;
   lifeStyle: Cp2020Lifestyle;
   skills: Cp2020PlayerSkills;
@@ -35,6 +37,7 @@ export class Cp2020PlayerCharacter {
     this.cyberware = new Cp2020PlayerCyberList(4);
     this.gear = new Cp2020PlayerGearList(24);
     this.vehicles = new Array<Cp2020Vehicle>();
+    this.cyberdeckPrograms = new Cp2020CyberdeckManager();
     this.weapons = new CpPlayerWeaponList(3);
     this.skills = new Cp2020PlayerSkills();
     this.lifepath = new LifePathResults();

@@ -66,6 +66,11 @@
           </cs-cp2020weapontable>
         </div>
       </div>
+      <div class="row print-fix csd-linebreak mt-2">
+        <div class="col">
+          <cs-cp2020-armor-section [isCollapsed]="charGenSettings.isCollapsed" [armorBlock]="character.armor" (changeArmor)="changeArmor($event)"></cs-cp2020-armor-section>
+        </div>
+      </div>
       <div class="row print-fix csd-linebreak no-gutters">
         <div class="col">
           <cs-cp2020-cyberware-table [cyberList]="character.cyberware" (changeList)="changeCyber($event)"
@@ -74,16 +79,14 @@
         </div>
       </div>
 
-
-      <div class="row print-fix csd-linebreak mt-2">
-        <div class="col">
-          <cs-cp2020-armor-section [isCollapsed]="charGenSettings.isCollapsed" [armorBlock]="character.armor" (changeArmor)="changeArmor($event)"></cs-cp2020-armor-section>
-        </div>
-      </div>
-
       <div class="row print-fix">
         <div class="col">
           <cs-app-character-gear [gear]="character.gear" (changeGear)="changeGear($event)" [isCollapsed]="charGenSettings.isCollapsed"></cs-app-character-gear>
+        </div>
+      </div>
+      <div class="row print-fix mt-1">
+        <div class="col">
+          <cs-cp2020-cyber-deck-section [isCollapsed]="charGenSettings.isCollapsed" (updateCyberdeckPrograms)="changeCyberdeckPrograms($event)" [cyberdeckManager]="character.cyberdeckPrograms"></cs-cp2020-cyber-deck-section>
         </div>
       </div>
       <div class="row print-fix csd-linebreak">

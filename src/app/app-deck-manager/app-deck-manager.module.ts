@@ -1,4 +1,4 @@
-import { Cp2020NetrunGear } from './../shared/cp2020/cp2020-netrun-gear/cp2020-netrun-gear';
+import { Cp2020NetrunGearModule } from '../shared/cp2020/cp2020-netrun-gear/cp2020-netrun-gear.module';
 import { DataService } from './../shared/services/file-services';
 import { PipesModule } from './../shared/pipes/pipes.module';
 import { FormsModule } from '@angular/forms';
@@ -18,7 +18,7 @@ import { DeckManagerMainComponent } from './deck-manager-main/deck-manager-main.
     FormsModule,
     PipesModule,
     AppDeckManagerRoutingModule,
-    Cp2020NetrunGear
+    Cp2020NetrunGearModule
   ],
   providers: [
     DataService
