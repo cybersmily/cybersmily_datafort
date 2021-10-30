@@ -123,6 +123,7 @@ export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
   }
 
   getLocation(location: string): boolean {
+    console.log(this.currArmor.clothes.loc);
     return this.currArmor.clothes.loc.includes(location);
   }
 
@@ -135,12 +136,14 @@ export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
     }
     this.currArmor.clothes.loc = locations.join('|');
     this.currArmor.locations = this.armorCalculatorService.setLocationSP(this.currArmor.baseSP, this.currArmor.clothes.loc);
+    this.update();
   }
 
   addSourceArmor(armor:Cp2020ArmorPiece) {
-    this.currArmor = armor;
+    this.currArmor = new Cp2020ArmorPiece(armor);
     this.closeModal();
     this.setSelected();
+    this.updateArmor.emit(this.currArmor);
   }
 
   showModal(template: TemplateRef<any>) {

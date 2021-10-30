@@ -1,0 +1,77 @@
+<div class="row bg-black font-weight-bold text-white">
+  <div class="col-12 col-md-4 border border-dark">Armor
+    <fa-icon [icon]="faDice" class="csd-btn csd-icon-btn ml-4" title="Roll for random published armor piece"></fa-icon>
+  </div>
+  <div class="col-1 text-center border border-dark small pr-0 pl-0 d-none d-md-inline-block">SP</div>
+  <div class="col-1 text-center border border-dark small pr-0 pl-0 d-none d-md-inline-block text-truncate">HEAD</div>
+  <div class="col-1 text-center border border-dark small pr-0 pl-0 d-none d-md-inline-block text-truncate">TORSO</div>
+  <div class="col-1 text-center border border-dark small pr-0 pl-0 d-none d-md-inline-block">R ARM</div>
+  <div class="col-1 text-center border border-dark small pr-0 pl-0 d-none d-md-inline-block">L ARM</div>
+  <div class="col-1 text-center border border-dark small pr-0 pl-0 d-none d-md-inline-block">R LEG</div>
+  <div class="col-1 text-center border border-dark small pr-0 pl-0 d-none d-md-inline-block">L LEG</div>
+  <div class="col-1 text-center border border-dark small pr-0 pl-0 d-none d-md-inline-block">EV</div>
+</div>
+<div *ngIf="currArmorBlock.armorPieces.length &lt; 1" class="row small">
+  <div class="col border border-dark">&nbsp;
+  </div>
+  <div class="col-1 text-center border border-dark"></div>
+  <div class="col-1 text-center border border-dark"></div>
+  <div class="col-1 text-center border border-dark"></div>
+  <div class="col-1 text-center border border-dark"></div>
+  <div class="col-1 text-center border border-dark"></div>
+  <div class="col-1 text-center border border-dark"></div>
+  <div class="col-1 text-center border border-dark"></div>
+  <div class="col-1 text-center border border-dark"></div>
+</div>
+<div *ngFor="let armor of currArmorBlock.armorPieces;let i = index" class="row small">
+  <div class="col-12 col-md-4 border border-dark pr-0 pl-1">
+    <input type="checkbox" [checked]="armor.isActive" (change)="toggleActiveArmor($event, i)">
+    {{armor.name}}
+    <fa-icon [icon]="faWrench" class="csd-btn csd-icon-btn float-right mr-1" title="Repair all locations"
+      (click)="repairArmor(armor)"></fa-icon>
+    <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn float-right mr-2" title="Remove armor"
+      (click)="deleteArmor(i)"></fa-icon>
+  </div>
+  <div class="col-2 d-md-none border border-dark text-right pr-1">SP:</div>
+  <div class="col-1 text-center border border-dark pr-0 pl-0">{{armor.baseSP}}</div>
+  <div
+    [ngClass]="{'col-1 text-center border border-dark pr-0 pl-0':true,'csd-highlight':armor.baseSP > (armor.locations?.head) ,'csd-cell-disabled':(!armor.locations?.head) }">
+    {{armor.locations?.head ?? ''}}</div>
+  <div
+    [ngClass]="{'col-1 text-center border border-dark pr-0 pl-0':true,'csd-highlight':armor.baseSP > (armor.locations?.torso),'csd-cell-disabled':(!armor.locations?.torso)}">
+    {{armor.locations?.torso ??''}}</div>
+  <div
+    [ngClass]="{'col-1 text-center border border-dark pr-0 pl-0':true,'csd-highlight':armor.baseSP > (armor.locations?.rarm) ,'csd-cell-disabled':(!armor.locations?.rarm) }">
+    {{armor.locations?.rarm ?? ''}}</div>
+  <div
+    [ngClass]="{'col-1 text-center border border-dark pr-0 pl-0':true,'csd-highlight':armor.baseSP > (armor.locations?.larm) ,'csd-cell-disabled':(!armor.locations?.larm) }">
+    {{armor.locations?.larm ?? ''}}</div>
+  <div
+    [ngClass]="{'col-1 text-center border border-dark pr-0 pl-0':true,'csd-highlight':armor.baseSP > (armor.locations?.rleg) ,'csd-cell-disabled':(!armor.locations?.rleg) }">
+    {{armor.locations?.rleg ?? ''}}</div>
+  <div
+    [ngClass]="{'col-1 text-center border border-dark pr-0 pl-0':true,'csd-highlight':armor.baseSP > (armor.locations?.lleg) ,'csd-cell-disabled':(!armor.locations?.lleg) }">
+    {{armor.locations?.lleg ?? ''}}</div>
+  <div class="col-2 text-right d-md-none border border-dark pr-1">EV:</div>
+  <div class="col-1 text-center border border-dark pr-0 pl-0">{{armor.ev}}</div>
+</div>
+<div class="row border border-dark">
+  <div class="col text-center">
+    <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn" title="Add armor piece" (click)="showModal(armorDetailModal)">
+    </fa-icon>
+  </div>
+</div>
+<ng-template #armorDetailModal>
+  <div class="modal-header">
+    <h4>ADD ARMOR</h4>
+    <fa-icon [icon]="faSave" class="csd-btn csd-icon-btn csd-icon-xl ml-4" title="Save to list..."
+      (click)="saveNewArmor()"></fa-icon>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="closeArmorDetailModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <cs-cp2020-armor-detail [armor]="selectedArmor" (updateArmor)="updateSelectedArmor($event)">
+    </cs-cp2020-armor-detail>
+  </div>
+</ng-template>

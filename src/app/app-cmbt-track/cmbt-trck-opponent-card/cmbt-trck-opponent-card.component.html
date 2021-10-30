@@ -89,6 +89,12 @@
         <br>
       </div>
     </tab>
+    <tab heading="ARMOR" [customClass]="customClass">
+      <div class="csd-rounded pl-4 pr-4">
+        <cs-cp2020-opponenent-list [armorBlock]="currOpponent.armor" (updateAmor)="changeArmor($event)"></cs-cp2020-opponenent-list>
+        <br>
+      </div>
+    </tab>
     <tab heading="GEAR" [customClass]="customClass">
       <div class="csd-rounded">
         <cs-cmbt-trck-gear [gear]="currOpponent.gear" (newGear)="changeGear($event)"></cs-cmbt-trck-gear>

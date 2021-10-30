@@ -8,7 +8,7 @@
   {"name":"Bodysuit (Medium)"  ,"cost":150,"wt":"lt","leather":1.5,"loc":"head|torso|arms|legs"},
 	{"name":"Boots"            ,"cost":25,"wt":"med","leather":1.5,"loc":"feet"},
 	{"name":"Halfboots"        ,"cost":15,"wt":"med","leather":1.5,"loc":"feet"},
-	{"name":"Kneeboots"        ,"cost":40,"wt":"med","leather":1.5,"loc":"feet"},
+	{"name":"Kneeboots"        ,"cost":40,"wt":"med","leather":1.5,"loc":"legs"},
 	{"name":"Cloak"            ,"cost":50,"wt":"med","leather":1.5,"loc":"torso|arms|legs"},
 	{"name":"Cape (short)"     ,"cost":75,"wt":"med","leather":1.5,"loc":"torso|arms|legs"},
 	{"name":"Cape (long)"      ,"cost":90,"wt":"med","leather":1.5,"loc":"torso|arms|legs"},

@@ -41,7 +41,12 @@ export class Cp2020ArmorPiece implements ArmorPiece {
     };
     this.options = param?.options?.map(opt => opt) ?? new Array<ArmorOption>();
     this.baseSP = param?.baseSP ?? 0;
-    this.locations = param?.locations ?? {};
+    if(param?.locations) {
+      this.locations = param.locations;
+      this.clothes.loc = Object.keys(this.locations).join('|');
+    } else {
+      this.locations = {};
+    }
 
     this.ev = param?.ev ?? 0;
     this.order = param?.order ?? 0;
@@ -54,6 +59,7 @@ export class Cp2020ArmorPiece implements ArmorPiece {
 
     const locations = new Array<string>();
 
+    console.log('cp2020ArmorPiece', param, this.locations);
     // set legacy armor values
     if(param?.head) {
       this.locations.head = 0;
@@ -91,12 +97,12 @@ export class Cp2020ArmorPiece implements ArmorPiece {
     }
     if(locations.length > 0) {
       this.clothes.loc = locations.join('|');
+      // set the locations to the baseSP
+      for(const key in this.locations) {
+        this.locations[key] = this.baseSP;
+      }
     }
 
-    // set the locations to the baseSP
-    for(const key in this.locations) {
-      this.locations[key] = this.baseSP;
-    }
     if(param?.source) {
       this.source = {book: param.source.book, page: param.source.page};
     }

@@ -66,14 +66,22 @@
     </span>
   </div>
 </div>
-<div class="row no-gutters" style="margin-bottom: -7px;">
+<div class="row">
+  <div class="col">Locations:
+    Head <input type="checkbox" (change)="checkLocation('head')" [checked]="getLocation('head')">
+    Torso <input type="checkbox" (change)="checkLocation('torso')" [checked]="getLocation('torso')">
+    Arms <input type="checkbox" (change)="checkLocation('arms')" [checked]="getLocation('arm')">
+    Legs <input type="checkbox" (change)="checkLocation('legs')" [checked]="getLocation('leg')">
+  </div>
+</div>
+<div class="row no-gutters small" style="margin-bottom: -7px;">
   <div class="col-2"></div>
-  <div class="col-1 h6 border border-dark pl-1 pr-1"><small>HEAD</small></div>
-  <div class="col-1 h6 border border-dark pl-1 pr-1"><small>TORSO</small></div>
-  <div class="col-1 h6 border border-dark pl-1 pr-1"><small>R.ARM</small></div>
-  <div class="col-1 h6 border border-dark pl-1 pr-1"><small>L.ARM</small></div>
-  <div class="col-1 h6 border border-dark pl-1 pr-1"><small>R.LEG</small></div>
-  <div class="col-1 h6 border border-dark pl-1 pr-1"><small>L.LEG</small></div>
+  <div class="col-1 h6 border border-dark text-center"><small>HEAD</small></div>
+  <div class="col-1 h6 border border-dark text-center"><small>TORSO</small></div>
+  <div class="col-1 h6 border border-dark text-center"><small>R ARM</small></div>
+  <div class="col-1 h6 border border-dark text-center"><small>L ARM</small></div>
+  <div class="col-1 h6 border border-dark text-center"><small>R LEG</small></div>
+  <div class="col-1 h6 border border-dark text-center"><small>L LEG</small></div>
   <div class="col-1"></div>
 </div>
 <div class="row no-gutters">
@@ -82,21 +90,13 @@
       <option *ngFor="let sp of spValues" [ngValue]="sp">{{sp.sp}}</option>
     </select>
   </div>
-  <div class="col-1 text-center border border-dark">{{currArmor.locations?.head ?? ''}}</div>
-  <div class="col-1 text-center border border-dark">{{currArmor.locations?.torso ?? ''}}</div>
-  <div class="col-1 text-center border border-dark">{{currArmor.locations?.rarm ?? ''}}</div>
-  <div class="col-1 text-center border border-dark">{{currArmor.locations?.larm ?? ''}}</div>
-  <div class="col-1 text-center border border-dark">{{currArmor.locations?.rleg ?? ''}}</div>
-  <div class="col-1 text-center border border-dark">{{currArmor.locations?.lleg ?? ''}}</div>
+  <div class="col-1 text-center border border-dark pl-0 pr-0">{{currArmor.locations?.head ?? ''}}</div>
+  <div class="col-1 text-center border border-dark pl-0 pr-0">{{currArmor.locations?.torso ?? ''}}</div>
+  <div class="col-1 text-center border border-dark pl-0 pr-0">{{currArmor.locations?.rarm ?? ''}}</div>
+  <div class="col-1 text-center border border-dark pl-0 pr-0">{{currArmor.locations?.larm ?? ''}}</div>
+  <div class="col-1 text-center border border-dark pl-0 pr-0">{{currArmor.locations?.rleg ?? ''}}</div>
+  <div class="col-1 text-center border border-dark pl-0 pr-0">{{currArmor.locations?.lleg ?? ''}}</div>
   <div class="col-1"></div>
-</div>
-<div class="row">
-  <div class="col">Locations:
-    Head <input type="checkbox" (change)="checkLocation('head')" [checked]="getLocation('head')">
-    Torso <input type="checkbox" (change)="checkLocation('torso')" [checked]="getLocation('torso')">
-    Arms <input type="checkbox" (change)="checkLocation('arms')" [checked]="getLocation('arm')">
-    Legs <input type="checkbox" (change)="checkLocation('legs')" [checked]="getLocation('leg')">
-  </div>
 </div>
 <div class="row">
   <div class="col">Skinweave
