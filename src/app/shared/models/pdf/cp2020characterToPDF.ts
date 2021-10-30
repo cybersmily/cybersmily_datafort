@@ -1,3 +1,4 @@
+import { Cp2020DeckmanagerPdfSectionService } from './../../cp2020/cp2020-netrun-gear/services/cp2020-deckmanager-pdf-section/cp2020-deckmanager-pdf-section.service';
 import { Cp2020ArmorPDFSectionService } from './../../cp2020/cp2020-armor/services/cp2020-armor-pdf-section/cp2020-armor-pdf-section.service';
 import { Cp2020Identity } from './../../cp2020/cp2020-lifestyle/models/cp2020-identity';
 import { CpHousing } from '../../cp2020/cp2020-lifestyle/models/cp-housing';
@@ -28,7 +29,8 @@ export class Cp2020characterToPDF {
   private _pageHeight = 290;
   private _font = 'Arial';
 
-  constructor(private armorPdfService: Cp2020ArmorPDFSectionService) {
+  constructor(private armorPdfService: Cp2020ArmorPDFSectionService,
+    private deckmanagerPdfService: Cp2020DeckmanagerPdfSectionService) {
   }
 
   generatePdf(character: Cp2020PlayerCharacter) {
@@ -110,11 +112,14 @@ export class Cp2020characterToPDF {
     doc.addPage();
     let line = this._top;
     line = this.addWeapons(doc, this._character.weapons, this._left, line);
-    line = this.addArmor(doc, this._character.armor, this._left, line);
+    line = this.armorPdfService
+            .createCp2020ArmorSection(doc, this._character.armor, this._font, this._left, line);
     doc.addPage();
     line = this._top;
     line = this.addCyberware(doc, this._character.cyberware, this._left, line);
     line = this.addGear(doc, this._character.gear, this._left, line);
+    line = this.deckmanagerPdfService
+            .createCp2020CyberdeckProgramsSection(doc, this._character.cyberdeckPrograms, this._font, this._left, line);
   }
 
   createVehiclesPage(doc: jsPDF) {
@@ -776,10 +781,6 @@ export class Cp2020characterToPDF {
     });
     doc.setFontSize(this._fontSize);
     return line + 6;
-  }
-
-  private addArmor(doc: jsPDF, armor: Cp2020ArmorBlock, left: number, line: number): number {
-    return this.armorPdfService.createCp2020ArmorSection(doc, armor, this._font, left, line);
   }
 
   private printLifepathLine(doc: jsPDF, title: string, value: string, margin: number, left: number, line: number): number {

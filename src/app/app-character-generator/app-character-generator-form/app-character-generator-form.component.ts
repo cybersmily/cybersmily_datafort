@@ -1,3 +1,4 @@
+import { Cp2020DeckmanagerPdfSectionService } from './../../shared/cp2020/cp2020-netrun-gear/services/cp2020-deckmanager-pdf-section/cp2020-deckmanager-pdf-section.service';
 import { Cp2020ArmorPDFSectionService } from './../../shared/cp2020/cp2020-armor/services/cp2020-armor-pdf-section/cp2020-armor-pdf-section.service';
 import { Cp2020CyberdeckManager } from './../../shared/cp2020/cp2020-netrun-gear/models/cp2020-cyberdeck-manager';
 import { TitleValue } from './../../shared/models/title-value';
@@ -67,6 +68,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     private fileLoader: FileLoaderService,
     private modalService: BsModalService,
     private armorPDFService: Cp2020ArmorPDFSectionService,
+    private deckmanagerPDFService: Cp2020DeckmanagerPdfSectionService,
     private seo: SeoService
   ) { }
 
@@ -175,7 +177,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   }
 
   createPDF() {
-    const characterToPDF = new Cp2020characterToPDF(this.armorPDFService);
+    const characterToPDF = new Cp2020characterToPDF(this.armorPDFService, this.deckmanagerPDFService);
     characterToPDF.generatePdf(this.character);
   }
 
