@@ -1,6 +1,6 @@
-<div class='container'>
+<div>
   <div class='row'>
-    <div class='col-12 opp-handle'>
+    <div class='col opp-handle'>
       <input [(ngModel)]="currOpponent.name" type="text" title="Enter the name of the opponent."
         placeholder="Enter the opponent's handle..." (change)="changeOpponent()" />
     </div>
@@ -36,12 +36,14 @@
   </div>
   <div class='row'>
     <div class='col-12'>
-  <cs-cp2020-stats [stats]="currOpponent.stats" [showCharacterPoints]="false" [showRollInitiative]="false" (changeStats)="onStatBlockChange($event)"></cs-cp2020-stats>
-</div>
-</div>
-<div class='row'>
+      <cs-cp2020-stats [stats]="currOpponent.stats" [showCharacterPoints]="false" [showRollInitiative]="false"
+        (changeStats)="onStatBlockChange($event)"></cs-cp2020-stats>
+    </div>
+  </div>
+  <div class='row'>
     <div class='col-12'>
-      <cs-cp2020-save-wounds [stats]="currOpponent.stats" (changeStats)="onStatBlockChange($event)"></cs-cp2020-save-wounds>
+      <cs-cp2020-save-wounds [stats]="currOpponent.stats" (changeStats)="onStatBlockChange($event)">
+      </cs-cp2020-save-wounds>
     </div>
   </div>
   <div class='row'>
@@ -49,59 +51,58 @@
       <cs-cp2020-armor-table [armor]="currOpponent.armor" (changeArmor)="changeArmor($event)"></cs-cp2020-armor-table>
     </div>
   </div>
-  <tabset>
-    <tab heading="MODIFIERS" [customClass]="customClass">
-      <div class="csd-rounded">
-        <cs-cp2020weapon-calculator [weaponList]="currOpponent.getWeaponsAsList()"
-        [skills]="currOpponent.getSkillAsList()"
-        [body]="currOpponent.stats.BODY.Adjusted"
-        [ref]="currOpponent.stats.REF.Adjusted"
-        [bodyDamageMod]="currOpponent.stats.BodyDmgMod"
-        [handle]="currOpponent.name"
-        >
-        </cs-cp2020weapon-calculator>
-        <br>
-      </div>
-    </tab>
-    <tab heading="SKILLS" [customClass]="customClass">
-      <div class="csd-rounded">
-        <cs-cmbt-trk-skills [opponent]="currOpponent" (updateOpponent)="changeOpponent($event)"></cs-cmbt-trk-skills>
-        <br>
-      </div>
-    </tab>
-    <tab heading="CYBER" [customClass]="customClass">
-      <div class="csd-rounded">
-        <cs-cmbt-trk-cyber [cyberware]="currOpponent.cyberware" (newCyberware)="changeCyber($event)"></cs-cmbt-trk-cyber>
-        <br>
-      </div>
-    </tab>
-    <tab heading="WEAPONS" [customClass]="customClass">
-      <div class="csd-rounded">
-         <cs-cp2020weapontable
-            [weapons]="currOpponent.getWeaponsAsList()"
-            [stats]="currOpponent.stats"
-            [skills]="currOpponent.getSkillAsList()"
-            [showRandomGenerator]="true"
-            [showSelector]="true"
-            [showCalculator]="false"
-            (changeWeapons)="changeWeapons($event)">
-          </cs-cp2020weapontable>
-        <br>
-      </div>
-    </tab>
-    <tab heading="ARMOR" [customClass]="customClass">
-      <div class="csd-rounded pl-4 pr-4">
-        <cs-cp2020-opponent-armor-list [armorBlock]="currOpponent.armor" (updateAmor)="changeArmor($event)"></cs-cp2020-opponent-armor-list>
-        <br>
-      </div>
-    </tab>
-    <tab heading="GEAR" [customClass]="customClass">
-      <div class="csd-rounded">
-        <cs-cmbt-trck-gear [gear]="currOpponent.gear" (newGear)="changeGear($event)"></cs-cmbt-trck-gear>
-        <br>
-      </div>
-    </tab>
-  </tabset>
-  <br>
-  <br>
+  <div class="row">
+    <div class="col">
+      <tabset>
+        <tab heading="MODIFIERS" [customClass]="customClass">
+          <div class="csd-rounded">
+            <cs-cp2020weapon-calculator [weaponList]="currOpponent.getWeaponsAsList()"
+              [skills]="currOpponent.getSkillAsList()" [body]="currOpponent.stats.BODY.Adjusted"
+              [ref]="currOpponent.stats.REF.Adjusted" [bodyDamageMod]="currOpponent.stats.BodyDmgMod"
+              [handle]="currOpponent.name">
+            </cs-cp2020weapon-calculator>
+            <br>
+          </div>
+        </tab>
+        <tab heading="SKILLS" [customClass]="customClass">
+          <div class="csd-rounded">
+            <cs-cmbt-trk-skills [opponent]="currOpponent" (updateOpponent)="changeOpponent($event)">
+            </cs-cmbt-trk-skills>
+            <br>
+          </div>
+        </tab>
+        <tab heading="CYBER" [customClass]="customClass">
+          <div class="csd-rounded">
+            <cs-cmbt-trk-cyber [cyberware]="currOpponent.cyberware" (newCyberware)="changeCyber($event)">
+            </cs-cmbt-trk-cyber>
+            <br>
+          </div>
+        </tab>
+        <tab heading="WEAPONS" [customClass]="customClass">
+          <div class="csd-rounded">
+            <cs-cp2020weapontable [weapons]="currOpponent.getWeaponsAsList()" [stats]="currOpponent.stats"
+              [skills]="currOpponent.getSkillAsList()" [showRandomGenerator]="true" [showSelector]="true"
+              [showCalculator]="false" (changeWeapons)="changeWeapons($event)">
+            </cs-cp2020weapontable>
+            <br>
+          </div>
+        </tab>
+        <tab heading="ARMOR" [customClass]="customClass">
+          <div class="csd-rounded pl-4 pr-4">
+            <cs-cp2020-opponent-armor-list [armorBlock]="currOpponent.armor" (updateAmor)="changeArmor($event)">
+            </cs-cp2020-opponent-armor-list>
+            <br>
+          </div>
+        </tab>
+        <tab heading="GEAR" [customClass]="customClass">
+          <div class="csd-rounded">
+            <cs-cmbt-trck-gear [gear]="currOpponent.gear" (newGear)="changeGear($event)"></cs-cmbt-trck-gear>
+            <br>
+          </div>
+        </tab>
+      </tabset>
+      <br>
+      <br>
+    </div>
+  </div>
 </div>

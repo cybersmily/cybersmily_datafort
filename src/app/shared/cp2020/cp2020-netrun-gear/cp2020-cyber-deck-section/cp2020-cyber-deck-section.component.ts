@@ -43,7 +43,6 @@ export class Cp2020CyberDeckSectionComponent implements OnInit, OnChanges {
   }
 
   uploadList(list: Cp2020ProgramList) {
-    console.log('uploadList', list);
     this.currManager.programList = list;
     this.updateCyberdeckPrograms.emit(this.currManager);
   }

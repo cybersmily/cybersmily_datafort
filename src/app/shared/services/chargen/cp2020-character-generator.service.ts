@@ -33,7 +33,6 @@ export class Cp2020CharacterGeneratorService {
   }
 
   changeCharacter(value: any) {
-    console.log(value);
     this._currCharacter = new Cp2020PlayerCharacter(value?.isIU);
     this._currCharacter.handle = value.handle ? value.handle : '';
     if (value.role) {
@@ -84,7 +83,6 @@ export class Cp2020CharacterGeneratorService {
     }
 
     if(value.cyberdeckPrograms) {
-      console.log('setting Cyberdeck', value.cyberdeckPrograms)
       this._currCharacter.cyberdeckPrograms = new Cp2020CyberdeckManager(value.cyberdeckPrograms);
     }
 
@@ -211,7 +209,6 @@ export class Cp2020CharacterGeneratorService {
   }
 
   changeCyberdeckPrograms(value: Cp2020CyberdeckManager) {
-    console.log('changeCyberdeckPrograms', value);
     this._currCharacter.cyberdeckPrograms = new Cp2020CyberdeckManager(value);
     this.updateCharacter();
   }
@@ -275,7 +272,6 @@ export class Cp2020CharacterGeneratorService {
    * @memberof Cp2020CharacterGeneratorService
    */
   saveToStorage() {
-    console.log('saveToStorage', this._currCharacter);
     window.localStorage.setItem(
       CacheKeys.CP2020_CHAR_GEN,
       JSON.stringify(this._currCharacter)
@@ -289,7 +285,6 @@ export class Cp2020CharacterGeneratorService {
    * @memberof Cp2020CharacterGeneratorService
    */
   updateCharacter() {
-    console.log('updateCharacter', this._currCharacter);
     this.changeCharacter(JSON.parse(JSON.stringify( this._currCharacter)));
   }
 

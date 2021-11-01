@@ -59,7 +59,6 @@ export class Cp2020ArmorPiece implements ArmorPiece {
 
     const locations = new Array<string>();
 
-    console.log('cp2020ArmorPiece', param, this.locations);
     // set legacy armor values
     if(param?.head) {
       this.locations.head = 0;

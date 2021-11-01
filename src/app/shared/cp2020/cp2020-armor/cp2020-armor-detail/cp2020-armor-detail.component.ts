@@ -123,7 +123,6 @@ export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
   }
 
   getLocation(location: string): boolean {
-    console.log(this.currArmor.clothes.loc);
     return this.currArmor.clothes.loc.includes(location);
   }
 

@@ -16,6 +16,9 @@ export class ArmorRandomGenSettingsService {
     if(this._currSettings == null) {
       this._currSettings = this.localStorageManagerService.retrive<CP2020ArmorRandomSettings>(StorageKeys.ARMOR_GENERATOR_SETTINGS);
     }
+    if( this._currSettings == null) {
+      this._currSettings = new CP2020ArmorRandomSettings();
+    }
     this._settings.next(this._currSettings);
    }
 

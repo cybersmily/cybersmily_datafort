@@ -118,7 +118,6 @@ export class Cp2020ArmorSectionComponent implements OnInit {
   }
 
   repair(armor: Cp2020ArmorPiece){
-    console.log('repair',armor);
     armor.locations = this.armorBlock.repairArmorAllLocations(armor.baseSP, armor.locations);
     this.update();
   }

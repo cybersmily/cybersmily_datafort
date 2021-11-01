@@ -24,20 +24,20 @@ export class ArmorGeneratorService {
 
     do {
       // check if a default was set.
-      if (settings.quality !== '' ) {
-        armor.quality = clothingLists.qualities.filter(q => q.name === settings.quality)[0];
+      if (settings?.quality !== '' ) {
+        armor.quality = clothingLists.qualities.filter(q => q.name === settings?.quality)[0];
       } else {
         armor.quality = dice.rollRandomItem<ArmorOption>(clothingLists.qualities);
       }
 
-      if (settings.style !== '') {
-        armor.style = clothingLists.styles.filter(q => q.name === settings.style)[0];
+      if (settings?.style !== '') {
+        armor.style = clothingLists.styles.filter(q => q.name === settings?.style)[0];
       } else {
         armor.style = dice.rollRandomItem<ArmorOption>(clothingLists.styles);
       }
 
       // if both, 50/50 chance to make it armor
-      let canBeArmor: boolean = (settings.armor == ArmorSettingsChoices.both) ? dice.generateNumber(0, 1) === 1 : settings.armor == ArmorSettingsChoices.armor;
+      let canBeArmor: boolean = (settings?.armor == ArmorSettingsChoices.both) ? dice.generateNumber(0, 1) === 1 : settings.armor == ArmorSettingsChoices.armor;
       if (canBeArmor && armor.clothes.loc !== '') {
         const spValues = clothingLists.armorChart.filter(item => item.mod[armor.clothes.wt]);
         let spRoll = dice.rollRandomItem<ArmorSpChartEntry>(spValues);
@@ -59,7 +59,7 @@ export class ArmorGeneratorService {
         }
       }
 
-      if (settings.hasOptions) {
+      if (settings?.hasOptions) {
         armor.options = new Array<ArmorOption>();
         // roll number of options with a low chance of getting them.
         let numOfOptions = dice.generateNumber(0, clothingLists.options.length + 3);
@@ -72,11 +72,11 @@ export class ArmorGeneratorService {
         }
       }
       //check if it can be leather
-      if (typeof armor.clothes?.leather !== 'undefined' && armor.cost < settings.maxCost) {
+      if (typeof armor.clothes?.leather !== 'undefined' && armor.cost < settings?.maxCost) {
         armor.isLeather = settings.isLeather ? true : (dice.generateNumber(0, 10) < 3);
       }
       armor.cost = this.armorCostCalculator.calculateCost(armor, clothingLists.armorChart);
-    } while (armor.cost > settings.maxCost);
+    } while (armor.cost > settings?.maxCost);
     armor.name = armor.style.name;
     armor.name += ` ${armor.quality.name} `;
     armor.name += armor.baseSP > 0 ? `Armored ` : '';

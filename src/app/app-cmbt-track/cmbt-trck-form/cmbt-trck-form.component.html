@@ -1,22 +1,31 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <fa-icon [icon]="faSave" class="float-left btn-lg csd-btn csd-icon-btn" (click)="save()" title="Save to a json file. This is needed to reload the data."></fa-icon>
+      <fa-icon [icon]="faSave" class="float-left btn-lg csd-btn csd-icon-btn" (click)="save()"
+        title="Save to a json file. This is needed to reload the data."></fa-icon>
       &nbsp;
 
       <input type="file" id="loadFile" title="load a combat tracker json file" name="Load" Style="display: none"
-      (change)="load($event)" #inputFile (click)="inputFile.value = null" accept="text/plain;text/json" />
-      <label for="loadFile" class="float-left btn-lg csd-btn mr-1"><fa-icon [icon]="faUpload" title="load a combat tracker json file" class=" csd-icon-btn"></fa-icon></label>
+        (change)="load($event)" #inputFile (click)="inputFile.value = null" accept="text/plain;text/json" />
+      <label for="loadFile" class="float-left btn-lg csd-btn mr-1">
+        <fa-icon [icon]="faUpload" title="load a combat tracker json file" class=" csd-icon-btn"></fa-icon>
+      </label>
       &nbsp;
 
-      <input type="file" id="importFile" title="Import a Cybersmily CP2020 JSON file as an opponent" name="Import" Style="display: none"
-      (change)="import($event)" #inputFile (click)="inputFile.value = null" accept="text/plain;text/json" />
-      <label for="importFile" class="float-left btn-lg csd-btn mr-1"><fa-icon [icon]="faFileImport" title="Import a Cybersmily CP2020 JSON file as an opponent" class=" csd-icon-btn"></fa-icon></label>
+      <input type="file" id="importFile" title="Import a Cybersmily CP2020 JSON file as an opponent" name="Import"
+        Style="display: none" (change)="import($event)" #inputFile (click)="inputFile.value = null"
+        accept="text/plain;text/json" />
+      <label for="importFile" class="float-left btn-lg csd-btn mr-1">
+        <fa-icon [icon]="faFileImport" title="Import a Cybersmily CP2020 JSON file as an opponent"
+          class=" csd-icon-btn"></fa-icon>
+      </label>
       &nbsp;
-      <fa-icon [icon]="faHelp" class="float-left btn-lg csd-btn csd-icon-btn" (click)="openModal(instructionModal)" title="Show instructions."></fa-icon>
+      <fa-icon [icon]="faHelp" class="float-left btn-lg csd-btn csd-icon-btn" (click)="openModal(instructionModal)"
+        title="Show instructions."></fa-icon>
       &nbsp;
 
-      <fa-icon [icon]="faRedo" class="float-right btn-lg csd-btn csd-icon-btn" (click)="openModal(resetModal)" title="Reset tracker. Removing all the combatants."></fa-icon>
+      <fa-icon [icon]="faRedo" class="float-right btn-lg csd-btn csd-icon-btn" (click)="openModal(resetModal)"
+        title="Reset tracker. Removing all the combatants."></fa-icon>
     </div>
   </div>
   <div class="row">
@@ -26,27 +35,31 @@
           <div class="row">
             <div class="col-6">
               INITIATIVE &nbsp;
-              <fa-icon [icon]="faDice" (click)="rollInitiative()" title="Roll all opponents' initiative" class="csd-btn csd-dice"></fa-icon>
+              <fa-icon [icon]="faDice" (click)="rollInitiative()" title="Roll all opponents' initiative"
+                class="csd-btn csd-dice"></fa-icon>
             </div>
             <div class="col-6">
-              TURN: <input class="cbttrk-turn" type="number" min="0" value="1"/>
+              TURN: <input class="cbttrk-turn" type="number" min="0" value="1" />
             </div>
           </div>
           <div *ngFor="let opp of opponents; index as i"
-              [ngClass]="{'csd-rounded':true, 'row': true, 'cbttrk-init': true, 'cbttrk-selected': (selectedOpponent.id === opp.id)}">
+            [ngClass]="{'csd-rounded':true, 'row': true, 'cbttrk-init': true, 'cbttrk-selected': (selectedOpponent.id === opp.id)}">
             <div class="col-3" [title]="showInitiativeTooltip(opp)">
-              <input [(ngModel)]="opp.initRoll" type="number" (change)="changeInitiative()" class="csd-hide-spinner text-center" />
-              <fa-icon [icon]="faDice" class="csd-btn opp-init csd-dice"
-              title="Roll initiative for this opponent" (click)="rollInitiative(opp.id)"></fa-icon>
+              <input [(ngModel)]="opp.initRoll" type="number" (change)="changeInitiative()"
+                class="csd-hide-spinner text-center" />
+              <fa-icon [icon]="faDice" class="csd-btn opp-init csd-dice" title="Roll initiative for this opponent"
+                (click)="rollInitiative(opp.id)"></fa-icon>
             </div>
             <div class="col-8 cbttrk-opp-name csd-btn" (click)='selectOpponent(i)' title="Click to show opponent...">
-               <span>{{opp.name}}</span>
-               <br>
-               <span class="cbtrck-opp-init-mods">[REF: {{opp.stats.REF.Adjusted}}]</span>
+              <span>{{opp.name}}</span>
+              <br>
+              <span class="cbtrck-opp-init-mods">[REF: {{opp.stats.REF.Adjusted}}]</span>
             </div>
             <div class="col-1">
-              <fa-icon [icon]="faCopy" class="pull-right csd-btn opp-delete csd-icon-btn" (click)="copyOpponent(i)" title="Copy opponent"></fa-icon>
-              <fa-icon [icon]="faTrash" class="pull-right csd-btn opp-delete csd-icon-btn" (click)="removeOpponent(i)" title="Delete opponent"></fa-icon>
+              <fa-icon [icon]="faCopy" class="pull-right csd-btn opp-delete csd-icon-btn" (click)="copyOpponent(i)"
+                title="Copy opponent"></fa-icon>
+              <fa-icon [icon]="faTrash" class="pull-right csd-btn opp-delete csd-icon-btn" (click)="removeOpponent(i)"
+                title="Delete opponent"></fa-icon>
             </div>
             <div class="col-12 opp-conditions">
               <span *ngIf="opp.stats.isStunned">*Stunned</span>
@@ -55,24 +68,27 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-12 csd-rounded btn csd-btn"  style="width: 100%;" (click)="addOpponent()" title="Add another opponent">
-                <fa-icon [icon]="faPlus"></fa-icon>
-
+            <div class="col-12 csd-rounded btn csd-btn" style="width: 100%;" (click)="addOpponent()"
+              title="Add another opponent">
+              <fa-icon [icon]="faPlus"></fa-icon>
             </div>
           </div>
         </div>
-        <div class="col- col-md-8 csd-rounded">
-          <cs-cmbt-trck-opponent-card [opponent]="selectedOpponent" [index]="selectedIndex"></cs-cmbt-trck-opponent-card>
+        <div class="col-12 col-md-8 csd-rounded">
+          <cs-cmbt-trck-opponent-card [opponent]="selectedOpponent" [index]="selectedIndex">
+          </cs-cmbt-trck-opponent-card>
         </div>
       </div>
     </div>
   </div>
 </div>
 <ng-template #resetModal>
-  <div class="modal-header"><h4>RESET COMBAT TRACKER</h4>
+  <div class="modal-header">
+    <h4>RESET COMBAT TRACKER</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-    <span aria-hidden="true">&times;</span>
-  </button></div>
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
   <div class="modal-body">
     Are you sure you want to clear all the data and reset the trackers?<br>
     <br><br>
@@ -81,12 +97,13 @@
   </div>
 </ng-template>
 <ng-template #instructionModal>
-  <div class="modal-header"><h4>COMBAT TRACKER INSTRUCTIONS</h4>
+  <div class="modal-header">
+    <h4>COMBAT TRACKER INSTRUCTIONS</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-    <span aria-hidden="true">&times;</span>
-  </button></div>
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
   <div class="modal-body">
     <cs-cmbt-trck-instructions></cs-cmbt-trck-instructions>
   </div>
 </ng-template>
-
