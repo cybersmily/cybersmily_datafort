@@ -1,25 +1,21 @@
-<div class="container small">
-<div class="row ml-1">
-  <div class="col">
-    Role:
-    <input type="text" [(ngModel)]="currentRole.name"
-    [typeahead]="roleList"
-    (onKeyUp)="updateRoleName()"
-    (change)="updateRoleName()"
-    (typeaheadOnSelect)="updateRoleName()"
-    >
-    {{optionOnBlur}}
-    <fa-icon *ngIf="showDelete" [icon]="faTrash" class="csd-btn csd-icon-btn csd-icon-lg ml-3" (click)="delete()"></fa-icon>
+<div class="small">
+  <div class="row ml-1">
+    <div class="col">
+      Role:
+      <input type="text" [(ngModel)]="currentRole.name" [typeahead]="roleList" (onKeyUp)="updateRoleName()"
+        (change)="updateRoleName()" (typeaheadOnSelect)="updateRoleName()">
+      {{optionOnBlur}}
+      <fa-icon *ngIf="showDelete" [icon]="faTrash" class="csd-btn csd-icon-btn csd-icon-lg ml-3" (click)="delete()">
+      </fa-icon>
+    </div>
   </div>
-</div>
-<div class="row ml-1">
-  <div class="col">
-    Special Ability:
-    <input type="text" [(ngModel)]="currentRole.specialAbility.name"
-    (change)="update()">
-  </div>
-  <div class="col-4" *ngIf="!isIU">
-    STAT: <select [(ngModel)]="currentRole.specialAbility.stat" (change)="update()">
+  <div class="row ml-1">
+    <div class="col">
+      Special Ability:
+      <input type="text" [(ngModel)]="currentRole.specialAbility.name" (change)="update()">
+    </div>
+    <div class="col-4" *ngIf="!isIU">
+      STAT: <select [(ngModel)]="currentRole.specialAbility.stat" (change)="update()">
         <option value=""></option>
         <option value="ATTR">ATTR</option>
         <option value="BODY">BODY</option>
@@ -28,35 +24,32 @@
         <option value="INT">INT</option>
         <option value="REF">REF</option>
         <option value="TECH">TECH</option>
-    </select>
-  </div>
-</div>
-<div class="row ml-1">
-  <div class="col">
-    <div class="row">
-      <div class="col">Skills:</div>
+      </select>
     </div>
-    <div class="row">
-      <div *ngFor="let skill of roleSkills; let i = index" class="col-6 col-lg-4">
-        <input *ngIf="!isArray(selectedRole.skills[i]);else elseArray" type="text"
-        [value]="currentRole.skills[i]"
-        (change)="updateSkill($event, i)"
-        style="width: 100%"
-        >
-        <ng-template #elseArray>
-          <select [(ngModel)]="currentRole.skills[i]" (change)="update()">
-            <option value=""></option>
-            <option *ngFor="let sk of getSkillOptions(i)" [value]="sk">{{sk}}</option>
-          </select>
-        </ng-template>
+  </div>
+  <div class="row ml-1">
+    <div class="col">
+      <div class="row">
+        <div class="col">Skills:</div>
+      </div>
+      <div class="row">
+        <div *ngFor="let skill of roleSkills; let i = index" class="col-6 col-lg-4">
+          <input *ngIf="!isArray(selectedRole.skills[i]);else elseArray" type="text" [value]="currentRole.skills[i]"
+            (change)="updateSkill($event, i)" style="width: 100%">
+          <ng-template #elseArray>
+            <select [(ngModel)]="currentRole.skills[i]" (change)="update()">
+              <option value=""></option>
+              <option *ngFor="let sk of getSkillOptions(i)" [value]="sk">{{sk}}</option>
+            </select>
+          </ng-template>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="row ml-1">
-  <div class="col">
-    Current Salary: <input type="number" [(ngModel)]="currentRole.salary" class="text-right" min="0" (change)="update()">eb/month
+  <div class="row ml-1">
+    <div class="col">
+      Current Salary: <input type="number" [(ngModel)]="currentRole.salary" class="text-right" min="0"
+        (change)="update()">eb/month
+    </div>
   </div>
 </div>
-</div>
-

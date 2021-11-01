@@ -1,82 +1,80 @@
-<div class="container">
-  <div class="row">
-    <div class="col csd-rounded">
-      <div class="row">
-        <div class="col text-center"><i>Drag and drop Items to the Cart</i></div>
+<div class="row">
+  <div class="col csd-rounded">
+    <div class="row">
+      <div class="col text-center"><i>Drag and drop Items to the Cart</i></div>
+    </div>
+    <div class="row small mr-1 ml-1">
+      <div class="col-4">
+        <select [(ngModel)]="searchFilter.type" style="width: 90%" title="filter on cyberware type..."
+          (change)="filterCyberList()">
+          <option [ngValue]="''">All</option>
+          <option [ngValue]="'BIOWARE'">Bioware</option>
+          <option [ngValue]="'BODY PLATING'">Body Plating</option>
+          <option [ngValue]="'CHIPWARE'">Chipware</option>
+          <option [ngValue]="'CYBERAUDIO'">Cyberaudio</option>
+          <option [ngValue]="'CYBERFOOT'">Cyberfoot</option>
+          <option [ngValue]="'CYBERHAND'">Cyberhand</option>
+          <option [ngValue]="'CYBERLIMB'">Cyberlimb</option>
+          <option [ngValue]="'CYBERNETIC SYSTEM'">Cybernetic System</option>
+          <option [ngValue]="'CYBEROPTIC'">Cyberoptic</option>
+          <option [ngValue]="'CYBERVOCAL'">Cybervocal</option>
+          <option [ngValue]="'CYBERWEAPON'">Cyberweapon</option>
+          <option [ngValue]="'EXOTIC BODYSCULPT'">Exotic Bodysculpt</option>
+          <option [ngValue]="'FASHIONWARE'">Fashionware</option>
+          <option [ngValue]="'FULL CONVERSION'">Full Conversion</option>
+          <option [ngValue]="'IMPLANT'">Implant</option>
+          <option [ngValue]="'LINEAR FRAMES'">Linear Frames</option>
+          <option [ngValue]="'NEURALWARE'">Neuralware</option>
+        </select>
       </div>
-      <div class="row small mr-1 ml-1">
-        <div class="col-4">
-          <select [(ngModel)]="searchFilter.type" style="width: 90%" title="filter on cyberware type..."
-            (change)="filterCyberList()">
-            <option [ngValue]="''">All</option>
-            <option [ngValue]="'BIOWARE'">Bioware</option>
-            <option [ngValue]="'BODY PLATING'">Body Plating</option>
-            <option [ngValue]="'CHIPWARE'">Chipware</option>
-            <option [ngValue]="'CYBERAUDIO'">Cyberaudio</option>
-            <option [ngValue]="'CYBERFOOT'">Cyberfoot</option>
-            <option [ngValue]="'CYBERHAND'">Cyberhand</option>
-            <option [ngValue]="'CYBERLIMB'">Cyberlimb</option>
-            <option [ngValue]="'CYBERNETIC SYSTEM'">Cybernetic System</option>
-            <option [ngValue]="'CYBEROPTIC'">Cyberoptic</option>
-            <option [ngValue]="'CYBERVOCAL'">Cybervocal</option>
-            <option [ngValue]="'CYBERWEAPON'">Cyberweapon</option>
-            <option [ngValue]="'EXOTIC BODYSCULPT'">Exotic Bodysculpt</option>
-            <option [ngValue]="'FASHIONWARE'">Fashionware</option>
-            <option [ngValue]="'FULL CONVERSION'">Full Conversion</option>
-            <option [ngValue]="'IMPLANT'">Implant</option>
-            <option [ngValue]="'LINEAR FRAMES'">Linear Frames</option>
-            <option [ngValue]="'NEURALWARE'">Neuralware</option>
-          </select>
-        </div>
-        <div class="col">
-          <input [(ngModel)]="searchFilter.name" type="text" class="cyber-data-name" placeholder="Search on name..."
-            style="width: 100%" (input)="filterCyberList()" />
-        </div>
-      </div>
-      <br>
-      <div class="row mr-1 ml-1">
-        <div class="col cyber-data-table">
-          <bs-sortable [(ngModel)]="filteredDataCyber" itemClass="sortable-item" itemActiveClass="sortable-item-active"
-            placeholderItem="&nbsp;&nbsp;&nbsp;...Drag here" placeholderClass="placeholderStyle font-italic" wrapperClass=""
-            [itemTemplate]="cyberListItem">
-          </bs-sortable>
-        </div>
+      <div class="col">
+        <input [(ngModel)]="searchFilter.name" type="text" class="cyber-data-name" placeholder="Search on name..."
+          style="width: 100%" (input)="filterCyberList()" />
       </div>
     </div>
-    <div class="col-1"></div>
-    <div class="col csd-rounded">
-      <div class="row">
-        <div class="col text-center">
-          <fa-icon [icon]="faSave" class="float-right csd-btn csd-icon-btn" (click)="save()"></fa-icon>
-          <h4>Cart</h4>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col text-center small"><i>To remove, drag item back to left</i></div>
-      </div>
-      <div class="row small">
-        <div class="col-5">Name</div>
-        <div class="col-4 text-center">HC</div>
-        <div class="col-3 text-right">Cost</div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <bs-sortable [(ngModel)]="cart" itemClass="sortable-item" itemActiveClass="sortable-item-active"
-            placeholderItem="&nbsp;&nbsp;&nbsp;...Drag here" placeholderClass="placeholderStyle font-italic" wrapperClass=""
-            [itemTemplate]="addedCyberListItem">
-          </bs-sortable>
-        </div>
-      </div>
-      <hr>
-      <div class="row small">
-        <div class="col-5">Totals:</div>
-        <div class="col-4 text-center">{{totalHumanityLose}}</div>
-        <div class="col-3 text-right">{{totalCost | number}}eb</div>
+    <br>
+    <div class="row mr-1 ml-1">
+      <div class="col cyber-data-table">
+        <bs-sortable [(ngModel)]="filteredDataCyber" itemClass="sortable-item" itemActiveClass="sortable-item-active"
+          placeholderItem="&nbsp;&nbsp;&nbsp;...Drag here" placeholderClass="placeholderStyle font-italic"
+          wrapperClass="" [itemTemplate]="cyberListItem">
+        </bs-sortable>
       </div>
     </div>
   </div>
-
+  <div class="col-1"></div>
+  <div class="col csd-rounded">
+    <div class="row">
+      <div class="col text-center">
+        <fa-icon [icon]="faSave" class="float-right csd-btn csd-icon-btn" (click)="save()"></fa-icon>
+        <h4>Cart</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-center small"><i>To remove, drag item back to left</i></div>
+    </div>
+    <div class="row small">
+      <div class="col-5">Name</div>
+      <div class="col-4 text-center">HC</div>
+      <div class="col-3 text-right">Cost</div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <bs-sortable [(ngModel)]="cart" itemClass="sortable-item" itemActiveClass="sortable-item-active"
+          placeholderItem="&nbsp;&nbsp;&nbsp;...Drag here" placeholderClass="placeholderStyle font-italic"
+          wrapperClass="" [itemTemplate]="addedCyberListItem">
+        </bs-sortable>
+      </div>
+    </div>
+    <hr>
+    <div class="row small">
+      <div class="col-5">Totals:</div>
+      <div class="col-4 text-center">{{totalHumanityLose}}</div>
+      <div class="col-3 text-right">{{totalCost | number}}eb</div>
+    </div>
+  </div>
 </div>
+
 
 <ng-template #cyberListItem let-item="item">
   <div class="row small" [popover]="cyberwareDetails" [popoverTitle]="item.value.name" placement="top"
@@ -113,7 +111,6 @@
 
 
 <ng-template #cyberwareDetails let-item="item">
-  <div class="container">
     <div class="row">
       <div class="col small">{{item.type}}</div>
       <div class="col small">{{item.subtype}}</div>
@@ -132,7 +129,6 @@
     <div class="row">
       <div class="col">{{item.desc}}</div>
     </div>
-  </div>
 </ng-template>
 
 <ng-template #addedCyberwareDetails let-cyber="cyber">

@@ -75,7 +75,7 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div class="modal-body container">
+  <div class="modal-body">
     <cs-cp2020-expense-list [cash]="currLifeStyle.cash" [cred]="totalCred" (payAmount)="pay($event, paymentModal)">
     </cs-cp2020-expense-list>
   </div>
@@ -88,7 +88,7 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div class="modal-body container">
+  <div class="modal-body">
     <cs-cp2020-credchip-list [credchips]="currLifeStyle.credchips" (updateCredchips)="updateCredchips($event)">
     </cs-cp2020-credchip-list>
   </div>
@@ -102,7 +102,7 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div class="modal-body container">
+  <div class="modal-body">
     <cs-cp2020-credchip-list [credchips]="currLifeStyle.credchips" (updateCredchips)="updateCredchips($event)">
     </cs-cp2020-credchip-list>
   </div>
@@ -115,7 +115,7 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div class="modal-body container">
+  <div class="modal-body">
     <cs-cp2020-payment [credchips]="currLifeStyle.credchips" [cash]="currLifeStyle.cash"
       [amountDue]="currLifeStyle.debt" (updateAmounts)="updateAmounts($event)"></cs-cp2020-payment>
   </div>

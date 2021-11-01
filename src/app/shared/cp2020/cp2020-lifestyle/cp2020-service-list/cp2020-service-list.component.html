@@ -39,7 +39,7 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div class="modal-body container">
+  <div class="modal-body">
     <div *ngFor="let opt of selectedService.options; let i = index" class="row">
       <div class="col">
         <input type="checkbox" class="mr-3" [checked]="getOptionValue(i)" (change)="checkOption(i)">

@@ -1,4 +1,4 @@
-<div class="container">
+<div>
   <div class="row">
     <div class="col-6">
       <input class="cyber-edit-box" type="text" [(ngModel)]="newCyberware.name" placeholder="Enter name of cyberware">
@@ -154,53 +154,50 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div class="modal-body container">
-      <div class="container mt-2 mb-2">
-        <div class="row">
-          <div class="col ">
-            <input class="cyber-edit-box" type="text" [(ngModel)]="newOption.name"
-              placeholder="Enter name of cyberware">
-          </div>
-          <div class="col-1">Cost:</div>
-          <div class="col-2"><input type="number" [(ngModel)]="newOption.cost" class="text-right cyber-option-cost">eb
-          </div>
-          <div class="col-1 text-right">
-            <fa-icon [icon]="faSave" class="ml-1 csd-btn cyber-save" (click)="saveNewOption()"></fa-icon>
-          </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col ">
+          <input class="cyber-edit-box" type="text" [(ngModel)]="newOption.name" placeholder="Enter name of cyberware">
         </div>
-        <div class="row small">
-          <div class="col-1">Code:</div>
-          <div class="col-4"><input type="text" [(ngModel)]="newOption.abbrev" placeholder="abbreviation or code"></div>
-          <div class="col-2">Surgery:</div>
-          <div class="col-4">
-            <select [(ngModel)]="newOption.surgery">
-              <option *ngFor="let surg of surgeries" [ngValue]="surg.code"
-                title="Cost: {{surg.cost | number}}eb; Time: {{surg.timeInHours}}hrs; Damage: {{surg.damage}}; DIFF: {{surg.diff}}; Requires: {{surg.requried}}">
-                {{surg.name}} ({{surg.code}})
-              </option>
-            </select>
-          </div>
+        <div class="col-1">Cost:</div>
+        <div class="col-2"><input type="number" [(ngModel)]="newOption.cost" class="text-right cyber-option-cost">eb
         </div>
-        <div class="row small">
-          <div class="col-2">Humanity Cost:</div>
-          <div class="col-4">
-            <input type="text" [(ngModel)]="newOption.hc" placeholder="ex. 2d6+2 or 1d6/2" (input)="changeOptionHC()">
-          </div>
-          <div class="col-2">Humanity Loss:</div>
-          <div class="col-4 cyber-option-hl">
-            <input type="number" [(ngModel)]="newOption.hl" step="0.5">
-            <fa-icon *ngIf="newOption.hc && newOption.hc.toLowerCase().indexOf('d') > 0" [icon]="faDice"
-              class="csd-dice" title="Roll for humanity loss" (click)="rollNewOptionHL(newOption.hc)"></fa-icon>
-          </div>
+        <div class="col-1 text-right">
+          <fa-icon [icon]="faSave" class="ml-1 csd-btn cyber-save" (click)="saveNewOption()"></fa-icon>
         </div>
-        <div class="row">
-          <div class="col">
-            Notes:
-          </div>
+      </div>
+      <div class="row small">
+        <div class="col-1">Code:</div>
+        <div class="col-4"><input type="text" [(ngModel)]="newOption.abbrev" placeholder="abbreviation or code"></div>
+        <div class="col-2">Surgery:</div>
+        <div class="col-4">
+          <select [(ngModel)]="newOption.surgery">
+            <option *ngFor="let surg of surgeries" [ngValue]="surg.code"
+              title="Cost: {{surg.cost | number}}eb; Time: {{surg.timeInHours}}hrs; Damage: {{surg.damage}}; DIFF: {{surg.diff}}; Requires: {{surg.requried}}">
+              {{surg.name}} ({{surg.code}})
+            </option>
+          </select>
         </div>
-        <div class="row">
-          <div class="col"><textarea [(ngModel)]="newOption.notes" class="cyber-edit-box"></textarea></div>
+      </div>
+      <div class="row small">
+        <div class="col-2">Humanity Cost:</div>
+        <div class="col-4">
+          <input type="text" [(ngModel)]="newOption.hc" placeholder="ex. 2d6+2 or 1d6/2" (input)="changeOptionHC()">
         </div>
+        <div class="col-2">Humanity Loss:</div>
+        <div class="col-4 cyber-option-hl">
+          <input type="number" [(ngModel)]="newOption.hl" step="0.5">
+          <fa-icon *ngIf="newOption.hc && newOption.hc.toLowerCase().indexOf('d') > 0" [icon]="faDice" class="csd-dice"
+            title="Roll for humanity loss" (click)="rollNewOptionHL(newOption.hc)"></fa-icon>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          Notes:
+        </div>
+      </div>
+      <div class="row">
+        <div class="col"><textarea [(ngModel)]="newOption.notes" class="cyber-edit-box"></textarea></div>
       </div>
     </div>
   </div>
