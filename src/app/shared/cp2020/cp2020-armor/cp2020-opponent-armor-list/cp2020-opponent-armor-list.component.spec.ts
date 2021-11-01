@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Cp2020OpponentArmorListComponent } from './cp2020-opponent-armor-list.component';
@@ -8,7 +9,10 @@ describe('Cp2020OpponenentListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Cp2020OpponentArmorListComponent ]
+      declarations: [ Cp2020OpponentArmorListComponent ],
+      imports: [
+        CommonUiModule
+      ]
     })
     .compileComponents();
   });

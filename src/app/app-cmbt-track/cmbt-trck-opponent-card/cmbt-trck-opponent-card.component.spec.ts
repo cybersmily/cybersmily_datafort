@@ -221,8 +221,8 @@ describe('CmbtTrckOpponentCardComponent', () => {
       ];
       component.changeCyber(cyber);
       fixture.detectChanges();
-      expect(component.opponent.armor.activePiece.length).toEqual(1);
-      expect(component.currOpponent.armor.activePiece.length).toEqual(1);
+      expect(component.opponent.armor.activePieces.length).toEqual(1);
+      expect(component.currOpponent.armor.activePieces.length).toEqual(1);
     });
   });
 
@@ -248,7 +248,7 @@ describe('CmbtTrckOpponentCardComponent', () => {
 
   describe('changeArmor()', ()=> {
     it('should change armor', ()=> {
-      expect(component.currOpponent.armor.activePiece.length).toEqual(0);
+      expect(component.currOpponent.armor.activePieces.length).toEqual(0);
       const armor = new Cp2020ArmorBlock();
       const layer = new Cp2020ArmorPiece();
       layer.name = 'test layer';
@@ -258,7 +258,7 @@ describe('CmbtTrckOpponentCardComponent', () => {
       armor.addPiece(layer);
       component.changeArmor(armor);
       fixture.autoDetectChanges();
-      expect(component.currOpponent.armor.activePiece.length).toEqual(1);
+      expect(component.currOpponent.armor.activePieces.length).toEqual(1);
       expect(component.currOpponent.stats.REF.ev).toEqual(1);
     });
   });

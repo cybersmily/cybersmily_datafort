@@ -1,6 +1,7 @@
 import { Cp2020ArmorPiece } from './cp2020-armor-piece';
 import { Cp2020ArmorBlock } from './cp2020-armor-block';
 import { TestBed } from '@angular/core/testing';
+import { Console } from 'console';
 
 describe('Cp2020ArmorBlock', () => {
   let armorBlock: Cp2020ArmorBlock;
@@ -109,8 +110,9 @@ describe('Cp2020ArmorBlock', () => {
     armorBlock.addPiece(steelHelmet);
     armorBlock.addPiece(subdermalSkullArmor);
     expect(armorBlock.armorPieces.length).toBe(11);
-    armorBlock.removePiece(flakVest);
-    armorBlock.removePiece(flakPants);
+    let index = armorBlock.armorPieces.findIndex(l => l.name === 'Flak Vest');
+    armorBlock.removePiece(index);
+    armorBlock.removePiece(7);
     expect(armorBlock.armorPieces.length).toBe(9);
     expect(armorBlock.armorPieces.filter(l => l.name === 'Flak Vest').length).toBe(0);
   });
@@ -126,8 +128,8 @@ describe('Cp2020ArmorBlock', () => {
       armorBlock.addPiece(armorStockings);
       armorBlock.addPiece(gibsonArmorJeans);
 
-      armorBlock.activatePiece(skinweave);
-      armorBlock.activatePiece(subdermalArmor);
+      armorBlock.activatePiece(0);
+      armorBlock.activatePiece(1);
     });
 
     it('should activate skinweave for head', () => {
@@ -146,7 +148,7 @@ describe('Cp2020ArmorBlock', () => {
     });
     it('should activate MetalGear for Head/Torso', () => {
       // activate a MetalGear
-      armorBlock.activatePiece(metalGear);
+      armorBlock.activatePiece(2);
       expect(armorBlock.ev).toBe(3);
       expect(armorBlock.torsoSP).toBe(30);
       expect(armorBlock.headSP).toBe(28);
@@ -156,20 +158,22 @@ describe('Cp2020ArmorBlock', () => {
     });
     it('should fail to activate layer due to torso', () => {
       // should fail to add
-      armorBlock.activatePiece(metalGear);
-      armorBlock.activatePiece(lightArmorJacket);
+      armorBlock.activatePiece(2);
+      armorBlock.activatePiece(3);
       expect(armorBlock.ev).toBe(3);
       expect(armorBlock.rArmSP).toBe(28);
       expect(armorBlock.torsoSP).toBe(30);
-      expect(armorBlock.activePiece.length).toBe(3);
+      expect(armorBlock.activePieces.length).toBe(3);
     });
     it('should succed to activate leg layer', () => {
       // should succeed
-      armorBlock.activatePiece(metalGear);
-      armorBlock.activatePiece(armorStockings);
+      let i = armorBlock.armorPieces.findIndex(l => l.name === metalGear.name);
+      armorBlock.activatePiece(i);
+      i = armorBlock.armorPieces.findIndex(l => l.name === armorStockings.name);
+      armorBlock.activatePiece(i);
       expect(armorBlock.ev).toBe(3); // stocking shouldn't count as subdermal and metal gear is top
-      expect(armorBlock.rLegSP).toBe(28);
-      expect(armorBlock.activePiece.length).toBe(4);
+      expect(armorBlock.rLegSP).toBe(29);
+      expect(armorBlock.activePieces.length).toBe(4);
     });
   });
 
@@ -177,28 +181,11 @@ describe('Cp2020ArmorBlock', () => {
     armorBlock.addPiece(skinweave);
     armorBlock.addPiece(subdermalArmor);
     armorBlock.addPiece(metalGear);
-    armorBlock.addPiece(lightArmorJacket);
-    armorBlock.addPiece(flakVest);
-    armorBlock.addPiece(flakPants);
-    armorBlock.addPiece(armorStockings);
-    armorBlock.addPiece(gibsonArmorJeans);
-    // activate layer
-    armorBlock.activatePiece(skinweave);
-    armorBlock.activatePiece(subdermalArmor);
-    armorBlock.activatePiece(metalGear);
-    armorBlock.activatePiece(armorStockings);
-    armorBlock.removePiece(subdermalArmor);
-    expect(armorBlock.activePiece.length).toBe(3);
-    expect(armorBlock.ev).toBe(3);
-    expect(armorBlock.torsoSP).toBe(28);
-    expect(armorBlock.hasHardLayer('torso')).toBeTruthy();
-    expect(armorBlock.hasThreeLayer('torso')).toBeFalsy();
-    expect(armorBlock.hasThreeLayer('rleg')).toBeTruthy();
-    armorBlock.removePiece(metalGear);
-    expect(armorBlock.activePiece.length).toBe(2);
-    expect(armorBlock.ev).toBe(0);
-    expect(armorBlock.torsoSP).toBe(12);
-    expect(armorBlock.hasHardLayer('torso')).toBeFalsy();
-    expect(armorBlock.hasThreeLayer('rleg')).toBeFalsy();
+    let i = armorBlock.armorPieces.findIndex(l => l.name === skinweave.name);
+    armorBlock.removePiece(i);
+    expect(armorBlock.armorPieces.length).toBe(2);
+    i = armorBlock.armorPieces.findIndex(l => l.name === skinweave.name);
+    expect(i).toBeLessThan(0);
+
   });
 });

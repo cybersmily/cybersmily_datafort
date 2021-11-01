@@ -94,6 +94,7 @@ export class Cp2020ArmorBlock implements ArmorBlock {
     if (layer.isActive && this.armorPieces.length > 2) {
       layer.isActive = false;
     }
+    console.log('addPiece', layer.name);
     this.armorPieces.push(new Cp2020ArmorPiece(layer));
   }
 

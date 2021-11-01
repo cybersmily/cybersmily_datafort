@@ -39,7 +39,7 @@ describe('ArmorDataService', () => {
   });
 
   it('should get armor list from cache', (done) => {
-    service['armorList'] = [...testArmor];
+    service['_armorList'] = [...testArmor];
     service.getData().subscribe( list => {
       expect(list).toBeTruthy();
       expect(list.length).toBeGreaterThanOrEqual(1);

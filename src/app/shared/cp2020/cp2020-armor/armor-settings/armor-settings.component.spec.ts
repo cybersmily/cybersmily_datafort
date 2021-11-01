@@ -1,3 +1,5 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { DataService } from './../../../services/file-services/dataservice/data.service';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ArmorSettingsComponent } from './armor-settings.component';
@@ -8,7 +10,14 @@ describe('ArmorSettingsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ArmorSettingsComponent ]
+      declarations: [ ArmorSettingsComponent ],
+      imports: [
+        HttpClientTestingModule
+      ],
+      providers: [
+        DataService
+      ]
+
     })
     .compileComponents();
   });

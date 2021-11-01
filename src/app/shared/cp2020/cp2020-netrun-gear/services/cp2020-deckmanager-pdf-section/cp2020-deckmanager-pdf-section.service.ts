@@ -66,7 +66,7 @@ export class Cp2020DeckmanagerPdfSectionService {
 
   private addCyberdeckDetails(doc: jsPDF, deck: Cp2020Cyberdeck, line: number): number {
     const width = PdfPageSettings.PAGE_WIDTH - 10;
-    const name = `${deck.name} (${deck.type.name})`;
+    const name = `${deck?.name} (${deck.type?.name})`;
     const lineHt = 5;
     line += lineHt;
     doc.setFontSize(11);

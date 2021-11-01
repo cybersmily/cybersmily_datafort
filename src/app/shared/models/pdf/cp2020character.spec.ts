@@ -1,12 +1,16 @@
+import { Cp2020DeckmanagerPdfSectionService } from './../../cp2020/cp2020-netrun-gear/services/cp2020-deckmanager-pdf-section/cp2020-deckmanager-pdf-section.service';
+import { Cp2020ArmorPDFSectionService } from './../../cp2020/cp2020-armor/services/cp2020-armor-pdf-section/cp2020-armor-pdf-section.service';
 import { jsPDF } from 'jspdf';
 import { Cp2020characterToPDF } from './cp2020characterToPDF';
 import { Cp2020PlayerCharacter } from '../cp2020character';
 
 describe('Cp2020characterToPDF', () => {
   let charPDF: Cp2020characterToPDF;
+  let armorPDF = new Cp2020ArmorPDFSectionService();
+  let deckmanagerPDF = new Cp2020DeckmanagerPdfSectionService();
 
   beforeEach( () => {
-    charPDF = new Cp2020characterToPDF();
+    charPDF = new Cp2020characterToPDF(armorPDF, deckmanagerPDF);
     charPDF['_character'] = new Cp2020PlayerCharacter();
   });
 
