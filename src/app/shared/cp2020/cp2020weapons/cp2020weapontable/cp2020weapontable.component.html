@@ -32,7 +32,7 @@
     </ng-container>
     </div>
   </div>
-  <div [collapse]="isWeaponsCollapsed" class="container">
+  <div [collapse]="isWeaponsCollapsed">
     <div class="row cp2020-wpn-hdr">
       <div class="wpn-name col-3 col-lg-2"><span class="wpn-name">Name</span></div>
       <div class="col-1 wpn-narrow text-center">Type</div>
@@ -60,7 +60,7 @@
 </div>
 
 <ng-template #newWeaponModal>
-  <div class="modal-body container">
+  <div class="modal-body">
     <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -83,7 +83,7 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div class="modal-body container">
+  <div class="modal-body">
     <cs-cp2020weapon-calculator [weaponList]="weapons" [skills]="skills" [body]="stats.BODY.Adjusted"
       [ref]="stats.REF.Adjusted" [bodyDamageMod]="stats.BodyDmgMod">
     </cs-cp2020weapon-calculator>
@@ -97,7 +97,7 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div class="modal-body container">
+  <div class="modal-body">
     <div class="row">
       <div class="col">
         <h5>Random Generator</h5>
