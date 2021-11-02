@@ -1,10 +1,10 @@
-<div class="cp2020-section">
+<div class="chargen-section pl-3 pr-3">
   <ng-container *ngIf="showIU">
-    <div class="cp2020-label row mb-2">
-      <div class="col">
-        <h4 class="d-inline-block csd-btn mr-4" (click)="isIUCollapsed = !isIUCollapsed">
-        IU COMBAT ACTIONS
-        <fa-icon [icon]="collapseChevron(isIUCollapsed)" class="csd-icon-btn csd-icon-xl ml-1"></fa-icon>
+    <div class="mb-2">
+    <div class="cp2020-label row">
+      <div class="col pl-1">
+        <h4 class="d-inline-block csd-btn mr-4 ml-0 pl-0" (click)="isIUCollapsed = !isIUCollapsed">IU COMBAT ACTIONS
+          <fa-icon [icon]="collapseChevron(isIUCollapsed)" class="csd-icon-btn csd-icon-xl ml-1"></fa-icon>
         </h4>
       </div>
     </div>
@@ -13,28 +13,29 @@
         <cs-i-u-combat-actions [skills]="skills.getCombatSkills()" [stats]="stats"></cs-i-u-combat-actions>
       </div>
     </div>
+  </div>
   </ng-container>
-  <div class="cp2020-label row">
-    <div class="col">
+  <div class="chargen-label row">
+    <div class="col pl-1">
       <h4 class="d-inline-block csd-btn mr-4" (click)="isWeaponsCollapsed = !isWeaponsCollapsed">
         WEAPONS
         <fa-icon [icon]="collapseChevron(isWeaponsCollapsed)" class="csd-icon-btn csd-icon-xl ml-1"></fa-icon>
       </h4>
       <ng-container *ngIf="!isWeaponsCollapsed">
-      <fa-icon [ngClass]="{'csd-dice': true, 'ml-2': true, 'd-none': !showRandomGenerator}" [icon]="faDice"
-        (click)="randomGenerateWeapon()" title="Add random weapon"></fa-icon>
-      <fa-icon [ngClass]="{'csd-dice': true, 'ml-2': true, 'd-none': !showRandomGenerator}" [icon]="faCog"
-        title="Set settings" (click)="openModal(wpnSettings)"></fa-icon>
-      <fa-icon [icon]="faCrosshairs" title="Show Combat Calculator"
-        [ngClass]="{'csd-btn': true, 'csd-icon-btn': true,  'ml-2': true,'d-none': !showCalculator}"
-        (click)="openModal(combatCalcModal)">
-      </fa-icon>
-    </ng-container>
+        <fa-icon [ngClass]="{'csd-dice': true, 'ml-2': true, 'd-none': !showRandomGenerator}" [icon]="faDice"
+          (click)="randomGenerateWeapon()" title="Add random weapon"></fa-icon>
+        <fa-icon [ngClass]="{'csd-dice': true, 'ml-2': true, 'd-none': !showRandomGenerator}" [icon]="faCog"
+          title="Set settings" (click)="openModal(wpnSettings)"></fa-icon>
+        <fa-icon [icon]="faCrosshairs" title="Show Combat Calculator"
+          [ngClass]="{'csd-btn': true, 'csd-icon-btn': true,  'ml-2': true,'d-none': !showCalculator}"
+          (click)="openModal(combatCalcModal)">
+        </fa-icon>
+      </ng-container>
     </div>
   </div>
   <div [collapse]="isWeaponsCollapsed">
-    <div class="row cp2020-wpn-hdr">
-      <div class="wpn-name col-3 col-lg-2"><span class="wpn-name">Name</span></div>
+    <div class="row border border-dark">
+      <div class="col-3 col-lg-2 pl-1">Name</div>
       <div class="col-1 wpn-narrow text-center">Type</div>
       <div class="col-1 wpn-narrow text-center">WA</div>
       <div class="col-1 wpn-narrow text-center">Conc.</div>

@@ -14,38 +14,37 @@
     <div class="col-1"></div>
   </div>
   <hr style="margin: 0 auto;padding: 0 0;">
-  <ng-container *ngFor="let p of programList.programs; let i = index"  >
-  <div class="row">
-    <div class="col-3 mt-2 csd-prog-class-name" title="{{p.class.name + ': ' + p.class.description}}">{{p.class.name}}</div>
-    <div class="col-4 csd-btn btn btn-sm csd-prog-select" title="{{p.description}}" (click)="select(i);selectedProgram.show()" >{{p.name}}</div>
-    <div class="col-2 mt-1 text-center"><input type="checkbox" [checked]="p.loaded" (change)="load(i)" title="Mark to load the program in the deck."></div>
-    <div class="col-1 text-center">+{{p.strength}}</div>
-    <div class="col-1 text-center">{{p.mu}}</div>
-    <div class="col-1">
-      <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn" (click)="delete(i)"></fa-icon>
+  <ng-container *ngFor="let p of programList.programs; let i = index">
+    <div class="row">
+      <div class="col-3 mt-2 csd-prog-class-name" title="{{p.class.name + ': ' + p.class.description}}">{{p.class.name}}
+      </div>
+      <div class="col-4 csd-btn btn btn-sm csd-prog-select" title="{{p.description}}"
+        (click)="showSelect(i, selectedProgram)">{{p.name}}</div>
+      <div class="col-2 mt-1 text-center"><input type="checkbox" [checked]="p.loaded" (change)="load(i)"
+          title="Mark to load the program in the deck."></div>
+      <div class="col-1 text-center">+{{p.strength}}</div>
+      <div class="col-1 text-center">{{p.mu}}</div>
+      <div class="col-1">
+        <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn" (click)="delete(i)"></fa-icon>
+      </div>
     </div>
-  </div>
-  <hr>
-</ng-container>
+    <hr>
+  </ng-container>
   <div class="row">
-    <div class="col csd-prog-lst-new btn" (click)="createNew();selectedProgram.show()">
+    <div class="col csd-prog-lst-new btn" (click)="showNew(selectedProgram)">
       <fa-icon [icon]="faPlus" class="csd-icon-btn csd-icon-xl"></fa-icon>
     </div>
   </div>
 </div>
 
-<div bsModal #selectedProgram="bs-modal" class="modal fade" tabindex="-1" role="dialog"
-  aria-labelledby="dialog-sizes-name1">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title pull-left">{{modalTitle}} Program</h4>
-        <button type="button" class="close pull-right" aria-label="Close" (click)="selectedProgram.hide()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <cs-program-new [program]="program" (updateProgram)="update($event)"></cs-program-new>
-      </div>
-    </div>
+<ng-template #selectedProgram>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">{{modalTitle}} Program</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
+  <div class="modal-body">
+    <cs-program-new [program]="program" (updateProgram)="update($event)"></cs-program-new>
+  </div>
+</ng-template>

@@ -1,6 +1,7 @@
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Cp2020ProgramList } from '../models';
 import { faTrash, faFilePdf, faSave, faUndo, faUpload, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, TemplateRef } from '@angular/core';
 import { Cp2020Program } from '../models';
 
 @Component({
@@ -15,6 +16,11 @@ export class Cp2020ProgramListComponent implements OnInit {
   faUndo = faUndo;
   faUpload = faUpload;
   faPlus = faPlus;
+  modalRef: BsModalRef;
+  config = {
+    keyboard: true,
+    class: 'modal-dialog-centered modal-lg'
+  };
 
   program: Cp2020Program = new Cp2020Program();
 
@@ -29,7 +35,7 @@ export class Cp2020ProgramListComponent implements OnInit {
   @Output()
   updateList: EventEmitter<Cp2020ProgramList> = new EventEmitter<Cp2020ProgramList>();
 
-  constructor() { }
+  constructor(private modalService: BsModalService) { }
 
   ngOnInit(): void {
   }
@@ -39,14 +45,16 @@ export class Cp2020ProgramListComponent implements OnInit {
     this.updateList.emit(this.programList);
   }
 
-  select(index: number) {
+  showSelect(index: number, template) {
     this.modalTitle = 'Selected';
     this.program = this.programList.getByIndex(index);
+    this.modalRef = this.modalService.show(template, this.config);
   }
 
-  createNew() {
+  showNew(template: TemplateRef<any>) {
     this.modalTitle = 'New';
     this.program = new Cp2020Program();
+    this.modalRef = this.modalService.show(template, this.config);
   }
 
   load(index: number) {

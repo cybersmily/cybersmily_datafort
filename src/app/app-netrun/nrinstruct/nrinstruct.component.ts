@@ -9,6 +9,10 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 })
 export class NrinstructComponent implements OnInit {
   modalRef: BsModalRef;
+  modalConfig: {
+    keyboard: true,
+    class: 'modal-dialog-centered modal-lg'
+  };
 
   constructor( private bsModalService: BsModalService) { }
 
@@ -16,7 +20,7 @@ export class NrinstructComponent implements OnInit {
   }
 
   openModal(template: TemplateRef<any>) {
-    this.modalRef = this.bsModalService.show(template);
+    this.modalRef = this.bsModalService.show(template, this.modalConfig);
   }
 
 }

@@ -5,8 +5,8 @@
   </h4>
   <div class="row">
     <div class="col">
-      <input type="text" [(ngModel)]="deck.name" placeholder="Enter name of the deck..."
-        title="Name of the cyberdeck" class="csd-deck-name">
+      <input type="text" [(ngModel)]="deck.name" placeholder="Enter name of the deck..." title="Name of the cyberdeck"
+        class="csd-deck-name">
       <fa-icon [icon]="faSearch" class="csd-btn csd-icon-btn ml-2" title="Lookup source decks..."
         (click)="showModal(deckListModal)"></fa-icon>
     </div>
@@ -46,7 +46,7 @@
     <div class="col-1"></div>
     <div class="col">
       Options: <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn" title="Add/remove options"
-        (click)="deckOptions.show()"></fa-icon>
+        (click)="showModal(deckOptions)"></fa-icon>
     </div>
   </div>
   <div class="row">
@@ -66,40 +66,33 @@
     </div>
   </div>
 </div>
-<div bsModal #deckOptions="bs-modal" class="modal fade" tabindex="-1" role="dialog"
-  aria-labelledby="dialog-sizes-name1">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title pull-left">Deck Options</h4>
-        <button type="button" class="close pull-right" aria-label="Close" (click)="deckOptions.hide()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="opt-columns">
-          <div *ngFor="let opt of deckData.options; let i = index"
-            title="{{opt.description}} ~ {{opt.source.book | sourcebook}} pg. {{opt.source.page}}">
-            <input type="number" [(ngModel)]="opt.count" min="0" (change)="checkOption(opt)" class="opt-count">
-            {{opt.name}} ({{ opt.cost.toString().includes('*') ? opt.cost : opt.cost | number}} eb)
-          </div>
-        </div>
+<ng-template #deckOptions>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Deck Options</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="opt-columns">
+      <div *ngFor="let opt of deckData.options; let i = index"
+        title="{{opt.description}} ~ {{opt.source.book | sourcebook}} pg. {{opt.source.page}}">
+        <input type="number" [(ngModel)]="opt.count" min="0" (change)="checkOption(opt)" class="opt-count">
+        {{opt.name}} ({{ opt.cost.toString().includes('*') ? opt.cost : opt.cost | number}} eb)
       </div>
     </div>
   </div>
-</div>
-<ng-template #deckListModal class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name1">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title pull-left">Cyberdecks from Cyberpunk 2020 Sources</h4>
-        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <cs-cp2020-cyberdeck-selector (selectCyberdeck)="selectCyberdeck($event)"></cs-cp2020-cyberdeck-selector>
-      </div>
-    </div>
+</ng-template>
+
+
+<ng-template #deckListModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Cyberdecks from Cyberpunk 2020 Sources</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <cs-cp2020-cyberdeck-selector (selectCyberdeck)="selectCyberdeck($event)"></cs-cp2020-cyberdeck-selector>
   </div>
 </ng-template>

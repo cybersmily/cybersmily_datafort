@@ -7,3 +7,9 @@
   display: inline-block;
   width: 150px;
 }
+
+hr {
+  margin-top: 0px;
+  padding-top: 0px;
+  margin-bottom: 2px;
+}
