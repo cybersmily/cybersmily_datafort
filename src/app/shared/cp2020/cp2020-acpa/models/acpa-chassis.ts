@@ -6,4 +6,13 @@ export interface ACPAChassis {
   carry:number;
   weight:number;
   cost: number;
+  spaces: ACPABodyLocations;
+  sdp: ACPABodyLocations;
+}
+
+export interface ACPABodyLocations {
+  head: number;
+  torso: number;
+  arms: number;
+  legs: number;
 }

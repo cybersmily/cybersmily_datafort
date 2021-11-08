@@ -1,10 +1,14 @@
+import { ACPALocations } from './acpa-locations';
+import { ACPAArmor } from './acpa-armor';
+import { ACPAChassis } from './acpa-chassis';
 export interface ACPA {
   name: string;
   manufacturer: string;
   totalWeight: number;
-  chassisType: string;
-  chassisWeight: number;
-  chassisCapacity: number;
+  chassis: ACPAChassis;
+  armor: ACPAArmor;
+  sib: number;
+  dfb: number;
   punch: string;
   kick: string;
   crush: string;
@@ -12,9 +16,9 @@ export interface ACPA {
   leap: number;
   jump: number;
   totalCost: number;
-  trooperSize: string;
+  trooperSize: number;
   toughnessMod: number;
   notes: string;
-  equipmentCarried: Array<any>;
-  locations: any;
+  equipment: Array<any>;
+  locations: ACPALocations;
 }
