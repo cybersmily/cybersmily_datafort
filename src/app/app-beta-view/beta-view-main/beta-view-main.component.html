@@ -1,28 +1,12 @@
 <div class="container">
   <div class="row">
-    <div class="col-12">
+    <div class="col">
       <h3>BETA VIEW</h3>
     </div>
   </div>
   <div class="row">
-    <div class="col-12">
-      isIU: <input type="checkbox" [(ngModel)]="isIU">
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <cs-cp2020-armor-table [armor]="armorBlock" (changeArmor)="update($event)"></cs-cp2020-armor-table>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <cs-cp2020-armor-section [armorBlock]="armorBlock" (changeArmor)="update($event)"></cs-cp2020-armor-section>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-12">
-      <cs-cp2020-source-armor-list ></cs-cp2020-source-armor-list>
+    <div class="col">
+      <cs-cp2020-acpa-form></cs-cp2020-acpa-form>
     </div>
   </div>
 </div>

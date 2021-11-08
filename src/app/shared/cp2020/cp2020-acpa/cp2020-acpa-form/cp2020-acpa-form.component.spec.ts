@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Cp2020ACPADetailsComponent } from './cp2020-acpa-details.component';
+import { Cp2020AcpaFormComponent } from './cp2020-acpa-form.component';
 
-describe('Cp2020ACPADetailsComponent', () => {
-  let component: Cp2020ACPADetailsComponent;
-  let fixture: ComponentFixture<Cp2020ACPADetailsComponent>;
+describe('Cp2020AcpaFormComponent', () => {
+  let component: Cp2020AcpaFormComponent;
+  let fixture: ComponentFixture<Cp2020AcpaFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Cp2020ACPADetailsComponent ]
+      declarations: [ Cp2020AcpaFormComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(Cp2020ACPADetailsComponent);
+    fixture = TestBed.createComponent(Cp2020AcpaFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

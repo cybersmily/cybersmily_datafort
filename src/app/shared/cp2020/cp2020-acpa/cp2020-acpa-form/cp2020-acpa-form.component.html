@@ -1,0 +1,200 @@
+<div class="row">
+  <div class="col chargen-label">
+    <h2>POWERED ARMOR SPECIFICATIONS</h2>
+  </div>
+</div>
+<div class="row border border-dark">
+  <div class="col pt-2 pb-4">
+    <div class="row">
+      <div class="col">
+        SUIT NAME: <input [(ngModel)]="currACPA.name" type="text" class="w-75">
+      </div>
+      <div class="col">
+        MANUFACTURER: <input [(ngModel)]="currACPA.manufacturer" type="text" class="w-75">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        TOTAL WEIGHT: {{currACPA.totalWeight | number}}kg
+      </div>
+      <div class="col">
+        SIB/DFB: {{currACPA.sib}}/{{currACPA.dfb}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        CHASSIS TYPE: <select [(ngModel)]="selectedChassis" (change)="updateChassis()">
+          <option *ngFor="let chassis of attributeData.chassis" [ngValue]="chassis">STR: {{chassis.str}}</option>
+        </select>
+      </div>
+      <div class="col">CHASSIS WEIGHT: {{currACPA.chassis.weight | number}}kg
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        ARMOR: <select [(ngModel)]="selectedArmor" (change)="updateArmor()">
+          <option *ngFor="let armor of filteredArmor" [ngValue]="armor">SP {{armor.sp}}</option>
+        </select>
+      </div>
+      <div class="col">
+        CHASSIS CAP./CARRY: {{currACPA.chassis.lift | number}}kg/{{currACPA.chassis.carry | number}}kg
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        PUNCH: {{currACPA.punch}}
+      </div>
+      <div class="col-3">
+        KICK: {{currACPA.kick}}
+      </div>
+      <div class="col">
+        TOTAL COST: {{currACPA.totalCost | number}}eb
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        CRUSH: {{currACPA.crush}}
+      </div>
+      <div class="col-3">
+        RUN:
+      </div>
+      <div class="col">
+        TROOPER SIZE: <input type="number" min="0" class="csd-number" [(ngModel)]="currACPA.trooperSize" (change)="update()">kg
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        LEAP:
+      </div>
+      <div class="col-3">
+        JUMP:
+      </div>
+      <div class="col">
+        TOUGHNESS MOD.: {{currACPA.chassis.toughness}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <span class="csd-btn">EQUIPMENT</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row chargen-label">
+  <div class="col text-center font-weight-bold">
+    S P A C E S
+  </div>
+</div>
+<div class="row small">
+  <div class="col-12 col-md-4 col-lg-3 col-xl-2 border border-dark">
+    <ng-container [ngTemplateOutlet]="locationsSection" [ngTemplateOutletContext]="{location:currACPA.locations.head}">
+    </ng-container>
+  </div>
+  <div class="col-12 col-md-4 col-lg-3 col-xl-2 border border-dark">
+    <ng-container [ngTemplateOutlet]="locationsSection" [ngTemplateOutletContext]="{location:currACPA.locations.torso}">
+    </ng-container>
+  </div>
+  <div class="col-12 col-md-4 col-lg-3 col-xl-2 border border-dark">
+    <ng-container [ngTemplateOutlet]="locationsSection" [ngTemplateOutletContext]="{location:currACPA.locations.rarm}">
+    </ng-container>
+  </div>
+  <div class="col-12 col-md-4 col-lg-3 col-xl-2 border border-dark">
+    <ng-container [ngTemplateOutlet]="locationsSection" [ngTemplateOutletContext]="{location:currACPA.locations.larm}">
+    </ng-container>
+  </div>
+  <div class="col-12 col-md-4 col-lg-3 col-xl-2 border border-dark">
+    <ng-container [ngTemplateOutlet]="locationsSection" [ngTemplateOutletContext]="{location:currACPA.locations.rleg}">
+    </ng-container>
+  </div>
+  <div class="col-12 col-md-4 col-lg-3 col-xl-2 border border-dark">
+    <ng-container [ngTemplateOutlet]="locationsSection" [ngTemplateOutletContext]="{location:currACPA.locations.lleg}">
+    </ng-container>
+  </div>
+</div>
+<div class="row chargen-label">
+  <div class="col text-center font-weight-bold">
+    E Q U I P M E N T C A R R I E D
+  </div>
+</div>
+<div class="row border border-dark">
+  <div class="col">
+    <ng-container [ngTemplateOutlet]="equipmentCarried"></ng-container>
+  </div>
+  <div class="col">
+    <ng-container [ngTemplateOutlet]="equipmentCarried"></ng-container>
+  </div>
+</div>
+<div class="row border border-dark">
+  <div class="col">
+    <ng-container [ngTemplateOutlet]="equipmentCarried"></ng-container>
+  </div>
+  <div class="col">
+    <ng-container [ngTemplateOutlet]="equipmentCarried"></ng-container>
+  </div>
+</div>
+<div class="row chargen-label">
+  <div class="col text-center font-weight-bold">
+    N O T E S
+  </div>
+</div>
+<div class="row border border-dark">
+  <div class="col">
+    <textarea class="w-100" rows=10></textarea>
+  </div>
+</div>
+
+<ng-template #locationsSection let-location="location">
+  <div class="row">
+    <div class="col">
+      {{location?.name}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      SP
+    </div>
+    <div class="col">
+      {{location?.sp}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      SDP
+    </div>
+    <div class="col">
+      {{location?.sdp}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8">
+      INTERNAL ({{location?.internalSpaces}})
+    </div>
+    <div class="col-4">
+      SDP
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8">
+      EXTERNAL ({{location?.externalSpaces}})
+    </div>
+    <div class="col-4">
+      SP/SDP
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #equipmentCarried>
+  <div class="row">
+    <div class="col border border-dark">
+      ITEM
+    </div>
+    <div class="col border border-dark">
+      SP/SDP/WT
+    </div>
+  </div>
+
+</ng-template>
+
+<div>
+  {{currACPA | json}}
+</div>
