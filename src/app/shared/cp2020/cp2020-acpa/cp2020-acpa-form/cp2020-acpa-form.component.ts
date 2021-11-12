@@ -1,8 +1,8 @@
+import { SaveFileService } from './../../../services/file-services/save-file/save-file.service';
+import { FileLoaderService } from './../../../services/file-services/file-loader/file-loader.service';
 import { ACPAEnclosure } from './../enums/acpa-enclossure';
 import { Cp2020ACPAWeapon } from './../models/cp2020-acpa-weapon';
-import { forkJoin } from 'rxjs';
-import { LocalStorageManagerService } from './../../../services/local-storage-manager/local-storage-manager.service';
-import { faPlus, faTrash, faFilePdf, faRedo } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faTrash, faFilePdf, faRedo, faFile, faUpload } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020ACPAComponent } from './../models/cp2020-acpa-component';
 import { Cp2020AcpaArmor } from './../models/cp2020-acpa-armor';
 import { Cp2020ACPAChassis } from './../models/cp2020-acpa-chassis';
@@ -12,7 +12,6 @@ import { Cp2020ACPADataAttributesService } from './../services/cp2020-acpa-data-
 import { AcpaAttributeData } from './../models/acpa-attribute-data';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { TemplateAstPath } from '@angular/compiler';
 
 @Component({
   selector: 'cs-cp2020-acpa-form',
@@ -22,8 +21,8 @@ import { TemplateAstPath } from '@angular/compiler';
 export class Cp2020AcpaFormComponent implements OnInit {
   faPlus = faPlus;
   faTrash = faTrash;
-  faFilePdf = faFilePdf;
   faRedo = faRedo;
+
 
   modalRef: BsModalRef;
   config = {
@@ -212,4 +211,5 @@ export class Cp2020AcpaFormComponent implements OnInit {
     }
     return loc;
   }
+
 }

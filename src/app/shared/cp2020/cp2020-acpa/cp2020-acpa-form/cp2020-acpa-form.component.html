@@ -3,7 +3,6 @@
     <h4 class="d-inline-block">POWERED ARMOR SPECIFICATIONS</h4>
     <fa-icon [icon]="faRedo" class="csd-btn csd-icon-btn csd-icon-lg ml-3" title="Reset the form"
       (click)="reset()"></fa-icon>
-      <fa-icon [icon]="faFilePdf" class="csd-btn csd-icon-btn csd-icon-lg float-right" title="Print PDF"></fa-icon>
   </div>
 </div>
 <div class="row border border-dark">
@@ -227,7 +226,6 @@
       <div class="row font-weight-bold mt-2">
         <div class="col-8">
           EXTERNAL ({{location?.externalSpacesUsed}}/{{location?.externalSpaces}})
-
           <fa-icon *ngIf="location?.externalSpacesUsed &lt; location?.externalSpaces" [icon]="faPlus" class="csd-btn csd-icon-btn ml-2"
           (click)="showExternalComponent(title, (location?.externalSpaces - location?.externalSpacesUsed), addComponentModal)">
         </fa-icon>

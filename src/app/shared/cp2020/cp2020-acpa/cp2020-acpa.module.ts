@@ -7,15 +7,11 @@ import { Cp2020ACPADataAttributesService } from './services';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Cp2020AcpaFormComponent } from './cp2020-acpa-form/cp2020-acpa-form.component';
-import { Cp2020AcpaSourceListComponent } from './cp2020-acpa-source-list/cp2020-acpa-source-list.component';
-import { Cp2020AcpaSourceWeaponsComponent } from './cp2020-acpa-source-weapons/cp2020-acpa-source-weapons.component';
 import { Cp2020AcpaSelectEquipementComponent } from './cp2020-acpa-select-equipement/cp2020-acpa-select-equipement.component';
 
 @NgModule({
   declarations: [
     Cp2020AcpaFormComponent,
-    Cp2020AcpaSourceListComponent,
-    Cp2020AcpaSourceWeaponsComponent,
     Cp2020AcpaSelectEquipementComponent
   ],
   imports: [
@@ -31,8 +27,7 @@ import { Cp2020AcpaSelectEquipementComponent } from './cp2020-acpa-select-equipe
   ],
   exports: [
     Cp2020AcpaFormComponent,
-    Cp2020AcpaSourceListComponent,
-    Cp2020AcpaSourceWeaponsComponent
+    Cp2020AcpaSelectEquipementComponent
   ]
 })
 export class Cp2020ACPAModule { }

@@ -116,6 +116,7 @@ export interface SiteLinksGroup {
         groupTitle: 'Apps-2020',
         description: 'Under Apps you will find web page based application/utilities for Cyberpunk.',
         links: [
+          {title: 'ACPA Generator', link: 'apps/acpa', desc: 'ACPA genereator for Cyberpunk 2020.'},
           {title: 'Character Generator', link: 'apps/chargen', desc: 'Cyberpunk 2020 character sheet.'},
           {title: 'Combat Tracker', link: 'apps/cmbttrk', desc: 'Cyberpunk 2020 combat tracking utiltiy.'},
           {title: 'Combat Zone Generator', link: 'apps/cmbtzone',

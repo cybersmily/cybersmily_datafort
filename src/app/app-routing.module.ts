@@ -18,6 +18,7 @@ export const mainRoutes: Routes = [
 
   { path: 'apps/redlifepath', loadChildren: () => import('./app-cp-red-lifepath/app-cp-red-lifepath.module')
       .then(m => m.AppCpRedLifepathModule) },
+  { path: 'apps/acpa', loadChildren: () => import('./app-acpa-generator/app-acpa-generator.module').then(m => m.AppAcpaGeneratorModule) },
   { path: 'apps/maxmetal', loadChildren: () => import('./app-maxmetal/app-maxmetal.module').then(m => m.AppMaxmetalModule) },
   { path: 'apps/nrtrace', loadChildren: () => import('./app-netrun/app-netrun.module').then(m => m.AppNetrunModule) },
   { path: 'apps/qkpregen',
