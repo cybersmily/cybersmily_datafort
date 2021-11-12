@@ -9,11 +9,11 @@ export class Cp2020ACPALocations implements ACPALocations {
   lleg: Cp2020ACPALocation;
 
   constructor(param?:ACPALocations){
-    this.head = param?.head ?? new Cp2020ACPALocation();
-    this.torso = param?.torso ?? new  Cp2020ACPALocation();
-    this.rarm = param?.rarm ?? new Cp2020ACPALocation();
-    this.larm = param?.larm ?? new Cp2020ACPALocation();
-    this.rleg = param?.rleg ?? new Cp2020ACPALocation();
-    this.lleg = param?.lleg ?? new Cp2020ACPALocation();
+    this.head =  new Cp2020ACPALocation(param?.head);
+    this.torso =  new  Cp2020ACPALocation(param?.torso);
+    this.rarm = new Cp2020ACPALocation(param?.rarm);
+    this.larm = new Cp2020ACPALocation(param?.larm);
+    this.rleg = new Cp2020ACPALocation(param?.rleg);
+    this.lleg = new Cp2020ACPALocation(param?.lleg);
   }
 }

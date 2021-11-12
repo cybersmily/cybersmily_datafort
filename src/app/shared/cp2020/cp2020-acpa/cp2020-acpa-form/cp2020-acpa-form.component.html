@@ -1,16 +1,19 @@
 <div class="row">
   <div class="col chargen-label">
-    <h2>POWERED ARMOR SPECIFICATIONS</h2>
+    <h4 class="d-inline-block">POWERED ARMOR SPECIFICATIONS</h4>
+    <fa-icon [icon]="faRedo" class="csd-btn csd-icon-btn csd-icon-lg ml-3" title="Reset the form"
+      (click)="reset()"></fa-icon>
+      <fa-icon [icon]="faFilePdf" class="csd-btn csd-icon-btn csd-icon-lg float-right" title="Print PDF"></fa-icon>
   </div>
 </div>
 <div class="row border border-dark">
   <div class="col pt-2 pb-4">
     <div class="row">
-      <div class="col">
-        SUIT NAME: <input [(ngModel)]="currACPA.name" type="text" class="w-75">
+      <div class="col-12 col-lg-6">
+        SUIT NAME: <input [(ngModel)]="currACPA.name" type="text" class="w-75" (change)="update()">
       </div>
-      <div class="col">
-        MANUFACTURER: <input [(ngModel)]="currACPA.manufacturer" type="text" class="w-75">
+      <div class="col-12 col-lg-6">
+        MANUFACTURER: <input [(ngModel)]="currACPA.manufacturer" type="text" class="w-50" (change)="update()">
       </div>
     </div>
     <div class="row">
@@ -18,64 +21,66 @@
         TOTAL WEIGHT: {{currACPA.totalWeight | number}}kg
       </div>
       <div class="col">
-        SIB/DFB: {{currACPA.sib}}/{{currACPA.dfb}}
+        TOTAL COST: {{currACPA?.totalCost | number}}eb
       </div>
     </div>
     <div class="row">
-      <div class="col">
+      <div [ngClass]="{'col':true,'bg-warning pt-1 pb-1 rounded font-weight-bold':isDisabled}" class="col">
         CHASSIS TYPE: <select [(ngModel)]="selectedChassis" (change)="updateChassis()">
           <option *ngFor="let chassis of attributeData.chassis" [ngValue]="chassis">STR: {{chassis.str}}</option>
         </select>
+        <span *ngIf="isDisabled" class="text-danger pr-1 pl-1 pt-1 pb-1">* Choose a chassis...</span>
+
       </div>
-      <div class="col">CHASSIS WEIGHT: {{currACPA.chassis.weight | number}}kg
+      <div class="col">CHASSIS WEIGHT: {{currACPA?.chassis?.weight | number}}kg
       </div>
     </div>
     <div class="row">
       <div class="col">
-        ARMOR: <select [(ngModel)]="selectedArmor" (change)="updateArmor()">
+        ARMOR: <select [(ngModel)]="selectedArmor" (change)="updateArmor()" [disabled]="isDisabled">
           <option *ngFor="let armor of filteredArmor" [ngValue]="armor">SP {{armor.sp}}</option>
         </select>
       </div>
-      <div class="col">
-        CHASSIS CAP./CARRY: {{currACPA.chassis.lift | number}}kg/{{currACPA.chassis.carry | number}}kg
+      <div class="col-12 col-md-6">
+        CHASSIS CAP./CARRY: {{currACPA?.chassis?.lift | number}}kg/{{currACPA?.chassis?.carry | number}}kg
       </div>
     </div>
     <div class="row">
-      <div class="col-3">
+      <div class="col-12 col-md-6">
+        SIB/DFB: {{currACPA.sib > 0 ? '+' : ''}}{{currACPA.sib}}/{{currACPA.dfb > 0 ? '+' : ''}}{{currACPA.dfb}}
+      </div>
+      <div class="col-4 col-md-2 pr-0">
         PUNCH: {{currACPA.punch}}
       </div>
-      <div class="col-3">
+      <div class="col-4 col-md-2 pr-0 pl-0 text-center">
         KICK: {{currACPA.kick}}
       </div>
-      <div class="col">
-        TOTAL COST: {{currACPA.totalCost | number}}eb
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-3">
+      <div class="col-4 col-md-2 pr-0 pl-0 text-center">
         CRUSH: {{currACPA.crush}}
       </div>
-      <div class="col-3">
-        RUN:
-      </div>
-      <div class="col">
-        TROOPER SIZE: <input type="number" min="0" class="csd-number" [(ngModel)]="currACPA.trooperSize" (change)="update()">kg
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-3">
-        LEAP:
-      </div>
-      <div class="col-3">
-        JUMP:
-      </div>
-      <div class="col">
-        TOUGHNESS MOD.: {{currACPA.chassis.toughness}}
-      </div>
     </div>
     <div class="row">
       <div class="col">
-        <span class="csd-btn">EQUIPMENT</span>
+        TROOPER SIZE: <input type="number" min="0" class="csd-number" [(ngModel)]="currACPA.trooperSize"
+          (change)="update()" [disabled]="isDisabled"> kg
+      </div>
+      <div class="col">
+        TOUGHNESS MOD.: {{currACPA?.chassis?.toughness}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        REALITY INTERFACE:
+        <select [(ngModel)]="selectedInterface" (change)="updateInterface()" [disabled]="isDisabled">
+          <option *ngFor="let interface of attributeData.realityInterfaces" [ngValue]="interface">{{interface.name}}
+          </option>
+        </select>
+      </div>
+      <div class="col-12 col-md-6">
+        REFLEX/CONTROL SYSTEM:
+        <select [(ngModel)]="selectedControl" (change)="updateControl()" [disabled]="isDisabled">
+          <option *ngFor="let control of attributeData.controlSystems" [ngValue]="control">{{control.name}}</option>
+        </select>
       </div>
     </div>
   </div>
@@ -86,50 +91,75 @@
   </div>
 </div>
 <div class="row small">
-  <div class="col-12 col-md-4 col-lg-3 col-xl-2 border border-dark">
-    <ng-container [ngTemplateOutlet]="locationsSection" [ngTemplateOutletContext]="{location:currACPA.locations.head}">
+  <div class="col-12 col-md-6 border border-dark">
+    <ng-container [ngTemplateOutlet]="locationsSection"
+      [ngTemplateOutletContext]="{location:currACPA.locations?.head, title:'HEAD'}">
     </ng-container>
   </div>
-  <div class="col-12 col-md-4 col-lg-3 col-xl-2 border border-dark">
-    <ng-container [ngTemplateOutlet]="locationsSection" [ngTemplateOutletContext]="{location:currACPA.locations.torso}">
+  <div class="col-12 col-md-6 border border-dark">
+    <ng-container [ngTemplateOutlet]="locationsSection"
+      [ngTemplateOutletContext]="{location:currACPA.locations?.torso, title:'TORSO'}">
     </ng-container>
   </div>
-  <div class="col-12 col-md-4 col-lg-3 col-xl-2 border border-dark">
-    <ng-container [ngTemplateOutlet]="locationsSection" [ngTemplateOutletContext]="{location:currACPA.locations.rarm}">
+</div>
+<div class="row small">
+  <div class="col-12 col-md-6 border border-dark">
+    <ng-container [ngTemplateOutlet]="locationsSection"
+      [ngTemplateOutletContext]="{location:currACPA.locations?.rarm, title:'R ARM'}">
     </ng-container>
   </div>
-  <div class="col-12 col-md-4 col-lg-3 col-xl-2 border border-dark">
-    <ng-container [ngTemplateOutlet]="locationsSection" [ngTemplateOutletContext]="{location:currACPA.locations.larm}">
+  <div class="col-12 col-md-6 border border-dark">
+    <ng-container [ngTemplateOutlet]="locationsSection"
+      [ngTemplateOutletContext]="{location:currACPA.locations?.larm, title:'L ARM'}">
     </ng-container>
   </div>
-  <div class="col-12 col-md-4 col-lg-3 col-xl-2 border border-dark">
-    <ng-container [ngTemplateOutlet]="locationsSection" [ngTemplateOutletContext]="{location:currACPA.locations.rleg}">
+  <div class="col-12 col-md-6 border border-dark">
+    <ng-container [ngTemplateOutlet]="locationsSection"
+      [ngTemplateOutletContext]="{location:currACPA.locations?.rleg, title:'R LEG'}">
     </ng-container>
   </div>
-  <div class="col-12 col-md-4 col-lg-3 col-xl-2 border border-dark">
-    <ng-container [ngTemplateOutlet]="locationsSection" [ngTemplateOutletContext]="{location:currACPA.locations.lleg}">
+  <div class="col-12 col-md-6 border border-dark">
+    <ng-container [ngTemplateOutlet]="locationsSection"
+      [ngTemplateOutletContext]="{location:currACPA.locations?.lleg, title:'L LEG'}">
     </ng-container>
   </div>
 </div>
 <div class="row chargen-label">
   <div class="col text-center font-weight-bold">
-    E Q U I P M E N T C A R R I E D
+    EQUIPMENT  CARRIED/INSTALLED
   </div>
 </div>
 <div class="row border border-dark">
-  <div class="col">
-    <ng-container [ngTemplateOutlet]="equipmentCarried"></ng-container>
+  <div class="col-12 col-lg-6">
+    <div class="row small font-weight-bold">
+      <div class="col-8 border border-dark">
+        ITEM
+      </div>
+      <div class="col border border-dark text-center">
+        SP/SDP/WT
+      </div>
+    </div>
+    <ng-container [ngTemplateOutlet]="equipmentCarried" [ngTemplateOutletContext]="{equipment:equipmentColumnOne, start: 0}"></ng-container>
   </div>
-  <div class="col">
-    <ng-container [ngTemplateOutlet]="equipmentCarried"></ng-container>
+  <div class="col-12 col-lg-6">
+    <div class="row small font-weight-bold">
+      <div class="col-8 border border-dark d-none d-lg-inline-block">
+        ITEM
+      </div>
+      <div class="col border border-dark d-none d-lg-inline-block text-center">
+        SP/SDP/WT
+      </div>
+    </div>
+    <ng-container [ngTemplateOutlet]="equipmentCarried" [ngTemplateOutletContext]="{equipment:equipmentColumnTwo, start: equipmentColumnOne.length}"></ng-container>
   </div>
-</div>
-<div class="row border border-dark">
-  <div class="col">
-    <ng-container [ngTemplateOutlet]="equipmentCarried"></ng-container>
-  </div>
-  <div class="col">
-    <ng-container [ngTemplateOutlet]="equipmentCarried"></ng-container>
+  <div class="col-12">
+    <div *ngIf="!isDisabled" class="row">
+      <div class="col text-center">
+        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-lg" title="Add carried/installed item"
+        (click)="showCarriedComponent('handed', -1, addComponentModal)"
+        ></fa-icon>
+      </div>
+    </div>
   </div>
 </div>
 <div class="row chargen-label">
@@ -139,26 +169,24 @@
 </div>
 <div class="row border border-dark">
   <div class="col">
-    <textarea class="w-100" rows=10></textarea>
+    <textarea [(ngModel)]="currACPA.notes" class="w-100" rows=10 (change)="update()"></textarea>
   </div>
 </div>
 
-<ng-template #locationsSection let-location="location">
-  <div class="row">
-    <div class="col">
-      {{location?.name}}
+<ng-template #locationsSection let-location="location" let-title="title">
+  <div class="row small">
+    <div class="col border border-dark text-center">
+      <h6>{{title}}</h6>
     </div>
   </div>
   <div class="row">
-    <div class="col">
+    <div class="col font-weight-bold">
       SP
     </div>
     <div class="col">
       {{location?.sp}}
     </div>
-  </div>
-  <div class="row">
-    <div class="col">
+    <div class="col font-weight-bold">
       SDP
     </div>
     <div class="col">
@@ -166,35 +194,94 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-8">
-      INTERNAL ({{location?.internalSpaces}})
+    <div class="col">
+      <div class="row font-weight-bold mt-2">
+        <div class="col-9">
+          INTERNAL ({{location?.internalSpacesUsed}}/{{location?.internalSpaces}})
+          <fa-icon *ngIf="location?.internalSpacesUsed &lt; location?.internalSpaces" [icon]="faPlus" class="csd-btn csd-icon-btn ml-2"
+            (click)="showInternalComponent(title, (location?.internalSpaces - location?.internalSpacesUsed), addComponentModal)">
+          </fa-icon>
+        </div>
+        <div class="col-2 text-center">
+          SDP
+        </div>
+      </div>
+      <hr class="mt-1 mb-0">
+      <ng-conainer *ngFor="let item of location?.internalComponents;let i = index">
+        <div class="row">
+          <div class="col-1">
+            <span  *ngIf="i%4 == 0">{{i/4 + 1}}</span>
+          </div>
+          <div class="col-8 pr-0 pl-0">
+            {{item?.name}}
+            <fa-icon *ngIf="item != null && item.category !== ''" [icon]="faTrash" class="csd-btn csd-icon-btn float-right" (click)="removeInternalComponent(title, item)"></fa-icon>
+          </div>
+          <div class="col-2 text-center">
+            {{item?.sdp}}
+          </div>
+        </div>
+        <hr *ngIf="i > 0 && i%4 == 3" class="mt-1 mb-0">
+      </ng-conainer>
     </div>
-    <div class="col-4">
-      SDP
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-8">
-      EXTERNAL ({{location?.externalSpaces}})
-    </div>
-    <div class="col-4">
-      SP/SDP
+    <div class="col">
+      <div class="row font-weight-bold mt-2">
+        <div class="col-8">
+          EXTERNAL ({{location?.externalSpacesUsed}}/{{location?.externalSpaces}})
+
+          <fa-icon *ngIf="location?.externalSpacesUsed &lt; location?.externalSpaces" [icon]="faPlus" class="csd-btn csd-icon-btn ml-2"
+          (click)="showExternalComponent(title, (location?.externalSpaces - location?.externalSpacesUsed), addComponentModal)">
+        </fa-icon>
+        </div>
+        <div class="col-3 text-center">
+          SP/SDP
+        </div>
+      </div>
+      <hr class="mt-1 mb-0">
+      <ng-conainer *ngFor="let item of location?.externalComponents;let i = index">
+        <div class="row">
+          <div class="col-1">
+            <span  *ngIf="i%4 == 0">{{i/4 + 1}}</span>
+          </div>
+          <div class="col-7 pr-0 pl-0">
+            {{item?.name}}
+            <fa-icon *ngIf="item != null" [icon]="faTrash" class="csd-btn csd-icon-btn float-right"  (click)="removeExternalComponent(title, item)"></fa-icon>
+          </div>
+          <div class="col-3 text-center">
+           <span *ngIf="item != null">{{item?.sp}}/{{item?.sdp}}</span>
+          </div>
+        </div>
+        <hr *ngIf="i > 0 && i%4 == 3" class="mt-1 mb-0">
+      </ng-conainer>
     </div>
   </div>
 </ng-template>
 
-<ng-template #equipmentCarried>
-  <div class="row">
-    <div class="col border border-dark">
-      ITEM
+<ng-template #equipmentCarried let-equipment="equipment" let-start="start">
+  <div *ngFor="let equip of equipment;let i = index" class="row small">
+    <div class="col-8 border border-dark">
+      {{equip?.name}}
+      {{getHands(equip?.external)}}
+      <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn float-right mr-1" title="Remove equipment"
+      (click)="removeCarriedComponent(i + start)"></fa-icon>
     </div>
-    <div class="col border border-dark">
-      SP/SDP/WT
+    <div class="col border border-dark text-center">
+      {{equip?.sp}}/{{equip?.sdp}}/{{getWeight(equip?.weight)|number}}kg
     </div>
   </div>
-
 </ng-template>
 
-<div>
-  {{currACPA | json}}
-</div>
+<ng-template #addComponentModal>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <cs-cp2020-acpa-select-equipement [componentList]="installableComponents"
+          [weaponList]="installableWeapons" [internal]="isInternal" [external]="isExternal" [carried]="isCarried"
+          [location]="selectedLocation" (chooseEquipment)="addEquipment($event)">
+        </cs-cp2020-acpa-select-equipement>
+      </div>
+    </div>
+  </div>
+</ng-template>

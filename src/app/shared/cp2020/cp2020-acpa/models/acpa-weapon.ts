@@ -17,6 +17,8 @@ export interface ACPAWeapon {
   sp: number;
   sdp: number;
   enclosed: ACPAEnclosure;
+  internal?: string;
+  external?: string;
   ammo?: ACPAAmmo;
   volley?:number;
   notes?:string;

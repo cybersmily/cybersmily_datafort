@@ -5,6 +5,8 @@ import { ACPAWeapon } from './acpa-weapon';
 export interface AcpaAttributeData {
   chassis: Array<ACPAChassis>;
   armor: Array<ACPAArmor>;
+  realityInterfaces: Array<ACPAComponent>;
+  controlSystems:  Array<ACPAComponent>;
   components: Array<ACPAComponent>;
   weapons: Array<ACPAWeapon>;
 }

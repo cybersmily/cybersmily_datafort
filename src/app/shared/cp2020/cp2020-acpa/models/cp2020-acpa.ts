@@ -1,3 +1,4 @@
+import { Cp2020ACPAComponent } from './cp2020-acpa-component';
 import { Cp2020AcpaArmor } from './cp2020-acpa-armor';
 import { ACPAArmor } from './acpa-armor';
 import { Cp2020ACPASettings } from './../enums/cp2020-acpa-settings';
@@ -22,7 +23,10 @@ export class Cp2020ACPA implements ACPA {
   totalCost: number;
   trooperSize: number;
   toughnessMod: number;
+  hasStealth: boolean;
   notes: string;
+  realityInterface: Cp2020ACPAComponent;
+  controlSystem: Cp2020ACPAComponent;
   equipment: Array<any>;
   locations: Cp2020ACPALocations;
 
@@ -43,6 +47,10 @@ export class Cp2020ACPA implements ACPA {
     this.totalCost = param?.totalCost ?? 0;
     this.trooperSize = param?.trooperSize ?? Cp2020ACPASettings.TROOPSIZE_DEFAULT.valueOf();
     this.toughnessMod = param?.toughnessMod ?? 0;
+    this.realityInterface = new Cp2020ACPAComponent(param?.realityInterface);
+    this.controlSystem = new Cp2020ACPAComponent(param?.controlSystem);
+    this.hasStealth = param?.hasStealth ?? false;
+
     this.notes = param?.notes ?? '';
     this.equipment = param?.equipment?.map(equip => equip)?? new Array<any>();
     this.locations = new Cp2020ACPALocations(param?.locations);

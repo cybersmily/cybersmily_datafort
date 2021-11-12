@@ -18,6 +18,8 @@ export class Cp2020ACPAWeapon implements ACPAWeapon {
   sp: number;
   sdp: number;
   enclosed: ACPAEnclosure;
+  internal?: string;
+  external?: string;
   ammo?: ACPAAmmo;
   volley?:number;
   notes?:string;
@@ -39,7 +41,9 @@ export class Cp2020ACPAWeapon implements ACPAWeapon {
     this.cost = param?.cost ?? 0;
     this.sp = param?.sp ?? 0;
     this.sdp = param?.sdp ?? 0;
-    this.enclosed = param?.enclosed ?? ACPAEnclosure.enclosed;
+    this.internal = param?.internal ?? null;
+    this.external = param?.external ?? null;
+    this.enclosed = param?.enclosed ?? ACPAEnclosure.internal;
     this.ammo = param?.ammo ?? null;
     this.volley = param?.volley ?? null;
     this.notes = param?.notes ?? '';

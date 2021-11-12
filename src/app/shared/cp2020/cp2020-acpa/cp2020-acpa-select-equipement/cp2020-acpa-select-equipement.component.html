@@ -1,0 +1,81 @@
+<div class="row">
+  <div class="col">
+    Choose type: <select [(ngModel)]="selectedOption">
+      <optgroup label="EQUIPEMENT">
+        <option *ngFor="let category of componentCategories" [ngValue]="{type: 'component', category:category}">
+          {{category}}</option>
+      </optgroup>
+      <optgroup label="WEAPONS">
+        <option *ngFor="let category of weaponCategories" [ngValue]="{type: 'weapon', category:category}">{{category}}
+        </option>
+      </optgroup>
+    </select>
+  </div>
+</div>
+<div *ngIf="selectedOption.type == 'component'" class="row">
+  <div class="col-12">
+    <div class="row">
+      <div class="col">
+        NAME
+      </div>
+      <div class="col-2">
+        COST
+      </div>
+      <div class="col-1 text-center">
+        WT.
+      </div>
+      <div class="col-1 text-center">
+        SPC
+      </div>
+      <div class="col-2 text-center">
+        SP/SDP
+      </div>
+    </div>
+    <div *ngFor="let comp of currComponentList | filter:'category':selectedOption.category"
+     class="row small csd-acpa-equip"
+     (click)="selectEquipment(comp)">
+      <div class="col" title="{{comp.source?.book | sourcebook}} pg. {{comp.source?.page}}">
+        {{comp.name}}
+      </div>
+      <div class="col-2">
+        {{comp.cost|number}}eb
+      </div>
+      <div class="col-1 text-center">
+        {{comp.weight|number}}kg
+      </div>
+      <div class="col-1 text-center">
+        {{comp.spaces/4}}
+      </div>
+      <div class="col-2 text-center">
+        {{comp.sp}}/{{comp.sdp}}
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="selectedOption.type == 'weapon'" class="row small">
+  <div class="col-12">
+    <div *ngFor="let wpn of currWeaponList | filter:'category':selectedOption.category"
+     class="row csd-acpa-equip mb-3" title="{{wpn?.source?.book | sourcebook}} pg.{{wpn?.source?.page}}"
+     (click)="selectEquipment(wpn)">
+      <div class="col-4">
+        {{wpn.name}}
+      </div>
+      <div class="col-8">
+        {{wpn.cost|number}}eb
+        {{wpn.weight|number}}kg
+        Spaces:{{wpn.spaces/4}}
+        SP: {{wpn.sp}} SDP:{{wpn.sdp}}
+      </div>
+      <div class="col-1">
+      </div>
+      <div class="col-11">
+        WA: {{wpn.wa}}
+        DAMAGE: {{wpn.damage}}
+        PEN.: {{wpn?.pen}}
+        SHOTS: {{wpn?.shots}}{{wpn?.volley ? 'x' + wpn.volley : ''}}
+        ROF:{{wpn?.rof}}{{wpn.category == 'Scatter Packs'? 'D6': ''}}
+        RNG.: {{wpn?.range}}m
+      </div>
+    </div>
+  </div>
+</div>
