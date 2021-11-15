@@ -1,6 +1,8 @@
 import { ACPAChassis, ACPABodyLocations } from './acpa-chassis';
 
 export class Cp2020ACPAChassis implements ACPAChassis {
+  name: string;
+  manufacturer: string;
   str:number;
   toughness:number;
   damageMod:string;
@@ -12,6 +14,8 @@ export class Cp2020ACPAChassis implements ACPAChassis {
   sdp: ACPABodyLocations;
 
   constructor(param?: ACPAChassis) {
+    this.name = param?.name ?? '';
+    this.manufacturer = param?.manufacturer ?? '';
     this.str = param?.str ?? 0;
     this.toughness = param?.toughness ?? 0;
     this.damageMod = param?.damageMod ?? '';

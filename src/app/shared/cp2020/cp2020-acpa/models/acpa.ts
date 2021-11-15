@@ -6,6 +6,10 @@ export interface ACPA {
   name: string;
   manufacturer: string;
   totalWeight: number;
+  weightCarried: number;
+  totalCost: number;
+  weightModifier: number;
+  costModifier: number;
   chassis: ACPAChassis;
   armor: ACPAArmor;
   sib: number;
@@ -16,7 +20,6 @@ export interface ACPA {
   run: number;
   leap: number;
   jump: number;
-  totalCost: number;
   hasStealth: boolean;
   trooperSize: number;
   toughnessMod: number;

@@ -9,24 +9,24 @@
   <div class="col pt-2 pb-4">
     <div class="row">
       <div class="col-12 col-lg-6">
-        SUIT NAME: <input [(ngModel)]="currACPA.name" type="text" class="w-75" (change)="update()">
+        SUIT NAME: <input [(ngModel)]="selectedName" type="text" class="w-75" (change)="updateName()">
       </div>
       <div class="col-12 col-lg-6">
-        MANUFACTURER: <input [(ngModel)]="currACPA.manufacturer" type="text" class="w-50" (change)="update()">
+        MANUFACTURER: <input [(ngModel)]="selectedManufacturer" type="text" class="w-50" (change)="updateManufacturer()">
       </div>
     </div>
     <div class="row">
       <div class="col">
-        TOTAL WEIGHT: {{currACPA.totalWeight | number}}kg
+        TOTAL WEIGHT: {{currACPA.totalWeight * currACPA.weightModifier | number}}kg
       </div>
       <div class="col">
-        TOTAL COST: {{currACPA?.totalCost | number}}eb
+        TOTAL COST: {{currACPA.totalCost * currACPA.costModifier | number}}eb
       </div>
     </div>
     <div class="row">
       <div [ngClass]="{'col':true,'bg-warning pt-1 pb-1 rounded font-weight-bold':isDisabled}" class="col">
         CHASSIS TYPE: <select [(ngModel)]="selectedChassis" (change)="updateChassis()">
-          <option *ngFor="let chassis of attributeData.chassis" [ngValue]="chassis">STR: {{chassis.str}}</option>
+          <option *ngFor="let chassis of attributeData.chassis" [ngValue]="chassis">{{chassis.name}}, STR {{chassis.str}}</option>
         </select>
         <span *ngIf="isDisabled" class="text-danger pr-1 pl-1 pt-1 pb-1">* Choose a chassis...</span>
 
@@ -60,11 +60,11 @@
     </div>
     <div class="row">
       <div class="col">
-        TROOPER SIZE: <input type="number" min="0" class="csd-number" [(ngModel)]="currACPA.trooperSize"
-          (change)="update()" [disabled]="isDisabled"> kg
+        TROOPER SIZE: <input type="number" min="0" class="csd-number" [(ngModel)]="selectedTroopSize"
+          (change)="updateTroopSize()" [disabled]="isDisabled"> kg
       </div>
       <div class="col">
-        TOUGHNESS MOD.: {{currACPA?.chassis?.toughness}}
+        TOUGHNESS MODIFIER: {{currACPA?.chassis?.toughness}}
       </div>
     </div>
     <div class="row">
@@ -168,7 +168,7 @@
 </div>
 <div class="row border border-dark">
   <div class="col">
-    <textarea [(ngModel)]="currACPA.notes" class="w-100" rows=10 (change)="update()"></textarea>
+    <textarea [(ngModel)]="selectedNote" class="w-100" rows=10 (change)="updateNote()"></textarea>
   </div>
 </div>
 
@@ -212,7 +212,7 @@
             <span  *ngIf="i%4 == 0">{{i/4 + 1}}</span>
           </div>
           <div class="col-8 pr-0 pl-0">
-            {{item?.name}}
+            <span title="{{item?.weight|number}}kg {{item?.cost|number}}eb {{item?.source.book | sourcebook}} pg.{{item?.source.page}}" [ngClass]="{'csd-collection': nameIsCollection(item?.name)}">{{item?.name}}</span>
             <fa-icon *ngIf="item != null && item.category !== ''" [icon]="faTrash" class="csd-btn csd-icon-btn float-right" (click)="removeInternalComponent(title, item)"></fa-icon>
           </div>
           <div class="col-2 text-center">
@@ -241,7 +241,7 @@
             <span  *ngIf="i%4 == 0">{{i/4 + 1}}</span>
           </div>
           <div class="col-7 pr-0 pl-0">
-            {{item?.name}}
+            <span title="{{item?.weight|number}}kg {{item?.cost|number}}eb {{item?.source.book | sourcebook}} pg.{{item?.source.page}}" [ngClass]="{'csd-collection': nameIsCollection(item?.name)}">{{item?.name}}</span>
             <fa-icon *ngIf="item != null" [icon]="faTrash" class="csd-btn csd-icon-btn float-right"  (click)="removeExternalComponent(title, item)"></fa-icon>
           </div>
           <div class="col-3 text-center">

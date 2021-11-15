@@ -1,4 +1,6 @@
 export interface ACPAChassis {
+  name: string;
+  manufacturer: string;
   str:number;
   toughness:number;
   damageMod:string;

@@ -42,7 +42,7 @@ export class ClothingListPdfService {
   private createHeader(line: number): number {
     this._doc.setFont(PdfPageSettings.DEFAULT_FONT, 'bold');
     this._doc.text('Name', PdfPageSettings.MARGIN_LEFT, line, {align: 'left'});
-    this._doc.text('Cost', PdfPageSettings.MARING_RIGHT, line, {align: 'right'});
+    this._doc.text('Cost', PdfPageSettings.MARGIN_RIGHT, line, {align: 'right'});
     this._doc.setFont(PdfPageSettings.DEFAULT_FONT, 'normal');
     line += 8;
     return line;
@@ -55,7 +55,7 @@ export class ClothingListPdfService {
       text += ` [SP:${armor.baseSP} (${armor.clothes.loc}) EV:${armor.ev}]`;
     }
     this._doc.text(text, PdfPageSettings.MARGIN_LEFT, line, {align: 'left'});
-    this._doc.text(`${armor.cost.toLocaleString()}eb`, PdfPageSettings.MARING_RIGHT, line, {align: 'right'});
+    this._doc.text(`${armor.cost.toLocaleString()}eb`, PdfPageSettings.MARGIN_RIGHT, line, {align: 'right'});
     if(armor.options.length > 0) {
       line += PdfPageSettings.LINEHEIGHT_SM;
       this._doc.setFontSize(PdfPageSettings.FONT_SIZE_SM);
@@ -74,11 +74,11 @@ export class ClothingListPdfService {
   }
 
   private createFooterRow(line: number, clothingList: Array<Cp2020ArmorPiece>): number {
-    this._doc.line(PdfPageSettings.MIDPAGE, line, PdfPageSettings.MARING_RIGHT, line);
+    this._doc.line(PdfPageSettings.MIDPAGE, line, PdfPageSettings.MARGIN_RIGHT, line);
     line += PdfPageSettings.LINEHEIGHT;
     const cost = clothingList.reduce((a,b) => a + b.cost, 0);
     const text = `Total Cost: ${cost.toLocaleString()}eb`;
-    this._doc.text(text, PdfPageSettings.MARING_RIGHT, line, {align: 'right'});
+    this._doc.text(text, PdfPageSettings.MARGIN_RIGHT, line, {align: 'right'});
     return line;
   }
 }

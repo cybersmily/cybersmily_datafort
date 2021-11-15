@@ -10,6 +10,10 @@ export class Cp2020ACPA implements ACPA {
   name: string;
   manufacturer: string;
   totalWeight: number;
+  weightCarried: number;
+  totalCost: number;
+  weightModifier: number;
+  costModifier: number;
   chassis: ACPAChassis;
   armor: ACPAArmor;
   sib: number;
@@ -20,7 +24,6 @@ export class Cp2020ACPA implements ACPA {
   run: number;
   leap: number;
   jump: number;
-  totalCost: number;
   trooperSize: number;
   toughnessMod: number;
   hasStealth: boolean;
@@ -34,6 +37,10 @@ export class Cp2020ACPA implements ACPA {
     this.name = param?.name ?? '';
     this.manufacturer = param?.manufacturer ?? '';
     this.totalWeight = param?.totalWeight ?? 0;
+    this.weightCarried = param?.weightCarried ?? 0;
+    this.weightModifier = param?.weightModifier ?? 1;
+    this.costModifier = param?.costModifier ?? 1;
+    this.totalCost = param?.totalCost ?? 0;
     this.chassis = new Cp2020ACPAChassis(param?.chassis);
     this.armor = new Cp2020AcpaArmor(param?.armor);
     this.sib = param?.sib ?? 0;
@@ -44,8 +51,9 @@ export class Cp2020ACPA implements ACPA {
     this.run = param?.run ?? 0;
     this.leap = param?.leap ?? 0;
     this.jump = param?.jump ?? 0;
-    this.totalCost = param?.totalCost ?? 0;
+
     this.trooperSize = param?.trooperSize ?? Cp2020ACPASettings.TROOPSIZE_DEFAULT.valueOf();
+    this.totalWeight = param?.totalWeight ?? this.trooperSize;
     this.toughnessMod = param?.toughnessMod ?? 0;
     this.realityInterface = new Cp2020ACPAComponent(param?.realityInterface);
     this.controlSystem = new Cp2020ACPAComponent(param?.controlSystem);

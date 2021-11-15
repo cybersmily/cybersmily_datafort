@@ -12,6 +12,8 @@ export interface ACPAWeapon {
   range:number;
   space:number;
   weight: number;
+  weightMod?: {component:string, mod:number}
+  costMod?: {component:string, mod:number}
   spaces: number;
   cost: number;
   sp: number;

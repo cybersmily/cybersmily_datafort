@@ -38,7 +38,6 @@ export class Cp2020AcpaSelectEquipementComponent implements OnInit {
 
   ngOnInit(): void {
     this.location = this.location.replace('r ', '').replace('l ', '');
-    console.log('onInit', this.currComponentList);
     this.weaponCategories = this.currWeaponList.map(wpn => wpn.category).filter((value, index, self) => self.indexOf(value) === index);
     this.componentCategories = this.currComponentList.map(comp => comp.category).filter((value, index, self) => self.indexOf(value) === index);
   }
@@ -46,7 +45,7 @@ export class Cp2020AcpaSelectEquipementComponent implements OnInit {
   get currComponentList(): Array<Cp2020ACPAComponent>{
     let list = this.componentList;
     if (this.internal) {
-      return list.filter(item => item?.internal?.includes(this.location) || item?.external?.includes('any'));
+      return list.filter(item => item?.internal?.includes(this.location) || item?.internal?.includes('any'));
     }
     if (this.external) {
       return list.filter(item => item?.external?.includes(this.location) || item?.external?.includes('any'));
@@ -63,13 +62,12 @@ export class Cp2020AcpaSelectEquipementComponent implements OnInit {
       return list.filter(item => item?.external?.includes(this.location) || item?.external?.includes('any'));
     }
     if (this.carried ) {
-      return list.filter(item =>  item?.external?.includes('handed') || item?.external?.includes('any'));
+      return list.filter(item =>  item?.external?.includes('handed') || item?.external?.includes('any') || item.spaces === 0);
     }
     return new Array<Cp2020ACPAWeapon>();
   }
 
   selectEquipment(equip: Cp2020ACPAComponent | Cp2020ACPAWeapon) {
-    console.log('emit', equip);
     this.chooseEquipment.emit(equip);
   }
 

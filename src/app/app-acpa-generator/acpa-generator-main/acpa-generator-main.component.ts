@@ -3,7 +3,7 @@ import { Cp2020ACPA } from './../../shared/cp2020/cp2020-acpa/models/cp2020-acpa
 import { SaveFileService } from './../../shared/services/file-services/save-file/save-file.service';
 import { FileLoaderService } from './../../shared/services/file-services/file-loader/file-loader.service';
 import { Cp2020ACPABuilderService } from './../../shared/cp2020/cp2020-acpa/services/cp2020-acpa-builder/cp2020-acpa-builder.service';
-import { faUpload, faFile, faFilePdf, faSave } from '@fortawesome/free-solid-svg-icons';
+import { faUpload, faFilePdf, faSave } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

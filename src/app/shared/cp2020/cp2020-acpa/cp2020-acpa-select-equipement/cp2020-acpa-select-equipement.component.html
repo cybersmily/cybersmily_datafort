@@ -55,25 +55,25 @@
 <div *ngIf="selectedOption.type == 'weapon'" class="row small">
   <div class="col-12">
     <div *ngFor="let wpn of currWeaponList | filter:'category':selectedOption.category"
-     class="row csd-acpa-equip mb-3" title="{{wpn?.source?.book | sourcebook}} pg.{{wpn?.source?.page}}"
+     class="row csd-acpa-equip mb-1 mt-1" title="{{wpn?.source?.book | sourcebook}} pg.{{wpn?.source?.page}}"
      (click)="selectEquipment(wpn)">
       <div class="col-4">
         {{wpn.name}}
       </div>
       <div class="col-8">
-        {{wpn.cost|number}}eb
-        {{wpn.weight|number}}kg
-        Spaces:{{wpn.spaces/4}}
-        SP: {{wpn.sp}} SDP:{{wpn.sdp}}
+        {{wpn.cost|number}}eb&nbsp;&nbsp;
+        {{wpn.weight|number}}kg&nbsp;&nbsp;
+        Spaces: {{wpn.spaces/4}}&nbsp;&nbsp;
+        SP: {{wpn.sp}}&nbsp;&nbsp;SDP: {{wpn.sdp}}
       </div>
       <div class="col-1">
       </div>
-      <div class="col-11">
-        WA: {{wpn.wa}}
-        DAMAGE: {{wpn.damage}}
-        PEN.: {{wpn?.pen}}
-        SHOTS: {{wpn?.shots}}{{wpn?.volley ? 'x' + wpn.volley : ''}}
-        ROF:{{wpn?.rof}}{{wpn.category == 'Scatter Packs'? 'D6': ''}}
+      <div *ngIf="wpn.wa !== null && wpn.wa !== undefined" class="col-11">
+        WA: {{wpn.wa}}&nbsp;&nbsp;
+        DAMAGE: {{wpn.damage}}&nbsp;&nbsp;
+        PEN.: {{wpn?.pen}}&nbsp;&nbsp;
+        SHOTS: {{wpn?.shots}}{{wpn?.volley ? 'x' + wpn.volley : ''}}&nbsp;&nbsp;
+        ROF:{{wpn?.rof}}{{wpn.category == 'Scatter Packs'? 'D6': ''}}&nbsp;&nbsp;
         RNG.: {{wpn?.range}}m
       </div>
     </div>

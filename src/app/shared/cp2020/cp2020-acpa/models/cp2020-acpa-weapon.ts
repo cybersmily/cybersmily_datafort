@@ -25,16 +25,18 @@ export class Cp2020ACPAWeapon implements ACPAWeapon {
   notes?:string;
   burst?: number;
   source: SourceBook;
+  weightMod?: {component:string, mod:number}
+  costMod?: {component:string, mod:number}
 
   constructor(param?:ACPAWeapon) {
     this.category = param?.category ?? '';
     this.name = param?.name ?? '';
-    this.wa = param?.wa ?? 0;
-    this.damage = param?.damage ?? '';
-    this.pen = param?.pen ?? 0;
+    this.wa = param?.wa ?? null;
+    this.damage = param?.damage ?? null;
+    this.pen = param?.pen ?? null;
     this.shots = param?.shots ?? 0;
-    this.rof = param?.rof ?? 0;
-    this.range = param?.range ?? 0;
+    this.rof = param?.rof ?? null;
+    this.range = param?.range ?? null;
     this.space = param?.space ?? 0;
     this.weight = param?.weight ?? 0;
     this.spaces = param?.spaces ?? 0;
@@ -52,6 +54,12 @@ export class Cp2020ACPAWeapon implements ACPAWeapon {
       book: param?.source?.book ?? '',
       page: param?.source?.page ?? 0
     };
+    if(param?.weightMod){
+      this.weightMod = {component:param.weightMod.component, mod:param.weightMod.mod}
+    }
+    if(param?.costMod){
+      this.costMod = {component:param.costMod.component, mod:param.costMod.mod}
+    }
 
   }
 }

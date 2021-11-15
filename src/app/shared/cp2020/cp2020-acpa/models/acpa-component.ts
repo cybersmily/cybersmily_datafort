@@ -5,6 +5,8 @@ export interface ACPAComponent {
   weight: number;
   spaces: number;
   cost: number;
+  weightMod?: {component:string, mod:number}
+  costMod?: {component:string, mod:number}
   sp: number;
   sdp: number;
   internal?: string;
