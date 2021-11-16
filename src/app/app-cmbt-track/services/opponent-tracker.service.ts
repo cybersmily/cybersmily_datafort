@@ -123,6 +123,9 @@ export class OpponentTrackerService {
     this.cache = opps;
   }
 
+  woundOpponent(value: number) {
+
+  }
 
   private checkName(name: string, index?: number): string {
     let newName = name;

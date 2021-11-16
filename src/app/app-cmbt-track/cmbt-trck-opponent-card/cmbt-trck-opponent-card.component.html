@@ -48,7 +48,7 @@
   </div>
   <div class='row'>
     <div class='col-12'>
-      <cs-cp2020-armor-table [armor]="currOpponent.armor" (changeArmor)="changeArmor($event)"></cs-cp2020-armor-table>
+      <cs-cp2020-armor-table [armor]="currOpponent.armor" (changeArmor)="changeArmor($event)" (damageCharacter)="woundOpponent($event)"></cs-cp2020-armor-table>
     </div>
   </div>
   <div class="row">

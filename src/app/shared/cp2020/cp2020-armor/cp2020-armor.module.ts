@@ -1,3 +1,4 @@
+import { Cp2020DamageCalculatorService } from './services/cp2020-damage-calculator/cp2020-damage-calculator.service';
 import {
   ClothingListPdfService,
   ArmorRandomGenSettingsService,
@@ -48,7 +49,8 @@ import { Cp2020OpponentArmorListComponent } from './cp2020-opponent-armor-list/c
     ArmorDataAttributesService,
     ArmorListService,
     ArmorRandomGenSettingsService,
-    ClothingListPdfService
+    ClothingListPdfService,
+    Cp2020DamageCalculatorService
   ],
   exports: [
     Cp2020ArmorTableComponent,

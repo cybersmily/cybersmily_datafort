@@ -73,13 +73,38 @@
 </div>
 
 <ng-template #armorDamage>
-  <div class="row armor-dmg">
-    <div class="col-1"></div>
-    <div class="col">SP Damage: <input [(ngModel)]="spDamage" type="number" value="1">
-      &nbsp;&nbsp;
-      <button class="btn btn-sm btn-secondary csd-rounded" (click)="damage()">Apply</button>
+  <div class="row armor-dmg text-center">
+    <div class="col">Damage: <input [(ngModel)]="damage" type="number" value="1" min="0">
     </div>
-    <div class="col-1"></div>
+  </div>
+  <div class="row armor-dmg text-center">
+    <div class="col">Ammo Type: <select [(ngModel)]="damageType">
+      <option [ngValue]="0">NORMAL ROUND</option>
+      <option [ngValue]="1">AP ROUND (1/2 SP 1/2 Dmg)</option>
+      <option [ngValue]="2">DP ROUND (1/2 SP 1/2 Dmg || 1.5xDmg)</option>
+      <option [ngValue]="3">API ROUND (1/2 SP 1/2 Dmg+)</option>
+      <option [ngValue]="4">HOLLOWPOINT ROUND (2xSP 1.5xDmg)</option>
+      <option [ngValue]="5">SAFETY ROUND (2xSP 3xDmg for SP less than 11)</option>
+      <option [ngValue]="6">FLECHETTE ROUND (1/2 SP Full Dmg)</option>
+      <option [ngValue]="7">SLUG SHELL (1/2 SP Full Dmg)</option>
+      <option [ngValue]="8">FLECHETTE SHELL (1/4 SP 1/4 Dmg)</option>
+      <option [ngValue]="9">KNIFE AP (1/2 SP Full Dmg)</option>
+      <option [ngValue]="10">MONOBLADE (1/3SP vs Soft,2/3SP vs Hard, Full Dmg)</option>
+      <option [ngValue]="11">BROADHEAD ARROW (1/2 SP 2xDmg)</option>
+      <option [ngValue]="12">SPINNER ARROW (1/2 SP 3xDmg)</option>
+      <option [ngValue]="13">IGNORE ARMOR (No SP Full Dmg)</option>
+      <option [ngValue]="14">HEP/HEAT ROUND (No SP Full Dmg)</option>
+    </select>
+    </div>
+  </div>
+  <div class="row armor-dmg text-center">
+    <div class="col">SP Damage: <input [(ngModel)]="spDamage" type="number" value="1">
+    </div>
+  </div>
+  <div class="row armor-dmg text-center">
+    <div class="col">
+      <button class="btn btn-sm btn-secondary csd-rounded" (click)="applyDamage()">Apply</button>
+    </div>
   </div>
 </ng-template>
 

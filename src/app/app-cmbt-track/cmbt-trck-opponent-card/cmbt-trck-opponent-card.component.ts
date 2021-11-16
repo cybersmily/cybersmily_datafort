@@ -78,6 +78,14 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
     this.opponentService.changeOpponent(this.currOpponent);
   }
 
+
+  woundOpponent(value: number) {
+    console.log('damage', value);
+    const damage = value + this.currOpponent.stats.BTM;
+    this.currOpponent.stats.Damage += damage > 0 ? damage : 0;
+    this.opponentService.changeOpponent(this.currOpponent);
+  }
+
   changeTemplate() {
     this.oppTemplateService.getTemplate(this.selectedTemplate)
     .subscribe( template => {

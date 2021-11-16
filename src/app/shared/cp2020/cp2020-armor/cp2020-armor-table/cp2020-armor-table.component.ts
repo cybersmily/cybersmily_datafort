@@ -1,3 +1,5 @@
+import { Cp2020DamageCalculatorService } from './../services/cp2020-damage-calculator/cp2020-damage-calculator.service';
+import { Cp2020AmmoTypes } from './../enums/cp2020-ammo-types';
 import { Cp2020SDP } from '../models/cp2020-sdp';
 import { DiceService } from './../../../services/dice/dice.service';
 import { ArmorDataListService } from '../services/armor-data-list/armor-data-list.service';
@@ -35,9 +37,14 @@ export class Cp2020ArmorTableComponent implements OnInit {
   @Output()
   changeArmor = new EventEmitter<Cp2020ArmorBlock>();
 
+  @Output()
+  damageCharacter = new EventEmitter<number>();
+
   newLayer = new Cp2020ArmorPiece();
   selectedLocation = '';
-  spDamage = 0;
+  spDamage = 1;
+  damage = 0;
+  damageType = Cp2020AmmoTypes.NORMAL_ROUND;
 
   getSDPStyle(sdp: Cp2020SDP): string {
     if(sdp.destroyed !== 0 && sdp.curr >= sdp.destroyed){
@@ -47,6 +54,7 @@ export class Cp2020ArmorTableComponent implements OnInit {
     }
     return '';
   }
+
   getSDPStatus(sdp: Cp2020SDP): string {
     if(sdp.destroyed !== 0 && sdp.curr >= sdp.destroyed){
       return 'Destroyed!!';
@@ -56,7 +64,7 @@ export class Cp2020ArmorTableComponent implements OnInit {
     return '';
   }
 
-  constructor(private modalService: BsModalService) { }
+  constructor(private modalService: BsModalService, private damageCalculatorService: Cp2020DamageCalculatorService) { }
 
   ngOnInit() {
   }
@@ -73,7 +81,42 @@ export class Cp2020ArmorTableComponent implements OnInit {
     this.modalRef.hide();
   }
 
-  damage() {
+  applyDamage() {
+    const isHard = this.armor.hasHardLayer(this.selectedLocation);
+    let sp = 0;
+    switch(this.selectedLocation) {
+      case 'head':
+        sp = this.armor.headSP;
+        break;
+      case 'rarm':
+        sp = this.armor.rArmSP;
+        break;
+      case 'larm':
+        sp = this.armor.lArmSP;
+        break;
+      case 'rleg':
+        sp = this.armor.rLegSP;
+        break;
+      case 'lleg':
+        sp = this.armor.lLegSP;
+        break;
+      default:
+        sp = this.armor.torsoSP;
+    }
+    const dmg = this.damageCalculatorService
+    .getWounds(this.damage, this.damageType, this.selectedLocation, sp, isHard);
+    if (dmg > 0){
+      this.armor.damageSP(this.selectedLocation, this.spDamage);
+    }
+    if(this.armor.sdp[this.selectedLocation]?.curr > 0) {
+      this.armor.sdp[this.selectedLocation].curr -= dmg;
+      this.armor.sdp[this.selectedLocation].curr = this.armor.sdp[this.selectedLocation].curr < 0 ? 0 : this.armor.sdp[this.selectedLocation].curr;
+    } else {
+      this.damageCharacter.emit(dmg);
+    }
+  }
+
+  damageSP() {
     this.armor.damageSP(this.selectedLocation, this.spDamage);
     this.onChangeArmor();
   }

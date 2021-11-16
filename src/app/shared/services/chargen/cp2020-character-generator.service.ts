@@ -162,6 +162,14 @@ export class Cp2020CharacterGeneratorService {
     this.updateCharacter();
   }
 
+  woundCharacter(value: number) {
+    const damage = value + this._currCharacter.stats.BTM;
+    if (damage > 0) {
+      this._currCharacter.stats.Damage += damage;
+    }
+    this.updateCharacter();
+  }
+
   changeArmor(value: Cp2020ArmorBlock) {
     this._currCharacter.armor = value;
     this._currCharacter.stats.REF.ev = this._currCharacter.armor.ev;
