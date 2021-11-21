@@ -74,8 +74,8 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
 
   ngOnInit() {
     this.seo.updateMeta(
-      'Cyberpunk 2020 Character Generator',
-      "2020-07-01 Cybersmily's Datafort Cyberpunk 2020 Character Generator. This app can print to PDF and save/load the character sheet"
+      'Character Generator for Cyberpunk 2020',
+      "2021-11-21 Cybersmily's Datafort Character Generator for Cyberpunk 2020. This app can print to PDF and save/load the character sheet"
     );
     this.characterService.character.subscribe((data) => {
       this.character = data;

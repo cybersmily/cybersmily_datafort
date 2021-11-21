@@ -2,6 +2,9 @@
   "news": [
     { "date":"2021-11",
       "entries":[
+        "<strong>11-21</strong> - Been a few weeks. Been hammering away at some goodness for the the site.",
+        "This release you now have a new app to start create ACPAs for your Cyberpunk games. Keep in mind it isn't perfect. There are a few rules not implement and descriptions and some text from the book wasn't included. Though the page number to find the details is listed. Trying to stay within the RTG homebrew rules.",
+        "Another thing added was that you can now click on a location in the Armor table both in the Character Generator and the Combat Tracker for Cyberpunk 2020 and instead of doing armor damage, you can do damage to the character. This will take the damage done, the type of damage/ammo type it is, and the SP damage. Then it will calculate and apply the wounds to the character.",
         "<strong>11-01</strong> - The year is almost over. I was able to get a lot done. Not as much as last year, but how much more can I add ;-).",
         "This month we have a few things. I rewrote most of the armor/fashion stuff to have it integrated with the Character Generator for Cyberpunk 2020. That was massive to get it all done. But you will benefit.",
         "Also added Cyberdeck and Programs to the character generator as well. Now your Netrunner can start going hog wild with it.",
@@ -13,7 +16,7 @@
         "&nbsp;* Cyberanimal create from Chromebook 3",
         "&nbsp;* Borg create from Chromebook 2",
         "IF you have another ideas for enhancements, bugs you've come across, or just want to shoot the shit. I love the feedback from the community. I'm on most of the cyberpunk discord servers as well as email me using the link on the nav bar above.",
-        "Also check me and Wisdom 000 (from Datafortress2020.com) over on <a href='https://www.twitch.tv/cyberpunkuncensored'>Cyberpunk Uncensored twitch</a> every 1st and 3rd Wednesday of the month. We talk Cyberpunk and other ramblings from old men. Please check us out.",
+        "Also check me and Wisdom 000 (from Datafortress2020.com) over on <a href='https://www.twitch.tv/cybernationuncensored'>Cyberpunk Uncensored twitch</a> every 1st and 3rd Wednesday of the month. We talk Cyberpunk and other ramblings from old men. Please check us out.",
         "Till next time.",
         "CYBER :D"
     ]},

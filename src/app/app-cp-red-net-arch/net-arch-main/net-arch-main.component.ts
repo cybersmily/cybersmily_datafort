@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FileLoaderService, SaveFileService } from './../../shared/services/file-services';
 import { CPRedNetArchNode, CPRedIconTypeSettings } from './../models';
@@ -60,7 +61,8 @@ export class NetArchMainComponent implements OnInit {
     private netArchService:CPRedNetArchService,
     private saveFile: SaveFileService,
     private fileLoader: FileLoaderService,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private seo: SeoService
     ) { }
 
   get numOfFloors(): number {
@@ -101,6 +103,10 @@ export class NetArchMainComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.seo.updateMeta(
+      'NET Architect Generator for Cyberpunk RED',
+      "2021-11-21 Cybersmily's Datafort NET Architect for Cyberpunk RED. This app can print PDFs, SVG, PNG, and save/load the NET Architect"
+    );
     if (window.localStorage && window.localStorage[this.archSettings.key]) {
       this.archSettings.import(JSON.parse(window.localStorage[this.archSettings.key]));
     }
