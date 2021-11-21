@@ -163,10 +163,9 @@ export class Cp2020CharacterGeneratorService {
   }
 
   woundCharacter(value: number) {
-    const damage = value + this._currCharacter.stats.BTM;
-    if (damage > 0) {
-      this._currCharacter.stats.Damage += damage;
-    }
+    let damage = value + this._currCharacter.stats.BTM;
+    damage = damage < 1 ? 1 : damage; // always take 1 wound after SP.
+    this._currCharacter.stats.Damage += damage;
     this.updateCharacter();
   }
 
