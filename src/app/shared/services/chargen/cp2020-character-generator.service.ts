@@ -162,6 +162,12 @@ export class Cp2020CharacterGeneratorService {
     this.updateCharacter();
   }
 
+  /**
+   * apply wounds to the character. This should be done after armor is appllied.
+   *
+   * @param {number} value
+   * @memberof Cp2020CharacterGeneratorService
+   */
   woundCharacter(value: number) {
     let damage = value + this._currCharacter.stats.BTM;
     damage = damage < 1 ? 1 : damage; // always take 1 wound after SP.
