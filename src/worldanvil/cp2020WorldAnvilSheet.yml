@@ -1,0 +1,4704 @@
+fields:
+  handle:
+    input: text
+    label: "Handle"
+    rows: 1
+  aliases:
+    input: text
+    label: "Aliases"
+    rows: 2
+  sin:
+    input: text
+    label: "S.I.N."
+    rows: 1
+### Roles
+  primaryRole:
+    input: text
+    label: "Primary Role"
+    rows: 1
+  primarySA_SkillName_01:
+    input: text
+    label: "Primary Special Ability"
+    rows: 1
+  primarySA_SkillValue_01:
+    input: number
+    label: "Primary Special Ability Value"
+    min: 0
+    max: 10
+  primarySA_SkillIP_01:
+    input: number
+    label: "Primary Special Ability SpeicalIP"
+    min: 0
+    max: 10
+  secondaryRole_01:
+    input: text
+    label: "Secondary Role"
+    rows: 1
+  secondarySA_SkillName_01:
+    input: text
+    label: "Secondary Special Ability Name"
+    rows: 1
+  secondarySA_SkillValue_01:
+    input: number
+    label: "Secondary Special Ability Value"
+    min: 0
+    max: 10
+  secondarySA_SkillIP_01:
+    input: number
+    label: "Secondary Special Ability IP"
+    min: 0
+    max: 10
+  secondaryRole_02:
+    input: text
+    label: "Secondary Role"
+    rows: 1
+  secondarySA_SkillName_02:
+    input: text
+    label: "Secondary Special Ability Name"
+    rows: 1
+  secondarySA_SkillValue_02:
+    input: number
+    label: "Secondary Special Ability Value"
+    min: 0
+    max: 10
+  secondarySA_SkillIP_02:
+    input: number
+    label: "Secondary Special Ability IP"
+    min: 0
+    max: 10
+  secondaryRole_03:
+    input: text
+    label: "Secondary Role"
+    rows: 1
+  secondarySA_SkillName_03:
+    input: text
+    label: "Secondary Special Ability Name"
+    rows: 1
+  secondarySA_SkillValue_03:
+    input: number
+    label: "Secondary Special Ability Value"
+    min: 0
+    max: 10
+  secondarySA_SkillIP_03:
+    input: number
+    label: "Secondary Special Ability IP"
+    min: 0
+    max: 10
+### Stats
+  statPoints:
+    input: number
+    label: "STAT PTS"
+    min: 0
+    max: 200
+  intBase:
+    input: number
+    label: "INT"
+    min: 0
+    max: 30
+  intCurr:
+    input: number
+    label: "INT Current"
+    min: 0
+    max: 30
+  refBase:
+    input: number
+    label: "REF"
+    min: 0
+    max: 30
+  refCurr:
+    input: number
+    label: "REF Current"
+    min: 0
+    max: 30
+  techBase:
+    input: number
+    label: "TECH"
+    min: 0
+    max: 15
+  techCurr:
+    input: number
+    label: "TECH Current"
+    min: 0
+    max: 30
+  coolBase:
+    input: number
+    label: "COOL"
+    min: 0
+    max: 15
+  coolCurr:
+    input: number
+    label: "COOL Current"
+    min: 0
+    max: 30
+  attrBase:
+    input: number
+    label: "ATTR"
+    min: 0
+    max: 15
+  attrCurr:
+    input: number
+    label: "ATTR Current"
+    min: 0
+    max: 30
+  luckBase:
+    input: number
+    label: "LUCK"
+    min: 0
+    max: 10
+  luckCurr:
+    input: number
+    label: "LUCK Current"
+    min: 0
+    max: 30
+  maBase:
+    input: number
+    label: "MA"
+    min: 0
+    max: 50
+  maCurr:
+    input: number
+    label: "MA Current"
+    min: 0
+    max: 50
+  bodyBase:
+    input: number
+    label: "BODY"
+    min: 0
+    max: 40
+  bodyCurr:
+    input: number
+    label: "BODY Current"
+    min: 0
+    max: 40
+  empBase:
+    input: number
+    label: "EMP"
+    min: 0
+    max: 15
+  empCurr:
+    input: number
+    label: "EMP Current"
+    min: 0
+    max: 20
+  humanityBase:
+    input: number
+    label: "Humanity"
+    min: 0
+    max: 15
+  humanityCurr:
+    input: number
+    label: "Humanity Current"
+    min: 0
+    max: 20
+  deathSave:
+    input: number
+    label: "Death Save"
+    min: 0
+    max: 40
+  stunSave:
+    input: number
+    label: "Stun Save"
+    min: 0
+    max: 40
+  btm:
+    input: number
+    label: "BTM"
+    min: -10
+    max: 0
+  bonusDamage:
+    input: number
+    label: "bonusDamage"
+    min: -2
+    max: 20
+  run:
+    input: number
+    label: "Run"
+    min: 0
+    max: 150
+  leap:
+    input: number
+    label: "Leap"
+    min: 0
+    max: 40
+  lift:
+    input: number
+    label: "lift"
+    min: 0
+    max: 2000
+  initiative:
+    input: number
+    label: "Initiative"
+    min: 0
+    max: 50
+  rep:
+    input: number
+    label: "Reputation"
+    min: 0
+    max: 15
+  wounds:
+    input: number
+    label: "Reputation"
+    min: 0
+    max: 40
+### Ethnicity
+  ethnicity:
+    input: text
+    label: "Ethnicity"
+    rows: 1
+  ethnicityLang:
+    input: text
+    label: "Language"
+    rows: 1
+### Motivations
+  personality:
+    input: text
+    label: "Personality"
+    rows: 1
+  valuedPerson:
+    input: text
+    label: "Valued Person"
+    rows: 1
+  valueMost:
+    input: text
+    label: "Value Most"
+    rows: 1
+  feelAboutPeople:
+    input: text
+    label: "Feel About People"
+    rows: 1
+  valuedPossession:
+    input: text
+    label: "Valued Possession"
+    rows: 1
+### Appearance
+  clothes:
+    input: text
+    label: "Clothes"
+    rows: 1
+  hairstyle:
+    input: text
+    label: "Hairstyle"
+    rows: 1
+  affectations:
+    input: text
+    label: "Affectations"
+    rows: 1
+### Family
+  familyRanking:
+    input: text
+    label: "Family Ranking"
+    rows: 1
+  familyBackground:
+    input: text
+    label: "Family Background"
+    rows: 5
+  siblingsNumber:
+    input: number
+    label: "#Siblings"
+    min: 0
+    max: 8
+  siblingName01:
+    input: text
+    label: "Name"
+    rows: 5
+  siblingGender01:
+    input: select
+    label: "Gender"
+    options:
+      sib: Sib
+      brother: Brother
+      sister: Sister
+  siblingFeeling01:
+    input: select
+    label: "Feelings"
+    options:
+      neutral: Neutral
+      heroWorship: Hero Worship
+      likes: Likes
+      dislikes: Dislikes
+      hates: Hates
+  siblingAge01:
+    input: select
+    label: "Age"
+    options:
+      older: Older
+      younger: Younger
+      twin: Twin
+  siblingName02:
+    input: text
+    label: "Name"
+    rows: 5
+  siblingGender02:
+    input: select
+    label: "Gender"
+    options:
+      sib: Sib
+      brother: Brother
+      sister: Sister
+  siblingFeeling02:
+    input: select
+    label: "Feelings"
+    options:
+      neutral: Neutral
+      heroWorship: Hero Worship
+      likes: Likes
+      dislikes: Dislikes
+      hates: Hates
+  siblingAge02:
+    input: select
+    label: "Age"
+    options:
+      older: Older
+      younger: Younger
+      twin: Twin
+  siblingName03:
+    input: text
+    label: "Name"
+    rows: 5
+  siblingGender03:
+    input: select
+    label: "Gender"
+    options:
+      sib: Sib
+      brother: Brother
+      sister: Sister
+  siblingFeeling03:
+    input: select
+    label: "Feelings"
+    options:
+      neutral: Neutral
+      heroWorship: Hero Worship
+      likes: Likes
+      dislikes: Dislikes
+      hates: Hates
+  siblingAge03:
+    input: select
+    label: "Age"
+    options:
+      older: Older
+      younger: Younger
+      twin: Twin
+  siblingName04:
+    input: text
+    label: "Name"
+    rows: 5
+  siblingGender04:
+    input: select
+    label: "Gender"
+    options:
+      sib: Sib
+      brother: Brother
+      sister: Sister
+  siblingFeeling04:
+    input: select
+    label: "Feelings"
+    options:
+      neutral: Neutral
+      heroWorship: Hero Worship
+      likes: Likes
+      dislikes: Dislikes
+      hates: Hates
+  siblingAge04:
+    input: select
+    label: "Age"
+    options:
+      older: Older
+      younger: Younger
+      twin: Twin
+  siblingName05:
+    input: text
+    label: "Name"
+    rows: 5
+  siblingGender05:
+    input: select
+    label: "Gender"
+    options:
+      sib: Sib
+      brother: Brother
+      sister: Sister
+  siblingFeeling05:
+    input: select
+    label: "Feelings"
+    options:
+      neutral: Neutral
+      heroWorship: Hero Worship
+      likes: Likes
+      dislikes: Dislikes
+      hates: Hates
+  siblingAge05:
+    input: select
+    label: "Age"
+    options:
+      older: Older
+      younger: Younger
+      twin: Twin
+  siblingName06:
+    input: text
+    label: "Name"
+    rows: 5
+  siblingGender06:
+    input: select
+    label: "Gender"
+    options:
+      sib: Sib
+      brother: Brother
+      sister: Sister
+  siblingFeeling06:
+    input: select
+    label: "Feelings"
+    options:
+      neutral: Neutral
+      heroWorship: Hero Worship
+      likes: Likes
+      dislikes: Dislikes
+      hates: Hates
+  siblingAge06:
+    input: select
+    label: "Age"
+    options:
+      older: Older
+      younger: Younger
+      twin: Twin
+  siblingName07:
+    input: text
+    label: "Name"
+    rows: 5
+  siblingGender07:
+    input: select
+    label: "Gender"
+    options:
+      sib: Sib
+      brother: Brother
+      sister: Sister
+  siblingFeeling07:
+    input: select
+    label: "Feelings"
+    options:
+      neutral: Neutral
+      heroWorship: Hero Worship
+      likes: Likes
+      dislikes: Dislikes
+      hates: Hates
+  siblingAge07:
+    input: select
+    label: "Age"
+    options:
+      older: Older
+      younger: Younger
+      twin: Twin
+  siblingName08:
+    input: text
+    label: "Name"
+    rows: 5
+  siblingGender08:
+    input: select
+    label: "Gender"
+    options:
+      sib: Sib
+      brother: Brother
+      sister: Sister
+  siblingFeeling08:
+    input: select
+    label: "Feelings"
+    options:
+      neutral: Neutral
+      heroWorship: Hero Worship
+      likes: Likes
+      dislikes: Dislikes
+      hates: Hates
+  siblingAge08:
+    input: select
+    label: "Age"
+    options:
+      older: Older
+      younger: Younger
+      twin: Twin
+### LifeEvents
+  age:
+    input: number
+    label: "Age"
+    min: 0
+    max: 250
+  lifeEventYear01:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail01:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear02:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail02:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear03:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail03:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear04:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail04:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear05:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail05:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear06:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail06:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear07:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail07:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear08:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail08:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear09:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail09:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear10:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail10:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear11:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail11:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear12:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail12:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear13:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail13:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear14:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail14:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear15:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail15:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear16:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail16:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear17:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail17:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear18:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail18:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear19:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail19:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear20:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail20:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear21:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail21:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear22:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail22:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear23:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail23:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear24:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail24:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear25:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail25:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear26:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail26:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear27:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail27:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear28:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail28:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear29:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail29:
+    input: text
+    label: "Details"
+    rows: 5
+  lifeEventYear30:
+    input: number
+    label: "Year"
+    min: 1
+    max: 250
+  lifeEventDetail30:
+    input: text
+    label: "Details"
+    rows: 5
+### Money
+  cash:
+    input: number
+    label: "Cash"
+    min: 0
+    max: 1000000000000
+  debt:
+    input: number
+    label: "Debt"
+    min: 0
+    max: 1000000000000
+  salary:
+    input: number
+    label: "Salary"
+    min: 0
+    max: 1000000000000
+  credchips:
+    input: text
+    label: "Credchips"
+    rows: 2
+### Living and Expenses
+  housingLocation:
+    input: select
+    label: "Location"
+    options:
+      combatZone: Combat Zone
+      moderateZone: Moderate Zone
+      corporateZone: Corporate Zone
+      executiveZone: Executive Zone
+  housingType:
+    input: select
+    label: "Housing Type"
+    options:
+      appt: Appartment
+      house: House
+  housingRooms:
+    input: number
+    label: "Rooms"
+    min: 0
+    max: 50
+  housingRent:
+    input: number
+    label: "Rent"
+    min: 0
+    max: 10000000
+  utilities:
+    input: text
+    label: "Utilities"
+    rows: 3
+  serviceName01:
+    input: text
+    label: "Service"
+    rows: 1
+  serviceCost01:
+    input: number
+    label: "Rent"
+    min: 0
+    max: 10000000
+  serviceName02:
+    input: text
+    label: "Service"
+    rows: 1
+  serviceCost02:
+    input: number
+    label: "Rent"
+    min: 0
+    max: 10000000
+  serviceName03:
+    input: text
+    label: "Service"
+    rows: 1
+  serviceCost03:
+    input: number
+    label: "Rent"
+    min: 0
+    max: 10000000
+  serviceName04:
+    input: text
+    label: "Service"
+    rows: 1
+  serviceCost04:
+    input: number
+    label: "Rent"
+    min: 0
+    max: 10000000
+  serviceName05:
+    input: text
+    label: "Service"
+    rows: 1
+  serviceCost05:
+    input: number
+    label: "Rent"
+    min: 0
+    max: 10000000
+### Skills
+  generalIP:
+    input: number
+    label: "generalIP"
+    min: 0
+    max: 10000
+  ATTR_SkillValue_01:
+    input: number
+    label: "Personal Grooming"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.47"
+  ATTR_SkillIP_01:
+    input: number
+    label: "Personal Grooming IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.47"
+  ATTR_SkillChipped_01:
+    input: checkbox
+    label: "Personal Grooming chipped"
+  ATTR_SkillValue_02:
+    input: number
+    label: "Wardrobe & Style"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.47"
+  ATTR_SkillIP_02:
+    input: number
+    label: "Wardrobe & Style IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.47"
+  ATTR_SkillChipped_02:
+    input: checkbox
+    label: "Wardrobe & Style chipped"
+  BODY_SkillValue_01:
+    input: number
+    label: "Endurance"
+    min: 0
+    max: 10
+    description: " source CP2020 pg.47"
+  BODY_SkillIP_01:
+    input: number
+    label: "Endurance IP"
+    min: 0
+    max: 600
+    description: " source CP2020 pg.47"
+  BODY_SkillChipped_01:
+    input: checkbox
+    label: "Endurance chipped"
+  BODY_SkillValue_02:
+    input: number
+    label: "Strength Feat"
+    min: 0
+    max: 10
+    description: " source CP2020 pg.47"
+  BODY_SkillIP_02:
+    input: number
+    label: "Strength Feat IP"
+    min: 0
+    max: 600
+    description: " source CP2020 pg.47"
+  BODY_SkillChipped_02:
+    input: checkbox
+    label: "Strength Feat chipped"
+  BODY_SkillValue_03:
+    input: number
+    label: "Swimming"
+    min: 0
+    max: 10
+    description: " source CP2020 pg.47"
+  BODY_SkillIP_03:
+    input: number
+    label: "Swimming IP"
+    min: 0
+    max: 600
+    description: " source CP2020 pg.47"
+  BODY_SkillChipped_03:
+    input: checkbox
+    label: "Swimming chipped"
+  COOL_SkillValue_01:
+    input: number
+    label: "Interrogation"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.47"
+  COOL_SkillIP_01:
+    input: number
+    label: "Interrogation IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.47"
+  COOL_SkillChipped_01:
+    input: checkbox
+    label: "Interrogation chipped"
+  COOL_SkillValue_02:
+    input: number
+    label: "Intimidate"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.47"
+  COOL_SkillIP_02:
+    input: number
+    label: "Intimidate IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.47"
+  COOL_SkillChipped_02:
+    input: checkbox
+    label: "Intimidate chipped"
+  COOL_SkillValue_03:
+    input: number
+    label: "Oratory"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.47"
+  COOL_SkillIP_03:
+    input: number
+    label: "Oratory IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.47"
+  COOL_SkillChipped_03:
+    input: checkbox
+    label: "Oratory chipped"
+  COOL_SkillValue_04:
+    input: number
+    label: "Resist Torture/Drugs"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.47"
+  COOL_SkillIP_04:
+    input: number
+    label: "Resist Torture/Drugs IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.47"
+  COOL_SkillChipped_04:
+    input: checkbox
+    label: "Resist Torture/Drugs chipped"
+  COOL_SkillValue_05:
+    input: number
+    label: "Rhetoric"
+    min: 0
+    max: 10
+    description: "source Pacific Rim pg.153"
+  COOL_SkillIP_05:
+    input: number
+    label: "Rhetoric IP"
+    min: 0
+    max: 600
+    description: "source Pacific Rim pg.153"
+  COOL_SkillChipped_05:
+    input: checkbox
+    label: "Rhetoric chipped"
+  COOL_SkillValue_06:
+    input: number
+    label: "Streetwise"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.48"
+  COOL_SkillIP_06:
+    input: number
+    label: "Streetwise IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.48"
+  COOL_SkillChipped_06:
+    input: checkbox
+    label: "Streetwise chipped"
+  EMP_SkillValue_01:
+    input: number
+    label: "Animal Handler"
+    min: 0
+    max: 10
+    description: "source Solo of Fortune pg.26"
+  EMP_SkillIP_01:
+    input: number
+    label: "Animal Handler IP"
+    min: 0
+    max: 600
+    description: "source Solo of Fortune pg.26"
+  EMP_SkillChipped_01:
+    input: checkbox
+    label: "Animal Handler chipped"
+  EMP_SkillValue_02:
+    input: number
+    label: "Human Perception"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.48"
+  EMP_SkillIP_02:
+    input: number
+    label: "Human Perception IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.48"
+  EMP_SkillChipped_02:
+    input: checkbox
+    label: "Human Perception chipped"
+  EMP_SkillValue_03:
+    input: number
+    label: "Interview"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.48"
+  EMP_SkillIP_03:
+    input: number
+    label: "Interview IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.48"
+  EMP_SkillChipped_03:
+    input: checkbox
+    label: "Interview chipped"
+  EMP_SkillValue_04:
+    input: number
+    label: "Leadership"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.48"
+  EMP_SkillIP_04:
+    input: number
+    label: "Leadership IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.48"
+  EMP_SkillChipped_04:
+    input: checkbox
+    label: "Leadership chipped"
+  EMP_SkillValue_05:
+    input: number
+    label: "Perform"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.48"
+  EMP_SkillIP_05:
+    input: number
+    label: "Perform IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.48"
+  EMP_SkillChipped_05:
+    input: checkbox
+    label: "Perform chipped"
+  EMP_SkillValue_06:
+    input: number
+    label: "Persuasion & Fast Talk"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.48"
+  EMP_SkillIP_06:
+    input: number
+    label: "Persuasion & Fast Talk IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.48"
+  EMP_SkillChipped_06:
+    input: checkbox
+    label: "Persuasion & Fast Talk chipped"
+  EMP_SkillValue_07:
+    input: number
+    label: "Seduction"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.48"
+  EMP_SkillIP_07:
+    input: number
+    label: "Seduction IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.48"
+  EMP_SkillChipped_07:
+    input: checkbox
+    label: "Seduction chipped"
+  EMP_SkillValue_08:
+    input: number
+    label: "Simper"
+    min: 0
+    max: 10
+    description: "source LIve and Direct pg.53"
+  EMP_SkillIP_08:
+    input: number
+    label: "Simper IP"
+    min: 0
+    max: 600
+    description: "source LIve and Direct pg.53"
+  EMP_SkillChipped_08:
+    input: checkbox
+    label: "Simper chipped"
+  EMP_SkillValue_09:
+    input: number
+    label: "Social"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.48"
+  EMP_SkillIP_09:
+    input: number
+    label: "Social IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.48"
+  EMP_SkillChipped_09:
+    input: checkbox
+    label: "Social chipped"
+  EMP_SkillValue_10:
+    input: number
+    label: "Trance"
+    min: 0
+    max: 10
+    description: "source Neotribes pg.42"
+  EMP_SkillIP_10:
+    input: number
+    label: "Trance IP"
+    min: 0
+    max: 600
+    description: "source Neotribes pg.42"
+  EMP_SkillChipped_10:
+    input: checkbox
+    label: "Trance chipped"
+  INT_SkillValue_01:
+    input: number
+    label: "Accounting"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.48"
+  INT_SkillIP_01:
+    input: number
+    label: "Accounting IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.48"
+  INT_SkillChipped_01:
+    input: checkbox
+    label: "Accounting chipped"
+  INT_SkillValue_02:
+    input: number
+    label: "Anthropology"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.48"
+  INT_SkillIP_02:
+    input: number
+    label: "Anthropology IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.48"
+  INT_SkillChipped_02:
+    input: checkbox
+    label: "Anthropology chipped"
+  INT_SkillValue_03:
+    input: number
+    label: "Astrogation"
+    min: 0
+    max: 10
+    description: "source Deep Space"
+  INT_SkillIP_03:
+    input: number
+    label: "Astrogation IP"
+    min: 0
+    max: 600
+    description: "source Deep Space"
+  INT_SkillChipped_03:
+    input: checkbox
+    label: "Astrogation chipped"
+  INT_SkillValue_04:
+    input: number
+    label: "Awareness/Notice"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.48"
+  INT_SkillIP_04:
+    input: number
+    label: "Awareness/Notice IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.48"
+  INT_SkillChipped_04:
+    input: checkbox
+    label: "Awareness/Notice chipped"
+  INT_SkillValue_05:
+    input: number
+    label: "Biology"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.48"
+  INT_SkillIP_05:
+    input: number
+    label: "Biology IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.48"
+  INT_SkillChipped_05:
+    input: checkbox
+    label: "Biology chipped"
+  INT_SkillValue_06:
+    input: number
+    label: "Biogenetics"
+    min: 0
+    max: 10
+    description: "source Solo of Fortune pg.26"
+  INT_SkillIP_06:
+    input: number
+    label: "Biogenetics IP"
+    min: 0
+    max: 600
+    description: "source Solo of Fortune pg.26"
+  INT_SkillChipped_06:
+    input: checkbox
+    label: "Biogenetics chipped"
+  INT_SkillValue_07:
+    input: number
+    label: "Botany"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.48"
+  INT_SkillIP_07:
+    input: number
+    label: "Botany IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.48"
+  INT_SkillChipped_07:
+    input: checkbox
+    label: "Botany chipped"
+  INT_SkillValue_08:
+    input: number
+    label: "Bureaucracy"
+    min: 0
+    max: 10
+    description: "source Wildside pg.23"
+  INT_SkillIP_08:
+    input: number
+    label: "Bureaucracy IP"
+    min: 0
+    max: 600
+    description: "source Wildside pg.23"
+  INT_SkillChipped_08:
+    input: checkbox
+    label: "Bureaucracy chipped"
+  INT_SkillValue_09:
+    input: number
+    label: "Business Sense"
+    min: 0
+    max: 10
+    description: "source Wildside pg.25"
+  INT_SkillIP_09:
+    input: number
+    label: "Business Sense IP"
+    min: 0
+    max: 600
+    description: "source Wildside pg.25"
+  INT_SkillChipped_09:
+    input: checkbox
+    label: "Business Sense chipped"
+  INT_SkillValue_10:
+    input: number
+    label: "Chemistry"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.48"
+  INT_SkillIP_10:
+    input: number
+    label: "Chemistry IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.48"
+  INT_SkillChipped_10:
+    input: checkbox
+    label: "Chemistry chipped"
+  INT_SkillValue_11:
+    input: number
+    label: "Composition"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.48"
+  INT_SkillIP_11:
+    input: number
+    label: "Composition IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.48"
+  INT_SkillChipped_11:
+    input: checkbox
+    label: "Composition chipped"
+  INT_SkillValue_12:
+    input: number
+    label: "Corporate Policy"
+    min: 0
+    max: 10
+    description: "source LIve and Direct pg.53"
+  INT_SkillIP_12:
+    input: number
+    label: "Corporate Policy IP"
+    min: 0
+    max: 600
+    description: "source LIve and Direct pg.53"
+  INT_SkillChipped_12:
+    input: checkbox
+    label: "Corporate Policy chipped"
+  INT_SkillValue_13:
+    input: number
+    label: "Culture"
+    min: 0
+    max: 10
+    description: "source LIve and Direct pg.53"
+  INT_SkillIP_13:
+    input: number
+    label: "Culture IP"
+    min: 0
+    max: 600
+    description: "source LIve and Direct pg.53"
+  INT_SkillChipped_13:
+    input: checkbox
+    label: "Culture chipped"
+  INT_SkillValue_14:
+    input: number
+    label: "Diagnose Illness"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.49"
+  INT_SkillIP_14:
+    input: number
+    label: "Diagnose Illness IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.49"
+  INT_SkillChipped_14:
+    input: checkbox
+    label: "Diagnose Illness chipped"
+  INT_SkillValue_15:
+    input: number
+    label: "Education & Gen. Know."
+    min: 0
+    max: 10
+    description: "source CP2020 pg.49"
+  INT_SkillIP_15:
+    input: number
+    label: "Education & Gen. Know. IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.49"
+  INT_SkillChipped_15:
+    input: checkbox
+    label: "Education & Gen. Know. chipped"
+  INT_SkillValue_16:
+    input: number
+    label: "Field Surgery"
+    min: 0
+    max: 10
+    description: "source Neotribes pg.42"
+  INT_SkillIP_16:
+    input: number
+    label: "Field Surgery IP"
+    min: 0
+    max: 600
+    description: "source Neotribes pg.42"
+  INT_SkillChipped_16:
+    input: checkbox
+    label: "Field Surgery chipped"
+  INT_SkillValue_17:
+    input: number
+    label: "Gamble"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.49"
+  INT_SkillIP_17:
+    input: number
+    label: "Gamble IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.49"
+  INT_SkillChipped_17:
+    input: checkbox
+    label: "Gamble chipped"
+  INT_SkillValue_18:
+    input: number
+    label: "Geology"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.49"
+  INT_SkillIP_18:
+    input: number
+    label: "Geology IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.49"
+  INT_SkillChipped_18:
+    input: checkbox
+    label: "Geology chipped"
+  INT_SkillValue_19:
+    input: number
+    label: "Hide/Evade"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.49"
+  INT_SkillIP_19:
+    input: number
+    label: "Hide/Evade IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.49"
+  INT_SkillChipped_19:
+    input: checkbox
+    label: "Hide/Evade chipped"
+  INT_SkillValue_20:
+    input: number
+    label: "History"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.49"
+  INT_SkillIP_20:
+    input: number
+    label: "History IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.49"
+  INT_SkillChipped_20:
+    input: checkbox
+    label: "History chipped"
+  INT_SkillValue_21:
+    input: number
+    label: "Library Search"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.49"
+  INT_SkillIP_21:
+    input: number
+    label: "Library Search IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.49"
+  INT_SkillChipped_21:
+    input: checkbox
+    label: "Library Search chipped"
+  INT_SkillValue_22:
+    input: number
+    label: "Mathematics"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.49"
+  INT_SkillIP_22:
+    input: number
+    label: "Mathematics IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.49"
+  INT_SkillChipped_22:
+    input: checkbox
+    label: "Mathematics chipped"
+  INT_SkillValue_23:
+    input: number
+    label: "Nuscuba"
+    min: 0
+    max: 10
+    description: "source Solo of Fortune pg.23"
+  INT_SkillIP_23:
+    input: number
+    label: "Nuscuba IP"
+    min: 0
+    max: 600
+    description: "source Solo of Fortune pg.23"
+  INT_SkillChipped_23:
+    input: checkbox
+    label: "Nuscuba chipped"
+  INT_SkillValue_24:
+    input: number
+    label: "Pharmacology"
+    min: 0
+    max: 10
+    description: "source Wildside pg.24"
+  INT_SkillIP_24:
+    input: number
+    label: "Pharmacology IP"
+    min: 0
+    max: 600
+    description: "source Wildside pg.24"
+  INT_SkillChipped_24:
+    input: checkbox
+    label: "Pharmacology chipped"
+  INT_SkillValue_25:
+    input: number
+    label: "Physics"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.49"
+  INT_SkillIP_25:
+    input: number
+    label: "Physics IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.49"
+  INT_SkillChipped_25:
+    input: checkbox
+    label: "Physics chipped"
+  INT_SkillValue_26:
+    input: number
+    label: "Programming"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.49"
+  INT_SkillIP_26:
+    input: number
+    label: "Programming IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.49"
+  INT_SkillChipped_26:
+    input: checkbox
+    label: "Programming chipped"
+  INT_SkillValue_27:
+    input: number
+    label: "Psychology"
+    min: 0
+    max: 10
+    description: "source Wildside pg.21"
+  INT_SkillIP_27:
+    input: number
+    label: "Psychology IP"
+    min: 0
+    max: 600
+    description: "source Wildside pg.21"
+  INT_SkillChipped_27:
+    input: checkbox
+    label: "Psychology chipped"
+  INT_SkillValue_28:
+    input: number
+    label: "Shadow/Track"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.50"
+  INT_SkillIP_28:
+    input: number
+    label: "Shadow/Track IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.50"
+  INT_SkillChipped_28:
+    input: checkbox
+    label: "Shadow/Track chipped"
+  INT_SkillValue_29:
+    input: number
+    label: "Space Survival"
+    min: 0
+    max: 10
+    description: "source Deep Space pg.76"
+  INT_SkillIP_29:
+    input: number
+    label: "Space Survival IP"
+    min: 0
+    max: 600
+    description: "source Deep Space pg.76"
+  INT_SkillChipped_29:
+    input: checkbox
+    label: "Space Survival chipped"
+  INT_SkillValue_30:
+    input: number
+    label: "Stock Market"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.50"
+  INT_SkillIP_30:
+    input: number
+    label: "Stock Market IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.50"
+  INT_SkillChipped_30:
+    input: checkbox
+    label: "Stock Market chipped"
+  INT_SkillValue_31:
+    input: number
+    label: "Street Survival"
+    min: 0
+    max: 10
+    description: "source Pacific Rim pg.153"
+  INT_SkillIP_31:
+    input: number
+    label: "Street Survival IP"
+    min: 0
+    max: 600
+    description: "source Pacific Rim pg.153"
+  INT_SkillChipped_31:
+    input: checkbox
+    label: "Street Survival chipped"
+  INT_SkillValue_32:
+    input: number
+    label: "System Knowledge"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.50"
+  INT_SkillIP_32:
+    input: number
+    label: "System Knowledge IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.50"
+  INT_SkillChipped_32:
+    input: checkbox
+    label: "System Knowledge chipped"
+  INT_SkillValue_33:
+    input: number
+    label: "Tactics"
+    min: 0
+    max: 10
+    description: "source LIve and Direct pg.53"
+  INT_SkillIP_33:
+    input: number
+    label: "Tactics IP"
+    min: 0
+    max: 600
+    description: "source LIve and Direct pg.53"
+  INT_SkillChipped_33:
+    input: checkbox
+    label: "Tactics chipped"
+  INT_SkillValue_34:
+    input: number
+    label: "Teaching"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.50"
+  INT_SkillIP_34:
+    input: number
+    label: "Teaching IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.50"
+  INT_SkillChipped_34:
+    input: checkbox
+    label: "Teaching chipped"
+  INT_SkillValue_35:
+    input: number
+    label: "Underwater Survival"
+    min: 0
+    max: 10
+    description: "source Solo of Fortune pg.23"
+  INT_SkillIP_35:
+    input: number
+    label: "Underwater Survival IP"
+    min: 0
+    max: 600
+    description: "source Solo of Fortune pg.23"
+  INT_SkillChipped_35:
+    input: checkbox
+    label: "Underwater Survival chipped"
+  INT_SkillValue_36:
+    input: number
+    label: "Wilderness Survival"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.50"
+  INT_SkillIP_36:
+    input: number
+    label: "Wilderness Survival IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.50"
+  INT_SkillChipped_36:
+    input: checkbox
+    label: "Wilderness Survival chipped"
+  INT_SkillValue_37:
+    input: number
+    label: "Zoology"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.50"
+  INT_SkillIP_37:
+    input: number
+    label: "Zoology IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.50"
+  INT_SkillChipped_37:
+    input: checkbox
+    label: "Zoology chipped"
+### Language skills
+  lang_SkillName_001:
+    input: text
+    label: "language Name"
+    rows: 1
+  lang_SkillValue_001:
+    input: number
+    label: "language Value"
+    min: 0
+    max: 10
+  lang_SkillIP_001:
+    input: number
+    label: "language IP"
+    min: 0
+    max: 600
+  lang_SkillChipped_001:
+    input: checkbox
+    label: "language Chipped"
+  lang_SkillName_002:
+    input: text
+    label: "language Name"
+    rows: 1
+  lang_SkillValue_002:
+    input: number
+    label: "language Value"
+    min: 0
+    max: 10
+  lang_SkillIP_002:
+    input: number
+    label: "language IP"
+    min: 0
+    max: 600
+  lang_SkillChipped_002:
+    input: checkbox
+    label: "language Chipped"
+  lang_SkillName_003:
+    input: text
+    label: "language Name"
+    rows: 1
+  lang_SkillValue_003:
+    input: number
+    label: "language Value"
+    min: 0
+    max: 10
+  lang_SkillIP_003:
+    input: number
+    label: "language IP"
+    min: 0
+    max: 600
+  lang_SkillChipped_003:
+    input: checkbox
+    label: "language Chipped"
+  lang_SkillName_004:
+    input: text
+    label: "language Name"
+    rows: 1
+  lang_SkillValue_004:
+    input: number
+    label: "language Value"
+    min: 0
+    max: 10
+  lang_SkillIP_004:
+    input: number
+    label: "language IP"
+    min: 0
+    max: 600
+  lang_SkillChipped_004:
+    input: checkbox
+    label: "language Chipped"
+  lang_SkillName_005:
+    input: text
+    label: "language Name"
+    rows: 1
+  lang_SkillValue_005:
+    input: number
+    label: "language Value"
+    min: 0
+    max: 10
+  lang_SkillIP_005:
+    input: number
+    label: "language IP"
+    min: 0
+    max: 600
+  lang_SkillChipped_005:
+    input: checkbox
+    label: "language Chipped"
+### Expert skills
+  expert_SkillName_001:
+    input: text
+    label: "expert skill Name"
+    rows: 1
+  expert_SkillValue_001:
+    input: number
+    label: "expert skill Value"
+    min: 0
+    max: 10
+  expert_SkillIP_001:
+    input: number
+    label: "expert skill IP"
+    min: 0
+    max: 600
+  expert_SkillChipped_001:
+    input: checkbox
+    label: "expert skill Chipped"
+  expert_SkillName_002:
+    input: text
+    label: "expert skill Name"
+    rows: 1
+  expert_SkillValue_002:
+    input: number
+    label: "expert skill Value"
+    min: 0
+    max: 10
+  expert_SkillIP_002:
+    input: number
+    label: "expert skill IP"
+    min: 0
+    max: 600
+  expert_SkillChipped_002:
+    input: checkbox
+    label: "expert skill Chipped"
+  expert_SkillName_003:
+    input: text
+    label: "expert skill Name"
+    rows: 1
+  expert_SkillValue_003:
+    input: number
+    label: "expert skill Value"
+    min: 0
+    max: 10
+  expert_SkillIP_003:
+    input: number
+    label: "expert skill IP"
+    min: 0
+    max: 600
+  expert_SkillChipped_003:
+    input: checkbox
+    label: "expert skill Chipped"
+  expert_SkillName_004:
+    input: text
+    label: "expert skill Name"
+    rows: 1
+  expert_SkillValue_004:
+    input: number
+    label: "expert skill Value"
+    min: 0
+    max: 10
+  expert_SkillIP_004:
+    input: number
+    label: "expert skill IP"
+    min: 0
+    max: 600
+  expert_SkillChipped_004:
+    input: checkbox
+    label: "expert skill Chipped"
+  REF_SkillValue_01:
+    input: number
+    label: "Action Game"
+    min: 0
+    max: 10
+    description: "source Pacific Rim pg.153"
+  REF_SkillIP_01:
+    input: number
+    label: "Action Game IP"
+    min: 0
+    max: 600
+    description: "source Pacific Rim pg.153"
+  REF_SkillChipped_01:
+    input: checkbox
+    label: "Action Game chipped"
+  REF_SkillValue_02:
+    input: number
+    label: "Archery"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.50"
+  REF_SkillIP_02:
+    input: number
+    label: "Archery IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.50"
+  REF_SkillChipped_02:
+    input: checkbox
+    label: "Archery chipped"
+  REF_SkillValue_03:
+    input: number
+    label: "Athletics"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.50"
+  REF_SkillIP_03:
+    input: number
+    label: "Athletics IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.50"
+  REF_SkillChipped_03:
+    input: checkbox
+    label: "Athletics chipped"
+  REF_SkillValue_04:
+    input: number
+    label: "Brawling"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.50"
+  REF_SkillIP_04:
+    input: number
+    label: "Brawling IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.50"
+  REF_SkillChipped_04:
+    input: checkbox
+    label: "Brawling chipped"
+  REF_SkillValue_05:
+    input: number
+    label: "Dance"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.50"
+  REF_SkillIP_05:
+    input: number
+    label: "Dance IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.50"
+  REF_SkillChipped_05:
+    input: checkbox
+    label: "Dance chipped"
+  REF_SkillValue_06:
+    input: number
+    label: "Dodge/Escape"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.50"
+  REF_SkillIP_06:
+    input: number
+    label: "Dodge/Escape IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.50"
+  REF_SkillChipped_06:
+    input: checkbox
+    label: "Dodge/Escape chipped"
+  REF_SkillValue_07:
+    input: number
+    label: "Driving"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.50"
+  REF_SkillIP_07:
+    input: number
+    label: "Driving IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.50"
+  REF_SkillChipped_07:
+    input: checkbox
+    label: "Driving chipped"
+  REF_SkillValue_08:
+    input: number
+    label: "EVA"
+    min: 0
+    max: 10
+    description: "source Deep Space pg.76"
+  REF_SkillIP_08:
+    input: number
+    label: "EVA IP"
+    min: 0
+    max: 600
+    description: "source Deep Space pg.76"
+  REF_SkillChipped_08:
+    input: checkbox
+    label: "EVA chipped"
+  REF_SkillValue_09:
+    input: number
+    label: "Fencing"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.50"
+  REF_SkillIP_09:
+    input: number
+    label: "Fencing IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.50"
+  REF_SkillChipped_09:
+    input: checkbox
+    label: "Fencing chipped"
+  REF_SkillValue_10:
+    input: number
+    label: "Handgun"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.50"
+  REF_SkillIP_10:
+    input: number
+    label: "Handgun IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.50"
+  REF_SkillChipped_10:
+    input: checkbox
+    label: "Handgun chipped"
+  REF_SkillValue_11:
+    input: number
+    label: "Heavy Weapon"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.51"
+  REF_SkillIP_11:
+    input: number
+    label: "Heavy Weapon IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.51"
+  REF_SkillChipped_11:
+    input: checkbox
+    label: "Heavy Weapon chipped"
+  REF_SkillValue_12:
+    input: number
+    label: "Melee"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.51"
+  REF_SkillIP_12:
+    input: number
+    label: "Melee IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.51"
+  REF_SkillChipped_12:
+    input: checkbox
+    label: "Melee chipped"
+  REF_SkillValue_13:
+    input: number
+    label: "Motorcycle"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.51"
+  REF_SkillIP_13:
+    input: number
+    label: "Motorcycle IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.51"
+  REF_SkillChipped_13:
+    input: checkbox
+    label: "Motorcycle chipped"
+  REF_SkillValue_14:
+    input: number
+    label: "Operate Hvy. Machinery"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.51"
+  REF_SkillIP_14:
+    input: number
+    label: "Operate Hvy. Machinery IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.51"
+  REF_SkillChipped_14:
+    input: checkbox
+    label: "Operate Hvy. Machinery chipped"
+  REF_SkillValue_15:
+    input: number
+    label: "Pilot: Deep Dive Suit[2]"
+    min: 0
+    max: 10
+    description: "source Solo of Fortune pg.24"
+  REF_SkillIP_15:
+    input: number
+    label: "Pilot: Deep Dive Suit[2] IP"
+    min: 0
+    max: 600
+    description: "source Solo of Fortune pg.24"
+  REF_SkillChipped_15:
+    input: checkbox
+    label: "Pilot: Deep Dive Suit[2] chipped"
+  REF_SkillValue_16:
+    input: number
+    label: "Pilot: Dirigible[2]"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.52"
+  REF_SkillIP_16:
+    input: number
+    label: "Pilot: Dirigible[2] IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.52"
+  REF_SkillChipped_16:
+    input: checkbox
+    label: "Pilot: Dirigible[2] chipped"
+  REF_SkillValue_17:
+    input: number
+    label: "Pilot: EVPA[2]"
+    min: 0
+    max: 10
+    description: "source Solo of Fortune pg.24"
+  REF_SkillIP_17:
+    input: number
+    label: "Pilot: EVPA[2] IP"
+    min: 0
+    max: 600
+    description: "source Solo of Fortune pg.24"
+  REF_SkillChipped_17:
+    input: checkbox
+    label: "Pilot: EVPA[2] chipped"
+  REF_SkillValue_18:
+    input: number
+    label: "Pilot: Fixed Wing[2]"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.52"
+  REF_SkillIP_18:
+    input: number
+    label: "Pilot: Fixed Wing[2] IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.52"
+  REF_SkillChipped_18:
+    input: checkbox
+    label: "Pilot: Fixed Wing[2] chipped"
+  REF_SkillValue_19:
+    input: number
+    label: "Pilot: Gyro[3]"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.52"
+  REF_SkillIP_19:
+    input: number
+    label: "Pilot: Gyro[3] IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.52"
+  REF_SkillChipped_19:
+    input: checkbox
+    label: "Pilot: Gyro[3] chipped"
+  REF_SkillValue_20:
+    input: number
+    label: "Pilot: Hardshell[2]"
+    min: 0
+    max: 10
+    description: "source Solo of Fortune pg.24"
+  REF_SkillIP_20:
+    input: number
+    label: "Pilot: Hardshell[2] IP"
+    min: 0
+    max: 600
+    description: "source Solo of Fortune pg.24"
+  REF_SkillChipped_20:
+    input: checkbox
+    label: "Pilot: Hardshell[2] chipped"
+  REF_SkillValue_21:
+    input: number
+    label: "Pilot: Hovercraft[2]"
+    min: 0
+    max: 10
+    description: "source Firestorm: Shockwave pg.27"
+  REF_SkillIP_21:
+    input: number
+    label: "Pilot: Hovercraft[2] IP"
+    min: 0
+    max: 600
+    description: "source Firestorm: Shockwave pg.27"
+  REF_SkillChipped_21:
+    input: checkbox
+    label: "Pilot: Hovercraft[2] chipped"
+  REF_SkillValue_22:
+    input: number
+    label: "Pilot: Large Submersible[2]"
+    min: 0
+    max: 10
+    description: "source Solo of Fortune pg.25"
+  REF_SkillIP_22:
+    input: number
+    label: "Pilot: Large Submersible[2] IP"
+    min: 0
+    max: 600
+    description: "source Solo of Fortune pg.25"
+  REF_SkillChipped_22:
+    input: checkbox
+    label: "Pilot: Large Submersible[2] chipped"
+  REF_SkillValue_23:
+    input: number
+    label: "Pilot: Naval Ship[2]"
+    min: 0
+    max: 10
+    description: "source Pacific Rim pg.153"
+  REF_SkillIP_23:
+    input: number
+    label: "Pilot: Naval Ship[2] IP"
+    min: 0
+    max: 600
+    description: "source Pacific Rim pg.153"
+  REF_SkillChipped_23:
+    input: checkbox
+    label: "Pilot: Naval Ship[2] chipped"
+  REF_SkillValue_24:
+    input: number
+    label: "Pilot: OTV[2]"
+    min: 0
+    max: 10
+    description: "source Deep Space pg.76"
+  REF_SkillIP_24:
+    input: number
+    label: "Pilot: OTV[2] IP"
+    min: 0
+    max: 600
+    description: "source Deep Space pg.76"
+  REF_SkillChipped_24:
+    input: checkbox
+    label: "Pilot: OTV[2] chipped"
+  REF_SkillValue_25:
+    input: number
+    label: "Pilot: PA[2]"
+    min: 0
+    max: 10
+    description: "source Firestorm: Shockwave pg.29"
+  REF_SkillIP_25:
+    input: number
+    label: "Pilot: PA[2] IP"
+    min: 0
+    max: 600
+    description: "source Firestorm: Shockwave pg.29"
+  REF_SkillChipped_25:
+    input: checkbox
+    label: "Pilot: PA[2] chipped"
+  REF_SkillValue_26:
+    input: number
+    label: "Pilot: Small Submersible[2]"
+    min: 0
+    max: 10
+    description: "source Solo of Fortune pg.25"
+  REF_SkillIP_26:
+    input: number
+    label: "Pilot: Small Submersible[2] IP"
+    min: 0
+    max: 600
+    description: "source Solo of Fortune pg.25"
+  REF_SkillChipped_26:
+    input: checkbox
+    label: "Pilot: Small Submersible[2] chipped"
+  REF_SkillValue_27:
+    input: number
+    label: "Pilot: Spaceplane/Shuttle[3]"
+    min: 0
+    max: 10
+    description: "source Deep Space pg.76"
+  REF_SkillIP_27:
+    input: number
+    label: "Pilot: Spaceplane/Shuttle[3] IP"
+    min: 0
+    max: 600
+    description: "source Deep Space pg.76"
+  REF_SkillChipped_27:
+    input: checkbox
+    label: "Pilot: Spaceplane/Shuttle[3] chipped"
+  REF_SkillValue_28:
+    input: number
+    label: "Pilot: Vect. Thrust Vehicle[3]"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.52"
+  REF_SkillIP_28:
+    input: number
+    label: "Pilot: Vect. Thrust Vehicle[3] IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.52"
+  REF_SkillChipped_28:
+    input: checkbox
+    label: "Pilot: Vect. Thrust Vehicle[3] chipped"
+  REF_SkillValue_29:
+    input: number
+    label: "Remote System Operation[2]"
+    min: 0
+    max: 10
+    description: "source Protect and Serve pg.13"
+  REF_SkillIP_29:
+    input: number
+    label: "Remote System Operation[2] IP"
+    min: 0
+    max: 600
+    description: "source Protect and Serve pg.13"
+  REF_SkillChipped_29:
+    input: checkbox
+    label: "Remote System Operation[2] chipped"
+  REF_SkillValue_30:
+    input: number
+    label: "Rifle"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.52"
+  REF_SkillIP_30:
+    input: number
+    label: "Rifle IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.52"
+  REF_SkillChipped_30:
+    input: checkbox
+    label: "Rifle chipped"
+  REF_SkillValue_31:
+    input: number
+    label: "Stealth[2]"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.52"
+  REF_SkillIP_31:
+    input: number
+    label: "Stealth[2] IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.52"
+  REF_SkillChipped_31:
+    input: checkbox
+    label: "Stealth[2] chipped"
+  REF_SkillValue_32:
+    input: number
+    label: "Submachinegun"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.52"
+  REF_SkillIP_32:
+    input: number
+    label: "Submachinegun IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.52"
+  REF_SkillChipped_32:
+    input: checkbox
+    label: "Submachinegun chipped"
+  REF_SkillValue_33:
+    input: number
+    label: "Underwater Combat[2]"
+    min: 0
+    max: 10
+    description: "source Solo of Fortune pg.24"
+  REF_SkillIP_33:
+    input: number
+    label: "Underwater Combat[2] IP"
+    min: 0
+    max: 600
+    description: "source Solo of Fortune pg.24"
+  REF_SkillChipped_33:
+    input: checkbox
+    label: "Underwater Combat[2] chipped"
+  REF_SkillValue_34:
+    input: number
+    label: "Underwater Heavy Weapon"
+    min: 0
+    max: 10
+    description: "source Solo of Fortune pg.25"
+  REF_SkillIP_34:
+    input: number
+    label: "Underwater Heavy Weapon IP"
+    min: 0
+    max: 600
+    description: "source Solo of Fortune pg.25"
+  REF_SkillChipped_34:
+    input: checkbox
+    label: "Underwater Heavy Weapon chipped"
+  REF_SkillValue_35:
+    input: number
+    label: "Underwater Weapons"
+    min: 0
+    max: 10
+    description: "source Solo of Fortune pg.23"
+  REF_SkillIP_35:
+    input: number
+    label: "Underwater Weapons IP"
+    min: 0
+    max: 600
+    description: "source Solo of Fortune pg.23"
+  REF_SkillChipped_35:
+    input: checkbox
+    label: "Underwater Weapons chipped"
+  REF_SkillValue_36:
+    input: number
+    label: "Zero-G Combat[2]"
+    min: 0
+    max: 10
+    description: "source Deep Space pg.76"
+  REF_SkillIP_36:
+    input: number
+    label: "Zero-G Combat[2] IP"
+    min: 0
+    max: 600
+    description: "source Deep Space pg.76"
+  REF_SkillChipped_36:
+    input: checkbox
+    label: "Zero-G Combat[2] chipped"
+  REF_SkillValue_37:
+    input: number
+    label: "Zero-G Maneuver"
+    min: 0
+    max: 10
+    description: "source Deep Space pg.76"
+  REF_SkillIP_37:
+    input: number
+    label: "Zero-G Maneuver IP"
+    min: 0
+    max: 600
+    description: "source Deep Space pg.76"
+  REF_SkillChipped_37:
+    input: checkbox
+    label: "Zero-G Maneuver chipped"
+  TECH_SkillValue_01:
+    input: number
+    label: "Aero Tech[2]"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.52"
+  TECH_SkillIP_01:
+    input: number
+    label: "Aero Tech[2] IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.52"
+  TECH_SkillChipped_01:
+    input: checkbox
+    label: "Aero Tech[2] chipped"
+  TECH_SkillValue_02:
+    input: number
+    label: "AV Tech[3]"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.52"
+  TECH_SkillIP_02:
+    input: number
+    label: "AV Tech[3] IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.52"
+  TECH_SkillChipped_02:
+    input: checkbox
+    label: "AV Tech[3] chipped"
+  TECH_SkillValue_03:
+    input: number
+    label: "Basic Tech[2]"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.52"
+  TECH_SkillIP_03:
+    input: number
+    label: "Basic Tech[2] IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.52"
+  TECH_SkillChipped_03:
+    input: checkbox
+    label: "Basic Tech[2] chipped"
+  TECH_SkillValue_04:
+    input: number
+    label: "Bio Tech"
+    min: 0
+    max: 10
+    description: "source Wildside pg.21"
+  TECH_SkillIP_04:
+    input: number
+    label: "Bio Tech IP"
+    min: 0
+    max: 600
+    description: "source Wildside pg.21"
+  TECH_SkillChipped_04:
+    input: checkbox
+    label: "Bio Tech chipped"
+  TECH_SkillValue_05:
+    input: number
+    label: "Braindance Editing"
+    min: 0
+    max: 10
+    description: "source Wildside pg.21"
+  TECH_SkillIP_05:
+    input: number
+    label: "Braindance Editing IP"
+    min: 0
+    max: 600
+    description: "source Wildside pg.21"
+  TECH_SkillChipped_05:
+    input: checkbox
+    label: "Braindance Editing chipped"
+  TECH_SkillValue_06:
+    input: number
+    label: "Calligraphy"
+    min: 0
+    max: 10
+    description: "source Pacific Rim pg.153"
+  TECH_SkillIP_06:
+    input: number
+    label: "Calligraphy IP"
+    min: 0
+    max: 600
+    description: "source Pacific Rim pg.153"
+  TECH_SkillChipped_06:
+    input: checkbox
+    label: "Calligraphy chipped"
+  TECH_SkillValue_07:
+    input: number
+    label: "Cryotank Operation"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.52"
+  TECH_SkillIP_07:
+    input: number
+    label: "Cryotank Operation IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.52"
+  TECH_SkillChipped_07:
+    input: checkbox
+    label: "Cryotank Operation chipped"
+  TECH_SkillValue_08:
+    input: number
+    label: "Cyberdeck Design"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.52"
+  TECH_SkillIP_08:
+    input: number
+    label: "Cyberdeck Design IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.52"
+  TECH_SkillChipped_08:
+    input: checkbox
+    label: "Cyberdeck Design chipped"
+  TECH_SkillValue_09:
+    input: number
+    label: "Cyber Tech[2]"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.52"
+  TECH_SkillIP_09:
+    input: number
+    label: "Cyber Tech[2] IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.52"
+  TECH_SkillChipped_09:
+    input: checkbox
+    label: "Cyber Tech[2] chipped"
+  TECH_SkillValue_10:
+    input: number
+    label: "Demolitions[2]"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.52"
+  TECH_SkillIP_10:
+    input: number
+    label: "Demolitions[2] IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.52"
+  TECH_SkillChipped_10:
+    input: checkbox
+    label: "Demolitions[2] chipped"
+  TECH_SkillValue_11:
+    input: number
+    label: "Disguise"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.52"
+  TECH_SkillIP_11:
+    input: number
+    label: "Disguise IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.52"
+  TECH_SkillChipped_11:
+    input: checkbox
+    label: "Disguise chipped"
+  TECH_SkillValue_12:
+    input: number
+    label: "Elect. Security[2]"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.53"
+  TECH_SkillIP_12:
+    input: number
+    label: "Elect. Security[2] IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.53"
+  TECH_SkillChipped_12:
+    input: checkbox
+    label: "Elect. Security[2] chipped"
+  TECH_SkillValue_13:
+    input: number
+    label: "Electronics"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.53"
+  TECH_SkillIP_13:
+    input: number
+    label: "Electronics IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.53"
+  TECH_SkillChipped_13:
+    input: checkbox
+    label: "Electronics chipped"
+  TECH_SkillValue_14:
+    input: number
+    label: "First Aid"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.53"
+  TECH_SkillIP_14:
+    input: number
+    label: "First Aid IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.53"
+  TECH_SkillChipped_14:
+    input: checkbox
+    label: "First Aid chipped"
+  TECH_SkillValue_15:
+    input: number
+    label: "Forgery"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.53"
+  TECH_SkillIP_15:
+    input: number
+    label: "Forgery IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.53"
+  TECH_SkillChipped_15:
+    input: checkbox
+    label: "Forgery chipped"
+  TECH_SkillValue_16:
+    input: number
+    label: "Gyro Tech[3]"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.53"
+  TECH_SkillIP_16:
+    input: number
+    label: "Gyro Tech[3] IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.53"
+  TECH_SkillChipped_16:
+    input: checkbox
+    label: "Gyro Tech[3] chipped"
+  TECH_SkillValue_17:
+    input: number
+    label: "Operate Mining Equip."
+    min: 0
+    max: 10
+    description: "source Solo of Fortune pg.24"
+  TECH_SkillIP_17:
+    input: number
+    label: "Operate Mining Equip. IP"
+    min: 0
+    max: 600
+    description: "source Solo of Fortune pg.24"
+  TECH_SkillChipped_17:
+    input: checkbox
+    label: "Operate Mining Equip. chipped"
+  TECH_SkillValue_18:
+    input: number
+    label: "Origami"
+    min: 0
+    max: 10
+    description: "source Pacific Rim pg.153"
+  TECH_SkillIP_18:
+    input: number
+    label: "Origami IP"
+    min: 0
+    max: 600
+    description: "source Pacific Rim pg.153"
+  TECH_SkillChipped_18:
+    input: checkbox
+    label: "Origami chipped"
+  TECH_SkillValue_19:
+    input: number
+    label: "PA Tech[3]"
+    min: 0
+    max: 10
+    description: "source Firestorm: Shockwave pg.29"
+  TECH_SkillIP_19:
+    input: number
+    label: "PA Tech[3] IP"
+    min: 0
+    max: 600
+    description: "source Firestorm: Shockwave pg.29"
+  TECH_SkillChipped_19:
+    input: checkbox
+    label: "PA Tech[3] chipped"
+  TECH_SkillValue_20:
+    input: number
+    label: "Paint or Draw"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.53"
+  TECH_SkillIP_20:
+    input: number
+    label: "Paint or Draw IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.53"
+  TECH_SkillChipped_20:
+    input: checkbox
+    label: "Paint or Draw chipped"
+  TECH_SkillValue_21:
+    input: number
+    label: "Pharmaceuticals[2]"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.53"
+  TECH_SkillIP_21:
+    input: number
+    label: "Pharmaceuticals[2] IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.53"
+  TECH_SkillChipped_21:
+    input: checkbox
+    label: "Pharmaceuticals[2] chipped"
+  TECH_SkillValue_22:
+    input: number
+    label: "Photo & Film"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.53"
+  TECH_SkillIP_22:
+    input: number
+    label: "Photo & Film IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.53"
+  TECH_SkillChipped_22:
+    input: checkbox
+    label: "Photo & Film chipped"
+  TECH_SkillValue_23:
+    input: number
+    label: "Pick Lock"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.53"
+  TECH_SkillIP_23:
+    input: number
+    label: "Pick Lock IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.53"
+  TECH_SkillChipped_23:
+    input: checkbox
+    label: "Pick Lock chipped"
+  TECH_SkillValue_24:
+    input: number
+    label: "Pick Pocket"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.53"
+  TECH_SkillIP_24:
+    input: number
+    label: "Pick Pocket IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.53"
+  TECH_SkillChipped_24:
+    input: checkbox
+    label: "Pick Pocket chipped"
+  TECH_SkillValue_25:
+    input: number
+    label: "Play Instrument"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.53"
+  TECH_SkillIP_25:
+    input: number
+    label: "Play Instrument IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.53"
+  TECH_SkillChipped_25:
+    input: checkbox
+    label: "Play Instrument chipped"
+  TECH_SkillValue_26:
+    input: number
+    label: "Pressure Suit Tech"
+    min: 0
+    max: 10
+    description: "source Solo of Fortune pg.25"
+  TECH_SkillIP_26:
+    input: number
+    label: "Pressure Suit Tech IP"
+    min: 0
+    max: 600
+    description: "source Solo of Fortune pg.25"
+  TECH_SkillChipped_26:
+    input: checkbox
+    label: "Pressure Suit Tech chipped"
+  TECH_SkillValue_27:
+    input: number
+    label: "Sonar Tech"
+    min: 0
+    max: 10
+    description: "source Solo of Fortune pg.25"
+  TECH_SkillIP_27:
+    input: number
+    label: "Sonar Tech IP"
+    min: 0
+    max: 600
+    description: "source Solo of Fortune pg.25"
+  TECH_SkillChipped_27:
+    input: checkbox
+    label: "Sonar Tech chipped"
+  TECH_SkillValue_28:
+    input: number
+    label: "Sub Tech"
+    min: 0
+    max: 10
+    description: "source Solo of Fortune pg.25"
+  TECH_SkillIP_28:
+    input: number
+    label: "Sub Tech IP"
+    min: 0
+    max: 600
+    description: "source Solo of Fortune pg.25"
+  TECH_SkillChipped_28:
+    input: checkbox
+    label: "Sub Tech chipped"
+  TECH_SkillValue_29:
+    input: number
+    label: "Sub Tech(Large)"
+    min: 0
+    max: 10
+    description: "source Solo of Fortune pg.25"
+  TECH_SkillIP_29:
+    input: number
+    label: "Sub Tech(Large) IP"
+    min: 0
+    max: 600
+    description: "source Solo of Fortune pg.25"
+  TECH_SkillChipped_29:
+    input: checkbox
+    label: "Sub Tech(Large) chipped"
+  TECH_SkillValue_30:
+    input: number
+    label: "Sub Tech(Small)"
+    min: 0
+    max: 10
+    description: "source Solo of Fortune pg.25"
+  TECH_SkillIP_30:
+    input: number
+    label: "Sub Tech(Small) IP"
+    min: 0
+    max: 600
+    description: "source Solo of Fortune pg.25"
+  TECH_SkillChipped_30:
+    input: checkbox
+    label: "Sub Tech(Small) chipped"
+  TECH_SkillValue_31:
+    input: number
+    label: "Tattooing"
+    min: 0
+    max: 10
+    description: "source Pacific Rim pg.153"
+  TECH_SkillIP_31:
+    input: number
+    label: "Tattooing IP"
+    min: 0
+    max: 600
+    description: "source Pacific Rim pg.153"
+  TECH_SkillChipped_31:
+    input: checkbox
+    label: "Tattooing chipped"
+  TECH_SkillValue_32:
+    input: number
+    label: "Weaponsmith[2]"
+    min: 0
+    max: 10
+    description: "source CP2020 pg.53"
+  TECH_SkillIP_32:
+    input: number
+    label: "Weaponsmith[2] IP"
+    min: 0
+    max: 600
+    description: "source CP2020 pg.53"
+  TECH_SkillChipped_32:
+    input: checkbox
+    label: "Weaponsmith[2] chipped"
+  TECH_SkillValue_33:
+    input: number
+    label: "Wetware Design"
+    min: 0
+    max: 10
+    description: "source Wildside pg.21"
+  TECH_SkillIP_33:
+    input: number
+    label: "Wetware Design IP"
+    min: 0
+    max: 600
+    description: "source Wildside pg.21"
+  TECH_SkillChipped_33:
+    input: checkbox
+    label: "Wetware Design chipped"
+### Other skills
+  other_SkillName_01:
+    input: text
+    label: "Other Skill Name"
+    rows: 1
+  other_SkillValue_01:
+    input: number
+    label: "Other Skill Value"
+    min: 0
+    max: 10
+  other_SkillIP_01:
+    input: number
+    label: "Other Skill IP"
+    min: 0
+    max: 600
+  other_SkillChipped_01:
+    input: checkbox
+    label: "Other Skill Is Chipped"
+  other_SkillName_02:
+    input: text
+    label: "Other Skill Name"
+    rows: 1
+  other_SkillValue_02:
+    input: number
+    label: "Other Skill Value"
+    min: 0
+    max: 10
+  other_SkillIP_02:
+    input: number
+    label: "Other Skill IP"
+    min: 0
+    max: 600
+  other_SkillChipped_02:
+    input: checkbox
+    label: "Other Skill Is Chipped"
+  other_SkillName_03:
+    input: text
+    label: "Other Skill Name"
+    rows: 1
+  other_SkillValue_03:
+    input: number
+    label: "Other Skill Value"
+    min: 0
+    max: 10
+  other_SkillIP_03:
+    input: number
+    label: "Other Skill IP"
+    min: 0
+    max: 600
+  other_SkillChipped_03:
+    input: checkbox
+    label: "Other Skill Is Chipped"
+  other_SkillName_04:
+    input: text
+    label: "Other Skill Name"
+    rows: 1
+  other_SkillValue_04:
+    input: number
+    label: "Other Skill Value"
+    min: 0
+    max: 10
+  other_SkillIP_04:
+    input: number
+    label: "Other Skill IP"
+    min: 0
+    max: 600
+  other_SkillChipped_04:
+    input: checkbox
+    label: "Other Skill Is Chipped"
+  other_SkillName_05:
+    input: text
+    label: "Other Skill Name"
+    rows: 1
+  other_SkillValue_05:
+    input: number
+    label: "Other Skill Value"
+    min: 0
+    max: 10
+  other_SkillIP_05:
+    input: number
+    label: "Other Skill IP"
+    min: 0
+    max: 600
+  other_SkillChipped_05:
+    input: checkbox
+    label: "Other Skill Is Chipped"
+  other_SkillName_06:
+    input: text
+    label: "Other Skill Name"
+    rows: 1
+  other_SkillValue_06:
+    input: number
+    label: "Other Skill Value"
+    min: 0
+    max: 10
+  other_SkillIP_06:
+    input: number
+    label: "Other Skill IP"
+    min: 0
+    max: 600
+  other_SkillChipped_06:
+    input: checkbox
+    label: "Other Skill Is Chipped"
+### Martial Arts
+  ma01_Name:
+    input: text
+    label: "Martial Art Name"
+    rows: 1
+  ma01_SkillValue:
+    input: number
+    label: "MA Skill Value"
+    min: 0
+    max: 10
+  ma01_SkillIP:
+    input: number
+    label: "MA Skill IP"
+    min: 0
+    max: 600
+  ma01_SkillChipped:
+    input: checkbox
+    label: "MA Skill Is Chipped"
+  ma01_Strike:
+    input: number
+    label: "MA Strike"
+    min: 0
+    max: 5
+  ma01_Punch:
+    input: number
+    label: "MA Punch"
+    min: 0
+    max: 5
+  ma01_Kick:
+    input: number
+    label: "MA Kick"
+    min: 0
+    max: 5
+  ma01_Disarm:
+    input: number
+    label: "MA Disarm"
+    min: 0
+    max: 5
+  ma01_Sweep:
+    input: number
+    label: "MA Sweep"
+    min: 0
+    max: 5
+  ma01_Block:
+    input: number
+    label: "MA Block"
+    min: 0
+    max: 5
+  ma01_Dodge:
+    input: number
+    label: "MA Dodge"
+    min: 0
+    max: 5
+  ma01_Grapple:
+    input: number
+    label: "MA Grapple"
+    min: 0
+    max: 5
+  ma01_Throw:
+    input: number
+    label: "MA Throw"
+    min: 0
+    max: 5
+  ma01_Hold:
+    input: number
+    label: "MA Hold"
+    min: 0
+    max: 5
+  ma01_Choke:
+    input: number
+    label: "MA Choke"
+    min: 0
+    max: 5
+  ma01_Escape:
+    input: number
+    label: "MA Escape"
+    min: 0
+    max: 5
+  ma01_Ram:
+    input: number
+    label: "MA Ram"
+    min: 0
+    max: 5
+  ma02_Name:
+    input: text
+    label: "Martial Art Name"
+    rows: 1
+  ma02_SkillValue:
+    input: number
+    label: "MA Skill Value"
+    min: 0
+    max: 10
+  ma02_SkillIP:
+    input: number
+    label: "MA Skill IP"
+    min: 0
+    max: 600
+  ma02_SkillChipped:
+    input: checkbox
+    label: "MA Skill Is Chipped"
+  ma02_Strike:
+    input: number
+    label: "MA Strike"
+    min: 0
+    max: 5
+  ma02_Punch:
+    input: number
+    label: "MA Punch"
+    min: 0
+    max: 5
+  ma02_Kick:
+    input: number
+    label: "MA Kick"
+    min: 0
+    max: 5
+  ma02_Disarm:
+    input: number
+    label: "MA Disarm"
+    min: 0
+    max: 5
+  ma02_Sweep:
+    input: number
+    label: "MA Sweep"
+    min: 0
+    max: 5
+  ma02_Block:
+    input: number
+    label: "MA Block"
+    min: 0
+    max: 5
+  ma02_Dodge:
+    input: number
+    label: "MA Dodge"
+    min: 0
+    max: 5
+  ma02_Grapple:
+    input: number
+    label: "MA Grapple"
+    min: 0
+    max: 5
+  ma02_Throw:
+    input: number
+    label: "MA Throw"
+    min: 0
+    max: 5
+  ma02_Hold:
+    input: number
+    label: "MA Hold"
+    min: 0
+    max: 5
+  ma02_Choke:
+    input: number
+    label: "MA Choke"
+    min: 0
+    max: 5
+  ma02_Escape:
+    input: number
+    label: "MA Escape"
+    min: 0
+    max: 5
+  ma02_Ram:
+    input: number
+    label: "MA Ram"
+    min: 0
+    max: 5
+  ma03_Name:
+    input: text
+    label: "Martial Art Name"
+    rows: 1
+  ma03_SkillValue:
+    input: number
+    label: "MA Skill Value"
+    min: 0
+    max: 10
+  ma03_SkillIP:
+    input: number
+    label: "MA Skill IP"
+    min: 0
+    max: 600
+  ma03_SkillChipped:
+    input: checkbox
+    label: "MA Skill Is Chipped"
+  ma03_Strike:
+    input: number
+    label: "MA Strike"
+    min: 0
+    max: 5
+  ma03_Punch:
+    input: number
+    label: "MA Punch"
+    min: 0
+    max: 5
+  ma03_Kick:
+    input: number
+    label: "MA Kick"
+    min: 0
+    max: 5
+  ma03_Disarm:
+    input: number
+    label: "MA Disarm"
+    min: 0
+    max: 5
+  ma03_Sweep:
+    input: number
+    label: "MA Sweep"
+    min: 0
+    max: 5
+  ma03_Block:
+    input: number
+    label: "MA Block"
+    min: 0
+    max: 5
+  ma03_Dodge:
+    input: number
+    label: "MA Dodge"
+    min: 0
+    max: 5
+  ma03_Grapple:
+    input: number
+    label: "MA Grapple"
+    min: 0
+    max: 5
+  ma03_Throw:
+    input: number
+    label: "MA Throw"
+    min: 0
+    max: 5
+  ma03_Hold:
+    input: number
+    label: "MA Hold"
+    min: 0
+    max: 5
+  ma03_Choke:
+    input: number
+    label: "MA Choke"
+    min: 0
+    max: 5
+  ma03_Escape:
+    input: number
+    label: "MA Escape"
+    min: 0
+    max: 5
+  ma03_Ram:
+    input: number
+    label: "MA Ram"
+    min: 0
+    max: 5
+  ma04_Name:
+    input: text
+    label: "Martial Art Name"
+    rows: 1
+  ma04_SkillValue:
+    input: number
+    label: "MA Skill Value"
+    min: 0
+    max: 10
+  ma04_SkillIP:
+    input: number
+    label: "MA Skill IP"
+    min: 0
+    max: 600
+  ma04_SkillChipped:
+    input: checkbox
+    label: "MA Skill Is Chipped"
+  ma04_Strike:
+    input: number
+    label: "MA Strike"
+    min: 0
+    max: 5
+  ma04_Punch:
+    input: number
+    label: "MA Punch"
+    min: 0
+    max: 5
+  ma04_Kick:
+    input: number
+    label: "MA Kick"
+    min: 0
+    max: 5
+  ma04_Disarm:
+    input: number
+    label: "MA Disarm"
+    min: 0
+    max: 5
+  ma04_Sweep:
+    input: number
+    label: "MA Sweep"
+    min: 0
+    max: 5
+  ma04_Block:
+    input: number
+    label: "MA Block"
+    min: 0
+    max: 5
+  ma04_Dodge:
+    input: number
+    label: "MA Dodge"
+    min: 0
+    max: 5
+  ma04_Grapple:
+    input: number
+    label: "MA Grapple"
+    min: 0
+    max: 5
+  ma04_Throw:
+    input: number
+    label: "MA Throw"
+    min: 0
+    max: 5
+  ma04_Hold:
+    input: number
+    label: "MA Hold"
+    min: 0
+    max: 5
+  ma04_Choke:
+    input: number
+    label: "MA Choke"
+    min: 0
+    max: 5
+  ma04_Escape:
+    input: number
+    label: "MA Escape"
+    min: 0
+    max: 5
+  ma04_Ram:
+    input: number
+    label: "MA Ram"
+    min: 0
+    max: 5
+  ma05_Name:
+    input: text
+    label: "Martial Art Name"
+    rows: 1
+  ma05_SkillValue:
+    input: number
+    label: "MA Skill Value"
+    min: 0
+    max: 10
+  ma05_SkillIP:
+    input: number
+    label: "MA Skill IP"
+    min: 0
+    max: 600
+  ma05_SkillChipped:
+    input: checkbox
+    label: "MA Skill Is Chipped"
+  ma05_Strike:
+    input: number
+    label: "MA Strike"
+    min: 0
+    max: 5
+  ma05_Punch:
+    input: number
+    label: "MA Punch"
+    min: 0
+    max: 5
+  ma05_Kick:
+    input: number
+    label: "MA Kick"
+    min: 0
+    max: 5
+  ma05_Disarm:
+    input: number
+    label: "MA Disarm"
+    min: 0
+    max: 5
+  ma05_Sweep:
+    input: number
+    label: "MA Sweep"
+    min: 0
+    max: 5
+  ma05_Block:
+    input: number
+    label: "MA Block"
+    min: 0
+    max: 5
+  ma05_Dodge:
+    input: number
+    label: "MA Dodge"
+    min: 0
+    max: 5
+  ma05_Grapple:
+    input: number
+    label: "MA Grapple"
+    min: 0
+    max: 5
+  ma05_Throw:
+    input: number
+    label: "MA Throw"
+    min: 0
+    max: 5
+  ma05_Hold:
+    input: number
+    label: "MA Hold"
+    min: 0
+    max: 5
+  ma05_Choke:
+    input: number
+    label: "MA Choke"
+    min: 0
+    max: 5
+  ma05_Escape:
+    input: number
+    label: "MA Escape"
+    min: 0
+    max: 5
+  ma05_Ram:
+    input: number
+    label: "MA Ram"
+    min: 0
+    max: 5
+### Cyberware
+  totalHL:
+    input: number
+    label: "totalHL"
+    min: 0
+    max: 200
+  cyberName_01:
+    input: text
+    label: "cyberName01"
+    rows: 1
+  cyberHL_01:
+    input: number
+    label: "cyberHL01"
+    min: 0
+    max: 50
+  cyberName_02:
+    input: text
+    label: "cyberName02"
+    rows: 1
+  cyberHL_02:
+    input: number
+    label: "cyberHL02"
+    min: 0
+    max: 50
+  cyberName_03:
+    input: text
+    label: "cyberName03"
+    rows: 1
+  cyberHL_03:
+    input: number
+    label: "cyberHL03"
+    min: 0
+    max: 50
+  cyberName_04:
+    input: text
+    label: "cyberName04"
+    rows: 1
+  cyberHL_04:
+    input: number
+    label: "cyberHL04"
+    min: 0
+    max: 50
+  cyberName_05:
+    input: text
+    label: "cyberName05"
+    rows: 1
+  cyberHL_05:
+    input: number
+    label: "cyberHL05"
+    min: 0
+    max: 50
+  cyberName_06:
+    input: text
+    label: "cyberName06"
+    rows: 1
+  cyberHL_06:
+    input: number
+    label: "cyberHL06"
+    min: 0
+    max: 50
+  cyberName_07:
+    input: text
+    label: "cyberName07"
+    rows: 1
+  cyberHL_07:
+    input: number
+    label: "cyberHL07"
+    min: 0
+    max: 50
+  cyberName_08:
+    input: text
+    label: "cyberName08"
+    rows: 1
+  cyberHL_08:
+    input: number
+    label: "cyberHL08"
+    min: 0
+    max: 50
+  cyberName_09:
+    input: text
+    label: "cyberName09"
+    rows: 1
+  cyberHL_09:
+    input: number
+    label: "cyberHL09"
+    min: 0
+    max: 50
+  cyberName_10:
+    input: text
+    label: "cyberName10"
+    rows: 1
+  cyberHL_10:
+    input: number
+    label: "cyberHL10"
+    min: 0
+    max: 50
+  cyberName_11:
+    input: text
+    label: "cyberName11"
+    rows: 1
+  cyberHL_11:
+    input: number
+    label: "cyberHL11"
+    min: 0
+    max: 50
+  cyberName_12:
+    input: text
+    label: "cyberName12"
+    rows: 1
+  cyberHL_12:
+    input: number
+    label: "cyberHL12"
+    min: 0
+    max: 50
+  cyberName_13:
+    input: text
+    label: "cyberName13"
+    rows: 1
+  cyberHL_13:
+    input: number
+    label: "cyberHL13"
+    min: 0
+    max: 50
+  cyberName_14:
+    input: text
+    label: "cyberName14"
+    rows: 1
+  cyberHL_14:
+    input: number
+    label: "cyberHL14"
+    min: 0
+    max: 50
+  cyberName_15:
+    input: text
+    label: "cyberName15"
+    rows: 1
+  cyberHL_15:
+    input: number
+    label: "cyberHL15"
+    min: 0
+    max: 50
+  cyberName_16:
+    input: text
+    label: "cyberName16"
+    rows: 1
+  cyberHL_16:
+    input: number
+    label: "cyberHL16"
+    min: 0
+    max: 50
+  cyberName_17:
+    input: text
+    label: "cyberName17"
+    rows: 1
+  cyberHL_17:
+    input: number
+    label: "cyberHL17"
+    min: 0
+    max: 50
+  cyberName_18:
+    input: text
+    label: "cyberName18"
+    rows: 1
+  cyberHL_18:
+    input: number
+    label: "cyberHL18"
+    min: 0
+    max: 50
+  cyberName_19:
+    input: text
+    label: "cyberName19"
+    rows: 1
+  cyberHL_19:
+    input: number
+    label: "cyberHL19"
+    min: 0
+    max: 50
+  cyberName_20:
+    input: text
+    label: "cyberName20"
+    rows: 1
+  cyberHL_20:
+    input: number
+    label: "cyberHL20"
+    min: 0
+    max: 50
+### Weapons
+  weaponName_01:
+    input: text
+    label: "Name"
+    rows: 1
+  weaponNote_01:
+    input: text
+    label: "Notes"
+    rows: 3
+  weaponType_01:
+    input: select
+    label: "Type"
+    options:
+      p: P
+      rif: RIF
+      smg: SMG
+      sht: SHT
+      mel: MEL
+      ex: EX
+      hvy: HVY
+  weaponAcc_01:
+    input: number
+    label: "WA"
+    min: -15
+    max: 15
+  weaponConc_01:
+    input: select
+    label: "Conc"
+    options:
+      p: P
+      j: J
+      l: L
+      n: N
+  weaponDmg_01:
+    input: text
+    label: "Damage"
+    rows: 1
+  weaponShots_01:
+    input: number
+    label: "#Shots"
+    min: 0
+    max: 10000
+  weaponRof_01:
+    input: number
+    label: "RoF"
+    min: 0
+    max: 10000
+  weaponRng_01:
+    input: number
+    label: "Range"
+    min: 0
+    max: 10000
+  weaponRel_01:
+    input: select
+    label: "Rel"
+    options:
+      st: ST
+      ur: UR
+      vr: VR
+  weaponMags_01:
+    input: text
+    label: "Magazines"
+    rows: 3
+  weaponName_02:
+    input: text
+    label: "Name"
+    rows: 1
+  weaponNote_02:
+    input: text
+    label: "Notes"
+    rows: 3
+  weaponType_02:
+    input: select
+    label: "Type"
+    options:
+      p: P
+      rif: RIF
+      smg: SMG
+      sht: SHT
+      mel: MEL
+      ex: EX
+      hvy: HVY
+  weaponAcc_02:
+    input: number
+    label: "WA"
+    min: -15
+    max: 15
+  weaponConc_02:
+    input: select
+    label: "Conc"
+    options:
+      p: P
+      j: J
+      l: L
+      n: N
+  weaponDmg_02:
+    input: text
+    label: "Damage"
+    rows: 1
+  weaponShots_02:
+    input: number
+    label: "#Shots"
+    min: 0
+    max: 10000
+  weaponRof_02:
+    input: number
+    label: "RoF"
+    min: 0
+    max: 10000
+  weaponRng_02:
+    input: number
+    label: "Range"
+    min: 0
+    max: 10000
+  weaponRel_02:
+    input: select
+    label: "Rel"
+    options:
+      st: ST
+      ur: UR
+      vr: VR
+  weaponMags_02:
+    input: text
+    label: "Magazines"
+    rows: 3
+  weaponName_03:
+    input: text
+    label: "Name"
+    rows: 1
+  weaponNote_03:
+    input: text
+    label: "Notes"
+    rows: 3
+  weaponType_03:
+    input: select
+    label: "Type"
+    options:
+      p: P
+      rif: RIF
+      smg: SMG
+      sht: SHT
+      mel: MEL
+      ex: EX
+      hvy: HVY
+  weaponAcc_03:
+    input: number
+    label: "WA"
+    min: -15
+    max: 15
+  weaponConc_03:
+    input: select
+    label: "Conc"
+    options:
+      p: P
+      j: J
+      l: L
+      n: N
+  weaponDmg_03:
+    input: text
+    label: "Damage"
+    rows: 1
+  weaponShots_03:
+    input: number
+    label: "#Shots"
+    min: 0
+    max: 10000
+  weaponRof_03:
+    input: number
+    label: "RoF"
+    min: 0
+    max: 10000
+  weaponRng_03:
+    input: number
+    label: "Range"
+    min: 0
+    max: 10000
+  weaponRel_03:
+    input: select
+    label: "Rel"
+    options:
+      st: ST
+      ur: UR
+      vr: VR
+  weaponMags_03:
+    input: text
+    label: "Magazines"
+    rows: 3
+  weaponName_04:
+    input: text
+    label: "Name"
+    rows: 1
+  weaponNote_04:
+    input: text
+    label: "Notes"
+    rows: 3
+  weaponType_04:
+    input: select
+    label: "Type"
+    options:
+      p: P
+      rif: RIF
+      smg: SMG
+      sht: SHT
+      mel: MEL
+      ex: EX
+      hvy: HVY
+  weaponAcc_04:
+    input: number
+    label: "WA"
+    min: -15
+    max: 15
+  weaponConc_04:
+    input: select
+    label: "Conc"
+    options:
+      p: P
+      j: J
+      l: L
+      n: N
+  weaponDmg_04:
+    input: text
+    label: "Damage"
+    rows: 1
+  weaponShots_04:
+    input: number
+    label: "#Shots"
+    min: 0
+    max: 10000
+  weaponRof_04:
+    input: number
+    label: "RoF"
+    min: 0
+    max: 10000
+  weaponRng_04:
+    input: number
+    label: "Range"
+    min: 0
+    max: 10000
+  weaponRel_04:
+    input: select
+    label: "Rel"
+    options:
+      st: ST
+      ur: UR
+      vr: VR
+  weaponMags_04:
+    input: text
+    label: "Magazines"
+    rows: 3
+  weaponName_05:
+    input: text
+    label: "Name"
+    rows: 1
+  weaponNote_05:
+    input: text
+    label: "Notes"
+    rows: 3
+  weaponType_05:
+    input: select
+    label: "Type"
+    options:
+      p: P
+      rif: RIF
+      smg: SMG
+      sht: SHT
+      mel: MEL
+      ex: EX
+      hvy: HVY
+  weaponAcc_05:
+    input: number
+    label: "WA"
+    min: -15
+    max: 15
+  weaponConc_05:
+    input: select
+    label: "Conc"
+    options:
+      p: P
+      j: J
+      l: L
+      n: N
+  weaponDmg_05:
+    input: text
+    label: "Damage"
+    rows: 1
+  weaponShots_05:
+    input: number
+    label: "#Shots"
+    min: 0
+    max: 10000
+  weaponRof_05:
+    input: number
+    label: "RoF"
+    min: 0
+    max: 10000
+  weaponRng_05:
+    input: number
+    label: "Range"
+    min: 0
+    max: 10000
+  weaponRel_05:
+    input: select
+    label: "Rel"
+    options:
+      st: ST
+      ur: UR
+      vr: VR
+  weaponMags_05:
+    input: text
+    label: "Magazines"
+    rows: 3
+  weaponName_06:
+    input: text
+    label: "Name"
+    rows: 1
+  weaponNote_06:
+    input: text
+    label: "Notes"
+    rows: 3
+  weaponType_06:
+    input: select
+    label: "Type"
+    options:
+      p: P
+      rif: RIF
+      smg: SMG
+      sht: SHT
+      mel: MEL
+      ex: EX
+      hvy: HVY
+  weaponAcc_06:
+    input: number
+    label: "WA"
+    min: -15
+    max: 15
+  weaponConc_06:
+    input: select
+    label: "Conc"
+    options:
+      p: P
+      j: J
+      l: L
+      n: N
+  weaponDmg_06:
+    input: text
+    label: "Damage"
+    rows: 1
+  weaponShots_06:
+    input: number
+    label: "#Shots"
+    min: 0
+    max: 10000
+  weaponRof_06:
+    input: number
+    label: "RoF"
+    min: 0
+    max: 10000
+  weaponRng_06:
+    input: number
+    label: "Range"
+    min: 0
+    max: 10000
+  weaponRel_06:
+    input: select
+    label: "Rel"
+    options:
+      st: ST
+      ur: UR
+      vr: VR
+  weaponMags_06:
+    input: text
+    label: "Magazines"
+    rows: 3
+  weaponName_07:
+    input: text
+    label: "Name"
+    rows: 1
+  weaponNote_07:
+    input: text
+    label: "Notes"
+    rows: 3
+  weaponType_07:
+    input: select
+    label: "Type"
+    options:
+      p: P
+      rif: RIF
+      smg: SMG
+      sht: SHT
+      mel: MEL
+      ex: EX
+      hvy: HVY
+  weaponAcc_07:
+    input: number
+    label: "WA"
+    min: -15
+    max: 15
+  weaponConc_07:
+    input: select
+    label: "Conc"
+    options:
+      p: P
+      j: J
+      l: L
+      n: N
+  weaponDmg_07:
+    input: text
+    label: "Damage"
+    rows: 1
+  weaponShots_07:
+    input: number
+    label: "#Shots"
+    min: 0
+    max: 10000
+  weaponRof_07:
+    input: number
+    label: "RoF"
+    min: 0
+    max: 10000
+  weaponRng_07:
+    input: number
+    label: "Range"
+    min: 0
+    max: 10000
+  weaponRel_07:
+    input: select
+    label: "Rel"
+    options:
+      st: ST
+      ur: UR
+      vr: VR
+  weaponMags_07:
+    input: text
+    label: "Magazines"
+    rows: 3
+  weaponName_08:
+    input: text
+    label: "Name"
+    rows: 1
+  weaponNote_08:
+    input: text
+    label: "Notes"
+    rows: 3
+  weaponType_08:
+    input: select
+    label: "Type"
+    options:
+      p: P
+      rif: RIF
+      smg: SMG
+      sht: SHT
+      mel: MEL
+      ex: EX
+      hvy: HVY
+  weaponAcc_08:
+    input: number
+    label: "WA"
+    min: -15
+    max: 15
+  weaponConc_08:
+    input: select
+    label: "Conc"
+    options:
+      p: P
+      j: J
+      l: L
+      n: N
+  weaponDmg_08:
+    input: text
+    label: "Damage"
+    rows: 1
+  weaponShots_08:
+    input: number
+    label: "#Shots"
+    min: 0
+    max: 10000
+  weaponRof_08:
+    input: number
+    label: "RoF"
+    min: 0
+    max: 10000
+  weaponRng_08:
+    input: number
+    label: "Range"
+    min: 0
+    max: 10000
+  weaponRel_08:
+    input: select
+    label: "Rel"
+    options:
+      st: ST
+      ur: UR
+      vr: VR
+  weaponMags_08:
+    input: text
+    label: "Magazines"
+    rows: 3
+  weaponName_09:
+    input: text
+    label: "Name"
+    rows: 1
+  weaponNote_09:
+    input: text
+    label: "Notes"
+    rows: 3
+  weaponType_09:
+    input: select
+    label: "Type"
+    options:
+      p: P
+      rif: RIF
+      smg: SMG
+      sht: SHT
+      mel: MEL
+      ex: EX
+      hvy: HVY
+  weaponAcc_09:
+    input: number
+    label: "WA"
+    min: -15
+    max: 15
+  weaponConc_09:
+    input: select
+    label: "Conc"
+    options:
+      p: P
+      j: J
+      l: L
+      n: N
+  weaponDmg_09:
+    input: text
+    label: "Damage"
+    rows: 1
+  weaponShots_09:
+    input: number
+    label: "#Shots"
+    min: 0
+    max: 10000
+  weaponRof_09:
+    input: number
+    label: "RoF"
+    min: 0
+    max: 10000
+  weaponRng_09:
+    input: number
+    label: "Range"
+    min: 0
+    max: 10000
+  weaponRel_09:
+    input: select
+    label: "Rel"
+    options:
+      st: ST
+      ur: UR
+      vr: VR
+  weaponMags_09:
+    input: text
+    label: "Magazines"
+    rows: 3
+  weaponName_10:
+    input: text
+    label: "Name"
+    rows: 1
+  weaponNote_10:
+    input: text
+    label: "Notes"
+    rows: 3
+  weaponType_10:
+    input: select
+    label: "Type"
+    options:
+      p: P
+      rif: RIF
+      smg: SMG
+      sht: SHT
+      mel: MEL
+      ex: EX
+      hvy: HVY
+  weaponAcc_10:
+    input: number
+    label: "WA"
+    min: -15
+    max: 15
+  weaponConc_10:
+    input: select
+    label: "Conc"
+    options:
+      p: P
+      j: J
+      l: L
+      n: N
+  weaponDmg_10:
+    input: text
+    label: "Damage"
+    rows: 1
+  weaponShots_10:
+    input: number
+    label: "#Shots"
+    min: 0
+    max: 10000
+  weaponRof_10:
+    input: number
+    label: "RoF"
+    min: 0
+    max: 10000
+  weaponRng_10:
+    input: number
+    label: "Range"
+    min: 0
+    max: 10000
+  weaponRel_10:
+    input: select
+    label: "Rel"
+    options:
+      st: ST
+      ur: UR
+      vr: VR
+  weaponMags_10:
+    input: text
+    label: "Magazines"
+    rows: 3
+### Armor
+  totalSPHead:
+    input: number
+    label: "SP Head"
+    min: 0
+    max: 50
+  totalSPTorso:
+    input: number
+    label: "SP Torso"
+    min: 0
+    max: 50
+  totalSPRArm:
+    input: number
+    label: "SP R Arm"
+    min: 0
+    max: 50
+  totalSPLArm:
+    input: number
+    label: "SP L Arm"
+    min: 0
+    max: 50
+  totalSPRLeg:
+    input: number
+    label: "SP R Leg"
+    min: 0
+    max: 50
+  totalSPLLeg:
+    input: number
+    label: "SP L Leg"
+    min: 0
+    max: 50
+  totalSPEV:
+    input: number
+    label: "Total EV"
+    min: 0
+    max: 50
+  totalSDPHead:
+    input: number
+    label: "SDP Head"
+    min: 0
+    max: 50
+  totalSDPTorso:
+    input: number
+    label: "SDP Torso"
+    min: 0
+    max: 50
+  totalSDPRArm:
+    input: number
+    label: "SDP R Arm"
+    min: 0
+    max: 50
+  totalSDPLArm:
+    input: number
+    label: "SDP L Arm"
+    min: 0
+    max: 50
+  totalSDPRLeg:
+    input: number
+    label: "SDP R Leg"
+    min: 0
+    max: 50
+  totalSDPLLeg:
+    input: number
+    label: "SDP L Leg"
+    min: 0
+    max: 50
+  layer01_Name:
+    input: text
+    label: "Layer"
+    rows: 1
+  layer01_Head:
+    input: number
+    label: "Head"
+    min: 0
+    max: 50
+  layer01_Torso:
+    input: number
+    label: "Torso"
+    min: 0
+    max: 50
+  layer01_RArm:
+    input: number
+    label: "RArm"
+    min: 0
+    max: 50
+  layer01_LArm:
+    input: number
+    label: "LArm"
+    min: 0
+    max: 50
+  layer01_RLeg:
+    input: number
+    label: "RLeg"
+    min: 0
+    max: 50
+  layer01_LLeg:
+    input: number
+    label: "LLeg"
+    min: 0
+    max: 50
+  layer01_EV:
+    input: number
+    label: "EV"
+    min: 0
+    max: 50
+  layer01_Type:
+    input: select
+    label: "Type"
+    options:
+      soft: Soft
+      hard: Hard
+  layer02_Name:
+    input: text
+    label: "Layer"
+    rows: 1
+  layer02_Head:
+    input: number
+    label: "Head"
+    min: 0
+    max: 50
+  layer02_Torso:
+    input: number
+    label: "Torso"
+    min: 0
+    max: 50
+  layer02_RArm:
+    input: number
+    label: "RArm"
+    min: 0
+    max: 50
+  layer02_LArm:
+    input: number
+    label: "LArm"
+    min: 0
+    max: 50
+  layer02_RLeg:
+    input: number
+    label: "RLeg"
+    min: 0
+    max: 50
+  layer02_LLeg:
+    input: number
+    label: "LLeg"
+    min: 0
+    max: 50
+  layer02_EV:
+    input: number
+    label: "EV"
+    min: 0
+    max: 50
+  layer02_Type:
+    input: select
+    label: "Type"
+    options:
+      soft: Soft
+      hard: Hard
+  layer03_Name:
+    input: text
+    label: "Layer"
+    rows: 1
+  layer03_Head:
+    input: number
+    label: "Head"
+    min: 0
+    max: 50
+  layer03_Torso:
+    input: number
+    label: "Torso"
+    min: 0
+    max: 50
+  layer03_RArm:
+    input: number
+    label: "RArm"
+    min: 0
+    max: 50
+  layer03_LArm:
+    input: number
+    label: "LArm"
+    min: 0
+    max: 50
+  layer03_RLeg:
+    input: number
+    label: "RLeg"
+    min: 0
+    max: 50
+  layer03_LLeg:
+    input: number
+    label: "LLeg"
+    min: 0
+    max: 50
+  layer03_EV:
+    input: number
+    label: "EV"
+    min: 0
+    max: 50
+  layer03_Type:
+    input: select
+    label: "Type"
+    options:
+      soft: Soft
+      hard: Hard
+  layer04_Name:
+    input: text
+    label: "Layer"
+    rows: 1
+  layer04_Head:
+    input: number
+    label: "Head"
+    min: 0
+    max: 50
+  layer04_Torso:
+    input: number
+    label: "Torso"
+    min: 0
+    max: 50
+  layer04_RArm:
+    input: number
+    label: "RArm"
+    min: 0
+    max: 50
+  layer04_LArm:
+    input: number
+    label: "LArm"
+    min: 0
+    max: 50
+  layer04_RLeg:
+    input: number
+    label: "RLeg"
+    min: 0
+    max: 50
+  layer04_LLeg:
+    input: number
+    label: "LLeg"
+    min: 0
+    max: 50
+  layer04_EV:
+    input: number
+    label: "EV"
+    min: 0
+    max: 50
+  layer04_Type:
+    input: select
+    label: "Type"
+    options:
+      soft: Soft
+      hard: Hard
+  layer05_Name:
+    input: text
+    label: "Layer"
+    rows: 1
+  layer05_Head:
+    input: number
+    label: "Head"
+    min: 0
+    max: 50
+  layer05_Torso:
+    input: number
+    label: "Torso"
+    min: 0
+    max: 50
+  layer05_RArm:
+    input: number
+    label: "RArm"
+    min: 0
+    max: 50
+  layer05_LArm:
+    input: number
+    label: "LArm"
+    min: 0
+    max: 50
+  layer05_RLeg:
+    input: number
+    label: "RLeg"
+    min: 0
+    max: 50
+  layer05_LLeg:
+    input: number
+    label: "LLeg"
+    min: 0
+    max: 50
+  layer05_EV:
+    input: number
+    label: "EV"
+    min: 0
+    max: 50
+  layer05_Type:
+    input: select
+    label: "Type"
+    options:
+      soft: Soft
+      hard: Hard
+### Gear
+  gearName_01:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_02:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_03:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_04:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_05:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_06:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_07:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_08:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_09:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_10:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_11:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_12:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_13:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_14:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_15:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_16:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_17:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_18:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_19:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_20:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_21:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_22:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_23:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_24:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_25:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_26:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_27:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_28:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_29:
+    input: text
+    label: "Gear"
+    rows: 1
+  gearName_30:
+    input: text
+    label: "Gear"
+    rows: 1
+### Notes and History
+  notes:
+    input: text
+    label: "notes"
+    rows: 50

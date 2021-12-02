@@ -1,0 +1,94 @@
+.no-spinners {
+  -moz-appearance:textfield;
+}
+
+.cp2020-lifeevent-details {
+  min-height: 48px;
+  height: 48px;
+  max-height: 48px;
+}
+
+.cp2020-weapon-notes {
+  min-height: 36px;
+  height: 36px;
+  max-height: 36px;
+}
+
+.no-spinners::-webkit-outer-spin-button,
+.no-spinners::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+ input.form-control {
+  background-color: white !important;
+  padding: 0px 0px;
+  margin: 0px 0xp;}
+ .cp2020-bottom-white {
+  border-bottom: 1px solid white;}
+ .black {
+  color: black;}
+ INPUT {
+  border:0;
+  outline:0;}
+ .cp2020-field-title {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  height: 28px;
+  min-height: 28px;
+  text-transform: capitalize;
+  display: inline-block;
+  padding-left: 3px;
+  padding-top: 4px;
+  padding-bottom: 5px;
+  margin: 0px,  0px;
+  margin-bottom: 5px;
+  border: 1px black solid;}
+ .bg-black {
+  background-color: black;
+  color: white;
+  font-weight: bold;}
+ .sz-25 {
+  width: 25px;
+  min-width: 25px;}
+ INPUT.sz-25 {
+  width: 23px}
+ .sz-40 {
+  width:40px;
+  min-width: 40px}
+ INPUT.sz-40 {
+  width: 38px}
+ .sz-50 {
+  width: 50px;
+  min-width: 50px}
+ INPUT.sz-50 {
+  width: 48px}
+ .sz-70 {
+  width: 70px;
+  min-width: 70px}
+ INPUT.sz-68 {
+  width: 70px}
+ .sz-100 {
+  width: 100px;
+  min-width: 100px}
+ .sz-130 {
+  width: 130px;
+  min-width: 130px}
+ .cp2020-field-input {
+  border: 1px black solid;
+  height: 28px;
+  display: inline-block;
+  padding: 0px,  0px;
+  margin: 0px,  0px;
+  margin-left: -4px;}
+ .cp2020-field-input-sm {
+  border: 1px black solid;
+  height: 28px;
+  display: inline-block;
+  padding: 0px,  0px;
+  margin: 0px,  0px;
+  margin-left: -4px;}
+ .cp2020-field-input INPUT {
+  margin: 0px 0px !important;}
+ .cp2020-wound-track {
+  font-size: 9px;}

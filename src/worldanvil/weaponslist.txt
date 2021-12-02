@@ -1,0 +1,464 @@
+  name|type|category|subcategory|wa|conc|avail|damage|ammo|shots|rof|rel|range|cost|source
+  Arasaka Restraint Caster|P|EXOTICS||-1|J"|P|Tangle|15mm restraint|4|1|ST|25|200|BH pg.6
+  Arasaka Stingray II|RIF|EXOTICS||0|N"|C|3d6||9|2|VR|100|750|SF pg.34
+  Arasaka WXA Computer-Aimed Weapon|HVY|EXOTICS||0|N"|R|6d6+2|7.62mm|500|20|VR|400|3000|BH pg.6
+  Avante P-1135 Needlegun|P|EXOTICS||0|P"|P|0|Needlegun|15|2|ST|40|200|BH pg.6
+  Dynatech Industries Hand Taser|EX|EXOTICS||0|P"|E|Stun-2||12|1|VR|1|50|BH pg.6
+  Enertex AKM Power Squirt|P|EXOTICS||-2|J"|C||Drugs|50|1|VR|10|15|BH pg.6
+  Kendachi Dragon|EX|EXOTICS||0|J"|P|2d6||4|1|ST|4|660|BH pg.6
+  Malorian Sliver Gun|P|EXOTICS||0|J"|P|2d6x1d6/2|Sliver|7|2|UR|40|375|BH pg.7
+  Militech Electronics Laser Cannon|RIF|EXOTICS||0|N"|R|1-5d6|Laser|10|2|UR|200|8000|BH pg.7
+  Militech Electronics Taser|P|EXOTICS||-1|J"|C|Stun-2|Stun|10|1|ST|10|60|BH pg.7
+  Militech Electronics Taser II|P|EXOTICS||0|P"|C|Stun-3||4|2|VR|0|100|BH pg.7
+  Militech MTL-1 'Manhunter'|HVY|EXOTICS||3|N"|P|8d10||4|1|ST|1000|3500|SF pg.34
+  Militech Stun Knuks|MEL|EXOTICS||0|P"|C|Stun -2||6|1|ST|1|100|chr4 pg.62
+  Militech UAW (Underwater Assault Weapon)|SMG|EXOTICS||1|L"|P|2d6+1|UAW Spear|10|3|VR|50|1500|SF pg.34
+  Mitsubishi Taser|P|EXOTICS||0|J"|P|Stun-1||12|1|ST|5|100|BH pg.7
+  Monowire|MEL|EXOTICS||0|P"|R|3d6||0|0|VR|0|60|BH pg.7
+  Mystic Technologies Arrow Gun|EX|EXOTICS||1|J/L"|C|3d6||1|1|ST|70|1000|BH pg.7
+  Nelspot 'Wombat' Airpistol|P|EXOTICS||-1|J"|C|Drugs||20|2|UR|40|200|BH pg.7
+  Nomad Boomerang|EX|EXOTICS||-1|L"|P|2d6||1|1|VR|0|20|BH pg.7
+  Nomad Pneumatic Bolt Gun|EX|EXOTICS||-1|N"|R|3d6|Bolt|4|1|ST|25|350|BH pg.7
+  Nomad Sling|EX|EXOTICS||0|P"|P|1d6/2||1|1|VR|20|10|BH pg.8
+  Petrochem Drug-A-Thug|EX|EXOTICS||0|P"|C|Chemical||5|1|VR|0|150|BH pg.8
+  Pursuit Security, Incorporated Beanbag Gun|SHT|EXOTICS||-2|J"|E|Stun||4|1|ST|3|100|BH pg.8
+  Pursuit Security, Incorporated Stundart Pistol|P|EXOTICS||-1|J"|C|Stun-1|.45mm LVD|2|2|VR|50|109|BH pg.8
+  Pursuit Security, Incorporated Webgun|EX|EXOTICS||1|N"|C|Entangle||1|1|ST|30|250|BH pg.8
+  Skunker|EX|EXOTICS||-1|P"|E|Gas||4|1|VR|2|70|BH pg.8
+  Streettech 'Burst'|SHT|EXOTICS||-1|P"|E|2d6+1|28ga|1|1|VR|3|33|BH pg.8
+  Techtronica 15 Microwaver|P|EXOTICS||0|J"|P|1d6|Microwave|10|2|VR|20|400|BH pg.9
+  Techtronica 20 Microwaver|P|EXOTICS||0|J"|P|1d6|Microwave|15|2|VR|25|500|BH pg.9
+  Techtronica Black-Zap|MEL|EXOTICS||0|P"|C|Stun-2||6|1|ST|1|90|BH pg.9
+  Techtronica M40 'Pulse Rifle'|RIF|EXOTICS||0|N"|R|EMP||6|0.5|ST|50|3500|BH pg.9
+  Techtronica Model 009 Volt Pistol|P|EXOTICS||1|J"|R|3d6|Electricity|6|1|ST|25|950|BH pg.9
+  Tsunami 'Airhammer' Air Pistol, Solo model|P|EXOTICS||1|J"||Special|5.3mm|5|2|ST|50|325|BH pg.9
+  Tsunami Under-Barrel CapLaser|RIF|EXOTICS||2|N"|R|3d6|Laser|2|2|UR|25|950|BH pg.9
+  Tsunami Under-Barrel Microwaver|EX|EXOTICS||0|N"|P|1d6|Microwave|4|2|ST|20|500|BH pg.9
+  UrbanTech 'Lance' Mini-Missile|HVY|EXOTICS||2|P"|C|4d6|HEAT|1|1|UR|300|100|BH pg.10
+  Arasaka Arms Half-Bow|EX|EXOTICS|BOWS|-1|L"|P|3d6|Arrow|12|1|VR|100|100|BH pg.4
+  Eagletech 'Bearcat'|EX|EXOTICS|BOWS|1|N"|P|6d6 |Arrow|12|1|VR|150|500|BH pg.4
+  Eagletech 'Tigercat'|EX|EXOTICS|BOWS|1|N"|P|6d6 |Arrow|12|1|VR|150|500|BH pg.4
+  Eagletech 'Tomcat' C-bow|EX|EXOTICS|BOWS|0|N"|C|4d6|Arrow|12|1|VR|150|150|BH pg.4
+  Eagletech 'Wildcat'|EX|EXOTICS|BOWS|0|N"|E|3d6|Arrow|12|1|VR|100|35|BH pg.4
+  Eagletech 'Wildcat'|EX|EXOTICS|BOWS|0|N"|E|3d6|Arrow|12|1|VR|100|35|BH pg.4
+  Eagletech 'Arbelest'|EX|EXOTICS|CROSSBOWS|0|N"|P|5d6|Bolt|12|0.5|VR|150|500|BH pg.5
+  Eagletech 'Handbow'|EX|EXOTICS|CROSSBOWS|-1|J"|E|1d6+2|Bolt|12|1|VR|25|75|BH pg.5
+  Eagletech 'Scorpion'|EX|EXOTICS|CROSSBOWS|0|N"|P|7d6|Bolt|6|0.5|VR|200|1500|BH pg.5
+  Eagletech 'Stryker' X-bow|EX|EXOTICS|CROSSBOWS|-1|N"|C|3d6+3|Bolt|12|1|VR|50|220|BH pg.5
+  Nomad Hand Crossbow|EX|EXOTICS|CROSSBOWS|0|N"|R|1d6+1|Bolt|1|1|ST|20|100|BH pg.5
+  Antipersonnel Mine|HVY|EXPLOSIVES||0|J"|P|4d10||1|1|VR|0|350|BH pg.42
+  Antitank Mine|HVY|EXPLOSIVES||0|L"|P|6d10||1|1|VR|2|400|BH pg.43
+  C6 'Flatfire' Plastic Explosive|HVY|EXPLOSIVES||0|P"|P|8d10||1|1|VR|0|100|BH pg.43
+  Detcord|HVY|EXPLOSIVES||0|P"|P|6d10||0|0|VR|0|100|LU pg.106
+  Fen Dz 25 'Det Card'|HVY|EXPLOSIVES||0|P"|P|1d10||1|1|ST|0|120|BH pg.43
+  Guncotton|HVY|EXPLOSIVES||0|P"|P|3d10||0|0|ST|0|10|LU pg.105
+  M20 Claymore Mine|HVY|EXPLOSIVES||0|L"|P|4d10||1|1|ST|0|500|BH pg.43
+  Militech PDU-3 Multi-Purpose Perimeter Defense Unit|HVY|EXPLOSIVES||0|P"|P|2d6+5||1|1|ST|0|150|BH pg.43
+  Nitrogen Tri-iodide|HVY|EXPLOSIVES||0|P"|P|5d10 per kilo||1|1|UR|3|2|LU pg.105
+  Nitroglycerine|HVY|EXPLOSIVES||0|P"|P|3d10||0|0|UR|0|24|LU pg.105
+  Plastique|HVY|EXPLOSIVES||0|P"|P|7d10||0|0|VR|0|75|LU pg.106
+  Remote Anti-vehicle Mine|HVY|EXPLOSIVES||-2|L"|P|4d10 ||1|1|VR|200|600|HOB pg.80
+  Thermite-In-A-Tube|HVY|EXPLOSIVES||0|P"|P|4d4||1|1|VR|0.5|0|chr4 pg.72
+  TNT|HVY|EXPLOSIVES||0|P"|P|4d10||0|0|ST|0|30|LU pg.106
+  Arasaka WCCA Susano|HVY|GRENADE LAUNCHERS||0|N"|P||25mm grenade|9|2|VR|200|450|SW pg.32
+  Militech Rpage-B|HVY|GRENADE LAUNCHERS||-2|N"|R|9d10 HEAT|90mm RKT|1|1|VR|500|1500|MM pg.19
+  Towa Manufacturing Type-9 Grenade Launcher|HVY|GRENADE LAUNCHERS||0|N"|P||40mm grenade|8|2|VR|200|750|BH pg.37
+  Tsunami Arms Type-18 Automatic Grenade Launcher|HVY|GRENADE LAUNCHERS||-1|N"|P||25mm grenade|30|10|ST|200|2000|BH pg.37
+  Biotech-Askari Motion Restraint Bomb|EX|GRENADES||0|P"|P|||1|1|UR|0|60|BH pg.40
+  DutchArms GPz-78 Mini-Grenade|HVY|GRENADES||0|P"|P|1d6+3||1|1|VR|0|40|BH pg.40
+  EMP Grenade|EX|GRENADES||0|P"|R|||1|1|ST*|0|200|BH pg.40
+  Fen Dz 22 'Saucer Grenade'|HVY|GRENADES||1|P"|P|2d6+3||1|1|ST|0|65|BH pg.40
+  Hand Grenade - Anti-Tank|HVY|GRENADES||0|P"|P|5d10||1|1|ST|0|30|BH pg.39
+  Hand Grenade - Chemical Gas/Smoke/Paint|HVY|GRENADES||0|P"|P|||1|1|ST|0|30|BH pg.39
+  Hand Grenade - Flash|HVY|GRENADES||0|P"|P|0||1|1|ST|0|30|BH pg.39
+  Hand Grenade - Flash-Bang|HVY|GRENADES||0|P"|P|0||1|1|ST|0|30|BH pg.37
+  Hand Grenade - High Explosive |HVY|GRENADES||0|P"|P|7d6||1|1|ST|0|30|BH pg.39
+  Hand Grenade - Sonic|HVY|GRENADES||0|P"|P|0||1|1|ST|0|40|BH pg.39
+  Hand Grenade - White Phosphorous/Incendiary|HVY|GRENADES||0|P"|P|4d6||1|1|ST|0|30|BH pg.39
+  Ninja Smoke Pellet|EX|GRENADES||0|p"|C|||1|1|VR|0|5|BH pg.40
+  Scatter Grenade|HVY|GRENADES||0|P"|P|||1|1|ST|0|70|BH pg.40
+  Spraypaint Grenade|HVY|GRENADES||0|P"|P|||1|1|ST|0|20|BH pg.40
+  Stench bomb|HVY|GRENADES||0|P"|P|||1|1|ST|0|20|BH pg.40
+  60mm Light Mortar|RIF|HEAVY WEAPONS||0|N"|P|8d10|60mm mortar|1|2|VR|1000|750|BH pg.34
+  Arasaka AP-87 LATGM|HVY|HEAVY WEAPONS||2|N"|P|24d10||6|1|VR|1000|0|SW pg.134
+  Colt-Mauser M2X Cannon|HVY|HEAVY WEAPONS||0|N"|R|8d10|20mm|8|1|ST|600|3050|BH pg.34
+  Commercial 40mm Grenade Launchers|HVY|HEAVY WEAPONS||0|L"|R||40mm grenade|1|1|ST|225|150|BH pg.34
+  Commercial 30mm Grenade Launchers|HVY|HEAVY WEAPONS||0|L"|R||30mm grenade|1|1|ST|225|150|BH pg.34
+  DCR Rifle Grenades - HE/Smoke|HVY|HEAVY WEAPONS||-1|N"|P||Varies|1|0.5|VR|150|50|BH pg.41
+  HLAW|HVY|HEAVY WEAPONS||-2|N"|P|11D10||1|1|VR|100|800|BH pg.35
+  Kenshiri Adachi F-253 Flamethrower|HVY|HEAVY WEAPONS||-2|N"|R|2d10|Fire|10|1|ST|50|1500|BH pg.34
+  LAW|HVY|HEAVY WEAPONS||-2|L"|P|4D10||1|1|VR|100|300|BH pg.35
+  M-205 Grenade Launcher|HVY|HEAVY WEAPONS||1|L"|P||40mm grenade|1|1|VR|200|250|BH pg.35
+  M-212 Grenade launcher|HVY|HEAVY WEAPONS||1|N"|P||40mm grenade|8|2|VR|200|500|BH pg.35
+  M-32 Automatic Grenade Launcher|HVY|HEAVY WEAPONS||0|N"|R||40mm grenade|50|20|VR|1600|2500|BH pg.35
+  Militech 'Cowboy' U-55 Grenade Launcher|HVY|HEAVY WEAPONS||0|N"|P||25mm grenade|12|3|ST|150|900|BH pg.35
+  Militech 4-Pack Missile|HVY|HEAVY WEAPONS||15|N"|P|20d10||1|1|ST|3000|11000|SW pg.39
+  Militech AM-3 'Anti-Matter Rifle'|RIF|HEAVY WEAPONS||0|N"|R|9d10|30mm DPU|5|1|ST|1600|6000|BH pg.35
+  Militech Backpack Mortar|HVY|HEAVY WEAPONS||0|N"|P|7d6|40mm Mortar|20|3|ST|500|1250|SW pg.38
+  Militech BMFG 30mm Plasma Cannon|HVY|HEAVY WEAPONS||0|N"|R|9d10|30mm PC|5|1|ST|600|4500|SW pg.37
+  Militech Hotshot L-ATGM|HVY|HEAVY WEAPONS||2|N"|P|12D10||1|1|VR|500|2500|BH pg.35
+  Militech Man-Pack Artillery rocket|HVY|HEAVY WEAPONS||0|N"|P|13d10||1|1|VR|2000|1500|SW pg.39
+  Militech Mini-Grenade Launcher Drum Model|HVY|HEAVY WEAPONS||0|N"|P||25mm grenade|16|2|ST|150|475|BH pg.35
+  Militech Mini-Grenade Launcher Pump Model|HVY|HEAVY WEAPONS||-1|L"|C||25mm grenade|4|2|ST|150|225|BH pg.35
+  Militech RPG-A Grenade Launcher|HVY|HEAVY WEAPONS||-2|N"|R|6d10||1|1|VR|750|1500|BH pg.36
+  Militech Scorpion 16 Surface-to-Air Missile|HVY|HEAVY WEAPONS||-1|N"|P|7D10||1|1|VR|500|1000|BH pg.36
+  Militech Sure-Shot|HVY|HEAVY WEAPONS||2|N"|P|18d10|HATGM RKT|1|1|ST|3000|75000|SW pg.38
+  Militech Urban Missile Launcher|HVY|HEAVY WEAPONS||2|L"|P|4d6|missile|12|2|ST|200|900|BH pg.36
+  Militech Urban Underbarrel Missile Launcher|HVY|HEAVY WEAPONS||1|L"|P|4d6|missile|1|1|ST|200|900|BH pg.36
+  Militech XR-1 Mag Pulse|RIF|HEAVY WEAPONS||2|N"|P|3d10AP (EAP)||20|1|UR|800|8000|SW pg.33
+  Rhinemetall EMG-85 Railgun|HVY|HEAVY WEAPONS||3|N"|R|5d10+10|EAP|5|0.5|ST|1500|11370|BH pg.36
+  Rostovic Wrist Racate|HVY|HEAVY WEAPONS||0|N"|P|5d6|30mm Rocket|6|3|ST|250|380|BH pg.36
+  Royal Enfield Ordnance 25mm Cockerill Assault Cannon|HVY|HEAVY WEAPONS||1|N"|R|5d10+10|25mm AP|12|1|ST|1500|7400|BH pg.36
+  Setsuko-Arasaka Nova Photon|HVY|HEAVY WEAPONS||4|N"|R|4d10||1|1|UR|500|50000|SW pg.37
+  Tsunami Arms Type-17 Anti-Armor Rifle|HVY|HEAVY WEAPONS||1|N"|R|8d10|20mm|12|1|ST|1200|7500|BH pg.37
+  UrbanTech Lance Mini-Missile|HVY|HEAVY WEAPONS||2|P"|C|4d6||1|1|UR|300|100|SOF2 pg.13
+  30mm HiVel Auto-GL|HVY|HEAVY WEAPONS|Borg Weapon|0|N"|P||30mm grenade|25|15|VR|300|2000|BH pg.38
+  Arasaka 'Pocket Tsunami' Grenade Launcher|HVY|HEAVY WEAPONS|Borg Weapon|0|L"|P||25mm grenade|6|1|ST|200|1250|BH pg.37
+  Arasaka 'Rage' 15mm Submachinegun|HVY|HEAVY WEAPONS|Borg Weapon|-1|L"|P|4D10+3|15mm KURZ|20|10|VR|100|4500|BH pg.37
+  25mm Pistol Grenades - Chemical|P|LAUNCHED GRENADES||0|N"||spcl|25mm LGREN-Chem|1|1|ST|15|20|BH pg.41
+  25mm Pistol Grenades - Concussion|P|LAUNCHED GRENADES||0|N"||3d6 Stun; SP 1/3.|25mm LGREN-Concussion|1|1|ST|15|15|BH pg.41
+  25mm Pistol Grenades - Def. Frag|P|LAUNCHED GRENADES||0|N"||2d6+1.|25mm LGREN-Def Frag|1|1|ST|15|20|BH pg.41
+  25mm Pistol Grenades - FlashBomb|P|LAUNCHED GRENADES||0|N"||Stun save -5 REF+Awa x 5 turns.|25mm LGREN-Flash|1|1|ST|15|15|BH pg.41
+  25mm Pistol Grenades - HEP|P|LAUNCHED GRENADES||0|N"||5d6 HEP|25mm LGREN-HEP|1|1|ST|15|30|BH pg.41
+  25mm Pistol Grenades - Incendiary|P|LAUNCHED GRENADES||0|N"||4d6/3d6/2d6. |25mm LGREN-Incendiary|1|1|ST|15|30|BH pg.41
+  25mm Pistol Grenades - Off. Frag|P|LAUNCHED GRENADES||0|N"||5d6.|25mm LGREN-Off. Frag|1|1|ST|15|25|BH pg.41
+  25mm Pistol Grenades - Smoke or tear gas|P|LAUNCHED GRENADES||0|N"||spcl|25mm LGREN-Gas|1|1|ST|15|15|BH pg.41
+  30mm Launched Grenades - Bean Bag |HVY|LAUNCHED GRENADES||0|N"|R|2d6; Stun -5; +1/15SP; 20+ REF roll;-1 Diff/100kg of target|30mm LGREN-Bean Bag|1|1|ST|50|100| pg.0
+  30mm Launched Grenades - Chemical Carriers |HVY|LAUNCHED GRENADES||0|N"|R|gas or smoke. 5eb 'chute|30mm LGREN-Chem|1|1|ST|200|100| pg.0
+  30mm Launched Grenades - EMP|HVY|LAUNCHED GRENADES||0|N"|R|Disorient 10sec;Cyber 4/10min;|30mm LGREN-EMP|1|1|ST|200|400| pg.0
+  30mm Launched Grenades - Flash-Bang|HVY|LAUNCHED GRENADES||0|N"|R|Stun -2;stun+deaf 4 turns. 20+ REF or blind 2 turns.|30mm LGREN-Flash|1|1|ST|25|100| pg.0
+  30mm Launched Grenades - Fletchette|HVY|LAUNCHED GRENADES||0|N"|R|1d6/2 x 2d6AP (1). |30mm LGREN-Flech|1|1|ST|200|100| pg.0
+  30mm Launched Grenades - Grapnel|HVY|LAUNCHED GRENADES||-2|N"|R|1/2 range; 1d6 dam; Catch 50%|30mm LGREN-Grapnel|1|1|ST|200|30| pg.0
+  30mm Launched Grenades - HE |HVY|LAUNCHED GRENADES||0|N"|R|7d6 (2). 5m radius. Armed after 10m|30mm LGREN-HE|1|1|ST|200|100| pg.0
+  30mm Launched Grenades - HEDP |HVY|LAUNCHED GRENADES||0|N"|R|4d10 (4*) 4d6 over 1m|30mm LGREN-HEAT|1|1|ST|200|100| pg.0
+  30mm Launched Grenades - HEP|HVY|LAUNCHED GRENADES||-1|N"|R|7d6 HEP; SP -5 levels; |30mm LGREN-HEP|1|1|ST|200|100| pg.0
+  30mm Launched Grenades - Illumination|HVY|LAUNCHED GRENADES||0|N"|R|20m + 20m LL or 1d6x6. 5eb 'chute|30mm LGREN-Illum|1|1|ST|200|100| pg.0
+  30mm Launched Grenades - Net|HVY|LAUNCHED GRENADES||-5|N"|R|1d6 + 50% wrap;20+ REF or 25+ BOD to escape net|30mm LGREN-Net|1|1|ST|25|100| pg.0
+  30mm Launched Grenades - Slasher|HVY|LAUNCHED GRENADES||-2|N"|R|4d6  1/3 SP.|30mm LGREN-Slasher|1|1|ST|50|75| pg.0
+  30mm Launched Grenades - Splatshell|HVY|LAUNCHED GRENADES||0|N"|R|1d6+1 hits. |30mm LGREN-Splatshell|1|1|ST|200|10| pg.0
+  30mm Launched Grenades - Spraypaint|HVY|LAUNCHED GRENADES||0|N"|R|Blind for 1d6/3 turns;|30mm LGREN-Spraypaint|1|1|ST|200|20| pg.0
+  30mm Launched Grenades - WP|HVY|LAUNCHED GRENADES||0|N"|R|4d6x3 (2)|30mm LGREN-WP|1|1|ST|200|100| pg.0
+  40mm Launched Grenades - Bean Bag |HVY|LAUNCHED GRENADES||0|N"|R|2d6; Stun -5; +1/15SP; 20+ REF roll;-1 Diff/100kg of target|40mm LGREN-Bean Bag|1|1|ST|50|100| pg.0
+  40mm Launched Grenades - Chemical Carriers |HVY|LAUNCHED GRENADES||0|N"|R|gas or smoke. 5eb 'chute|40mm LGREN-Chem|1|1|ST|200|100| pg.0
+  40mm Launched Grenades - EMP|HVY|LAUNCHED GRENADES||0|N"|R|Disorient 10sec;Cyber 4/10min;|40mm LGREN-EMP|1|1|ST|200|400| pg.0
+  40mm Launched Grenades - Flash-Bang|HVY|LAUNCHED GRENADES||0|N"|R|Stun -2;stun+deaf 4 turns. 20+ REF or blind 2 turns.|40mm LGREN-Flash|1|1|ST|25|100| pg.0
+  40mm Launched Grenades - Flechette|HVY|LAUNCHED GRENADES||0|N"|R|1d6/2 x 2d6AP (1). |40mm LGREN-Flech|1|1|ST|200|100| pg.0
+  40mm Launched Grenades - Grapnel|HVY|LAUNCHED GRENADES||-2|N"|R|1/2 range; 1d6 dam; Catch 50%|40mm LGREN-Grapnel|1|1|ST|200|30| pg.0
+  40mm Launched Grenades - HE |HVY|LAUNCHED GRENADES||0|N"|R|7d6 (2). 5m radius. Armed after 10m|40mm LGREN-HE|1|1|ST|200|100| pg.0
+  40mm Launched Grenades - HEDP |HVY|LAUNCHED GRENADES||0|N"|R|4d10 (4*) 4d6 over 1m|40mm LGREN-HEAT|1|1|ST|200|100| pg.0
+  40mm Launched Grenades - HEP|HVY|LAUNCHED GRENADES||-1|N"|R|7d6 HEP; SP -5 levels; |40mm LGREN-HEP|1|1|ST|200|100| pg.0
+  40mm Launched Grenades - Illumination|HVY|LAUNCHED GRENADES||0|N"|R|20m + 20m LL or 1d6x6. 5eb 'chute|40mm LGREN-Illum|1|1|ST|200|100| pg.0
+  40mm Launched Grenades - LN2 |HVY|LAUNCHED GRENADES||0|N"|R|2d6+2 (min 6); 1d6/2+1 area.|40mm LGREN-LN2|1|1|ST|200|100| pg.0
+  40mm Launched Grenades - Net|HVY|LAUNCHED GRENADES||-5|N"|R|1d6 + 50% wrap;20+ REF or 25+ BOD to escape net|40mm LGREN-Net|1|1|ST|25|100| pg.0
+  40mm Launched Grenades - Slasher|HVY|LAUNCHED GRENADES||-2|N"|R|4d6; 1/3 SP. |40mm LGREN-Slasher|1|1|ST|50|75| pg.0
+  40mm Launched Grenades - Splatshell|HVY|LAUNCHED GRENADES||0|N"|R|1d6+1 hits. |40mm LGREN-Splatshell|1|1|ST|200|100| pg.0
+  40mm Launched Grenades - Spraypaint|HVY|LAUNCHED GRENADES||0|N"|R|Blind for 1d6/3 turns;|40mm LGREN-Spraypaint|1|1|ST|200|20| pg.0
+  40mm Launched Grenades - WP|HVY|LAUNCHED GRENADES||0|N"|R|4d6x3 (2)|40mm LGREN-WP|1|1|ST|200|100| pg.0
+  Classic Rifle Grenade - Chemical|HVY|LAUNCHED GRENADES||-3|N"|P|||1|0.5|VR|100|50|BH pg.41
+  Classic Rifle Grenade - HE|HVY|LAUNCHED GRENADES||-3|N"|P|8d6||1|0.5|VR|100|50|BH pg.41
+  Classic Rifle Grenade - HEAT|HVY|LAUNCHED GRENADES||-3|N"|P|8D10||1|0.5|VR|100|50|BH pg.41
+  Classic Rifle Grenades - Chemical Gas or smoke|HVY|LAUNCHED GRENADES||-3|N"||Chemical Gas or smoke||1|1|ST|0|50| pg.0
+  Classic Rifle Grenades - EMP|HVY|LAUNCHED GRENADES||-3|N"||Disorient 1d6x10; Cyber 4-10min; ||1|1|ST|0|400| pg.0
+  Classic Rifle Grenades - HE|HVY|LAUNCHED GRENADES||-3|N"||8d6||1|1|ST|0|50| pg.0
+  Classic Rifle Grenades - HEAT |HVY|LAUNCHED GRENADES||-3|N"||8d10HEAT; 4d6 over 1m||1|1|ST|0|50| pg.0
+  DCR Rifle Grenades - Anti-Tank|HVY|LAUNCHED GRENADES||0|N"|P|||1|0.5|ST|150|100|BH pg.41
+  DCR Rifle Grenades - HE|HVY|LAUNCHED GRENADES||-1|N"||7d6 frag to 5m; 3d6 frag to 6-10m||1|1|ST|150|50| pg.0
+  DCR Rifle Grenades - HEAT|HVY|LAUNCHED GRENADES||-1|N"||5d10HEAT; 3d6 frag to 5m. WA +0||1|1|ST|150|50| pg.0
+  DCR Rifle Grenades - Smoke |HVY|LAUNCHED GRENADES||-1|N"||Smoke over 10m||1|1|ST|150|50| pg.0
+  Military 40mm Launched Grenade - |HVY|LAUNCHED GRENADES||0|N"|R|7D6||0|0|ST|0|50|BH pg.42
+  Military 40mm Launched Grenade - Bean Bag|HVY|LAUNCHED GRENADES||0|N"|R|2D6||0|0|ST|0|50|BH pg.42
+  Military 40mm Launched Grenade - Chemical|HVY|LAUNCHED GRENADES||0|N"|R|Chemical||0|0|ST|0|50|BH pg.42
+  Military 40mm Launched Grenade - Flash-Bang|HVY|LAUNCHED GRENADES||0|N"|R|||0|0|ST|25|50|BH pg.42
+  Military 40mm Launched Grenade - Flechette|HVY|LAUNCHED GRENADES||0|N"|R|1d3x2d6||0|0|ST|25|50|BH pg.42
+  Military 40mm Launched Grenade - Grapnel|HVY|LAUNCHED GRENADES||-2|N"|R|1D6||0|0|ST|0|30|BH pg.42
+  Military 40mm Launched Grenade - HEDP|HVY|LAUNCHED GRENADES||0|N"|R|4D10||0|0|ST|0|50|BH pg.42
+  Military 40mm Launched Grenade - HEP|HVY|LAUNCHED GRENADES||-1|N"|R|7D6||0|0|ST|0|50|BH pg.42
+  Military 40mm Launched Grenade - Illumination|HVY|LAUNCHED GRENADES||0|N"||1D6||0|0|ST|0|50|BH pg.42
+  Military 40mm Launched Grenade - Net|HVY|LAUNCHED GRENADES||-5|N"|R|1D6||0|0|ST|25|50|BH pg.42
+  Military 40mm Launched Grenade - Splatshell|HVY|LAUNCHED GRENADES||0|N"|R|||0|0|ST|0|10|BH pg.42
+  Military 40mm Launched Grenade - White Phosphorous|HVY|LAUNCHED GRENADES||0|N"|R|4D6||0|0|ST|0|50|BH pg.42
+  Militech 25mm Launched Grenade -  Flechette |HVY|LAUNCHED GRENADES||0|N"||2d6x1d6||0|0|ST|0|0|BH pg.41
+  Militech 25mm Launched Grenade - Chemical Smoke or gas|HVY|LAUNCHED GRENADES||0|N"||||1|1|ST|150|30|BH pg.41
+  Militech 25mm Launched Grenade - Fragmentation|HVY|LAUNCHED GRENADES||0|N"||2d6+1||0|0|ST|0|0|BH pg.41
+  Militech 25mm Launched Grenade - HEP|HVY|LAUNCHED GRENADES||0|N"||5d6||0|0|ST|0|0|BH pg.41
+  Tsunami High Pressure 25mm Grenades - Frag|HVY|LAUNCHED GRENADES||0|N"||3d6+1 (1).||1|1|ST|1500|15| pg.0
+  Tsunami High Pressure 25mm Grenades - HE|HVY|LAUNCHED GRENADES||0|N"||5d6 (2).||1|1|ST|1500|15| pg.0
+  Tsunami High Pressure 25mm Grenades - HEP|HVY|LAUNCHED GRENADES||0|N"||5d6 (3*) armor damaged 2 levels||1|1|ST|1500|25| pg.0
+  Tsunami High Pressure 25mm Grenades - Incendiary|HVY|LAUNCHED GRENADES||0|N"||4/3/2d6 (2).||1|1|ST|1500|15| pg.0
+  Arasaka 'Crowd Control'|HVY|MACHINEGUNS||0|N"|E|1d3+1*1d3||500|50|ST|200|1000|LD pg.59
+  Constitution Arms Cyclone Squad Support Weapon|HVY|MACHINEGUNS||1|N"|P|6d6+2|7.62mm|100|35|VR|500|1200|BH pg.32
+  Constitution Arms Deluge Crowd Control Weapon|HVY|MACHINEGUNS||0|N"|P|1d2|Drugs|400|35|ST|60|800|BH pg.33
+  Dover GA-1112 Autogun|HVY|MACHINEGUNS||1|N"|R|4d6+4|12mm Long|400|80|ST|400|1110|BH pg.33
+  Fabrica de Armes M-2012HB SAW|HVY|MACHINEGUNS||2|N"|P|5d6+3|6.5mm|100|30|VR|450|1600|BH pg.33
+  FN MG-6 'One-on-One'|HVY|MACHINEGUNS||1|N"|P|5d6|5.56mm|100|40|VR|450|1800|BH pg.33
+  FN-MAG Machine gun|HVY|MACHINEGUNS||0|N"|R|6d6+2|7.62mm|100|30|VR|1000|1500|UK pg.37
+  Heckler & Koch G-6 Advanced Squad Automatic|HVY|MACHINEGUNS||1|N"|P|5d6|6mm|100|30|VR|450|2050|BH pg.33
+  M-60D Medium Machine Gun|HVY|MACHINEGUNS||1|N"|P|6d6+2|7.62mm|100|20|VR|500|1000|BH pg.33
+  M2A5HB Browning .50cal HMG|HVY|MACHINEGUNS||0|N"|P|6d10|12.7mm|100|10|VR|600|2000|BH pg.33
+  Militech 20L Autocannon|HVY|MACHINEGUNS||0|N"|R|8D10|20mm|100|10|VR|500|3000|BH pg.34
+  Militech High Power 15|HVY|MACHINEGUNS||2|N"|P|2d6+4|9mm Long|180|60|ST|200|1600|BH pg.33
+  Militech M-232 Squad Assault/Automatic Weapon|HVY|MACHINEGUNS||0|N"|P|5d6|5.56mm|100|20|VR|400|1000|BH pg.34
+  Militech Renegade Squad Automatic Weapon|HVY|MACHINEGUNS||0|N"|R|6d6-1|6.5mm Hybrid|200|20|ST|400|1100|BH pg.34
+  Militech RRCR Archer Machine-Rifle|HVY|MACHINEGUNS||1|L"|P|6d6+2|7.62mm|100|33|ST|400|3300|SW pg.36
+  Sternmeyer M-5A Squad Automatic Weapon|HVY|MACHINEGUNS||-1|N"|R|6d6+2|7.62mm|200|20|ST|500|1000|BH pg.34
+  Towa Manufacturing Type-8 Medium Machine Gun|HVY|MACHINEGUNS||1|N"|P|6d6+2|7.62mm|100|35|VR|500|2500|BH pg.34
+  3/6 (TM)|MEL|MELEE||0|N"|C|3d6+2||0|0|VR|2|150|PAC pg.151
+  Ashiko|MEL|MELEE||0|J"|C|1d6*||0|0|ST|1|28|PAC pg.152
+  Axe|MEL|MELEE||-1|N"|C|2d6||0|0|ST|0|20|BH pg.2
+  Ba Zhan Shuang Dao|MEL|MELEE||0|L"|C|2d6||0|0|ST|1|45|PAC pg.150
+  Bagh-Nakh|MEL|MELEE||2|P"|P|1d6/3*||0|0|ST|1|15|PAC pg.151
+  Bayonet/Survival Knife|MEL|MELEE||0|J"|C|1d6||0|0|VR|0|50|BH pg.2
+  Bo-Shuriken|MEL|MELEE||0|P"|C|1d6||0|0|ST|0|7|PAC pg.151
+  Brass Knuckles|MEL|MELEE||0|P"|C|1d6+2||0|0|ST|0|10|BH pg.2
+  Chainsaw|MEL|MELEE||-3|N"|C|4d6||0|0|ST|2|80|BH pg.2
+  Club|MEL|MELEE||0|L"|C|1d6||0|0|ST|0|0|BH pg.2
+  Combat Knife|MEL|MELEE||1|J"|P|1D6+3||0|0|ST|1|70|PAC pg.150
+  Entrenching Tool|MEL|MELEE||-1|L"|C|2d6||0|0|ST|0|50|BH pg.2
+  Excalibur Macestick|MEL|MELEE||0|J"|P|Gas||6|1|ST|0|80|BH pg.2
+  Excalibur Nightstick|MEL|MELEE||0|J"|P|2d6+3||0|0|VR|0|80|BH pg.2
+  Excalibur Taserstick|MEL|MELEE||0|J"|P|Stun||8|1|ST|0|80|BH pg.2
+  Fang Tian Ji/Qiang Ji|MEL|MELEE||0|N"|P|3d6||0|0|ST|2|95|PAC pg.150
+  Hambo|MEL|MELEE||1|L"|C|2d6||0|0|ST|1|30|PAC pg.151
+  Hyo|MEL|MELEE||-2|P"|C|1d6/3||0|0|ST|0|5|PAC pg.151
+  IMI 'Chainknife'|MEL|MELEE||0|J"|P|2d6+1||0|0|VR|0|120|BH pg.2
+  Jitte|MEL|MELEE||0|L"|C|2d6||0|0|ST|1|30|PAC pg.151
+  Jiu Jie Bian|MEL|MELEE||-2|L"|C|3d6||0|0|ST|2|120|PAC pg.151
+  Juji-Shuriken|MEL|MELEE||0|P"|C|1d6/2||0|0|ST|0|3|PAC pg.151
+  Kendachi M-33 Powersword|MEL|MELEE||0|L"|R|4d6 (Sx1/4 Hx1/2)||0|0|ST|0|860|BH pg.3
+  Kendachi Mono-Two: Katana|MEL|MELEE||1|N"|R|4D6||0|0|VR|0|700|BH pg.3
+  Kendachi Mono-Two: Wakizashi|MEL|MELEE||1|J"|P|2d6||0|0|VR|0|650|BH pg.3
+  Kendachi MonoKatana|MEL|MELEE||1|N"|R|4d6||0|0|VR|0|600|BH pg.3
+  Kendachi Monoknife|MEL|MELEE||1|P"|P|2d6||0|0|VR|1|200|CP20 pg.3
+  Kendachi MonoNaginata|MEL|MELEE||1|N"|R|4d6||0|0|VR|2|700|BH pg.3
+  Kendachi Monowhip|MEL|MELEE||0|J"|P|2d6||0|0|ST|3|350|BH pg.3
+  Knife|MEL|MELEE||0|P"|C|1d6||0|0|ST|0|10|BH pg.2
+  Kukri|MEL|MELEE||0|L"|P|2d6||0|0|ST|1|100|PAC pg.76
+  Kusari-gama|MEL|MELEE||-1|L"|C|2d6*||0|0|ST|2|100|PAC pg.150
+  Leg & Knee Spikes|MEL|MELEE||0|N"|C|1d6+3||0|0|ST|1|25|PAC pg.152
+  Liu Chi Bang|MEL|MELEE||1|L"|C|3d6+2||0|0|ST|2|40|PAC pg.151
+  Manriki-Gusari|MEL|MELEE||0|J"|P|2d6+3||0|0|ST|1|30|PAC pg.151
+  Monosword Cane|MEL|MELEE||1|L"|P|3d6||0|0|VR|1|255|SOF2 pg.29
+  Mystic Tech Nunchaku/Blade|MEL|MELEE||0|L"|P|1d6+1||0|0|VR|1|200|BH pg.3
+  Mystic Tech Spring Knife|MEL|MELEE||0|P"|C|1d6||0|0|ST|5|125|BH pg.3
+  Naginata|MEL|MELEE||0|N"|P|3d6||0|0|ST|2|100|BH pg.2
+  Nomad Smartwhip|MEL|MELEE||0|J"|C|1d6+2||0|0|ST|3|600|BH pg.3
+  Nunchaku|MEL|MELEE||0|L"|C|3d6||0|0|ST|0|15|BH pg.2
+  Qing Long Dao|MEL|MELEE||-2|N"|P|4d6||0|0|ST|0|450|PAC pg.150
+  Ri Yue Hu Xing JIan|MEL|MELEE||-1|J"|P|1d6/2||0|0|ST|1|25|PAC pg.150
+  Sai|MEL|MELEE||0|J"|C|2d6+2||0|0|ST|0|20|PAC pg.150
+  San Jie Gun|MEL|MELEE||0|N"|C|3d6+2||0|0|ST|2|50|PAC pg.151
+  Shuriken|MEL|MELEE||0|P"|C|1D6/3||0|0|ST|0|3|BH pg.2
+  SlamDance, Inc. Spawnblade|MEL|MELEE||0|J"|P|1d6||0|0|ST|0|450|BH pg.4
+  Sledgehammer|MEL|MELEE||-2|N"|C|4d6||0|0|ST|0|20|BH pg.2
+  Spiked Boots|MEL|MELEE||0|N"|C|1d6+2||0|0|ST|1|20|PAC pg.152
+  Spiked Cestus|MEL|MELEE||0|P"|P|1d6*||0|0|ST|1|20|PAC pg.151
+  SPM-1 Battleglove|MEL|MELEE||-2|N"|P|2d6||0|0|VR|1|900|BH pg.4
+  SPM-2 Battleglove Plus|MEL|MELEE||-1|N"|P|2d6||0|0|VR|1|970|PAC pg.151
+  Steel Bayonet|MEL|MELEE||-2|J"|C|3d6||0|0|VR|1|15|HOB pg.83
+  Switchblade|MEL|MELEE||0|P"|C|1d6/2||0|0|ST|0|15|BH pg.2
+  Sword|MEL|MELEE||0|N"|C|2D6+2||0|0|ST|0|110|BH pg.2
+  Tekko|MEL|MELEE||0|J"|C|1d6/2*||0|0|ST|1|25|PAC pg.151
+  Tessen/Duo Ming Shan|MEL|MELEE||0|J"|C|1d6+2||0|0|ST|1|60|PAC pg.151
+  Tetsubishi|MEL|MELEE||-1|P"|C|1d6/2||0|0|ST|0|6|PAC pg.151
+  Tonfa|MEL|MELEE||0|L"|C|2d6||0|0|ST|0|15|BH pg.2
+  Utility Sword/Machete|MEL|MELEE||0|L"|C|1D6+3||0|0|ST|0|60|BH pg.4
+  wakizashi|MEL|MELEE||1|L"|R|3d6||0|0|VR|1|100|SW pg.80
+  Wu Cha|MEL|MELEE||-1|N"|P|2d6||0|0|ST|2|100|PAC pg.150
+  Zhi Dan|MEL|MELEE||0|N"|E|1d6/2||0|0|ST|0|0|PAC pg.151
+  Zhi Dao|MEL|MELEE||0|L"|C|2d6||0|0|ST|0|150|PAC pg.150
+  SlamDance, Inc. Hyper-Hammer|MEL|MELEE|Borg Weapon|-2|L"|R|9D10||2|1|ST|2|2000|BH pg.38
+  Magnum Opus 'Big Government'|P|PISTOLS|Borg Weapon|0|J"|P|6d6|14mm|13|2|VR|60|2000|BH pg.38
+  Magnum Opus 'Hellbringer' .666 Magnum Revolver|P|PISTOLS|Borg Weapon|1|J"|P|7d6+3|.666|3|1|VR|80|4000|BH pg.38
+  BudgetArms Auto 3|P|PISTOLS|HEAVY|-1|J"|E|3d6|11mm|8|2|UR|50|350|BH pg.14
+  Dai Lung Magnum|P|PISTOLS|HEAVY|1|J"|E|3d6+1|.357 Mag CS|10|2|UR|50|60|BH pg.14
+  Espinoza One Shot|P|PISTOLS|HEAVY|-1|J"|E|3d6|.50 short|1|1|UR|50|75|BH pg.14
+  Malorian Arms Heavy Flechette|P|PISTOLS|HEAVY|1|J"|C|1d6+1|4mm Flechette|25|2|ST|50|595|BH pg.14
+  Mustang Arms 'Mark II'|P|PISTOLS|HEAVY|1|J"|C|3d6|11mm|12|3|VR|50|425|BH pg.15
+  Nova Model 338 Citygun|P|PISTOLS|HEAVY|1|J"|P|3d6|.338|7|3|VR|50|460|BH pg.15
+  Nova Model 757 Cityhunter|P|PISTOLS|HEAVY|2|J"|P|3d6|11mm|18|2|ST|50|480|BH pg.15
+  S+W Handcannon undermount|P|PISTOLS|HEAVY|1|N"||2d6+2|.45 ACP |10|2|UR|50|0| pg.0
+  Stein & Wasserman Bi-Power Handcannon|P|PISTOLS|HEAVY|0|J"|P|4d6|.44 Mag|6|2|UR|50|850|BH pg.15
+  Sternmeyer P-35|P|PISTOLS|HEAVY|0|J"|C|3d6|11mm|8|2|VR|50|400|BH pg.15
+  Tsunami Arms 'Raimei' Ramjet Pistol|P|PISTOLS|HEAVY|2|L"|P|5d6|10mm Ramjet|6|2|VR|100|1100|BH pg.16
+  Astra Style-6|P|PISTOLS|LIGHT|-1|P"|E|1d6|.22[5mm]|6|2|UR|50|75|BH pg.10
+  BudgetArms C-13|P|PISTOLS|LIGHT|-1|P"|E|1d6|.22[5mm]|8|2|ST|50|75|BH pg.10
+  Colt .38 'Detective'|P|PISTOLS|LIGHT|1|J"|C|1d6+2|.38/7mm|6|1|VR|50|200|CP20 pg.66
+  Dai Lung Cybermag 15 P -1 (Caseless)|P|PISTOLS|LIGHT|0|P"|C|1d6+1|6mm|10|2|UR|50|50|BH pg.10
+  Federated Arms Impact|P|PISTOLS|LIGHT|1|J"|E|1d6|.22[5mm]|10|2|VR|50|60|BH pg.10
+  Federated Arms X-22|P|PISTOLS|LIGHT|0|J"|E|1d6+1|6mm|10|2|ST|50|100|BH pg.10
+  Federated Arms X-38|P|PISTOLS|LIGHT|1|J"|E|2d6|.38|10|2|ST|50|35|BH pg.10
+  Towa Manufacturing type-12 Police Pistol|P|PISTOLS|LIGHT|3|J"|P|1d6+1|6mm|6|2|VR|50|450|BH pg.10
+  Arasaka WSA Autopistol|P|PISTOLS|MEDIUM|0|J"|C|2d6+3|10mm|15|2|VR|50|400|BH pg.10
+  Beretta M97P|P|PISTOLS|MEDIUM|2|J"|P|2d6+1|9mm|18|2|VR|50|480|BH pg.11
+  Beretta Plas 9 Fashion|P|PISTOLS|MEDIUM|-1|P"|P|2d6+1|9mm|10|1|ST|50|200|UK pg.36
+  BudgetArms C-41|P|PISTOLS|MEDIUM|1|J"|E|2d6+1|.41C|10|3|VR|50|600|BH pg.11
+  BudgetArms Laser-Niner|P|PISTOLS|MEDIUM|1|J"|P|2d6+1|9mm|15|20|ST|50|675|BH pg.11
+  C.O.P. .357 Derringer|P|PISTOLS|MEDIUM|0|P"|C|2d6+3|.357|4|1|VR|50|250|CP20 pg.66
+  Calico 9mm Assault Pistol|P|PISTOLS|MEDIUM|-1|L"|C|2d6+1|9mm|50|2|VR|50|450|NEO pg.65
+  CCMMC Goaxing Xuixi CM-3|P|PISTOLS|MEDIUM|0|J"|C|2d6+1|9mm|8|2|ST|50|75|BH pg.11
+  Colt .45 'Peacemaker'|P|PISTOLS|MEDIUM|0|J"|R|2d6+2|.45|6|1|VR|50|100|CP20 pg.66
+  Colt Alpha-Omega Competition Pistol .45|P|PISTOLS|MEDIUM|2|J"|C|2d6+2|.45 ACP |10|2|VR|50|500|BH pg.11
+  Colt Alpha-Omega Competition Pistol 10mm|P|PISTOLS|MEDIUM|2|J"|C|2d6+3|10mm|10|2|VR|50|500|BH pg.11
+  Colt Enforcement 10|P|PISTOLS|MEDIUM|1|J"|C|2d6+3|10mm|14|2|VR|50|550|BH pg.11
+  Dai Lung Streetmaster|P|PISTOLS|MEDIUM|0|J"|E|2d6+3|10mm|12|2|UR|50|250|BH pg.11
+  Fashion Gun 9|P|PISTOLS|MEDIUM|0|P"|E|2d6+1|9mm|7|2|UR|25|40|BH pg.11
+  Federated Arms X-9|P|PISTOLS|MEDIUM|0|J"|E|2d6+1|9mm|12|2|ST|50|300|BH pg.11
+  FN Browning '3-Spot' (Caseless)|P|PISTOLS|MEDIUM|1|J"|C|2d6+3|10mm|24|3|ST|50|425|BH pg.11
+  FN High Power|P|PISTOLS|MEDIUM|1|J"|C|2d6+1|9mm|14|1|VR|50|150|UK pg.37
+  Glock 30 Machine Pistol|P|PISTOLS|MEDIUM|2|P"|C|2d6+3|10mm|20|1|VR|50|705|BH pg.12
+  Goncz-Taurus Pistol|P|PISTOLS|MEDIUM|0|J"|E|2d6+1|9mm|15|2|ST|50|275|BH pg.12
+  Goncz-Taurus Pistol, Selective-Fire|SMG|PISTOLS|MEDIUM|-1|J"|C|2D6+1|9mm|15|10|ST|50|400|BH pg.12
+  Hammer M-11 Bolt Pistol|P|PISTOLS|MEDIUM|2|J"|P|1d6+2|9mm Bolt|10|2|ST|30|320|BH pg.12
+  IMI Gamad|P|PISTOLS|MEDIUM|1|P"|E|2d6+3|10mm|7|2|VR|50|575|BH pg.12
+  Kang Tao type 97|P|PISTOLS|MEDIUM|1|J"|E|2d6+1|9mm|10|2|UR|50|35|BH pg.12
+  LeRoi Maxi-10|P|PISTOLS|MEDIUM|-1|J"|E|2d6+3|10mm|10|2|UR|50|150|BH pg.12
+  Militech Arms Avenger|P|PISTOLS|MEDIUM|0|J"|E|2d6+1|9mm|10|2|VR|50|250|BH pg.12
+  Militech Black Widow Flechette Pistol|P|PISTOLS|MEDIUM|1|J"|P|1d6/2|Flechette|10|1|ST|30|400|BH pg.12
+  Militech Silver Shadow Flechette|P|PISTOLS|MEDIUM|0|J"|P|(1d6/2)+2 x 1d6/3|3mm Flechette|8|1|ST|30|300|BH pg.12
+  Nomad .357 Magnum Autoloader|P|PISTOLS|MEDIUM|0|J"|C|2d6+3|.357 Mag|8|2|VR|50|300|BH pg.12
+  Nomad .357 Magnum Revolver|P|PISTOLS|MEDIUM|0|J"|C|2d6+3|.357 Mag|6|2|VR|50|250|BH pg.13
+  S&W Combat Magnum|P|PISTOLS|MEDIUM|1|J"|C|2d6+3|.357|6|1|VR|50|125|CP20 pg.66
+  Sci Fi Starrior 4|P|PISTOLS|MEDIUM|0|J"|E|2d6+1|9mm|12|2|UR|50|60|BH pg.13
+  Stein & Wasserman 'Tri-Star' Revolver|P|PISTOLS|MEDIUM|0|J"|C|2d6|.410ga|6|2|ST|50|275|BH pg.13
+  Sternmeyer P-41 Autoloading Pistol|P|PISTOLS|MEDIUM|0|J"|C|2d6+3|10mm|12|2|VR|50|425|BH pg.13
+  Stolbovoy St-2 Pistol|P|PISTOLS|MEDIUM|0|J"|C|2d6+3|10mm|14|2|VR|50|450|BH pg.13
+  Surprising Stranger|P|PISTOLS|MEDIUM|0|P"|E|2d6+3|10mm|4|2|ST|25|30|BH pg.13
+  Teen Dreem|P|PISTOLS|MEDIUM|-1|J"|E|2d6+1|9mm|10|2|UR|50|36|BH pg.13
+  Texas Arms Model-351 Gyrojet Pistol|P|PISTOLS|MEDIUM|0|J"|C|2d6+1|9mm Gyro|8|2|UR|50|420|BH pg.13
+  Towa Manufacturing Type-13 Police Pistol|P|PISTOLS|MEDIUM|2|J"|P|2d6+3|10mm|12|2|VR|50|500|BH pg.13
+  Towa Manufacturing type-14 Pistol|P|PISTOLS|MEDIUM|2|J"|P|2d6+1|9mm|16|16|VR|50|520|BH pg.13
+  Tsunami Express Racegun|P|PISTOLS|MEDIUM|3|L"|P|2d6+3|5.2mm ET|24|3|VR|5|5300|BH pg.14
+  Wondernnine|P|PISTOLS|MEDIUM|1|J"|E|2d6+1|9mm|17|2|VR|50|240|BH pg.14
+  454 Magnum Disposable|P|PISTOLS|VERY HEAVY|-2|P"|R|4d6+3|.454|2|1|VR|40|100|BH pg.16
+  Ameritech Magnum|P|PISTOLS|VERY HEAVY|1|J"|R|4d6+3|.454|5|2|VR|50|1000|BH pg.16
+  Armalite 44|P|PISTOLS|VERY HEAVY|0|J"|E|4d6+1|12mm|8|1|ST|50|450|BH pg.16
+  Colt AMT Model 2000|P|PISTOLS|VERY HEAVY|0|J"|C|4d6+1|12mm|8|1|VR|50|500|BH pg.16
+  Constitution Arms Multi Ammunition Pistol|P|PISTOLS|VERY HEAVY|0|J"|P||12mm varies|5|1|VR|50|525|BH pg.16
+  Federated Arms 454 DA 'Super Chief'|P|PISTOLS|VERY HEAVY|0|J"|P|4d6+3|.454|5|1|VR|50|375|BH pg.16
+  Llama Commanche|P|PISTOLS|VERY HEAVY|0|J"|C|4d6|.44|6|1|ST|50|200|CP20 pg.66
+  Malorian Arms 3516|P|PISTOLS|VERY HEAVY|-1|J"|R|6d6|14mm|6|1|VR|50|4525|BH pg.16
+  Militech .477 Boomer-Buster (Caseless)|P|PISTOLS|VERY HEAVY|-1|J"|P|5d6|.477|4|1|VR|50|450|BH pg.17
+  Nomad .44 Magnum Revolver|P|PISTOLS|VERY HEAVY|0|J"|P|4d6|.44|6|1|VR|50|375|BH pg.17
+  Nova Arms 'Arno' .454 Plasmatic Magnum|P|PISTOLS|VERY HEAVY|1|J"|P|6d6+3|.454 ET|6|2|VR|100|1799|BH pg.17
+  Nova Arms 'Bronson' .41 Plasmatic Magnum|P|PISTOLS|VERY HEAVY|1|J"|P|5d6|.41 ET|6|1|VR|80|1199|BH pg.17
+  Nova Arms 'Eastwood' .44 Plasmatic Magnum|P|PISTOLS|VERY HEAVY|1|J"|P|6d6|.44 ET|6|1|VR|80|1499|BH pg.17
+  Nova Arms 'Stallone' .357 Plasmatic Magnum|P|PISTOLS|VERY HEAVY|1|J"|P|4d6|.357 ET|6|1|VR|60|999|BH pg.17
+  Royal Enfield Ordnance Spitfire 12mm Battle Pistol|P|PISTOLS|VERY HEAVY|1|J"|P|4d6+1|12mm|12|1|VR|50|550|BH pg.17
+  14.5mm Assault Rifle|RIF|RIFLES|ASSAULT|1|N"|P|7d10|14.5mm|50|10|VR|400|2500|BH pg.38
+  AK-47|RIF|RIFLES|ASSAULT|0|N"|E|5d6|7.56mm|30|20|VR|400|200|CP20 pg.66
+  AKR-20 Medium Assault|RIF|RIFLES|ASSAULT|0|N"|C|5d6|5.45mm|30|30|ST|400|500|BH pg.27
+  Arasaka WAA Bullpup Assault Weapon|RIF|RIFLES|ASSAULT|1|N"|C|5d6|5.56mm|30|30|VR|400|800|BH pg.27
+  CCMMC Jinhua M-9|RIF|RIFLES|ASSAULT|0|N"|P|6d6+2|7.62mm|35|25|ST|400|125|BH pg.27
+  Chadran Jungle Reaper|RIF|RIFLES|ASSAULT|1|N"|P|5d6|5.56mm|60|20|VR|400|1550|BH pg.27
+  Colt M-18 Assault Weapon|RIF|RIFLES|ASSAULT|1|N"|C|5d6|5.56mm|35|30|VR|400|750|BH pg.27
+  Darra-Polytechnic M-9 Assault Rifle|RIF|RIFLES|ASSAULT|0|N"|P|4d6+2|5.5mm|40|25|ST|200|300|BH pg.27
+  Fabrica De Armes M-2012|RIF|RIFLES|ASSAULT|2|N"|P|5d6+3|6.5mm|30|4|VR|400|1400|BH pg.28
+  Federated Arms Light Assault 15 (Caseless)|RIF|RIFLES|ASSAULT|0|N"|C|5d6+3|7mm|30|25|VR|400|400|BH pg.27
+  FN-FAL|RIF|RIFLES|ASSAULT|0|N"|C|6d6+2|7.56mm|20|21|VR|400|450|BH pg.66
+  FN-RAL Heavy Assault Rifle|RIF|RIFLES|ASSAULT|-1|N"|C|6d6+2|7.62mm|30|30|VR|400|600|BH pg.27
+  Kalashnikov A-80 Heavy Assault Rifle|RIF|RIFLES|ASSAULT|-1|N"|E|6d6+2|7.62mm|35|25|ST|400|550|BH pg.28
+  L85A1|RIF|RIFLES|ASSAULT|1|N"|C|5d6|5.56mm|30|20|VR|500|500|UK pg.36
+  M-16A|RIF|RIFLES|ASSAULT|2|N"|C|4d6|5.56mm cased|30|25|UR|400|200|CP20 pg.66
+  Militech Dragon Light Assault Weapon|RIF|RIFLES|ASSAULT|0|L"|C|6d6-1|6.5mm Hybrid|35|30|VR|400|700|BH pg.28
+  Militech M-31a1 Advanced Infantry Combat Weapon|RIF|RIFLES|ASSAULT|2|N"|R|4d6|4.5mm|150|30|ST|400|1695|BH pg.28
+  Militech Mark V Assault Rifle|RIF|RIFLES|ASSAULT|1|N"|P|9d6|6.5mm ETE|30|4|ST|600|1500|SW pg.33
+  Militech Mk IV Assault Weapon|RIF|RIFLES|ASSAULT|1|N"|C|6d6-1|6.5mm Hybrid|35|30|VR|400|800|BH pg.28
+  Militech Ronin Light Assault|RIF|RIFLES|ASSAULT|1|N"|C|5d6|5.56mm|35|30|VR|400|450|BH pg.28
+  Royal Enfield Ordnance Liquid Propellant Assault Rifle LPA1|RIF|RIFLES|ASSAULT|1|N"|R|6d6|7.5mm|90|20|VR|500|1800|BH pg.29
+  Sternmeyer M-95A4 (CG-138) Assault Weapon|RIF|RIFLES|ASSAULT|1|N"|R|5d6|5.56mm|90|30|VR|400|750|BH pg.28
+  Stolbovoy St-5 Assault Rifle|RIF|RIFLES|ASSAULT|-1|N"|C|5d6|5.45mm|30|30|VR|400|900|BH pg.29
+  Styer AUG|RIF|RIFLES|ASSAULT|2|L"|P|4d6|5.56mm|30|20|VR|400|400|CP20 pg.66
+  Towa Manufacturing type-20 Advanced Infantry Combat Weapon|RIF|RIFLES|ASSAULT|2|N"|P|5d6|5.56mm|100|45|VR|400|4200|BH pg.29
+  Towa Manufacturing type-99 Assault Rifle|RIF|RIFLES|ASSAULT|1|N"|P|5d6mm|5.56mm|35|30|ST|400|1500|BH pg.29
+  12.7mm Assault Rifle|RIF|RIFLES|Borg Weapon|1|N"|P|6d10|12.7mm|50|10|VR|400|2000|BH pg.38
+  Calico 9mm Rifle|RIF|RIFLES|OTHER|1|L/N"|C|2d6+1|9mm cased|50|1|VR|400|650|NEO pg.65
+  Heckler & Koch HK77UK|RIF|RIFLES|OTHER|1|L"|P|2d6+4|9mm Long|30|30|VR|250|750|BH pg.30
+  Hughes Rocket Rifle|RIF|RIFLES|OTHER|-1|N"|R|3d10|18mm Gyrojet HEAT|3|1|ST|500|750|BH pg.31
+  M-99 EVAW|RIF|RIFLES|OTHER|5|N"|R|6d6|12mm Rocket|30|2|ST|400|5000|BH pg.31
+  Malorian Assault Cannon|RIF|RIFLES|OTHER|3|N"||7d10+4|.75|14|2|VR|400|0|SW pg.33
+  Militech Cyborg Rifle|RIF|RIFLES|OTHER|1|N"|P|7d6+3|.300WM|30|20|ST|500|800|BH pg.31
+  Militech Ninja|RIF|RIFLES|OTHER|1|L"|C|1d6|.22/5mm|30|30|VR|250|650|BH pg.31
+  Nomad 'Personal Weapon'|RIF|RIFLES|OTHER|1|L"|P|3D6|5.7mm|50|2|VR|200|500|BH pg.32
+  Nomad .357 Magnum Automatic  Carbine|RIF|RIFLES|OTHER|1|L"|C|2d6+3|.357|30|2|VR|100|400|BH pg.31
+  Nomad .357 Magnum Lever-Action Carbine|RIF|RIFLES|OTHER|2|L"|C|2d6+3|.357|9|2|VR|100|300|BH pg.31
+  Nomad .44 Magnum Lever-Action Rifle|RIF|RIFLES|OTHER|1|L"|C|4d6+2|.44|8|2|VR|200|650|BH pg.31
+  Nomad 7.62 Bolt-Action Rifle|RIF|RIFLES|OTHER|2|N"|C|6d6+2|7.62mm|6|1|VR|400|500|BH pg.31
+  Polymer 1-Shot Cannon|RIF|RIFLES|OTHER|-2|L"|C|4d6+2|13mm|1|1|UR|100|90|BH pg.32
+  Stein & Wasserman Model F 'Cyborg Assault' Weapon System|RIF|RIFLES|OTHER|0|L"|P|4D6+2|13mm|8|1|VR|100|1650|BH pg.32
+  Tsunami Arms Ramjet Rifle|RIF|RIFLES|OTHER|4|N"|P|5D6+3|8.5mm Ramjet|9|3|VR|800|1230|BH pg.32
+  Arasaka 12.7mm WSSE/R 'Dahiyari Plasmatic Sniper Rifle|RIF|RIFLES|SNIPER|2|N"|R|9d10|.50 BMG ETE|5|1|VR|1200|2000|SW pg.33
+  Arasaka WSSA Sniper System|RIF|RIFLES|SNIPER|5|N"|P|6d6|3.5mm FF|40|2|VR|600|2400|BH pg.29
+  Barrett M-90 Sniper Rifle|RIF|RIFLES|SNIPER|3|N"|R|6d10|12.7mm BMG|10|1|VR|1000|1500|BH pg.30
+  Barrett-Arasaka Light-20|RIF|RIFLES|SNIPER|0|N"|R|4d10|20mm|10|1|VR|450|2000|BH pg.30
+  Barrett-Arasaka WSSE 'Hiyari' 12.7mm Plasmatic Sniper Rfile|RIF|RIFLES|SNIPER|1|N"|R|8d10+3|.50 BMG ETE|10|1|VR|1000|2500|SW pg.32
+  FR-F6|RIF|RIFLES|SNIPER|3|N"|P|6d6+2|7.62mm|10|2|ST|500|1100|BH pg.30
+  Nomad 15mm 'Long Rifle'|RIF|RIFLES|SNIPER|1|N"|P|7d10|15mm BMG|9|1|ST|900|3000|BH pg.30
+  Remington Gyro-Sniper Rifle|RIF|RIFLES|SNIPER|2|N"|P|7d6|18mm gyrojet|6|1|ST|600|1000|BH pg.30
+  Setsuko-Arasaka WSE 'Kajiya' 7.82mm Plasmatic Sniper Rifle|RIF|RIFLES|SNIPER|1|N"|R|9d6+3AP|7.62mm ET|5|1|VR|500|1000|SW pg.32
+  Towa Manufacturing type-00-Kai|RIF|RIFLES|SNIPER|3|N"|R|9d6+3|7.62mm EAE|6|1|VR|1200|3000|BH pg.30
+  wa 2001 Sniper Rifle|RIF|RIFLES|SNIPER|3|N"|R|6d6+2|7.62mm|10|1|VR|1000|900|UK pg.37
+  Winchester M70|RIF|RIFLES|SNIPER|3|N"|C|5d6+1|.30-06|5|1|VR|500|250|CP20 pg.66
+  'Whippet' 12GA. Scattergun|SHT|SHOTGUNS||-3|J"|P|4d6|12ga|2|2|VR|15|200|NEO pg.66
+  Arasaka WCAA 'Rapid Assault Shot 12'|SHT|SHOTGUNS||-1|N"|C|4d6|12GA|20|10|ST|50|900|BH pg.21
+  CAWS|SHT|SHOTGUNS||0|N"|R|4d6|12ga|10|10|ST|50|500|CP20 pg.66
+  CCMMC Qi-15|SHT|SHOTGUNS||-2|N"|P|4d6|12GA|15|10|ST|50|150|BH pg.21
+  Constitution Arms Hurricane Assault Weapon|SHT|SHOTGUNS||0|N"|P|4d6|12GA|40|20|ST|70|1000|BH pg.21
+  Double Barrel Shotgun|SHT|SHOTGUNS||0|N"|C|4d6|12ga|2|2|VR|50|200|UK pg.37
+  Enfield-Ubichi LastChance|SHT|SHOTGUNS||0|J"|C|4d6|12GA|1|1|UR|25|60|BH pg.21
+  H&K CAWS 11|SHT|SHOTGUNS||1|N"|R|4d6|12ga|30|10|ST|50|800|UK pg.36
+  Luigi Franchi 'King Buck'|SHT|SHOTGUNS||-1|N"|P|6d6|10GA|4|4|VR|50|800|BH pg.21
+  Luigi Franchi P.16|SHT|SHOTGUNS||1|L"|R|4d6|12GA|20|10|ST|50|980|BH pg.21
+  MetaCorp Warhammer Assault Shotgun|SHT|SHOTGUNS||-1|N"|P|4d6+3|12GA mag|16|1|VR|75|700|BH pg.21
+  Military M-12 Close Assault Weapon|SHT|SHOTGUNS||0|N"|P|4d6|12GA MAG|20|10|VR|50|950|BH pg.22
+  Militech Bulldog Compact Assault Shotgun|SHT|SHOTGUNS||0|L"|P|4d6|12GA|21|10|ST|50|1000|BH pg.22
+  Militech Crusher SSG|SHT|SHOTGUNS||-1|J"|C|3d6|20ga|6|2|ST|25|450|BH pg.22
+  Militech Military/Police Shotgun|SHT|SHOTGUNS||0|N"|C|4d6|12GA|8|2|ST|50|300|BH pg.22
+  Mustang Arms 'Raider' Riot Shotgun|SHT|SHOTGUNS||0|L"|C|4d6|12ga|5|2|ST|50|400|BH pg.22
+  Mustang Arms Close-Control 20|SHT|SHOTGUNS||-1|N"|P|3d6|20GA|15|2|ST|50|350|BH pg.22
+  Sawn-off Shotgun|SHT|SHOTGUNS||-1|J"|C|4d6|12ga|2|2|VR|10|100|UK pg.37
+  Sternmeyer Stakeout 10|SHT|SHOTGUNS||-2|L"|R|4d6|12GA|10|2|ST|50|450|BH pg.22
+  Tsunami 'Ragnarok'Close Assault Weapon|SHT|SHOTGUNS||0|N"|R|6d6|12GA EAE|40|20|ST|70|4500|BH pg.22
+  Tsunami Arms Helix|SHT|SHOTGUNS||0|N"|P|5d6|10ga|60|43|VR|60|3000|BH pg.38
+  Magnum Opus 12-Gauge Pistol|P|SHOTGUNS|Borg Weapon|-2|J"|P|4d6|12GA|9|2|ST|30|1000|BH pg.37
+  United Armaments CLAW|SHT|SHOTGUNS|Borg Weapon|1|N"|R|8d6|4GA|28|14|VR|60|1600|BH pg.38
+  5.56 caseless SMG|SMG|SMG|Borg Weapon|1|L"|P|5d6|5.56mm|50|25|VR|200|1200|BH pg.38
+  Malorian Arms 3600 Super-SMG|SMG|SMG|Borg Weapon|0|L"|P|6d6|14mm|20|1|VR|150|3000|BH pg.38
+  Bushmaster|SMG|SMG|HEAVY|0|L"|C|4D6|5.56mm|30|20|ST|150|0|CP20 pg.66
+  CCMMC Tuzi-7|SMG|SMG|HEAVY|-2|J"|P|3d6|11mm|30|15|ST|100|125|BH pg.20
+  Chadran City Reaper|SMG|SMG|HEAVY|0|L"|P|3d6|11mm|40|20|VR|200|950|BH pg.20
+  Chadran City Reaper undermount|SHT|SMG|HEAVY|-1|N"||4d6|12ga|10|3|ST|50|0| pg.0
+  Heckler Koch MPK-11|SMG|SMG|HEAVY|0|L"|C|4d6+1|12mm|30|20|ST|200|700|BH pg.20
+  Heckler Koch MPK-2020|SMG|SMG|HEAVY|2|L"|P|4d6+1|12mm|60|30|ST|200|750|BH pg.20
+  Ingram Mac 14|SMG|SMG|HEAVY|-2|L"|E|4d6+1|12mm|40|10|ST|200|650|BH pg.20
+  Sternmeyer SMG 21|SMG|SMG|HEAVY|-1|L"|E|3d6|11mm|30|15|VR|200|500|BH pg.20
+  Thompson M1|SMG|SMG|HEAVY|2|N"|C|2d6+2|.45|30|20|ST|200|300|CP20 pg.66
+  Federated Arms Tech Assault|SMG|SMG|LIGHT|1|J"|E|1d6|.22[5mm]|30|30|UR*|100|160|BH pg.17
+  Federated Arms Tech Assault II|SMG|SMG|LIGHT|1|J"|C|1d6+1|6mm|50|25|ST|150|400|BH pg.17
+  Heckler & Koch MPK-9|SMG|SMG|LIGHT|1|J"|C|2d6+1|9mm|35|25|ST|150|520|BH pg.17
+  Militech Mini-Gat Machine Carbine|SMG|SMG|LIGHT|0|L"|P|1d6|.22[5mm]|120|40|ST|150|695|BH pg.18
+  Setsuko-Arasaka PMS SMG|SMG|SMG|LIGHT|1|L"|P|1d6+2|.38[7mm]|40|20|ST|150|950|BH pg.17
+  Surnam Machine Pistol|SMG|SMG|LIGHT|0|J"|C|1d6+4|.177|25|50|UR|150|375|BH pg.18
+  Uzi|SMG|SMG|LIGHT|2|J"|C|2d6+1|9mm|30|20|VR|200|250|CP20 pg.66
+  Uzi Miniauto 9|SMG|SMG|LIGHT|1|J"|E|2d6+1|9mm|30|35|VR|150|475|BH pg.18
+  Vz61 Skorpion|SMG|SMG|LIGHT|2|J"|P|1d6|.25|20|25|VR|150|150|CP20 pg.66
+  Arasaka WMA 'Minami 10'|SMG|SMG|MEDIUM|0|J"|E|2d6+3|10mm|40|20|VR|200|500|BH pg.18
+  Beretta 1010 Machine Pistol|SMG|SMG|MEDIUM|-2|J"|C|2d6+3|10mm|30|15|ST|100|475|BH pg.18
+  Beretta M-24 Advanced SMG|SMG|SMG|MEDIUM|2|L"|P|2d6+1|9mm|50|25|VR|200|950|BH pg.18
+  Calico Submachinegun|SMG|SMG|MEDIUM|0|L"|C|2d6+1|9mm cased|50|20|ST|200|750|NEO pg.65
+  Heckler & Koch MP-2013|SMG|SMG|MEDIUM|1|J"|C|2d6+3|10mm|35|32|ST|200|450|BH pg.19
+  Heckler & Koch MP5|SMG|SMG|MEDIUM|1|L"|C|2D6+1|9mm|30|20|ST|150|0|BH pg.66
+  IMI 'Gamdaii'|SMG|SMG|MEDIUM|2|N"|E|2d6+3|10mm|35|25|VR|200|950|BH pg.19
+  IMI 'Gamdaii' under mount|HVY|SMG|MEDIUM|0|N"|||25mm grenade|1|1|ST|100|0| pg.0
+  Ingram MAC 10|SMG|SMG|MEDIUM|-1|J"|C|2d6+2|.45C|30|5|UR|200|225|CP20 pg.66
+  L2A3 Sterling|SMG|SMG|MEDIUM|0|L"|C|2d6+1|9mm cased|10|20|VR|200|200|UK pg.37
+  Malorian Sub-Flechette Gun|SMG|SMG|MEDIUM|2|J"|C|1d6|4mm Flechette|10|35|VR|200|795|BH pg.19
+  Medusa 2000 (Caseless)|SMG|SMG|MEDIUM|0|N"|P|2d6+3|10mm|40|20|VR|200|2500|I2.1 pg.3
+  Militech 10 Submachine Gun (10mm)|SMG|SMG|MEDIUM|1|J"|E|2d6+3|10mm|30|20|ST|200|455|BH pg.19
+  Militech 10 Submachine Gun - .45|SMG|SMG|MEDIUM|1|J"|E|2d6+2|.45|30|20|ST|200|455|BH pg.19
+  Militech Viper SMG|SMG|SMG|MEDIUM|0|J"|P|2d6+3|10mm|40|30|VR|200|600|BH pg.19
+  Mustang Arms ARS-5C SMG|SMG|SMG|MEDIUM|1|J"|C|2d6+3|10mm|40|40|VR|100|600|BH pg.19
+  Sten .22|SMG|SMG|MEDIUM|-2|L"|E|1d6|.22 Long|30|30|ST|100|200|BH pg.19
+  Sten .357|SMG|SMG|MEDIUM|-2|L"|E|2d6+3|.357|30|30|ST|100|200|BH pg.19
+  Sten 12mm|SMG|SMG|MEDIUM|-2|L"|E|4d6+1|12mm|30|30|ST|100|200|BH pg.19
+  Sten 9mm|SMG|SMG|MEDIUM|-2|L"|E|2d6+1|9mm|30|30|ST|100|200|BH pg.19
+  Stolbovoy StS SMG|SMG|SMG|MEDIUM|-1|J"|C|2d6+3|10mm|35|30|VR|100|600|BH pg.20

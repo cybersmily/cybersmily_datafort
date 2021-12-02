@@ -1,0 +1,749 @@
+ type|subtype|name|abbrev|notes|cost|humanity cost|surgery|number of options|source
+ BIOWARE||Alpha Tuff Bone Skeletal Enh||BOD +1 for lift; carry; BTM vs HH/Melee|1300|1d6/2|M||Chromebook 4 pg.18
+ BIOWARE||Alterable Prints||Programmable Nanotech altered prints (20 secs)|550|1|M||Wildside pg.65
+ BIOWARE||Altered DNA||DNA altered using a tailored retrovirus|3000|0|N||Wildside pg.65
+ BIOWARE||Altered Fingerprints||Fingerprints are altered|300|0|N||Wildside pg.65
+ BIOWARE||Altered Retinas||Retinas altered|800|0.5|M||Wildside pg.65
+ BIOWARE||Anti -Plague Nanotech||+3 vs diseases and bio war agents|1750|0.5|N||Chromebook 1 pg.39
+ BIOWARE||AntiDazzle Nict Membrane||Flash protection; +4 to Saves vs eye irritants|500|1d6/2|M||When Gravity Fails pg.59
+ BIOWARE||Beta Tuff Bone Skeletal Enh||BOD +2 for lift;carry; BTM vs HH/Melee; ATT -1|2800|1d6|M||Chromebook 4 pg.18
+ BIOWARE||Diet -Mite||Screens what you eat passing on what's needed|1000|1d6/2|N||Listen Up You Primtive Screwheads pg.102
+ BIOWARE||Dornier -Bauer Circulatory Sphincters||+2 to Stun/Shock Saves after a Serious+wound|3200|1d6|MA||Chromebook 4 pg.22
+ BIOWARE||Dornier -Bauer Neural Bridge||Ambidexterity; no -3 penalty with off hand|600|1d6+2|MA||Chromebook 4 pg.22
+ BIOWARE||Enhanced Antibodies|EA|Improves Healing by +1 point per day|3000|1d6/2|N||Cyberpunk 2020 pg.85
+ BIOWARE||Erased Fingerprints||Fingerprints erased|100|0|N||Wildside pg.65
+ BIOWARE||Fresco 's Personal Nano-Groomers||+2 to +4 to Personal Grooming|400|0.5|N||Chromebook 3 pg.26
+ BIOWARE||Full -Spectrum Immuno-Booster||+4 vs illness/infection/poison/drugs; +1 Healing|7500|1/2d6+1|N||Neotribes pg.90
+ BIOWARE||Grafted Muscle I|GR|+1 BODY|1000|2d6|MA||Cyberpunk 2020 pg.85
+ BIOWARE||Grafted Muscle II|GR2|+2 BODY|2000|2d6|MA||Cyberpunk 2020 pg.85
+ BIOWARE||IHAG Nictating Membrane||Can see in difficult conditions. Replace 6-8 mth|300|1d6/3|N||Firestorm: Stormfront pg.28
+ BIOWARE||Metaheme Hemological Replacement||+1 MA;Endurance;+4 min breath; -1 poison/dis|1300|1d6/2|M||Chromebook 4 pg.18
+ BIOWARE||Muscle Enhancement||+1 to BT; but not for BTM|1000|1d6/3|N||Deep Space pg.60
+ BIOWARE||N -A C Freezeban Bioconstruct||+1 Wilderness Survival/Endurance in -10°C|650|1|MA||Chromebook 4 pg.24
+ BIOWARE||N -A C Kaloric Secondary Gut||Stores 2 days worth of food|750|1d6/2|MA||Chromebook 4 pg.24
+ BIOWARE||N -A C Quickclot Hemofibrinic Node||Wound states treated as one less; 10% stroke|3000|1d6|MA||Chromebook 4 pg.25
+ BIOWARE||Nano optical Upgrade||+2 nightvision|1500|1d6/2|N||Chromebook 2 pg.8
+ BIOWARE||NanoAuditory Rebuild||Enhanced Hearing Range\\& Level Damper|1500|1d6/2|N||Chromebook 4 pg.20
+ BIOWARE||Nanosurgeons|NSR|Doubles natural Healing rate|6000|1d6/2|N||Cyberpunk 2020 pg.85
+ BIOWARE||NeoAppendix||+2 to Wilderness Survival for food|500|1d6/2|MA||Chromebook 4 pg.19
+ BIOWARE||NeoLungs||Hold breath twice as long as normal|1000|1d6|CR||Chromebook 4 pg.21
+ BIOWARE||Nictating Membrane||Eye protection; +4 to Saves vs eye irritants|400|1d6/2|M||When Gravity Fails pg.59
+ BIOWARE||Nitrogen Binders||Reduces depressurization by up to 100%|1400|1d2|N||Chromebook 4 pg.17
+ BIOWARE||Programmable Retinas||Project different pre-set patterns (1 min)|1600|1|M||Wildside pg.65
+ BIOWARE||Replitech Toxin Screen||90% chance of vomiting if toxins are eaten|3400|1d6/2|MA||Chromebook 4 pg.27
+ BIOWARE||Revolution Genetics Flashlite Implant||Non-glare; semi-focused glow; 1m range|290|1d2|M||Chromebook 4 pg.26
+ BIOWARE||Revolution Genetics Poison Glands- Hands - Biotoxin I||Can be used to coat Rippers or Wolvers|1100|2d6+3|MA||Chromebook 4 pg.23
+ BIOWARE||Revolution Genetics Poison Glands- Hands - Hallucinogen||Can be used to coat Rippers or Wolvers|800|2d6+3|MA||Chromebook 4 pg.23
+ BIOWARE||Revolution Genetics Poison Glands- Hands - nausea/somatic||Can be used to coat Rippers or Wolvers. Choose what kind.|500|2d6+3|MA||Chromebook 4 pg.23
+ BIOWARE||Revolution Genetics Poison Glands- Teeth - Biotoxin I||Natural fangs that inject poison when you bite|1000|3d6|MA||Chromebook 4 pg.23
+ BIOWARE||Revolution Genetics Poison Glands- Teeth - Halllucinogen/Nausea/Somatic||Natural fangs that inject poison when you bite. Choose what kind.|500|3d6|MA||Chromebook 4 pg.23
+ BIOWARE||Revolution Genetics Tailored Pheromones-Confu||-1 INT\\& Initiative (1m). Nasal filters60% effec|2500|1d6/2|M||Chromebook 4 pg.23
+ BIOWARE||Revolution Genetics Tailored Pheromones-Gullible||+1 to Persuasion. Nasal filters 60% effective|2000|1d6/2|M||Chromebook 4 pg.23
+ BIOWARE||Revolution Genetics Tailored Pheromones-Love||+1 to Seduction. Nasal filters 60% effective|1000|1d6/2|M||Chromebook 4 pg.23
+ BIOWARE||Sabre Serum RNA Mod||Modifiers +2 MA;+3 BOD; +2 REF; +1 Heal; 60 day wait|0||N||Interface 1 Issue2 pg.9
+ BIOWARE||Sinus Reconstruction||Provides pressure equalization. 200m depth|1500|1d6/2|CR||Firestorm: Stormfront pg.28
+ BIOWARE||Sunblocker Sunscreen||Prevents sunburn; reduces skin cancer risk|250|1|M||Chromebook 4 pg.20
+ BIOWARE||T -Maxx Ileocecal Siphon||Function without water for 24 to 48hrs|500|1|MA||Chromebook 4 pg.28
+ BIOWARE||Toxin Binders|TBN|+4 to Poison/Drug Saves|3000|1d6/2|N||Cyberpunk 2020 pg.85
+ BIOWARE||UV Blockers||UV/IR resistance|1500|1d6/2|N||When Gravity Fails pg.60
+ BIOWARE||Water Refiltration System||Triples length of survival time without water|2500|1d6/2|MA||When Gravity Fails pg.60
+ BIOWARE|BIOTECH|Anti-Trauma||+2 to Death Saves for 12 hours; Take one a day max|4000|0|N||Eurosource Plus pg.105
+ BIOWARE|BIOTECH|Endurance||Ignore fatigue 12 hrs; x2 food; 1d3-1d6 damage; Take one a day max|1200|0|N||Eurosource Plus pg.105
+ BIOWARE|BIOTECH|Ignore Pain||+4 to Stun Saves for 12 hours; -2 tactile sense; Take one a day max|1800|0|N||Eurosource Plus pg.105
+ BIOWARE|BIOTECH|Permanent +1 ATT Increase||Temporary; Requires Prepatory DNA Mapping. If existing cyber HC10+ Double cost.|1600|0|N||Eurosource Plus pg.105
+ BIOWARE|BIOTECH|Permanent +1 BOD Increase||Temporary; Requires Prepatory DNA Mapping. If existing cyber HC10+ Double cost.|3400|0|N||Eurosource Plus pg.105
+ BIOWARE|BIOTECH|Permanent +1 MA Increase||Temporary; Requires Prepatory DNA Mapping. If existing cyber HC10+ Double cost.|2700|0|N||Eurosource Plus pg.105
+ BIOWARE|BIOTECH|Permanent +1 REF Increase||Temporary; Requires Prepatory DNA Mapping. If existing cyber HC10+ Double cost.|5000|0|N||Eurosource Plus pg.105
+ BIOWARE|BIOTECH|Permanent +2 ATT Increase||Temporary; Requires Prepatory DNA Mapping. If existing cyber HC10+ Double cost.|3200|0|N||Eurosource Plus pg.105
+ BIOWARE|BIOTECH|Permanent +2 BOD Increase||Temporary; Requires Prepatory DNA Mapping. If existing cyber HC10+ Double cost.|6800|0|N||Eurosource Plus pg.105
+ BIOWARE|BIOTECH|Permanent +2 MA Increase||Temporary; Requires Prepatory DNA Mapping. If existing cyber HC10+ Double cost.|5400|0|N||Eurosource Plus pg.105
+ BIOWARE|BIOTECH|Permanent +3 ATT Increase||Temporary; Requires Prepatory DNA Mapping. If existing cyber HC10+ Double cost.|4800|0|N||Eurosource Plus pg.105
+ BIOWARE|BIOTECH|Permanent +3 MA Increase||Temporary; Requires Prepatory DNA Mapping. If existing cyber HC10+ Double cost.|8100|0|N||Eurosource Plus pg.105
+ BIOWARE|BIOTECH|Permanent +4 MA Increase||Temporary; Requires Prepatory DNA Mapping. If existing cyber HC10+ Double cost.|10800|0|N||Eurosource Plus pg.105
+ BIOWARE|BIOTECH|Preparatory DNA Mapping||Required for all biotech|2700|0|N||Eurosource Plus pg.105
+ BIOWARE|BIOTECH|Reduced Oxygen Demand||Can breathe smog;Temporary; Requires Prepatory DNA Mapping. If existing cyber HC10+ Double cost.|5900|0|N||Eurosource Plus pg.105
+ BIOWARE|BIOTECH|Skill +1||3 hours; 1 in 1d10 chance of -1 in skill; Over one/day = 80% lose 2d6 skill/amnesia|600|0|N||Eurosource Plus pg.105
+ BIOWARE|BIOTECH|Skill +2||3 hours; 2 in 1d10 chance of -1 in skill; Over one/day = 80% lose 2d6 skill/amnesia|1800|0|N||Eurosource Plus pg.105
+ BIOWARE|BIOTECH|Skill +3||3 hours; 3 in 1d10 chance of -1 in skill; Over one/day = 80% lose 2d6 skill/amnesia|5000|0|N||Eurosource Plus pg.105
+ BIOWARE|BIOTECH|Toughened Skin||6SP Soft Armor; can't be told from normal skin; Temporary; Requires Prepatory DNA Mapping. If existing cyber HC10+ Double cost.|8300|0|N||Eurosource Plus pg.105
+ BIOWARE|BIOTECH|UV Resistance||No sunscreen needed; Temporary; Requires Prepatory DNA Mapping. If existing cyber HC10+ Double cost.|7600|0|N||Eurosource Plus pg.105
+ BIOWARE|MUSCLE BONE LACE|Advanced Muscle and Bone Lace I||Increases BODY +1|1000|1d2|N||Chromebook 4 pg.17
+ BIOWARE|MUSCLE BONE LACE|Advanced Muscle and Bone Lace II||Increases BODY +2|1500|1d6/2|N||Chromebook 4 pg.17
+ BIOWARE|MUSCLE BONE LACE|Advanced Muscle and Bone lace III||Increases BODY +3|3000|1d6+1|N||Chromebook 4 pg.17
+ BIOWARE|MUSCLE BONE LACE|Muscle and Bone Lace|MBL|Raises BODY by +2|1500|1d6/2|N||Cyberpunk 2020 pg.85
+ BIOWARE|NEURAL ENHANCEMENT|Enhanced Hearing: Amplified Hearing||Max of 2 Enhanced Hearing|1200|2|M||Deep Space pg.60
+ BIOWARE|NEURAL ENHANCEMENT|Enhanced Hearing: Enhanced Range||Max of 2 Enhanced Hearing|1200|2|M||Deep Space pg.60
+ BIOWARE|NEURAL ENHANCEMENT|Enhanced Sense of Smell||Same effects as Olfactory Boost|1200|2|M||Deep Space pg.60
+ BIOWARE|NEURAL ENHANCEMENT|Enhanced Sight: Color Shift||Max of 2 Enhanced Sight|1200|2|M||Deep Space pg.60
+ BIOWARE|NEURAL ENHANCEMENT|Enhanced Sight: Image Enhancement||Max of 2 Enhanced Sight|1200|2|M||Deep Space pg.60
+ BIOWARE|NEURAL ENHANCEMENT|Enhanced Sight: Infrared||Max of 2 Enhanced Sight|1200|2|M||Deep Space pg.60
+ BIOWARE|NEURAL ENHANCEMENT|Enhanced Sight: Low Light||Max of 2 Enhanced Sight|1200|2|M||Deep Space pg.60
+ BIOWARE|NEURAL ENHANCEMENT|Enhanced Sight: Telescopic||Max of 2 Enhanced Sight|1200|2|M||Deep Space pg.60
+ BIOWARE|NEURAL ENHANCEMENT|Enhanced Sight: Ultraviolet||Max of 2 Enhanced Sight|1200|2|M||Deep Space pg.60
+ BIOWARE|NEURAL ENHANCEMENT|Reflex Boost||+1 REF(max +2). 25% chance of -1 Stun/level|3500|1d6+3|N||Deep Space pg.60
+ BIOWARE|SKIN WEAVE|Chem Weave|CSKW|+4 to Chemical Saves; pallid skin is 8SP vs acid|2000|1d6+3|N||Deep Space pg.60
+ BIOWARE|SKIN WEAVE|Rad Weave|RSKW|Silvery skin provides radiation protection of 1 RSP|1500|2d6|N||Deep Space pg.60
+ BIOWARE|SKIN WEAVE|ThermalWeave|TSKW|Silvery skin increases Heat resistance to 107°F|1500|1d6+3|N||Deep Space pg.60
+ BIOWARE|SKIN WEAVE|Vac Weave|VSKW|Protection against decompression; need optics|5000|1d6|MA||Deep Space pg.60
+ BIOWARE|SKINWEAVE|LifeSaver Skinweave|LSSKW|Adds +1 healing per day|4500|1d6/2+1|N||Chromebook 1 pg.39
+ BIOWARE|SKINWEAVE|Skinweave SP12|SKW|12 SP;50% chance-1 ATTR loss; DIFF 20 to spot|2000|2d6|N||Cyberpunk 2020 pg.85
+ BIOWARE|SKINWEAVE|Upgraded Skinweave SP10|SKW10|10 SP;no ATTR loss; DIFF 25 to spot|1600|1d6+3|N||Chromebook 2 pg.9
+ BIOWARE|SKINWEAVE|Upgraded Skinweave SP14|SKW14|14 SP;-1 ATTR loss; DIFF 20 to spot|2400|2d6+2|N||Chromebook 2 pg.9
+ BIOWARE|SKINWEAVE|Upgraded Skinweave SP16|SKW16|16 SP;-2 ATTR loss; DIFF 15 to spot|2750|2d6+4|N||Chromebook 2 pg.9
+ BIOWARE|SKINWEAVE|Upgraded Skinweave SP6|SKW6|6SP; no ATTR loss; DIFF 30 to spot|1000|1d6|N||Chromebook 2 pg.9
+ BIOWARE|SKINWEAVE|Upgraded Skinweave SP8|SKW8|8SP; no ATTR loss; DIFF 30 to spot|1250|1d6+1|N||Chromebook 2 pg.9
+ BODY PLATING||Cowl|SKUL|head SP 25|200|1d6|MA||Cyberpunk 2020 pg.93
+ BODY PLATING||CyberFacial Remounts: Evil Eye||Covers 1 eye; -1 ATT; SP6 15% to hit|150|1d6|MA||Chromebook 3 pg.33
+ BODY PLATING||CyberFacial Remounts: Jigsaw||-1 ATT; SP12 25% protect|250|2d6|MA||Chromebook 3 pg.33
+ BODY PLATING||CyberFacial Remounts: Twoface||-2 ATT; SP18; 50% protect|350|3d6|CR||Chromebook 3 pg.33
+ BODY PLATING||Faceplate|FACE|Face SP 25|400|4d6|CR||Cyberpunk 2020 pg.93
+ BODY PLATING||Torso Plate|TORS|Torso SP 25. -3 REF|2000|3d6|MA||Cyberpunk 2020 pg.93
+ BODY PLATING||Total Body Plating||SP 20; REF-3; ATTR/2; -1 Stealth|6800|8d6|CRx2||Chromebook 2 pg.9
+ BODY PLATING|OPTION|Dummy Facemasks|DFM|Detachable faceplates; cost 25-500eb|250|0|N||Solo of Fortune 2 pg.69
+ BODY PLATING|OPTION|Front Optic Mount|FOM|Allows up to 5 optics to be mounted. -1 ATTR|1000|4d6|MA||Cyberpunk 2020 pg.93
+ BODY PLATING|OPTION|Reactive Body Plating|RBP|Detects laser\\& smart sights; REF&gt;10 dodge|6000|1d6|MA||Solo of Fortune 2 pg.70
+ BODY PLATING|OPTION|Sensory Extensions|RABB|Antenna with 1 cyber optic and mic|500|3d6|M||Cyberpunk 2020 pg.93
+ BODY PLATING|OPTION|Spyke!Furniture: Arms|SFA|1d6 Knife AP;|450|2|N||Chromebook 3 pg.30
+ BODY PLATING|OPTION|Spyke!Furniture: Head|SFH|1d3+1 dmg Knife AP;|400|1|N||Chromebook 3 pg.30
+ BODY PLATING|OPTION|Spyke!Furniture: Legs|SFL|1d6+1 Knife AP;|600|2|N||Chromebook 3 pg.30
+ BODY PLATING|OPTION|Spyke!Furniture: Torso|SFT|1d3+2 Knife AP;|500|3|N||Chromebook 3 pg.30
+ CHIPWARE||Chipware Socket||Holds 10 chips. Can 'run' number of chips = INT|200|1d6/2|N|10|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|APTR Reflex Chips||Chips reflex and tech based skills|0|0|N||Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Adrenaline/Endorphin Surge||Ignore Pain/Exhaustion; +1 BOD 3 times in 24 hrs|800|0|N||Chromebook 1 pg.75
+ CHIPWARE|OPTION|AmbidexterityChip||Makes user ambidextrous|800|0|N||Chromebook 1 pg.75
+ CHIPWARE|OPTION|Auditory Recognition I Chips||Require Amp Hearing and Sound Edit; +1|150|0|N||Chromebook 3 pg.39
+ CHIPWARE|OPTION|Auditory Recognition II Chips||Require Amp Hearing and Sound Edit; +2|300|0|N||Chromebook 3 pg.39
+ CHIPWARE|OPTION|Business Trip Chip||+1 Language; Culture; W/S or Business Law|800|0|N||Chromebook 1 pg.74
+ CHIPWARE|OPTION|ChipLok||Locks chips in place|150|0|N||Chromebook 4 pg.15
+ CHIPWARE|OPTION|Cookie Cutter||Smartgun required. Stops trigger on targets with badges (15eb)|300|0|N||Solo of Fortune pg.22
+ CHIPWARE|OPTION|Courier Chip||Imprints data on users brain|600|0|N||Chromebook 1 pg.73
+ CHIPWARE|OPTION|Crypto Chips||Randomly generated substitution word code 600 per|600|0|N||Chromebook 3 pg.37
+ CHIPWARE|OPTION|Death Trance||1-3 minutes to enter. Medtech 25+ to detect life|1000|0|N||Chromebook 1 pg.75
+ CHIPWARE|OPTION|Digi-Tone ID||Used with cyberaudio to recognise phone no.|70|0|N||Chromebook 1 pg.73
+ CHIPWARE|OPTION|Dream Suppressant Chip||Dream free sleep; lose 1 EMP every week of use|300|0|N||Chromebook 4 pg.16
+ CHIPWARE|OPTION|Facedown Chip||+1 bonus on Facedown rolls|150|0|N||Chromebook 4 pg.16
+ CHIPWARE|OPTION|Fish N' Chips||Appetite control device|85|0|N||Chromebook 1 pg.75
+ CHIPWARE|OPTION|Home Chip||Very Difficult Cool/Resist Torture roll to resist|940|0|N||Chromebook 4 pg.16
+ CHIPWARE|OPTION|Honey Pilar||Seductress supreme|1000|1d6/2|N||When Gravity Fails pg.53
+ CHIPWARE|OPTION|Increased Neural Feedback||1/2 time to 'chip in'; burns out in 24 hours|400|0|N||Chromebook 1 pg.75
+ CHIPWARE|OPTION|Independent Action Chip||Independent action for each arm. Amb +2 optics|250|0|N||Chromebook 1 pg.75
+ CHIPWARE|OPTION|James Bond||COOL +1 (max 11); user is a top British agent|1000|1d6/2|N||When Gravity Fails pg.53
+ CHIPWARE|OPTION|Kick Ass||COOL +2 (11); EMP -2 (1); enhances aggression.|2000|1d6/2|N||When Gravity Fails pg.53
+ CHIPWARE|OPTION|M.O. Chips||On eyes/no answer for INT 15+ roll|1200|0|N||Chromebook 1 pg.73
+ CHIPWARE|OPTION|MRAM MemoryChips||Chips INT and other cognitive skills|0|0|N||Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Maximum Lover Chip||+2 Seduction|1300|0|N||Chromebook 1 pg.74
+ CHIPWARE|OPTION|Memory Compression||3 skills; skill level +3 total; Cost is range of 200-400eb|300|0|N||Chromebook 1 pg.74
+ CHIPWARE|OPTION|Mind Games||Over 300 games available|40|0|N||Chromebook 1 pg.74
+ CHIPWARE|OPTION|Navigation/Orientation Chip||Requires Phone Splice/Radio Link; accurate 5m|250|0|N||Chromebook 3 pg.37
+ CHIPWARE|OPTION|Perfect Soldier||COOL +3 (11); EMP -2 (1); INT -2/+2 non-/combat|2000|1d6/2|N||When Gravity Fails pg.53
+ CHIPWARE|OPTION|Photo Memory RAM Chip||INT roll +2 [15+] to get a specific memory|1600|0|N||Chromebook 1 pg.74
+ CHIPWARE|OPTION|Police Visual Rec Chip||Visual ID's on criminals and licenses; cost per level|200|0|N||Chromebook 1 pg.76
+ CHIPWARE|OPTION|Poser Impersonation Chip||Specific Know [subject] +2; Perform +1; Cost range 900-1100eb|1000|0|N||Chromebook 1 pg.73
+ CHIPWARE|OPTION|Programmable Chipware||Provides basic knowledge of a procedure|50|0|N||Chromebook 1 pg.74
+ CHIPWARE|OPTION|Redundancy Loop||Will screw up at a crucial moment. Cost is 50-75% of the chip|0|0|N||Chromebook 1 pg.75
+ CHIPWARE|OPTION|Security Chips||Eraseable/destroyable chips; cost per 75 chips|50|0|N||Chromebook 1 pg.73
+ CHIPWARE|OPTION|Shape Recognition||Picks out chosen object; requires Time Square +|500|0|N||Chromebook 4 pg.15
+ CHIPWARE|OPTION|Personal Grooming +1||MRAM Skill Chip|100|0|N||Cyberpunk 2020 pg.0
+ CHIPWARE|OPTION|Personal Grooming +2||MRAM Skill Chip|200|0|N||Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Personal Grooming +3||MRAM Skill Chip|300|0|N||Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|SomaWare Sleep Induction Chip||Normal sleep (after 15 uses COOL 15+ to sleep)|400|0|N||Chromebook 3 pg.37
+ CHIPWARE|OPTION|Space Chip||Space Survival +2; Highrider Culture +1|900|0|N||Chromebook 1 pg.74
+ CHIPWARE|OPTION|Special Operative Chip||Language +1; Geography; and one other skill|900|0|N||Chromebook 1 pg.73
+ CHIPWARE|OPTION|Speedreading Chip||Requires optic. Half to a third normal reading time|250|0|N||Chromebook 4 pg.16
+ CHIPWARE|OPTION|Stress Chip||COOL +1 for morale; +1 EMP interaction|350|0|N||Chromebook 1 pg.75
+ CHIPWARE|OPTION|Stutter Chipping||Won't shoot designated (1 turn) friendlies|310|0|N||Chromebook 3 pg.38
+ CHIPWARE|OPTION|Subdermal Moddy Rack||Holds 3 Moddy and 10 Daddy; difficult to spot|200|1d6|M||When Gravity Fails pg.59
+ CHIPWARE|OPTION|Sunny Day||Feel happy; +4 vs Intimidation; +2 Resist Torture|2000|1d6/2|N||When Gravity Fails pg.54
+ CHIPWARE|OPTION|Tourism Chip||Language +1; Culture +1; General Knowledge +1|750|0|N||Chromebook 1 pg.74
+ CHIPWARE|OPTION|Visual Recognition Chips||INT+chip+1d10+Skill. Tech; Corp; Rocker; etc; cost per level|100|0|N||Chromebook 1 pg.76
+ CHIPWARE|OPTION|Weaponmasters Martial Art Chip||ArasakaTe; and Thamoc available (max +3); cost per level|270|0|N||Chromebook 3 pg.38
+ CHIPWARE|OPTION|Xarghis Khan||EMP 1; COOL 10; user wants to torture and kill|4000|1d6/2|N||When Gravity Fails pg.53
+ CYBERAUDIO||Biomechanical Cyberaudio||10% chance affected by EMP weapons; 3 options|1000|2|M|3|When Gravity Fails pg.62
+ CYBERAUDIO||Cyberaudio||Basic hearing module (6 option spaces)|500|2d6|M|6|Cyberpunk 2020 pg.87
+ CYBERAUDIO||Soviet Cyberaudio||Only 2 option spaces; 50% chance of -1 ATTR +1d6HC|100|2d6|M|2|Chromebook 4 pg.7
+ CYBERAUDIO||Spectrum Cyberaudio: Omnidirectional||+3 Awareness/Notice; -1 balance; Looks goofy|3000|3d6|MA||Chromebook 3 pg.35
+ CYBERAUDIO||Spectrum Cyberaudio: Outer Ear||+1 Awareness/Notice; -1 balance;|1000|3d6|MA||Chromebook 3 pg.35
+ CYBERAUDIO||Spectrum Cyberaudio: inner/outer Ear||+1 Awareness/Notice; -1 balance;|1500|3d6-2|MA||Chromebook 3 pg.35
+ CYBERAUDIO|OPTION|Amplified Hearing|AH|+1 Awareness using auditory cues. SWx2|200|1|N||Cyberpunk 2020 pg.88
+ CYBERAUDIO|OPTION|Bug Detector|BD|Detects taps; bugs up to 3m. 60% effective|200|0.5|N||Cyberpunk 2020 pg.87
+ CYBERAUDIO|OPTION|Digital Recording Link|DR|Transmits sounds to a digital recorder|100|0.5|N||Cyberpunk 2020 pg.88
+ CYBERAUDIO|OPTION|Enhanced Hearing Range|EH|Ability to hear super\\& subsonic ranges. SWx2|150|2|N||Cyberpunk 2020 pg.88
+ CYBERAUDIO|OPTION|Frequency Changer|FC|up to 6 channels|100|0|N||Chromebook 1 pg.39
+ CYBERAUDIO|OPTION|Homing Tracer|HT|Can follow tracer up to 1km distant|200|0.5|N||Cyberpunk 2020 pg.88
+ CYBERAUDIO|OPTION|Level Damper|LD|Automatic noise compensation. -25% from SW|300|0.5|N||Cyberpunk 2020 pg.88
+ CYBERAUDIO|OPTION|Micro-recorder Link|MR|Transmits to recorder in body or via plugs|100|0.5|N||Cyberpunk 2020 pg.88
+ CYBERAUDIO|OPTION|Phone Splice|PS|Full cellular communication (large city only)|150|1|N||Cyberpunk 2020 pg.87
+ CYBERAUDIO|OPTION|Radar Detector|RD|Beeps if radar encountered; fixes source(40%)|150|0.5|N||Cyberpunk 2020 pg.88
+ CYBERAUDIO|OPTION|Radio Link|RL|Radio communication up to 1 mile|100|1|N||Cyberpunk 2020 pg.87
+ CYBERAUDIO|OPTION|Scrambler|SC|Cannot understand with out a descrambler|100|0.5|N||Cyberpunk 2020 pg.87
+ CYBERAUDIO|OPTION|ShareChecker™ Link|SCL|Share information using Time Square; screen or audio|100|0.5|N||Eurotour pg.8
+ CYBERAUDIO|OPTION|Sound Editing|SE|+2 Awareness to overhear specific conversation|150|0.5|N||Cyberpunk 2020 pg.88
+ CYBERAUDIO|OPTION|Tight Beam Radio Link|TBR|Allows untappable radio com within line of sight|200|1|N||Cyberpunk 2020 pg.88
+ CYBERAUDIO|OPTION|Voice Stress Analyzer|VSA|+2 to Human Perception; Interrogation skills|200|1|N||Cyberpunk 2020 pg.88
+ CYBERAUDIO|OPTION|Wearman|WM|Stereo music system|100|0.5|N||Cyberpunk 2020 pg.88
+ CYBERAUDIO|OPTION|Wide Band Radio Scanner|WB|Picks up transmissions on all bands|100|2|N||Cyberpunk 2020 pg.88
+ CYBERFOOT||Anchoring Cyberfeet||Anchors use to ground. 4 uses (2 spaces each)|400|3|N||Chromebook 2 pg.5
+ CYBERFOOT||Catspaw Stealth Foot||+1 to Stealth skill|150|1|N||Chromebook 4 pg.5
+ CYBERFOOT||Grip Foot|GRPF|For better gripping strength. +2 to Climb|500|2|N||Cyberpunk 2020 pg.90
+ CYBERFOOT||Skate Foot||Allows an MA 20. Use Athletics or skate skill|440|1d6|N||Chromebook 1 pg.33
+ CYBERFOOT||Spike Heel Foot|SPKF|Heel spike for lethal kicks. 2d6AP damage|500|2d6|N||Cyberpunk 2020 pg.90
+ CYBERFOOT||Standard Foot|STD|Resembles normal foot|200|0|N||Cyberpunk 2020 pg.90
+ CYBERFOOT||Talon Foot|TAL|1d6 damage|600|2d6|N|0|Cyberpunk 2020 pg.90
+ CYBERFOOT||Tool Foot|TOLF|Toes contain screwdriver; wrench; drill;etc|300|2|N||Cyberpunk 2020 pg.90
+ CYBERFOOT||Web Foot|WEB|Doubles swimming speed; +3 to Swim skill|500|2|N||Cyberpunk 2020 pg.90
+ CYBERHAND||BuzzHand|BUZ|Circular saw 2d6+2 damage|600|2d6|N|0|Cyberpunk 2020 pg.90
+ CYBERHAND||Buzzsaw||2d6+2 damage 1 foot chainsaw. soft armor takes 2pts damage.|2199|2d6+4|N||Solo of Fortune pg.32
+ CYBERHAND||Custom Cyberhand||Varies|900|0|N|5|Chromebook 2 pg.5
+ CYBERHAND||Dynalar Web Hand||+2 swim; +1-2m/turn; 1d6* damage|250|2|N||Chromebook 3 pg.26
+ CYBERHAND||Grapple Hand|GRP|Extends rocket-propelled grapple; 30m line|350|3|N||Cyberpunk 2020 pg.90
+ CYBERHAND||Hammer Hand|HAM|Hydraulic Ram fist does 1d10 damage|600|2d6|N||Cyberpunk 2020 pg.90
+ CYBERHAND||Hammerhand||1D10 damage.|1150|2d6+1|N||Solo of Fortune pg.32
+ CYBERHAND||Independent Cyberhand||1d10 crush; 7/10 SDP; 1 option space|750|1d6|MA|5|Chromebook 1 pg.31
+ CYBERHAND||Medical Modular Cyberhand - independent||Monoscalpel; air-hypo; stapler; probe;etc|975|1d6/2|MA||Chromebook 4 pg.5
+ CYBERHAND||Medical Modular Cyberhand - part of cyberarm||Monoscalpel; air-hypo; stapler; probe;etc|975|1d6/2|N||Chromebook 4 pg.5
+ CYBERHAND||Modular Hand|MOD|Drug injector; Garrote, 1\" blade; Picklock; 2\"x2\" space|600|2|N||Cyberpunk 2020 pg.91
+ CYBERHAND||Ripper Hand|RPH|1d6+3|600|2d6|N|0|Cyberpunk 2020 pg.90
+ CYBERHAND||Spike Hand|SPK|1d6+3 AP|500|2d6|N|0|Cyberpunk 2020 pg.90
+ CYBERHAND||Standard Hand|STDF|Resembles normal hand|150|0|N|5|Cyberpunk 2020 pg.90
+ CYBERHAND||Tool Hand|TOL|Fingers contain screwdriver wrench; drill; etc|200|2|N||Cyberpunk 2020 pg.90
+ CYBERHAND|OPTION|Aip Hypo|CDAH|4 doses;air containers 3|200|1|N||Chromebook 2 pg.4
+ CYBERHAND|OPTION|Ballpoint Finger|CDBF|Leak proof pen|25|0.5|N||Chromebook 4 pg.4
+ CYBERHAND|OPTION|Cyberhand Coverings|CHC|Same range as listed in for cyberlimbs; 1/2 HC for the limb|100|0|N||Chromebook 1 pg.31
+ CYBERHAND|OPTION|Dartgun|CDDG|3m range|100|2|N||Chromebook 1 pg.32
+ CYBERHAND|OPTION|Derringer|CDD|P -1 P E 1d6 (5mm) 2 2 ST 50m|220|1d6|N||Chromebook 1 pg.36
+ CYBERHAND|OPTION|Extension Hand|EXT|Hand extends up to 1m|350|2|N||Cyberpunk 2020 pg.90
+ CYBERHAND|OPTION|Finger Bomb|CDFB|HVY +0 - R 2d6+3 1 1 ST 3m|150|0|N||Chromebook 1 pg.32
+ CYBERHAND|OPTION|Finger Mace Sprayer|CDFM|P +0 - E Mace 2 1 ST 1m|150|0|N||Chromebook 1 pg.32
+ CYBERHAND|OPTION|Flare|CDFLR|150m altitude; 25m diameter (15eb)|200|2|N||Chromebook 3 pg.22
+ CYBERHAND|OPTION|Flasher|CDFLH|DIFF REF to blind target for 1 min (25eb)|250|1|N||Chromebook 3 pg.22
+ CYBERHAND|OPTION|Flesh Mount|CDFM|Allows cyberfingers to be mounted on meathand|100|1|M||Chromebook 4 pg.4
+ CYBERHAND|OPTION|IR/UV Flashlight|CDIR|10m|200|1|N||Chromebook 3 pg.22
+ CYBERHAND|OPTION|Laser Pointer|CDLP|20m|150|0.5|N||Chromebook 3 pg.22
+ CYBERHAND|OPTION|Light Pen|CDLTP|used on computer screens|45|0.5|N||Chromebook 1 pg.32
+ CYBERHAND|OPTION|Lighter|CDLGH|2 hours of fuel; 1 eb/refill|105|2|N||Chromebook 2 pg.4
+ CYBERHAND|OPTION|Lockpick|CDLKPK|Pick for mechanical locks|50|0.5|N||Chromebook 1 pg.32
+ CYBERHAND|OPTION|Mace Sprayer|CDMS|2 bursts; -4 REF\\& Notice for 1d6 turns|150|2|N||Chromebook 1 pg.32
+ CYBERHAND|OPTION|Mini Light|CDML|25m beam; batteries 1eb 105 .5 Chr1;IR/UV Flashlight;N 10m range|200|1|N||Chromebook 1 pg.32
+ CYBERHAND|OPTION|One-Shot Special|CDOSS|P -2 P E1d6 (5mm) 1 1 ST 20m|250|2|N||Chromebook 4 pg.4
+ CYBERHAND|OPTION|Parabolic Microphone|CDPMI|20x Microphone; for full arms|350|2|N||Chromebook 3 pg.22
+ CYBERHAND|OPTION|Probe Link|CDPL|Interface link|150|0.5|N||Chromebook 3 pg.22
+ CYBERHAND|OPTION|Quick Change Mount Digit|CDQCM|Click and turn mount; mod =120|150|1|N||Chromebook 2 pg.4
+ CYBERHAND|OPTION|Quick-Change Mount|CLQCM|Cyberhand and cyberfoot only mount|450|3|MA||When Gravity Fails pg.61
+ CYBERHAND|OPTION|Self-Propelled Grenade|CDGRN|7m range; 2d6 over 2m (25eb)|200|2|N||Chromebook 2 pg.4
+ CYBERHAND|OPTION|Storage Compartment|CHSC|Small space|75|0.5|N||Chromebook 3 pg.22
+ CYBERHAND|OPTION|Tentacle Finger|CDT|Can't have rippers;|500|1|N||Interface 2 Issue2 pg.4
+ CYBERHAND|OPTION|Tentacle Finger, Extendable|CDTE|extend up to 30cm, requires a cyberhand. can't have rippers|750|1|N||Interface 2 Issue2 pg.4
+ CYBERHAND|OPTION|Tracking Device|CDTD|3m range; 2 bugs; 3 km transmitter|300|0.5|N||Chromebook 2 pg.4
+ CYBERHAND|OPTION|VidCam (+1 option)|CDVID|IR -200eb; Teleoptic - 225eb; or Lowlite -100|400|2|N||Chromebook 2 pg.4
+ CYBERHAND|OPTION|Wirecutters/Scissors|CDWC|1d6/3damage|150|1|N||Chromebook 1 pg.32
+ CYBERLIMB||Biomechanical Arm||10/15 SDP; 1d6 punch; 1d6 crush; 1/2 dam normal|0|1d6|CR|0|Interface 1 Issue2 pg.15
+ CYBERLIMB||Biomechanical Cyberarm||20% EMP; 1d6 punch; 8 flesh + 8 SDP; 1 option|6000|2|CR|1|When Gravity Fails pg.62
+ CYBERLIMB||Biomechanical Cyberleg||20% EMP; 2d6 kick; 8 flesh + 12 SDP; 1 option|4000|2|CR|1|When Gravity Fails pg.62
+ CYBERLIMB||Corvette Cyberlegs (advan)||+8 MA; +2 on movement rolls|5000|3d6+4|CR|0|Chromebook 4 pg.5
+ CYBERLIMB||Corvette Cyberlegs (advan) as upgrade||+8 MA; +2 on movement rolls|500|3d6+4|M|0|Chromebook 4 pg.5
+ CYBERLIMB||Corvette Cyberlegs (basic)||+3 MA; +1 on movement rolls|4500|3d6|CR|0|Chromebook 4 pg.5
+ CYBERLIMB||Enable Cyberarm||Early model. 23/33 SDP; REF -1|500|2d6+2|CR|0|Chromebook 3 pg.34
+ CYBERLIMB||Enable Cyberleg||Early model. 28/35 SDP; REF -1; MA -2|700|3d6+3|CR|0|Chromebook 3 pg.34
+ CYBERLIMB||Orbital Crystal Cyberarm||50/60 SDP; 4 option spaces; 1d6 punch|7000|2d6|CR|4|Chromebook 1 pg.57
+ CYBERLIMB||Orbital Crystal Cyberleg||50/60 SDP; 3 option spaces; 2d6 kick|6000|2d6|CR|3|Chromebook 1 pg.57
+ CYBERLIMB||Romanova Cyberlegs||+1 to Wardrobe\\& Style|5000|4d6|CRx2|3|Chromebook 3 pg.31
+ CYBERLIMB||Soviet Cyberarm||SDP 30/40; 3d6 punch; 2d10 crush; 5% failure; 50% -1 ATT and 1d6 HC|669|2d6|CR|2|Chromebook 4 pg.7
+ CYBERLIMB||Soviet Cyberleg||SDP 30/40; 3d10 kick; 5% failure; 2 spaces; 50% -1 ATT and 1d6 HC|875|2d6|CR|2|Chromebook 4 pg.7
+ CYBERLIMB||Standard Cyberarm||20/30 SDP; 4 option spaces; 1d6 punch|3000|2d6|CR|4|Cyberpunk 2020 pg.88
+ CYBERLIMB||Standard Cyberleg||20/30SDP; 3 option spaces; 2d6 kick|2000|2d6|CR|3|Cyberpunk 2020 pg.88
+ CYBERLIMB||Super Sized Arm||SDP 30/40; -2 REF; +1EV; 2d10/3d6; SP 20|4000|2d6|CR|4|Chromebook 3 pg.25
+ CYBERLIMB||Tentacle Arm||8x70 cm tentacles; SDP 5 each. SDP 20 shoulder|4000|5d6|CR|0|Interface 2 Issue2 pg.5
+ CYBERLIMB||Tentacle Arm, Extendable||Same as Tentacle Arm plus can extend to 150 cm|6000|5d6|CR|0|Interface 2 Issue2 pg.5
+ CYBERLIMB|BUILTIN|Audio/Video Recorder|AVR2|stores input from external mic, video cam or recording link|250|1|N||Cyberpunk 2020 pg.91
+ CYBERLIMB|BUILTIN|CapsuleCo CyberPillow||A pillow in an arm|80|0.5|M||Chromebook 3 pg.26
+ CYBERLIMB|BUILTIN|Cellular Cybermodem|CMDC|Built in cellular deck|5000|1|N||Cyberpunk 2020 pg.91
+ CYBERLIMB|BUILTIN|Cutting Torch||Can cut through SP20|100|1d6/2+1|N||Chromebook 1 pg.36
+ CYBERLIMB|BUILTIN|Cyberlimb Flashlight||Light built into palm; 3m range (0 spaces)|90|0.5|N||Interface 1 Issue4 pg.2
+ CYBERLIMB|BUILTIN|Cybermodem|CMD|Built in cyberdeck|3000|1|N||Cyberpunk 2020 pg.90
+ CYBERLIMB|BUILTIN|D-Tek Targeting Network||Negates movement firing modifiers|1300|1d6+3|M||Solo of Fortune 2 pg.25
+ CYBERLIMB|BUILTIN|Digital Recorder|DGRC|Digital chip recorder. Download or erase chip|300|1|N||Cyberpunk 2020 pg.91
+ CYBERLIMB|BUILTIN|Hidden Holster|HOL|Weapon size based on Body Type|100|1|N||Cyberpunk 2020 pg.91
+ CYBERLIMB|BUILTIN|Icer||2m range|200|1d6/2|N||Chromebook 1 pg.36
+ CYBERLIMB|BUILTIN|LCD Screen Readout|LCD|Can be linked to any output device|200|1|N||Cyberpunk 2020 pg.91
+ CYBERLIMB|BUILTIN|Laser Mike||60m range; Human Perception -5|400|1d6+2|N||Chromebook 2 pg.20
+ CYBERLIMB|BUILTIN|Magnetic Hands/Feet||For easier Zero-Gee movement|60|0|N||Chromebook 1 pg.34
+ CYBERLIMB|BUILTIN|Microwaldo Bracer||+1 to TECH rolls|800|3|N||Chromebook 3 pg.11
+ CYBERLIMB|BUILTIN|MiniCam|CAM|Pop up Digital Camera (20 shots)|200|2|N||Cyberpunk 2020 pg.91
+ CYBERLIMB|BUILTIN|MiniVid|MVID|Pop up Mini video(30 minutes)|400|2|N||Cyberpunk 2020 pg.91
+ CYBERLIMB|BUILTIN|Quickdraw Holster||P class conc. +2 Initiative to fastdraw|200|0|N||Chromebook 2 pg.6
+ CYBERLIMB|BUILTIN|SmartPlate Weapons Link||Smartgun= 3x cost|300|2|N||Chromebook 3 pg.23
+ CYBERLIMB|BUILTIN|Storage Space|STR|2 in. x 6 in. storage space. Can be locked|50|0.5|N||Cyberpunk 2020 pg.91
+ CYBERLIMB|BUILTIN|Techscanner|TKSN|60% effective; -3 to repair difficulty|400|3|N||Cyberpunk 2020 pg.91
+ CYBERLIMB|BUILTIN|ULF Antenna||100m reel antenna for transceiver|200|1|N||Firestorm: Stormfront pg.28
+ CYBERLIMB|BUILTIN|Watch-Man||Miniature TV|180|1|N||Chromebook 1 pg.33
+ CYBERLIMB|BUILTIN|Winch||15m cable; pulls up to 1 ton|500|1d6+3|N||Chromebook 2 pg.5
+ CYBERLIMB|OPTION|360 Rotating Joints|RJ|+1 to Escaping; some TECH repairs (.5 spaces)|120|2|N||Chromebook 4 pg.6
+ CYBERLIMB|OPTION|Armor Covering|ARM|SP 20; Can't have another covering.|200|1d6|N||Cyberpunk 2020 pg.91
+ CYBERLIMB|OPTION|Artificial Shoulder Mount|ASHO|Mount up to 2 extra arms. 25 SDP|1500|2d6|CR||Cyberpunk 2020 pg.89
+ CYBERLIMB|OPTION|Cyber Bar Leg|Corp Book L|Builtin wet bar|3000|2d6|CR||Interface 1 Issue3 pg.2
+ CYBERLIMB|OPTION|Double-Jointed|DJ|+1 Grapple; Holds; Chokes; Escapes (.5spaces)|1000|1d6/2|N||Chromebook 4 pg.6
+ CYBERLIMB|OPTION|Extending Leg Units|ELU|Alters height -1 to +3 ft. +1MA (2 spaces)|400|4|N||Chromebook 4 pg.6
+ CYBERLIMB|OPTION|Extra Twist Joint Addition|ETJA|Adds +2 Athletic type rolls; MArt Grapples\\& Escapes 30%; add 10% to cost of limb.|0|1|N||Chromebook 4 pg.2
+ CYBERLIMB|OPTION|Fleshweave|FW|Takes 1 option space. +50% repair costs; +20% limb cost in addition.|200|0|M||Chromebook 3 pg.21
+ CYBERLIMB|OPTION|Gas Jet|GJ|P +0 - C by Gas 6 1 ST 2m|250|0|N||Chromebook 1 pg.34
+ CYBERLIMB|OPTION|Hydraulic Rams|HRAM|30/40 SDP; 3x crush, punch, and kick damage|200|3|N||Cyberpunk 2020 pg.91
+ CYBERLIMB|OPTION|Leg Boosters|LB|+3m leaps (2 spaces)|500|1d6|N||Chromebook 3 pg.24
+ CYBERLIMB|OPTION|LimbLink|LMBL|Popup gun into a smartgun|100|1|N||Chromebook 1 pg.34
+ CYBERLIMB|OPTION|Locking Joints|LKJT|25+ Strength Feat to move (.5 spaces)|100|0.5|N||Chromebook 4 pg.6
+ CYBERLIMB|OPTION|Microwave/EMP shielding|MSR|Limb not as susceptible to EMP; Microwaves|300|1|N||Cyberpunk 2020 pg.89
+ CYBERLIMB|OPTION|Plastic Covering|PSTK|In colors; transparent; etc. Cost range 1 -200eb.|100|1|N||Cyberpunk 2020 pg.89
+ CYBERLIMB|OPTION|Popup Sliver Gun|PSG|P +0 - -2d6x1d6/2* 7 2 UR 40m|550|1d6+2|N||Chromebook 1 pg.42
+ CYBERLIMB|OPTION|Quick Change Mount|QC|Allows 1 turn changing of cyberlimb|200|2|N||Cyberpunk 2020 pg.89
+ CYBERLIMB|OPTION|RealSkinn Covering|REAL|Limblooks real. 70% effective (DIFF Awareness)|200|-1d6/2|N||Cyberpunk 2020 pg.90
+ CYBERLIMB|OPTION|Reinforced Joints|RJ|SDP +5|200|1|N||Cyberpunk 2020 pg.89
+ CYBERLIMB|OPTION|Sectional Cybernetics Mount|SCM|Cyberhand and cyberfoot only mount|300|3|MA||When Gravity Fails pg.61
+ CYBERLIMB|OPTION|Speeding Bullet|SPB|MA 16; leap 10m; 1 option space left per leg|2499|2d6|N||Solo of Fortune pg.32
+ CYBERLIMB|OPTION|Spiked Limb Cover|SLC|+1d6 grapple/holding damage|200|2|N||Interface 1 Issue4 pg.2
+ CYBERLIMB|OPTION|Superchrome Covering|SUPR|High gloss metallic covering|200|3|N||Cyberpunk 2020 pg.90
+ CYBERLIMB|OPTION|Tazer Grip|TZG|Punch Stun -2 1m|180|2d6-2|N||Chromebook 1 pg.38
+ CYBERLIMB|OPTION|Tentacle Arm Sheath|TAS|Hides tentacles; resembles cyberarm; 2 openings|800|0|N||Interface 2 Issue2 pg.4
+ CYBERLIMB|OPTION|The Crawler Surveillance Cyberhand|HND|Remote cyberhand|1500|1d6|N||Interface 2 Issue1 pg.2
+ CYBERLIMB|OPTION|Thickened Myomar|THK|25/35 SDP; x2 crush, punch, kick.; Leap +50%|250|2|N||Cyberpunk 2020 pg.91
+ CYBERLIMB|WEAPON|2 shot Capacitor Laser|LSR|shoulder mount; 3D6 damage|800|2d6|N||Cyberpunk 2020 pg.91
+ CYBERLIMB|WEAPON|Flame thrower|FTH|2d6 damage turn 1; 1d6/2 for 2 more turns|600|2d6|N||Cyberpunk 2020 pg.91
+ CYBERLIMB|WEAPON|Grenade Launcher|GLN|1 grenade|500|2d6|N||Cyberpunk 2020 pg.91
+ CYBERLIMB|WEAPON|Micro-missile Launcher|MML|4 mini-missiles; 4D6 damage|900|2d6|N||Cyberpunk 2020 pg.91
+ CYBERLIMB|WEAPON|Popup Gun|PUG|gun hidden in arm/leg base on Body Type. Cost range 200-800eb|500|2d6|N||Cyberpunk 2020 pg.91
+ CYBERLIMB|WEAPON|Weapon Mount & Link|WML|Mounting with neural link for 1 weapon|100|3|N||Cyberpunk 2020 pg.91
+ CYBERNETIC SYSTEM|OPTION|Electromagnetic Shielding|ES|-500 rads from radiation damage to cyberware; 50-200% Cost is 50%-200% of cyberware shielded.|0|0|N||Deep Space pg.77
+ CYBERNETIC SYSTEM|OPTION|Etched Design|ED|-2000eb if done before installation|20000|0|N||Chromebook 1 pg.71
+ CYBERNETIC SYSTEM|OPTION|Limblite|LMLT|Control Chip 700eb/Processor (1d6-1hc)1000|750|1-2|N||Chromebook 1 pg.71
+ CYBERNETIC SYSTEM|OPTION|Waterproofing|WTP|100 meters; Streetwise 20 to find; +1EV to limbs; Cost is 200% of Cyberware|0|0|N||Firestorm: Stormfront pg.27
+ CYBERNETIC SYSTEM|OPTION|Wetwiring|WTW|200 meters; Streetwise 20/25 to find. Cost is 300% of Cyberware|0|0|N||Firestorm: Stormfront pg.27
+ CYBEROPTIC||Biomechanical Cyberoptic||10% chance affected by EMP weapons; 2 options|1000|2|MA||When Gravity Fails pg.62
+ CYBEROPTIC||Bug Eye||Can hold 6 Options|750|3d6|MA|6|Chromebook 3 pg.23
+ CYBEROPTIC||Cyberoptic||Basic eye module (4 option spaces per eye)|500|2d6|MA|4|Cyberpunk 2020 pg.86
+ CYBEROPTIC||Kiroshi MonoVision||6 option spaces; +1 Notice; +Initiative vs Ambush|650|3d6|MA|6|Chromebook 4 pg.9
+ CYBEROPTIC||Kiroshi Optics \"Tricloptics\" Third Eye||-1ATTR/eye; max 2 extra|750|3d6+|CR|2|Chromebook 3 pg.28
+ CYBEROPTIC||Life Vision Revelation Cyberoptic||Early model. +1 Notice; ATTR -1;-2|700|3d6-1|MA||Chromebook 3 pg.36
+ CYBEROPTIC||Remote Eye||1 space left; 100m transmission|1500|3d6|MA|1|Chromebook 2 pg.9
+ CYBEROPTIC||Soviet Cyberoptic||1 option space per eye; 50% chance of -1ATTR and HC+1d6|100|2d6|MA|1|Chromebook 4 pg.7
+ CYBEROPTIC|OPTION|Anti-Dazzle|AD|Immune to flash; laser blinding|200|0.5|N||Cyberpunk 2020 pg.87
+ CYBEROPTIC|OPTION|Color Shift|CF|Allows color changes; special fashion effects|300|0.5|N||Cyberpunk 2020 pg.86
+ CYBEROPTIC|OPTION|Cyberoptic Compass|CMP|1 space;2 for logo compass|300|1|N||Chromebook 3 pg.24
+ CYBEROPTIC|OPTION|Dartgun|DE|Holds 1 poison dart. Range 1m (3 spaces)|200|2|N||Cyberpunk 2020 pg.87
+ CYBEROPTIC|OPTION|Digital Camera|DC|Shoots up to 20 images (2 spaces)|300|0.5|N||Cyberpunk 2020 pg.87
+ CYBEROPTIC|OPTION|Dodgeball|DB|+1 to Hand to Hand skill after 30 secs|440|1|N||Chromebook 1 pg.39
+ CYBEROPTIC|OPTION|Hydrosubsidium Aquagoggs|HSA|Synthetic nictitating membranes; good to 200m|200|1|N||Firestorm: Stormfront pg.28
+ CYBEROPTIC|OPTION|Image Enhancement|IE|+2 Awareness/Notice when using visual search|300|1|N||Cyberpunk 2020 pg.87
+ CYBEROPTIC|OPTION|Infrared|IR|See in total darkness; using heat emissions|200|1|N||Cyberpunk 2020 pg.86
+ CYBEROPTIC|OPTION|Kiroshi Optics Cyberoptic Interferometry System|KOCI|10x vision all the time|400|1|M||Chromebook 3 pg.27
+ CYBEROPTIC|OPTION|Laser-Comm Optic|LCC|50m range; and can blind. Code chips are 175|425|1|M||Chromebook 3 pg.24
+ CYBEROPTIC|OPTION|Live Feed Optic|LFO|2 mile range|1000|1|M||Interface 2 Issue1 pg.3
+ CYBEROPTIC|OPTION|Low Lite|LL|See in dim light; almost total darkness|200|0.5|N||Cyberpunk 2020 pg.87
+ CYBEROPTIC|OPTION|Micro-optics|ME|Microscope|150|0.5|N||Cyberpunk 2020 pg.87
+ CYBEROPTIC|OPTION|MicroVideo|MV|Video record up to 20 min (2 spaces)|300|0.5|N||Cyberpunk 2020 pg.87
+ CYBEROPTIC|OPTION|Nikkon Double-Slit Pupils|DSP|Allows clear vision through air-water boundary (1)|200|0.5|N||Chromebook 4 pg.10
+ CYBEROPTIC|OPTION|Optical Interface|OI|Interface plug behind the optic|600|2d6+2|MA||Chromebook 3 pg.27
+ CYBEROPTIC|OPTION|Targeting Scope|TA|+1 on all Smartgun attacks|400|2|N||Cyberpunk 2020 pg.86
+ CYBEROPTIC|OPTION|Tear Gas Sprayer|TGS|1m range(2 spaces)|200|2|N||Chromebook 1 pg.39
+ CYBEROPTIC|OPTION|Teleoptics|TE|Telescope ability to 20x|150|0.5|N||Cyberpunk 2020 pg.87
+ CYBEROPTIC|OPTION|Thermograph Sensor|TH|See heat patterns; temperature readings|200|1|N||Cyberpunk 2020 pg.87
+ CYBEROPTIC|OPTION|Times Square Marquee|TS|LED Screen in vision field for messages|300|1|N||Cyberpunk 2020 pg.86
+ CYBEROPTIC|OPTION|Times Square Plus|TSP|Allows visual information retrieval (3 spaces)|500|2|N||Chromebook 1 pg.38
+ CYBEROPTIC|OPTION|Ultra Violet|UV|See in darkness; using UV flash|200|1|N||Cyberpunk 2020 pg.87
+ CYBEROPTIC|OPTION|Vacuum Proof Optic|VPO|Required for Vac Weave. 4 option spaces; used with Vac Weave|600|2d6|MA||Deep Space pg.60
+ CYBEROPTIC|OPTION|Verbal-Eyes (Basic)|VEB|Displays images; -1 space|750|3|M||Chromebook 3 pg.32
+ CYBEROPTIC|OPTION|Verbal-Eyes (Cust. image)|VEC|4 spaces; Times Square Plus|1200|5|M||Chromebook 3 pg.32
+ CYBEROPTIC|OPTION|Verbal-Eyes (Vid Image)|VEVI|3spaces; + Video Imager|1000|5|M||Chromebook 3 pg.32
+ CYBEROPTIC|OPTION|Video Cam/Transmitter|VCT|Live feed 1m range (4 spaces)|330|1|N||Chromebook 1 pg.39
+ CYBEROPTIC|OPTION|Video Imager|VI|Receives vid images(2 spaces)|350|2|N||Chromebook 1 pg.39
+ CYBERVOCAL||Audio Vox|LS|For special effects. +2 to Performance|700|2d6|M||Cyberpunk 2020 pg.85
+ CYBERVOCAL||Cybervocal 'Box Alter'||1 option; 1 voice|400|1d6+2|CR|1|Interface 1 Issue3 pg.2
+ CYBERVOCAL||Dakai /Cyphire NewThroat||Hold 3 implants/options at 1/4 Eb; 0 HC;15 SDP|850|2d6|CR|3|Chromebook 4 pg.8
+ CYBERVOCAL|OPTION|Altering Voice Patterns|AVP|Requires Audio Vox and Voice Pattern.|1050|2d6+2|M||Wildside pg.65
+ CYBERVOCAL|OPTION|Armor|AR|New Throat only; 20SP|150|1d6|N||Interface 1 Issue3 pg.2
+ CYBERVOCAL|OPTION|Dakai Scramble|SCR|A Vox/New Throat options; scrambles voice|50|2|N||Chromebook 4 pg.8
+ CYBERVOCAL|OPTION|Forked Tongue|FT|A Vox/New Throat option; +1 to persuasion/seduction|350|2|M||Chromebook 1 pg.35
+ CYBERVOCAL|OPTION|Subsonic|SUB|Only heard with subsonic hearing|150|1d6|N||Interface 1 Issue3 pg.2
+ CYBERVOCAL|OPTION|Voice Pattern|VP|A Vox/New Throat option; allows voice pattern emulation|350|2|M||Chromebook 1 pg.35
+ CYBERVOCAL|OPTION|Voice Synthesizer|VS|Can mimic (60%) up to 10 recorded sounds|600|1d6|M||Cyberpunk 2020 pg.85
+ CYBERVOCAL|OPTION|Volume|VOL|Whisper to megaphone; deaf for 1d6 turns;5m|75|2|N||Interface 1 Issue3 pg.2
+ CYBERWEAPON||Big Knucks|BCN|Punch 1d6+2|500|3d6|M||Cyberpunk 2020 pg.86
+ CYBERWEAPON||BigRipp (body weapon)||Carbo-glass blade. 2d6; 1/2SP (break 1-3)|850|3d6+1|M||Chromebook 4 pg.11
+ CYBERWEAPON||BigRipp (cyberlimb weapon)||2d6* damage (break on 1 or 1-3 on a parry)|1200|3d6+1|MA||Chromebook 4 pg.11
+ CYBERWEAPON||Blitzkrieg Arc-Thrower||EX +0 - R 3d6 (1/2 real 1/2 stn) 4 1 ST 10m|10|0|||Chromebook 4 pg.12
+ CYBERWEAPON||Bonespike||Punch 1d6+4* 1m|1000|2d6|||Chromebook 3 pg.25
+ CYBERWEAPON||ChainRipp||Punch 3d6(1/3SP) 1m|1250|2d6+4|||Chromebook 3 pg.29
+ CYBERWEAPON||Cybersnake|CSN|1d6 damage. 1m range|1200|4d6|MA||Cyberpunk 2020 pg.86
+ CYBERWEAPON||Cyphire Retractable Spitting Cobra||Retractable vampires that spit chemicals 6ft|700|4d6|MA||Chromebook 3 pg.27
+ CYBERWEAPON||Cyphire Spitting Cobra||Vampires that spit chemicals 6ft; as airgun pellet|400|4d6|M||Chromebook 3 pg.27
+ CYBERWEAPON||Extended Canines||Grapple 1d6/2+1*.5m|1000|3d6+2|||Chromebook 2 pg.9
+ CYBERWEAPON||Extended Sharkgrin Special||Mouth. 1d6*damage. Retractable|1400|4d6|CR||Chromebook 2 pg.9
+ CYBERWEAPON||Flashbulb||P +0 - C COOL 30; 1d6 min - 1 ST 6m|250|0|N||Chromebook 1 pg.35
+ CYBERWEAPON||Gang Jazzler||Punch Special 1m|600|2d6+3|N||Chromebook 1 pg.40
+ CYBERWEAPON||High Five, AKA The Palm Bomb||20-30 to detect. .477 or 12ga round; 1 shot|355|1d6+3|N||Chromebook 4 pg.11
+ CYBERWEAPON||Hollow Claws||Connected to poison sac/gland; 1d6/3* damage|250|2d6|M||When Gravity Fails pg.59
+ CYBERWEAPON||Hollow Vampires||Linked to poison sac or gland|50|1|N||When Gravity Fails pg.59
+ CYBERWEAPON||IEC Venom Hand||Punch 1d6-1/by Drug 1m|600|2d6|||Corp Book 2 pg.70
+ CYBERWEAPON||Mace Hand||Punch 1d10-2/2d6+11/2m|300|3|||Chromebook 1 pg.36
+ CYBERWEAPON||Mandibles||2d6 damage bite; look normal except for eating|1200|5d6|MA||Interface 2 Issue2 pg.4
+ CYBERWEAPON||NewTeeth||Ceramic teeth: MEL -1 NA C 1-2* NA 1 VR touch|200|1d6/2|M||Chromebook 4 pg.7
+ CYBERWEAPON||Pop -Up Hand Crossbow||-2 J E1d6+2 6 2 VR 25m (3 spaces)|300|2d6|N||Solo of Fortune 2 pg.39
+ CYBERWEAPON||Power Jaw||Myomer jaw muscles; +2 to bite damage|100|1d2|MA||Chromebook 4 pg.7
+ CYBERWEAPON||Retractable Vampires/Sharkgrin||Mouth. 1d6/3* to1d6* bite damage. Retractable|500|2d6+2|MA||Chromebook 2 pg.9
+ CYBERWEAPON||Rippers|RIP|1d6+3* damage|400|3d6|M||Cyberpunk 2020 pg.86
+ CYBERWEAPON||Scratchers|SCR|Punch 1d6/3* 1m|100|2d6|N||Cyberpunk 2020 pg.85
+ CYBERWEAPON||Slice N' Dice|SND|2d6# 2m|700|3d6|M||Cyberpunk 2020 pg.86
+ CYBERWEAPON||SovWear Cyberarm||Punch 3d6; 6d6 crush 1m|1000|2d6|||Solo of Fortune pg.7
+ CYBERWEAPON||SovWear Cyberleg||Kick 6d6 1m|1500|2d6|||Solo of Fortune pg.7
+ CYBERWEAPON||Stinger||Fingermounted Hypodermic needle (3 doses)|400|1d6+3|M||Chromebook 4 pg.10
+ CYBERWEAPON||Tri -Dart Launcher||3 darts;1d6/2 damage; 1/3 SP|300|1d6/2|N||Chromebook 2 pg.6
+ CYBERWEAPON||Vampires - Canines|VAM-C|damage 1d6/3*|200|3d6|N||Cyberpunk 2020 pg.86
+ CYBERWEAPON||Vampires - Sharkgrin Special|VAM-SS|damage 1d6/2*|200|3d6|N||Cyberpunk 2020 pg.86
+ CYBERWEAPON||Whip||MEL 1d6/2;1d6 2m|475|2d6|N||Chromebook 1 pg.34
+ CYBERWEAPON||Wolvers|WLV|3d6* damage|600|3d6+1|M||Cyberpunk 2020 pg.86
+ EXOTIC BODYSCULPT||Bear Package||Muzzle; fangs; claws; fur; taller; grafted muscle|24500|13d6|CR + MA + Mx3 + Nx2||Chromebook 2 pg.106
+ EXOTIC BODYSCULPT||Big Katt||Muzzle; fangs; claws; tail; digitigrade legs; fur|21000|19d6|CR + MA + Mx3 + N||Chromebook 2 pg.107
+ EXOTIC BODYSCULPT||Dragon-Man|||16000|9d6|1MA, 2M, 2N||Chromebook 2 pg.109
+ EXOTIC BODYSCULPT||Dwarf/Halfling||Shorter\\& stockier frame (MA-2); broader features|9000|2d6+1d6/2|CR + M||Chromebook 2 pg.105
+ EXOTIC BODYSCULPT||Elf||Pointed ears; thin face; upturned eyebrows|1000|1d6/2|M||Chromebook 2 pg.105
+ EXOTIC BODYSCULPT||Fishman||Gills; synthskin; webbing; custom contacts|2000|4d6+1d6/2|MA + M + Nx2||Chromebook 2 pg.106
+ EXOTIC BODYSCULPT||Franz Kafka Bughouse||as Slight Buggy; + mandibles; exoskeleton; scratchers|35500|15d6|CRx2 + MAx2 + M + N||Chromebook 2 pg.108
+ EXOTIC BODYSCULPT||KatNip - Feline||Slit-eyes; pointed ears; tail; synthskin; scratchers|3400|4d6+1d6/2|MA + M + Nx2||Chromebook 2 pg.104
+ EXOTIC BODYSCULPT||LupaForm Major Package||as minor form; + muzzle; tail; digitgrade legs; fur|20000|15d6|CR + MAx2 + M + Nx2||Chromebook 2 pg.109
+ EXOTIC BODYSCULPT||LupaForm Minor Package||Pointed ears; dog-nose\\& eyes; fangs; synthskin|1900|3d6+1d6/2|M + Nx2||Chromebook 2 pg.109
+ EXOTIC BODYSCULPT||Merman||Gills; skinchange; fishtail; cust. contacts; sonar|18900|10d6+1d6/2|CRx2 + MA + M + Nx2||Chromebook 2 pg.108
+ EXOTIC BODYSCULPT||Ork/Goblin||Broad features; longer arms; fangs; synthskin|10900|6d6|CR + M + Nx2||Chromebook 2 pg.106
+ EXOTIC BODYSCULPT||Playbeing|||3000|3d6+1d6/2|MA + Nx4||Chromebook 2 pg.110
+ EXOTIC BODYSCULPT||Rabbit||Bunny ears\\& tail; button nose; whiskers|1250|1d6|Mx2||Chromebook 2 pg.105
+ EXOTIC BODYSCULPT||Reptile||No ears; long tongue; olfactory; fangs; synthskin|2000|4d6|M + Nx3||Chromebook 2 pg.105
+ EXOTIC BODYSCULPT||Rodent||Enlarged ears and eyes; button nose; synthskin|1400|1d6+1d6/2|M + N||Chromebook 2 pg.104
+ EXOTIC BODYSCULPT||Sharkman||Gills; sonar; skinweave\\& change; muzzle; etc|17700|12d6|MAx2 + Mx2 + Nx3||Chromebook 2 pg.108
+ EXOTIC BODYSCULPT||Slight Buggy||Bug-eyes; antennae; scaly synthskin; cyber optics|3400|6d6|MA + M + N||Chromebook 2 pg.108
+ EXOTIC BODYSCULPT||The Superman||The future of humanity via nano and bioware|19735|13d6|CR + MAx3 + M + Nx8||Chromebook 2 pg.107
+ EXOTIC BODYSCULPT||Troll/Ogre||Broad features; fangs; taller; grafted muscle; MBL|12000|7d6|CR + MA + M + Nx2||Chromebook 2 pg.106
+ EXOTIC BODYSCULPT|OPTION|Armor Weave||Adds +1 BODY;SP 18; -1 REF+MA; need MBL;SKW|4000|1d6|N||Chromebook 2 pg.103
+ EXOTIC BODYSCULPT|OPTION|Combat Tail||Heavily muscled. 1d6+ Damage Mod.|2500|3d6|MA||Chromebook 2 pg.102
+ EXOTIC BODYSCULPT|OPTION|Digitgrade Legs||3 joint legs. +1 MA with tail. -2 MA without tail|4000|6d6|CR||Chromebook 2 pg.102
+ EXOTIC BODYSCULPT|OPTION|Exo Skeleton||SP 18; MA\\& REF -2. 10% chance of cancer|20000|4d6|CR||Chromebook 2 pg.102
+ EXOTIC BODYSCULPT|OPTION|Frame Alteration||25% size change from actual body size|8000|2d6|CR||Chromebook 2 pg.102
+ EXOTIC BODYSCULPT|OPTION|Fur/Scales/Skinchange||10% chance of cancer|10000|3d6|N||Chromebook 2 pg.102
+ EXOTIC BODYSCULPT|OPTION|Heavy Scales||SP 12. 10% chance of cancer|12000|3d6|N||Chromebook 2 pg.102
+ EXOTIC BODYSCULPT|OPTION|Major Facial Modification||Major alterations to features|2000|1d6|M||Chromebook 2 pg.102
+ EXOTIC BODYSCULPT|OPTION|Mandibles, Extended||Semi-prehensile grasping 'jaws'.1d6* damage|4000|3d6|MA||Chromebook 2 pg.102
+ EXOTIC BODYSCULPT|OPTION|Minor Facial Modification||Alterations to eyes; ears; nose; etc|1000|1d6/2|M||Chromebook 2 pg.102
+ EXOTIC BODYSCULPT|OPTION|Muzzle,Long||Like a dog's or horse's muzzle|2500|2d6|MA||Chromebook 2 pg.102
+ EXOTIC BODYSCULPT|OPTION|Muzzle,Short||Like a bear's or tiger's muzzle|2000|1d6|M||Chromebook 2 pg.102
+ EXOTIC BODYSCULPT|OPTION|Natural Claws||-3 to manipulation rolls. 1d6* damage|1000|1d6+1|N||Chromebook 2 pg.102
+ EXOTIC BODYSCULPT|OPTION|Natural Fangs||1d6* bite damage|500|2d6|N||Chromebook 2 pg.102
+ EXOTIC BODYSCULPT|OPTION|Retractable Claws||1d6* damage|1000|2d6|M||Chromebook 2 pg.102
+ EXOTIC BODYSCULPT|OPTION|Short Tail||Bunny tail; etc|250|2|M||Chromebook 2 pg.102
+ EXOTIC BODYSCULPT|OPTION|Speed Grafts||+2 MA|750|1d6|MA||Chromebook 2 pg.103
+ EXOTIC BODYSCULPT|OPTION|Stinger Tail||Poison injecting stinger. 1d6*+Mod+drug/toxin|3000|3d6|MA||Chromebook 2 pg.102
+ EXOTIC BODYSCULPT|OPTION|Tail||Mobile but weak; exerts about 3lbs of force|1500|2d6|MA||Chromebook 2 pg.102
+ FASHIONWARE||Biomonitor|BIO|+2 to Resist Torture\\& Drugs|100|1|N||Cyberpunk 2020 pg.80
+ FASHIONWARE||Chem Skins|CSK|Color/pattern changing skin tints|200|1d6/2|N||Cyberpunk 2020 pg.80
+ FASHIONWARE||Dermatech Logo-Line Tattoo||Logo Tattoos; Cost range 10-200eb;|100|.5|N||Chromebook 4 pg.13
+ FASHIONWARE||Dermatech Mood Skin||Changes color based on mood; cost eb/m; hc is per m|200|1d6|N||Chromebook 3 pg.35
+ FASHIONWARE||Gene -Tek's See-It Transparent Skin||ATTR -1;-4 for face; cost eb/m; hc is per m|1000|3d6|M||Chromebook 3 pg.35
+ FASHIONWARE||Kill Display||3 digit display|100|1|N||Chromebook 2 pg.6
+ FASHIONWARE||Lead 's Show-Off Nails||Pattern changing nails; Cost is for a set of 10 else 45eb/nail|425|2|N||Chromebook 3 pg.36
+ FASHIONWARE||Lead 's Turn-On Nails||Color change nails; Cost is for set of 10 else 25eb/nail|200|1|N||Chromebook 3 pg.36
+ FASHIONWARE||Light Tattoo|LT|Decorative tattoo; Cost range is 1-20eb|10|.5|N||Cyberpunk 2020 pg.80
+ FASHIONWARE||Nu -Tek TV Skin||Your skin can become a vidscreen|600|1d6+4|M||Chromebook 4 pg.14
+ FASHIONWARE||Raven Advanced Biomonitor||Includes ability broadcast information over 2km|200|(1d6/2)-1|MA||Corp Book 3 pg.72
+ FASHIONWARE||Shift -tacts|SHF|Color changing contact lenses; Cost range is 1-200eb|100|.5|N||Cyberpunk 2020 pg.80
+ FASHIONWARE||Skinwatch|SWTC|Subdermal timepiece|50|1|N||Cyberpunk 2020 pg.80
+ FASHIONWARE||Synthskin Tuning Chips|SYNC|Stores different patterns/colors for Synthskin|100|0|N||Cyberpunk 2020 pg.80
+ FASHIONWARE||Synthskins|SYNC|Color/pattern changing artificial skin|400|1d6|N||Cyberpunk 2020 pg.80
+ FASHIONWARE||Techhair|TEH|Color/light emitting artificial hair. Cost range 1-200eb|100|0|M||Cyberpunk 2020 pg.80
+ FULL CONVERSION||'Sheol' Hazardous Ops||REF 10; MA 10; BOD 18; SP 30; SDP20/30/40|50000|18d6+8|CRx2||Chromebook 3 pg.93
+ FULL CONVERSION||'Wiseman' Cyberspace Com||REF 14; MA 10; BOD 12; SP 25; SDP20/30/40|91381|23d6+3|CRx2||Chromebook 3 pg.104
+ FULL CONVERSION||Adrek 'Burroughs' Mars Ops||REF 10; MA 10; BOD 12; SP 35; SDP20/30/40|42000|16d6+4|CRx2||Chromebook 3 pg.98
+ FULL CONVERSION||Alpha Class||REF 10; MA 10; BOD 12; SP 25; SDP20/30/40|40000|16d6|CRx2||Chromebook 2 pg.66
+ FULL CONVERSION||Aquarius (Sub-Marine)||REF 10; MA 10; BOD 15; SP 25; SDP 20/30/40|50000|18d6+2|CRx2||Chromebook 2 pg.68
+ FULL CONVERSION||Arasaka 'Daioni' PA Convert||REF 17; MA 20; BOD 52; SP 80; +6Initiative|810000|16d6+30|CRx2||SW pg.40
+ FULL CONVERSION||Brimstone (Fire-Fighter)||REF 11; MA 10; BOD 14; SP 30; SDP20/30/40|47000|19d6|CRx2||Chromebook 2 pg.75
+ FULL CONVERSION||Copernicus (Space-Use)||REF 11; MA 10; BOD 12; SP 25; SDP20/30/40|60000|19d6|CRx2||Chromebook 2 pg.69
+ FULL CONVERSION||Dragoon (Military)||REF 15; MA 25; BOD 20; SP 40; SDP40/50/60|120000|42d6+3|CRx2||Chromebook 2 pg.82
+ FULL CONVERSION||Eclipse (Covert Ops)||REF 13; MA 13; BOD 12; SP 25; SDP20/30/40|65000|21d6+3|CRx2||Chromebook 2 pg.71
+ FULL CONVERSION||Enforcer (Security)||REF 12; MA 15; BOD 12; SP 30; SDP25/35/45|55000|21d6-2|CRx2||Chromebook 2 pg.73
+ FULL CONVERSION||Gemini (Humanoid)||REF 10; MA 10; BOD 12; SP 25; SDP20/30/40|55000|16d6+2|CRx2||Chromebook 2 pg.77
+ FULL CONVERSION||MD Tech 'Kildare' Medical||REF 10; MA 10; BOD 12; SP 25; SDP20/30/40|46000|19d6|CRx2||Chromebook 3 pg.95
+ FULL CONVERSION||Militech 'Spyder' Recon||REF 12; MA 20; BOD 12; SP 30; SDP20/30/40|118105|39d6|CRx2||Chromebook 3 pg.100
+ FULL CONVERSION||Samson (Industrial)||REF 10; MA 10; BOD 18; SP 25; SDP20/30/40|50000|20d6+1|CRx2||Chromebook 2 pg.80
+ FULL CONVERSION||Wingman (Pilot)||REF 15; MA 10; BOD 12; SP 25; SDP20/30/40|54000|20d6|CRx2||Chromebook 2 pg.78
+ FULL CONVERSION|OPTION|CyberSteriods||BODx3; +3kg/+1 BOD; runs off power unit below; cost per +1|1500|6d6|CRx2||Chromebook 3 pg.107
+ FULL CONVERSION|OPTION|Eelskin||1d6 to 2d6+3 Damage|14000|1d6|MA||Chromebook 3 pg.107
+ FULL CONVERSION|OPTION|Increased BODY||Max 20; cost eb/+1; HC per +1|1000|2|N||Chromebook 2 pg.85
+ FULL CONVERSION|OPTION|Increased MA||Max 25; cost eb/+1; HC per 1|1500|2|N||Chromebook 2 pg.85
+ FULL CONVERSION|OPTION|Increased REF||Max 15; cost eb/+1; HC per +1|2000|2|N||Chromebook 2 pg.85
+ FULL CONVERSION|OPTION|Increased SDP||Max +20SDP; +55lbs/+5 SDP; cost eb/+5|1500|0|N||Chromebook 2 pg.84
+ FULL CONVERSION|OPTION|Increased SP||Max 40SP; 10-50lbs weight increase; cost eb/+5|2000|0|N||Chromebook 2 pg.84
+ FULL CONVERSION|OPTION|Interchangeable Biopod||Organs can be moved to different FBRs|0|2|CR||Chromebook 2 pg.85
+ FULL CONVERSION|OPTION|Longevity Module||Theoretically triples 'borg's lifespan|15000|1|N||Chromebook 2 pg.85
+ FULL CONVERSION|OPTION|QuickChange Mounts||Rifles(2); Hvy.Weapons (3) can be mounted|200|2|N||Chromebook 2 pg.85
+ FULL CONVERSION|OPTION|Shielding||Electronic shielding. 500 rads protection|2000|6|N||Chromebook 2 pg.85
+ FULL CONVERSION|OPTION|Stylization||Customization; possible bonuses to some skills|0|Varies|N||Chromebook 2 pg.84
+ IMPLANT||Adrenal Booster|ADB|Boosts REF by +1 for 1d6+2 turns 3x per day|400|2d6|M||Cyberpunk 2020 pg.84
+ IMPLANT||Audio /Video Recorder|AVR|2hrs storage from video; audio links|300|2|M||Cyberpunk 2020 pg.84
+ IMPLANT||Autoinjector||Holds 5 doses; +200eb to wire to Biomonitor|750|1d6/2|M||Chromebook 3 pg.25
+ IMPLANT||Bodyweight Variable-Chambered Heart||Cyberheart option; x2 hold breath; +1 Endurance|450|1d6/2|N||Chromebook 4 pg.9
+ IMPLANT||Bodyweight Vein Clips||+2 on all Death Saves|700|1d6|MA||Chromebook 4 pg.10
+ IMPLANT||Booze Master||+1 to resist alcohol|100|1|M||PAC pg.113
+ IMPLANT||Cam -O-Skin||-1 Awareness/20m; 8 patterns; takes 1hr|850|1d6/2|N||Chromebook 3 pg.30
+ IMPLANT||Chemical Analyzer|CH|5m range. 70% effective|200|2|M||Cyberpunk 2020 pg.84
+ IMPLANT||Contraceptive Implant|CI|Good for 5 years. 98% effective|100|.5|N||Cyberpunk 2020 pg.84
+ IMPLANT||Cyber -Lung||Required for Vac Weave. Provides 15 minutes of air for us in vacuum|700|1d6+1|MA||Deep Space pg.60
+ IMPLANT||Decentralized Heart||+2 to Death Saves for Torso wounds|1300|1d6+4|CR||Chromebook 1 pg.37
+ IMPLANT||Digital Recorder|DGR|2hrs storage from any digital source|200|2|M||Cyberpunk 2020 pg.84
+ IMPLANT||Doc Richter Seismic Sensor||40m range. Senses vibrations. 75%|220|1d6/2|M||Solo of Fortune pg.22
+ IMPLANT||Dynala Endo-Frame (Basic)||BOD +3; +1 HH dam; 10 points/limb; EV +1|12000|2d6+1|CRx2||Chromebook 3 pg.28
+ IMPLANT||Dynalar Endo-Frame(Orbital)||BOD +3; +2 all dam; 12 points/limb|25000|2d6+3|CRx2||Chromebook 3 pg.28
+ IMPLANT||E -Monitor||Detects changes in pressure and air|185|1|N||Chromebook 1 pg.38
+ IMPLANT||Enhanced Lungs Series 2||Can hold breath for 5-30 mins. 200m depth|5000|1d6|CR||Firestorm: Stormfront pg.28
+ IMPLANT||Enhanced Lungs Series 3||Entire lungs replaced. Good down to 1000m|7500|1d6+2|CRx2||Firestorm: Stormfront pg.28
+ IMPLANT||Eye Color Gland Control||Change eye color in 1d6 mins|250|1|M||Chromebook 2 pg.6
+ IMPLANT||Feature Alteration Implant||Facial change takes 3 hours; +4 to Disguise rolls|3500|1d6+1|N||When Gravity Fails pg.60
+ IMPLANT||Feel Good Endorphin Trigger||1d10 if hurt; 8-10=+3 Stun/Death; 1=intoxicated|500|1d6|M||SW pg.41
+ IMPLANT||Filter Valves||Required for Vac Weave. Cavities fitted with valves for vacuum survival|300|8|M||Deep Space pg.60
+ IMPLANT||Flashlight Implant||Patch of synthskin; 3m range|90|1|M||Interface 1 Issue4 pg.2
+ IMPLANT||Flashlight Strobe||DIFF 10- 15 to blind for 1d6 hours. ROF 1/2|150|1.5|M||Interface 1 Issue4 pg.2
+ IMPLANT||GPS Module||Determine position to 17cm. Needs Time Square or Time Square+|450|1|N||Firestorm: Stormfront pg.28
+ IMPLANT||GPS Module w/screen||As above but with subdermal view screen|600|1d6/2|M||Firestorm: Stormfront pg.28
+ IMPLANT||Gills (Fresh water)|GL|Waterbreathing system; good for 4 hours|400|3d6|MA||Cyberpunk 2020 pg.84
+ IMPLANT||Gyro -Stabilizer||+1 to balancing maneuvers|1000|1d6|N||Chromebook 1 pg.38
+ IMPLANT||Independent Air Supply|IA|Good for 10 to 25 minutes|300|2d6|MA||Cyberpunk 2020 pg.84
+ IMPLANT||Mediaware Cellular-Phone||Implanted cell phone|500|3|MA||Chromebook 3 pg.24
+ IMPLANT||Midnight Lady Implant|MS|Sexual implant. +1 to Seduction checks|300|2d6|MA||Cyberpunk 2020 pg.84
+ IMPLANT||Military Sonar||50m range. Forwater only. 95% effective. P Avail|700|2|M||Firestorm: Stormfront pg.27
+ IMPLANT||Militech Cyberdoc Emergency Medkit||Counter acts drugs; etc|5000|1d6-1|MA||Corp Book 2 pg.62
+ IMPLANT||Motion Detector|MD|20 sq/m area. 70% effectiveness.|200|2d6|M||Cyberpunk 2020 pg.84
+ IMPLANT||Mr Studd Sexual Implant|MS|All night; every night. +1 to Seduction checks|300|2d6|MA||Cyberpunk 2020 pg.84
+ IMPLANT||Nasal Filters|NF|Stops gases; fumes. 70% effective|60|2|M||Cyberpunk 2020 pg.84
+ IMPLANT||OTEC Ear Valve||Pressure equalization system|150|1|MA||Firestorm: Stormfront pg.28
+ IMPLANT||OptiShield||Anti-Dazzle; SP8; 2 spaces for optic options|300|1d6+2|M||Chromebook 1 pg.31
+ IMPLANT||OptiShield Options||T 2; T 2+; TE; LL;IR;Time/day|100|50% HC|N||Chromebook 2 pg.5
+ IMPLANT||Pacesetter Heart||MA and BODY +1 when on|900|1d6|MA||Chromebook 1 pg.37
+ IMPLANT||Pacesetter2000 Heart||MA and BODY +2 when on|985|1d6|MA||Chromebook 1 pg.37
+ IMPLANT||Poison Gland||Holds 8 doses; produces new dose every hour|1200|3d6|MA||When Gravity Fails pg.59
+ IMPLANT||Poison Sac||Holds 4 doses; refilled with special applicator|500|2d6|MA||When Gravity Fails pg.59
+ IMPLANT||Radar Sensor|RA|100m range. Needs cyberoptic. 70% effective|200|2|M||Cyberpunk 2020 pg.84
+ IMPLANT||Radiation Detector|RAD|10m range. 80% effective|200|2|M||Cyberpunk 2020 pg.84
+ IMPLANT||Rebreather /Enhanced Lungs||Can hold breath for 15 mins|700|1d6+1|MA||Chromebook 1 pg.36
+ IMPLANT||Retractable Needle||Mounted in finger; connected to poison sac/gland|650|2d6|M||When Gravity Fails pg.59
+ IMPLANT||Saltwater Gills||Saltwater breathing system; good for 4 hours|600|3d6|MA||Firestorm: Stormfront pg.27
+ IMPLANT||Sonar Implant|SN|50m range. For water only. 70% effective|300|2|M||Cyberpunk 2020 pg.84
+ IMPLANT||Subdermal Pocket|PKT|2 in. x 4 in. space with Realskinn zipper. DIFF to spot|200|2d6|M||Cyberpunk 2020 pg.84
+ IMPLANT||Subdermal Viewscreen||Similar to Times Square Marquee|250|1d6/2|M||Chromebook 2 pg.8
+ IMPLANT||Super High Density RAM||40MU; 1 CPU; download via plus 1MU/second|0|0|CR||Interface 1 Issue2 pg.15
+ IMPLANT||T -Maxx 2 Cyberliver||As above but with fluid rerouting system|850|1d6|MA||Chromebook 1 pg.37
+ IMPLANT||T -Maxx Cyberliver||+4 vs ingested drugs and poisons|450|1d6|MA||Chromebook 1 pg.37
+ IMPLANT||Wearman Mk.2||Usable without cyberaudio|200|0|N||Chromebook 1 pg.38
+ IMPLANT||Wet Drive||Holds 1MU of stored data|320|1d6|MA||Chromebook 1 pg.35
+ IMPLANT||Wetdrive Access Link||Internal link to wetdrive|200|1d6/2|M||Chromebook 2 pg.6
+ IMPLANT||Zetatech Bodycomp||Equal to E-Book|1750|1d6+4|MA||Chromebook 2 pg.8
+ IMPLANT|SUBDERMAL ARMOR|Subdermal Armor|SDA|Armors torso to SP18. DIFF Awareness to spot|1200|2d6|CR||Cyberpunk 2020 pg.84
+ IMPLANT|SUBDERMAL ARMOR|Subdermal Skull Armor SP10||10 SP; DIFF 20 to spot; 40% unprotected|1000|1d6+2|MA||Chromebook 2 pg.7
+ IMPLANT|SUBDERMAL ARMOR|Subdermal Skull Armor SP12||12 SP; DIFF 15 to spot; 50% chance of -1 ATTR|1200|1d6+3|MA||Chromebook 2 pg.7
+ IMPLANT|SUBDERMAL ARMOR|Subdermal Skull Armor SP14||14 SP; DIFF 10 to spot; -1 ATTR; 40% unprotected|1400|2d6|MA||Chromebook 2 pg.7
+ IMPLANT|SUBDERMAL ARMOR|Subdermal Skull Armor SP4||4SP; DIFF 35 to spot; 40% unprotected|300|1d2|MA||Chromebook 2 pg.7
+ IMPLANT|SUBDERMAL ARMOR|Subdermal Skull Armor SP6||6SP; DIFF 30 to spot; 40% unprotected|550|1d3|MA||Chromebook 2 pg.7
+ IMPLANT|SUBDERMAL ARMOR|Subdermal Skull Armor SP8||8SP; DIFF 25 to spot; 40% unprotected|750|1d6|MA||Chromebook 2 pg.7
+ IMPLANT|SUBDERMAL ARMOR|Subdermal Torso Armor SP 22||22 SP; DIFF 10 to spot; -2 REF\\& ATTR|1750|3d6|CR||Chromebook 2 pg.7
+ IMPLANT|SUBDERMAL ARMOR|Subdermal Torso Armor SP10||10 SP; DIFF 30 to spot; no REF/ATTR loss|650|1d6/2+1|CR||Chromebook 2 pg.7
+ IMPLANT|SUBDERMAL ARMOR|Subdermal Torso Armor SP12||12 SP; DIFF 25 to spot; no REF/ATTR loss|800|1d6|CR||Chromebook 2 pg.7
+ IMPLANT|SUBDERMAL ARMOR|Subdermal Torso Armor SP14||14 SP; DIFF 25 to spot; no REF/ATTR loss|1000|1d6+2|CR||Chromebook 2 pg.7
+ IMPLANT|SUBDERMAL ARMOR|Subdermal Torso Armor SP16||16 SP; DIFF 20 to spot; no REF/ATTR loss|1100|1d6+3|CR||Chromebook 2 pg.7
+ IMPLANT|SUBDERMAL ARMOR|Subdermal Torso Armor SP18||18 SP; DIFF 20 to spot; 50% chance -1 ATTR|1200|2d6|CR||Chromebook 2 pg.7
+ IMPLANT|SUBDERMAL ARMOR|Subdermal Torso Armor SP20||20 SP; DIFF 15 to spot; -1 REF\\& ATTR|1450|2d6+2|CR||Chromebook 2 pg.7
+ IMPLANT|SUBDERMAL ARMOR|Subdermal Torso Armor SP6||6 SP; DIFF 35+ to spot; no REF/ATTR loss|350|1d2|CR||Chromebook 2 pg.7
+ IMPLANT|SUBDERMAL ARMOR|Subdermal Torso Armor SP8||8SP; DIFF 32 to spot; no REF/ATTR loss|500|1d3|CR||Chromebook 2 pg.7
+ LINEAR FRAMES||General Products Exoskeleton (Series-A)||STR 18; SDP 15; SP 6; MA 4; REF 5|12000|4d6|MA||Chromebook 3 pg.34
+ LINEAR FRAMES||General Products Exoskeleton (Series-B)||STR 21; SDP 20; SP 8; MA 4; REF 5|15000|6d6|MA||Chromebook 3 pg.34
+ LINEAR FRAMES||LInear Beta|BETA|Built into the body; BOD 14; BTM -6|8000|2d6|MA||Cyberpunk 2020 pg.79
+ LINEAR FRAMES||Linear Omega|OMEGA|Built into the body; BOD 16; BTM -7|10000|3d6|MA||Cyberpunk 2020 pg.79
+ LINEAR FRAMES||Linear Sigma|SIGMA|Built into the body; BOD 12; BTM -5|6000|2d6|MA||Cyberpunk 2020 pg.79
+ NEURALWARE||Advanced Cortical Implant||Experimental; Eidetic Memory +2. IP cost/2|150000|3d6|CR||When Gravity Fails pg.60
+ NEURALWARE||Behind The Ear Cory Implant||As Corymbic Implant; but hidden behind ear|1000|2d6|MA||When Gravity Fails pg.59
+ NEURALWARE||Corymbic Implant||Accepts six daddys; allows equipment interfacing|500|2d6|MA||When Gravity Fails pg.59
+ NEURALWARE||Neuralware Processor||Basic processor. Must have for all systems|1000|1d6|M||Cyberpunk 2020 pg.81
+ NEURALWARE|OPTION|Bodyweight Pacemaker Coprocessor|BWPC|Restarts heart when attacked by ICE|150|2|N||Chromebook 3 pg.26
+ NEURALWARE|OPTION|Boostmaster|BM|+1 REF with both types of boosterware. No bonus to initiative.|650|1d6/2|N||Solo of Fortune pg.32
+ NEURALWARE|OPTION|Braindance Plugs|BDPLG|Allows connection to Braindance Recorder|200|1d6|M||Rockerboy pg.66
+ NEURALWARE|OPTION|Cyber-Detection Computer|CDC|Reconnaissance/Detection device; need M/T link|3000|1d6+3|M||Chromebook 4 pg.14
+ NEURALWARE|OPTION|Cybermodem Link|PE|Allows direct connection to a cybermodem|100|1|N||Cyberpunk 2020 pg.81
+ NEURALWARE|OPTION|DataTerm Link|DLNK|Allows downloading from DataTerms|100|2|N||Cyberpunk 2020 pg.82
+ NEURALWARE|OPTION|Echolocation System Coprocessor|ESC|Can see in complete darkness; -1 Awareness|800|1d6/2|N||Chromebook 4 pg.13
+ NEURALWARE|OPTION|Interface Plugs|PLG|Allows direct connection to smartguns; etc.|200|1d6|M||Cyberpunk 2020 pg.82
+ NEURALWARE|OPTION|Kerenzikov Boosterware I|RFB|+1 to Initiative|500|1d6|N||Cyberpunk 2020 pg.81
+ NEURALWARE|OPTION|Kerenzikov Boosterware II|RFB2|+2 to Initiative|1000|2d6|N||Cyberpunk 2020 pg.81
+ NEURALWARE|OPTION|LiveWires|LWPLG|Prehensile interface cables; 200eb if body implant|400|2d6|M||Chromebook 3 pg.24
+ NEURALWARE|OPTION|Lockdown|LKDN|Uses cyberaudio to locate snipers|300|1d6|N||Chromebook 4 pg.15
+ NEURALWARE|OPTION|Machine/Tech Link|MLNK|Allows control of autofactories\\& machines|100|2|N||Cyberpunk 2020 pg.82
+ NEURALWARE|OPTION|Mag-Duct Spots|MDLPG|As interface plugs; but only a +1 bonus|220|1d6/2|N||Chromebook 1 pg.38
+ NEURALWARE|OPTION|Moddy Link|MODL|Enables cory implant to accept moddy chips|100|0|N||When Gravity Fails pg.59
+ NEURALWARE|OPTION|Model 100 Interface Plugs|M100PLG|+2 vs Black Ice; -2 for anything else|100|2d6|MA||Chromebook 3 pg.33
+ NEURALWARE|OPTION|Neural ULF Transceiver|NULF|Send and receive voice/data. Range 15km/unlim|200|1d6/2|N||Firestorm: Stormfront pg.28
+ NEURALWARE|OPTION|Olfactory Boost|OLF|+2 Awareness/track via smell. Locate scent 50%|100|2|N||Cyberpunk 2020 pg.81
+ NEURALWARE|OPTION|Pain Editor|TE|Allows Endurance checks at 2 DIFF level slower|200|2d6|N||Cyberpunk 2020 pg.81
+ NEURALWARE|OPTION|Sandevistan Speedware|SW|Adds +3 to Initiative for 5 turns|1600|1d6/2|N||Cyberpunk 2020 pg.81
+ NEURALWARE|OPTION|Smartgun Link|WLNK|+2 to Smartgun attacks|100|2|N||Cyberpunk 2020 pg.82
+ NEURALWARE|OPTION|Subdermal Smartgun Link|SSLNK|Weapon only version of Mag-Duct Spots (+1)|220|1d6/2|M||Rough Guide to the UK pg.32
+ NEURALWARE|OPTION|Super Compact Braindance|ACBD|Braindance recorder that fits on back of head|15000|2d6|CR||Chromebook 3 pg.23
+ NEURALWARE|OPTION|Tactile Boost|TB|Increased sensitivity. +2 to touch Awareness|100|2|N||Cyberpunk 2020 pg.81
+ NEURALWARE|OPTION|Taste Boost|TAB|Heightened sense of taste|100|2|M||Chromebook 4 pg.15
+ NEURALWARE|OPTION|Ubermensch Pain Editor|UTE|As Pain Editor; but only works 75% of the time|200|2d6|N||Eurotour pg.31
+ NEURALWARE|OPTION|Ubermensch Speedware|URFB|Adds +2 to Initiative for 5 turns|1600|1d6/2|N||Eurotour pg.29
+ NEURALWARE|OPTION|Universal Link|ULNK|Combined linkage|400|4|N||Interface 1 Issue3 pg.30
+ NEURALWARE|OPTION|Vehicle Link|VLNK|+2 to direct cybercontrolled vehicle operation|100|3|N||Cyberpunk 2020 pg.82
+ CHIPWARE|OPTION|Wardrobe & Style +1||MRAM Skill Chip|100|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Wardrobe & Style +2||MRAM Skill Chip|200|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Wardrobe & Style +3||MRAM Skill Chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Swimming +1||APTR Skill Chip|100|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Swimming +2||APTR Skill Chip|200|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Swimming +3||APTR Skill Chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Accounting +1||MRAM Skill chip|150|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Accounting +2||MRAM Skill chip|200|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Accounting +3||MRAM Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Anthropology +1||MRAM Skill chip|150|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Anthropology +2||MRAM Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Anthropology +3||MRAM Skill chip|450|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Biology +1||MRAM Skill chip|150|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Biology +2||MRAM Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Biology +3||MRAM Skill chip|450|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Botany +1||MRAM Skill chip|150|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Botany +2||MRAM Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Botany +3||MRAM Skill chip|450|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Chemistry +1||MRAM Skill chip|150|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Chemistry +2||MRAM Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Chemistry +3||MRAM Skill chip|450|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Education & Cen.Know. +1||MRAM Skill chip|200|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Education & Cen.Know. +2||MRAM Skill chip|400|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Education & Cen.Know. +3||MRAM Skill chip|600|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Geology +1||MRAM Skill chip|150|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Geology +2||MRAM Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Geology +3||MRAM Skill chip|450|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|History +1||MRAM Skill chip|150|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|History +2||MRAM Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|History +3||MRAM Skill chip|450|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Language (choose) +1||MRAM Skill chip|200|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Language (choose) +2||MRAM Skill chip|400|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Language (choose) +3||MRAM Skill chip|600|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Mathematics +1||MRAM Skill chip|200|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Mathematics +2||MRAM Skill chip|400|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Mathematics +3||MRAM Skill chip|500|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Physics +1||MRAM Skill chip|200|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Physics +2||MRAM Skill chip|400|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Physics +3||MRAM Skill chip|600|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Programming +1||MRAM Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Programming +2||MRAM Skill chip|600|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Programming +3||MRAM Skill chip|900|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Stock Market +1||MRAM Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Stock Market +2||MRAM Skill chip|600|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Stock Market +3||MRAM Skill chip|900|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Wilderness Survival +1||MRAM Skill chip|200|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Wilderness Survival +2||MRAM Skill chip|400|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Wilderness Survival +3||MRAM Skill chip|600|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Zoology +1||MRAM Skill chip|150|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Zoology +2||MRAM Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Zoology +3||MRAM Skill chip|450|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Daytlmer Chip||MRAM Skill chip|100|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Archery +1||APTR Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Archery +2||APTR Skill chip|600|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Archery +3||APTR Skill chip|900|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Dance +1||APTR Skill chip|150|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Dance +2||APTR Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Dance +3||APTR Skill chip|450|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Driving +1||APTR Skill chip|150|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Driving +2||APTR Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Driving +3||APTR Skill chip|450|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Fencing +1||APTR Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Fencing +2||APTR Skill chip|600|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Fencing +3||APTR Skill chip|900|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Handgun +1||APTR Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Handgun +2||APTR Skill chip|600|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Handgun +3||APTR Skill chip|900|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Heavy Weapons +1||APTR Skill chip|400|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Heavy Weapons +2||APTR Skill chip|800|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Heavy Weapons +3||APTR Skill chip|1200|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Martial Art (choose) +1||APTR Skill chip|350|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Martial Art (choose) +2||APTR Skill chip|700|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Martial Art (choose) +3||APTR Skill chip|1050|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Melee +1||APTR Skill chip|150|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Melee +2||APTR Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Melee +3||APTR Skill chip|450|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Motorcycle +1||APTR Skill chip|150|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Motorcycle +2||APTR Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Motorcycle +3||APTR Skill chip|450|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Operate Hvy. Machinery +1||APTR Skill chip|200|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Operate Hvy. Machinery +2||APTR Skill chip|400|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Operate Hvy. Machinery +3||APTR Skill chip|600|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Pilot (Gyro) +1||APTR Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Pilot (Gyro) +2||APTR Skill chip|600|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Pilot (Gyro) +3||APTR Skill chip|900|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Pilot (Fixed Wing) +1||APTR Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Pilot (Fixed Wing) +2||APTR Skill chip|600|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Pilot (Fixed Wing) +3||APTR Skill chip|900|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Pilot (Dirigible) +1||APTR Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Pilot (Dirigible) +2||APTR Skill chip|600|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Pilot (Dirigible) +3||APTR Skill chip|900|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Pilot (Vect.ThrustVehlcle) +1||APTR Skill chip|350|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Pilot (Vect.ThrustVehlcle) +2||APTR Skill chip|700|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Pilot (Vect.ThrustVehlcle) +3||APTR Skill chip|1050|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Rifle +1||APTR Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Rifle +2||APTR Skill chip|600|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Rifle +3||APTR Skill chip|900|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Submachlnegun +1||APTR Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Submachlnegun +2||APTR Skill chip|600|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Submachlnegun +3||APTR Skill chip|900|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Aero Tech +1||APTR Skill chip|250|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Aero Tech +2||APTR Skill chip|500|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Aero Tech +3||APTR Skill chip|750|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|AV Tech +1||APTR Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|AV Tech +2||APTR Skill chip|600|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|AV Tech +3||APTR Skill chip|900|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Basic Tech +1||APTR Skill chip|200|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Basic Tech +2||APTR Skill chip|400|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Basic Tech +3||APTR Skill chip|600|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Cryotank Operation +1||APTR Skill chip|150|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Cryotank Operation +2||APTR Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Cryotank Operation +3||APTR Skill chip|450|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Cyberdeck Design +1||APTR Skill chip|200|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Cyberdeck Design +2||APTR Skill chip|400|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Cyberdeck Design +3||APTR Skill chip|600|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Cyber Tech +1||APTR Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Cyber Tech +2||APTR Skill chip|600|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Cyber Tech +3||APTR Skill chip|900|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Demolitions +1||APTR Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Demolitions +2||APTR Skill chip|600|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Demolitions +3||APTR Skill chip|900|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Disguise +1||APTR Skill chip|150|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Disguise +2||APTR Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Disguise +3||APTR Skill chip|450|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Electronics +1||APTR Skill chip|150|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Electronics +2||APTR Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Electronics +3||APTR Skill chip|450|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Elect. Security +1||APTR Skill chip|200|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Elect. Security +2||APTR Skill chip|400|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Elect. Security +3||APTR Skill chip|600|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|First Aid +1||APTR Skill chip|150|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|First Aid +2||APTR Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|First Aid +3||APTR Skill chip|450|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Forgery +1||APTR Skill chip|200|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Forgery +2||APTR Skill chip|400|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Forgery +3||APTR Skill chip|600|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Gyro Tech +1||APTR Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Gyro Tech +2||APTR Skill chip|600|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Gyro Tech +3||APTR Skill chip|900|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Pharmaceuticals +1||APTR Skill chip|200|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Pharmaceuticals +2||APTR Skill chip|400|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Pharmaceuticals +3||APTR Skill chip|600|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Pick lock +1||APTR Skill chip|150|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Pick lock +2||APTR Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Pick lock +3||APTR Skill chip|450|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Pick Pocket +1||APTR Skill chip|150|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Pick Pocket +2||APTR Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Pick Pocket +3||APTR Skill chip|450|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Play Instrument +1||APTR Skill chip|150|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Play Instrument +2||APTR Skill chip|300|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Play Instrument +3||APTR Skill chip|450|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Weaponsmlth +1||APTR Skill chip|200|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Weaponsmlth +2||APTR Skill chip|400|0|N|0|Cyberpunk 2020 pg.83
+ CHIPWARE|OPTION|Weaponsmlth +3||APTR Skill chip|600|0|N|0|Cyberpunk 2020 pg.83

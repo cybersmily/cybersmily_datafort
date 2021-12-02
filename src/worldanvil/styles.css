@@ -1,0 +1,9 @@
+.cp2020-field-title {
+  background-color: balck;
+  color: white;
+  font-weight: bold;
+  text-transform: capitalize;
+  display: inline-block;
+  padding-left: 1px;
+  padding-right: 4px;
+}
