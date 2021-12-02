@@ -1,0 +1,14 @@
+export enum NrMapDefaults {
+  GRID_SIZE = 35,
+  ROWS_MIN = 10,
+  ROWS_DEFAULT = 20,
+  COLUMNS_DEFAULT = 20,
+  COLUMNS_MIN = 10,
+  CPU_MIN = 1,
+  CPU_MAX = 7,
+  DATAWALL_STR_MIN = 1,
+  DATAWALL_STR_MAX = 10,
+  CODEGATE_STR_MIN = 2,
+  CODEGATE_STR_MAX = 10
+
+}

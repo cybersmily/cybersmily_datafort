@@ -1,4 +1,5 @@
-import { NrMapDefaults } from './../models/nr-map-defaults';
+import { Cp2020DatafortBuilderService } from './../services/cp2020-datafort-builder.service';
+import { NrMapDefaults } from '../enums/nr-map-defaults';
 import { Cp2020NrDatafort } from './../models/cp2020-nr-datafort';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -9,25 +10,25 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class Cp2020DatafortMapComponent implements OnInit {
 
-  @Input()
-  datafort: Cp2020NrDatafort = new Cp2020NrDatafort();
-
   currDataFort: Cp2020NrDatafort;
   scale: number = 1.0;
   grid: Array<any>;
   svgWidth = 100;
   svgHeight = 100;
 
-  constructor() { }
+  constructor(private datafortBuilderService: Cp2020DatafortBuilderService) { }
 
   get gridSize(): number {
     return NrMapDefaults.GRID_SIZE * this.scale;
   }
 
   ngOnInit(): void {
-    this.grid = new Array(this.datafort.rows).map( row => new Array<any>(this.datafort.columns));
-    this.svgWidth = this.datafort.columns * this.gridSize;
-    this.svgHeight = this.datafort.rows * this.gridSize;
+    this.datafortBuilderService.datafort.subscribe(datafort => {
+      this.currDataFort = new Cp2020NrDatafort(datafort);
+      this.grid = new Array(this.currDataFort.rows).map( row => new Array<any>(this.currDataFort.columns));
+      this.svgWidth = this.currDataFort.columns * this.gridSize;
+      this.svgHeight = this.currDataFort.rows * this.gridSize;
+    });
   }
 
 }

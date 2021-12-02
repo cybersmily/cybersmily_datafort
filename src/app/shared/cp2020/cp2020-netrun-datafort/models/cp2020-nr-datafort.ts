@@ -1,3 +1,4 @@
+import { NrMapDefaults } from '../enums/nr-map-defaults';
 import { KeyValue } from '@angular/common';
 import { Program } from './../../../cp2020/cp2020-netrun-gear/models';
 import { Coord } from './../../../models/coord';
@@ -5,14 +6,16 @@ import { NrDatafort } from "./nr-datafort";
 
 export class Cp2020NrDatafort implements NrDatafort {
   name = '' ;
-  rows = 20;
-  columns = 20;
+  rows =  NrMapDefaults.ROWS_DEFAULT;
+  columns = NrMapDefaults.COLUMNS_DEFAULT;
   cost = 0;
-  cpu = 1;
+  cpu = NrMapDefaults.CPU_MIN;
+  int = 3 * this.cpu;
   ai = {};
-  datawallStr = 1;
+  datawallStr = NrMapDefaults.DATAWALL_STR_MIN;
   datawallNodes = new Array<Coord>();
-  codegateStr = 2;
+  codegateStr = NrMapDefaults.CODEGATE_STR_MIN;
+
   codegateNodes = new Array<Coord>();
   files = new Array<KeyValue<number,string>>();
   vr = new Array<any>();
@@ -23,14 +26,15 @@ export class Cp2020NrDatafort implements NrDatafort {
   constructor(param?: NrDatafort) {
     if(param) {
       this.name = param?.name ?? '' ;
-      this.rows = param?.rows ?? 20;
-      this.columns = param?.columns ?? 20;
+      this.rows = param?.rows ?? NrMapDefaults.ROWS_DEFAULT;
+      this.columns = param?.columns ?? NrMapDefaults.COLUMNS_DEFAULT;
       this.cost = param?.cost ?? 0;
-      this.cpu = param?.cpu ?? 1;
+      this.cpu = param?.cpu ?? NrMapDefaults.CPU_MIN;
+      this.int = 3 * this.cpu;
       this.ai = param?.ai ?? {};
-      this.datawallStr = param?.datawallStr ?? 1;
+      this.datawallStr = param?.datawallStr ?? NrMapDefaults.DATAWALL_STR_MIN;
       this.datawallNodes = param?.datawallNodes.map( n => {return {x: n.x, y: n.y};}) ?? new Array<Coord>();
-      this.codegateStr = param?.codegateStr ?? 1;;
+      this.codegateStr = param?.codegateStr ?? NrMapDefaults.CODEGATE_STR_MIN;
       this.codegateNodes = param?.codegateNodes.map( n => {return {x: n.x, y: n.y};}) ?? new Array<Coord>();
       this.skills = param?.skills.map( skill => {return {key: skill.key, value: skill.value};}) ?? new Array<KeyValue<string,number>>();
 

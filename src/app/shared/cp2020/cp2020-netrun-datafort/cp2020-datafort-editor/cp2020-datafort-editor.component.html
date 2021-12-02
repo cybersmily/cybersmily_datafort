@@ -1,1 +1,61 @@
-<p>cp2020-datafort-editor works!</p>
+<div class="row">
+  <div class="col-4">Name:</div>
+  <div class="col-8">
+    <input type="text" class="w-100">
+  </div>
+</div>
+<div class="row mt-1">
+  <div class="col-4">Rows:</div>
+  <div class="col-2 border border-dark p-0">
+    <input type="number" class="w-100 no-spinners no-style" title="Enter number of rows (min {{NrMapDefaults.ROWS_MIN}})"
+    [min]="NrMapDefaults.ROWS_MIN"
+    [(ngModel)]="currDatafort.rows" (change)="update()">
+  </div>
+  <div class="col-4">Columns:</div>
+  <div class="col-2 border border-dark p-0">
+    <input type="number" class="w-100 no-spinners no-style" title="Enter number of columns (min {{NrMapDefaults.COLUMNS_MIN}})"
+    [min]="NrMapDefaults.COLUMNS_MIN"
+    [(ngModel)]="currDatafort.columns" (change)="update()">
+  </div>
+</div>
+<div class="row mt-1">
+  <div class="col-4">CPU:</div>
+  <div class="col-2 border border-dark p-0">
+    <input type="number" class="w-100 no-spinners no-style"
+    title="Enter number of CPUs (min {{NrMapDefaults.CPU_MIN}}, max {{NrMapDefaults.CPU_MAX}})"
+    [min]="NrMapDefaults.CPU_MIN" [max]="NrMapDefaults.CPU_MAX"
+    [(ngModel)]="currDatafort.cpu" (change)="update()">
+  </div>
+  <div class="col-4">INT:</div>
+  <div class="col-2">{{currDatafort.int}}</div>
+</div>
+<div class="row mt-1">
+  <div class="col-4">Datawall Str:</div>
+  <div class="col-2 border border-dark p-0">
+    <input type="number" class="w-100 no-spinners no-style"
+    title="Enter Datawall Strength (min {{NrMapDefaults.DATAWALL_STR_MIN}}, max {{NrMapDefaults.DATAWALL_STR_MAX}})"
+    [min]="NrMapDefaults.DATAWALL_STR_MIN" [max]="NrMapDefaults.DATAWALL_STR_MAX"
+    [(ngModel)]="currDatafort.datawallStr" (change)="update()">
+  </div>
+  <div class="col-4">Codegate Str:</div>
+  <div class="col-2 border border-dark p-0">
+    <input type="number" class="w-100 no-spinners no-style"
+    title="Enter Codegate Strength (min {{NrMapDefaults.CODEGATE_STR_MIN}}, max {{NrMapDefaults.CODEGATE_STR_MAX}})"
+    [min]="NrMapDefaults.CODEGATE_STR_MIN" [max]="NrMapDefaults.CODEGATE_STR_MAX"
+    [(ngModel)]="currDatafort.codegateStr" (change)="update()">
+  </div>
+</div>
+<div class="row mt-1">
+  <div class="col">Skills</div>
+</div>
+<div class="row">
+  <div class="col-6">
+
+  </div>
+</div>
+<div class="row mt-1">
+  <div class="col"></div>
+  <div class="col"></div>
+  <div class="col"></div>
+  <div class="col"></div>
+</div>
