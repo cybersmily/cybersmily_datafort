@@ -1,0 +1,11 @@
+<div class="cs-nr-datafort-map-container">
+<svg [attr.width]="svgWidth" [attr.height]="svgHeight">
+  <g *ngFor="let row of grid;let y = index">
+  <rect *ngFor="let col of grid;let x = index" class="nr-datafort-node"
+    [attr.x]="x * gridSize" [attr.y]="y * gridSize"
+    [attr.height]="gridSize" [attr.width]="gridSize"
+    fill="white" stroke="black" [attr.stroke-width]="1"
+    ></rect>
+  </g>
+</svg>
+</div>

@@ -1,0 +1,15 @@
+.nr-datafort-node {
+  border: 1px solid black;
+  background-color: transparent;
+}
+
+.nr-datafort-node:hover {
+  fill: lightgray;
+}
+
+.cs-nr-datafort-map-container {
+  width: 100%;
+  min-height: 180px;
+  max-height: 1200px;
+  overflow: scroll;
+}
