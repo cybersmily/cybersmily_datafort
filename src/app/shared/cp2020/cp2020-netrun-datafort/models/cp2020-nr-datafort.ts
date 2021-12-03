@@ -41,8 +41,14 @@ export class Cp2020NrDatafort implements NrDatafort {
       this.codegateStr = param?.codegateStr ?? NrMapDefaults.CODEGATE_STR_MIN;
       this.codegateNodes = param?.codegateNodes.map( n => {return {x: n.x, y: n.y};}) ?? new Array<Coord>();
       // add in the MUs
-      this.mu = param?.mu.map( mu => {return {key: mu.key, value: mu.value}}) ?? new Array<KeyValue<string, number>>(this.cpu * 4);
       this.muNodes = param?.muNodes.map( n => {return {x: n.x, y: n.y};}) ?? new Array<Coord>();
+      this.mu = param?.mu.map( mu => {return {key: mu.key, value: mu.value}}) ?? new Array<KeyValue<string, number>>(this.cpu * 4);
+      this.mu = new Array<KeyValue<string,number>>(this.cpu * 4);
+      // limit the number of items based on the size of either skill array
+      for( let i = 0; i < this.mu.length; i++) {
+        const mu = {key:  param.mu[i]?.key ?? '', value: param.mu[i]?.value ?? 0};
+        this.mu[i] = mu;
+      }
 
       // every 2 CPU, the datafort gets 5 skills.
       this.skills = new Array<KeyValue<string,number>>(Math.floor(this.cpu/2) * 5);

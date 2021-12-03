@@ -61,6 +61,20 @@
         [(ngModel)]="skill.value">
     </div>
   </ng-container>
+</div><div *ngIf="currDatafort.mu?.length > 0" class="row mt-1">
+  <div class="col p-0">FILES/VR</div>
+</div>
+<div *ngFor="let mu of currDatafort.mu;let i = index" class="row">
+    <div class="col-1 text-right">{{i + 1}}.</div>
+    <div *ngIf="mu" class="col-9 p-0">
+      <input type="text" class="w-100 no-spinners no-style m-0" title="Enter number of MUs file takes up"
+        [(ngModel)]="mu.key" placeholder="File name/VR name">
+    </div>
+    <div *ngIf="mu" class="col-2 p-0 border border-dark">
+      <input type="number" class="w-100 no-spinners no-style m-0" title="Enter number of MUs file takes up (1-10)"
+        [min]="1" [max]="10"
+        [(ngModel)]="mu.value">
+    </div>
 </div>
 <div class="row mt-1">
   <div class="col"></div>
