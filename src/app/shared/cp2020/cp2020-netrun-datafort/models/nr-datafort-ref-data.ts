@@ -1,5 +1,5 @@
 import { NrDatafortRefDataVr } from './nr-datafort-ref-data-vr';
-import { Coord } from "src/app/app-netrun/models";
+import { Coord } from "./../../../models/coord";
 import { NrDatafortRefDataEntry } from "./nr-datafort-ref-data-entry";
 import { NrDatafortRefDataRemote } from './nr-datafort-ref-data-remote';
 import { NrDatafortRefDataProgram } from './nr-datafort-ref-data-program';

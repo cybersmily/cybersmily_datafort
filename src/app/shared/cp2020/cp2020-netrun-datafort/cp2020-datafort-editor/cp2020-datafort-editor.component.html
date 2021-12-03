@@ -1,30 +1,30 @@
 <div class="row">
   <div class="col-4">Name:</div>
-  <div class="col-8">
+  <div class="col-8 p-0">
     <input type="text" class="w-100">
   </div>
 </div>
 <div class="row mt-1">
   <div class="col-4">Rows:</div>
   <div class="col-2 border border-dark p-0">
-    <input type="number" class="w-100 no-spinners no-style" title="Enter number of rows (min {{NrMapDefaults.ROWS_MIN}})"
-    [min]="NrMapDefaults.ROWS_MIN"
-    [(ngModel)]="currDatafort.rows" (change)="update()">
+    <input type="number" class="w-100 no-spinners no-style"
+      title="Enter number of rows (min {{NrMapDefaults.ROWS_MIN}})" [min]="NrMapDefaults.ROWS_MIN"
+      [(ngModel)]="currDatafort.rows" (change)="update()">
   </div>
   <div class="col-4">Columns:</div>
   <div class="col-2 border border-dark p-0">
-    <input type="number" class="w-100 no-spinners no-style" title="Enter number of columns (min {{NrMapDefaults.COLUMNS_MIN}})"
-    [min]="NrMapDefaults.COLUMNS_MIN"
-    [(ngModel)]="currDatafort.columns" (change)="update()">
+    <input type="number" class="w-100 no-spinners no-style"
+      title="Enter number of columns (min {{NrMapDefaults.COLUMNS_MIN}})" [min]="NrMapDefaults.COLUMNS_MIN"
+      [(ngModel)]="currDatafort.columns" (change)="update()">
   </div>
 </div>
 <div class="row mt-1">
   <div class="col-4">CPU:</div>
   <div class="col-2 border border-dark p-0">
     <input type="number" class="w-100 no-spinners no-style"
-    title="Enter number of CPUs (min {{NrMapDefaults.CPU_MIN}}, max {{NrMapDefaults.CPU_MAX}})"
-    [min]="NrMapDefaults.CPU_MIN" [max]="NrMapDefaults.CPU_MAX"
-    [(ngModel)]="currDatafort.cpu" (change)="update()">
+      title="Enter number of CPUs (min {{NrMapDefaults.CPU_MIN}}, max {{NrMapDefaults.CPU_MAX}})"
+      [min]="NrMapDefaults.CPU_MIN" [max]="NrMapDefaults.CPU_MAX" [(ngModel)]="currDatafort.cpu"
+      (change)="update()">
   </div>
   <div class="col-4">INT:</div>
   <div class="col-2">{{currDatafort.int}}</div>
@@ -33,25 +33,34 @@
   <div class="col-4">Datawall Str:</div>
   <div class="col-2 border border-dark p-0">
     <input type="number" class="w-100 no-spinners no-style"
-    title="Enter Datawall Strength (min {{NrMapDefaults.DATAWALL_STR_MIN}}, max {{NrMapDefaults.DATAWALL_STR_MAX}})"
-    [min]="NrMapDefaults.DATAWALL_STR_MIN" [max]="NrMapDefaults.DATAWALL_STR_MAX"
-    [(ngModel)]="currDatafort.datawallStr" (change)="update()">
+      title="Enter Datawall Strength (min {{NrMapDefaults.DATAWALL_STR_MIN}}, max {{NrMapDefaults.DATAWALL_STR_MAX}})"
+      [min]="NrMapDefaults.DATAWALL_STR_MIN" [max]="NrMapDefaults.DATAWALL_STR_MAX"
+      [(ngModel)]="currDatafort.datawallStr" (change)="update()">
   </div>
   <div class="col-4">Codegate Str:</div>
   <div class="col-2 border border-dark p-0">
     <input type="number" class="w-100 no-spinners no-style"
-    title="Enter Codegate Strength (min {{NrMapDefaults.CODEGATE_STR_MIN}}, max {{NrMapDefaults.CODEGATE_STR_MAX}})"
-    [min]="NrMapDefaults.CODEGATE_STR_MIN" [max]="NrMapDefaults.CODEGATE_STR_MAX"
-    [(ngModel)]="currDatafort.codegateStr" (change)="update()">
+      title="Enter Codegate Strength (min {{NrMapDefaults.CODEGATE_STR_MIN}}, max {{NrMapDefaults.CODEGATE_STR_MAX}})"
+      [min]="NrMapDefaults.CODEGATE_STR_MIN" [max]="NrMapDefaults.CODEGATE_STR_MAX"
+      [(ngModel)]="currDatafort.codegateStr" (change)="update()">
   </div>
 </div>
-<div class="row mt-1">
-  <div class="col">Skills</div>
+<div *ngIf="currDatafort.skills?.length > 0" class="row mt-1">
+  <div class="col p-0">Skills</div>
 </div>
 <div class="row">
-  <div class="col-6">
-
-  </div>
+  <ng-container *ngFor="let skill of currDatafort.skills;let i = index">
+    <div *ngIf="skill" class="col-5 p-0">
+      <select [(ngModel)]="skill.key" class="w-100">
+        <option *ngFor="let opt of cp2020DatafortRefData?.skills" [value]="opt">{{opt}}</option>
+      </select>
+    </div>
+    <div *ngIf="skill" class="col-1 p-0 border border-dark">
+      <input type="number" class="w-100 no-spinners no-style m-0" title="Enter skill rank (4-10)"
+        [min]="NrMapDefaults.SKILL_MIN" [max]="NrMapDefaults.SKILL_MAX"
+        [(ngModel)]="skill.value">
+    </div>
+  </ng-container>
 </div>
 <div class="row mt-1">
   <div class="col"></div>

@@ -36,7 +36,15 @@ export class Cp2020NrDatafort implements NrDatafort {
       this.datawallNodes = param?.datawallNodes.map( n => {return {x: n.x, y: n.y};}) ?? new Array<Coord>();
       this.codegateStr = param?.codegateStr ?? NrMapDefaults.CODEGATE_STR_MIN;
       this.codegateNodes = param?.codegateNodes.map( n => {return {x: n.x, y: n.y};}) ?? new Array<Coord>();
-      this.skills = param?.skills.map( skill => {return {key: skill.key, value: skill.value};}) ?? new Array<KeyValue<string,number>>();
+      // every 2 CPU, the datafort gets 5 skills.
+      this.skills = new Array<KeyValue<string,number>>(Math.floor(this.cpu/2) * 5);
+      // limit the number of items based on the size of either skill array
+      for( let i = 0; i < this.skills.length; i++) {
+        const skill = {key:  param.skills[i]?.key ?? '', value: param.skills[i]?.value ?? 4};
+        this.skills[i] = skill;
+      }
+      console.log('skills', Math.floor(this.cpu/2) * 5, this.skills);
+
 
       this.files = new Array<KeyValue<number,string>>();
       this.vr = new Array<any>();
