@@ -32,7 +32,15 @@ export class Cp2020DatafortMapComponent implements OnInit {
   ngOnInit(): void {
     this.datafortBuilderService.datafort.subscribe(datafort => {
       this.currDatafort = new Cp2020NrDatafort(datafort);
-      this.grid = new Array(this.currDatafort.rows).map( row => new Array<any>(this.currDatafort.columns));
+      this.grid = new Array()
+      for(let row = 0; row < this.currDatafort.rows; row++) {
+        const rowArray = new Array();
+        for(let col = 0; col < this.currDatafort.columns; col++) {
+          rowArray.push(col);
+        }
+        this.grid.push(rowArray);
+      }
+      console.log(this.grid);
       this.svgWidth = this.currDatafort.columns * this.gridSize;
       this.svgHeight = this.currDatafort.rows * this.gridSize;
     });
