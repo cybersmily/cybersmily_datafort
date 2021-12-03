@@ -1,9 +1,9 @@
 <div class="inline-block">
   <div *ngFor="let icon of icons;let i = index"
-    [ngClass]="{'inline-block rounded text-center align-middle mr-1 ml-1 float-left p-0': true, 'datafort-node-selected': datafortBuilderService.isToolSelected(icon.icon.iconName)}">
-    <div class="csd-datafort-node-btn mb-2 p-0" [title]="icon.title">
-      <span class="datafort-node-counter rounded">{{getCount(icon.icon.iconName)}}</span>
-      <fa-icon [icon]="icon.icon" (click)="selectTool(icon.icon)"></fa-icon>
+    [ngClass]="{'inline-block rounded text-center align-middle m-0 float-left p-1 pb-3': true, 'datafort-node-selected': datafortBuilderService.isToolSelected(icon.type)}">
+    <div *ngIf="isEnabled(icon.type)" class="csd-datafort-node-btn p-0" [title]="icon.title" (click)="datafortBuilderService.selectedTool = icon.type">
+      <span class="datafort-node-counter rounded">{{getCount(icon.type)}}</span>
+      <div [innerHTML]="sanitize(icon.icon)"></div>
     </div>
   </div>
 </div>

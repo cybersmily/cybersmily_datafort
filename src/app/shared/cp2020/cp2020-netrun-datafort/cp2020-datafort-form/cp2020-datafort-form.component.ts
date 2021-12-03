@@ -17,7 +17,6 @@ export class Cp2020DatafortFormComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.GetJson(Cp2020AppFiles.CP2020_DATAFORT_REF_DATA)
     .subscribe(data => {
-      console.log('read ref data', data);
       this.datafortRefData = data;
     })
   }

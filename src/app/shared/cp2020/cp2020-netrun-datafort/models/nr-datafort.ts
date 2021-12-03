@@ -10,6 +10,8 @@ export interface NrDatafort {
   cost: number;
   cpu: number;
   cpuNodes: Array<Coord>;
+  mu: Array<KeyValue<string,number>>;
+  muNodes: Array<Coord>;
   int: number;
   ai: NrAI;
   datawallStr: number;

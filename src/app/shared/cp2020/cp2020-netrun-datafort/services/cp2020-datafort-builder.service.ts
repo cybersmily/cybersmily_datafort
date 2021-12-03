@@ -1,3 +1,4 @@
+import { NrNodeType } from './../enums/nr-node-type';
 import { NrMapDefaults } from '../enums/nr-map-defaults';
 import { NrDatafort } from './../models/nr-datafort';
 import { Cp2020NrDatafort } from './../models/cp2020-nr-datafort';
@@ -13,14 +14,14 @@ export class Cp2020DatafortBuilderService {
   );
   datafort = this._datafort.asObservable();
 
-  private _currDatafort: Cp2020NrDatafort;
+  private _currDatafort = new Cp2020NrDatafort();
 
-  selectedTool: any;
+  selectedTool: NrNodeType;
 
   constructor() { }
 
-  isToolSelected(iconName: string ): boolean {
-    return this.selectedTool?.iconName === iconName;
+  isToolSelected(nodeType: NrNodeType ): boolean {
+    return this.selectedTool === nodeType;
   }
 
 
@@ -36,6 +37,28 @@ export class Cp2020DatafortBuilderService {
     this._datafort.next(this._currDatafort);
   }
 
+  updateNode(x: number, y: number) {
+    if(this.selectedTool === NrNodeType.DATAWALL) {
+      this._currDatafort.datawallNodes.push({x: x, y: y});
+      this._datafort.next(this._currDatafort);
+      return;
+    }
+    if(this.selectedTool === NrNodeType.CODEGATE) {
+      this._currDatafort.codegateNodes.push({x: x, y: y});
+      this._datafort.next(this._currDatafort);
+      return;
+    }
+    if(this.selectedTool === NrNodeType.CPU) {
+      this._currDatafort.cpuNodes.push({x: x, y: y});
+      this._datafort.next(this._currDatafort);
+      return;
+    }
+    if(this.selectedTool === NrNodeType.MU){
+      this._currDatafort.muNodes.push({x: x, y: y});
+      this._datafort.next(this._currDatafort);
+      return;
+    }
+  }
   private validateNumber(value:number, min:number, max?:number ): number {
     let result = value < min ? min : value;
     if (max != null ) {

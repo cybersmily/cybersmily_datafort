@@ -11,6 +11,8 @@ export class Cp2020NrDatafort implements NrDatafort {
   cost = 0;
   cpu = NrMapDefaults.CPU_MIN;
   cpuNodes = new Array<Coord>();
+  mu = new Array<KeyValue<string,number>>();
+  muNodes = new Array<Coord>();
   int = 3 * this.cpu;
   ai = {};
   datawallStr = NrMapDefaults.DATAWALL_STR_MIN;
@@ -38,6 +40,10 @@ export class Cp2020NrDatafort implements NrDatafort {
       this.datawallNodes = param?.datawallNodes.map( n => {return {x: n.x, y: n.y};}) ?? new Array<Coord>();
       this.codegateStr = param?.codegateStr ?? NrMapDefaults.CODEGATE_STR_MIN;
       this.codegateNodes = param?.codegateNodes.map( n => {return {x: n.x, y: n.y};}) ?? new Array<Coord>();
+      // add in the MUs
+      this.mu = param?.mu.map( mu => {return {key: mu.key, value: mu.value}}) ?? new Array<KeyValue<string, number>>(this.cpu * 4);
+      this.muNodes = param?.muNodes.map( n => {return {x: n.x, y: n.y};}) ?? new Array<Coord>();
+
       // every 2 CPU, the datafort gets 5 skills.
       this.skills = new Array<KeyValue<string,number>>(Math.floor(this.cpu/2) * 5);
       // limit the number of items based on the size of either skill array

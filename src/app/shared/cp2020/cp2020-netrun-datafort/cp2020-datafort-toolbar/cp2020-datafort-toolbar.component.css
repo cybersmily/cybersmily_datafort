@@ -6,14 +6,12 @@
   min-height: 30px;
   max-height: 30px;
   position: relative;
-}
-.csd-datafort-node-btn .ng-fa-icon {
-  margin-top: -6px;
   font-size: 25px;
+  margin-top: -7px;
+  padding-top: 0px;
 }
+
 .datafort-node-selected {
-  padding-top: -5px;
-  padding-bottom: 5px;
   background-color: turquoise;
 }
 

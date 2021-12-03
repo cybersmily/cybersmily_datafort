@@ -1,11 +1,44 @@
 <div class="cs-nr-datafort-map-container">
-<svg [attr.width]="svgWidth" [attr.height]="svgHeight">
-  <g *ngFor="let row of grid;let y = index">
-  <rect *ngFor="let col of grid;let x = index" class="nr-datafort-node"
-    [attr.x]="x * gridSize" [attr.y]="y * gridSize"
-    [attr.height]="gridSize" [attr.width]="gridSize"
-    fill="white" stroke="black" [attr.stroke-width]="1"
-    ></rect>
-  </g>
-</svg>
+  <svg [attr.width]="svgWidth" [attr.height]="svgHeight" [attr.viewBox]="'0 0 ' + svgWidth + ' ' + svgHeight">
+    <g *ngFor="let row of grid;let y = index">
+      <rect *ngFor="let col of grid;let x = index" class="nr-datafort-node" [attr.x]="x * gridSize"
+        [attr.y]="y * gridSize" [attr.height]="gridSize" [attr.width]="gridSize" fill="white" stroke="black"
+        [attr.stroke-width]="1" (click)="updateNode(x, y)"></rect>
+    </g>
+    <g id="datawalls">
+      <svg *ngFor="let datawall of currDatafort?.datawallNodes;let x = index" [attr.x]="datawall.x * gridSize"
+        [attr.y]="datawall.y * gridSize" [attr.height]="gridSize" [attr.width]="gridSize"
+        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <rect x="0" width="512" height="512" fill="black" />
+      </svg>
+    </g>
+    <g id="codegates">
+      <svg *ngFor="let codegate of currDatafort?.codegateNodes;let x = index"
+        [attr.x]="codegate.x * gridSize" [attr.y]="codegate.y * gridSize"
+        [attr.height]="gridSize" [attr.width]="gridSize"
+        viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <rect x="51" y="51" fill="white" stroke="black" stroke-width="50" width="400" height="400" />
+        <line x1="31" x2="450" y1="140" y2="140" stroke="black" stroke-width="30" />
+        <line x1="31" x2="450" y1="360" y2="360" stroke="black" stroke-width="30" />
+      </svg>
+    </g>
+    <g id="cpus">
+      <svg *ngFor="let cpu of currDatafort?.cpuNodes;let x = index"
+        [attr.x]="cpu.x * gridSize" [attr.y]="cpu.y * gridSize"
+        [attr.height]="gridSize" [attr.width]="gridSize"
+        viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="256" cy="256" r="220" stroke="black" stroke-width="50" fill="white" />
+        <line x1="31" x2="475" y1="31" y2="475" stroke="black" stroke-width="50" />
+        <line x1="31" x2="475" y1="475" y2="31" stroke="black" stroke-width="50" />
+      </svg>
+    </g>
+    <g id="mu">
+      <svg *ngFor="let mu of currDatafort?.muNodes;let x = index"
+        [attr.x]="mu.x * gridSize" [attr.y]="mu.y * gridSize"
+        [attr.height]="gridSize" [attr.width]="gridSize"
+        viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <rect x="81" y="31" width="350" height="450" stroke="black" stroke-width="50" fill="white"/>
+      </svg>
+    </g>
+  </svg>
 </div>
