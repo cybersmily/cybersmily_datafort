@@ -15,7 +15,14 @@ export class Cp2020DatafortBuilderService {
 
   private _currDatafort: Cp2020NrDatafort;
 
+  selectedTool: any;
+
   constructor() { }
+
+  isToolSelected(iconName: string ): boolean {
+    return this.selectedTool?.iconName === iconName;
+  }
+
 
   update(datafort: NrDatafort) {
     // validation on values

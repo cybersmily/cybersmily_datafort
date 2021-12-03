@@ -10,6 +10,7 @@ export class Cp2020NrDatafort implements NrDatafort {
   columns = NrMapDefaults.COLUMNS_DEFAULT;
   cost = 0;
   cpu = NrMapDefaults.CPU_MIN;
+  cpuNodes = new Array<Coord>();
   int = 3 * this.cpu;
   ai = {};
   datawallStr = NrMapDefaults.DATAWALL_STR_MIN;
@@ -30,6 +31,7 @@ export class Cp2020NrDatafort implements NrDatafort {
       this.columns = param?.columns ?? NrMapDefaults.COLUMNS_DEFAULT;
       this.cost = param?.cost ?? 0;
       this.cpu = param?.cpu ?? NrMapDefaults.CPU_MIN;
+      this.cpuNodes = param?.cpuNodes.map( n => {return {x: n.x, y: n.y};}) ?? new Array<Coord>();
       this.int = 3 * this.cpu;
       this.ai = param?.ai ?? {};
       this.datawallStr = param?.datawallStr ?? NrMapDefaults.DATAWALL_STR_MIN;
@@ -43,7 +45,6 @@ export class Cp2020NrDatafort implements NrDatafort {
         const skill = {key:  param.skills[i]?.key ?? '', value: param.skills[i]?.value ?? 4};
         this.skills[i] = skill;
       }
-      console.log('skills', Math.floor(this.cpu/2) * 5, this.skills);
 
 
       this.files = new Array<KeyValue<number,string>>();

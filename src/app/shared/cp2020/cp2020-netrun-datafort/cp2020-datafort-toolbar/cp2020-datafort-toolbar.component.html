@@ -1,1 +1,9 @@
-<p>cp2020-datafort-toolbar works!</p>
+<div class="inline-block">
+  <div *ngFor="let icon of icons;let i = index"
+    [ngClass]="{'inline-block rounded text-center align-middle mr-1 ml-1 float-left p-0': true, 'datafort-node-selected': datafortBuilderService.isToolSelected(icon.icon.iconName)}">
+    <div class="csd-datafort-node-btn mb-2 p-0" [title]="icon.title">
+      <span class="datafort-node-counter rounded">{{getCount(icon.icon.iconName)}}</span>
+      <fa-icon [icon]="icon.icon" (click)="selectTool(icon.icon)"></fa-icon>
+    </div>
+  </div>
+</div>

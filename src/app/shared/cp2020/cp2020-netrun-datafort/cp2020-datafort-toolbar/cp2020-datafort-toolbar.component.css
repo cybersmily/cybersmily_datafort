@@ -1,0 +1,27 @@
+.csd-datafort-node-btn {
+  width: 30px;
+  min-width: 30px;
+  max-width: 30px;
+  height: 30px;
+  min-height: 30px;
+  max-height: 30px;
+  position: relative;
+}
+.csd-datafort-node-btn .ng-fa-icon {
+  margin-top: -6px;
+  font-size: 25px;
+}
+.datafort-node-selected {
+  padding-top: -5px;
+  padding-bottom: 5px;
+  background-color: turquoise;
+}
+
+.datafort-node-counter {
+  position: absolute;
+  padding: 1px 1px;
+  top: 0;
+  right: 0;
+  font-size: 11px;
+  background-color: white;
+}

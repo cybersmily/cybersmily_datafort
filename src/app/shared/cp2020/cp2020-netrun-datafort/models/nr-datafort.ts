@@ -9,6 +9,7 @@ export interface NrDatafort {
   columns: number;
   cost: number;
   cpu: number;
+  cpuNodes: Array<Coord>;
   int: number;
   ai: NrAI;
   datawallStr: number;

@@ -123,7 +123,7 @@
     {"name": "Remote vehicle"     , "weight": 1, "icon":"fa-truck"},
     {"name": "Remote robot"       , "weight": 1, "icon":"fa-bezier-curve"},
     {"name": "Automatic door/gate", "weight": 2, "icon":"fa-door-closed"},
-    {"name": "Elevator"           , "weight": 2, "icon":"fa-microchip"},
+    {"name": "Elevator"           , "weight": 2, "icon":"fa-calendar"},
     {"name": "Manipulator"        , "weight": 1, "icon":"fa-hand-lizard"},
     {"name": "Autofactory"        , "weight": 1, "icon":"fa-cogs"}
   ],
