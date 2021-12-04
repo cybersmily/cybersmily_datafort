@@ -40,7 +40,6 @@ export class Cp2020DatafortMapComponent implements OnInit {
         }
         this.grid.push(rowArray);
       }
-      console.log(this.grid);
       this.svgWidth = this.currDatafort.columns * this.gridSize;
       this.svgHeight = this.currDatafort.rows * this.gridSize;
     });
