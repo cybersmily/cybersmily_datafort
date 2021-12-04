@@ -67,7 +67,7 @@ export class Cp2020NrDatafort implements NrDatafort {
       this.files = new Array<KeyValue<number,string>>();
       this.remotes = new Array<NrDatafortRemote>();
       param?.remotes.forEach( remote => {
-        this.remotes.push({name: remote.name, coord: {x: remote.coord.x, y:remote.coord.y}});
+        this.remotes.push({name: remote.name, type: remote.type, coord: {x: remote.coord.x, y:remote.coord.y}});
       });
       this.defenses = new Array<NrDatafortDefense>();
       param?.defenses.forEach( defense => {
