@@ -1,4 +1,4 @@
-import { faRedo } from '@fortawesome/free-solid-svg-icons';
+import { faRedo, faSave, faFilePdf, faImage, faUpload } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020DatafortBuilderService } from './../services/cp2020-datafort-builder.service';
 import { LocalStorageManagerService } from './../../../services/local-storage-manager/local-storage-manager.service';
 import { Cp2020AppFiles } from './../../../services/file-services/enum/cp2020-app-files';
@@ -13,6 +13,10 @@ import { NrDatafortRefData } from '../models/nr-datafort-ref-data';
 })
 export class Cp2020DatafortFormComponent implements OnInit {
   faRedo = faRedo;
+  faSave = faSave;
+  faFilePdf = faFilePdf;
+  faImage = faImage;
+  faUpload = faUpload;
 
   datafortRefData: NrDatafortRefData;
 
@@ -28,5 +32,10 @@ export class Cp2020DatafortFormComponent implements OnInit {
   reset() {
     this.datafortBuilderService.reset();
   }
+
+  printPDF() {}
+  printSVG() {}
+  uploadJSON() {}
+  saveJSON() {}
 
 }
