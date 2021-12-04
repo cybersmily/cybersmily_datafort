@@ -6,7 +6,7 @@
         <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ml-2"></fa-icon>
       </h4>
       <span class="float-right">
-        General IP: <input [(ngModel)]="skills.ip" type="number" class="chargen-general-ip-input"
+        General IP: <input [(ngModel)]="currentSkills.ip" type="number" class="chargen-general-ip-input"
           (change)="onChangeSkill()" />
       </span>
     </div>
@@ -15,7 +15,7 @@
     <div class="row">
       <div class="col-12">
         <span class="chargen-skills-instructions">
-          [ROLE:&nbsp;{{skills.RoleTotal}}]&nbsp;&nbsp;[SECONDARY:&nbsp;{{skills.OtherTotal}}]&nbsp;&nbsp;&nbsp;&nbsp;
+          [ROLE:&nbsp;{{currentSkills.RoleTotal}}]&nbsp;&nbsp;[SECONDARY:&nbsp;{{currentSkills.OtherTotal}}]&nbsp;&nbsp;&nbsp;&nbsp;
           (#) is the combined stat + skill. [#] is the skill level. Checkbox is if chipped. Role skills are highlighted
           with *, @ is choose one as role, ! is for secondary skill.</span>
       </div>

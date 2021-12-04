@@ -17,6 +17,15 @@ export class Cp2020PlayerSkills {
     this.ip = 0;
   }
 
+  import(playerSkills:Cp2020PlayerSkills) {
+    this.RoleTotal = playerSkills.RoleTotal;
+    this.OtherTotal = playerSkills.OtherTotal;
+    this.rep = playerSkills.rep;
+    this.ip = playerSkills.ip;
+    this.importSkills(playerSkills.skills);
+    this.calculateTotals();
+  }
+
 
   importSkills(skills: Array<Cp2020PlayerSkill>, roleSkills?: any[]) {
     skills.forEach(skill => {
