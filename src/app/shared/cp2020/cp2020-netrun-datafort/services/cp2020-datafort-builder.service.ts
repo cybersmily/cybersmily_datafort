@@ -1,3 +1,5 @@
+import { StorageKeys } from './../../../enums/storage-keys';
+import { LocalStorageManagerService } from './../../../services/local-storage-manager/local-storage-manager.service';
 import { Cp2020Program } from './../../cp2020-netrun-gear/models/cp2020-program';
 import { NrNodeType } from './../enums/nr-node-type';
 import { NrMapDefaults } from '../enums/nr-map-defaults';
@@ -15,11 +17,13 @@ export class Cp2020DatafortBuilderService {
   );
   datafort = this._datafort.asObservable();
 
-  private _currDatafort = new Cp2020NrDatafort();
+  private _currDatafort: Cp2020NrDatafort;
 
   selectedTool: NrNodeType;
 
-  constructor() { }
+  constructor(private localStorageService: LocalStorageManagerService) {
+    this.update(this.localStorageService.retrive<Cp2020NrDatafort>(StorageKeys.CP2020_NR_DATAFORT));
+  }
 
   isToolSelected(nodeType: NrNodeType ): boolean {
     return this.selectedTool === nodeType;
@@ -27,49 +31,55 @@ export class Cp2020DatafortBuilderService {
 
 
   update(datafort: NrDatafort) {
-    // validation on values
-    datafort.rows = this.validateNumber(datafort.rows, NrMapDefaults.ROWS_MIN);
-    datafort.columns = this.validateNumber(datafort.columns, NrMapDefaults.COLUMNS_MIN);
-    datafort.cpu = this.validateNumber(datafort.cpu, NrMapDefaults.CPU_MIN, NrMapDefaults.CPU_MAX);
-    datafort.datawallStr = this.validateNumber(datafort.datawallStr, NrMapDefaults.DATAWALL_STR_MIN, NrMapDefaults.DATAWALL_STR_MAX);
-    datafort.codegateStr = this.validateNumber(datafort.codegateStr, NrMapDefaults.CODEGATE_STR_MIN, NrMapDefaults.CODEGATE_STR_MAX);
+    if(datafort) {
+      // validation on values
+      datafort.rows = this.validateNumber(datafort.rows, NrMapDefaults.ROWS_MIN);
+      datafort.columns = this.validateNumber(datafort.columns, NrMapDefaults.COLUMNS_MIN);
+      datafort.cpu = this.validateNumber(datafort.cpu, NrMapDefaults.CPU_MIN, NrMapDefaults.CPU_MAX);
+      datafort.datawallStr = this.validateNumber(datafort.datawallStr, NrMapDefaults.DATAWALL_STR_MIN, NrMapDefaults.DATAWALL_STR_MAX);
+      datafort.codegateStr = this.validateNumber(datafort.codegateStr, NrMapDefaults.CODEGATE_STR_MIN, NrMapDefaults.CODEGATE_STR_MAX);
+    }
 
     this._currDatafort = new Cp2020NrDatafort(datafort);
     this._datafort.next(this._currDatafort);
+    this.localStorageService.store<Cp2020NrDatafort>(StorageKeys.CP2020_NR_DATAFORT, this._currDatafort);
   }
 
   updateNode(x: number, y: number) {
     if(this.selectedTool === NrNodeType.DATAWALL) {
       this._currDatafort.datawallNodes.push({x: x, y: y});
-      this._datafort.next(this._currDatafort);
+      this.update(this._currDatafort);
       return;
     }
     if(this.selectedTool === NrNodeType.CODEGATE) {
       this._currDatafort.codegateNodes.push({x: x, y: y});
-      this._datafort.next(this._currDatafort);
+      this.update(this._currDatafort);
       return;
     }
     if(this.selectedTool === NrNodeType.CPU) {
       this._currDatafort.cpuNodes.push({x: x, y: y});
-      this._datafort.next(this._currDatafort);
+      this.update(this._currDatafort);
       return;
     }
     if(this.selectedTool === NrNodeType.MU){
       this._currDatafort.muNodes.push({x: x, y: y});
-      this._datafort.next(this._currDatafort);
+      this.update(this._currDatafort);
       return;
     }
     if(this.selectedTool === NrNodeType.PROGRAM){
       this._currDatafort.defenses.push({name: '', program: new Cp2020Program(), coord:{x: x, y: y}});
-      this._datafort.next(this._currDatafort);
+      this.update(this._currDatafort);
       return;
     }
     if (this.selectedTool != null) {
       this._currDatafort.remotes.push({name: '', type: this.selectedTool, coord:{x: x, y: y}});
-      this._datafort.next(this._currDatafort);
+      this.update(this._currDatafort);
       return;
-
     }
+  }
+
+  reset() {
+    this.update(new Cp2020NrDatafort());
   }
 
   private validateNumber(value:number, min:number, max?:number ): number {
