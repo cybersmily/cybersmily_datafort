@@ -60,79 +60,90 @@
   <div class="col-8 border border-dark p-0">
   </div>
 </div>
-<div *ngIf="currDatafort.skills?.length > 0" class="row mt-1">
-  <div class="col p-0">Skills</div>
+<div *ngIf="currDatafort.skills?.length > 0" class="row mt-1 csd-btn" (click)="isSkillsCollapsed = !isSkillsCollapsed">
+  <div class="col p-0 csd-btn text-center">
+    <h5 class="d-inline-block">SKILLS</h5>
+    <fa-icon [icon]="isSkillsCollapsed ? faChevronRight : faChevronDown" class="ml-2 csd-icon-btn csd-icon-lg">
+    </fa-icon>
+  </div>
 </div>
-<div class="row">
-  <ng-container *ngFor="let skill of currDatafort.skills;let i = index">
-    <div *ngIf="skill" class="col-5 p-0">
-      <select [(ngModel)]="skill.key" class="w-100 h-100">
-        <option *ngFor="let opt of cp2020DatafortRefData?.skills" [value]="opt">{{opt}}</option>
-      </select>
+<div [collapse]="isSkillsCollapsed">
+  <div class="row p-0">
+    <ng-container *ngFor="let skill of currDatafort.skills;let i = index">
+      <div *ngIf="skill" class="col-5 p-0 border border-dark">
+        <select [(ngModel)]="skill.key" class="w-100 h-100">
+          <option *ngFor="let opt of cp2020DatafortRefData?.skills" [value]="opt">{{opt}}</option>
+        </select>
+      </div>
+      <div *ngIf="skill" class="col-1 p-0 border border-dark">
+        <input type="number" class="w-100 no-spinners no-style m-0 h-100" title="Enter skill rank (4-10)"
+          [min]="NrMapDefaults.SKILL_MIN" [max]="NrMapDefaults.SKILL_MAX" [(ngModel)]="skill.value">
+      </div>
+    </ng-container>
+  </div>
+</div>
+<div *ngIf="currDatafort.mu?.length > 0" class="row mt-1 csd-btn" (click)="isMemoryCollapsed = !isMemoryCollapsed">
+  <div class="col p-0 text-center">
+    <h5 class="d-inline-block">FILES/VR</h5>
+    <fa-icon [icon]="isMemoryCollapsed ? faChevronRight : faChevronDown" class="ml-2 csd-icon-btn csd-icon-lg">
+    </fa-icon>
+  </div>
+</div>
+<div [collapse]="isMemoryCollapsed">
+  <div *ngFor="let mu of currDatafort.mu;let i = index" class="row">
+    <div class="col-1 text-right">{{i + 1}}.</div>
+    <div *ngIf="mu" class="col-9 p-0 border border-dark">
+      <input type="text" class="w-100 no-spinners no-style m-0 h-100" title="Enter number of MUs file takes up"
+        [(ngModel)]="mu.key" placeholder="File name/VR name">
     </div>
-    <div *ngIf="skill" class="col-1 p-0 border border-dark">
-      <input type="number" class="w-100 no-spinners no-style m-0 h-100" title="Enter skill rank (4-10)"
-        [min]="NrMapDefaults.SKILL_MIN" [max]="NrMapDefaults.SKILL_MAX" [(ngModel)]="skill.value">
+    <div *ngIf="mu" class="col-2 p-0 border border-dark">
+      <input type="number" class="w-100 no-spinners no-style m-0 h-100" title="Enter number of MUs file takes up (1-10)"
+        [min]="1" [max]="10" [(ngModel)]="mu.value">
     </div>
-  </ng-container>
-</div>
-<div *ngIf="currDatafort.mu?.length > 0" class="row mt-1">
-  <div class="col p-0">FILES/VR</div>
-</div>
-<div *ngFor="let mu of currDatafort.mu;let i = index" class="row">
-  <div class="col-1 text-right">{{i + 1}}.</div>
-  <div *ngIf="mu" class="col-9 p-0">
-    <input type="text" class="w-100 no-spinners no-style m-0 h-100" title="Enter number of MUs file takes up"
-      [(ngModel)]="mu.key" placeholder="File name/VR name">
-  </div>
-  <div *ngIf="mu" class="col-2 p-0 border border-dark">
-    <input type="number" class="w-100 no-spinners no-style m-0 h-100" title="Enter number of MUs file takes up (1-10)"
-      [min]="1" [max]="10" [(ngModel)]="mu.value">
   </div>
 </div>
-<div *ngIf="currDatafort.remotes?.length > 0" class="row mt-1">
-  <div class="col p-0">REMOTES</div>
-</div>
-<div *ngFor="let remote of currDatafort.remotes;let i = index" class="row">
-  <div class="col-1 text-right">{{i + 1}}.</div>
-  <div class="col-6 p-0">
-    <input type="text" class="w-100 no-spinners no-style m-0 h-100" title="Enter number of MUs file takes up"
-      [(ngModel)]="remote.name" placeholder="Remote description">
+<div *ngIf="currDatafort.remotes?.length > 0" class="row mt-1 csd-btn" (click)="isRemotesCollapsed = !isRemotesCollapsed">
+  <div class="col p-0 text-center">
+    <h5 class="d-inline-block">REMOTES</h5>
+    <fa-icon [icon]="isRemotesCollapsed ? faChevronRight : faChevronDown" class="ml-2 csd-icon-btn csd-icon-lg">
+    </fa-icon>
   </div>
-  <div class="col-5 p-0 border border-dark small">
-    <select [(ngModel)]="remote.type" class="w-100 h-100">
-      <option [value]="NrNodeType.ALARM">Alarm</option>
-      <option [value]="NrNodeType.AUTOFACTORY">Autofactory</option>
-      <option [value]="NrNodeType.CAMERA">Camera</option>
-      <option [value]="NrNodeType.DOOR">Door or Gate</option>
-      <option [value]="NrNodeType.ELEVATOR">Elevator</option>
-      <option [value]="NrNodeType.HOLODISPLAY">Holo-display</option>
-      <option [value]="NrNodeType.LDL">LDL</option>
-      <option [value]="NrNodeType.MANIPULATOR">Manipulator</option>
-      <option [value]="NrNodeType.MICROPHONE">Microphone</option>
-      <option [value]="NrNodeType.PRINTER">Printer</option>
-      <option [value]="NrNodeType.VEHICLE">Remote Vehicle/Robot</option>
-      <option [value]="NrNodeType.TERMINAL">Terminal</option>
-      <option [value]="NrNodeType.VIDEO">Video Screen</option>
-    </select>
+</div>
+<div [collapse]="isRemotesCollapsed">
+  <div *ngFor="let remote of currDatafort.remotes;let i = index" class="row">
+    <div class="col-1 text-right">{{i + 1}}.</div>
+    <div class="col-7 p-0 border border-dark">
+      <input type="text" class="w-100 no-spinners no-style m-0 h-100" title="Enter number of MUs file takes up"
+        [(ngModel)]="remote.name" placeholder="Remote description">
+    </div>
+    <div class="col-4 p-0 border border-dark small">
+      {{remote.type | nrNodeDisplayName}}
+    </div>
   </div>
 </div>
 <ng-container *ngIf="currDatafort.defenses?.length > 0">
-  <div class="row mt-1">
-    <div class="col p-0">DEFENSES</div>
-  </div>
-  <div class="row small">
-    <div class="col-1 p-1">key</div>
-    <div class="col-9 p-0 pl-1 border border-dark">Program</div>
-    <div class="col-2 p-0 border border-dark text-center">MU</div>
-  </div>
-  <div *ngFor="let defense of currDatafort.defenses;let i = index" class="row">
-    <div class="col-1 text-right">{{i + 1}}.</div>
-    <div class="col-9 p-0 border border-dark">
-      <input type="text" class="w-100 no-spinners no-style m-0 h-100" title="Program" [ngModel]="defense.program.name">
+  <div class="row mt-1 csd-btn" (click)="isDefensesCollapsed = !isDefensesCollapsed">
+    <div class="col p-0 text-center">
+      <h5 class="d-inline-block">DEFENSES</h5>
+    <fa-icon [icon]="isDefensesCollapsed ? faChevronRight : faChevronDown" class="ml-2 csd-icon-btn csd-icon-lg">
+    </fa-icon>
     </div>
-    <div class="col-2 p-0 border border-dark text-center">
-      {{defense.program.mu}}
+  </div>
+  <div [collapse]="isDefensesCollapsed">
+    <div class="row small">
+      <div class="col-1 p-1">key</div>
+      <div class="col-9 p-0 pl-1 border border-dark">Program</div>
+      <div class="col-2 p-0 border border-dark text-center">MU</div>
+    </div>
+    <div *ngFor="let defense of currDatafort.defenses;let i = index" class="row">
+      <div class="col-1 text-right">{{i + 1}}.</div>
+      <div class="col-9 p-0 border border-dark">
+        <input type="text" class="w-100 no-spinners no-style m-0 h-100" title="Program"
+          [ngModel]="defense.program.name">
+      </div>
+      <div class="col-2 p-0 border border-dark text-center">
+        {{defense.program.mu}}
+      </div>
     </div>
   </div>
 </ng-container>

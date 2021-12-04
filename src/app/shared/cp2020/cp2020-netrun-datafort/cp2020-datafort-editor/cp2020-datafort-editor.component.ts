@@ -1,3 +1,4 @@
+import { faChevronDown, faChevronRight, faDice, faSearch, faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { NrNodeType } from './../enums/nr-node-type';
 import { NrMapDefaults } from '../enums/nr-map-defaults';
 import { Cp2020NrDatafort } from './../models/cp2020-nr-datafort';
@@ -11,9 +12,22 @@ import { NrDatafortRefDataVr } from '../models/nr-datafort-ref-data-vr';
   styleUrls: ['./cp2020-datafort-editor.component.css']
 })
 export class Cp2020DatafortEditorComponent implements OnInit {
+  faChevronDown = faChevronDown;
+  faChevronRight = faChevronRight;
+  faDice = faDice;
+  faPen = faPen;
+  faTrash = faTrash;
+
+
+
   NrNodeType = NrNodeType;
   NrMapDefaults = NrMapDefaults;
   currDatafort: Cp2020NrDatafort;
+
+  isSkillsCollapsed = true;
+  isMemoryCollapsed = true;
+  isRemotesCollapsed = true;
+  isDefensesCollapsed = true;
 
   @Input()
   cp2020DatafortRefData: NrDatafortRefDataVr;

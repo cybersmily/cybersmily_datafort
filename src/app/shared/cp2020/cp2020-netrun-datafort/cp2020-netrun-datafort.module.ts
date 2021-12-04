@@ -11,6 +11,7 @@ import { Cp2020DatafortFormComponent } from './cp2020-datafort-form/cp2020-dataf
 import { Cp2020DatafortEditorComponent } from './cp2020-datafort-editor/cp2020-datafort-editor.component';
 import { Cp2020DatafortToolbarComponent } from './cp2020-datafort-toolbar/cp2020-datafort-toolbar.component';
 import { Cp2020DatafortMapComponent } from './cp2020-datafort-map/cp2020-datafort-map.component';
+import { NrNodeDisplayNamePipe } from './pipes/nr-node-display-name/nr-node-display-name.pipe';
 
 
 
@@ -19,7 +20,8 @@ import { Cp2020DatafortMapComponent } from './cp2020-datafort-map/cp2020-datafor
     Cp2020DatafortFormComponent,
     Cp2020DatafortEditorComponent,
     Cp2020DatafortToolbarComponent,
-    Cp2020DatafortMapComponent
+    Cp2020DatafortMapComponent,
+    NrNodeDisplayNamePipe
   ],
   imports: [
     CommonModule,
