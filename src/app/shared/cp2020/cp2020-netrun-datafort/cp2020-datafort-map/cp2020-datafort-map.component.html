@@ -15,32 +15,43 @@
       <svg *ngFor="let codegate of currDatafort?.codegateNodes;let x = index"
         [attr.x]="codegate.x * gridSize" [attr.y]="codegate.y * gridSize"
         [attr.height]="gridSize" [attr.width]="gridSize"
-        viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-        <rect x="51" y="51" fill="white" stroke="black" stroke-width="50" width="400" height="400" />
-        <line x1="31" x2="450" y1="140" y2="140" stroke="black" stroke-width="30" />
-        <line x1="31" x2="450" y1="360" y2="360" stroke="black" stroke-width="30" />
+        viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" [innerHTML]="NrNodeIcons.CODEGATE | sanitizeHtml">
       </svg>
     </g>
     <g id="cpus">
       <svg *ngFor="let cpu of currDatafort?.cpuNodes;let x = index"
         [attr.x]="cpu.x * gridSize" [attr.y]="cpu.y * gridSize"
         [attr.height]="gridSize" [attr.width]="gridSize"
-        viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="256" cy="256" r="220" stroke="black" stroke-width="50" fill="white" />
-        <line x1="31" x2="475" y1="31" y2="475" stroke="black" stroke-width="50" />
-        <line x1="31" x2="475" y1="475" y2="31" stroke="black" stroke-width="50" />
+        viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" [innerHTML]="NrNodeIcons.CPU | sanitizeHtml">
       </svg>
     </g>
-    <g id="mu">
-      <svg *ngFor="let mu of currDatafort?.muNodes;let x = index"
+    <g *ngFor="let mu of currDatafort?.muNodes;let x = index"  id="mu{{x}}">
+      <svg
         [attr.x]="mu.x * gridSize" [attr.y]="mu.y * gridSize"
         [attr.height]="gridSize" [attr.width]="gridSize"
-        viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-        <rect x="81" y="31" width="350" height="450" stroke="black" stroke-width="50" fill="white"/>
-        <text x="50%" y="50%" fill="black" style="font-size:300px;" dominant-baseline="middle" text-anchor="middle">{{x + 1}}</text>
+        viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" [innerHTML]="NrNodeIcons.MU | sanitizeHtml">
       </svg>
+      <text [attr.x]="mu.x * gridSize + (gridSize/2)" [attr.y]="mu.y * gridSize + (gridSize/2)" fill="black" dominant-baseline="middle" text-anchor="middle">{{x + 1}}</text>
     </g>
-    <g id="remotes"></g>
-    <g id="defenses"></g>
+    <g *ngFor="let remote of currDatafort?.remotes;let x = index" id="remotes{{x}}">
+      <svg
+        [attr.x]="remote.coord.x * gridSize" [attr.y]="remote.coord.y * gridSize"
+        [attr.height]="gridSize * 0.75" [attr.width]="gridSize"
+        viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" [innerHTML]="getRemoteIcon(remote.type) | sanitizeHtml">
+      </svg>
+      <text [attr.x]="remote.coord.x * gridSize + (gridSize/2)" [attr.y]="remote.coord.y * gridSize + gridSize"
+      [style]="'font-size: '+ (gridSize * 0.3) + 'px;'"
+        fill="black" dominant-baseline="bottom" text-anchor="middle">{{x + 1}}</text>
+    </g>
+    <g *ngFor="let defense of currDatafort?.defenses;let x = index" id="defense{{x}}">
+      <svg
+        [attr.x]="defense.coord.x * gridSize" [attr.y]="defense.coord.y * gridSize"
+        [attr.height]="gridSize * 0.75" [attr.width]="gridSize"
+        viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" [innerHTML]="NrNodeIcons.PROGRAM | sanitizeHtml">
+      </svg>
+      <text [attr.x]="defense.coord.x * gridSize + (gridSize/2)" [attr.y]="defense.coord.y * gridSize + gridSize"
+        [style]="'font-size: '+ (gridSize * 0.3) + 'px;'"
+        fill="black" dominant-baseline="bottom" text-anchor="middle">{{x + 1}}</text>
+    </g>
   </svg>
 </div>

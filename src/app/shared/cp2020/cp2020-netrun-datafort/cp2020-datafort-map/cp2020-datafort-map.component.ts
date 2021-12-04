@@ -1,3 +1,5 @@
+import { VehicleBase } from './../../cp2020-vehicles/models/vehicle-base';
+import { NrNodeType } from './../enums/nr-node-type';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { NrNodeIcons } from './../enums/nr-node-icons';
 import { Cp2020DatafortBuilderService } from './../services/cp2020-datafort-builder.service';
@@ -56,6 +58,39 @@ export class Cp2020DatafortMapComponent implements OnInit {
   sanitize(element: string): SafeHtml {
     console.log(element);
     return this.sanitizer.bypassSecurityTrustHtml(element);
+  }
+
+  getRemoteIcon(type: NrNodeType): string {
+    switch(type) {
+      case NrNodeType.ALARM:
+        return NrNodeIcons.ALARM;
+      case NrNodeType.AUTOFACTORY:
+        return NrNodeIcons.AUTOFACTORY;
+      case NrNodeType.DOOR:
+        return NrNodeIcons.DOOR;
+      case NrNodeType.ELEVATOR:
+        return NrNodeIcons.ELEVATOR;
+      case NrNodeType.TERMINAL:
+        return NrNodeIcons.TERMINAL;
+      case NrNodeType.LDL:
+        return NrNodeIcons.LDL;
+      case NrNodeType.CAMERA:
+        return NrNodeIcons.CAMERA;
+      case NrNodeType.MICROPHONE:
+        return NrNodeIcons.MICROPHONE;
+      case NrNodeType.VIDEO:
+        return NrNodeIcons.VIDEO;
+      case NrNodeType.HOLODISPLAY:
+        return NrNodeIcons.HOLODISPLAY;
+      case NrNodeType.PRINTER:
+        return NrNodeIcons.PRINTER;
+      case NrNodeType.MANIPULATOR:
+        return NrNodeIcons.MANIPULATOR;
+      case NrNodeType.VEHICLE:
+        return NrNodeIcons.VEHICLE;
+      default:
+        return '';
+    }
   }
 
 }

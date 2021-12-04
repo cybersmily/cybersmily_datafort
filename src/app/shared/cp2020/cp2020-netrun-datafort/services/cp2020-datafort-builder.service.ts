@@ -1,3 +1,4 @@
+import { Cp2020Program } from './../../cp2020-netrun-gear/models/cp2020-program';
 import { NrNodeType } from './../enums/nr-node-type';
 import { NrMapDefaults } from '../enums/nr-map-defaults';
 import { NrDatafort } from './../models/nr-datafort';
@@ -58,7 +59,19 @@ export class Cp2020DatafortBuilderService {
       this._datafort.next(this._currDatafort);
       return;
     }
+    if(this.selectedTool === NrNodeType.PROGRAM){
+      this._currDatafort.defenses.push({name: '', program: new Cp2020Program(), coord:{x: x, y: y}});
+      this._datafort.next(this._currDatafort);
+      return;
+    }
+    if (this.selectedTool != null) {
+      this._currDatafort.remotes.push({name: '', type: this.selectedTool, coord:{x: x, y: y}});
+      this._datafort.next(this._currDatafort);
+      return;
+
+    }
   }
+
   private validateNumber(value:number, min:number, max?:number ): number {
     let result = value < min ? min : value;
     if (max != null ) {
