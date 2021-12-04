@@ -9,6 +9,7 @@ import { OrderbyPipe } from './orderby.pipe';
 import { CelsiusPipe } from './celsius.pipe';
 import { WeightNamePipe } from './weight-name.pipe';
 import { ArmorOptionModPipe } from './armor-option-mod.pipe';
+import { SanitizeHtmlPipe } from './sanitize-html.pipe';
 
 
 
@@ -22,7 +23,8 @@ import { ArmorOptionModPipe } from './armor-option-mod.pipe';
     OrderbyPipe,
     CelsiusPipe,
     WeightNamePipe,
-    ArmorOptionModPipe
+    ArmorOptionModPipe,
+    SanitizeHtmlPipe
   ],
   imports: [
     CommonModule
@@ -36,7 +38,8 @@ import { ArmorOptionModPipe } from './armor-option-mod.pipe';
     OrderbyPipe,
     CelsiusPipe,
     WeightNamePipe,
-    ArmorOptionModPipe
+    ArmorOptionModPipe,
+    SanitizeHtmlPipe
   ]
 })
 export class PipesModule { }
