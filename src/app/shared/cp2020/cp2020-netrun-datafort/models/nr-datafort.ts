@@ -1,3 +1,5 @@
+import { NrDatafortDefense } from './nr-datafort-defense';
+import { NrDatafortRemote } from './nr-datafort-remote';
 import { KeyValue } from '@angular/common';
 import { Program } from './../../../cp2020/cp2020-netrun-gear/models';
 import { Coord } from './../../../models/coord';
@@ -12,6 +14,8 @@ export interface NrDatafort {
   cpuNodes: Array<Coord>;
   mu: Array<KeyValue<string,number>>;
   muNodes: Array<Coord>;
+  muAvailable: number;
+  muUsed: number;
   int: number;
   ai: NrAI;
   datawallStr: number;
@@ -19,9 +23,8 @@ export interface NrDatafort {
   codegateStr: number;
   codegateNodes: Array<Coord>;
   files: Array<KeyValue<number,string>>;
-  vr: Array<any>;
-  remotes: Array<KeyValue<string,string>>;
+  remotes: Array<NrDatafortRemote>;
   skills: Array<KeyValue<string,number>>;
-  defenses: Array<Program>;
+  defenses: Array<NrDatafortDefense>;
 }
 

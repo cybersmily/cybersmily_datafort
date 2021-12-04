@@ -1,3 +1,6 @@
+import { Cp2020Program } from './../../cp2020-netrun-gear/models/cp2020-program';
+import { NrDatafortDefense } from './nr-datafort-defense';
+import { NrDatafortRemote } from './nr-datafort-remote';
 import { NrMapDefaults } from '../enums/nr-map-defaults';
 import { KeyValue } from '@angular/common';
 import { Program } from './../../../cp2020/cp2020-netrun-gear/models';
@@ -13,6 +16,8 @@ export class Cp2020NrDatafort implements NrDatafort {
   cpuNodes = new Array<Coord>();
   mu = new Array<KeyValue<string,number>>();
   muNodes = new Array<Coord>();
+  muAvailable = 40 * this.cpu;
+  muUsed = 0;
   int = 3 * this.cpu;
   ai = {};
   datawallStr = NrMapDefaults.DATAWALL_STR_MIN;
@@ -21,10 +26,9 @@ export class Cp2020NrDatafort implements NrDatafort {
 
   codegateNodes = new Array<Coord>();
   files = new Array<KeyValue<number,string>>();
-  vr = new Array<any>();
-  remotes = new Array<KeyValue<string,string>>();
+  remotes = new Array<NrDatafortRemote>();
   skills = new Array<KeyValue<string,number>>();
-  defenses = new Array<Program>();
+  defenses = new Array<NrDatafortDefense>();
 
   constructor(param?: NrDatafort) {
     if(param) {
@@ -34,6 +38,8 @@ export class Cp2020NrDatafort implements NrDatafort {
       this.cost = param?.cost ?? 0;
       this.cpu = param?.cpu ?? NrMapDefaults.CPU_MIN;
       this.cpuNodes = param?.cpuNodes.map( n => {return {x: n.x, y: n.y};}) ?? new Array<Coord>();
+      this.muAvailable = 40 * this.cpu;
+      this.muUsed = param?.muUsed ?? 0;
       this.int = 3 * this.cpu;
       this.ai = param?.ai ?? {};
       this.datawallStr = param?.datawallStr ?? NrMapDefaults.DATAWALL_STR_MIN;
@@ -58,11 +64,15 @@ export class Cp2020NrDatafort implements NrDatafort {
         this.skills[i] = skill;
       }
 
-
       this.files = new Array<KeyValue<number,string>>();
-      this.vr = new Array<any>();
-      this.remotes = new Array<KeyValue<string,string>>();
-      this.defenses = new Array<Program>();
+      this.remotes = new Array<NrDatafortRemote>();
+      param?.remotes.forEach( remote => {
+        this.remotes.push({name: remote.name, coord: {x: remote.coord.x, y:remote.coord.y}});
+      });
+      this.defenses = new Array<NrDatafortDefense>();
+      param?.defenses.forEach( defense => {
+        this.defenses.push({name: defense.name, coord: {x: defense.coord.x, y: defense.coord.y}, program: new Cp2020Program(defense.program)});
+      });
     }
   }
 }
