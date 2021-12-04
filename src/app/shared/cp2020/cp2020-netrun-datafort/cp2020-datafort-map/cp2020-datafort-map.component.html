@@ -8,8 +8,7 @@
     <g id="datawalls">
       <svg *ngFor="let datawall of currDatafort?.datawallNodes;let x = index" [attr.x]="datawall.x * gridSize"
         [attr.y]="datawall.y * gridSize" [attr.height]="gridSize" [attr.width]="gridSize"
-        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-        <rect x="0" width="512" height="512" fill="black" />
+        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" [innerHTML]="NrNodeIcons.DATAWALL | sanitizeHtml">
       </svg>
     </g>
     <g id="codegates">

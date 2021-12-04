@@ -75,9 +75,4 @@ export class Cp2020DatafortToolbarComponent implements OnInit {
       this.datafortBuilderService.selectedTool = icon;
     }
   }
-
-  sanitize(element: string): SafeHtml {
-    return this.sanitizer.bypassSecurityTrustHtml(element);
-  }
-
 }
