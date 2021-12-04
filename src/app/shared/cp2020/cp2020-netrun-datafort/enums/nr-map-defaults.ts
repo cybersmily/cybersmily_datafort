@@ -1,8 +1,8 @@
 export enum NrMapDefaults {
   GRID_SIZE = 34,
   ROWS_MIN = 10,
-  ROWS_DEFAULT = 20,
-  COLUMNS_DEFAULT = 20,
+  ROWS_DEFAULT = 15,
+  COLUMNS_DEFAULT = 15,
   COLUMNS_MIN = 10,
   CPU_MIN = 2,
   CPU_MAX = 7,

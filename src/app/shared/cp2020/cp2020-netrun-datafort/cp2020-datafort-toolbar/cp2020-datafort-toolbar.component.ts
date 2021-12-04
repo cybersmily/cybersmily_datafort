@@ -69,7 +69,11 @@ export class Cp2020DatafortToolbarComponent implements OnInit {
   }
 
   selectTool(icon: NrNodeType ) {
-    this.datafortBuilderService.selectedTool = icon;
+    if(icon === this.datafortBuilderService.selectedTool) {
+      this.datafortBuilderService.selectedTool = -1;
+    } else {
+      this.datafortBuilderService.selectedTool = icon;
+    }
   }
 
   sanitize(element: string): SafeHtml {
