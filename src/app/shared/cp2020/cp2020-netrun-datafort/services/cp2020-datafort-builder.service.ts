@@ -38,7 +38,11 @@ export class Cp2020DatafortBuilderService {
       datafort.columns = this.validateNumber(datafort.columns, NrMapDefaults.COLUMNS_MIN);
       datafort.cpu = this.validateNumber(datafort.cpu, NrMapDefaults.CPU_MIN, NrMapDefaults.CPU_MAX);
       datafort.datawallStr = this.validateNumber(datafort.datawallStr, NrMapDefaults.DATAWALL_STR_MIN, NrMapDefaults.DATAWALL_STR_MAX);
-      datafort.codegateStr = this.validateNumber(datafort.codegateStr, NrMapDefaults.CODEGATE_STR_MIN, NrMapDefaults.CODEGATE_STR_MAX);
+      datafort.codegates = datafort?.codegates?.map( cg => {
+        return {
+        str: this.validateNumber(cg.str, NrMapDefaults.CODEGATE_STR_MIN, NrMapDefaults.CODEGATE_STR_MAX),
+        coord: {x: cg.coord.x, y: cg.coord.y}
+      }});
     }
 
     this._currDatafort = new Cp2020NrDatafort(datafort);
@@ -55,7 +59,7 @@ export class Cp2020DatafortBuilderService {
       return;
     }
     if(this.selectedTool === NrNodeType.CODEGATE) {
-      this._currDatafort.codegateNodes.push({x: x, y: y});
+      this._currDatafort.codegates.push({str: 2, coord: {x: x, y: y}});
       this.update(this._currDatafort);
       return;
     }
@@ -85,8 +89,8 @@ export class Cp2020DatafortBuilderService {
     this.removeNodeFromList('datawallNodes', x, y);
   }
 
-  removeCodegate(x: number, y: number) {
-    this.removeNodeFromList('codegateNodes', x, y);
+  removeCodegate(coord: Coord) {
+    this.removeNodeCoordFromList('codegates', coord);
   }
 
   removeCPUNode(x: number, y: number) {
@@ -134,8 +138,8 @@ export class Cp2020DatafortBuilderService {
   private calculateCost() {
     const cpuCost = this._currDatafort.cpu * NrMapDefaults.CPU_COST;
     const skillCost = this._currDatafort.skills.reduce((sum, skill) => sum + this.calculateSkillCost(skill.value), 0);
-    let codegateCost = (this._currDatafort.codegateNodes.length - this._currDatafort.cpu) * 2000;
-    codegateCost +=
+    //let codegateCost = (this._currDatafort.codegateNodes.length - this._currDatafort.cpu) * 2000;
+    //codegateCost +=
     this._currDatafort.cost = cpuCost + skillCost;
   }
 

@@ -65,8 +65,8 @@ export class Cp2020DatafortMapComponent implements OnInit {
     this.datafortBuilderService.removeDataWall(x, y);
   }
 
-  removeCodegate(x: number, y: number) {
-    this.datafortBuilderService.removeCodegate(x, y);
+  removeCodegate(coord: Coord) {
+    this.datafortBuilderService.removeCodegate(coord);
   }
 
   removeCPU(x: number, y: number) {

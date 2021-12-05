@@ -19,29 +19,20 @@
   </div>
 </div>
 <div class="row mt-1">
-  <div class="col-4">CPU:</div>
-  <div class="col-2 border border-dark p-0">
-    <input type="number" class="w-100 no-spinners no-style h-100"
+  <div class="col-2">CPU:</div>
+  <div class="col-1 border border-dark p-0">
+    <input type="number" class="w-100 no-style h-100"
       title="Enter number of CPUs (min {{NrMapDefaults.CPU_MIN}}, max {{NrMapDefaults.CPU_MAX}})"
       [min]="NrMapDefaults.CPU_MIN" [max]="NrMapDefaults.CPU_MAX" [(ngModel)]="currDatafort.cpu" (change)="update()">
   </div>
-  <div class="col-4">INT:</div>
-  <div class="col-2">{{currDatafort.int}}</div>
-</div>
-<div class="row mt-1">
+  <div class="col-2 text-right pr-0">INT:</div>
+  <div class="col-1 text-left pl-1">{{currDatafort.int}}</div>
   <div class="col-4">Datawall Str:</div>
   <div class="col-2 border border-dark p-0">
-    <input type="number" class="w-100 no-spinners no-style h-100"
+    <input type="number" class="w-100 no-style h-100"
       title="Enter Datawall Strength (min {{NrMapDefaults.DATAWALL_STR_MIN}}, max {{NrMapDefaults.DATAWALL_STR_MAX}})"
       [min]="NrMapDefaults.DATAWALL_STR_MIN" [max]="NrMapDefaults.DATAWALL_STR_MAX"
       [(ngModel)]="currDatafort.datawallStr" (change)="update()">
-  </div>
-  <div class="col-4">Codegate Str:</div>
-  <div class="col-2 border border-dark p-0">
-    <input type="number" class="w-100 no-spinners no-style h-100"
-      title="Enter Codegate Strength (min {{NrMapDefaults.CODEGATE_STR_MIN}}, max {{NrMapDefaults.CODEGATE_STR_MAX}})"
-      [min]="NrMapDefaults.CODEGATE_STR_MIN" [max]="NrMapDefaults.CODEGATE_STR_MAX"
-      [(ngModel)]="currDatafort.codegateStr" (change)="update()">
   </div>
 </div>
 <div class="row mt-1">
@@ -60,6 +51,24 @@
   <div class="col-8 border border-dark p-0">
   </div>
 </div>
+<div *ngIf="currDatafort.codegates?.length > 0" class="row mt-1 csd-btn" (click)="isCodegatesCollapsed = !isCodegatesCollapsed">
+  <div class="col p-0 csd-btn text-center">
+    <h5 class="d-inline-block">CODEGATES</h5>
+    <fa-icon [icon]="isCodegatesCollapsed ? faChevronRight : faChevronDown" class="ml-2 csd-icon-btn csd-icon-lg">
+    </fa-icon>
+  </div>
+</div>
+<div [collapse]="isCodegatesCollapsed">
+  <div class="row p-0">
+    <ng-container *ngFor="let codegate of currDatafort.codegates;let i = index">
+      <div *ngIf="codegate" class="col-4 p-0 border border-dark">
+        {{i + 1}}. STR:
+        <input type="number" class="w-50 no-style m-0 text-center" title="Enter skill rank (2-10)"
+          [min]="NrMapDefaults.CODEGATE_MIN" [max]="NrMapDefaults.CODEGATE_MAX" [(ngModel)]="codegate.str">
+      </div>
+    </ng-container>
+  </div>
+</div>
 <div *ngIf="currDatafort.skills?.length > 0" class="row mt-1 csd-btn" (click)="isSkillsCollapsed = !isSkillsCollapsed">
   <div class="col p-0 csd-btn text-center">
     <h5 class="d-inline-block">SKILLS</h5>
@@ -70,13 +79,13 @@
 <div [collapse]="isSkillsCollapsed">
   <div class="row p-0">
     <ng-container *ngFor="let skill of currDatafort.skills;let i = index">
-      <div *ngIf="skill" class="col-5 p-0 border border-dark">
+      <div *ngIf="skill" class="col-4 p-0 border border-dark">
         <select [(ngModel)]="skill.key" class="w-100 h-100">
           <option *ngFor="let opt of cp2020DatafortRefData?.skills" [value]="opt">{{opt}}</option>
         </select>
       </div>
-      <div *ngIf="skill" class="col-1 p-0 border border-dark">
-        <input type="number" class="w-100 no-spinners no-style m-0 h-100" title="Enter skill rank (4-10)"
+      <div *ngIf="skill" class="col-2 p-0 border border-dark">
+        <input type="number" class="w-100 no-style m-0 h-100" title="Enter skill rank (4-10)"
           [min]="NrMapDefaults.SKILL_MIN" [max]="NrMapDefaults.SKILL_MAX" [(ngModel)]="skill.value">
       </div>
     </ng-container>

@@ -53,7 +53,7 @@ export class Cp2020DatafortToolbarComponent implements OnInit {
   }
 
   getCount(nodeType: NrNodeType ): number {
-    const numOfCodegates = this.currDatafort.cpu - this.currDatafort.codegateNodes.length;
+    const numOfCodegates = this.currDatafort.cpu - this.currDatafort.codegates.length;
     const numOfMUs = (this.currDatafort.cpu * 4) - this.currDatafort.muNodes.length;
     const numOfCPUs = this.currDatafort.cpu - this.currDatafort.cpuNodes.length;
     switch(nodeType){

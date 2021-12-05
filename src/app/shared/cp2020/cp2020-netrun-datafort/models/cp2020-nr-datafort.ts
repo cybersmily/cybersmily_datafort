@@ -3,9 +3,10 @@ import { NrDatafortDefense } from './nr-datafort-defense';
 import { NrDatafortRemote } from './nr-datafort-remote';
 import { NrMapDefaults } from '../enums/nr-map-defaults';
 import { KeyValue } from '@angular/common';
-import { Program } from './../../../cp2020/cp2020-netrun-gear/models';
 import { Coord } from './../../../models/coord';
 import { NrDatafort } from "./nr-datafort";
+import { NrDatafortCodegate } from './nr-datafort-codegate';
+import { CB1 } from 'canvg';
 
 export class Cp2020NrDatafort implements NrDatafort {
   name = '' ;
@@ -22,9 +23,7 @@ export class Cp2020NrDatafort implements NrDatafort {
   ai = {};
   datawallStr = NrMapDefaults.DATAWALL_STR_MIN;
   datawallNodes = new Array<Coord>();
-  codegateStr = NrMapDefaults.CODEGATE_STR_MIN;
-
-  codegateNodes = new Array<Coord>();
+  codegates = new Array<NrDatafortCodegate>();
   files = new Array<KeyValue<number,string>>();
   remotes = new Array<NrDatafortRemote>();
   skills = new Array<KeyValue<string,number>>();
@@ -44,8 +43,7 @@ export class Cp2020NrDatafort implements NrDatafort {
       this.ai = param?.ai ?? {};
       this.datawallStr = param?.datawallStr ?? NrMapDefaults.DATAWALL_STR_MIN;
       this.datawallNodes = param?.datawallNodes.map( n => {return {x: n.x, y: n.y};}) ?? new Array<Coord>();
-      this.codegateStr = param?.codegateStr ?? NrMapDefaults.CODEGATE_STR_MIN;
-      this.codegateNodes = param?.codegateNodes.map( n => {return {x: n.x, y: n.y};}) ?? new Array<Coord>();
+      this.codegates = param?.codegates.map( cg => {return{str: cg.str, coord: {x: cg.coord.x, y: cg.coord.y}};}) ?? new Array<NrDatafortCodegate>();
       // add in the MUs
       this.muNodes = param?.muNodes.map( n => {return {x: n.x, y: n.y};}) ?? new Array<Coord>();
       this.mu = param?.mu.map( mu => {return {key: mu.key, value: mu.value}}) ?? new Array<KeyValue<string, number>>(this.cpu * 4);

@@ -18,12 +18,11 @@ export class Cp2020DatafortEditorComponent implements OnInit {
   faPen = faPen;
   faTrash = faTrash;
 
-
-
   NrNodeType = NrNodeType;
   NrMapDefaults = NrMapDefaults;
   currDatafort: Cp2020NrDatafort;
 
+  isCodegatesCollapsed = true;
   isSkillsCollapsed = true;
   isMemoryCollapsed = true;
   isRemotesCollapsed = true;
