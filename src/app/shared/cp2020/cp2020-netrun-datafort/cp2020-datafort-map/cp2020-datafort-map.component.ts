@@ -1,3 +1,4 @@
+import { Coord } from './../../../models/coord';
 import { VehicleBase } from './../../cp2020-vehicles/models/vehicle-base';
 import { NrNodeType } from './../enums/nr-node-type';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
@@ -14,6 +15,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class Cp2020DatafortMapComponent implements OnInit {
   NrNodeIcons = NrNodeIcons;
+  NrNodeType = NrNodeType;
 
   currDatafort: Cp2020NrDatafort;
   scale: number = 1.0;
@@ -29,6 +31,14 @@ export class Cp2020DatafortMapComponent implements OnInit {
 
   get quarterGrid(): number {
     return Math.floor(this.gridSize/4) ;
+  }
+
+  trashX(x: number, gridSize: number): number {
+    return x * gridSize + gridSize;
+  }
+
+  trashY(y: number, gridSize: number): number {
+    return gridSize * y;
   }
 
   ngOnInit(): void {
@@ -52,7 +62,27 @@ export class Cp2020DatafortMapComponent implements OnInit {
   }
 
   removeDatawall(x:  number, y: number) {
-    console.log('removeDatawall');
+    this.datafortBuilderService.removeDataWall(x, y);
+  }
+
+  removeCodegate(x: number, y: number) {
+    this.datafortBuilderService.removeCodegate(x, y);
+  }
+
+  removeCPU(x: number, y: number) {
+    this.datafortBuilderService.removeCPUNode(x, y);
+  }
+
+  removeMemory(x: number, y: number) {
+    this.datafortBuilderService.removeMUNode(x, y);
+  }
+
+  removeRemote(coord: Coord) {
+    this.datafortBuilderService.removeRemote(coord);
+  }
+
+  removeDefense(coord: Coord) {
+    this.datafortBuilderService.removeDefense(coord);
   }
 
   sanitize(element: string): SafeHtml {

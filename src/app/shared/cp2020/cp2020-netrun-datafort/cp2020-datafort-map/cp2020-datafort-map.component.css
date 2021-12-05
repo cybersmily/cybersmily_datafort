@@ -3,8 +3,18 @@
   background-color: transparent;
 }
 
+
+
 .nr-datafort-node:hover {
   fill: lightgray;
+}
+.csd-trash-node {
+  display: none;
+}
+
+.csd-map-node:hover .csd-trash-node  {
+  display: block;
+  z-index: 1000;
 }
 
 .cs-nr-datafort-map-container {
@@ -13,4 +23,9 @@
   max-height: 1000px;
   border: 3px solid #AAA;
   overflow: auto;
+}
+
+.csd-cell-overlay:hover {
+  fill: #a9f5bc;
+  fill-opacity: 0.5;
 }

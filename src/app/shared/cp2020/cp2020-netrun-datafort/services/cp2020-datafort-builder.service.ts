@@ -1,3 +1,4 @@
+import { Coord } from './../../../models/coord';
 import { StorageKeys } from './../../../enums/storage-keys';
 import { LocalStorageManagerService } from './../../../services/local-storage-manager/local-storage-manager.service';
 import { Cp2020Program } from './../../cp2020-netrun-gear/models/cp2020-program';
@@ -75,6 +76,46 @@ export class Cp2020DatafortBuilderService {
       this._currDatafort.remotes.push({name: '', type: this.selectedTool, coord:{x: x, y: y}});
       this.update(this._currDatafort);
       return;
+    }
+  }
+
+  removeDataWall(x: number, y: number) {
+    this.removeNodeFromList('datawallNodes', x, y);
+  }
+
+  removeCodegate(x: number, y: number) {
+    this.removeNodeFromList('codegateNodes', x, y);
+  }
+
+  removeCPUNode(x: number, y: number) {
+    this.removeNodeFromList('cpuNodes', x, y);
+  }
+
+  removeMUNode(x: number, y: number) {
+    this.removeNodeFromList('muNodes', x, y);
+  }
+
+  removeRemote(coord:Coord) {
+    this.removeNodeCoordFromList('remotes', coord);
+  }
+
+  removeDefense(coord:Coord) {
+    this.removeNodeCoordFromList('defenses', coord);
+  }
+
+  private removeNodeFromList(prop: string, x: number, y: number) {
+    const index = this._currDatafort[prop]?.findIndex(n => n.x === x && n.y === y);
+    if (index > -1) {
+      this._currDatafort[prop].splice(index, 1);
+      this.update(this._currDatafort);
+    }
+  }
+
+  private removeNodeCoordFromList(prop: string, coord: Coord) {
+    const index = this._currDatafort[prop]?.findIndex(n => n.coord.x === coord.x && n.coord.y === coord.y);
+    if (index > -1) {
+      this._currDatafort[prop].splice(index, 1);
+      this.update(this._currDatafort);
     }
   }
 
