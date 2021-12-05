@@ -11,8 +11,14 @@
   padding-top: 0px;
 }
 
+.csd-node-btn:hover {
+  background-color: #a9f5bc;
+  border:1px solid black;
+}
+
 .datafort-node-selected {
-  background-color: turquoise;
+  background-color: #a9f5bc;
+  border:1px solid black;
 }
 
 .datafort-node-counter {

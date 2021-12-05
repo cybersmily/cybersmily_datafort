@@ -6,27 +6,27 @@
         [attr.stroke-width]="1" (click)="updateNode(x, y)"></rect>
     </g>
     <g id="datawalls">
-      <svg *ngFor="let datawall of currDatafort?.datawallNodes;let x = index" [attr.x]="datawall.x * gridSize"
+      <svg class="csd-btn" *ngFor="let datawall of currDatafort?.datawallNodes;let x = index" [attr.x]="datawall.x * gridSize"
         [attr.y]="datawall.y * gridSize" [attr.height]="gridSize" [attr.width]="gridSize"
         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" [innerHTML]="NrNodeIcons.DATAWALL | sanitizeHtml">
       </svg>
     </g>
     <g id="codegates">
-      <svg *ngFor="let codegate of currDatafort?.codegateNodes;let x = index"
+      <svg class="csd-btn" *ngFor="let codegate of currDatafort?.codegateNodes;let x = index"
         [attr.x]="codegate.x * gridSize" [attr.y]="codegate.y * gridSize"
         [attr.height]="gridSize" [attr.width]="gridSize"
         viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" [innerHTML]="NrNodeIcons.CODEGATE | sanitizeHtml">
       </svg>
     </g>
     <g id="cpus">
-      <svg *ngFor="let cpu of currDatafort?.cpuNodes;let x = index"
+      <svg class="csd-btn" *ngFor="let cpu of currDatafort?.cpuNodes;let x = index"
         [attr.x]="cpu.x * gridSize" [attr.y]="cpu.y * gridSize"
         [attr.height]="gridSize" [attr.width]="gridSize"
         viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" [innerHTML]="NrNodeIcons.CPU | sanitizeHtml">
       </svg>
     </g>
     <g *ngFor="let mu of currDatafort?.muNodes;let x = index"  id="mu{{x}}">
-      <svg
+      <svg class="csd-btn"
         [attr.x]="mu.x * gridSize" [attr.y]="mu.y * gridSize"
         [attr.height]="gridSize" [attr.width]="gridSize"
         viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" [innerHTML]="NrNodeIcons.MU | sanitizeHtml">
@@ -34,22 +34,22 @@
       <text [attr.x]="mu.x * gridSize + (gridSize/2)" [attr.y]="mu.y * gridSize + (gridSize/2)" fill="black" dominant-baseline="middle" text-anchor="middle">{{x + 1}}</text>
     </g>
     <g *ngFor="let remote of currDatafort?.remotes;let x = index" id="remotes{{x}}">
-      <svg
+      <svg class="csd-btn"
         [attr.x]="remote.coord.x * gridSize" [attr.y]="remote.coord.y * gridSize"
         [attr.height]="gridSize * 0.75" [attr.width]="gridSize"
         viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" [innerHTML]="getRemoteIcon(remote.type) | sanitizeHtml">
       </svg>
-      <text [attr.x]="remote.coord.x * gridSize + (gridSize/2)" [attr.y]="remote.coord.y * gridSize + gridSize"
+      <text [attr.x]="remote.coord.x * gridSize + (gridSize/2)" [attr.y]="remote.coord.y * gridSize + gridSize - 2"
       [style]="'font-size: '+ (gridSize * 0.3) + 'px;'"
         fill="black" dominant-baseline="bottom" text-anchor="middle">{{x + 1}}</text>
     </g>
     <g *ngFor="let defense of currDatafort?.defenses;let x = index" id="defense{{x}}">
-      <svg
+      <svg class="csd-btn"
         [attr.x]="defense.coord.x * gridSize" [attr.y]="defense.coord.y * gridSize"
         [attr.height]="gridSize * 0.75" [attr.width]="gridSize"
         viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" [innerHTML]="NrNodeIcons.PROGRAM | sanitizeHtml">
       </svg>
-      <text [attr.x]="defense.coord.x * gridSize + (gridSize/2)" [attr.y]="defense.coord.y * gridSize + gridSize"
+      <text [attr.x]="defense.coord.x * gridSize + (gridSize/2)" [attr.y]="defense.coord.y * gridSize + gridSize - 2"
         [style]="'font-size: '+ (gridSize * 0.3) + 'px;'"
         fill="black" dominant-baseline="bottom" text-anchor="middle">{{x + 1}}</text>
     </g>
