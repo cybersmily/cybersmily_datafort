@@ -1,10 +1,11 @@
-import { faChevronDown, faChevronRight, faDice, faSearch, faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { KeyValue } from '@angular/common';
+import { faChevronDown, faChevronRight, faDice, faPen, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { NrNodeType } from './../enums/nr-node-type';
 import { NrMapDefaults } from '../enums/nr-map-defaults';
 import { Cp2020NrDatafort } from './../models/cp2020-nr-datafort';
 import { Cp2020DatafortBuilderService } from './../services/cp2020-datafort-builder.service';
 import { Component, Input, OnInit } from '@angular/core';
-import { NrDatafortRefDataVr } from '../models/nr-datafort-ref-data-vr';
+import { NrDatafortRefData } from '../models/nr-datafort-ref-data';
 
 @Component({
   selector: 'cs-cp2020-datafort-editor',
@@ -17,6 +18,7 @@ export class Cp2020DatafortEditorComponent implements OnInit {
   faDice = faDice;
   faPen = faPen;
   faTrash = faTrash;
+  faPlus = faPlus;
 
   NrNodeType = NrNodeType;
   NrMapDefaults = NrMapDefaults;
@@ -28,10 +30,16 @@ export class Cp2020DatafortEditorComponent implements OnInit {
   isRemotesCollapsed = true;
   isDefensesCollapsed = true;
 
+  newSkill: KeyValue<string, number> = {key: '', value: 4};
+
   @Input()
-  cp2020DatafortRefData: NrDatafortRefDataVr;
+  cp2020DatafortRefData: NrDatafortRefData;
 
   constructor(private datafortBuilderService: Cp2020DatafortBuilderService) { }
+
+  get usedFileCount(): number {
+    return this.currDatafort.mu.filter(mu => mu.key !== '').length;
+  }
 
   ngOnInit(): void {
     this.datafortBuilderService.datafort.subscribe(datafort => {
@@ -43,4 +51,12 @@ export class Cp2020DatafortEditorComponent implements OnInit {
     this.datafortBuilderService.update(this.currDatafort);
   }
 
+  addSkill() {
+    this.datafortBuilderService.addSkill(this.newSkill);
+    this.newSkill = {key: '', value: 4};
+  }
+
+  deleteSkill(index: number) {
+    this.datafortBuilderService.removeSkill(index);
+  }
 }

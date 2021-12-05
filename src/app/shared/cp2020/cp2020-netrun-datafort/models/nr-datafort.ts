@@ -22,7 +22,7 @@ export interface NrDatafort {
   datawallStr: number;
   datawallNodes: Array<Coord>;
   codegates: Array<NrDatafortCodegate>;
-  files: Array<KeyValue<number,string>>;
+  files: Array<KeyValue<string,number>>;
   remotes: Array<NrDatafortRemote>;
   skills: Array<KeyValue<string,number>>;
   defenses: Array<NrDatafortDefense>;

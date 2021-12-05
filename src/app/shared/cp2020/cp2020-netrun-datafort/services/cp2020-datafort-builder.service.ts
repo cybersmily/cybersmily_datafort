@@ -1,3 +1,4 @@
+import { KeyValue } from '@angular/common';
 import { NrDatafortCodegate } from './../models/nr-datafort-codegate';
 import { Coord } from './../../../models/coord';
 import { StorageKeys } from './../../../enums/storage-keys';
@@ -22,6 +23,10 @@ export class Cp2020DatafortBuilderService {
   private _currDatafort: Cp2020NrDatafort;
 
   selectedTool: NrNodeType;
+
+  get maxSkills(): number {
+    return 0;
+  }
 
   constructor(private localStorageService: LocalStorageManagerService) {
     this.update(this.localStorageService.retrive<Cp2020NrDatafort>(StorageKeys.CP2020_NR_DATAFORT));
@@ -84,6 +89,16 @@ export class Cp2020DatafortBuilderService {
       this.update(this._currDatafort);
       return;
     }
+  }
+
+  addSkill(skill: KeyValue<string, number>) {
+    this._currDatafort.skills.push({key: skill.key, value: skill.value});
+    this.update(this._currDatafort);
+  }
+
+  removeSkill(index: number) {
+    this._currDatafort.skills.splice(index, 1);
+    this.update(this._currDatafort);
   }
 
   removeDataWall(x: number, y: number) {

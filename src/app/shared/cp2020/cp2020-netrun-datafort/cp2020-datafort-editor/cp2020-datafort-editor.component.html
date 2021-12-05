@@ -7,32 +7,32 @@
 <div class="row mt-1">
   <div class="col-4">Rows:</div>
   <div class="col-2 border border-dark p-0">
-    <input type="number" class="w-100 no-spinners no-style h-100"
+    <input type="number" class="w-100 no-spinners no-style h-100 text-center"
       title="Enter number of rows (min {{NrMapDefaults.ROWS_MIN}})" [min]="NrMapDefaults.ROWS_MIN"
       [(ngModel)]="currDatafort.rows" (change)="update()">
   </div>
   <div class="col-4">Columns:</div>
   <div class="col-2 border border-dark p-0">
-    <input type="number" class="w-100 no-spinners no-style h-100"
+    <input type="number" class="w-100 no-spinners no-style h-100 text-center"
       title="Enter number of columns (min {{NrMapDefaults.COLUMNS_MIN}})" [min]="NrMapDefaults.COLUMNS_MIN"
       [(ngModel)]="currDatafort.columns" (change)="update()">
   </div>
 </div>
 <div class="row mt-1">
-  <div class="col text-right">Total Cost:  {{currDatafort.cost | number}}eb</div>
+  <div class="col text-right">Total Cost: {{currDatafort.cost | number}}eb</div>
 </div>
 <div class="row mt-1">
   <div class="col-2">CPU:</div>
   <div class="col-1 border border-dark p-0">
-    <input type="number" class="w-100 no-style h-100"
+    <input type="number" class="w-100 no-style h-100 text-center"
       title="Enter number of CPUs (min {{NrMapDefaults.CPU_MIN}}, max {{NrMapDefaults.CPU_MAX}})"
       [min]="NrMapDefaults.CPU_MIN" [max]="NrMapDefaults.CPU_MAX" [(ngModel)]="currDatafort.cpu" (change)="update()">
   </div>
   <div class="col-2 text-right pr-0">INT:</div>
   <div class="col-1 text-left pl-1">{{currDatafort.int}}</div>
-  <div class="col-4">Datawall Str:</div>
+  <div class="col-4 text-right">Datawall Str:</div>
   <div class="col-2 border border-dark p-0">
-    <input type="number" class="w-100 no-style h-100"
+    <input type="number" class="w-100 no-style h-100 text-center"
       title="Enter Datawall Strength (min {{NrMapDefaults.DATAWALL_STR_MIN}}, max {{NrMapDefaults.DATAWALL_STR_MAX}})"
       [min]="NrMapDefaults.DATAWALL_STR_MIN" [max]="NrMapDefaults.DATAWALL_STR_MAX"
       [(ngModel)]="currDatafort.datawallStr" (change)="update()">
@@ -49,7 +49,8 @@
     {{currDatafort.muUsed}}
   </div>
 </div>
-<div *ngIf="currDatafort.codegates?.length > 0" class="row mt-1 csd-btn" (click)="isCodegatesCollapsed = !isCodegatesCollapsed">
+<div *ngIf="currDatafort.codegates?.length > 0" class="row mt-1 csd-btn"
+  (click)="isCodegatesCollapsed = !isCodegatesCollapsed">
   <div class="col p-0 csd-btn text-center">
     <h5 class="d-inline-block">CODEGATES</h5>
     <fa-icon [icon]="isCodegatesCollapsed ? faChevronRight : faChevronDown" class="ml-2 csd-icon-btn csd-icon-lg">
@@ -68,32 +69,45 @@
     </ng-container>
   </div>
 </div>
-<div *ngIf="currDatafort.skills?.length > 0" class="row mt-1 csd-btn" (click)="isSkillsCollapsed = !isSkillsCollapsed">
+<div class="row mt-1 csd-btn" (click)="isSkillsCollapsed = !isSkillsCollapsed">
   <div class="col p-0 csd-btn text-center">
-    <h5 class="d-inline-block">SKILLS</h5>
+    <h5 class="d-inline-block">SKILLS ({{currDatafort.skills.length}}/{{currDatafort?.maxSkills}})</h5>
     <fa-icon [icon]="isSkillsCollapsed ? faChevronRight : faChevronDown" class="ml-2 csd-icon-btn csd-icon-lg">
     </fa-icon>
   </div>
 </div>
 <div [collapse]="isSkillsCollapsed">
   <div class="row p-0">
-    <ng-container *ngFor="let skill of currDatafort.skills;let i = index">
-      <div *ngIf="skill" class="col-4 p-0 border border-dark">
-        <select [(ngModel)]="skill.key" class="w-100 h-100" (change)="update()">
+      <div class="col-2 text-right p-0">
+        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-lg" title="Add Skill" (click)="addSkill()"></fa-icon>
+      </div>
+      <div class="col-6 p-0 border border-dark">
+        <select [(ngModel)]="newSkill.key" class="w-100 h-100" (change)="update()">
           <option *ngFor="let opt of cp2020DatafortRefData?.skills" [value]="opt">{{opt}}</option>
         </select>
       </div>
+      <div class="col-2 p-0 border border-dark text-center">
+        <input type="number" class="w-100 no-style m-0 h-100 text-center" title="Enter skill rank (4-10)"
+          [min]="NrMapDefaults.SKILL_MIN" [max]="NrMapDefaults.SKILL_MAX" [(ngModel)]="newSkill.value" (change)="update()">
+      </div>
+      <div class="col-2"></div>
+  </div>
+  <div class="row p-0">
+    <ng-container *ngFor="let skill of currDatafort.skills;let i = index">
+      <div *ngIf="skill" class="col-4 p-0 border border-dark">
+        <input type="text" class="w-100 no-style m-0 h-100" title="Enter skill name"
+          [(ngModel)]="skill.key" (change)="update()">
+      </div>
       <div *ngIf="skill" class="col-2 p-0 border border-dark">
         <input type="number" class="w-100 no-style m-0 h-100" title="Enter skill rank (4-10)"
-          [min]="NrMapDefaults.SKILL_MIN" [max]="NrMapDefaults.SKILL_MAX" [(ngModel)]="skill.value"
-          (change)="update()">
+          [min]="NrMapDefaults.SKILL_MIN" [max]="NrMapDefaults.SKILL_MAX" [(ngModel)]="skill.value" (change)="update()">
       </div>
     </ng-container>
   </div>
 </div>
 <div *ngIf="currDatafort.mu?.length > 0" class="row mt-1 csd-btn" (click)="isMemoryCollapsed = !isMemoryCollapsed">
   <div class="col p-0 text-center">
-    <h5 class="d-inline-block">FILES/VR</h5>
+    <h5 class="d-inline-block">MEMORY UNITS ({{usedFileCount}}/{{currDatafort.mu.length}})</h5>
     <fa-icon [icon]="isMemoryCollapsed ? faChevronRight : faChevronDown" class="ml-2 csd-icon-btn csd-icon-lg">
     </fa-icon>
   </div>
@@ -102,18 +116,19 @@
   <div *ngFor="let mu of currDatafort.mu;let i = index" class="row">
     <div class="col-1 text-right">{{i + 1}}.</div>
     <div *ngIf="mu" class="col-9 p-0 border border-dark">
-      <input type="text" class="w-100 no-spinners no-style m-0 h-100" title="Enter number of MUs file takes up"
-        [(ngModel)]="mu.key" placeholder="File name/VR name" (change)="update()">
+      <input type="text" class="w-100 no-spinners no-style m-0 h-100" title="Enter number of MUs files/VR takes up"
+        [(ngModel)]="mu.key" placeholder="File names/VR name" (change)="update()">
     </div>
     <div *ngIf="mu" class="col-2 p-0 border border-dark">
-      <input type="number" class="w-100 no-spinners no-style m-0 h-100" title="Enter number of MUs file takes up (1-10)"
+      <input type="number" class="w-100 no-spinners no-style m-0 h-100" title="Enter number of MUs files/VR takes up (1-10)"
         [min]="1" [max]="10" [(ngModel)]="mu.value" (change)="update()">
     </div>
   </div>
 </div>
-<div *ngIf="currDatafort.remotes?.length > 0" class="row mt-1 csd-btn" (click)="isRemotesCollapsed = !isRemotesCollapsed">
+<div *ngIf="currDatafort.remotes?.length > 0" class="row mt-1 csd-btn"
+  (click)="isRemotesCollapsed = !isRemotesCollapsed">
   <div class="col p-0 text-center">
-    <h5 class="d-inline-block">REMOTES</h5>
+    <h5 class="d-inline-block">REMOTES ({{currDatafort.remotes.length}})</h5>
     <fa-icon [icon]="isRemotesCollapsed ? faChevronRight : faChevronDown" class="ml-2 csd-icon-btn csd-icon-lg">
     </fa-icon>
   </div>
@@ -133,9 +148,9 @@
 <ng-container *ngIf="currDatafort.defenses?.length > 0">
   <div class="row mt-1 csd-btn" (click)="isDefensesCollapsed = !isDefensesCollapsed">
     <div class="col p-0 text-center">
-      <h5 class="d-inline-block">DEFENSES</h5>
-    <fa-icon [icon]="isDefensesCollapsed ? faChevronRight : faChevronDown" class="ml-2 csd-icon-btn csd-icon-lg">
-    </fa-icon>
+      <h5 class="d-inline-block">DEFENSES ({{currDatafort.defenses.length}})</h5>
+      <fa-icon [icon]="isDefensesCollapsed ? faChevronRight : faChevronDown" class="ml-2 csd-icon-btn csd-icon-lg">
+      </fa-icon>
     </div>
   </div>
   <div [collapse]="isDefensesCollapsed">

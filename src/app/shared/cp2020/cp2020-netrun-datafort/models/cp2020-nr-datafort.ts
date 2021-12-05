@@ -24,7 +24,7 @@ export class Cp2020NrDatafort implements NrDatafort {
   datawallStr = NrMapDefaults.DATAWALL_STR_MIN;
   datawallNodes = new Array<Coord>();
   codegates = new Array<NrDatafortCodegate>();
-  files = new Array<KeyValue<number,string>>();
+  files = new Array<KeyValue<string,number>>();
   remotes = new Array<NrDatafortRemote>();
   skills = new Array<KeyValue<string,number>>();
   defenses = new Array<NrDatafortDefense>();
@@ -55,14 +55,13 @@ export class Cp2020NrDatafort implements NrDatafort {
       }
 
       // every 2 CPU, the datafort gets 5 skills.
-      this.skills = new Array<KeyValue<string,number>>(Math.floor(this.cpu/2) * 5);
+      this.skills = param?.skills.map(sk => {return {key:  sk.key ?? '', value: sk.value ?? 4};}) ?? new Array<KeyValue<string,number>>();
       // limit the number of items based on the size of either skill array
-      for( let i = 0; i < this.skills.length; i++) {
-        const skill = {key:  param.skills[i]?.key ?? '', value: param.skills[i]?.value ?? 4};
-        this.skills[i] = skill;
+      if(this.skills.length > this.maxSkills) {
+        this.skills.splice(this.maxSkills - 1);
       }
 
-      this.files = new Array<KeyValue<number,string>>();
+      this.files = param?.files.map(f => {return {key: f.key, value: f.value}}) ?? new Array<KeyValue<string,number>>();
       this.remotes = new Array<NrDatafortRemote>();
       param?.remotes.forEach( remote => {
         this.remotes.push({name: remote.name, type: remote.type, coord: {x: remote.coord.x, y:remote.coord.y}});
@@ -72,5 +71,9 @@ export class Cp2020NrDatafort implements NrDatafort {
         this.defenses.push({name: defense.name, coord: {x: defense.coord.x, y: defense.coord.y}, program: new Cp2020Program(defense.program)});
       });
     }
+
+  }
+  get maxSkills(): number {
+    return Math.floor(this.cpu/2) * 5;
   }
 }
