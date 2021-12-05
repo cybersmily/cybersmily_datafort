@@ -9,13 +9,16 @@
           title="Reset the datafort with a new one." (click)="reset()"></fa-icon>
 
         <fa-icon [icon]="faFilePdf" class="float-right csd-btn csd-icon-btn csd-icon-xl mr-2"
-        title="Reset the datafort with a new one." (click)="printPDF()"></fa-icon>
+        title="Save as a PDF." (click)="printPDF()"></fa-icon>
 
         <fa-icon [icon]="faImage" class="float-right csd-btn csd-icon-btn csd-icon-xl mr-2"
-        title="Reset the datafort with a new one." (click)="printSVG()"></fa-icon>
+        title="Save as a SVG file." (click)="printSVG()"></fa-icon>
 
-        <fa-icon [icon]="faUpload" class="float-right csd-btn csd-icon-btn csd-icon-xl mr-2"
-        title="Reset the datafort with a new one." (click)="uploadJSON()"></fa-icon>
+        <input type="file" id="loadFile" title="load a datafort .json file" name="Load" Style="display: none"
+        (change)="uploadJSON($event)" #inputFile (click)="inputFile.value = null" accept="text/plain;text/json" />
+        <label for="loadFile" class="csd-btn float-right csd-icon-btn csd-icon-xl mr-2">
+          <fa-icon [icon]="faUpload" title="load a datafort .json file"></fa-icon>
+        </label>
         <fa-icon [icon]="faSave" class="float-right csd-btn csd-icon-btn csd-icon-xl mr-2"
           title="Reset the datafort with a new one." (click)="saveJSON()"></fa-icon>
       </div>
