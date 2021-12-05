@@ -14,10 +14,10 @@
       <rect [attr.x]="datawall.x * gridSize" [attr.y]="datawall.y * gridSize" [attr.height]="gridSize"
         [attr.width]="gridSize" class="csd-cell-overlay rounded" fill-opacity="0"></rect>
       <g class="csd-trash-node csd-btn" (click)="removeDatawall(datawall.x, datawall.y)">
-        <circle [attr.cx]="datawall.x * gridSize + gridSize" [attr.cy]="datawall.y * gridSize" r="7" stroke="black"
+        <circle [attr.cx]="datawall.x * gridSize + gridSize - 7" [attr.cy]="datawall.y * gridSize + 7" r="7" stroke="black"
           stroke-width="1" fill="white" />
-        <line [attr.x1]="datawall.x * gridSize + gridSize - 3" [attr.x2]="datawall.x * gridSize + gridSize + 3"
-          [attr.y1]="datawall.y * gridSize" [attr.y2]="datawall.y * gridSize" stroke="red" stroke-width="2" />
+        <line [attr.x1]="datawall.x * gridSize + gridSize - 10" [attr.x2]="datawall.x * gridSize + gridSize - 3"
+          [attr.y1]="datawall.y * gridSize + 7" [attr.y2]="datawall.y * gridSize + 7" stroke="red" stroke-width="2" />
       </g>
     </g>
     <!-- CODEGATE NODES -->
@@ -29,10 +29,10 @@
       <rect [attr.x]="codegate.x * gridSize" [attr.y]="codegate.y * gridSize" [attr.height]="gridSize"
         [attr.width]="gridSize" class="csd-cell-overlay rounded" fill-opacity="0"></rect>
       <g class="csd-trash-node csd-btn" (click)="removeCodegate(codegate.x, codegate.y)">
-        <circle [attr.cx]="codegate.x * gridSize + gridSize" [attr.cy]="codegate.y * gridSize" r="7" stroke="black"
+        <circle [attr.cx]="codegate.x * gridSize + gridSize - 7" [attr.cy]="codegate.y * gridSize + 7" r="7" stroke="black"
           stroke-width="1" fill="white" />
-        <line [attr.x1]="codegate.x * gridSize + gridSize - 3" [attr.x2]="codegate.x * gridSize + gridSize + 3"
-          [attr.y1]="codegate.y * gridSize" [attr.y2]="codegate.y * gridSize" stroke="red" stroke-width="2" />
+        <line [attr.x1]="codegate.x * gridSize + gridSize - 10" [attr.x2]="codegate.x * gridSize + gridSize - 3"
+          [attr.y1]="codegate.y * gridSize + 7" [attr.y2]="codegate.y * gridSize + 7" stroke="red" stroke-width="2" />
       </g>
     </g>
     <!-- CPU NODES -->
@@ -44,10 +44,10 @@
       <rect [attr.x]="cpu.x * gridSize" [attr.y]="cpu.y * gridSize" [attr.height]="gridSize" [attr.width]="gridSize"
         class="csd-cell-overlay rounded" fill-opacity="0" (click)="removeCPU(cpu.x, cpu.y)"></rect>
       <g class="csd-trash-node csd-btn" (click)="removeCPU(cpu.x, cpu.y)">
-        <circle [attr.cx]="cpu.x * gridSize + gridSize" [attr.cy]="cpu.y * gridSize" r="7" stroke="black"
+        <circle [attr.cx]="cpu.x * gridSize + gridSize - 7" [attr.cy]="cpu.y * gridSize + 7" r="7" stroke="black"
           stroke-width="1" fill="white" />
-        <line [attr.x1]="cpu.x * gridSize + gridSize - 3" [attr.x2]="cpu.x * gridSize + gridSize + 3"
-          [attr.y1]="cpu.y * gridSize" [attr.y2]="cpu.y * gridSize" stroke="red" stroke-width="2" />
+        <line [attr.x1]="cpu.x * gridSize + gridSize - 10" [attr.x2]="cpu.x * gridSize + gridSize - 3"
+          [attr.y1]="cpu.y * gridSize + 7" [attr.y2]="cpu.y * gridSize + 7" stroke="red" stroke-width="2" />
       </g>
     </g>
     <!-- MEMORY NODES -->
@@ -60,10 +60,10 @@
       <rect [attr.x]="mu.x * gridSize" [attr.y]="mu.y * gridSize" [attr.height]="gridSize" [attr.width]="gridSize"
         class="csd-cell-overlay rounded" fill-opacity="0"></rect>
       <g class="csd-trash-node csd-btn" (click)="removeMemory(mu.x, mu.y)">
-        <circle [attr.cx]="mu.x * gridSize + gridSize" [attr.cy]="mu.y * gridSize" r="7" stroke="black" stroke-width="1"
+        <circle [attr.cx]="mu.x * gridSize + gridSize - 7" [attr.cy]="mu.y * gridSize + 7" r="7" stroke="black" stroke-width="1"
           fill="white" />
-        <line [attr.x1]="mu.x * gridSize + gridSize - 3" [attr.x2]="mu.x * gridSize + gridSize + 3"
-          [attr.y1]="mu.y * gridSize" [attr.y2]="mu.y * gridSize" stroke="red" stroke-width="2" />
+        <line [attr.x1]="mu.x * gridSize + gridSize - 10" [attr.x2]="mu.x * gridSize + gridSize - 3"
+          [attr.y1]="mu.y * gridSize + 7" [attr.y2]="mu.y * gridSize + 7" stroke="red" stroke-width="2" />
       </g>
     </g>
     <!-- REMOTE NODES -->
