@@ -42,6 +42,8 @@ export class Cp2020DatafortBuilderService {
     }
 
     this._currDatafort = new Cp2020NrDatafort(datafort);
+    this.calculateMemoryUsed();
+    this.calculateCost();
     this._datafort.next(this._currDatafort);
     this.localStorageService.store<Cp2020NrDatafort>(StorageKeys.CP2020_NR_DATAFORT, this._currDatafort);
   }
@@ -121,6 +123,27 @@ export class Cp2020DatafortBuilderService {
 
   reset() {
     this.update(new Cp2020NrDatafort());
+  }
+
+  private calculateMemoryUsed() {
+    const fileUsage = this._currDatafort.mu.reduce( (sum, mu) => sum + (isNaN(mu.value) ? 0 : mu.value),0);
+    const programUsage = this._currDatafort.defenses.reduce( (sum, prog) => sum + prog.program.mu, 0);
+    this._currDatafort.muUsed = fileUsage + programUsage;
+  }
+
+  private calculateCost() {
+    const cpuCost = this._currDatafort.cpu * NrMapDefaults.CPU_COST;
+    const skillCost = this._currDatafort.skills.reduce((sum, skill) => sum + this.calculateSkillCost(skill.value), 0);
+    let codegateCost = (this._currDatafort.codegateNodes.length - this._currDatafort.cpu) * 2000;
+    codegateCost +=
+    this._currDatafort.cost = cpuCost + skillCost;
+  }
+
+  private calculateSkillCost(rank: number): number {
+    if( rank < 5) {
+      return 200;
+    }
+    return 200 + (100 * (rank - 4));
   }
 
   private validateNumber(value:number, min:number, max?:number ): number {

@@ -72,7 +72,7 @@ export class Cp2020Program implements Program {
     if (this.options.some(o => o.name.toLowerCase().includes('code optimization'))) {
       mu = Math.ceil(mu / 2);
     }
-    return mu;
+    return (mu < 0) ? 0 : mu;
   }
 
   get diff(): number {

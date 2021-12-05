@@ -6,6 +6,7 @@ export enum NrMapDefaults {
   COLUMNS_MIN = 10,
   CPU_MIN = 2,
   CPU_MAX = 7,
+  CPU_COST = 10000,
   DATAWALL_STR_MIN = 1,
   DATAWALL_STR_MAX = 10,
   CODEGATE_STR_MIN = 2,
