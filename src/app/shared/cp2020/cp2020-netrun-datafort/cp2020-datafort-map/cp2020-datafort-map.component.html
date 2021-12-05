@@ -26,9 +26,17 @@
         [attr.width]="gridSize" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"
         [innerHTML]="NrNodeIcons.CODEGATE | sanitizeHtml">
       </svg>
+      <text [attr.x]="codegate.coord.x * gridSize + (gridSize/2)" [attr.y]="codegate.coord.y * gridSize + (gridSize/1.7) "
+        [style]="'font-size: '+ (gridSize * 0.3) + 'px;'" fill="black" dominant-baseline="bottom"
+        text-anchor="middle">{{codegate.str}}</text>
       <rect [attr.x]="codegate.coord.x * gridSize" [attr.y]="codegate.coord.y * gridSize" [attr.height]="gridSize"
         [attr.width]="gridSize" class="csd-cell-overlay rounded" fill-opacity="0"></rect>
       <g class="csd-trash-node csd-btn" (click)="removeCodegate(codegate.coord)">
+        <circle [attr.cx]="codegate.coord.x * gridSize + (gridSize/2)" [attr.cy]="codegate.coord.y * gridSize + (gridSize/1.7)" [attr.r]="gridSize * 0.4" stroke="black"
+          stroke-width="0" fill="black" />
+       <text [attr.x]="codegate.coord.x * gridSize + (gridSize/2)" [attr.y]="codegate.coord.y * gridSize + (gridSize/1.7) "
+          [style]="'font-size: '+ (gridSize * 0.7) + 'px;'" fill="white" dominant-baseline="middle"
+          text-anchor="middle">{{i + 1}}</text>
         <circle [attr.cx]="codegate.coord.x * gridSize + gridSize - 7" [attr.cy]="codegate.coord.y * gridSize + 7" r="7" stroke="black"
           stroke-width="1" fill="white" />
         <line [attr.x1]="codegate.coord.x * gridSize + gridSize - 10" [attr.x2]="codegate.coord.x * gridSize + gridSize - 3"
