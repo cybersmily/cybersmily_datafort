@@ -1,3 +1,4 @@
+import { NrDatafortCodegate } from './../models/nr-datafort-codegate';
 import { Coord } from './../../../models/coord';
 import { StorageKeys } from './../../../enums/storage-keys';
 import { LocalStorageManagerService } from './../../../services/local-storage-manager/local-storage-manager.service';
@@ -37,7 +38,7 @@ export class Cp2020DatafortBuilderService {
       datafort.rows = this.validateNumber(datafort.rows, NrMapDefaults.ROWS_MIN);
       datafort.columns = this.validateNumber(datafort.columns, NrMapDefaults.COLUMNS_MIN);
       datafort.cpu = this.validateNumber(datafort.cpu, NrMapDefaults.CPU_MIN, NrMapDefaults.CPU_MAX);
-      datafort.datawallStr = this.validateNumber(datafort.datawallStr, NrMapDefaults.DATAWALL_STR_MIN, NrMapDefaults.DATAWALL_STR_MAX);
+      datafort.datawallStr = this.validateNumber(datafort.datawallStr, datafort.cpu, NrMapDefaults.DATAWALL_STR_MAX);
       datafort.codegates = datafort?.codegates?.map( cg => {
         return {
         str: this.validateNumber(cg.str, NrMapDefaults.CODEGATE_STR_MIN, NrMapDefaults.CODEGATE_STR_MAX),
@@ -137,17 +138,27 @@ export class Cp2020DatafortBuilderService {
 
   private calculateCost() {
     const cpuCost = this._currDatafort.cpu * NrMapDefaults.CPU_COST;
+    const datawallCost = this._currDatafort.datawallStr > this._currDatafort.cpu ? (this._currDatafort.datawallStr - this._currDatafort.cpu) * NrMapDefaults.DATAWAL_COST : 0;
     const skillCost = this._currDatafort.skills.reduce((sum, skill) => sum + this.calculateSkillCost(skill.value), 0);
-    //let codegateCost = (this._currDatafort.codegateNodes.length - this._currDatafort.cpu) * 2000;
-    //codegateCost +=
-    this._currDatafort.cost = cpuCost + skillCost;
+    let codegateCount = this._currDatafort.codegates.length;
+    codegateCount = codegateCount > this._currDatafort.cpu ? codegateCount - this._currDatafort.cpu : 0;
+    let codegateCost = codegateCount * NrMapDefaults.CODEGATE_COST;
+    codegateCost += this._currDatafort.codegates.filter( cg => cg.str > 2).reduce( (sum, cg) => sum + this.calcuateCodegateStrCost(cg.str), 0);
+    const remotesCost = this._currDatafort.remotes.filter( r => r.type === NrNodeType.TERMINAL).length * NrMapDefaults.TERMINAL_COST
+    const defenseCost = this._currDatafort.defenses.reduce((sum, def) => sum + def.program.cost, 0);
+
+    this._currDatafort.cost = cpuCost + datawallCost + skillCost + codegateCost + defenseCost + remotesCost;
+  }
+
+  private calcuateCodegateStrCost(str: number): number {
+    return (str < 3) ? 0 : (str - 2) * NrMapDefaults.CODEGATE_STR_COST;
   }
 
   private calculateSkillCost(rank: number): number {
     if( rank < 5) {
-      return 200;
+      return NrMapDefaults.SKILL_BASE_COST;
     }
-    return 200 + (100 * (rank - 4));
+    return NrMapDefaults.SKILL_BASE_COST + (NrMapDefaults.SKILL_LEVEL_COST * (rank - 4));
   }
 
   private validateNumber(value:number, min:number, max?:number ): number {

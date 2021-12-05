@@ -19,6 +19,9 @@
   </div>
 </div>
 <div class="row mt-1">
+  <div class="col text-right">Total Cost:  {{currDatafort.cost | number}}eb</div>
+</div>
+<div class="row mt-1">
   <div class="col-2">CPU:</div>
   <div class="col-1 border border-dark p-0">
     <input type="number" class="w-100 no-style h-100"
@@ -46,11 +49,6 @@
     {{currDatafort.muUsed}}
   </div>
 </div>
-<div class="row mt-1">
-  <div class="col-4">Total Cost:</div>
-  <div class="col-8 border border-dark p-0">
-  </div>
-</div>
 <div *ngIf="currDatafort.codegates?.length > 0" class="row mt-1 csd-btn" (click)="isCodegatesCollapsed = !isCodegatesCollapsed">
   <div class="col p-0 csd-btn text-center">
     <h5 class="d-inline-block">CODEGATES</h5>
@@ -64,7 +62,8 @@
       <div *ngIf="codegate" class="col-4 p-0 border border-dark">
         {{i + 1}}. STR:
         <input type="number" class="w-50 no-style m-0 text-center" title="Enter skill rank (2-10)"
-          [min]="NrMapDefaults.CODEGATE_MIN" [max]="NrMapDefaults.CODEGATE_MAX" [(ngModel)]="codegate.str">
+          [min]="NrMapDefaults.CODEGATE_MIN" [max]="NrMapDefaults.CODEGATE_MAX" [(ngModel)]="codegate.str"
+          (change)="update()">
       </div>
     </ng-container>
   </div>
@@ -80,13 +79,14 @@
   <div class="row p-0">
     <ng-container *ngFor="let skill of currDatafort.skills;let i = index">
       <div *ngIf="skill" class="col-4 p-0 border border-dark">
-        <select [(ngModel)]="skill.key" class="w-100 h-100">
+        <select [(ngModel)]="skill.key" class="w-100 h-100" (change)="update()">
           <option *ngFor="let opt of cp2020DatafortRefData?.skills" [value]="opt">{{opt}}</option>
         </select>
       </div>
       <div *ngIf="skill" class="col-2 p-0 border border-dark">
         <input type="number" class="w-100 no-style m-0 h-100" title="Enter skill rank (4-10)"
-          [min]="NrMapDefaults.SKILL_MIN" [max]="NrMapDefaults.SKILL_MAX" [(ngModel)]="skill.value">
+          [min]="NrMapDefaults.SKILL_MIN" [max]="NrMapDefaults.SKILL_MAX" [(ngModel)]="skill.value"
+          (change)="update()">
       </div>
     </ng-container>
   </div>
@@ -103,11 +103,11 @@
     <div class="col-1 text-right">{{i + 1}}.</div>
     <div *ngIf="mu" class="col-9 p-0 border border-dark">
       <input type="text" class="w-100 no-spinners no-style m-0 h-100" title="Enter number of MUs file takes up"
-        [(ngModel)]="mu.key" placeholder="File name/VR name">
+        [(ngModel)]="mu.key" placeholder="File name/VR name" (change)="update()">
     </div>
     <div *ngIf="mu" class="col-2 p-0 border border-dark">
       <input type="number" class="w-100 no-spinners no-style m-0 h-100" title="Enter number of MUs file takes up (1-10)"
-        [min]="1" [max]="10" [(ngModel)]="mu.value">
+        [min]="1" [max]="10" [(ngModel)]="mu.value" (change)="update()">
     </div>
   </div>
 </div>
@@ -121,11 +121,11 @@
 <div [collapse]="isRemotesCollapsed">
   <div *ngFor="let remote of currDatafort.remotes;let i = index" class="row">
     <div class="col-1 text-right">{{i + 1}}.</div>
-    <div class="col-7 p-0 border border-dark">
+    <div class="col-8 p-0 border border-dark">
       <input type="text" class="w-100 no-spinners no-style m-0 h-100" title="Enter number of MUs file takes up"
-        [(ngModel)]="remote.name" placeholder="Remote description">
+        [(ngModel)]="remote.name" placeholder="Remote description" (change)="update()">
     </div>
-    <div class="col-4 p-0 border border-dark small">
+    <div class="col-3 p-0 border border-dark small text-center">
       {{remote.type | nrNodeDisplayName}}
     </div>
   </div>
