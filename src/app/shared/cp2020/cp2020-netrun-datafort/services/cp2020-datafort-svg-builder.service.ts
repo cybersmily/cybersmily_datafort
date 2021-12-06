@@ -1,3 +1,4 @@
+import { NrNodeDisplayNamePipe } from './../pipes/nr-node-display-name/nr-node-display-name.pipe';
 import { NrDatafortDefense } from './../models/nr-datafort-defense';
 import { NrNodeType } from './../enums/nr-node-type';
 import { NrDatafortRemote } from './../models/nr-datafort-remote';
@@ -139,12 +140,48 @@ export class Cp2020DatafortSvgBuilderService {
     contents += this.generateDefenses(datafort.defenses, gridSize);
     const lineSize = 20;
     let line = height + lineSize;
-    contents += this.generateDataLine(gridSize, line, `Name: ${datafort.name}`);
+    contents += this.generateDataLine(gridSize, line, `NAME: ${datafort.name}`);
     line += lineSize;
     contents += this.generateDataLine(gridSize, line, `CPUs: ${datafort.cpu}    INT: ${datafort.int}    MUs: ${datafort.muUsed}/${datafort.muAvailable}`);
     line += lineSize;
-    contents += this.generateDataLine(gridSize, line, `Datawall: ${datafort.datawallStr}`);
+    contents += this.generateDataLine(gridSize, line, `DATAWALL STR: ${datafort.datawallStr}    CODEGATE STR are marked on icon`);
     line += lineSize;
+    contents += this.generateDataLine(gridSize, line, `SKILLS:`);
+    line += lineSize;
+    datafort.skills.forEach(skill => {
+      contents += this.generateDataLine(gridSize * 2, line, `${skill.key}  +${skill.value}`);
+      line += lineSize;
+    });
+    contents += this.generateDataLine(gridSize, line, `REMOTES:`);
+    line += lineSize;
+    datafort.remotes.forEach((remote, index) => {
+      const displayName = new NrNodeDisplayNamePipe();
+      contents += this.generateDataLine(gridSize * 2, line, `${index + 1}.  ${remote.name}  (${ displayName.transform(remote.type)})`);
+      line += lineSize;
+    });
+    contents += this.generateDataLine(gridSize, line, `DEFENSES:`);
+    line += lineSize;
+    datafort.defenses.forEach((defense, index) => {
+      contents += this.generateDataLine(gridSize * 2, line, `${index + 1}.  ${defense.program.name}  (${defense.program.class.name}  STR: ${ defense.program.strength})`);
+      line += lineSize;
+    });
+
+    contents += this.generateDataLine(gridSize, line, `NOTES:`);
+    line += lineSize;
+    const wrapwidth = Math.floor((width - (2 * gridSize)) /6);
+    const wrap = (s, width) => s.replace(
+      new RegExp(`(?![^\\n]{1,${width}}$)([^\\n]{1,${width}})\\s`, 'g'), '$1???'
+    );
+    const temp = wrap(datafort.notes, wrapwidth);
+    console.log(temp);
+    console.log(typeof temp);
+    const note: Array<string> = temp.split('???');
+    note.forEach(n => {
+      contents += this.generateDataLine(gridSize , line, `${n}`);
+      line += lineSize;
+    });
+    line += lineSize;
+
     let svg = `<svg width="${width}" height="${line}" viewBox="'0 0 ${width} ${line}" xmlns="http://www.w3.org/2000/svg">
                 ${contents}
               </svg>`;
