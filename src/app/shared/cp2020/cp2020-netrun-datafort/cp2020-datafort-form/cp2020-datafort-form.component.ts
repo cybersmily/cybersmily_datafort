@@ -1,9 +1,11 @@
+import { svgAsPngUri } from 'save-svg-as-png';
+import { jsPDF } from 'jspdf';
 import { Cp2020DatafortSvgBuilderService } from './../services/cp2020-datafort-svg-builder.service';
 import { NrMapDefaults } from './../enums/nr-map-defaults';
 import { Cp2020NrDatafort } from './../models/cp2020-nr-datafort';
 import { SaveFileService } from './../../../services/file-services/save-file/save-file.service';
 import { FileLoaderService } from './../../../services/file-services/file-loader/file-loader.service';
-import { faRedo, faSave, faFilePdf, faImage, faUpload, faDice } from '@fortawesome/free-solid-svg-icons';
+import { faRedo, faSave, faFilePdf, faImage, faUpload, faDice, faFileImage } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020DatafortBuilderService } from './../services/cp2020-datafort-builder.service';
 import { Cp2020AppFiles } from './../../../services/file-services/enum/cp2020-app-files';
 import { DataService } from './../../../services/file-services/dataservice/data.service';
@@ -20,11 +22,14 @@ export class Cp2020DatafortFormComponent implements OnInit {
   faSave = faSave;
   faFilePdf = faFilePdf;
   faImage = faImage;
+  faFileImage = faFileImage;
   faUpload = faUpload;
   faDice = faDice;
 
   datafortRefData: NrDatafortRefData;
   datafort: Cp2020NrDatafort;
+
+  includeData = true;
 
   constructor(private dataService: DataService,
     private datafortBuilderService: Cp2020DatafortBuilderService,
@@ -48,9 +53,15 @@ export class Cp2020DatafortFormComponent implements OnInit {
   }
 
   generate() {}
-  printPDF() {}
+
+  printPNG() {
+    var parser = new DOMParser();
+    const svg = parser.parseFromString(this.svgBuilderService.generate(this.datafort, NrMapDefaults.GRID_SIZE, this.includeData), 'image/svg+xml');
+    this.saveService.SaveAsPng('cp2020_datafort_img', svg.getElementById('datafort-cp2020'));
+  }
+
   printSVG() {
-    const svg = this.svgBuilderService.generate(this.datafort, NrMapDefaults.GRID_SIZE);
+    const svg = this.svgBuilderService.generate(this.datafort, NrMapDefaults.GRID_SIZE, this.includeData);
     this.saveService.SaveAsFile('cp2020_datafort_img', svg, 'svg');
   }
 

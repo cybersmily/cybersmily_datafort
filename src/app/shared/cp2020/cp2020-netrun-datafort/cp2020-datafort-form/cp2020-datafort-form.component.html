@@ -4,15 +4,15 @@
   </div>
   <div class="col-12 col-lg-8 csd-rounded">
     <div class="row">
-      <div class="col">
+      <div class="col align-middle">
         <fa-icon [icon]="faRedo" class="float-left csd-btn csd-icon-btn csd-icon-xl mr-2"
           title="Reset the datafort with a new one." (click)="reset()"></fa-icon>
 
         <fa-icon [icon]="faDice" class="float-left csd-btn csd-icon-btn csd-icon-xl mr-2"
           title="Randomly generate the datafort." (click)="generate()"></fa-icon>
 
-        <fa-icon [icon]="faFilePdf" class="float-right csd-btn csd-icon-btn csd-icon-xl mr-2"
-        title="Save as a PDF." (click)="printPDF()"></fa-icon>
+        <fa-icon [icon]="faFileImage" class="float-right csd-btn csd-icon-btn csd-icon-xl mr-2"
+        title="Save as a PNG." (click)="printPNG()"></fa-icon>
 
         <fa-icon [icon]="faImage" class="float-right csd-btn csd-icon-btn csd-icon-xl mr-2"
         title="Save as a SVG file." (click)="printSVG()"></fa-icon>
@@ -24,6 +24,9 @@
         </label>
         <fa-icon [icon]="faSave" class="float-right csd-btn csd-icon-btn csd-icon-xl mr-2"
           title="Reset the datafort with a new one." (click)="saveJSON()"></fa-icon>
+        <div class="d-inline-block float-right h-100 mr-2 mt-2" >Include data in image files?
+          <input type="checkbox" [(ngModel)]="includeData">
+        </div>
       </div>
     </div>
     <div class="row">

@@ -18,12 +18,12 @@ export class Cp2020DatafortSvgBuilderService {
 
   private generateGrid(rows: number, columns: number, gridSize: number): string {
     let grid = ``;
-    for(let row = 0; row < rows; row++) {
+    for (let row = 0; row < rows; row++) {
       grid += `<g>`;
-      for(let col = 0; col < columns; col++){
+      for (let col = 0; col < columns; col++) {
         const x = col * gridSize;
         const y = row * gridSize;
-        grid += this.createRect(x, y, gridSize, gridSize, 'white','black',1, 1);
+        grid += this.createRect(x, y, gridSize, gridSize, 'white', 'black', 1, 1);
       }
       grid += `</g>`;
     }
@@ -46,14 +46,14 @@ export class Cp2020DatafortSvgBuilderService {
     codegates.forEach(codegate => {
       const x = codegate.coord.x * gridSize;
       const y = codegate.coord.y * gridSize;
-      const textX = x + (gridSize/2);
-      const textY = y + (gridSize/1.7);
+      const textX = x + (gridSize / 2);
+      const textY = y + (gridSize / 1.7);
       const fontSize = gridSize * 0.3;
       result += `<g><svg x="${x}" y="${y}" height="${gridSize}"
           width="${gridSize}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
           ${NrNodeIcons.CODEGATE}
         </svg>
-        ${this.createText(textX, textY,fontSize, 'black', 'bottom', 'middle', codegate.str.toString())}
+        ${this.createText(textX, textY, fontSize, 'black', 'bottom', 'middle', codegate.str.toString())}
         </g>`;
     });;
     return result;
@@ -75,14 +75,14 @@ export class Cp2020DatafortSvgBuilderService {
     mus.forEach((mu, index) => {
       const x = mu.x * gridSize;
       const y = mu.y * gridSize;
-      const textX = x + (gridSize/2);
-      const textY = y + (gridSize/2);
+      const textX = x + (gridSize / 2);
+      const textY = y + (gridSize / 2);
       const fontSize = gridSize * 0.5;
       result += `<g><svg x="${x}" y="${y}" height="${gridSize}"
           width="${gridSize}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
           ${NrNodeIcons.MU}
         </svg>
-        ${this.createText(textX, textY,fontSize, 'black', 'middle', 'middle', (index + 1).toString())}
+        ${this.createText(textX, textY, fontSize, 'black', 'middle', 'middle', (index + 1).toString())}
         </g>`;
     });;
     return result;
@@ -93,14 +93,14 @@ export class Cp2020DatafortSvgBuilderService {
     remotes.forEach((remote, index) => {
       const x = remote.coord.x * gridSize;
       const y = remote.coord.y * gridSize;
-      const textX = x + (gridSize/2);
+      const textX = x + (gridSize / 2);
       const textY = y + gridSize - 2;
       const fontSize = gridSize * 0.3;
       result += `<g><svg x="${x}" y="${y}" height="${gridSize * 0.75}"
           width="${gridSize}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
           ${this.getRemoteIcon(remote.type)}
         </svg>
-        ${this.createText(textX, textY,fontSize, 'black', 'bottom', 'middle', (index + 1).toString())}
+        ${this.createText(textX, textY, fontSize, 'black', 'bottom', 'middle', (index + 1).toString())}
         </g>`;
     });;
     return result;
@@ -111,24 +111,24 @@ export class Cp2020DatafortSvgBuilderService {
     defenses.forEach((defense, index) => {
       const x = defense.coord.x * gridSize;
       const y = defense.coord.y * gridSize;
-      const textX = x + (gridSize/2);
+      const textX = x + (gridSize / 2);
       const textY = y + gridSize - 2;
       const fontSize = gridSize * 0.3;
       result += `<svg x="${x}" y="${y}" height="${gridSize * 0.75}"
           width="${gridSize}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
           ${NrNodeIcons.PROGRAM}
         </svg>
-        ${this.createText(textX, textY,fontSize, 'black', 'bottom', 'middle', (index + 1).toString())}`;
+        ${this.createText(textX, textY, fontSize, 'black', 'bottom', 'middle', (index + 1).toString())}`;
     });;
     return result;
   }
 
   private generateDataLine(x: number, y: number, text: string): string {
     const fontSize = 14;
-    return this.createText(x, y, fontSize, 'black','bottom', 'left', text);
+    return this.createText(x, y, fontSize, 'black', 'bottom', 'left', text);
   };
 
-  generate(datafort: Cp2020NrDatafort, gridSize: number): string {
+  generate(datafort: Cp2020NrDatafort, gridSize: number, includeData?: boolean): string {
     const width = datafort.columns * gridSize;
     const height = datafort.rows * gridSize;
     let contents = this.generateGrid(datafort.rows, datafort.columns, gridSize);
@@ -140,49 +140,50 @@ export class Cp2020DatafortSvgBuilderService {
     contents += this.generateDefenses(datafort.defenses, gridSize);
     const lineSize = 20;
     let line = height + lineSize;
-    contents += this.generateDataLine(gridSize, line, `NAME: ${datafort.name}`);
-    line += lineSize;
-    contents += this.generateDataLine(gridSize, line, `CPUs: ${datafort.cpu}    INT: ${datafort.int}    MUs: ${datafort.muUsed}/${datafort.muAvailable}`);
-    line += lineSize;
-    contents += this.generateDataLine(gridSize, line, `DATAWALL STR: ${datafort.datawallStr}    CODEGATE STR are marked on icon`);
-    line += lineSize;
-    contents += this.generateDataLine(gridSize, line, `SKILLS:`);
-    line += lineSize;
-    datafort.skills.forEach(skill => {
-      contents += this.generateDataLine(gridSize * 2, line, `${skill.key}  +${skill.value}`);
+    if (includeData) {
+      contents += this.generateDataLine(gridSize, line, `NAME: ${datafort.name}`);
       line += lineSize;
-    });
-    contents += this.generateDataLine(gridSize, line, `REMOTES:`);
-    line += lineSize;
-    datafort.remotes.forEach((remote, index) => {
-      const displayName = new NrNodeDisplayNamePipe();
-      contents += this.generateDataLine(gridSize * 2, line, `${index + 1}.  ${remote.name}  (${ displayName.transform(remote.type)})`);
+      contents += this.generateDataLine(gridSize, line, `CPUs: ${datafort.cpu}    INT: ${datafort.int}    MUs: ${datafort.muUsed}/${datafort.muAvailable}`);
       line += lineSize;
-    });
-    contents += this.generateDataLine(gridSize, line, `DEFENSES:`);
-    line += lineSize;
-    datafort.defenses.forEach((defense, index) => {
-      contents += this.generateDataLine(gridSize * 2, line, `${index + 1}.  ${defense.program.name}  (${defense.program.class.name}  STR: ${ defense.program.strength})`);
+      contents += this.generateDataLine(gridSize, line, `DATAWALL STR: ${datafort.datawallStr}    CODEGATE STR are marked on icon`);
       line += lineSize;
-    });
+      contents += this.generateDataLine(gridSize, line, `SKILLS:`);
+      line += lineSize;
+      datafort.skills.forEach(skill => {
+        contents += this.generateDataLine(gridSize * 2, line, `${skill.key}  +${skill.value}`);
+        line += lineSize;
+      });
+      contents += this.generateDataLine(gridSize, line, `REMOTES:`);
+      line += lineSize;
+      datafort.remotes.forEach((remote, index) => {
+        const displayName = new NrNodeDisplayNamePipe();
+        contents += this.generateDataLine(gridSize * 2, line, `${index + 1}.  ${remote.name}  (${displayName.transform(remote.type)})`);
+        line += lineSize;
+      });
+      contents += this.generateDataLine(gridSize, line, `DEFENSES:`);
+      line += lineSize;
+      datafort.defenses.forEach((defense, index) => {
+        contents += this.generateDataLine(gridSize * 2, line, `${index + 1}.  ${defense.program.name}  (${defense.program.class.name}  STR: ${defense.program.strength})`);
+        line += lineSize;
+      });
 
-    contents += this.generateDataLine(gridSize, line, `NOTES:`);
-    line += lineSize;
-    const wrapwidth = Math.floor((width - (2 * gridSize)) /6);
-    const wrap = (s, width) => s.replace(
-      new RegExp(`(?![^\\n]{1,${width}}$)([^\\n]{1,${width}})\\s`, 'g'), '$1???'
-    );
-    const temp = wrap(datafort.notes, wrapwidth);
-    console.log(temp);
-    console.log(typeof temp);
-    const note: Array<string> = temp.split('???');
-    note.forEach(n => {
-      contents += this.generateDataLine(gridSize , line, `${n}`);
+      contents += this.generateDataLine(gridSize, line, `NOTES:`);
       line += lineSize;
-    });
-    line += lineSize;
+      const wrapwidth = Math.floor((width - (2 * gridSize)) / 6);
+      const wrap = (s, width) => s.replace(
+        new RegExp(`(?![^\\n]{1,${width}}$)([^\\n]{1,${width}})\\s`, 'g'), '$1???'
+      );
+      const temp = wrap(datafort.notes, wrapwidth);
+      const note: Array<string> = temp.split('???');
+      note.forEach(n => {
+        contents += this.generateDataLine(gridSize, line, `${n}`);
+        line += lineSize;
+      });
+      line += lineSize;
+    }
 
-    let svg = `<svg width="${width}" height="${line}" viewBox="'0 0 ${width} ${line}" xmlns="http://www.w3.org/2000/svg">
+    let svg = `<svg id="datafort-cp2020" width="${width}" height="${line}" viewBox="'0 0 ${width} ${line}" enable-background="new 0 0 ${width} ${line}" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0" y="0" fill="white" width="${width}" height="${line}"/>
                 ${contents}
               </svg>`;
     return svg;
@@ -199,7 +200,7 @@ export class Cp2020DatafortSvgBuilderService {
   }
 
   private getRemoteIcon(type: NrNodeType): string {
-    switch(type) {
+    switch (type) {
       case NrNodeType.ALARM:
         return NrNodeIcons.ALARM;
       case NrNodeType.AUTOFACTORY:
