@@ -40,17 +40,17 @@ export class Cp2020NrDatafort implements NrDatafort {
       this.cost = param?.cost ?? 0;
       this.additionalCosts = param?.additionalCosts ?? 0;
       this.cpu = param?.cpu ?? NrMapDefaults.CPU_MIN;
-      this.cpuNodes = param?.cpuNodes.map( n => {return {x: n.x, y: n.y};}) ?? new Array<Coord>();
+      this.cpuNodes = param?.cpuNodes?.map( n => {return {x: n.x, y: n.y};}) ?? new Array<Coord>();
       this.muAvailable = 40 * this.cpu;
       this.muUsed = param?.muUsed ?? 0;
       this.int = 3 * this.cpu;
       this.ai = param?.ai ?? {};
       this.datawallStr = param?.datawallStr ?? NrMapDefaults.DATAWALL_STR_MIN;
-      this.datawallNodes = param?.datawallNodes.map( n => {return {x: n.x, y: n.y};}) ?? new Array<Coord>();
-      this.codegates = param?.codegates.map( cg => {return{str: cg.str, coord: {x: cg.coord.x, y: cg.coord.y}};}) ?? new Array<NrDatafortCodegate>();
+      this.datawallNodes = param?.datawallNodes?.map( n => {return {x: n.x, y: n.y};}) ?? new Array<Coord>();
+      this.codegates = param?.codegates?.map( cg => {return{str: cg.str, coord: {x: cg.coord.x, y: cg.coord.y}};}) ?? new Array<NrDatafortCodegate>();
       // add in the MUs
-      this.muNodes = param?.muNodes.map( n => {return {x: n.x, y: n.y};}) ?? new Array<Coord>();
-      this.mu = param?.mu.map( mu => {return {key: mu.key, value: mu.value}}) ?? new Array<KeyValue<string, number>>(this.cpu * 4);
+      this.muNodes = param?.muNodes?.map( n => {return {x: n.x, y: n.y};}) ?? new Array<Coord>();
+      this.mu = param?.mu?.map( mu => {return {key: mu.key, value: mu.value}}) ?? new Array<KeyValue<string, number>>(this.cpu * 4);
       this.mu = new Array<KeyValue<string,number>>(this.cpu * 4);
       // limit the number of items based on the size of either skill array
       for( let i = 0; i < this.mu.length; i++) {
@@ -59,19 +59,19 @@ export class Cp2020NrDatafort implements NrDatafort {
       }
 
       // every 2 CPU, the datafort gets 5 skills.
-      this.skills = param?.skills.map(sk => {return {key:  sk.key ?? '', value: sk.value ?? 4};}) ?? new Array<KeyValue<string,number>>();
+      this.skills = param?.skills?.map(sk => {return {key:  sk.key ?? '', value: sk.value ?? 4};}) ?? new Array<KeyValue<string,number>>();
       // limit the number of items based on the size of either skill array
       if(this.skills.length > this.maxSkills) {
         this.skills.splice(this.maxSkills - 1);
       }
 
-      this.files = param?.files.map(f => {return {key: f.key, value: f.value}}) ?? new Array<KeyValue<string,number>>();
+      this.files = param?.files?.map(f => {return {key: f.key, value: f.value}}) ?? new Array<KeyValue<string,number>>();
       this.remotes = new Array<NrDatafortRemote>();
-      param?.remotes.forEach( remote => {
+      param?.remotes?.forEach( remote => {
         this.remotes.push({name: remote.name, type: remote.type, coord: {x: remote.coord.x, y:remote.coord.y}});
       });
       this.defenses = new Array<NrDatafortDefense>();
-      param?.defenses.forEach( defense => {
+      param?.defenses?.forEach( defense => {
         this.defenses.push({name: defense.name, coord: {x: defense.coord.x, y: defense.coord.y}, program: new Cp2020Program(defense.program)});
       });
     }
