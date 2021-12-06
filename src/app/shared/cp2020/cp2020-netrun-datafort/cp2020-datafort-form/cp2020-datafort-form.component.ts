@@ -1,10 +1,10 @@
+import { Cp2020DatafortSvgBuilderService } from './../services/cp2020-datafort-svg-builder.service';
 import { NrMapDefaults } from './../enums/nr-map-defaults';
 import { Cp2020NrDatafort } from './../models/cp2020-nr-datafort';
 import { SaveFileService } from './../../../services/file-services/save-file/save-file.service';
 import { FileLoaderService } from './../../../services/file-services/file-loader/file-loader.service';
-import { faRedo, faSave, faFilePdf, faImage, faUpload } from '@fortawesome/free-solid-svg-icons';
+import { faRedo, faSave, faFilePdf, faImage, faUpload, faDice } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020DatafortBuilderService } from './../services/cp2020-datafort-builder.service';
-import { LocalStorageManagerService } from './../../../services/local-storage-manager/local-storage-manager.service';
 import { Cp2020AppFiles } from './../../../services/file-services/enum/cp2020-app-files';
 import { DataService } from './../../../services/file-services/dataservice/data.service';
 import { Component, OnInit } from '@angular/core';
@@ -21,12 +21,14 @@ export class Cp2020DatafortFormComponent implements OnInit {
   faFilePdf = faFilePdf;
   faImage = faImage;
   faUpload = faUpload;
+  faDice = faDice;
 
   datafortRefData: NrDatafortRefData;
   datafort: Cp2020NrDatafort;
 
   constructor(private dataService: DataService,
     private datafortBuilderService: Cp2020DatafortBuilderService,
+    private svgBuilderService: Cp2020DatafortSvgBuilderService,
     private loadService: FileLoaderService,
     private saveService: SaveFileService) { }
 
@@ -45,8 +47,13 @@ export class Cp2020DatafortFormComponent implements OnInit {
     this.datafortBuilderService.reset();
   }
 
+  generate() {}
   printPDF() {}
-  printSVG() {}
+  printSVG() {
+    const svg = this.svgBuilderService.generate(this.datafort, NrMapDefaults.GRID_SIZE);
+    this.saveService.SaveAsFile('cp2020_datafort_img', svg, 'svg');
+  }
+
   uploadJSON($event) {
     this.loadService
       .importJSON($event.target.files[0])

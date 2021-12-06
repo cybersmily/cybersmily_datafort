@@ -32,18 +32,17 @@
     </div>
   </div>
   <div class="row mt-1">
-    <div class="col-2">CPU:</div>
-    <div class="col-1 border border-dark p-0">
-      <input type="number" class="w-100 no-style h-100 text-center"
-        title="Enter number of CPUs (min {{NrMapDefaults.CPU_MIN}}, max {{NrMapDefaults.CPU_MAX}})"
-        [min]="NrMapDefaults.CPU_MIN" [max]="NrMapDefaults.CPU_MAX" [(ngModel)]="currDatafort.cpu" (change)="update()">
-    </div>
-    <div class="col-2 text-right pr-0">INT:</div>
-    <div class="col-1 text-left pl-1">{{currDatafort.int}}</div>
-    <div class="col-4 text-right">Datawall Str:</div>
+    <div class="col-2 p-0 pl-1">CPU:</div>
     <div class="col-2 border border-dark p-0">
       <input type="number" class="w-100 no-style h-100 text-center"
-        title="Enter Datawall Strength (min {{NrMapDefaults.DATAWALL_STR_MIN}}, max {{NrMapDefaults.DATAWALL_STR_MAX}})"
+        title="Number of CPUs (min {{NrMapDefaults.CPU_MIN}}, max {{NrMapDefaults.CPU_MAX}})"
+        [min]="NrMapDefaults.CPU_MIN" [max]="NrMapDefaults.CPU_MAX" [(ngModel)]="currDatafort.cpu" (change)="update()">
+    </div>
+    <div class="col-2 text-right p-0 pl-1">INT: {{currDatafort.int}}</div>
+    <div class="col-4 text-right p-0 pl-1 pr-1">Datawall:</div>
+    <div class="col-2 border border-dark p-0">
+      <input type="number" class="w-100 no-style h-100 text-center"
+        title="Datawall Strength (min {{NrMapDefaults.DATAWALL_STR_MIN}}, max {{NrMapDefaults.DATAWALL_STR_MAX}})"
         [min]="NrMapDefaults.DATAWALL_STR_MIN" [max]="NrMapDefaults.DATAWALL_STR_MAX"
         [(ngModel)]="currDatafort.datawallStr" (change)="update()">
     </div>
@@ -60,8 +59,8 @@
     </div>
   </div>
 </div>
-
-<div *ngIf="currDatafort.codegates?.length > 0" class="csd-rounded pr-3 pl-3">
+<!-- CODE GATES -->
+<div *ngIf="currDatafort.codegates?.length > 0" class="csd-rounded pr-3 pl-3 mt-1">
   <div class="row mt-1 csd-btn" (click)="isCodegatesCollapsed = !isCodegatesCollapsed">
     <div class="col p-0 csd-btn text-center">
       <h5 class="d-inline-block" title="number of codegates/number of codegates that come with CPUs">CODEGATES
@@ -71,20 +70,30 @@
     </div>
   </div>
   <div [collapse]="isCodegatesCollapsed">
-    <div class="row p-0">
+    <div class="row small">
+        <div class="col-1 p-0 border border-dark text-center">key</div>
+        <div class="col-4 p-0 border border-dark text-center">STR</div>
+        <div class="col-1 p-0"></div>
+        <div class="col-1 p-0 border border-dark text-center">key</div>
+        <div class="col-4 p-0 border border-dark text-center">STR</div>
+        <div class="col-1 p-0"></div>
+    </div>
+    <div class="row">
       <ng-container *ngFor="let codegate of currDatafort.codegates;let i = index">
+        <div *ngIf="codegate" class="col-1 p-0 border border-dark text-center">{{i + 1}}.</div>
         <div *ngIf="codegate" class="col-4 p-0 border border-dark">
-          {{i + 1}}. STR:
+          STR:
           <input type="number" class="w-50 no-style m-0 text-center" title="Enter skill rank (2-10)"
             [min]="NrMapDefaults.CODEGATE_MIN" [max]="NrMapDefaults.CODEGATE_MAX" [(ngModel)]="codegate.str"
             (change)="update()">
         </div>
+        <div *ngIf="codegate" class="col-1 p-0"></div>
       </ng-container>
     </div>
   </div>
 </div>
-
-<div class="csd-rounded pr-3 pl-3">
+<!-- SKILLS -->
+<div class="csd-rounded pr-3 pl-3 mt-1">
   <div class="row mt-1 csd-btn" (click)="isSkillsCollapsed = !isSkillsCollapsed">
     <div class="col p-0 csd-btn text-center">
       <h5 class="d-inline-block">SKILLS ({{currDatafort.skills.length}}/{{currDatafort?.maxSkills}})</h5>
@@ -93,22 +102,10 @@
     </div>
   </div>
   <div [collapse]="isSkillsCollapsed">
-    <div class="row p-0">
-      <div class="col-2 text-right p-0">
-        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-lg" title="Add Skill" (click)="addSkill()">
-        </fa-icon>
-      </div>
-      <div class="col-6 p-0 border border-dark">
-        <select [(ngModel)]="newSkill.key" class="w-100 h-100" (change)="update()">
-          <option *ngFor="let opt of cp2020DatafortRefData?.skills" [value]="opt">{{opt}}</option>
-        </select>
-      </div>
-      <div class="col-2 p-0 border border-dark text-center">
-        <input type="number" class="w-100 no-style m-0 h-100 text-center" title="Enter skill rank (4-10)"
-          [min]="NrMapDefaults.SKILL_MIN" [max]="NrMapDefaults.SKILL_MAX" [(ngModel)]="newSkill.value"
-          (change)="update()">
-      </div>
-      <div class="col-2"></div>
+    <div class="row p-0 small">
+      <div class="col-9 p-0 border border-dark pl-1">Name</div>
+      <div class="col-2 p-0 border border-dark text-center">Rank</div>
+      <div class="col-1 p-0"></div>
     </div>
     <div class="row p-0" *ngFor="let skill of currDatafort.skills;let i = index">
       <div *ngIf="skill" class="col-9 p-0 border border-dark">
@@ -119,15 +116,31 @@
         <input type="number" class="w-100 no-style m-0 h-100 text-center" title="Enter skill rank (4-10)"
           [min]="NrMapDefaults.SKILL_MIN" [max]="NrMapDefaults.SKILL_MAX" [(ngModel)]="skill.value" (change)="update()">
       </div>
-      <div *ngIf="skill" class="col-1 p-0 border border-dark">
+      <div *ngIf="skill" class="col-1 p-0">
         <fa-icon [icon]="faTrash" class="ml-1 csd-btn csd-icon-btn" title="Remove skill" (click)="removeSkill(i)">
+        </fa-icon>
+      </div>
+    </div>
+    <div class="row p-0 mt-3">
+      <div class="col-9 p-0 border border-dark">
+        <select [(ngModel)]="newSkill.key" class="w-100 h-100" (change)="update()">
+          <option *ngFor="let opt of cp2020DatafortRefData?.skills" [value]="opt">{{opt}}</option>
+        </select>
+      </div>
+      <div class="col-2 p-0 border border-dark text-center">
+        <input type="number" class="w-100 no-style m-0 h-100 text-center" title="Enter skill rank (4-10)"
+          [min]="NrMapDefaults.SKILL_MIN" [max]="NrMapDefaults.SKILL_MAX" [(ngModel)]="newSkill.value"
+          (change)="update()">
+      </div>
+      <div class="col-1 p-0 pl-1">
+        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-lg" title="Add Skill" (click)="addSkill()">
         </fa-icon>
       </div>
     </div>
   </div>
 </div>
-
-<div class="csd-rounded pr-3 pl-3">
+<!-- MEMORY -->
+<div class="csd-rounded pr-3 pl-3 mt-1">
   <div *ngIf="currDatafort.mu?.length > 0" class="row mt-1 csd-btn" (click)="isMemoryCollapsed = !isMemoryCollapsed">
     <div class="col p-0 text-center">
       <h5 class="d-inline-block">MEMORY UNITS ({{usedFileCount}}/{{currDatafort.mu.length}})</h5>
@@ -136,21 +149,27 @@
     </div>
   </div>
   <div [collapse]="isMemoryCollapsed">
+    <div class="row p-0 small">
+      <div class="col-1 text-center border border-dark p-0">key</div>
+      <div class="col-9 p-0 border border-dark pl-1">Description</div>
+      <div class="col-2 p-0 border border-dark text-center pl-1">MU</div>
+    </div>
     <div *ngFor="let mu of currDatafort.mu;let i = index" class="row p-0">
-      <div class="col-1 text-right border border-dark p-0">{{i + 1}}. </div>
+      <div class="col-1 text-center border border-dark p-0">{{i + 1}}. </div>
       <div *ngIf="mu" class="col-9 p-0 border border-dark">
         <input type="text" class="w-100 no-spinners no-style m-0 h-100" title="Enter number of MUs files/VR takes up"
           [(ngModel)]="mu.key" placeholder="File names/VR name" (change)="update()">
       </div>
       <div *ngIf="mu" class="col-2 p-0 border border-dark">
-        <input type="number" class="w-100 no-spinners no-style m-0 h-100"
+        <input type="number" class="w-100 no-spinners no-style m-0 h-100 text-center"
           title="Enter number of MUs files/VR takes up (1-10)" [min]="1" [max]="10" [(ngModel)]="mu.value"
           (change)="update()">
       </div>
     </div>
   </div>
 </div>
-<div class="csd-rounded pr-3 pl-3" *ngIf="currDatafort.remotes?.length > 0">
+<!-- REMOTES-->
+<div class="csd-rounded pr-3 pl-3 mt-1" *ngIf="currDatafort.remotes?.length > 0">
   <div class="row mt-1 csd-btn" (click)="isRemotesCollapsed = !isRemotesCollapsed">
     <div class="col p-0 text-center">
       <h5 class="d-inline-block">REMOTES ({{currDatafort.remotes.length}})</h5>
@@ -159,21 +178,30 @@
     </div>
   </div>
   <div [collapse]="isRemotesCollapsed" class="mb-2">
+    <div class="row small">
+    <div class="col-1 text-center border border-dark p-0">key</div>
+    <div class="col-7 p-0 border border-dark p-0">Description</div>
+    <div class="col-3 p-0 border border-dark small text-center p-0">type</div>
+    <div class="col-1 p-0"> </div>
+  </div>
     <div *ngFor="let remote of currDatafort.remotes;let i = index" class="row">
-      <div class="col-1 text-right border border-dark p-0">{{i + 1}}. </div>
-      <div class="col-8 p-0 border border-dark p-0">
+      <div class="col-1 text-center border border-dark p-0">{{i + 1}}. </div>
+      <div class="col-7 p-0 border border-dark p-0">
         <input type="text" class="w-100 no-spinners no-style m-0 h-100" title="Enter number of MUs file takes up"
           [(ngModel)]="remote.name" placeholder="Remote description" (change)="update()">
       </div>
       <div class="col-3 p-0 border border-dark small text-center p-0">
         {{remote.type | nrNodeDisplayName}}
+      </div>
+      <div class="col-1 p-0 text-center">
         <fa-icon [icon]="faTrash" class="float-right csd-btn csd-icon-btn" title="Remove remote"
           (click)="removeRemote(i)"></fa-icon>
       </div>
     </div>
   </div>
 </div>
-<div class="csd-rounded pr-3 pl-3" *ngIf="currDatafort.defenses?.length > 0">
+<!-- DEFENSES -->
+<div class="csd-rounded pr-3 pl-3 mt-1" *ngIf="currDatafort.defenses?.length > 0">
   <div class="row mt-1 csd-btn" (click)="isDefensesCollapsed = !isDefensesCollapsed">
     <div class="col p-0 text-center">
       <h5 class="d-inline-block">DEFENSES ({{currDatafort.defenses.length}})</h5>
@@ -183,24 +211,30 @@
   </div>
   <div [collapse]="isDefensesCollapsed" class="p-0">
     <div class="row small">
-      <div class="col-1 p-1 border border-dark">key</div>
+      <div class="col-1 p-1 border border-dark text-center">key</div>
       <div class="col-8 p-0 pl-1 border border-dark">Program</div>
       <div class="col-2 p-0 border border-dark text-center">MU</div>
     </div>
     <div *ngFor="let defense of currDatafort.defenses;let i = index" class="row p-0">
-      <div class="col-1 p-1 text-right border border-dark">{{i + 1}}.</div>
+      <div class="col-1 p-1 text-center border border-dark">{{i + 1}}.</div>
       <div class="col-8 p-0 border border-dark">
+        <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn mr-1 ml-1" title="Update program."
+        (click)="showSelected(i, programEditor)"
+        ></fa-icon>
         {{defense.program.name}}
       </div>
-      <div class="col-2 p-0 border border-dark pl-1">
+      <div class="col-2 p-0 border border-dark pl-1 text-center">
         {{defense.program.mu}}
+      </div>
+      <div class="col-1 p-0 text-center">
         <fa-icon [icon]="faTrash" class="float-right mr-1 csd-btn csd-icon-btn" title="Remove defense"
           (click)="removeDefense(i)"></fa-icon>
       </div>
     </div>
   </div>
 </div>
-<div class="csd-rounded pr-3 pl-3">
+<!-- NOTES -->
+<div class="csd-rounded pr-3 pl-3 mt-1">
   <div class="row mt-1 csd-btn" (click)="isNotesCollapsed = !isNotesCollapsed">
     <div class="col p-0 text-center">
       <h5 class="d-inline-block">NOTES</h5>
@@ -211,7 +245,7 @@
   <div [collapse]="isNotesCollapsed">
     <div class="row">
       <div class="col p-0 text-right">
-        <textarea class="w-100 h-100 m-0" [(ngModel)]="currDatafort.notes" (change)="update()"></textarea>
+        <textarea class="w-100 h-100 m-0 csd-datafort-notes" [(ngModel)]="currDatafort.notes" (change)="update()"></textarea>
       </div>
     </div>
   </div>
@@ -222,3 +256,16 @@
   <div class="col"></div>
   <div class="col"></div>
 </div>
+
+<ng-template #programEditor>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Program Editor</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <cs-program-new [program]="selectedProgram" (updateProgram)="updateProgram($event)"></cs-program-new>
+  </div>
+
+</ng-template>

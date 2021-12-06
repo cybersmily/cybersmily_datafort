@@ -39,7 +39,8 @@ import { NrNodeDisplayNamePipe } from './pipes/nr-node-display-name/nr-node-disp
     Cp2020DatafortFormComponent,
     Cp2020DatafortEditorComponent,
     Cp2020DatafortToolbarComponent,
-    Cp2020DatafortMapComponent
+    Cp2020DatafortMapComponent,
+    NrNodeDisplayNamePipe
   ]
 })
 export class Cp2020NetrunDatafortModule { }

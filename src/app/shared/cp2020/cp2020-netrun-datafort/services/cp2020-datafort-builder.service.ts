@@ -84,7 +84,7 @@ export class Cp2020DatafortBuilderService {
       this.update(this._currDatafort);
       return;
     }
-    if (this.selectedTool != null) {
+    if (this.selectedTool !== null && this.selectedTool !== undefined && this.selectedTool >= 0) {
       this._currDatafort.remotes.push({name: '', type: this.selectedTool, coord:{x: x, y: y}});
       this.update(this._currDatafort);
       return;

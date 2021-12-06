@@ -1,10 +1,12 @@
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { Cp2020Program } from './../../cp2020-netrun-gear/models/cp2020-program';
 import { KeyValue } from '@angular/common';
 import { faChevronDown, faChevronRight, faDice, faPen, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { NrNodeType } from './../enums/nr-node-type';
 import { NrMapDefaults } from '../enums/nr-map-defaults';
 import { Cp2020NrDatafort } from './../models/cp2020-nr-datafort';
 import { Cp2020DatafortBuilderService } from './../services/cp2020-datafort-builder.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { NrDatafortRefData } from '../models/nr-datafort-ref-data';
 
 @Component({
@@ -19,6 +21,11 @@ export class Cp2020DatafortEditorComponent implements OnInit {
   faPen = faPen;
   faTrash = faTrash;
   faPlus = faPlus;
+  modalRef: BsModalRef;
+  config = {
+    keyboard: true,
+    class: 'modal-dialog-centered modal-lg'
+  };
 
   NrNodeType = NrNodeType;
   NrMapDefaults = NrMapDefaults;
@@ -32,11 +39,13 @@ export class Cp2020DatafortEditorComponent implements OnInit {
   isNotesCollapsed = true;
 
   newSkill: KeyValue<string, number> = {key: '', value: 4};
+  selectedProgram: Cp2020Program = new Cp2020Program();
+  selectedProgramIndex = -1;
 
   @Input()
   cp2020DatafortRefData: NrDatafortRefData;
 
-  constructor(private datafortBuilderService: Cp2020DatafortBuilderService) { }
+  constructor(private datafortBuilderService: Cp2020DatafortBuilderService, private modalService: BsModalService) { }
 
   get usedFileCount(): number {
     return this.currDatafort.mu.filter(mu => mu.key !== '').length;
@@ -70,5 +79,22 @@ export class Cp2020DatafortEditorComponent implements OnInit {
 
   deleteSkill(index: number) {
     this.datafortBuilderService.removeSkill(index);
+  }
+
+  updateProgram(program: Cp2020Program) {
+    if (this.selectedProgramIndex > -1) {
+      this.currDatafort.defenses[this.selectedProgramIndex].program = new Cp2020Program(program);
+      this.update();
+    }
+    this.selectedProgramIndex = -1;
+    this.selectedProgram = new Cp2020Program();
+  }
+
+  showSelected(index: number, template:TemplateRef<any>) {
+    if( index > -1 && index < this.currDatafort.defenses.length) {
+      this.selectedProgramIndex = index;
+      this.selectedProgram = new Cp2020Program(this.currDatafort.defenses[index].program);
+      this.modalRef = this.modalService.show(template, this.config);
+    }
   }
 }
