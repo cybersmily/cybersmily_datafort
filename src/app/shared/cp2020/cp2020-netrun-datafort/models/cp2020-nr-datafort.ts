@@ -10,9 +10,11 @@ import { CB1 } from 'canvg';
 
 export class Cp2020NrDatafort implements NrDatafort {
   name = '' ;
+  notes = '';
   rows =  NrMapDefaults.ROWS_DEFAULT;
   columns = NrMapDefaults.COLUMNS_DEFAULT;
   cost = 0;
+  additionalCosts = 0;
   cpu = NrMapDefaults.CPU_MIN;
   cpuNodes = new Array<Coord>();
   mu = new Array<KeyValue<string,number>>();
@@ -32,9 +34,11 @@ export class Cp2020NrDatafort implements NrDatafort {
   constructor(param?: NrDatafort) {
     if(param) {
       this.name = param?.name ?? '' ;
+      this.notes = param?.notes ?? '';
       this.rows = param?.rows ?? NrMapDefaults.ROWS_DEFAULT;
       this.columns = param?.columns ?? NrMapDefaults.COLUMNS_DEFAULT;
       this.cost = param?.cost ?? 0;
+      this.additionalCosts = param?.additionalCosts ?? 0;
       this.cpu = param?.cpu ?? NrMapDefaults.CPU_MIN;
       this.cpuNodes = param?.cpuNodes.map( n => {return {x: n.x, y: n.y};}) ?? new Array<Coord>();
       this.muAvailable = 40 * this.cpu;

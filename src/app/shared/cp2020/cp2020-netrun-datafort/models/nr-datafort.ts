@@ -8,9 +8,11 @@ import { NrDatafortCodegate } from './nr-datafort-codegate';
 
 export interface NrDatafort {
   name: string;
+  notes: string;
   rows: number;
   columns: number;
   cost: number;
+  additionalCosts: number;
   cpu: number;
   cpuNodes: Array<Coord>;
   mu: Array<KeyValue<string,number>>;

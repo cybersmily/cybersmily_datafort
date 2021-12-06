@@ -29,6 +29,7 @@ export class Cp2020DatafortEditorComponent implements OnInit {
   isMemoryCollapsed = true;
   isRemotesCollapsed = true;
   isDefensesCollapsed = true;
+  isNotesCollapsed = true;
 
   newSkill: KeyValue<string, number> = {key: '', value: 4};
 
@@ -54,6 +55,17 @@ export class Cp2020DatafortEditorComponent implements OnInit {
   addSkill() {
     this.datafortBuilderService.addSkill(this.newSkill);
     this.newSkill = {key: '', value: 4};
+  }
+
+  removeRemote(index:number) {
+    this.datafortBuilderService.removeRemoteByIndex(index);
+  }
+
+  removeDefense(index: number) {
+    this.datafortBuilderService.removeDefenseByIndex(index);
+  }
+  removeSkill(index: number) {
+    this.datafortBuilderService.removeSkillByIndex(index);
   }
 
   deleteSkill(index: number) {

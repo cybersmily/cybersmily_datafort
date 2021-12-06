@@ -121,8 +121,23 @@ export class Cp2020DatafortBuilderService {
     this.removeNodeCoordFromList('remotes', coord);
   }
 
+  removeRemoteByIndex(index: number) {
+    this._currDatafort.remotes.splice(index, 1);
+    this.update(this._currDatafort);
+  }
+
   removeDefense(coord:Coord) {
     this.removeNodeCoordFromList('defenses', coord);
+  }
+
+  removeDefenseByIndex(index: number) {
+    this._currDatafort.defenses.splice(index, 1);
+    this.update(this._currDatafort);
+  }
+
+  removeSkillByIndex(index: number) {
+    this._currDatafort.skills.splice(index, 1);
+    this.update(this._currDatafort);
   }
 
   private removeNodeFromList(prop: string, x: number, y: number) {
@@ -162,7 +177,7 @@ export class Cp2020DatafortBuilderService {
     const remotesCost = this._currDatafort.remotes.filter( r => r.type === NrNodeType.TERMINAL).length * NrMapDefaults.TERMINAL_COST
     const defenseCost = this._currDatafort.defenses.reduce((sum, def) => sum + def.program.cost, 0);
 
-    this._currDatafort.cost = cpuCost + datawallCost + skillCost + codegateCost + defenseCost + remotesCost;
+    this._currDatafort.cost = cpuCost + datawallCost + skillCost + codegateCost + defenseCost + remotesCost + this._currDatafort.additionalCosts;
   }
 
   private calcuateCodegateStrCost(str: number): number {
