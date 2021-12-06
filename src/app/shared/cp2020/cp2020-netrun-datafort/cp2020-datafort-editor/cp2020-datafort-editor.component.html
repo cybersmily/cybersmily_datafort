@@ -52,7 +52,7 @@
 <div *ngIf="currDatafort.codegates?.length > 0" class="row mt-1 csd-btn"
   (click)="isCodegatesCollapsed = !isCodegatesCollapsed">
   <div class="col p-0 csd-btn text-center">
-    <h5 class="d-inline-block">CODEGATES</h5>
+    <h5 class="d-inline-block" title="number of codegates/number of codegates that come with CPUs">CODEGATES ({{currDatafort.codegates.length}}/{{currDatafort.cpu}})</h5>
     <fa-icon [icon]="isCodegatesCollapsed ? faChevronRight : faChevronDown" class="ml-2 csd-icon-btn csd-icon-lg">
     </fa-icon>
   </div>
