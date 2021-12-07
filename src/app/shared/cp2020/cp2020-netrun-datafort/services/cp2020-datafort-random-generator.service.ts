@@ -1,6 +1,5 @@
 import { NrDatafortRefDataProgram } from './../models/nr-datafort-ref-data-program';
-import { Cp2020Program } from './../../cp2020-netrun-gear/models/cp2020-program';
-import { Cp2020DatafortBuilderService } from './cp2020-datafort-builder.service';
+import { Cp2020Program } from './../../cp2020-netrun-gear/models';
 import { Cp2020NrDatafort } from './../models/cp2020-nr-datafort';
 import { DiceService } from './../../../services/dice/dice.service';
 import { Injectable } from '@angular/core';
@@ -12,7 +11,7 @@ import { NrDatafortRefDataEntry } from '../models/nr-datafort-ref-data-entry';
 })
 export class Cp2020DatafortRandomGeneratorService {
 
-  constructor(private diceService: DiceService, private dfBuilderService: Cp2020DatafortBuilderService) { }
+  constructor(private diceService: DiceService) { }
 
   generate(refData: NrDatafortRefData): Cp2020NrDatafort {
     const fort = new Cp2020NrDatafort();
