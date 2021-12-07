@@ -1,3 +1,4 @@
+import { Cp2020DatafortRandomGeneratorService } from './../services/cp2020-datafort-random-generator.service';
 import { svgAsPngUri } from 'save-svg-as-png';
 import { jsPDF } from 'jspdf';
 import { Cp2020DatafortSvgBuilderService } from './../services/cp2020-datafort-svg-builder.service';
@@ -34,6 +35,7 @@ export class Cp2020DatafortFormComponent implements OnInit {
   constructor(private dataService: DataService,
     private datafortBuilderService: Cp2020DatafortBuilderService,
     private svgBuilderService: Cp2020DatafortSvgBuilderService,
+    private randomGeneratorService: Cp2020DatafortRandomGeneratorService,
     private loadService: FileLoaderService,
     private saveService: SaveFileService) { }
 
@@ -52,7 +54,10 @@ export class Cp2020DatafortFormComponent implements OnInit {
     this.datafortBuilderService.reset();
   }
 
-  generate() {}
+  generate() {
+    const df = this.randomGeneratorService.generate(this.datafortRefData);
+    this.datafortBuilderService.update(df);
+  }
 
   printPNG() {
     var parser = new DOMParser();

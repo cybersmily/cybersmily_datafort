@@ -23,4 +23,6 @@ export interface NrDatafortRefData {
     },
     remotes: Array<NrDatafortRefDataRemote>;
     layouts: Array<Array<Coord>>;
+    codegateLayout: Array<Array<Coord>>;
+    defenseLayout: Array<Array<Coord>>;
 }

@@ -1,3 +1,4 @@
+import { Cp2020DatafortRandomGeneratorService } from './services/cp2020-datafort-random-generator.service';
 import { Cp2020NetrunGearModule } from './../cp2020-netrun-gear/cp2020-netrun-gear.module';
 import { PipesModule } from './../../pipes/pipes.module';
 import { Cp2020DatafortSvgBuilderService } from './services/cp2020-datafort-svg-builder.service';
@@ -33,7 +34,8 @@ import { NrNodeDisplayNamePipe } from './pipes/nr-node-display-name/nr-node-disp
     DiceService,
     DataService,
     Cp2020DatafortBuilderService,
-    Cp2020DatafortSvgBuilderService
+    Cp2020DatafortSvgBuilderService,
+    Cp2020DatafortRandomGeneratorService
   ],
   exports: [
     Cp2020DatafortFormComponent,

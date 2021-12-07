@@ -22,7 +22,7 @@ export class Cp2020NrDatafort implements NrDatafort {
   muAvailable = 40 * this.cpu;
   muUsed = 0;
   int = 3 * this.cpu;
-  ai = {};
+  ai = {personality: '', reaction: '', icon:''};
   datawallStr = NrMapDefaults.DATAWALL_STR_MIN;
   datawallNodes = new Array<Coord>();
   codegates = new Array<NrDatafortCodegate>();
@@ -44,7 +44,7 @@ export class Cp2020NrDatafort implements NrDatafort {
       this.muAvailable = 40 * this.cpu;
       this.muUsed = param?.muUsed ?? 0;
       this.int = 3 * this.cpu;
-      this.ai = param?.ai ?? {};
+      this.ai = param?.ai ?? {personality: '', reaction: '', icon:''};
       this.datawallStr = param?.datawallStr ?? NrMapDefaults.DATAWALL_STR_MIN;
       this.datawallNodes = param?.datawallNodes?.map( n => {return {x: n.x, y: n.y};}) ?? new Array<Coord>();
       this.codegates = param?.codegates?.map( cg => {return{str: cg.str, coord: {x: cg.coord.x, y: cg.coord.y}};}) ?? new Array<NrDatafortCodegate>();
