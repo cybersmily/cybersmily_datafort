@@ -124,7 +124,7 @@
       title="Activate/wear this piece of clothing" (change)="activePiece($event,index)"
       [disabled]="!armorBlock.ableToActivate(armor) && !armor.isActive">
       <span class="csd-btn" (click)="selectIndex(index, armorDetailModal)">{{armor.name}}</span>
-      <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn float-right"></fa-icon>
+      <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn float-right" (click)="deleteArmor(index)"></fa-icon>
     </div>
     <div class="col-1 text-center border border-dark">{{armor.baseSP}}</div>
     <div class="col-2 text-right border border-dark">{{armor.cost | number}}eb</div>
