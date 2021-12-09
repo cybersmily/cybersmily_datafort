@@ -10,11 +10,9 @@ export class Cp2020DamageCalculatorService {
 
   getWounds(damage: number, damageType: Cp2020AmmoTypes, location: string, sp: number, isHard: boolean) : number {
     let result = 0;
-    console.log('damage',result, damage, damageType);
     switch(damageType) {
       case Cp2020AmmoTypes.AP_ROUND:
         result = (damage - Math.ceil(sp/2))/2;
-        console.log('damage',result, damage);
         break;
       case Cp2020AmmoTypes.DP_ROUND:
         if( sp < 1) {
@@ -73,7 +71,6 @@ export class Cp2020DamageCalculatorService {
     if(location === 'head') {
       result = result * 2;
     }
-    console.log('damage',result);
     return result < 0 ? 0 : Math.ceil(result);
   }
 }

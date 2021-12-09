@@ -1,3 +1,4 @@
+import { CpPlayerWeapon } from './../../shared/cp2020/cp2020weapons/models/cp-player-weapon';
 import { Cp2020Role } from './../../shared/cp2020/cp2020-role/models';
 import { Cp2020StatBlock } from './../../shared/cp2020/cp2020-stats/models/cp2020-stat-block';
 import { Cp2020ArmorPiece, Cp2020ArmorBlock } from './../../shared/cp2020/cp2020-armor/models';
@@ -52,7 +53,7 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
     const rolesList = this.roleService.getRoles();
     const skillList = this.skillListService.Skills;
     const opponents = this.opponentService.opponents;
-    this.currOpponent = this.opponent;
+    this.currOpponent = new CmbtTrckOpponent(this.opponent);
     forkJoin([
       templates
       , rolesList
@@ -70,7 +71,7 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
   ngOnChanges() {
     this.selectedTemplate = null;
     this.selectedRole = null;
-    this.currOpponent = this.opponent;
+    this.currOpponent = new CmbtTrckOpponent(this.opponent);
   }
 
   onStatBlockChange(value: Cp2020StatBlock) {
@@ -80,7 +81,6 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
 
 
   woundOpponent(value: number) {
-    console.log('damage', value);
     const damage = value + this.currOpponent.stats.BTM;
     this.currOpponent.stats.Damage += damage > 0 ? damage : 0;
     this.opponentService.changeOpponent(this.currOpponent);
@@ -99,12 +99,12 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
     if (!wpns) {
       return;
     }
-    this.currOpponent.weapons = wpns.items;
+    this.currOpponent.weapons = wpns.items.map(wpn => new CpPlayerWeapon(wpn));
     this.updateOpponent();
   }
 
   changeArmor(armor: Cp2020ArmorBlock) {
-    this.currOpponent.armor = armor;
+    this.currOpponent.armor = new Cp2020ArmorBlock(armor);
     this.currOpponent.stats.REF.ev = this.currOpponent.armor.ev;
     this.updateOpponent();
   }

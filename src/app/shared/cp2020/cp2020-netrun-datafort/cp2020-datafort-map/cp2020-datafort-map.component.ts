@@ -86,7 +86,6 @@ export class Cp2020DatafortMapComponent implements OnInit {
   }
 
   sanitize(element: string): SafeHtml {
-    console.log(element);
     return this.sanitizer.bypassSecurityTrustHtml(element);
   }
 

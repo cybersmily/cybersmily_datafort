@@ -342,7 +342,6 @@ module.exports.generateWorldAnvilSheet = (param) => {
   // skills section *******************************************
   result += comment('Skills');
   result += numberField(`generalIP`, `generalIP`, 0, 10000, '  ');
-  console.log('skill section');
   var generateSkill = (skills, title ) => {
     for(const [index, skill] of skills.entries()) {
       var num = (((index + 1) < 10) ? `0` : '') + (index + 1);
@@ -481,13 +480,9 @@ module.exports.generateWorldAnvilSheet = (param) => {
   result += textField(`notes`, 'notes', 50, '  ');
 
   // output
-  console.log(result);
   fs.writeFile(`cp2020WorldAnvilSheet.yml`, result, function (err) {
     if (err) {
-      console.log('FAILED');
-      console.log(err);
-    } else {
-      console.log('done');
+      console.log('FAILED', err);
     }
   })
 };

@@ -102,7 +102,7 @@ export class CmbtTrckFormComponent implements OnInit {
   copyOpponent(index: number) {
     const opp = this.opponents[index];
     const newOpp = new CmbtTrckOpponent(opp);
-    newOpp.name =  `Opp${this.opponents.length + 1}`;
+    newOpp.name =  `${opp.name}_${this.opponents.length + 1}`;
     this.opponentService.addOpponent(newOpp, true);
   }
 

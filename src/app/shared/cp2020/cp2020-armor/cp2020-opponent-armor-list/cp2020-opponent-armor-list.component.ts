@@ -1,7 +1,7 @@
 import { Cp2020ArmorPiece } from '../models/cp2020-armor-piece';
 import { faWrench, faTrash, faPlus, faDice, faSave } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020ArmorBlock } from '../models/cp2020-armor-block';
-import { Component, Input, OnInit, Output, TemplateRef, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, TemplateRef, EventEmitter, OnChanges } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
@@ -9,7 +9,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
   templateUrl: './cp2020-opponent-armor-list.component.html',
   styleUrls: ['./cp2020-opponent-armor-list.component.css']
 })
-export class Cp2020OpponentArmorListComponent implements OnInit {
+export class Cp2020OpponentArmorListComponent implements OnInit, OnChanges {
   faWrench = faWrench;
   faTrash = faTrash;
   faPlus = faPlus;
@@ -23,7 +23,7 @@ export class Cp2020OpponentArmorListComponent implements OnInit {
   armorBlock = new Cp2020ArmorBlock();
 
   @Output()
-  updateAmor = new EventEmitter<Cp2020ArmorBlock>();
+  updateArmor = new EventEmitter<Cp2020ArmorBlock>();
 
   currArmorBlock = new Cp2020ArmorBlock();
   selectedArmor = new Cp2020ArmorPiece();
@@ -35,8 +35,12 @@ export class Cp2020OpponentArmorListComponent implements OnInit {
     this.currArmorBlock = new Cp2020ArmorBlock(this.armorBlock);
   }
 
+  ngOnChanges(): void {
+    this.currArmorBlock = new Cp2020ArmorBlock(this.armorBlock);
+  }
+
   update() {
-    this.updateAmor.emit(this.currArmorBlock);
+    this.updateArmor.emit(this.currArmorBlock);
   }
 
   repairArmor(armor: Cp2020ArmorPiece) {
@@ -81,6 +85,5 @@ export class Cp2020OpponentArmorListComponent implements OnInit {
     this.closeArmorDetailModal();
     this.update();
   }
-
 
 }

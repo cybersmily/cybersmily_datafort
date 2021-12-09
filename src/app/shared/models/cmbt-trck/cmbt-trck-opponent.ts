@@ -21,40 +21,30 @@ export class CmbtTrckOpponent {
   modifiers: Cp2020CombatModifiers;
 
   constructor(param?, newId?: boolean) {
-    this.name = param && param.name ? param.name : '';
-    this.role = param && param.role ? param.role : '';
-    this.id = param && param.id ? param.id : new Date().getTime();
+    this.name = param?.name ?? '';
+    this.role = param?.role ?? '';
+    this.id = param?.id ?? new Date().getTime();
     if (newId) {
       this.id = new Date().getTime();
     }
     this.initRoll = 0;
     this.initDie = new Array<number>();
     this.stats = new Cp2020StatBlock();
-    if (param && param.stats) {
+    if (param?.stats) {
       this.stats.import(param.stats);
     }
-    this.armor =
-      param && param.armor
-        ? new Cp2020ArmorBlock(param.armor)
-        : new Cp2020ArmorBlock();
+    this.armor = new Cp2020ArmorBlock(param?.armor);
     this.stats.REF.ev = this.armor.ev;
-    this.cyberware =
-      param && param.cyberware ? param.cyberware : new Array<OppCyberware>();
-    this.sa = param && param.sa ? param.sa : new Cp2020PlayerSkill();
-    this._skills =
-      param && param._skills ? param._skills : new Array<Cp2020PlayerSkill>();
-    this.weapons = new Array<CpPlayerWeapon>();
-    if (param && param.weapons) {
-      param.weapons.forEach((w) => {
-        this.weapons.push(new CpPlayerWeapon(w));
-      });
-    }
+    this.cyberware = param?.cyberware?.map(cyber => new OppCyberware(cyber)) ?? new Array<OppCyberware>();
+    this.sa = param?.sa ?? new Cp2020PlayerSkill();
+    this._skills = param?._skills?.map(skill => new Cp2020PlayerSkill(skill)) ?? new Array<Cp2020PlayerSkill>();
+    this.weapons = param?.weapons?.map(wpn => new CpPlayerWeapon(wpn)) ?? new Array<CpPlayerWeapon>();
     this.modifiers = new Cp2020CombatModifiers();
-    if (param && param.modifiers) {
+    if (param?.modifiers) {
       this.modifiers.target = param.modifiers.target;
       this.modifiers.attacker = param.modifiers.attacker;
     }
-    this.gear = param && param.gear ? param.gear : new Array<string>();
+    this.gear = param?.gear?.map(g => g) ?? new Array<string>();
   }
 
   importTemplate(template: CmbtTrckOppTemplate) {

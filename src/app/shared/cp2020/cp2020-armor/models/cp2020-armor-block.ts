@@ -28,18 +28,16 @@ export class Cp2020ArmorBlock implements ArmorBlock {
   sdp: Cp2020SDPBlock;
 
   constructor(param?: any) {
-    this.armorPieces = param?.armorPieces?.map(piece => piece) ?? new Array<Cp2020ArmorPiece>();
+    this.armorPieces = param?.armorPieces?.map(piece => new Cp2020ArmorPiece(piece)) ?? new Array<Cp2020ArmorPiece>();
     // used for backward compatible
-    if (param && Array.isArray(param.layers)) {
-      param.layers.forEach(layer => {
-        this.armorPieces.push(new Cp2020ArmorPiece(layer));
-      });
-    } else if (param && (param.head > 0
-      || param.torso > 0
-      || param.rarm > 0
-      || param.larm > 0
-      || param.rleg > 0
-      || param.lleg > 0)) {
+    if (Array.isArray(param?.layers)) {
+      this.armorPieces = param.layers?.map(layer => new Cp2020ArmorPiece(layer));
+    } else if (param?.head > 0
+      || param?.torso > 0
+      || param?.rarm > 0
+      || param?.larm > 0
+      || param?.rleg > 0
+      || param?.lleg > 0) {
       this.armorPieces.push(new Cp2020ArmorPiece({
         name: 'Misc.',
         head: param.head, torso: param.torso,
@@ -48,7 +46,7 @@ export class Cp2020ArmorBlock implements ArmorBlock {
         ev: 0, isHard: false, isSkinWeave: false, isActive: true
       }));
     }
-    this.sdp = (param) ? new Cp2020SDPBlock(param.sdp) : new Cp2020SDPBlock();
+    this.sdp = new Cp2020SDPBlock(param?.sdp);
   }
 
 

@@ -195,7 +195,6 @@ export class Cp2020ACPABuilderService {
       const item = (equip['shots']) ? new Cp2020ACPAWeapon(equip as ACPAWeapon) : new Cp2020ACPAComponent(equip);
       if( i == 0 ) {
         const ammo = item['shots'] ? ` (${item['shots']})` : '';
-        console.log(item);
         item.name = `${item.name}${ammo}`;
       } else {
         item.name = `(${item.name})`;

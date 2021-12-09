@@ -119,6 +119,7 @@ export class OpponentTrackerService {
     const opps = this._opponents.getValue();
     const index = opps.findIndex( o => o.id === opp.id);
     opps[index] = new CmbtTrckOpponent(opp);
+
     this._opponents.next(opps);
     this.cache = opps;
   }

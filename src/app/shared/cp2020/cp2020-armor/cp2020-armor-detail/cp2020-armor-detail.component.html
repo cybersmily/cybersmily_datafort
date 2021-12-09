@@ -55,7 +55,7 @@
 </div>
 <div class="row mb-2 small">
   <div class="col">
-    <input type="checkbox" [(ngModel)]="currArmor.isSkinWeave"> Skinweave
+    <input type="checkbox" [(ngModel)]="currArmor.isSkinWeave" (change)="changeSkinweave()"> Skinweave
   </div>
   <div class="col">
     <input type="checkbox" [(ngModel)]="currArmor.isHard" (change)="update()"> Hard Armor
@@ -97,11 +97,6 @@
   <div class="col-1 text-center border border-dark pl-0 pr-0">{{currArmor.locations?.rleg ?? ''}}</div>
   <div class="col-1 text-center border border-dark pl-0 pr-0">{{currArmor.locations?.lleg ?? ''}}</div>
   <div class="col-1"></div>
-</div>
-<div class="row">
-  <div class="col">Skinweave
-    <input type="checkbox" [(ngModel)]="currArmor.isSkinWeave">
-  </div>
 </div>
 <div class="row">
   <div class="col-2">Options:</div>

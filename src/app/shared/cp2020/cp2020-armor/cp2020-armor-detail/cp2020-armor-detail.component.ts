@@ -126,6 +126,16 @@ export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
     return this.currArmor.clothes.loc.includes(location);
   }
 
+  changeSkinweave() {
+    if(this.currArmor.isSkinWeave) {
+      this.checkLocation('head');
+      this.checkLocation('torso');
+      this.checkLocation('arms');
+      this.checkLocation('legs');
+      this.update();
+    }
+  }
+
   checkLocation(location:string) {
     const locations = this.currArmor.clothes.loc.split('|');
     if(locations.includes(location)) {

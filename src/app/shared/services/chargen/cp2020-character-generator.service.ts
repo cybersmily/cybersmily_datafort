@@ -216,7 +216,6 @@ export class Cp2020CharacterGeneratorService {
     // TODO: update the role skills for the character
     // remove the options
     this._currCharacter.skills = new Cp2020PlayerSkills();
-    console.log('changeSkills', value);
     this._currCharacter.skills.import(value);
     this.updateCharacter();
   }
