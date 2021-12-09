@@ -16,11 +16,10 @@ import { Cp2020SourceArmorListComponent } from './cp2020-source-armor-list/cp202
 import { Cp2020ArmorTableComponent } from './cp2020-armor-table/cp2020-armor-table.component';
 import { Cp2020ArmorSectionComponent } from './cp2020-armor-section/cp2020-armor-section.component';
 import { Cp2020ClothingListComponent } from './cp2020-clothing-list/cp2020-clothing-list.component';
-import { Cp2020ArmorListComponent } from './cp2020-armor-list/cp2020-armor-list.component';
-import { Cp2020ArmorNewComponent } from './cp2020-armor-new/cp2020-armor-new.component';
 import { Cp2020ArmorDetailComponent } from './cp2020-armor-detail/cp2020-armor-detail.component';
 import { ArmorSettingsComponent } from './armor-settings/armor-settings.component';
 import { Cp2020OpponentArmorListComponent } from './cp2020-opponent-armor-list/cp2020-opponent-armor-list.component';
+import { Cp2020ArmorSuiteGeneratorComponent } from './cp2020-armor-suite-generator/cp2020-armor-suite-generator.component';
 
 
 
@@ -29,12 +28,11 @@ import { Cp2020OpponentArmorListComponent } from './cp2020-opponent-armor-list/c
     Cp2020ArmorTableComponent,
     Cp2020ArmorSectionComponent,
     Cp2020ClothingListComponent,
-    Cp2020ArmorListComponent,
-    Cp2020ArmorNewComponent,
     Cp2020ArmorDetailComponent,
     ArmorSettingsComponent,
     Cp2020SourceArmorListComponent,
-    Cp2020OpponentArmorListComponent
+    Cp2020OpponentArmorListComponent,
+    Cp2020ArmorSuiteGeneratorComponent
   ],
   imports: [
     CommonModule,
@@ -56,8 +54,6 @@ import { Cp2020OpponentArmorListComponent } from './cp2020-opponent-armor-list/c
     Cp2020ArmorTableComponent,
     Cp2020ArmorSectionComponent,
     Cp2020ClothingListComponent,
-    Cp2020ArmorListComponent,
-    Cp2020ArmorNewComponent,
     Cp2020ArmorDetailComponent,
     ArmorSettingsComponent,
     Cp2020SourceArmorListComponent,

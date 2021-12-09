@@ -20,6 +20,7 @@ export class ArmorGeneratorService {
   ): Cp2020ArmorPiece {
 
     const armor = new Cp2020ArmorPiece();
+    const filteredClothes = clothingLists.clothes;
     armor.clothes = dice.rollRandomItem<PieceOfClothing>(clothingLists.clothes);
 
     do {
@@ -97,5 +98,12 @@ export class ArmorGeneratorService {
     }
     return list;
   }
+
+  generateSuit(settings: CP2020ArmorRandomSettings,
+    dice: DiceService,
+    clothingLists: ArmorAttributeLists) {
+
+
+    }
 
 }

@@ -6,6 +6,7 @@ export interface ArmorRandomSettings {
   quality: string;
   hasOptions: boolean;
   maxCost: number;
+  locations?: string;
 }
 
 export class CP2020ArmorRandomSettings implements ArmorRandomSettings {
@@ -15,4 +16,5 @@ export class CP2020ArmorRandomSettings implements ArmorRandomSettings {
   quality: string = '';
   hasOptions: boolean = true;
   maxCost: number = 1000000;
+  locations?: string;
 }
