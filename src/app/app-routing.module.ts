@@ -19,11 +19,6 @@ export const mainRoutes: Routes = [
   { path: 'apps/redlifepath', loadChildren: () => import('./app-cp-red-lifepath/app-cp-red-lifepath.module')
       .then(m => m.AppCpRedLifepathModule) },
   { path: 'apps/acpa', loadChildren: () => import('./app-acpa-generator/app-acpa-generator.module').then(m => m.AppAcpaGeneratorModule) },
-  { path: 'apps/maxmetal', loadChildren: () => import('./app-maxmetal/app-maxmetal.module').then(m => m.AppMaxmetalModule) },
-  { path: 'apps/nrtrace', loadChildren: () => import('./app-netrun/app-netrun.module').then(m => m.AppNetrunModule) },
-  { path: 'apps/qkpregen',
-    loadChildren: () => import('./app-cp-red-template-character/app-cp-red-template-character.module')
-    .then(m => m.AppCpRedTemplateCharacterModule) },
   { path: 'apps/chargen',
     loadChildren: () => import('./app-character-generator/app-character-generator.module').then(m => m.AppCharacterGeneratorModule) },
   { path: 'apps/cmbttrk',
@@ -32,6 +27,7 @@ export const mainRoutes: Routes = [
   { path: 'apps/cmbtzone',
       loadChildren: () => import('./app-cmbt-zone-generator/app-cmbt-zone-generator.module')
       .then(m => m.AppCmbtZoneGeneratorModule) },
+  { path: 'apps/dfdesigner', loadChildren: () => import('./app-datafort-designer/app-datafort-designer.module').then(m => m.AppDatafortDesignerModule) },
   { path: 'apps/fixcalc',
     loadChildren: () => import('./app-fixer-calc/app-fixer-calc.module')
     .then(m => m.AppFixerCalcModule) },
@@ -41,6 +37,12 @@ export const mainRoutes: Routes = [
   { path: 'apps/deckmgr',
       loadChildren: () => import('./app-deck-manager/app-deck-manager.module')
       .then(m => m.AppDeckManagerModule) },
+  { path: 'apps/maxmetal', loadChildren: () => import('./app-maxmetal/app-maxmetal.module').then(m => m.AppMaxmetalModule) },
+  { path: 'apps/nrtrace', loadChildren: () => import('./app-netrun/app-netrun.module').then(m => m.AppNetrunModule) },
+
+  { path: 'apps/qkpregen',
+    loadChildren: () => import('./app-cp-red-template-character/app-cp-red-template-character.module')
+    .then(m => m.AppCpRedTemplateCharacterModule) },
   { path: 'apps/rednet',
       loadChildren: () => import('./app-cp-red-net-arch/app-cp-red-net-arch.module')
       .then(m => m.AppCpRedNetArchModule) },

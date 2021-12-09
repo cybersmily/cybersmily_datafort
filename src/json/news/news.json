@@ -1,5 +1,18 @@
 ﻿{
   "news": [
+    { "date":"2021-12",
+      "entries":[
+        "<strong>12-12</strong> - Closer and closer to the start of the shadow war, when Arasaka and Militech start to take off the gloves.",
+        "Sup Gatos, me again with another installment to the site. There are a few things fixed and some new functionality here and there. The big thing is the Datafort Designer for Cyberpunk 2020, which you can find under CP2020 Apps. This utility is to assist in creating dataforts for the game. Here's the break down:",
+        "&nbsp;* Datafort Designer added",
+        "&nbsp;* Fixed bugs in combat tracker in where cyberware and armor was being replicated between opponent cards.",
+        "&nbsp;* Removed the additional skinweave toggle on armor detail modal as well as when you click it, all locations are selected.",
+        "&nbsp;* Fixed bug with General IP on the character generator for Cyberpunk 2020",
+        "As always, if you have ideas for enhancements, bugs you've seen, or just want to shoot the shit. I love the feedback from the community. I'm on most of the cyberpunk discord servers as well as email me using the link on the nav bar above.",
+        "The Tales from the Forlorn Dopes is on vacation this month, but we will return on January 19th over on <a href='https://www.twitch.tv/cybernationuncensored'>Cybernation Uncensored twitch</a>. We will return to our normal schedule of every 1st and 3rd Wednesday of the month at 7PM EST. Please check us out.",
+        "Till next time.",
+        "CYBER :D"
+    ]},
     { "date":"2021-11",
       "entries":[
         "<strong>11-21</strong> - Been a few weeks. Been hammering away at some goodness for the the site.",
@@ -16,7 +29,7 @@
         "&nbsp;* Cyberanimal create from Chromebook 3",
         "&nbsp;* Borg create from Chromebook 2",
         "IF you have another ideas for enhancements, bugs you've come across, or just want to shoot the shit. I love the feedback from the community. I'm on most of the cyberpunk discord servers as well as email me using the link on the nav bar above.",
-        "Also check me and Wisdom 000 (from Datafortress2020.com) over on <a href='https://www.twitch.tv/cybernationuncensored'>Cyberpunk Uncensored twitch</a> every 1st and 3rd Wednesday of the month. We talk Cyberpunk and other ramblings from old men. Please check us out.",
+        "Also check me and Wisdom 000 (from Datafortress2020.com) over on <a href='https://www.twitch.tv/cybernationuncensored'>Cybernation Uncensored twitch</a> every 1st and 3rd Wednesday of the month. We talk Cyberpunk and other ramblings from old men. Please check us out.",
         "Till next time.",
         "CYBER :D"
     ]},
