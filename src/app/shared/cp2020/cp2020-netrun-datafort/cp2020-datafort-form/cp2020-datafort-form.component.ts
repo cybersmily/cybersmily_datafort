@@ -32,6 +32,13 @@ export class Cp2020DatafortFormComponent implements OnInit {
 
   includeData = true;
 
+  get fileName(): string {
+    if(this.datafort && this.datafort.name !== '') {
+      return this.datafort.name.replace(/[^\w\s]/gi, '').replace(/[^\w]/gi, '_')
+    }
+    return 'cp2020_datafort';
+  }
+
   constructor(private dataService: DataService,
     private datafortBuilderService: Cp2020DatafortBuilderService,
     private svgBuilderService: Cp2020DatafortSvgBuilderService,
@@ -62,12 +69,12 @@ export class Cp2020DatafortFormComponent implements OnInit {
   printPNG() {
     var parser = new DOMParser();
     const svg = parser.parseFromString(this.svgBuilderService.generate(this.datafort, NrMapDefaults.GRID_SIZE, this.includeData), 'image/svg+xml');
-    this.saveService.SaveAsPng('cp2020_datafort_img', svg.getElementById('datafort-cp2020'));
+    this.saveService.SaveAsPng(this.fileName, svg.getElementById('datafort-cp2020'));
   }
 
   printSVG() {
     const svg = this.svgBuilderService.generate(this.datafort, NrMapDefaults.GRID_SIZE, this.includeData);
-    this.saveService.SaveAsFile('cp2020_datafort_img', svg, 'svg');
+    this.saveService.SaveAsFile(this.fileName, svg, 'svg');
   }
 
   uploadJSON($event) {
@@ -77,7 +84,7 @@ export class Cp2020DatafortFormComponent implements OnInit {
   }
 
   saveJSON() {
-    this.saveService.SaveAsFile('cp2020_datafort',JSON.stringify(this.datafort),'json');
+    this.saveService.SaveAsFile(this.fileName,JSON.stringify(this.datafort),'json');
   }
 
 }
