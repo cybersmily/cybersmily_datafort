@@ -3,7 +3,7 @@ import { NewsItem } from './../../shared/models/gigs/news-item';
 import { GigNewsItem } from './../../shared/models/gigs/gig-news-item';
 import { SaveFileService } from './../../shared/services/file-services';
 import { DataService, JsonDataFiles } from './../../shared/services/file-services';
-import { faAngleDoubleDown, faAngleDoubleRight, faPlus, faTrash, faPen, faSave } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDoubleDown, faAngleDoubleRight, faPlus, faTrash, faPen, faSave, faUpload } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -18,6 +18,7 @@ export class NewsadminComponent implements OnInit {
   faTrash = faTrash;
   faPen = faPen;
   faSave = faSave;
+  faUpload = faUpload;
   isOpen = false;
 
   newsItems: GigNewsItem = new GigNewsItem();
@@ -61,11 +62,20 @@ export class NewsadminComponent implements OnInit {
 
   selectedReporter = '';
   searchText = '';
+  storageKey = 'wns_news_items';
+
 
   constructor(private dataService: DataService, private saveService: SaveFileService) { }
 
   ngOnInit(): void {
-    this.loadNews();
+    const news = JSON.parse(window.localStorage.getItem(this.storageKey));
+    if(news) {
+      news.news = news.news.sort( (a, b) => b.title.localeCompare(a.title));
+      this.newsItems = news;
+      this.newNewsItem.reports.push({img: 'tphillips', reporter: 'Tom Phillips', commentary: 'Hello Night City and welcome to WNS 7 News Force team. I\'m Tom Phillips.<br/>'});
+    } else {
+      this.loadNews();
+    }
   }
 
   loadNews() {
@@ -78,16 +88,20 @@ export class NewsadminComponent implements OnInit {
     });
   }
 
+  update() {
+    window.localStorage.setItem(this.storageKey, JSON.stringify(this.newsItems));
+  }
+
 
   getFilteredReports(reports:Array<NewsReport>):Array<NewsReport> {
     if (this.selectedReporter === '' && this.searchText === '') {
       return reports;
     }
-
     return reports.filter(rpt => rpt.reporter === this.selectedReporter);
   }
 
   saveFile() {
+    this.update();
     this.saveService.SaveAsFile('news', JSON.stringify(this.newsItems), 'json');
   }
 
@@ -98,6 +112,7 @@ export class NewsadminComponent implements OnInit {
     });
     this.newNewsItem = { title: 'Nightly Report 2022-00-00', reports: new Array<NewsReport>()};
     this.newNewsItem.reports.push({img: 'tphillips', reporter: 'Tom Phillips', commentary: 'Hello Night City and welcome to WNS 7 News Force team. I\'m Tom Phillips.<br/>'});
+    this.update();
   }
 
   addNewReport() {
@@ -108,13 +123,22 @@ export class NewsadminComponent implements OnInit {
       commentary: this.newNewsReport.commentary
     });
     this.newNewsReport = {img: 'tphillips', reporter: 'Tom Phillips', commentary: ''};
+    this.update();
   }
+
   deleteNewNewsReport(index: number) {
     this.newNewsItem.reports.splice(index, 1);
+    this.update();
   }
 
   deleteNewsReport(i: number, ri: number) {
     this.newsItems.news[i].reports.splice(ri, 1);
+    this.update();
+  }
+
+  deleteReport(i: number) {
+    this.newsItems.news.splice(i, 1);
+    this.update();
   }
 
   addReport(i) {
@@ -125,24 +149,28 @@ export class NewsadminComponent implements OnInit {
       commentary: this.newNewsReport.commentary
     });
     this.newNewsReport = {img: 'tphillips', reporter: 'Tom Phillips', commentary: ''};
+    this.update();
   }
 
   changeReporter(event, newsIndex: number, reportIndex: number) {
     const reporter = this.newsItems.news[newsIndex].reports[reportIndex].reporter;
     const img = this.rprtrs.find( r => r.reporter === reporter).img;
     this.newsItems.news[newsIndex].reports[reportIndex].img = img;
+    this.update();
   }
 
   changeNewReport(event) {
     const reporter = this.newNewsReport.reporter;
     const img = this.rprtrs.find( r => r.reporter === reporter).img;
     this.newNewsReport.img = img;
+    this.update();
   }
 
   changeReporterOnNew(event, reportIndex: number) {
     const reporter = this.newNewsItem.reports[reportIndex].reporter;
     const img = this.rprtrs.find( r => r.reporter === reporter).img;
     this.newNewsItem.reports[reportIndex].img = img;
+    this.update();
   }
 
 
