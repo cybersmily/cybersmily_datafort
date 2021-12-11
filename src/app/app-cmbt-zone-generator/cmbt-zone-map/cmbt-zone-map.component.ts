@@ -7,7 +7,7 @@ import { CmbtZoneStreetObjectService } from '../../shared/services/cmbt-zone/cmb
 import { faDice, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { CmbtZoneBlock, CmbtZonePath } from './../../shared/models/cmbtzone/cmbt-zone-block';
+import { CmbtZoneBlock, CmbtZonePath, CmbtZoneBuilding, CmbtZoneBuildingType } from './../../shared/models/cmbtzone/cmbt-zone-block';
 import { Coord } from './../../app-netrun/models';
 import { CmbtZoneEvent } from './../../shared/models/cmbtzone/cmbt-zone-event';
 
@@ -43,24 +43,42 @@ export class CmbtZoneMapComponent implements OnInit {
 
   ngOnInit(): void {
     this.blocks = [
-      { x: 20, y: 20 },
-      { x: 240, y: 20 },
-      { x: 460, y: 20 },
-      { x: 20, y: 240 },
-      { x: 240, y: 240 },
-      { x: 460, y: 240 },
-      { x: 20, y: 460 },
-      { x: 240, y: 460 },
-      { x: 460, y: 460 },
-      { x: 20, y: 680 },
-      { x: 240, y: 680 },
-      { x: 460, y: 680 }
+      { x: 0  , y: 0   },
+      { x: 200, y: 0   },
+      { x: 400, y: 0   },
+      { x: 0  , y: 200 },
+      { x: 200, y: 200 },
+      { x: 400, y: 200 },
+      { x: 0  , y: 400 },
+      { x: 200, y: 400 },
+      { x: 400, y: 400 },
+      { x: 0  , y: 600 },
+      { x: 200, y: 600 },
+      { x: 400, y: 600 }
     ];
   }
 
-  getPath(path: CmbtZonePath, coord: Coord): string {
-    const result = `M ${path.x + coord.x} ${ path.y + coord.y} ${path.d} z`;
+  getPath(path: CmbtZoneBuilding): string {
+    const pointOrigin = `${path.x} ${path.y}`;
+    const pointBottomLeft = `${path.x} ${path.y + path.ht}`;
+    const pointBottomRight = `${path.x + path.wd} ${path.y + path.ht}`;
+    const pointBottomRightOffset = `${path.x + path.wd + path.stories} ${path.y + path.ht - path.stories}`;
+    const pointTopRightOffset = `${path.x + path.wd + path.stories} ${path.y - path.stories}`;
+    const pointTopLeftOffset = `${path.x + path.stories} ${path.y - path.stories}`;
+    const outline = `${path.x + path.stories} ${path.y + path.ht - path.stories}`;
+    const result = `M${pointOrigin} L${pointBottomLeft} L${pointBottomRight} L${pointBottomRightOffset} L${pointTopRightOffset} L${pointTopLeftOffset} Z
+                    M${pointTopLeftOffset} L${outline} L${pointBottomRightOffset}
+                    M${outline} L${pointBottomLeft} Z`;
     return result;
+  }
+
+  getTextX(path: CmbtZoneBuilding): number {
+    let x = path.x + path.wd + path.stories - 6;
+    return x;
+  }
+  getTextY(path: CmbtZoneBuilding): number {
+    let y = path.y - path.stories + 10;
+    return y;
   }
 
   rollBuildings() {

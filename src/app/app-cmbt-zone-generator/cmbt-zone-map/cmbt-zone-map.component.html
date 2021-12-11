@@ -1,40 +1,41 @@
 <div class="row">
   <div class="col">
-    <fa-icon [icon]="faFilePdf" class="csd-icon-btn csd-icon-xl csd-btn float-right" (click)="printPDF()" title="Save as PDF"></fa-icon>
+    <fa-icon [icon]="faFilePdf" class="csd-icon-btn csd-icon-xl csd-btn float-right" (click)="printPDF()"
+      title="Save as PDF"></fa-icon>
   </div>
 </div>
 <div class="row">
   <div #cmbtZoneMapSVG class="col-12 col-lg-9 col-xl-8">
-    <svg height="940" width="690" id="cmbt-zone-map-svg">
+    <svg height="825" width="620" id="cmbt-zone-map-svg">
       <g>
         <!-- Map Border-->
-        <rect style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-          id="rect3033" width="680" height="900" x="0" y="0" />
+        <rect fill="#CCCCCC" stroke="black" stroke-width="1" stroke-opacity="1" stroke-miterlimit="4"
+          stroke-dasharray="none" id="rect3033" width="620" height="825" x="0" y="0" />
         <!-- Blocks -->
-        <ng-container *ngFor="let block of blockLayouts; let i = index">
-          <!-- Create the buildings -->
-          <rect *ngFor="let rect of block.rects"
-            style="fill:none;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-            [attr.width]="rect.width" [attr.height]="rect.height" [attr.x]="blocks[i].x + rect.x"
-            [attr.y]="blocks[i].y + rect.y" />
-          <path *ngFor="let path of block.paths"
-           [attr.d]="getPath(path, blocks[i])"
-           fill="transparent" stroke="black" stroke-width="0.5"/>
-          <text *ngFor="let text of block.texts"
-            style="font-size:12px;font-style:normal;font-weight:bold;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial Narrow;">
-            <tspan [attr.x]="blocks[i].x + text.x" [attr.y]="blocks[i].y + text.y">
-              {{text.text}}
-            </tspan>
-          </text>
-
-          <!-- Block Label-->
-          <text *ngFor="let text of block.texts"
-            style="font-size:40px;font-style:normal;font-weight:bold;fill: #aaaaaa;fill-opacity:0.3;stroke:none;font-family:Arial Narrow;">
-            <tspan [attr.x]="blocks[i].x + 100" [attr.y]="blocks[i].y + 100">
-              {{i+1}}
-            </tspan>
-          </text>
-        </ng-container>
+        <svg *ngFor="let block of blockLayouts; let i = index" [attr.x]="blocks[i].x" [attr.y]="blocks[i].y"
+          height="200" width="200" viewBox="0 -20 220 220">
+          <g>
+            <!-- Create block layout -->
+            <path *ngFor="let cityBlock of block.cityBlocks" [attr.d]="cityBlock.path" fill="#EEEEEE" stroke="black"
+              stroke-width="1" />
+            <!-- Create the buildings -->
+            <svg *ngFor="let building of block.buildings; let j = index">
+              <path [attr.d]="getPath(building)" fill="white" stroke="black" stroke-width="1" />
+              <text [attr.x]="getTextX(building)" [attr.y]="getTextY(building)" fill="black" fill-opacity="1"
+                stroke="none" style="font-size:12px;font-style:normal;font-weight:bold;font-family:Arial Narrow;"
+                dominant-baseline="middle" text-anchor="middle">
+                {{building.label}}
+              </text>
+            </svg>
+            <!-- Block Label-->
+            <text fill="#aaaaaa" fill-opacity="0.5" stroke="#888888" stroke-opacity="0.5" stroke-width="1"
+              style="font-size:40px;font-style:normal;font-weight:bold;font-family:Arial Narrow;">
+              <tspan [attr.x]="100" [attr.y]="100">
+                {{i+1}}
+              </tspan>
+            </text>
+          </g>
+        </svg>
       </g>
     </svg>
   </div>
@@ -46,10 +47,13 @@
           <tab>
             <ng-template tabHeading>
               <span class="font-weight-bold">BUILDINGS
-            </span>
+              </span>
             </ng-template>
             <div class="row">
-              <div class="col-1"><fa-icon [icon]="faDice" class="csd-dice csd-icon-btn csd-icon-xl mr-2" (click)="rollBuildings()" title="Click to generate map"></fa-icon></div>
+              <div class="col-1">
+                <fa-icon [icon]="faDice" class="csd-dice csd-icon-btn csd-icon-xl mr-2" (click)="rollBuildings()"
+                  title="Click to generate map"></fa-icon>
+              </div>
               <div class="col mt-2 ml-2">Key for each block's buildings description</div>
             </div>
             <div *ngFor="let building of buildings; let i = index" class="row">
@@ -71,7 +75,10 @@
               <span class="font-weight-bold">OBJECTS</span>
             </ng-template>
             <div class="row">
-              <div class="col-1"><fa-icon [icon]="faDice" class="csd-icon-btn csd-icon-xl csd-dice" (click)="rollStreetObjects()" title="Click to roll objects"></fa-icon></div>
+              <div class="col-1">
+                <fa-icon [icon]="faDice" class="csd-icon-btn csd-icon-xl csd-dice" (click)="rollStreetObjects()"
+                  title="Click to roll objects"></fa-icon>
+              </div>
               <div class="col mt-2 ml-2">Objects on the street. </div>
             </div>
             <div *ngFor="let object of streetObjects; let i = index" class="row">
@@ -82,13 +89,14 @@
           </tab>
           <tab>
             <ng-template tabHeading>
-              <span  class="font-weight-bold">
+              <span class="font-weight-bold">
                 EVENTS
-            </span>
+              </span>
             </ng-template>
             <div class="row">
               <div class="col-1">
-                <fa-icon [icon]="faDice" class="csd-icon-btn csd-icon-xl csd-dice" (click)="rollStreetEvents()" title="Click to roll events"></fa-icon>
+                <fa-icon [icon]="faDice" class="csd-icon-btn csd-icon-xl csd-dice" (click)="rollStreetEvents()"
+                  title="Click to roll events"></fa-icon>
               </div>
               <div class="col ml-2">
                 <div class="row">
@@ -103,7 +111,8 @@
                       <option [ngValue]="'aftermidnight'">After Midnight</option>
                     </select>
                     Count:
-                    <input [(ngModel)]="streetEventCount" type="number" style="width: 50px;" min="1" class="text-center ml-1">
+                    <input [(ngModel)]="streetEventCount" type="number" style="width: 50px;" min="1"
+                      class="text-center ml-1">
                   </div>
                 </div>
 

@@ -31,7 +31,16 @@ export class CmbtZoneBlockService {
     for (let i = 0; i < numBlocks; i++ ) {
       const die = dice.generateNumber(0, this._blockData.length - 1);
       // const die = i % 12;
-      results.push(this._blockData[die]);
+      const block = JSON.parse(JSON.stringify(this._blockData[die])) as CmbtZoneBlock;
+      // roll number of stories. the value from the file is the max
+      for(let j = 0; j < block.buildings.length; j++) {
+        const max = block.buildings[j].stories;
+        let stories = dice.generateNumber(3,(max/2)) * 2;
+        block.buildings[j].stories = stories;
+
+        block.numOfBuildings = block.buildings.length;
+      }
+      results.push(block);
     }
     return results;
   }
