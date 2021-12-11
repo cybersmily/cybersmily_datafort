@@ -579,18 +579,18 @@
       {"path": "M200 200 L200 40 L30 200 Z"}
     ],
     "buildings": [
-      { "type": 0, "x": 90, "y":  25, "ht": 30, "wd":  45, "stories": 24, "label":"1"},
-      { "type": 0, "x": 90, "y":  55, "ht": 25, "wd":  20, "stories": 24, "label":"2"},
-      { "type": 0, "x": 50, "y":  25, "ht": 75, "wd":  40, "stories": 24, "label":"3"},
-      { "type": 0, "x": 15, "y":  25, "ht": 70, "wd":  30, "stories": 24, "label":"4"},
-      { "type": 0, "x": 18, "y": 105, "ht": 20, "wd":  45, "stories": 24, "label":"5"},
-      { "type": 0, "x": 15, "y": 125, "ht": 25, "wd":  25, "stories": 24, "label":"6"},
-      { "type": 0, "x":178, "y":  65, "ht": 25, "wd":  15, "stories": 24, "label":"7"},
-      { "type": 0, "x":150, "y":  95, "ht": 35, "wd":  45, "stories": 24, "label":"8"},
-      { "type": 0, "x":150, "y": 130, "ht": 65, "wd":  40, "stories": 24, "label":"10"},
-      { "type": 0, "x":125, "y": 120, "ht": 25, "wd":  25, "stories": 24, "label":"9"},
-      { "type": 0, "x": 90, "y": 155, "ht": 25, "wd":  55, "stories": 24, "label":"11"},
-      { "type": 0, "x": 55, "y": 180, "ht": 15, "wd":  35, "stories": 24, "label":"12"}
+      { "type": 0, "x": 90, "y":  25, "ht": 30, "wd":  45, "stories": 24, "label":"C"},
+      { "type": 0, "x": 90, "y":  55, "ht": 25, "wd":  20, "stories": 24, "label":"D"},
+      { "type": 0, "x": 50, "y":  25, "ht": 75, "wd":  40, "stories": 24, "label":"B"},
+      { "type": 0, "x": 15, "y":  25, "ht": 70, "wd":  30, "stories": 24, "label":"A"},
+      { "type": 0, "x": 18, "y": 105, "ht": 20, "wd":  45, "stories": 24, "label":"E"},
+      { "type": 0, "x": 15, "y": 125, "ht": 25, "wd":  25, "stories": 24, "label":"F"},
+      { "type": 0, "x":178, "y":  65, "ht": 25, "wd":  15, "stories": 24, "label":"G"},
+      { "type": 0, "x":150, "y":  95, "ht": 35, "wd":  45, "stories": 24, "label":"H"},
+      { "type": 0, "x":150, "y": 130, "ht": 65, "wd":  40, "stories": 24, "label":"J"},
+      { "type": 0, "x":125, "y": 120, "ht": 25, "wd":  25, "stories": 24, "label":"I"},
+      { "type": 0, "x": 90, "y": 155, "ht": 25, "wd":  55, "stories": 24, "label":"L"},
+      { "type": 0, "x": 55, "y": 180, "ht": 15, "wd":  35, "stories": 24, "label":"K"}
     ]
   }
 ]
