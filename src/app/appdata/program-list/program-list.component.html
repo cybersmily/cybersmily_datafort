@@ -26,7 +26,7 @@
     <tr *ngFor="let prog of programList |filter:'mu': filters.mu|filter:'str': filters.str|filter:'class': filters.class |filter:'name': filters.name|contains:'options':filters.options| sourcebookFilter:filters.source"
         style="vertical-align: top;" class="prog-row">
         <td class="">{{prog.class}}</td>
-        <td class="">{{prog.name}}</td>
+        <td class="" title="{{prog.description}}">{{prog.name}}</td>
         <td class="text-center prog-stat">{{prog.str}}</td>
         <td class="text-center prog-stat">{{prog.mu}}</td>
         <td class="text-center">{{prog.cost|number}}eb</td>

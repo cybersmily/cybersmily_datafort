@@ -30,10 +30,6 @@ export class ProgramListComponent implements OnInit {
     .subscribe(programList => {
       this.programList = programList.sort((a,b) => a.class.localeCompare(b.class));
     });
-    this.dataService.GetJson(JsonDataFiles.CP2020_PROGRAM_OPTIONS_JSON)
-    .subscribe(optionList => {
-
-    });
   }
 
 }

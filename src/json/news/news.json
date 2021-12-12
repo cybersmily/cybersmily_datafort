@@ -3,8 +3,9 @@
     { "date":"2021-12",
       "entries":[
         "<strong>12-12</strong> - Closer and closer to the start of the shadow war, when Arasaka and Militech start to take off the gloves.",
-        "Sup Gatos, me again with another installment to the site. There are a few things fixed and some new functionality here and there. The big thing is the Datafort Designer for Cyberpunk 2020, which you can find under CP2020 Apps. This utility is to assist in creating dataforts for the game. Here's the break down:",
-        "&nbsp;* Datafort Designer added",
+        "Sup Gatos, me again with another installment to the site. There are a few things fixed and some new functionality here and there. There is a bunch of love going out to my Netrunners with 2 new things, a datafort designer and the master list of programs and decks for Cyberpunk 2020. Here's the break down:",
+        "&nbsp;* Datafort Designer added. This utility is for creating dataforts for Cyberpunk 2020.",
+        "&nbsp;* Master List - Programs and Master List - Cyberdecks for Cyberpunk 2020. Lookup and search for the netrunner goodies you crave.",
         "&nbsp;* Fixed bugs in combat tracker in where cyberware and armor was being replicated between opponent cards.",
         "&nbsp;* Removed the additional skinweave toggle on armor detail modal as well as when you click it, all locations are selected.",
         "&nbsp;* Fixed bug with General IP on the character generator for Cyberpunk 2020",
