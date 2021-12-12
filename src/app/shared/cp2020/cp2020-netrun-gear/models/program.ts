@@ -1,3 +1,4 @@
+import { SourceBook } from './../../../models/sourcebook';
 import { ProgramOption } from './program-option';
 
 export interface Program {
@@ -10,4 +11,5 @@ export interface Program {
   diff: number;
   mu: number;
   icon: string;
+  source?: SourceBook;
 }

@@ -1,3 +1,4 @@
+import { ProgramListComponent } from './program-list/program-list.component';
 import { WpnListComponent } from './wpn-list/wpn-list.component';
 import { AdminWpnListComponent } from './admin-wpn-list/admin-wpn-list.component';
 import { AdminCyberListComponent } from './admin-cyber-list/admin-cyber-list.component';
@@ -28,6 +29,7 @@ export const dataRoutes: Routes = [
       {path: 'skills', component: SkillListComponent},
       {path: 'roles', component: RoleListComponent},
       {path: 'cyber', component: CyberListComponent},
+      {path: 'programs', component: ProgramListComponent},
       {path: 'wpns', component: WpnListComponent },
       {path: 'admincyber', component: AdminCyberListComponent},
       {path: 'adminwpn', component: AdminWpnListComponent}

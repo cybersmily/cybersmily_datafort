@@ -21,6 +21,7 @@ import { CyberListComponent } from './cyber-list/cyber-list.component';
 import { AdminCyberListComponent } from './admin-cyber-list/admin-cyber-list.component';
 import { AdminWpnListComponent } from './admin-wpn-list/admin-wpn-list.component';
 import { WpnListComponent } from './wpn-list/wpn-list.component';
+import { ProgramListComponent } from './program-list/program-list.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { WpnListComponent } from './wpn-list/wpn-list.component';
     CyberListComponent,
     AdminCyberListComponent,
     AdminWpnListComponent,
-    WpnListComponent],
+    WpnListComponent,
+    ProgramListComponent],
   providers: [
     DataService,
     CyberDataService

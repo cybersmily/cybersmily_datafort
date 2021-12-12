@@ -14,7 +14,7 @@ export class FilterPipe implements PipeTransform {
         case 'string':
           return obj[property].toLowerCase().startsWith(value.toLowerCase());
         case 'number':
-          return obj[property] === value;
+          return obj[property] === +value;
         case 'boolean':
           return obj[property] === value;
         case 'undefined':
