@@ -26,6 +26,7 @@ import { ProportionalSpTable } from './proportional-sp-table';
 export class Cp2020ArmorBlock implements ArmorBlock {
   armorPieces: Array<Cp2020ArmorPiece>;
   sdp: Cp2020SDPBlock;
+  isLayerEVCalcEnabled: boolean = true;
 
   constructor(param?: any) {
     this.armorPieces = param?.armorPieces?.map(piece => new Cp2020ArmorPiece(piece)) ?? new Array<Cp2020ArmorPiece>();
@@ -46,6 +47,7 @@ export class Cp2020ArmorBlock implements ArmorBlock {
         ev: 0, isHard: false, isSkinWeave: false, isActive: true
       }));
     }
+    this.isLayerEVCalcEnabled = param?.isLayerEVCalcEnabled ?? true;
     this.sdp = new Cp2020SDPBlock(param?.sdp);
   }
 
@@ -65,7 +67,9 @@ export class Cp2020ArmorBlock implements ArmorBlock {
       return a + (b.isActive ? b.ev : 0);
     }), 0);
     const armor = torso.length > arms.length ? torso : (arms.length > legs.length ? arms : legs);
-    armorEv += (armor.length === 2) ? 1 : (armor.length === 3) ? 3 : 0;
+    if(this.isLayerEVCalcEnabled) {
+      armorEv += (armor.length === 2) ? 1 : (armor.length === 3) ? 3 : 0;
+    }
     return armorEv;
   }
 

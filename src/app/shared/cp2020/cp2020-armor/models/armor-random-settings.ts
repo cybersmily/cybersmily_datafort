@@ -7,6 +7,7 @@ export interface ArmorRandomSettings {
   hasOptions: boolean;
   maxCost: number;
   locations?: string;
+  isLayerCalculationEnabled?: boolean;
 }
 
 export class CP2020ArmorRandomSettings implements ArmorRandomSettings {
@@ -17,4 +18,5 @@ export class CP2020ArmorRandomSettings implements ArmorRandomSettings {
   hasOptions: boolean = true;
   maxCost: number = 1000000;
   locations?: string;
+  isLayerCalculationEnabled?: boolean = true;
 }

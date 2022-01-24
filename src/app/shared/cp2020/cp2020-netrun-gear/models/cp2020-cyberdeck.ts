@@ -30,7 +30,6 @@ export class Cp2020Cyberdeck implements Cyberdeck {
     this.options = param?.options ?? new Array<CyberdeckOption>();
     this.programs = param?.programs ?? new Array<Program>();
     this.description = param?.description ?? '';
-    console.log(param);
     this.source = param?.source ?? undefined;
     this.bookPrice = param?.bookPrice ?? 0;
   }

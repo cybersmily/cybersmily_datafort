@@ -133,13 +133,13 @@
 
 <ng-template #settingsModal>
   <div class="modal-header">
-    <h4>RANDOM GENERATOR SETTINGS</h4>
+    <h4>ARMOR SECTION SETTINGS</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    <cs-armor-settings></cs-armor-settings>
+    <cs-armor-settings (updateSettings)="updateSettings($event)"></cs-armor-settings>
   </div>
 </ng-template>
 

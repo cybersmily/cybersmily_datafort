@@ -13,6 +13,9 @@ export class ArmorSettingsComponent implements OnInit {
   currSettings = new CP2020ArmorRandomSettings();
   armorAttributes = new Cp2020ArmorAttributeLists();
 
+  @Output()
+  updateSettings:EventEmitter<CP2020ArmorRandomSettings> = new EventEmitter<CP2020ArmorRandomSettings>();
+
   constructor(private armorDataAttributesService: ArmorDataAttributesService,
     private randomSettingsService: ArmorRandomGenSettingsService) { }
 
@@ -29,6 +32,7 @@ export class ArmorSettingsComponent implements OnInit {
   update() {
     this.currSettings.maxCost = this.currSettings.maxCost < 100 ? 100 : this.currSettings.maxCost;
     this.randomSettingsService.update(this.currSettings);
+    this.updateSettings.emit(this.currSettings);
   }
 
 }

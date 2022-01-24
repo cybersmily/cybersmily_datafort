@@ -138,4 +138,9 @@ export class Cp2020ArmorSectionComponent implements OnInit {
   update() {
     this.changeArmor.emit(this.armorBlock);
   }
+
+  updateSettings(settings: CP2020ArmorRandomSettings) {
+    this.armorBlock.isLayerEVCalcEnabled = settings.isLayerCalculationEnabled;
+    this.update();
+  }
 }
