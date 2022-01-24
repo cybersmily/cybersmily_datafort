@@ -176,6 +176,10 @@ export class Cp2020AcpaFormComponent implements OnInit {
     this.acpaBuilderService.updateManufacturer(this.selectedManufacturer);
   }
 
+  updateLocations() {
+    this.acpaBuilderService.setLocations(this.currACPA, this.currACPA.chassis);
+  }
+
   updateNote() {
     this.acpaBuilderService.updateNote(this.selectedNote);
   }

@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col chargen-label">
     <h4 class="d-inline-block">POWERED ARMOR SPECIFICATIONS</h4>
-    <fa-icon [icon]="faRedo" class="csd-btn csd-icon-btn csd-icon-lg ml-3" title="Reset the form"
-      (click)="reset()"></fa-icon>
+    <fa-icon [icon]="faRedo" class="csd-btn csd-icon-btn csd-icon-lg ml-3" title="Reset the form" (click)="reset()">
+    </fa-icon>
   </div>
 </div>
 <div class="row border border-dark">
@@ -12,7 +12,8 @@
         SUIT NAME: <input [(ngModel)]="selectedName" type="text" class="w-75" (change)="updateName()">
       </div>
       <div class="col-12 col-lg-6">
-        MANUFACTURER: <input [(ngModel)]="selectedManufacturer" type="text" class="w-50" (change)="updateManufacturer()">
+        MANUFACTURER: <input [(ngModel)]="selectedManufacturer" type="text" class="w-50"
+          (change)="updateManufacturer()">
       </div>
     </div>
     <div class="row">
@@ -26,7 +27,8 @@
     <div class="row">
       <div [ngClass]="{'col':true,'bg-warning pt-1 pb-1 rounded font-weight-bold':isDisabled}" class="col">
         CHASSIS TYPE: <select [(ngModel)]="selectedChassis" (change)="updateChassis()">
-          <option *ngFor="let chassis of attributeData.chassis" [ngValue]="chassis">{{chassis.name}}, STR {{chassis.str}}</option>
+          <option *ngFor="let chassis of attributeData.chassis" [ngValue]="chassis">{{chassis.name}}, STR
+            {{chassis.str}}</option>
         </select>
         <span *ngIf="isDisabled" class="text-danger pr-1 pl-1 pt-1 pb-1">* Choose a chassis...</span>
 
@@ -125,7 +127,7 @@
 </div>
 <div class="row chargen-label">
   <div class="col text-center font-weight-bold">
-    EQUIPMENT  CARRIED/INSTALLED
+    EQUIPMENT CARRIED/INSTALLED
   </div>
 </div>
 <div class="row border border-dark">
@@ -138,7 +140,8 @@
         SP/SDP/WT
       </div>
     </div>
-    <ng-container [ngTemplateOutlet]="equipmentCarried" [ngTemplateOutletContext]="{equipment:equipmentColumnOne, start: 0}"></ng-container>
+    <ng-container [ngTemplateOutlet]="equipmentCarried"
+      [ngTemplateOutletContext]="{equipment:equipmentColumnOne, start: 0}"></ng-container>
   </div>
   <div class="col-12 col-lg-6">
     <div class="row small font-weight-bold">
@@ -149,14 +152,14 @@
         SP/SDP/WT
       </div>
     </div>
-    <ng-container [ngTemplateOutlet]="equipmentCarried" [ngTemplateOutletContext]="{equipment:equipmentColumnTwo, start: equipmentColumnOne.length}"></ng-container>
+    <ng-container [ngTemplateOutlet]="equipmentCarried"
+      [ngTemplateOutletContext]="{equipment:equipmentColumnTwo, start: equipmentColumnOne.length}"></ng-container>
   </div>
   <div class="col-12">
     <div *ngIf="!isDisabled" class="row">
       <div class="col text-center">
         <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-lg" title="Add carried/installed item"
-        (click)="showCarriedComponent('handed', -1, addComponentModal)"
-        ></fa-icon>
+          (click)="showCarriedComponent('handed', -1, addComponentModal)"></fa-icon>
       </div>
     </div>
   </div>
@@ -179,17 +182,19 @@
     </div>
   </div>
   <div class="row">
-    <div class="col font-weight-bold">
+    <div class="col-2 font-weight-bold">
       SP
     </div>
-    <div class="col">
-      {{location?.sp}}
+    <div class="col-4">
+      {{location?.sp}}/<input type="number" class="csd-number" min="0" [max]="location?.sp"
+        [(ngModel)]="location.currSP" title="Current {{title}} SP" (change)="updateLocations()">
     </div>
-    <div class="col font-weight-bold">
+    <div class="col-2 font-weight-bold">
       SDP
     </div>
-    <div class="col">
-      {{location?.sdp}}
+    <div class="col-4">
+      {{location?.sdp}}/<input type="number" class="csd-number" min="0" [max]="location?.sdp"
+        [(ngModel)]="location.currSDP" title="Current {{title}} SDP" (change)="updateLocations()">
     </div>
   </div>
   <div class="row">
@@ -197,7 +202,8 @@
       <div class="row font-weight-bold mt-2">
         <div class="col-9">
           INTERNAL ({{location?.internalSpacesUsed}}/{{location?.internalSpaces}})
-          <fa-icon *ngIf="location?.internalSpacesUsed &lt; location?.internalSpaces" [icon]="faPlus" class="csd-btn csd-icon-btn ml-2"
+          <fa-icon *ngIf="location?.internalSpacesUsed &lt; location?.internalSpaces" [icon]="faPlus"
+            class="csd-btn csd-icon-btn ml-2"
             (click)="showInternalComponent(title, (location?.internalSpaces - location?.internalSpacesUsed), addComponentModal)">
           </fa-icon>
         </div>
@@ -209,11 +215,14 @@
       <ng-conainer *ngFor="let item of location?.internalComponents;let i = index">
         <div class="row">
           <div class="col-1">
-            <span  *ngIf="i%4 == 0">{{i/4 + 1}}</span>
+            <span *ngIf="i%4 == 0">{{i/4 + 1}}</span>
           </div>
           <div class="col-8 pr-0 pl-0">
-            <span title="{{item?.weight|number}}kg {{item?.cost|number}}eb {{item?.source.book | sourcebook}} pg.{{item?.source.page}}" [ngClass]="{'csd-collection': nameIsCollection(item?.name)}">{{item?.name}}</span>
-            <fa-icon *ngIf="item != null && item.category !== ''" [icon]="faTrash" class="csd-btn csd-icon-btn float-right" (click)="removeInternalComponent(title, item)"></fa-icon>
+            <span
+              title="{{item?.weight|number}}kg {{item?.cost|number}}eb {{item?.source.book | sourcebook}} pg.{{item?.source.page}}"
+              [ngClass]="{'csd-collection': nameIsCollection(item?.name)}">{{item?.name}}</span>
+            <fa-icon *ngIf="item != null && item.category !== ''" [icon]="faTrash"
+              class="csd-btn csd-icon-btn float-right" (click)="removeInternalComponent(title, item)"></fa-icon>
           </div>
           <div class="col-2 text-center">
             {{item?.sdp}}
@@ -226,9 +235,10 @@
       <div class="row font-weight-bold mt-2">
         <div class="col-8">
           EXTERNAL ({{location?.externalSpacesUsed}}/{{location?.externalSpaces}})
-          <fa-icon *ngIf="location?.externalSpacesUsed &lt; location?.externalSpaces" [icon]="faPlus" class="csd-btn csd-icon-btn ml-2"
-          (click)="showExternalComponent(title, (location?.externalSpaces - location?.externalSpacesUsed), addComponentModal)">
-        </fa-icon>
+          <fa-icon *ngIf="location?.externalSpacesUsed &lt; location?.externalSpaces" [icon]="faPlus"
+            class="csd-btn csd-icon-btn ml-2"
+            (click)="showExternalComponent(title, (location?.externalSpaces - location?.externalSpacesUsed), addComponentModal)">
+          </fa-icon>
         </div>
         <div class="col-3 text-center">
           SP/SDP
@@ -238,14 +248,17 @@
       <ng-conainer *ngFor="let item of location?.externalComponents;let i = index">
         <div class="row">
           <div class="col-1">
-            <span  *ngIf="i%4 == 0">{{i/4 + 1}}</span>
+            <span *ngIf="i%4 == 0">{{i/4 + 1}}</span>
           </div>
           <div class="col-7 pr-0 pl-0">
-            <span title="{{item?.weight|number}}kg {{item?.cost|number}}eb {{item?.source.book | sourcebook}} pg.{{item?.source.page}}" [ngClass]="{'csd-collection': nameIsCollection(item?.name)}">{{item?.name}}</span>
-            <fa-icon *ngIf="item != null" [icon]="faTrash" class="csd-btn csd-icon-btn float-right"  (click)="removeExternalComponent(title, item)"></fa-icon>
+            <span
+              title="{{item?.weight|number}}kg {{item?.cost|number}}eb {{item?.source.book | sourcebook}} pg.{{item?.source.page}}"
+              [ngClass]="{'csd-collection': nameIsCollection(item?.name)}">{{item?.name}}</span>
+            <fa-icon *ngIf="item != null" [icon]="faTrash" class="csd-btn csd-icon-btn float-right"
+              (click)="removeExternalComponent(title, item)"></fa-icon>
           </div>
           <div class="col-3 text-center">
-           <span *ngIf="item != null">{{item?.sp}}/{{item?.sdp}}</span>
+            <span *ngIf="item != null">{{item?.sp}}/{{item?.sdp}}</span>
           </div>
         </div>
         <hr *ngIf="i > 0 && i%4 == 3" class="mt-1 mb-0">
@@ -260,7 +273,7 @@
       {{equip?.name}}
       {{getHands(equip?.external)}}
       <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn float-right mr-1" title="Remove equipment"
-      (click)="removeCarriedComponent(i + start)"></fa-icon>
+        (click)="removeCarriedComponent(i + start)"></fa-icon>
     </div>
     <div class="col border border-dark text-center">
       {{equip?.sp}}/{{equip?.sdp}}/{{getWeight(equip?.weight)|number}}kg
@@ -275,9 +288,9 @@
         <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
           <span aria-hidden="true">&times;</span>
         </button>
-        <cs-cp2020-acpa-select-equipement [componentList]="installableComponents"
-          [weaponList]="installableWeapons" [internal]="isInternal" [external]="isExternal" [carried]="isCarried"
-          [location]="selectedLocation" (chooseEquipment)="addEquipment($event)">
+        <cs-cp2020-acpa-select-equipement [componentList]="installableComponents" [weaponList]="installableWeapons"
+          [internal]="isInternal" [external]="isExternal" [carried]="isCarried" [location]="selectedLocation"
+          (chooseEquipment)="addEquipment($event)">
         </cs-cp2020-acpa-select-equipement>
       </div>
     </div>
