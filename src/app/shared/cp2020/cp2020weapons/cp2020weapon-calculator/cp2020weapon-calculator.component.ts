@@ -318,6 +318,14 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
     );
   }
 
+  get isMelee(): boolean {
+    console.log('selectedWeapon', this.selectedWeapon);
+    console.log('weapon type', this.selectedWeapon?.type);
+    console.log('weapon type', this.selectedWeapon?.type);
+    console.log('isMelee',this.selectedWeapon?.type?.toLowerCase() === 'mel' || this.selectedWeapon?.thrown);
+    return this.selectedWeapon.type.toLowerCase() === 'mel' || this.selectedWeapon?.thrown === true;
+  }
+
   get martialArtsBonuses(): Cp2020MartialArt {
     if (this.isMartialArts) {
       const martialArt = this.selectedSkill.name.includes(':')

@@ -42,6 +42,11 @@ export class Cp2020SaveWoundsComponent implements OnInit {
     return this.stats ? this.stats.BTM : 0;
   }
 
+  get dmgMod(): number {
+    return this.stats?.BodyDmgMod ?? 0;
+  }
+
+
   get isLightWound(): boolean {
     return this.stats ? (this.stats.Damage > 4) : false;
   }

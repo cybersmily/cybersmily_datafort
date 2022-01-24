@@ -17,6 +17,10 @@
   </div>
   <div class="row" *ngIf="selectedWeapon">
     <div class="col">
+      <div class="row small" *ngIf="isMelee">
+        <div class="col-1"></div>
+        <div class="col">BOD Dmg Mod: {{((bodyDamageMod > 0) ? '+' : '') + bodyDamageMod}}</div>
+      </div>
       <div class="row">
         <div class="col-1"></div>
         <div class="col cmbt-section">
@@ -37,9 +41,8 @@
         <div class="col-3 text-right">
           VS.
           {{
-            selectedWeapon.type.toLowerCase() !== "mel" || selectedWeapon.thrown
-              ? totalDiff
-              : "Opposed Roll"
+            isMelee
+              ?  "Opposed Roll" : totalDiff
           }}
         </div>
       </div>

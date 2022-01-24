@@ -166,7 +166,7 @@ export class Cp2020StatBlock implements Cp2020Stats {
   get BodyDmgMod(): number {
     if (this.BODY.Adjusted < 3) {
       return -2;
-    } else if (this.BODY.Adjusted > 3 && this.BODY.Adjusted < 5) {
+    } else if (this.BODY.Adjusted > 2 && this.BODY.Adjusted < 5) {
       return -1;
     } else if (this.BODY.Adjusted > 4 && this.BODY.Adjusted < 8) {
       return 0;
