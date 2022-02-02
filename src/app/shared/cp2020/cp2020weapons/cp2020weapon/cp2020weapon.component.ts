@@ -4,8 +4,6 @@ import { DiceService } from './../../../services/dice/dice.service';
 import { faPen, faTrash, faDice, faRedo } from '@fortawesome/free-solid-svg-icons';
 import { CpPlayerWeapon } from './../models';
 import { Component, OnInit, Input, TemplateRef, Output, EventEmitter } from '@angular/core';
-import { Cp2020WeaponMagazine } from '../models/cp-2020-weapon-magazine';
-import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'cs-cp2020weapon',

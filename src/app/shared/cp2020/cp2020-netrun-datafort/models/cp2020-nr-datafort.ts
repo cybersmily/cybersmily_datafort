@@ -6,7 +6,6 @@ import { KeyValue } from '@angular/common';
 import { Coord } from './../../../models/coord';
 import { NrDatafort } from "./nr-datafort";
 import { NrDatafortCodegate } from './nr-datafort-codegate';
-import { CB1 } from 'canvg';
 
 export class Cp2020NrDatafort implements NrDatafort {
   name = '' ;

@@ -9,24 +9,23 @@ import { AppComponent } from './app.component';
 import { SaveFileService, DataService } from './shared/services/file-services';
 import { PipesModule } from './shared/pipes/pipes.module';
 @NgModule({
-  declarations: [
-    AppComponent
-    ,NpcProfileModalComponent
-  ],
-  imports: [
-    AppBootstrapModule,
-    CommonUiModule,
-    SharedModule,
-    HttpClientModule,
-    ApphomeModule,
-    PipesModule,
-    AppRoutingModule /* Keep last as it is important for routing */
-  ],
-  entryComponents: [NpcProfileModalComponent],
-  providers: [
-    DataService,
-    SaveFileService
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NpcProfileModalComponent
+    ],
+    imports: [
+        AppBootstrapModule,
+        CommonUiModule,
+        SharedModule,
+        HttpClientModule,
+        ApphomeModule,
+        PipesModule,
+        AppRoutingModule /* Keep last as it is important for routing */
+    ],
+    providers: [
+        DataService,
+        SaveFileService
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

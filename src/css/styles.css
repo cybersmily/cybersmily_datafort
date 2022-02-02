@@ -1,5 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "bootstrap/dist/css/bootstrap.min.css";
 
 INPUT {
   border-width: 1px !important;
@@ -107,11 +106,11 @@ SELECT option.font-italic {
   font-style: italic !important;
 }
 
-::-webkit-input-placeholder { /* Edge */
+::-webkit-input-placeholder {
   font-style: italic !important;
 }
 
-:-ms-input-placeholder { /* Internet Explorer */
+:-ms-input-placeholder {
   font-style: italic !important;
 }
 
@@ -563,7 +562,6 @@ SELECT option.font-italic {
    }
 }
 
-/* Chrome, Safari, Edge, Opera */
 input.csd-hide-spinner::-webkit-outer-spin-button,
 input.csd-hide-spinner::-webkit-inner-spin-button
  {
@@ -571,7 +569,6 @@ input.csd-hide-spinner::-webkit-inner-spin-button
   margin: 0;
 }
 
-/* Firefox */
 input.csd-hide-spinner[type=number] {
   -moz-appearance:textfield;
 }
