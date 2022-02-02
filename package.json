@@ -38,7 +38,6 @@
     "file-saver": "^2.0.5",
     "jasmine-marbles": "^0.6.0",
     "jspdf": "^2.5.1",
-    "leader-line": "^1.0.5",
     "ngx-bootstrap": "^8.0.0",
     "ngx-color": "^6.2.0",
     "ngx-ui-loader": "^9.1.1",

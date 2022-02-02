@@ -35,7 +35,6 @@
               "src/css/styles.css"
             ],
             "scripts": [
-              "node_modules/leader-line/leader-line.min.js"
             ]
           },
           "configurations": {
@@ -88,7 +87,6 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [
-              "node_modules/leader-line/leader-line.min.js"
             ],
             "styles": [
               "src/css/styles.css"
