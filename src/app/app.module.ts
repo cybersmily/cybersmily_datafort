@@ -8,6 +8,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { SaveFileService, DataService } from './shared/services/file-services';
 import { PipesModule } from './shared/pipes/pipes.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @NgModule({
     declarations: [
         AppComponent,
@@ -20,7 +21,8 @@ import { PipesModule } from './shared/pipes/pipes.module';
         HttpClientModule,
         ApphomeModule,
         PipesModule,
-        AppRoutingModule /* Keep last as it is important for routing */
+        AppRoutingModule,
+        FontAwesomeModule /* Keep last as it is important for routing */
     ],
     providers: [
         DataService,
