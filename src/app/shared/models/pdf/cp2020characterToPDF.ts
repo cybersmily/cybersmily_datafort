@@ -104,7 +104,7 @@ export class Cp2020characterToPDF {
     // Armor
     line = this.addArmorBlock(doc, this._character.armor, line);
     // wounds
-    line = this.addWoundRow(doc, this._character.stats.Save, this._character.stats.BTM, line);
+    line = this.addWoundRow(doc, this._character.stats.Save, this._character.stats.BTM, this._character.stats.BodyDmgMod, line);
     this.addSkills(doc, this._character.role.specialAbility, this._character.skills, this._character.stats, this._left, line);
   }
 
@@ -345,17 +345,19 @@ export class Cp2020characterToPDF {
     return line + 10;
   }
 
-  private addWoundRow(doc: jsPDF, save: number, btm: number, line: number): number {
+  private addWoundRow(doc: jsPDF, save: number, btm: number, bodDmgMod: number, line: number): number {
     doc.rect(this._left, line, 13, this._lineheight, 'S');
     doc.text('SAVE', this._left + 1, line + 5);
     doc.rect(this._left, line + this._lineheight, 13, 15, 'S');
     doc.text(save.toString(), this._left + 4, line + this._lineheight + 8);
 
     const left = this._left + 14;
-    doc.rect(left, line, 13, this._lineheight, 'S');
+    doc.rect(left, line, 13, this._lineheight + 15, 'S');
     doc.text('BTM', left + 2, line + 5);
-    doc.rect(left, line + this._lineheight, 13, 15, 'S');
-    doc.text(btm.toString(), left + 4, line + this._lineheight + 8);
+    doc.text(btm.toString(), left + 4, line + 10);
+    doc.text('BDM', left + 2, line + 15);
+    const prefix = bodDmgMod > 0 ? '+' : '';
+    doc.text(`${prefix}${bodDmgMod}`, left + 4, line + 20);
     doc.setFont(this._font, 'normal');
     const woundWidth = 12;
     this.addWounds(doc, 'LIGHT', 0, line + 2, left + 14, woundWidth);
