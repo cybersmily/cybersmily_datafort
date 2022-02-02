@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { SaveFileService, DataService } from './shared/services/file-services';
 import { PipesModule } from './shared/pipes/pipes.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
     declarations: [
         AppComponent,
@@ -22,7 +23,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         ApphomeModule,
         PipesModule,
         AppRoutingModule,
-        FontAwesomeModule /* Keep last as it is important for routing */
+        FontAwesomeModule,
+        BrowserAnimationsModule /* Keep last as it is important for routing */
     ],
     providers: [
         DataService,
