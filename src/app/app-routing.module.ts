@@ -4,6 +4,7 @@ import { HomeComponent } from './apphome/home/home.component';
 
 export const mainRoutes: Routes = [
   {path: '', component: HomeComponent},
+  { path: 'gs', loadChildren: () => import('./game-statistics/game-statistics.module').then(m => m.GameStatisticsModule)},
   { path: 'data', loadChildren: () => import('./appdata/datasection.module').then(m => m.DataSectionModule)},
   { path: 'mods', loadChildren: () => import('./appmod/modsection.module').then(m => m.ModSectionModule)},
   { path: 'shop', loadChildren: () => import('./appshop/shopsection.module').then(m => m.ShopSectionModule)},

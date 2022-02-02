@@ -1,5 +1,19 @@
 ﻿{
   "news": [
+    { "date":"2022-02",
+      "entries":[
+        "<strong>2-5</strong> - Took some time off (finally bought Witcher 3 with both expansions :P). Didn't get too much done with the site. But I do have a few things.",
+        "First up 3 requested items:",
+        "&nbsp;* Added SP/SDP tracker on the ACPA forms. Now you can use to help with combat if needed.",
+        "&nbsp;* In the Cyberpunk 2020 character sheet you now have a setting to disable the Armor Layering function, in case my math is bad. Which it can be.",
+        "&nbsp;* Added a field on the Cyberpunk 2020 sheet to show the BOD Damage Modifier (BDM).",
+        "Here are some small changes I added:",
+        "&nbsp;* Added a checkbox to suppress wound penalties. I know there is some cyberware and drugs that are capable of doing, so, there.",
+        "&nbsp;* .",
+        "Lastly, if you have sometime come check out Wisdom from <a href='http://datafortess2020.com'>Datafortress 2020</a> and myself where we host The Tales from the Forlorn Dopes over on <a href='https://www.twitch.tv/cybernationuncensored'>Cybernation Uncensored twitch</a>. The schedule of every 1st and 3rd Wednesday of the month at 19:00 EST/18:00 CST/16:00 PST/00:00 GMT(which actually Thursday for those across the pond). Please check us out. You can see old episodes on Cybernation Uncensored's Youtube Channel",
+        "Till next time.",
+        "CYBER :D"
+    ]},
     { "date":"2021-12",
       "entries":[
         "<strong>12-12</strong> - Closer and closer to the start of the shadow war, when Arasaka and Militech start to take off the gloves.",

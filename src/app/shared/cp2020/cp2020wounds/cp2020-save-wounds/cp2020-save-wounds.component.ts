@@ -48,15 +48,15 @@ export class Cp2020SaveWoundsComponent implements OnInit {
 
 
   get isLightWound(): boolean {
-    return this.stats ? (this.stats.Damage > 4) : false;
+    return (this.stats?.Damage > 4) ?? false;
   }
 
   get isMortalWound(): boolean {
-    return this.stats ? (this.stats.Damage > 12) : false;
+    return (this.stats?.Damage > 12) ?? false;
   }
 
   get isStunned(): boolean {
-    return this.stats ? this.stats.isStunned : false;
+    return this.stats?.isStunned ?? false;
   }
   set isStunned(value:boolean) {
     if (this.stats) {
@@ -64,8 +64,24 @@ export class Cp2020SaveWoundsComponent implements OnInit {
     }
   }
 
+  get ignoreWounds(): boolean {
+    return this.stats?.ignoreWounds ?? false;
+  }
+
+  set ignoreWounds(value: boolean) {
+    this.stats.ignoreWounds = value;
+  }
+
+  get ignoreSaves(): boolean {
+    return this.stats?.ignoreSaves ?? false;
+  }
+
+  set ignoreSaves(value: boolean) {
+    this.stats.ignoreSaves = value;
+  }
+
   get isDying(): boolean {
-    return this.stats ? (this.stats.deathState > 0) : false;
+    return (this.stats?.deathState > 0) ?? false;
   }
 
   get deathState(): number {
@@ -90,6 +106,10 @@ export class Cp2020SaveWoundsComponent implements OnInit {
       this.stats.Damage = event;
       this.changeStats.emit(this.stats);
     }
+  }
+
+  updateIgnoreWounds() {
+    this.stats.Damage = this.stats.Damage;
   }
 
   openSave(template: TemplateRef<any>) {

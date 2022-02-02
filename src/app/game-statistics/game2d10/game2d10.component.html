@@ -1,0 +1,20 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-2">Sample: </div>
+    <div class="col-3"><input type="number" [(ngModel)]="sample" (change)="update()"></div>
+    <div class="col-1"></div>
+  </div>
+  <div *ngFor="let i of rolls;let index = index" class="row">
+    <div class="col-1">{{index + 2}}</div>
+    <div class="col-1">{{i}}</div>
+    <div class="col-1">{{((i/ sample) * 100) | number}}%</div>
+    <div class="col-1">{{doubles[index]}}</div>
+    <div class="col-1">{{((doubles[index]/ i) * 100) | number}}%</div>
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-1">{{totalRolls}}</div>
+    <div class="col-1"></div>
+  </div>
+</div>

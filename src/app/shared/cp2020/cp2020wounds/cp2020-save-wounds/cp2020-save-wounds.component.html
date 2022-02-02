@@ -74,10 +74,16 @@
   </div>
 </div>
 <div class="row">
-  <div class="col">
+  <div class="col-4">
     <span class="chargen-damaged mr-3">Is Stunned: <input type="checkbox" [(ngModel)]="isStunned"></span>
     <span *ngIf="isDying" class="small chargen-damaged">DEATH STATE: <input type="number" [(ngModel)]="deathState"
         min="0" max="10" class="chargen-death-state"></span>
+  </div>
+  <div class="col-4 small">
+    <input type="checkbox" [(ngModel)]="ignoreWounds" (change)="updateIgnoreWounds()"> Ignore Stat Mods
+  </div>
+  <div class="col-4 small">
+    <input type="checkbox" [(ngModel)]="ignoreSaves" (change)="updateIgnoreWounds()"> Ignore Save Mods
   </div>
 </div>
 <ng-template #chargenStunSaveRoll>
