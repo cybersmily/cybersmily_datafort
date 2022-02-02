@@ -270,8 +270,6 @@ export class Cp2020StatBlock implements Cp2020Stats {
   }
 
   private setSavePenalities(stun: number, death: number) {
-    console.log('stun', stun);
-    console.log('death', death);
     this.StunSaveMod = (stun < 0) ? 0 : stun;
     this.DeathSaveMod = (death < 0) ? 0 : death;
   }
