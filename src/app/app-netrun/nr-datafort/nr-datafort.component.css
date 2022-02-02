@@ -35,7 +35,9 @@
 .csd-nrNavBtn { margin-top: 8px; margin-bottom: 8px;}
 
 
-.csd-close {display:inline-block; float:right;
+.csd-close {
+  display:inline-block;
+  float: right;
   background-color:#BBB;color:#333;
   height: 20px; width: 20px; border-radius: 15px;
   font-size:10px; cursor: pointer;

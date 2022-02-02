@@ -42,7 +42,7 @@
     "ngx-color": "^6.2.0",
     "ngx-ui-loader": "^9.1.1",
     "npm": "^6.14.8",
-    "rxjs": "^6.5.4",
+    "rxjs": "^7.5.2",
     "save-svg-as-png": "^1.4.17",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
