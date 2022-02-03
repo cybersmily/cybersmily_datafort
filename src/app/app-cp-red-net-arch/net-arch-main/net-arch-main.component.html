@@ -9,23 +9,25 @@
   </div>
   <hr>
   <div class="row hidden-print">
-    <div class="col">
+    <div class="col-12 col-md-6">
       To get started, roll the <fa-icon  class="csd-icon-btn " [icon]="faDice"></fa-icon> dice below or click the <fa-icon
         [icon]="faQuestionCircle" class="csd-icon-btn "></fa-icon> to the right.
-      <fa-icon class="csd-icon-btn csd-menu-btn btn-lg csd-btn float-right" [icon]="faImage" title="Save as a SVG image file"
+    </div>
+    <div class="col-12 col-md-6">
+      <fa-icon class="csd-icon-btn csd-menu-btn btn-lg csd-btn float-end" [icon]="faImage" title="Save as a SVG image file"
         (click)="saveSVG()"></fa-icon>
-      <fa-icon class="csd-icon-btn csd-menu-btn btn-lg csd-btn float-right" [icon]="faFileImage" title="Save as a PNG image file"
+      <fa-icon class="csd-icon-btn csd-menu-btn btn-lg csd-btn float-end" [icon]="faFileImage" title="Save as a PNG image file"
         (click)="savePNG()"></fa-icon>
       <input type="file" id="loadFile" title="load a Net Architect .json file" name="Load" Style="display: none"
         (change)="load($event)" #inputFile (click)="inputFile.value = null" accept="text/plain;text/json" />
-      <label for="loadFile" class="csd-icon-btn csd-menu-btn csd-btn btn-lg float-right">
+      <label for="loadFile" class="csd-icon-btn csd-menu-btn csd-btn btn-lg float-end">
         <fa-icon [icon]="faUpload" title="load a Net Architect .json file"></fa-icon>
       </label>
-      <fa-icon class="csd-icon-btn csd-menu-btn csd-btn btn-lg float-right" [icon]="faSave" (click)="save()"
+      <fa-icon class="csd-icon-btn csd-menu-btn csd-btn btn-lg float-end" [icon]="faSave" (click)="save()"
         title="Save Net Architect as json file"></fa-icon>
-      <fa-icon class="csd-icon-btn csd-menu-btn btn-lg csd-btn float-right" [icon]="faCog" title="Node Type Settings"
+      <fa-icon class="csd-icon-btn csd-menu-btn btn-lg csd-btn float-end" [icon]="faCog" title="Node Type Settings"
         (click)="openModal(archSettingsEditor)"></fa-icon>
-      <fa-icon class="csd-icon-btn csd-menu-btn btn-lg csd-btn float-right" [icon]="faQuestionCircle" title="Show instructions."
+      <fa-icon class="csd-icon-btn csd-menu-btn btn-lg csd-btn float-end" [icon]="faQuestionCircle" title="Show instructions."
         (click)="openModal(instructions)"></fa-icon>
     </div>
   </div>
@@ -33,7 +35,7 @@
     <div class="col csd-rounded">
       <div class="row hidden-print mt-3">
         <div class="col-6">
-          <fa-icon class="csd-dice csd-menu-btn csd-btn csd-icon-xxl float-left mr-2" [icon]="faDice"
+          <fa-icon class="csd-dice csd-menu-btn csd-btn csd-icon-xxl float-start me-2" [icon]="faDice"
             (click)="generate()" title="Generate random Net Architect"></fa-icon>
           <span>
             <input type="checkbox" [(ngModel)]="archSettings.randomDifficulty">

@@ -26,17 +26,19 @@
     </div>
   </div>
   <div class="row">
-    <div class="pull-right" style="width:500px;padding-right:30px;">
+    <div class="col-12">
+    <div class="float-start" style="width:500px;">
       <cs-temp-generator-skills [skills]="character.skills"></cs-temp-generator-skills>
       <br>
       <cs-temp-generator-lifepath [lifepath]="character.lifepath"></cs-temp-generator-lifepath>
     </div>
-    <div class="pull-left">
+    <div class="float-start">
       <cs-temp-generator-armor [armor]="character.armor"></cs-temp-generator-armor>
       <br>
       <cs-temp-generator-weapons [weapons]="character.weapons"></cs-temp-generator-weapons>
       <br>
       <cs-temp-generator-gear [gear]="character.gear" [cyberware]="character.cyberware"></cs-temp-generator-gear>
     </div>
+  </div>
   </div>
 </div>

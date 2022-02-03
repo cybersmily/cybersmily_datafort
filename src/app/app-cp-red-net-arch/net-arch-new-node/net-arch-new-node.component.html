@@ -4,7 +4,7 @@
       <input type="text" [(ngModel)]="selectedNode.name" style="width: 90%;" (change)="update()">
     </div>
     <div class="col-1 mt-0 pt-0">
-      <fa-icon [icon]="faSave" class="csd-icon-xl csd-icon-btn btn csd-btn float-right mt-0 pt-0" (click)="saveNode()"></fa-icon>
+      <fa-icon [icon]="faSave" class="csd-icon-xl csd-icon-btn btn csd-btn float-end mt-0 pt-0" (click)="saveNode()"></fa-icon>
     </div>
   </div>
   <div class="row">
@@ -56,7 +56,7 @@
       </div>
       <div *ngIf="selectedNode.programs && addPrograms(selectedNode.programs.length)" class="row">
         <div class="col">
-          <fa-icon [icon]="faPlus" class="csd-icon-btn csd-btn csd-icon-xl btn mr-2" title="add program to node"
+          <fa-icon [icon]="faPlus" class="csd-icon-btn csd-btn csd-icon-xl btn me-2" title="add program to node"
             (click)="addSelectedProgram()"></fa-icon>
           <select [(ngModel)]="selectedProgram">
             <option *ngFor="let prog of programList" [ngValue]="prog">{{prog.name}} ({{prog.cost}}eb)</option>

@@ -1,16 +1,16 @@
-<div *ngIf="node" class="row ml-1">
+<div *ngIf="node" class="row ms-1">
   <div class="col">
     <div class="row net-node-info">
       <div class="col">
         <div class="row">
           <div class="col-8">
-            <span class="mr-2 font-weight-bold">{{node.id}}:</span>
-            <div class="node-icon mr-2" [style.background-color]="bgColor" [style.color]="color">
-              <fa-icon [icon]="getIcon(node.type)" class="mr-1"></fa-icon>
+            <span class="me-2 font-weight-bold">{{node.id}}:</span>
+            <div class="node-icon me-2" [style.background-color]="bgColor" [style.color]="color">
+              <fa-icon [icon]="getIcon(node.type)" class="me-1"></fa-icon>
             </div>
             <h5 class="text-capitalize" style="display:inline-block">{{node.name}}</h5>
             <span *ngIf="node.type !== 'program'">&nbsp;(DV{{node.dv}})</span>
-            <fa-icon [icon]="faPen" style="width: 15px; height: 15px;" class="csd-icon-btn ml-2 hidden-print csd-btn"
+            <fa-icon [icon]="faPen" style="width: 15px; height: 15px;" class="csd-icon-btn ms-2 hidden-print csd-btn"
             (click)="showModal(nodeSettings)"></fa-icon>
           </div>
           <div class="col-3">
