@@ -27,8 +27,8 @@
   <div class="modal-header">
     <h4 class="modal-title pull-left">{{currSkill.name}}{{(currSkill.option ? ': ' + currSkill.option : '')}} Dice Roll
     </h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-      <span aria-hidden="true">&times;</span>
+    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="modalRef.hide()">
+
     </button>
   </div>
   <div class="modal-body">
@@ -49,8 +49,8 @@
     <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn csd-icon-xl ml-2" title="delete skill"
       (click)="deleteSkill()"></fa-icon>
 
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-      <span aria-hidden="true">&times;</span>
+    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="modalRef.hide()">
+
     </button>
   </div>
   <div class="modal-body">

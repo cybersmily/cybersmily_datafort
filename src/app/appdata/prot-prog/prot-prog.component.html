@@ -12,8 +12,8 @@
           <h3 style="display:inline-block">{{n.groupName}}</h3>
           <fa-icon [icon]="accordion.groups[i].isOpen?faAngleDoubleDown:faAngleDoubleRight" size="2x"></fa-icon>
         </div>
-      <div class="card-columns">
-        <div class="card" *ngFor="let program of n.programs" >
+      <div class="row justify-content-evenly">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let program of n.programs" >
           <div class="card-block csd-box csd-rounded">
             <h4 class="card-title">{{program.name}}</h4>
             <div class="csd-card-holder card-text">

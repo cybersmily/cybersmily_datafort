@@ -1,9 +1,9 @@
 <div class="container">
     <div class="small">Last updated 2014-09</div>
   <h2>Proteus Sysops</h2>
-      <div class="card-columns">
-        <div class="card" *ngFor="let sysop of sysopsList" >
-          <div class="card-block csd-box csd-rounded">
+    <ngx-masonry [options]="{fitWidth: true}">
+        <div ngxMasonryItem class="masonry-item" *ngFor="let sysop of sysopsList" >
+          <div class="card-block csd-box csd-rounded m-1">
             <h4 class="card-title">{{sysop.name}}</h4>
             <div class="csd-card-holder card-text">
               <div class="csd-card-img">
@@ -31,6 +31,7 @@
             </div>
           </div>
         </div>
-      </div>
+
+    </ngx-masonry>
 </div>
 

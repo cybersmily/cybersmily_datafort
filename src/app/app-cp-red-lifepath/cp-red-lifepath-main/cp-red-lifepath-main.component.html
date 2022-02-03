@@ -17,27 +17,29 @@
         <option value="jumpstart">Jumpstart Kit</option>
       </select>
       <ng-container *ngIf="selectedSystem == 'corebook'">
-        <span class="ml-2">Role: </span>
+        <span class="ms-2">Role: </span>
         <select [(ngModel)]="selectedRole" (change)="changeRole()">
           <option *ngFor="let role of roles" [value]="role">{{role}}</option>
         </select>
       </ng-container>
-      <fa-icon class="csd-btn csd-icon-btn csd-icon-xl ml-2" [icon]="faDice" title="Generate Lifepath"
-        (click)="generate()"></fa-icon>
-      <fa-icon class="csd-btn csd-icon-btn csd-icon-xl float-right mr-2" [icon]="faSave" title="Save to file"
-        (click)="saveFile()"></fa-icon>
-      <fa-icon class="csd-btn csd-icon-btn csd-icon-xl float-right mr-2" [icon]="faFilePdf" title="Save as PDF"
-        (click)="saveAsPDF()"></fa-icon>
-      <fa-icon class="csd-btn csd-icon-btn csd-icon-xl float-right mr-2" [icon]="faCog" title="Change settings"
-        (click)="showModal(lifepathSettings)"></fa-icon>
+      <div class="float-end">
+        <fa-icon class="me-1 csd-btn csd-icon-btn csd-icon-xl" [icon]="faDice" title="Generate Lifepath"
+          (click)="generate()"></fa-icon>
+        <fa-icon class="csd-btn csd-icon-btn csd-icon-xl me-1" [icon]="faCog" title="Change settings"
+          (click)="showModal(lifepathSettings)"></fa-icon>
+        <fa-icon class="csd-btn csd-icon-btn csd-icon-xl me-1" [icon]="faSave" title="Save to file"
+          (click)="saveFile()"></fa-icon>
+        <fa-icon class="csd-btn csd-icon-btn csd-icon-xl me-1" [icon]="faFilePdf" title="Save as PDF"
+          (click)="saveAsPDF()"></fa-icon>
+      </div>
     </div>
   </div>
   <div class="row" *ngIf="parameters.length > 0">
     <div class="col">
       <span *ngFor="let p of parameters">
         {{p.display}}
-        <input class="ml-1 mr-2" type="checkbox" [(ngModel)]="roleParam[p.name]" *ngIf="!p.options">
-        <select class="ml-1 mr-2" *ngIf="p.options" [(ngModel)]="roleParam[p.name]">
+        <input class="ms-1 me-2" type="checkbox" [(ngModel)]="roleParam[p.name]" *ngIf="!p.options">
+        <select class="ms-1 me-2" *ngIf="p.options" [(ngModel)]="roleParam[p.name]">
           <option *ngFor="let opt of p.options" [value]="opt">{{opt}}</option>
         </select>
       </span>
@@ -54,9 +56,9 @@
   <div class="modal-content">
     <div class="modal-header">
       <h4 class="modal-title pull-left">Lifepath Random Settings</h4>
-      <fa-icon [icon]="faRedo" class="ml-2 csd-btn csd-icon-btn csd-icon-xl" (click)="resetSettings()"></fa-icon>
-      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-        <span aria-hidden="true">&times;</span>
+      <fa-icon [icon]="faRedo" class="ms-2 csd-btn csd-icon-btn csd-icon-xl" (click)="resetSettings()"></fa-icon>
+      <button type="button" class="btn-close pull-right" aria-label="Close" (click)="modalRef.hide()">
+
       </button>
     </div>
     <div class="modal-body">

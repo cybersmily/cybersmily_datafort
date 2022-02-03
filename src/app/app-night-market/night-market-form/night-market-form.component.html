@@ -7,7 +7,7 @@
     <div class="col-12 col-md-6">
       <input type="checkbox" [(ngModel)]="randomRollNoItems"> - Randomly roll number of items
       <fa-icon [icon]="faFilePdf"
-        class="csd-btn csd-icon-btn csd-icon-xl float-right"
+        class="csd-btn csd-icon-btn csd-icon-xl float-end"
         title="Export to PDF"
         (click)="saveAsPDF()"
       ></fa-icon>
@@ -18,7 +18,7 @@
     </div>
     <div class="col-12 col-md-6">
       <input type="number" min="1" max="10" title="Number of items to generate for each category" [(ngModel)]="numberOfItems"
-      style="width:60px" class="text-right ml-2" > number of items to generate
+      style="width:60px" class="text-end ms-2" > number of items to generate
 
     </div>
   </div>

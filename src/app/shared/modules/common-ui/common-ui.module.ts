@@ -12,6 +12,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { NgModule } from '@angular/core';
 import { CsdComboBoxComponent } from './csd-combo-box/csd-combo-box.component';
+import { NgxMasonryModule } from 'ngx-masonry';
 
 
 
@@ -22,6 +23,7 @@ import { CsdComboBoxComponent } from './csd-combo-box/csd-combo-box.component';
   imports: [
     CommonModule,
     FormsModule,
+    NgxMasonryModule,
     AccordionModule.forRoot(),
     BsDropdownModule,
     CollapseModule.forRoot(),
@@ -36,6 +38,7 @@ import { CsdComboBoxComponent } from './csd-combo-box/csd-combo-box.component';
   exports: [
     FormsModule,
     AccordionModule,
+    NgxMasonryModule,
     BsDropdownModule,
     CollapseModule,
     ModalModule,
