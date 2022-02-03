@@ -1,9 +1,9 @@
 <div class="cp2020-section border border-dark">
   <div class="cp2020-label row no-gutters">
     <div class="col">
-      <h4 class="d-inline-block csd-btn mr-4" (click)="isCollapsed = !isCollapsed">
+      <h4 class="d-inline-block csd-btn me-4" (click)="isCollapsed = !isCollapsed">
         CYBERNETICS
-        <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ml-2"></fa-icon>
+        <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ms-2"></fa-icon>
       </h4>
       <fa-icon *ngIf="!isCollapsed" [icon]="faDice" class="csd-dice csd-btn" title="Generate random cyberware" (click)="generateCyberware()">
       </fa-icon>
@@ -13,16 +13,16 @@
     <div class="row no-gutters">
       <div class="col">
         <div class="row no-gutters">
-          <div class="col small pl-1 border border-dark">TYPE</div>
+          <div class="col small ps-1 border border-dark">TYPE</div>
           <div class="col-1 text-center small border border-dark">HL</div>
-          <div class="col-1 pl-1 small border border-dark">COST</div>
+          <div class="col-1 ps-1 small border border-dark">COST</div>
         </div>
       </div>
       <div *ngIf="showTwoColumns" class="col d-none d-lg-inline-block">
         <div class="row no-gutters">
-          <div class="col small pl-1 border border-dark">TYPE</div>
+          <div class="col small ps-1 border border-dark">TYPE</div>
           <div class="col-1 text-center small border border-dark">HL</div>
-          <div class="col-1 pl-1 text-center small border border-dark">COST</div>
+          <div class="col-1 ps-1 text-center small border border-dark">COST</div>
         </div>
       </div>
     </div>
@@ -47,7 +47,7 @@
     <div class="row csd-cyber-row no-gutters">
       <div class="col">Total HL and Euro Costs</div>
       <div class="col-1 small text-center">{{cyberList.totalHL | number}}</div>
-      <div class="col-1 small text-right pr-1">{{cyberList.totalCost | number}}</div>
+      <div class="col-1 small text-end pe-1">{{cyberList.totalCost | number}}</div>
     </div>
   </div>
 </div>
@@ -55,23 +55,23 @@
 <ng-template #cyberColumn let-cyberList="cyberList" let-isSecondColumn="isSecondColumn">
   <div *ngFor="let cyber of cyberList;let i = index" class="csd-cyber-row row no-gutters">
     <div class="col cyber-name" title="{{cyber.notes}}">
-      <span class="csd-btn pl-1" (click)="editCyberware(i, cyberEdit, isSecondColumn)">
+      <span class="csd-btn ps-1" (click)="editCyberware(i, cyberEdit, isSecondColumn)">
         {{cyber.toString()}}
-        <fa-icon [icon]="faPen" class="csd-btn small ml-1 csd-icon-btn"></fa-icon>
+        <fa-icon [icon]="faPen" class="csd-btn small ms-1 csd-icon-btn"></fa-icon>
       </span>
-      <fa-icon [icon]="faTrash" class="float-right csd-btn small ml-2 csd-icon-btn" (click)="delete(i, isSecondColumn)"
+      <fa-icon [icon]="faTrash" class="float-end csd-btn small ms-2 csd-icon-btn" (click)="delete(i, isSecondColumn)"
         title="Delete Cyberware"></fa-icon>
     </div>
     <div class="col-1 text-center small">{{cyber.totalHL}}</div>
-    <div class="col-1 text-right small pr-1">{{cyber.totalCost | number}}</div>
+    <div class="col-1 text-end small pe-1">{{cyber.totalCost | number}}</div>
   </div>
 
 </ng-template>
 
 <ng-template #cyberEdit>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">Edit Cyberware</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="closeModal()">
+    <h4 class="modal-title float-start">Edit Cyberware</h4>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()">
 
     </button>
   </div>
@@ -84,8 +84,8 @@
 <ng-template #cyberSelect>
   <div class="cyber-selector-modal">
     <div class="modal-header">
-      <h4 class="modal-title pull-left">Add Cyberware</h4>
-      <button type="button" class="btn-close pull-right" aria-label="Close" (click)="closeModal()">
+      <h4 class="modal-title float-start">Add Cyberware</h4>
+      <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()">
 
       </button>
     </div>
@@ -110,7 +110,7 @@
       <div class="col">Options:</div>
     </div>
     <div class="row" *ngFor="let opt of item.options">
-      <div class="col ml-1">{{(opt.abbrev)?opt.abbrev + ' (' + opt.name + ')': opt.name}} - {{opt.notes}} (HC:
+      <div class="col ms-1">{{(opt.abbrev)?opt.abbrev + ' (' + opt.name + ')': opt.name}} - {{opt.notes}} (HC:
         {{opt.hc}})</div>
     </div>
   </ng-container>

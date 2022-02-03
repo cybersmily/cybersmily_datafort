@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col text-center"><i>Drag and drop Items to the Cart</i></div>
     </div>
-    <div class="row small mr-1 ml-1">
+    <div class="row small me-1 ms-1">
       <div class="col-4">
         <select [(ngModel)]="searchFilter.type" style="width: 90%" title="filter on cyberware type..."
           (change)="filterCyberList()">
@@ -33,7 +33,7 @@
       </div>
     </div>
     <br>
-    <div class="row mr-1 ml-1">
+    <div class="row me-1 ms-1">
       <div class="col cyber-data-table">
         <bs-sortable [(ngModel)]="filteredDataCyber" itemClass="sortable-item" itemActiveClass="sortable-item-active"
           placeholderItem="&nbsp;&nbsp;&nbsp;...Drag here" placeholderClass="placeholderStyle font-italic"
@@ -46,7 +46,7 @@
   <div class="col csd-rounded">
     <div class="row">
       <div class="col text-center">
-        <fa-icon [icon]="faSave" class="float-right csd-btn csd-icon-btn" (click)="save()"></fa-icon>
+        <fa-icon [icon]="faSave" class="float-end csd-btn csd-icon-btn" (click)="save()"></fa-icon>
         <h4>Cart</h4>
       </div>
     </div>
@@ -56,7 +56,7 @@
     <div class="row small">
       <div class="col-5">Name</div>
       <div class="col-4 text-center">HC</div>
-      <div class="col-3 text-right">Cost</div>
+      <div class="col-3 text-end">Cost</div>
     </div>
     <div class="row">
       <div class="col">
@@ -70,7 +70,7 @@
     <div class="row small">
       <div class="col-5">Totals:</div>
       <div class="col-4 text-center">{{totalHumanityLose}}</div>
-      <div class="col-3 text-right">{{totalCost | number}}eb</div>
+      <div class="col-3 text-end">{{totalCost | number}}eb</div>
     </div>
   </div>
 </div>
@@ -96,7 +96,7 @@
     </div>
     <div class="col-4 text-center" title="HC: {{item.value.hc}}">
       <ng-container *ngIf="item.value.hc.toLowerCase().indexOf('d') > 0; else staticHumanityLose">
-        <input type="number" [(ngModel)]="item.value.hl" class="cyber-hl text-right" step="0.5">
+        <input type="number" [(ngModel)]="item.value.hl" class="cyber-hl text-end" step="0.5">
         &nbsp;
         <fa-icon [icon]="faDice" (click)="rollHumanityLose(i, item.value.hc)" class="small csd-dice"></fa-icon>
       </ng-container>
@@ -104,7 +104,7 @@
         {{item.value.hl}}
       </ng-template>
     </div>
-    <div class="col-3 text-right">{{item.value.cost | number}}eb
+    <div class="col-3 text-end">{{item.value.cost | number}}eb
     </div>
   </div>
 </ng-template>

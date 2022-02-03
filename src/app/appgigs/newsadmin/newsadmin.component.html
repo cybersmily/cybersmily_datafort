@@ -7,8 +7,8 @@
         <option *ngFor="let rptr of reporters" [value]="rptr">{{rptr}}</option>
       </select>
       <button (click)="isOpen = !isOpen">Toggle</button>
-      <fa-icon [icon]="faUpload" class="csd-btn float-right btn-lg" (click)="loadNews()" title="load file"></fa-icon>
-      <fa-icon [icon]="faSave" class="csd-btn float-right btn-lg" (click)="saveFile()" title="Save file"></fa-icon>
+      <fa-icon [icon]="faUpload" class="csd-btn float-end btn-lg" (click)="loadNews()" title="load file"></fa-icon>
+      <fa-icon [icon]="faSave" class="csd-btn float-end btn-lg" (click)="saveFile()" title="Save file"></fa-icon>
     </div>
   </div>
   <accordion #accordion>
@@ -26,7 +26,7 @@
       *ngFor="let comment of getFilteredReports(report.reports); let ri = index"
         style="position:relative">
         <div class="col-2">
-          <div class="float-left">
+          <div class="float-start">
             <img src="/img/peeps/th/th_{{comment.img}}.png" alt="{{comment.reporter}}" />
             <br>
             image: {{comment.img}}
@@ -39,7 +39,7 @@
           <textarea type="text" [(ngModel)]="comment.commentary" style="width: 100%;min-height: 150px;" (change)="update()"></textarea>
         </div>
         <div class="col-1">
-          <fa-icon [icon]="faTrash" class="csd-btn float-right ml-1" (click)="deleteNewsReport(i, ri)"></fa-icon>
+          <fa-icon [icon]="faTrash" class="csd-btn float-end ms-1" (click)="deleteNewsReport(i, ri)"></fa-icon>
         </div>
       </div>
       <br>
@@ -77,7 +77,7 @@
     </div>
     <div class="col">
       Reporter: <input type="text" [(ngModel)]="report.reporter" [typeahead]="reporters" (change)="changeReporterOnNew($event,i)">
-      <fa-icon [icon]="faTrash" class="csd-btn float-right" (click)="deleteNewNewsReport(i)"></fa-icon>
+      <fa-icon [icon]="faTrash" class="csd-btn float-end" (click)="deleteNewNewsReport(i)"></fa-icon>
       <br>
       Commentary:
       <br>

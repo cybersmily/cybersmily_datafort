@@ -30,7 +30,7 @@
     </tr>
     <tr>
       <td class="chargen-label chargen-armor-label">SDP
-        <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn hidden-print float-right" (click)="openModal(sdpModal)"
+        <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn hidden-print float-end" (click)="openModal(sdpModal)"
           title="Manage/Configure SDP"></fa-icon>
       </td>
       <td class="chargen-armor-space"></td>
@@ -110,8 +110,8 @@
 
 <ng-template #sdpModal>
   <div class="modal-header">
-    <h4 id="armor-modal-name" class="modal-title pull-left">SDP Manager</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="closeModal()">
+    <h4 id="armor-modal-name" class="modal-title float-start">SDP Manager</h4>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()">
 
     </button>
   </div>

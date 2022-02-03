@@ -8,8 +8,8 @@
       {{newCyberware.totalCost | number}}eb
     </div>
     <div class="col">
-      <fa-icon [icon]="faSave" class="ml-1 csd-btn cyber-save csd-icon-btn" (click)="update()"></fa-icon>
-      <fa-icon [icon]="faTrash" class="csd-btn cyber-save csd-icon-btn ml-3" (click)="delete()"></fa-icon>
+      <fa-icon [icon]="faSave" class="ms-1 csd-btn cyber-save csd-icon-btn" (click)="update()"></fa-icon>
+      <fa-icon [icon]="faTrash" class="csd-btn cyber-save csd-icon-btn ms-3" (click)="delete()"></fa-icon>
     </div>
   </div>
   <div class="row small">
@@ -66,13 +66,13 @@
   </div>
   <div class="row small">
     <div class="col-1">Cost:</div>
-    <div class="col-4"><input type="number" [(ngModel)]="newCyberware.cost" class="text-right">eb</div>
+    <div class="col-4"><input type="number" [(ngModel)]="newCyberware.cost" class="text-end">eb</div>
     <div class="col-2">Total H.L:</div>
     <div class="col-4">{{newCyberware.totalHL}}</div>
   </div>
   <div class="row small cyber-option-hl">
     <div class="col-1">#Options:</div>
-    <div class="col-4"><input type="number" [(ngModel)]="newCyberware.numOptions" class="text-right"></div>
+    <div class="col-4"><input type="number" [(ngModel)]="newCyberware.numOptions" class="text-end"></div>
   </div>
   <div class="row">
     <div class="col">
@@ -118,7 +118,7 @@
 <ng-template #optionItem let-item="item" let-index="index">
   <div title="{{item.value.notes}}; {{item.value.source.book}} pg.{{item.value.source.page}}">
     {{item.value.name}}
-    <span class="ml-1" *ngIf="item.value.abbrev">({{item.value.abbrev}})</span>
+    <span class="ms-1" *ngIf="item.value.abbrev">({{item.value.abbrev}})</span>
   </div>
   <div class="small">&nbsp;&nbsp;HC: {{item.value.hc}} Surgery: {{item.value.surgery}} Cost:
     {{item.value.cost | number}}eb</div>
@@ -128,7 +128,7 @@
   <div class="row">
     <div class="col" title="{{item.value.notes}}; {{item.value.source.book}} pg.{{item.value.source.page}}">
       {{item.value.name}}
-      <span class="ml-1" *ngIf="item.value.abbrev">({{item.value.abbrev}})</span>
+      <span class="ms-1" *ngIf="item.value.abbrev">({{item.value.abbrev}})</span>
     </div>
   </div>
   <div class="small row">
@@ -140,7 +140,7 @@
         title="{{item.value.hc}}" (click)="rollOptionHL(item.value.hc, index)">
       </fa-icon>
     </div>
-    <div class="col text-right">
+    <div class="col text-end">
       Cost: {{item.value.cost | number}}eb
     </div>
   </div>
@@ -149,8 +149,8 @@
 <ng-template #newOptionItem>
   <div class="cyber-selector-modal csd-rounded">
     <div class="modal-header">
-      <h4 class="modal-title pull-left">New Cyberware Option</h4>
-      <button type="button" class="btn-close pull-right" aria-label="Close" (click)="closeModal()">
+      <h4 class="modal-title float-start">New Cyberware Option</h4>
+      <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()">
 
       </button>
     </div>
@@ -160,10 +160,10 @@
           <input class="cyber-edit-box" type="text" [(ngModel)]="newOption.name" placeholder="Enter name of cyberware">
         </div>
         <div class="col-1">Cost:</div>
-        <div class="col-2"><input type="number" [(ngModel)]="newOption.cost" class="text-right cyber-option-cost">eb
+        <div class="col-2"><input type="number" [(ngModel)]="newOption.cost" class="text-end cyber-option-cost">eb
         </div>
-        <div class="col-1 text-right">
-          <fa-icon [icon]="faSave" class="ml-1 csd-btn cyber-save" (click)="saveNewOption()"></fa-icon>
+        <div class="col-1 text-end">
+          <fa-icon [icon]="faSave" class="ms-1 csd-btn cyber-save" (click)="saveNewOption()"></fa-icon>
         </div>
       </div>
       <div class="row small">

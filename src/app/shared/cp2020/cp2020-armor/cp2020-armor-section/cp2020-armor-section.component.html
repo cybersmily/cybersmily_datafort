@@ -1,19 +1,19 @@
-<div class="content pl-3 pr-3">
+<div class="content ps-3 pe-3">
   <div class="cp2020-label row">
-    <div class="col pl-1">
-      <h4 class="d-inline-block csd-btn mr-4" (click)="isCollapsed = !isCollapsed">
+    <div class="col ps-1">
+      <h4 class="d-inline-block csd-btn me-4" (click)="isCollapsed = !isCollapsed">
         ARMOR/CLOTHING
-        <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ml-2"></fa-icon>
+        <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ms-2"></fa-icon>
       </h4>
       <fa-icon *ngIf="!isCollapsed" [icon]="faDice" title="Randomly generate items..."
-        class="csd-btn csd-icon-btn csd-icon-lg ml-2" (click)="showModal(numberOfArmorToRoll)"></fa-icon>
-      <fa-icon *ngIf="!isCollapsed" [icon]="faCog" class="csd-btn csd-icon-btn csd-icon-lg ml-2"
+        class="csd-btn csd-icon-btn csd-icon-lg ms-2" (click)="showModal(numberOfArmorToRoll)"></fa-icon>
+      <fa-icon *ngIf="!isCollapsed" [icon]="faCog" class="csd-btn csd-icon-btn csd-icon-lg ms-2"
         title="Change random parameter settings for create a piece of armor" (click)="showModal(settingsModal)">
       </fa-icon>
     </div>
   </div>
   <div class="row border border-dark" [collapse]="isCollapsed">
-    <div class="col pr-4 ml-1 mt-1">
+    <div class="col pe-4 ms-1 mt-1">
       <div class="row">
         <div class="col">
           <ng-container [ngTemplateOutlet]="clothingList"></ng-container>
@@ -32,7 +32,7 @@
 </div>
 
 <ng-template #armorList let-armorList="armorList">
-  <div class="row bg-black font-weight-bold text-white">
+  <div class="row bg-black fw-bold text-white">
     <div class="col border border-dark">ACTIVE ARMOR</div>
     <div class="col-1 text-center border border-dark small">SP</div>
     <div class="col-1 text-center border border-dark small">HEAD</div>
@@ -59,7 +59,7 @@
   <div *ngFor="let armor of armorList;let i = index" class="row small">
     <div class="col border border-dark">
       {{armor.name}}
-      <fa-icon [icon]="faWrench" class="csd-btn csd-icon-btn float-right" title="Repair all locations"
+      <fa-icon [icon]="faWrench" class="csd-btn csd-icon-btn float-end" title="Repair all locations"
       (click)="repair(armor)"></fa-icon>
     </div>
     <div class="col-1 text-center border border-dark">{{armor.baseSP}}</div>
@@ -74,14 +74,14 @@
   </div>
 </ng-template>
 <ng-template #clothingList>
-  <div class="row bg-black font-weight-bold text-white">
+  <div class="row bg-black fw-bold text-white">
     <div class="col">
       ARMOR/CLOTHING LIST
     </div>
   </div>
   <div class="row small">
     <div class="col-12 col-md-6">
-      <div class="row small font-weight-bold">
+      <div class="row small fw-bold">
         <div class="col text-truncate border border-dark">Name</div>
         <div class="col-1 text-center border border-dark">SP</div>
         <div class="col-2 text-center border border-dark">Cost</div>
@@ -90,12 +90,12 @@
         <div class="col text-truncate border border-dark">&nbsp;
         </div>
         <div class="col-1 text-center border border-dark"></div>
-        <div class="col-2 text-truncate text-right border border-dark"></div>
+        <div class="col-2 text-truncate text-end border border-dark"></div>
       </div>
       <ng-container *ngFor="let armor of columnOne;let i = index" [ngTemplateOutlet]="clothingDataRow" [ngTemplateOutletContext]="{armor:armor, index:i}"></ng-container>
     </div>
     <div class="col-12 col-md-6">
-      <div class="row small font-weight-bold">
+      <div class="row small fw-bold">
         <div class="col text-truncate border border-dark d-none d-lg-block">Name</div>
         <div class="col-1 text-center border border-dark d-none d-lg-block">SP</div>
         <div class="col-2 text-center border border-dark d-none d-lg-block">Cost</div>
@@ -104,7 +104,7 @@
         <div class="col text-truncate border border-dark d-none d-lg-block">&nbsp;
         </div>
         <div class="col-1 text-center border border-dark d-none d-lg-block"></div>
-        <div class="col-2 text-truncate text-right border border-dark d-none d-lg-block"></div>
+        <div class="col-2 text-truncate text-end border border-dark d-none d-lg-block"></div>
       </div>
       <ng-container *ngFor="let armor of columnTwo;let i = index" [ngTemplateOutlet]="clothingDataRow" [ngTemplateOutletContext]="{armor:armor, index:i + columnOne.length}"></ng-container>
     </div>
@@ -120,21 +120,21 @@
 <ng-template #clothingDataRow let-armor="armor" let-index="index">
   <div class="row small">
     <div class="col text-truncate border border-dark">
-      <input type="checkbox" class="mr-2" [checked]="armor.isActive"
+      <input type="checkbox" class="me-2" [checked]="armor.isActive"
       title="Activate/wear this piece of clothing" (change)="activePiece($event,index)"
       [disabled]="!armorBlock.ableToActivate(armor) && !armor.isActive">
       <span class="csd-btn" (click)="selectIndex(index, armorDetailModal)">{{armor.name}}</span>
-      <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn float-right" (click)="deleteArmor(index)"></fa-icon>
+      <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn float-end" (click)="deleteArmor(index)"></fa-icon>
     </div>
     <div class="col-1 text-center border border-dark">{{armor.baseSP}}</div>
-    <div class="col-2 text-right border border-dark">{{armor.cost | number}}eb</div>
+    <div class="col-2 text-end border border-dark">{{armor.cost | number}}eb</div>
   </div>
 </ng-template>
 
 <ng-template #settingsModal>
   <div class="modal-header">
     <h4>ARMOR SECTION SETTINGS</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
 
     </button>
   </div>
@@ -147,9 +147,9 @@
 <ng-template #armorDetailModal>
   <div class="modal-header">
     <h4>ARMOR/CLOTHING DETAILS</h4>
-    <fa-icon [icon]="faSave" class="csd-btn csd-icon-btn csd-icon-xl ml-4" title="Save to list..."
+    <fa-icon [icon]="faSave" class="csd-btn csd-icon-btn csd-icon-xl ms-4" title="Save to list..."
       (click)="saveArmor()"></fa-icon>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="closeArmorDetailModal()">
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeArmorDetailModal()">
 
     </button>
   </div>
@@ -161,7 +161,7 @@
 
 <ng-template #numberOfArmorToRoll>
   <div class="modal-body">
-    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+    <button type="button" class="btn-close close float-end" aria-label="Close" (click)="modalRef?.hide()">
       <span aria-hidden="true" class="visually-hidden">&times;</span>
     </button>
     <div class="text-center">
@@ -169,7 +169,7 @@
     </div>
     <div class="text-center">
       <input type="number" min="1" class="csd-number" [(ngModel)]="numberOfPieces">
-      <fa-icon [icon]="faDice" title="Roll Random Armor" class="csd-btn csd-icon-btn csd-icon-xl ml-2"
+      <fa-icon [icon]="faDice" title="Roll Random Armor" class="csd-btn csd-icon-btn csd-icon-xl ms-2"
         (click)="generate()"></fa-icon>
     </div>
   </div>

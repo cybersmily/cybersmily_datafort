@@ -2,7 +2,7 @@
   <h2>Gangs</h2>
   <div class="row">
     <div
-      class="col-6 col-md-4 col-lg-3 col-xl-2 csd-rounded mr-2 gang-card text-center"
+      class="col-6 col-md-4 col-lg-3 col-xl-2 csd-rounded me-2 gang-card text-center"
       *ngFor="let gang of gangs"
       (click)="openModal(selectedGang, gang.file)"
     >
@@ -23,7 +23,7 @@
     <h3 id="armor-modal-name" class="modal-title">{{ gang.name }}</h3>
     <button
       type="button"
-      class="close pull-right"
+      class="close float-end"
       aria-label="Close"
       (click)="closeModal()"
     >
