@@ -1,5 +1,5 @@
 
-<fa-icon [icon]="faFilePdf" class="float-right csd-icon-xl csd-icon-btn csd-btn" (click)="saveToPDF()"></fa-icon>
+<fa-icon [icon]="faFilePdf" class="float-end csd-icon-xl csd-icon-btn csd-btn" (click)="saveToPDF()"></fa-icon>
 <div>
   <h4>DRUG LIST &nbsp;
   <fa-icon [icon]="faUndo" class="csd-btn csd-icon-btn" title="Empty list and starting adding new drugs" (click)="reset()" ></fa-icon>
@@ -12,7 +12,7 @@
       <accordion-group *ngFor="let item of drugList.items; let i = index" class="col-12" >
         <div accordion-heading>
           {{item.name}}
-          <fa-icon [icon]="faTrash" class="float-right delete-item csd-icon-btn"  title="Delete" (click)="delete(i)"></fa-icon>
+          <fa-icon [icon]="faTrash" class="float-end delete-item csd-icon-btn"  title="Delete" (click)="delete(i)"></fa-icon>
         </div>
         <div class="row">
           <div class="col">Type: {{item.effectList}}</div>

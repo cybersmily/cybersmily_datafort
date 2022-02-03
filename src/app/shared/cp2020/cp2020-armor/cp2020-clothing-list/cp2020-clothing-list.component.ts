@@ -61,6 +61,7 @@ export class Cp2020ClothingListComponent implements OnInit {
 
   clearArmorList() {
     this.armorListService.refresh();
+    this.currList = new Array<Cp2020ArmorPiece>();
   }
 
   showModal(template: TemplateRef<any>) {

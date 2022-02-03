@@ -75,7 +75,7 @@
 </div>
 <div class="row">
   <div class="col-4">
-    <span class="chargen-damaged mr-3">Is Stunned: <input type="checkbox" [(ngModel)]="isStunned"></span>
+    <span class="chargen-damaged me-3">Is Stunned: <input type="checkbox" [(ngModel)]="isStunned"></span>
     <span *ngIf="isDying" class="small chargen-damaged">DEATH STATE: <input type="number" [(ngModel)]="deathState"
         min="0" max="10" class="chargen-death-state"></span>
   </div>
@@ -88,8 +88,8 @@
 </div>
 <ng-template #chargenStunSaveRoll>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">STUN SAVE ROLL</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <h4 class="modal-title float-start">STUN SAVE ROLL</h4>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
 
     </button>
   </div>
@@ -102,8 +102,8 @@
 </ng-template>
 <ng-template #chargenDeathSaveRoll>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">DEATH SAVE ROLL</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <h4 class="modal-title float-start">DEATH SAVE ROLL</h4>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
 
     </button>
   </div>

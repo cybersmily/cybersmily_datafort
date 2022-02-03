@@ -34,6 +34,7 @@ export class ArmorListService {
   }
 
   refresh() {
-    this._armorList.next(new Array<Cp2020ArmorPiece>());
+    this._currArmorList = new Array<Cp2020ArmorPiece>();
+    this._armorList.next(this._currArmorList);
   }
 }

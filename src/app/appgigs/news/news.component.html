@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <button (click)="isOpen = !isOpen" class="btn btn-dark csd-rounded mr-4">{{isOpen? 'Collapse': 'Expand'}}</button>
+      <button (click)="isOpen = !isOpen" class="btn btn-dark csd-rounded me-4">{{isOpen? 'Collapse': 'Expand'}}</button>
       Filter on Reporter:
       <select [(ngModel)]="selectedReporter">
         <option value=""></option>
@@ -19,7 +19,7 @@
         <fa-icon [icon]="accordion.groups[i].isOpen?faAngleDoubleDown:faAngleDoubleRight" size="2x"></fa-icon>
       </div>
       <div class="csd-box csd-rounded mb-1" *ngFor="let comment of getFilteredReports(report.reports);let in = index" style="position:relative">
-        <div [ngClass]="{'float-left': in%2 === 0, 'float-right': in%2 === 1,'pr-4': in%2 === 0, 'pl-4': in%2 === 1, 'text-center': true}">
+        <div [ngClass]="{'float-start': in%2 === 0, 'float-end': in%2 === 1,'pe-4': in%2 === 0, 'ps-4': in%2 === 1, 'text-center': true}">
           <img src="/img/peeps/th/th_{{comment.img}}.png" alt="{{comment.reporter}}" class="rounded-circle" />
           <h5>{{comment.reporter}}</h5>
         </div>

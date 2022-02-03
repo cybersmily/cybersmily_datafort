@@ -12,7 +12,7 @@
   </div>
   <div class="row">
     <div class="col pt-3">
-      <h5 class="d-inline mr-3">Select Source:</h5>
+      <h5 class="d-inline me-3">Select Source:</h5>
       <span>
         <select [(ngModel)]="selectedSource" style="width:250px;" >
           <option *ngFor="let source of sourceList" [ngValue]="source.value">{{source.title}}</option>
@@ -20,7 +20,7 @@
       </span>
      </div>
      <div class="col">
-      <fa-icon [icon]="faFile" title="Save as Text File" class="float-right csd-btn btn csd-icon-xl csd-icon-btn"
+      <fa-icon [icon]="faFile" title="Save as Text File" class="float-end csd-btn btn csd-icon-xl csd-icon-btn"
       (click)="saveFile()"></fa-icon>
     </div>
   </div>

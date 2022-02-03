@@ -8,7 +8,7 @@
         <option *ngIf="!selectedType" [ngValue]="null" class="font-italic">Choose Vehicle Type</option>
         <option *ngFor="let vehType of vehicleTypes" [ngValue]="vehType">{{vehType.name}}</option>
       </select>
-      <input type="button" title="Save" class="pull-right btn-secondary csd-rounded csd-fash-btn" value="Save"
+      <input type="button" title="Save" class="float-end btn-secondary csd-rounded csd-fash-btn" value="Save"
         (click)="saveList()" [disabled]="disableInput" />
     </div>
     <div title="{{vehicle.costTally}}">Total Cost : {{vehicle.cost | number}} eb. [{{vehicle.type.sdp.eb | number}} eb/SDP]</div>
@@ -144,8 +144,8 @@
 
 <ng-template #maxMetalMessageModal >
   <div class="modal-header">
-    <h4 class="modal-title pull-left">MAXIMUM METAL</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="closeModal()">
+    <h4 class="modal-title float-start">MAXIMUM METAL</h4>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()">
 
     </button>
   </div>

@@ -13,11 +13,11 @@
         <div class="col">
           <h4 class="d-inline-block">Design Clothing</h4>
           <fa-icon [icon]="faPlus"
-            class="csd-btn csd-icon-btn csd-icon-xl ml-2 float-right"
+            class="csd-btn csd-icon-btn csd-icon-xl ms-2 float-end"
             title="Add to the list..."
             (click)="addArmor()"></fa-icon>
           <fa-icon [icon]="faCog"
-            class="csd-btn csd-icon-btn csd-icon-xl ml-2 float-right"
+            class="csd-btn csd-icon-btn csd-icon-xl ms-2 float-end"
             title="Change random parameter settings for create a piece of armor"
             (click)="showModal(settingsModal)"></fa-icon>
         </div>
@@ -33,7 +33,7 @@
 <ng-template #settingsModal>
   <div class="modal-header">
     <h4>RANDOM GENERATOR SETTINGS</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
 
     </button>
   </div>

@@ -49,7 +49,7 @@
         <div class="col-1"></div>
         <div class="col-8">
           {{prog.name}}
-          <fa-icon [icon]="faTrash" class="csd-icon-btn ml-3 csd-btn" title="Remove program" (click)="removeProgram(i)"></fa-icon>
+          <fa-icon [icon]="faTrash" class="csd-icon-btn ms-3 csd-btn" title="Remove program" (click)="removeProgram(i)"></fa-icon>
 
         </div>
         <div class="col">{{prog.cost}}eb<span *ngIf="selectedNode.programs.length > 1"> x {{selectedNode.programs.length}}</span> </div>

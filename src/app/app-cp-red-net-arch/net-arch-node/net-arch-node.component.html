@@ -4,7 +4,7 @@
       <div class="col">
         <div class="row">
           <div class="col-8">
-            <span class="me-2 font-weight-bold">{{node.id}}:</span>
+            <span class="me-2 fw-bold">{{node.id}}:</span>
             <div class="node-icon me-2" [style.background-color]="bgColor" [style.color]="color">
               <fa-icon [icon]="getIcon(node.type)" class="me-1"></fa-icon>
             </div>
@@ -34,7 +34,7 @@
           </div>
           <div class="col-4 font-italic">
             ({{prog.cost}}eb <span *ngIf="node.programs.length > 1">x{{node.programs.length}}</span>)
-            <span class="float-right">{{prog.source}}</span>
+            <span class="float-end">{{prog.source}}</span>
           </div>
         </div>
         <br>
@@ -48,7 +48,7 @@
 <ng-template #nodeSettings>
   <div class="modal-header">
     <h4> FLOOR {{node.level}}.{{node.id}} SETTINGS</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
 
     </button>
   </div>

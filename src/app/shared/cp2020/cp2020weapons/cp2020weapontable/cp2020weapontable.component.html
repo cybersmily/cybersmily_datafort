@@ -1,10 +1,10 @@
-<div class="chargen-section pl-3 pr-3">
+<div class="chargen-section ps-3 pe-3">
   <ng-container *ngIf="showIU">
     <div class="mb-2">
     <div class="cp2020-label row">
-      <div class="col pl-1">
-        <h4 class="d-inline-block csd-btn mr-4 ml-0 pl-0" (click)="isIUCollapsed = !isIUCollapsed">IU COMBAT ACTIONS
-          <fa-icon [icon]="collapseChevron(isIUCollapsed)" class="csd-icon-btn csd-icon-xl ml-1"></fa-icon>
+      <div class="col ps-1">
+        <h4 class="d-inline-block csd-btn me-4 ms-0 ps-0" (click)="isIUCollapsed = !isIUCollapsed">IU COMBAT ACTIONS
+          <fa-icon [icon]="collapseChevron(isIUCollapsed)" class="csd-icon-btn csd-icon-xl ms-1"></fa-icon>
         </h4>
       </div>
     </div>
@@ -16,18 +16,18 @@
   </div>
   </ng-container>
   <div class="chargen-label row">
-    <div class="col pl-1">
-      <h4 class="d-inline-block csd-btn mr-4" (click)="isWeaponsCollapsed = !isWeaponsCollapsed">
+    <div class="col ps-1">
+      <h4 class="d-inline-block csd-btn me-4" (click)="isWeaponsCollapsed = !isWeaponsCollapsed">
         WEAPONS
-        <fa-icon [icon]="collapseChevron(isWeaponsCollapsed)" class="csd-icon-btn csd-icon-xl ml-1"></fa-icon>
+        <fa-icon [icon]="collapseChevron(isWeaponsCollapsed)" class="csd-icon-btn csd-icon-xl ms-1"></fa-icon>
       </h4>
       <ng-container *ngIf="!isWeaponsCollapsed">
-        <fa-icon [ngClass]="{'csd-dice': true, 'ml-2': true, 'd-none': !showRandomGenerator}" [icon]="faDice"
+        <fa-icon [ngClass]="{'csd-dice': true, 'ms-2': true, 'd-none': !showRandomGenerator}" [icon]="faDice"
           (click)="randomGenerateWeapon()" title="Add random weapon"></fa-icon>
-        <fa-icon [ngClass]="{'csd-dice': true, 'ml-2': true, 'd-none': !showRandomGenerator}" [icon]="faCog"
+        <fa-icon [ngClass]="{'csd-dice': true, 'ms-2': true, 'd-none': !showRandomGenerator}" [icon]="faCog"
           title="Set settings" (click)="openModal(wpnSettings)"></fa-icon>
         <fa-icon [icon]="faCrosshairs" title="Show Combat Calculator"
-          [ngClass]="{'csd-btn': true, 'csd-icon-btn': true,  'ml-2': true,'d-none': !showCalculator}"
+          [ngClass]="{'csd-btn': true, 'csd-icon-btn': true,  'ms-2': true,'d-none': !showCalculator}"
           (click)="openModal(combatCalcModal)">
         </fa-icon>
       </ng-container>
@@ -35,7 +35,7 @@
   </div>
   <div [collapse]="isWeaponsCollapsed">
     <div class="row border border-dark">
-      <div class="col-3 col-lg-2 pl-1">Name</div>
+      <div class="col-3 col-lg-2 ps-1">Name</div>
       <div class="col-1 wpn-narrow text-center">Type</div>
       <div class="col-1 wpn-narrow text-center">WA</div>
       <div class="col-1 wpn-narrow text-center">Conc.</div>
@@ -62,7 +62,7 @@
 
 <ng-template #newWeaponModal>
   <div class="modal-body">
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="closeModal()">
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()">
 
     </button>
     <tabset>
@@ -79,8 +79,8 @@
 
 <ng-template #combatCalcModal>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">Combat Calculator</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="closeModal()">
+    <h4 class="modal-title float-start">Combat Calculator</h4>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()">
 
     </button>
   </div>
@@ -93,8 +93,8 @@
 
 <ng-template #wpnSettings>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">Settings</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="closeModal()">
+    <h4 class="modal-title float-start">Settings</h4>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()">
 
     </button>
   </div>

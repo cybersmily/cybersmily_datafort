@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-12">
-    <fa-icon [icon]="faFile" class="csd-btn csd-icon-xl csd-icon-btn float-right hidden-print" title="Save the Big League contacts as a text file" (click)="save()"></fa-icon>
+    <fa-icon [icon]="faFile" class="csd-btn csd-icon-xl csd-icon-btn float-end hidden-print" title="Save the Big League contacts as a text file" (click)="save()"></fa-icon>
     <h4 class="d-inline">Big League</h4>
-    <fa-icon [icon]="faRedo" class="csd-btn csd-icon-xl csd-icon-btn ml-2 hidden-print" title="Reset Streetdeal and clear all contacts" (click)="reset()"></fa-icon>
+    <fa-icon [icon]="faRedo" class="csd-btn csd-icon-xl csd-icon-btn ms-2 hidden-print" title="Reset Streetdeal and clear all contacts" (click)="reset()"></fa-icon>
     <div class="hidden-print">This system has a set amount of points that can be distributed amongst contacts.</div>
   </div>
 </div>
@@ -14,7 +14,7 @@
   </div>
   <div class="col-6">
     Contact Points Used: {{spentPoints}}/{{totalPoints}}
-    <fa-icon *ngIf="canGenerateContacts" [icon]="faDice" class="csd-btn csd-icon-btn csd-icon-xl float-right" title="Generate list of contacts" (click)="generateContacts()"></fa-icon>
+    <fa-icon *ngIf="canGenerateContacts" [icon]="faDice" class="csd-btn csd-icon-btn csd-icon-xl float-end" title="Generate list of contacts" (click)="generateContacts()"></fa-icon>
 
   </div>
 </div>

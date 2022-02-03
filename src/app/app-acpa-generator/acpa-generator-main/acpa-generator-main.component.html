@@ -13,13 +13,13 @@
 
   <div class="row hidden-print">
     <div class="col-12">
-      <fa-icon [icon]="faFilePdf" class="float-right csd-btn csd-icon-btn csd-icon-xl mr-2" (click)="savePDFFile()"
+      <fa-icon [icon]="faFilePdf" class="float-end csd-btn csd-icon-btn csd-icon-xl me-2" (click)="savePDFFile()"
       title="Export as a PDF file"></fa-icon>
-    <fa-icon [icon]="faSave" title="Save ACPA to a file for later upload" class="csd-btn csd-icon-btn csd-icon-xl float-right mr-2"
+    <fa-icon [icon]="faSave" title="Save ACPA to a file for later upload" class="csd-btn csd-icon-btn csd-icon-xl float-end me-2"
       (click)="saveJSONFile()"></fa-icon>
       <input type="file" id="loadFile" title="load a ACPA .json file" name="Load" Style="display: none"
           (change)="loadJSONFile($event)" #inputFile (click)="inputFile.value = null" accept="text/plain;text/json" />
-        <label for="loadFile" class="csd-btn csd-icon-btn csd-icon-xl float-right mr-2">
+        <label for="loadFile" class="csd-btn csd-icon-btn csd-icon-xl float-end me-2">
           <fa-icon [icon]="faUpload" title="load a ACPA .json file"></fa-icon>
         </label>
     </div>

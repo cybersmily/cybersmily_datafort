@@ -7,16 +7,20 @@
   <div class="row">
     <div class="col">
       This application is for Cyberpunk 2020 to help manage a Netrunner's deck and the programs they use.
-      This relies upon the source book <a href="https://talsorianstore.com/collections/cyberpunk/products/bartmoss-brainware-blowout" title="Bartmoss' Brainware Blowout">Bartmoss' Brainware Blowout</a>.
-      Some of the selections are not automatically calculated into some aspects. Such as programs increase deck speed will not update the deck itself. So keep this in mind.
+      This relies upon the source book <a
+        href="https://talsorianstore.com/collections/cyberpunk/products/bartmoss-brainware-blowout"
+        title="Bartmoss' Brainware Blowout">Bartmoss' Brainware Blowout</a>.
+      Some of the selections are not automatically calculated into some aspects. Such as programs increase deck speed
+      will not update the deck itself. So keep this in mind.
 
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <h4 (click)="showInstructions = !showInstructions" [attr.aria-expanded]="!showInstructions" aria-controls="collapseBasic">
-        <fa-icon [icon]="(showInstructions)?faAngleDoubleDown:faAngleDoubleRight" class="csd-dice csd-icon-btn csd-icon-xl"
-          title="Collapse instructions section"></fa-icon>
+      <h4 (click)="showInstructions = !showInstructions" [attr.aria-expanded]="!showInstructions"
+        aria-controls="collapseBasic">
+        <fa-icon [icon]="(showInstructions)?faAngleDoubleDown:faAngleDoubleRight"
+          class="csd-dice csd-icon-btn csd-icon-xl" title="Collapse instructions section"></fa-icon>
         Instructions&nbsp;
       </h4>
     </div>
@@ -27,32 +31,54 @@
         <div class="col">
           <h6>Deck Manager</h6>
           <div>There are 4 options you can do with the manager:</div>
-          <div><fa-icon [icon]="faUndo" class="csd-icon-btn"></fa-icon> (Clear) - This button will remove all the data in the cyberdeck and the program list. Be careful with this button ;-)</div>
-          <div><fa-icon [icon]="faUpload" class="csd-icon-btn"></fa-icon> (Upload) - This button will allow you to select the saved deck manager json file to upload to this app.</div>
-          <div><fa-icon [icon]="faSave" class="csd-icon-btn"></fa-icon> (Save) - This button will save all deck manager data to a json file.</div>
-          <div><fa-icon [icon]="faFilePdf" class="csd-icon-btn"></fa-icon> (PDF) - This button generates the deck manager to a PDF file listing the deck and the program list.</div>
+          <div>
+            <fa-icon [icon]="faUndo" class="csd-icon-btn"></fa-icon> (Clear) - This button will remove all the data in
+            the cyberdeck and the program list. Be careful with this button ;-)
+          </div>
+          <div>
+            <fa-icon [icon]="faUpload" class="csd-icon-btn"></fa-icon> (Upload) - This button will allow you to select
+            the saved deck manager json file to upload to this app.
+          </div>
+          <div>
+            <fa-icon [icon]="faSave" class="csd-icon-btn"></fa-icon> (Save) - This button will save all deck manager
+            data to a json file.
+          </div>
+          <div>
+            <fa-icon [icon]="faFilePdf" class="csd-icon-btn"></fa-icon> (PDF) - This button generates the deck manager
+            to a PDF file listing the deck and the program list.
+          </div>
         </div>
       </div>
       <br>
       <div class="row">
         <div class="col">
           <h6>Cyberdeck Section</h6>
-          <div>This section is self explanatory. To add/remove options click on <fa-icon [icon]="faPlus" class="csd-icon-btn"></fa-icon> to manage them.</div>
+          <div>This section is self explanatory. To add/remove options click on <fa-icon [icon]="faPlus"
+              class="csd-icon-btn"></fa-icon> to manage them.</div>
           <div>MU is calculated as per source books. The check box is to add 10 more MU to stock.
-            You will note that some printed deck has 15 or 25 MU. To acheive this, choose the Zetatech Memchip from options.</div>
-          <div>Price is calculated automatically. Some printed deck will be different. That is most likely due to addtional details or reduce price due to large surplus.</div>
+            You will note that some printed deck has 15 or 25 MU. To acheive this, choose the Zetatech Memchip from
+            options.</div>
+          <div>Price is calculated automatically. Some printed deck will be different. That is most likely due to
+            addtional details or reduce price due to large surplus.</div>
         </div>
       </div>
       <br>
       <div class="row">
         <div class="col">
           <h6>Program List Section</h6>
-          <div>The number next to the header are the total MU of programs loaded (checked) compared to the deck MU storage. The eb value is the total cost of all the programs from the list.</div>
-          <div>The program list is sorted by class and then name. The Loaded check box is to mark if the program is loaded into the deck. STR and MU are listed as well.</div>
-          <div>Hovering over the class name will show you the description of the class. Hovering over the name of the program will display its description. Click on the name will open the program to be modified.</div>
-          <div><fa-icon [icon]="faTrash" class="csd-icon-btn"></fa-icon> will delete the program form the list.</div>
-          <div>At the bottom of the list, the <fa-icon [icon]="faPlus" class="csd-icon-btn"></fa-icon> will pop up a blank program dialog to add more programs to the list.</div>
-          <div>Program Pop - This is where you would enter or modify a program. You must click on the <fa-icon [icon]="faSave" class="csd-icon-btn"></fa-icon> button to save the changes to the program list.</div>
+          <div>The number next to the header are the total MU of programs loaded (checked) compared to the deck MU
+            storage. The eb value is the total cost of all the programs from the list.</div>
+          <div>The program list is sorted by class and then name. The Loaded check box is to mark if the program is
+            loaded into the deck. STR and MU are listed as well.</div>
+          <div>Hovering over the class name will show you the description of the class. Hovering over the name of the
+            program will display its description. Click on the name will open the program to be modified.</div>
+          <div>
+            <fa-icon [icon]="faTrash" class="csd-icon-btn"></fa-icon> will delete the program form the list.
+          </div>
+          <div>At the bottom of the list, the <fa-icon [icon]="faPlus" class="csd-icon-btn"></fa-icon> will pop up a
+            blank program dialog to add more programs to the list.</div>
+          <div>Program Pop - This is where you would enter or modify a program. You must click on the <fa-icon
+              [icon]="faSave" class="csd-icon-btn"></fa-icon> button to save the changes to the program list.</div>
         </div>
       </div>
       <br>
@@ -61,32 +87,48 @@
   </div>
   <div class="row csd-rounded">
     <div class="col">
-<div class="row">
-  <div class="col">
-    <h4>Deck Manager
-    <span class="float-right"><fa-icon [icon]="faFilePdf" class="csd-btn csd-icon-btn csd-icon-xl" (click)="pdf()" title="Save Deck Manager as PDF"></fa-icon></span>
-    <span class="float-right"><fa-icon [icon]="faSave" class="csd-btn csd-icon-btn csd-icon-xl" (click)="save()" title="Save Deck Manager as json file to upload later."></fa-icon></span>
-    <span class="float-right">
-      <input type="file" id="loadFile" title="load a program list .json file" name="file" Style="display: none"
-        (change)="upload($event)" #inputFile (click)="inputFile.value = null" accept="text/json" />
-        <label for="loadFile"><fa-icon [icon]="faUpload" class="csd-btn csd-icon-btn csd-icon-xl" title="Upload Deck Manager json file to edit."></fa-icon></label>
-    </span>
-    <span class="float-right"><fa-icon [icon]="faUndo" class="csd-btn csd-icon-btn csd-icon-xl" (click)="reset()" title="Reset the Deck Manager and clear all items"></fa-icon></span>
-  </h4>
-  </div>
-</div>
-  <div class="row">
-    <div class="col-12 col-lg-6 csd-rounded">
-      <cs-cp2020-cyberdeck-form [deck]="deckManagerModel.deck" (update)="updateDeck($event)"></cs-cp2020-cyberdeck-form>
+      <div class="row">
+        <div class="col">
+          <h4>Deck Manager
+            <span class="float-end">
+              <fa-icon [icon]="faFilePdf" class="csd-btn csd-icon-btn csd-icon-xl" (click)="pdf()"
+                title="Save Deck Manager as PDF"></fa-icon>
+            </span>
+            <span class="float-end">
+              <fa-icon [icon]="faSave" class="csd-btn csd-icon-btn csd-icon-xl" (click)="save()"
+                title="Save Deck Manager as json file to upload later."></fa-icon>
+            </span>
+            <span class="float-end">
+              <input type="file" id="loadFile" title="load a program list .json file" name="file" Style="display: none"
+                (change)="upload($event)" #inputFile (click)="inputFile.value = null" accept="text/json" />
+              <label for="loadFile">
+                <fa-icon [icon]="faUpload" class="csd-btn csd-icon-btn csd-icon-xl"
+                  title="Upload Deck Manager json file to edit."></fa-icon>
+              </label>
+            </span>
+            <span class="float-end">
+              <fa-icon [icon]="faUndo" class="csd-btn csd-icon-btn csd-icon-xl" (click)="reset()"
+                title="Reset the Deck Manager and clear all items"></fa-icon>
+            </span>
+          </h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          <div class="csd-rounded">
+            <cs-cp2020-cyberdeck-form [deck]="deckManagerModel.deck" (update)="updateDeck($event)">
+            </cs-cp2020-cyberdeck-form>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="csd-rounded">
+            <cs-program-list [programList]="deckManagerModel.programList" [maxMu]="deckManagerModel.deck.mu"
+              (updateList)="uploadList($event)">
+            </cs-program-list>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-12 col-lg-6 csd-rounded">
-      <cs-program-list [programList]="deckManagerModel.programList"
-        [maxMu]="deckManagerModel.deck.mu"
-        (updateList)="uploadList($event)">
-      </cs-program-list>
-    </div>
-  </div>
-  </div>
   </div>
 
 </div>

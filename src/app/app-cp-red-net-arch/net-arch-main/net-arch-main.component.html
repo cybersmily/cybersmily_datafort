@@ -85,7 +85,7 @@
                   <div *ngFor="let arr of archArray;let i = index" class="row">
                     <div class="col">
                       <div *ngIf="arr && arr.length > 0" class="row">
-                        <div class="col font-weight-bold">
+                        <div class="col fw-bold">
                           LEVEL {{i + 1}}:
                         </div>
                       </div>
@@ -107,7 +107,7 @@
 <ng-template #instructions>
   <div class="modal-header">
     <h4>NET ARCHITECT GENERATOR INSTRUCTIONS</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
 
     </button>
   </div>
@@ -119,7 +119,7 @@
 <ng-template #archSettingsEditor>
   <div class="modal-header">
     <h4>NET ARCHITECT GENERATOR SETTINGS</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
 
     </button>
   </div>

@@ -6,21 +6,21 @@
     <div class="col-12">
       <hr color="#999999" style="width:100%;">
       <p>
-        <fa-icon [icon]="faQuestionCircle" title="Instructions" class="csd-chargen-btn csd-btn mr-2"
+        <fa-icon [icon]="faQuestionCircle" title="Instructions" class="csd-chargen-btn csd-btn me-2"
           (click)="openModal(instructions)"></fa-icon>
-        <fa-icon [icon]="faUndo" title="Reset the sheet to a blank character" class="csd-chargen-btn csd-btn ml-2"
+        <fa-icon [icon]="faUndo" title="Reset the sheet to a blank character" class="csd-chargen-btn csd-btn ms-2"
           (click)="resetCharacter()"></fa-icon>
-        <fa-icon [icon]="faCog" class="csd-chargen-btn float-right csd-btn mr-2" title="Show form settings" (click)="openModal(charFormSettings)"></fa-icon>
-        <fa-icon [icon]="faFilePdf" class="csd-chargen-btn float-right csd-btn mr-2" (click)="createPDF()"
+        <fa-icon [icon]="faCog" class="csd-chargen-btn float-end csd-btn me-2" title="Show form settings" (click)="openModal(charFormSettings)"></fa-icon>
+        <fa-icon [icon]="faFilePdf" class="csd-chargen-btn float-end csd-btn me-2" (click)="createPDF()"
           title="Export as a PDF file"></fa-icon>
 
         <input type="file" id="loadFile" title="load a character .txt file" name="Load" Style="display: none"
           (change)="loadCharacter($event)" #inputFile (click)="inputFile.value = null" accept="text/plain;text/json" />
-        <label for="loadFile" class="csd-btn float-right mr-2">
+        <label for="loadFile" class="csd-btn float-end me-2">
           <fa-icon [icon]="faUpload" title="load a character .txt file"></fa-icon>
         </label>
 
-        <fa-icon [icon]="faSave" title="Save the character to a file" class="csd-chargen-btn csd-btn float-right mr-2"
+        <fa-icon [icon]="faSave" title="Save the character to a file" class="csd-chargen-btn csd-btn float-end me-2"
           (click)="saveCharacter()"></fa-icon>
       </p>
       <hr color="#999999" style="width:100%;">
@@ -113,9 +113,9 @@
         </div>
       </div>
       <div class="chargen-label chargen-fill chargen-page-header csd-linebreak">
-        <h4 class="d-inline-block csd-btn mr-4" (click)="isNotesCollapsed = !isNotesCollapsed">
+        <h4 class="d-inline-block csd-btn me-4" (click)="isNotesCollapsed = !isNotesCollapsed">
           NOTES
-          <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ml-2"></fa-icon>
+          <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ms-2"></fa-icon>
         </h4>
       </div>
       <textarea [collapse]="isNotesCollapsed" [(ngModel)]="character.notes" class="chargen-notes"></textarea>
@@ -126,7 +126,7 @@
 <ng-template #instructions>
   <div class="modal-header">
     <h4>CHARACTER GENERATOR CP2020 INSTRUCTIONS</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
 
     </button>
   </div>
@@ -138,7 +138,7 @@
 <ng-template #charFormSettings>
   <div class="modal-header">
     <h4>CHARACTER GENERATOR CP2020 SETTINGS</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
 
     </button>
   </div>

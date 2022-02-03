@@ -55,9 +55,9 @@
 <ng-template #lifepathSettings>
   <div class="modal-content">
     <div class="modal-header">
-      <h4 class="modal-title pull-left">Lifepath Random Settings</h4>
+      <h4 class="modal-title float-start">Lifepath Random Settings</h4>
       <fa-icon [icon]="faRedo" class="ms-2 csd-btn csd-icon-btn csd-icon-xl" (click)="resetSettings()"></fa-icon>
-      <button type="button" class="btn-close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
 
       </button>
     </div>
@@ -75,7 +75,7 @@
       <div class="row">
         <div class="col">
           Number of Friends:
-          <select class="float-right" [(ngModel)]="lifepathService.settings.friendsDice" (change)="changeSettings()">
+          <select class="float-end" [(ngModel)]="lifepathService.settings.friendsDice" (change)="changeSettings()">
             <option value="1d10-7">1d10 - 7</option>
             <option value="1d10-6">1d10 - 6</option>
             <option value="1d6-3">1d6 - 3</option>
@@ -90,7 +90,7 @@
       <div class="row">
         <div class="col">
           Number of Enemies:
-          <select class="float-right" [(ngModel)]="lifepathService.settings.enemyDice" (change)="changeSettings()">
+          <select class="float-end" [(ngModel)]="lifepathService.settings.enemyDice" (change)="changeSettings()">
             <option value="1d10-7">1d10 - 7</option>
             <option value="1d10-6">1d10 - 6</option>
             <option value="1d6-3">1d6 - 3</option>
@@ -105,7 +105,7 @@
       <div class="row">
         <div class="col">
           Number of Romances:
-          <select class="float-right" [(ngModel)]="lifepathService.settings.loversDice" (change)="changeSettings()">
+          <select class="float-end" [(ngModel)]="lifepathService.settings.loversDice" (change)="changeSettings()">
             <option value="1d10-7">1d10 - 7</option>
             <option value="1d10-6">1d10 - 6</option>
             <option value="1d6-3">1d6 - 3</option>

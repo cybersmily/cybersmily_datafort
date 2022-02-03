@@ -1,13 +1,13 @@
 <div>
   <div class="row">
     <div class="col-12">
-      <fa-icon [icon]="faSave" class="float-left btn-lg csd-btn csd-icon-btn" (click)="save()"
+      <fa-icon [icon]="faSave" class="float-start btn-lg csd-btn csd-icon-btn" (click)="save()"
         title="Save to a json file. This is needed to reload the data."></fa-icon>
       &nbsp;
 
       <input type="file" id="loadFile" title="load a combat tracker json file" name="Load" Style="display: none"
         (change)="load($event)" #inputFile (click)="inputFile.value = null" accept="text/plain;text/json" />
-      <label for="loadFile" class="float-left btn-lg csd-btn mr-1">
+      <label for="loadFile" class="float-start btn-lg csd-btn me-1">
         <fa-icon [icon]="faUpload" title="load a combat tracker json file" class=" csd-icon-btn"></fa-icon>
       </label>
       &nbsp;
@@ -15,16 +15,16 @@
       <input type="file" id="importFile" title="Import a Cybersmily CP2020 JSON file as an opponent" name="Import"
         Style="display: none" (change)="import($event)" #inputFile (click)="inputFile.value = null"
         accept="text/plain;text/json" />
-      <label for="importFile" class="float-left btn-lg csd-btn mr-1">
+      <label for="importFile" class="float-start btn-lg csd-btn me-1">
         <fa-icon [icon]="faFileImport" title="Import a Cybersmily CP2020 JSON file as an opponent"
           class=" csd-icon-btn"></fa-icon>
       </label>
       &nbsp;
-      <fa-icon [icon]="faHelp" class="float-left btn-lg csd-btn csd-icon-btn" (click)="openModal(instructionModal)"
+      <fa-icon [icon]="faHelp" class="float-start btn-lg csd-btn csd-icon-btn" (click)="openModal(instructionModal)"
         title="Show instructions."></fa-icon>
       &nbsp;
 
-      <fa-icon [icon]="faRedo" class="float-right btn-lg csd-btn csd-icon-btn" (click)="openModal(resetModal)"
+      <fa-icon [icon]="faRedo" class="float-end btn-lg csd-btn csd-icon-btn" (click)="openModal(resetModal)"
         title="Reset tracker. Removing all the combatants."></fa-icon>
     </div>
   </div>
@@ -56,9 +56,9 @@
               <span class="cbtrck-opp-init-mods">[REF: {{opp.stats.REF.Adjusted}}]</span>
             </div>
             <div class="col-1">
-              <fa-icon [icon]="faCopy" class="pull-right csd-btn opp-delete csd-icon-btn" (click)="copyOpponent(i)"
+              <fa-icon [icon]="faCopy" class="float-end csd-btn opp-delete csd-icon-btn" (click)="copyOpponent(i)"
                 title="Copy opponent"></fa-icon>
-              <fa-icon [icon]="faTrash" class="pull-right csd-btn opp-delete csd-icon-btn" (click)="removeOpponent(i)"
+              <fa-icon [icon]="faTrash" class="float-end csd-btn opp-delete csd-icon-btn" (click)="removeOpponent(i)"
                 title="Delete opponent"></fa-icon>
             </div>
             <div class="col-12 opp-conditions">
@@ -85,7 +85,7 @@
 <ng-template #resetModal>
   <div class="modal-header">
     <h4>RESET COMBAT TRACKER</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
 
     </button>
   </div>
@@ -93,13 +93,13 @@
     Are you sure you want to clear all the data and reset the trackers?<br>
     <br><br>
     <span class="btn btn-secondary btn-sm csd-rounded" (click)="clear()">Wipe it all out</span>&nbsp;&nbsp;
-    <span class="btn btn-secondary btn-sm csd-rounded pull-right" (click)="modalRef.hide()">Cancel</span>
+    <span class="btn btn-secondary btn-sm csd-rounded float-end" (click)="modalRef.hide()">Cancel</span>
   </div>
 </ng-template>
 <ng-template #instructionModal>
   <div class="modal-header">
     <h4>COMBAT TRACKER INSTRUCTIONS</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
 
     </button>
   </div>

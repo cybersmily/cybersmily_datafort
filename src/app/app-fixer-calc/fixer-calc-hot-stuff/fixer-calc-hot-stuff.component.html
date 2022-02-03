@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-12">
-    <fa-icon [icon]="faFile" class="csd-btn csd-icon-xl csd-icon-btn float-right hidden-print"
+    <fa-icon [icon]="faFile" class="csd-btn csd-icon-xl csd-icon-btn float-end hidden-print"
       title="Save the list as a text file." (click)="save()"></fa-icon>
     <h4 class="d-inline">Hot Stuff</h4>
-    <fa-icon [icon]="faRedo" class="csd-btn csd-icon-xl csd-icon-btn ml-2 hidden-print"
+    <fa-icon [icon]="faRedo" class="csd-btn csd-icon-xl csd-icon-btn ms-2 hidden-print"
       title="Reset Streetdeal and clear all areas/fields." (click)="reset()"></fa-icon>
     <div class="hidden-print">This system has a set amount of points that can be distributed amongst contacts.</div>
   </div>
@@ -15,7 +15,7 @@
   </div>
   <div class="col-6">Network Points Used: {{spentPoints}}/{{totalPoints}}
   </div>
-  <div class="col-3 text-right">
+  <div class="col-3 text-end">
     <fa-icon *ngIf="canRoll" [icon]="faDice" class="csd-btn csd-icon-btn csd-icon-xl" title="Generate randomly" (click)="generate()"></fa-icon>
   </div>
 </div>
