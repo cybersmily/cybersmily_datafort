@@ -3,7 +3,7 @@
     Total Cost: {{totalCost | number}}eb ({{cash + credit - totalCost}}eb)
   </div>
   <div class="col">
-    <button class="btn btn-secondary btn-dark csd-btn float-right ml-2" [disabled]="!totalCost" (click)="pay()">Pay</button>
+    <button class="btn btn-secondary btn-dark csd-btn float-end ms-2" [disabled]="!totalCost" (click)="pay()">Pay</button>
   </div>
 </div>
 <hr>

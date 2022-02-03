@@ -13,11 +13,11 @@
 <div *ngFor="let cred of currCredchips;let i = index" class="row">
   <div class="col">
     <input type="text" placeholder="enter name..." title="Name of chip" [(ngModel)]="cred.name" (change)="update()" style="width:85%">
-    <fa-icon [icon]="faTrash" title="Delete Credchip" class="csd-btn csd-icon-btn float-right" (click)="delete(i)"></fa-icon>
+    <fa-icon [icon]="faTrash" title="Delete Credchip" class="csd-btn csd-icon-btn float-end" (click)="delete(i)"></fa-icon>
   </div>
   <div class="col text-center">
 
-    <input *ngIf="cred.writeable" type="number" min="0" placeholder="amount..." class="text-right" title="Amount on chip" [(ngModel)]="cred.amount" (change)="update()" style="width: 100%;min-width:80px;">
+    <input *ngIf="cred.writeable" type="number" min="0" placeholder="amount..." class="text-end" title="Amount on chip" [(ngModel)]="cred.amount" (change)="update()" style="width: 100%;min-width:80px;">
     <span *ngIf="!cred.writeable">{{cred.amount| number}}eb</span>
   </div>
   <div class="col text-center">

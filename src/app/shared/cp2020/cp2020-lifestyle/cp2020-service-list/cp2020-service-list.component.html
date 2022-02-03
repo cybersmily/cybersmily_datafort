@@ -4,9 +4,9 @@
       <div class="col">
         <h5 class="cp2020-label d-inline-block">Services</h5>
         </div>
-      <div class="col text-right">
+      <div class="col text-end">
         <span class="d-inline-block">Total: {{totalMonthlyCost|number}}eb/month</span>
-        <fa-icon [icon]="faEuroSign" class="csd-btn csd-icon-btn ml-2 csd-icon-xl" title="Pay" (click)="payServices()"></fa-icon>
+        <fa-icon [icon]="faEuroSign" class="csd-btn csd-icon-btn ms-2 csd-icon-xl" title="Pay" (click)="payServices()"></fa-icon>
       </div>
     </div>
     <div *ngFor="let service of currServices;let i = index" class="row">
@@ -14,12 +14,12 @@
         <select [(ngModel)]="service.name" (change)="changeName($event.target.value,i)">
           <option *ngFor="let s of servicesData" [ngValue]="s.name">{{s.name}}</option>
         </select>
-        <fa-icon *ngIf="service.options && service.options.length > 0" [icon]="faList" class="csd-btn csd-icon-btn ml-1" (click)="showModal(showOptions, i)" title="Options"></fa-icon>
-        <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn ml-2" (click)="delete(i)" title="Delete service"></fa-icon>
+        <fa-icon *ngIf="service.options && service.options.length > 0" [icon]="faList" class="csd-btn csd-icon-btn ms-1" (click)="showModal(showOptions, i)" title="Options"></fa-icon>
+        <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn ms-2" (click)="delete(i)" title="Delete service"></fa-icon>
       </div>
       <div class="col">
       </div>
-      <div class="col text-right">
+      <div class="col text-end">
         {{calculateMonthlyCost(service) | number}}eb
       </div>
     </div>
@@ -34,18 +34,18 @@
 
 <ng-template #showOptions>
   <div class="modal-header">
-    <h4 id="armor-modal-name" class="modal-title pull-left">Options</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="closeModal()">
+    <h4 id="armor-modal-name" class="modal-title float-start">Options</h4>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()">
 
     </button>
   </div>
   <div class="modal-body">
     <div *ngFor="let opt of selectedService.options; let i = index" class="row">
       <div class="col">
-        <input type="checkbox" class="mr-3" [checked]="getOptionValue(i)" (change)="checkOption(i)">
+        <input type="checkbox" class="me-3" [checked]="getOptionValue(i)" (change)="checkOption(i)">
         {{opt.name}}
       </div>
-      <div class="col text-right">
+      <div class="col text-end">
         {{opt.cost | number}}eb
       </div>
     </div>

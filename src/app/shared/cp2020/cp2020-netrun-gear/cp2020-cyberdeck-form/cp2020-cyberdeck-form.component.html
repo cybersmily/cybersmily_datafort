@@ -1,13 +1,13 @@
 <div>
   <h4>Cyberdeck
-    <span class="float-right">
+    <span class="float-end">
     </span>
   </h4>
   <div class="row">
     <div class="col">
       <input type="text" [(ngModel)]="deck.name" placeholder="Enter name of the deck..." title="Name of the cyberdeck"
         class="csd-deck-name">
-      <fa-icon [icon]="faSearch" class="csd-btn csd-icon-btn ml-2" title="Lookup source decks..."
+      <fa-icon [icon]="faSearch" class="csd-btn csd-icon-btn ms-2" title="Lookup source decks..."
         (click)="showModal(deckListModal)"></fa-icon>
     </div>
   </div>
@@ -52,7 +52,7 @@
   <div class="row">
     <div class="col-2"></div>
     <div class="col">
-      <div *ngFor="let opt of deck.options" tooltip="{{opt.description}}" class="pull-left d-inline">
+      <div *ngFor="let opt of deck.options" tooltip="{{opt.description}}" class="float-start d-inline">
         <span *ngIf="opt.count > 1">{{opt.count}}&nbsp;</span>
         {{opt.name}};&nbsp;
       </div>
@@ -68,8 +68,8 @@
 </div>
 <ng-template #deckOptions>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">Deck Options</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <h4 class="modal-title float-start">Deck Options</h4>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
 
     </button>
   </div>
@@ -87,8 +87,8 @@
 
 <ng-template #deckListModal>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">Cyberdecks from Cyberpunk 2020 Sources</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <h4 class="modal-title float-start">Cyberdecks from Cyberpunk 2020 Sources</h4>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
 
     </button>
   </div>

@@ -1,9 +1,9 @@
 <div class="border border-dark mt-2">
   <div class="cp2020-label row">
     <div class="col">
-      <h4 class="d-inline-block csd-btn mr-4" (click)="isCollapsed = !isCollapsed">
+      <h4 class="d-inline-block csd-btn me-4" (click)="isCollapsed = !isCollapsed">
         LIFEPATH
-        <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ml-2"></fa-icon>
+        <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ms-2"></fa-icon>
       </h4>
       <fa-icon *ngIf="!isCollapsed" [icon]="faDice" class="chargen-lifepath-dice hidden-print" (click)="roll()"
         title="Randomly generate lifepath">
@@ -32,33 +32,33 @@
             </div>
           </div>
           <div class="row">
-            <div class="col ml-2">
+            <div class="col ms-2">
               Clothes <input [(ngModel)]="newLifPath.appearance.clothes" (change)="onChangeLifePath()" type="text"
-                class="float-right" />
+                class="float-end" />
             </div>
           </div>
           <div class="row">
-            <div class="col ml-2">
+            <div class="col ms-2">
               Hair <input [(ngModel)]="newLifPath.appearance.hairstyle" (change)="onChangeLifePath()" type="text"
-                class="float-right" />
+                class="float-end" />
             </div>
           </div>
           <div class="row">
-            <div class="col ml-2">
+            <div class="col ms-2">
               Affectations <input [(ngModel)]="newLifPath.appearance.affectations" (change)="onChangeLifePath()"
-                type="text" class="float-right" />
+                type="text" class="float-end" />
             </div>
           </div>
           <div class="row">
-            <div class="col ml-2">
+            <div class="col ms-2">
               Ethnicity <input [(ngModel)]="newLifPath.ethnicity.name" (change)="onChangeLifePath()" type="text"
-                class="float-right" />
+                class="float-end" />
             </div>
           </div>
           <div class="row">
-            <div class="col ml-2">
+            <div class="col ms-2">
               Language <input [(ngModel)]="newLifPath.ethnicity.language" (change)="onChangeLifePath()" type="text"
-                class="float-right" />
+                class="float-end" />
             </div>
           </div>
         </div>
@@ -69,30 +69,30 @@
             </div>
           </div>
           <div class="row">
-            <div class="col ml-2">
+            <div class="col ms-2">
               Traits <input [(ngModel)]="newLifPath.motivations.personality"
-      (change)="onChangeLifePath()" type="text" class="float-right" />
+      (change)="onChangeLifePath()" type="text" class="float-end" />
             </div>
           </div>
           <div class="row">
-            <div class="col ml-2">
+            <div class="col ms-2">
               Valued Person <input [(ngModel)]="newLifPath.motivations.valuedperson"
-      (change)="onChangeLifePath()" type="text" class="float-right" />
+      (change)="onChangeLifePath()" type="text" class="float-end" />
             </div>
           </div>
           <div class="row">
-            <div class="col ml-2">Value Most <input [(ngModel)]="newLifPath.motivations.valuemost"
-              (change)="onChangeLifePath()" type="text" class="float-right" />
+            <div class="col ms-2">Value Most <input [(ngModel)]="newLifPath.motivations.valuemost"
+              (change)="onChangeLifePath()" type="text" class="float-end" />
             </div>
           </div>
           <div class="row">
-            <div class="col ml-2">Feel About People <input [(ngModel)]="newLifPath.motivations.feelaboutpeople"
-              (change)="onChangeLifePath()" type="text" class="float-right" />
+            <div class="col ms-2">Feel About People <input [(ngModel)]="newLifPath.motivations.feelaboutpeople"
+              (change)="onChangeLifePath()" type="text" class="float-end" />
             </div>
           </div>
           <div class="row">
-            <div class="col ml-2">Valued Possesion <input [(ngModel)]="newLifPath.motivations.valuedpossession"
-              (change)="onChangeLifePath()" type="text" class="float-right" />
+            <div class="col ms-2">Valued Possesion <input [(ngModel)]="newLifPath.motivations.valuedpossession"
+              (change)="onChangeLifePath()" type="text" class="float-end" />
             </div>
           </div>
         </div>
@@ -109,15 +109,15 @@
           <span class="chargen-label">#Siblings</span>
           <span class="chargen-sibling" *ngIf="brothers > 0">
             <span>{{brothers}}</span>
-            <fa-icon [icon]="faMars" style="font-size:20px;" class="ml-2"></fa-icon>
+            <fa-icon [icon]="faMars" style="font-size:20px;" class="ms-2"></fa-icon>
           </span>
           <span class="chargen-sibling" *ngIf="sisters > 0">
             <span>{{sisters}}</span>
-            <fa-icon [icon]="faVenus" style="font-size:20px;" class="ml-2"></fa-icon>
+            <fa-icon [icon]="faVenus" style="font-size:20px;" class="ms-2"></fa-icon>
           </span>
           <span class="chargen-sibling" *ngIf="sibs > 0">
             <span>{{sibs}}</span>
-            <fa-icon [icon]="faGenderless" style="font-size:20px;" class="ml-2"></fa-icon>
+            <fa-icon [icon]="faGenderless" style="font-size:20px;" class="ms-2"></fa-icon>
           </span>
           </div>
       </div>
@@ -145,7 +145,7 @@
             class="csd-number" />
           <fa-icon [icon]="faTrash" class="csd-icon-btn csd-btn" (click)="removeYear(i)"></fa-icon>
         </div>
-        <div class="col pl-0 pr-0">
+        <div class="col ps-0 pe-0">
           <textarea [(ngModel)]="event.event" class="chargen-life-event" rows="3" (change)="onChangeLifePath()"
             style="width:100%;"></textarea>
         </div>
@@ -163,7 +163,7 @@
   <div class="col-6 pt-1">
     <input type="text" [(ngModel)]="sib.name" (change)="onChangeLifePath()" style="width:90%;"
       placeholder="name of sibling">
-    <fa-icon [icon]="faTrash" class="csd-icon-btn csd-btn mr-1" (click)="removeSibling(i)"></fa-icon>
+    <fa-icon [icon]="faTrash" class="csd-icon-btn csd-btn me-1" (click)="removeSibling(i)"></fa-icon>
   </div>
   <div class="col-6 col-md-2 col-lg-1">
     <select [(ngModel)]="sib.gender" (change)="onChangeLifePath()">

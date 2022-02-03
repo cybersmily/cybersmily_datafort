@@ -1,16 +1,16 @@
 
 <div class="row">
   <div class="col-6">Total Funds: {{totalValue | number}}eb ({{this.currCredchips.length}})</div>
-  <div class="col-3 text-right">Amount Due: </div>
-  <div class="col-2 text-right">{{currAmountDue| number}}eb</div>
+  <div class="col-3 text-end">Amount Due: </div>
+  <div class="col-2 text-end">{{currAmountDue| number}}eb</div>
 </div>
 <div class="row">
-  <div class="col-9 text-right">Paying:</div>
-  <div class="col-2 text-right">{{totalPayment| number}}eb</div>
+  <div class="col-9 text-end">Paying:</div>
+  <div class="col-2 text-end">{{totalPayment| number}}eb</div>
 </div>
 <div class="row">
-  <div class="col-9 text-right">Balance: </div>
-  <div class="col-2 text-right">{{( currAmountDue - totalPayment)| number}}eb</div>
+  <div class="col-9 text-end">Balance: </div>
+  <div class="col-2 text-end">{{( currAmountDue - totalPayment)| number}}eb</div>
 </div>
 <hr>
 <div class="row">
@@ -31,7 +31,7 @@
   <div class="col text-center">
   </div>
   <div class="col">
-      <input type="number" min="0" [max]="cred.amount"placeholder="amount..." class="text-right" title="Amount to pay from this chip" style="width: 100%;min-width:80px;"  [(ngModel)]="payments[i]">
+      <input type="number" min="0" [max]="cred.amount"placeholder="amount..." class="text-end" title="Amount to pay from this chip" style="width: 100%;min-width:80px;"  [(ngModel)]="payments[i]">
   </div>
 </div>
 <div class="row">
@@ -44,13 +44,13 @@
   <div class="col text-center">
   </div>
   <div class="col">
-      <input type="number" min="0" [max]="currCash" placeholder="amount..." class="text-right" title="Amount to pay from this chip" style="width: 100%;min-width:80px;"  [(ngModel)]="cashPayment">
+      <input type="number" min="0" [max]="currCash" placeholder="amount..." class="text-end" title="Amount to pay from this chip" style="width: 100%;min-width:80px;"  [(ngModel)]="cashPayment">
   </div>
 </div>
 
 <div class="row">
   <div class="col text-center" >
-    <button class="btn btn-dark csd-btn float-right" (click)="pay()">PAY</button>
+    <button class="btn btn-dark csd-btn float-end" (click)="pay()">PAY</button>
   </div>
 </div>
 <br>

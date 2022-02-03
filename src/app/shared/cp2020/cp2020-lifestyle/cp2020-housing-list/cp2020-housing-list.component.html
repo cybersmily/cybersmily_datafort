@@ -4,7 +4,7 @@
       <div class="col">
         <h5 class="cp2020-label d-inline-block">Housing</h5>
       </div>
-      <div class="col text-right">Total Cost: {{totalCost | number}}eb</div>
+      <div class="col text-end">Total Cost: {{totalCost | number}}eb</div>
       <div class="col-1"></div>
     </div>
     <ng-container *ngFor="let housing of currHousing; let i = index" [ngTemplateOutlet]="cpHousing"
@@ -24,14 +24,14 @@
     <div class="col">
       {{housing.name}}
       <span *ngIf="housing.owns">(owned)</span>
-      <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn ml-1" (click)="edit(index, newHousing)"></fa-icon>
-      <fa-icon [icon]="faTrash" class="csd-icon-btn csd-btn ml-2" title="Delete housing" (click)="delete(index)">
+      <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn ms-1" (click)="edit(index, newHousing)"></fa-icon>
+      <fa-icon [icon]="faTrash" class="csd-icon-btn csd-btn ms-2" title="Delete housing" (click)="delete(index)">
       </fa-icon>
     </div>
     <div class="col">
       {{housing.location}}
     </div>
-    <div class="col text-right">
+    <div class="col text-end">
       {{housing.totalCost | number}}eb
     </div>
     <div class="col-1">
@@ -42,8 +42,8 @@
 
 <ng-template #newHousing>
   <div class="modal-header">
-    <h4 id="armor-modal-name" class="modal-title pull-left">{{modalTitle}}</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="closeModal()">
+    <h4 id="armor-modal-name" class="modal-title float-start">{{modalTitle}}</h4>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()">
 
     </button>
   </div>
@@ -52,7 +52,7 @@
       <div class="col-2">Name:</div>
       <div class="col">
         <input type="text" placeholder="Enter a name..." [(ngModel)]="selectedHousing.name">
-        <fa-icon [icon]="faSave" class="csd-btn csd-icon-btn csd-icon-xl float-right" title="Save housing changes"
+        <fa-icon [icon]="faSave" class="csd-btn csd-icon-btn csd-icon-xl float-end" title="Save housing changes"
           (click)="saveHousing()"></fa-icon>
       </div>
     </div>
@@ -132,7 +132,7 @@
             <div class="row" *ngFor="let item of contentColOne; let i = index">
               <div class="col-12 col-">
                 {{item}}
-                <fa-icon [icon]="faTrash" class="ml-2 csd-btn csd-icon-btn" title="Add content"(click)="deleteContent(i)"></fa-icon>
+                <fa-icon [icon]="faTrash" class="ms-2 csd-btn csd-icon-btn" title="Add content"(click)="deleteContent(i)"></fa-icon>
               </div>
             </div>
           </div>
@@ -140,7 +140,7 @@
             <div class="row" *ngFor="let item of contentColTwo; let i = index">
               <div class="col-12 col-">
                 {{item}}
-                <fa-icon [icon]="faTrash" class="ml-2 csd-btn csd-icon-btn" title="Add content" (click)="deleteContent(i + contentColTwoIndex)"></fa-icon>
+                <fa-icon [icon]="faTrash" class="ms-2 csd-btn csd-icon-btn" title="Add content" (click)="deleteContent(i + contentColTwoIndex)"></fa-icon>
               </div>
             </div>
           </div>
@@ -148,7 +148,7 @@
         <div class="row">
           <div class="col col-md-6 text-center">
             <input type="text" [(ngModel)]="newContent" placeholder="Enter item name..." style="width: 85%;">
-            <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn ml-2" title="Add content" (click)="addContent()"></fa-icon>
+            <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn ms-2" title="Add content" (click)="addContent()"></fa-icon>
           </div>
         </div>
       </div>

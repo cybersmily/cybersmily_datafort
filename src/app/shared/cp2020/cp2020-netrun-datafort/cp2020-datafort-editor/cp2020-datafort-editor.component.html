@@ -1,12 +1,12 @@
-<div class="csd-rounded pr-3 pl-3">
+<div class="csd-rounded pe-3 ps-3">
   <div class="row">
-    <div class="col-4 p-0 pl-1">Name:</div>
+    <div class="col-4 p-0 ps-1">Name:</div>
     <div class="col-8 p-0">
       <input type="text" [(ngModel)]="currDatafort.name" class="w-100 h-100" (change)="update()">
     </div>
   </div>
   <div class="row mt-1">
-    <div class="col-4 p-0 pl-1">Rows:</div>
+    <div class="col-4 p-0 ps-1">Rows:</div>
     <div class="col-2 border border-dark p-0">
       <input type="number" class="w-100 no-spinners no-style h-100 text-center"
         title="Enter number of rows (min {{NrMapDefaults.ROWS_MIN}})" [min]="NrMapDefaults.ROWS_MIN"
@@ -20,26 +20,26 @@
     </div>
   </div>
   <div class="row mt-1">
-    <div class="col-9 text-right p-0">Total Costs:</div>
-    <div class="col-3 text-right p-0">{{currDatafort.cost | number}}eb</div>
+    <div class="col-9 text-end p-0">Total Costs:</div>
+    <div class="col-3 text-end p-0">{{currDatafort.cost | number}}eb</div>
   </div>
   <div class="row mt-1">
-    <div class="col-9 text-right p-0">Additional Costs:</div>
+    <div class="col-9 text-end p-0">Additional Costs:</div>
     <div class="col-3 p-0 border border-dark">
-      <input type="number" class="w-100 no-spinners no-style h-100 text-right"
+      <input type="number" class="w-100 no-spinners no-style h-100 text-end"
         title="Enter additional costs not covered in calculator." [min]="0" [(ngModel)]="currDatafort.additionalCosts"
         (change)="update()">
     </div>
   </div>
   <div class="row mt-1">
-    <div class="col-2 p-0 pl-1">CPU:</div>
+    <div class="col-2 p-0 ps-1">CPU:</div>
     <div class="col-2 border border-dark p-0">
       <input type="number" class="w-100 no-style h-100 text-center"
         title="Number of CPUs (min {{NrMapDefaults.CPU_MIN}}, max {{NrMapDefaults.CPU_MAX}})"
         [min]="NrMapDefaults.CPU_MIN" [max]="NrMapDefaults.CPU_MAX" [(ngModel)]="currDatafort.cpu" (change)="update()">
     </div>
-    <div class="col-2 text-right p-0 pl-1">INT: {{currDatafort.int}}</div>
-    <div class="col-4 text-right p-0 pl-1 pr-1">Datawall:</div>
+    <div class="col-2 text-end p-0 ps-1">INT: {{currDatafort.int}}</div>
+    <div class="col-4 text-end p-0 ps-1 pe-1">Datawall:</div>
     <div class="col-2 border border-dark p-0">
       <input type="number" class="w-100 no-style h-100 text-center"
         title="Datawall Strength (min {{NrMapDefaults.DATAWALL_STR_MIN}}, max {{NrMapDefaults.DATAWALL_STR_MAX}})"
@@ -48,7 +48,7 @@
     </div>
   </div>
   <div *ngIf="currDatafort.int > 11" class="row mt-1">
-    <div class="col-2 p-0 pl-1">AI:</div>
+    <div class="col-2 p-0 ps-1">AI:</div>
     <div class="col-10 p-0 small">
       <div class="row">
         <div class="col-3">Personality: </div>
@@ -77,7 +77,7 @@
     </div>
   </div>
   <div class="row mt-1">
-    <div class="col-2 p-0 pl-1">MU:</div>
+    <div class="col-2 p-0 ps-1">MU:</div>
     <div class="col-4">Available:</div>
     <div class="col-2 p-0">
       {{currDatafort.muAvailable}}
@@ -89,12 +89,12 @@
   </div>
 </div>
 <!-- CODE GATES -->
-<div *ngIf="currDatafort.codegates?.length > 0" class="csd-rounded pr-3 pl-3 mt-1">
+<div *ngIf="currDatafort.codegates?.length > 0" class="csd-rounded pe-3 ps-3 mt-1">
   <div class="row mt-1 csd-btn" (click)="isCodegatesCollapsed = !isCodegatesCollapsed">
     <div class="col p-0 csd-btn text-center">
       <h5 class="d-inline-block" title="number of codegates/number of codegates that come with CPUs">CODEGATES
         ({{currDatafort.codegates.length}}/{{currDatafort.cpu}})</h5>
-      <fa-icon [icon]="isCodegatesCollapsed ? faChevronRight : faChevronDown" class="ml-2 csd-icon-btn csd-icon-lg">
+      <fa-icon [icon]="isCodegatesCollapsed ? faChevronRight : faChevronDown" class="ms-2 csd-icon-btn csd-icon-lg">
       </fa-icon>
     </div>
   </div>
@@ -122,17 +122,17 @@
   </div>
 </div>
 <!-- SKILLS -->
-<div class="csd-rounded pr-3 pl-3 mt-1">
+<div class="csd-rounded pe-3 ps-3 mt-1">
   <div class="row mt-1 csd-btn" (click)="isSkillsCollapsed = !isSkillsCollapsed">
     <div class="col p-0 csd-btn text-center">
       <h5 class="d-inline-block">SKILLS ({{currDatafort.skills.length}}/{{currDatafort?.maxSkills}})</h5>
-      <fa-icon [icon]="isSkillsCollapsed ? faChevronRight : faChevronDown" class="ml-2 csd-icon-btn csd-icon-lg">
+      <fa-icon [icon]="isSkillsCollapsed ? faChevronRight : faChevronDown" class="ms-2 csd-icon-btn csd-icon-lg">
       </fa-icon>
     </div>
   </div>
   <div [collapse]="isSkillsCollapsed">
     <div class="row p-0 small">
-      <div class="col-9 p-0 border border-dark pl-1">Name</div>
+      <div class="col-9 p-0 border border-dark ps-1">Name</div>
       <div class="col-2 p-0 border border-dark text-center">Rank</div>
       <div class="col-1 p-0"></div>
     </div>
@@ -146,7 +146,7 @@
           [min]="NrMapDefaults.SKILL_MIN" [max]="NrMapDefaults.SKILL_MAX" [(ngModel)]="skill.value" (change)="update()">
       </div>
       <div *ngIf="skill" class="col-1 p-0">
-        <fa-icon [icon]="faTrash" class="ml-1 csd-btn csd-icon-btn" title="Remove skill" (click)="removeSkill(i)">
+        <fa-icon [icon]="faTrash" class="ms-1 csd-btn csd-icon-btn" title="Remove skill" (click)="removeSkill(i)">
         </fa-icon>
       </div>
     </div>
@@ -161,7 +161,7 @@
           [min]="NrMapDefaults.SKILL_MIN" [max]="NrMapDefaults.SKILL_MAX" [(ngModel)]="newSkill.value"
           (change)="update()">
       </div>
-      <div class="col-1 p-0 pl-1">
+      <div class="col-1 p-0 ps-1">
         <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-lg" title="Add Skill" (click)="addSkill()">
         </fa-icon>
       </div>
@@ -169,19 +169,19 @@
   </div>
 </div>
 <!-- MEMORY -->
-<div class="csd-rounded pr-3 pl-3 mt-1">
+<div class="csd-rounded pe-3 ps-3 mt-1">
   <div *ngIf="currDatafort.mu?.length > 0" class="row mt-1 csd-btn" (click)="isMemoryCollapsed = !isMemoryCollapsed">
     <div class="col p-0 text-center">
       <h5 class="d-inline-block">MEMORY UNITS ({{usedFileCount}}/{{currDatafort.mu.length}})</h5>
-      <fa-icon [icon]="isMemoryCollapsed ? faChevronRight : faChevronDown" class="ml-2 csd-icon-btn csd-icon-lg">
+      <fa-icon [icon]="isMemoryCollapsed ? faChevronRight : faChevronDown" class="ms-2 csd-icon-btn csd-icon-lg">
       </fa-icon>
     </div>
   </div>
   <div [collapse]="isMemoryCollapsed">
     <div class="row p-0 small">
       <div class="col-1 text-center border border-dark p-0">key</div>
-      <div class="col-9 p-0 border border-dark pl-1">Description</div>
-      <div class="col-2 p-0 border border-dark text-center pl-1">MU</div>
+      <div class="col-9 p-0 border border-dark ps-1">Description</div>
+      <div class="col-2 p-0 border border-dark text-center ps-1">MU</div>
     </div>
     <div *ngFor="let mu of currDatafort.mu;let i = index" class="row p-0">
       <div class="col-1 text-center border border-dark p-0">{{i + 1}}. </div>
@@ -198,11 +198,11 @@
   </div>
 </div>
 <!-- REMOTES-->
-<div class="csd-rounded pr-3 pl-3 mt-1" *ngIf="currDatafort.remotes?.length > 0">
+<div class="csd-rounded pe-3 ps-3 mt-1" *ngIf="currDatafort.remotes?.length > 0">
   <div class="row mt-1 csd-btn" (click)="isRemotesCollapsed = !isRemotesCollapsed">
     <div class="col p-0 text-center">
       <h5 class="d-inline-block">REMOTES ({{currDatafort.remotes.length}})</h5>
-      <fa-icon [icon]="isRemotesCollapsed ? faChevronRight : faChevronDown" class="ml-2 csd-icon-btn csd-icon-lg">
+      <fa-icon [icon]="isRemotesCollapsed ? faChevronRight : faChevronDown" class="ms-2 csd-icon-btn csd-icon-lg">
       </fa-icon>
     </div>
   </div>
@@ -223,57 +223,57 @@
         {{remote.type | nrNodeDisplayName}}
       </div>
       <div class="col-1 p-0 text-center">
-        <fa-icon [icon]="faTrash" class="float-right csd-btn csd-icon-btn" title="Remove remote"
+        <fa-icon [icon]="faTrash" class="float-end csd-btn csd-icon-btn" title="Remove remote"
           (click)="removeRemote(i)"></fa-icon>
       </div>
     </div>
   </div>
 </div>
 <!-- DEFENSES -->
-<div class="csd-rounded pr-3 pl-3 mt-1" *ngIf="currDatafort.defenses?.length > 0">
+<div class="csd-rounded pe-3 ps-3 mt-1" *ngIf="currDatafort.defenses?.length > 0">
   <div class="row mt-1 csd-btn" (click)="isDefensesCollapsed = !isDefensesCollapsed">
     <div class="col p-0 text-center">
       <h5 class="d-inline-block">DEFENSES ({{currDatafort.defenses.length}})</h5>
-      <fa-icon [icon]="isDefensesCollapsed ? faChevronRight : faChevronDown" class="ml-2 csd-icon-btn csd-icon-lg">
+      <fa-icon [icon]="isDefensesCollapsed ? faChevronRight : faChevronDown" class="ms-2 csd-icon-btn csd-icon-lg">
       </fa-icon>
     </div>
   </div>
   <div [collapse]="isDefensesCollapsed" class="p-0">
     <div class="row small">
       <div class="col-1 p-1 border border-dark text-center">key</div>
-      <div class="col-8 p-0 pl-1 border border-dark">Program</div>
+      <div class="col-8 p-0 ps-1 border border-dark">Program</div>
       <div class="col-2 p-0 border border-dark text-center">MU</div>
     </div>
     <div *ngFor="let defense of currDatafort.defenses;let i = index" class="row p-0">
       <div class="col-1 p-1 text-center border border-dark">{{i + 1}}.</div>
       <div class="col-8 p-0 border border-dark">
-        <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn mr-1 ml-1" title="Update program."
+        <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn me-1 ms-1" title="Update program."
         (click)="showSelected(i, programEditor)"
         ></fa-icon>
         {{defense.program.name}}
       </div>
-      <div class="col-2 p-0 border border-dark pl-1 text-center">
+      <div class="col-2 p-0 border border-dark ps-1 text-center">
         {{defense.program.mu}}
       </div>
       <div class="col-1 p-0 text-center">
-        <fa-icon [icon]="faTrash" class="float-right mr-1 csd-btn csd-icon-btn" title="Remove defense"
+        <fa-icon [icon]="faTrash" class="float-end me-1 csd-btn csd-icon-btn" title="Remove defense"
           (click)="removeDefense(i)"></fa-icon>
       </div>
     </div>
   </div>
 </div>
 <!-- NOTES -->
-<div class="csd-rounded pr-3 pl-3 mt-1">
+<div class="csd-rounded pe-3 ps-3 mt-1">
   <div class="row mt-1 csd-btn" (click)="isNotesCollapsed = !isNotesCollapsed">
     <div class="col p-0 text-center">
       <h5 class="d-inline-block">NOTES</h5>
-      <fa-icon [icon]="isNotesCollapsed ? faChevronRight : faChevronDown" class="ml-2 csd-icon-btn csd-icon-lg">
+      <fa-icon [icon]="isNotesCollapsed ? faChevronRight : faChevronDown" class="ms-2 csd-icon-btn csd-icon-lg">
       </fa-icon>
     </div>
   </div>
   <div [collapse]="isNotesCollapsed">
     <div class="row">
-      <div class="col p-0 text-right">
+      <div class="col p-0 text-end">
         <textarea class="w-100 h-100 m-0 csd-datafort-notes" [(ngModel)]="currDatafort.notes" (change)="update()"></textarea>
       </div>
     </div>
@@ -288,8 +288,8 @@
 
 <ng-template #programEditor>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">Program Editor</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <h4 class="modal-title float-start">Program Editor</h4>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
 
     </button>
   </div>
