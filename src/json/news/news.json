@@ -2,14 +2,17 @@
   "news": [
     { "date":"2022-02",
       "entries":[
-        "<strong>2-5</strong> - Took some time off (finally bought Witcher 3 with both expansions :P). Didn't get too much done with the site. But I do have a few things.",
+        "<strong>02-05</strong> - Took some time off (finally bought Witcher 3 with both expansions :P). Didn't get too much done with the site. But I do have a few things.",
         "First up 3 requested items:",
         "&nbsp;* Added SP/SDP tracker on the ACPA forms. Now you can use to help with combat if needed.",
         "&nbsp;* In the Cyberpunk 2020 character sheet you now have a setting to disable the Armor Layering function, in case my math is bad. Which it can be.",
         "&nbsp;* Added a field on the Cyberpunk 2020 sheet to show the BOD Damage Modifier (BDM).",
         "Here are some small changes I added:",
-        "&nbsp;* Added a checkbox to suppress wound penalties. I know there is some cyberware and drugs that are capable of doing, so, there.",
-        "&nbsp;* .",
+        "&nbsp;* Added a checkbox to suppress stat and save penalties from wound level. I know there is some cyberware and drugs that are capable of doing, so, there.",
+        "&nbsp;* Fixed a bug in the Combat Tracker for random armor generation.",
+        "&nbsp;* Added more functionality in Combat Tracker opponent armor section.",
+        "&nbsp;* Updated some layout issues and styling issue as part of an code framework I use (Angular/Bootstrap/etc.).",
+        "If you see any bugs or other issues please let me know. Either email me using the button above, or ping on Discord or Reddit, I lurk about most of the Cyberpunk boards.",
         "Lastly, if you have sometime come check out Wisdom from <a href='http://datafortess2020.com'>Datafortress 2020</a> and myself where we host The Tales from the Forlorn Dopes over on <a href='https://www.twitch.tv/cybernationuncensored'>Cybernation Uncensored twitch</a>. The schedule of every 1st and 3rd Wednesday of the month at 19:00 EST/18:00 CST/16:00 PST/00:00 GMT(which actually Thursday for those across the pond). Please check us out. You can see old episodes on Cybernation Uncensored's Youtube Channel",
         "Till next time.",
         "CYBER :D"
