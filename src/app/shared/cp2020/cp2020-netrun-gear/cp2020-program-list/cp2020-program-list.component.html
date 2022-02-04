@@ -3,7 +3,7 @@
     <span [ngClass]="{'csd-mu-breach':(programList.usedMU > maxMu)}">
       ({{programList.usedMU}}/{{maxMu}} MU)
     </span>
-    <span class="pull-right">{{programList.totalCost|number}}eb</span>
+    <span class="float-end">{{programList.totalCost|number}}eb</span>
   </h4>
   <div class="row">
     <div class="col-3">CLASS</div>
@@ -39,8 +39,8 @@
 
 <ng-template #selectedProgram>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">{{modalTitle}} Program</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <h4 class="modal-title float-start">{{modalTitle}} Program</h4>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
 
     </button>
   </div>

@@ -5,24 +5,24 @@
   </div>
   <div class="col-1 wpn-save">
     <fa-icon [icon]="faSave" [ngClass]="{
-        'float-right btn btn-lg csd-btn csd-icon-btn': true,
+        'float-end btn btn-lg csd-btn csd-icon-btn': true,
         disabled: newWeapon.name === ''
       }" title="Save weapon" (click)="update()"></fa-icon>
   </div>
 </div>
 <div class="row">
   <div class="col-6 col-lg-3">Type:
-    <select [(ngModel)]="newWeapon.type" class="float-right">
+    <select [(ngModel)]="newWeapon.type" class="float-end">
       <option [ngValue]="undefined"></option>
       <option *ngFor="let wpnType of weaponTypes" [ngValue]="wpnType.code">{{ wpnType.code}}
       </option>
     </select>
   </div>
   <div class="col-6 col-lg-3">WA:
-    <input [(ngModel)]="newWeapon.wa" type="number" class="text-uppercase text-center wpn-narrow float-right" />
+    <input [(ngModel)]="newWeapon.wa" type="number" class="text-uppercase text-center wpn-narrow float-end" />
   </div>
   <div class="col-6 col-lg-3">Concealment:
-    <select [(ngModel)]="newWeapon.conc" class="float-right">
+    <select [(ngModel)]="newWeapon.conc" class="float-end">
       <option [ngValue]="undefined"></option>
       <option *ngFor="let conc of concealments" [ngValue]="conc.code">{{
         conc.code
@@ -30,7 +30,7 @@
     </select>
   </div>
   <div class="col-6 col-lg-3">Availability:
-    <select [(ngModel)]="newWeapon.avail" class="float-right">
+    <select [(ngModel)]="newWeapon.avail" class="float-end">
       <option [ngValue]="undefined"></option>
       <option *ngFor="let avail of availabilities" [ngValue]="avail.code">{{
         avail.code
@@ -40,24 +40,24 @@
 </div>
 <div class="row">
   <div class="col-6 col-lg-3">Damage:
-    <input [(ngModel)]="newWeapon.damage" type="text" class="text-uppercase wpn-dmg float-right" placeholder="ex. 2d6+3" />
+    <input [(ngModel)]="newWeapon.damage" type="text" class="text-uppercase wpn-dmg float-end" placeholder="ex. 2d6+3" />
   </div>
   <div class="col-6 col-lg-3">Ammo:
-    <input [(ngModel)]="newWeapon.ammo" type="text" class="text-uppercase wpn-dmg float-right" placeholder="ex. 9mm" />
+    <input [(ngModel)]="newWeapon.ammo" type="text" class="text-uppercase wpn-dmg float-end" placeholder="ex. 9mm" />
   </div>
   <div class="col-6 col-lg-3">Cased:
     <input [(ngModel)]="newWeapon.cased" type="checkbox" class="text-uppercase wpn-col" />
   </div>
   <div class="col-6 col-lg-3">#Shots:
-    <input [(ngModel)]="newWeapon.shots" type="number" class="text-uppercase wpn-col float-right" />
+    <input [(ngModel)]="newWeapon.shots" type="number" class="text-uppercase wpn-col float-end" />
   </div>
 </div>
 <div class="row">
   <div class="col-6 col-lg-3">ROF:
-    <input [(ngModel)]="newWeapon.rof" type="number" class="text-uppercase wpn-col float-right" />
+    <input [(ngModel)]="newWeapon.rof" type="number" class="text-uppercase wpn-col float-end" />
   </div>
   <div class="col-6 col-lg-3">Reliability:
-    <select [(ngModel)]="newWeapon.rel" class="float-right">
+    <select [(ngModel)]="newWeapon.rel" class="float-end">
       <option [ngValue]="undefined"></option>
       <option *ngFor="let rel of reliabilites" [ngValue]="rel.code">{{
         rel.code
@@ -66,10 +66,10 @@
   </div>
 
   <div class="col-6 col-lg-3">Range(m):
-    <input [(ngModel)]="newWeapon.range" type="number" class="text-uppercase wpn-col float-right" />
+    <input [(ngModel)]="newWeapon.range" type="number" class="text-uppercase wpn-col float-end" />
   </div>
   <div class="col-6 col-lg-3">Cost(eb):
-    <input [(ngModel)]="newWeapon.cost" type="number" class="text-uppercase wpn-col float-right" />
+    <input [(ngModel)]="newWeapon.cost" type="number" class="text-uppercase wpn-col float-end" />
   </div>
   <div></div>
 </div>

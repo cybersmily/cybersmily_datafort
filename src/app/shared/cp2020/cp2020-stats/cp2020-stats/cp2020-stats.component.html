@@ -4,7 +4,7 @@
     <input [(ngModel)]="stats.BasePoints" (change)="onStatChange()" type="number" min="0" max="90"
       class="chargen-input chargen-charpoint-input " />
     <span *ngIf="stats.CurrentPoints !== 0"
-      [ngClass]="{'chargen-stats-over':isOver, 'chargen-stats-current':true, 'ml-2': true}">{{stats.CurrentPoints}}</span>
+      [ngClass]="{'chargen-stats-over':isOver, 'chargen-stats-current':true, 'ms-2': true}">{{stats.CurrentPoints}}</span>
     <span class="hidden-print">
       <fa-icon [icon]="faDice" class="chargen-point-dice" (click)="rollCharacterPoints()"
         title="Roll for character points. Rolls 9d10, rerolling 1s."></fa-icon>
@@ -14,7 +14,7 @@
 </div>
 <div class="chargen-section row">
   <div class="col">
-    <div class="chargen-label chargen-stats">STATS<fa-icon class="csd-dice ml-2" [icon]="faDice" (click)="rollStats()">
+    <div class="chargen-label chargen-stats">STATS<fa-icon class="csd-dice ms-2" [icon]="faDice" (click)="rollStats()">
       </fa-icon>
     </div>
   </div>
@@ -52,26 +52,26 @@
 
 <ng-template #initiative>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">Initiative</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="closeModal()">
+    <h4 class="modal-title float-start">Initiative</h4>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()">
 
     </button>
   </div>
   <div class="modal-body">
     <div class="row">
-      <div class="col text-right">REF:</div>
+      <div class="col text-end">REF:</div>
       <div class="col">{{stats.REF.Adjusted}}</div>
     </div>
     <div *ngIf="initiativeSkill > -1" class="row">
-      <div class="col text-right">Initiative:</div>
+      <div class="col text-end">Initiative:</div>
       <div class="col">{{initiativeSkill}}</div>
     </div>
     <div class="row" *ngIf="combatSense > 0">
-      <div class="col text-right">Combat Sense:</div>
+      <div class="col text-end">Combat Sense:</div>
       <div class="col">+{{combatSense}}</div>
     </div>
     <div class="row" *ngFor="let mod of stats.initiativeModifiers">
-      <div class="col text-right">{{mod.name}}:</div>
+      <div class="col text-end">{{mod.name}}:</div>
       <div class="col">{{mod.mod > 0 ? '+' + mod.mod : mod.mod}}</div>
     </div>
     <div class="row">
@@ -85,12 +85,12 @@
     </div>
     <hr>
     <div class="row" *ngIf="showInitiativeRoll">
-      <div class="col text-right">DICE ROLL: </div>
+      <div class="col text-end">DICE ROLL: </div>
       <div class="col">+{{initiativeRoll.show()}}</div>
     </div>
     <hr>
     <div class="row">
-      <div class="col text-right">Total: </div>
+      <div class="col text-end">Total: </div>
       <div class="col" *ngIf="showInitiativeRoll;else noInititaiveRoll">{{totalInitiative + initiativeRoll.total}}</div>
       <ng-template #noInititaiveRoll>
         <div class="col">{{totalInitiative}}</div>

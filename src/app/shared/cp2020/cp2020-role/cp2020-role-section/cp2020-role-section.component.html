@@ -3,22 +3,22 @@
     <div class="d-inline-block align-top">
       <span class="chargen-label">
         ROLE
-        <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn csd-icon-sm ml-1" (click)="openModal(primaryRoleEditor)">
+        <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn csd-icon-sm ms-1" (click)="openModal(primaryRoleEditor)">
         </fa-icon>
       </span>
     </div>
-    <div class="d-inline-block pr-2 ml-2">
+    <div class="d-inline-block pe-2 ms-2">
       <div class="row">
         <div class="col">
-          <span class="font-weight-bold">PRIMARY:</span>
-          <fa-icon [icon]="faDice" class="csd-icon-btn csd-btn ml-1 mr-1" (click)="rollPrimaryRole()"></fa-icon>
-          <span class="ml-1">{{currentPrimary.name}}</span>
+          <span class="fw-bold">PRIMARY:</span>
+          <fa-icon [icon]="faDice" class="csd-icon-btn csd-btn ms-1 me-1" (click)="rollPrimaryRole()"></fa-icon>
+          <span class="ms-1">{{currentPrimary.name}}</span>
         </div>
       </div>
       <div class="row">
         <div class="col small">
-          <span class="font-weight-bold">SECONDARY:</span>
-          <span class="ml-1">{{secondaryList}}</span>
+          <span class="fw-bold">SECONDARY:</span>
+          <span class="ms-1">{{secondaryList}}</span>
         </div>
       </div>
     </div>
@@ -28,7 +28,7 @@
 <ng-template #primaryRoleEditor>
   <div class="modal-header">
     <h4>ROLES</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
 
     </button>
   </div>

@@ -9,7 +9,7 @@
     <span  class="skill-name">({{currSkill.ipMod}}) </span>
   </span>
   <span class="dots"></span>
-  <span class="skill-inputs pull-right">
+  <span class="skill-inputs float-end">
     <span [ngClass]="{'d-none':sa}" title="Skill + Stat">
       [{{ currSkill.value + ((stat)?stat.Adjusted:0 )}}]
     </span>
@@ -25,9 +25,9 @@
 </div>
 <ng-template #chargenSkillRoll>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">{{currSkill.name}}{{(currSkill.option ? ': ' + currSkill.option : '')}} Dice Roll
+    <h4 class="modal-title float-start">{{currSkill.name}}{{(currSkill.option ? ': ' + currSkill.option : '')}} Dice Roll
     </h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
 
     </button>
   </div>
@@ -44,12 +44,12 @@
 </ng-template>
 <ng-template #skillDetails>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">{{currSkill.name}}
+    <h4 class="modal-title float-start">{{currSkill.name}}
     </h4>
-    <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn csd-icon-xl ml-2" title="delete skill"
+    <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn csd-icon-xl ms-2" title="delete skill"
       (click)="deleteSkill()"></fa-icon>
 
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
 
     </button>
   </div>
@@ -66,13 +66,13 @@
       <div class="col">STAT ({{currSkill.stat.toUpperCase()}}): {{stat.Adjusted}}</div>
       <div class="col-4">Value:
         <input [(ngModel)]="currSkill.value" (change)="onChangeSkill()" min="0" max="10" type="number"
-          title="Skill Value" class="csd-number text-right" />
+          title="Skill Value" class="csd-number text-end" />
       </div>
     </div>
     <div class="row">
-      <div class="col">IP (x<input type="number" min="1" [(ngModel)]="currSkill.ipMod" class="csd-number text-right">):
+      <div class="col">IP (x<input type="number" min="1" [(ngModel)]="currSkill.ipMod" class="csd-number text-end">):
         <input [(ngModel)]="currSkill.ip" (change)="onChangeSkill()" min="0" max="1000" type="number" Title="SKill IP"
-          class="csd-number text-right" />
+          class="csd-number text-end" />
       </div>
       <div class="col-4">Next Level: {{nextLevelIP}} ip</div>
     </div>
@@ -98,13 +98,13 @@
           <div class="col">Hold</div>
         </div>
         <div class="row">
-          <div class="col"><input type="number" class="csd-number text-right" [(ngModel)]="currSkill.maBonuses.strike" (change)="onChangeSkill()">
+          <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.strike" (change)="onChangeSkill()">
           </div>
-          <div class="col"><input type="number" class="csd-number text-right" [(ngModel)]="currSkill.maBonuses.disarm" (change)="onChangeSkill()">
+          <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.disarm" (change)="onChangeSkill()">
           </div>
-          <div class="col"><input type="number" class="csd-number text-right" [(ngModel)]="currSkill.maBonuses.dodge" (change)="onChangeSkill()">
+          <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.dodge" (change)="onChangeSkill()">
           </div>
-          <div class="col"><input type="number" class="csd-number text-right" [(ngModel)]="currSkill.maBonuses.hold" (change)="onChangeSkill()">
+          <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.hold" (change)="onChangeSkill()">
           </div>
         </div>
         <div class="row">
@@ -114,13 +114,13 @@
           <div class="col">Choke</div>
         </div>
         <div class="row">
-          <div class="col"><input type="number" class="csd-number text-right" [(ngModel)]="currSkill.maBonuses.punch" (change)="onChangeSkill()">
+          <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.punch" (change)="onChangeSkill()">
           </div>
-          <div class="col"><input type="number" class="csd-number text-right" [(ngModel)]="currSkill.maBonuses.sweep" (change)="onChangeSkill()">
+          <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.sweep" (change)="onChangeSkill()">
           </div>
-          <div class="col"><input type="number" class="csd-number text-right" [(ngModel)]="currSkill.maBonuses.grapple" (change)="onChangeSkill()">
+          <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.grapple" (change)="onChangeSkill()">
           </div>
-          <div class="col"><input type="number" class="csd-number text-right" [(ngModel)]="currSkill.maBonuses.choke" (change)="onChangeSkill()">
+          <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.choke" (change)="onChangeSkill()">
           </div>
         </div>
         <div class="row">
@@ -130,13 +130,13 @@
           <div class="col">Escape</div>
         </div>
         <div class="row">
-          <div class="col"><input type="number" class="csd-number text-right" [(ngModel)]="currSkill.maBonuses.kick" (change)="onChangeSkill()">
+          <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.kick" (change)="onChangeSkill()">
           </div>
-          <div class="col"><input type="number" class="csd-number text-right" [(ngModel)]="currSkill.maBonuses.block" (change)="onChangeSkill()">
+          <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.block" (change)="onChangeSkill()">
           </div>
-          <div class="col"><input type="number" class="csd-number text-right" [(ngModel)]="currSkill.maBonuses.throw" (change)="onChangeSkill()">
+          <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.throw" (change)="onChangeSkill()">
           </div>
-          <div class="col"><input type="number" class="csd-number text-right" [(ngModel)]="currSkill.maBonuses.escape" (change)="onChangeSkill()">
+          <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.escape" (change)="onChangeSkill()">
           </div>
         </div>
         <div class="row">
@@ -146,7 +146,7 @@
           <div class="col"></div>
         </div>
         <div class="row">
-          <div class="col"><input type="number" class="csd-number text-right" [(ngModel)]="currSkill.maBonuses.ram" (change)="onChangeSkill()">
+          <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.ram" (change)="onChangeSkill()">
           </div>
           <div class="col"></div>
           <div class="col"></div>
@@ -163,12 +163,12 @@
     </div>
     <div class="row">
       <div class="col-1">
-        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-lg float-right" title="Add modifier"
+        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-lg float-end" title="Add modifier"
           (click)="addModifier()"></fa-icon>
       </div>
       <div class="col">
         <input [(ngModel)]="newModifier.name" type="text" Title="Modifier value" />:
-        <input [(ngModel)]="newModifier.mod" type="number" Title="Modifier value" class="csd-number text-right" />
+        <input [(ngModel)]="newModifier.mod" type="number" Title="Modifier value" class="csd-number text-end" />
       </div>
     </div>
   </div>

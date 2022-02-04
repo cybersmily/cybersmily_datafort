@@ -6,29 +6,29 @@
 
 <ng-template #statModifiers>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">{{statName}} Modifiers</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="closeModal()">
+    <h4 class="modal-title float-start">{{statName}} Modifiers</h4>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()">
     </button>
   </div>
   <div class="modal-body">
     <div class="row">
-      <div class="col text-right">Base:</div>
+      <div class="col text-end">Base:</div>
       <div class="col"><input type="number" [(ngModel)]="stat.Base" class="stat-input"></div>
     </div>
     <div class="row" *ngIf="stat.ev !== 0">
-      <div class="col text-right">EV:</div>
+      <div class="col text-end">EV:</div>
       <div class="col">-{{stat.ev}}</div>
     </div>
     <div class="row" *ngFor="let mod of stat.modifiers; let i = index">
-      <div class="col text-right">{{mod.name}}</div>
+      <div class="col text-end">{{mod.name}}</div>
       <div class="col">{{mod.mod}}&nbsp;&nbsp;<fa-icon [icon]="faTrash" class="csd-btn" (click)="deleteModifier(i)"></fa-icon></div>
     </div>
     <div class="row" *ngIf="stat.WoundModifier !== 0">
-      <div class="col text-right">Wound:</div>
+      <div class="col text-end">Wound:</div>
       <div class="col">{{stat.WoundModifier}}</div>
     </div>
     <div class="row" *ngIf="stat.Multiplier !== 1">
-      <div class="col text-right">Wound:</div>
+      <div class="col text-end">Wound:</div>
       <div class="col">x {{stat.Multiplier}}</div>
     </div>
 
@@ -42,7 +42,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col text-right">Total: </div>
+      <div class="col text-end">Total: </div>
       <div class="col">{{stat.Adjusted}}</div>
     </div>
   </div>

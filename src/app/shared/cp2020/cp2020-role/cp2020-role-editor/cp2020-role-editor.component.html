@@ -1,15 +1,15 @@
 <div class="small">
-  <div class="row ml-1">
+  <div class="row ms-1">
     <div class="col">
       Role:
       <input type="text" [(ngModel)]="currentRole.name" [typeahead]="roleList" (onKeyUp)="updateRoleName()"
         (change)="updateRoleName()" (typeaheadOnSelect)="updateRoleName()">
       {{optionOnBlur}}
-      <fa-icon *ngIf="showDelete" [icon]="faTrash" class="csd-btn csd-icon-btn csd-icon-lg ml-3" (click)="delete()">
+      <fa-icon *ngIf="showDelete" [icon]="faTrash" class="csd-btn csd-icon-btn csd-icon-lg ms-3" (click)="delete()">
       </fa-icon>
     </div>
   </div>
-  <div class="row ml-1">
+  <div class="row ms-1">
     <div class="col">
       Special Ability:
       <input type="text" [(ngModel)]="currentRole.specialAbility.name" (change)="update()">
@@ -27,7 +27,7 @@
       </select>
     </div>
   </div>
-  <div class="row ml-1">
+  <div class="row ms-1">
     <div class="col">
       <div class="row">
         <div class="col">Skills:</div>
@@ -46,9 +46,9 @@
       </div>
     </div>
   </div>
-  <div class="row ml-1">
+  <div class="row ms-1">
     <div class="col">
-      Current Salary: <input type="number" [(ngModel)]="currentRole.salary" class="text-right" min="0"
+      Current Salary: <input type="number" [(ngModel)]="currentRole.salary" class="text-end" min="0"
         (change)="update()">eb/month
     </div>
   </div>

@@ -6,21 +6,21 @@
     <div class="col-8 col-md-7 col-lg-9">
       <input type="text" [(ngModel)]="program.name" placeholder="Enter name of program..." class="csd-program-name"
         title="Name of the program" (change)="updated()">
-      <fa-icon class="csd-btn csd-icon-btn float-right" [icon]="faSearch" title="Lookup a program from source" (click)="showOptions(programSelections)"></fa-icon>
+      <fa-icon class="csd-btn csd-icon-btn float-end" [icon]="faSearch" title="Lookup a program from source" (click)="showOptions(programSelections)"></fa-icon>
     </div>
     <div class="col-4 col-md-3 col-lg-2">
       <span *ngIf="!isSaved" class="csd-program-unsaved">** UNSAVED **</span>
-      <span class="float-right pl-2">
+      <span class="float-end ps-2">
         <fa-icon [icon]="faSave" class="csd-btn csd-icon-btn csd-icon-xl" (click)="save()" title="Add program to list."></fa-icon>
       </span>
-      <span class="float-right">
+      <span class="float-end">
         {{program.cost|number}}eb
       </span>
     </div>
   </div>
   <div *ngIf="program.bookCost" class="row">
     <div class="col">
-      <span class="float-right">
+      <span class="float-end">
         ({{program.bookCost|number}}eb Listed)
       </span>
     </div>
@@ -42,11 +42,11 @@
     </div>
     <div class="col-10 col-lg-11">
       <input type="number" [(ngModel)]="program.strength" min="0" max="10" (change)="updated()">
-      <div class="pull-right p1-2 ml-2">
+      <div class="float-end p1-2 ms-2">
         DIFF: {{program.diff}}
       </div>
-      <div class="pull-right p1-2 ml-2">
-        MU: {{program.mu}}<span *ngIf="program.bookMu" class="ml-1">({{program.bookMu}} listed)</span>
+      <div class="float-end p1-2 ms-2">
+        MU: {{program.mu}}<span *ngIf="program.bookMu" class="ms-1">({{program.bookMu}} listed)</span>
       </div>
     </div>
   </div>
@@ -71,8 +71,8 @@
 </div>
 <ng-template #programOptions>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">Program Options</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <h4 class="modal-title float-start">Program Options</h4>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
 
     </button>
   </div>
@@ -86,8 +86,8 @@
 </ng-template>
 <ng-template #programSelections>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">Program List</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <h4 class="modal-title float-start">Program List</h4>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
 
     </button>
   </div>

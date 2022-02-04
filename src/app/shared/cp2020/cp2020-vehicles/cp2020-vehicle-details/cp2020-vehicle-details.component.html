@@ -3,10 +3,10 @@
     <div class="col">Name:
       <span *ngIf="!isEditable">{{currVehicle.name}}</span>
       <input *ngIf="isEditable" type="text" [(ngModel)]="currVehicle.name">
-      <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn float-right ml-2" (click)="deleteVehicle()"></fa-icon>
-      <fa-icon [icon]="faSave" *ngIf="isEditable" class="csd-btn csd-icon-btn float-right ml-2" (click)="save()">
+      <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn float-end ms-2" (click)="deleteVehicle()"></fa-icon>
+      <fa-icon [icon]="faSave" *ngIf="isEditable" class="csd-btn csd-icon-btn float-end ms-2" (click)="save()">
       </fa-icon>
-      <fa-icon *ngIf="!isEditable" [icon]="faPen" class="csd-btn csd-icon-btn float-right ml-2"
+      <fa-icon *ngIf="!isEditable" [icon]="faPen" class="csd-btn csd-icon-btn float-end ms-2"
         (click)="isEditable = !isEditable"></fa-icon>
     </div>
   </div>
@@ -75,13 +75,13 @@
     <div class="col">is Off-Road:
       <span *ngIf="!isEditable">{{currVehicle.offRoad ? 'yes': 'no'}} </span>
       <span *ngIf="isEditable">
-        <input type="number" min="0" class="w-50 text-right" [(ngModel)]="currVehicle.cost">
+        <input type="number" min="0" class="w-50 text-end" [(ngModel)]="currVehicle.cost">
       </span>
     </div>
     <div class="col">Cost:
       <span *ngIf="!isEditable">{{currVehicle.cost}} eb</span>
       <span *ngIf="isEditable">
-        <input type="number" min="0" class="w-50 text-right" [(ngModel)]="currVehicle.cost">
+        <input type="number" min="0" class="w-50 text-end" [(ngModel)]="currVehicle.cost">
       </span>
     </div>
   </div>

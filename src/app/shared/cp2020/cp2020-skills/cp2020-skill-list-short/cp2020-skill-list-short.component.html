@@ -2,7 +2,7 @@
   <div class="cp2020-label row no-gutters">
     <div class="col">
       <h4 class="d-inline-block">SKILLS</h4>
-      <span class="float-right">
+      <span class="float-end">
         General IP: <input [(ngModel)]="skills.ip" type="number" class="chargen-general-ip-input" (change)="onChangeSkill()" />
       </span>
     </div>
@@ -13,13 +13,13 @@
     <div class="col-12">
       <div class="chargen-skill-stat">{{title}}</div>
     </div>
-    <div class="col-12 col-md-6 col-lg-4 order-1 pl-1 pr-1 border-lg border-dark">
+    <div class="col-12 col-md-6 col-lg-4 order-1 ps-1 pe-1 border-lg border-dark">
       <cs-cp2020-skill *ngFor="let skill of getColumnOne(skills)" [skill]="skill" (changeSkill)="onChangeSkill($event)" [stat]="stat" [sa]="spclAbility"></cs-cp2020-skill>
     </div>
-    <div class="col-12 col-md-6 order-md-3 order-lg-2 col-lg-4 pl-1 pr-1 border-lg border-dark">
+    <div class="col-12 col-md-6 order-md-3 order-lg-2 col-lg-4 ps-1 pe-1 border-lg border-dark">
       <cs-cp2020-skill *ngFor="let skill of getColumnTwo(skills)" [skill]="skill" (changeSkill)="onChangeSkill($event)" [stat]="stat" [sa]="spclAbility" ></cs-cp2020-skill>
     </div>
-    <div class="col-12 col-md-6 col-lg-4  order-md-2 order-lg-3 pl-1 pr-1 border-lg border-dark">
+    <div class="col-12 col-md-6 col-lg-4  order-md-2 order-lg-3 ps-1 pe-1 border-lg border-dark">
       <cs-cp2020-skill *ngFor="let skill of getColumnThree(skills)" [skill]="skill" (changeSkill)="onChangeSkill($event)" [stat]="stat" [sa]="spclAbility" ></cs-cp2020-skill>
     </div>
   </div>

@@ -27,7 +27,7 @@
               </div>
               <div class="col">
                 {{opt.name}}
-                <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn ml-1" title="Delete option" (click)="delete(i)">
+                <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn ms-1" title="Delete option" (click)="delete(i)">
                 </fa-icon>
               </div>
               <div class="col-3">
@@ -36,7 +36,7 @@
             </div>
             <div class="row">
               <div class="col">
-                {{opt.notes}} <span class="float-right small">{{opt.source.book | sourcebook}}
+                {{opt.notes}} <span class="float-end small">{{opt.source.book | sourcebook}}
                   pg.{{opt.source.page}}</span>
               </div>
             </div>
@@ -59,8 +59,8 @@
 
 <ng-template #optionModal>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">Weapon Options</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="closeModal()">
+    <h4 class="modal-title float-start">Weapon Options</h4>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()">
 
     </button>
   </div>

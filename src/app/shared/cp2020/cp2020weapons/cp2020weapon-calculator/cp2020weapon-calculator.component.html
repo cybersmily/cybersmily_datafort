@@ -38,7 +38,7 @@
           <fa-icon [icon]="faDice" class="csd-btn csd-dice" (click)="rollToHit()">
           </fa-icon>&nbsp;{{ toHitDiceRoll.show(true) }} = {{ totalToHit }}
         </div>
-        <div class="col-3 text-right">
+        <div class="col-3 text-end">
           VS.
           {{
             isMelee
@@ -115,7 +115,7 @@
             selectedWeapon.getRangeBracket(rangeToTarget).bracket
           }})
         </div>
-        <div class="col-3 text-right">
+        <div class="col-3 text-end">
           Base DIFF: {{ selectedWeapon.getRangeBracket(rangeToTarget).diff }}
         </div>
       </div>
@@ -134,14 +134,14 @@
             <option *ngFor="let shot of [].constructor(fireShots); let i = index" [ngValue]="i + 1">{{ i + 1 }}</option>
           </select>
         </div>
-        <div class="col-3 text-right">{{ fireModeModifier }}</div>
+        <div class="col-3 text-end">{{ fireModeModifier }}</div>
       </div>
       <div class="row">
         <div class="col-1"></div>
         <div class="col">
           Target Modifiers:
         </div>
-        <div class="col-3 text-right">{{ targetActionModifier }}</div>
+        <div class="col-3 text-end">{{ targetActionModifier }}</div>
       </div>
       <div class="row cmbt-modifiers">
         <div class="col-2"></div>
@@ -186,7 +186,7 @@
         <div class="col">
           Attacker Modifiers:
         </div>
-        <div class="col-3 text-right">{{ attackerActionModifier }}</div>
+        <div class="col-3 text-end">{{ attackerActionModifier }}</div>
       </div>
       <div class="row cmbt-modifiers" *ngIf="isRanged">
         <div class="col-2"></div>
@@ -249,7 +249,7 @@
         <div class="col">
           Sights/Smartweapon:
         </div>
-        <div class="col-3 text-right">{{ sightSmartModifier }}</div>
+        <div class="col-3 text-end">{{ sightSmartModifier }}</div>
       </div>
       <div class="row cmbt-modifiers" *ngIf="isRanged">
         <div class="col-2"></div>
@@ -284,7 +284,7 @@
       <div class="row">
         <div class="col-1"></div>
         <div class="col">Other Modifiers</div>
-        <div class="col-2 text-right cmbt-other">
+        <div class="col-2 text-end cmbt-other">
           <input type="number" [(ngModel)]="otherToHitModifiers" />
         </div>
       </div>

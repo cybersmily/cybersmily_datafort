@@ -2,7 +2,7 @@
   <div class="col-12">
     <div class="chargen-skill-stat csd-btn" (click)="isCollapsed = !isCollapsed">
       {{title}}
-      <fa-icon [icon]="collapseArrow" class="csd-icon-btn ml-2"></fa-icon>
+      <fa-icon [icon]="collapseArrow" class="csd-icon-btn ms-2"></fa-icon>
 
     </div>
   </div>
@@ -10,15 +10,15 @@
 <div class="row no-gutters border border-dark mb-1" [collapse]="isCollapsed">
   <div class="col">
     <div class="row no-gutters">
-      <div class="col-12 col-md-6 col-lg-4 order-1 pl-1 pr-1 border-lg border-dark">
+      <div class="col-12 col-md-6 col-lg-4 order-1 ps-1 pe-1 border-lg border-dark">
         <cs-cp2020-skill *ngFor="let skill of getColumnOne()" [skill]="skill" (changeSkill)="onChangeSkill($event)"
           [stat]="stat" [sa]="spclAbility" (delete)="deleteCurrentSkill($event)"></cs-cp2020-skill>
       </div>
-      <div class="col-12 col-md-6 order-2 order-md-3 order-lg-2 col-lg-4 pl-1 pr-1 border-lg border-dark">
+      <div class="col-12 col-md-6 order-2 order-md-3 order-lg-2 col-lg-4 ps-1 pe-1 border-lg border-dark">
         <cs-cp2020-skill *ngFor="let skill of getColumnTwo()" [skill]="skill" (changeSkill)="onChangeSkill($event)"
           [stat]="stat" [sa]="spclAbility" (delete)="deleteCurrentSkill($event)"></cs-cp2020-skill>
       </div>
-      <div class="col-12 col-md-6 col-lg-4  order-3 order-md-2 order-lg-3 pl-1 pr-1 border-lg border-dark">
+      <div class="col-12 col-md-6 col-lg-4  order-3 order-md-2 order-lg-3 ps-1 pe-1 border-lg border-dark">
         <cs-cp2020-skill *ngFor="let skill of getColumnThree()" [skill]="skill" (changeSkill)="onChangeSkill($event)"
           [stat]="stat" [sa]="spclAbility" (delete)="deleteCurrentSkill($event)"></cs-cp2020-skill>
       </div>
@@ -33,8 +33,8 @@
 
 <ng-template #newSkillTemplate >
   <div class="modal-header">
-    <h4 class="modal-title pull-left">New {{title}} Skill</h4>
-    <button type="button" class="btn-close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <h4 class="modal-title float-start">New {{title}} Skill</h4>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
 
     </button>
   </div>
