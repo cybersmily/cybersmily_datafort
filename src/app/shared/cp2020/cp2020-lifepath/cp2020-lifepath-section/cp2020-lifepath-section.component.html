@@ -139,7 +139,7 @@
           Year
         </div>
       </div>
-      <div *ngFor="let event of newLifPath.events; let i = index" class="row no-gutters border border-dark">
+      <div *ngFor="let event of newLifPath.events; let i = index" class="row g-0 border border-dark">
         <div class="col-2 col-md-1">
           <input [(ngModel)]="event.age" type="number" min="0" max="150"
             class="csd-number" />
@@ -150,7 +150,7 @@
             style="width:100%;"></textarea>
         </div>
       </div>
-      <div class="row border border-dark no-gutters hidden-print">
+      <div class="row border border-dark g-0 hidden-print">
         <div class="col text-center">
           <fa-icon [icon]="faPlus" class="csd-icon-btn csd-btn" (click)="addYear()"></fa-icon>
         </div>

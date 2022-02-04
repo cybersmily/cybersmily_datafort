@@ -1,4 +1,4 @@
-<div class="row no-gutters border border-dark mt-1">
+<div class="row g-0 border border-dark mt-1">
   <div class="col-12">
     <div class="chargen-skill-stat csd-btn" (click)="isCollapsed = !isCollapsed">
       {{title}}
@@ -7,9 +7,9 @@
     </div>
   </div>
 </div>
-<div class="row no-gutters border border-dark mb-1" [collapse]="isCollapsed">
+<div class="row g-0 border border-dark mb-1" [collapse]="isCollapsed">
   <div class="col">
-    <div class="row no-gutters">
+    <div class="row g-0">
       <div class="col-12 col-md-6 col-lg-4 order-1 ps-1 pe-1 border-lg border-dark">
         <cs-cp2020-skill *ngFor="let skill of getColumnOne()" [skill]="skill" (changeSkill)="onChangeSkill($event)"
           [stat]="stat" [sa]="spclAbility" (delete)="deleteCurrentSkill($event)"></cs-cp2020-skill>

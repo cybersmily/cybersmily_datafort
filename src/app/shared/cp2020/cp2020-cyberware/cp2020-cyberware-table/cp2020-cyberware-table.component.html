@@ -1,5 +1,5 @@
 <div class="cp2020-section border border-dark">
-  <div class="cp2020-label row no-gutters">
+  <div class="cp2020-label row g-0">
     <div class="col">
       <h4 class="d-inline-block csd-btn me-4" (click)="isCollapsed = !isCollapsed">
         CYBERNETICS
@@ -10,23 +10,23 @@
     </div>
   </div>
   <div [collapse]="isCollapsed">
-    <div class="row no-gutters">
+    <div class="row g-0">
       <div class="col">
-        <div class="row no-gutters">
+        <div class="row g-0">
           <div class="col small ps-1 border border-dark">TYPE</div>
           <div class="col-1 text-center small border border-dark">HL</div>
           <div class="col-1 ps-1 small border border-dark">COST</div>
         </div>
       </div>
       <div *ngIf="showTwoColumns" class="col d-none d-lg-inline-block">
-        <div class="row no-gutters">
+        <div class="row g-0">
           <div class="col small ps-1 border border-dark">TYPE</div>
           <div class="col-1 text-center small border border-dark">HL</div>
           <div class="col-1 ps-1 text-center small border border-dark">COST</div>
         </div>
       </div>
     </div>
-    <div class="row no-gutters">
+    <div class="row g-0">
       <div class="col-12 col-lg-6">
         <ng-container [ngTemplateOutlet]="cyberColumn"
           [ngTemplateOutletContext]="{cyberList:getColumn(showTwoColumns)}">
@@ -39,12 +39,12 @@
       </div>
     </div>
 
-    <div class="row csd-cyber-row no-gutters">
+    <div class="row csd-cyber-row g-0">
       <div class="col text-center csd-btn" (click)="openModal(cyberSelect)">
         <fa-icon class="csd-icon-btn" [icon]="faPlus"></fa-icon>
       </div>
     </div>
-    <div class="row csd-cyber-row no-gutters">
+    <div class="row csd-cyber-row g-0">
       <div class="col">Total HL and Euro Costs</div>
       <div class="col-1 small text-center">{{cyberList.totalHL | number}}</div>
       <div class="col-1 small text-end pe-1">{{cyberList.totalCost | number}}</div>
@@ -53,7 +53,7 @@
 </div>
 
 <ng-template #cyberColumn let-cyberList="cyberList" let-isSecondColumn="isSecondColumn">
-  <div *ngFor="let cyber of cyberList;let i = index" class="csd-cyber-row row no-gutters">
+  <div *ngFor="let cyber of cyberList;let i = index" class="csd-cyber-row row g-0">
     <div class="col cyber-name" title="{{cyber.notes}}">
       <span class="csd-btn ps-1" (click)="editCyberware(i, cyberEdit, isSecondColumn)">
         {{cyber.toString()}}

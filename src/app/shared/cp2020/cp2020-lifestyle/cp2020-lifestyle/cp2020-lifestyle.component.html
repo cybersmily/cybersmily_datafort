@@ -1,5 +1,5 @@
 <div class="cp2020-section border border-dark">
-  <div class="cp2020-label row no-gutters">
+  <div class="cp2020-label row g-0">
     <div class="col">
       <h4 class="d-inline-block csd-btn me-4" (click)="isCollapsed = !isCollapsed">
         LIFESTYLE & EXPENSES
@@ -8,7 +8,7 @@
     </div>
   </div>
   <div [collapse]="isCollapsed">
-    <div class="row no-gutters pt-3 pb-2">
+    <div class="row g-0 pt-3 pb-2">
       <div class="col ms-0 ps-0">
         <h5 class="cp2020-label d-inline-block">Money</h5>
         <fa-icon [icon]="faCalculator" class="csd-icon-btn csd-btn float-end csd-icon-xl" title="Expense Calculator"
@@ -41,14 +41,14 @@
     </div>
     <hr>
     <!-- HOUSING-->
-    <div class="row no-gutters">
+    <div class="row g-0">
       <div class="col ms-0 ps-0">
         <cs-cp2020-housing-list [housingList]="currLifeStyle.housing" (updateHousing)="updateHousing($event)"
           (payHousing)="pay($event, paymentModal)"></cs-cp2020-housing-list>
       </div>
     </div>
     <hr>
-    <div class="row no-gutters">
+    <div class="row g-0">
       <div class="col-12 col-lg-6 ms-0 ps-0">
         <cs-cp2020-service-list [servicesList]="currLifeStyle.services" (updateServices)="updateServices($event)"
           (pay)="pay($event, paymentModal)"></cs-cp2020-service-list>
@@ -59,7 +59,7 @@
       </div>
     </div>
     <hr>
-    <div class="row no-gutters">
+    <div class="row g-0">
       <div class="col ms-0 ps-0">
         <cs-cp2020-identity-list [identityList]="currLifeStyle.identities" (updateList)="updateIdentities($event)">
         </cs-cp2020-identity-list>
