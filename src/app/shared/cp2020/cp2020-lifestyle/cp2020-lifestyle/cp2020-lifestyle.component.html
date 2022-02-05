@@ -8,14 +8,12 @@
     </div>
   </div>
   <div [collapse]="isCollapsed">
-    <div class="row g-0 pt-3 pb-2">
-      <div class="col ms-0 ps-0">
+    <div class="row g-0 pb-3">
+      <div class="col-12">
         <h5 class="cp2020-label d-inline-block">Money</h5>
-        <fa-icon [icon]="faCalculator" class="csd-icon-btn csd-btn float-end csd-icon-xl" title="Expense Calculator"
+        <fa-icon [icon]="faCalculator" class="csd-icon-btn csd-btn float-end csd-icon-xl me-3" title="Expense Calculator"
           (click)="showModal(expenseModal)"></fa-icon>
       </div>
-    </div>
-    <div class="row">
       <div class="col-12 col-lg-3">
         Total: {{totalEb | number}}eb
       </div>
@@ -39,28 +37,25 @@
           (click)="showModal(paymentModal)"></fa-icon>
       </div>
     </div>
-    <hr>
     <!-- HOUSING-->
     <div class="row g-0">
-      <div class="col ms-0 ps-0">
+      <div class="col ms-0 ps-0 border border-dark">
         <cs-cp2020-housing-list [housingList]="currLifeStyle.housing" (updateHousing)="updateHousing($event)"
           (payHousing)="pay($event, paymentModal)"></cs-cp2020-housing-list>
       </div>
     </div>
-    <hr>
     <div class="row g-0">
-      <div class="col-12 col-lg-6 ms-0 ps-0">
+      <div class="col-12 col-lg-6 border border-dark">
         <cs-cp2020-service-list [servicesList]="currLifeStyle.services" (updateServices)="updateServices($event)"
           (pay)="pay($event, paymentModal)"></cs-cp2020-service-list>
       </div>
-      <div class="col col-12 col-lg-6 ms-0 ps-0">
+      <div class="col col-12 col-lg-6 border border-dark">
         <cs-cp2020-food-list [foodList]="currLifeStyle.food" (updateFood)="updateFood($event)"
           (pay)="pay($event, paymentModal)"></cs-cp2020-food-list>
       </div>
     </div>
-    <hr>
     <div class="row g-0">
-      <div class="col ms-0 ps-0">
+      <div class="col border border-dark">
         <cs-cp2020-identity-list [identityList]="currLifeStyle.identities" (updateList)="updateIdentities($event)">
         </cs-cp2020-identity-list>
       </div>

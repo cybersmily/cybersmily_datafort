@@ -1,12 +1,12 @@
-<div class="row">
+<div class="row mt-0">
   <div class="col">
-    <div class="row">
+    <div class="row g-0">
       <div class="col">
         <h5 class="cp2020-label d-inline-block">Services</h5>
         </div>
       <div class="col text-end">
         <span class="d-inline-block">Total: {{totalMonthlyCost|number}}eb/month</span>
-        <fa-icon [icon]="faEuroSign" class="csd-btn csd-icon-btn ms-2 csd-icon-xl" title="Pay" (click)="payServices()"></fa-icon>
+        <fa-icon [icon]="faEuroSign" class="csd-btn csd-icon-btn ms-2 csd-icon-xl me-2" title="Pay" (click)="payServices()"></fa-icon>
       </div>
     </div>
     <div *ngFor="let service of currServices;let i = index" class="row">
