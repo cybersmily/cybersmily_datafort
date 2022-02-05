@@ -43,9 +43,9 @@
                     <div *ngFor="let lk of lnk.links" class="bg-dark">
                       <a *ngIf="!isExternal(lk.link)" [routerLink]="lk.link" routerLinkActive="active"
                         class="dropdown-item nav-link bg-dark" [target]="lk.target ? lk.target : undefined"
-                        [attr.download]="lk.download ? lk.download : undefined" [attr.title]="lk.desc">{{lk.title}}</a>
+                        [attr.download]="lk.download ? lk.download : undefined" [attr.title]="lk.desc" (click)="isCollapsed = !isCollapsed">{{lk.title}}</a>
                       <a *ngIf="isExternal(lk.link)" [href]="lk.link" class="dropdown-item nav-link bg-dark"
-                        [target]="'_blank'" [attr.title]="lk.desc">{{lk.title}}</a>
+                        [target]="'_blank'" [attr.title]="lk.desc" (click)="isCollapsed = !isCollapsed">{{lk.title}}</a>
                     </div>
                 </div>
               </li>
