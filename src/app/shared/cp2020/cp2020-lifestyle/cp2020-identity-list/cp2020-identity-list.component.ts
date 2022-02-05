@@ -1,4 +1,4 @@
-import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faTrash, faPen, faSave } from '@fortawesome/free-solid-svg-icons';
 import { Component, Input, OnInit, Output, EventEmitter, OnChanges } from '@angular/core';
 import { Cp2020Identity } from '../models/cp2020-identity';
 
@@ -10,6 +10,9 @@ import { Cp2020Identity } from '../models/cp2020-identity';
 export class Cp2020IdentityListComponent implements OnInit, OnChanges {
   faPlus = faPlus;
   faTrash = faTrash;
+  faPen = faPen;
+  faSave = faSave;
+  editIndex = -1;
 
   @Input()
   identityList: Array<Cp2020Identity> = new Array<Cp2020Identity>();
@@ -28,32 +31,43 @@ export class Cp2020IdentityListComponent implements OnInit, OnChanges {
     this.idList = JSON.parse(JSON.stringify(this.identityList));
   }
 
+  getId(index: number, col: number): number {
+    index = col < 2 ? index : index + this.nextColIndex;
+    return index;
+  }
+
+  get nextColIndex(): number {
+    return Math.ceil(this.idList.length/2);
+  }
 
   get firstColumn(): Array<Cp2020Identity> {
-    const i = Math.ceil(this.idList.length/2);
+    const i = this.nextColIndex;
     return this.idList.slice(0,i);
   }
 
   get secondColumn(): Array<Cp2020Identity> {
-    const i = Math.ceil(this.idList.length/2);
+    const i = this.nextColIndex;
     return this.idList.slice(i);
   }
 
   add() {
-    this.idList.push({name: '', sin: '', desc: ''});
+    const id = this.idList.length;
+    this.idList.push({name: ``, sin: '', desc: ''});
     this.updateList.emit(this.idList);
   }
 
-  update(id: Cp2020Identity, index: number, col: number) {
-    index = col < 2 ? index : index + Math.ceil(this.idList.length/2);
+  update(id: Cp2020Identity, index: number) {
     this.idList[index] = id;
     this.updateList.emit(this.idList);
   }
 
-  delete(index: number, col: number) {
-    index = col < 2 ? index : index + Math.ceil(this.idList.length/2);
+  delete(index: number) {
     this.idList.splice(index, 1);
     this.updateList.emit(this.idList);
+  }
+
+  edit(index: number) {
+    this.editIndex = index;
   }
 
 }
