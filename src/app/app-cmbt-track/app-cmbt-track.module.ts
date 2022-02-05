@@ -8,7 +8,7 @@ import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';
 import { PipesModule } from './../shared/pipes/pipes.module';
 import { Cp2020RolesDataService } from './../shared/cp2020/cp2020-role/services/cp2020-roles-data.service';
 import { CombatTrackerService } from './services/combat-tracker.service';
-import { SkillListService } from './../shared/services/data/skill-list.service';
+import { SkillListService } from './../shared/cp2020/cp2020-skills/services';
 import { OpponentTrackerService } from './services/opponent-tracker.service';
 import { DiceService } from './../shared/services/dice/dice.service';
 

@@ -1,4 +1,4 @@
-import { DataSkill } from './../../models/data/data-skill';
+import { DataSkill } from '../../cp2020/cp2020-skills/models/data-skill';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './../file-services';
 import { TestBed } from '@angular/core/testing';

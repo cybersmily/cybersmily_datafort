@@ -1,9 +1,7 @@
-import { JsonDataFiles } from './../file-services';
-import { Cp2020PlayerSkill } from '../../cp2020/cp2020-skills/models/cp2020-player-skill';
+import { JsonDataFiles, DataService } from './../../../services/file-services';
+import { Cp2020PlayerSkill, DataSkill } from './../models';
 import { map } from 'rxjs/operators';
-import { DataSkill } from './../../models/data/data-skill';
 import { Observable, of } from 'rxjs';
-import { DataService } from './../file-services';
 import { Injectable } from '@angular/core';
 
 @Injectable({

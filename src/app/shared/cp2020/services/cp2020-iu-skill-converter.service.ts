@@ -1,7 +1,7 @@
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { DataService, JsonDataFiles } from './../../services/file-services';
-import { DataSkill } from './../../models/data/data-skill';
+import { DataSkill } from '../cp2020-skills/models/data-skill';
 import { Cp2020PlayerSkills} from './../cp2020-skills/models';
 import { Injectable } from '@angular/core';
 

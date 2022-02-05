@@ -1,6 +1,6 @@
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { SourceBookLookup } from './../../shared/models/source-book-lookup';
-import { DataSkill } from './../../shared/models/data/data-skill';
+import { DataSkill } from '../../shared/cp2020/cp2020-skills/models/data-skill';
 import { DataService, JsonDataFiles } from './../../shared/services/file-services';
 import { Component, OnInit } from '@angular/core';
 

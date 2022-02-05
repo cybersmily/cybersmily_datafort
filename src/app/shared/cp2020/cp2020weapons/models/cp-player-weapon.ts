@@ -5,7 +5,7 @@ import { DiceService } from './../../../services/dice/dice.service';
 import { SourceBook } from './../../../models/sourcebook';
 import { WeaponRanges } from './weapon-ranges';
 import { CombatRange } from './combat-range';
-import { FumbleChart } from './../../../models/skill/fumble-chart';
+import { FumbleChart } from './../../cp2020-skills/models';
 import { CpWeapon } from '.';
 import { Cp2020WeaponMagazine } from './cp-2020-weapon-magazine';
 

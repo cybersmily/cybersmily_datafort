@@ -1,4 +1,4 @@
-import { DataService } from './../file-services';
+import { DataService } from '../../../services/file-services';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed, inject, waitForAsync } from '@angular/core/testing';
 

@@ -1,4 +1,4 @@
-import { DiceService } from './../services/dice/dice.service';
+import { DiceService } from '../../../services/dice/dice.service';
 import { SkillLevelSpread } from './skill-level-spread';
 import { TestBed } from '@angular/core/testing';
 

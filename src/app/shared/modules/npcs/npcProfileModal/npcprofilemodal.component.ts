@@ -1,7 +1,8 @@
 import { DataService } from './../../../services/file-services';
 import { Component, OnInit, Input } from '@angular/core';
-import { Npc, NpcSkill, Skill } from '../../../models/character';
+import { Npc } from '../../../models/character';
 import { BsModalRef } from 'ngx-bootstrap/modal';
+import { NpcSkill, Skill} from '../../../cp2020/cp2020-skills/models';
 
 
 @Component({

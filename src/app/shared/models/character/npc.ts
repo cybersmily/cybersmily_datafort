@@ -1,9 +1,7 @@
 import { Background } from './background';
 import { Career } from './career';
 import { iNpc } from './inpc';
-import { NpcSkill } from './npcskill';
-import { Skill } from './skill';
-import { SkillBlock } from './skillblock';
+import { NpcSkill, Skill, SkillBlock } from '../../cp2020/cp2020-skills/models';
 import { Stats } from './stats';
 
 import { PEEPS_IMG_PATH } from './../constants';

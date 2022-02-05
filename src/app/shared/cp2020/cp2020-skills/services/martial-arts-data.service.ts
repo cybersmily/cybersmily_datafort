@@ -1,7 +1,7 @@
 import { map } from 'rxjs/operators';
-import { JsonDataFiles, DataService } from './../file-services';
+import { JsonDataFiles, DataService } from './../../../services/file-services';
 import { Observable, of } from 'rxjs';
-import { Cp2020MartialArt } from './../../models/skill/cp2020-martial-art';
+import { Cp2020MartialArt } from './../models';
 import { Injectable } from '@angular/core';
 
 @Injectable({

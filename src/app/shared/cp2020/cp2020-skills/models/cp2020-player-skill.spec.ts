@@ -1,4 +1,4 @@
-import { DataSkill } from './../../../models/data/data-skill';
+import { DataSkill } from './data-skill';
 import { SkillParameters } from './skill-parameters';
 import { Cp2020PlayerSkill } from './cp2020-player-skill';
 

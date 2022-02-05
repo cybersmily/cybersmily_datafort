@@ -1,4 +1,4 @@
-import { DataSkill } from './../../../models/data/data-skill';
+import { DataSkill } from './data-skill';
 import { Cp2020PlayerSkills } from './cp2020-player-skills';
 
 describe('Cp2020PlayerSkills', () => {

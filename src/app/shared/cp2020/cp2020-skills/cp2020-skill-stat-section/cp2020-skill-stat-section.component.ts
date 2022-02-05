@@ -1,4 +1,3 @@
-import { Skill } from './../../../models/character/skill';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { faPlus, faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerSkill } from './../models/cp2020-player-skill';

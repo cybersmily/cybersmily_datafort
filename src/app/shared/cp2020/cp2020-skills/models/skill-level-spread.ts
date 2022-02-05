@@ -1,4 +1,4 @@
-import { DiceService } from './../services/dice/dice.service';
+import { DiceService } from './../../../services/dice/dice.service';
 export class SkillLevelSpread {
   constructor(private diceService: DiceService) {}
 

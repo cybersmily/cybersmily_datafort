@@ -1,6 +1,6 @@
 import { MartialBonuses } from './martial-bonuses';
-import { DataSkill } from '../../../models/data/data-skill';
-import { Skill } from '../../../models/character/skill';
+import { DataSkill } from './data-skill';
+import { Skill } from './skill';
 import { StatModifier } from '../../cp2020-stats/models';
 import { SkillParameters } from './skill-parameters';
 

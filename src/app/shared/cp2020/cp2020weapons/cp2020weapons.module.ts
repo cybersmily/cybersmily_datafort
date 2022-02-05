@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 import { Cp2020weaponEditorComponent } from './cp2020weapon-editor/cp2020weapon-editor.component';
 import { Cp2020weaponSelectorComponent } from './cp2020weapon-selector/cp2020weapon-selector.component';
 import { Cp2020weaponCalculatorComponent } from './cp2020weapon-calculator/cp2020weapon-calculator.component';
-import { MartialArtsDataService } from '../../services/data/martial-arts-data.service';
+import { MartialArtsDataService } from './../cp2020-skills/services';
 import { IUCombatActionsComponent } from './i-u-combat-actions/i-u-combat-actions.component';
 import { Cp2020ammoComponent } from './cp2020ammo/cp2020ammo.component';
 import { Cp2020weaponOptionsComponent } from './cp2020weapon-options/cp2020weapon-options.component';

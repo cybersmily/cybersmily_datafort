@@ -1,9 +1,7 @@
 import { Background } from './background';
-import { Skill } from './skill';
-import { SkillBlock } from './skillblock';
 import { Career } from './career';
 import { Stats } from './stats';
-import { NpcSkill } from './npcskill';
+import { NpcSkill, Skill, SkillBlock } from '../../cp2020/cp2020-skills/models';
 
 export interface iNpc {
   name: string;

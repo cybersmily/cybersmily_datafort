@@ -1,4 +1,4 @@
-import { SourceBook } from './../sourcebook';
+import { SourceBook } from '../../../models/sourcebook';
 export interface Cp2020MartialArt {
   name: string;
   source: SourceBook;
