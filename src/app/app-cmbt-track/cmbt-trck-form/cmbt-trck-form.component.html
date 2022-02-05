@@ -32,22 +32,22 @@
     <div class="col-12">
       <div class="row">
         <div class="col-12 col-md-4">
-          <div class="row">
+          <div class="row chargen-label">
             <div class="col-6">
               INITIATIVE &nbsp;
               <fa-icon [icon]="faDice" (click)="rollInitiative()" title="Roll all opponents' initiative"
                 class="csd-btn csd-dice"></fa-icon>
             </div>
-            <div class="col-6">
-              TURN: <input class="cbttrk-turn" type="number" min="0" value="1" />
+            <div class="col-6 text-end">
+              TURN: <input class="cbttrk-turn text-end" type="number" min="0" value="1" />
             </div>
           </div>
           <div *ngFor="let opp of opponents; index as i"
-            [ngClass]="{'csd-rounded':true, 'row': true, 'cbttrk-init': true, 'cbttrk-selected': (selectedOpponent.id === opp.id)}">
-            <div class="col-3" [title]="showInitiativeTooltip(opp)">
+            [ngClass]="{'row border border-dark cbttrk-init': true, 'cbttrk-selected': (selectedOpponent.id !== opp.id)}">
+            <div class="col-3 g-0" [title]="showInitiativeTooltip(opp)">
               <input [(ngModel)]="opp.initRoll" type="number" (change)="changeInitiative()"
-                class="csd-hide-spinner text-center" />
-              <fa-icon [icon]="faDice" class="csd-btn opp-init csd-dice" title="Roll initiative for this opponent"
+                class="csd-hide-spinner text-center ms-1" />
+              <fa-icon [icon]="faDice" class="csd-btn opp-init csd-dice ms-1" title="Roll initiative for this opponent"
                 (click)="rollInitiative(opp.id)"></fa-icon>
             </div>
             <div class="col-8 cbttrk-opp-name csd-btn" (click)='selectOpponent(i)' title="Click to show opponent...">
@@ -68,13 +68,13 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-12 csd-rounded btn csd-btn" style="width: 100%;" (click)="addOpponent()"
+            <div class="col-12 border border-dark btn csd-btn" (click)="addOpponent()"
               title="Add another opponent">
-              <fa-icon [icon]="faPlus"></fa-icon>
+              <fa-icon [icon]="faPlus" class="csd-icon-btn csd-icon-xl"></fa-icon>
             </div>
           </div>
         </div>
-        <div class="col-12 col-md-8 csd-rounded">
+        <div class="col-12 col-md-8 border border-dark">
           <cs-cmbt-trck-opponent-card [opponent]="selectedOpponent" [index]="selectedIndex">
           </cs-cmbt-trck-opponent-card>
         </div>

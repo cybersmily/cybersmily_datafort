@@ -9,7 +9,7 @@
       </h4>
     </div>
   </div>
-  <div [collapse]="isCollapsed" [ngClass]="{'row p-1': true, 'border border-dark': showHeader}">
+  <div [collapse]="isCollapsed && showHeader" [ngClass]="{'row p-1': true, 'border border-dark': showHeader}">
     <div class="col">
       Choose Weapon:&nbsp;
       <select [(ngModel)]="selectedWeapon" (change)="changeWeapon()">
@@ -25,7 +25,7 @@
       </span>
     </div>
   </div>
-  <div [collapse]="isCollapsed" [ngClass]="{'row': true, 'border border-dark': showHeader}" *ngIf="selectedWeapon">
+  <div [collapse]="isCollapsed && showHeader" [ngClass]="{'row': true, 'border border-dark': showHeader}" *ngIf="selectedWeapon">
     <div class="col">
       <div class="row small" *ngIf="isMelee">
         <div class="col-1"></div>

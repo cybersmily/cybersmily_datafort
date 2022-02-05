@@ -11,7 +11,7 @@ import { SkillListService } from './../../shared/cp2020/cp2020-skills/services';
 import { DataService } from './../../shared/services/file-services';
 import { Cp2020RolesDataService } from './../../shared/cp2020/cp2020-role/services/cp2020-roles-data.service';
 import { forkJoin } from 'rxjs';
-import { faDice, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faTrash, faRedo } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 
 @Component({
@@ -22,6 +22,7 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angu
 export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
   dice = faDice;
   faTrash = faTrash;
+  faRedo = faRedo;
 
 
   customClass = 'opp-section';
