@@ -1,73 +1,87 @@
-<div>
-  <div class="row bg-black fw-bold text-white">
-    <div class="col-12 col-md-4 border border-dark">Armor
-      <fa-icon [icon]="faDice" class="csd-btn csd-icon-btn ms-4" title="Roll for random published armor piece" (click)="rollrandom()">
-      </fa-icon>
-      <fa-icon [icon]="faCog" class="csd-btn csd-icon-btn ms-1" title="Settings for random generation" (click)="showModal(armorSettingsModal)">
-      </fa-icon>
-      <fa-icon [icon]="faRedo" class="csd-btn csd-icon-btn ms-1" title="Clear out all armor" (click)="reset()">
-      </fa-icon>
+<div class="chargen-section ps-3 pe-3">
+  <div class="row chargen-label">
+    <div class="col-12 col-md-4 csd-btn g-0">
+      <h4 class="d-inline-block csd-btn me-4" (click)="isCollapsed = !isCollapsed">
+        ARMOR
+        <fa-icon [icon]="isCollapsed ? faChevronRight : faChevronDown" class="csd-icon-btn csd-icon-xl ms-1"
+          title="Toggel section">
+        </fa-icon>
+      </h4>
+      <ng-container *ngIf="!isCollapsed">
+        <fa-icon [icon]="faDice" class="csd-btn csd-icon-btn ms-1" title="Roll for random published armor piece"
+          (click)="rollrandom()">
+        </fa-icon>
+        <fa-icon [icon]="faCog" class="csd-btn csd-icon-btn ms-1" title="Settings for random generation"
+          (click)="showModal(armorSettingsModal)">
+        </fa-icon>
+        <fa-icon [icon]="faRedo" class="csd-btn csd-icon-btn ms-1" title="Clear out all armor" (click)="reset()">
+        </fa-icon>
+      </ng-container>
     </div>
-    <div class="col-1 text-center border border-dark small pe-0 ps-0 d-none d-md-inline-block">SP</div>
-    <div class="col-1 text-center border border-dark small pe-0 ps-0 d-none d-md-inline-block text-truncate">HEAD</div>
-    <div class="col-1 text-center border border-dark small pe-0 ps-0 d-none d-md-inline-block text-truncate">TORSO</div>
-    <div class="col-1 text-center border border-dark small pe-0 ps-0 d-none d-md-inline-block">R ARM</div>
-    <div class="col-1 text-center border border-dark small pe-0 ps-0 d-none d-md-inline-block">L ARM</div>
-    <div class="col-1 text-center border border-dark small pe-0 ps-0 d-none d-md-inline-block">R LEG</div>
-    <div class="col-1 text-center border border-dark small pe-0 ps-0 d-none d-md-inline-block">L LEG</div>
-    <div class="col-1 text-center border border-dark small pe-0 ps-0 d-none d-md-inline-block">EV</div>
+    <ng-container *ngIf="!isCollapsed">
+    <div class="col-1 text-center g-0 small d-none d-md-inline-block">SP</div>
+    <div class="col-1 text-center g-0 small d-none d-md-inline-block text-truncate">HEAD</div>
+    <div class="col-1 text-center g-0 small d-none d-md-inline-block text-truncate">TORSO</div>
+    <div class="col-1 text-center g-0 small d-none d-md-inline-block">R ARM</div>
+    <div class="col-1 text-center g-0 small d-none d-md-inline-block">L ARM</div>
+    <div class="col-1 text-center g-0 small d-none d-md-inline-block">R LEG</div>
+    <div class="col-1 text-center g-0 small d-none d-md-inline-block">L LEG</div>
+    <div class="col-1 text-center g-0 small d-none d-md-inline-block">EV</div>
+    </ng-container>
   </div>
-  <div *ngIf="currArmorBlock.armorPieces.length &lt; 1" class="row small">
-    <div class="col border border-dark">&nbsp;
+  <ng-container *ngIf="!isCollapsed">
+    <div *ngIf="currArmorBlock.armorPieces.length &lt; 1" class="row small">
+      <div class="col border border-dark">&nbsp;
+      </div>
+      <div class="col-1 text-center border border-dark"></div>
+      <div class="col-1 text-center border border-dark"></div>
+      <div class="col-1 text-center border border-dark"></div>
+      <div class="col-1 text-center border border-dark"></div>
+      <div class="col-1 text-center border border-dark"></div>
+      <div class="col-1 text-center border border-dark"></div>
+      <div class="col-1 text-center border border-dark"></div>
+      <div class="col-1 text-center border border-dark"></div>
     </div>
-    <div class="col-1 text-center border border-dark"></div>
-    <div class="col-1 text-center border border-dark"></div>
-    <div class="col-1 text-center border border-dark"></div>
-    <div class="col-1 text-center border border-dark"></div>
-    <div class="col-1 text-center border border-dark"></div>
-    <div class="col-1 text-center border border-dark"></div>
-    <div class="col-1 text-center border border-dark"></div>
-    <div class="col-1 text-center border border-dark"></div>
-  </div>
-  <div *ngFor="let armor of currArmorBlock.armorPieces;let i = index" class="row small">
-    <div class="col-12 col-md-4 border border-dark pe-0 ps-1">
-      <input type="checkbox" [checked]="armor.isActive" (change)="toggleActiveArmor($event, i)">
-      {{armor.name}}
-      <fa-icon [icon]="faWrench" class="csd-btn csd-icon-btn float-end me-1" title="Repair all locations"
-        (click)="repairArmor(armor)"></fa-icon>
-      <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn float-end me-2" title="Remove armor"
-        (click)="deleteArmor(i)"></fa-icon>
+    <div *ngFor="let armor of currArmorBlock.armorPieces;let i = index" class="row small">
+      <div class="col-12 col-md-4 border border-dark">
+        <input type="checkbox" [checked]="armor.isActive" (change)="toggleActiveArmor($event, i)">
+        {{armor.name}}
+        <fa-icon [icon]="faWrench" class="csd-btn csd-icon-btn float-end me-1" title="Repair all locations"
+          (click)="repairArmor(armor)"></fa-icon>
+        <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn float-end me-2" title="Remove armor"
+          (click)="deleteArmor(i)"></fa-icon>
+      </div>
+      <div class="col-2 d-md-none border border-dark text-end">SP:</div>
+      <div class="col-1 text-center border border-dark">{{armor.baseSP}}</div>
+      <div
+        [ngClass]="{'col-1 text-center border border-dark':true,'csd-highlight':armor.baseSP > (armor.locations?.head) ,'csd-cell-disabled':(!armor.locations?.head) }">
+        {{armor.locations?.head ?? ''}}</div>
+      <div
+        [ngClass]="{'col-1 text-center border border-dark':true,'csd-highlight':armor.baseSP > (armor.locations?.torso),'csd-cell-disabled':(!armor.locations?.torso)}">
+        {{armor.locations?.torso ??''}}</div>
+      <div
+        [ngClass]="{'col-1 text-center border border-dark':true,'csd-highlight':armor.baseSP > (armor.locations?.rarm) ,'csd-cell-disabled':(!armor.locations?.rarm) }">
+        {{armor.locations?.rarm ?? ''}}</div>
+      <div
+        [ngClass]="{'col-1 text-center border border-dark':true,'csd-highlight':armor.baseSP > (armor.locations?.larm) ,'csd-cell-disabled':(!armor.locations?.larm) }">
+        {{armor.locations?.larm ?? ''}}</div>
+      <div
+        [ngClass]="{'col-1 text-center border border-dark':true,'csd-highlight':armor.baseSP > (armor.locations?.rleg) ,'csd-cell-disabled':(!armor.locations?.rleg) }">
+        {{armor.locations?.rleg ?? ''}}</div>
+      <div
+        [ngClass]="{'col-1 text-center border border-dark g-0':true,'csd-highlight':armor.baseSP > (armor.locations?.lleg) ,'csd-cell-disabled':(!armor.locations?.lleg) }">
+        {{armor.locations?.lleg ?? ''}}</div>
+      <div class="col-2 text-end d-md-none border border-dark g-0">EV:</div>
+      <div class="col-1 text-center border border-dark g-0">{{armor.ev}}</div>
     </div>
-    <div class="col-2 d-md-none border border-dark text-end pe-1">SP:</div>
-    <div class="col-1 text-center border border-dark pe-0 ps-0">{{armor.baseSP}}</div>
-    <div
-      [ngClass]="{'col-1 text-center border border-dark pe-0 ps-0':true,'csd-highlight':armor.baseSP > (armor.locations?.head) ,'csd-cell-disabled':(!armor.locations?.head) }">
-      {{armor.locations?.head ?? ''}}</div>
-    <div
-      [ngClass]="{'col-1 text-center border border-dark pe-0 ps-0':true,'csd-highlight':armor.baseSP > (armor.locations?.torso),'csd-cell-disabled':(!armor.locations?.torso)}">
-      {{armor.locations?.torso ??''}}</div>
-    <div
-      [ngClass]="{'col-1 text-center border border-dark pe-0 ps-0':true,'csd-highlight':armor.baseSP > (armor.locations?.rarm) ,'csd-cell-disabled':(!armor.locations?.rarm) }">
-      {{armor.locations?.rarm ?? ''}}</div>
-    <div
-      [ngClass]="{'col-1 text-center border border-dark pe-0 ps-0':true,'csd-highlight':armor.baseSP > (armor.locations?.larm) ,'csd-cell-disabled':(!armor.locations?.larm) }">
-      {{armor.locations?.larm ?? ''}}</div>
-    <div
-      [ngClass]="{'col-1 text-center border border-dark pe-0 ps-0':true,'csd-highlight':armor.baseSP > (armor.locations?.rleg) ,'csd-cell-disabled':(!armor.locations?.rleg) }">
-      {{armor.locations?.rleg ?? ''}}</div>
-    <div
-      [ngClass]="{'col-1 text-center border border-dark pe-0 ps-0':true,'csd-highlight':armor.baseSP > (armor.locations?.lleg) ,'csd-cell-disabled':(!armor.locations?.lleg) }">
-      {{armor.locations?.lleg ?? ''}}</div>
-    <div class="col-2 text-end d-md-none border border-dark pe-1">EV:</div>
-    <div class="col-1 text-center border border-dark pe-0 ps-0">{{armor.ev}}</div>
-  </div>
-  <div class="row border border-dark">
-    <div class="col text-center">
-      <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn" title="Add armor piece"
-        (click)="showModal(armorDetailModal)">
-      </fa-icon>
+    <div class="row border border-dark">
+      <div class="col text-center">
+        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn" title="Add armor piece"
+          (click)="showModal(armorDetailModal)">
+        </fa-icon>
+      </div>
     </div>
-  </div>
+  </ng-container>
 </div>
 <ng-template #armorDetailModal>
   <div class="modal-header">

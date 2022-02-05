@@ -5,7 +5,7 @@ import { ArmorRandomGenSettingsService } from './../services/armor-random-gen-se
 import { DiceService } from './../../../services/dice/dice.service';
 import { ArmorGeneratorService } from './../services/armor-generator/armor-generator.service';
 import { Cp2020ArmorPiece } from '../models/cp2020-armor-piece';
-import { faWrench, faTrash, faPlus, faDice, faSave, faCog, faRedo } from '@fortawesome/free-solid-svg-icons';
+import { faWrench, faTrash, faPlus, faDice, faSave, faCog, faRedo, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020ArmorBlock } from '../models/cp2020-armor-block';
 import { Component, Input, OnInit, Output, TemplateRef, EventEmitter, OnChanges } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -23,6 +23,8 @@ export class Cp2020OpponentArmorListComponent implements OnInit, OnChanges {
   faSave = faSave;
   faCog = faCog;
   faRedo = faRedo;
+  faChevronDown = faChevronDown;
+  faChevronRight = faChevronRight;
 
   modalRef: BsModalRef;
   config: {} = {
@@ -31,6 +33,9 @@ export class Cp2020OpponentArmorListComponent implements OnInit, OnChanges {
 
   @Input()
   armorBlock = new Cp2020ArmorBlock();
+
+  @Input()
+  isCollapsed = true;
 
   @Output()
   updateArmor = new EventEmitter<Cp2020ArmorBlock>();
