@@ -24,7 +24,6 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
   faTrash = faTrash;
   faRedo = faRedo;
 
-
   customClass = 'opp-section';
   currOpponent = new CmbtTrckOpponent();
 

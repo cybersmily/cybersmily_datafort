@@ -2,7 +2,7 @@ import { SkillListService } from './../../shared/cp2020/cp2020-skills/services';
 import { CmbtTrckOpponent } from '../../shared/models/cmbt-trck';
 import { Cp2020PlayerSkill, DataSkill, FumbleChart, SkillLevelSpread } from './../../shared/cp2020/cp2020-skills/models';
 import { DiceService } from './../../shared/services/dice/dice.service';
-import { faDice, faTrash, faPlus, faAngleDoubleDown, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faTrash, faPlus, faAngleDoubleDown, faAngleDoubleRight, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 
 @Component({
@@ -13,9 +13,14 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angu
 export class CmbtTrkSkillsComponent implements OnInit, OnChanges {
   faAngleDoubleDown = faAngleDoubleDown;
   faAngleDoubleRight = faAngleDoubleRight;
+  faChevronDown = faChevronDown;
+  faChevronRight = faChevronRight;
+
   dice = faDice;
   faTrash = faTrash;
   faPlus = faPlus;
+
+  @Input()
   isCollapsed = false;
 
   @Input()

@@ -4,14 +4,12 @@
       <fa-icon [icon]="faSave" class="float-start btn-lg csd-btn csd-icon-btn" (click)="save()"
         title="Save to a json file. This is needed to reload the data."></fa-icon>
       &nbsp;
-
       <input type="file" id="loadFile" title="load a combat tracker json file" name="Load" Style="display: none"
         (change)="load($event)" #inputFile (click)="inputFile.value = null" accept="text/plain;text/json" />
       <label for="loadFile" class="float-start btn-lg csd-btn me-1">
         <fa-icon [icon]="faUpload" title="load a combat tracker json file" class=" csd-icon-btn"></fa-icon>
       </label>
       &nbsp;
-
       <input type="file" id="importFile" title="Import a Cybersmily CP2020 JSON file as an opponent" name="Import"
         Style="display: none" (change)="import($event)" #inputFile (click)="inputFile.value = null"
         accept="text/plain;text/json" />
@@ -50,7 +48,7 @@
               <fa-icon [icon]="faDice" class="csd-btn opp-init csd-dice ms-1" title="Roll initiative for this opponent"
                 (click)="rollInitiative(opp.id)"></fa-icon>
             </div>
-            <div class="col-8 cbttrk-opp-name csd-btn" (click)='selectOpponent(i)' title="Click to show opponent...">
+            <div [ngClass]="{'col-8 cbttrk-opp-name csd-btn': true, 'fs-bold ': (selectedOpponent.id === opp.id) }" (click)='selectOpponent(i)' title="Click to show opponent...">
               <span>{{opp.name}}</span>
               <br>
               <span class="cbtrck-opp-init-mods">[REF: {{opp.stats.REF.Adjusted}}]</span>
@@ -68,15 +66,13 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-12 border border-dark btn csd-btn" (click)="addOpponent()"
-              title="Add another opponent">
+            <div class="col-12 border border-dark btn csd-btn" (click)="addOpponent()" title="Add another opponent">
               <fa-icon [icon]="faPlus" class="csd-icon-btn csd-icon-xl"></fa-icon>
             </div>
           </div>
         </div>
         <div class="col-12 col-md-8 border border-dark">
-          <cs-cmbt-trck-opponent-card [opponent]="selectedOpponent" [index]="selectedIndex">
-          </cs-cmbt-trck-opponent-card>
+          <cs-cmbt-trck-opponent-card [opponent]="selectedOpponent" [index]="selectedIndex"></cs-cmbt-trck-opponent-card>
         </div>
       </div>
     </div>
@@ -85,9 +81,7 @@
 <ng-template #resetModal>
   <div class="modal-header">
     <h4>RESET COMBAT TRACKER</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
-
-    </button>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()"></button>
   </div>
   <div class="modal-body">
     Are you sure you want to clear all the data and reset the trackers?<br>
@@ -99,9 +93,7 @@
 <ng-template #instructionModal>
   <div class="modal-header">
     <h4>COMBAT TRACKER INSTRUCTIONS</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
-
-    </button>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()"></button>
   </div>
   <div class="modal-body">
     <cs-cmbt-trck-instructions></cs-cmbt-trck-instructions>

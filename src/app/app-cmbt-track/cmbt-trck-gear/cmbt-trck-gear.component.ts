@@ -1,4 +1,4 @@
-import { faPlus, faDice, faTrash} from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faDice, faTrash, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -10,9 +10,14 @@ export class CmbtTrckGearComponent implements OnInit {
   faDice = faDice;
   faTrash = faTrash;
   faPlus = faPlus;
+  faChevronDown = faChevronDown;
+  faChevronRight = faChevronRight;
 
   @Input()
   gear = new Array<string>();
+
+  @Input()
+  isCollapsed = true;
 
   @Output()
   newGear = new EventEmitter<Array<string>>();

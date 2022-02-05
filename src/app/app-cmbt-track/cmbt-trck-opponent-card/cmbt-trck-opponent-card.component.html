@@ -56,7 +56,6 @@
   </div>
   <div class='row'>
     <div class='col-12'>
-
       <cs-cp2020weapon-calculator [weaponList]="currOpponent.getWeaponsAsList()"
         [skills]="currOpponent.getSkillAsList()" [body]="currOpponent.stats.BODY.Adjusted"
         [ref]="currOpponent.stats.REF.Adjusted" [bodyDamageMod]="currOpponent.stats.BodyDmgMod"
@@ -78,32 +77,21 @@
       </cs-cp2020-opponent-armor-list>
     </div>
   </div>
-  <div class="row">
-    <div class="col">
-      <tabset>
-        <tab heading="SKILLS" [customClass]="customClass">
-          <div class="csd-rounded">
-            <cs-cmbt-trk-skills [opponent]="currOpponent" (updateOpponent)="changeOpponent($event)">
-            </cs-cmbt-trk-skills>
-            <br>
-          </div>
-        </tab>
-        <tab heading="CYBER" [customClass]="customClass">
-          <div class="csd-rounded">
-            <cs-cmbt-trk-cyber [cyberware]="currOpponent.cyberware" (newCyberware)="changeCyber($event)">
-            </cs-cmbt-trk-cyber>
-            <br>
-          </div>
-        </tab>
-        <tab heading="GEAR" [customClass]="customClass">
-          <div class="csd-rounded">
-            <cs-cmbt-trck-gear [gear]="currOpponent.gear" (newGear)="changeGear($event)"></cs-cmbt-trck-gear>
-            <br>
-          </div>
-        </tab>
-      </tabset>
-      <br>
-      <br>
+  <div class='row mt-1'>
+    <div class='col-12'>
+      <cs-cmbt-trk-skills [opponent]="currOpponent" [isCollapsed]="true" (updateOpponent)="changeOpponent($event)">
+      </cs-cmbt-trk-skills>
+    </div>
+  </div>
+  <div class='row mt-1'>
+    <div class='col-12'>
+      <cs-cmbt-trk-cyber [isCollapsed]="true" [cyberware]="currOpponent.cyberware" (newCyberware)="changeCyber($event)">
+      </cs-cmbt-trk-cyber>
+    </div>
+  </div>
+  <div class='row mt-1 mb-4'>
+    <div class='col-12'>
+      <cs-cmbt-trck-gear [gear]="currOpponent.gear" (newGear)="changeGear($event)"></cs-cmbt-trck-gear>
     </div>
   </div>
 </div>

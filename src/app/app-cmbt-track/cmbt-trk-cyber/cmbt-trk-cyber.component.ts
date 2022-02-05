@@ -1,5 +1,5 @@
 import { OppCyberware } from './../../shared/cp2020/cp2020-cyberware/models';
-import { faDice, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faTrash, faPlus, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { CmbtTrckOppChartService } from './../services/cmbt-trck-opp-chart.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
@@ -12,9 +12,14 @@ export class CmbtTrkCyberComponent implements OnInit {
   faDice = faDice;
   faTrash = faTrash;
   faPlus = faPlus;
+  faChevronDown = faChevronDown;
+  faChevronRight = faChevronRight;
 
   @Input()
   cyberware = new Array<OppCyberware>();
+
+  @Input()
+  isCollapsed = true;
 
   @Output()
   newCyberware = new EventEmitter<Array<OppCyberware>>();
