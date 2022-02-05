@@ -3,7 +3,7 @@ import { MartialArtsDataService } from './../../cp2020-skills/services';
 import { DiceRolls } from './../../../models/dice-rolls';
 import { DiceService } from './../../../services/dice/dice.service';
 import { CpPlayerWeaponList, CpPlayerWeapon, CombatRange } from './../models';
-import { faDice, faRedo } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faRedo, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import {
   Component,
   OnInit,
@@ -20,8 +20,18 @@ import {
 export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
   faDice = faDice;
   faRedo = faRedo;
+  faChevronDown = faChevronDown;
+  faChevronRight = faChevronRight;
+
+
   @Input()
   weaponList: CpPlayerWeaponList = new CpPlayerWeaponList();
+
+  @Input()
+  isCollapsed = true;
+
+  @Input()
+  showHeader = false;
 
   @Input()
   ref = 0;

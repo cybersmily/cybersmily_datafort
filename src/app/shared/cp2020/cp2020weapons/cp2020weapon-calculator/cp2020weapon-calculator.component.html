@@ -1,21 +1,31 @@
-<div class="cmbt-calculator">
-  <div class="row">
+<div class="cmbt-calculator ps-3 pe-3">
+  <div *ngIf="showHeader" class="row chargen-label">
+    <div class="col-12 csd-btn g-0">
+      <h4 class="d-inline-block csd-btn ms-1" (click)="isCollapsed = !isCollapsed">
+        COMBAT CALCULATOR
+        <fa-icon [icon]="isCollapsed ? faChevronRight : faChevronDown" class="csd-icon-btn csd-icon-xl ms-1"
+          title="Toggel section">
+        </fa-icon>
+      </h4>
+    </div>
+  </div>
+  <div [collapse]="isCollapsed" [ngClass]="{'row p-1': true, 'border border-dark': showHeader}">
     <div class="col">
       Choose Weapon:&nbsp;
       <select [(ngModel)]="selectedWeapon" (change)="changeWeapon()">
         <option [ngValue]="undefined"></option>
         <option *ngFor="let wpn of filteredList" [ngValue]="wpn">{{
           wpn.name
-        }}</option>
+          }}</option>
         <option *ngFor="let att of physicalAttacks" [ngValue]="att">{{att.name}}</option>
       </select>
       &nbsp;&nbsp;
       <span class="cmbt-modifiers">
-      {{ selectedWeapon ? selectedWeapon.showStats() : "" }}
-    </span>
+        {{ selectedWeapon ? selectedWeapon.showStats() : "" }}
+      </span>
     </div>
   </div>
-  <div class="row" *ngIf="selectedWeapon">
+  <div [collapse]="isCollapsed" [ngClass]="{'row': true, 'border border-dark': showHeader}" *ngIf="selectedWeapon">
     <div class="col">
       <div class="row small" *ngIf="isMelee">
         <div class="col-1"></div>
@@ -41,8 +51,8 @@
         <div class="col-3 text-end">
           VS.
           {{
-            isMelee
-              ?  "Opposed Roll" : totalDiff
+          isMelee
+          ? "Opposed Roll" : totalDiff
           }}
         </div>
       </div>
@@ -52,14 +62,17 @@
         <div class="col-4">
           magazines ({{selectedWeapon.magazines.length}}):
           <select [(ngModel)]="selectedWeapon.currMagIndex">
-            <option *ngFor="let mag of selectedWeapon.magazines;let i = index" [value]="i">{{mag.used}}/{{mag.capacity}}  {{mag.ammo}} {{mag.subtype}}</option>
+            <option *ngFor="let mag of selectedWeapon.magazines;let i = index" [value]="i">
+              {{mag.used}}/{{mag.capacity}}
+              {{mag.ammo}} {{mag.subtype}}</option>
           </select>
         </div>
         <div class="col">
           <span class="wpn-shot csd-btn" *ngFor="let shot of currMagazineShots;let i = index"
             (click)="selectedWeapon.expendShot(i)" title="{{i + 1}}">{{ shot ? 'x' : ''}}</span>
           &nbsp;&nbsp;
-          <fa-icon *ngIf="selectedWeapon.isEmpty" [icon]="faRedo" class="csd-btn" (click)="reload()" title="Reload"></fa-icon>
+          <fa-icon *ngIf="selectedWeapon.isEmpty" [icon]="faRedo" class="csd-btn" (click)="reload()" title="Reload">
+          </fa-icon>
         </div>
         <div class="col-2"></div>
       </div>
@@ -112,7 +125,7 @@
           Range to Target:
           <input [(ngModel)]="rangeToTarget" type="range" min="0" max="{{ weaponRange > 1 ? weaponRange * 2 : 1 }}"
             value="1" />&nbsp; {{ rangeToTarget }}m ({{
-            selectedWeapon.getRangeBracket(rangeToTarget).bracket
+          selectedWeapon.getRangeBracket(rangeToTarget).bracket
           }})
         </div>
         <div class="col-3 text-end">
@@ -131,7 +144,8 @@
           </select>&nbsp;
           <select *ngIf="fireMode > 1" [(ngModel)]="shotsFired">
             <option [ngValue]="0">0</option>
-            <option *ngFor="let shot of [].constructor(fireShots); let i = index" [ngValue]="i + 1">{{ i + 1 }}</option>
+            <option *ngFor="let shot of [].constructor(fireShots); let i = index" [ngValue]="i + 1">{{ i + 1 }}
+            </option>
           </select>
         </div>
         <div class="col-3 text-end">{{ fireModeModifier }}</div>
@@ -267,11 +281,11 @@
         <div class="col-5">
           <input id="teleSight" type="checkbox" [(ngModel)]="teleSight" />&nbsp;
           <label for="teleSight">Telescopic Scope ({{
-              selectedWeaponBracket.bracket === "Medium"
-                ? -1
-                : selectedWeaponBracket.bracket === "Extreme"
-                ? -2
-                : 0
+            selectedWeaponBracket.bracket === "Medium"
+            ? -1
+            : selectedWeaponBracket.bracket === "Extreme"
+            ? -2
+            : 0
             }})
           </label>
         </div>
@@ -291,6 +305,3 @@
     </div>
   </div>
 </div>
-<br />
-<br />
-<br />
