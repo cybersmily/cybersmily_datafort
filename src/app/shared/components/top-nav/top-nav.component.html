@@ -1,26 +1,30 @@
 <div class="csdHeader hidden-print">
-  <div class="container">
+  <div  *ngIf="isFullMenu" class="d-block text-white float-start csd-btn text-center ml-5 pl-3" style="height:95px; font-size:xx-large;"
+  (click)="isFullMenu = false;isCollapsed = true;">
+    <fa-icon [icon]="faChevronLeft" class="ml-4" style="position:relative;top:40%;" ></fa-icon>
+  </div>
+  <div *ngIf="isFullMenu" class="container">
     <div style="display:block;height:20px;width:20px;"></div>
-    <div class="row">
-      <div class="d-none d-lg-block col-lg-2">
-        <div id="image-holder" class="bg-dark csd-rounded" style="text-align: center;">
+    <div class="row d-none d-lg-flex">
+      <div class="col-lg-2 align-middle">
+        <div id="image-holder" class="bg-dark csd-rounded m-0 pt-0 pl-1 text-center" style="text-align: center;">
           <a [routerLink]="''">
-            <img alt="Cybersmily's Datafort for Cyberpunk 2020 by R. Talsorian" src="/img/cs100.png" style="width: 75px;">
+            <img alt="Cybersmily's Datafort for Cyberpunk 2020 by R. Talsorian" src="/img/cs100.png"
+              style="width: 75px;">
           </a>
         </div>
       </div>
-      <div class=" col-lg-10 csdHeaderTitle">
-        <div class="d-none d-lg-block row">
+      <div class="col-lg-10 csdHeaderTitle">
+        <div class="row">
           <div class="col-sm-10 offset-2">
             <h1>Cybersmily's Datafort</h1>
           </div>
         </div>
-        <div class="d-none d-lg-block row sub-ttl">
+        <div class="row sub-ttl">
           <div class="col-7 offset-5">
             <h6>Fansite for R. Talsorian's Cyberpunk 2020</h6>
           </div>
         </div>
-
       </div>
     </div>
     <div class="row">
@@ -28,34 +32,42 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark csd-rounded">
           <a class="navbar-brand csdHeaderTitle d-lg-none" href="#"><span><img src="/img/cs50.png"
                 alt="Cybersmily" /></span>&nbsp;Cybersmily's Datafort</a>
-          <button class="navbar-toggler d-lg-none" type="button" data-target="#navbarCybersmily2" (click)="isCollapsed = !isCollapsed"
-            [attr.aria-expanded]="isCollapsed" aria-controls="navbarCybersmily2" aria-label="Toggle navigation">
+          <button class="navbar-toggler d-lg-none" type="button" data-target="#navbarCybersmily2"
+            (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="isCollapsed" aria-controls="navbarCybersmily2"
+            aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse bg-dark" id="navbarCybersmily2"  [collapse]="isCollapsed">
+          <div class="collapse navbar-collapse bg-dark" id="navbarCybersmily2" [collapse]="isCollapsed">
             <ul class="navbar-nav me-auto bg-dark">
               <li class="nav-item dropdown mega-dropdown" dropdown *ngFor="let lnk of topNavLinks.menuItems">
-                <a class="nav-link dropdown-toggle text-uppsercase" data-toggle="" aria-haspopup="true" aria-expand="false" dropdownToggle
-                [attr.title]="lnk.description">
+                <a class="nav-link dropdown-toggle text-uppsercase" data-toggle="" aria-haspopup="true"
+                  aria-expand="false" dropdownToggle [attr.title]="lnk.description">
                   {{lnk.groupTitle}}
                 </a>
-                <div class="dropdown-menu mega-menu z-depth-1 py-1 px-3 bg-dark text-light csd-rounded csd-link-menu" *dropdownMenu>
-                    <div *ngFor="let lk of lnk.links" class="bg-dark">
-                      <a *ngIf="!isExternal(lk.link)" [routerLink]="lk.link" routerLinkActive="active"
-                        class="dropdown-item nav-link bg-dark" [target]="lk.target ? lk.target : undefined"
-                        [attr.download]="lk.download ? lk.download : undefined" [attr.title]="lk.desc" (click)="isCollapsed = !isCollapsed">{{lk.title}}</a>
-                      <a *ngIf="isExternal(lk.link)" [href]="lk.link" class="dropdown-item nav-link bg-dark"
-                        [target]="'_blank'" [attr.title]="lk.desc" (click)="isCollapsed = !isCollapsed">{{lk.title}}</a>
-                    </div>
+                <div class="dropdown-menu mega-menu z-depth-1 py-1 px-3 bg-dark text-light csd-rounded csd-link-menu"
+                  *dropdownMenu>
+                  <div *ngFor="let lk of lnk.links" class="bg-dark">
+                    <a *ngIf="!isExternal(lk.link)" [routerLink]="lk.link" routerLinkActive="active"
+                      class="dropdown-item nav-link bg-dark" [target]="lk.target ? lk.target : undefined"
+                      [attr.download]="lk.download ? lk.download : undefined" [attr.title]="lk.desc"
+                      (click)="isCollapsed = !isCollapsed">{{lk.title}}</a>
+                    <a *ngIf="isExternal(lk.link)" [href]="lk.link" class="dropdown-item nav-link bg-dark"
+                      [target]="'_blank'" [attr.title]="lk.desc" (click)="isCollapsed = !isCollapsed">{{lk.title}}</a>
+                  </div>
                 </div>
               </li>
             </ul>
             <ul class="nav navbar-nav ms-auto">
               <li class="pt-2">
-                <a href="https://github.com/cybersmily/cybersmily_datafort" title="GitHub Cybersmily Datafort Project - Log issues, request features, and learn more about the code!" target="_blank"><fa-icon [icon]="faGithub" inverse=true ></fa-icon></a>
+                <a href="https://github.com/cybersmily/cybersmily_datafort"
+                  title="GitHub Cybersmily Datafort Project - Log issues, request features, and learn more about the code!"
+                  target="_blank">
+                  <fa-icon [icon]="faGithub" inverse=true></fa-icon>
+                </a>
               </li>
               <li>
-                <fa-icon [icon]="faEnvelope" inverse=true (click)="sendEmail()" class="btn csd-btn " title="Email Cybersmily">
+                <fa-icon [icon]="faEnvelope" inverse=true (click)="sendEmail()" class="btn csd-btn "
+                  title="Email Cybersmily">
                 </fa-icon>
               </li>
             </ul>
@@ -63,5 +75,10 @@
         </nav>
       </div>
     </div>
+  </div>
+  <div *ngIf="!isFullMenu" class="bg-dark csd-rounded float-start text-center ps-0 csd-btn" style="width: 75px;"
+  (click)="isFullMenu = true;">
+      <img alt="Cybersmily's Datafort for Cyberpunk 2020 by R. Talsorian" src="/img/cs100.png" style="width: 45px;">
+    <fa-icon [icon]="faChevronRight" class="text-white float-end mt-3" style="width: 10px;"></fa-icon>
   </div>
 </div>

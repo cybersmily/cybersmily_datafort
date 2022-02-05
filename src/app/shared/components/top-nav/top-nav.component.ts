@@ -1,3 +1,4 @@
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { TopNavLinks } from './../../Models/TopNavLinks';
 import { Component, OnInit } from '@angular/core';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
@@ -11,9 +12,13 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 export class TopNavComponent implements OnInit {
   faEnvelope = faEnvelope;
   faGithub = faGithub;
+  faChevronRight = faChevronRight;
+  faChevronLeft = faChevronLeft;
 
   topNavLinks: TopNavLinks = new TopNavLinks();
   isCollapsed = true;
+  isFullMenu = true;
+
   selected: any;
   constructor() {
     this.topNavLinks = new TopNavLinks();
