@@ -112,7 +112,7 @@ export class CmbtTrckOpponent {
   addSkill(skill: Cp2020PlayerSkill) {
     if (
       !this._skills.some(
-        (sk) => sk.name.toLowerCase() === skill.name.toLowerCase()
+        (sk) => sk.name.toLowerCase() === skill.name.toLowerCase() && sk.option?.toLowerCase() === skill?.option?.toLowerCase()
       )
     ) {
       this._skills.push(skill);

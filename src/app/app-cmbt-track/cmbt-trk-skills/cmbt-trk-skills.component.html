@@ -43,7 +43,7 @@
         <div *ngFor="let skill of opponent.skills; let i = index" class='col-12 col-md-6 col-xl-4 opp-skill'>
           <div class="row">
             <div class="col-8 opp-skill-name">
-              {{(skill.roleChoice)?'@':''}}{{skill.name|parse}} [{{skill.stat|uppercase}}] ({{skill.value +
+              {{(skill.roleChoice)?'@':''}}{{skill.name|parse}}{{skill.option ? ': ' + skill.option : ''}} [{{skill.stat|uppercase}}] ({{skill.value +
               getStatValue(skill.stat?.toUpperCase())}})
               <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn csd-icon-sm" title="Remove skill" (click)="deleteSkill(i)">
               </fa-icon>
@@ -65,7 +65,7 @@
             <select [(ngModel)]="selectSkill" (change)="changeSkill()">
               <option [ngValue]="null" selected>Choose Skill</option>
               <option *ngFor="let skill of skills" [ngValue]="skill" title="{{skill.source}} pg.{{skill.page}}">
-                {{skill.name | parse}} ({{skill.stat}})
+                {{skill.name | parse}}{{skill.option ? ': ' + skill.option : ''}} ({{skill.stat}})
               </option>
             </select>
             <input [(ngModel)]="newSkill.value" class="opp-skill-val ms-2" type="number" min="0" max="10"

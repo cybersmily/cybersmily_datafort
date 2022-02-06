@@ -1,3 +1,4 @@
+import { MartialBonuses } from './martial-bonuses';
 export interface DataSkill {
   name: string;
   option?: string;
@@ -7,4 +8,5 @@ export interface DataSkill {
   page: number;
   sa: boolean;
   description: string;
+  maBonuses?: MartialBonuses
 }
