@@ -10,14 +10,13 @@
   </div>
   <div [collapse]="isCollapsed" class="row border border-dark" id="oppCyberSection">
     <div class="col-12">
-      <div class='row'>
+      <div class='row pb-2'>
         <div *ngFor="let cyber of cyberware; let i = index" class='col-4 opp-cyber' title="{{cyber.notes}}">
           {{cyber.name}} <span *ngIf="cyber.options && cyber.options !== ''">[{{cyber.options}}]</span>
           <fa-icon [icon]="faTrash" class="csd-btn cyber-delete csd-icon-btn" (click)="delete(i)"></fa-icon>
         </div>
       </div>
-      <br>
-      <div class="row">
+      <div class="row pb-2">
         <div class="col-12 opp-skill-new">
             <fa-icon class="csd-btn csd-icon-btn" [icon]="faPlus" (click)="addCyber()"></fa-icon>
             <input type="text" [(ngModel)]="newCyber.name" placeholder="Enter name" class="ms-2" />
