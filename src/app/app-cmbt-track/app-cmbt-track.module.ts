@@ -1,3 +1,4 @@
+import { CmbtTrckThreatLevelService } from './services/cmbt-trck-threat-level.service';
 import { Cp2020CyberwareModule } from './../shared/cp2020/cp2020-cyberware/cp2020-cyberware.module';
 import { Cp2020ArmorModule } from './../shared/cp2020/cp2020-armor/cp2020-armor.module';
 import { Cp2020WoundsModule } from './../shared/cp2020/cp2020wounds/cp2020wounds.module';
@@ -51,7 +52,8 @@ import { CmbtTrckGearComponent } from './cmbt-trck-gear/cmbt-trck-gear.component
     CmbtTrckOppChartService,
     CombatTrackerService,
     SkillListService,
-    Cp2020RolesDataService
+    Cp2020RolesDataService,
+    CmbtTrckThreatLevelService
   ]
 })
 export class AppCmbtTrackModule { }

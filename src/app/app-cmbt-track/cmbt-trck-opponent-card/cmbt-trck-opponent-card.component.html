@@ -1,7 +1,7 @@
 <div>
   <div class='row'>
-    <div class='col opp-handle'>
-      <input [(ngModel)]="currOpponent.name" type="text" class="w-50" title="Enter the name of the opponent."
+    <div class='col-6 col-lg-7 opp-handle'>
+      <input [(ngModel)]="currOpponent.name" type="text" class="w-75" title="Enter the name of the opponent."
         placeholder="Enter the opponent's handle..." (change)="changeOpponent()" />
       <fa-icon [icon]="faRedo" (click)="clear()" title="Reset the opponent.."
         class="csd-btn csd-icon-btn csd-icon-xl ms-1"></fa-icon>
@@ -11,9 +11,9 @@
     <div class='col-1'>
       ROLE:
     </div>
-    <div class='col-11 col-lg-6'>
+    <div class='col-11 col-lg-6 col-xl-5'>
       <select *ngIf="currOpponent.role === ''; else hasRole" [(ngModel)]="selectedRole" (change)="changeRole()"
-        title="Choose a role of the opponent. The role skills will be added to the oppoent." class="btn-sm">
+        title="Choose a role of the opponent. The role skills will be added to the oppoent." class="w-100">
         <option *ngIf="!selectedTemplate" [ngValue]="null" selected>Choose a role</option>
         <option *ngFor="let role of roles" [ngValue]="role" selected>
           {{((role.base && role.base !== '')? role.base + ' - ': '') +role.name}}
@@ -27,8 +27,9 @@
         </span>
       </ng-template>
     </div>
-    <div class='col-12 col-lg-5'>
-      <select *ngIf="currOpponent.role === ''" [(ngModel)]="selectedTemplate" (change)="changeTemplate()" class="btn-sm"
+
+    <div class='col-12 offset-1 offset-lg-0 col-lg-5'>
+      <select *ngIf="currOpponent.role === ''" [(ngModel)]="selectedTemplate" (change)="changeTemplate()" class=""
         title="Template will pre-generate the opponent based on source books.">
         <option *ngIf="!selectedTemplate" [ngValue]="null" selected>Or choose a template...</option>
         <option *ngFor="let temp of templates" [ngValue]="temp.json"
@@ -36,6 +37,39 @@
       </select>
     </div>
   </div>
+  <div class="row pt-1">
+    <div class="col-3 col-md-2">
+      Or Threat Code:
+    </div>
+    <div class="col-9 col-md-10">
+      <select class="btn-sm threat-code-select" [(ngModel)]="currThreatLevel.skill" >
+        <option *ngIf="!selectedTemplate" [ngValue]="''" selected>-</option>
+        <option [ngValue]="'E'">E</option>
+        <option [ngValue]="'D'">D</option>
+        <option [ngValue]="'C'">C</option>
+        <option [ngValue]="'B'">B</option>
+        <option [ngValue]="'A'">A</option>
+      </select>
+      <select class="btn-sm threat-code-select" [(ngModel)]="currThreatLevel.weapon">
+        <option *ngIf="!selectedTemplate" [ngValue]="0" selected>-</option>
+        <option [ngValue]="5" >5</option>
+        <option [ngValue]="4" >4</option>
+        <option [ngValue]="3" >3</option>
+        <option [ngValue]="2" >2</option>
+        <option [ngValue]="1" >1</option>
+      </select>
+      <select class="btn-sm threat-code-select" [(ngModel)]="currThreatLevel.armor">
+        <option *ngIf="!selectedTemplate" [ngValue]="''" selected>-</option>
+        <option [ngValue]="'E'">E</option>
+        <option [ngValue]="'D'">D</option>
+        <option [ngValue]="'C'">C</option>
+        <option [ngValue]="'B'">B</option>
+        <option [ngValue]="'A'">A</option>
+      </select>
+      <input type="checkbox" class="ms-2" [disabled]="!enableThreatCode" (change)="setOpponentThreatLevelAttributes($event)"
+      title="Check to apply the thread code to the opponent."> apply
+    </div>
+    </div>
   <div class='row'>
     <div class='col-12'>
       <cs-cp2020-stats [stats]="currOpponent.stats" [showCharacterPoints]="false" [showRollInitiative]="false"

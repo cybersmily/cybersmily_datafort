@@ -1,3 +1,5 @@
+import { DataService } from './../../services/file-services/dataservice/data.service';
+import { RandomWeaponGeneratorService } from './services/random-weapon-generator/random-weapon-generator.service';
 import { WeaponcardcolumnComponent } from './weaponcardcolumn/weaponcardcolumn.component';
 import { WeaponcardComponent } from './weaponcard/weaponcard.component';
 import { DiceService } from './../../services/dice/dice.service';
@@ -39,7 +41,9 @@ import { Cp2020magazinesComponent } from './cp2020magazines/cp2020magazines.comp
   ],
   providers: [
     DiceService,
-    MartialArtsDataService
+    MartialArtsDataService,
+    RandomWeaponGeneratorService,
+    DataService
   ],
   exports: [
     Cp2020weapontableComponent,

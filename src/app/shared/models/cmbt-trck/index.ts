@@ -6,3 +6,5 @@ export * from './cmbt-trck-opp-template';
 export * from './cmbt-trck-opponent';
 export * from './cmbt-trck-opp-selection';
 export * from './cmbt-trck-template';
+export * from './opp-threat-code';
+export * from "./cmbt-trck-opp-threat-code";

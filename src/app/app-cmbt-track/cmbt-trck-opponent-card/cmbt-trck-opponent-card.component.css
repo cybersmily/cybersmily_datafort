@@ -37,6 +37,10 @@
     border-top-right-radius: 0.5em !important;
 }
 
+.threat-code-select {
+  width:50px;
+}
+
 ::ng-deep .opp-section > a.active {
   background-color: #AAA !important;
   color: white !important;

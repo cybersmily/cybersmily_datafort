@@ -1,3 +1,5 @@
+import { CmbtTrckThreatLevelService } from './../services/cmbt-trck-threat-level.service';
+import { CmbtTrckOppThreatCode } from './../../shared/models/cmbt-trck/cmbt-trck-opp-threat-code';
 import { Cp2020Role } from './../../shared/cp2020/cp2020-role/models';
 import { Cp2020StatBlock } from './../../shared/cp2020/cp2020-stats/models/cp2020-stat-block';
 import { Cp2020ArmorPiece, Cp2020ArmorBlock } from './../../shared/cp2020/cp2020-armor/models';
@@ -24,6 +26,8 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
   faTrash = faTrash;
   faRedo = faRedo;
 
+  currThreatLevel: CmbtTrckOppThreatCode = new CmbtTrckOppThreatCode();
+
   customClass = 'opp-section';
   currOpponent = new CmbtTrckOpponent();
 
@@ -43,7 +47,8 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
     private roleService: Cp2020RolesDataService,
     private skillListService: SkillListService,
     private oppTemplateService: OppTemplateService,
-    private opponentService: OpponentTrackerService
+    private opponentService: OpponentTrackerService,
+    private threatCodeService: CmbtTrckThreatLevelService
     ) { }
 
   ngOnInit() {
@@ -64,6 +69,10 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
       console.log(err);
     }
     );
+  }
+
+  get enableThreatCode(): boolean {
+    return this.currThreatLevel.armor !== '' && this.currThreatLevel.weapon > 0 && this.currThreatLevel.skill !== '';
   }
 
   ngOnChanges() {
@@ -150,6 +159,18 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
       }
     });
     this.updateOpponent();
+  }
+
+  setOpponentThreatLevelAttributes($event) {
+    console.log($event);
+    if($event.target.checked) {
+      this.threatCodeService
+      .generate(this.currThreatLevel)
+      .subscribe( opp => {
+        this.currOpponent = new CmbtTrckOpponent(opp);
+      });
+    }
+
   }
 
   clear() {
