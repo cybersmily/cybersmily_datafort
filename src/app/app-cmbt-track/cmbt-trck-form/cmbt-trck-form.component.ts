@@ -4,7 +4,7 @@ import { CharacterImporterService } from './../../shared/services/charimporter/c
 import { FileLoaderService, SaveFileService } from './../../shared/services/file-services';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { CmbtTrckOppSelection, CmbtTrckOpponent } from '../../shared/models/cmbt-trck';
-import { faDice, faPlus, faTrash, faSave, faUpload, faRedo, faFileImport, faQuestionCircle, faCopy } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faPlus, faTrash, faSave, faUpload, faRedo, faFileImport, faFile, faQuestionCircle, faCopy, faChevronDown, faChevronUp, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { OpponentTrackerService } from './../services/opponent-tracker.service';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 
@@ -16,6 +16,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 export class CmbtTrckFormComponent implements OnInit {
   faDice = faDice;
   faPlus = faPlus;
+  faMinus = faMinus;
   faTrash = faTrash;
   faSave = faSave;
   faUpload = faUpload;
@@ -23,6 +24,8 @@ export class CmbtTrckFormComponent implements OnInit {
   faFileImport = faFileImport;
   faHelp = faQuestionCircle;
   faCopy = faCopy;
+  faChevronDown = faChevronDown;
+  faChevronUp = faChevronUp;
 
 
   modalRef: BsModalRef;
@@ -40,8 +43,11 @@ export class CmbtTrckFormComponent implements OnInit {
   opponents: CmbtTrckOpponent[] = new Array<CmbtTrckOpponent>();
 
   selectedOpponent = new CmbtTrckOpponent();
+  showList = true;
 
   selectedIndex = 0;
+  turn = 1;
+
 
   constructor(private opponentService: OpponentTrackerService,
     private saveFileService: SaveFileService,
@@ -119,6 +125,28 @@ export class CmbtTrckFormComponent implements OnInit {
     this.selectedIndex = index;
     this.selectedOpponent = null;
     this.selectedOpponent = this.opponents[index];
+  }
+
+  cycle(next: boolean) {
+    let index = this.selectedIndex;
+    if(next) {
+      index++;
+      index = (index >= this.opponents.length) ? 0 : index;
+    } else {
+      index--;
+      index = (index < 0 ) ? this.opponents.length - 1 : index;
+    }
+    this.selectedIndex = index;
+    this.selectedOpponent = null;
+    this.selectedOpponent = this.opponents[this.selectedIndex];
+  }
+
+  cycleTurn(advance: boolean) {
+    if(advance) {
+      this.turn++;
+    } else if(this.turn > 1) {
+      this.turn--;
+    }
   }
 
   changeInitiative() {
