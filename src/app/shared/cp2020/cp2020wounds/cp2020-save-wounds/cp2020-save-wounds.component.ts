@@ -100,7 +100,6 @@ export class Cp2020SaveWoundsComponent implements OnInit {
   }
 
   update() {
-    console.log('death state', this.stats.deathState);
     this.changeStats.emit(this.stats);
   }
 

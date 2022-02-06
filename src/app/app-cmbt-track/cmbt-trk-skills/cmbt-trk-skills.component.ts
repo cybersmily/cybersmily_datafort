@@ -62,9 +62,7 @@ export class CmbtTrkSkillsComponent implements OnInit, OnChanges {
     if(this.newSkill.name === '') {
       this.newSkill.name = `skill ${this.opponent.skills.length + 1}`;
     }
-    console.log('newSkill', this.newSkill);
     this.opponent.addSkill( new Cp2020PlayerSkill(this.newSkill));
-    console.log('skills', this.opponent.skills);
     this.newSkill = new Cp2020PlayerSkill();
     this.updateOpponent.emit(this.opponent);
   }

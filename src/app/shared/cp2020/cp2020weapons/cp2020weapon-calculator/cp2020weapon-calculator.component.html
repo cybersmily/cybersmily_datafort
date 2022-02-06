@@ -44,7 +44,10 @@
           <ng-template #elseSkill> {{ selectedSkill.name }} </ng-template>:&nbsp;
           <span title="{{ selectedSkill.value }}(Skill) + {{ ref }}(REF) + {{ selectedWeapon.wa }}(wa)">
             {{ selectedSkill.value + ref + selectedWeapon.wa }}
-          </span> +&nbsp;
+          </span>&nbsp;
+          <span *ngIf="martialArtBonus > 0" title="Martial Art Key Attack Bonus">
+            + {{ martialArtBonus }}
+          </span>  +&nbsp;
           <fa-icon [icon]="faDice" class="csd-btn csd-dice" (click)="rollToHit()">
           </fa-icon>&nbsp;{{ toHitDiceRoll.show(true) }} = {{ totalToHit }}
         </div>
@@ -84,7 +87,7 @@
         </div>
       </div>
 
-      <div class="row cmbt-section" *ngIf="isMartialArts && martialArtsBonuses as ma">
+      <div class="row cmbt-section" *ngIf="isMartialArt && martialArtsBonuses as ma">
         <div class="col-1"></div>
         <div class="col-1">
           {{ma.name}}

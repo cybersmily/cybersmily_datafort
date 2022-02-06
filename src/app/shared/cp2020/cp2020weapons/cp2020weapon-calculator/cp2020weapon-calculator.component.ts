@@ -201,6 +201,7 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
     return (
       this.selectedSkill.value +
       this.ref +
+      this.martialArtBonus +
       this.selectedWeapon.wa +
       this.toHitDiceRoll.total
     );
@@ -319,10 +320,16 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
     }
   }
 
-  get isMartialArts(): boolean {
+  get martialArtBonus(): number {
+    if(this.isMartialArt) {
+      return this.selectedSkill?.maBonuses[this.selectedWeapon.name.toLowerCase()];
+    }
+    return 0;
+  }
+
+  get isMartialArt(): boolean {
     return (
-      this.selectedSkill.name &&
-      this.selectedSkill.name.toLowerCase().startsWith('martial')
+      this.selectedSkill?.name?.toLowerCase().startsWith('martial')
     );
   }
 
@@ -331,7 +338,7 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
   }
 
   get martialArtsBonuses(): Cp2020MartialArt {
-    if (this.isMartialArts) {
+    if (this.isMartialArt) {
       const martialArt = this.selectedSkill.name.includes(':')
         ? this.selectedSkill.name.split(':')[1].trim()
         : this.selectedSkill.option;

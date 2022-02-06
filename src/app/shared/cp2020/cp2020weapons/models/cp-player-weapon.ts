@@ -215,10 +215,11 @@ export class CpPlayerWeapon implements CpWeapon {
     shots =  (fireMode === 1) ? 3 : shots;
     const remainingRounds = this.shotsRemaining;
     shots = (shots > remainingRounds) ? remainingRounds : shots;
+    const maKeyAttack = skill?.maBonuses[this.name.toLowerCase()] ?? 0;
     this.fire(
       dice,
       ref,
-      skill.value,
+      skill.value + maKeyAttack,
       shots
     );
     const degreeOfSuccess = (totalToHit - diff) + 1;

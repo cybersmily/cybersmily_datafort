@@ -82,7 +82,6 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
   }
 
   onStatBlockChange(value: Cp2020StatBlock) {
-    console.log(value.isStunned);
     this.currOpponent.stats.import(value);
     this.opponentService.changeOpponent(this.currOpponent);
   }
@@ -162,7 +161,6 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
   }
 
   setOpponentThreatLevelAttributes($event) {
-    console.log($event);
     if($event.target.checked) {
       this.threatCodeService
       .generate(this.currThreatLevel)
