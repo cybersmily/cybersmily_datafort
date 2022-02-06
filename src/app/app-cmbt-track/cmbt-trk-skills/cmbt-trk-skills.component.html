@@ -44,7 +44,7 @@
           <div class="row">
             <div class="col-8 opp-skill-name">
               {{(skill.roleChoice)?'@':''}}{{skill.name|parse}} [{{skill.stat|uppercase}}] ({{skill.value +
-              getStatValue(skill.stat.toUpperCase())}})
+              getStatValue(skill.stat?.toUpperCase())}})
               <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn csd-icon-sm" title="Remove skill" (click)="deleteSkill(i)">
               </fa-icon>
             </div>
@@ -59,7 +59,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row pb-2">
         <div class="col-12 g-0">
           <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn me-1 ms-1" (click)="addSKill()"></fa-icon>
             <select [(ngModel)]="selectSkill" (change)="changeSkill()">

@@ -59,6 +59,9 @@ export class CmbtTrkSkillsComponent implements OnInit, OnChanges {
   }
 
   addSKill() {
+    if(this.newSkill.name === '') {
+      this.newSkill.name = `skill ${this.opponent.skills.length + 1}`;
+    }
     this.opponent.addSkill( new Cp2020PlayerSkill({ name: this.newSkill.name, stat: this.newSkill.stat, value: this.newSkill.value}));
     this.newSkill = new Cp2020PlayerSkill();
     this.updateOpponent.emit(this.opponent);
@@ -98,7 +101,7 @@ export class CmbtTrkSkillsComponent implements OnInit, OnChanges {
   }
 
   getStatValue(stat: string): number {
-    return this.opponent.stats[stat.toUpperCase()].Adjusted;
+    return this.opponent?.stats[stat?.toUpperCase()]?.Adjusted ?? 0;
   }
 
   generateSkillLevels() {
