@@ -1,31 +1,27 @@
 <div class="ps-3 pe-3">
   <div class='row chargen-label'>
     <div class='col-12 g-0'>
-      <h4>
+      <h4 class="csd-btn" (click)="isCollapsed = !isCollapsed">
         GEAR
-        <fa-icon [icon]="isCollapsed ? faChevronRight : faChevronDown" class="csd-btn csd-icon-btn" (click)="isCollapsed = !isCollapsed"></fa-icon>
+        <fa-icon [icon]="isCollapsed ? faChevronRight : faChevronDown" class="csd-btn csd-icon-btn"></fa-icon>
       </h4>
     </div>
   </div>
-  <div [collapse]="isCollapsed" id="oppGearSection" class="row">
+  <div [collapse]="isCollapsed" id="oppGearSection" class="row border border-dark">
     <div class="col-12">
 
-      <div class='row'>
+      <div class='row pb-2'>
         <div *ngFor="let g of gear; let i = index" class='col-4 opp-gear'>
-          <fa-icon [icon]="faTrash" class="csd-btn opp-gear-delete" (click)="delete(i)"></fa-icon>
           {{g}}
+          <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn csd-icon-sm" (click)="delete(i)"></fa-icon>
         </div>
       </div>
-      <br>
-      <div class="row">
-        <div class="col-12 opp-skill-new">
-          <button class="btn btn-secondary btn-sm csd-rounded" (click)="add()" [disabled]="addedGear === ''">
-            <fa-icon [icon]="faPlus"></fa-icon>
-          </button>
-          &nbsp;
-          <span>
-            <input type="text" [(ngModel)]="addedGear" placeholder="Enter gear..." />
-          </span>
+      <div class="row pb-2">
+        <div class="col-1 text-end g-0">
+          <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-lg me-1" (click)="add()" title="Add new gear item."></fa-icon>
+        </div>
+        <div class="col-11 opp-skill-new text-start ms-0 ps-0 pe-2">
+            <input type="text" [(ngModel)]="addedGear" class="w-100 me-3" placeholder="Enter gear..." />
         </div>
       </div>
     </div>

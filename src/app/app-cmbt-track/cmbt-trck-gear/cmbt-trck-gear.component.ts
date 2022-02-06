@@ -30,7 +30,8 @@ export class CmbtTrckGearComponent implements OnInit {
   }
 
   add() {
-    this.gear.push(this.addedGear);
+    const gear = this.addedGear === '' ? `item ${this.gear.length + 1}` : this.addedGear;
+    this.gear.push(gear);
     this.addedGear = '';
     this.newGear.emit(this.gear);
   }
