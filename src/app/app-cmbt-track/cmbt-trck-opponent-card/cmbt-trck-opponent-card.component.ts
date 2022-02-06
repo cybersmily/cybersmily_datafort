@@ -73,7 +73,8 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
   }
 
   onStatBlockChange(value: Cp2020StatBlock) {
-    this.currOpponent.stats = value;
+    console.log(value.isStunned);
+    this.currOpponent.stats.import(value);
     this.opponentService.changeOpponent(this.currOpponent);
   }
 

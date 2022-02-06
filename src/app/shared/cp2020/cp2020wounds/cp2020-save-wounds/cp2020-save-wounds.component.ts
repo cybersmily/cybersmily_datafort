@@ -83,18 +83,25 @@ export class Cp2020SaveWoundsComponent implements OnInit {
   get isDying(): boolean {
     return (this.stats?.deathState > 0) ?? false;
   }
+  get isDead(): boolean {
+    return (this.stats?.deathState > 9) ?? false;
+  }
 
   get deathState(): number {
     return this.stats ? this.stats.deathState : 0;
   }
   set deathState(value: number) {
-    if (this.stats) {
-      this.stats.deathState = value;
-    }
+    this.stats.deathState = value;
+    this.update();
   }
 
   getDamage(value: number): number {
     return this.stats ? this.stats.Damage - value : 0;
+  }
+
+  update() {
+    console.log('death state', this.stats.deathState);
+    this.changeStats.emit(this.stats);
   }
 
   constructor(private modalService: BsModalService, private dice: DiceService) { }
@@ -104,12 +111,13 @@ export class Cp2020SaveWoundsComponent implements OnInit {
   onChangeDamage(event: number) {
     if(this.stats) {
       this.stats.Damage = event;
-      this.changeStats.emit(this.stats);
+      this.update();
     }
   }
 
   updateIgnoreWounds() {
     this.stats.Damage = this.stats.Damage;
+    this.update();
   }
 
   openSave(template: TemplateRef<any>) {
@@ -127,7 +135,7 @@ export class Cp2020SaveWoundsComponent implements OnInit {
       this.stunMessage = 'Saved! You\'re still awake.';
       this.stats.isStunned = false;
     }
-    this.changeStats.emit(this.stats);
+    this.update();
   }
   }
 
@@ -143,7 +151,7 @@ export class Cp2020SaveWoundsComponent implements OnInit {
       this.deathMessage = 'You\'re still breathing and in the fight!';
       this.stats.deathState = 0;
     }
-    this.changeStats.emit(this.stats);
+    this.update();
   }
   }
 }

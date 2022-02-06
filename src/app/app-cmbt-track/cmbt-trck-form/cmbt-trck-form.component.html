@@ -31,23 +31,30 @@
       <div class="row">
         <div class="col-12 col-md-4">
           <div class="row chargen-label">
-            <div class="col-2 col-md-6 g-0 align-middle">
+            <div class="col-1 col-md-5 g-0 align-middle">
               <span class="d-none d-lg-inline-block me-1">INITIATIVE</span>
               <fa-icon [icon]="faDice" (click)="rollInitiative()" title="Roll all initiatives"
                 class="csd-btn csd-dice h4 align-middle mt-3 mt-lg-auto"></fa-icon>
             </div>
-            <div class="col-7 d-md-none text-black">
-              <ng-container [ngTemplateOutlet]="opponentRow" [ngTemplateOutletContext]="{opp:selectedOpponent,index:selectedIndex}">
-              </ng-container>
-            </div>
-            <div class="col-1 d-md-none col-md-6 ps-1 g-0 pt-0">
+            <div class="col-1 ps-1 g-0 pt-2 text-center">
               <fa-icon [icon]="faChevronUp" title="Previous opponent"
               class="csd-btn csd-icon-btn csd-icon-lg m-0" (click)="cycle(false)"></fa-icon>
-              <br>
+            </div>
+            <div class="col-7 d-md-none text-black bg-white text-center">
+              <span class="float-start">{{selectedOpponent.initRoll}} </span>
+              <h2 *ngIf="selectedOpponent.stats.deathState &gt; 9" class="text-danger" >** DEAD **</h2>
+              <div>{{selectedOpponent.name}}</div>
+              <div class="opp-conditions">
+                <span *ngIf="selectedOpponent.stats.isStunned">*Stunned</span>
+                <span *ngIf="getWoundLevel(selectedOpponent) !== ''">&nbsp;*{{getWoundLevel(selectedOpponent)}}</span>
+                <span *ngIf="selectedOpponent.stats.deathState &gt; 0 && selectedOpponent.stats.deathState &lt; 10">&nbsp;&nbsp;*DEATH STATE: {{selectedOpponent.stats.deathState}}</span>
+              </div>
+            </div>
+            <div class="col-1 ps-1 g-0 pt-2 text-center">
               <fa-icon [icon]="faChevronDown" title="Next opponent"
               class="csd-btn csd-icon-btn csd-icon-lg m-0" (click)="cycle(true)"></fa-icon>
             </div>
-            <div class="col-2 col-md-6 text-end g-0">
+            <div class="col-2 col-md-5 text-end g-0">
               <h6 class="small d-inline-block me-2">TURN</h6>
               <br class="d-block d-md-none">
               <fa-icon [icon]="faMinus" class="csd-icon-btn csd-icon-lgme-1 csd-btn" (click)="cycleTurn(false)"></fa-icon>
@@ -56,7 +63,7 @@
             </div>
           </div>
           <div *ngIf="showList">
-            <ng-container *ngFor="let opp of opponents; index as i" [ngTemplateOutlet]="opponentRow" [ngTemplateOutletContext]="{opp:opp,index:i}">
+            <ng-container *ngFor="let opp of opponents; index as i" [ngTemplateOutlet]="opponentRow" [ngTemplateOutletContext]="{opp:opp,index:i,showTools:true}">
             </ng-container>
             <div class="row">
               <div class="col-12 border border-dark btn csd-btn" (click)="addOpponent()" title="Add another opponent">
@@ -79,7 +86,7 @@
     </div>
   </div>
 </div>
-<ng-template #opponentRow let-opp="opp" let-index="index">
+<ng-template #opponentRow let-opp="opp" let-index="index" let-showTools="showTools">
   <div [ngClass]="{'row border border-dark cbttrk-init bg-white': true, 'cbttrk-selected': (selectedOpponent?.id !== opp.id)}" >
     <div class="col-3 g-0" [title]="showInitiativeTooltip(opp)">
       <input [(ngModel)]="opp.initRoll" type="number" (change)="changeInitiative()"
@@ -93,16 +100,17 @@
       <br>
       <span class="cbtrck-opp-init-mods">[REF: {{opp.stats.REF.Adjusted}}]</span>
     </div>
-    <div class="col-1">
+    <div *ngIf="showTools" class="col-1">
       <fa-icon [icon]="faCopy" class="float-end csd-btn opp-delete csd-icon-btn" (click)="copyOpponent(index)"
         title="Copy opponent"></fa-icon>
       <fa-icon [icon]="faTrash" class="float-end csd-btn opp-delete csd-icon-btn" (click)="removeOpponent(index)"
         title="Delete opponent"></fa-icon>
     </div>
     <div class="col-12 opp-conditions">
-      <span *ngIf="opp.stats.isStunned">*Stunned</span>
-      <span *ngIf="getWoundLevel(opp) !== ''">&nbsp;*{{getWoundLevel(opp)}}</span>
-      <span *ngIf="opp.stats.deathState &gt; 0">&nbsp;&nbsp;*DEATH STATE: {{opp.stats.deathState}}</span>
+      <span *ngIf="opp.stats.deathState &gt; 9" class="fw-bold m-e-2">** DEAD **</span>
+      <span *ngIf="opp.stats.isStunned" class="m-e-2">*Stunned</span>
+      <span *ngIf="getWoundLevel(opp) !== ''" class="m-e-2">*{{getWoundLevel(opp)}}</span>
+      <span *ngIf="opp.stats.deathState &gt; 0 && opp.stats.deathState &lt; 10">*DEATH STATE: {{opp.stats.deathState}}</span>
     </div>
   </div>
 </ng-template>

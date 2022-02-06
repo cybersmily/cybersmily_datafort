@@ -131,7 +131,10 @@ export class CmbtTrckFormComponent implements OnInit {
     let index = this.selectedIndex;
     if(next) {
       index++;
-      index = (index >= this.opponents.length) ? 0 : index;
+      if(index >= this.opponents.length ) {
+        index = 0;
+        this.turn++;
+      }
     } else {
       index--;
       index = (index < 0 ) ? this.opponents.length - 1 : index;
@@ -147,6 +150,9 @@ export class CmbtTrckFormComponent implements OnInit {
     } else if(this.turn > 1) {
       this.turn--;
     }
+    this.selectedIndex = 0;
+    this.selectedOpponent = null;
+    this.selectedOpponent = this.opponents[this.selectedIndex];
   }
 
   changeInitiative() {
