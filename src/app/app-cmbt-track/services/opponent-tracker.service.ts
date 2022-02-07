@@ -182,9 +182,9 @@ export class OpponentTrackerService {
   }
 
   importArray(list: Array<CmbtTrckOpponent>) {
-    const opps = new Array<CmbtTrckOpponent>();
+    const opps = [...this._opponents.getValue()];
     list.forEach( opp => {
-      const opponent = new CmbtTrckOpponent(opp);
+      const opponent = new CmbtTrckOpponent(opp, true);
       opps.push( opponent);
     });
     this._opponents.next(opps);

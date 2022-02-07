@@ -64,7 +64,7 @@ export class CmbtTrckFormComponent implements OnInit {
         this.selectedOpponent = new CmbtTrckOpponent();
         this.currentInitiativeOpp = new CmbtTrckOpponent();
       }
-      if (this.selectedOpponent.name === '') {
+      if (this.selectedOpponent?.name === '') {
         this.selectedOpponent = this.opponents[0];
         this.currentInitiativeOpp = this.opponents[0];
       } else {
@@ -175,7 +175,7 @@ export class CmbtTrckFormComponent implements OnInit {
   }
 
   getWoundLevel(opp): string {
-    if (opp.stats.WoundLevel > 0)  {
+    if (opp?.stats?.WoundLevel > 0)  {
       return Cp2020_WOUND_LEVELS[opp.stats.WoundLevel] + ' wound';
     }
     return '';

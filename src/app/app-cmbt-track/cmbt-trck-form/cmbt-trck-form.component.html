@@ -44,13 +44,13 @@
             <div class="col-6 text-center">
               <div>CURRENT INITITATIVE</div>
               <div class="text-black bg-white w-100">
-              <span class="float-start">{{currentInitiativeOpp.initRoll}} </span>
-              <div>{{currentInitiativeOpp.name}}</div>
+              <span class="float-start">{{currentInitiativeOpp?.initRoll}} </span>
+              <div>{{currentInitiativeOpp?.name}}</div>
               <div class="m-0 p-0 fs-6">
                 &nbsp;
-                <span *ngIf="currentInitiativeOpp.stats.isStunned" class="small">*Stunned</span>
+                <span *ngIf="currentInitiativeOpp?.stats.isStunned" class="small">*Stunned</span>
                 <span *ngIf="getWoundLevel(currentInitiativeOpp) !== ''" class="small">*{{getWoundLevel(currentInitiativeOpp)}}</span>
-                <span *ngIf="currentInitiativeOpp.stats.deathState &gt; 0 && currentInitiativeOpp.stats.deathState &lt; 10" class="small">*DEATH STATE: {{currentInitiativeOpp.stats.deathState}}</span>
+                <span *ngIf="currentInitiativeOpp?.stats.deathState &gt; 0 && currentInitiativeOpp?.stats.deathState &lt; 10" class="small">*DEATH STATE: {{currentInitiativeOpp?.stats.deathState}}</span>
               </div>
               </div>
             </div>
@@ -91,7 +91,7 @@
   </div>
 </div>
 <ng-template #opponentRow let-opp="opp" let-index="index" let-showTools="showTools">
-  <div [ngClass]="{'row border border-dark cbttrk-init bg-white': true, 'cbttrk-selected': (selectedOpponent?.id !== opp.id)}" >
+  <div [ngClass]="{'row border border-dark cbttrk-init bg-white': true, 'cbttrk-selected': (selectedIndex !== index)}" >
     <div class="col-1 g-0 pt-2">
       <input type="radio" [checked]="initiativeIndex === index" (change)="selectInitiative(index)" title="Check if oppenent has current initiative.">
     </div>
@@ -99,13 +99,13 @@
       <input [(ngModel)]="opp.initRoll" type="number" (change)="changeInitiative()"
         class="csd-hide-spinner text-center ms-1" />
       <fa-icon [icon]="faDice" class="csd-btn csd-dice ms-1" title="Roll initiative for this opponent"
-        (click)="rollInitiative(opp.id)"></fa-icon>
+        (click)="rollInitiative(opp?.id)"></fa-icon>
     </div>
     <div [ngClass]="{'col-7 cbttrk-opp-name csd-btn': true, 'fs-bold ': (selectedOpponent?.id === opp.id) }"
       (click)='selectOpponent(index)' title="Click to show opponent...">
-      <span>{{opp.name}}</span>
+      <span>{{opp?.name}}</span>
       <br>
-      <span class="cbtrck-opp-init-mods">[REF: {{opp.stats.REF.Adjusted}}]</span>
+      <span class="cbtrck-opp-init-mods">[REF: {{opp?.stats.REF.Adjusted}}]</span>
     </div>
     <div *ngIf="showTools" class="col-1">
       <fa-icon [icon]="faCopy" class="float-end csd-btn opp-delete csd-icon-btn" (click)="copyOpponent(index)"
@@ -114,10 +114,10 @@
         title="Delete opponent"></fa-icon>
     </div>
     <div class="col-12 opp-conditions">
-      <span *ngIf="opp.stats.deathState &gt; 9" class="fw-bold m-e-2">** DEAD **</span>
-      <span *ngIf="opp.stats.isStunned" class="m-e-2">*Stunned</span>
+      <span *ngIf="opp?.stats.deathState &gt; 9" class="fw-bold m-e-2">** DEAD **</span>
+      <span *ngIf="opp?.stats.isStunned" class="m-e-2">*Stunned</span>
       <span *ngIf="getWoundLevel(opp) !== ''" class="m-e-2">*{{getWoundLevel(opp)}}</span>
-      <span *ngIf="opp.stats.deathState &gt; 0 && opp.stats.deathState &lt; 10">*DEATH STATE: {{opp.stats.deathState}}</span>
+      <span *ngIf="opp?.stats.deathState &gt; 0 && opp?.stats.deathState &lt; 10">*DEATH STATE: {{opp?.stats.deathState}}</span>
     </div>
   </div>
 </ng-template>
