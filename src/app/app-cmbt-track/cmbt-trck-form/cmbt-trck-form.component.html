@@ -29,34 +29,38 @@
   <div class="row">
     <div class="col-12">
       <div class="row">
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-lg-4">
           <div class="row chargen-label">
-            <div class="col-1 col-md-2 col-lg-5 g-0 align-middle">
-              <span class="d-none d-lg-inline-block me-1">INITIATIVE</span>
+            <div class="col-2 g-0 align-middle">
+              Init.
+              <br>
               <fa-icon [icon]="faDice" (click)="rollInitiative()" title="Roll all initiatives"
                 class="csd-btn csd-dice h4 align-middle mt-3 mt-lg-auto"></fa-icon>
             </div>
-            <div class="col-1 ps-1 g-0 pt-2 text-center">
+            <div class="col-1 ps-1 g-0 pt-3 text-center">
               <fa-icon [icon]="faChevronUp" title="Previous opponent"
               class="csd-btn csd-icon-btn csd-icon-lg m-0" (click)="cycle(false)"></fa-icon>
             </div>
-            <div class="col-7 d-md-none text-black bg-white text-center">
-              <span class="float-start">{{selectedOpponent.initRoll}} </span>
-              <h2 *ngIf="selectedOpponent.stats.deathState &gt; 9" class="text-danger" >** DEAD **</h2>
-              <div>{{selectedOpponent.name}}</div>
-              <div class="opp-conditions">
-                <span *ngIf="selectedOpponent.stats.isStunned">*Stunned</span>
-                <span *ngIf="getWoundLevel(selectedOpponent) !== ''">&nbsp;*{{getWoundLevel(selectedOpponent)}}</span>
-                <span *ngIf="selectedOpponent.stats.deathState &gt; 0 && selectedOpponent.stats.deathState &lt; 10">&nbsp;&nbsp;*DEATH STATE: {{selectedOpponent.stats.deathState}}</span>
+            <div class="col-6 text-center">
+              <div>CURRENT INITITATIVE</div>
+              <div class="text-black bg-white w-100">
+              <span class="float-start">{{currentInitiativeOpp.initRoll}} </span>
+              <div>{{currentInitiativeOpp.name}}</div>
+              <div class="m-0 p-0 fs-6">
+                &nbsp;
+                <span *ngIf="currentInitiativeOpp.stats.isStunned" class="small">*Stunned</span>
+                <span *ngIf="getWoundLevel(currentInitiativeOpp) !== ''" class="small">*{{getWoundLevel(currentInitiativeOpp)}}</span>
+                <span *ngIf="currentInitiativeOpp.stats.deathState &gt; 0 && currentInitiativeOpp.stats.deathState &lt; 10" class="small">*DEATH STATE: {{currentInitiativeOpp.stats.deathState}}</span>
+              </div>
               </div>
             </div>
-            <div class="col-1 ps-1 g-0 pt-2 text-center">
+            <div class="col-1 ps-1 g-0 pt-3 text-center">
               <fa-icon [icon]="faChevronDown" title="Next opponent"
               class="csd-btn csd-icon-btn csd-icon-lg m-0" (click)="cycle(true)"></fa-icon>
             </div>
-            <div class="col-2 col-md-8 col-lg-5 text-end g-0">
+            <div class="col-2 text-end g-0">
               <h6 class="small d-inline-block me-2">TURN</h6>
-              <br class="d-block d-md-none">
+              <br>
               <fa-icon [icon]="faMinus" class="csd-icon-btn csd-icon-lgme-1 csd-btn" (click)="cycleTurn(false)"></fa-icon>
               <h4 class="d-inline-block text-center" style="width:20px;">{{turn}}</h4>
               <fa-icon [icon]="faPlus" class="csd-icon-btn csd-icon-lg ms-1 csd-btn" (click)="cycleTurn(true)"></fa-icon>
@@ -78,7 +82,7 @@
             </div>
           </div>
         </div>
-        <div class="col-12 col-md-8 border border-dark">
+        <div class="col-12 col-lg-8 border border-dark">
           <cs-cmbt-trck-opponent-card [opponent]="selectedOpponent" [index]="selectedIndex">
           </cs-cmbt-trck-opponent-card>
         </div>
@@ -88,13 +92,16 @@
 </div>
 <ng-template #opponentRow let-opp="opp" let-index="index" let-showTools="showTools">
   <div [ngClass]="{'row border border-dark cbttrk-init bg-white': true, 'cbttrk-selected': (selectedOpponent?.id !== opp.id)}" >
+    <div class="col-1 g-0 pt-2">
+      <input type="radio" [checked]="initiativeIndex === index" (change)="selectInitiative(index)" title="Check if oppenent has current initiative.">
+    </div>
     <div class="col-3 g-0" [title]="showInitiativeTooltip(opp)">
       <input [(ngModel)]="opp.initRoll" type="number" (change)="changeInitiative()"
         class="csd-hide-spinner text-center ms-1" />
       <fa-icon [icon]="faDice" class="csd-btn csd-dice ms-1" title="Roll initiative for this opponent"
         (click)="rollInitiative(opp.id)"></fa-icon>
     </div>
-    <div [ngClass]="{'col-8 cbttrk-opp-name csd-btn': true, 'fs-bold ': (selectedOpponent?.id === opp.id) }"
+    <div [ngClass]="{'col-7 cbttrk-opp-name csd-btn': true, 'fs-bold ': (selectedOpponent?.id === opp.id) }"
       (click)='selectOpponent(index)' title="Click to show opponent...">
       <span>{{opp.name}}</span>
       <br>

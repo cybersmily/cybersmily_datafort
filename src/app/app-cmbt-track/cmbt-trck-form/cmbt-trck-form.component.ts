@@ -48,6 +48,8 @@ export class CmbtTrckFormComponent implements OnInit {
   selectedIndex = 0;
   turn = 1;
 
+  initiativeIndex = 0;
+  currentInitiativeOpp = new CmbtTrckOpponent();
 
   constructor(private opponentService: OpponentTrackerService,
     private saveFileService: SaveFileService,
@@ -60,11 +62,14 @@ export class CmbtTrckFormComponent implements OnInit {
       this.opponents = opps;
       if (this.opponents.length < 1) {
         this.selectedOpponent = new CmbtTrckOpponent();
+        this.currentInitiativeOpp = new CmbtTrckOpponent();
       }
       if (this.selectedOpponent.name === '') {
         this.selectedOpponent = this.opponents[0];
+        this.currentInitiativeOpp = this.opponents[0];
       } else {
         this.selectedOpponent = this.opponents[this.selectedIndex];
+        this.currentInitiativeOpp = this.opponents[this.initiativeIndex];
       }
     });
   }
@@ -127,8 +132,14 @@ export class CmbtTrckFormComponent implements OnInit {
     this.selectedOpponent = this.opponents[index];
   }
 
+  selectInitiative(index: number) {
+    this.initiativeIndex = index < 0 ? 0 : index;
+    this.currentInitiativeOpp = null;
+    this.currentInitiativeOpp = this.opponents[this.initiativeIndex];
+  }
+
   cycle(next: boolean) {
-    let index = this.selectedIndex;
+    let index = this.initiativeIndex;
     if(next) {
       index++;
       if(index >= this.opponents.length ) {
@@ -139,9 +150,9 @@ export class CmbtTrckFormComponent implements OnInit {
       index--;
       index = (index < 0 ) ? this.opponents.length - 1 : index;
     }
-    this.selectedIndex = index;
-    this.selectedOpponent = null;
-    this.selectedOpponent = this.opponents[this.selectedIndex];
+    this.initiativeIndex = index;
+    this.currentInitiativeOpp = null;
+    this.currentInitiativeOpp = this.opponents[this.initiativeIndex];
   }
 
   cycleTurn(advance: boolean) {
