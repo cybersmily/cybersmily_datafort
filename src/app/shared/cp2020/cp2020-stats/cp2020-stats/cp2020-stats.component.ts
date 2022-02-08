@@ -55,7 +55,6 @@ export class Cp2020StatsComponent implements OnInit {
   }
 
   onStatsChange() {
-    console.log('onStatChange', this.stats);
     this.changeStats.emit(this.stats);
   }
 
@@ -123,7 +122,6 @@ export class Cp2020StatsComponent implements OnInit {
 
   onStatChange(param: {statName: string, stat: Cp2020Stat}) {
     this.stats[param?.statName] = param?.stat;
-    console.log('ChangeStat', param?.statName)
     this.onStatsChange();
   }
   get isOver(): boolean {

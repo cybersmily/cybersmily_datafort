@@ -1,3 +1,4 @@
+import { Cp2020SkillListSettings } from './../models/cp2020-skill-list-settings';
 import { faDice, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerSkill, Cp2020PlayerSkills } from './../models';
 import { Cp2020StatBlock } from '../../cp2020-stats/models/cp2020-stat-block';
@@ -26,21 +27,31 @@ export class Cp2020SkillListFullComponent implements OnInit, OnChanges {
   @Input()
   isCollapsed = false;
 
+  @Input()
+  skillSettings = new Cp2020SkillListSettings();
+
   @Output()
   changeSKills = new EventEmitter<Cp2020PlayerSkills>();
 
   skillTotals = { role: {}, other: {}};
   currentSkills: Cp2020PlayerSkills = new Cp2020PlayerSkills();
+  currentSettings = new Cp2020SkillListSettings();
 
   constructor() {}
 
   ngOnInit() {
     this.currentSkills = new Cp2020PlayerSkills();
+    this.skillSettings.ref = this.stats.REF.Base;
+    this.skillSettings.int = this.stats.INT.Base;
+    this.currentSettings = new Cp2020SkillListSettings(this.skillSettings);
     this.currentSkills.import(this.skills);
   }
 
   ngOnChanges() {
     this.currentSkills = new Cp2020PlayerSkills();
+    this.skillSettings.ref = this.stats.REF.Base;
+    this.skillSettings.int = this.stats.INT.Base;
+    this.currentSettings = new Cp2020SkillListSettings(this.skillSettings);
     this.currentSkills.import(this.skills);
   }
 

@@ -108,6 +108,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   }
 
   changeStats(value: Cp2020StatBlock) {
+    this.setSkillSettingStats();
     this.characterService.changeStats(value);
   }
 
@@ -199,10 +200,18 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   loadSettings() {
     const settings:string = window.localStorage.getItem(this.charGenSettingsKey);
     this.charGenSettings = new Cp2020CharGenSettings(JSON.parse(settings));
+    this.setSkillSettingStats();
   }
 
   saveSettings() {
+    this.setSkillSettingStats();
+    this.charGenSettings = new Cp2020CharGenSettings(this.charGenSettings);
     window.localStorage.setItem(this.charGenSettingsKey, JSON.stringify(this.charGenSettings));
+  }
+
+  setSkillSettingStats() {
+    this.charGenSettings.skillSettings.ref = this.character.stats.REF.Base;
+    this.charGenSettings.skillSettings.ref = this.character.stats.INT.Base;
   }
 
   saveIU() {

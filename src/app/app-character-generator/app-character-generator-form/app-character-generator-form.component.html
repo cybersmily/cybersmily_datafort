@@ -52,7 +52,7 @@
       <div class="row print-fix">
         <div class="col-12">
           <cs-cp2020-skill-list-full [stats]="character.stats" [skills]="character.skills"
-            [isCollapsed]="charGenSettings.isCollapsed"
+            [isCollapsed]="charGenSettings.isCollapsed" [skillSettings]="charGenSettings.skillSettings"
             (changeSKills)="changeSkills($event)"></cs-cp2020-skill-list-full>
         </div>
       </div>
@@ -157,7 +157,32 @@
       <div class="col">
         <div class="row">
           <div class="col">
-            LIFEPATH
+            <h6>SKILLS</h6>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col">
+            Role Points:
+            <input type="number" class="ms-1 csd-number" [(ngModel)]="charGenSettings.skillSettings.roleSkillPoints" (change)="saveSettings()">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col">
+            Secondary Skills Points use REF + INT <input type="checkbox" [(ngModel)]="charGenSettings.skillSettings.useStatsForSecondary" (change)="saveSettings()">
+            <div *ngIf="!charGenSettings.skillSettings.useStatsForSecondary">
+              Available Secondary SKills Points: <input type="number" class="ms-1 csd-number"  (change)="saveSettings()" [(ngModel)]="charGenSettings.skillSettings.availableSecondarySkillPoints">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <h6>LIFEPATH</h6>
           </div>
         </div>
         <div class="row">

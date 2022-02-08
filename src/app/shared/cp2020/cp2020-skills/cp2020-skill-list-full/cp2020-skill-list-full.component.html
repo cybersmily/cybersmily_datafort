@@ -7,8 +7,9 @@
       </h4>
 
     </div>
-    <div  *ngIf="!isCollapsed" class="col-4">
-      [ROLE: {{currentSkills.RoleTotal}}/40]&nbsp;&nbsp;[SECONDARY: {{currentSkills.OtherTotal}}/{{stats?.INT?.Base + stats?.REF.Base}}]
+    <div  *ngIf="!isCollapsed" class="col-4 small fw-normal">
+      <span [ngClass]="{'text-danger': currentSkills.RoleTotal &gt; currentSettings.roleSkillPoints}">[ROLE: {{currentSkills.RoleTotal}} of {{currentSettings.roleSkillPoints}}]</span>
+      <span [ngClass]="{'text-danger': currentSkills.OtherTotal &gt; currentSettings.secondarySkillPoints, 'ms-2': true}" >[SECONDARY: {{currentSkills.OtherTotal}} of {{currentSettings.secondarySkillPoints }}]</span>
     </div>
     <div *ngIf="!isCollapsed" class="col-4">
       <span class="float-end">
