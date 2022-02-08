@@ -1,10 +1,16 @@
 <div class="chargen-section">
   <div class="cp2020-label row g-0">
-    <div class="col">
+    <div class="col-4">
       <h4 class="d-inline-block csd-btn" (click)="isCollapsed = !isCollapsed">
         SKILLS
         <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ms-2"></fa-icon>
       </h4>
+
+    </div>
+    <div  *ngIf="!isCollapsed" class="col-4">
+      [ROLE: {{currentSkills.RoleTotal}}/40]&nbsp;&nbsp;[SECONDARY: {{currentSkills.OtherTotal}}/{{stats?.INT?.Base + stats?.REF.Base}}]
+    </div>
+    <div *ngIf="!isCollapsed" class="col-4">
       <span class="float-end">
         General IP: <input [(ngModel)]="currentSkills.ip" type="number" class="chargen-general-ip-input"
           (change)="onChangeSkill()" />
@@ -15,7 +21,6 @@
     <div class="row">
       <div class="col-12">
         <span class="chargen-skills-instructions">
-          [ROLE:&nbsp;{{currentSkills.RoleTotal}}]&nbsp;&nbsp;[SECONDARY:&nbsp;{{currentSkills.OtherTotal}}]&nbsp;&nbsp;&nbsp;&nbsp;
           (#) is the combined stat + skill. [#] is the skill level. Checkbox is if chipped. Role skills are highlighted
           with *, @ is choose one as role, ! is for secondary skill.</span>
       </div>
