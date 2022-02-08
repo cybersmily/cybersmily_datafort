@@ -4,7 +4,7 @@ import { DiceRolls } from './../../../models/dice-rolls';
 import { StatModifier, Cp2020Stat } from './../models';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { DiceService } from './../../../services/dice/dice.service';
-import { faDice, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
 
 @Component({
@@ -15,6 +15,7 @@ import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@an
 export class Cp2020StatsComponent implements OnInit {
   faDice = faDice;
   faPlus = faPlus;
+  faTrash = faTrash;
 
   modalRef: BsModalRef;
   modalConfig = {
@@ -136,6 +137,7 @@ export class Cp2020StatsComponent implements OnInit {
 
   addModifier() {
     this.stats.initiativeModifiers.push({name: this.newInitModifier.name, mod: this.newInitModifier.mod});
+    this.newInitModifier = {name: '', mod: 0};
     this.onStatsChange();
   }
 

@@ -70,13 +70,15 @@
       <div class="col text-end">Combat Sense:</div>
       <div class="col">+{{combatSense}}</div>
     </div>
-    <div class="row" *ngFor="let mod of stats.initiativeModifiers">
+    <div class="row" *ngFor="let mod of stats.initiativeModifiers; let i = index">
       <div class="col text-end">{{mod.name}}:</div>
-      <div class="col">{{mod.mod > 0 ? '+' + mod.mod : mod.mod}}</div>
+      <div class="col">{{mod.mod > 0 ? '+' + mod.mod : mod.mod}}
+        <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn csd-icon-md" title="Delete modifier" (click)="deleteModifier(i)"></fa-icon>
+      </div>
     </div>
     <div class="row">
       <div class="col">
-        <fa-icon [icon]="faPlus" class="csd-btn" (click)="addModifier()"></fa-icon>&nbsp;
+        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn" (click)="addModifier()"></fa-icon>&nbsp;
         <input type="text" [(ngModel)]="newInitModifier.name" placeholder="enter name">
       </div>
       <div class="col">
