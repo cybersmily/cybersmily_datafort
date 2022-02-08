@@ -1,5 +1,5 @@
 import { Cp2020SkillListSettings } from './../models/cp2020-skill-list-settings';
-import { faDice, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faChevronDown, faChevronRight, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerSkill, Cp2020PlayerSkills } from './../models';
 import { Cp2020StatBlock } from '../../cp2020-stats/models/cp2020-stat-block';
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
@@ -13,6 +13,7 @@ export class Cp2020SkillListFullComponent implements OnInit, OnChanges {
   faDice = faDice;
   faChevronDown = faChevronDown;
   faChevronRight = faChevronRight;
+  faSearch = faSearch;
 
   get collapseChevron(): any {
     return (this.isCollapsed)? this.faChevronRight : this.faChevronDown;
@@ -36,6 +37,7 @@ export class Cp2020SkillListFullComponent implements OnInit, OnChanges {
   skillTotals = { role: {}, other: {}};
   currentSkills: Cp2020PlayerSkills = new Cp2020PlayerSkills();
   currentSettings = new Cp2020SkillListSettings();
+  skillFilter: string = '';
 
   constructor() {}
 

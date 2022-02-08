@@ -1,3 +1,4 @@
+import { PipesModule } from './../../pipes/pipes.module';
 import { MartialArtsDataService } from './services/martial-arts-data.service';
 import { SkillListService } from './services/skill-list.service';
 import { Cp2020SkillStatSectionComponent } from './cp2020-skill-stat-section/cp2020-skill-stat-section.component';
@@ -33,6 +34,7 @@ import { Cp2020RepSectionComponent } from './cp2020-rep-section/cp2020-rep-secti
   imports: [
     CommonModule,
     CommonUiModule,
+    PipesModule
   ],
   providers: [
     SkillListService,
