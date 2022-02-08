@@ -69,7 +69,7 @@ export class Cp2020SaveWoundsComponent implements OnInit {
   }
 
   set ignoreWounds(value: boolean) {
-    this.stats.ignoreWounds = value;
+    this.stats.setIgnoreWoundStatPenalty(value);
   }
 
   get ignoreSaves(): boolean {
@@ -100,7 +100,9 @@ export class Cp2020SaveWoundsComponent implements OnInit {
   }
 
   update() {
-    this.changeStats.emit(this.stats);
+    const stats = new Cp2020StatBlock(this.stats.isIU);
+    stats.import(this.stats);
+    this.changeStats.emit(stats);
   }
 
   constructor(private modalService: BsModalService, private dice: DiceService) { }
@@ -115,7 +117,6 @@ export class Cp2020SaveWoundsComponent implements OnInit {
   }
 
   updateIgnoreWounds() {
-    this.stats.Damage = this.stats.Damage;
     this.update();
   }
 

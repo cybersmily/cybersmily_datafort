@@ -23,7 +23,7 @@ export class Cp2020StatBlock implements Cp2020Stats {
   initiativeModifiers: Array<StatModifier>;
   private _isIU: boolean;
   ignoreWounds: boolean;
-  ignoreSaves:boolean;
+  ignoreSaves: boolean;
 
   constructor(isIU?: boolean) {
     this._basePoints = 0;
@@ -61,7 +61,6 @@ export class Cp2020StatBlock implements Cp2020Stats {
     this.EMP = this.importStat(value.EMP);
     this._humanityCost = value?._humanityCost ?? 0;
     this.setHCCost();
-    this.Damage = value?._damage ?? 0;
     this.isStunned = value?.isStunned ?? false;
     this.StunSaveMod = value?.StunSaveMod ?? 0;
     this.DeathSaveMod = value?.DeathSaveMod ?? 0;
@@ -69,6 +68,8 @@ export class Cp2020StatBlock implements Cp2020Stats {
     this.ignoreWounds = value?.ignoreWounds ?? false;
     this.ignoreSaves = value?.ignoreSaves ?? false;
     this.initiativeModifiers = value?.initiativeModifiers ?? new Array<StatModifier>();
+
+    this.Damage = value?._damage ?? 0; // should be done last
   }
 
   private importStat(value): Cp2020Stat {
@@ -78,6 +79,10 @@ export class Cp2020StatBlock implements Cp2020Stats {
     stat.Multiplier = value?._multiplier ?? 1;
     stat.WoundModifier = value?._woundMod ?? 0;
     return stat;
+  }
+
+  get isIU(): boolean {
+    return this._isIU;
   }
 
   get BasePoints(): number {
@@ -221,20 +226,24 @@ export class Cp2020StatBlock implements Cp2020Stats {
 
   set Damage(value: number) {
     this._damage = (value > 40) ? 40 : (value < 0) ? 0 : value;
-    const woundLevelIndex = Math.ceil(this._damage/4);
-    if( !this.ignoreSaves) {
+    const woundLevelIndex = Math.ceil(this._damage / 4);
+    if (!this.ignoreSaves) {
       this.setSavePenalities((woundLevelIndex - 1), (woundLevelIndex - 4));
     } else {
       this.setSavePenalities(0, 0);
     }
+    this.setWoundPenalities();
+  }
 
+  private setWoundPenalities() {
+    const woundLevelIndex = Math.ceil(this._damage / 4);
     if (!this.ignoreWounds) {
-      if (woundLevelIndex === 1 ) {
-        this.setWoundPenalities( Cp2020_WOUND_LEVELS.LIGHT, 0, 1, 1, 1);
+      if (woundLevelIndex === 1) {
+        this.setStatPenalities(Cp2020_WOUND_LEVELS.LIGHT, 0, 1, 1, 1);
       } else if (woundLevelIndex === 2) {
-        this.setWoundPenalities( Cp2020_WOUND_LEVELS.SERIOUS, -2, 1, 1, 1);
+        this.setStatPenalities(Cp2020_WOUND_LEVELS.SERIOUS, -2, 1, 1, 1);
       } else if (woundLevelIndex === 3) {
-        this.setWoundPenalities( Cp2020_WOUND_LEVELS.CRITICAL, 0, 0.5, 0.5, 0.5);
+        this.setStatPenalities(Cp2020_WOUND_LEVELS.CRITICAL, 0, 0.5, 0.5, 0.5);
       } else if (woundLevelIndex > 3) {
         let level = Cp2020_WOUND_LEVELS.MORTAL_0;
         switch (woundLevelIndex) {
@@ -260,13 +269,14 @@ export class Cp2020StatBlock implements Cp2020Stats {
             level = Cp2020_WOUND_LEVELS.MORTAL_6;
             break;
         }
-        this.setWoundPenalities( level, 0, 0.33, 0.33, 0.33);
+        this.setStatPenalities(level, 0, 0.33, 0.33, 0.33);
       } else {
-        this.setWoundPenalities( Cp2020_WOUND_LEVELS.NONE, 0, 1, 1, 1);
+        this.setStatPenalities(Cp2020_WOUND_LEVELS.NONE, 0, 1, 1, 1);
       }
     } else {
-      this.setWoundPenalities( Cp2020_WOUND_LEVELS.NONE, 0, 1, 1, 1);
+      this.setStatPenalities(Cp2020_WOUND_LEVELS.NONE, 0, 1, 1, 1);
     }
+
   }
 
   private setSavePenalities(stun: number, death: number) {
@@ -274,7 +284,7 @@ export class Cp2020StatBlock implements Cp2020Stats {
     this.DeathSaveMod = (death < 0) ? 0 : death;
   }
 
-  private setWoundPenalities(woundLevel: Cp2020_WOUND_LEVELS, refMod: number, refMulti: number, intMod: number, coolMod: number) {
+  private setStatPenalities(woundLevel: Cp2020_WOUND_LEVELS, refMod: number, refMulti: number, intMod: number, coolMod: number) {
     this.WoundLevel = woundLevel;
     this.REF.WoundModifier = refMod;
     this.REF.Multiplier = refMulti;
@@ -295,5 +305,10 @@ export class Cp2020StatBlock implements Cp2020Stats {
       }
     }
 
+  }
+
+  setIgnoreWoundStatPenalty(value: boolean) {
+    this.ignoreWounds = value;
+    this.setWoundPenalities();
   }
 }
