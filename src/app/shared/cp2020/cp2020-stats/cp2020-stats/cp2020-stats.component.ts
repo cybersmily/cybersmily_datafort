@@ -55,6 +55,7 @@ export class Cp2020StatsComponent implements OnInit {
   }
 
   onStatsChange() {
+    console.log('onStatChange', this.stats);
     this.changeStats.emit(this.stats);
   }
 
@@ -73,7 +74,7 @@ export class Cp2020StatsComponent implements OnInit {
       total += roll;
     }
     this.stats.BasePoints = total;
-    this.changeStats.emit(this.stats);
+    this.onStatsChange();
   }
 
   rollStats() {
@@ -113,6 +114,7 @@ export class Cp2020StatsComponent implements OnInit {
         this.stats[s].Base = this.dice.generateNumber(3, 10);
       });
     }
+    this.onStatsChange();
   }
 
   rollInitiative(){
@@ -120,8 +122,9 @@ export class Cp2020StatsComponent implements OnInit {
   }
 
   onStatChange(param: {statName: string, stat: Cp2020Stat}) {
-    this.stats[param.statName] = param.stat;
-    this.changeStats.emit(this.stats);
+    this.stats[param?.statName] = param?.stat;
+    console.log('ChangeStat', param?.statName)
+    this.onStatsChange();
   }
   get isOver(): boolean {
     return (this.stats.CurrentPoints < 0);

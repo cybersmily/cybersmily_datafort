@@ -13,7 +13,7 @@
   <div class="modal-body">
     <div class="row">
       <div class="col text-end">Base:</div>
-      <div class="col"><input type="number" [(ngModel)]="stat.Base" class="stat-input"></div>
+      <div class="col"><input type="number" [(ngModel)]="stat.Base" class="stat-input" (change)="onStatChange()"></div>
     </div>
     <div class="row" *ngIf="stat.ev !== 0">
       <div class="col text-end">EV:</div>
