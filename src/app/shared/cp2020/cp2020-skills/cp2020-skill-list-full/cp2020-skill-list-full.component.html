@@ -12,8 +12,8 @@
       <div [ngClass]="{'text-danger': currentSkills.OtherTotal &gt; currentSettings.secondarySkillPoints}">[SECONDARY: {{currentSkills.OtherTotal}} of {{currentSettings.secondarySkillPoints }}]</div>
     </div>
     <div *ngIf="!isCollapsed" class="col-3 col-md-4 small fw-normal">
-      <input type="text" class="w-100" placeholder="Search for skill..." [(ngModel)]="skillFilter">
-      <fa-icon [icon]="faSearch" class="csd-icon-btn csd-icon-sm" style="margin-left:-20px"></fa-icon>
+      <fa-icon [icon]="faSearch" class="csd-icon-btn csd-icon-sm d-inline-block ms-1 mt-1" style="position:absolute;z-index:100"></fa-icon>
+      <input type="search" class="w-100 ps-4 d-inline-block" placeholder="Search for skill..." [(ngModel)]="skillFilter">
     </div>
     <div *ngIf="!isCollapsed" class="col-3">
       <span class="float-end">
