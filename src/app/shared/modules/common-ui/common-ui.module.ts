@@ -13,6 +13,7 @@ import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { NgModule } from '@angular/core';
 import { CsdComboBoxComponent } from './csd-combo-box/csd-combo-box.component';
 import { NgxMasonryModule } from 'ngx-masonry';
+import { AngularDraggableModule } from 'angular2-draggable';
 
 
 
@@ -33,6 +34,7 @@ import { NgxMasonryModule } from 'ngx-masonry';
     TabsModule.forRoot(),
     TooltipModule.forRoot(),
     TypeaheadModule.forRoot(),
+    AngularDraggableModule,
     FontAwesomeModule
   ],
   exports: [
@@ -48,6 +50,7 @@ import { NgxMasonryModule } from 'ngx-masonry';
     TooltipModule,
     TypeaheadModule,
     FontAwesomeModule,
+    AngularDraggableModule,
     CsdComboBoxComponent
   ],
   providers: [
