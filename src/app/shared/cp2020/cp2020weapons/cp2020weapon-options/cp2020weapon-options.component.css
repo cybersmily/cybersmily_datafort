@@ -1,0 +1,13 @@
+.ng-draggable {
+  background-color: #fff;
+  }
+
+  .backgroundTransparent .modal-content {
+  background: transparent !important;
+  }
+
+  .modal-content {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none;
+  }

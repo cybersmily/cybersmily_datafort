@@ -1,7 +1,6 @@
 <div class=" csd-rounded">
   <div class="row">
-    <div class="col">Options ({{weapon.options?weapon.options.length:0}}):
-    </div>
+    <div class="col">Options ({{weapon.options?weapon.options.length:0}})</div>
   </div>
   <div class="row">
     <div class="col-1"></div>
@@ -21,8 +20,8 @@
           </div>
           <ng-container *ngFor="let opt of options;let i = index">
             <div class="row">
-              <div class="col-1">
-                <input type="number" min="0" class="csd-number" [(ngModel)]="opt.count" title="Count of this option"
+              <div class="col-2">
+                <input type="number" min="0" class="w-100 text-end" [(ngModel)]="opt.count" title="Count of this option"
                   (change)="update()">
               </div>
               <div class="col">
@@ -57,36 +56,45 @@
   </div>
 </div>
 
-<ng-template #optionModal>
+<ng-template #optionModal ngDraggable>
   <div class="modal-header">
     <h4 class="modal-title float-start">Weapon Options</h4>
     <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()">
-
     </button>
   </div>
   <div class="modal-body">
     <div class="row">
-      <div class="col">
+      <div class="col-5">
         Type
       </div>
-      <div class="col">
+      <div class="col-5">
         Name
       </div>
       <div class="col-2">
         Cost
       </div>
     </div>
-    <div class="row small" *ngFor="let opt of optionList;let i = index" [title]="opt.notes">
-      <div class="col">
-        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn" (click)="add(i)"></fa-icon>
+    <div class="row small">
+      <div class="col-1"></div>
+      <div class="col-10">
+        <fa-icon [icon]="faSearch" class="csd-icon-btn csd-icon-sm d-inline-block ms-1 mt-1" style="position:absolute;z-index:100"></fa-icon>
+        <input type="search" class="w-100 ps-4 d-inline-block" placeholder="Search for skill..." [(ngModel)]="searchFilter">
+      </div>
+      <div class="col-1"></div>
+    </div>
+    <div style="height:500px;max-height:500px;overflow-y: scroll;overflow-x:hidden">
+    <div class="row small csd-btn" *ngFor="let opt of optionList | contains:'name':searchFilter;let i = index" [title]="opt.notes" (click)="add(opt.name)">
+      <div class="col border-bottom border-dark">
+        <fa-icon [icon]="faPlus" class="csd-icon-btn"></fa-icon>
         {{opt.type}}
       </div>
-      <div class="col">
+      <div class="col border-bottom border-dark">
         {{opt.name}}
       </div>
-      <div class="col-2">
+      <div class="col-2 border-bottom border-dark">
         {{getOptionCost(opt)|number}}eb
       </div>
     </div>
   </div>
+</div>
 </ng-template>

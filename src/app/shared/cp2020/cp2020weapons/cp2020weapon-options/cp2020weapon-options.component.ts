@@ -1,6 +1,6 @@
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { DataService, JsonDataFiles } from './../../../services/file-services';
-import { faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { CpPlayerWeaponOption, CpPlayerWeapon } from './../models';
 import { Component, Input, OnInit, Output, EventEmitter, TemplateRef, OnChanges } from '@angular/core';
 
@@ -12,6 +12,7 @@ import { Component, Input, OnInit, Output, EventEmitter, TemplateRef, OnChanges 
 export class Cp2020weaponOptionsComponent implements OnInit, OnChanges {
   faTrash = faTrash;
   faPlus = faPlus;
+  faSearch = faSearch;
 
   modalRef: BsModalRef;
   modalConfig = {
@@ -21,6 +22,7 @@ export class Cp2020weaponOptionsComponent implements OnInit, OnChanges {
 
   optionList: Array<CpPlayerWeaponOption> = new Array<CpPlayerWeaponOption>();
   options: Array<CpPlayerWeaponOption> = new Array<CpPlayerWeaponOption>();
+  searchFilter = '';
 
   @Input()
   weapon: CpPlayerWeapon = new CpPlayerWeapon();
@@ -53,8 +55,9 @@ export class Cp2020weaponOptionsComponent implements OnInit, OnChanges {
     return this.options.reduce( (a,b) => a + (b.totalCost * b.count),0);
   }
 
-  add(index: number) {
-    if(index < this.optionList.length){
+  add(name: string) {
+    const index = this.optionList.findIndex(opt => opt.name === name);
+    if (index > -1){
       const opt = new CpPlayerWeaponOption(this.optionList[index]);
       opt.totalCost = this.getOptionCost(opt);
       const i = this.options.findIndex(o => o.name === opt.name);
