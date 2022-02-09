@@ -6,16 +6,17 @@
     <span *ngIf="stats.CurrentPoints !== 0"
       [ngClass]="{'chargen-stats-over':isOver, 'chargen-stats-current':true, 'ms-2': true}">{{stats.CurrentPoints}}</span>
     <span class="hidden-print">
-      <fa-icon [icon]="faDice" class="chargen-point-dice" (click)="rollCharacterPoints()"
-        title="Roll for character points. Rolls 9d10, rerolling 1s."></fa-icon>
-      rolls: [{{rolls}}]
+      <input type="checkbox" class="ms-1" [(ngModel)]="useRolls" (change)="clearRolls()">Use Dice:
+      <span *ngIf="useRolls">
+      <fa-icon [icon]="faDice" class="chargen-point-dice ms-1 me-1" (click)="rollCharacterPoints()"
+        title="Roll for character points. Rolls 9d10, rerolling 1s."></fa-icon>rolls: [{{rolls}}]</span>
     </span>
   </div>
 </div>
 <div class="chargen-section row">
   <div class="col">
-    <div class="chargen-label chargen-stats">STATS<fa-icon class="csd-dice ms-2" [icon]="faDice" (click)="rollStats()">
-      </fa-icon>
+    <div class="chargen-label chargen-stats">STATS
+      <fa-icon class="csd-dice ms-2" [icon]="faDice" (click)="rollStats()"></fa-icon>
     </div>
   </div>
   <div *ngIf="showRollInitiative" class="col">

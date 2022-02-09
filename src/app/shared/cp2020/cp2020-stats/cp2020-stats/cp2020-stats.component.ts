@@ -27,6 +27,7 @@ export class Cp2020StatsComponent implements OnInit {
   newInitModifier: StatModifier = {name: '', mod: 0};
   initiativeRoll: DiceRolls = new DiceRolls();
   showInitiativeRoll = false;
+  useRolls: boolean = true;
 
 
   @Input()
@@ -145,6 +146,10 @@ export class Cp2020StatsComponent implements OnInit {
   deleteModifier(index: number) {
     this.stats.initiativeModifiers.splice(index, 1);
     this.onStatsChange();
+  }
+
+  clearRolls() {
+    this.rolls = new Array<number>();
   }
 
   openModal(template: TemplateRef<any>, showInit: boolean) {
