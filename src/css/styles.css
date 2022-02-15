@@ -11,6 +11,13 @@ INPUT.csd-number {
   text-align: right;
 }
 
+INPUT[type="radio"] {
+	accent-color: red !important;
+}
+
+INPUT[type="checkbox"]:checked:before {
+  accent-color: red !important;
+}
 
 INPUT.csd-number-sm {
   width: 35px;
