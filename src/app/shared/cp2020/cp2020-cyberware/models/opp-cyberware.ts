@@ -11,11 +11,15 @@ export class OppCyberware implements BaseCyberware {
 
   constructor(param?) {
     this.name = (param) ? (param.cyber ? param.cyber : ((param.name) ? param.name : '')) : '';
-    this.notes =  (param) ? param.notes : '';
-    this.cost = (param) ? ((typeof param.cost === 'string') ? param.cost : Number(param.cost)) : 0;
-    this.hc = (param) ? param.hc : '';
+    this.notes =  param?.notes ?? '';
+    this.cost = ((typeof param?.cost === 'string') ? param.cost : Number(param.cost)) ?? 0;
+    this.hc = param?.hc ?? '';
     this.surgery = (param) ? param.surgery : '';
-    this.options = (param) ? param.options : undefined;
-    this.armor = (param) ? param.armor : undefined;
+    if(Array.isArray(param?.options) ) {
+      this.options = (param.options as Array<any>).map( opt => opt?.name).join(', ');
+    } else {
+      this.options = param?.options ?? undefined;
+    }
+    this.armor = param?.armor ?? undefined;
   }
 }
