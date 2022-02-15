@@ -7,19 +7,20 @@
       </h4>
 
     </div>
-    <div *ngIf="!isCollapsed" class="col-3 col-md-3 small fw-normal">
+    <div *ngIf="!isCollapsed" class="col-3 d-none d-lg-flex small fw-normal">
       <div [ngClass]="{'text-danger': currentSkills.RoleTotal &gt; currentSettings.roleSkillPoints}">[ROLE: {{currentSkills.RoleTotal}} of {{currentSettings.roleSkillPoints}}]</div>
       <div [ngClass]="{'text-danger': currentSkills.OtherTotal &gt; currentSettings.secondarySkillPoints}">[SECONDARY: {{currentSkills.OtherTotal}} of {{currentSettings.secondarySkillPoints }}]</div>
     </div>
-    <div *ngIf="!isCollapsed" class="col-3 col-md-4 small fw-normal">
+    <div *ngIf="!isCollapsed" class="col-6 col-lg-4 small fw-normal">
       <fa-icon [icon]="faSearch" class="csd-icon-btn csd-icon-sm d-inline-block ms-1 mt-1" style="position:absolute;z-index:100"></fa-icon>
       <input type="search" class="w-100 ps-4 d-inline-block" placeholder="Search for skill..." [(ngModel)]="skillFilter">
     </div>
-    <div *ngIf="!isCollapsed" class="col-3">
-      <span class="float-end">
-        General IP: <input [(ngModel)]="currentSkills.ip" type="number" class="chargen-general-ip-input"
-          (change)="onChangeSkill()" />
-      </span>
+    <div *ngIf="!isCollapsed" class="d-none col-2 d-md-flex small pe-0 ps-0 text-end">
+        General IP:
+    </div>
+    <div *ngIf="!isCollapsed" class="col-2 col-md-1 small">
+      <input [(ngModel)]="currentSkills.ip" type="number" class="chargen-general-ip-input ms-1 w-75 float-start"
+      (change)="onChangeSkill()" />
     </div>
   </div>
   <div [collapse]="isCollapsed">
