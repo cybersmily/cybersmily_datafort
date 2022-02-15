@@ -215,7 +215,10 @@ export class CpPlayerWeapon implements CpWeapon {
     shots =  (fireMode === 1) ? 3 : shots;
     const remainingRounds = this.shotsRemaining;
     shots = (shots > remainingRounds) ? remainingRounds : shots;
-    const maKeyAttack = skill?.maBonuses[this.name.toLowerCase()] ?? 0;
+    let maKeyAttack = 0;
+    if(skill?.maBonuses) {
+      maKeyAttack = skill?.maBonuses[this.name.toLowerCase()] ?? 0;
+    }
     this.fire(
       dice,
       ref,
@@ -236,7 +239,7 @@ export class CpPlayerWeapon implements CpWeapon {
           : degreeOfSuccess;
       }
       // check if martial arts skill.
-      const maDmg = (skill.name.toLowerCase().startsWith('martial')) ? skill.value : undefined;
+      const maDmg = (skill?.name.toLowerCase().startsWith('martial')) ? skill.value : undefined;
       const dmg = this.rollDamage(dice, shots, bodyDamageMod, maDmg);
       if (shots > 1) {
         successMsg = `${shots} round${shots > 1 ? 's' : ''}`;
