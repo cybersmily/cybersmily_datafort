@@ -43,14 +43,11 @@
             </div>
             <div class="col-6 text-center">
               <div>CURRENT INITITATIVE</div>
-              <div class="text-black bg-white w-100">
-              <span class="float-start">{{currentInitiativeOpp?.initRoll}} </span>
-              <div>{{currentInitiativeOpp?.name}}</div>
-              <div class="m-0 p-0 fs-6">
-                &nbsp;
-                <span *ngIf="currentInitiativeOpp?.stats.isStunned" class="small">*Stunned</span>
-                <span *ngIf="getWoundLevel(currentInitiativeOpp) !== ''" class="small">*{{getWoundLevel(currentInitiativeOpp)}}</span>
-                <span *ngIf="currentInitiativeOpp?.stats.deathState &gt; 0 && currentInitiativeOpp?.stats.deathState &lt; 10" class="small">*DEATH STATE: {{currentInitiativeOpp?.stats.deathState}}</span>
+              <div class="text-black bg-white w-100 ps-1"><span class="float-start">{{currentInitiativeOpp?.initRoll}}</span>{{currentInitiativeOpp?.name}}
+              <div class="pt-1 pb-1 mt-0 mb-0 small">
+                <span *ngIf="currentInitiativeOpp?.stats.isStunned">*Stunned</span>
+                <span *ngIf="getWoundLevel(currentInitiativeOpp) !== ''">*{{getWoundLevel(currentInitiativeOpp)}}</span>
+                <span *ngIf="currentInitiativeOpp?.stats.deathState &gt; 0 && currentInitiativeOpp?.stats.deathState &lt; 10">*DEATH STATE: {{currentInitiativeOpp?.stats.deathState}}</span>
               </div>
               </div>
             </div>
