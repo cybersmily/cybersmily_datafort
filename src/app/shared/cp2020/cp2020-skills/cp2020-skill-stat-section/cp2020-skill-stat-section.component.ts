@@ -34,6 +34,9 @@ export class Cp2020SkillStatSectionComponent implements OnInit, OnChanges {
   @Input()
   sa: boolean = false;
 
+  @Input()
+  showAddSkill: boolean = true;
+
   @Output()
   changeSkill = new EventEmitter<Cp2020PlayerSkill>();
 

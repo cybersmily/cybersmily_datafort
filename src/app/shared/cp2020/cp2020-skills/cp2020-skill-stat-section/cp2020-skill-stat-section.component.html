@@ -23,7 +23,7 @@
           [stat]="stat" [sa]="spclAbility" (delete)="deleteCurrentSkill($event)"></cs-cp2020-skill>
       </div>
     </div>
-    <div class="row">
+    <div *ngIf="showAddSkill" class="row">
       <div class="col text-center">
         <fa-icon [icon]="faPlus" class="csd-icon-btn csd-btn csd-icon-sm" title="Add a new skill" (click)="showModal(newSkillTemplate)"></fa-icon>
       </div>
