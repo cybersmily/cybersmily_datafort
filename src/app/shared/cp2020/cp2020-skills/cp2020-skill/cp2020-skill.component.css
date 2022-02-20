@@ -4,9 +4,10 @@
 
 .chargen-skill-input {
   width: 28px;
-  height: 1.1em;
   font-size: 0.9em;
-  text-align: right;
+  text-align: center;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .chargen-skil-option {
