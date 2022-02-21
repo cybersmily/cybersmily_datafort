@@ -9,7 +9,7 @@
         <fa-icon [icon]="faEuroSign" class="csd-btn csd-icon-btn ms-2 csd-icon-xl me-2" title="Pay" (click)="payServices()"></fa-icon>
       </div>
     </div>
-    <div *ngFor="let service of currServices;let i = index" class="row">
+    <div *ngFor="let service of currServices;let i = index" class="row ps-1 pe-1">
       <div class="col-8">
         <select [(ngModel)]="service.name" (change)="changeName($event.target.value,i)">
           <option *ngFor="let s of servicesData" [ngValue]="s.name">{{s.name}}</option>

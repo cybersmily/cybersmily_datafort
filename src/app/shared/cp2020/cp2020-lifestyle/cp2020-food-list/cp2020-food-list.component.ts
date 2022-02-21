@@ -1,5 +1,4 @@
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { faTrash, faPlus, faEuroSign } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faPlus, faEuroSign, faUtensils } from '@fortawesome/free-solid-svg-icons';
 import { Component, Input, OnInit, Output, EventEmitter, TemplateRef, OnChanges } from '@angular/core';
 import { Cp2020Food } from '../models';
 
@@ -12,12 +11,7 @@ export class Cp2020FoodListComponent implements OnInit, OnChanges {
   faTrash = faTrash;
   faPlus = faPlus;
   faEuroSign = faEuroSign;
-
-  modalRef: BsModalRef;
-  config = {
-    keyboard: true,
-    class: 'modal-dialog-centered modal-lg'
-  };
+  faUtensils = faUtensils;
 
   groceries = [
     {name: 'Kibble', cost: 50},
@@ -50,17 +44,25 @@ export class Cp2020FoodListComponent implements OnInit, OnChanges {
   selectedQuality = this.qualities[1];
 
   get totalCost(): number {
-    return this.currFoodList.reduce((a,b) => a + (b.count * b.cost * b.qualityMod), 0);
+    return this.currFoodList.reduce((a,b) => a + ((b.count/7) * b.cost * b.qualityMod), 0);
   }
 
-  constructor(private modalService: BsModalService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.currFoodList = JSON.parse(JSON.stringify(this.foodList));
+    this.currFoodList = this.foodList
+      .map(food => {
+        const f = new Cp2020Food(food);
+        if(f.unit?.toLowerCase().startsWith('week')) {
+          f.count = f.count * 7;
+          f.unit = 'day';
+        }
+        return f;
+      });
   }
 
   ngOnChanges(): void {
-    this.currFoodList = JSON.parse(JSON.stringify(this.foodList));
+    this.currFoodList = this.foodList.map(food => new Cp2020Food(food));
   }
 
   delete(index: number) {
@@ -82,28 +84,22 @@ export class Cp2020FoodListComponent implements OnInit, OnChanges {
     this.selectedFood.quality = this.selectedQuality.name;
   }
 
-  closeModal() {
-    this.modalRef.hide();
-  }
-
-  add() {
-    const index = this.currFoodList.findIndex( f => f.name === this.selectedType.name && f.quality === this.selectedQuality.name);
+  addSelectedFood() {
+    const newFood = new Cp2020Food(this.selectedFood);
+    newFood.unit = 'day';
+    newFood.count = this.selectedFood.count * 7;
+    const index = this.currFoodList.findIndex( f => f.name === newFood.name && f.quality === newFood.quality);
     if (index > -1) {
-      this.currFoodList[index].count += this.selectedFood.count;
+      this.currFoodList[index].count += this.selectedFood.count * 7;
     } else {
-      this.currFoodList.push(JSON.parse(JSON.stringify(this.selectedFood)));
+      this.currFoodList.push(newFood);
     }
-    this.updateFood.emit(this.currFoodList);
-    this.pay.emit(this.selectedFood.count * this.selectedFood.cost * this.selectedFood.qualityMod);
-    this.closeModal();
   }
 
-  openNewModal(template: TemplateRef<any>) {
-    this.selectedFood = {name: this.groceries[0].name, count: 1, unit: 'week', cost: this.groceries[0].cost, quality: this.qualities[1].name, qualityMod: this.qualities[1].mod};
-    this.selectedQuality = this.qualities[1];
-    this.selectedType = this.groceries[0];
-    this.modalRef = this.modalService.show(template, this.config);
+  useFood(index: number) {
+    if(index > -1 && index < this.currFoodList.length) {
+      this.currFoodList[index].count -= 1;
+      this.updateFood.emit(this.currFoodList);
+    }
   }
-
-
 }

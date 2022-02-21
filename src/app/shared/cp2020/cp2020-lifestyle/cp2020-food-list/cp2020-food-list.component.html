@@ -3,71 +3,47 @@
     <div class="row">
       <div class="col">
         <h5 class="cp2020-label d-inline-block">Groceries</h5>
-        <span class="float-end d-inline-block">Total Cost: {{totalCost|number}}eb</span>
+        <span class="float-end d-inline-block">Total Cost: {{totalCost|number:'1.0-0'}}eb</span>
       </div>
     </div>
     <ng-container *ngFor="let food of currFoodList; let i = index" [ngTemplateOutlet]="cpFood"
       [ngTemplateOutletContext]="{food:food, index: i}">
     </ng-container>
-    <div class="row">
-      <div class="col text-center">
-        <fa-icon [icon]="faPlus" class="csd-icon-btn csd-btn" title="Add a new food entry" (click)="openNewModal(cpFoodEditor)"></fa-icon>
+    <hr>
+    <div class="row mb-2">
+      <div class="col-2">
+        <fa-icon [icon]="faPlus" class="csd-icon-btn csd-btn ms-2" title="Add a new food entry" (click)="addSelectedFood()"></fa-icon>
+        <input type="number" min="0" [(ngModel)]="selectedFood.count" class="w-50 float-end">
+      </div>
+      <div class="col-4">
+        <select [(ngModel)]="selectedType" (change)="changeFood()" class="w-100">
+          <option *ngFor="let type of groceries" [ngValue]="type">{{type.name}}</option>
+        </select>
+      </div>
+      <div class="col-3">
+        <select [(ngModel)]="selectedQuality" (change)="changeQuality()" class="w-100">
+          <option *ngFor="let quality of qualities" [ngValue]="quality">{{quality.name}} (x{{quality.mod}})</option>
+        </select>
+      </div>
+      <div class="col-3">
+        {{selectedFood.cost|number}}eb/{{selectedFood.unit}}
       </div>
     </div>
-  </div>
 </div>
 
 <ng-template #cpFood let-food="food" let-index="index">
-  <div class="row">
+  <div class="row ps-2 pe-1">
     <div class="col-3">
+      <fa-icon [icon]="faUtensils" class="csd-icon-btn csd-btn csd-icon-sm ms-1" title="Use 1 day of food" (click)="useFood(index)"></fa-icon>
       {{food.count}} {{food.unit}}<span *ngIf="food.count > 1">s</span>
     </div>
     <div class="col-6">
       {{food.quality}} {{food.name}} ({{food.cost * food.qualityMod}}eb)
     </div>
     <div class="col-3 text-end">
-      {{(food.cost * food.count * food.qualityMod) | number}}eb
+      {{(food.cost * (food.count/7) * food.qualityMod) | number:'1.0-0'}}eb
       <fa-icon [icon]="faTrash" class="csd-icon-btn csd-btn" (click)="delete(index)" title="Delete food entry">
       </fa-icon>
-    </div>
-  </div>
-</ng-template>
-
-<ng-template #cpFoodEditor>
-  <div class="modal-header">
-    <h4 id="armor-modal-name" class="modal-title float-start">Grocery Selector</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()">
-
-    </button>
-  </div>
-  <div class="modal-body">
-    <div class="row">
-      <div class="col">
-
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-2 col-lg-1">
-        <input type="number" min="0" [(ngModel)]="selectedFood.count" class="w-100">
-      </div>
-      <div class="col-6 col-lg-4">
-        <select [(ngModel)]="selectedType" (change)="changeFood()">
-          <option *ngFor="let type of groceries" [ngValue]="type">{{type.name}} {{type.cost}}eb</option>
-        </select>
-      </div>
-      <div class="col-4 col-lg-2">
-        <select [(ngModel)]="selectedQuality" (change)="changeQuality()">
-          <option *ngFor="let quality of qualities" [ngValue]="quality">{{quality.name}} (x{{quality.mod}})</option>
-        </select>
-      </div>
-      <div class=" col-2 d-lg-none"></div>
-      <div class="col-5 col-lg-2">
-        {{selectedFood.cost|number}}eb/{{selectedFood.unit}}
-      </div>
-      <div class="col-5 col-lg-3 text-end">Total:
-        {{(selectedFood.cost * selectedFood.count * selectedFood.qualityMod) | number}}eb
-        <fa-icon [icon]="faEuroSign" title="Buy" class="csd-icon-btn csd-btn ms-2" (click)="add()"></fa-icon>
-      </div>
     </div>
   </div>
 </ng-template>
