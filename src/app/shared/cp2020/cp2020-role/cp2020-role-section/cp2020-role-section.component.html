@@ -3,7 +3,9 @@
     <div class="d-inline-block align-top">
       <span class="chargen-label">
         ROLE
-        <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn csd-icon-sm ms-1" (click)="openModal(primaryRoleEditor)">
+        <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn csd-icon-sm ms-1"
+          (click)="openModal(primaryRoleEditor)" tabindex="0"
+          (keyup.enter)="openModal(primaryRoleEditor)">
         </fa-icon>
       </span>
     </div>
@@ -43,7 +45,7 @@
     <div class="row">
       <div class="col">
         Secondary
-        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-lg" (click)="addSecondary()"></fa-icon>
+        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-lg" (click)="addSecondary()" (keyup.enter)="addSecondary()" tabindex="0"></fa-icon>
       </div>
     </div>
     <div  *ngFor="let role of currentSecondary;let i = index" class="row pb-4">
