@@ -124,8 +124,12 @@ export class OpponentTrackerService {
     this.cache = opps;
   }
 
-  woundOpponent(value: number) {
-
+  woundOpponent(opp: CmbtTrckOpponent, value: number) {
+    if(value > 0 ) {
+      const damage = value + opp.stats.BTM;
+      opp.stats.Damage += damage > 0 ? damage : 1;
+      this.changeOpponent(opp);
+    }
   }
 
   private checkName(name: string, index?: number): string {
