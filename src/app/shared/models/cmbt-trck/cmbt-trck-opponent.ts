@@ -4,6 +4,7 @@ import { Cp2020PlayerSkills, Cp2020PlayerSkill } from './../../cp2020/cp2020-ski
 import { Cp2020ArmorBlock } from './../../cp2020/cp2020-armor/models';
 import { CpPlayerWeapon, CpPlayerWeaponList, Cp2020CombatModifiers } from './../../cp2020/cp2020weapons/models';
 import { CmbtTrckOppTemplate } from './cmbt-trck-opp-template';
+import { v4 as uuidv4 } from 'uuid';
 
 export class CmbtTrckOpponent {
   name: string;
@@ -23,9 +24,10 @@ export class CmbtTrckOpponent {
   constructor(param?, newId?: boolean) {
     this.name = param?.name ?? '';
     this.role = param?.role ?? '';
-    this.id = param?.id ?? new Date().getTime();
     if (newId) {
-      this.id = new Date().getTime();
+      this.id = uuidv4();
+    } else {
+      this.id = param?.id ?? uuidv4();
     }
     this.initRoll = 0;
     this.initDie = new Array<number>();
