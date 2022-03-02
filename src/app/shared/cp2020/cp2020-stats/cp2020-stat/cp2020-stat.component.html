@@ -1,5 +1,7 @@
 <div title="{{statName}}: {{stat.toString()}}"
   (click)="openModal(statModifiers)"
+  (keyup.enter)="openModal(statModifiers)"
+  tabindex="0"
   [ngClass]="{'d-inline-block': true, 'text-danger': isWounded, 'csd-btn': true, 'stat-values':true, 'rounded':true}">
 {{statName}} <span class="d-inline-block">[{{stat.Base}}/{{stat.Adjusted}}]</span>&nbsp;&nbsp;
 </div>
@@ -13,7 +15,7 @@
   <div class="modal-body">
     <div class="row">
       <div class="col text-end">Base:</div>
-      <div class="col"><input type="number" [(ngModel)]="stat.Base" class="stat-input" (change)="onStatChange()"></div>
+      <div class="col"><input type="number" [(ngModel)]="stat.Base" class="stat-input" (change)="onStatChange()" tabindex="0"></div>
     </div>
     <div class="row" *ngIf="stat.ev !== 0">
       <div class="col text-end">EV:</div>
@@ -21,7 +23,7 @@
     </div>
     <div class="row" *ngFor="let mod of stat.modifiers; let i = index">
       <div class="col text-end">{{mod.name}}</div>
-      <div class="col">{{mod.mod}}&nbsp;&nbsp;<fa-icon [icon]="faTrash" class="csd-btn" (click)="deleteModifier(i)"></fa-icon></div>
+      <div class="col">{{mod.mod}}&nbsp;&nbsp;<fa-icon [icon]="faTrash" class="csd-btn" (click)="deleteModifier(i)" tabindex="0"></fa-icon></div>
     </div>
     <div class="row" *ngIf="stat.WoundModifier !== 0">
       <div class="col text-end">Wound:</div>
@@ -34,11 +36,11 @@
 
     <div class="row">
       <div class="col">
-        <fa-icon [icon]="faPlus" class="csd-btn" (click)="addModifier()" ></fa-icon>&nbsp;
-        <input type="text" [(ngModel)]="newStatModifier.name" placeholder="enter name">
+        <input type="text" [(ngModel)]="newStatModifier.name" placeholder="enter name" tabindex="0">
       </div>
       <div class="col">
-        <input type="number" [(ngModel)]="newStatModifier.mod" class="stat-input">
+        <input type="number" [(ngModel)]="newStatModifier.mod" class="stat-input" tabindex="0">
+        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn ms-2" (click)="addModifier()"  tabindex="0"></fa-icon>
       </div>
     </div>
     <div class="row">
