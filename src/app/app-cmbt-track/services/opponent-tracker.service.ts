@@ -157,10 +157,10 @@ export class OpponentTrackerService {
    * @memberof CmbtTrckFormComponent
    */
   sortInitiative(opps?: Array<CmbtTrckOpponent>) {
-    if (opps.length < 1) {
+    if (opps?.length < 1) {
       opps = this._opponents.getValue();
     }
-    opps.sort( (a, b) => {
+    opps = opps.sort( (a, b) => {
       if (a.initRoll === b.initRoll) {
         return b.stats.REF.Adjusted - a.stats.REF.Adjusted;
       }
@@ -175,7 +175,6 @@ export class OpponentTrackerService {
     for (let i = 0; i < 3; i++) {
       const opp = new CmbtTrckOpponent();
       opp.name = 'Opp' + (i + 1);
-      opp.id = new Date().getTime() + i;
       opps.push(opp);
     }
     return opps;
