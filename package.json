@@ -48,6 +48,7 @@
     "rxjs": "^7.5.2",
     "save-svg-as-png": "^1.4.17",
     "tslib": "^2.0.0",
+    "uuid": "^8.3.2",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
