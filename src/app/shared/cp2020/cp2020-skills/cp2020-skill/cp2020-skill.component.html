@@ -1,27 +1,26 @@
-<div
-  [ngClass]="{'article': true, 'chargen-skill-is-role': currSkill.isRoleSkill,'chargen-skill-is-secodary ': currSkill.isSecondarySkill, 'chargen-role-choice': currSkill.roleChoice, 'chargen-skill': true}">
-  <fa-icon [icon]="faDice" title="Click to Roll" (click)="onClick(chargenSkillRoll)"></fa-icon>
-  <span [ngClass]="{'rounded': true, 'sa-name': sa, 'skill-name': true, 'csd-btn': true }"
+<div [ngClass]="{'article': true, 'row': true, 'chargen-skill-is-role': currSkill.isRoleSkill,'chargen-skill-is-secodary ': currSkill.isSecondarySkill, 'chargen-role-choice': currSkill.roleChoice, 'chargen-skill': true}">
+  <div class="col-9 col-md-8 col-xl-9 pe-0">
+    <fa-icon [icon]="faDice" title="Click to Roll" (click)="onClick(chargenSkillRoll)"></fa-icon>
+    <span [ngClass]="{'w-75': true,'rounded': true, 'sa-name': sa, 'skill-name': true, 'csd-btn': true }"
     (click)="showModal(skillDetails)" (keyup.enter)="showModal(skillDetails)" tabindex="0">
     {{currSkill.name}}
-    <span *ngIf="currSkill.option">: {{currSkill.option}}</span>
-    <span *ngIf="currSkill.option === ''">: {{currSkill.option}}</span>
-    <span  class="skill-name">({{currSkill.ipMod}}) </span>
-  </span>
-  <span class="dots"></span>
-  <span class="skill-inputs float-end">
-    <span [ngClass]="{'d-none':sa}" title="Skill + Stat">
+      <span *ngIf="currSkill.option">: {{currSkill.option}}</span>
+      <span *ngIf="currSkill.option === ''">: {{currSkill.option}}</span>
+      <span *ngIf="currSkill?.ipMod > 1" class="skill-name"> ({{currSkill.ipMod}})</span>
+    </span>
+    <span [ngClass]="{'d-none':sa, 'float-end': true}" title="Skill + Stat">
       [{{ currSkill.value + ((stat)?stat.Adjusted:0 )}}]
     </span>
-    &nbsp;
+  </div>
+  <div class="col-3 col-md-4 col-xl-3 ps-0">
+  <span class="skill-inputs ms-1">
     <input [(ngModel)]="currSkill.value" (change)="onChangeSkill()" min="0" max="10" type="number" title="Skill Value"
-      [ngClass]="{'chargen-skill-input': true, 'chargen-skill-has-value': (currSkill.value > 0)}"  tabindex="0"/>
-    &nbsp;
+      [ngClass]="{'me-1':true,'chargen-skill-input': true, 'chargen-skill-has-value': (currSkill.value > 0)}"  tabindex="0"/>
     <input [(ngModel)]="currSkill.ip" (change)="onChangeSkill()" min="0" max="1000" type="number" Title="SKill IP"
-      [ngClass]="{'chargen-skill-input': true, 'chargen-skill-has-value': (currSkill.value > 0)}"  tabindex="-1"/>
-    &nbsp;
+      [ngClass]="{'me-1':true,'chargen-skill-input': true, 'chargen-skill-has-value': (currSkill.value > 0)}"  tabindex="-1"/>
     <input [(ngModel)]="currSkill.chipped" type="checkbox" title="Skill is chipped?"
       [ngClass]="{'d-none':sa}" (change)="onChangeSkill()" tabindex="-1"></span>
+  </div>
 </div>
 <ng-template #chargenSkillRoll>
   <div class="modal-header">

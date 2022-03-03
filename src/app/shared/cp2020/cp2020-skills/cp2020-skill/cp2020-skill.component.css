@@ -88,19 +88,7 @@ input.chargen-skill-input[type=number] {
 
 .chargen-skill:hover {
   background-color: #BBB;
-  padding-right: 3px;
-  padding-left: 3px;
   cursor: default;
-}
-.chargen-skill:hover .skill-name {
-  font-size: 18px;
-}
-.chargen-skill:hover input {
-  height: 22px;
-}
-
-.chargen-skill:hover input.chargen-skil-option {
-  margin-top: 4px;
 }
 
 
