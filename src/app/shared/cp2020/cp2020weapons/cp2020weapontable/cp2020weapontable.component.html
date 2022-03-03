@@ -17,7 +17,7 @@
   </ng-container>
   <div class="chargen-label row">
     <div class="col ps-1">
-      <h4 class="d-inline-block csd-btn me-4" (click)="isWeaponsCollapsed = !isWeaponsCollapsed">
+      <h4 class="d-inline-block csd-btn me-4" (click)="isWeaponsCollapsed = !isWeaponsCollapsed" (keyup.enter)="isWeaponsCollapsed = !isWeaponsCollapsed" tabindex="0">
         WEAPONS
         <fa-icon [icon]="collapseChevron(isWeaponsCollapsed)" class="csd-icon-btn csd-icon-xl ms-1"></fa-icon>
       </h4>
@@ -52,7 +52,7 @@
       (deleteWeapon)="deleteWeapon($event)" (updateWeapon)="updateWeapon($event)">
     </cs-cp2020weapon>
     <div class="row">
-      <div class="col-12 cp2020-wpn-add" title="Add another weapon" (click)="openModal(newWeaponModal)">
+      <div class="col-12 cp2020-wpn-add" title="Add another weapon" (click)="openModal(newWeaponModal)" (keyup.enter)="openModal(newWeaponModal)" tabindex="0">
         <fa-icon class="csd-icon-btn" [icon]="faPlus"></fa-icon>
       </div>
     </div>
@@ -62,14 +62,14 @@
 
 <ng-template #newWeaponModal>
   <div class="modal-body">
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()">
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()" (keyup.enter)="closeModal()">
 
     </button>
     <tabset>
-      <tab heading="New Weapon" id="tab1">
+      <tab heading="New Weapon" id="tab1" tabindex="0">
         <cs-cp2020weapon-editor [weapon]="newWeapon" (updateWeapon)="addWeapon($event)"></cs-cp2020weapon-editor>
       </tab>
-      <tab *ngIf="showSelector" heading="Search Weapons" id="tab2">
+      <tab *ngIf="showSelector" heading="Search Weapons" id="tab2" tabindex="0">
         <cs-cp2020weapon-selector (addWeapons)="addWeaponList($event)"></cs-cp2020weapon-selector>
       </tab>
     </tabset>
@@ -80,7 +80,7 @@
 <ng-template #combatCalcModal>
   <div class="modal-header">
     <h4 class="modal-title float-start">Combat Calculator</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()">
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()" tabindex="0" (keyup.enter)="closeModal()">
 
     </button>
   </div>
@@ -94,7 +94,7 @@
 <ng-template #wpnSettings>
   <div class="modal-header">
     <h4 class="modal-title float-start">Settings</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()">
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()" tabindex="0" (keyup.enter)="closeModal()">
 
     </button>
   </div>
@@ -116,43 +116,43 @@
         <div class="row">
           <div class="col">
             <input type="checkbox" [checked]="paramChecked(wpnParam.type, 'PISTOLS')"
-              (change)="addParam($event, 'category', 'PISTOLS')"> - PISTOLS
+              (change)="addParam($event, 'category', 'PISTOLS')" tabindex="0"> - PISTOLS
           </div>
         </div>
         <div class="row">
           <div class="col">
             <input type="checkbox" [checked]="paramChecked(wpnParam.type, 'SMG')"
-              (change)="addParam($event, 'category', 'SMG')"> - SMG
+              (change)="addParam($event, 'category', 'SMG')" tabindex="0"> - SMG
           </div>
         </div>
         <div class="row">
           <div class="col">
             <input type="checkbox" [checked]="paramChecked(wpnParam.type, 'RIFLES')"
-              (change)="addParam($event, 'category', 'RIFLES')"> - RIFLES
+              (change)="addParam($event, 'category', 'RIFLES')" tabindex="0"> - RIFLES
           </div>
         </div>
         <div class="row">
           <div class="col">
             <input type="checkbox" [checked]="paramChecked(wpnParam.type, 'MELEE')"
-              (change)="addParam($event, 'category', 'MELEE')"> - MELEE
+              (change)="addParam($event, 'category', 'MELEE')" tabindex="0"> - MELEE
           </div>
         </div>
         <div class="row">
           <div class="col">
             <input type="checkbox" [checked]="paramChecked(wpnParam.type, 'EXOTICS')"
-              (change)="addParam($event, 'category', 'EXOTICS')"> - EXOTICS
+              (change)="addParam($event, 'category', 'EXOTICS')" tabindex="0"> - EXOTICS
           </div>
         </div>
         <div class="row">
           <div class="col">
             <input type="checkbox" [checked]="paramChecked(wpnParam.type, 'SHOTGUNS')"
-              (change)="addParam($event, 'category', 'SHOTGUNS')"> - SHOTGUNS
+              (change)="addParam($event, 'category', 'SHOTGUNS')" tabindex="0"> - SHOTGUNS
           </div>
         </div>
         <div class="row">
           <div class="col">
             <input type="checkbox" [checked]="paramChecked(wpnParam.type, 'HEAVY WEAPONS')"
-              (change)="addParam($event, 'category', 'HEAVY WEAPONS')"> - HEAVY WEAPONS
+              (change)="addParam($event, 'category', 'HEAVY WEAPONS')" tabindex="0"> - HEAVY WEAPONS
           </div>
         </div>
       </div>
@@ -164,61 +164,61 @@
         <div class="row">
           <div class="col">
             <input type="checkbox" [checked]="paramChecked(wpnParam.subtype, 'LIGHT')"
-              (change)="addParam($event, 'subcategory', 'LIGHT')"> - LIGHT (pistols, smgs)
+              (change)="addParam($event, 'subcategory', 'LIGHT')" tabindex="0"> - LIGHT (pistols, smgs)
           </div>
         </div>
         <div class="row">
           <div class="col">
             <input type="checkbox" [checked]="paramChecked(wpnParam.subtype, 'MEDIUM')"
-              (change)="addParam($event, 'subcategory', 'MEDIUM')"> - MEDIUM (pistols, smgs)
+              (change)="addParam($event, 'subcategory', 'MEDIUM')" tabindex="0"> - MEDIUM (pistols, smgs)
           </div>
         </div>
         <div class="row">
           <div class="col">
             <input type="checkbox" [checked]="paramChecked(wpnParam.subtype, 'HEAVY')"
-              (change)="addParam($event, 'subcategory', 'HEAVY')"> - HEAVY (pistols, smgs)
+              (change)="addParam($event, 'subcategory', 'HEAVY')" tabindex="0"> - HEAVY (pistols, smgs)
           </div>
         </div>
         <div class="row">
           <div class="col">
             <input type="checkbox" [checked]="paramChecked(wpnParam.subtype, 'VERY HEAVY')"
-              (change)="addParam($event, 'subcategory', 'VERY HEAVY')"> - VERY HEAVY (pistols)
+              (change)="addParam($event, 'subcategory', 'VERY HEAVY')" tabindex="0"> - VERY HEAVY (pistols)
           </div>
         </div>
         <div class="row">
           <div class="col">
             <input type="checkbox" [checked]="paramChecked(wpnParam.subtype, 'SNIPER')"
-              (change)="addParam($event, 'subcategory', 'SNIPER')"> - SNIPER (rifles)
+              (change)="addParam($event, 'subcategory', 'SNIPER')" tabindex="0"> - SNIPER (rifles)
           </div>
         </div>
         <div class="row">
           <div class="col">
             <input type="checkbox" [checked]="paramChecked(wpnParam.subtype, 'ASSAULT')"
-              (change)="addParam($event, 'subcategory', 'ASSAULT')"> - ASSAULT (rifles)
+              (change)="addParam($event, 'subcategory', 'ASSAULT')" tabindex="0"> - ASSAULT (rifles)
           </div>
         </div>
         <div class="row">
           <div class="col">
             <input type="checkbox" [checked]="paramChecked(wpnParam.subtype, 'BOWS')"
-              (change)="addParam($event, 'subcategory', 'BOWS')"> - BOWS (exotics)
+              (change)="addParam($event, 'subcategory', 'BOWS')" tabindex="0"> - BOWS (exotics)
           </div>
         </div>
         <div class="row">
           <div class="col">
             <input type="checkbox" [checked]="paramChecked(wpnParam.subtype, 'CROSSBOWS')"
-              (change)="addParam($event, 'subcategory', 'CROSSBOWS')"> - CROSSBOWS (exotics)
+              (change)="addParam($event, 'subcategory', 'CROSSBOWS')" tabindex="0"> - CROSSBOWS (exotics)
           </div>
         </div>
         <div class="row">
           <div class="col">
             <input type="checkbox" [checked]="paramChecked(wpnParam.subtype, 'OTHER')"
-              (change)="addParam($event, 'subcategory', 'OTHER')"> - OTHER (rifles)
+              (change)="addParam($event, 'subcategory', 'OTHER')" tabindex="0"> - OTHER (rifles)
           </div>
         </div>
         <div class="row">
           <div class="col">
             <input type="checkbox" [checked]="paramChecked(wpnParam.subtype, 'Borg Weapon')"
-              (change)="addParam($event, 'subcategory', 'Borg Weapon')"> - BORG (rifles, pistols, smgs, melee, Hvy
+              (change)="addParam($event, 'subcategory', 'Borg Weapon')" tabindex="0"> - BORG (rifles, pistols, smgs, melee, Hvy
             weapons)
           </div>
         </div>
@@ -231,25 +231,25 @@
         <div class="row">
           <div class="col">
             <input type="checkbox" [checked]="paramChecked(wpnParam.availability, 'E')"
-              (change)="addParam($event, 'avail', 'E')"> - EXCELLENT
+              (change)="addParam($event, 'avail', 'E')" tabindex="0"> - EXCELLENT
           </div>
         </div>
         <div class="row">
           <div class="col">
             <input type="checkbox" [checked]="paramChecked(wpnParam.availability, 'C')"
-              (change)="addParam($event, 'avail', 'C')"> - COMMON
+              (change)="addParam($event, 'avail', 'C')" tabindex="0"> - COMMON
           </div>
         </div>
         <div class="row">
           <div class="col">
             <input type="checkbox" [checked]="paramChecked(wpnParam.availability, 'P')"
-              (change)="addParam($event, 'avail', 'P')"> - POOR
+              (change)="addParam($event, 'avail', 'P')" tabindex="0"> - POOR
           </div>
         </div>
         <div class="row">
           <div class="col">
             <input type="checkbox" [checked]="paramChecked(wpnParam.availability, 'R')"
-              (change)="addParam($event, 'avail', 'R')"> - RARE
+              (change)="addParam($event, 'avail', 'R')" tabindex="0"> - RARE
           </div>
         </div>
       </div>
@@ -257,7 +257,7 @@
     <div class="row">
       <div class="col-1"></div>
       <div class="col-3">Exclude containing:</div>
-      <div class="col"><input type="text">
+      <div class="col"><input type="text" tabindex="0">
       </div>
     </div>
   </div>

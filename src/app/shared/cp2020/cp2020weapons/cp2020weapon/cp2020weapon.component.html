@@ -1,6 +1,6 @@
 <div class="row wpn-stats">
   <div class="col-3 col-lg-2 ps-1">
-    <span class="csd-btn" (click)="openModal(editWeaponModal)">{{weapon.count && weapon.count > 1 ? weapon.count + ' ': ''}}{{weapon.name}}</span>
+    <span class="csd-btn" (click)="openModal(editWeaponModal)" (keyup.enter)="openModal(editWeaponModal)" tabindex="0">{{weapon.count && weapon.count > 1 ? weapon.count + ' ': ''}}{{weapon.name}}</span>
     <fa-icon [icon]="faTrash" (click)="delete()" class="csd-btn csd-icon-btn" title="Delete weapon"></fa-icon>
     <fa-icon [icon]="faPen" (click)="openModal(editWeaponModal)" class="me-2 csd-btn csd-icon-btn" title="Edit weapon">
     </fa-icon>
@@ -37,7 +37,7 @@
   <div class="col-1"></div>
   <div class="col-3">
     magazines ({{weapon.magazines.length}}):
-    <select [(ngModel)]="weapon.currMagIndex">
+    <select [(ngModel)]="weapon.currMagIndex" tabindex="0">
       <option *ngFor="let mag of weapon.magazines;let i = index" [value]="i">{{mag.used}}/{{mag.capacity}} {{mag.ammo}} {{mag.subtype}}</option>
     </select>
   </div>
@@ -60,7 +60,7 @@
 <ng-template #editWeaponModal>
   <div class="modal-header">
     <h4 class="modal-title float-start">Edit Weapon</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()">
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()" (keyup.enter)="closeModal()" tabindex="0">
 
     </button>
   </div>
@@ -73,7 +73,7 @@
   <div class="row">
     <div class="col" *ngIf="!weapon.isEmpty; else weaponReload">
       <span *ngIf="skill.length > 1">
-        Skill: <select [(ngModel)]="selectedSkill">
+        Skill: <select [(ngModel)]="selectedSkill" tabindex="0">
           <option *ngFor="let sk of skill" [ngValue]="sk">{{sk.name}}</option>
         </select>
       </span>
