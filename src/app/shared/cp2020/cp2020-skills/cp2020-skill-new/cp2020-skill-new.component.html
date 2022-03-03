@@ -1,20 +1,20 @@
 <div class="row">
   <div class="col-3">Name: </div>
   <div class="col">
-    <input type="text" [(ngModel)]="currSkill.name" placeholder="Enter skill name..." >
+    <input type="text" [(ngModel)]="currSkill.name" placeholder="Enter skill name..." tabindex="0" >
     <fa-icon [icon]="faSave" class="csd-btn csd-icon-btn csd-icon-xl float-end" title="Save" (click)="update()"></fa-icon>
   </div>
 </div>
 <div class="row">
   <div class="col-3">Option: </div>
   <div class="col">
-    <input type="text" [(ngModel)]="currSkill.option" placeholder="Enter optio (i.e. Pilot skill with VTV option)..." >
+    <input type="text" [(ngModel)]="currSkill.option" placeholder="Enter optio (i.e. Pilot skill with VTV option)..." tabindex="0" >
   </div>
 </div>
 <div class="row">
   <div class="col-3">Stat:</div>
   <div class="col">
-    <select [(ngModel)]="currSkill.stat">
+    <select [(ngModel)]="currSkill.stat" tabindex="0">
       <option value=""></option>
       <option value="attr">ATTR</option>
       <option value="body">BODY</option>
@@ -30,22 +30,22 @@
 <div class="row">
   <div class="col-3">IP Mod:</div>
   <div class="col">
-    <input type="number" min="1" [(ngModel)]="currSkill.ipMod" class="csd-number">
+    <input type="number" min="1" [(ngModel)]="currSkill.ipMod" class="csd-number" tabindex="0">
   </div>
 </div>
 <div class="row">
   <div class="col">
-    <input type="checkbox" [(ngModel)]="currSkill.isSA"> Special Ability
+    <input type="checkbox" [(ngModel)]="currSkill.isSA" tabindex="0"> Special Ability
   </div>
 </div>
 <div class="row">
   <div class="col">
-    <input type="checkbox" [(ngModel)]="currSkill.isRoleSkill"> Role Skill
+    <input type="checkbox" [(ngModel)]="currSkill.isRoleSkill" tabindex="0"> Role Skill
   </div>
 </div>
 <div class="row" *ngIf="currSkill.stat === 'ref'">
   <div class="col">
-    <input type="checkbox" [(ngModel)]="isMA" (change)="toggleMA()"> Martial Art
+    <input type="checkbox" [(ngModel)]="isMA" (change)="toggleMA()" tabindex="0"> Martial Art
   </div>
 </div>
 <div *ngIf="isMA" class="row">
@@ -57,10 +57,10 @@
       <div class="col">Hold</div>
     </div>
     <div class="row">
-      <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.strike"></div>
-      <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.disarm"></div>
-      <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.dodge"></div>
-      <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.hold"></div>
+      <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.strike" tabindex="0"></div>
+      <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.disarm" tabindex="0"></div>
+      <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.dodge" tabindex="0"></div>
+      <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.hold" tabindex="0"></div>
     </div>
     <div class="row">
       <div class="col">Punch</div>
@@ -69,10 +69,10 @@
       <div class="col">Choke</div>
     </div>
     <div class="row">
-      <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.punch"></div>
-      <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.sweep"></div>
-      <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.grapple"></div>
-      <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.choke"></div>
+      <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.punch" tabindex="0"></div>
+      <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.sweep" tabindex="0"></div>
+      <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.grapple" tabindex="0"></div>
+      <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.choke" tabindex="0"></div>
     </div>
     <div class="row">
       <div class="col">Kick</div>
@@ -81,10 +81,10 @@
       <div class="col">Escape</div>
     </div>
     <div class="row">
-      <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.kick"></div>
-      <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.block"></div>
-      <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.throw"></div>
-      <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.escape"></div>
+      <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.kick" tabindex="0"></div>
+      <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.block" tabindex="0"></div>
+      <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.throw" tabindex="0"></div>
+      <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.escape" tabindex="0"></div>
     </div>
     <div class="row">
       <div class="col">Ram</div>
@@ -93,7 +93,7 @@
       <div class="col"></div>
     </div>
     <div class="row">
-      <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.ram"></div>
+      <div class="col"><input type="number" class="csd-number text-end" [(ngModel)]="currSkill.maBonuses.ram" tabindex="0"></div>
       <div class="col"></div>
       <div class="col"></div>
       <div class="col"></div>
