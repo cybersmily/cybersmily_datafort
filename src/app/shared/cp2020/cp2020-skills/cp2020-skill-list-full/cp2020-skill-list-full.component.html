@@ -1,32 +1,31 @@
 <div class="chargen-section">
   <div class="cp2020-label row g-0">
-    <div class="col-3 col-md-2">
-      <h4 class="d-inline-block csd-btn" (click)="isCollapsed = !isCollapsed">
+    <div class="col-4">
+      <h4 class="d-inline-block csd-btn" (click)="isCollapsed = !isCollapsed" (keyup.enter)="isCollapsed = !isCollapsed" tabindex="0">
         SKILLS
         <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ms-2"></fa-icon>
       </h4>
 
     </div>
-    <div *ngIf="!isCollapsed" class="col-3 d-none d-lg-flex small fw-normal">
-      <div [ngClass]="{'text-danger': currentSkills.RoleTotal &gt; currentSettings.roleSkillPoints}">[ROLE: {{currentSkills.RoleTotal}} of {{currentSettings.roleSkillPoints}}]</div>
-      <div [ngClass]="{'text-danger': currentSkills.OtherTotal &gt; currentSettings.secondarySkillPoints}">[SECONDARY: {{currentSkills.OtherTotal}} of {{currentSettings.secondarySkillPoints }}]</div>
-    </div>
-    <div *ngIf="!isCollapsed" class="col-6 col-lg-4 small fw-normal">
+    <div *ngIf="!isCollapsed" class="col-4 small fw-normal">
       <fa-icon [icon]="faSearch" class="csd-icon-btn csd-icon-sm d-inline-block ms-1 mt-1" style="position:absolute;z-index:100"></fa-icon>
-      <input type="search" class="w-100 ps-4 d-inline-block" placeholder="Search for skill..." [(ngModel)]="skillFilter">
+      <input type="search" class="w-100 ps-4 d-inline-block" placeholder="Search for skill..." [(ngModel)]="skillFilter" tabindex="0">
     </div>
-    <div *ngIf="!isCollapsed" class="d-none col-2 d-md-flex small pe-0 ps-0 text-end">
+    <div class="col-2"></div>
+    <div *ngIf="!isCollapsed" class="col-2 small">
+      <input [(ngModel)]="currentSkills.ip" type="number" class="chargen-general-ip-input ms-1 w-50 float-end"
+      (change)="onChangeSkill()"  tabindex="0"/>
+      <span class="d-none d-md-block small pe-0 ps-0 text-end float-end">
         General IP:
-    </div>
-    <div *ngIf="!isCollapsed" class="col-2 col-md-1 small">
-      <input [(ngModel)]="currentSkills.ip" type="number" class="chargen-general-ip-input ms-1 w-75 float-start"
-      (change)="onChangeSkill()" />
+      </span>
     </div>
   </div>
   <div [collapse]="isCollapsed">
-    <div class="row">
-      <div class="col-12">
-        <span class="chargen-skills-instructions">
+    <div class="row border border-dark g-0">
+      <div class="col-12 small chargen-skills-instructions">
+        <span [ngClass]="{'text-danger': currentSkills.RoleTotal &gt; currentSettings.roleSkillPoints}">[ROLE: {{currentSkills.RoleTotal}} of {{currentSettings.roleSkillPoints}}]</span>
+        <span [ngClass]="{'text-danger': currentSkills.OtherTotal &gt; currentSettings.secondarySkillPoints}">[SECONDARY: {{currentSkills.OtherTotal}} of {{currentSettings.secondarySkillPoints }}]</span>
+        <span>
           (#) is the combined stat + skill. [#] is the skill level. Checkbox is if chipped. Role skills are highlighted
           with *, @ is choose one as role, ! is for secondary skill.</span>
       </div>
