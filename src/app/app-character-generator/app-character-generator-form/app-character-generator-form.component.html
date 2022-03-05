@@ -2,49 +2,47 @@
   <div class="hidden-print">
     <h3>Character Generator for Cyberpunk 2020</h3>
   </div>
+  <hr color="#999999" class="w-100 pt-0 pb-0 mt-0 mb-0">
   <div class="row hidden-print">
-    <div class="col-12">
-      <hr color="#999999" style="width:100%;">
-      <p>
-        <fa-icon [icon]="faQuestionCircle" title="Instructions" class="csd-chargen-btn csd-btn me-2"
-          (click)="openModal(instructions)"></fa-icon>
-        <fa-icon [icon]="faUndo" title="Reset the sheet to a blank character" class="csd-chargen-btn csd-btn ms-2"
-          (click)="resetCharacter()"></fa-icon>
-        <fa-icon [icon]="faCog" class="csd-chargen-btn float-end csd-btn me-2" title="Show form settings" (click)="openModal(charFormSettings)"></fa-icon>
-        <fa-icon [icon]="faFilePdf" class="csd-chargen-btn float-end csd-btn me-2" (click)="createPDF()"
-          title="Export as a PDF file"></fa-icon>
-
-        <input type="file" id="loadFile" title="load a character .txt file" name="Load" Style="display: none"
-          (change)="loadCharacter($event)" #inputFile (click)="inputFile.value = null" accept="text/plain;text/json" />
-        <label for="loadFile" class="csd-btn float-end me-2">
-          <fa-icon [icon]="faUpload" title="load a character .txt file"></fa-icon>
-        </label>
-
-        <fa-icon [icon]="faSave" title="Save the character to a file" class="csd-chargen-btn csd-btn float-end me-2"
-          (click)="saveCharacter()"></fa-icon>
-      </p>
-      <hr color="#999999" style="width:100%;">
+    <div class="col-6">
+      <fa-icon [icon]="faQuestionCircle" title="Instructions" class="csd-chargen-btn csd-btn me-2"
+        (click)="openModal(instructions)" (keyup.enter)="openModal(instructions)" tabindex="0"></fa-icon>
+      <fa-icon [icon]="faUndo" title="Reset the sheet to a blank character" class="csd-chargen-btn csd-btn ms-2"
+        (click)="resetCharacter()" (keyup.enter)="resetCharacter()" tabindex="0"></fa-icon>
+    </div>
+    <div class="col-6 text-end">
+      <fa-icon [icon]="faSave" title="Save the character to a file" class="csd-chargen-btn csd-btn me-2"
+        (click)="saveCharacter()" (keyup.enter)="saveCharacter()" tabindex="0"></fa-icon>
+      <input type="file" id="loadFile" title="load a character .txt file" name="Load" Style="display: none"
+        (change)="loadCharacter($event)" #inputFile (click)="inputFile.value = null" (keyup.enter)="inputFile.value = null"
+        tabindex="0" accept="text/plain;text/json" />
+      <label for="loadFile" class="csd-btn me-2">
+        <fa-icon [icon]="faUpload" title="load a character .txt file"></fa-icon>
+      </label>
+      <fa-icon [icon]="faFilePdf" class="csd-chargen-btn csd-btn me-2" (click)="createPDF()"
+        (keyup.enter)="createPDF()" tabindex="0" title="Export as a PDF file"></fa-icon>
+      <fa-icon [icon]="faCog" class="csd-chargen-btn csd-btn me-2" title="Show form settings" tabindex="0"
+        (click)="openModal(charFormSettings)" (keyup.enter)="openModal(charFormSettings)"></fa-icon>
     </div>
   </div>
+  <hr color="#999999" class="w-100 pt-0 pb-0 mt-0">
   <div class="row" #pdfCP2020Character>
     <div class="col">
       <div class="row">
         <div class="col-sm-12 col-lg-6">
           <cs-app-character-handle [handle]="character.handle" (changeHandle)="changeHandle($event)">
           </cs-app-character-handle>
-          <cs-cp2020-role-section [primaryRole]="character.role"
-          [secondaryRoles]="character.secondaryRoles"
-          (changePrimaryRole)="changeRole($event)"
-          (changeSecondaryRoles)="changeSeconaryRole($event)"
-          [isIU]="character.isIU"></cs-cp2020-role-section>
+          <cs-cp2020-role-section [primaryRole]="character.role" [secondaryRoles]="character.secondaryRoles"
+            (changePrimaryRole)="changeRole($event)" (changeSecondaryRoles)="changeSeconaryRole($event)"
+            [isIU]="character.isIU"></cs-cp2020-role-section>
           <cs-cp2020-rep-section [rep]="character.skills.rep" (changeRep)="changeRep($event)"></cs-cp2020-rep-section>
-          <cs-cp2020-stats [stats]="character.stats" (changeStats)="changeStats($event)"
-            [combatSense]="combatSense"
+          <cs-cp2020-stats [stats]="character.stats" (changeStats)="changeStats($event)" [combatSense]="combatSense"
             [initiativeSkill]="initiative">
           </cs-cp2020-stats>
         </div>
         <div class="col-sm-12 col-lg-6">
-          <cs-cp2020-armor-table [armor]="character.armor" (changeArmor)="changeArmor($event)" (damageCharacter)="woundCharacter($event)" [showRandom]="true">
+          <cs-cp2020-armor-table [armor]="character.armor" (changeArmor)="changeArmor($event)"
+            (damageCharacter)="woundCharacter($event)" [showRandom]="true">
           </cs-cp2020-armor-table>
           <cs-cp2020-save-wounds [stats]="character.stats" (changeStats)="changeStats($event)"></cs-cp2020-save-wounds>
         </div>
@@ -60,15 +58,14 @@
         <div class="col">
           <cs-cp2020weapontable [weapons]="character.weapons" [stats]="character.stats" [skills]="character.skills"
             [showRandomGenerator]="true" [showSelector]="true" [showCalculator]="true" [showIU]="character.isIU"
-            [showAmmo]="true"
-            [isCollapsed] = "charGenSettings.isCollapsed"
-            (changeWeapons)="changeWeapons($event)">
+            [showAmmo]="true" [isCollapsed]="charGenSettings.isCollapsed" (changeWeapons)="changeWeapons($event)">
           </cs-cp2020weapontable>
         </div>
       </div>
       <div class="row print-fix csd-linebreak mt-2">
         <div class="col">
-          <cs-cp2020-armor-section [isCollapsed]="charGenSettings.isCollapsed" [armorBlock]="character.armor" (changeArmor)="changeArmor($event)"></cs-cp2020-armor-section>
+          <cs-cp2020-armor-section [isCollapsed]="charGenSettings.isCollapsed" [armorBlock]="character.armor"
+            (changeArmor)="changeArmor($event)"></cs-cp2020-armor-section>
         </div>
       </div>
       <div class="row print-fix csd-linebreak g-0">
@@ -81,39 +78,42 @@
 
       <div class="row print-fix">
         <div class="col">
-          <cs-app-character-gear [gear]="character.gear" (changeGear)="changeGear($event)" [isCollapsed]="charGenSettings.isCollapsed"></cs-app-character-gear>
+          <cs-app-character-gear [gear]="character.gear" (changeGear)="changeGear($event)"
+            [isCollapsed]="charGenSettings.isCollapsed"></cs-app-character-gear>
         </div>
       </div>
       <div class="row print-fix mt-1">
         <div class="col">
-          <cs-cp2020-cyber-deck-section [isCollapsed]="charGenSettings.isCollapsed" (updateCyberdeckPrograms)="changeCyberdeckPrograms($event)" [cyberdeckManager]="character.cyberdeckPrograms"></cs-cp2020-cyber-deck-section>
+          <cs-cp2020-cyber-deck-section [isCollapsed]="charGenSettings.isCollapsed"
+            (updateCyberdeckPrograms)="changeCyberdeckPrograms($event)"
+            [cyberdeckManager]="character.cyberdeckPrograms"></cs-cp2020-cyber-deck-section>
         </div>
       </div>
       <div class="row print-fix csd-linebreak">
         <div class="col">
-          <cs-cp2020-vehicle-table [vehicles]="character.vehicles" [isCollapsed]="charGenSettings.isCollapsed" (update)="changeVehicles($event)"></cs-cp2020-vehicle-table>
+          <cs-cp2020-vehicle-table [vehicles]="character.vehicles" [isCollapsed]="charGenSettings.isCollapsed"
+            (update)="changeVehicles($event)"></cs-cp2020-vehicle-table>
         </div>
       </div>
 
       <div class="row print-fix">
         <div class="col">
-          <cs-cp2020-lifestyle [lifeStyle]="character.lifeStyle" [isCollapsed]="charGenSettings.isCollapsed" (updateLifeStyle)="changeLifestyle($event)">
+          <cs-cp2020-lifestyle [lifeStyle]="character.lifeStyle" [isCollapsed]="charGenSettings.isCollapsed"
+            (updateLifeStyle)="changeLifestyle($event)">
           </cs-cp2020-lifestyle>
         </div>
       </div>
       <div class="row print-fix csd-linebreak g-0">
         <div class="col">
-          <cs-cp2020-lifepath-section [lifepath]="character.lifepath"
-          [isCollapsed]="charGenSettings.isCollapsed"
-          [isAlwaysEventful]="charGenSettings.lifePathEvents"
-          [eventYears]="charGenSettings.lifePathYears"
-          [source]="charGenSettings.lifePathSource"
-          (changeLifepath)="changeLifepath($event)">
-        </cs-cp2020-lifepath-section>
+          <cs-cp2020-lifepath-section [lifepath]="character.lifepath" [isCollapsed]="charGenSettings.isCollapsed"
+            [isAlwaysEventful]="charGenSettings.lifePathEvents" [eventYears]="charGenSettings.lifePathYears"
+            [source]="charGenSettings.lifePathSource" (changeLifepath)="changeLifepath($event)">
+          </cs-cp2020-lifepath-section>
         </div>
       </div>
       <div class="chargen-label chargen-fill chargen-page-header csd-linebreak">
-        <h4 class="d-inline-block csd-btn me-4" (click)="isNotesCollapsed = !isNotesCollapsed">
+        <h4 class="d-inline-block csd-btn me-4" (click)="isNotesCollapsed = !isNotesCollapsed"
+          (keyup.enter)="isNotesCollapsed = !isNotesCollapsed" tabindex="0">
           NOTES
           <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ms-2"></fa-icon>
         </h4>
@@ -126,8 +126,8 @@
 <ng-template #instructions>
   <div class="modal-header">
     <h4>CHARACTER GENERATOR CP2020 INSTRUCTIONS</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
-
+    <button type="button" class="btn-close float-end" aria-label="Close"
+      (click)="modalRef.hide()" (keyup.enter)="modalRef.hide()" tabindex="0">
     </button>
   </div>
   <div class="modal-body">
@@ -138,19 +138,19 @@
 <ng-template #charFormSettings>
   <div class="modal-header">
     <h4>CHARACTER GENERATOR CP2020 SETTINGS</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
-
-    </button>
+    <button type="button" class="btn-close float-end" aria-label="Close"
+      (click)="modalRef.hide()" (keyup.enter)="modalRef.hide()" tabindex="0"></button>
   </div>
   <div class="modal-body">
     <div class="row">
       <div class="col">
-        Use Interlock Unlimited: <input type="checkbox" [(ngModel)]="charGenSettings.isIU" (change)="saveIU()">
+        Use Interlock Unlimited: <input type="checkbox" [(ngModel)]="charGenSettings.isIU" (change)="saveIU()" tabindex="0">
       </div>
     </div>
     <div class="row">
       <div class="col">
-        Collapse sections On Start: <input type="checkbox" [(ngModel)]="charGenSettings.isCollapsed" (change)="saveSettings()">
+        Collapse sections On Start: <input type="checkbox" [(ngModel)]="charGenSettings.isCollapsed"
+          (change)="saveSettings()" tabindex="0">
       </div>
     </div>
     <div class="row">
@@ -164,15 +164,18 @@
           <div class="col-1"></div>
           <div class="col">
             Role Points:
-            <input type="number" class="ms-1 csd-number" [(ngModel)]="charGenSettings.skillSettings.roleSkillPoints" (change)="saveSettings()">
+            <input type="number" class="ms-1 csd-number" [(ngModel)]="charGenSettings.skillSettings.roleSkillPoints"
+              (change)="saveSettings()" tabindex="0">
           </div>
         </div>
         <div class="row">
           <div class="col-1"></div>
           <div class="col">
-            Secondary Skills Points use REF + INT <input type="checkbox" [(ngModel)]="charGenSettings.skillSettings.useStatsForSecondary" (change)="saveSettings()">
+            Secondary Skills Points use REF + INT <input type="checkbox"
+              [(ngModel)]="charGenSettings.skillSettings.useStatsForSecondary" (change)="saveSettings()" tabindex="0">
             <div *ngIf="!charGenSettings.skillSettings.useStatsForSecondary">
-              Available Secondary SKills Points: <input type="number" class="ms-1 csd-number"  (change)="saveSettings()" [(ngModel)]="charGenSettings.skillSettings.availableSecondarySkillPoints">
+              Available Secondary SKills Points: <input type="number" class="ms-1 csd-number" (change)="saveSettings()"
+                [(ngModel)]="charGenSettings.skillSettings.availableSecondarySkillPoints" tabindex="0">
             </div>
           </div>
         </div>
@@ -189,7 +192,7 @@
           <div class="col-1"></div>
           <div class="col">
             System to Use:
-            <select [(ngModel)]="charGenSettings.lifePathSource" class=" hidden-print">
+            <select [(ngModel)]="charGenSettings.lifePathSource" class=" hidden-print" tabindex="0">
               <option value="?" selected="selected"></option>
               <option *ngFor="let opt of sources" value="{{opt.value}}">{{opt.title}}</option>
             </select>
@@ -198,13 +201,15 @@
         <div class="row">
           <div class="col-1"></div>
           <div class="col">
-            Always have an event: <input type="checkbox" [(ngModel)]="charGenSettings.lifePathEvents" (change)="saveSettings()">
+            Always have an event: <input type="checkbox" [(ngModel)]="charGenSettings.lifePathEvents"
+              (change)="saveSettings()" tabindex="0">
           </div>
         </div>
         <div class="row">
           <div class="col-1"></div>
           <div class="col">
-            Roll for years (leave 0 for random): <input type="number" min="0" class="csd-number" [(ngModel)]="charGenSettings.lifePathYears" (change)="saveSettings()">
+            Roll for years (leave 0 for random): <input type="number" min="0" class="csd-number"
+              [(ngModel)]="charGenSettings.lifePathYears" (change)="saveSettings()" tabindex="0">
           </div>
         </div>
       </div>
