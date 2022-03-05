@@ -29,6 +29,7 @@ import { AppCharacterHandleComponent } from './app-character-handle/app-characte
 import { AppCharacterImageComponent } from './app-character-image/app-character-image.component';
 import { AppCharacterGearComponent } from './app-character-gear/app-character-gear.component';
 import { AppCharacterInstructionComponent } from './app-character-instruction/app-character-instruction.component';
+import { AppCharacterSettingsComponent } from './app-character-settings/app-character-settings.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AppCharacterInstructionComponent } from './app-character-instruction/ap
     AppCharacterHandleComponent,
     AppCharacterImageComponent,
     AppCharacterGearComponent,
-    AppCharacterInstructionComponent
+    AppCharacterInstructionComponent,
+    AppCharacterSettingsComponent
   ],
   imports: [
     CommonModule,

@@ -81,7 +81,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
       this.character = data;
       this.loadSettings();
       this.charGenSettings.isIU = this.character.isIU;
-      this.saveSettings();
+      this.saveSettings( this.charGenSettings);
       this.isNotesCollapsed = this.charGenSettings.isCollapsed;
     });
     this.sourceService
@@ -203,20 +203,18 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     this.setSkillSettingStats();
   }
 
-  saveSettings() {
-    this.setSkillSettingStats();
+  saveSettings(settings: Cp2020CharGenSettings) {
+    if(settings.isIU !== this.charGenSettings.isIU) {
+      this.characterService.changeIU(settings.isIU);
+    }
     this.charGenSettings = new Cp2020CharGenSettings(this.charGenSettings);
+    this.setSkillSettingStats();
     window.localStorage.setItem(this.charGenSettingsKey, JSON.stringify(this.charGenSettings));
   }
 
   setSkillSettingStats() {
     this.charGenSettings.skillSettings.ref = this.character.stats.REF.Base;
     this.charGenSettings.skillSettings.ref = this.character.stats.INT.Base;
-  }
-
-  saveIU() {
-    this.characterService.changeIU(this.charGenSettings.isIU);
-    this.saveSettings();
   }
 
   openModal(template: TemplateRef<any>) {
