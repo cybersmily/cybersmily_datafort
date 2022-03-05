@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col">
-    Use Interlock Unlimited: <input type="checkbox" [(ngModel)]="currSettings.isIU" (change)="saveSettings()" tabindex="0">
+    Use Interlock Unlimited: <input #iuSetting type="checkbox" [(ngModel)]="currSettings.isIU" (change)="saveSettings()" tabindex="0">
   </div>
 </div>
 <div class="row">
