@@ -3,7 +3,7 @@ import { DiceService } from './../../../services/dice/dice.service';
 import { Cp2020PlayerRole } from '../models/cp2020-player-role';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { faDice, faPen, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { Component, Input, Output, OnInit, TemplateRef, EventEmitter, OnChanges } from '@angular/core';
+import { Component, Input, Output, OnInit, TemplateRef, EventEmitter, OnChanges, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'cs-cp2020-role-section',
@@ -31,16 +31,17 @@ export class Cp2020RoleSectionComponent implements OnInit, OnChanges {
   @Input()
   isIU: boolean = false;
 
-
   @Output()
   changePrimaryRole = new EventEmitter<Cp2020PlayerRole>();
 
   @Output()
   changeSecondaryRoles = new EventEmitter<Array<Cp2020PlayerRole>>();
 
+  @ViewChild('roleEditorElem', {static: false})
+  roleEditElem: ElementRef;
+
   currentPrimary: Cp2020PlayerRole = new Cp2020PlayerRole();
   currentSecondary: Array<Cp2020PlayerRole> = new Array<Cp2020PlayerRole>();
-
 
   get secondaryList(): string {
     return this.currentSecondary.map( r => r.name).join(', ');
@@ -105,9 +106,6 @@ export class Cp2020RoleSectionComponent implements OnInit, OnChanges {
     this.changeSecondaryRoles.emit(this.currentSecondary);
   }
 
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template, this.config);
-  }
 
   deleteRole(role: Cp2020PlayerRole) {
     const found = this.currentSecondary.findIndex(r => r.name === role.name);
@@ -115,5 +113,14 @@ export class Cp2020RoleSectionComponent implements OnInit, OnChanges {
       this.currentSecondary.splice(found, 1);
       this.changeSecondaryRoles.emit(this.currentSecondary);
     }
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, this.config);
+  }
+
+  closeModal() {
+    this.modalRef.hide();
+    this.roleEditElem.nativeElement.focus();
   }
 }

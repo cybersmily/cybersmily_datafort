@@ -3,10 +3,11 @@
     <div class="d-inline-block align-top">
       <span class="chargen-label">
         ROLE
-        <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn csd-icon-sm ms-1"
-          (click)="openModal(primaryRoleEditor)" tabindex="0"
-          (keyup.enter)="openModal(primaryRoleEditor)">
-        </fa-icon>
+        <button #roleEditorElem class="csd-btn csd-icon-btn csd-icon-sm ms-1"
+        (click)="openModal(primaryRoleEditor)" tabindex="0"
+        (keyup.enter)="openModal(primaryRoleEditor)">
+          <fa-icon [icon]="faPen"></fa-icon>
+        </button>
       </span>
     </div>
     <div class="d-inline-block pe-2 ms-2">
@@ -30,9 +31,7 @@
 <ng-template #primaryRoleEditor>
   <div class="modal-header">
     <h4>ROLES</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
-
-    </button>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()" (keyup.enter)="closeModal()"></button>
   </div>
   <div class="modal-body">
     <div class="row">
@@ -40,12 +39,13 @@
         Primary
       </div>
     </div>
-    <cs-cp2020-role-editor [role]="currentPrimary" [isIU]="isIU" (updateRole)="onPrimaryChange($event)">
+    <cs-cp2020-role-editor [role]="currentPrimary" [isIU]="isIU" [isFocus]="true" (updateRole)="onPrimaryChange($event)">
     </cs-cp2020-role-editor>
     <div class="row">
       <div class="col">
         Secondary
-        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-lg" (click)="addSecondary()" (keyup.enter)="addSecondary()" tabindex="0"></fa-icon>
+        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-lg"
+          (click)="addSecondary()" (keyup.enter)="addSecondary()" tabindex="0"></fa-icon>
       </div>
     </div>
     <div  *ngFor="let role of currentSecondary;let i = index" class="row pb-4">

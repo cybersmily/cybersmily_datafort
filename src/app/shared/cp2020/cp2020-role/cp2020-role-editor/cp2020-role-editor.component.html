@@ -2,20 +2,21 @@
   <div class="row ms-1">
     <div class="col">
       Role:
-      <input type="text" [(ngModel)]="currentRole.name" [typeahead]="roleList" (onKeyUp)="updateRoleName()"
-        (change)="updateRoleName()" (typeaheadOnSelect)="updateRoleName()">
+      <input #roleName type="text" [(ngModel)]="currentRole.name" [typeahead]="roleList" (onKeyUp)="updateRoleName()"
+        (change)="updateRoleName()" (typeaheadOnSelect)="updateRoleName()" tabindex="0">
       {{optionOnBlur}}
-      <fa-icon *ngIf="showDelete" [icon]="faTrash" class="csd-btn csd-icon-btn csd-icon-lg ms-3" (click)="delete()">
+      <fa-icon *ngIf="showDelete" [icon]="faTrash" class="csd-btn csd-icon-btn csd-icon-lg ms-3"
+        (click)="delete()" tabindex="0">
       </fa-icon>
     </div>
   </div>
   <div class="row ms-1">
     <div class="col">
       Special Ability:
-      <input type="text" [(ngModel)]="currentRole.specialAbility.name" (change)="update()">
+      <input type="text" [(ngModel)]="currentRole.specialAbility.name" (change)="update()" tabindex="0">
     </div>
     <div class="col-4" *ngIf="!isIU">
-      STAT: <select [(ngModel)]="currentRole.specialAbility.stat" (change)="update()">
+      STAT: <select [(ngModel)]="currentRole.specialAbility.stat" (change)="update()" tabindex="0">
         <option value=""></option>
         <option value="ATTR">ATTR</option>
         <option value="BODY">BODY</option>
@@ -35,9 +36,9 @@
       <div class="row">
         <div *ngFor="let skill of roleSkills; let i = index" class="col-6 col-lg-4">
           <input *ngIf="!isArray(selectedRole.skills[i]);else elseArray" type="text" [value]="currentRole.skills[i]"
-            (change)="updateSkill($event, i)" style="width: 100%">
+            (change)="updateSkill($event, i)" class="w-100" tabindex="0">
           <ng-template #elseArray>
-            <select [(ngModel)]="currentRole.skills[i]" (change)="update()">
+            <select [(ngModel)]="currentRole.skills[i]" (change)="update()" tabindex="0">
               <option value=""></option>
               <option *ngFor="let sk of getSkillOptions(i)" [value]="sk">{{sk}}</option>
             </select>
@@ -49,7 +50,7 @@
   <div class="row ms-1">
     <div class="col">
       Current Salary: <input type="number" [(ngModel)]="currentRole.salary" class="text-end" min="0"
-        (change)="update()">eb/month
+        (change)="update()" tabindex="0">eb/month
     </div>
   </div>
 </div>

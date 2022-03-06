@@ -4,7 +4,7 @@ import { JsonDataFiles } from './../../../services/file-services/json-data-files
 import { DiceService } from './../../../services/dice/dice.service';
 import { Cp2020RolesDataService } from './../services/cp2020-roles-data.service';
 import { Cp2020PlayerRole } from './../models/cp2020-player-role';
-import { Component, Input, OnInit, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, OnChanges, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { Cp2020Role } from '../models';
 import { Cp2020PlayerSkill } from '../../cp2020-skills/models';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
@@ -14,7 +14,7 @@ import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
   templateUrl: './cp2020-role-editor.component.html',
   styleUrls: ['./cp2020-role-editor.component.css']
 })
-export class Cp2020RoleEditorComponent implements OnInit, OnChanges {
+export class Cp2020RoleEditorComponent implements OnInit, OnChanges, AfterViewInit {
   faSearch = faSearch;
   faTrash = faTrash;
   optionOnBlur: any;
@@ -28,11 +28,17 @@ export class Cp2020RoleEditorComponent implements OnInit, OnChanges {
   @Input()
   showDelete: boolean = false;
 
+  @Input()
+  isFocus: boolean = false;
+
   @Output()
   updateRole: EventEmitter<Cp2020PlayerRole> = new EventEmitter<Cp2020PlayerRole>();
 
   @Output()
   deleteRole: EventEmitter<Cp2020PlayerRole> = new EventEmitter<Cp2020PlayerRole>();
+
+  @ViewChild('roleName', {static: false})
+  roleNameElem: ElementRef;
 
   currentRole: Cp2020PlayerRole = new Cp2020PlayerRole();
 
@@ -60,6 +66,12 @@ export class Cp2020RoleEditorComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     this.loadData();
+  }
+
+  ngAfterViewInit(): void {
+    if(this.isFocus) {
+      this.roleNameElem.nativeElement.focus();
+    }
   }
 
   private loadData() {
