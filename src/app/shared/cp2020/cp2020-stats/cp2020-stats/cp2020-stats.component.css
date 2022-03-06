@@ -43,9 +43,10 @@
   min-width: 40px;;
   border: solid 1px black;
   text-align: center;
+  outline-style: none;
 }
 
-.stats-initiative:hover {
-  background-color: #BBB;
+.stats-initiative:hover, .stats-initiative:focus {
+  background-color: #999;
   font-weight: bold;
 }

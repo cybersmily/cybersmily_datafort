@@ -21,11 +21,15 @@
   </div>
   <div *ngIf="showRollInitiative" class="col">
     <span class=" chargen-label">
-      Initiative&nbsp;&nbsp;
-      <fa-icon *ngIf="showRollInitiative" [icon]="faDice" class="csd-dice hidden-print"
-        (click)="openModal(initiative, true)"></fa-icon>
+      Initiative
+        <fa-icon *ngIf="showRollInitiative" [icon]="faDice" class="csd-dice ms-1 hidden-print"
+          (click)="openModal(initiative, true)" (keyup.enter)="openModal(initiative, true)"
+        ></fa-icon>
     </span>
-    <span class="stats-initiative csd-btn" (click)="openModal(initiative, false)">{{totalInitiative}}</span>
+    <div #initRollElem class="stats-initiative"
+      (click)="openModal(initiative, false, 'click')" (keyup.enter)="openModal(initiative, false, 'enter')" tabindex="0" >
+      {{totalInitiative}}
+    </div>
   </div>
 </div>
 <div class="chargen-stat-section row">
@@ -54,50 +58,12 @@
 <ng-template #initiative>
   <div class="modal-header">
     <h4 class="modal-title float-start">Initiative</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()">
-
-    </button>
+    <button type="button" class="btn-close float-end" aria-label="Close"
+      (click)="closeModal('initElem', 'click')" ></button>
   </div>
   <div class="modal-body">
-    <div class="row">
-      <div class="col text-end">REF:</div>
-      <div class="col">{{stats.REF.Adjusted}}</div>
-    </div>
-    <div *ngIf="initiativeSkill > -1" class="row">
-      <div class="col text-end">Initiative:</div>
-      <div class="col">{{initiativeSkill}}</div>
-    </div>
-    <div class="row" *ngIf="combatSense > 0">
-      <div class="col text-end">Combat Sense:</div>
-      <div class="col">+{{combatSense}}</div>
-    </div>
-    <div class="row" *ngFor="let mod of stats.initiativeModifiers; let i = index">
-      <div class="col text-end">{{mod.name}}:</div>
-      <div class="col">{{mod.mod > 0 ? '+' + mod.mod : mod.mod}}
-        <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn csd-icon-md" title="Delete modifier" (click)="deleteModifier(i)"></fa-icon>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn" (click)="addModifier()"></fa-icon>&nbsp;
-        <input type="text" [(ngModel)]="newInitModifier.name" placeholder="enter name">
-      </div>
-      <div class="col">
-        <input type="number" [(ngModel)]="newInitModifier.mod" class="stat-input">
-      </div>
-    </div>
-    <hr>
-    <div class="row" *ngIf="showInitiativeRoll">
-      <div class="col text-end">DICE ROLL: </div>
-      <div class="col">+{{initiativeRoll.show()}}</div>
-    </div>
-    <hr>
-    <div class="row">
-      <div class="col text-end">Total: </div>
-      <div class="col" *ngIf="showInitiativeRoll;else noInititaiveRoll">{{totalInitiative + initiativeRoll.total}}</div>
-      <ng-template #noInititaiveRoll>
-        <div class="col">{{totalInitiative}}</div>
-      </ng-template>
-    </div>
+    <cs-cp2020-initiative-editor [REF]="stats.REF" [combatSense]="combatSense" [showInitiativeRoll]="showInitiativeRoll"
+      [initiativeModifiers]="stats.initiativeModifiers" [initiativeRoll]="initiativeRoll"
+      (updateInitiativeModifers)="updateInitiativeModifiers($event)"></cs-cp2020-initiative-editor>
   </div>
 </ng-template>

@@ -5,7 +5,7 @@ import { StatModifier, Cp2020Stat } from './../models';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { DiceService } from './../../../services/dice/dice.service';
 import { faDice, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, TemplateRef, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'cs-cp2020-stats',
@@ -29,7 +29,6 @@ export class Cp2020StatsComponent implements OnInit {
   showInitiativeRoll = false;
   useRolls: boolean = true;
 
-
   @Input()
   stats = new Cp2020StatBlock();
 
@@ -42,13 +41,26 @@ export class Cp2020StatsComponent implements OnInit {
   @Input()
   initiativeSkill: number = -1;
 
-
   @Input()
   showRollInitiative = true;
 
   @Output()
   changeStats = new EventEmitter<Cp2020StatBlock>();
 
+  @ViewChild('initRollElem', {static: false})
+  initRollElem: ElementRef;
+
+  get isOver(): boolean {
+    return (this.stats.CurrentPoints < 0);
+  }
+
+  get totalInitiative(): number {
+    let total = this.stats.REF.Adjusted;
+    total += this.combatSense;
+    total += this.initiativeSkill > 0 ? this.initiativeSkill : 0;
+    total += this.stats.initiativeModifiers.reduce( (a, b) => a + b.mod, 0);
+    return total;
+  }
 
   constructor(private dice: DiceService, private modalService: BsModalService) { }
 
@@ -58,7 +70,6 @@ export class Cp2020StatsComponent implements OnInit {
   onStatsChange() {
     this.changeStats.emit(this.stats);
   }
-
 
   /**
    * Roll for the stats with 9d10, rerolling 1s
@@ -125,26 +136,9 @@ export class Cp2020StatsComponent implements OnInit {
     this.stats[param?.statName] = param?.stat;
     this.onStatsChange();
   }
-  get isOver(): boolean {
-    return (this.stats.CurrentPoints < 0);
-  }
 
-  get totalInitiative(): number {
-    let total = this.stats.REF.Adjusted;
-    total += this.combatSense;
-    total += this.initiativeSkill > 0 ? this.initiativeSkill : 0;
-    total += this.stats.initiativeModifiers.reduce( (a, b) => a + b.mod, 0);
-    return total;
-  }
-
-  addModifier() {
-    this.stats.initiativeModifiers.push({name: this.newInitModifier.name, mod: this.newInitModifier.mod});
-    this.newInitModifier = {name: '', mod: 0};
-    this.onStatsChange();
-  }
-
-  deleteModifier(index: number) {
-    this.stats.initiativeModifiers.splice(index, 1);
+  updateInitiativeModifiers(modifiers: Array<StatModifier>) {
+    this.stats.initiativeModifiers = [...modifiers];
     this.onStatsChange();
   }
 
@@ -152,7 +146,8 @@ export class Cp2020StatsComponent implements OnInit {
     this.rolls = new Array<number>();
   }
 
-  openModal(template: TemplateRef<any>, showInit: boolean) {
+  openModal(template: TemplateRef<any>, showInit: boolean, event?:string) {
+    console.log('openModel', event);
     this.showInitiativeRoll = showInit;
     if (showInit) {
       this.rollInitiative();
@@ -160,7 +155,13 @@ export class Cp2020StatsComponent implements OnInit {
     this.modalRef = this.modalService.show(template, this.modalConfig);
   }
 
-  closeModal() {
+  closeModal(returnFocus?: string, event?: string) {
+    console.log('closeModal', returnFocus, event);
     this.modalRef.hide();
+    switch(returnFocus) {
+      case 'initElem':
+        //this.initRollElem.nativeElement.focus();
+        break;
+    }
   }
 }

@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col text-end">REF:</div>
+  <div class="col">{{REF.Adjusted}}</div>
+</div>
+<div *ngIf="initiativeSkill > -1" class="row">
+  <div class="col text-end">Initiative:</div>
+  <div class="col">{{initiativeSkill}}</div>
+</div>
+<div class="row" *ngIf="combatSense > 0">
+  <div class="col text-end">Combat Sense:</div>
+  <div class="col">+{{combatSense}}</div>
+</div>
+<div class="row" *ngFor="let mod of currInitModifiers; let i = index">
+  <div class="col text-end">{{mod.name}}:</div>
+  <div class="col">{{mod.mod > 0 ? '+' + mod.mod : mod.mod}}
+    <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn csd-icon-md" title="Delete modifier"
+      (click)="deleteModifier(i)" (keup.enter)="deleteModifier(i)" tabindex></fa-icon>
+  </div>
+</div>
+<div class="row">
+  <div class="col text-end">
+    <input #newInitModNameElem type="text" [(ngModel)]="newInitModifier.name" placeholder="enter name" tabindex="0">
+  </div>
+  <div class="col">
+    <input type="number" [(ngModel)]="newInitModifier.mod" class="stat-input csd-number" tabindex="0">
+    <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn ms-2" (click)="addModifier()" (keyup.enter)="addModifier()"
+      tabindex="0"></fa-icon>
+  </div>
+</div>
+<hr>
+<div class="row" *ngIf="showInitiativeRoll">
+  <div class="col text-end">DICE ROLL: </div>
+  <div class="col">+{{initiativeRoll.show()}}</div>
+</div>
+<hr>
+<div class="row">
+  <div class="col text-end">Total: </div>
+  <div class="col" *ngIf="showInitiativeRoll;else noInititaiveRoll">{{totalInitiative + initiativeRoll.total}}</div>
+  <ng-template #noInititaiveRoll>
+    <div class="col">{{totalInitiative}}</div>
+  </ng-template>
+</div>

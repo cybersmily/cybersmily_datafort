@@ -358,12 +358,12 @@ SELECT option.font-italic {
     padding-right: 0px !important;
   }
 
-  input, textarea, select {
+  INPUT, TEXTAREA, SELECT {
     border: none !important;
     background-color: white !important;
   }
 
-  select {
+  SELECT {
     appearance: none;
   }
 
@@ -598,18 +598,18 @@ SELECT option.font-italic {
    }
 }
 
-input.csd-hide-spinner::-webkit-outer-spin-button,
-input.csd-hide-spinner::-webkit-inner-spin-button
+INPUT.csd-hide-spinner::-webkit-outer-spin-button,
+INPUT.csd-hide-spinner::-webkit-inner-spin-button
  {
   -webkit-appearance: none;
   margin: 0;
 }
 
-input.csd-hide-spinner[type=number] {
+INPUT.csd-hide-spinner[type=number] {
   -moz-appearance:textfield;
 }
 
-input, select, textarea {
+INPUT, SELECT, TEXTAREA {
   cursor: pointer;
   background-color: #EEE;
   -webkit-border-top-left-radius: .3em !important;
