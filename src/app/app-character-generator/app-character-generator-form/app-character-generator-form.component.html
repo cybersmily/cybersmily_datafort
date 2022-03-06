@@ -5,8 +5,10 @@
   <hr color="#999999" class="w-100 pt-0 pb-0 mt-0 mb-0">
   <div class="row hidden-print">
     <div class="col-6">
-      <fa-icon [icon]="faQuestionCircle" title="Instructions" class="csd-chargen-btn csd-btn me-2"
-        (click)="openModal(instructions)" (keyup.enter)="openModal(instructions)" tabindex="0"></fa-icon>
+      <button #charGenInstructions title="Instructions" class="csd-chargen-btn csd-btn me-2"
+      (click)="openModal(instructions)" (keyup.enter)="openModal(instructions)" tabindex="0">
+        <fa-icon [icon]="faQuestionCircle"></fa-icon>
+      </button>
       <fa-icon [icon]="faUndo" title="Reset the sheet to a blank character" class="csd-chargen-btn csd-btn ms-2"
         (click)="resetCharacter()" (keyup.enter)="resetCharacter()" tabindex="0"></fa-icon>
     </div>
@@ -21,8 +23,11 @@
       </label>
       <fa-icon [icon]="faFilePdf" class="csd-chargen-btn csd-btn me-2" (click)="createPDF()"
         (keyup.enter)="createPDF()" tabindex="0" title="Export as a PDF file"></fa-icon>
-      <fa-icon [icon]="faCog" class="csd-chargen-btn csd-btn me-2" title="Show form settings" tabindex="0"
-        (click)="openModal(charFormSettings)" (keyup.enter)="openModal(charFormSettings)"></fa-icon>
+      <button #charGenSettingElem class="csd-chargen-btn csd-btn me-2 btn-light btn-outline-light"
+        title="Show form settings" tabindex="0"
+        (click)="openModal(charFormSettings)" (keyup.enter)="openModal(charFormSettings)">
+        <fa-icon  [icon]="faCog"></fa-icon>
+      </button>
     </div>
   </div>
   <hr color="#999999" class="w-100 pt-0 pb-0 mt-0">
@@ -127,7 +132,7 @@
   <div class="modal-header">
     <h4>CHARACTER GENERATOR CP2020 INSTRUCTIONS</h4>
     <button type="button" class="btn-close float-end" aria-label="Close"
-      (click)="modalRef.hide()" (keyup.enter)="modalRef.hide()" tabindex="0">
+      (click)="closeModal()" (keyup.enter)="closeModal('instructions')" tabindex="0">
     </button>
   </div>
   <div class="modal-body">
@@ -139,7 +144,7 @@
   <div class="modal-header">
     <h4>CHARACTER GENERATOR CP2020 SETTINGS</h4>
     <button type="button" class="btn-close float-end" aria-label="Close"
-      (click)="modalRef.hide()" (keyup.enter)="modalRef.hide()" tabindex="0"></button>
+      (click)="closeModal()" (keyup.enter)="closeModal('settings')" tabindex="0"></button>
   </div>
   <div class="modal-body">
     <cs-app-character-settings [settings]="charGenSettings" [sources]="sources" (updateSettings)="saveSettings($event)"></cs-app-character-settings>

@@ -16,7 +16,7 @@ import { Cp2020PlayerGearList } from './../../shared/models/cp2020character/cp20
 import { Cp2020StatBlock } from '../../shared/cp2020/cp2020-stats/models/cp2020-stat-block';
 import { Cp2020PlayerCharacter } from './../../shared/models/cp2020character/cp2020-player-character';
 import { Cp2020CharacterGeneratorService } from './../../shared/services/chargen/cp2020-character-generator.service';
-import { Component, OnInit, ViewChild, ElementRef, TemplateRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, TemplateRef, Renderer2 } from '@angular/core';
 import { Cp2020PlayerRole } from '../../shared/cp2020/cp2020-role/models/cp2020-player-role';
 import { Cp2020characterToPDF } from './../../shared/models/pdf/cp2020characterToPDF';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -57,9 +57,17 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     class: 'modal-dialog-centered modal-lg'
   };
 
+  focusElem: ElementRef;
 
   @ViewChild('pdfCP2020Character', { static: false })
   pdfCP2020Character: ElementRef;
+
+  @ViewChild('charGenSettingElem', { static: false})
+  settingsElem: ElementRef;
+
+  @ViewChild('charGenInstructions', { static: false})
+  instructionElem: ElementRef;
+
 
   constructor(
     private characterService: Cp2020CharacterGeneratorService,
@@ -69,7 +77,8 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     private modalService: BsModalService,
     private armorPDFService: Cp2020ArmorPDFSectionService,
     private deckmanagerPDFService: Cp2020DeckmanagerPdfSectionService,
-    private seo: SeoService
+    private seo: SeoService,
+    private renderer: Renderer2
   ) { }
 
   ngOnInit() {
@@ -219,6 +228,18 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, this.config);
+  }
+
+  closeModal(elemName?: string) {
+    this.modalRef.hide();
+    switch(elemName) {
+      case 'settings':
+        this.settingsElem.nativeElement.focus();
+        break;
+      case 'instructions':
+        this.instructionElem.nativeElement.focus();
+        break;
+    }
   }
 
   get combatSense(): number {

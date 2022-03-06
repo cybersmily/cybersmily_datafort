@@ -23,6 +23,16 @@ INPUT.csd-number-sm {
   width: 35px;
 }
 
+BUTTON {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
 .csd-box {
   background-color: #ddd;
   color: #333;
