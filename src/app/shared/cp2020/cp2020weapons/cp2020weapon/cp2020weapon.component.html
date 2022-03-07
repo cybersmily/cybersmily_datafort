@@ -1,4 +1,4 @@
-<div class="row wpn-stats">
+<div class="row wpn-stats g-0">
   <div class="col-3 col-lg-2 ps-1">
     <button #weaponNameElem class="csd-btn" (click)="openModal(editWeaponModal, 'weaponName')" tabindex="0">
       {{weapon.count && weapon.count > 1 ? weapon.count + ' ': ''}}{{weapon.name}}
@@ -35,7 +35,7 @@
   <div class="col-1 d-none d-lg-inline-block text-center">{{weapon.range}} m</div>
   <div class="col-1 d-none d-lg-inline-block text-center">{{weapon.cost}} eb</div>
 </div>
-<div class="row wpn-notes" *ngIf="weapon.magazines">
+<div class="row wpn-notes g-0" *ngIf="weapon.magazines">
   <div class="col-1"></div>
   <div class="col-3">
     magazines ({{weapon.magazines.length}}):
@@ -50,11 +50,11 @@
     <fa-icon *ngIf="weapon.isEmpty" [icon]="faRedo" class="csd-btn" (click)="reload()" title="Reload"></fa-icon>
   </div>
 </div>
-<div class="row wpn-notes" *ngIf="weapon.options">
+<div class="row wpn-notes g-0" *ngIf="weapon.options">
   <div class="col-1"></div>
   <div class="col-11">Options ({{weapon.options.length}}): {{options}}</div>
 </div>
-<div class="row wpn-notes">
+<div class="row wpn-notes g-0">
   <div class="col-1"></div>
   <div class="col-11">Notes: {{weapon.thrown ? 'Thrown weapon. ' : '' }}{{weapon.notes}}</div>
 </div>
