@@ -24,10 +24,10 @@
       </div>
     </div>
     <div *ngIf="showAddSkill" class="row">
-      <div class="col text-center" (click)="showModal(newSkillTemplate)">
-        <div class="w-100 csd-btn">
-          <fa-icon [icon]="faPlus" class="csd-icon-btn csd-icon-sm" title="Add a new skill"></fa-icon>
-        </div>
+      <div class="col text-center">
+        <button class="w-100 csd-btn csd-icon-btn" title="Add a new skill" (click)="showModal(newSkillTemplate)">
+          <fa-icon [icon]="faPlus" class="csd-icon-sm"></fa-icon>
+        </button>
       </div>
     </div>
   </div>
@@ -36,9 +36,7 @@
 <ng-template #newSkillTemplate >
   <div class="modal-header">
     <h4 class="modal-title float-start">New {{title}} Skill</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
-
-    </button>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()"></button>
   </div>
   <div class="modal-body">
     <cs-cp2020-skill-new [stat]="statName" (updateSkill)="addNewSkill($event)" ></cs-cp2020-skill-new>

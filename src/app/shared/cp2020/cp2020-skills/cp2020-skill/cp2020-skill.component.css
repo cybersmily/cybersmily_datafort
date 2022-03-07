@@ -34,7 +34,7 @@
   content: '@';
 }
 
-.chargen-skill-is-role span {
+.chargen-skill-is-role span, .chargen-skill-is-role button {
   background-color: #ffff99;
   font-weight: bold;
 }

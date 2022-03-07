@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, TemplateRef, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, TemplateRef, OnChanges, ViewChild, ElementRef } from '@angular/core';
 import { Cp2020Stat, StatModifier } from './../../cp2020-stats/models/cp2020-stat';
 import { FumbleChart } from './../models';
 import { DiceService } from './../../../services/dice/dice.service';
@@ -25,8 +25,6 @@ export class Cp2020SkillComponent implements OnInit, OnChanges {
   skill = new Cp2020PlayerSkill();
   currSkill = new Cp2020PlayerSkill();
 
-  newModifier: StatModifier = { name: '', mod: 0};
-
   @Input()
   stat = new Cp2020Stat();
 
@@ -39,17 +37,8 @@ export class Cp2020SkillComponent implements OnInit, OnChanges {
   @Output()
   delete = new EventEmitter<Cp2020PlayerSkill>();
 
-  get isMA(): boolean {
-    return (this.currSkill.maBonuses) ? true : false;
-  }
-
-  get nextLevelIP(): number {
-    const base = 10 * (this.currSkill.ipMod) ?? 1;
-    if (this.currSkill.value < 1) {
-      return base;
-    }
-    return  base * this.currSkill.value;
-  }
+  @ViewChild('skillNameElem',{static: false})
+  skillNameInput: ElementRef;
 
   get modifierTotal(): number {
     return (this.currSkill.modifiers) ? this.currSkill.modifiers.reduce( (a, b) => a + b.mod, 0): 0;
@@ -65,8 +54,9 @@ export class Cp2020SkillComponent implements OnInit, OnChanges {
   ngOnChanges() {
   }
 
-  onChangeSkill() {
-    this.changeSkill.emit(this.currSkill);
+  onChangeSkill(skill?:Cp2020PlayerSkill) {
+    const sk = skill ?? this.currSkill;
+    this.changeSkill.emit(new Cp2020PlayerSkill(sk));
   }
 
   onClick(template: TemplateRef<any>) {
@@ -88,8 +78,17 @@ export class Cp2020SkillComponent implements OnInit, OnChanges {
     this.modalRef = this.modalService.show(template, {class: 'modal-dialog-centered'});
   }
 
-  showModal(template: TemplateRef<any>) {
+  showModal(template: TemplateRef<any>, returnFocus?: string) {
     this.modalRef = this.modalService.show(template);
+    if(returnFocus){
+      this.modalRef.onHidden.subscribe(() => {
+        switch(returnFocus) {
+          case 'skillName':
+            this.skillNameInput.nativeElement.focus();
+            break;
+        }
+      });
+    }
   }
 
   deleteSkill() {
@@ -97,23 +96,6 @@ export class Cp2020SkillComponent implements OnInit, OnChanges {
     if(retVal === true) {
       this.modalRef.hide();
       this.delete.emit(this.currSkill);
-    }
-  }
-
-  addModifier() {
-    if(!this.currSkill.modifiers) {
-      this.currSkill.modifiers = new Array<StatModifier>();
-    }
-    this.currSkill.modifiers.push({name: this.newModifier.name, mod: this.newModifier.mod});
-    this.changeSkill.emit(this.currSkill);
-    this.newModifier = {name: '', mod: 0};
-  }
-
-  toggleMA() {
-    if(this.currSkill.maBonuses) {
-      this.currSkill.maBonuses = undefined;
-    } else {
-      this.currSkill.maBonuses = new MartialBonuses();
     }
   }
 }

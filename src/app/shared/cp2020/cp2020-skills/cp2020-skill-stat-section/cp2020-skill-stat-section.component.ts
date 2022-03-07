@@ -83,7 +83,7 @@ export class Cp2020SkillStatSectionComponent implements OnInit, OnChanges {
   }
 
   onChangeSkill(skill: Cp2020PlayerSkill) {
-    this.changeSkill.emit(skill);
+    this.changeSkill.emit(new Cp2020PlayerSkill(skill));
   }
 
   showModal(template: TemplateRef<any>) {
