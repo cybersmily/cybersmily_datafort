@@ -146,22 +146,22 @@ export class Cp2020StatsComponent implements OnInit {
     this.rolls = new Array<number>();
   }
 
-  openModal(template: TemplateRef<any>, showInit: boolean, event?:string) {
-    console.log('openModel', event);
+  openModal(template: TemplateRef<any>, showInit: boolean, returnFocus?: string) {
     this.showInitiativeRoll = showInit;
     if (showInit) {
       this.rollInitiative();
     }
     this.modalRef = this.modalService.show(template, this.modalConfig);
+    this.modalRef.onHidden.subscribe(()=> {
+      switch(returnFocus) {
+        case 'initElem':
+          this.initRollElem.nativeElement.focus();
+          break;
+      }
+    });
   }
 
-  closeModal(returnFocus?: string, event?: string) {
-    console.log('closeModal', returnFocus, event);
+  closeModal() {
     this.modalRef.hide();
-    switch(returnFocus) {
-      case 'initElem':
-        //this.initRollElem.nativeElement.focus();
-        break;
-    }
   }
 }

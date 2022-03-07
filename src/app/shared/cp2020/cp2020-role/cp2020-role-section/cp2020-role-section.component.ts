@@ -117,10 +117,12 @@ export class Cp2020RoleSectionComponent implements OnInit, OnChanges {
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, this.config);
+    this.modalRef.onHidden.subscribe(() => {
+      this.roleEditElem.nativeElement.focus();
+    });
   }
 
   closeModal() {
     this.modalRef.hide();
-    this.roleEditElem.nativeElement.focus();
   }
 }

@@ -4,8 +4,7 @@
       <span class="chargen-label">
         ROLE
         <button #roleEditorElem class="csd-btn csd-icon-btn csd-icon-sm ms-1"
-        (click)="openModal(primaryRoleEditor)" tabindex="0"
-        (keyup.enter)="openModal(primaryRoleEditor)">
+        (click)="openModal(primaryRoleEditor)" tabindex="0">
           <fa-icon [icon]="faPen"></fa-icon>
         </button>
       </span>
@@ -31,7 +30,7 @@
 <ng-template #primaryRoleEditor>
   <div class="modal-header">
     <h4>ROLES</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()" (keyup.enter)="closeModal()"></button>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()"></button>
   </div>
   <div class="modal-body">
     <div class="row">

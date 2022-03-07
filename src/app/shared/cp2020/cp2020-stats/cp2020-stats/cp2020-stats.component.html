@@ -22,14 +22,15 @@
   <div *ngIf="showRollInitiative" class="col">
     <span class=" chargen-label">
       Initiative
-        <fa-icon *ngIf="showRollInitiative" [icon]="faDice" class="csd-dice ms-1 hidden-print"
-          (click)="openModal(initiative, true)" (keyup.enter)="openModal(initiative, true)"
-        ></fa-icon>
+      <button *ngIf="showRollInitiative" class="csd-dice ms-1 hidden-print"
+      (click)="openModal(initiative, true, 'initElem')">
+        <fa-icon [icon]="faDice" ></fa-icon>
+      </button>
     </span>
-    <div #initRollElem class="stats-initiative"
-      (click)="openModal(initiative, false, 'click')" (keyup.enter)="openModal(initiative, false, 'enter')" tabindex="0" >
+    <button #initRollElem class="stats-initiative"
+      (click)="openModal(initiative, false, 'initElem')" tabindex="0" >
       {{totalInitiative}}
-    </div>
+    </button>
   </div>
 </div>
 <div class="chargen-stat-section row">
@@ -59,7 +60,7 @@
   <div class="modal-header">
     <h4 class="modal-title float-start">Initiative</h4>
     <button type="button" class="btn-close float-end" aria-label="Close"
-      (click)="closeModal('initElem', 'click')" ></button>
+      (click)="closeModal()" ></button>
   </div>
   <div class="modal-body">
     <cs-cp2020-initiative-editor [REF]="stats.REF" [combatSense]="combatSense" [showInitiativeRoll]="showInitiativeRoll"
