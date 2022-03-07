@@ -6,7 +6,7 @@ import { ArmorCalculatorService,
 import { DiceService } from './../../../services/dice/dice.service';
 import { faDice, faRedo, faSearch } from '@fortawesome/free-solid-svg-icons';
 
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, TemplateRef } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, TemplateRef, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Cp2020ArmorPiece, ArmorSpChartEntry, Cp2020ArmorAttributeLists, PieceOfClothing, ArmorOption, CP2020ArmorRandomSettings } from './../models';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
@@ -15,7 +15,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
   templateUrl: './cp2020-armor-detail.component.html',
   styleUrls: ['./cp2020-armor-detail.component.css']
 })
-export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
+export class Cp2020ArmorDetailComponent implements OnInit, OnChanges, AfterViewInit {
   faDice = faDice;
   faRedo = faRedo;
   faSearch = faSearch;
@@ -41,6 +41,9 @@ export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
 
   @Output()
   updateArmor = new EventEmitter<Cp2020ArmorPiece>();
+
+  @ViewChild('armorNameElem', {static: false})
+  armorNameInput: ElementRef;
 
   get selectedSP(): ArmorSpChartEntry {
     return this.spValues.filter(sp => sp.sp === this.currArmor.baseSP)[0];
@@ -76,6 +79,10 @@ export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
   ngOnChanges() {
     this.currArmor = new Cp2020ArmorPiece(this.armor);
     this.setSelected();
+  }
+
+  ngAfterViewInit(): void {
+      this.armorNameInput.nativeElement.focus();
   }
 
   getOptionValue(optionName: string) {
@@ -155,8 +162,12 @@ export class Cp2020ArmorDetailComponent implements OnInit, OnChanges {
     this.updateArmor.emit(this.currArmor);
   }
 
-  showModal(template: TemplateRef<any>) {
+  showModal(template: TemplateRef<any>, returnFocus?: string) {
     this.modalRef = this.modalService.show(template, this.config);
+    if(returnFocus) {
+      this.modalRef.onHidden.subscribe(()=>{
+      });
+    }
   }
 
   closeModal() {

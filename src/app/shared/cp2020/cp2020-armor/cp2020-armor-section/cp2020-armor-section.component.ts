@@ -1,7 +1,7 @@
 import { ArmorGeneratorService, ArmorDataAttributesService, ArmorRandomGenSettingsService } from './../services';
 import { DiceService } from './../../../services/dice/dice.service';
 import { Cp2020ArmorBlock, Cp2020ArmorPiece,Cp2020ArmorAttributeLists, CP2020ArmorRandomSettings  } from './../models';
-import { Component, Input, Output, OnInit, TemplateRef, EventEmitter } from '@angular/core';
+import { Component, Input, Output, OnInit, TemplateRef, EventEmitter, ViewChild, ElementRef, ViewChildren, QueryList } from '@angular/core';
 import { faDice, faPlus, faTrash, faChevronRight, faChevronDown, faCog, faSave, faWrench } from '@fortawesome/free-solid-svg-icons';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
@@ -55,6 +55,12 @@ export class Cp2020ArmorSectionComponent implements OnInit {
   @Output()
   changeArmor = new EventEmitter<Cp2020ArmorBlock>();
 
+  @ViewChild('armorTitleElem', {static:false})
+  armorTitleHeader: ElementRef;
+
+  @ViewChildren('armorNameElem')
+  armorNameElemList: QueryList<ElementRef>;
+
   constructor(private randomSettingsService: ArmorRandomGenSettingsService,
     private modalService: BsModalService,
     private dice: DiceService,
@@ -69,16 +75,6 @@ export class Cp2020ArmorSectionComponent implements OnInit {
     this.armorAttributeService.getData().subscribe( list => {
       this.armorAttributes = list;
     });
-  }
-
-  showModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template, this.config);
-  }
-
-  closeArmorDetailModal() {
-    this.selectedArmor = new Cp2020ArmorPiece();
-    this.selectedIndex = -1;
-    this.modalRef.hide();
   }
 
   generate() {
@@ -115,6 +111,7 @@ export class Cp2020ArmorSectionComponent implements OnInit {
   deleteArmor(index: number) {
     this.armorBlock.removePiece(index);
     this.update();
+    this.armorTitleHeader.nativeElement.focus();
   }
 
   repair(armor: Cp2020ArmorPiece){
@@ -125,7 +122,7 @@ export class Cp2020ArmorSectionComponent implements OnInit {
   selectIndex(index: number, template: TemplateRef<any>) {
     this.selectedIndex = index;
     this.selectedArmor = new Cp2020ArmorPiece(this.armorBlock.armorPieces[this.selectedIndex]);
-    this.showModal(template);
+    this.showModal(template,'edit', index);
   }
 
   updateSelectedArmor(armor: Cp2020ArmorPiece) {
@@ -142,5 +139,27 @@ export class Cp2020ArmorSectionComponent implements OnInit {
   updateSettings(settings: CP2020ArmorRandomSettings) {
     this.armorBlock.isLayerEVCalcEnabled = settings.isLayerCalculationEnabled;
     this.update();
+  }
+
+  showModal(template: TemplateRef<any>, returnFocus?:string, index?:number) {
+    this.modalRef = this.modalService.show(template, this.config);
+    if(returnFocus) {
+      this.modalRef.onHidden.subscribe(()=>{
+        switch(returnFocus){
+          case 'new':
+            this.armorNameElemList.last?.nativeElement.focus();
+            break;
+          case 'edit':
+            this.armorNameElemList?.toArray()[index]?.nativeElement.focus();
+            break;
+        }
+      });
+    }
+  }
+
+  closeArmorDetailModal() {
+    this.selectedArmor = new Cp2020ArmorPiece();
+    this.selectedIndex = -1;
+    this.modalRef.hide();
   }
 }

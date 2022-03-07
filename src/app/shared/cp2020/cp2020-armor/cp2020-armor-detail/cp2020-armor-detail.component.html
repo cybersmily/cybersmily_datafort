@@ -1,13 +1,22 @@
 <div class="row">
-  <div class="col-12">
+  <div class="col-2">
     Name:
-    <input class="w-75" type="text" placeholder="Enter name..." [(ngModel)]="currArmor.name">
-    <fa-icon [icon]="faSearch" title="Select armor from source material" class="csd-btn csd-icon-btn float-end ms-1"
-      (click)="showModal(armorSourceList)"></fa-icon>
-    <fa-icon [icon]="faDice" title="Randomly generate clothing" class="csd-btn csd-icon-btn float-end ms-1"
-      (click)="generate()"></fa-icon>
-    <fa-icon [icon]="faRedo" title="Reset the form" class="csd-btn csd-icon-btn ms-1 float-end" (click)="refresh()">
-    </fa-icon>
+  </div>
+  <div class="col-7">
+    <input #armorNameElem class="w-100" type="text" placeholder="Enter name..." [(ngModel)]="currArmor.name">
+  </div>
+  <div class="col-3">
+    <button title="Reset the form" class="csd-btn csd-icon-btn ms-1" (click)="refresh()">
+      <fa-icon [icon]="faRedo"></fa-icon>
+    </button>
+    <button title="Randomly generate clothing" class="csd-btn csd-icon-btn ms-1"
+      (click)="generate()" tabindex="-1">
+      <fa-icon [icon]="faDice"></fa-icon>
+    </button>
+    <button title="Select armor from source material" class="csd-btn csd-icon-btn ms-1"
+      (click)="showModal(armorSourceList)">
+      <fa-icon [icon]="faSearch"></fa-icon>
+    </button>
   </div>
 </div>
 <div class="row">

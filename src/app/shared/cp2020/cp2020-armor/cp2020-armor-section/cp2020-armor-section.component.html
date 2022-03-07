@@ -1,15 +1,18 @@
 <div class="content ps-3 pe-3">
   <div class="cp2020-label row">
     <div class="col ps-1">
-      <h4 class="d-inline-block csd-btn me-4" (click)="isCollapsed = !isCollapsed">
+      <h4 #armorTitleElem class="d-inline-block csd-btn me-4" (click)="isCollapsed = !isCollapsed" (key.enter)="isCollapsed = !isCollapsed" tabindex="0">
         ARMOR/CLOTHING
         <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ms-2"></fa-icon>
       </h4>
-      <fa-icon *ngIf="!isCollapsed" [icon]="faDice" title="Randomly generate items..."
-        class="csd-btn csd-icon-btn csd-icon-lg ms-2" (click)="showModal(numberOfArmorToRoll)"></fa-icon>
-      <fa-icon *ngIf="!isCollapsed" [icon]="faCog" class="csd-btn csd-icon-btn csd-icon-lg ms-2"
+      <button *ngIf="!isCollapsed" title="Randomly generate items..."
+        class="csd-btn csd-icon-btn csd-icon-lg ms-2" (click)="showModal(numberOfArmorToRoll)" tabindex="-1">
+        <fa-icon [icon]="faDice"></fa-icon>
+      </button>
+      <button *ngIf="!isCollapsed" class="csd-btn csd-icon-btn csd-icon-lg ms-2" tabindex="-1"
         title="Change random parameter settings for create a piece of armor" (click)="showModal(settingsModal)">
-      </fa-icon>
+        <fa-icon [icon]="faCog"></fa-icon>
+      </button>
     </div>
   </div>
   <div class="row border border-dark" [collapse]="isCollapsed">
@@ -110,9 +113,11 @@
     </div>
   </div>
   <div class="row border border-dark">
-    <div class="col text-center">
-      <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-lg" title="Add new armor/clothing..."
-        (click)="showModal(armorDetailModal)">></fa-icon>
+    <div class="col text-center ps-0 pe-0">
+      <button class="csd-btn csd-icon-btn csd-icon-lg w-100" title="Add new armor/clothing..."
+        (click)="showModal(armorDetailModal, 'new')" tabindex="0">
+        <fa-icon [icon]="faPlus"></fa-icon>
+      </button>
     </div>
   </div>
 </ng-template>
@@ -122,9 +127,11 @@
     <div class="col text-truncate border border-dark">
       <input type="checkbox" class="me-2" [checked]="armor.isActive"
       title="Activate/wear this piece of clothing" (change)="activePiece($event,index)"
-      [disabled]="!armorBlock.ableToActivate(armor) && !armor.isActive">
-      <span class="csd-btn" (click)="selectIndex(index, armorDetailModal)">{{armor.name}}</span>
-      <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn float-end" (click)="deleteArmor(index)"></fa-icon>
+      [disabled]="!armorBlock.ableToActivate(armor) && !armor.isActive" tabindex="0">
+      <button #armorNameElem class="csd-btn text-start" (click)="selectIndex(index, armorDetailModal)" tabindex="0">{{armor.name}}</button>
+      <button class="csd-btn csd-icon-btn float-end" (click)="deleteArmor(index)" tabindex="0">
+        <fa-icon [icon]="faTrash"></fa-icon>
+      </button>
     </div>
     <div class="col-1 text-center border border-dark">{{armor.baseSP}}</div>
     <div class="col-2 text-end border border-dark">{{armor.cost | number}}eb</div>
@@ -134,9 +141,7 @@
 <ng-template #settingsModal>
   <div class="modal-header">
     <h4>ARMOR SECTION SETTINGS</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
-
-    </button>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()"></button>
   </div>
   <div class="modal-body">
     <cs-armor-settings (updateSettings)="updateSettings($event)"></cs-armor-settings>
@@ -147,11 +152,11 @@
 <ng-template #armorDetailModal>
   <div class="modal-header">
     <h4>ARMOR/CLOTHING DETAILS</h4>
-    <fa-icon [icon]="faSave" class="csd-btn csd-icon-btn csd-icon-xl ms-4" title="Save to list..."
-      (click)="saveArmor()"></fa-icon>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeArmorDetailModal()">
-
+    <button class="csd-btn csd-icon-btn csd-icon-xl ms-4" title="Save to list..."
+      (click)="saveArmor()" tabindex="0">
+      <fa-icon [icon]="faSave"></fa-icon>
     </button>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeArmorDetailModal()" tabindex="0"></button>
   </div>
   <div class="modal-body">
     <cs-cp2020-armor-detail [armor]="selectedArmor" (updateArmor)="updateSelectedArmor($event)">
