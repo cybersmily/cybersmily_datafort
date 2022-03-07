@@ -3,7 +3,7 @@ import { Cp2020PlayerSkill } from './../../../cp2020/cp2020-skills/models';
 import { DiceService } from './../../../services/dice/dice.service';
 import { faPen, faTrash, faDice, faRedo } from '@fortawesome/free-solid-svg-icons';
 import { CpPlayerWeapon } from './../models';
-import { Component, OnInit, Input, TemplateRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, TemplateRef, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'cs-cp2020weapon',
@@ -42,6 +42,9 @@ export class Cp2020weaponComponent implements OnInit {
 
   @Output()
   deleteWeapon: EventEmitter<number> = new EventEmitter<number>();
+
+  @ViewChild('weaponNameElem', {static: false})
+  weaponNameButton: ElementRef;
 
   reliabilityResults = '';
   damageRoll = '';
@@ -84,8 +87,17 @@ export class Cp2020weaponComponent implements OnInit {
     this.weapon.reload();
   }
 
-  openModal(template: TemplateRef<any>) {
+  openModal(template: TemplateRef<any>, returnFocus?: string) {
     this.modalRef = this.modalService.show(template, this.modalConfig);
+    if(returnFocus) {
+      switch(returnFocus) {
+        case 'weaponName':
+          this.modalRef.onHidden.subscribe(()=>{
+            this.weaponNameButton.nativeElement.focus();
+          });
+          break;
+      }
+    }
   }
 
   closeModal() {

@@ -1,6 +1,8 @@
 <div class="row wpn-stats">
   <div class="col-3 col-lg-2 ps-1">
-    <span class="csd-btn" (click)="openModal(editWeaponModal)" (keyup.enter)="openModal(editWeaponModal)" tabindex="0">{{weapon.count && weapon.count > 1 ? weapon.count + ' ': ''}}{{weapon.name}}</span>
+    <button #weaponNameElem class="csd-btn" (click)="openModal(editWeaponModal, 'weaponName')" tabindex="0">
+      {{weapon.count && weapon.count > 1 ? weapon.count + ' ': ''}}{{weapon.name}}
+    </button>
     <fa-icon [icon]="faTrash" (click)="delete()" class="csd-btn csd-icon-btn" title="Delete weapon"></fa-icon>
     <fa-icon [icon]="faPen" (click)="openModal(editWeaponModal)" class="me-2 csd-btn csd-icon-btn" title="Edit weapon">
     </fa-icon>
@@ -60,9 +62,7 @@
 <ng-template #editWeaponModal>
   <div class="modal-header">
     <h4 class="modal-title float-start">Edit Weapon</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()" (keyup.enter)="closeModal()" tabindex="0">
-
-    </button>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()" tabindex="0"></button>
   </div>
   <div class="modal-body">
     <cs-cp2020weapon-editor [weapon]="weapon" (updateWeapon)="update($event)"></cs-cp2020weapon-editor>

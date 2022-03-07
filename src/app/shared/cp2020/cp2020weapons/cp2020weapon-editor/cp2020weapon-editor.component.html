@@ -4,10 +4,7 @@
     <input [(ngModel)]="newWeapon.name" type="text" />
   </div>
   <div class="col-1 wpn-save">
-    <fa-icon [icon]="faSave" [ngClass]="{
-        'float-end btn btn-lg csd-btn csd-icon-btn': true,
-        disabled: newWeapon.name === ''
-      }" title="Save weapon" (click)="update()"></fa-icon>
+    <fa-icon [icon]="faSave" [ngClass]="{'float-end btn btn-lg csd-btn csd-icon-btn': true,disabled: newWeapon.name === '' }" title="Save weapon" (click)="update()"></fa-icon>
   </div>
 </div>
 <div class="row">
