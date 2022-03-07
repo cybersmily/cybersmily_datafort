@@ -1,10 +1,9 @@
-<div title="{{statName}}: {{stat.toString()}}"
+<button #cp2020StatElem title="{{statName}}: {{stat.toString()}}"
   (click)="openModal(statModifiers)"
-  (keyup.enter)="openModal(statModifiers)"
   tabindex="0"
-  [ngClass]="{'d-inline-block': true, 'text-danger': isWounded, 'csd-btn': true, 'stat-values':true, 'rounded':true}">
-{{statName}} <span class="d-inline-block">[{{stat.Base}}/{{stat.Adjusted}}]</span>&nbsp;&nbsp;
-</div>
+  [ngClass]="{'d-inline-block me-2': true, 'text-danger': isWounded, 'csd-btn': true, 'stat-values':true, 'rounded':true}">
+{{statName}} <span class="d-inline-block">[{{stat.Base}}/{{stat.Adjusted}}]</span>
+</button>
 
 <ng-template #statModifiers>
   <div class="modal-header">
@@ -13,39 +12,6 @@
     </button>
   </div>
   <div class="modal-body">
-    <div class="row">
-      <div class="col text-end">Base:</div>
-      <div class="col"><input type="number" [(ngModel)]="stat.Base" class="stat-input" (change)="onStatChange()" tabindex="0"></div>
-    </div>
-    <div class="row" *ngIf="stat.ev !== 0">
-      <div class="col text-end">EV:</div>
-      <div class="col">-{{stat.ev}}</div>
-    </div>
-    <div class="row" *ngFor="let mod of stat.modifiers; let i = index">
-      <div class="col text-end">{{mod.name}}</div>
-      <div class="col">{{mod.mod}}&nbsp;&nbsp;<fa-icon [icon]="faTrash" class="csd-btn" (click)="deleteModifier(i)" tabindex="0"></fa-icon></div>
-    </div>
-    <div class="row" *ngIf="stat.WoundModifier !== 0">
-      <div class="col text-end">Wound:</div>
-      <div class="col">{{stat.WoundModifier}}</div>
-    </div>
-    <div class="row" *ngIf="stat.Multiplier !== 1">
-      <div class="col text-end">Wound:</div>
-      <div class="col">x {{stat.Multiplier}}</div>
-    </div>
-
-    <div class="row">
-      <div class="col">
-        <input type="text" [(ngModel)]="newStatModifier.name" placeholder="enter name" tabindex="0">
-      </div>
-      <div class="col">
-        <input type="number" [(ngModel)]="newStatModifier.mod" class="stat-input" tabindex="0">
-        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn ms-2" (click)="addModifier()"  tabindex="0"></fa-icon>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col text-end">Total: </div>
-      <div class="col">{{stat.Adjusted}}</div>
-    </div>
+    <cs-cp2020-stat-editor [stat]="stat" [statName]="statName" (changeStat)="onStatChange($event)"></cs-cp2020-stat-editor>
   </div>
 </ng-template>

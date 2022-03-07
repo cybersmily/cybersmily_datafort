@@ -1,7 +1,8 @@
 import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Cp2020Stat, StatModifier } from './../models';
-import { Component, Input, OnInit, Output, EventEmitter, TemplateRef } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, TemplateRef, ViewChild, ElementRef } from '@angular/core';
+import { take, tap, timeout } from 'rxjs';
 
 @Component({
   selector: 'cs-cp2020-stat',
@@ -18,7 +19,6 @@ export class Cp2020StatComponent implements OnInit {
     class: 'modal-dialog-centered'
   };
 
-
   @Input()
   stat: Cp2020Stat = new Cp2020Stat();
 
@@ -27,6 +27,9 @@ export class Cp2020StatComponent implements OnInit {
 
   @Output()
   changeStat: EventEmitter<{statName: string, stat: Cp2020Stat}> = new EventEmitter<{statName: string, stat: Cp2020Stat}>();
+
+  @ViewChild('cp2020StatElem', {static: false})
+  statElem: ElementRef;
 
   newStatModifier: StatModifier = {name: '', mod: 0};
 
@@ -39,24 +42,15 @@ export class Cp2020StatComponent implements OnInit {
     return (this.stat.WoundModifier < 0 || this.stat.Multiplier !== 1 );
   }
 
-  onStatChange() {
-    this.changeStat.emit({statName: this.statName, stat: this.stat});
-  }
-
-  addModifier() {
-    if ( this.newStatModifier.name !== '') {
-      this.stat.modifiers.push({name: this.newStatModifier.name, mod: this.newStatModifier.mod});
-      this.onStatChange();
-    }
-  }
-
-  deleteModifier(index: number) {
-    this.stat.modifiers.splice(index, 1);
-    this.onStatChange();
+  onStatChange($event: {statName: string, stat: Cp2020Stat}) {
+    this.changeStat.emit($event);
   }
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, this.modalConfig);
+    this.modalRef.onHidden.subscribe(()=>{
+      this.statElem.nativeElement.focus();
+    });
   }
 
   closeModal() {

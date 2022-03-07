@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { Cp2020StatsComponent } from './cp2020-stats/cp2020-stats.component';
 import { Cp2020StatComponent } from './cp2020-stat/cp2020-stat.component';
 import { Cp2020InitiativeEditorComponent } from './cp2020-initiative-editor/cp2020-initiative-editor.component';
+import { Cp2020StatEditorComponent } from './cp2020-stat-editor/cp2020-stat-editor.component';
 
 
 
@@ -12,7 +13,8 @@ import { Cp2020InitiativeEditorComponent } from './cp2020-initiative-editor/cp20
   declarations: [
     Cp2020StatsComponent,
     Cp2020StatComponent,
-    Cp2020InitiativeEditorComponent
+    Cp2020InitiativeEditorComponent,
+    Cp2020StatEditorComponent
   ],
   imports: [
     CommonModule,

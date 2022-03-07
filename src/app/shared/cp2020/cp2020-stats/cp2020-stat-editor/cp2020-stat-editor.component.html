@@ -1,0 +1,40 @@
+
+    <div class="row">
+      <div class="col text-end">Base:</div>
+      <div class="col"><input #statBaseElem type="number" [(ngModel)]="stat.Base" class="stat-input" (change)="onStatChange()" tabindex="0"></div>
+    </div>
+    <div class="row" *ngIf="stat.ev !== 0">
+      <div class="col text-end">EV:</div>
+      <div class="col">-{{stat.ev}}</div>
+    </div>
+    <div class="row" *ngFor="let mod of stat.modifiers; let i = index">
+      <div class="col text-end">{{mod.name}}</div>
+      <div class="col">{{mod.mod}}
+        <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn ms-2"
+          (click)="deleteModifier(i)" tabindex="0"></fa-icon>
+      </div>
+    </div>
+    <div class="row" *ngIf="stat.WoundModifier !== 0">
+      <div class="col text-end">Wound:</div>
+      <div class="col">{{stat.WoundModifier}}</div>
+    </div>
+    <div class="row" *ngIf="stat.Multiplier !== 1">
+      <div class="col text-end">Wound:</div>
+      <div class="col">x {{stat.Multiplier}}</div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <input type="text" [(ngModel)]="newStatModifier.name" placeholder="enter name" tabindex="0">
+      </div>
+      <div class="col">
+        <input type="number" [(ngModel)]="newStatModifier.mod" class="stat-input" tabindex="0">
+        <button class="csd-btn csd-icon-btn ms-2" (click)="addModifier()"  tabindex="0">
+          <fa-icon [icon]="faPlus"></fa-icon>
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-end">Total: </div>
+      <div class="col">{{stat.Adjusted}}</div>
+    </div>
