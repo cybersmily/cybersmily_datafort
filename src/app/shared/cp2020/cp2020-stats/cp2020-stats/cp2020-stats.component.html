@@ -23,8 +23,8 @@
     <span class=" chargen-label">
       Initiative
       <button *ngIf="showRollInitiative" class="csd-dice ms-1 hidden-print"
-      (click)="openModal(initiative, true, 'initElem')">
-        <fa-icon [icon]="faDice" ></fa-icon>
+      (click)="openModal(initiative, true, 'initElem')" tabindex="-1">
+        <fa-icon [icon]="faDice"></fa-icon>
       </button>
     </span>
     <button #initRollElem class="stats-initiative"

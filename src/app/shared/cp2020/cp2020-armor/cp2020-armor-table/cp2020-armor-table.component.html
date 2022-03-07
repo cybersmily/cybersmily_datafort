@@ -30,8 +30,10 @@
     </tr>
     <tr>
       <td class="chargen-label chargen-armor-label">SDP
-        <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn hidden-print float-end" (click)="openModal(sdpModal)"
-          title="Manage/Configure SDP"></fa-icon>
+        <button class="csd-btn csd-icon-btn hidden-print float-end" (click)="openModal(sdpModal)"
+        title="Manage/Configure SDP" tabindex="0">
+        <fa-icon [icon]="faPen"></fa-icon>
+        </button>
       </td>
       <td class="chargen-armor-space"></td>
       <td class="chargen-armor-cell">
@@ -41,12 +43,14 @@
           title="Max {{armor.sdp.head.destroyed}}">
         <div *ngIf="armor.sdp.head.curr >= armor.sdp.head.damaged">{{getSDPStatus(armor.sdp.head)}}</div>
       </td>
-      <td class="chargen-armor-cell"><input *ngIf="armor.sdp.torso.destroyed > 0" [(ngModel)]="armor.sdp.torso.curr" (change)="onChangeArmor()"
+      <td class="chargen-armor-cell">
+        <input *ngIf="armor.sdp.torso.destroyed > 0" [(ngModel)]="armor.sdp.torso.curr" (change)="onChangeArmor()"
           type="number" min=0 [max]="armor.sdp.torso.destroyed" class="csd-number csd-btn {{getSDPStyle(armor.sdp.torso)}}"
           title="Max {{armor.sdp.torso.destroyed}}">
         <div *ngIf="armor.sdp.torso.curr >= armor.sdp.torso.damaged">{{getSDPStatus(armor.sdp.torso)}}</div>
       </td>
-      <td class="chargen-armor-cell"><input *ngIf="armor.sdp.rarm.destroyed > 0" [(ngModel)]="armor.sdp.rarm.curr" (change)="onChangeArmor()"
+      <td class="chargen-armor-cell">
+        <input *ngIf="armor.sdp.rarm.destroyed > 0" [(ngModel)]="armor.sdp.rarm.curr" (change)="onChangeArmor()"
           type="number" min=0 [max]="armor.sdp.rarm.destroyed" class="csd-number csd-btn {{getSDPStyle(armor.sdp.rarm)}}"
           title="Max {{armor.sdp.rarm.destroyed}}">
         <div *ngIf="armor.sdp.rarm.curr >= armor.sdp.rarm.damaged">{{getSDPStatus(armor.sdp.rarm)}}</div>
