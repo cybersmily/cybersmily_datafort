@@ -24,14 +24,6 @@
   -moz-appearance:textfield;
 }
 
-.cyber-name fa-icon {
-  display: none;
-}
-
-.cyber-name:hover fa-icon {
-  display: inline-block;
-}
-
 .cyber-popover {
   display: block;
   min-width: 800px !important;

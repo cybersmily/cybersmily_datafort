@@ -1,23 +1,27 @@
 <div>
   <div class="row">
     <div class="col-6">
-      <input class="cyber-edit-box" type="text" [(ngModel)]="newCyberware.name" placeholder="Enter name of cyberware">
+      <input #editCyberNameElem class="cyber-edit-box" type="text" [(ngModel)]="newCyberware.name" placeholder="Enter name of cyberware" tabindex="0">
     </div>
     <div class="col-4">
       Total Cost:
       {{newCyberware.totalCost | number}}eb
     </div>
     <div class="col">
-      <fa-icon [icon]="faSave" class="ms-1 csd-btn cyber-save csd-icon-btn" (click)="update()"></fa-icon>
-      <fa-icon [icon]="faTrash" class="csd-btn cyber-save csd-icon-btn ms-3" (click)="delete()"></fa-icon>
+      <button class="ms-1 csd-btn csd-icon-btn csd-icon-xl" (click)="update()" tabindex="0">
+        <fa-icon [icon]="faSave"></fa-icon>
+      </button>
+      <button class="csd-btn csd-icon-btn csd-icon-xl ms-3" (click)="delete()" tabindex="0">
+        <fa-icon [icon]="faTrash"></fa-icon>
+      </button>
     </div>
   </div>
   <div class="row small">
     <div class="col-1">Code:</div>
-    <div class="col-4"><input type="text" [(ngModel)]="newCyberware.abbrev" placeholder="abbreviation or code"></div>
+    <div class="col-4"><input type="text" [(ngModel)]="newCyberware.abbrev" placeholder="abbreviation or code" tabindex="0"></div>
     <div class="col-2">Surgery:</div>
     <div class="col-4">
-      <select [(ngModel)]="newCyberware.surgery">
+      <select [(ngModel)]="newCyberware.surgery" tabindex="0">
         <option *ngFor="let surg of surgeries" [ngValue]="surg.code"
           title="Cost: {{surg.cost | number}}eb; Time: {{surg.timeInHours}}hrs; Damage: {{surg.damage}}; DIFF: {{surg.diff}}; Requires: {{surg.requried}}">
           {{surg.name}} ({{surg.code}})
@@ -28,7 +32,7 @@
   <div class="row small">
     <div class="col-1">Type:</div>
     <div class="col-4">
-      <select [(ngModel)]="newCyberware.type" (change)="changeType()">
+      <select [(ngModel)]="newCyberware.type" (change)="changeType()" tabindex="0">
         <option [ngValue]="''"></option>
         <option [ngValue]="'BIOWARE'">Bioware</option>
         <option [ngValue]="'BODY PLATING'">Body Plating</option>
@@ -51,28 +55,30 @@
     </div>
     <div class="col-2">Humanity Cost:</div>
     <div class="col-4">
-      <input type="text" [(ngModel)]="newCyberware.hc" placeholder="ex. 2d6+2 or 1d6/2" (input)="changeHC()">
+      <input type="text" [(ngModel)]="newCyberware.hc" placeholder="ex. 2d6+2 or 1d6/2" (input)="changeHC()" tabindex="0">
     </div>
   </div>
   <div class="row small">
     <div class="col-1">Subtype:</div>
-    <div class="col-4"><input type="text" [(ngModel)]="newCyberware.subtype" placeholder="optional"></div>
+    <div class="col-4"><input type="text" [(ngModel)]="newCyberware.subtype" placeholder="optional" tabindex="0"></div>
     <div class="col-2">Humanity Loss:</div>
     <div class="col-4 cyber-option-hl">
-      <input type="number" [(ngModel)]="newCyberware.hl" step="0.5">
-      <fa-icon *ngIf="newCyberware.hc && newCyberware.hc.toLowerCase().indexOf('d') > 0" [icon]="faDice"
-        class="csd-dice" title="Roll for humanity loss" (click)="rollHL( newCyberware.hc)"></fa-icon>
+      <input type="number" [(ngModel)]="newCyberware.hl" step="0.5" tabindex="0">
+      <button *ngIf="newCyberware.hc && newCyberware.hc.toLowerCase().indexOf('d') > 0" tabindex="0"
+        class="csd-btn csd-dice ms-2" title="Roll for humanity loss" (click)="rollHL( newCyberware.hc)" >
+        <fa-icon [icon]="faDice"></fa-icon>
+      </button>
     </div>
   </div>
   <div class="row small">
     <div class="col-1">Cost:</div>
-    <div class="col-4"><input type="number" [(ngModel)]="newCyberware.cost" class="text-end">eb</div>
+    <div class="col-4"><input type="number" [(ngModel)]="newCyberware.cost" class="text-end" tabindex="0">eb</div>
     <div class="col-2">Total H.L:</div>
     <div class="col-4">{{newCyberware.totalHL}}</div>
   </div>
   <div class="row small cyber-option-hl">
     <div class="col-1">#Options:</div>
-    <div class="col-4"><input type="number" [(ngModel)]="newCyberware.numOptions" class="text-end"></div>
+    <div class="col-4"><input type="number" [(ngModel)]="newCyberware.numOptions" class="text-end" tabindex="0"></div>
   </div>
   <div class="row">
     <div class="col">
@@ -80,7 +86,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col"><textarea [(ngModel)]="newCyberware.notes" class="cyber-edit-box"></textarea></div>
+    <div class="col"><textarea [(ngModel)]="newCyberware.notes" class="cyber-edit-box" tabindex="0"></textarea></div>
   </div>
   <div class="row" *ngIf="optionList.length > 0;else elseOptions">
     <div class="col">
@@ -135,10 +141,10 @@
     <div class="col-1"></div>
     <div class="col-5 cyber-option-hl">
       HL: <input type="number" [(ngModel)]="item.value.hl" step="0.5">
-      &nbsp;
-      <fa-icon [icon]="faDice" *ngIf="item.value.hc.toLowerCase().indexOf('d') > 0" class="csd-dice"
+      <button *ngIf="item.value.hc.toLowerCase().indexOf('d') > 0" class="csd-dice" tabindex="0"
         title="{{item.value.hc}}" (click)="rollOptionHL(item.value.hc, index)">
-      </fa-icon>
+        <fa-icon [icon]="faDice"></fa-icon>
+      </button>1
     </div>
     <div class="col text-end">
       Cost: {{item.value.cost | number}}eb
@@ -150,9 +156,7 @@
   <div class="cyber-selector-modal csd-rounded">
     <div class="modal-header">
       <h4 class="modal-title float-start">New Cyberware Option</h4>
-      <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()">
-
-      </button>
+      <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()"></button>
     </div>
     <div class="modal-body">
       <div class="row">

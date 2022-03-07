@@ -3,14 +3,14 @@ import { Cp2020PlayerCyber, Cp2020Surgery, Cp2020Surgeries } from './../models';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { DiceService } from './../../../services/dice/dice.service';
 import { faDice, faSave, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { Component, OnInit, Input, Output, EventEmitter, TemplateRef} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, TemplateRef, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'cs-cp2020-cyberware-editor',
   templateUrl: './cp2020-cyberware-editor.component.html',
   styleUrls: ['./cp2020-cyberware-editor.component.css']
 })
-export class Cp2020CyberwareEditorComponent implements OnInit {
+export class Cp2020CyberwareEditorComponent implements OnInit, AfterViewInit {
   faDice = faDice;
   faSave = faSave;
   faTrash = faTrash;
@@ -37,6 +37,9 @@ export class Cp2020CyberwareEditorComponent implements OnInit {
   @Output()
   deleteCyberware: EventEmitter<number> = new EventEmitter<number>();
 
+  @ViewChild('editCyberNameElem', {static: false})
+  cyberNameTitleElem: ElementRef;
+
   constructor(private cyberDataService: CyberDataService,
     private diceService: DiceService,
     private modalService: BsModalService) { }
@@ -46,6 +49,10 @@ export class Cp2020CyberwareEditorComponent implements OnInit {
     this.cyberDataService
     .getCP2020CyberwareOptions(this.newCyberware.type)
     .subscribe( options => this.optionList = options);
+  }
+
+  ngAfterViewInit(): void {
+      this.cyberNameTitleElem.nativeElement.focus();
   }
 
   changeType() {
