@@ -1,6 +1,6 @@
 import { faPlus, faTrash, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerGearList } from './../../shared/models/cp2020character/cp2020-player-gear-list';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, ViewChildren, QueryList } from '@angular/core';
 import { Cp2020PlayerGear } from './../../shared/models/cp2020character';
 
 @Component({
@@ -27,6 +27,12 @@ export class AppCharacterGearComponent implements OnInit {
   @Output()
   changeGear = new EventEmitter<Cp2020PlayerGearList>();
 
+  @ViewChild('gearTitleElem', {static: false})
+  gearTitleHeader: ElementRef;
+
+  @ViewChildren('gearNameElem')
+  gearNameElemList: QueryList<ElementRef>;
+
   constructor() { }
 
   ngOnInit() {
@@ -41,7 +47,6 @@ export class AppCharacterGearComponent implements OnInit {
     return this.gear.items.slice(0, count);
   }
 
-
   get secondColumn(): Array<Cp2020PlayerGear> {
     const count = Math.ceil(this.gear.items.length/2);
     return this.gear.items.slice(count);
@@ -50,6 +55,7 @@ export class AppCharacterGearComponent implements OnInit {
   addGearRow() {
     this.gear.items.push(new Cp2020PlayerGear());
     this.onGearChange();
+    this.gearNameElemList.last.nativeElement.focus();
   }
 
   removeGearRow(index: number, column: number) {
@@ -59,6 +65,11 @@ export class AppCharacterGearComponent implements OnInit {
     }
     this.gear.items.splice(index + count, 1);
     this.onGearChange();
+    if(this.gearNameElemList.length > 0){
+      this.gearNameElemList.toArray()[index - 1].nativeElement.focus();
+    } else {
+      this.gearTitleHeader.nativeElement.focus();
+    }
   }
 
 }

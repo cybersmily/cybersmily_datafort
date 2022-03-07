@@ -1,7 +1,7 @@
 <div class="chargen-section">
   <div class="chargen-label row g-0">
     <div class="col">
-      <h4 class="d-inline-block csd-btn me-4" (click)="isCollapsed = !isCollapsed">
+      <h4 #gearTitleElem class="d-inline-block csd-btn me-4" (click)="isCollapsed = !isCollapsed" (keyup.enter)="isCollapsed = !isCollapsed" tabindex="0">
         GEAR
         <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ms-2"></fa-icon>
       </h4>
@@ -18,7 +18,9 @@
         <div class="row g-0" *ngFor="let row of firstColumn;let i = index">
           <div class="col border border-dark pe-0 ps-0">
             <input [(ngModel)]="row.gear" min="0" type="text" style="width:95%" />
-            <fa-icon [icon]="faTrash" class="csd-icon-btn csd-btn" (click)="removeGearRow(i, 1)"></fa-icon>
+            <button  class="csd-icon-btn csd-btn" (click)="removeGearRow(i, 1)">
+              <fa-icon [icon]="faTrash"></fa-icon>
+            </button>
           </div>
           <div class="col-2 border border-dark pe-0 ps-0"><input [(ngModel)]="row.cost" class="text-end" min="0"
               type="number" step="0.01" style="width:100%" /></div>
@@ -34,19 +36,25 @@
         </div>
         <div class="row g-0" *ngFor="let row of secondColumn;let i = index">
           <div class="col border border-dark pe-0 ps-0">
-            <input [(ngModel)]="row.gear" min="0" type="text" style="width:95%" />
-            <fa-icon [icon]="faTrash" class="csd-icon-btn csd-btn" (click)="removeGearRow(i, 2)"></fa-icon>
+            <input #gearNameElem [(ngModel)]="row.gear" min="0" type="text" style="width:95%" />
+            <button class="csd-icon-btn csd-btn" (click)="removeGearRow(i, 2)">
+              <fa-icon [icon]="faTrash"></fa-icon>
+            </button>
           </div>
-          <div class="col-2 border border-dark pe-0 ps-0"><input [(ngModel)]="row.cost" class="text-end" min="0"
-              type="number" step="0.01" style="width:100%" /></div>
-          <div class="col-2 border border-dark pe-0 ps-0"><input [(ngModel)]="row.weight" class="text-end" min="0"
-              type="number" step="0.01" style="width:100%" /></div>
+          <div class="col-2 border border-dark pe-0 ps-0">
+            <input [(ngModel)]="row.cost" class="text-end w-100" min="0"type="number" step="0.01" />
+          </div>
+          <div class="col-2 border border-dark pe-0 ps-0">
+            <input [(ngModel)]="row.weight" class="text-end w-100" min="0" type="number" step="0.01" />
+          </div>
         </div>
       </div>
     </div>
     <div class="row g-0">
       <div class="col border border-dark text-center">
-        <fa-icon [icon]="faPlus" class="csd-icon-btn csd-btn" (click)="addGearRow()"></fa-icon>
+        <button class="csd-icon-btn csd-btn w-100" (click)="addGearRow()">
+          <fa-icon [icon]="faPlus"></fa-icon>
+        </button>
       </div>
     </div>
     <div class="row g-0">
