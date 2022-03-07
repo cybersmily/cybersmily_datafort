@@ -1,7 +1,7 @@
 import { Cp2020PlayerAmmo } from './../models/cp-2020-player-ammo';
 import { JsonDataFiles, DataService } from './../../../services/file-services';
 import { faPlus, faTrash, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { Cp2020Ammo, Cp2020AmmoTypes } from '../models';
 @Component({
   selector: 'cs-cp2020ammo',
@@ -19,6 +19,9 @@ export class Cp2020ammoComponent implements OnInit {
 
   @Output()
   updateAmmo: EventEmitter<Array<Cp2020PlayerAmmo>> = new EventEmitter<Array<Cp2020PlayerAmmo>>();
+
+  @ViewChild('ammoTitleElem', {static: false})
+  ammoTitle: ElementRef;
 
   ammoDataList: Array<Cp2020Ammo> = new Array<Cp2020Ammo>();
   ammoTypeList: Array<Cp2020AmmoTypes> = new Array<Cp2020AmmoTypes>();
@@ -102,6 +105,7 @@ export class Cp2020ammoComponent implements OnInit {
     index += column > 1 ? this.columnOne.length: 0;
     this.ammoList.splice(index, 1);
     this.updateAmmo.emit(this.ammoList);
+    this.ammoTitle.nativeElement.focus();
   }
 
 }

@@ -2,7 +2,7 @@
   <div class="col">
     <div class="cp2020-label row">
       <div class="col">
-        <h5 class="d-inline-block csd-btn" (click)="isCollapsed = !isCollapsed" (keyup.enter)="isCollapsed = !isCollapsed" tabindex="0">
+        <h5 #ammoTitleElem class="d-inline-block csd-btn" (click)="isCollapsed = !isCollapsed" (keyup.enter)="isCollapsed = !isCollapsed" tabindex="0">
           AMMO
           <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ms-1"></fa-icon>
         </h5>
@@ -23,6 +23,7 @@
     </div>
   </div>
 </div>
+
 <ng-template #ammoColumn let-ammoList="ammoList" let-column="column">
   <div class="row">
     <div class="col-2 col-md-3 col-lg-2 d-none d-md-inline-block border border-dark" [ngClass]="{'d-none d-md-line-block': column > 1}">Rounds</div>
@@ -32,7 +33,9 @@
   <div class="row border border-dark" *ngFor="let ammo of ammoList;let i = index">
     <div class="col-2 col-md-3 col-lg-2 border border-dark g-0 ps-1 pe-1">
       <input type="number" title="Number of rounds available" class="csd-number float-start" [(ngModel)]="ammo.rounds" tabindex="0">
-      <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn float-end" title="Remove ammo from list" (click)="delete(i, column)"></fa-icon>
+      <button class="csd-btn csd-icon-btn float-end" title="Remove ammo from list" (click)="delete(i, column)" tabindex="0">
+        <fa-icon [icon]="faTrash"></fa-icon>
+      </button>
     </div>
     <div class="col border border-dark">{{ammo.name}} {{ammo.subtype}}</div>
     <div class="col-2 col-md-3 col-lg-2 border border-dark">{{ammo.cost|number}}eb/{{ammo.perBox}}</div>
@@ -51,13 +54,15 @@
   </div>
   <div class="row">
     <div class="col">
-      <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn me-2" (click)="add()" (keyup.enter)="add()" tabindex="0"></fa-icon>
       <select [(ngModel)]="selectedAmmoIndex" tabindex="0">
         <option *ngIf="0 > selectedAmmoIndex" [ngValue]="-1" class="small"><i>choose ammo...</i></option>
         <option *ngFor="let ammo of ammoDataList;let i = index" [value]="i">{{ammo.type}}<span
             *ngIf="ammo.subtype"> -
             {{ammo.subtype}}</span></option>
       </select>
+      <button class="csd-btn csd-icon-btn ms-2" (click)="add()" tabindex="0">
+        <fa-icon [icon]="faPlus"></fa-icon>
+      </button>
     </div>
     <div class="col-3">
       <select *ngIf="hasSubtype(selectedAmmoIndex)" [(ngModel)]="selectedAmmoSubtypeIndex" tabindex="0">

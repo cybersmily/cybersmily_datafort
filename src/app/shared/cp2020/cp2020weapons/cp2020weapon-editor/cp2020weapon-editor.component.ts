@@ -3,14 +3,14 @@ import { CpPlayerWeaponOption } from './../models/cp-player-weapon-option';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { faSave, faPen, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { CpPlayerWeapon, WeaponProperties } from './../models';
-import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, TemplateRef, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'cs-cp2020weapon-editor',
   templateUrl: './cp2020weapon-editor.component.html',
   styleUrls: ['./cp2020weapon-editor.component.css'],
 })
-export class Cp2020weaponEditorComponent implements OnInit {
+export class Cp2020weaponEditorComponent implements OnInit, AfterViewInit {
   faSave = faSave;
   faPen = faPen;
   faPlus = faPlus;
@@ -27,8 +27,6 @@ export class Cp2020weaponEditorComponent implements OnInit {
     class: 'modal-dialog-centered modal-lg'
   };
 
-
-
   @Input()
   weapon: CpPlayerWeapon = new CpPlayerWeapon();
 
@@ -37,10 +35,17 @@ export class Cp2020weaponEditorComponent implements OnInit {
     CpPlayerWeapon
   >();
 
+  @ViewChild('newWeaponNameElem', {static: false})
+  newWpnElem: ElementRef;
+
   constructor(private modalService: BsModalService) {}
 
   ngOnInit(): void {
     this.newWeapon = new CpPlayerWeapon(this.weapon);
+  }
+
+  ngAfterViewInit(): void {
+    this.newWpnElem.nativeElement.focus();
   }
 
   update() {

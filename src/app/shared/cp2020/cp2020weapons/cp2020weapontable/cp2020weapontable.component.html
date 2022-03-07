@@ -52,8 +52,11 @@
       (deleteWeapon)="deleteWeapon($event)" (updateWeapon)="updateWeapon($event)">
     </cs-cp2020weapon>
     <div class="row">
-      <div class="col-12 cp2020-wpn-add" title="Add another weapon" (click)="openModal(newWeaponModal)" (keyup.enter)="openModal(newWeaponModal)" tabindex="0">
-        <fa-icon class="csd-icon-btn" [icon]="faPlus"></fa-icon>
+      <div class="col-12 text-center border border-dark ps-0 pe-0">
+        <button #newWeaponElem class="csd-btn text-center w-100" title="Add another weapon"
+          (click)="openModal(newWeaponModal, 'newWeapon')" tabindex="0">
+          <fa-icon class="csd-icon-btn" [icon]="faPlus"></fa-icon>
+        </button>
       </div>
     </div>
     <cs-cp2020ammo *ngIf="showAmmo" [ammoList]="weapons.ammo" (updateAmmo)="updateAmmo($event)"></cs-cp2020ammo>
@@ -62,9 +65,7 @@
 
 <ng-template #newWeaponModal>
   <div class="modal-body">
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()" (keyup.enter)="closeModal()">
-
-    </button>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()" (keyup.enter)="closeModal()"></button>
     <tabset>
       <tab heading="New Weapon" id="tab1" tabindex="0">
         <cs-cp2020weapon-editor [weapon]="newWeapon" (updateWeapon)="addWeapon($event)"></cs-cp2020weapon-editor>
@@ -80,9 +81,7 @@
 <ng-template #combatCalcModal>
   <div class="modal-header">
     <h4 class="modal-title float-start">Combat Calculator</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()" tabindex="0" (keyup.enter)="closeModal()">
-
-    </button>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()" tabindex="0" (keyup.enter)="closeModal()">    </button>
   </div>
   <div class="modal-body">
     <cs-cp2020weapon-calculator [weaponList]="weapons" [skills]="skills" [body]="stats.BODY.Adjusted"
@@ -95,7 +94,6 @@
   <div class="modal-header">
     <h4 class="modal-title float-start">Settings</h4>
     <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()" tabindex="0" (keyup.enter)="closeModal()">
-
     </button>
   </div>
   <div class="modal-body">

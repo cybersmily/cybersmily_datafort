@@ -39,7 +39,7 @@
   <div class="col-1"></div>
   <div class="col-3">
     magazines ({{weapon.magazines.length}}):
-    <select [(ngModel)]="weapon.currMagIndex" tabindex="0">
+    <select [(ngModel)]="weapon.currMagIndex" tabindex="-1">
       <option *ngFor="let mag of weapon.magazines;let i = index" [value]="i">{{mag.used}}/{{mag.capacity}} {{mag.ammo}} {{mag.subtype}}</option>
     </select>
   </div>
