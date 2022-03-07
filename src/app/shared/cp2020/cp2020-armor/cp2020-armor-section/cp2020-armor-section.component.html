@@ -1,5 +1,5 @@
-<div class="content ps-3 pe-3">
-  <div class="cp2020-label row">
+<div class="cp2020-section border border-dark">
+  <div class="cp2020-label row g-0">
     <div class="col ps-1">
       <h4 #armorTitleElem class="d-inline-block csd-btn me-4" (click)="isCollapsed = !isCollapsed" (key.enter)="isCollapsed = !isCollapsed" tabindex="0">
         ARMOR/CLOTHING
@@ -15,15 +15,15 @@
       </button>
     </div>
   </div>
-  <div class="row border border-dark" [collapse]="isCollapsed">
+  <div class="row border border-dark g-0" [collapse]="isCollapsed">
     <div class="col pe-4 ms-1 mt-1">
-      <div class="row">
+      <div class="row g-0">
         <div class="col">
           <ng-container [ngTemplateOutlet]="clothingList"></ng-container>
         </div>
       </div>
       <br>
-      <div class="row">
+      <div class="row g-0">
         <div class="col">
           <ng-container [ngTemplateOutlet]="armorList" [ngTemplateOutletContext]="{armorList:armorBlock.activePieces}">
           </ng-container>
@@ -35,8 +35,8 @@
 </div>
 
 <ng-template #armorList let-armorList="armorList">
-  <div class="row bg-black fw-bold text-white">
-    <div class="col border border-dark">ACTIVE ARMOR</div>
+  <div class="row bg-black fw-bold text-white g-0">
+    <div class="col border border-dark ps-1">ACTIVE ARMOR</div>
     <div class="col-1 text-center border border-dark small">SP</div>
     <div class="col-1 text-center border border-dark small">HEAD</div>
     <div class="col-1 text-center border border-dark small">TORSO</div>
@@ -47,7 +47,7 @@
     <div class="col-1 text-center border border-dark small">EV</div>
     <div class="col-1 text-center border border-dark small"></div>
   </div>
-  <div *ngIf="armorList.length &lt; 1" class="row small">
+  <div *ngIf="armorList.length &lt; 1" class="row small g-0">
     <div class="col border border-dark">&nbsp;</div>
     <div class="col-1 text-center border border-dark"></div>
     <div class="col-1 text-center border border-dark"></div>
@@ -59,8 +59,8 @@
     <div class="col-1 text-center border border-dark"></div>
     <div class="col-1 text-center border border-dark"></div>
   </div>
-  <div *ngFor="let armor of armorList;let i = index" class="row small">
-    <div class="col border border-dark">
+  <div *ngFor="let armor of armorList;let i = index" class="row small g-0">
+    <div class="col border border-dark ps-1">
       {{armor.name}}
       <fa-icon [icon]="faWrench" class="csd-btn csd-icon-btn float-end" title="Repair all locations"
       (click)="repair(armor)"></fa-icon>
@@ -77,19 +77,19 @@
   </div>
 </ng-template>
 <ng-template #clothingList>
-  <div class="row bg-black fw-bold text-white">
-    <div class="col">
+  <div class="row bg-black fw-bold text-white g-0">
+    <div class="col ps-1">
       ARMOR/CLOTHING LIST
     </div>
   </div>
-  <div class="row small">
+  <div class="row small g-0">
     <div class="col-12 col-md-6">
-      <div class="row small fw-bold">
-        <div class="col text-truncate border border-dark">Name</div>
+      <div class="row small fw-bold g-0">
+        <div class="col text-truncate border border-dark ps-1">Name</div>
         <div class="col-1 text-center border border-dark">SP</div>
         <div class="col-2 text-center border border-dark">Cost</div>
       </div>
-      <div *ngIf="armorBlock.armorPieces.length &lt; 1" class="row small">
+      <div *ngIf="armorBlock.armorPieces.length &lt; 1" class="row small g-0">
         <div class="col text-truncate border border-dark">&nbsp;
         </div>
         <div class="col-1 text-center border border-dark"></div>
@@ -98,12 +98,12 @@
       <ng-container *ngFor="let armor of columnOne;let i = index" [ngTemplateOutlet]="clothingDataRow" [ngTemplateOutletContext]="{armor:armor, index:i}"></ng-container>
     </div>
     <div class="col-12 col-md-6">
-      <div class="row small fw-bold">
+      <div class="row small fw-bold g-0">
         <div class="col text-truncate border border-dark d-none d-lg-block">Name</div>
         <div class="col-1 text-center border border-dark d-none d-lg-block">SP</div>
         <div class="col-2 text-center border border-dark d-none d-lg-block">Cost</div>
       </div>
-      <div *ngIf="armorBlock.armorPieces.length &lt; 1" class="row small">
+      <div *ngIf="armorBlock.armorPieces.length &lt; 1" class="row small g-0">
         <div class="col text-truncate border border-dark d-none d-lg-block">&nbsp;
         </div>
         <div class="col-1 text-center border border-dark d-none d-lg-block"></div>
@@ -112,7 +112,7 @@
       <ng-container *ngFor="let armor of columnTwo;let i = index" [ngTemplateOutlet]="clothingDataRow" [ngTemplateOutletContext]="{armor:armor, index:i + columnOne.length}"></ng-container>
     </div>
   </div>
-  <div class="row border border-dark">
+  <div class="row border border-dark g-0">
     <div class="col text-center ps-0 pe-0">
       <button class="csd-btn csd-icon-btn csd-icon-lg w-100" title="Add new armor/clothing..."
         (click)="showModal(armorDetailModal, 'new')" tabindex="0">
@@ -123,8 +123,8 @@
 </ng-template>
 
 <ng-template #clothingDataRow let-armor="armor" let-index="index">
-  <div class="row small">
-    <div class="col text-truncate border border-dark">
+  <div class="row small g-0">
+    <div class="col text-truncate border border-dark ps-1">
       <input type="checkbox" class="me-2" [checked]="armor.isActive"
       title="Activate/wear this piece of clothing" (change)="activePiece($event,index)"
       [disabled]="!armorBlock.ableToActivate(armor) && !armor.isActive" tabindex="0">

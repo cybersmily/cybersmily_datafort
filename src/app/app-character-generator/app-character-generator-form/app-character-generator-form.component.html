@@ -67,13 +67,13 @@
           </cs-cp2020weapontable>
         </div>
       </div>
-      <div class="row print-fix csd-linebreak mt-2">
+      <div class="row print-fix csd-linebreak">
         <div class="col">
           <cs-cp2020-armor-section [isCollapsed]="charGenSettings.isCollapsed" [armorBlock]="character.armor"
             (changeArmor)="changeArmor($event)"></cs-cp2020-armor-section>
         </div>
       </div>
-      <div class="row print-fix csd-linebreak g-0">
+      <div class="row print-fix csd-linebreak">
         <div class="col">
           <cs-cp2020-cyberware-table [cyberList]="character.cyberware" (changeList)="changeCyber($event)"
             [showTwoColumns]="true" [isCollapsed]="charGenSettings.isCollapsed">
