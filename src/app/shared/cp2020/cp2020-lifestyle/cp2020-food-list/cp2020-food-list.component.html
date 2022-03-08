@@ -12,7 +12,9 @@
     <hr>
     <div class="row mb-2">
       <div class="col-2">
-        <fa-icon [icon]="faPlus" class="csd-icon-btn csd-btn ms-2" title="Add a new food entry" (click)="addSelectedFood()"></fa-icon>
+        <button class="csd-icon-btn csd-btn ms-2" title="Add a new food entry" (click)="addSelectedFood()">
+          <fa-icon [icon]="faPlus"></fa-icon>
+        </button>
         <input type="number" min="0" [(ngModel)]="selectedFood.count" class="w-50 float-end">
       </div>
       <div class="col-4">
@@ -34,7 +36,9 @@
 <ng-template #cpFood let-food="food" let-index="index">
   <div class="row ps-2 pe-1">
     <div class="col-3">
-      <fa-icon [icon]="faUtensils" class="csd-icon-btn csd-btn csd-icon-sm ms-1" title="Use 1 day of food" (click)="useFood(index)"></fa-icon>
+      <button class="csd-icon-btn csd-btn csd-icon-sm ms-1" title="Use 1 day of food" (click)="useFood(index)">
+        <fa-icon [icon]="faUtensils"></fa-icon>
+      </button>
       {{food.count}} {{food.unit}}<span *ngIf="food.count > 1">s</span>
     </div>
     <div class="col-6">
@@ -42,8 +46,9 @@
     </div>
     <div class="col-3 text-end">
       {{(food.cost * (food.count/7) * food.qualityMod) | number:'1.0-0'}}eb
-      <fa-icon [icon]="faTrash" class="csd-icon-btn csd-btn" (click)="delete(index)" title="Delete food entry">
-      </fa-icon>
+      <button class="csd-icon-btn csd-btn" (click)="delete(index)" title="Delete food entry">
+        <fa-icon [icon]="faTrash"></fa-icon>
+      </button>
     </div>
   </div>
 </ng-template>
