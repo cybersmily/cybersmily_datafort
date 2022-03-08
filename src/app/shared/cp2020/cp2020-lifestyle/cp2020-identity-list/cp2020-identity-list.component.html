@@ -5,7 +5,6 @@
         <h5 class="cp2020-label d-inline-block">Identities</h5>
       </div>
     </div>
-
     <div class="row">
       <div class="col-12 col-lg-6">
         <ng-container *ngFor="let id of firstColumn; let i = index" [ngTemplateOutlet]="cpIdentities" [ngTemplateOutletContext]="{id:id, index: getId(i, 1)}">
@@ -16,9 +15,11 @@
         </ng-container>
       </div>
     </div>
-    <div class="row">
+    <div class="row mb-2">
       <div class="col text-center">
-        <fa-icon [icon]="faPlus" class="csd-icon-btn csd-btn" (click)="add()" title="Add new identity"></fa-icon>
+        <button class="csd-icon-btn csd-btn w-100" (click)="add()" title="Add new identity">
+          <fa-icon [icon]="faPlus"></fa-icon>
+        </button>
       </div>
     </div>
   </div>
@@ -30,7 +31,9 @@
       <input [(ngModel)]="id.name" type="text" class="w-100" (change)="update(id, index)" placeholder="identity...">
     </div>
     <div class="col-1 g-0">
-      <fa-icon [icon]="faSave" title="Edit identity" class="csd-icon-btn csd-btn ms-2" (click)="edit(-1)"></fa-icon>
+      <button title="Edit identity" class="csd-icon-btn csd-btn ms-2" (click)="edit(-1)">
+        <fa-icon [icon]="faSave"></fa-icon>
+      </button>
     </div>
     <div class="col-4">
       <input [(ngModel)]="id.sin" type="text" (change)="update(id, index)" class="w-100" placeholder="sin...">
@@ -42,8 +45,12 @@
 
   <div class="row ms-1 me-1"  *ngIf="index !== editIndex">
     <div class="col-8 g-0">{{(id.name === '') ? 'Identity-' + index : id.name}}
-      <fa-icon [icon]="faPen" title="Edit identity" class="csd-icon-btn csd-btn ms-2" (click)="edit(index)"></fa-icon>
-      <fa-icon [icon]="faTrash" title="Delete identity" class="csd-icon-btn csd-btn ms-2" (click)="delete(index)"></fa-icon>
+      <button title="Edit identity" class="csd-icon-btn csd-btn ms-2" (click)="edit(index)">
+        <fa-icon [icon]="faPen"></fa-icon>
+      </button>
+      <button title="Delete identity" class="csd-icon-btn csd-btn ms-2" (click)="delete(index)">
+        <fa-icon [icon]="faTrash"></fa-icon>
+      </button>
     </div>
     <div class="col-4">{{id.sin}}</div>
     <div class="col-12">{{id.desc}}</div>
