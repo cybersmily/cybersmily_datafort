@@ -1,8 +1,7 @@
-import { VehicleType } from './../models/vehicle-type';
 import { Cp2020VehicleWeapon } from './../../cp2020weapons/models';
 import { Cp2020Vehicle, Cp2020VehicleTypes } from './../models';
 import { faPen, faPlus, faTrash, faSave } from '@fortawesome/free-solid-svg-icons';
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'cs-cp2020-vehicle-details',
@@ -26,6 +25,9 @@ export class Cp2020VehicleDetailsComponent implements OnInit {
 
   @Output()
   delete: EventEmitter<number> = new EventEmitter<number>();
+
+  @ViewChild('vehicleNameElem', {static: false})
+  vehicleNameInput: ElementRef;
 
   currVehicle: Cp2020Vehicle = new Cp2020Vehicle();
   isEditable: boolean = false;

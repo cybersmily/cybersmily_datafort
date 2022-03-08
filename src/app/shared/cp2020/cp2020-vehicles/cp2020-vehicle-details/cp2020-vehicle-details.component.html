@@ -1,13 +1,19 @@
 <div>
   <div class="row">
-    <div class="col">Name:
+    <div class="col-8">Name:
       <span *ngIf="!isEditable">{{currVehicle.name}}</span>
-      <input *ngIf="isEditable" type="text" [(ngModel)]="currVehicle.name">
-      <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn float-end ms-2" (click)="deleteVehicle()"></fa-icon>
-      <fa-icon [icon]="faSave" *ngIf="isEditable" class="csd-btn csd-icon-btn float-end ms-2" (click)="save()">
-      </fa-icon>
-      <fa-icon *ngIf="!isEditable" [icon]="faPen" class="csd-btn csd-icon-btn float-end ms-2"
-        (click)="isEditable = !isEditable"></fa-icon>
+      <input #vehicleNameElem *ngIf="isEditable" type="text" [(ngModel)]="currVehicle.name">
+    </div>
+    <div class="col-4 text-end">
+      <button *ngIf="isEditable" class="csd-btn csd-icon-btn ms-2" title="Save changes" (click)="save()">
+        <fa-icon [icon]="faSave"></fa-icon>
+      </button>
+      <button *ngIf="!isEditable" class="csd-btn csd-icon-btn ms-2" title="Edit vehicle" (click)="isEditable = !isEditable">
+        <fa-icon [icon]="faPen"></fa-icon>
+      </button>
+      <button class="csd-btn csd-icon-btn ms-2 me-1" title="Delete vehicle" (click)="deleteVehicle()">
+        <fa-icon [icon]="faTrash"></fa-icon>
+      </button>
     </div>
   </div>
   <div class="row small">
@@ -99,15 +105,17 @@
         <div class="row" *ngFor="let wpn of currVehicle.weapons;let i = index">
           <div class="col">
             <input type="text" [(ngModel)]="wpn.name">
-            <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn csd-icon-md" (click)="deleteWeapon(i)">
-            </fa-icon>
+            <button class="csd-btn csd-icon-btn csd-icon-md ms-2" (click)="deleteWeapon(i)" title="Delete weapon">
+              <fa-icon [icon]="faTrash"></fa-icon>
+            </button>
           </div>
         </div>
       </ng-container>
       <div class="row" *ngIf="isEditable">
         <div class="col text-center">
-          <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn" (click)="addWeapon()">
-          </fa-icon>
+          <button class="csd-btn csd-icon-btn" (click)="addWeapon()" title="Add weapon">
+            <fa-icon [icon]="faPlus"></fa-icon>
+          </button>
         </div>
       </div>
     </div>
@@ -124,15 +132,17 @@
         <div class="row" *ngFor="let opt of currVehicle.options;let i = index">
           <div class="col">
             <input type="text" [(ngModel)]="opt.name">
-            <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn csd-icon-md" (click)="deleteOption(i)">
-            </fa-icon>
+            <button class="csd-btn csd-icon-btn csd-icon-md ms-2" (click)="deleteOption(i)" title="Delete option">
+              <fa-icon [icon]="faTrash"></fa-icon>
+            </button>
           </div>
         </div>
       </ng-container>
       <div class="row" *ngIf="isEditable">
         <div class="col text-center">
-          <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn" (click)="addOption()">
-          </fa-icon>
+          <button class="csd-btn csd-icon-btn" (click)="addOption()" title="Add option">
+            <fa-icon [icon]="faPlus"></fa-icon>
+          </button>
         </div>
       </div>
     </div>
