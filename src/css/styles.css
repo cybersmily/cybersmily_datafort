@@ -68,6 +68,10 @@ BUTTON {
   color: red;
 }
 
+.csd-icon-btn:disabled {
+  color: #DDD;
+}
+
 .csd-dice {
   color: red;
   cursor: pointer;
@@ -106,6 +110,11 @@ BUTTON {
 .csd-btn {
   cursor: pointer;
 }
+
+.csd-btn:disabled {
+  cursor:not-allowed;
+}
+
 .csd-btn:focus, .csd-btn:hover {
   background-color: #BBB;
   border: 1px #333 solid;
