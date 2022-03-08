@@ -2,7 +2,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { DataService, JsonDataFiles } from './../../../services/file-services';
 import { Cp2020Services } from '../models/cp2020-services';
 import { faTrash, faPlus, faList, faDollarSign, faEuroSign } from '@fortawesome/free-solid-svg-icons';
-import { Component, Input, OnInit, Output, EventEmitter, TemplateRef, OnChanges } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, TemplateRef, OnChanges, ViewChild, ElementRef, ViewChildren, QueryList } from '@angular/core';
 
 @Component({
   selector: 'cs-cp2020-service-list',
@@ -29,6 +29,15 @@ export class Cp2020ServiceListComponent implements OnInit, OnChanges {
 
   @Output()
   pay: EventEmitter<number> = new EventEmitter<number>();
+
+  @ViewChild('addServiceElem', {static: false})
+  addServiceButton: ElementRef;
+
+  @ViewChild('payServiceElem', {static: false})
+  payServiceButton: ElementRef;
+
+  @ViewChildren('serviceNameElem')
+  serviceListElem: QueryList<ElementRef>;
 
   servicesData: Array<Cp2020Services> = new Array<Cp2020Services>();
   currServices: Array<Cp2020Services> = new Array<Cp2020Services>();
@@ -98,6 +107,11 @@ export class Cp2020ServiceListComponent implements OnInit, OnChanges {
   delete(index: number) {
     this.currServices.splice(index, 1);
     this.update();
+    if(index > -1 && this.serviceListElem.length > index) {
+      this.serviceListElem.toArray()[index - 1].nativeElement.focus();
+    } else {
+      this.addServiceButton.nativeElement.focus();
+    }
   }
 
   update() {
@@ -112,6 +126,13 @@ export class Cp2020ServiceListComponent implements OnInit, OnChanges {
     this.selectedService = this.currServices[index];
     this.selectedIndex = index;
     this.modalRef = this.modalService.show(template, this.modalConfig);
+    this.modalRef.onHidden.subscribe(() => {
+      if(index > -1 && this.serviceListElem.length > index) {
+        this.serviceListElem.toArray()[index].nativeElement.focus();
+      } else {
+        this.addServiceButton.nativeElement.focus();
+      }
+    });
   }
 
   closeModal() {

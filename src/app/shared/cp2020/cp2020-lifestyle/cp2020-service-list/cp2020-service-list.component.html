@@ -6,16 +6,22 @@
         </div>
       <div class="col text-end">
         <span class="d-inline-block">Total: {{totalMonthlyCost|number}}eb/month</span>
-        <fa-icon [icon]="faEuroSign" class="csd-btn csd-icon-btn ms-2 csd-icon-xl me-2" title="Pay" (click)="payServices()"></fa-icon>
+        <button #payServiceElem class="csd-btn csd-icon-btn ms-2 csd-icon-xl me-2" title="Pay" (click)="payServices()">
+          <fa-icon [icon]="faEuroSign"></fa-icon>
+        </button>
       </div>
     </div>
     <div *ngFor="let service of currServices;let i = index" class="row ps-1 pe-1">
       <div class="col-8">
-        <select [(ngModel)]="service.name" (change)="changeName($event.target.value,i)">
+        <select #serviceNameElem [(ngModel)]="service.name" (change)="changeName($event.target.value,i)">
           <option *ngFor="let s of servicesData" [ngValue]="s.name">{{s.name}}</option>
         </select>
-        <fa-icon *ngIf="service.options && service.options.length > 0" [icon]="faList" class="csd-btn csd-icon-btn ms-1" (click)="showModal(showOptions, i)" title="Options"></fa-icon>
-        <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn ms-2" (click)="delete(i)" title="Delete service"></fa-icon>
+        <button *ngIf="service.options && service.options.length > 0" class="csd-btn csd-icon-btn ms-1" (click)="showModal(showOptions, i)" title="Options">
+          <fa-icon [icon]="faList"></fa-icon>
+        </button>
+        <button class="csd-btn csd-icon-btn ms-2" (click)="delete(i)" title="Delete service">
+          <fa-icon [icon]="faTrash"></fa-icon>
+        </button>
       </div>
       <div class="col">
       </div>
@@ -26,7 +32,9 @@
     <br>
     <div class="row">
       <div class="col text-center">
-        <fa-icon [icon]="faPlus" class="csd-icon-btn csd-btn" title="Add a service" (click)="add()"></fa-icon>
+        <button #addServiceElem class="csd-icon-btn csd-btn W-100" title="Add a service" (click)="add()">
+          <fa-icon [icon]="faPlus"></fa-icon>
+        </button>
       </div>
     </div>
   </div>
