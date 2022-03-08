@@ -1,7 +1,7 @@
 <div class="cp2020-section border border-dark">
   <div class="cp2020-label row g-0">
     <div class="col">
-      <h4 class="d-inline-block csd-btn me-4" (click)="isCollapsed = !isCollapsed">
+      <h4 class="d-inline-block csd-btn me-4" (click)="isCollapsed = !isCollapsed" (keyup.enter)="isCollapsed = !isCollapsed" tabindex="0">
         LIFESTYLE & EXPENSES
         <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ms-2"></fa-icon>
       </h4>
