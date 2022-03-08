@@ -1,7 +1,7 @@
 import { LifePathGeneratorService, SourcesDataService } from './../services';
 import { TitleValue } from './../../../models/title-value';
 import { Sibling, LifePathResults, LifepathEvent } from './../models';
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, ViewChildren, QueryList, ElementRef, ViewChild } from '@angular/core';
 import { faMars, faVenus, faDice, faPlus, faGenderless, faTrash, faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -47,6 +47,12 @@ export class Cp2020LifepathSectionComponent implements OnInit {
 
   @Output()
   changeLifepath = new EventEmitter<LifePathResults>();
+
+  @ViewChildren('siblingNameElem')
+  siblingNameInputList: QueryList<ElementRef>;
+
+  @ViewChild('newSiblingElem', {static: false})
+  newSiblingButton: ElementRef;
 
   constructor( private sourceService: SourcesDataService,
     private lifepathGenerator: LifePathGeneratorService
@@ -108,11 +114,17 @@ export class Cp2020LifepathSectionComponent implements OnInit {
     const sibling = new Sibling();
     this.newLifPath.family.siblings.siblings.push(sibling);
     this.changeLifepath.emit(this.newLifPath);
+    this.siblingNameInputList.last.nativeElement.focus();
   }
 
   removeSibling(index: number) {
     this.newLifPath.family.siblings.siblings.splice(index, 1);
     this.changeLifepath.emit(this.newLifPath);
+    if(this.siblingNameInputList.length > 0) {
+      this.siblingNameInputList.last.nativeElement.focus();
+    } else {
+      this.newSiblingButton.nativeElement.focus();
+    }
   }
 
   changeYear() {

@@ -126,7 +126,9 @@
       </div>
       <div class="row hidden-print border border-dark">
         <div class="col text-center">
-          <fa-icon [icon]="faPlus" class="csd-icon-btn csd-btn" (click)="addSibling()"></fa-icon>
+          <button #newSiblingElem class="csd-icon-btn csd-btn w-100 mb-2" (click)="addSibling()">
+            <fa-icon [icon]="faPlus"></fa-icon>
+          </button>
         </div>
       </div>
       <div class="row">
@@ -143,7 +145,9 @@
         <div class="col-2 col-md-1">
           <input [(ngModel)]="event.age" type="number" min="0" max="150"
             class="csd-number" />
-          <fa-icon [icon]="faTrash" class="csd-icon-btn csd-btn" (click)="removeYear(i)"></fa-icon>
+          <button class="csd-icon-btn csd-btn ms-1" (click)="removeYear(i)">
+            <fa-icon [icon]="faTrash"></fa-icon>
+          </button>
         </div>
         <div class="col ps-0 pe-0">
           <textarea [(ngModel)]="event.event" class="chargen-life-event" rows="3" (change)="onChangeLifePath()"
@@ -152,7 +156,9 @@
       </div>
       <div class="row border border-dark g-0 hidden-print">
         <div class="col text-center">
-          <fa-icon [icon]="faPlus" class="csd-icon-btn csd-btn" (click)="addYear()"></fa-icon>
+          <button class="csd-icon-btn csd-btn w-100" (click)="addYear()">
+            <fa-icon [icon]="faPlus"></fa-icon>
+          </button>
         </div>
       </div>
     </div>
@@ -161,9 +167,11 @@
 
 <ng-template #sibling let-sib="sib" let-i="i">
   <div class="col-6 pt-1">
-    <input type="text" [(ngModel)]="sib.name" (change)="onChangeLifePath()" style="width:90%;"
+    <input #siblingNameElem type="text" [(ngModel)]="sib.name" (change)="onChangeLifePath()" style="width:90%;"
       placeholder="name of sibling">
-    <fa-icon [icon]="faTrash" class="csd-icon-btn csd-btn me-1" (click)="removeSibling(i)"></fa-icon>
+    <button class="csd-icon-btn csd-btn ms-1" (click)="removeSibling(i)">
+      <fa-icon [icon]="faTrash"></fa-icon>
+    </button>
   </div>
   <div class="col-6 col-md-2 col-lg-1">
     <select [(ngModel)]="sib.gender" (change)="onChangeLifePath()">
