@@ -1,5 +1,6 @@
+import { faEuroSign } from '@fortawesome/free-solid-svg-icons';
 import { JsonDataFiles, DataService } from './../../../services/file-services';
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, ViewChildren, QueryList, ElementRef, AfterViewInit } from '@angular/core';
 import { Cp2020Expense, Cp2020Payment } from '../models';
 
 @Component({
@@ -7,7 +8,8 @@ import { Cp2020Expense, Cp2020Payment } from '../models';
   templateUrl: './cp2020-expense-list.component.html',
   styleUrls: ['./cp2020-expense-list.component.css']
 })
-export class Cp2020ExpenseListComponent implements OnInit {
+export class Cp2020ExpenseListComponent implements OnInit, AfterViewInit {
+  faEuroSign = faEuroSign;
 
   expensesList: Array<Cp2020Expense> = new Array<Cp2020Expense>();
   totalCost: number = 0;
@@ -20,6 +22,9 @@ export class Cp2020ExpenseListComponent implements OnInit {
 
   @Output()
   payAmount: EventEmitter<number> = new EventEmitter<number>();
+
+  @ViewChildren('expenseCountElem')
+  expenseCountInputList: QueryList<ElementRef>;
 
   get firstColumn(): Array<Cp2020Expense> {
     return this.expensesList.slice(0, Math.ceil(this.expensesList.length/2));
@@ -37,6 +42,16 @@ export class Cp2020ExpenseListComponent implements OnInit {
     .subscribe( (data:Array<Cp2020Expense>) => {
       this.expensesList = data;
     });
+  }
+
+  ngAfterViewInit(): void {
+    console.log(this.expenseCountInputList);
+    this.expenseCountInputList.changes.subscribe(() => {
+      if(this.expenseCountInputList.first) {
+        this.expenseCountInputList.first.nativeElement.focus();
+      }
+    });
+
   }
 
   calculateCost() {

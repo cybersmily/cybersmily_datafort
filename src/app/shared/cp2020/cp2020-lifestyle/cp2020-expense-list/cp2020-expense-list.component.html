@@ -3,7 +3,9 @@
     Total Cost: {{totalCost | number}}eb ({{cash + credit - totalCost}}eb)
   </div>
   <div class="col">
-    <button class="btn btn-secondary btn-dark csd-btn float-end ms-2" [disabled]="!totalCost" (click)="pay()">Pay</button>
+    <button class="csd-btn csd-icon-btn csd-icon-xl float-end ms-2" title="Pay the cost" [disabled]="!totalCost" (click)="pay()">
+      <fa-icon [icon]="faEuroSign"></fa-icon>
+    </button>
   </div>
 </div>
 <hr>
@@ -21,7 +23,7 @@
 <ng-template #expenseColumn let-expenses="expenses">
   <div class="row" *ngFor="let expense of expenses">
     <div class="col-2">
-      <input style="width:60px" type="number" min="0" [(ngModel)]="expense.count" (change)="calculateCost()">
+      <input #expenseCountElem style="width:60px" type="number" min="0" [(ngModel)]="expense.count" (change)="calculateCost()">
     </div>
     <div class="col">{{expense.name}} ({{expense.cost}}eb/{{expense.unit}})</div>
   </div>
