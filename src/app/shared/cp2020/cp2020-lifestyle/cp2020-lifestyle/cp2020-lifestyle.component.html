@@ -11,30 +11,37 @@
     <div class="row g-0 pb-3">
       <div class="col-12">
         <h5 class="cp2020-label d-inline-block">Money</h5>
-        <fa-icon [icon]="faCalculator" class="csd-icon-btn csd-btn float-end csd-icon-xl me-3" title="Expense Calculator"
-          (click)="showModal(expenseModal)"></fa-icon>
+        <button #expenseElem class="csd-icon-btn csd-btn float-end csd-icon-xl me-3" title="Expense Calculator"
+          (click)="showModal(expenseModal, 'expense')">
+          <fa-icon [icon]="faCalculator"></fa-icon>
+        </button>
       </div>
       <div class="col-12 col-lg-3">
         Total: {{totalEb | number}}eb
       </div>
       <div class="col-6 col-lg-3">Credchips ({{currLifeStyle.credchips.length}}): {{totalCred | number}}eb
-        <fa-icon [icon]="faPen" class="csd-btn csd-icon-btn ms-1" title="Edit Credchips"
-          (click)="showModal(credchipModal)"></fa-icon>
+        <button #addCredchipElem class="csd-btn csd-icon-btn ms-1" title="Edit Credchips"
+        (click)="showModal(credchipModal, 'credchip')">
+          <fa-icon [icon]="faPen"></fa-icon>
+        </button>
       </div>
       <div class="col-6 col-lg-2">Cash: <input class="lifestyle-eb-input" type="number"
           [(ngModel)]="currLifeStyle.cash">
       </div>
       <div class="col-5 col-lg-3">
         Salary: <input class="lifestyle-eb-input" type="number" [(ngModel)]="currLifeStyle.salary">
-        <fa-icon [icon]="faPlus" class="csd-icon-btn csd-btn ms-1" title="Add salary" (click)="showModal(addSalary)">
-        </fa-icon>
+        <button #addSalaryElem class="csd-icon-btn csd-btn ms-1" title="Add salary" (click)="showModal(addSalary, 'salary')">
+          <fa-icon [icon]="faPlus"></fa-icon>
+        </button>
       </div>
       <div class="col-1">
       </div>
       <div *ngIf="currLifeStyle.debt > 0" class="col-12">
         Debt: {{currLifeStyle.debt | number}}eb
-        <fa-icon [icon]="faEuroSign" class="csd-btn csd-icon-btn csd-icon-xl ms-2" title="Pay debt"
-          (click)="showModal(paymentModal)"></fa-icon>
+        <button #paymentElem class="csd-btn csd-icon-btn csd-icon-xl ms-2" title="Pay debt"
+          (click)="showModal(paymentModal, 'payment')">
+          <fa-icon [icon]="faEuroSign"></fa-icon>
+        </button>
       </div>
     </div>
     <!-- HOUSING-->
@@ -66,9 +73,7 @@
 <ng-template #expenseModal>
   <div class="modal-header">
     <h4 id="armor-modal-name" class="modal-title float-start">Expense Calculator</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()">
-
-    </button>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()"></button>
   </div>
   <div class="modal-body">
     <cs-cp2020-expense-list [cash]="currLifeStyle.cash" [cred]="totalCred" (payAmount)="pay($event, paymentModal)">
@@ -79,9 +84,7 @@
 <ng-template #credchipModal>
   <div class="modal-header">
     <h4 id="armor-modal-name" class="modal-title float-start">Credchips</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()">
-
-    </button>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()"></button>
   </div>
   <div class="modal-body">
     <cs-cp2020-credchip-list [credchips]="currLifeStyle.credchips" (updateCredchips)="updateCredchips($event)">
@@ -93,9 +96,7 @@
 <ng-template #addSalary>
   <div class="modal-header">
     <h4 id="armor-modal-name" class="modal-title float-start">Add Salary</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()">
-
-    </button>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()"></button>
   </div>
   <div class="modal-body">
     <cs-cp2020-credchip-list [credchips]="currLifeStyle.credchips" (updateCredchips)="updateCredchips($event)">
@@ -106,9 +107,7 @@
 <ng-template #paymentModal>
   <div class="modal-header">
     <h4 id="armor-modal-name" class="modal-title float-start">Pay debts</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()">
-
-    </button>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()"></button>
   </div>
   <div class="modal-body">
     <cs-cp2020-payment [credchips]="currLifeStyle.credchips" [cash]="currLifeStyle.cash"

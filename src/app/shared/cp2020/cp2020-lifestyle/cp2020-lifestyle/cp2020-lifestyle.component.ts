@@ -1,7 +1,7 @@
 import { Cp2020Services, Cp2020Food, CpHousing, Cp2020Lifestyle, Cp2020Identity, Cp2020Credchip, Cp2020Payment } from './../models';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { faPlus, faTrash, faPen, faRedo, faEuroSign, faList, faCalculator, faDollarSign, faQuestionCircle, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { Component, Input, OnInit, Output, TemplateRef, EventEmitter, OnChanges } from '@angular/core';
+import { Component, Input, OnInit, Output, TemplateRef, EventEmitter, OnChanges, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'cs-cp2020-lifestyle',
@@ -49,6 +49,18 @@ export class Cp2020LifestyleComponent implements OnInit, OnChanges {
 
   @Output()
   updateLifeStyle: EventEmitter<Cp2020Lifestyle> = new EventEmitter<Cp2020Lifestyle>();
+
+  @ViewChild('addCredchipElem', {static: false})
+  addCredchipButton: ElementRef;
+
+  @ViewChild('addSalaryElem', {static: false})
+  addSalaryButton: ElementRef;
+
+  @ViewChild('paymentElem', {static: false})
+  paymentButton: ElementRef;
+
+  @ViewChild('expenseElem', {static: false})
+  expenseButton: ElementRef;
 
   currLifeStyle: Cp2020Lifestyle = {
     credchips: new Array<Cp2020Credchip>(),
@@ -108,9 +120,6 @@ export class Cp2020LifestyleComponent implements OnInit, OnChanges {
     this.updateLifeStyle.emit(this.currLifeStyle);
   }
 
-  showModal(template: TemplateRef<any>){
-    this.modalRef = this.modalService.show(template, this.modalConfig);
-  }
 
   updateAmounts(amounts: {credchips: Array<Cp2020Credchip>, cash: number, amountDue: number}) {
     this.modalRef.hide();
@@ -126,6 +135,32 @@ export class Cp2020LifestyleComponent implements OnInit, OnChanges {
     }
     this.currLifeStyle.debt += amount;
     this.showModal(template);
+  }
+
+  showModal(template: TemplateRef<any>, returnFocus?: string){
+    this.modalRef = this.modalService.show(template, this.modalConfig);
+    if(returnFocus) {
+      this.modalRef.onHidden.subscribe(()=>{
+        switch(returnFocus){
+          case 'credchip':
+            this.addCredchipButton.nativeElement.focus();
+            break;
+          case 'salary':
+            this.addSalaryButton.nativeElement.focus();
+            break;
+          case 'expense':
+            this.expenseButton.nativeElement.focus();
+            break;
+          case 'payment':
+            if(this.paymentButton) {
+              this.paymentButton.nativeElement.focus();
+            } else {
+              this.addCredchipButton.nativeElement.focus();
+            }
+            break;
+        }
+      });
+    }
   }
 
   closeModal() {
