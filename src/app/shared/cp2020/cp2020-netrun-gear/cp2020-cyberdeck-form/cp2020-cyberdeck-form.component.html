@@ -1,14 +1,13 @@
 <div>
-  <h4>Cyberdeck
-    <span class="float-end">
-    </span>
-  </h4>
+  <h4>Cyberdeck</h4>
   <div class="row">
     <div class="col">
-      <input type="text" [(ngModel)]="deck.name" placeholder="Enter name of the deck..." title="Name of the cyberdeck"
+      <input #cyberdeckNameElem type="text" [(ngModel)]="deck.name" placeholder="Enter name of the deck..." title="Name of the cyberdeck"
         class="csd-deck-name">
-      <fa-icon [icon]="faSearch" class="csd-btn csd-icon-btn ms-2" title="Lookup source decks..."
-        (click)="showModal(deckListModal)"></fa-icon>
+      <button class="csd-btn csd-icon-btn ms-2" title="Lookup source decks..."
+      (click)="showModal(deckListModal, 'search')">
+        <fa-icon [icon]="faSearch"></fa-icon>
+      </button>
     </div>
   </div>
   <div class="row">
@@ -45,8 +44,11 @@
   <div class="row">
     <div class="col-1"></div>
     <div class="col">
-      Options: <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn" title="Add/remove options"
-        (click)="showModal(deckOptions)"></fa-icon>
+      Options:
+      <button #addOptionElem class="csd-btn csd-icon-btn" title="Add/remove options"
+        (click)="showModal(deckOptions, 'option')">
+        <fa-icon [icon]="faPlus"></fa-icon>
+      </button>
     </div>
   </div>
   <div class="row">
@@ -69,15 +71,13 @@
 <ng-template #deckOptions>
   <div class="modal-header">
     <h4 class="modal-title float-start">Deck Options</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
-
-    </button>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()"></button>
   </div>
   <div class="modal-body">
     <div class="opt-columns">
       <div *ngFor="let opt of deckData.options; let i = index"
         title="{{opt.description}} ~ {{opt.source.book | sourcebook}} pg. {{opt.source.page}}">
-        <input type="number" [(ngModel)]="opt.count" min="0" (change)="checkOption(opt)" class="opt-count">
+        <input #optionCountElem type="number" [(ngModel)]="opt.count" min="0" (change)="checkOption(opt)" class="opt-count">
         {{opt.name}} ({{ opt.cost.toString().includes('*') ? opt.cost : opt.cost | number}} eb)
       </div>
     </div>
@@ -88,9 +88,7 @@
 <ng-template #deckListModal>
   <div class="modal-header">
     <h4 class="modal-title float-start">Cyberdecks from Cyberpunk 2020 Sources</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
-
-    </button>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()"></button>
   </div>
   <div class="modal-body">
     <cs-cp2020-cyberdeck-selector (selectCyberdeck)="selectCyberdeck($event)"></cs-cp2020-cyberdeck-selector>

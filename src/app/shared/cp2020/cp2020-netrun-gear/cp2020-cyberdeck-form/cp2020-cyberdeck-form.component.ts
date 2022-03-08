@@ -4,7 +4,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { NrDeckDataService } from '../../../services/netrun/nr-deck-data.service';
 import { faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020Cyberdeck, CyberdeckData, CyberdeckOption } from '../models';
-import { Component, OnInit, TemplateRef, EventEmitter, Output, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, TemplateRef, EventEmitter, Output, Input, OnChanges, ViewChild, ElementRef, ViewChildren, QueryList } from '@angular/core';
 
 @Component({
   selector: 'cs-cp2020-cyberdeck-form',
@@ -26,6 +26,15 @@ export class Cp2020CyberdeckFormComponent implements OnInit, OnChanges {
 
   @Output()
   update: EventEmitter<Cp2020Cyberdeck> = new EventEmitter<Cp2020Cyberdeck>();
+
+  @ViewChild('cyberdeckNameElem', {static: false})
+  cyberdeckNameInput: ElementRef;
+
+  @ViewChild('addOptionElem', {static:false})
+  cyberdeckOptionButton: ElementRef;
+
+  @ViewChildren('optionCountElem')
+  optionCountList: QueryList<ElementRef>;
 
   config = {
     keyboard: true,
@@ -52,7 +61,6 @@ export class Cp2020CyberdeckFormComponent implements OnInit, OnChanges {
       }
       this.selectedChassis = this.deck.type;
     });
-
   }
 
   ngOnChanges() {
@@ -60,8 +68,20 @@ export class Cp2020CyberdeckFormComponent implements OnInit, OnChanges {
     this.currDeck = new Cp2020Cyberdeck(this.deck);
   }
 
-  showModal(template: TemplateRef<any>) {
+  showModal(template: TemplateRef<any>, returnFocus?: string) {
     this.modalRef = this.modalService.show(template, this.config);
+    if(returnFocus){
+      this.modalRef.onHidden.subscribe(() => {
+        switch(returnFocus) {
+          case 'search':
+            this.cyberdeckNameInput.nativeElement.focus();
+            break;
+          case 'option':
+            this.cyberdeckOptionButton.nativeElement.focus();
+            break;
+        }
+      });
+    }
   }
 
 

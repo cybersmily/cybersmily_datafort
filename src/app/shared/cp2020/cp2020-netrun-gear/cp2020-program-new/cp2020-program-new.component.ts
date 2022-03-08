@@ -3,7 +3,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { faPlus, faSave, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { forkJoin } from 'rxjs';
 import { NrProgramOptionsService } from '../../../services/netrun/nr-program-options.service';
-import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, TemplateRef, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { ProgramOption, Cp2020Program } from '../models';
 
 @Component({
@@ -11,7 +11,7 @@ import { ProgramOption, Cp2020Program } from '../models';
   templateUrl: './cp2020-program-new.component.html',
   styleUrls: ['./cp2020-program-new.component.css']
 })
-export class Cp2020ProgramNewComponent implements OnInit {
+export class Cp2020ProgramNewComponent implements OnInit, AfterViewInit {
   faPlus = faPlus;
   faSave = faSave;
   faSearch = faSearch;
@@ -33,6 +33,9 @@ export class Cp2020ProgramNewComponent implements OnInit {
   @Output()
   updateProgram: EventEmitter<Cp2020Program> = new EventEmitter<Cp2020Program>();
 
+  @ViewChild('programNameElem', {static: false})
+  programNameInput: ElementRef;
+
   constructor(private programData: NrProgramOptionsService,
     private modalService: BsModalService,
     private dataService: DataService) { }
@@ -47,6 +50,10 @@ export class Cp2020ProgramNewComponent implements OnInit {
       this.options = data[1];
       this.programList = data[2];
     });
+  }
+
+  ngAfterViewInit(): void {
+      this.programNameInput.nativeElement.focus();
   }
 
   updated() {

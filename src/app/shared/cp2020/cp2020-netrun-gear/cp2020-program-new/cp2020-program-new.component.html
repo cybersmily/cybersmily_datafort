@@ -4,14 +4,18 @@
       Name:
     </div>
     <div class="col-8 col-md-7 col-lg-9">
-      <input type="text" [(ngModel)]="program.name" placeholder="Enter name of program..." class="csd-program-name"
+      <input #programNameElem type="text" [(ngModel)]="program.name" placeholder="Enter name of program..." class="csd-program-name"
         title="Name of the program" (change)="updated()">
-      <fa-icon class="csd-btn csd-icon-btn float-end" [icon]="faSearch" title="Lookup a program from source" (click)="showOptions(programSelections)"></fa-icon>
+      <button class="csd-btn csd-icon-btn float-end" title="Lookup a program from source" (click)="showOptions(programSelections)">
+        <fa-icon [icon]="faSearch"></fa-icon>
+      </button>
     </div>
     <div class="col-4 col-md-3 col-lg-2">
       <span *ngIf="!isSaved" class="csd-program-unsaved">** UNSAVED **</span>
       <span class="float-end ps-2">
-        <fa-icon [icon]="faSave" class="csd-btn csd-icon-btn csd-icon-xl" (click)="save()" title="Add program to list."></fa-icon>
+        <button class="csd-btn csd-icon-btn csd-icon-xl" (click)="save()" title="Add program to list.">
+          <fa-icon [icon]="faSave"></fa-icon>
+        </button>
       </span>
       <span class="float-end">
         {{program.cost|number}}eb
@@ -52,8 +56,11 @@
   </div>
   <div class="row">
     <div class="col">
-      Options: {{optionList}} <fa-icon [icon]="faPlus" (click)="showOptions(programOptions)" class="csd-btn csd-icon-btn"
-        title="Add/remove options"></fa-icon>
+      Options: {{optionList}}
+      <button (click)="showOptions(programOptions)" class="ms-2 csd-btn csd-icon-btn"
+      title="Add/remove options">
+        <fa-icon [icon]="faPlus"></fa-icon>
+      </button>
     </div>
   </div>
   <div class="row">
