@@ -1,3 +1,4 @@
+import { AppCpRedDatingModule } from './app-cp-red-dating/app-cp-red-dating.module';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './apphome/home/home.component';
@@ -47,6 +48,9 @@ export const mainRoutes: Routes = [
   { path: 'apps/rednet',
       loadChildren: () => import('./app-cp-red-net-arch/app-cp-red-net-arch.module')
       .then(m => m.AppCpRedNetArchModule) },
+  { path: 'apps/reddating',
+      loadChildren: () => import('./app-cp-red-dating/app-cp-red-dating.module')
+      .then(m => m.AppCpRedDatingModule) },
   { path: 'apps/headlines',
     loadChildren: () => import('./app-news-headlines/app-news-headlines.module')
     .then(m => m.AppNewsHeadlinesModule) },
@@ -56,6 +60,7 @@ export const mainRoutes: Routes = [
   { path: 'apps/nightmarket',
       loadChildren: () => import('./app-night-market/app-night-market.module')
       .then(m => m.AppNightMarketModule) },
+
   { path: 'dlow', loadChildren: () => import('./appdlow/dlowsection.module').then(m => m.DlowSectionModule) },
   { path: 'beta', loadChildren: () => import('./app-beta-view/app-beta-view.module').then(m => m.AppBetaViewModule) },
   { path: '**', redirectTo: '/', pathMatch: 'full'}

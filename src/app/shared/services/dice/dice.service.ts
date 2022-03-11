@@ -75,7 +75,7 @@ export class DiceService {
   }
 
   rollRandomItem<T>(list: Array<T>): T {
-    return list[this.generateNumber(0, list.length -1)];
+    return list[this.generateNumber(0, list.length - 1)];
   }
 
   /**

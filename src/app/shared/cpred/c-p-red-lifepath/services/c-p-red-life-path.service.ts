@@ -103,7 +103,7 @@ export class CPRedLifePathService {
     return result;
   }
 
-  private createRole(chart: CpRedLifepathCoreRoleChartEntry, param: any): Array<KeyValue<string, string>> {
+  createRole(chart: CpRedLifepathCoreRoleChartEntry, param: any): Array<KeyValue<string, string>> {
     const roleLifepath = new Array<KeyValue<string, string>>();
     chart.charts.forEach(entry => {
       if (entry.startsWith('[')) {
@@ -116,7 +116,7 @@ export class CPRedLifePathService {
         const parameters = condition.split('::');
         let shouldRoll = true;
         parameters.forEach(p => {
-          shouldRoll = shouldRoll && param[p];
+          shouldRoll = shouldRoll && param && param[p];
         });
         if (shouldRoll) {
           const values = entry.replace(/\(.*\)\[/g, '').replace(']', '');

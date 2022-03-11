@@ -1,0 +1,743 @@
+{
+  "cpred": {
+    "keywords": [
+      "Adorable",
+      "Adventurous",
+      "Affectionate",
+      "Ambitious",
+      "Athlete",
+      "Baking",
+      "Brave",
+      "Caring",
+      "Charming",
+      "Cooking",
+      "Courageous",
+      "Creative",
+      "Drinking",
+      "Elflines Online",
+      "Exec",
+      "Fishing",
+      "Fixer",
+      "Foodie",
+      "Funny",
+      "Gardening",
+      "Hard Working",
+      "Hiking",
+      "Hopeful",
+      "Hunting",
+      "Independent",
+      "Insightful",
+      "Intelligent",
+      "Lawman",
+      "Loving",
+      "Loyal",
+      "Media",
+      "Medtech",
+      "Modest",
+      "Netrunner",
+      "Nomad",
+      "Optimistic",
+      "Passionate",
+      "Patient",
+      "Physically Fit",
+      "Quiet",
+      "Rational",
+      "Respectful",
+      "Rockerboy",
+      "Running",
+      "Solo",
+      "Spontaneous",
+      "Sports",
+      "Tabletop RPGs",
+      "Tech",
+      "Virtuous"
+    ],
+    "locations": [
+      {
+        "key": "Norcal Military Base",
+        "value": "base"
+      },
+      {
+        "key": "Watson Development",
+        "value": "watson"
+      },
+      {
+        "key": "New Westbrook",
+        "value": "westbrook"
+      },
+      {
+        "key": "Morro Rock",
+        "value": "morro"
+      },
+      {
+        "key": "Executive Zone",
+        "value": "exec"
+      },
+      {
+        "key": "Heywood Industrial Zone",
+        "value": "heywood"
+      },
+      {
+        "key": "Heywood (Santo Domingo)",
+        "value": "domingo"
+      },
+      {
+        "key": "Rancho Coronado",
+        "value": "rancho"
+      },
+      {
+        "key": "Outskirts",
+        "value": "outskirts"
+      },
+      {
+        "key": "Reclaimed Perimeter",
+        "value": "perimeter"
+      },
+      {
+        "key": "Little Europe",
+        "value": "europe"
+      },
+      {
+        "key": "Upper Marina",
+        "value": "marina"
+      },
+      {
+        "key": "University District",
+        "value": "university"
+      },
+      {
+        "key": "Little China",
+        "value": "china"
+      },
+      {
+        "key": "Old Japantown",
+        "value": "japantown"
+      },
+      {
+        "key": "The Glen",
+        "value": "glen"
+      },
+      {
+        "key": "Old Combat Zone",
+        "value": "combat"
+      },
+      {
+        "key": "South Night City",
+        "value": "south"
+      },
+      {
+        "key": "Hot Zone",
+        "value": "hot"
+      },
+      {
+        "key": "Pacifica Playground",
+        "value": "pacifica"
+      }
+    ],
+    "activity": [
+      {
+        "name": "base",
+        "chart": [
+          "Shoot off those first date jitters at the gun range.",
+          "Something about a rope course? Sounds interesting.",
+          "Apparently the food is pretty good on base.",
+          "Watch a live training exercise together.",
+          "Go see a movie at the base's theater.",
+          "Bring your A game for the wildest paintball game of your life."
+        ]
+      },
+      {
+        "name": "watson",
+        "chart": [
+          "Party in the unfinished lobby of a megabuilding construction site.",
+          "Museum date at SovOil's Museum of Petroleum.",
+          "Corporate picnic lunch in a park near Watson Central Cubelife.",
+          "Izakaya date in the Kabuki district.",
+          "It's a surprise! They'll meet you at the Watson entrance to the High-Security Monorail.",
+          "Attend a demonstration organized by local Rockerboy Lucius Rhyne"
+        ]
+      },
+      {
+        "name": "westbrook",
+        "chart": [
+          "Be a part of a live audience on a Network 54 show.",
+          "Attend a Skate Foot race near Night City Firestation #1.",
+          "A Gala hosted by Rocklin Augmentics on their campus.",
+          "Rock climbing on the cliff below the WorldSat Offices.",
+          "Track down an elusive food truck in the area.",
+          "Grab a drink at an Executive Bar"
+        ]
+      },
+      {
+        "name": "morro",
+        "chart": [
+          "Watch a test of the Orbital Massdriver's giant steel doors.",
+          "The perfect place to watch the fireworks.",
+          "Lunch date at the Orbital Air Massdriver's employee cafeteria.",
+          "They say they have a boat docked on Morro Rock.",
+          "Double date with someone from their Family.",
+          "Ringside seats to a pit fight hosted underground at the Massdriver construction site."
+        ]
+      },
+      {
+        "name": "exec",
+        "chart": [
+          "Golf, anyone?",
+          "Fancy a round of tennis on a real organic grass court?",
+          "Brunch at your Date's favorite spot.",
+          "Pool Party at a Beaverville McMansion",
+          "Drinks in the business lounge of the Country Club.",
+          "Masquerade Party in the mansion of a rather recently deceased Exec. "
+        ]
+      },
+      {
+        "name": "heywood",
+        "chart": [
+          "They want to show you their latest piece of urban art.",
+          "Laser tag at the Zhirafa Office Park.",
+          "Somebody welded a stack of cargo containers into a speakeasy.",
+          "An industrial music concert in an industrial zone.",
+          "There's this really good teriyaki place I always eat at.",
+          "Experience the carnage of drone fighting. Those poor GRAF3s..."
+        ]
+      },
+      {
+        "name": "domingo",
+        "chart": [
+          "A street festival is coming up, and everyone is going.",
+          "Let's get drunk on Smash at Metalstorm.",
+          "The Aldecaldos are having a barbecue.",
+          "Want to race Roadbikes together?",
+          "My grandma makes the best mole poblano.",
+          "There's a party tonight at the East Cargo Village."
+        ]
+      },
+      {
+        "name": "rancho",
+        "chart": [
+          "Breakfast date at a pancake house.",
+          "Meet me and my totally real dog in the park.",
+          "Let's grab a drink at my local pub.",
+          "Mani-pedi date at the neighborhood market.",
+          "Have you ever LARPed before?",
+          "Roast weenies at a company cookout."
+        ]
+      },
+      {
+        "name": "outskirts",
+        "chart": [
+          "Let's go on a hike!",
+          "My Family let me borrow our Gyrocopter.",
+          "Foraging for mushrooms is fun, I promise!",
+          "Have you ever tried archery?",
+          "Let's go off-roading in the badlands!",
+          "Your Date says they know where to find a secret waterfall."
+        ]
+      },
+      {
+        "name": "perimeter",
+        "chart": [
+          "Bowling in an abandoned building.",
+          "Let's go urban spelunking.",
+          "A couple of my friends were going to get together, do you want to come?",
+          "We found some old fireworks. Want to fire them at abandoned cars?",
+          "Let's get tacos at my friend's truck.",
+          "Meet me at the all night diner"
+        ]
+      },
+      {
+        "name": "europe",
+        "chart": [
+          "Attend a Cooking with Kibble class at the Oasis Megamart.",
+          "Pray with them at the Holy Angels Church.",
+          "Have a wild night at the Short Circuit.",
+          "Race hot pink go-karts at the Danger Gal Offices.",
+          "Enjoy a beautiful Italian dinner.",
+          "A glass of wine overlooking Night City from Camden Court's rooftop lounge."
+        ]
+      },
+      {
+        "name": "marina",
+        "chart": [
+          "Go to a game at the McCartney Field Stadium.",
+          "Rent a jetski and enjoy the bay.",
+          "Attend a press conference/fashion show hosted by Ziggurat.",
+          "Get a Johnny Silverhand at the Afterlife.",
+          "Spend a day riding the streetcar and being a tourist. It won’t break down. Probably.",
+          "Go fishing!"
+        ]
+      },
+      {
+        "name": "university",
+        "chart": [
+          "A wild party off campus, at the University Cargo Bay.",
+          "How about a charming nature walk through Lake Park?",
+          "Tour Biotechnica's living museum in their only publicly accessible geodesic greendome.",
+          "Your Date wants to show you their new research project.",
+          "Group eating competition. Can you handle the Mega Kibbledog platter and win t-shirts?",
+          "Attend a concert being held on campus by the music department"
+        ]
+      },
+      {
+        "name": "china",
+        "chart": [
+          "Grab a drink at the Forlorn Hope.",
+          "Window shopping and street food.",
+          "Get a massage together.",
+          "Go thrift shopping.",
+          "It’s Sunday morning, time for dim sum.",
+          "Go to a Night Market together."
+        ]
+      },
+      {
+        "name": "japantown",
+        "chart": [
+          "Enjoy a picnic overlooking the Hot Zone.",
+          "Get conveyor belt “sushi”.",
+          "Sing karaoke in an all concrete building – great acoustics!",
+          "Your Date wants you to meet their best friend.",
+          "Attend a large parade and enjoy the atmosphere.",
+          "Your Date's father wants to meet you."
+        ]
+      },
+      {
+        "name": "glen",
+        "chart": [
+          "Go clubbing at Club Atlantis.",
+          "Take a guided tour of City Hall.",
+          "Enjoy happy hour at an Excellent Bar",
+          "Score fresh baked goods at a local bakery. This shit is real!",
+          "Attend a political fundraiser.",
+          "A night at the opera."
+        ]
+      },
+      {
+        "name": "combat",
+        "chart": [
+          "The Jessie James Kosher Deli is worth the risk.",
+          "Climb up to an abandoned rooftop to enjoy the view.",
+          "Romantically fire Grenade Launchers into piles of rubble.",
+          "Bring your own spray cans for a graffiti date.",
+          "Help weed your Date's rooftop garden.",
+          "Hang out in an abandoned mall."
+        ]
+      },
+      {
+        "name": "south",
+        "chart": [
+          "Grab lunch with your date after their tattoo appointment.",
+          "Soak up the sun at the beach!",
+          "Sneak into Playland by the Sea by boat.",
+          "Your Date wants to introduce you to the whole gang.",
+          "Grab a drink at a rowdy Sea Nomad bar.",
+          "Enjoy live music in an abandoned gymnasium."
+        ]
+      },
+      {
+        "name": "hot",
+        "chart": [
+          "Take a historic tour of the ruins!",
+          "You’re in for a wild night at the Totentanz.",
+          "Break into an old Corporate building.",
+          "Help your Date scavenge a classic piece of tech.",
+          "Attend a slightly radioactive street race.",
+          "Dine on expired MREs under the beautiful red sky"
+        ]
+      },
+      {
+        "name": "pacifica",
+        "chart": [
+          "Your Date wants to share their favorite braindance with you.",
+          "Picnic lunch in the Playland by the Sea parking lot.",
+          "A backstage tour of the Playland by the Sea Holostravaganza Concert Hall.",
+          "Shell (and shell casing!) hunting on the beach.",
+          "Ride the rides and dine on the unique Playland by the Sea Pineapple Madness Kibble.",
+          "Drag racing down by the pier."
+        ]
+      }
+    ],
+    "datetypes": {
+      "charts": [
+        "good",
+        "good",
+        "weird",
+        "weird",
+        "ghosted"
+      ],
+      "types": [
+        {
+         "name":"good",
+          "beginning": [
+            "You learn something new about them. That they are --keyword--.",
+            "They tell you about one of their friends who [[friend]].",
+            "They tell you about their Edgerunner job. **rolepath**",
+            "You immediately discover something you have in common.",
+            "They have a positive trait of your choice that was not apparent from their profile.",
+            "They are very attractive. Possibly Bodysculpted."
+          ],
+          "middle": [
+            "You learn something new about them. That they are --keyword--.",
+            "They vent about one of their enemies. They are [[enemy]]. [[enemyreason]] The enemy has [[enemyresources]] for backup.",
+            "They tell you about a previous relationship. ||The relationship ended well.|[[tragicloves]]||.",
+            "You learn about their [[background]] family.",
+            "They surprise you with a 20eb (Everyday) gift.",
+            "They stay quiet and spend the entire time listening to you talk."
+          ],
+          "end": [
+            "They confide in you, talking about their life’s goal to [[goal]] .",
+            "They give you a helpful piece of advice of the GM’s choosing.",
+            "You learn about their values and outlook on life. They are motivated by [[motivations]]. [[relationships]]",
+            "They are really into you and want another date.!!",
+            "You learn about one of their great talents which is [[skills]](Base 16).",
+            "The date ended too soon to learn anything more!"
+          ]
+        },
+        {
+          "name":"weird",
+          "beginning": [
+            "They tell you about three of their most recent tragic romances. One, [[tragicloves]] The second, [[tragicloves]] The last, [[tragicloves]]",
+            "Your Date is not the person from the pictures on their profile.",
+            "Your Date brought their friend along for the occasion. The friend [[friend]].",
+            "Your Date is wearing something quite strange, even by Night City standards.",
+            "Your Date has a [[gangs]] gang affiliation, and shows up in gang colors.",
+            "Your Date has a lot of cybernetics. A dangerous amount. They might be sparking"
+          ],
+          "middle": [
+            "Your Date excuses themselves to go to the bathroom, and never returns. Either start at the beginning with a new Date or stop dating for a while.",
+            "Your date starts a fight, and then quickly finishes it ([[combatskill]] Base 16).",
+            "You learn nothing because your Date spent the middle of the date on their Agent.",
+            "Your Date likes Smash. A lot. Possibly also Synthcoke, but you aren’t sure.",
+            "They tell you about three of their most hated enemies. One is [[enemy]]. [[enemyreason]] The enemy has [[enemyresources]] for backup. The second is [[enemy]]. [[enemyreason]] The enemy has [[enemyresources]] for backup.  The last is [[enemy]]. [[enemyreason]] The enemy has [[enemyresources]] for backup.",
+            "They talk about their [[background]] family the entire time. You learn a lot. [[familycrisis]]"
+          ],
+          "end": [
+            "They are really into you and want another date.!!",
+            "You learn about their values and outlook on life. They are motivated by [[motivations]]. [[relationships]]",
+            "They insist on showing you their “good luck charm” which is [[valuedPossesion]].",
+            "They give you a helpful piece of advice of the GM’s choosing.",
+            "They give you 50eb (Costly) worth of Street Drugs and/or Ammunition as a gift.",
+            "The date ended too soon to learn anything more!"
+          ]
+        }
+      ]
+    },
+    "postdate": {
+      "chart": [
+        {
+          "outcome": "They want another date and promise to contact you.",
+          "chart": [
+            "They contact you for another.",
+            "They contact you for another.",
+            "They contact you for another.",
+            "They contact you for another.",
+            "You've been ghosted."
+          ]
+        },
+        {
+          "outcome": "They are not that into you."
+        }
+      ]
+    },
+    "variables": [
+      {
+        "name": "friend",
+        "chart": [
+          "is like an older sibling to them",
+          "is like a younger sibling to them",
+          "is a teacher of theirs",
+          "is a mentor of theirs",
+          "is a partner of theirs",
+          "is a coworker of theirs",
+          "was a former lover of theirs",
+          "was an old enemy of theirs",
+          "is a parent to them",
+          "is an old childhood friend of theirs",
+          "they know from The Street",
+          "has a common interest with them",
+          "has a common goal with them"
+        ]
+      },
+      {
+        "name": "goal",
+        "chart": [
+          "get rid of a bad reputation",
+          "gain power and control",
+          "get off the street no matter what it takes",
+          "cause pain and suffering to anyone who crosses them",
+          "live down their past life and try to forget it",
+          "hunt down those responsible and make them pay for wronging your Date",
+          "get what's rightfully theirs",
+          "save, if possible, anyone from their background",
+          "gain fame and recognition",
+          "become feared and respected"
+        ]
+      },
+      {
+        "name": "valuedPossesion",
+        "chart": [
+          "a weapon",
+          "a tool",
+          "a piece of clothing",
+          "a photograph",
+          "a book or diary",
+          "a recording",
+          "a musical intrument",
+          "a piece of jewelry",
+          "a toy",
+          "a letter"
+        ]
+      },
+      {
+        "name": "gangs",
+        "chart": [
+          "Maelstrom",
+          "6th Street",
+          "Valentinos",
+          "Tyger Claws",
+          "Voodoo Boys",
+          "Raffen Shiv",
+          "The Bozos",
+          "Inquisitors",
+          "Iron Sights",
+          "Philharmonic Vampyres",
+          "Piranhas",
+          "The Prime-Time Players",
+          "Reckoners",
+          "Red Chrome Legion",
+          "Scavvers",
+          "Steel Vaqueros"
+        ]
+      },
+      {
+        "name": "motivations",
+        "chart": [
+          "money",
+          "honor",
+          "their word",
+          "honesty",
+          "knowledge",
+          "vengeance",
+          "love",
+          "power",
+          "family",
+          "friendship"
+        ]
+      },
+      {
+        "name": "relationships",
+        "chart": [
+          "They stay neutral to people.",
+          "They stay neutral to people.",
+          "They like almost everyone.",
+          "They hate almost everyone.",
+          "They feel people are tools. Use them for your own goals then discard them.",
+          "They feel every person is a valuable individual.",
+          "They feel people are obstacles to be destroyed if they cross me.",
+          "They feel people are untrustworthy. Don't depend on anyone.",
+          "They feel people should be wiped ‘em all out and let the cockroaches take over.",
+          "They feel people are wonderful!"
+        ]
+      },
+      {
+        "name": "tragicloves",
+        "chart": [
+          "Their lover died in an accident.",
+          "Their lover died in an accident.",
+          "Their lover mysteriously vanished.",
+          "It just didn't work out.",
+          "It just didn't work out.",
+          "A personal goal or vendetta came between them.",
+          "Their lover was kidnapped.",
+          "Their lover went insane.",
+          "Their lover went cyberpsycho.",
+          "Their lover committed suicide.",
+          "Their lover was killed in a fight.",
+          "Their lover was killed in a fight.",
+          "A rival cut them out of the action.",
+          "A rival cut them out of the action.",
+          "Their lover is imprisoned",
+          "Their lover is exiled"
+        ]
+      },
+      {
+        "name": "background",
+        "chart": [
+          "corporate execs",
+          "corporate managers",
+          "corporate technicians",
+          "nomad pack",
+          "ganger",
+          "combat zoners",
+          "urban homeless",
+          "megastructure warren rats",
+          "reclaimers",
+          "edgerunners"
+        ]
+      },
+      {
+        "name": "familycrisis",
+        "chart": [
+          "Their family lost everything through betrayal.",
+          "Their family lost everything through bad management.",
+          "Their family was exiled or otherwise driven from their original home/nation/Corporation.",
+          "Their family is imprisoned, and they escaped.",
+          "Their family vanished. They are the only remaining member.",
+          "Their family was killed, and they were the only survivor.",
+          "Their family is involved in a long-term conspiracy, organization, or association, such as a crime family or revolutionary group.",
+          "Their family was scattered to the winds due to misfortune.",
+          "Their family is cursed with a hereditary feud that has lasted for generations.",
+          "They inherited a family debt that they must honor before moving on with their life."
+        ]
+      },
+      {
+        "name": "enemy",
+        "chart": [
+          "an ex-friend",
+          "an ex-lover",
+          "an estranged relative",
+          "a childhood enemy",
+          "a person working for them",
+          "a person they work for",
+          "a partner",
+          "a coworker",
+          "a corporate exec",
+          "a government official",
+          "a boosterganger"
+        ]
+      },
+      {
+        "name": "enemyreason",
+        "chart": [
+          "Caused the other to lose face.",
+          "Caused the other to status.",
+          "Caused the loss of lover.",
+          "Caused the loss of friend.",
+          "Caused the loss of relative.",
+          "Caused a major public humiliation.",
+          "Accused the other of cowardice.",
+          "Accused the other of some major personal flaw.",
+          "Deserted the other.",
+          "Betrayed the other.",
+          "Turned down the other's offer of a job.",
+          "Turned down the other's offer of romantic involvement.",
+          "You just don't like each other.",
+          "You just don't like each other.",
+          "One of you was a romantic rival.",
+          "One of you was a business rival.",
+          "One of you set the other up for a crime they didn't commit."
+        ]
+      },
+      {
+        "name": "enemyresources",
+        "chart": [
+          "just themselves and even they won't go out of their way",
+          "just themselves",
+          "just themselves and a close friend",
+          "themselves and ==1d6/2== friends",
+          "themselves and ==1d10/2== friends",
+          "an entire gang (at least ==1d10+5== people)",
+          "local cops or other Lawmen",
+          "a powerful gang lord or small Corporation",
+          "a powerful Corporation",
+          "an entire city or government or agency"
+        ]
+      },
+      {
+        "name": "combatskill",
+        "chart": [
+          "Aikido",
+          "Karate",
+          "Judo",
+          "Taekwondo",
+          "Melee Combat",
+          "Melee Combat",
+          "Melee Combat",
+          "Brawling",
+          "Brawling",
+          "Brawling",
+          "Brawling",
+          "Autofire",
+          "Autofire",
+          "Handgun",
+          "Handgun",
+          "Handgun",
+          "Shoulder Arms",
+          "Shoulder Arms",
+          "Heavy Weapons"
+        ]
+      },
+      {
+        "name": "skills",
+        "chart": [
+          "Concentration",
+          "Conceal/Reveal Object",
+          "Lip Reading",
+          "Perception",
+          "Tracking",
+          "Athletics",
+          "Contortionist",
+          "Dance",
+          "Endurance",
+          "Resist Torture/Drugs",
+          "Stealth",
+          "Drive Land Vehicle",
+          "Pilot Air Vehicle",
+          "Pilot Sea Vehicle",
+          "Riding",
+          "Accounting",
+          "Animal Handling",
+          "Bureacracy",
+          "Business",
+          "Composition",
+          "Criminology",
+          "Cryptography",
+          "Deduction",
+          "Education",
+          "Gamble",
+          "Language",
+          "Library Search",
+          "Local Expert",
+          "Science",
+          "Tactics",
+          "Wilderness Survival",
+          "Brawling",
+          "Evasion",
+          "Aikido",
+          "Karate",
+          "Judo",
+          "Taekwondo",
+          "Melee Weapon",
+          "Archery",
+          "Autofire",
+          "Handgun",
+          "Heavy Weapons",
+          "Shoulder Arms",
+          "Bribery",
+          "Conversation",
+          "Human Perception",
+          "Interrogation",
+          "Persuasion",
+          "Personal Grooming",
+          "Streetwise",
+          "Trading",
+          "Wardrobe and Style",
+          "Air Vehicle Tech",
+          "Basic Tech",
+          "Cybertech",
+          "Demolitions",
+          "Electronics/Security Tech",
+          "First Aid",
+          "Forgery",
+          "Land Vehicle Tech",
+          "Paint/Draw/Sculpt",
+          "Paramedic",
+          "Photography/Film",
+          "Pick Lock",
+          "Pick Pocket",
+          "Sea Vehicle Tech",
+          "Weaponstech"
+        ]
+      }
+    ]
+  }
+}

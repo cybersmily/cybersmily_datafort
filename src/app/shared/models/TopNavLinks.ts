@@ -140,13 +140,14 @@ export interface SiteLinksGroup {
         groupTitle: 'Apps-RED',
         description: 'Under Apps you will find web page based application/utilities for Cyberpunk.',
         links: [
+          {title: 'Bodegas Generator', link: 'apps/nightmarket', desc: 'Bodegas generator for Cyberpunk Red.'},
           {title: 'CP Red Jumpstart Kit Character', link: 'apps/qkpregen',
             desc: 'Cyberpunk Red Character generator based on tempates for the jumpstart kit.'},
-          {title: 'LifePath for Cyberpunk Red', link: 'apps/redlifepath', desc: 'Lifepath generator for Cyberpunk Red.'},
+            {title: 'Dating Generator', link: 'apps/reddating', desc: 'Dating generator for Cyberpunk Red.'},
+            {title: 'LifePath for Cyberpunk Red', link: 'apps/redlifepath', desc: 'Lifepath generator for Cyberpunk Red.'},
           {title: 'Headline Generator', link: 'apps/headlines', desc: 'Utility to generate news headlines for Cyberpunk 2020/Red.'},
           {title: 'NET Architect Generator', link: 'apps/rednet', desc: 'Cyberpunk Red NET Architect generator.'},
           {title: 'Night Market Generator', link: 'apps/nightmarket', desc: 'Night Market generator for Cyberpunk Red.'},
-          {title: 'Bodegas Generator', link: 'apps/nightmarket', desc: 'Bodegas generator for Cyberpunk Red.'},
           {title: 'Vendit Generator', link: 'apps/nightmarket', desc: 'Vendit generator for Cyberpunk Red.'},
           {title: 'Weather Generator', link: 'apps/weather', desc: 'Weather generator for Cyberpunk Red/2020.'}
         ]
