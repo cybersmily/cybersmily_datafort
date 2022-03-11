@@ -15,14 +15,14 @@
     <div class="row g-0">
       <div class="col">
         <div class="row g-0">
-          <div class="col small ps-1 border border-dark">TYPE</div>
+          <div class="col-10 small ps-1 border border-dark">TYPE</div>
           <div class="col-1 text-center small border border-dark">HL</div>
           <div class="col-1 ps-1 small border border-dark">COST</div>
         </div>
       </div>
       <div *ngIf="showTwoColumns" class="col d-none d-lg-inline-block">
         <div class="row g-0">
-          <div class="col small ps-1 border border-dark">TYPE</div>
+          <div class="col-10 small ps-1 border border-dark">TYPE</div>
           <div class="col-1 text-center small border border-dark">HL</div>
           <div class="col-1 ps-1 text-center small border border-dark">COST</div>
         </div>
@@ -58,11 +58,13 @@
 
 <ng-template #cyberColumn let-cyberList="cyberList" let-isSecondColumn="isSecondColumn">
   <div *ngFor="let cyber of cyberList;let i = index" class="csd-cyber-row row g-0">
-    <div class="col cyber-name" title="{{cyber.notes}}">
-      <button #cyberNameElem class="csd-btn ps-1 text-start w-95" (click)="editCyberware(i, cyberEdit, isSecondColumn)" tabindex="0">
+    <div class="col-9 cyber-name no-right-border" title="{{cyber.notes}}">
+      <button #cyberNameElem class="csd-btn text-start w-100" (click)="editCyberware(i, cyberEdit, isSecondColumn)" tabindex="0">
         {{cyber.toString()}}
       </button>
-      <button class="float-end csd-btn small ms-2 csd-icon-btn" (click)="delete(i, isSecondColumn)"
+    </div>
+    <div class="col-1 no-left-border">
+      <button class="float-end csd-btn small me-1 csd-icon-btn" (click)="delete(i, isSecondColumn)"
         title="Delete Cyberware" tabindex="0">
         <fa-icon [icon]="faTrash"></fa-icon>
       </button>

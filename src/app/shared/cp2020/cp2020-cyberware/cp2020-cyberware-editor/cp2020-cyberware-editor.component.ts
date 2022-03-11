@@ -2,7 +2,7 @@ import { CyberDataService } from './../services';
 import { Cp2020PlayerCyber, Cp2020Surgery, Cp2020Surgeries } from './../models';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { DiceService } from './../../../services/dice/dice.service';
-import { faDice, faSave, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faSave, faTrash, faPlus, faSortAlphaUp, faSortAlphaDown } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit, Input, Output, EventEmitter, TemplateRef, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 
 @Component({
@@ -14,6 +14,9 @@ export class Cp2020CyberwareEditorComponent implements OnInit, AfterViewInit {
   faDice = faDice;
   faSave = faSave;
   faTrash = faTrash;
+  faPlus = faPlus;
+  faSortAlphaUp = faSortAlphaUp;
+  faSortAlphaDown = faSortAlphaDown;
 
   modalRef: BsModalRef;
   modalConfig = {
@@ -128,6 +131,32 @@ export class Cp2020CyberwareEditorComponent implements OnInit, AfterViewInit {
     this.newCyberware.options.push(this.newOption);
     this.newCyberware.options = this.newCyberware.options.slice();
     this.closeModal();
+  }
+
+  addNewOption(item: Cp2020PlayerCyber) {
+    if(this.newCyberware.options){
+      const found = this.newCyberware.options.findIndex( opt => opt.name.toLowerCase() === item.name.toLowerCase());
+      if(found < 0){
+        this.newCyberware.options.push(new Cp2020PlayerCyber(item));
+        this.newCyberware.options = this.newCyberware.options.slice();
+      }
+    }
+  }
+
+  removeNewOption(index: number) {
+    if(this.newCyberware.options){
+      this.newCyberware.options.splice(index, 1);
+      this.newCyberware.options = this.newCyberware.options.slice();
+    }
+  }
+
+  sortOptions(ascending: boolean) {
+    if(ascending) {
+      this.optionList.sort( (a, b) => a.name.localeCompare(b.name));
+    } else {
+      this.optionList.sort( (a, b) => b.name.localeCompare(a.name));
+    }
+    this.optionList = this.optionList.slice();
   }
 
   closeModal() {

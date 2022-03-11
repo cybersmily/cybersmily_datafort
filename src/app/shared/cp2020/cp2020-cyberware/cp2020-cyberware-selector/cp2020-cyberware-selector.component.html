@@ -28,15 +28,14 @@
         </select>
       </div>
       <div class="col">
-        <input [(ngModel)]="searchFilter.name" type="text" class="cyber-data-name" placeholder="Search on name..."
-          style="width: 100%" (input)="filterCyberList()" />
+        <input #cyberSearchElem [(ngModel)]="searchFilter.name" type="text" class="cyber-data-name w-100" placeholder="Search on name..." (input)="filterCyberList()" />
       </div>
     </div>
     <br>
     <div class="row me-1 ms-1">
-      <div class="col cyber-data-table">
+      <div class="col cyber-data-table text-center">
         <bs-sortable [(ngModel)]="filteredDataCyber" itemClass="sortable-item" itemActiveClass="sortable-item-active"
-          placeholderItem="&nbsp;&nbsp;&nbsp;...Drag here" placeholderClass="placeholderStyle font-italic"
+          placeholderItem="Drag here" placeholderClass="placeholderStyle font-italic"
           wrapperClass="" [itemTemplate]="cyberListItem">
         </bs-sortable>
       </div>
@@ -46,7 +45,9 @@
   <div class="col csd-rounded">
     <div class="row">
       <div class="col text-center">
-        <fa-icon [icon]="faSave" class="float-end csd-btn csd-icon-btn" (click)="save()"></fa-icon>
+        <button class="float-end csd-btn csd-icon-btn" (click)="save()" title="Save all cyberware in the cart to the character.">
+          <fa-icon [icon]="faSave"></fa-icon>
+        </button>
         <h4>Cart</h4>
       </div>
     </div>
@@ -54,9 +55,9 @@
       <div class="col text-center small"><i>To remove, drag item back to left</i></div>
     </div>
     <div class="row small">
-      <div class="col-5">Name</div>
-      <div class="col-4 text-center">HC</div>
-      <div class="col-3 text-end">Cost</div>
+      <div class="col-4 col-lg-5">Name</div>
+      <div class="col-4 col-lg-4 text-center">HC</div>
+      <div class="col-4 col-lg-3 text-end">Cost</div>
     </div>
     <div class="row">
       <div class="col">
@@ -77,34 +78,42 @@
 
 
 <ng-template #cyberListItem let-item="item">
-  <div class="row small" [popover]="cyberwareDetails" [popoverTitle]="item.value.name" placement="top"
-    [popoverContext]="{ item: item.value}" triggers="mouseenter:mouseleave" [outsideClick]="true">
+  <div class="row small" [popover]="cyberwareDetails" [popoverTitle]="item.value.name" placement="auto"
+    [popoverContext]="{ item: item.value}" triggers="mouseenter:mouseleave focusin:focusout" [outsideClick]="true">
     <div class="col-4">
       {{item.value.type}}
     </div>
-    <div class="col">{{item.value.name}}</div>
+    <div class="col-8 csd-btn" tabindex="0" (keyup.enter)="add(item.value)">{{item.value.name}}</div>
   </div>
 </ng-template>
 
 <ng-template #addedCyberListItem let-item="item" let-i="index">
   <div class="row small">
-    <div class="col-5">
-      <span [popover]="addedCyberwareDetails" [popoverContext]="{cyber: cart[i]}" triggers="mouseenter mouseleave click"
+    <div class="col-10 col-lg-5">
+      <span class="csd-btn w-100" tabindex="0" [popover]="addedCyberwareDetails" [popoverTitle]="item.value.name"
+       [popoverContext]="{cyber: cart[i]}" triggers="mouseenter:mouseleave  focusin:focusout"
         placement="bottom">
         {{item.value.name}}
       </span>
     </div>
-    <div class="col-4 text-center" title="HC: {{item.value.hc}}">
+    <div class="col-1">
+      <button class="csd-btn csd-icon-btn float-end" (click)="delete(index)" title="Remove item from cart">
+        <fa-icon [icon]="faTrash"></fa-icon>
+      </button>
+    </div>
+    <div class="col-3 d-lg-none"></div>
+    <div class="col-6 col-lg-4 text-center" title="HC: {{item.value.hc}}">
       <ng-container *ngIf="item.value.hc.toLowerCase().indexOf('d') > 0; else staticHumanityLose">
         <input type="number" [(ngModel)]="item.value.hl" class="cyber-hl text-end" step="0.5">
-        &nbsp;
-        <fa-icon [icon]="faDice" (click)="rollHumanityLose(i, item.value.hc)" class="small csd-dice"></fa-icon>
+        <button (click)="rollHumanityLose(i, item.value.hc)" class="ms-2 small csd-btn csd-dice" title="Roll for humanity lose">
+          <fa-icon [icon]="faDice"></fa-icon>
+        </button>
       </ng-container>
       <ng-template #staticHumanityLose>
         {{item.value.hl}}
       </ng-template>
     </div>
-    <div class="col-3 text-end">{{item.value.cost | number}}eb
+    <div class="col-3 col-lg-2 text-end">{{item.value.cost | number}}eb
     </div>
   </div>
 </ng-template>

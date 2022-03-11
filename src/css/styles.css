@@ -9,6 +9,25 @@
 .w-80 {
   width: 80%;
 }
+.w-85 {
+  width: 85%;
+}
+
+.no-left-border {
+  border-left: transparent 0px solid !important;
+}
+
+.no-right-border {
+  border-right: transparent 0px solid !important;
+}
+
+.no-top-border {
+  border-top: transparent 0px solid !important;
+}
+
+.no-bottom-border {
+  border-bottom: transparent 0px solid !important;
+}
 
 INPUT {
   border-width: 1px !important;

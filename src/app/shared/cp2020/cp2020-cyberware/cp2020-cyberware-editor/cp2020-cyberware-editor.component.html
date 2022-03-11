@@ -93,24 +93,33 @@
       <div class="row">
         <div class="col-5">
           <i>Drag drop options to right box</i>
+          <button class="csd-btn csd-icon-btn ms-2" title="Sort ascending" (click)="sortOptions(true)">
+            <fa-icon [icon]="faSortAlphaUp"></fa-icon>
+          </button>
+          <button class="csd-btn csd-icon-btn ms-2" title="Sort ascending" (click)="sortOptions(false)">
+            <fa-icon [icon]="faSortAlphaDown"></fa-icon>
+          </button>
         </div>
-        <div class="col">Current Options
+        <div class="col-7">
+          Current Options
           <span
             *ngIf="newCyberware.numOptions && newCyberware.numOptions > 0">({{newCyberware.options.length}}/{{newCyberware.numOptions}})</span>
+          <button class="csd-btn csd-icon-btn ms-2" (click)="openModal(newOptionItem)" title="Create New Option">
+            <fa-icon [icon]="faPlus"></fa-icon>
+          </button>
         </div>
       </div>
       <div class="row csd-rounded">
-        <div class="col-5 cyber-option-list">
+        <div class="col-5 cyber-option-list text-center">
           <bs-sortable [(ngModel)]="optionList" itemClass="sortable-item" itemActiveClass="sortable-item-active"
-            placeholderItem="Drag here" placeholderClass="placeholderStyle" wrapperClass="" [itemTemplate]="optionItem">
+            placeholderItem="Drag options here" placeholderClass="font-italic" wrapperClass="" [itemTemplate]="optionItem">
           </bs-sortable>
         </div>
-        <div class="col-7 cyber-option-list bg-light">
+        <div class="col-7 cyber-option-list bg-light text-center">
           <bs-sortable [(ngModel)]="newCyberware.options" itemClass="sortable-item"
-            itemActiveClass="sortable-item-active" placeholderItem="Drag here" placeholderClass="placeholderStyle"
+            itemActiveClass="sortable-item-active" placeholderItem="Drag options here" placeholderStyle="font-style: italic"
             wrapperClass="csd-rounded bg-white" [itemTemplate]="currentOptionItem">
           </bs-sortable>
-          <div class="csd-rounded text-center csd-btn" (click)="openModal(newOptionItem)">Create New Option</div>
           <i class="small">Drag options to the above area</i>
         </div>
       </div>
@@ -122,19 +131,23 @@
 </div>
 
 <ng-template #optionItem let-item="item" let-index="index">
-  <div title="{{item.value.notes}}; {{item.value.source.book}} pg.{{item.value.source.page}}">
-    {{item.value.name}}
-    <span class="ms-1" *ngIf="item.value.abbrev">({{item.value.abbrev}})</span>
+  <div>
+    <button class="w-100 csd-btn text-start" title="{{item.value.notes}}; {{item.value.source.book}} pg.{{item.value.source.page}}" (keyup.enter)="addNewOption(item.value)">
+      {{item.value.name}}
+      <span class="ms-1" *ngIf="item.value.abbrev">({{item.value.abbrev}})</span>
+    </button>
   </div>
   <div class="small">&nbsp;&nbsp;HC: {{item.value.hc}} Surgery: {{item.value.surgery}} Cost:
     {{item.value.cost | number}}eb</div>
 </ng-template>
 
 <ng-template #currentOptionItem let-item="item" let-index="index">
-  <div class="row">
-    <div class="col" title="{{item.value.notes}}; {{item.value.source.book}} pg.{{item.value.source.page}}">
-      {{item.value.name}}
-      <span class="ms-1" *ngIf="item.value.abbrev">({{item.value.abbrev}})</span>
+  <div class="row" >
+    <div class="col">
+      <button class="w-100 csd-btn text-start" title="{{item.value.notes}}; {{item.value.source.book}} pg.{{item.value.source.page}}" (keyup.enter)="removeNewOption(index)">
+        {{item.value.name}}
+      1 <span class="ms-1" *ngIf="item.value.abbrev">({{item.value.abbrev}})</span>
+      </button>
     </div>
   </div>
   <div class="small row">
@@ -167,7 +180,9 @@
         <div class="col-2"><input type="number" [(ngModel)]="newOption.cost" class="text-end cyber-option-cost">eb
         </div>
         <div class="col-1 text-end">
-          <fa-icon [icon]="faSave" class="ms-1 csd-btn cyber-save" (click)="saveNewOption()"></fa-icon>
+          <button class="ms-1 csd-btn csd-icon-btn cyber-save" (click)="saveNewOption()" title="Save option" [disabled]="newOption.name === ''">
+            <fa-icon [icon]="faSave"></fa-icon>
+          </button>
         </div>
       </div>
       <div class="row small">
