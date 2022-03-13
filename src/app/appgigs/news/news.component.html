@@ -13,7 +13,7 @@
 
   </div>
   <accordion #accordion>
-    <accordion-group [isOpen]="isOpen" *ngFor="let report of newsItems; let i = index">
+    <accordion-group [isOpen]="isOpen" *ngFor="let report of newsItems$ | async; let i = index">
       <div accordion-heading>
         <h3 style="display:inline-block">{{report.title}}</h3>
         <fa-icon [icon]="accordion.groups[i].isOpen?faAngleDoubleDown:faAngleDoubleRight" size="2x"></fa-icon>

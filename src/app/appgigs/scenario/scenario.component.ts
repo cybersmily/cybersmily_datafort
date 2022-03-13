@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { DataService } from './../../shared/services/file-services';
 import { Component, OnInit } from '@angular/core';
@@ -10,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ScenarioComponent implements OnInit {
 
-  scenarioHTML: string;
+  scenarioHTML$: Observable<string>;
   constructor(private dataService: DataService,
     private activatedRoute: ActivatedRoute,
     private seo: SeoService) { }
@@ -24,12 +25,8 @@ export class ScenarioComponent implements OnInit {
   }
 
   private LoadHTMLFile(url: string) {
-    this.dataService
-    .GetHTML(`/html/gigs/${url}.htm`)
-    .subscribe(
-      resultObj => { this.scenarioHTML = resultObj; },
-      error => console.log( 'Error :: ' + error)
-    );
+    this.scenarioHTML$ = this.dataService
+    .GetHTML(`/html/gigs/${url}.htm`);
   }
 
   private getScenario(): void {

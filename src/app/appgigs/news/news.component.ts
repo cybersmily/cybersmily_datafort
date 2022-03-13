@@ -1,3 +1,5 @@
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { NewsReport } from './../../shared/models/gigs/news-report';
 import { NewsItems } from './../../shared/models/gigs';
 import { SeoService } from './../../shared/services/seo/seo.service';
@@ -17,7 +19,7 @@ export class NewsComponent implements OnInit {
   faAngleDoubleRight = faAngleDoubleRight;
   @ViewChild('accordion', {static: false}) accordion: AccordionComponent;
 
-  newsItems: NewsItems;
+  newsItems$: Observable<NewsItems>;
   selectedReporter = '';
   searchText = '';
   isOpen = false;
@@ -51,11 +53,9 @@ export class NewsComponent implements OnInit {
   }
 
   loadNews() {
-    this.dataService
-    .GetJson(JsonDataFiles.GIG_NEWS_JSON)
-    .subscribe((news) => {
-      this.newsItems = news.news.sort((a, b) => b.title.localeCompare(a.title));
-    });
+    this.newsItems$ = this.dataService
+      .GetJson(JsonDataFiles.GIG_NEWS_JSON)
+      .pipe( map( data => data.news.sort((a,b) => b.title.localeCompare(a.title))));
   }
 
 }
