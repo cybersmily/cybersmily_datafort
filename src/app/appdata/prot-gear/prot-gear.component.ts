@@ -1,3 +1,5 @@
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { DataCyberware } from './../../shared/cp2020/cp2020-cyberware/models/data-cyberware';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { Gear, CyberDeck } from './../../shared/models/gear';
@@ -14,6 +16,12 @@ import { faAngleDoubleDown, faAngleDoubleRight } from '@fortawesome/free-solid-s
 export class ProtGearComponent implements OnInit {
 
   @ViewChild('accordion', {static: false}) accordion: AccordionComponent;
+    proteusEquipment$: Observable<{
+      Gear: Array<Gear>,
+      Cyberware: Array< DataCyberware>,
+      Cyberdeck: Array<CyberDeck>,
+      Cyberdeck_Option: Array<Gear>,
+     }>;
     gearList: Gear[];
     cyberwareList: DataCyberware[];
     cyberDeckList: CyberDeck[];
@@ -32,17 +40,9 @@ export class ProtGearComponent implements OnInit {
   }
 
   private getGear(): void {
-    this.dataService
+    this.proteusEquipment$ = this.dataService
       .GetJson(JsonDataFiles.CP2020_PROTEUS_GEAR_JSON)
-      .subscribe(
-        resultObj => {
-          this.gearList = resultObj.gear.Gear;
-          this.cyberwareList = resultObj.gear.Cyberware;
-          this.cyberDeckList = resultObj.gear.Cyberdeck;
-          this.cyberDeckOptionList = resultObj.gear.Cyberdeck_Option;
-        },
-        error => console.log( 'Error :: ' + error)
-      );
+      .pipe(map( data => data.gear));
   }
 
 

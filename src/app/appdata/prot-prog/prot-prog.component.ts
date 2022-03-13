@@ -1,3 +1,5 @@
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { AccordionComponent } from 'ngx-bootstrap/accordion';
 import { ProgramGroup } from '../../shared/models/gear';
@@ -12,7 +14,7 @@ import { faAngleDoubleDown, faAngleDoubleRight } from '@fortawesome/free-solid-s
 })
 export class ProtProgComponent implements OnInit {
   @ViewChild('accordion', {static: false}) accordion: AccordionComponent;
-  programList: ProgramGroup[];
+  programList$: Observable<Array<ProgramGroup>>;
   faAngleDoubleDown = faAngleDoubleDown;
   faAngleDoubleRight = faAngleDoubleRight;
 
@@ -27,13 +29,8 @@ export class ProtProgComponent implements OnInit {
   }
 
   private getProgramList(): void {
-    this.dataService
+    this.programList$ = this.dataService
       .GetJson(JsonDataFiles.CP2020_PROTEUS_PROGRAMS_JSON)
-      .subscribe(
-        resultObj => {
-          this.programList = resultObj.programs;
-        },
-        error => console.log( 'Error :: ' + error)
-      );
+      .pipe(map( data => data.programs));
   }
 }

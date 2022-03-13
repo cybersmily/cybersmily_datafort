@@ -13,7 +13,8 @@
         <fa-icon [icon]="accordion.groups[0].isOpen?faAngleDoubleDown:faAngleDoubleRight" size="2x"></fa-icon>
       </div>
       <div class="row justify-content-evenly">
-        <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let n of cyberDeckList">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3"
+          *ngFor="let n of (proteusEquipment$ | async)?.Cyberdeck">
           <div class="card-block csd-box csd-rounded">
             <h4 class="card-title">{{n.name}}</h4>
             <div class="csd-card-holder card-text">
@@ -38,7 +39,8 @@
           <fa-icon [icon]="accordion.groups[1].isOpen?faAngleDoubleDown:faAngleDoubleRight" size="2x"></fa-icon>
         </div>
       <div class="row justify-content-evenly">
-        <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let n of cyberDeckOptionList">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3"
+        *ngFor="let n of (proteusEquipment$ | async)?.Cyberdeck_Option">
           <div class="card-block csd-box csd-rounded">
             <h4 class="card-title">{{n.name}}</h4>
             <div class="csd-card-holder card-text">
@@ -62,7 +64,8 @@
           <fa-icon [icon]="accordion.groups[2].isOpen?faAngleDoubleDown:faAngleDoubleRight" size="2x" ></fa-icon>
         </div>
       <div class="row justify-content-evenly">
-        <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let n of cyberwareList">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3"
+        *ngFor="let n of (proteusEquipment$ | async)?.Cyberware">
           <div class="card-block csd-box csd-rounded">
             <h4 class="card-title">{{n.name}}</h4>
             <div class="csd-card-holder card-text">
@@ -86,7 +89,8 @@
           <fa-icon [icon]="accordion.groups[3].isOpen?faAngleDoubleDown:faAngleDoubleRight" size="2x" ></fa-icon>
         </div>
       <div class="row justify-content-evenly">
-        <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let n of gearList">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3"
+        *ngFor="let n of (proteusEquipment$ | async)?.Gear">
           <div class="card-block csd-box csd-rounded">
             <h4 class="card-title">{{n.name}}</h4>
             <div class="csd-card-holder card-text">

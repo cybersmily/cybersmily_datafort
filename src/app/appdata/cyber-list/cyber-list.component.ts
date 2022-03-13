@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { DataCyberware } from './../../shared/cp2020/cp2020-cyberware/models';
 import { CyberDataService } from './../../shared/cp2020/cp2020-cyberware/services';
 import { faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
@@ -34,7 +35,7 @@ export class CyberListComponent implements OnInit {
     orderBy = 'type';
     descending = false;
 
-  cyberwareList: Array<DataCyberware> = new Array<DataCyberware>();
+  cyberwareList$: Observable<Array<DataCyberware>>;
 
   constructor(private cyberData: CyberDataService, private seo: SeoService) { }
 
@@ -44,10 +45,7 @@ export class CyberListComponent implements OnInit {
       'Cyberpunk 2020 Cyberware List',
       '2001-09, Cybersmily\'s Datafort Cyberpunk 2020 Cyberware List from all sources and search capability.'
     );
-    this.cyberData.CyberwareList
-    .subscribe( data => {
-      this.cyberwareList = data;
-    });
+    this.cyberwareList$ = this.cyberData.CyberwareList;
   }
 
   isSorted(property: string): boolean {

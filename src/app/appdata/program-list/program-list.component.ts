@@ -1,3 +1,5 @@
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { ProgramOption } from './../../shared/cp2020/cp2020-netrun-gear/models/program-option';
 import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
 import { DataService } from './../../shared/services/file-services/dataservice/data.service';
@@ -10,7 +12,7 @@ import { Program } from '../../shared/cp2020/cp2020-netrun-gear/models';
   styleUrls: ['./program-list.component.css']
 })
 export class ProgramListComponent implements OnInit {
-  programList: Program[] = new Array<Program>();
+  programList$: Observable<Array<Program>>;
   optionsList: any = {classes: new Array<ProgramOption>(), options: new Array<ProgramOption>()};
   filters = {
     class: '',
@@ -26,10 +28,9 @@ export class ProgramListComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.dataService.GetJson(JsonDataFiles.CP2020_PROGRAM_LIST_JSON)
-    .subscribe(programList => {
-      this.programList = programList.sort((a,b) => a.class.localeCompare(b.class));
-    });
+    this.programList$ = this.dataService
+    .GetJson(JsonDataFiles.CP2020_PROGRAM_LIST_JSON)
+    .pipe( map( data => data.sort((a,b) => a.class.localeCompare(b.class))));
   }
 
 }

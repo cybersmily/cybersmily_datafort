@@ -100,7 +100,7 @@
       <td></td>
       <td><input [(ngModel)]="filters.source" type="search" placeholder="search on source" class="skill-search"/></td>
     </tr>
-    <tr *ngFor="let wpn of wpnList
+    <tr *ngFor="let wpn of wpnList$ | async
     |contains:'name': filters.name
     |contains:'damage': filters.damage
     |contains:'ammo': filters.ammo

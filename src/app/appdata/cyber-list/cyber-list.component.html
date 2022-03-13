@@ -60,7 +60,7 @@
         <td><input [(ngModel)]="searchFilter.surg" class="cyber-data-sm text-center" type="text" /></td>
         <td><input [(ngModel)]="searchFilter.source" class="cyber-data-source" type="text" /></td>
       </tr>
-      <tr *ngFor="let cyber of cyberwareList
+      <tr *ngFor="let cyber of cyberwareList$ | async
           |filter:'type':searchFilter.type
           |filter:'subtype':searchFilter.subtype
           |contains:'name':searchFilter.name

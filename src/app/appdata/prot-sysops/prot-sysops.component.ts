@@ -1,3 +1,5 @@
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import {  } from './../../shared/services/file-services';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { Sysop } from '../../shared/models/character';
@@ -11,7 +13,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProtSysopsComponent implements OnInit {
 
-  sysopsList: Sysop[];
+  sysopsList$: Observable<Array<Sysop>>;
 
   constructor(private dataService: DataService, private seo: SeoService) { }
 
@@ -24,14 +26,9 @@ export class ProtSysopsComponent implements OnInit {
   }
 
   private getSysopList(): void {
-    this.dataService
+    this.sysopsList$ = this.dataService
       .GetJson(JsonDataFiles.CP2020_PROTEUS_SYSOPS_JSON)
-      .subscribe(
-        resultObj => {
-          this.sysopsList = resultObj.sysops;
-        },
-        error => console.log( 'Error :: ' + error)
-      );
+      .pipe( map( data => data.sysops));
   }
 
 }

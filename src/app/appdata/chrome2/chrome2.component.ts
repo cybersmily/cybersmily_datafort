@@ -1,3 +1,5 @@
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { JsonDataFiles } from './../../shared/services/file-services';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { VehicleData } from '../../shared/cp2020/cp2020-vehicles/models';
@@ -11,7 +13,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Chrome2Component implements OnInit {
 
-  vehicleList: VehicleData[];
+  vehicleList$: Observable<Array<VehicleData>>;
   title: string;
   updated: string;
 
@@ -28,12 +30,9 @@ export class Chrome2Component implements OnInit {
   }
 
   private getVehicles(): void {
-    this.dataService
+    this.vehicleList$ =  this.dataService
       .GetJson(JsonDataFiles.CP2020_CHROME2_VEHICLE_JSON)
-      .subscribe(
-        resultObj => this.vehicleList = resultObj.vehicles,
-        error => console.log( 'Error :: ' + error)
-      );
+      .pipe( map (data => data.vehicles));
   }
 
   public hasProp(val: any, prop: string): boolean {

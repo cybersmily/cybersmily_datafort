@@ -24,7 +24,7 @@
       <td></td>
       <td><input [(ngModel)]="filters.source" type="search" placeholder="search on source" class="mstr-role-search"/></td>
     </tr>
-    <ng-container *ngFor="let role of roleList|filter:'name':filters.role|filter:'base':filters.base|filter:'specialability.name':filters.sa|sourcebookFilter:filters.source|filter:'skills':filters.skill">
+    <ng-container *ngFor="let role of roleList$ | async |filter:'name':filters.role|filter:'base':filters.base|filter:'specialability.name':filters.sa|sourcebookFilter:filters.source|filter:'skills':filters.skill">
     <tr style="vertical-align: top;">
       <td>{{role.name}}</td>
       <td>{{role.base}}</td>

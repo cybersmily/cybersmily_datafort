@@ -1,3 +1,5 @@
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { SourceBookLookup } from './../../shared/models/source-book-lookup';
 import { DataSkill } from '../../shared/cp2020/cp2020-skills/models/data-skill';
@@ -11,7 +13,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SkillListComponent implements OnInit {
 
-  skillList: DataSkill[] = new Array<DataSkill>();
+  skillList$: Observable<Array<DataSkill>>;
   filters = {
     name: '',
     stat: '',
@@ -29,13 +31,9 @@ export class SkillListComponent implements OnInit {
       'Cyberpunk 2020 Skill List',
       '2020-07, Cybersmily\'s Datafort Cyberpunk 2020 Skill List is a complied list of skills from Cyberpunk 2020 source books.'
     );
-    this.dataService
+    this.skillList$ = this.dataService
     .GetJson(JsonDataFiles.CP2020_SKILLS_DATA_LIST_JSON)
-    .subscribe( data => {
-      this.skillList = data.sort( (a, b) => {
-        return a.name > b.name ? 1 : -1;
-      });
-    });
+    .pipe( map( data => data.sort((a,b) => a.name.localeCompare(b.name))));
   }
 
   getSource(skill: DataSkill): string {

@@ -7,7 +7,7 @@
     If there is an error email me and I'll try to get a fix in.
   </div>
   <ngx-masonry>
-    <div ngxMasonryItem *ngFor="let veh of vehicleList" class="masonry-item">
+    <div ngxMasonryItem *ngFor="let veh of vehicleList$ | async" class="masonry-item">
       <div class="card-block csd-box csd-rounded m-1">
         <h4 class="card-title">{{veh.name}}</h4>
         <div *ngIf="hasProp(veh,'description')" class="card-text">

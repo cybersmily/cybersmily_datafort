@@ -23,7 +23,7 @@
       <td><input [(ngModel)]="filters.source" type="search" placeholder="search on source" class="skill-search w-100"/></td>
 
     </tr>
-    <tr *ngFor="let prog of programList |filter:'mu': filters.mu|filter:'str': filters.str|filter:'class': filters.class |filter:'name': filters.name|contains:'options':filters.options| sourcebookFilter:filters.source"
+    <tr *ngFor="let prog of programList$ | async |filter:'mu': filters.mu|filter:'str': filters.str|filter:'class': filters.class |filter:'name': filters.name|contains:'options':filters.options| sourcebookFilter:filters.source"
         style="vertical-align: top;" class="prog-row">
         <td class="">{{prog.class}}</td>
         <td class="" title="{{prog.description}}">{{prog.name}}</td>

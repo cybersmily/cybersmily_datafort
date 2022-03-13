@@ -1,3 +1,5 @@
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { JsonDataFiles } from './../../shared/services/file-services';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { WeaponGroup } from '../../shared/cp2020/cp2020weapons/models';
@@ -10,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./moreguns.component.css']
 })
 export class MoregunsComponent implements OnInit {
-  weaponList: WeaponGroup[];
+  weaponList$: Observable<Array<WeaponGroup>>;
   constructor(private dataService: DataService, private seo: SeoService) { }
 
   ngOnInit() {
@@ -22,14 +24,9 @@ export class MoregunsComponent implements OnInit {
   }
 
   private getWeapons() {
-    this.dataService
+     this.weaponList$ = this.dataService
       .GetJson(JsonDataFiles.CP2020_MORE_GUNS_JSON)
-      .subscribe(
-        resultObj => {
-          this.weaponList = resultObj.weapons;
-        },
-        error => console.log( 'Error :: ' + error)
-      );
+      .pipe( map( data => data.weapons));
   }
 
 }

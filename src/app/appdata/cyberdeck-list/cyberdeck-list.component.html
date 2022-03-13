@@ -21,7 +21,7 @@
       <td><input [(ngModel)]="filters.source" type="search" placeholder="search on source" class="skill-search w-100"/></td>
 
     </tr>
-    <tr *ngFor="let deck of deckList |filter:'totalMU': filters.mu|filter:'speed': filters.speed|filter:'type.name': filters.type |filter:'name': filters.name|contains:'options':filters.options| sourcebookFilter:filters.source"
+    <tr *ngFor="let deck of deckList$ | async | filter:'totalMU': filters.mu|filter:'speed': filters.speed|filter:'type.name': filters.type |filter:'name': filters.name|contains:'options':filters.options| sourcebookFilter:filters.source"
         style="vertical-align: top;" class="prog-row">
         <td class="" >{{deck.name}}</td>
         <td class="" >{{deck.type.name}}</td>

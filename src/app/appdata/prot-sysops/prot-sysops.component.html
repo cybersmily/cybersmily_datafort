@@ -2,7 +2,7 @@
     <div class="small">Last updated 2014-09</div>
   <h2>Proteus Sysops</h2>
     <ngx-masonry [options]="{fitWidth: true}">
-        <div ngxMasonryItem class="masonry-item" *ngFor="let sysop of sysopsList" >
+        <div ngxMasonryItem class="masonry-item" *ngFor="let sysop of sysopsList$ | async" >
           <div class="card-block csd-box csd-rounded m-1">
             <h4 class="card-title">{{sysop.name}}</h4>
             <div class="csd-card-holder card-text">
