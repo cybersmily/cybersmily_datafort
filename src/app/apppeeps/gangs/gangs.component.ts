@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { JsonDataFiles, DataService } from './../../shared/services/file-services';
 import { Component, OnInit, TemplateRef } from '@angular/core';
@@ -10,9 +11,9 @@ import { GangData } from './../../shared/models/gang/gang-data';
 })
 export class GangsComponent implements OnInit {
 
-  gangs: Array<any> = new Array<any>();
+  gangs$: Observable<Array<{name:string, type: string, file:string}>>;
 
-  gang: GangData;
+  gang$: Observable<GangData>;
 
   modalRef: BsModalRef;
   modalConfig = {
@@ -23,16 +24,12 @@ export class GangsComponent implements OnInit {
   constructor(private dataService: DataService, private modalService: BsModalService) { }
 
   ngOnInit(): void {
-    this.dataService.GetJson(JsonDataFiles.CP_GANGS_JSON).subscribe( data => {
-      this.gangs = data;
-    });
+    this.gangs$ = this.dataService.GetJson(JsonDataFiles.CP_GANGS_JSON);
   }
 
   openModal(template: TemplateRef<any>, fileName: string) {
-    this.dataService.GetJson(`${JsonDataFiles.CP_GANGS_PATH}${fileName}.json`).subscribe( data => {
-      this.gang = data;
-      this.modalRef = this.modalService.show(template, this.modalConfig);
-    });
+    this.gang$ = this.dataService.GetJson(`${JsonDataFiles.CP_GANGS_PATH}${fileName}.json`);
+    this.modalRef = this.modalService.show(template, this.modalConfig);
   }
 
   closeModal() {

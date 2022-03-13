@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { DataService } from './../../shared/services/file-services';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Corporation, CorporationCard } from '../../shared/models/corporation';
@@ -16,35 +17,28 @@ export class CorporationCardComponent implements OnInit {
   @Input()
   corp: CorporationCard = {name: '', img: '', slogan: ''};
 
-  corporateFile: string;
-  corporateProfile: Corporation = new Corporation();
+  corporateProfile$: Observable<Corporation>;
   bsModalRef: BsModalRef;
-  corporateLogo: string;
 
-  constructor(private dataService: DataService , public modalService: BsModalService) {
-    this.corporateFile = '';
-    this.corporateLogo = '';
+  get corporateLogo(): string {
+    return (this.corp) ?  `/img/peeps/th/th_${this.corp.img}.png` : '';
   }
 
-  ngOnInit() {
-    this.corporateLogo = (this.corp) ?  `/img/peeps/th/th_${this.corp.img}.png` : '';
-    this.corporateProfile = new Corporation();
+  get corporateFile(): string{
+    return  (this.corp) ? `/json/peeps/corporations/${this.corp.img}.json` : '';
   }
+
+  constructor(private dataService: DataService , public modalService: BsModalService) {}
+
+  ngOnInit() {}
 
   openModal(template: TemplateRef<any>) {
-    this.corporateFile = `/json/peeps/corporations/${this.corp.img}.json`;
     this.loadCorporation(template);
+    this.bsModalRef = this.modalService.show(template, {class: 'modal-lg'});
   }
 
   loadCorporation(template: TemplateRef<any>) {
-    this.dataService
-    .GetJson(this.corporateFile)
-    .subscribe(
-      resultObj => {
-        this.corporateProfile = resultObj;
-        this.bsModalRef = this.modalService.show(template, {class: 'modal-lg'});
-      },
-      error => console.log( 'Error :: ' + error)
-    );
+    this.corporateProfile$ = this.dataService
+    .GetJson(this.corporateFile);
   }
 }

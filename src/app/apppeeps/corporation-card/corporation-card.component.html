@@ -1,21 +1,23 @@
-<div class="card csd-corporation-card">
-  <div class="card-block csd-box csd-rounded" (click)="openModal(corpTemplate)">
-    <img [src]="corporateLogo" style="height:100px;" />
-    <h2>{{corp.name}}</h2>
-    <div><i>{{corp.slogan}}</i></div>
-  </div>
+<div class="csd-box csd-rounded" (click)="openModal(modalTemplate)">
+  <img [src]="corporateLogo" style="height:100px;" />
+  <h2>{{corp.name}}</h2>
+  <div><i>{{corp.slogan}}</i></div>
 </div>
 
-<ng-template #corpTemplate>
+<ng-template #modalTemplate>
   <div class="modal-header">
-    <button type="button" class="btn-close float-end" (click)="bsModalRef.hide()" aria-label="Close">
-
-    </button>
+    <button type="button" class="btn-close float-end" (click)="bsModalRef.hide()" aria-label="Close"></button>
   </div>
   <div class="modal-body csd-corp-profile">
+    <ng-container [ngTemplateOutlet]="corporateProfileTemplate" [ngTemplateOutletContext]="{corporateProfile: (corporateProfile$ | async)}"></ng-container>
+  </div>
+</ng-template>
+
+<ng-template #corporateProfileTemplate let-corporateProfile="corporateProfile">
+  <div *ngIf="corporateProfile">
     <div class="row csd-corp-header">
       <div class="col-12 col-md-4 csd-corp-img">
-          <img alt="{{corp.name}}" [src]="corporateLogo" />
+        <img alt="{{corp.name}}" [src]="corporateLogo" />
       </div>
       <div class="col-12 col-md-6">
         <h1>{{corp.name}}</h1>
@@ -25,37 +27,37 @@
     <br>
     <div class="row">
       <div class="col-12">
-          <div class="csd-corp-detail csd-rounded">
-              <h5>Corporate Details</h5>
-              <ul class="list-unstyled">
-                <li>
-                  <strong>Headuqarters: </strong>
-                  <span>{{corporateProfile.offices.headquarters}}</span>
-                </li>
-                <li>
-                  <strong>Regional Offices:</strong>
-                  <span *ngFor="let off of corporateProfile.offices.regionaloffices.locations">{{off}}; </span>
-                </li>
-                <li>
-                  <strong>Major Shareholders:</strong>
-                  <span> {{corporateProfile.resources.majorityholder.name}},
-                    {{corporateProfile.resources.majorityholder.location}},
-                    {{corporateProfile.resources.majorityholder.stockpercent}}%</span>
-                </li>
-                <li>
-                  <strong>Employees:</strong>
-                  <span> {{corporateProfile.employees.workers|number}} (worldwide)</span>
-                </li>
-                <li>
-                  <strong>Troops:</strong>
-                  <span> {{corporateProfile.employees.troops|number}}</span>
-                </li>
-                <li>
-                  <strong>Special Ops:</strong>
-                  <span> {{corporateProfile.employees.covert|number}}</span>
-                </li>
-              </ul>
-            </div>
+        <div class="csd-corp-detail csd-rounded">
+          <h5>Corporate Details</h5>
+          <ul class="list-unstyled">
+            <li>
+              <strong>Headuqarters: </strong>
+              <span>{{corporateProfile.offices.headquarters}}</span>
+            </li>
+            <li>
+              <strong>Regional Offices:</strong>
+              <span *ngFor="let off of corporateProfile.offices.regionaloffices.locations">{{off}}; </span>
+            </li>
+            <li>
+              <strong>Major Shareholders:</strong>
+              <span> {{corporateProfile.resources.majorityholder.name}},
+                {{corporateProfile.resources.majorityholder.location}},
+                {{corporateProfile.resources.majorityholder.stockpercent}}%</span>
+            </li>
+            <li>
+              <strong>Employees:</strong>
+              <span> {{corporateProfile.employees.workers|number}} (worldwide)</span>
+            </li>
+            <li>
+              <strong>Troops:</strong>
+              <span> {{corporateProfile.employees.troops|number}}</span>
+            </li>
+            <li>
+              <strong>Special Ops:</strong>
+              <span> {{corporateProfile.employees.covert|number}}</span>
+            </li>
+          </ul>
+        </div>
         <h4>History</h4>
         <div class="csd-corp-section" [innerHTML]="corporateProfile.history"></div>
       </div>
@@ -185,15 +187,15 @@
             <div>{{corporateProfile.resources.value}}</div>
           </div>
           <div>
-              <h6>Resources</h6>
-              <div>{{corporateProfile.resources.resources}}</div>
-            </div>
-            <div>
-              <h6>Subsidiaries</h6>
-              <ul class="list-unstyled">
-                <li *ngFor="let sub of corporateProfile.resources.subsidaries">{{sub.name}} - {{sub.description}}</li>
-              </ul>
-            </div>
+            <h6>Resources</h6>
+            <div>{{corporateProfile.resources.resources}}</div>
+          </div>
+          <div>
+            <h6>Subsidiaries</h6>
+            <ul class="list-unstyled">
+              <li *ngFor="let sub of corporateProfile.resources.subsidaries">{{sub.name}} - {{sub.description}}</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

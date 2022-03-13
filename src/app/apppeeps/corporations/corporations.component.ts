@@ -1,3 +1,5 @@
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { DataService } from './../../shared/services/file-services';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,14 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CorporationsComponent implements OnInit {
 
-  coporations: any[];
+  coporations$: Observable<{name: string, img:string,slogan:string}>;
 
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.GetJson('/json/peeps/corporations.json').subscribe( data => {
-      this.coporations = data.corporations;
-    });
+    this.coporations$ = this.dataService
+      .GetJson('/json/peeps/corporations.json')
+      .pipe(map(data => data.corporations));
   }
 
 }

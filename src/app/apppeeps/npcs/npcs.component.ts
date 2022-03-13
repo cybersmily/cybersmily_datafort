@@ -1,3 +1,5 @@
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { DataService } from './../../shared/services/file-services';
 import { NpcCard } from '../../shared/models/character';
@@ -11,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class NpcsComponent implements OnInit {
 
-  npcRoster: NpcCard[];
+  npcRoster$: Observable<Array<NpcCard>>;
   currNpcs: string;
 
   constructor(private dataService: DataService,
@@ -27,12 +29,9 @@ export class NpcsComponent implements OnInit {
   }
 
   private LoadRosterFile(url: string) {
-    this.dataService
+    this.npcRoster$ = this.dataService
     .GetJson(`/json/peeps/${url}.json`)
-    .subscribe(
-      resultObj => { this.npcRoster = resultObj.npcs; },
-      error => console.log( 'Error :: ' + error)
-    );
+    .pipe( map( data => data.npcs));
   }
 
   private getNpcs(): void {

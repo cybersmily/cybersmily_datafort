@@ -1,5 +1,7 @@
 <div class="container">
-<div class="card-deck">
-  <cs-corporation-card *ngFor="let corp of coporations" [corp]="corp"></cs-corporation-card>
-</div>
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3 text-center" *ngFor="let corp of coporations$ | async">
+      <cs-corporation-card [corp]="corp"></cs-corporation-card>
+    </div>
+  </div>
 </div>

@@ -3,7 +3,7 @@
   <div class="row">
     <div
       class="col-6 col-md-4 col-lg-3 col-xl-2 csd-rounded me-2 gang-card text-center"
-      *ngFor="let gang of gangs"
+      *ngFor="let gang of gangs$ | async"
       (click)="openModal(selectedGang, gang.file)"
     >
       <img
@@ -20,80 +20,78 @@
 
 <ng-template #selectedGang>
   <div class="modal-header text-center">
-    <h3 id="armor-modal-name" class="modal-title">{{ gang.name }}</h3>
-    <button
-      type="button"
-      class="close float-end"
-      aria-label="Close"
-      (click)="closeModal()"
-    >
-
-    </button>
+    <h3 id="armor-modal-name" class="modal-title">{{ (gang$ | async)?.name }}</h3>
+    <button type="button" class="close float-end" aria-label="Close" (click)="closeModal()"></button>
   </div>
   <div class="modal-body container">
-    <div class="row">
-      <div class="col-12 col-lg-6">
+    <ng-container [ngTemplateOutlet]="gangDetails" [ngTemplateOutletContext]="{gang: (gang$ | async)}"></ng-container>
+  </div>
+</ng-template>
 
-        <div class="row">
-          <div class="col"><strong>Leader:</strong> {{ gang.leader }}</div>
-        </div>
-        <div class="row">
-          <div class="col"><strong>Members:</strong> {{ gang.members }}</div>
-        </div>
-        <div class="row">
-          <div class="col"><strong>Turf:</strong> {{ gang.turf }}</div>
-        </div>
-        <div class="row">
-          <div class="col"><strong>Allies:</strong> {{ gang.allies }}</div>
-        </div>
-        <div class="row">
-          <div class="col"><strong>Rivals:</strong> {{ gang.rivals }}</div>
-        </div>
-        <div class="row">
-          <div class="col"><strong>Notable Members:</strong> {{ gang.notableMembers }}</div>
-        </div>
-        <div class="row">
-          <div class="col"><strong>Colors:</strong> {{ gang.colors }}</div>
-        </div>
-        <div class="row">
-          <div class="col"><strong>Threat Level:</strong> {{ gang.threatLevel }}</div>
-          <div class="col"><strong>Threat Code:</strong> {{ gang.threatCode }}</div>
-        </div>
+<ng-template #gangDetails let-gang="gang">
+  <div *ngIf="gang">
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <div class="row">
+        <div class="col"><strong>Leader:</strong> {{ gang.leader }}</div>
       </div>
-      <div class="col-12 col-lg-6">
-        <img
-          src="/img/peeps/{{ gang.tag.img }}.png"
-          alt="{{ gang.tag.desc}}"
-          title="{{ gang.name }} ({{ gang.tag.desc}})"
-        />
+      <div class="row">
+        <div class="col"><strong>Members:</strong> {{ gang.members }}</div>
+      </div>
+      <div class="row">
+        <div class="col"><strong>Turf:</strong> {{ gang.turf }}</div>
+      </div>
+      <div class="row">
+        <div class="col"><strong>Allies:</strong> {{ gang.allies }}</div>
+      </div>
+      <div class="row">
+        <div class="col"><strong>Rivals:</strong> {{ gang.rivals }}</div>
+      </div>
+      <div class="row">
+        <div class="col"><strong>Notable Members:</strong> {{ gang.notableMembers }}</div>
+      </div>
+      <div class="row">
+        <div class="col"><strong>Colors:</strong> {{ gang.colors }}</div>
+      </div>
+      <div class="row">
+        <div class="col"><strong>Threat Level:</strong> {{ gang.threatLevel }}</div>
+        <div class="col"><strong>Threat Code:</strong> {{ gang.threatCode }}</div>
       </div>
     </div>
-    <br>
-    <div class="row">
-      <div class="col"><strong>Description:</strong> {{ gang.description }}</div>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col"><strong>Typical Member</strong></div>
-    </div>
-    <div class="row">
-      <div class="col">
-        STATS:&nbsp; INT: {{ gang.averageMemer.stats.INT }}&nbsp; REF:
-        {{ gang.averageMemer.stats.REF }}&nbsp; TECH:
-        {{ gang.averageMemer.stats.TECH }}&nbsp; COOL:
-        {{ gang.averageMemer.stats.COOL }}&nbsp; ATT:
-        {{ gang.averageMemer.stats.ATT }}&nbsp; MA:
-        {{ gang.averageMemer.stats.MA }}&nbsp; BOD:
-        {{ gang.averageMemer.stats.BOD }}&nbsp; LUCK:
-        {{ gang.averageMemer.stats.LUCK }}&nbsp; EMP:
-        {{ gang.averageMemer.stats.EMP }}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">SKILLS: {{ gang.averageMemer.skills.join(", ") }}</div>
-    </div>
-    <div class="row">
-      <div class="col">CYBERWARE: {{ gang.averageMemer.cyber.join(", ") }}</div>
+    <div class="col-12 col-lg-6">
+      <img
+        src="/img/peeps/{{ gang.tag.img }}.png"
+        alt="{{ gang.tag.desc}}"
+        title="{{ gang.name }} ({{ gang.tag.desc}})"
+      />
     </div>
   </div>
+  <br>
+  <div class="row">
+    <div class="col"><strong>Description:</strong> {{ gang.description }}</div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col"><strong>Typical Member</strong></div>
+  </div>
+  <div class="row">
+    <div class="col">
+      STATS:&nbsp; INT: {{ gang.averageMemer.stats.INT }}&nbsp; REF:
+      {{ gang.averageMemer.stats.REF }}&nbsp; TECH:
+      {{ gang.averageMemer.stats.TECH }}&nbsp; COOL:
+      {{ gang.averageMemer.stats.COOL }}&nbsp; ATT:
+      {{ gang.averageMemer.stats.ATT }}&nbsp; MA:
+      {{ gang.averageMemer.stats.MA }}&nbsp; BOD:
+      {{ gang.averageMemer.stats.BOD }}&nbsp; LUCK:
+      {{ gang.averageMemer.stats.LUCK }}&nbsp; EMP:
+      {{ gang.averageMemer.stats.EMP }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">SKILLS: {{ gang.averageMemer.skills.join(", ") }}</div>
+  </div>
+  <div class="row">
+    <div class="col">CYBERWARE: {{ gang.averageMemer.cyber.join(", ") }}</div>
+  </div>
+</div>
 </ng-template>
