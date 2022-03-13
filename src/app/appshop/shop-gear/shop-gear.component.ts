@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { DataService, JsonDataFiles } from './../../shared/services/file-services';
 import { Component, OnInit } from '@angular/core';
@@ -9,9 +10,10 @@ import { Gear } from '../../shared/models/gear';
   styleUrls: ['./shop-gear.component.css']
 })
 export class ShopGearComponent implements OnInit {
-  equipmentList: Gear[];
-  title: string;
-  updated: string;
+  equipmentList$: Observable<{
+    items: Array<Gear>,
+    title: string,
+    updated: string}>;
 
   constructor(private dataService: DataService, private seo: SeoService) { }
 
@@ -23,15 +25,7 @@ export class ShopGearComponent implements OnInit {
     this.getEquipment();
   }
   private getEquipment(): void {
-    this.dataService
-      .GetJson(JsonDataFiles.CP2020_SHOP_GEAR_JSON)
-      .subscribe(
-        resultObj => {
-          this.title = resultObj.title;
-          this.updated = resultObj.updated;
-          this.equipmentList = resultObj.items;
-        },
-        error => console.log( 'Error :: ' + error)
-      );
+    this.equipmentList$ = this.dataService
+      .GetJson(JsonDataFiles.CP2020_SHOP_GEAR_JSON);
   }
 }

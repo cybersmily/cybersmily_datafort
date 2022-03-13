@@ -1,6 +1,5 @@
 <div class="container">
-    <div class="small">Last updated {{updated}}</div>
-  <h2>{{title}}</h2>
-
-  <cs-cyberwarecardcolumn [cyberList]="cyberwareList"></cs-cyberwarecardcolumn>
+    <div class="small">Last updated {{(cyberwareList$ | async)?.updated}}</div>
+  <h2>{{(cyberwareList$ | async)?.title}}</h2>
+  <cs-cyberwarecardcolumn [cyberList]="(cyberwareList$ | async)?.items"></cs-cyberwarecardcolumn>
 </div>

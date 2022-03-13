@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { DataCyberware } from './../../shared/cp2020/cp2020-cyberware/models';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { DataService, JsonDataFiles } from './../../shared/services/file-services';
@@ -9,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shop-cyberware.component.css']
 })
 export class ShopCyberwareComponent implements OnInit {
-  cyberwareList: DataCyberware[];
-  title: string;
-  updated: string;
+  cyberwareList$: Observable<{
+    items: Array<DataCyberware>,
+    title: string,
+    updated: string
+  }>;
 
   constructor(private dataService: DataService, private seo: SeoService) { }
 
@@ -23,15 +26,7 @@ export class ShopCyberwareComponent implements OnInit {
     this.getCyberware();
   }
   private getCyberware(): void {
-    this.dataService
-      .GetJson(JsonDataFiles.CP2020_SHOP_CYBERWARE_JSON)
-      .subscribe(
-        resultObj => {
-          this.cyberwareList = resultObj.items;
-          this.title = resultObj.title;
-          this.updated = resultObj.updated;
-        },
-        error => console.log( 'Error :: ' + error)
-      );
+    this.cyberwareList$ =  this.dataService
+      .GetJson(JsonDataFiles.CP2020_SHOP_CYBERWARE_JSON);
   }
 }

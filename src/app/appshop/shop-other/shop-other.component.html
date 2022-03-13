@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="small">Last updated {{updated}}</div>
-  <h2>{{title}}</h2>
-  <cs-gearcardcolumn [gearList]="otherList"></cs-gearcardcolumn>
+    <div class="small">Last updated {{(otherList$ |  async)?.updated}}</div>
+  <h2>{{(otherList$ |  async)?.title}}</h2>
+  <cs-gearcardcolumn [gearList]="(otherList$ |  async)?.items"></cs-gearcardcolumn>
 </div>
