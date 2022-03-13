@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { JsonDataFiles, DataService } from './../../shared/services/file-services';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,15 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./blue-prints.component.css']
 })
 export class BluePrintsComponent implements OnInit {
-  blueprints: Array<any> = new Array<any>();
+  blueprints$: Observable<Array<any>>;
 
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.dataService
-    .GetJson(JsonDataFiles.BLUEPRINTs_JSON)
-    .subscribe( data => {
-      this.blueprints = data;
-    });
+    this.blueprints$ = this.dataService
+    .GetJson(JsonDataFiles.BLUEPRINTs_JSON);
   }
 }
