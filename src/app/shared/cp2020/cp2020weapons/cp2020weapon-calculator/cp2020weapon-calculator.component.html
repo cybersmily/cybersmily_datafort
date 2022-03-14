@@ -73,9 +73,9 @@
         <div class="col">
           <span class="wpn-shot csd-btn" *ngFor="let shot of currMagazineShots;let i = index"
             (click)="selectedWeapon.expendShot(i)" title="{{i + 1}}">{{ shot ? 'x' : ''}}</span>
-          &nbsp;&nbsp;
-          <fa-icon *ngIf="selectedWeapon.isEmpty" [icon]="faRedo" class="csd-btn" (click)="reload()" title="Reload">
-          </fa-icon>
+          <button *ngIf="selectedWeapon.isEmpty" class="csd-btn csd-icon-btn ms-2" (click)="selectedWeapon.reload()" title="Reload">
+            <fa-icon [icon]="faRedo"></fa-icon>
+          </button>
         </div>
         <div class="col-2"></div>
       </div>
@@ -122,16 +122,35 @@
         <div class="col-2"></div>
       </div>
 
-      <div class="row" *ngIf="isRanged">
+      <div class="row small mb-1" *ngIf="isRanged">
         <div class="col-1"></div>
-        <div class="col cmbt-section">
+        <div class="col-5 col-lg-2">
           Range to Target:
-          <input [(ngModel)]="rangeToTarget" type="range" min="0" max="{{ weaponRange > 1 ? weaponRange * 2 : 1 }}"
-            value="1" />&nbsp; {{ rangeToTarget }}m ({{
-          selectedWeapon.getRangeBracket(rangeToTarget).bracket
-          }})
         </div>
-        <div class="col-3 text-end">
+        <div class="col-5 col-lg-3 cmbt-section">
+          <input class="w-100" title="Range to target" [(ngModel)]="rangeToTarget" type="range" min="0" max="{{ weaponRange > 1 ? weaponRange * 2 : 1 }}"
+            (change)="setBracket()"
+            value="1" list="rangeIncrements" />
+            <datalist id="rangeIncrements">
+              <option>{{selectedWeaponRanges?.pointBlank}}</option>
+              <option>{{selectedWeaponRanges?.close}}</option>
+              <option>{{selectedWeaponRanges?.medium}}</option>
+              <option>{{selectedWeaponRanges?.long}}</option>
+              <option>{{selectedWeaponRanges?.extreme}}</option>
+            </datalist>
+        </div>
+        <div class="col-1 d-lg-none"></div>
+        <div class="col-6 col-lg-3 text-end">
+          {{ rangeToTarget }}m (
+            <select [ngModel]="rangeBracket" (change)="setRange($event)" >
+              <option value="Point Blank">Point Blank</option>
+              <option value="Close">Close</option>
+              <option value="Medium">Medium</option>
+              <option value="Long">Long</option>
+              <option value="Extreme">Extreme</option>
+            </select>)
+        </div>
+        <div class="col-6 col-lg-3 text-end">
           Base DIFF: {{ selectedWeapon.getRangeBracket(rangeToTarget).diff }}
         </div>
       </div>

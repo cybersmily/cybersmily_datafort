@@ -124,7 +124,7 @@ export class CpPlayerWeapon implements CpWeapon {
 
   get isRangedWeapon(): boolean {
     return (
-      this.type.toLowerCase() !== 'mel' ||
+      this.range > 1 ||
       this.thrown
     );
   }

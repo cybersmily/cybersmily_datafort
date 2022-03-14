@@ -142,7 +142,10 @@ export class Cp2020PlayerSkills {
         );
         break;
       case 'hvy':
-        list = this.REF.filter((s) => s.name.toLowerCase().startsWith('heavy weapons') || s?.option?.toLowerCase() === 'heavy weapons');
+        list = this.REF.filter((s) =>
+          s.name.toLowerCase().startsWith('heavy weapons') || s?.option?.toLowerCase() === 'heavy weapons'
+          || s.name.toLowerCase().startsWith('athletics') || s?.option?.toLowerCase() === 'athletics'
+        );
         break;
       default:
         list = this.getCombatSkills();
@@ -159,6 +162,7 @@ export class Cp2020PlayerSkills {
         s.name.toLowerCase() === 'melee' ||
         s.name.toLowerCase().startsWith('brawling') ||
         s.name.toLowerCase().startsWith('martial') ||
+        s.name.toLowerCase() === 'athletics' ||
         s.name.toLowerCase() === 'fencing'
     );
 
@@ -178,6 +182,7 @@ export class Cp2020PlayerSkills {
         s.name.toLowerCase() === 'archery' ||
         s.name.toLowerCase() === 'heavy weapons' ||
         s.name.toLowerCase() === 'initiative' ||
+        s.name.toLowerCase() === 'athletics' ||
         s?.option?.toLowerCase() === 'archery' ||
         s?.option?.toLowerCase() === 'rifle' ||
         s?.option?.toLowerCase() === 'handgun' ||

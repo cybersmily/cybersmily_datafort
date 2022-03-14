@@ -1,3 +1,4 @@
+import { WeaponRanges } from './../models/weapon-ranges';
 import { Cp2020MartialArt, Cp2020PlayerSkills,  Cp2020PlayerSkill} from '../../cp2020-skills/models';
 import { MartialArtsDataService } from './../../cp2020-skills/services';
 import { DiceRolls } from './../../../models/dice-rolls';
@@ -73,6 +74,8 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
   twoWeapons = false;
   running = false;
   fireFromHip = false;
+
+  selectedWeaponRange = 0;
 
   otherToHitModifiers = 0;
   toHitDiceRoll = new DiceRolls();
@@ -156,6 +159,9 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
       range: 1,
     }),
   ];
+
+  selectedWeaponRanges: WeaponRanges = new WeaponRanges(0);
+  rangeBracket: string = 'Point Blank';
 
   constructor(
     private diceService: DiceService,
@@ -300,23 +306,23 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
   }
 
   get weaponRange(): number {
-    if (this.selectedWeapon.range && this.selectedWeapon.range > 0) {
+    if (this.selectedWeapon.range && this.selectedWeapon.range > 1) {
       return this.selectedWeapon.range;
-    }
-    if (this.selectedWeapon.thrown) {
+    } else  if (this.selectedWeapon.thrown) {
       return this.body * 10;
-    }
-    switch (this.selectedWeapon.type.toLowerCase()) {
-      case 'p':
-        return 50;
-      case 'smg':
-        return 150;
-      case 'rif':
-        return 400;
-      case 'sht':
-        return 50;
-      default:
-        return 1;
+    } else {
+      switch (this.selectedWeapon.type.toLowerCase()) {
+        case 'p':
+          return 50;
+        case 'smg':
+          return 150;
+        case 'rif':
+          return 400;
+        case 'sht':
+          return 50;
+        default:
+          return 1;
+      }
     }
   }
 
@@ -334,7 +340,7 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
   }
 
   get isMelee(): boolean {
-    return this.selectedWeapon.type.toLowerCase() === 'mel' || this.selectedWeapon?.thrown === true;
+    return this.selectedWeapon.type.toLowerCase() === 'mel';
   }
 
   get martialArtsBonuses(): Cp2020MartialArt {
@@ -401,11 +407,26 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
       }
     }
     this.toHitResults = new Array<string>();
+    console.log(this.selectedWeapon);
+    this.selectedWeaponRanges = new WeaponRanges(this.weaponRange);
+  }
+
+  setBracket() {
+    console.log(this.rangeToTarget);
+    this.rangeBracket =  this.selectedWeaponRanges.rangeBracket(this.rangeToTarget).bracket;
   }
 
   changeSkill() {
     if (this.handle !== '') {
       this.opponents[this.handle]['skill'] = this.selectedSkill;
     }
+  }
+
+  setRange($event) {
+    $event.stopPropagation();
+    const range = $event.target.value;
+    this.selectedWeaponRanges = new WeaponRanges(this.weaponRange);
+    this.rangeToTarget = this.selectedWeaponRanges[range?.toLowerCase().replace(' ', '')] ?? 1;
+
   }
 }
