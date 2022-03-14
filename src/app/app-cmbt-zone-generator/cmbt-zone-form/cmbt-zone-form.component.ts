@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CmbtZoneFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private seo: SeoService) { }
 
   ngOnInit(): void {
+    this.seo.updateMeta(
+      'Combat Zone Generator for Cyberpunk 2020/Red',
+      '2022-03, Cybersmily\'s Datafort Combat Zone Generator utility for Cyberpunk 2020/Red.'
+    );
   }
 
 }

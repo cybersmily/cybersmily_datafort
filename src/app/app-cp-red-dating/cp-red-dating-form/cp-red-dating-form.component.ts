@@ -1,11 +1,10 @@
-import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
-import { CPRedLifePathService } from './../../shared/cpred/c-p-red-lifepath/services/c-p-red-life-path.service';
-import { CpRedDate } from './../models/cp-red-date';
-import { CpRedDateGeneratorService } from './../services/cp-red-date-generator/cp-red-date-generator.service';
+import { SeoService } from './../../shared/services/seo/seo.service';
+import { CpRedDate } from './../models';
+import { CpRedDateGeneratorService } from './../services';
 import { faDice } from '@fortawesome/free-solid-svg-icons';
-import { CpRedDatingMainChart } from './../models/cp-red-dating-main-chart';
+import { CpRedDatingMainChart } from './../models';
 import { CpRedAppFiles } from './../../shared/services/file-services/enum/cpred-app-files';
-import { DataService } from './../../shared/services/file-services/dataservice/data.service';
+import { DataService, JsonDataFiles } from './../../shared/services/file-services';
 import { Component, OnInit } from '@angular/core';
 import { CpRedLifepathCoreRoleChartEntry } from './../../shared/cpred/c-p-red-lifepath/models';
 
@@ -20,21 +19,29 @@ export class CpRedDatingFormComponent implements OnInit {
   chart: CpRedDatingMainChart;
 
   redDate: CpRedDate;
-  rollDisabled = true;
   isGhosted = false;
-  roleCharts: Array<CpRedLifepathCoreRoleChartEntry> = new Array<CpRedLifepathCoreRoleChartEntry>();
+  roleCharts: Array<CpRedLifepathCoreRoleChartEntry>;
+
+  get rollDisabled(): boolean {
+    return (this.chart && this.roleCharts.length > 0);
+  }
 
   constructor(private dataService: DataService,
-            private dateGeneratorService: CpRedDateGeneratorService) { }
+            private dateGeneratorService: CpRedDateGeneratorService,
+            private seo: SeoService) { }
 
   ngOnInit(): void {
+    this.seo.updateMeta(
+      'Dating Utility for Cyberpunk Red',
+      '2022-03, Cybersmily\'s Datafort Dating utility for Cyberpunk Red using the DLC from RTG.'
+    );
     this.dataService.GetJson(CpRedAppFiles.DATING_CHARTS)
     .subscribe((data) => {
       this.chart = data.cpred;
-      this.rollDisabled = false;this.dataService.GetJson(JsonDataFiles.CPRED_LIFEPATH_CHART_JSON)
-      .subscribe( data => {
-        this.roleCharts = data?.corebook?.roles;
-      });
+    });
+    this.dataService.GetJson(JsonDataFiles.CPRED_LIFEPATH_CHART_JSON)
+    .subscribe( data => {
+      this.roleCharts = data?.corebook?.roles;
     });
   }
 
