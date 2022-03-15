@@ -242,9 +242,9 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
     total += this.smartWeapon ? -2 : 0;
     total += this.laserSight ? -1 : 0;
     total += this.teleSight
-      ? this.selectedWeaponBracket.bracket === 'Medium'
+      ? this.selectedWeaponRanges.rangeBracket(this.rangeToTarget).bracket === 'Medium'
         ? -1
-        : this.selectedWeaponBracket.bracket === 'Extreme'
+        : this.selectedWeaponRanges.rangeBracket(this.rangeToTarget).bracket === 'Extreme'
         ? -2
         : 0
       : 0;
@@ -264,7 +264,7 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
 
   get totalDiff(): number {
     let total = 0;
-    total = this.selectedWeaponBracket.diff;
+    total = this.selectedWeaponRanges.rangeBracket(this.rangeToTarget).diff;
     total += this.aimedTurns;
     total += this.fireModeModifier;
     total += this.targetSize;
@@ -278,17 +278,14 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
   get isRanged(): boolean {
     return this.selectedWeapon.isRangedWeapon;
   }
-  get selectedWeaponBracket(): CombatRange {
-    return this.selectedWeapon.getRangeBracket(this.rangeToTarget);
-  }
 
   get fireModeModifier(): number {
-    if (this.fireMode === 1 && this.selectedWeaponBracket.diff < 16) {
+    if (this.fireMode === 1 && this.selectedWeaponRanges.rangeBracket(this.rangeToTarget).diff < 16) {
       return -3;
     }
     if (this.fireMode === 3) {
       return (
-        (this.selectedWeaponBracket.diff < 11 ? 1 : -1) *
+        (this.selectedWeaponRanges.rangeBracket(this.rangeToTarget).diff < 11 ? 1 : -1) *
         Math.ceil(this.shotsFired / 10)
       );
     }
