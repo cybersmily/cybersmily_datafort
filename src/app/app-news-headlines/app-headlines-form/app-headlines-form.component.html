@@ -20,7 +20,7 @@
   <br>
   <div class="row csd-rounded">
     <div class="col">
-      <div *ngFor="let headline of headlines" class="row pt-2">
+      <div *ngFor="let headline of headlines$ | async" class="row pt-2">
         <div class="col">
           <h4>{{headline}}</h4>
         </div>

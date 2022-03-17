@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs';
+import { CPHeadlinesGeneratorService } from './../../shared/services/c-p-headlines-generator/c-p-headlines-generator.service';
 import { HeadlinesToPDF } from './../../shared/models/pdf/headlines-to-pdf';
 import { faDice, faFile, faFilePdf, faRedo } from '@fortawesome/free-solid-svg-icons';
 import { DiceService } from './../../shared/services/dice/dice.service';
@@ -15,62 +17,24 @@ export class AppHeadlinesFormComponent implements OnInit {
   faFilePdf = faFilePdf;
   faRedo = faRedo;
 
-  headlines: Array<string> = new Array<string>();
+  headlines$: Observable<Array<string>>;
 
   numOfHeadlines: number = 1;
 
-  topics: Array<string> = new Array<string>();
-  subjects: Array<Array<string>> = new Array<Array<string>>();
-  verbs: Array<Array<string>> = new Array<Array<string>>();
-
-  constructor(private dataService: DataService,
-    private dice: DiceService,
+  constructor(private headlinesGenerator: CPHeadlinesGeneratorService,
     private saveFile: SaveFileService) { }
 
   ngOnInit(): void {
-    this.dataService.GetJson(JsonDataFiles.CP_HEADLINES_JSON)
-    .subscribe( data => {
-      this.topics = data.topics;
-      this.subjects = data.subjects;
-      this.verbs = data.verbs;
-    });
+    this.headlines$ = this.headlinesGenerator.headlines;
   }
 
   rollHeadlines() {
-    for(let i = 0; i < this.numOfHeadlines; i++) {
-      this.headlines.push(this.generateHeadline());
-    }
-    this.headlines.sort((a,b) => a.localeCompare(b));
-  }
-
-  private generateHeadline(): string {
-    let die = this.dice.generateNumber(0, this.topics.length - 1);
-    const topic = this.topics[die].toLocaleUpperCase();
-
-    let num = this.dice.generateNumber(0, 1);
-    const subject = this.generateSubject(num);
-
-    die = this.dice.generateNumber(0, this.verbs.length - 1);
-    const verb = this.verbs[die][num];
-
-    num = this.dice.generateNumber(0, 1);
-    const objective = this.generateSubject(num);
-
-    return `${topic} - ${subject} ${verb} ${objective}`;
-  }
-
-  private generateSubject(num: number): string {
-    let result = '';
-    do {
-      const die = this.dice.generateNumber(0, this.subjects.length - 1);
-      result = this.subjects[die][num];
-    } while(result === '');
-    return result;
+    this.headlinesGenerator.generate(this.numOfHeadlines);
   }
 
   saveAsText() {
     let output = '';
-    this.headlines.forEach( headline => {
+    this.headlinesGenerator.getList().forEach( headline => {
       output += `${headline}\n`;
     });
     this.saveFile.SaveAsFile('Cyberpunk Headlines', output, '.txt');
@@ -78,11 +42,11 @@ export class AppHeadlinesFormComponent implements OnInit {
 
   saveAsPdf() {
     const pdf = new HeadlinesToPDF();
-    pdf.generatePdf(this.headlines);
+    pdf.generatePdf(this.headlinesGenerator.getList());
   }
 
   clear() {
-    this.headlines = new Array<string>();
+    this.headlinesGenerator.clear();
   }
 
 }

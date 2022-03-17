@@ -1,3 +1,4 @@
+import { CPHeadlinesGeneratorService } from './../shared/services/c-p-headlines-generator/c-p-headlines-generator.service';
 import { DataService } from './../shared/services/file-services';
 import { DiceService } from './../shared/services/dice/dice.service';
 import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';
@@ -17,7 +18,8 @@ import { AppHeadlinesFormComponent } from './app-headlines-form/app-headlines-fo
   ],
   providers: [
     DiceService,
-    DataService
+    DataService,
+    CPHeadlinesGeneratorService
   ]
 })
 export class AppNewsHeadlinesModule { }
