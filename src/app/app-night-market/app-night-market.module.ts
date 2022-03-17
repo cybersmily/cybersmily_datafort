@@ -1,5 +1,4 @@
-import { DataService } from './../shared/services/file-services';
-import { DiceService } from './../shared/services/dice/dice.service';
+import { CPRedEconomyModule } from './../shared/cpred/c-p-red-economy/c-p-red-economy.module';
 import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -12,15 +11,17 @@ import { EconomyFormComponent } from './economy-form/economy-form.component';
 
 
 @NgModule({
-  declarations: [NightMarketFormComponent, VenditFormComponent, BodegasFormComponent, EconomyFormComponent],
+  declarations: [
+    NightMarketFormComponent,
+    VenditFormComponent,
+    BodegasFormComponent,
+    EconomyFormComponent
+  ],
   imports: [
     CommonModule,
     CommonUiModule,
+    CPRedEconomyModule,
     AppNightMarketRoutingModule
-  ],
-  providers: [
-    DiceService,
-    DataService
   ]
 })
 export class AppNightMarketModule { }

@@ -1,4 +1,4 @@
-import { NightMarketEntry, NightMarketListing, NightMarketCategory } from './../../shared/cpred/models/night-market-chart';
+import { NightMarketEntry, NightMarketListing, NightMarketCategory } from '../../shared/cpred/c-p-red-economy/models/night-market-chart';
 import { of } from 'rxjs';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { DataService } from './../../shared/services/file-services';

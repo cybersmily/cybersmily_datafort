@@ -1,4 +1,4 @@
-import { NightMarketListing } from './../../shared/cpred/models/night-market-chart';
+import { NightMarketListing } from './night-market-listing';
 import { jsPDF } from 'jspdf';
 
 export class MarketsToPDF {

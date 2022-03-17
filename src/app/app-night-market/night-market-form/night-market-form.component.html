@@ -24,7 +24,7 @@
   </div>
 
   <div class="row">
-    <div class="col-6" *ngFor="let cat of itemList">
+    <div class="col-6" *ngFor="let cat of itemList$ | async">
       <h4>{{cat.category}} ({{cat.items.length}})</h4>
       <div *ngFor="let item of cat.items" class="row">
         <div class="col" >

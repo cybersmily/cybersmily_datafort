@@ -15,14 +15,14 @@
   <h4>Customer 2</h4>
   </div>
 </div>
-<div class="row">
+<div class="row" *ngIf="bodegas$ | async as bodegas">
   <div class="col">
-    {{owner}}
+    {{bodegas.owner}}
   </div>
   <div class="col">
-    {{customer1}}
+    {{bodegas.customer1}}
   </div>
   <div class="col">
-    {{customer2}}
+    {{bodegas.customer2}}
   </div>
 </div>
