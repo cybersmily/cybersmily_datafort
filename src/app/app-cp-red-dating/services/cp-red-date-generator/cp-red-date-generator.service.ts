@@ -1,4 +1,7 @@
-import { CpRedLifepathCoreRoleChartEntry } from './../../../shared/cpred/c-p-red-lifepath/models/cp-red-lifepath-core-role-chart-entry';
+import { CpRedAppFiles } from './../../../shared/services/file-services/enum/cpred-app-files';
+import { DataService, JsonDataFiles } from './../../../shared/services/file-services';
+import { BehaviorSubject, forkJoin } from 'rxjs';
+import { CpRedLifepathCoreRoleChartEntry } from './../../../shared/cpred/c-p-red-lifepath/models';
 import { CPRedLifePathService } from './../../../shared/cpred/c-p-red-lifepath/services/c-p-red-life-path.service';
 import { KeyValue } from '@angular/common';
 import { DiceService } from './../../../shared/services/dice/dice.service';
@@ -7,13 +10,14 @@ import { CpRedDatingMainChart } from './../../models/cp-red-dating-main-chart';
 import { Injectable } from '@angular/core';
 import { CpRedDatingOutcome } from '../../models';
 import { NameChart } from './../../../shared/models';
+import { CHOICE_DELIMITER, DICEROLLING_DELIMITER, KEYWORD_DELIMITER, ROLEPATH_DELIMITER, VARIABLE_DELIMITER_END, VARIABLE_DELIMITER_START } from '../../models/constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CpRedDateGeneratorService {
 
-  private roles: Array<string> = [
+  private _roles: Array<string> = [
     'Exec',
     'Fixer',
     'Lawman',
@@ -25,10 +29,30 @@ export class CpRedDateGeneratorService {
     'Solo',
     'Tech'
   ];
+  private _chart:CpRedDatingMainChart;
+  private _roleLifepah: Array<CpRedLifepathCoreRoleChartEntry>;
 
-  constructor(private dice: DiceService, private lifepathService: CPRedLifePathService) { }
+  private _cpDate: BehaviorSubject<CpRedDate> = new BehaviorSubject<CpRedDate>( new CpRedDate());
+  currentDate = this._cpDate.asObservable();
 
-  generateDate(dateCharts: CpRedDatingMainChart, rolepathChart: Array<CpRedLifepathCoreRoleChartEntry>, settings?: any): CpRedDate {
+  constructor(private dice: DiceService, private lifepathService: CPRedLifePathService, private dataService: DataService) { }
+
+  generate(settings?: any) {
+    if (this._chart && this._roleLifepah) {
+      this._cpDate.next(this.generateDate(this._chart, this._roleLifepah, settings));
+    } else {
+      forkJoin({
+        dateData: this.dataService.GetJson(CpRedAppFiles.DATING_CHARTS),
+        roleData: this.dataService.GetJson(JsonDataFiles.CPRED_LIFEPATH_CHART_JSON)
+      }).subscribe(({dateData, roleData}) => {
+        this._chart = dateData.cpred;
+        this._roleLifepah = roleData?.corebook?.roles;
+        this._cpDate.next(this.generateDate(this._chart, this._roleLifepah, settings));
+      });
+    }
+  }
+
+  private generateDate(dateCharts: CpRedDatingMainChart, rolepathChart: Array<CpRedLifepathCoreRoleChartEntry>, settings?: any): CpRedDate {
     const redDate = new CpRedDate();
     // generate keywords, default 2
     const count = settings?.keywordCount ?? 2;
@@ -66,29 +90,29 @@ export class CpRedDateGeneratorService {
     return redDate;
   }
 
-  generateKeyword(chart: Array<string>): string {
+  private generateKeyword(chart: Array<string>): string {
     return this.dice.rollRandomItem(chart);
   }
 
-  generateLocation(chart: Array<KeyValue<string, string>>): KeyValue<string, string> {
+  private generateLocation(chart: Array<KeyValue<string, string>>): KeyValue<string, string> {
     return this.dice.rollRandomItem(chart);
   }
 
-  generateActivity(chart: Array<string>): string {
+  private generateActivity(chart: Array<string>): string {
     return this.dice.rollRandomItem(chart);
   }
 
-  generateType(chart: Array<string>): string {
+  private generateType(chart: Array<string>): string {
     return this.dice.rollRandomItem(chart);
   }
 
-  generateEvent(chart: Array<string>, keywords: Array<string>, keywordChart: Array<string>, variables: Array<NameChart>, roleChart: Array<CpRedLifepathCoreRoleChartEntry>): string {
+  private generateEvent(chart: Array<string>, keywords: Array<string>, keywordChart: Array<string>, variables: Array<NameChart>, roleChart: Array<CpRedLifepathCoreRoleChartEntry>): string {
     const event = this.dice.rollRandomItem(chart);
     const result = this.processEvent(event, keywords, keywordChart, variables, roleChart);
     return result;
   }
 
-  generateOutcome(chart: Array<CpRedDatingOutcome>): string {
+  private generateOutcome(chart: Array<CpRedDatingOutcome>): string {
     const outcome =  this.dice.rollRandomItem(chart);
     let result = outcome.outcome;
     if(outcome.chart) {
@@ -98,69 +122,67 @@ export class CpRedDateGeneratorService {
     return result;
   }
 
-  processEvent(event: string, keywords: Array<string>, keywordChart: Array<string>, variables: Array<NameChart>, roleChart: Array<CpRedLifepathCoreRoleChartEntry>): string {
-    if( event.includes('--keyword--')) {
+  private processEvent(event: string, keywords: Array<string>, keywordChart: Array<string>, variables: Array<NameChart>, roleChart: Array<CpRedLifepathCoreRoleChartEntry>): string {
+    if( event.includes(KEYWORD_DELIMITER)) {
       // replace key word
       event = this.processKeyword(event, keywords, keywordChart);
       return this.processEvent(event, keywords, keywordChart, variables, roleChart);
-    } else if( event.includes('||')) {
+    } else if( event.includes(CHOICE_DELIMITER)) {
       event = this.processChoices(event);
       return this.processEvent(event, keywords, keywordChart, variables, roleChart);
-    } else if( event.includes('[[')) {
+    } else if( event.includes(VARIABLE_DELIMITER_START)) {
       event = this.processVariable(event, variables);
       return this.processEvent(event, keywords, keywordChart, variables, roleChart);
-    } else if( event.includes('==')) {
+    } else if( event.includes(DICEROLLING_DELIMITER)) {
       // roll dice and replace
       event = this.processDice(event);
       return this.processEvent(event, keywords, keywordChart, variables, roleChart);
-    } else if( event.includes('**rolepath**')) {
+    } else if( event.includes(ROLEPATH_DELIMITER)) {
       event = this.processLifepath(event, roleChart);
       return this.processEvent(event, keywords, keywordChart, variables, roleChart);
     }
     return event;
   }
 
-  processKeyword(event: string, keywords: Array<string>, keywordChart: Array<string>): string {
+  private processKeyword(event: string, keywords: Array<string>, keywordChart: Array<string>): string {
     let keyword = '';
     do {
       keyword = this.dice.rollRandomItem(keywordChart);
     } while(keywords.includes(keyword));
-    return event.replace(`--keyword--`, keyword);
+    return event.replace(KEYWORD_DELIMITER, keyword);
   }
 
-  processChoices(event: string ): string {
-    const parseString = event.substring(event.indexOf('||') + 2);
-    const options = parseString.substring(0, parseString.indexOf('||'));
+  private processChoices(event: string ): string {
+    const parseString = event.substring(event.indexOf(CHOICE_DELIMITER) + 2);
+    const options = parseString.substring(0, parseString.indexOf(CHOICE_DELIMITER));
     const value = this.dice.rollRandomItem(options.split('|'));
-    return event.replace(`||${options}||`, value);
+    return event.replace(`${CHOICE_DELIMITER}${options}${CHOICE_DELIMITER}`, value);
   }
 
-  processVariable(event: string, variables: Array<NameChart>): string {
-    const parseString = event.substring(event.indexOf('[[') + 2);
-    const chartName = parseString.substring(0, parseString.indexOf(']]'));
+  private processVariable(event: string, variables: Array<NameChart>): string {
+    const parseString = event.substring(event.indexOf(VARIABLE_DELIMITER_START) + 2);
+    const chartName = parseString.substring(0, parseString.indexOf(VARIABLE_DELIMITER_END));
     const chart = variables.find(variable => variable.name === chartName )?.chart;
     if(chart) {
       const value = this.dice.rollRandomItem(chart);
-      return event.replace(`[[${chartName}]]`, value);
+      return event.replace(`${VARIABLE_DELIMITER_START}${chartName}${VARIABLE_DELIMITER_END}`, value);
     }
-    return event.replace('[[', ' ').replace(']]', ' ');
+    return event.replace(VARIABLE_DELIMITER_START, ' ').replace(VARIABLE_DELIMITER_END, ' ');
   }
 
-  processDice(event: string): string {
-    const parseString = event.substring(event.indexOf('==') + 2);
-    const diceRoll = parseString.substring(0, parseString.indexOf('=='));
+  private processDice(event: string): string {
+    const parseString = event.substring(event.indexOf(DICEROLLING_DELIMITER) + 2);
+    const diceRoll = parseString.substring(0, parseString.indexOf(DICEROLLING_DELIMITER));
     const results = Math.ceil(this.dice.rollMoreDice(diceRoll).total);
-    return event.replace(`==${diceRoll}==`, results.toString());
+    return event.replace(`${DICEROLLING_DELIMITER}${diceRoll}${DICEROLLING_DELIMITER}`, results.toString());
   }
 
-  processLifepath(event: string, roleChart: Array<CpRedLifepathCoreRoleChartEntry>): string {
-    console.log('rolepath');
-    const role = this.dice.rollRandomItem(this.roles);
+  private processLifepath(event: string, roleChart: Array<CpRedLifepathCoreRoleChartEntry>): string {
+    const role = this.dice.rollRandomItem(this._roles);
     const charts = roleChart.find(r => r.role === role);
     const rolepath = this.lifepathService.createRole(charts, null);
     let result = rolepath.map( r => `${r.key} - ${r.value}`).join('. ');
     result = result.replace(`you're`,`they're`).replace(/your/gi, 'their').replace(/you/gi, 'them');
-    console.log(result);
-    return event.replace(`**rolepath**`, `They are a ${role}. ${result}`);
+    return event.replace(ROLEPATH_DELIMITER, `They are a ${role}. ${result}`);
   }
 }

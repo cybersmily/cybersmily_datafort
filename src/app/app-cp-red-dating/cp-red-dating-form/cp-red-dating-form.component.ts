@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { CpRedDate } from './../models';
 import { CpRedDateGeneratorService } from './../services';
@@ -16,17 +17,12 @@ import { CpRedLifepathCoreRoleChartEntry } from './../../shared/cpred/c-p-red-li
 export class CpRedDatingFormComponent implements OnInit {
   faDice = faDice;
 
-  chart: CpRedDatingMainChart;
-
-  redDate: CpRedDate;
-  isGhosted = false;
-  roleCharts: Array<CpRedLifepathCoreRoleChartEntry>;
-
-  get rollDisabled(): boolean {
-    return (this.chart && this.roleCharts.length > 0);
+  redDate$: Observable<CpRedDate>;
+  isGhosted(outcome: string): boolean {
+    return outcome === 'You were ghosted.' ?? false;
   }
 
-  constructor(private dataService: DataService,
+  constructor(
             private dateGeneratorService: CpRedDateGeneratorService,
             private seo: SeoService) { }
 
@@ -35,21 +31,11 @@ export class CpRedDatingFormComponent implements OnInit {
       'Dating Utility for Cyberpunk Red',
       '2022-03, Cybersmily\'s Datafort Dating utility for Cyberpunk Red using the DLC from RTG.'
     );
-    this.dataService.GetJson(CpRedAppFiles.DATING_CHARTS)
-    .subscribe((data) => {
-      this.chart = data.cpred;
-    });
-    this.dataService.GetJson(JsonDataFiles.CPRED_LIFEPATH_CHART_JSON)
-    .subscribe( data => {
-      this.roleCharts = data?.corebook?.roles;
-    });
+    this.redDate$ = this.dateGeneratorService.currentDate;
   }
 
   rollDate(): void {
-    if(this.chart) {
-      this.redDate = this.dateGeneratorService.generateDate(this.chart, this.roleCharts);
-      this.isGhosted = this.redDate?.outcome === 'You were ghosted.' ?? false;
-    }
+    this.dateGeneratorService.generate();
   }
 
 }
