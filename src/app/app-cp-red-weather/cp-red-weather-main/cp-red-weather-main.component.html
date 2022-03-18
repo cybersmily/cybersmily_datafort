@@ -5,26 +5,27 @@
       <p>
         This unofficial utility is for generating a daily/weekly/monthly weather for your game.
         These charts are taken from R Talsorian's downloadable
-        <a href="https://rtalsoriangames.com/wp-content/uploads/2021/07/RTG-CPR-NightCityWeather.pdf" alt="Night City Weather.pdf">
-        Night City Weather</a>. You will need to download it to lookup the effects of some of the weather.
+        <a href="https://rtalsoriangames.com/wp-content/uploads/2021/07/RTG-CPR-NightCityWeather.pdf"
+          alt="Night City Weather.pdf">
+          Night City Weather</a>. You will need to download it to lookup the effects of some of the weather.
       </p>
     </div>
   </div>
   <div class="row hidden-print">
     <div class="col">
-      <fa-icon [icon]="faDice" class="csd-btn csd-icon-btn csd-icon-xl me-2"
-      (click)="rollWeather()" title="Generate weather"
-      ></fa-icon>
+      <button class="csd-btn csd-icon-btn csd-icon-xl me-2" (click)="rollWeather()" title="Generate weather">
+        <fa-icon [icon]="faDice" ></fa-icon>
+      </button>
       System:
-      <select [(ngModel)]="system" (change)="changeSystem()" class="me-3">
+      <select [(ngModel)]="system" class="me-3">
         <option value="cpred">Cyberpunk Red</option>
       </select>
       Season:
       <select [(ngModel)]="season" class="me-3">
-        <option value="spring">Spring</option>
-        <option value="summer">Summer</option>
-        <option value="autumn">Autumn</option>
-        <option value="winter">Winter</option>
+        <option [value]="WEATHER_SEASONS.SPRING">Spring</option>
+        <option [value]="WEATHER_SEASONS.SUMMER">Summer</option>
+        <option [value]="WEATHER_SEASONS.AUTUMN">Autumn</option>
+        <option [value]="WEATHER_SEASONS.WINTER">Winter</option>
       </select>
       Time Range:
       <select [(ngModel)]="timeRange">
@@ -32,51 +33,39 @@
         <option [value]="7">Week</option>
         <option [value]="30">Month</option>
       </select>
-      <fa-icon [icon]="faFilePdf"
-        class="csd-btn csd-icon-btn csd-icon-xl float-end"
-        title="Export to PDF"
-        (click)="saveToPDF()"></fa-icon>
+      <button class="csd-btn csd-icon-btn csd-icon-xl float-end" title="Export to PDF" (click)="saveToPDF()">
+        <fa-icon [icon]="faFilePdf"></fa-icon>
+      </button>
     </div>
   </div>
   <br>
-  <div *ngIf="results.length === 1" class="row">
-    <div class="col text-center">
-      <div class="csd-rounded cp-day">
-        <div class="large align-top">
-          <h1 class="d-inline-block">TODAY</h1>
-        </div>
-        <hr>
-        <div class="large align-top">
-          <h1 class="d-inline-block">{{results[0].tempature}}<span class="align-top h6">&#176;F</span></h1>
-        </div>
-        <div class="large align-top">
-          <h1 class="d-inline-block">{{results[0].tempature | celsius}}<span class="align-top h6">&#176;C</span></h1>
-        </div>
-        <div>{{results[0].condition}}</div>
+  <div *ngIf="weatherForecast$ | async as results">
+    <div *ngIf="results.length === 1" class="row">
+      <div class="col text-center">
+        <ng-container [ngTemplateOutlet]="weekWeather" [ngTemplateOutletContext]="{day: results[0], dayOfWeek:'TODAY', isOneDay: true}"></ng-container>
       </div>
-
     </div>
-  </div>
-  <div *ngIf="results.length === 7" class="row">
-    <div class="col">
-      <ng-container *ngTemplateOutlet="weekWeather;context:{results:results}"></ng-container>
+    <div *ngIf="results.length === 7" class="row">
+      <div class="col">
+        <ng-container *ngFor="let day of results; let i = index" [ngTemplateOutlet]="weekWeather" [ngTemplateOutletContext]="{day: day, dayOfWeek:DAYS_OF_WEEK[i], isOneDay: false}"></ng-container>
+      </div>
     </div>
+    <ng-container *ngIf="results.length > 7">
+      <div *ngFor="let week of results | monthArray" class="row">
+        <div class="col">
+          <ng-container *ngFor="let day of week; let i = index" [ngTemplateOutlet]="weekWeather" [ngTemplateOutletContext]="{day: day, dayOfWeek:DAYS_OF_WEEK[i], isOneDay: false}"></ng-container>
+        </div>
+      </div>
+    </ng-container>
   </div>
-  <ng-container *ngIf="results.length > 7">
-  <div *ngFor="let week of monthResults" class="row">
-    <div class="col">
-      <ng-container *ngTemplateOutlet="weekWeather;context:{results:week}"></ng-container>
-    </div>
-  </div>
-</ng-container>
   <br>
   <br>
 </div>
 
-<ng-template #weekWeather let-results="results">
-  <div *ngFor="let day of results; let i = index" class="csd-rounded cp-week-day align-top text-center">
+<ng-template #weekWeather let-day="day" let-dayOfWeek="dayOfWeek" let-isOneDay="isOneDay">
+  <div [ngClass]="{'csd-rounded': true, 'cp-week-day align-top text-center': !isOneDay, 'cp-day': isOneDay}">
     <div class="large align-top">
-      <h5 class="d-inline-block">{{daysOfWeek[i]}}</h5>
+      <h5 class="d-inline-block">{{dayOfWeek}}</h5>
     </div>
     <hr>
     <div class="large align-top">

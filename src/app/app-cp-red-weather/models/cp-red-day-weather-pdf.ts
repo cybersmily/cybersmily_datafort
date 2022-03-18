@@ -1,6 +1,7 @@
 import { CelsiusPipe } from './../../shared/pipes/celsius.pipe';
 import { CpRedDayWeather } from './cp-red-day-weather';
 import { jsPDF } from 'jspdf';
+import { DAYS_WEEK_ABBREV } from './constants';
 
 export class CpRedDayWeatherPdf {
   private static _left = 5;
@@ -8,9 +9,6 @@ export class CpRedDayWeatherPdf {
   private static _midPage = 150;
   private static _fontSize = 11;
   private static _font = 'Arial';
-
-  private static _daysOfWekk = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-
 
   static createWeatherPDF(results: Array<CpRedDayWeather>) {
     const doc: jsPDF = this.setupDoc();
@@ -79,7 +77,7 @@ export class CpRedDayWeatherPdf {
       doc.setFontSize(12);
       doc.setFillColor('white');
       doc.roundedRect(margin, line, 34, 37, 3, 3, 'F');
-      const dayOfWeek = (results.length < 2) ? 'TODAY' : this._daysOfWekk[i%7];
+      const dayOfWeek = (results.length < 2) ? 'TODAY' : DAYS_WEEK_ABBREV[i%7];
       doc.text(dayOfWeek, center, line + 5, {align: 'center'});
       this.setTemp(doc, day.tempature, center, line);
       doc.setFontSize(8);

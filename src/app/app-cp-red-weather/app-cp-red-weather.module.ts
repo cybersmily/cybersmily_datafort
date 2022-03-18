@@ -1,3 +1,4 @@
+import { CpRedWeatherGeneratorService } from './services/cp-red-weather-generator.service';
 import { PipesModule } from './../shared/pipes/pipes.module';
 import { DiceService } from './../shared/services/dice/dice.service';
 import { DataService } from './../shared/services/file-services';
@@ -7,11 +8,13 @@ import { CommonModule } from '@angular/common';
 
 import { AppCpRedWeatherRoutingModule } from './app-cp-red-weather-routing.module';
 import { CpRedWeatherMainComponent } from './cp-red-weather-main/cp-red-weather-main.component';
+import { MonthArrayPipe } from './pipes/month-array.pipe';
 
 
 @NgModule({
   declarations: [
-    CpRedWeatherMainComponent
+    CpRedWeatherMainComponent,
+    MonthArrayPipe
   ],
   imports: [
     CommonModule,
@@ -21,7 +24,8 @@ import { CpRedWeatherMainComponent } from './cp-red-weather-main/cp-red-weather-
   ],
   providers: [
     DataService,
-    DiceService
+    DiceService,
+    CpRedWeatherGeneratorService
   ]
 })
 export class AppCpRedWeatherModule { }
