@@ -1,7 +1,9 @@
 import { CmbtZonePath } from './../cmbtzone/cmbt-zone-block';
 import { jsPDF } from 'jspdf';
+import 'svg2pdf.js'
 import { Coord } from './../coord';
 import { CmbtZoneBlock } from '../cmbtzone/cmbt-zone-block';
+import { Canvg } from 'canvg';
 
 export class CmbtZoneToPDF {
   private _left = 5;
@@ -17,15 +19,20 @@ export class CmbtZoneToPDF {
   generatePdf(
     blocks: Array<Coord>,
     streetBlocks: Array<CmbtZoneBlock>,
-    blocksDescriptions: Array<Array<string>>
+    blocksDescriptions: Array<Array<string>>,
+    svg?: any
   ) {
+    console.log(svg);
     const doc = this.setupDoc();
     doc.setFont(this._font, 'normal');
     doc.setFontSize(this._fontSize);
-    this.createFirstPage(doc, blocks, streetBlocks);
-    this.createSecondPage(doc, blocksDescriptions);
 
-    doc.save('CombatZone.pdf');
+    doc.svg(svg, {x: 5, y: 5, width:200, height:260})
+    .then(() => {
+      this.createSecondPage(doc, blocksDescriptions);
+      doc.save('CombatZone.pdf');
+     })
+    .catch((err) => console.log(err));
   }
 
   setupDoc(): jsPDF {
@@ -58,41 +65,6 @@ export class CmbtZoneToPDF {
       return 'times';
     }
     return 'courier';
-  }
-
-  createFirstPage(
-    doc: jsPDF,
-    blocks: Array<Coord>,
-    streetBlocks: Array<CmbtZoneBlock>
-  ) {
-    streetBlocks.forEach((block, index) => {
-      const blockx = Math.floor((blocks[index].x + 100) / this._ratio);
-      const blocky = Math.floor((blocks[index].y + 100) / this._ratio);
-      doc.setFontSize(25);
-      doc.setTextColor(180, 180, 180);
-      doc.text((index + 1).toString(), blockx, blocky);
-      doc.setFontSize(this._fontSize);
-      doc.setTextColor(0, 0, 0);
-
-      // draw rectangles
-      block.rects.forEach((rect) => {
-        const x = Math.floor((rect.x + blocks[index].x) / this._ratio);
-        const y = Math.floor((rect.y + blocks[index].y) / this._ratio);
-        const w = Math.floor(rect.width / this._ratio);
-        const h = Math.floor(rect.height / this._ratio);
-        doc.rect(x, y, w, h);
-      });
-      // draw paths
-      block.paths.forEach((path) => {
-        const arr = this.getPathArray(path, blocks[index]);
-        doc.path(arr);
-      });
-      block.texts.forEach((text) => {
-        const x = (text.x + blocks[index].x) / this._ratio;
-        const y = (text.y + blocks[index].y) / this._ratio;
-        doc.text(text.text, x, y);
-      });
-    });
   }
 
   getPathArray(

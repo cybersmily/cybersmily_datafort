@@ -5,15 +5,15 @@
   </div>
 </div>
 <div class="row">
-  <div #cmbtZoneMapSVG class="col-12 col-lg-8 col-xl-7">
-    <svg height="825" width="620" id="cmbt-zone-map-svg">
+  <div class="col-12 col-lg-8 col-xl-7">
+    <svg #cmbtZoneMapSVG id="cmbt-zone-map-svg" viewBox="0 0 630 850">
       <g>
         <!-- Map Border-->
         <rect fill="#CCCCCC" stroke="black" stroke-width="1" stroke-opacity="1" stroke-miterlimit="4"
-          stroke-dasharray="none" id="rect3033" width="620" height="825" x="0" y="0" />
+          stroke-dasharray="none" id="rect3033" width="620" height="850" x="0" y="0" />
         <!-- Blocks -->
-        <svg *ngFor="let block of blockLayouts; let i = index" [attr.x]="blocks[i].x" [attr.y]="blocks[i].y"
-          height="200" width="200" viewBox="0 -20 220 220">
+        <svg *ngFor="let block of reversedBlocks; let i = index" [attr.x]="blocks[i].x" [attr.y]="blocks[i].y"
+          height="220" width="220" viewBox="0 -20 220 220">
           <g>
             <!-- Create block layout -->
             <path *ngFor="let cityBlock of block.cityBlocks" [attr.d]="cityBlock.path" fill="#EEEEEE" stroke="black"
@@ -31,7 +31,7 @@
             <text fill="#aaaaaa" fill-opacity="0.5" stroke="#888888" stroke-opacity="0.5" stroke-width="1"
               style="font-size:40px;font-style:normal;font-weight:bold;font-family:Arial Narrow;">
               <tspan [attr.x]="100" [attr.y]="100">
-                {{i+1}}
+                {{12 - i}}
               </tspan>
             </text>
           </g>

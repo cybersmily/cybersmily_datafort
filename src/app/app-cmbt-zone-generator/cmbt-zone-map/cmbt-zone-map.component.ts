@@ -34,6 +34,10 @@ export class CmbtZoneMapComponent implements OnInit {
   @ViewChild('cmbtZoneMapSVG')
   cmbtZoneMapSVG: ElementRef;
 
+  get reversedBlocks(): Array<CmbtZoneBlock> {
+    return this.blockLayouts.slice().reverse();
+  }
+
   constructor(private diceService: DiceService,
     private objectService: CmbtZoneStreetObjectService,
     private buildingService: CmbtZoneBuildingService,
@@ -55,7 +59,7 @@ export class CmbtZoneMapComponent implements OnInit {
       { x: 0  , y: 600 },
       { x: 200, y: 600 },
       { x: 400, y: 600 }
-    ];
+    ].reverse();
   }
 
   getPath(path: CmbtZoneBuilding): string {
@@ -124,7 +128,7 @@ export class CmbtZoneMapComponent implements OnInit {
 
   printPDF() {
       const pdf: CmbtZoneToPDF = new CmbtZoneToPDF();
-      pdf.generatePdf(this.blocks, this.blockLayouts, this.buildings);
+      pdf.generatePdf(this.blocks, this.blockLayouts, this.buildings, this.cmbtZoneMapSVG.nativeElement);
   }
 
 
