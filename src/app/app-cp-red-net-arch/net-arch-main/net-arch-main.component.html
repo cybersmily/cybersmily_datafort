@@ -21,7 +21,7 @@
         <fa-icon [icon]="faFileImage"></fa-icon>
       </button>
       <input type="file" id="loadFile" title="load a Net Architect .json file" name="Load" Style="display: none"
-        (change)="load($event)" #inputFile (click)="inputFile.value = null" accept="text/plain;text/json" />
+        (change)="load($event)" #inputFile (click)="inputFile.value = null" accept=".json, .txt" />
       <label for="loadFile" class="csd-icon-btn csd-menu-btn csd-btn btn-lg float-end">
         <fa-icon [icon]="faUpload" title="load a Net Architect .json file"></fa-icon>
       </label>
