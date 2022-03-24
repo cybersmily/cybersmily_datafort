@@ -2,45 +2,41 @@ import { NetArchProgram } from './net-arch-program';
 import { NetArchNode } from './net-arch-node';
 
 export class CPRedNetArchNode implements NetArchNode {
-  id: string;
-  type: string;
-  name: string;
-  desc: string;
-  level: number;
-  _cost: number;
-  dv: number;
-  bgColor: string;
-  color: string;
-  branch: Array<CPRedNetArchNode>;
-  programs?:Array<NetArchProgram>;
+  id: string = '';
+  type: string = 'file';
+  name: string = 'file';
+  desc: string = '';
+  level: number = 0;
+  _cost: number = 0;
+  dv: number = 0;
+  bgColor: string = '';
+  color: string = '';
+  branch: Array<CPRedNetArchNode> = new Array<CPRedNetArchNode>();
+  programs?: Array<NetArchProgram>;
 
   constructor(param?: any) {
-    this.type = param ? param.type : 'file';
-    this.name = param ? param.name : 'file';
-    this.desc = param ? param.desc : '';
-    this.level = param ? param.level : 0;
-    this._cost = param ? param.cost : 0;
-    this.dv = param ? param.dv : 0;
-    this.id = param ?  param['id'] : '';
-    this.bgColor = param && param.bgColor ? param.bgColor : '';
-    this.color = param && param.color ? param.color : '';
-    this.branch = new Array<CPRedNetArchNode>();
-    if (param && param.branch && param.branch.length > 0) {
-      param.branch.forEach( branch => {
-        this.addChild( new CPRedNetArchNode(branch));
+    if (param) {
+      this.type = param.type;
+      this.name = param.name;
+      this.desc = param.desc;
+      this.level = param.level;
+      this._cost = param.cost;
+      this.dv = param.dv;
+      this.id = param['id'];
+      this.bgColor = param?.bgColor ?? '';
+      this.color = param?.color ?? '';
+      param.branch?.forEach(branch => {
+        this.addChild(new CPRedNetArchNode(branch));
       });
-    }
-    if (param && param.programs) {
-      this.programs = new Array<NetArchProgram>();
-      param.programs.forEach( prog => {
-        this.programs.push(prog);
-      });
+      if (param.programs) {
+        this.programs = [...param.programs];
+      }
     }
   }
 
   get cost(): number {
     if (this.programs && this.programs.length > 0) {
-      return (this.programs.reduce( (a, b) => a + b.cost, 0)) * this.programs.length;
+      return (this.programs.reduce((a, b) => a + b.cost, 0)) * this.programs.length;
     }
     return this._cost;
   }
@@ -50,14 +46,11 @@ export class CPRedNetArchNode implements NetArchNode {
   }
 
   get totalCost(): number {
-    let result = 0;
-    result = this.cost;
-    result += this.branch.reduce((a, b) => a + b.totalCost, 0);
-    return result;
+    return this.branch.reduce((a, b) => a + b.totalCost, this.cost);
   }
 
   get numberOfBranches(): number {
-    if (this.branch.length < 1 ) {
+    if (this.branch.length < 1) {
       return 0;
     }
     let numOfBranches = 0;
@@ -72,20 +65,13 @@ export class CPRedNetArchNode implements NetArchNode {
   }
 
   get numberOfFloors(): number {
-    let floors = 1;
-    if (this.branch.length === 1) {
-      floors += this.branch[0].numberOfFloors;
-    } else if(this.branch.length > 1) {
-      floors += this.branch[0].numberOfFloors;
-      floors += this.branch[1].numberOfFloors;
-    }
-    return floors;
+    return this.branch.reduce((a, b) => a + b.numberOfFloors, 1);
   }
 
   get numberOfLevels(): number {
-    if(this.branch.length > 1) {
-      return 1 + ( this.branch[0].numberOfLevels > this.branch[1].numberOfLevels ? this.branch[0].numberOfLevels : this.branch[1].numberOfLevels);
-    } else if(this.branch.length === 1) {
+    if (this.branch.length > 1) {
+      return 1 + (this.branch[0].numberOfLevels > this.branch[1].numberOfLevels ? this.branch[0].numberOfLevels : this.branch[1].numberOfLevels);
+    } else if (this.branch.length === 1) {
       return 1 + this.branch[0].numberOfLevels;
     }
     return 1;
@@ -96,13 +82,13 @@ export class CPRedNetArchNode implements NetArchNode {
   }
 
   addChild(node: NetArchNode) {
-    if(node) {
+    if (node) {
       node.level = this.level + 1;
       this.branch.push(new CPRedNetArchNode(node));
     }
   }
 
-  insertChild(parentId: string, node: NetArchNode):boolean {
+  insertChild(parentId: string, node: NetArchNode): boolean {
     if (this.id === parentId) {
       this.addChild(node);
       return true;
@@ -112,20 +98,20 @@ export class CPRedNetArchNode implements NetArchNode {
       do {
         found = (this.branch[i]) ? this.branch[i].insertChild(parentId, node) : undefined;
         i++;
-      } while(!found && i < this.branch.length);
+      } while (!found && i < this.branch.length);
       return found;
     }
   }
 
-  deleteChild(id: string) : NetArchNode {
+  deleteChild(id: string): NetArchNode {
     let found: NetArchNode;
     const index = this.branch.findIndex(n => n.id === id);
-    if ( index > -1) {
+    if (index > -1) {
       found = this.branch.splice(index, 1)[0];
     } else {
-      for( let i = 0; i < this.branch.length; i++ ){
+      for (let i = 0; i < this.branch.length; i++) {
         found = this.branch[i].deleteChild(id);
-        if(found) {
+        if (found) {
           break;
         }
       }
@@ -133,7 +119,7 @@ export class CPRedNetArchNode implements NetArchNode {
     return found;
   }
 
-  hasChild(id: string) : boolean {
+  hasChild(id: string): boolean {
     if (this.id === id) {
       return true;
     } else {
@@ -142,28 +128,26 @@ export class CPRedNetArchNode implements NetArchNode {
       do {
         found = (this.branch[i]) ? this.branch[i].hasChild(id) : false;
         i++;
-      } while(!found && i < this.branch.length);
+      } while (!found && i < this.branch.length);
       return found;
     }
   }
 
   update(node: CPRedNetArchNode) {
-    if( node.id === this.id){
+    if (node.id === this.id) {
       this.type = node.type;
       this.name = node.name;
       this.desc = node.desc;
       this.cost = node.cost;
       this.dv = node.dv;
       this.bgColor = node.bgColor;
-      this.color =node.color;
+      this.color = node.color;
       this.programs = node.programs;
-      return;
     } else {
       if (this.branch.length > 0) {
-        this.branch.forEach( n => n.update(node));
+        this.branch.forEach(n => n.update(node));
       }
     }
-    return;
   }
 
   export(): NetArchNode {
@@ -178,14 +162,11 @@ export class CPRedNetArchNode implements NetArchNode {
       color: this.color,
       branch: new Array<NetArchNode>()
     };
-    this.branch.forEach( node => {
+    this.branch.forEach(node => {
       result.branch.push(node.export());
     });
-    if (this.programs && this.programs.length > 0) {
-      result.programs = new Array<NetArchProgram>();
-      this.programs.forEach( prog => {
-        result.programs.push(prog);
-      });
+    if (this.programs) {
+      result.programs = [...this.programs];
     }
     return result;
   }

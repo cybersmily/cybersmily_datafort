@@ -1,4 +1,6 @@
-<fa-icon [icon]="faRedo" class="csd-btn btn-xl float-end me-3" title="Reset to the default colors." (click)="reset()"></fa-icon>
+<button class="csd-btn csd-icon-btn csd-icon-xl float-end me-3" title="Reset to the default colors." (click)="reset()">
+  <fa-icon [icon]="faRedo"></fa-icon>
+</button>
 <ng-container
   *ngTemplateOutlet="typeItem;context:{type:'Program', bgColor:iconColors.program.bgColor, color: iconColors.program.color}">
 </ng-container>

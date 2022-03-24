@@ -11,19 +11,11 @@ import { NetArchProgram } from '../models';
 })
 export class CPRedNetArchService {
 
-  private _architect = new BehaviorSubject<CPRedNetArchNode>(
-    new CPRedNetArchNode()
-  );
+  private _architect = new BehaviorSubject<CPRedNetArchNode>(null);
   architect = this._architect.asObservable();
-
-  private _floors = new BehaviorSubject<number>(10);
-  numOfFloors = this._floors.asObservable();
 
   private _architectAsArray = new BehaviorSubject<Array<Array<CPRedNetArchNode>>>(new Array<Array<CPRedNetArchNode>>());
   architectAsArray = this._architectAsArray.asObservable();
-
-  private _svg = new BehaviorSubject<string>('');
-  svg = this._svg.asObservable();
 
   difficulty = 1;
   controllerCount = 0;
@@ -45,12 +37,9 @@ export class CPRedNetArchService {
    * @param {CPRedNetArchNode} node
    * @memberof CPRedNetArchService
    */
-  update(node: CPRedNetArchNode, floors?:number) {
+  update(node: CPRedNetArchNode) {
     this.archArray = new Array<Array<CPRedNetArchNode>>();
     this.fillArray(node);
-    if (floors) {
-      this._floors.next(floors);
-    }
     this._architectAsArray.next(this.archArray);
     this._architect.next(new CPRedNetArchNode(node));
   }
@@ -142,7 +131,7 @@ export class CPRedNetArchService {
         firstFloor.insertChild(id, node);
       });
     }
-    this.update(firstFloor, firstFloor.numberOfFloors);
+    this.update(firstFloor);
   }
 
 
@@ -156,12 +145,7 @@ export class CPRedNetArchService {
    * @memberof CPRedNetArchService
    */
   private generateNumberOfFloors(rollFloors: boolean, floors: number) {
-    if (rollFloors) {
-      floors = this.diceService.generateNumber(3, 18);
-    } else {
-      floors = (floors && floors > 2) ? floors : 3;
-    }
-    return floors;
+    return (rollFloors) ? this.diceService.generateNumber(3, 18) : ( floors > 2) ? floors : 3;
   }
 
   /**
@@ -172,15 +156,12 @@ export class CPRedNetArchService {
    * @memberof CPRedNetArchService
    */
   private generateLobby(): CPRedNetArchNode{
-    const firstFloor = this.generateNetArchNode(true);
-    firstFloor.level = 1;
-    firstFloor.id = this.ids[0];
+    const firstFloor = this.generateNetArchNode(true, 1, this.ids[0]);
     this.archArray[0] = [firstFloor];
 
-    const secondFloor = this.generateNetArchNode(true);
-    secondFloor.id = this.ids[1];
-    secondFloor.level = 2;
+    const secondFloor = this.generateNetArchNode(true, 2, this.ids[1]);
     this.archArray[1] = [secondFloor];
+
     this.idNum = 2;
     firstFloor.addChild(secondFloor);
     return firstFloor;
@@ -197,10 +178,8 @@ export class CPRedNetArchService {
    */
   generateFloor(floor: number, level: number): CPRedNetArchNode {
     floor--;
-    const node = this.generateNetArchNode(false);
-    node.level = level;
-    level += 1;
-    node.id = this.ids[this.idNum];
+    const node = this.generateNetArchNode(false, level, this.ids[this.idNum]);
+    level++;
     this.idNum++;
     // other floor
     if (floor > 0) {
@@ -232,9 +211,9 @@ export class CPRedNetArchService {
    * @memberof CPRedNetArchService
    */
   get isControllerMaxed(): boolean {
-    if (this._floors.getValue() < 7 && this.controllerCount > 1) {
+    if (this._architect.getValue().numberOfFloors < 7 && this.controllerCount > 1) {
       return true;
-    } else if (this._floors.getValue() < 13 && this.controllerCount > 2) {
+    } else if (this._architect.getValue().numberOfFloors < 13 && this.controllerCount > 2) {
       return true;
     }
     return false;
@@ -248,7 +227,7 @@ export class CPRedNetArchService {
    * @return {*}  {CPRedNetArchNode}
    * @memberof CPRedNetArchService
    */
-  generateNetArchNode(isLobby: boolean): CPRedNetArchNode {
+  generateNetArchNode(isLobby: boolean, level: number, id: string): CPRedNetArchNode {
     const lobby = this.charts.lobby;
     const chart = this.charts.floors[this.difficulty];
     let floor: any = {};
@@ -269,6 +248,12 @@ export class CPRedNetArchService {
       this.controllerCount++;
     }
     const node = new CPRedNetArchNode(floor);
+    node.id = id;
+    node.level = level;
     return node;
+  }
+
+  getJSON(): string {
+    return JSON.stringify(this._architect.getValue());
   }
 }

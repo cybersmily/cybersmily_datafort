@@ -17,6 +17,7 @@ import { NetArchInstructionsComponent } from './net-arch-instructions/net-arch-i
 import { NetArchNodeSvgComponent } from './net-arch-node-svg/net-arch-node-svg.component';
 import { NetArchSettingsComponent } from './net-arch-settings/net-arch-settings.component';
 import { NetArchNewNodeComponent } from './net-arch-new-node/net-arch-new-node.component';
+import { CPRedFloorCostCalcPipe } from './pipes/c-p-red-floor-cost-calc.pipe';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { NetArchNewNodeComponent } from './net-arch-new-node/net-arch-new-node.c
     NetArchNodeComponent,
     NetArchNodeSvgComponent,
     NetArchSettingsComponent,
-    NetArchNewNodeComponent
+    NetArchNewNodeComponent,
+    CPRedFloorCostCalcPipe
   ],
   imports: [
     CommonModule,

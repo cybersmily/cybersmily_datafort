@@ -14,29 +14,35 @@
         [icon]="faQuestionCircle" class="csd-icon-btn "></fa-icon> to the right.
     </div>
     <div class="col-12 col-md-6">
-      <fa-icon class="csd-icon-btn csd-menu-btn btn-lg csd-btn float-end" [icon]="faImage" title="Save as a SVG image file"
-        (click)="saveSVG()"></fa-icon>
-      <fa-icon class="csd-icon-btn csd-menu-btn btn-lg csd-btn float-end" [icon]="faFileImage" title="Save as a PNG image file"
-        (click)="savePNG()"></fa-icon>
+      <button class="csd-icon-btn csd-menu-btn btn-lg csd-btn float-end" title="Save as a SVG image file" (click)="saveSVG()">
+        <fa-icon [icon]="faImage"></fa-icon>
+      </button>
+      <button class="csd-icon-btn csd-menu-btn btn-lg csd-btn float-end" title="Save as a PNG image file" (click)="savePNG()">
+        <fa-icon [icon]="faFileImage"></fa-icon>
+      </button>
       <input type="file" id="loadFile" title="load a Net Architect .json file" name="Load" Style="display: none"
         (change)="load($event)" #inputFile (click)="inputFile.value = null" accept="text/plain;text/json" />
       <label for="loadFile" class="csd-icon-btn csd-menu-btn csd-btn btn-lg float-end">
         <fa-icon [icon]="faUpload" title="load a Net Architect .json file"></fa-icon>
       </label>
-      <fa-icon class="csd-icon-btn csd-menu-btn csd-btn btn-lg float-end" [icon]="faSave" (click)="save()"
-        title="Save Net Architect as json file"></fa-icon>
-      <fa-icon class="csd-icon-btn csd-menu-btn btn-lg csd-btn float-end" [icon]="faCog" title="Node Type Settings"
-        (click)="openModal(archSettingsEditor)"></fa-icon>
-      <fa-icon class="csd-icon-btn csd-menu-btn btn-lg csd-btn float-end" [icon]="faQuestionCircle" title="Show instructions."
-        (click)="openModal(instructions)"></fa-icon>
+      <button class="csd-icon-btn csd-menu-btn csd-btn btn-lg float-end" (click)="save()" title="Save Net Architect as json file">
+        <fa-icon [icon]="faSave"></fa-icon>
+      </button>
+      <button class="csd-icon-btn csd-menu-btn btn-lg csd-btn float-end" title="Node Type Settings" (click)="openModal(archSettingsEditor)">
+        <fa-icon [icon]="faCog"></fa-icon>
+      </button>
+      <button class="csd-icon-btn csd-menu-btn btn-lg csd-btn float-end" title="Show instructions." (click)="openModal(instructions)">
+        <fa-icon [icon]="faQuestionCircle"></fa-icon>
+      </button>
     </div>
   </div>
   <div class="row">
     <div class="col csd-rounded">
       <div class="row hidden-print mt-3">
         <div class="col-6">
-          <fa-icon class="csd-dice csd-menu-btn csd-btn csd-icon-xxl float-start me-2" [icon]="faDice"
-            (click)="generate()" title="Generate random Net Architect"></fa-icon>
+          <button class="csd-dice csd-menu-btn csd-btn csd-icon-xxl float-start me-2" (click)="generate()" title="Generate random Net Architect">
+          <fa-icon [icon]="faDice"></fa-icon>
+          </button>
           <span>
             <input type="checkbox" [(ngModel)]="archSettings.randomDifficulty">
             <span [ngClass]="{'net-arch-disable':archSettings.randomDifficulty}">
@@ -58,17 +64,17 @@
         </div>
       </div>
       <br>
-      <div *ngIf="arch.branch.length">
+      <div *ngIf="architecture$ | async as arch">
         <div class="col">
           <div class="row csd-rounded">
             <div class="col-6">Difficulty: {{getDifficulty(netArchService.difficulty)}}</div>
-            <div class="col">Total Floors: {{floors}} <span class="cs-net-cost">({{costPerFloor|number}}eb ea.)</span>
+            <div class="col">Total Floors: {{arch.numberOfFloors}} <span class="cs-net-cost">({{arch.numberOfFloors | cpRedFloorCostCalc |number}}eb ea.)</span>
             </div>
-            <div class="col">Total Cost: {{totalCost | number}}eb</div>
+            <div class="col">Total Cost: {{arch.totalCost + (arch.numberOfFloors * (arch.numberOfFloors  | cpRedFloorCostCalc)) | number}}eb</div>
           </div>
           <div class="row">
             <div class="col csd-print csd-rounded" #diagramSVG>
-              <cs-net-arch-node-svg *ngIf="arch && arch.branch.length" [node]="arch" [iconColors]="archSettings"
+              <cs-net-arch-node-svg [node]="arch" [iconColors]="archSettings"
                 [defaultDV]="defaultDV" (updateNode)="updateArch($event)"></cs-net-arch-node-svg>
             </div>
           </div>
@@ -82,7 +88,7 @@
               </div>
               <div class="row">
                 <div class="col csd-print">
-                  <div *ngFor="let arr of archArray;let i = index" class="row">
+                  <div *ngFor="let arr of architectArray$ | async;let i = index" class="row">
                     <div class="col">
                       <div *ngIf="arr && arr.length > 0" class="row">
                         <div class="col fw-bold">
@@ -107,9 +113,7 @@
 <ng-template #instructions>
   <div class="modal-header">
     <h4>NET ARCHITECT GENERATOR INSTRUCTIONS</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
-
-    </button>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()"></button>
   </div>
   <div class="modal-body">
     <cs-net-arch-instructions></cs-net-arch-instructions>
@@ -119,12 +123,9 @@
 <ng-template #archSettingsEditor>
   <div class="modal-header">
     <h4>NET ARCHITECT GENERATOR SETTINGS</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
-
-    </button>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()"></button>
   </div>
   <div class="modal-body">
     <cs-net-arch-settings [iconColors]="archSettings" (updateColors)="updateSettings($event)"></cs-net-arch-settings>
   </div>
-
 </ng-template>

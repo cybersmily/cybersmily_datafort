@@ -1,3 +1,4 @@
+import { Observable, take } from 'rxjs';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FileLoaderService, SaveFileService } from './../../shared/services/file-services';
@@ -32,13 +33,11 @@ export class NetArchMainComponent implements OnInit {
     class: 'modal-dialog-centered modal-lg'
   };
 
-  arch: CPRedNetArchNode;
+  architecture$: Observable<CPRedNetArchNode>;
+  architectArray$: Observable<Array<Array<CPRedNetArchNode>>>;
   archSettings: CPRedIconTypeSettings = new CPRedIconTypeSettings();
-  archArray: Array<Array<CPRedNetArchNode>> = new Array<Array<CPRedNetArchNode>>();
-  floors: number = 3;
-  svg: string;
-  numOfLevels: number = 3;
 
+  svg: string;
   randomFloors = true;
   randomFloorNumber = 10;
   randomDifficulty = true;
@@ -65,29 +64,6 @@ export class NetArchMainComponent implements OnInit {
     private seo: SeoService
     ) { }
 
-  get numOfFloors(): number {
-    return this.floors;
-  }
-
-  set numOfFloors(value: number) {
-    this.floors = (value < 3) ? 3 : value;
-  }
-
-  get costPerFloor(): number {
-    if ( this.floors < 7) {
-      return 1000;
-    } else if (this.floors < 13) {
-      return 5000;
-    } else if (this.floors > 12) {
-      return 10000;
-    }
-  }
-
-  get totalCost(): number {
-    let result = this.arch.totalCost;
-    result += this.floors * this.costPerFloor;
-    return result;
-  }
 
   get defaultDV(): number {
     switch(this.netArchService.difficulty) {
@@ -110,17 +86,8 @@ export class NetArchMainComponent implements OnInit {
     if (window.localStorage && window.localStorage[this.archSettings.key]) {
       this.archSettings.import(JSON.parse(window.localStorage[this.archSettings.key]));
     }
-    this.netArchService.architect.subscribe( arch => {
-      this.arch = undefined;
-      this.arch = arch;
-    });
-    this.netArchService.numOfFloors.subscribe( floors => {
-      this.numOfFloors = floors;
-    });
-    this.netArchService.architectAsArray.subscribe( arr => {
-      this.archArray = arr;
-      this.numOfLevels = this.archArray.length;
-    });
+    this.architecture$ = this.netArchService.architect;
+    this.architectArray$ = this.netArchService.architectAsArray;
   }
 
   generate(): void {
@@ -130,7 +97,6 @@ export class NetArchMainComponent implements OnInit {
   }
 
   removeArch() {
-    this.arch = undefined;
   }
 
   getString(n: any): string {
@@ -138,7 +104,7 @@ export class NetArchMainComponent implements OnInit {
   }
 
   save() {
-    this.saveFile.SaveAsFile('Net Architect', JSON.stringify(this.arch),'json');
+    this.saveFile.SaveAsFile('Net Architect', this.netArchService.getJSON(),'json');
   }
 
   saveSVG() {
@@ -154,13 +120,14 @@ export class NetArchMainComponent implements OnInit {
   load($event) {
     this.fileLoader
     .importJSON($event.target.files[0])
-    .subscribe((data) => this.netArchService.update(new CPRedNetArchNode(data)));
+    .pipe(take(1))
+    .subscribe((data) => {
+      this.netArchService.update(new CPRedNetArchNode(data));
+    });
   }
 
   updateArch($event: CPRedNetArchNode) {
-    this.floors = $event.numberOfFloors;
-    this.arch.update($event);
-    this.netArchService.update(this.arch);
+    this.netArchService.update($event);
   }
 
   updateSVG($event: string) {
