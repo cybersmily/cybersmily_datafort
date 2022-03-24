@@ -137,8 +137,6 @@ BUTTON {
 .csd-btn:focus, .csd-btn:hover {
   background-color: #BBB;
   border: 1px #333 solid;
-  padding-left: 2px;
-  padding-right: 2px;
   -webkit-border-top-left-radius: 0.2em !important;
   -webkit-border-bottom-left-radius: 0.2em !important;
   -moz-border-radius-topleft: 0.2em !important;
