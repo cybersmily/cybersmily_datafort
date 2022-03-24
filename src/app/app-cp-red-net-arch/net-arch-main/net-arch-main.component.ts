@@ -1,3 +1,5 @@
+import { CacheKeys } from './../../shared/cache-keys';
+import { LocalStorageManagerService } from './../../shared/services/local-storage-manager/local-storage-manager.service';
 import { Observable, take } from 'rxjs';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -8,6 +10,7 @@ import { DiceService } from './../../shared/services/dice/dice.service';
 import { CPRedNetArchService } from './../service/c-p-red-net-arch.service';
 import { Component, OnInit, TemplateRef, ViewChild, ElementRef } from '@angular/core';
 
+const SVG_ELEMENT_ID = '#cs-cpred-archdiagram';
 @Component({
   selector: 'cs-net-arch-main',
   templateUrl: './net-arch-main.component.html',
@@ -61,6 +64,7 @@ export class NetArchMainComponent implements OnInit {
     private saveFile: SaveFileService,
     private fileLoader: FileLoaderService,
     private modalService: BsModalService,
+    private localStoreService: LocalStorageManagerService,
     private seo: SeoService
     ) { }
 
@@ -83,9 +87,9 @@ export class NetArchMainComponent implements OnInit {
       'NET Architect Generator for Cyberpunk RED',
       "2021-11-21 Cybersmily's Datafort NET Architect for Cyberpunk RED. This app can print PDFs, SVG, PNG, and save/load the NET Architect"
     );
-    if (window.localStorage && window.localStorage[this.archSettings.key]) {
-      this.archSettings.import(JSON.parse(window.localStorage[this.archSettings.key]));
-    }
+    const settings = this.localStoreService.retrive<CPRedIconTypeSettings>(CacheKeys.CPRED_NET_ARCHITECT_SETTINGS) ?? new CPRedIconTypeSettings();
+    console.log('store',typeof settings )
+    this.archSettings.import(settings);
     this.architecture$ = this.netArchService.architect;
     this.architectArray$ = this.netArchService.architectAsArray;
   }
@@ -94,9 +98,6 @@ export class NetArchMainComponent implements OnInit {
     this.updateSettings(this.archSettings);
     this.netArchService.difficulty = this.difficulty;
     this.netArchService.generateArch( this.archSettings.randomFloors, this.archSettings.randomDifficulty, this.randomFloorNumber);
-  }
-
-  removeArch() {
   }
 
   getString(n: any): string {
@@ -108,12 +109,12 @@ export class NetArchMainComponent implements OnInit {
   }
 
   saveSVG() {
-    const output = this.svgRef.nativeElement.querySelector('#cs-cpred-archdiagram');
+    const output = this.svgRef.nativeElement.querySelector(SVG_ELEMENT_ID);
     this.saveFile.SaveAsFile('NetarchSVGDiagram', output.outerHTML,'svg');
   }
 
   savePNG() {
-    const output = this.svgRef.nativeElement.querySelector('#cs-cpred-archdiagram');
+    const output = this.svgRef.nativeElement.querySelector(SVG_ELEMENT_ID);
     this.saveFile.SaveAsPng('NetarchPNGDiagram.png', output);
   }
 
@@ -141,6 +142,6 @@ export class NetArchMainComponent implements OnInit {
 
   updateSettings(settings: CPRedIconTypeSettings) {
     this.archSettings = settings;
-    window.localStorage.setItem(this.archSettings.key, this.archSettings.export());
+    this.localStoreService.store(CacheKeys.CPRED_NET_ARCHITECT_SETTINGS, this.archSettings.export());
   }
 }

@@ -1,3 +1,4 @@
+import { CacheKeys } from './../../shared/cache-keys';
 import { iconSettings } from './icon-settings';
 import { iconTypeSettings } from './icon-type-settings';
 
@@ -16,7 +17,7 @@ export class CPRedIconTypeSettings implements iconTypeSettings {
   randomFloors: boolean;
 
   constructor() {
-    this.key = "cs-cpred-netarch-settings";
+    this.key = CacheKeys.CPRED_NET_ARCHITECT_SETTINGS;
     this.password = {color: 'darkgoldenrod', bgColor: 'lightgoldenrodyellow'};
     this.controlNode = {color: 'dimgray', bgColor: 'gainsboro'};
     this.program = {color: 'darkred', bgColor: 'lightpink'};
