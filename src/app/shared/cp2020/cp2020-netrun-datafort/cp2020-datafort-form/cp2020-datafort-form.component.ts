@@ -1,3 +1,4 @@
+import { NrDatafort } from './../models/nr-datafort';
 import { Cp2020DatafortRandomGeneratorService } from './../services/cp2020-datafort-random-generator.service';
 import { svgAsPngUri } from 'save-svg-as-png';
 import { jsPDF } from 'jspdf';
@@ -79,7 +80,7 @@ export class Cp2020DatafortFormComponent implements OnInit {
 
   uploadJSON($event) {
     this.loadService
-      .importJSON($event.target.files[0])
+      .importJSON<NrDatafort>($event.target.files[0])
       .subscribe((data) => this.datafortBuilderService.update(data) );
   }
 

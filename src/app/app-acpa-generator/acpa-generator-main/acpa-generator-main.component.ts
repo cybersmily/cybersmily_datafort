@@ -38,7 +38,7 @@ export class AcpaGeneratorMainComponent implements OnInit {
 
   loadJSONFile($event) {
     this.fileLoaderService
-      .importJSON($event.target.files[0])
+      .importJSON<Cp2020ACPA>($event.target.files[0])
       .subscribe((data) => this.acpaBuilder.update(data) );
   }
 

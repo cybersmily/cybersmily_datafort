@@ -1,3 +1,4 @@
+import { Cp2020PlayerCharacter } from './../../shared/models/cp2020character/cp2020-player-character';
 import { Cp2020_WOUND_LEVELS } from './../../shared/cp2020/cp2020-stats/models/cp2020-wound-levels.enum';
 import { Cp2020StatBlock } from '../../shared/cp2020/cp2020-stats/models/cp2020-stat-block';
 import { CharacterImporterService } from './../../shared/services/charimporter/character-importer.service';
@@ -215,7 +216,7 @@ export class CmbtTrckFormComponent implements OnInit {
     const file = $event.target.files[0];
     const name: string = file.name;
     if (name && (name.endsWith('.json') || name.endsWith('.txt'))) {
-      this.fileLoader.importJSON(file).subscribe( data => {
+      this.fileLoader.importJSON<Cp2020PlayerCharacter>(file).subscribe( data => {
         const opp = this.characterImporter.convertCP2020PCToCmbtTrckOpp(data);
         this.opponentService.addOpponent(opp);
       });

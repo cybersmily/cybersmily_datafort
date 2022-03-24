@@ -5,23 +5,24 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class FileLoaderService {
+
   constructor() {}
 
-  public importJSON(inputFile): Observable<any> {
+  public importJSON<T>(inputFile): Observable<T> {
     const fileReader = new FileReader();
 
     // init read
     fileReader.readAsText(inputFile);
 
-    return new Observable((observer: Subscriber<any>) => {
+    return new Observable<T>((observer: Subscriber<any>) => {
       // if success
       fileReader.onload = (ev: ProgressEvent): void => {
-        observer.next(JSON.parse(fileReader.result.toString()));
+        observer.next(JSON.parse(fileReader.result.toString()) as T);
         observer.complete();
       };
-      // if failed
-      fileReader.onerror = (error: any): void => {
-        observer.error(error);
+      fileReader.onabort = (event: any): void => {
+        console.trace('Abort in FileLoaderService', event);
+        observer.error(event);
       };
     });
   }
