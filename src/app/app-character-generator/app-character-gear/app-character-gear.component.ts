@@ -1,6 +1,6 @@
 import { faPlus, faTrash, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerGearList } from './../../shared/models/cp2020character/cp2020-player-gear-list';
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
 import { Cp2020PlayerGear } from './../../shared/models/cp2020character';
 
 @Component({
@@ -8,11 +8,12 @@ import { Cp2020PlayerGear } from './../../shared/models/cp2020character';
   templateUrl: './app-character-gear.component.html',
   styleUrls: ['./app-character-gear.component.css']
 })
-export class AppCharacterGearComponent implements OnInit {
+export class AppCharacterGearComponent implements OnInit, AfterViewInit  {
   faPlus = faPlus;
   faTrash = faTrash;
   faChevronDown = faChevronDown;
   faChevronRight = faChevronRight;
+  index = 0;
 
   get collapseChevron():any {
     return (this.isCollapsed) ? this.faChevronRight : this.faChevronDown;
@@ -37,6 +38,14 @@ export class AppCharacterGearComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  ngAfterViewInit(): void {
+    if(this.gearNameElemList.length > 0 && this.index > -1){
+      this.gearNameElemList.toArray()[this.index].nativeElement.focus();
+    } else {
+      this.gearTitleHeader.nativeElement.focus();
+    }
+}
 
   onGearChange() {
     this.changeGear.emit(this.gear);
@@ -64,9 +73,10 @@ export class AppCharacterGearComponent implements OnInit {
       count = Math.ceil(this.gear.items.length/2);
     }
     this.gear.items.splice(index + count, 1);
+    this.index = index - 1;
     this.onGearChange();
-    if(this.gearNameElemList.length > 0){
-      this.gearNameElemList.toArray()[index - 1].nativeElement.focus();
+    if(this.gearNameElemList.length > 0 && this.index > -1){
+      this.gearNameElemList.toArray()[this.index].nativeElement.focus();
     } else {
       this.gearTitleHeader.nativeElement.focus();
     }
