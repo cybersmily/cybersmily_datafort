@@ -1,3 +1,4 @@
+import { take, takeLast } from 'rxjs';
 import { DataService } from './../../shared/services/file-services';
 import { CPRedNetArchChartsService } from './c-p-red-net-arch-charts.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -35,8 +36,10 @@ describe('CPRedNetArchService', () => {
 
   it('should generate architect', () => {
     service.generateArch(false, false, 0);
-    service.architect.subscribe( arch => {
-    expect(arch).toBeTruthy();
-  });
+    service.architect
+    .pipe(takeLast(1)) // initiate architect is null, want second one after generation completes.
+    .subscribe( arch => {
+      expect(arch).toBeTruthy();
+    });
   });
 });

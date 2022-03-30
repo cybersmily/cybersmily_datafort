@@ -132,8 +132,8 @@ describe('NightMarketFormComponent', () => {
       component.itemList$.subscribe((data) => {
       expect(component['_itemList']).toBeTruthy();
       expect(component['_itemList'].length).toEqual(2);
-      expect(component['_itemList'][0].items.length).toEqual(1);
-      expect(component['_itemList'][1].items.length).toEqual(1);
+      expect(component['_itemList'][0].items.length).toBeGreaterThanOrEqual(1);
+      expect(component['_itemList'][1].items.length).toBeGreaterThanOrEqual(1);
     });
     });
   });

@@ -3,7 +3,7 @@ import { CPRedNetArchNode } from './../models/c-p-red-net-arch-node';
 import { CPRedNetFloorChartEntry, CPRedNetFloorCharts } from './../models/c-p-red-net-floor-charts';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, take } from 'rxjs';
 import { NetArchProgram } from '../models';
 
 @Injectable({
@@ -76,7 +76,9 @@ export class CPRedNetArchService {
    */
   generateArch(rollFloors: boolean, rollDifficulty: boolean, floors: number) {
     this.charts = new CPRedNetFloorCharts();
-    this.chartService.charts.subscribe( chart => {
+    this.chartService.charts
+    .pipe( take(1))
+    .subscribe( chart => {
       this.programList = chart.programs;
       chart.lobby.forEach( entry => {
         const newEntry = new CPRedNetFloorChartEntry(entry);

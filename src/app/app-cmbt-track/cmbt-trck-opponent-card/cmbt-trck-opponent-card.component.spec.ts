@@ -181,21 +181,17 @@ describe('CmbtTrckOpponentCardComponent', () => {
   describe('changeGear()', () => {
     it('should change gear', () => {
       expect(component.currOpponent.gear.length).toEqual(0);
-      expect(component.opponent.gear.length).toEqual(0);
       const gearArray = ['test1', 'test2'];
       component.changeGear(gearArray);
       fixture.detectChanges();
       expect(component.currOpponent.gear.length).toEqual(2);
-      expect(component.opponent.gear.length).toEqual(2);
       expect(component.currOpponent.gear[0]).toEqual(gearArray[0]);
-      expect(component.opponent.gear[0]).toEqual(gearArray[0]);
     });
   });
 
   describe('changeCyber()', () => {
     it('should change cyber', () => {
       expect(component.currOpponent.cyberware.length).toEqual(0);
-      expect(component.opponent.cyberware.length).toEqual(0);
       const cyber: Array<OppCyberware> = [
         { name: 'test1', abbrev: 't1', cost: 0, notes: '', hc: '1d6', surgery: 'M' },
         { name: 'test2', abbrev: 't2', cost: 0, notes: '', hc: '1d6', surgery: 'M' }
@@ -203,15 +199,11 @@ describe('CmbtTrckOpponentCardComponent', () => {
       component.changeCyber(cyber);
       fixture.detectChanges();
       expect(component.currOpponent.cyberware.length).toEqual(2);
-      expect(component.opponent.cyberware.length).toEqual(2);
       expect(component.currOpponent.cyberware[0].name).toEqual(cyber[0].name);
-      expect(component.opponent.cyberware[0].name).toEqual(cyber[0].name);
-      expect(component.opponent.cyberware[0].name).toEqual(cyber[0].name);
     });
 
     it('should change cyber with armor', () => {
       expect(component.currOpponent.cyberware.length).toEqual(0);
-      expect(component.opponent.cyberware.length).toEqual(0);
       const cyber: Array<OppCyberware> = [
         {
           name: 'skinweave', abbrev: 'skw', cost: 0, notes: '',
@@ -221,7 +213,6 @@ describe('CmbtTrckOpponentCardComponent', () => {
       ];
       component.changeCyber(cyber);
       fixture.detectChanges();
-      expect(component.opponent.armor.activePieces.length).toEqual(1);
       expect(component.currOpponent.armor.activePieces.length).toEqual(1);
     });
   });
