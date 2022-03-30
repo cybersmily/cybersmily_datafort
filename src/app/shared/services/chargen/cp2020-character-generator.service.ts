@@ -169,10 +169,12 @@ export class Cp2020CharacterGeneratorService {
    * @memberof Cp2020CharacterGeneratorService
    */
   woundCharacter(value: number) {
-    let damage = value + this._currCharacter.stats.BTM;
-    damage = damage < 1 ? 1 : damage; // always take 1 wound after SP.
-    this._currCharacter.stats.Damage += damage;
-    this.updateCharacter();
+    if( value > 0) {
+      let damage = value + this._currCharacter.stats.BTM;
+      damage = damage < 1 ? 1 : damage; // always take 1 wound after SP.
+      this._currCharacter.stats.Damage += damage;
+      this.updateCharacter();
+    }
   }
 
   changeArmor(value: Cp2020ArmorBlock) {
