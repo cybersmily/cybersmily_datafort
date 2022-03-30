@@ -1,4 +1,4 @@
-import { NightMarketEntry, NightMarketListing, NightMarketCategory } from '../../shared/cpred/c-p-red-economy/models/night-market-chart';
+import { NightMarketEntry, NightMarketListing, NightMarketCategory } from '../../shared/cpred/c-p-red-economy/models';
 import { of } from 'rxjs';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { DataService } from './../../shared/services/file-services';
@@ -77,69 +77,45 @@ describe('NightMarketFormComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-    expect(component.charts).toBeTruthy();
-    expect(component.charts.length).toEqual(3);
   });
 
   describe('generate()', () => {
     it('should generate two categories', () => {
       component.generate();
-      expect(component.itemList).toBeTruthy();
-      expect(component.itemList.length).toEqual(2);
-      expect(component.itemList[0].items.length).toBeGreaterThanOrEqual(1);
-      expect(component.itemList[1].items.length).toBeGreaterThanOrEqual(1);
+      expect(component['_itemList']).toBeTruthy();
+      expect(component['_itemList']?.length).toEqual(2);
+      expect(component['_itemList'][0]?.items.length).toBeGreaterThanOrEqual(1);
+      expect(component['_itemList'][1]?.items.length).toBeGreaterThanOrEqual(1);
     });
 
     it('should generate max number items for each category', () => {
       component.randomRollNoItems = false;
       component.numberOfItems = 11;
       component.generate();
-      expect(component.itemList).toBeTruthy();
-      expect(component.itemList.length).toEqual(2);
-      expect(component.itemList[0].items.length).toEqual(10);
-      expect(component.itemList[1].items.length).toEqual(10);
+      expect(component['_itemList']).toBeTruthy();
+      expect(component['_itemList']?.length).toEqual(2);
+      expect(component['_itemList'][0]?.items.length).toEqual(10);
+      expect(component['_itemList'][1]?.items.length).toEqual(10);
     });
 
     it('should generate max number items for each category', () => {
       component.randomRollNoItems = false;
       component.numberOfItems = 11;
       component.generate();
-      expect(component.itemList).toBeTruthy();
-      expect(component.itemList.length).toEqual(2);
-      expect(component.itemList[0].items.length).toEqual(10);
-      expect(component.itemList[1].items.length).toEqual(10);
+      expect(component['_itemList']).toBeTruthy();
+      expect(component['_itemList']?.length).toEqual(2);
+      expect(component['_itemList'][0].items.length).toEqual(10);
+      expect(component['_itemList'][1].items.length).toEqual(10);
     });
 
     it('should generate minimum of 1 item for each category', () => {
       component.randomRollNoItems = false;
       component.numberOfItems = 0;
       component.generate();
-      expect(component.itemList).toBeTruthy();
-      expect(component.itemList.length).toEqual(2);
-      expect(component.itemList[0].items.length).toEqual(1);
-      expect(component.itemList[1].items.length).toEqual(1);
+      expect(component['_itemList']).toBeTruthy();
+      expect(component['_itemList'].length).toEqual(2);
+      expect(component['_itemList'][0].items.length).toEqual(1);
+      expect(component['_itemList'][1].items.length).toEqual(1);
     });
-  });
-
-  describe('rollTable()', () => {
-    it('should generate 2 Night Market entry', () => {
-      const listing = component.rollTable(2);
-      expect(listing).toBeTruthy();
-      expect(listing.items.length).toEqual(2);
-    });
-
-
-    it('should generate max items in charts of Night Market entry', () => {
-      const listing = component.rollTable(12);
-      expect(listing).toBeTruthy();
-      expect(listing.items.length).toEqual(10);
-    });
-
-    it('should generate minimu of 1 item in charts of Night Market entry', () => {
-      const listing = component.rollTable(-1);
-      expect(listing).toBeTruthy();
-      expect(listing.items.length).toEqual(1);
-    });
-
   });
 });

@@ -1,5 +1,5 @@
+import { MartialArtsDataService } from './../../cp2020-skills/services/martial-arts-data.service';
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
-import { MartialArtsDataService } from './../../../services/data/martial-arts-data.service';
 import { DiceService } from './../../../services/dice/dice.service';
 import { DataService } from './../../../services/file-services';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
