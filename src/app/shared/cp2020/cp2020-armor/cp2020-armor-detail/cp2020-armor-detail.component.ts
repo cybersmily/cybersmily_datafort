@@ -130,6 +130,14 @@ export class Cp2020ArmorDetailComponent implements OnInit, OnChanges, AfterViewI
   }
 
   getLocation(location: string): boolean {
+    if(location.includes('arm')) {
+      return this.currArmor.clothes.loc.includes(location)
+      || this.currArmor.clothes.loc.includes('arms');
+    }
+    if(location.includes('leg')) {
+      return this.currArmor.clothes.loc.includes(location)
+      || this.currArmor.clothes.loc.includes('legs');
+    }
     return this.currArmor.clothes.loc.includes(location);
   }
 
@@ -137,8 +145,10 @@ export class Cp2020ArmorDetailComponent implements OnInit, OnChanges, AfterViewI
     if(this.currArmor.isSkinWeave) {
       this.checkLocation('head');
       this.checkLocation('torso');
-      this.checkLocation('arms');
-      this.checkLocation('legs');
+      this.checkLocation('rarm');
+      this.checkLocation('larm');
+      this.checkLocation('rleg');
+      this.checkLocation('lleg');
       this.update();
     }
   }

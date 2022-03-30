@@ -53,18 +53,27 @@ export class ArmorCalculatorService {
     if(locations.includes('head')) {
       armorLocations.head = sp;
     }
-
     if(locations.includes('torso')) {
       armorLocations.torso = sp;
     }
-
-    if(locations.includes('arm')) {
+    if(locations.includes('arms')) {
       armorLocations.rarm = sp;
       armorLocations.larm = sp;
     }
-
-    if(locations.includes('leg')) {
+    if(locations.includes('rarm')) {
+      armorLocations.rarm = sp;
+    }
+    if(locations.includes('larm')) {
+      armorLocations.larm = sp;
+    }
+    if(locations.includes('legs')) {
       armorLocations.rleg = sp;
+      armorLocations.lleg = sp;
+    }
+    if(locations.includes('rleg')) {
+      armorLocations.rleg = sp;
+    }
+    if(locations.includes('lleg')) {
       armorLocations.lleg = sp;
     }
     return armorLocations;
