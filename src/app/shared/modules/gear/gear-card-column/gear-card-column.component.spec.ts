@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonUiModule } from './../../common-ui/common-ui.module';
 import { GearCardComponent } from './../gear-card/gear-card.component';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
@@ -27,7 +28,10 @@ describe('GearCardColumnComponent', () => {
         GearCardColumnComponent,
         GearCardComponent
       ],
-      imports: [CommonUiModule]
+      imports: [
+        CommonUiModule,
+        BrowserAnimationsModule
+      ]
     })
     .compileComponents();
   }));

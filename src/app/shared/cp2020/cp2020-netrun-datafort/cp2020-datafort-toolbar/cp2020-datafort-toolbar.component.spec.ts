@@ -1,3 +1,4 @@
+import { PipesModule } from './../../../pipes/pipes.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Cp2020DatafortToolbarComponent } from './cp2020-datafort-toolbar.component';
@@ -8,7 +9,10 @@ describe('Cp2020DatafortToolbarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Cp2020DatafortToolbarComponent ]
+      declarations: [ Cp2020DatafortToolbarComponent ],
+      imports: [
+        PipesModule
+      ]
     })
     .compileComponents();
   });

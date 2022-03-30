@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonUiModule } from '../../../modules/common-ui/common-ui.module';
 import { CyberwareCardComponent } from '../cyberware-card/cyberware-card.component';
 import { DataCyberware } from './../models';
@@ -56,7 +57,10 @@ describe('CyberwareCardColumnComponent', () => {
         CyberwareCardColumnComponent,
         CyberwareCardComponent
       ],
-      imports: [CommonUiModule]
+      imports: [
+        CommonUiModule,
+        BrowserAnimationsModule
+      ]
     })
     .compileComponents();
   }));

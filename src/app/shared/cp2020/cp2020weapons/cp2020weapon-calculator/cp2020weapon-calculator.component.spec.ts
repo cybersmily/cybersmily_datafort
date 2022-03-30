@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MartialArtsDataService } from './../../cp2020-skills/services/martial-arts-data.service';
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { DiceService } from './../../../services/dice/dice.service';
@@ -14,7 +15,11 @@ describe('Cp2020weaponCalculatorComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ Cp2020weaponCalculatorComponent ],
-      imports: [HttpClientTestingModule, CommonUiModule],
+      imports: [
+        HttpClientTestingModule,
+        CommonUiModule,
+        BrowserAnimationsModule
+      ],
       providers: [
         DataService,
         DiceService,

@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
@@ -11,7 +12,8 @@ describe('CmbtTrckGearComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ CmbtTrckGearComponent ],
       imports: [
-        CommonUiModule
+        CommonUiModule,
+        BrowserAnimationsModule
       ]
     })
     .compileComponents();

@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { DataService } from './../../shared/services/file-services';
@@ -16,7 +17,8 @@ describe('CmbtTrkSkillsComponent', () => {
       imports: [
         CommonUiModule,
         PipesModule,
-        HttpClientModule
+        HttpClientModule,
+        BrowserAnimationsModule
       ],
       declarations: [
         CmbtTrkSkillsComponent

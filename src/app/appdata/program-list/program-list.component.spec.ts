@@ -1,3 +1,6 @@
+import { PipesModule } from './../../shared/pipes/pipes.module';
+import { DataService } from './../../shared/services/file-services/dataservice/data.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProgramListComponent } from './program-list.component';
@@ -8,7 +11,12 @@ describe('ProgramListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProgramListComponent ]
+      declarations: [ ProgramListComponent ],
+      imports: [
+        HttpClientTestingModule,
+        PipesModule
+      ],
+      providers: [DataService]
     })
     .compileComponents();
   });

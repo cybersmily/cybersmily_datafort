@@ -1,3 +1,4 @@
+import { PipesModule } from './../../../pipes/pipes.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DiceService } from './../../../services/dice/dice.service';
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
@@ -14,7 +15,8 @@ describe('Cp2020SkillListFullComponent', () => {
       declarations: [ Cp2020SkillListFullComponent ],
       imports: [
         CommonUiModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        PipesModule
       ],
       providers: [DiceService]
     })

@@ -1,3 +1,4 @@
+import { DiceService } from './../../shared/services/dice/dice.service';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Game2d10Component } from './game2d10.component';
@@ -8,7 +9,8 @@ describe('Game2d10Component', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Game2d10Component ]
+      declarations: [ Game2d10Component ],
+      providers: [DiceService]
     })
     .compileComponents();
   });

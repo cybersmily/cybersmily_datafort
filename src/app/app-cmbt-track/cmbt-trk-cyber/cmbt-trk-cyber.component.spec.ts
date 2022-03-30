@@ -1,3 +1,5 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CmbtTrckOppChartService } from './../services/cmbt-trck-opp-chart.service';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { PipesModule } from './../../shared/pipes/pipes.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,12 +19,14 @@ describe('CmbtTrkCyberComponent', () => {
       imports: [
         CommonUiModule,
         HttpClientModule,
+        BrowserAnimationsModule,
         PipesModule
       ],
       declarations: [
         CmbtTrkCyberComponent
       ],
       providers: [
+        CmbtTrckOppChartService,
         DataService,
         DiceService
       ]

@@ -1,3 +1,7 @@
+import { DataService } from './../../shared/services/file-services/dataservice/data.service';
+import { PipesModule } from './../../shared/pipes/pipes.module';
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CyberdeckListComponent } from './cyberdeck-list.component';
@@ -8,7 +12,16 @@ describe('CyberdeckListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CyberdeckListComponent ]
+      declarations: [ CyberdeckListComponent ],
+      imports: [
+        HttpClientTestingModule,
+        CommonUiModule,
+        PipesModule
+      ],
+      providers: [
+        DataService
+      ]
+
     })
     .compileComponents();
   });
