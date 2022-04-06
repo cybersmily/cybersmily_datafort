@@ -18,6 +18,7 @@ export class JsonDataFiles {
   public static CP2020_CYBERWARE_DATA_LIST_JSON = `/json/data/cyberware.json`;
   public static CP2020_CYBERWARE_RANDOM_ENTRIES_JSON = `/json/data/cyberRandomEntries.json`;
   public static CP2020_ARMOR_DATA_LIST_JSON = `/json/apps/cparmor.json`;
+  public static CP2020_EQUIPMENT_DATA_LIST_JSON = `/json/data/cp2020equipment.json`;
 
   public static CP2020_COMBAT_ZONE_DATA_JSON = `/json/apps/cmbtzone/cmbtzone.json`;
   public static CP2020_COMBAT_ZONE_OBJECTS_JSON = `/json/apps/cmbtzone/streetobjects.json`;
