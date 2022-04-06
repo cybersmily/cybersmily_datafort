@@ -303,9 +303,9 @@
         <div class="col-5">
           <input id="teleSight" type="checkbox" [(ngModel)]="teleSight" />&nbsp;
           <label for="teleSight">Telescopic Scope ({{
-            selectedWeaponBracket.bracket === "Medium"
+            selectedWeaponBracket?.bracket === "Medium"
             ? -1
-            : selectedWeaponBracket.bracket === "Extreme"
+            : selectedWeaponBracket?.bracket === "Extreme"
             ? -2
             : 0
             }})
