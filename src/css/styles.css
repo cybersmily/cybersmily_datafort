@@ -12,6 +12,20 @@
 .w-85 {
   width: 85%;
 }
+.text-xsmall {
+  font-size: x-small;
+}
+.text-xxsmall {
+  font-size: xx-small;
+}
+
+.text-xlarge {
+  font-size: x-large;
+}
+
+.text-xxlarge {
+  font-size: xx-large;
+}
 
 .no-left-border {
   border-left: transparent 0px solid !important;
