@@ -1,34 +1,56 @@
 <div class="row">
   <div class="col-5">
-    <span>{{area.area}}</span>
+    <span>{{ area.area }}</span>
   </div>
   <div class="col-3 text-center">
-  <span *ngIf="!editMode">{{area.rolls}}</span>
-  <input *ngIf="editMode" type="number" min="0" max="6" [(ngModel)]="area.rolls">
+    <span *ngIf="!editMode">{{ area.rolls }}</span>
+    <input
+      *ngIf="editMode"
+      type="number"
+      min="0"
+      max="6"
+      [(ngModel)]="area.rolls"
+    />
   </div>
-  <div class="col-3 text-center">{{area.points}}</div>
+  <div class="col-3 text-center">{{ area.points }}</div>
   <div class="col-1">
-    <fa-icon *ngIf="!editMode" [icon]="faPen" (click)="onEdit()"
+    <button
+      *ngIf="!editMode"
+      (click)="onEdit()"
       class="csd-btn csd-icon-btn hidden-print"
       title="Edit Area/field"
-      ></fa-icon>
-    <fa-icon *ngIf="editMode" [icon]="faSave" (click)="onSave()"
+    >
+      <fa-icon [icon]="faPen"></fa-icon>
+    </button>
+    <button
+      *ngIf="editMode"
+      (click)="onSave()"
       title="Save changes to Area/field"
-      class="csd-btn csd-icon-btn hidden-print"></fa-icon>
-    &nbsp;&nbsp;&nbsp;
-    <fa-icon [icon]="faTrash" (click)="onDelete()"
-    title="Delete Area/field" class="csd-btn csd-icon-btn hidden-print"></fa-icon>
+      class="csd-btn csd-icon-btn hidden-print pr-2"
+    >
+      <fa-icon [icon]="faSave"></fa-icon>
+    </button>
+    <button
+      (click)="onDelete()"
+      title="Delete Area/field"
+      class="csd-btn csd-icon-btn hidden-print"
+    >
+      <fa-icon [icon]="faTrash"></fa-icon>
+    </button>
   </div>
 </div>
 <div class="row">
   <div class="col-1"></div>
   <div *ngIf="!editMode; else editDetails" class="col-10 area-details">
-    {{area.details}}
+    {{ area.details }}
   </div>
   <ng-template #editDetails>
     <div class="col-10">
-      <textarea class="w-100" [(ngModel)]="area.details" placeholder="Enter notes about this contact..."></textarea>
+      <textarea
+        class="w-100"
+        [(ngModel)]="area.details"
+        placeholder="Enter notes about this contact..."
+      ></textarea>
     </div>
   </ng-template>
-
 </div>

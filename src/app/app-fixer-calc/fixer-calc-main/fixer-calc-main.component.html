@@ -14,13 +14,19 @@
   <br>
   <div class="row">
     <div class="csd-rounded col-12">
-      <cs-fixer-calc-hot-stuff [fields]="areaList"></cs-fixer-calc-hot-stuff>
+
     </div>
   </div>
   <br>
   <div class="row">
     <div class="csd-rounded col-12">
-      <cs-fixer-calc-big-league [contactList]="contactList"></cs-fixer-calc-big-league>
+      <cs-fixer-calc-hot-stuff [fields]="(contactData$ | async)?.areaList"></cs-fixer-calc-hot-stuff>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="csd-rounded col-12">
+      <cs-fixer-calc-big-league [contactList]="(contactData$ | async)?.contactList"></cs-fixer-calc-big-league>
     </div>
   </div>
 </div>

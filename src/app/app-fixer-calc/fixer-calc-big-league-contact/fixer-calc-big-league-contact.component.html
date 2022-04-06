@@ -11,8 +11,12 @@
     {{contact.cost}}pts
   </div>
   <div class="col-1">
-    <fa-icon [icon]="faPen" (click)="editContact()" title="Edit contact" class="csd-icon-btn hidden-print csd-btn"></fa-icon>&nbsp;
-    <fa-icon [icon]="faTrash" (click)="deleteContact()" title="Delete contact" class="csd-icon-btn hidden-print csd-btn"></fa-icon>
+    <button (click)="editContact()" title="Edit contact" class="csd-icon-btn hidden-print csd-btn pr-1">
+    <fa-icon [icon]="faPen"></fa-icon>
+  </button>
+  <button (click)="deleteContact()" title="Delete contact" class="csd-icon-btn hidden-print csd-btn">
+    <fa-icon [icon]="faTrash"></fa-icon>
+  </button>
 
   </div>
 </div>
@@ -47,8 +51,10 @@
       </select>
     </div>
     <div class="col">
-      {{contact.cost}}pts&nbsp;&nbsp;
-      <fa-icon  [icon]="faSave" (click)="saveContact()" title="Save contact changes" class="csd-btn"></fa-icon>
+      {{contact.cost}}pts
+      <button (click)="saveContact()" title="Save contact changes" class="csd-btn csd-icon-btn pl-2">
+      <fa-icon  [icon]="faSave"></fa-icon>
+    </button>
     </div>
   </div>
   <div class="row">

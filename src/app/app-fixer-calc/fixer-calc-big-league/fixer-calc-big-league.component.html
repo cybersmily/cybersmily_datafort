@@ -1,49 +1,77 @@
 <div class="row">
   <div class="col-12">
-    <fa-icon [icon]="faFile" class="csd-btn csd-icon-xl csd-icon-btn float-end hidden-print" title="Save the Big League contacts as a text file" (click)="save()"></fa-icon>
+    <button
+      class="csd-btn csd-icon-xl csd-icon-btn float-end hidden-print"
+      title="Save the Big League contacts as a text file"
+      (click)="save()"
+    >
+      <fa-icon [icon]="faFile"></fa-icon>
+    </button>
     <h4 class="d-inline">Big League</h4>
-    <fa-icon [icon]="faRedo" class="csd-btn csd-icon-xl csd-icon-btn ms-2 hidden-print" title="Reset Streetdeal and clear all contacts" (click)="reset()"></fa-icon>
-    <div class="hidden-print">This system has a set amount of points that can be distributed amongst contacts.</div>
+    <button
+      class="csd-btn csd-icon-xl csd-icon-btn ms-2 hidden-print"
+      title="Reset Streetdeal and clear all contacts"
+      (click)="reset()"
+    >
+      <fa-icon [icon]="faRedo"></fa-icon>
+    </button>
+    <div class="hidden-print">
+      This system has a set amount of points that can be distributed amongst
+      contacts.
+    </div>
   </div>
 </div>
 <div class="row">
-  <div class="col-6">Streetdeal:
-    <input [(ngModel)]="streetdeal" type="number" min="0" max="10"
-    title="Streetdeal skill level"
-    (change)="changeStreetdeal()" class="text-center">
+  <div class="col-6">
+    Streetdeal:
+    <input
+      [(ngModel)]="streetdeal"
+      type="number"
+      min="0"
+      max="10"
+      title="Streetdeal skill level"
+      (change)="changeStreetdeal()"
+      class="text-center"
+    />
   </div>
   <div class="col-6">
-    Contact Points Used: {{spentPoints}}/{{totalPoints}}
-    <fa-icon *ngIf="canGenerateContacts" [icon]="faDice" class="csd-btn csd-icon-btn csd-icon-xl float-end" title="Generate list of contacts" (click)="generateContacts()"></fa-icon>
-
+    Contact Points Used: {{ spentPoints }}/{{ totalPoints }}
+    <button
+      *ngIf="canGenerateContacts"
+      class="csd-btn csd-icon-btn csd-icon-xl float-end"
+      title="Generate list of contacts"
+      (click)="generateContacts()"
+    >
+      <fa-icon [icon]="faDice"></fa-icon>
+    </button>
   </div>
 </div>
-<br>
+<br />
 <div class="csd-rounded">
-<div class="row header-row">
-  <div class="col-3">Description</div>
-  <div class="col">Capacity</div>
-  <div class="col">Reputation</div>
-  <div class="col">Availablity</div>
-  <div class="col">Reliability</div>
-  <div class="col">Contact Points</div>
-  <div class="col-1"></div>
-</div>
-<cs-fixer-calc-big-league-contact *ngFor="let c of contacts; let i = index"
-  [contact]="c"
-  [index]="i"
-  (delete)="deleteContact($event)"
-  (edit)="editContact($event)"
+  <div class="row header-row">
+    <div class="col-3">Description</div>
+    <div class="col">Capacity</div>
+    <div class="col">Reputation</div>
+    <div class="col">Availablity</div>
+    <div class="col">Reliability</div>
+    <div class="col">Contact Points</div>
+    <div class="col-1"></div>
+  </div>
+  <cs-fixer-calc-big-league-contact
+    *ngFor="let c of contacts; let i = index"
+    [contact]="c"
+    [index]="i"
+    (delete)="deleteContact($event)"
+    (edit)="editContact($event)"
   >
-</cs-fixer-calc-big-league-contact>
+  </cs-fixer-calc-big-league-contact>
 </div>
-<br>
-<cs-fixer-calc-big-league-contact-new [availablePoints]="availablePoints"
-[contacts]="contacts"
-[contactTypes]="contactList"
-(addContact)="addContact($event)"
-class="hidden-print"
+<br />
+<cs-fixer-calc-big-league-contact-new
+  [availablePoints]="availablePoints"
+  [contacts]="contacts"
+  [contactTypes]="contactList"
+  (addContact)="addContact($event)"
+  class="hidden-print"
 ></cs-fixer-calc-big-league-contact-new>
-<br>
-
-
+<br />

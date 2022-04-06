@@ -2,10 +2,12 @@
   <br>
   <div class="row">
     <div class="col-auto">
-      <fa-icon [icon]="faPlus" (click)="createContact()"
-        [ngClass]="{'csd-btn': true, 'csd-disabled': !canAdd || overPoints, 'csd-icon-xl csd-icon-btn': canAdd && !overPoints}"
-        title="Add{{(canAdd)?'':' - disabled. Must enter unique name and choose all options to add new contact'}}">
+      <button (click)="createContact()"
+      [ngClass]="{'csd-btn': true, 'csd-disabled': !canAdd || overPoints, 'csd-icon-xl csd-icon-btn': canAdd && !overPoints}"
+      title="Add{{(canAdd)?'':' - disabled. Must enter unique name and choose all options to add new contact'}}">
+      <fa-icon [icon]="faPlus">
       </fa-icon>
+    </button>
     </div>
     <div class="col">
       <div class="row">
@@ -15,7 +17,9 @@
               title="Enter the unique name/short description. Ex. 'Police Sgt', 'Militech Middle Management', 'Fence near docks'"
               placeholder="Enter contact..." class="big-league-new-contact" />
           </span>
-          <fa-icon [icon]="faDice" class="csd-btn csd-icon-btn" title="Generate a random contact" (click)="generateContact()"></fa-icon>
+          <button class="csd-btn csd-icon-btn" title="Generate a random contact" (click)="generateContact()">
+          <fa-icon [icon]="faDice"></fa-icon>
+        </button>
         </div>
         <div class="col-auto big-league-select">
           <span class="csd-required">
