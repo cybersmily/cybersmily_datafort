@@ -1,0 +1,11 @@
+[
+{"name":"Routine Annual Maintenance (Parts)","notes":"","cost":"1D10% Base"    ,"source":{"book":"WS"  ,"pg":0}},
+{"name":"Parts Minor Malfunction (Simple)"  ,"notes":"","cost":"1D6x5% Base"   ,"source":{"book":"WS"  ,"pg":0}},
+{"name":"Minor Malfunction(Complex)"        ,"notes":"","cost":"1D10x3% Base"  ,"source":{"book":"WS"  ,"pg":0}},
+{"name":"Major Malfunction(Simple)"         ,"notes":"","cost":"1D6x10% Base"  ,"source":{"book":"WS"  ,"pg":0}},
+{"name":"Major Malfunction(Complex)"        ,"notes":"","cost":"1D10x5% Base"  ,"source":{"book":"WS"  ,"pg":0}},
+{"name":"Catastrophic(Simple)"              ,"notes":"","cost":"3D6x10% Base"  ,"source":{"book":"WS"  ,"pg":0}},
+{"name":"Catastrophic(Complex)"             ,"notes":"","cost":"1D10x10% Base" ,"source":{"book":"WS"  ,"pg":0}},
+{"name":"Repair Labor "                     ,"notes":"","cost":"100-150% Parts","source":{"book":"WS"  ,"pg":0}},
+{"name":"Cyberlimb Fleshweave Repairs"      ,"notes":"","cost":" +50%"         ,"source":{"book":"Chr3","pg":0}}
+]
