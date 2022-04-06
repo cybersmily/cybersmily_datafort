@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
@@ -39,6 +39,7 @@ import { AngularDraggableModule } from 'angular2-draggable';
   ],
   exports: [
     FormsModule,
+    ReactiveFormsModule,
     AccordionModule,
     NgxMasonryModule,
     BsDropdownModule,
