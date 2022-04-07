@@ -17,7 +17,7 @@
     <button
       *ngIf="!editMode"
       (click)="onEdit()"
-      class="csd-btn csd-icon-btn hidden-print"
+      class="csd-btn csd-icon-btn hidden-print me-2"
       title="Edit Area/field"
     >
       <fa-icon [icon]="faPen"></fa-icon>
@@ -26,7 +26,7 @@
       *ngIf="editMode"
       (click)="onSave()"
       title="Save changes to Area/field"
-      class="csd-btn csd-icon-btn hidden-print pr-2"
+      class="csd-btn csd-icon-btn hidden-print me-2"
     >
       <fa-icon [icon]="faSave"></fa-icon>
     </button>
