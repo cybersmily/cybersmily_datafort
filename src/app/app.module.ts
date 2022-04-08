@@ -10,6 +10,10 @@ import { SaveFileService, DataService } from './shared/services/file-services';
 import { PipesModule } from './shared/pipes/pipes.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
 @NgModule({
     declarations: [
         AppComponent,
@@ -24,7 +28,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         PipesModule,
         AppRoutingModule,
         FontAwesomeModule,
-        BrowserAnimationsModule /* Keep last as it is important for routing */
+        BrowserAnimationsModule,
+        StoreModule.forRoot({}),
+        StoreDevtoolsModule.instrument({ maxAge: 4, logOnly: environment.production }),
+        EffectsModule.forRoot([]) /* Keep last as it is important for routing */
     ],
     providers: [
         DataService,

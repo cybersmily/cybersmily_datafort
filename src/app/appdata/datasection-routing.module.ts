@@ -1,3 +1,5 @@
+import { GearListComponent } from './gear-list/gear-list.component';
+import { AdminGearListComponent } from './admin-gear-list/admin-gear-list.component';
 import { CyberdeckListComponent } from './cyberdeck-list/cyberdeck-list.component';
 import { ProgramListComponent } from './program-list/program-list.component';
 import { WpnListComponent } from './wpn-list/wpn-list.component';
@@ -33,6 +35,8 @@ export const dataRoutes: Routes = [
       {path: 'cyberdeck', component: CyberdeckListComponent},
       {path: 'programs', component: ProgramListComponent},
       {path: 'wpns', component: WpnListComponent },
+      {path: 'gear', component: GearListComponent },
+      {path: 'admingear', component: AdminGearListComponent },
       {path: 'admincyber', component: AdminCyberListComponent},
       {path: 'adminwpn', component: AdminWpnListComponent}
     ]}

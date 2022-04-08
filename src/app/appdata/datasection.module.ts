@@ -1,3 +1,4 @@
+import { Cp2020EquipmentStoreModule } from './../shared/cp2020/cp2020-equipment-store/cp2020-equipment-store.module';
 import { Cp2020weaponsModule } from './../shared/cp2020/cp2020weapons/cp2020weapons.module';
 import { CyberDataService } from './../shared/cp2020/cp2020-cyberware/services';
 import { Cp2020CyberwareModule } from './../shared/cp2020/cp2020-cyberware/cp2020-cyberware.module';
@@ -23,6 +24,8 @@ import { AdminWpnListComponent } from './admin-wpn-list/admin-wpn-list.component
 import { WpnListComponent } from './wpn-list/wpn-list.component';
 import { ProgramListComponent } from './program-list/program-list.component';
 import { CyberdeckListComponent } from './cyberdeck-list/cyberdeck-list.component';
+import { AdminGearListComponent } from './admin-gear-list/admin-gear-list.component';
+import { GearListComponent } from './gear-list/gear-list.component';
 
 
 @NgModule({
@@ -32,6 +35,7 @@ import { CyberdeckListComponent } from './cyberdeck-list/cyberdeck-list.componen
     Cp2020weaponsModule,
     Cp2020CyberwareModule,
     DataSectionRoutingModule,
+    Cp2020EquipmentStoreModule,
     PipesModule
   ],
   declarations: [
@@ -48,7 +52,9 @@ import { CyberdeckListComponent } from './cyberdeck-list/cyberdeck-list.componen
     AdminWpnListComponent,
     WpnListComponent,
     ProgramListComponent,
-    CyberdeckListComponent],
+    CyberdeckListComponent,
+    AdminGearListComponent,
+    GearListComponent],
   providers: [
     DataService,
     CyberDataService

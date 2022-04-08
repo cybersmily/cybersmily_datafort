@@ -1,0 +1,76 @@
+<form [formGroup]="formGroup" (ngSubmit)="addGear()">
+  <div class="row">
+    <div class="col-3">
+      <fieldset>
+        <input
+          type="text"
+          placeholder="type..."
+          formControlName="category"
+          class="w-100"
+        />
+      </fieldset>
+    </div>
+    <div class="col-3">
+      <fieldset>
+        <input
+          type="text"
+          placeholder="name..."
+          formControlName="name"
+          class="w-100"
+        />
+      </fieldset>
+    </div>
+    <div class="col-2">
+      <fieldset>
+        <input
+          type="number"
+          placeholder="cost..."
+          formControlName="cost"
+          class="w-100"
+        />
+      </fieldset>
+    </div>
+    <div class="col-2">
+      <fieldset>
+        <input
+          type="text"
+          placeholder="book..."
+          formControlName="book"
+          class="w-100"
+        />
+      </fieldset>
+    </div>
+    <div class="col-1">
+      <fieldset>
+        <input
+          type="number"
+          min="0"
+          placeholder="pg..."
+          formControlName="page"
+          class="w-100"
+        />
+      </fieldset>
+    </div>
+    <div class="col-1">
+      <button
+        type="submit"
+        class="csd-btn csd-icon-btn csd-icon-xl"
+        title="Add gear to list"
+        [disabled]="formGroup.invalid"
+      >
+        <fa-icon [icon]="faPlus"></fa-icon>
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <fieldset>
+        <textarea
+          placeholder="name..."
+          formControlName="name"
+          class="w-100"
+        ></textarea>
+      </fieldset>
+    </div>
+  </div>
+</form>
