@@ -1,9 +1,8 @@
 import { Cp2020Equipment } from './../../models';
 import { Store } from '@ngrx/store';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AddCp2020EquipmentAction } from '../../actions/cp2020-equipment.actions';
 
 @Component({
   selector: 'cs-cp2020-equipment-editor',
@@ -15,6 +14,12 @@ export class Cp2020EquipmentEditorComponent implements OnInit {
   faMinus = faMinus;
   formGroup: FormGroup;
 
+  @Input()
+  equipment: Cp2020Equipment;
+
+  @Output()
+  updateEquipement: EventEmitter<Cp2020Equipment> = new EventEmitter<Cp2020Equipment>();
+
   constructor(private formBuilder: FormBuilder, private store: Store) { }
 
   ngOnInit(): void {
@@ -23,12 +28,12 @@ export class Cp2020EquipmentEditorComponent implements OnInit {
 
   initializeForm(): void {
     this.formGroup = this.formBuilder.group({
-      category: ['', Validators.required],
-      name: ['', Validators.required],
-      cost: [0, Validators.min(0)],
-      notes: [''],
-      book: ['', Validators.maxLength(4)],
-      page: [0, Validators.min(0)]
+      category: [this.equipment?.category ?? '', Validators.required],
+      name: [this.equipment?.name ?? '', Validators.required],
+      cost: [this.equipment?.cost ?? 0, Validators.min(0)],
+      notes: [this.equipment?.notes ?? ''],
+      book: [this.equipment?.source.book ?? '', Validators.maxLength(4)],
+      page: [this.equipment?.source?.page ?? 0, Validators.min(0)]
     });
   }
 
@@ -44,7 +49,7 @@ export class Cp2020EquipmentEditorComponent implements OnInit {
         page: this.formGroup.value.page,
       }
     }
-    this.store.dispatch(AddCp2020EquipmentAction(newItem));
+    this.updateEquipement.emit(newItem);
   }
 
 }

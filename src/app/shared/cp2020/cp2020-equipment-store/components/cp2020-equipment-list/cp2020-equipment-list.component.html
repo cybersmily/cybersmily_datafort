@@ -1,5 +1,3 @@
-
-
 <div class="row small text-bold">
   <div class="col-2">CATEGORY</div>
   <div class="col-3">NAME</div>
@@ -7,26 +5,39 @@
   <div class="col-4">NOTES</div>
   <div class="col-2">SOURCE</div>
 </div>
-<div class="row x-small">
+<div class="row text-xsmall">
   <div class="col-2">
     <select [(ngModel)]="filters.category" class="w-100">
       <option value="">All</option>
-      <option *ngFor="let category of categoryList$ | async" [value]="category">{{category}}</option>
+      <option *ngFor="let category of categoryList$ | async" [value]="category">
+        {{ category }}
+      </option>
     </select>
   </div>
   <div class="col-3">
-    <input [(ngModel)]="filters.name" type="text" class="w-100">
+    <input [(ngModel)]="filters.name" type="text" class="w-100" />
   </div>
   <div class="col-1"></div>
   <div class="col-4"></div>
   <div class="col-2">
-    <input [(ngModel)]="filters.source" type="text" class="w-100">
+    <input [(ngModel)]="filters.source" type="text" class="w-100" />
   </div>
 </div>
-<div *ngFor="let gear of gearList$ | async | filter:'category':filters.category | contains:'name':filters.name | sourcebookFilter:filters.source" class="row x-small">
-  <div class="col-2">{{gear.category}}</div>
-  <div class="col-3">{{gear.name}}</div>
-  <div class="col-1">{{gear.cost}}</div>
-  <div class="col-4">{{gear.notes}}</div>
-  <div class="col-2">{{gear.source.book | sourcebook}} pg.{{gear.source.page}} </div>
+<div
+  *ngFor="
+    let gear of gearList$
+      | async
+      | filter: 'category':filters.category
+      | contains: 'name':filters.name
+      | sourcebookFilter: filters.source
+  "
+  class="row  text-xsmall"
+>
+  <div class="col-2">{{ gear.category }}</div>
+  <div class="col-3">{{ gear.name }}</div>
+  <div class="col-1">{{ gear.cost }}</div>
+  <div class="col-4">{{ gear.notes }}</div>
+  <div class="col-2">
+    {{ gear.source.book | sourcebook }} pg.{{ gear.source.page }}
+  </div>
 </div>
