@@ -34,7 +34,7 @@ export class InmediaComponent implements OnInit {
           this.anime = resultObj.anime;
           this.series = resultObj.series;
         },
-        error => console.log( 'Error :: ' + error)
+        error => console.error( 'Error while getting Media.',error)
       );
   }
 }

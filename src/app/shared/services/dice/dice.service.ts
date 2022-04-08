@@ -67,7 +67,7 @@ export class DiceService {
         r.total = v;
         r.rolls.push(v);
       } else {
-        console.log('Dice roll cannot be parsed.');
+        console.error(`Attempted to roll ${str} and parse it to a dice roll. String cannot be parsed.`);
       }
 
     }

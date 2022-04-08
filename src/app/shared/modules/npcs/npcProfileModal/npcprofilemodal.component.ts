@@ -38,7 +38,7 @@ export class NpcProfileModalComponent implements OnInit {
           this.loadSkills();
           this.imgFile = this.npcProfile.imgFile;
         },
-        error => console.log( 'Error :: ' + error)
+        error => console.error( 'Error :: failed to load NPC file.', error)
       );
     }
 

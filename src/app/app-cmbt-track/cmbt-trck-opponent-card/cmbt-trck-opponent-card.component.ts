@@ -66,7 +66,7 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
       this.roles = results[1];
       this.skills = results[2];
     }, err => {
-      console.log(err);
+      console.error(err);
     }
     );
   }

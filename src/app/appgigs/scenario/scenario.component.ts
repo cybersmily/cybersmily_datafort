@@ -32,7 +32,7 @@ export class ScenarioComponent implements OnInit {
   private getScenario(): void {
     this.activatedRoute.url.subscribe(
       (url) => this.LoadHTMLFile(url[0].path),
-      error => console.log( 'Error :: ' + error)
+      error => console.error( `Error :: attempting to get scenario html`, error)
     );
   }
 

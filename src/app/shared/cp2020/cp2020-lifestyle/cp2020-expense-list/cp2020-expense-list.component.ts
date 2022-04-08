@@ -45,7 +45,6 @@ export class Cp2020ExpenseListComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log(this.expenseCountInputList);
     this.expenseCountInputList.changes.subscribe(() => {
       if(this.expenseCountInputList.first) {
         this.expenseCountInputList.first.nativeElement.focus();

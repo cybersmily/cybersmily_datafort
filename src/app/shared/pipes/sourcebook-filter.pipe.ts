@@ -7,10 +7,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SourcebookFilterPipe implements PipeTransform {
   transform(value: any[], term: string): any[] {
-    if (!value ) {
+    if (!value || !Array.isArray(value) ) {
       return value;
     }
-    const results = value.filter( obj => {
+    const results = value?.filter( obj => {
       if (obj.source === undefined || obj.source === null ) {
         return true;
       }
@@ -22,7 +22,7 @@ export class SourcebookFilterPipe implements PipeTransform {
         const source = SourceBookLookup.getSource(obj.source.book);
         return source.toLowerCase().includes(term.toLowerCase());
       }
-    });
+    }) ?? value;
     return results;
   }
 

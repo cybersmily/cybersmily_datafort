@@ -22,7 +22,6 @@ export class CmbtZoneToPDF {
     blocksDescriptions: Array<Array<string>>,
     svg?: any
   ) {
-    console.log(svg);
     const doc = this.setupDoc();
     doc.setFont(this._font, 'normal');
     doc.setFontSize(this._fontSize);
@@ -32,7 +31,7 @@ export class CmbtZoneToPDF {
       this.createSecondPage(doc, blocksDescriptions);
       doc.save('CombatZone.pdf');
      })
-    .catch((err) => console.log(err));
+    .catch((err) => console.error(err));
   }
 
   setupDoc(): jsPDF {

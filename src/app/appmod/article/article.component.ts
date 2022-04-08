@@ -40,7 +40,7 @@ export class ArticleComponent implements OnInit {
     .GetJson(JsonDataFiles.MOD_ARTICLES_JSON)
     .subscribe(
       resultObj => this.GetCurrentArticle(resultObj.articles),
-      error => console.log( 'Error :: '  + JSON.stringify(error))
+      error => console.error( 'Error getting articlle.', JSON.stringify(error))
     );
   }
 
@@ -53,7 +53,7 @@ export class ArticleComponent implements OnInit {
     this.articleList = articles;
     this.activatedRoute.url.subscribe(
       (url) => this.LoadHTMLFile(url[0].path),
-      error => console.log( 'Error :: ' + JSON.stringify(error))
+      error => console.error( 'Error :: attempting to get current article', JSON.stringify(error))
     );
   }
 
@@ -72,7 +72,7 @@ export class ArticleComponent implements OnInit {
     .subscribe(
       resultObj => {
         this.articleHTML = resultObj; },
-      error => console.log( 'Error :: ' + JSON.stringify(error))
+      error => console.error( `Error :: attempting to load HTML file ${path}`,error)
     );
   }
 }

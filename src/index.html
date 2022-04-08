@@ -542,7 +542,7 @@
         var msie = ua.indexOf("MSIE ");
         if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
           // IE is being used and needs to tell user to use a modern browser like Edge, Chrome, of Firefox.
-          console.log('This browser is IE and is incompatible with the site. Please upgrade to a modern browser.');
+          console.error('This browser is IE and is incompatible with the site. Please upgrade to a modern browser.');
           var element = document.getElementById("csd-main-content-ie");
           element.className = element.className.replace(/\bhidden-for-ie\b/g, "");
         }

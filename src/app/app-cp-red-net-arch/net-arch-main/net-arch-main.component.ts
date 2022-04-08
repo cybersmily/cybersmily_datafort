@@ -88,7 +88,6 @@ export class NetArchMainComponent implements OnInit {
       "2021-11-21 Cybersmily's Datafort NET Architect for Cyberpunk RED. This app can print PDFs, SVG, PNG, and save/load the NET Architect"
     );
     const settings = this.localStoreService.retrive<CPRedIconTypeSettings>(CacheKeys.CPRED_NET_ARCHITECT_SETTINGS) ?? new CPRedIconTypeSettings();
-    console.log('store',typeof settings )
     this.archSettings.import(settings);
     this.architecture$ = this.netArchService.architect;
     this.architectArray$ = this.netArchService.architectAsArray;

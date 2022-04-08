@@ -482,7 +482,7 @@ module.exports.generateWorldAnvilSheet = (param) => {
   // output
   fs.writeFile(`cp2020WorldAnvilSheet.yml`, result, function (err) {
     if (err) {
-      console.log('FAILED', err);
+      console.error('FAILED', err);
     }
   })
 };

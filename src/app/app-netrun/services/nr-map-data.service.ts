@@ -49,7 +49,7 @@ export class NrMapDataService {
           this.cityList.InitiateCityList(data.cities);
           this.GetMap(NR_WORLD_MAP);
         } catch (error) {
-          console.log('Failed to load the region and city maps: ' + error);
+          console.error('Failed to load the region and city maps:',error);
         }
       });
     }

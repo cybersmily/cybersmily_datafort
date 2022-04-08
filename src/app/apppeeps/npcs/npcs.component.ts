@@ -37,7 +37,7 @@ export class NpcsComponent implements OnInit {
   private getNpcs(): void {
     this.activatedRoute.url.subscribe(
       (url) => this.LoadRosterFile(url[0].path),
-      error => console.log( 'Error :: ' + error)
+      error => console.error( 'Error :: attempting to load roster files.', error)
     );
   }
 

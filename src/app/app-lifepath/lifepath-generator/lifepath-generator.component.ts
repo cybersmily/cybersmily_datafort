@@ -51,7 +51,7 @@ export class LifepathGeneratorComponent implements OnInit {
       resultObj => {
         this.parseLifepathData(resultObj);
       },
-      error => console.log( 'Error :: ' + error)
+      error => console.error( 'Error :: ' + error)
     );
   }
 

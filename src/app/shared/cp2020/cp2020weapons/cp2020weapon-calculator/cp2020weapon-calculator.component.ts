@@ -404,12 +404,10 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
       }
     }
     this.toHitResults = new Array<string>();
-    console.log(this.selectedWeapon);
     this.selectedWeaponRanges = new WeaponRanges(this.weaponRange);
   }
 
   setBracket() {
-    console.log(this.rangeToTarget);
     this.rangeBracket =  this.selectedWeaponRanges.rangeBracket(this.rangeToTarget).bracket;
   }
 
