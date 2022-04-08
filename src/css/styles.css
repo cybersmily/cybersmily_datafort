@@ -12,11 +12,26 @@
 .w-85 {
   width: 85%;
 }
+.text-small {
+  font-size: small;
+}
+.text-smaller {
+  font-size: smaller;
+}
+
 .text-xsmall {
   font-size: x-small;
 }
 .text-xxsmall {
   font-size: xx-small;
+}
+
+.text-large {
+  font-size: large;
+}
+
+.text-larger {
+  font-size: larger;
 }
 
 .text-xlarge {
