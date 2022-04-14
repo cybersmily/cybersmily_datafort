@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { saveAs } from 'file-saver';
-import { saveSvgAsPng, svgAsPngUri } from 'save-svg-as-png';
+import { svgAsPngUri } from 'save-svg-as-png';
 
 @Injectable({
   providedIn: 'root',
