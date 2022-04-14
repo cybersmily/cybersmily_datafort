@@ -2,8 +2,13 @@
   <div class="col-2">CATEGORY</div>
   <div class="col-3">NAME</div>
   <div class="col-1">COST</div>
-  <div class="col-4">NOTES</div>
+  <div class="col-3">NOTES</div>
   <div class="col-2">SOURCE</div>
+  <div class="col-1">
+    <button class="csd-btn csd-icon-btn csd-icon-xl" (click)="save()">
+      <fa-icon [icon]="faSave"></fa-icon>
+    </button>
+  </div>
 </div>
 <div class="row text-xsmall">
   <div class="col-2">
@@ -18,12 +23,13 @@
     <input [(ngModel)]="filters.name" type="text" class="w-100" />
   </div>
   <div class="col-1"></div>
-  <div class="col-4"></div>
+  <div class="col-3"></div>
   <div class="col-2">
     <input [(ngModel)]="filters.source" type="text" class="w-100" />
   </div>
+  <div class="col-1"></div>
 </div>
-<div
+<cs-cp2020-equipment-item
   *ngFor="
     let gear of gearList$
       | async
@@ -31,13 +37,7 @@
       | contains: 'name':filters.name
       | sourcebookFilter: filters.source
   "
-  class="row  text-xsmall"
->
-  <div class="col-2">{{ gear.category }}</div>
-  <div class="col-3">{{ gear.name }}</div>
-  <div class="col-1">{{ gear.cost }}</div>
-  <div class="col-4">{{ gear.notes }}</div>
-  <div class="col-2">
-    {{ gear.source.book | sourcebook }} pg.{{ gear.source.page }}
-  </div>
-</div>
+  [item]="gear"
+  (update)="update($event)"
+  (delete)="delete($event)"
+></cs-cp2020-equipment-item>
