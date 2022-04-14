@@ -6,6 +6,10 @@ export const AddCp2020EquipmentAction = createAction(
   Cp2020EquipmentActionTypes.ADD_EQUIPMENT,
   props<Cp2020Equipment>()
 );
+export const UpdateCp2020EquipmentAction = createAction(
+  Cp2020EquipmentActionTypes.UPDATE_EQUIPMENT,
+  props<Cp2020Equipment>()
+);
 
 export const RemoveCp2020EquipmentAction = createAction(
   Cp2020EquipmentActionTypes.REMOVE_EQUIPMENT,
@@ -14,15 +18,15 @@ export const RemoveCp2020EquipmentAction = createAction(
 
 export const LoadCp2020EquipmentAction = createAction(
   Cp2020EquipmentActionTypes.LOAD_DATA,
-  props<{request: string}>()
+  props<{ request: string }>()
 );
 
 export const LoadCp2020EquipmentSuccessAction = createAction(
   Cp2020EquipmentActionTypes.LOAD_DATA_SUCCESS,
-  props<{props:Array<Cp2020Equipment>}>()
+  props<{ props: Array<Cp2020Equipment> }>()
 );
 
 export const LoadCp2020EquipmentFailureAction = createAction(
   Cp2020EquipmentActionTypes.LOAD_DATA_FAILURE,
-  props<{error: any}>()
-  );
+  props<{ error: any }>()
+);

@@ -1,8 +1,14 @@
+import { Cp2020EquipmentUpdateReducer } from './cp2020-equipment-update.reducer';
+import { Cp2020EquipmentLoadFailureReducer } from './cp2020-equipment-load-failure.reducer';
+import { Cp2020EquipmentLoadSuccessReducer } from './cp2020-equipment-load-success.reducer';
+import { Cp2020EquipmentRemoveReducer } from './cp2020-equipment-remove.reducer';
+import { Cp2020EquipmentAddReducer } from './cp2020-equipment-add.reducer';
 
 import { createReducer, on } from '@ngrx/store';
 
 import {
   AddCp2020EquipmentAction,
+  UpdateCp2020EquipmentAction,
   RemoveCp2020EquipmentAction,
   LoadCp2020EquipmentSuccessAction,
   LoadCp2020EquipmentFailureAction,
@@ -13,60 +19,9 @@ const initialState: Array<Cp2020Equipment> = new Array<Cp2020Equipment>();
 
 export const Cp2020EquipmentStoreReducer = createReducer(
   initialState,
-  on(
-    AddCp2020EquipmentAction,
-    (
-      state: Array<Cp2020Equipment>,
-      props: Cp2020Equipment
-    ): Array<Cp2020Equipment> => {
-      // only save if the type and name are unique within the array.
-      if (
-        state.some(
-          (item) =>
-            item.name.toLowerCase() === props.name?.toLowerCase() &&
-            item.category.toLowerCase() === props.category?.toLowerCase()
-        )
-      ) {
-        return state;
-      }
-      return [...state, props];
-    }
-  ),
-  on(
-    RemoveCp2020EquipmentAction,
-    (
-      state: Array<Cp2020Equipment>,
-      props: Cp2020Equipment
-    ): Array<Cp2020Equipment> => {
-      const newState = [...state];
-      const index: number = newState.findIndex(
-        (item) =>
-          item.name.toLowerCase() === props.name?.toLowerCase() &&
-          item.category.toLowerCase() === props.category?.toLowerCase()
-      );
-      if (index > -1) {
-        newState.splice(index, 1);
-      }
-      return newState;
-    }
-  ),
-  on(
-    LoadCp2020EquipmentSuccessAction,
-    (
-      state: Array<Cp2020Equipment>,
-      props: { props: Array<Cp2020Equipment> }
-    ): Array<Cp2020Equipment> => {
-      const newState = [...props.props];
-      return newState;
-    }
-  ),
-  on(
-    LoadCp2020EquipmentFailureAction,
-    (
-      state: Array<Cp2020Equipment>,
-      props: { error: any }
-    ): Array<Cp2020Equipment> => {
-      return new Array<Cp2020Equipment>();
-    }
-  )
+  on(AddCp2020EquipmentAction, Cp2020EquipmentAddReducer),
+  on(UpdateCp2020EquipmentAction, Cp2020EquipmentUpdateReducer),
+  on(RemoveCp2020EquipmentAction, Cp2020EquipmentRemoveReducer),
+  on(LoadCp2020EquipmentSuccessAction, Cp2020EquipmentLoadSuccessReducer),
+  on(LoadCp2020EquipmentFailureAction, Cp2020EquipmentLoadFailureReducer)
 );
