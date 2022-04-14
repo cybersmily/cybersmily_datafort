@@ -31,6 +31,6 @@
   {"TYPE":"FOODSTUFFS" ,"SUBTYPE":"" ,"Name":"Ripper(whiskey;ouzo;citrus juice)"               ,"Notes":""                            ,"Cost":"6eb"                   ,"Source":"NC"   },
   {"TYPE":"FOODSTUFFS" ,"SUBTYPE":"" ,"Name":"Blade Runner (CHOOH2;champagne;meal worms)"      ,"Notes":""                            ,"Cost":"6eb"                   ,"Source":"NC"   },
   {"TYPE":"FOODSTUFFS" ,"SUBTYPE":"" ,"Name":"Euro(fruit juices;bourbon;ice cubes of gin)"     ,"Notes":""                            ,"Cost":"15eb"                  ,"Source":"NC"   },
-  {"TYPE":"FOODSTUFFS" ,"SUBTYPE":"" ,"Name":"All Food Shopping Service"                       ,"Notes":""                            ,"Cost":"25eb/mo+10eb/delivery" ,"Source":"Chr1" },
-  {"TYPE":"FOODSTUFFS" ,"SUBTYPE":"" ,"Name":"Continental Catering"                            ,"Notes":""                            ,"Cost":"150-200eb/guest"       ,"Source":"Chr1" }
+  {"TYPE":"FOODSTUFFS" ,"SUBTYPE":"" ,"Name":"All Food Shopping Service (1 month)"             ,"Notes":"10eb per delivery"           ,"Cost":25                      ,"Source":"Chr1" },
+  {"TYPE":"FOODSTUFFS" ,"SUBTYPE":"" ,"Name":"Continental Catering (per quest)"                ,"Notes":""                            ,"Cost":"150-200"               ,"Source":"Chr1" }
 ]
