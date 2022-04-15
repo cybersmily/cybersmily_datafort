@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 
 import { DataSectionRoutingModule } from './datasection-routing.module';
 
-import { Chrome2Component} from './chrome2/chrome2.component';
+import { Chrome2Component } from './chrome2/chrome2.component';
 import { ProtSysopsComponent } from './prot-sysops/prot-sysops.component';
 import { ProtProgComponent } from './prot-prog/prot-prog.component';
 import { ProtGearComponent } from './prot-gear/prot-gear.component';
@@ -24,9 +24,7 @@ import { AdminWpnListComponent } from './admin-wpn-list/admin-wpn-list.component
 import { WpnListComponent } from './wpn-list/wpn-list.component';
 import { ProgramListComponent } from './program-list/program-list.component';
 import { CyberdeckListComponent } from './cyberdeck-list/cyberdeck-list.component';
-import { AdminGearListComponent } from './admin-gear-list/admin-gear-list.component';
 import { GearListComponent } from './gear-list/gear-list.component';
-
 
 @NgModule({
   imports: [
@@ -36,7 +34,7 @@ import { GearListComponent } from './gear-list/gear-list.component';
     Cp2020CyberwareModule,
     DataSectionRoutingModule,
     Cp2020EquipmentStoreModule,
-    PipesModule
+    PipesModule,
   ],
   declarations: [
     Chrome2Component,
@@ -53,11 +51,8 @@ import { GearListComponent } from './gear-list/gear-list.component';
     WpnListComponent,
     ProgramListComponent,
     CyberdeckListComponent,
-    AdminGearListComponent,
-    GearListComponent],
-  providers: [
-    DataService,
-    CyberDataService
-  ]
+    GearListComponent,
+  ],
+  providers: [DataService, CyberDataService],
 })
-export class DataSectionModule { }
+export class DataSectionModule {}
