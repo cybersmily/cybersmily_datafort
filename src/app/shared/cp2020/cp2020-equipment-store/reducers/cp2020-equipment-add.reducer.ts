@@ -1,4 +1,5 @@
 import { Cp2020Equipment } from '../models/cp2020-equipment';
+import { v4 as uuidv4 } from 'uuid';
 
 export const Cp2020EquipmentAddReducer = (
   state: Array<Cp2020Equipment>,
@@ -13,6 +14,9 @@ export const Cp2020EquipmentAddReducer = (
     )
   ) {
     return state;
+  }
+  if (!props.id) {
+    props.id = uuidv4();
   }
   return [...state, props].sort(
     (a, b) =>
