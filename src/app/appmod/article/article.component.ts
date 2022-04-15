@@ -1,5 +1,8 @@
 import { SeoService } from './../../shared/services/seo/seo.service';
-import { DataService, JsonDataFiles } from './../../shared/services/file-services';
+import {
+  DataService,
+  JsonDataFiles,
+} from './../../shared/services/file-services';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CSArticle } from '../../shared/models/articles/article';
@@ -7,24 +10,25 @@ import { CSArticle } from '../../shared/models/articles/article';
 @Component({
   selector: 'cs-article',
   templateUrl: './article.component.html',
-  styleUrls: ['./article.component.css']
+  styleUrls: ['./article.component.css'],
 })
 export class ArticleComponent implements OnInit {
-
   articleList: any;
   updated: string;
   title: string;
   curArticle: CSArticle;
   articleHTML: string;
 
-  constructor(private dataService: DataService,
+  constructor(
+    private dataService: DataService,
     private activatedRoute: ActivatedRoute,
-    private seo: SeoService ) { }
+    private seo: SeoService
+  ) {}
 
   ngOnInit() {
     this.seo.updateMeta(
       'Cyberpunk 2020 Mod',
-      '2020-07, Cybersmily\'s Datafort Cyberpunk 2020 Mod is houserules and homebrew rules to extend/modify Cyberpunk 2020 rules.'
+      "2020-07, Cybersmily's Datafort Cyberpunk 2020 Mod is houserules and homebrew rules to extend/modify Cyberpunk 2020 rules."
     );
     this.LoadArticleHTML();
   }
@@ -37,11 +41,12 @@ export class ArticleComponent implements OnInit {
   LoadArticleHTML(): void {
     // load the json file with the artilces
     this.dataService
-    .GetJson(JsonDataFiles.MOD_ARTICLES_JSON)
-    .subscribe(
-      resultObj => this.GetCurrentArticle(resultObj.articles),
-      error => console.error( 'Error getting articlle.', JSON.stringify(error))
-    );
+      .GetJson<{ articles: any }>(JsonDataFiles.MOD_ARTICLES_JSON)
+      .subscribe(
+        (resultObj) => this.GetCurrentArticle(resultObj.articles),
+        (error) =>
+          console.error('Error getting articlle.', JSON.stringify(error))
+      );
   }
 
   /**
@@ -53,7 +58,11 @@ export class ArticleComponent implements OnInit {
     this.articleList = articles;
     this.activatedRoute.url.subscribe(
       (url) => this.LoadHTMLFile(url[0].path),
-      error => console.error( 'Error :: attempting to get current article', JSON.stringify(error))
+      (error) =>
+        console.error(
+          'Error :: attempting to get current article',
+          JSON.stringify(error)
+        )
     );
   }
 
@@ -68,11 +77,13 @@ export class ArticleComponent implements OnInit {
     this.updated = this.curArticle.updated;
     this.title = this.curArticle.title;
     this.dataService
-    .GetHTML(`/html/mods/${this.curArticle.html}.html`)
-    .subscribe(
-      resultObj => {
-        this.articleHTML = resultObj; },
-      error => console.error( `Error :: attempting to load HTML file ${path}`,error)
-    );
+      .GetHTML(`/html/mods/${this.curArticle.html}.html`)
+      .subscribe(
+        (resultObj) => {
+          this.articleHTML = resultObj;
+        },
+        (error) =>
+          console.error(`Error :: attempting to load HTML file ${path}`, error)
+      );
   }
 }

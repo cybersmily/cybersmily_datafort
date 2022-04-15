@@ -6,24 +6,25 @@ import { DataService, JsonDataFiles } from './../../../services/file-services';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BodegasGeneratorService {
   private _bodegasChart: Array<BodegasItem>;
 
-  constructor(private dataService: DataService, private dice: DiceService) { }
+  constructor(private dataService: DataService, private dice: DiceService) {}
 
   generate(): Observable<BodegasItem> {
     if (this._bodegasChart) {
       return of(this.generateBodegas(this._bodegasChart));
     } else {
       return this.dataService
-        .GetJson(JsonDataFiles.CPRED_BODEGAS_CHART_JSON)
+        .GetJson<Array<BodegasItem>>(JsonDataFiles.CPRED_BODEGAS_CHART_JSON)
         .pipe(
-          map(data => {
+          map((data) => {
             this._bodegasChart = data;
             return this.generateBodegas(this._bodegasChart);
-          }));
+          })
+        );
     }
   }
 

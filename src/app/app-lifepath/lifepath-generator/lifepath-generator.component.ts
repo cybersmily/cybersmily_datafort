@@ -2,15 +2,23 @@ import { faFile, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { JsonDataFiles } from './../../shared/services/file-services';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { SaveFileService } from './../../shared/services/file-services';
-import { LifepathData, LifepathSource, LifepathChart, LifePathResults,
-  LifepathChartSelection, LifepathFamily, LifepathEventsList, LifepathEthnicity } from '../../shared/cp2020/cp2020-lifepath/models';
+import {
+  LifepathData,
+  LifepathSource,
+  LifepathChart,
+  LifePathResults,
+  LifepathChartSelection,
+  LifepathFamily,
+  LifepathEventsList,
+  LifepathEthnicity,
+} from '../../shared/cp2020/cp2020-lifepath/models';
 import { DataService } from './../../shared/services/file-services';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'cs-lifepath-generator',
   templateUrl: './lifepath-generator.component.html',
-  styleUrls: ['./lifepath-generator.component.css']
+  styleUrls: ['./lifepath-generator.component.css'],
 })
 export class LifepathGeneratorComponent implements OnInit {
   faFile = faFile;
@@ -25,9 +33,11 @@ export class LifepathGeneratorComponent implements OnInit {
 
   selectedSource: string;
 
-  constructor(private dataService: DataService,
-      private saveFileService: SaveFileService,
-      private seo: SeoService) {
+  constructor(
+    private dataService: DataService,
+    private saveFileService: SaveFileService,
+    private seo: SeoService
+  ) {
     this.appearanceList = new Array<LifepathChart>();
     this.motivationList = new Array<LifepathChart>();
     this.sourceList = new Array<LifepathSource>();
@@ -38,7 +48,7 @@ export class LifepathGeneratorComponent implements OnInit {
   ngOnInit() {
     this.seo.updateMeta(
       'Cyberpunk 2020 Lifepath',
-      '2020-07, Cybersmily\'s Datafort Cyberpunk 2020 Lifepath is an application to generate a character\'s lifepath.'
+      "2020-07, Cybersmily's Datafort Cyberpunk 2020 Lifepath is an application to generate a character's lifepath."
     );
     // load data
     this.getLifepathData();
@@ -46,13 +56,13 @@ export class LifepathGeneratorComponent implements OnInit {
 
   getLifepathData() {
     this.dataService
-    .GetJson(JsonDataFiles.CP2020_LIFEPATH_JSON)
-    .subscribe(
-      resultObj => {
-        this.parseLifepathData(resultObj);
-      },
-      error => console.error( 'Error :: ' + error)
-    );
+      .GetJson<LifepathData>(JsonDataFiles.CP2020_LIFEPATH_JSON)
+      .subscribe(
+        (resultObj) => {
+          this.parseLifepathData(resultObj);
+        },
+        (error) => console.error('Error :: ' + error)
+      );
   }
 
   parseLifepathData(results: LifepathData) {
@@ -72,7 +82,7 @@ export class LifepathGeneratorComponent implements OnInit {
     this.lifepathResults[value.chart][value.title] = value.value;
   }
 
-  onFamilyGeneration( value: LifepathFamily) {
+  onFamilyGeneration(value: LifepathFamily) {
     this.lifepathResults.family = value;
   }
 
@@ -85,6 +95,9 @@ export class LifepathGeneratorComponent implements OnInit {
   }
 
   saveFile() {
-    this.saveFileService.SaveAsFile('CP2020LifePath', this.lifepathResults.print());
+    this.saveFileService.SaveAsFile(
+      'CP2020LifePath',
+      this.lifepathResults.print()
+    );
   }
 }

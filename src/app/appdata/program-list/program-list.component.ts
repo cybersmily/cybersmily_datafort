@@ -9,11 +9,14 @@ import { Program } from '../../shared/cp2020/cp2020-netrun-gear/models';
 @Component({
   selector: 'cs-program-list',
   templateUrl: './program-list.component.html',
-  styleUrls: ['./program-list.component.css']
+  styleUrls: ['./program-list.component.css'],
 })
 export class ProgramListComponent implements OnInit {
   programList$: Observable<Array<Program>>;
-  optionsList: any = {classes: new Array<ProgramOption>(), options: new Array<ProgramOption>()};
+  optionsList: any = {
+    classes: new Array<ProgramOption>(),
+    options: new Array<ProgramOption>(),
+  };
   filters = {
     class: '',
     name: '',
@@ -25,12 +28,11 @@ export class ProgramListComponent implements OnInit {
     source: '',
   };
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
     this.programList$ = this.dataService
-    .GetJson(JsonDataFiles.CP2020_PROGRAM_LIST_JSON)
-    .pipe( map( data => data.sort((a,b) => a.class.localeCompare(b.class))));
+      .GetJson<Array<any>>(JsonDataFiles.CP2020_PROGRAM_LIST_JSON)
+      .pipe(map((data) => data.sort((a, b) => a.class.localeCompare(b.class))));
   }
-
 }

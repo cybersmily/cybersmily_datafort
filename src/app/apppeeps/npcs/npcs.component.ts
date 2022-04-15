@@ -9,37 +9,37 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'cs-npcs',
   templateUrl: './npcs.component.html',
-  styleUrls: ['./npcs.component.css']
+  styleUrls: ['./npcs.component.css'],
 })
 export class NpcsComponent implements OnInit {
-
   npcRoster$: Observable<Array<NpcCard>>;
   currNpcs: string;
 
-  constructor(private dataService: DataService,
+  constructor(
+    private dataService: DataService,
     private activatedRoute: ActivatedRoute,
-    private seo: SeoService) { }
+    private seo: SeoService
+  ) {}
 
   ngOnInit() {
     this.seo.updateMeta(
       'Cyberpunk 2020 Peeps',
-      '2020-07, Cybersmily\'s Datafort Cyberpunk 2020 Peeps are NPCs from the various campaigns and scenarios over the years.'
+      "2020-07, Cybersmily's Datafort Cyberpunk 2020 Peeps are NPCs from the various campaigns and scenarios over the years."
     );
     this.getNpcs();
   }
 
   private LoadRosterFile(url: string) {
     this.npcRoster$ = this.dataService
-    .GetJson(`/json/peeps/${url}.json`)
-    .pipe( map( data => data.npcs));
+      .GetJson<{ npcs: Array<NpcCard> }>(`/json/peeps/${url}.json`)
+      .pipe(map((data) => data.npcs));
   }
 
   private getNpcs(): void {
     this.activatedRoute.url.subscribe(
       (url) => this.LoadRosterFile(url[0].path),
-      error => console.error( 'Error :: attempting to load roster files.', error)
+      (error) =>
+        console.error('Error :: attempting to load roster files.', error)
     );
   }
-
-
 }

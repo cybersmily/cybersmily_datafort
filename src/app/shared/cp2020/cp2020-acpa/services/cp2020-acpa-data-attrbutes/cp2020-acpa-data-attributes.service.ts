@@ -6,21 +6,24 @@ import { DataService } from './../../../../services/file-services/dataservice/da
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class Cp2020ACPADataAttributesService {
   private _acpaAttributeData: AcpaAttributeData;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService) {}
 
   getData(): Observable<AcpaAttributeData> {
-    if( this._acpaAttributeData) {
+    if (this._acpaAttributeData) {
       return of(this._acpaAttributeData);
     }
-    return this.dataService.GetJson(Cp2020AppFiles.ACPA_ATTRIBUTES)
-    .pipe( map(data =>{
-      this._acpaAttributeData = data;
-      return this._acpaAttributeData;
-    }));
+    return this.dataService
+      .GetJson<AcpaAttributeData>(Cp2020AppFiles.ACPA_ATTRIBUTES)
+      .pipe(
+        map((data) => {
+          this._acpaAttributeData = data;
+          return this._acpaAttributeData;
+        })
+      );
   }
 }

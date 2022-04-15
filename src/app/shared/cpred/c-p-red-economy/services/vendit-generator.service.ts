@@ -6,46 +6,48 @@ import { DiceService } from './../../../services/dice/dice.service';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class VenditGeneratorService {
   private _venditChart: VenditChart;
 
-  constructor(private dice: DiceService, private dataService: DataService) { }
+  constructor(private dice: DiceService, private dataService: DataService) {}
 
   generate(numOfVendits: number): Observable<Array<VenditItem>> {
     if (isNaN(numOfVendits) || numOfVendits < 1) {
       return of(new Array<VenditItem>());
     }
-    if(this._venditChart) {
+    if (this._venditChart) {
       return of(this.generateVendits(numOfVendits));
     } else {
       return this.dataService
-        .GetJson(JsonDataFiles.CPRED_VENDIT_CHART_JSON)
-        .pipe( map(data => {
-          this._venditChart = data;
-          return this.generateVendits(numOfVendits);
-        }));
+        .GetJson<VenditChart>(JsonDataFiles.CPRED_VENDIT_CHART_JSON)
+        .pipe(
+          map((data) => {
+            this._venditChart = data;
+            return this.generateVendits(numOfVendits);
+          })
+        );
     }
   }
 
   generateVendits(numOfVendits: number): Array<VenditItem> {
     const vendits = new Array<VenditItem>();
-    for( let i = 0; i < numOfVendits; i++) {
+    for (let i = 0; i < numOfVendits; i++) {
       const item = this.rollForVendit();
-      const index = vendits.findIndex( i => i.name === item);
+      const index = vendits.findIndex((i) => i.name === item);
       if (index > -1) {
         vendits[index].count += 1;
       } else {
-        vendits.push({count: 1, name: item});
+        vendits.push({ count: 1, name: item });
       }
     }
     return vendits;
   }
 
   rollForVendit(): string {
-    let roll = this.dice.generateNumber(1,6);
-    switch(roll) {
+    let roll = this.dice.generateNumber(1, 6);
+    switch (roll) {
       case 1:
       case 2:
       case 3:

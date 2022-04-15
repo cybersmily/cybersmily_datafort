@@ -7,41 +7,55 @@ import { DataService, JsonDataFiles } from './../../../services/file-services';
 import { DiceService } from './../../../services/dice/dice.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MotivationGeneratorService {
-
   motivationChart: any;
 
-  constructor(private dataService: DataService, private diceService: DiceService) { }
+  constructor(
+    private dataService: DataService,
+    private diceService: DiceService
+  ) {}
 
   GenerateMotivation(source: string): Observable<LifepathMotivations> {
-    return this.getChartData()
-    .pipe( map( data => {
-      const results = this.CreateMotivation(data, source);
-      return results;
-    }));
+    return this.getChartData().pipe(
+      map((data) => {
+        const results = this.CreateMotivation(data, source);
+        return results;
+      })
+    );
   }
 
-  private CreateMotivation(chart: LifepathDataMotivation, source: string): LifepathMotivations {
+  private CreateMotivation(
+    chart: LifepathDataMotivation,
+    source: string
+  ): LifepathMotivations {
     const result = new LifepathMotivations();
-    let table = (chart.personality) ? this.getChart(chart.personality, source) : [''];
+    let table = chart.personality
+      ? this.getChart(chart.personality, source)
+      : [''];
     let roll = this.diceService.generateNumber(0, table.length - 1);
     result.personality = table[roll];
 
-    table = (chart.valuedperson) ? this.getChart(chart.valuedperson, source) : [''];
+    table = chart.valuedperson
+      ? this.getChart(chart.valuedperson, source)
+      : [''];
     roll = this.diceService.generateNumber(0, table.length - 1);
     result.valuedperson = table[roll];
 
-    table = (chart.valuemost) ? this.getChart(chart.valuemost, source) : [''];
+    table = chart.valuemost ? this.getChart(chart.valuemost, source) : [''];
     roll = this.diceService.generateNumber(0, table.length - 1);
     result.valuemost = table[roll];
 
-    table = (chart.feelaboutpeople) ? this.getChart(chart.feelaboutpeople, source) : [''];
+    table = chart.feelaboutpeople
+      ? this.getChart(chart.feelaboutpeople, source)
+      : [''];
     roll = this.diceService.generateNumber(0, table.length - 1);
     result.feelaboutpeople = table[roll];
 
-    table = (chart.valuedpossesion) ? this.getChart(chart.valuedpossesion, source) : [''];
+    table = chart.valuedpossesion
+      ? this.getChart(chart.valuedpossesion, source)
+      : [''];
     roll = this.diceService.generateNumber(0, table.length - 1);
     result.valuedpossession = table[roll];
 
@@ -64,10 +78,10 @@ export class MotivationGeneratorService {
   private getChartData(): Observable<any> {
     if (!this.motivationChart) {
       return this.dataService
-      .GetJson(JsonDataFiles.CP2020_LIFEPATH_MOTIVATION_JSON)
-      .pipe(
-        map (data => this.motivationChart = data.motivations)
-      );
+        .GetJson<{ motivations: any }>(
+          JsonDataFiles.CP2020_LIFEPATH_MOTIVATION_JSON
+        )
+        .pipe(map((data) => (this.motivationChart = data.motivations)));
     }
     return of(this.motivationChart);
   }

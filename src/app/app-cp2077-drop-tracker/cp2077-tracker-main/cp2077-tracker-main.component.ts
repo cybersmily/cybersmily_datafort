@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'cs-cp2077-tracker-main',
   templateUrl: './cp2077-tracker-main.component.html',
-  styleUrls: ['./cp2077-tracker-main.component.css']
+  styleUrls: ['./cp2077-tracker-main.component.css'],
 })
 export class Cp2077TrackerMainComponent implements OnInit {
   faSave = faSave;
@@ -22,12 +22,14 @@ export class Cp2077TrackerMainComponent implements OnInit {
   filterName: string = '';
   key: string = 'CP2077Data';
 
-  constructor(private dataService: DataService,
-    private saveFileService: SaveFileService) { }
+  constructor(
+    private dataService: DataService,
+    private saveFileService: SaveFileService
+  ) {}
 
   ngOnInit(): void {
     const local = localStorage.getItem(this.key);
-    if(local) {
+    if (local) {
       const data = JSON.parse(local);
       this.data = data.items;
       this.kills = data.kills;
@@ -35,13 +37,11 @@ export class Cp2077TrackerMainComponent implements OnInit {
     } else {
       this.upload();
     }
-
-
   }
 
   missingOnThisV(name: string): boolean {
-    return this.data.some(item =>
-      name === item.name && item[this.selectedCharacter] === ''
+    return this.data.some(
+      (item) => name === item.name && item[this.selectedCharacter] === ''
     );
   }
 
@@ -50,26 +50,28 @@ export class Cp2077TrackerMainComponent implements OnInit {
   }
 
   get currCount(): number {
-    return this.data.filter(item => item[this.selectedCharacter] !== '').length;
+    return this.data.filter((item) => item[this.selectedCharacter] !== '')
+      .length;
   }
 
-  get animalKills():number {
-    return this.data.reduce((a,b) => a + b.animalsKills, 0);
+  get animalKills(): number {
+    return this.data.reduce((a, b) => a + b.animalsKills, 0);
   }
 
   get totalItemsCollected(): number {
-    return this.data.filter(item =>
-      item.cf !== ''
-      || item.cm !== ''
-      || item.nf !== ''
-      || item.nm !== ''
-      || item.sm !== ''
-      || item.sf !== ''
-      ).length;
+    return this.data.filter(
+      (item) =>
+        item.cf !== '' ||
+        item.cm !== '' ||
+        item.nf !== '' ||
+        item.nm !== '' ||
+        item.sm !== '' ||
+        item.sf !== ''
+    ).length;
   }
 
-  getLocation(loc: number):string {
-    switch(loc) {
+  getLocation(loc: number): string {
+    switch (loc) {
       case 0:
         return 'Suit';
       case 1:
@@ -90,61 +92,63 @@ export class Cp2077TrackerMainComponent implements OnInit {
   }
 
   get footWear(): Array<Cp2077TrackerEntry> {
-    return this.data.filter( item => item.location === 6);
+    return this.data.filter((item) => item.location === 6);
   }
   get leggings(): Array<Cp2077TrackerEntry> {
-    return this.data.filter( item => item.location === 5);
+    return this.data.filter((item) => item.location === 5);
   }
   get innerTorso(): Array<Cp2077TrackerEntry> {
-    return this.data.filter( item => item.location === 4);
+    return this.data.filter((item) => item.location === 4);
   }
   get outerTorso(): Array<Cp2077TrackerEntry> {
-    return this.data.filter( item => item.location === 3);
+    return this.data.filter((item) => item.location === 3);
   }
   get face(): Array<Cp2077TrackerEntry> {
-    return this.data.filter( item => item.location === 2);
+    return this.data.filter((item) => item.location === 2);
   }
   get head(): Array<Cp2077TrackerEntry> {
-    return this.data.filter( item => item.location === 1);
+    return this.data.filter((item) => item.location === 1);
   }
   get fullbody(): Array<Cp2077TrackerEntry> {
-    return this.data.filter( item => item.location === 0);
+    return this.data.filter((item) => item.location === 0);
   }
   get misc(): Array<Cp2077TrackerEntry> {
-    return this.data.filter( item => item.location === 7);
+    return this.data.filter((item) => item.location === 7);
   }
 
   get missing(): Array<Cp2077TrackerEntry> {
-    return this.data.filter(item => item[this.selectedCharacter] ==='');
+    return this.data.filter((item) => item[this.selectedCharacter] === '');
   }
   get totalMissing(): Array<Cp2077TrackerEntry> {
-    return this.data.filter(item =>
-      item.cf == ''
-      && item.cm == ''
-      && item.nf == ''
-      && item.nm == ''
-      && item.sf == ''
-      && item.sm == ''
+    return this.data.filter(
+      (item) =>
+        item.cf == '' &&
+        item.cm == '' &&
+        item.nf == '' &&
+        item.nm == '' &&
+        item.sf == '' &&
+        item.sm == ''
     );
   }
 
   get unknown(): Array<Cp2077TrackerEntry> {
-    return this.data.filter(item => item[this.selectedCharacter] ==='?');
+    return this.data.filter((item) => item[this.selectedCharacter] === '?');
   }
   get sex(): Array<Cp2077TrackerEntry> {
-    return this.data.filter(item => item[this.selectedCharacter] ==='-');
+    return this.data.filter((item) => item[this.selectedCharacter] === '-');
   }
 
   IsMissing(item: string): boolean {
-    return this.totalMissing.some(i => i.name === item);
+    return this.totalMissing.some((i) => i.name === item);
   }
 
   onClick($event, item: string, property: string, action: number) {
     $event.preventDefault();
-    const i = this.data.findIndex( itm => itm.name === item);
-    if( i > -1) {
+    const i = this.data.findIndex((itm) => itm.name === item);
+    if (i > -1) {
       this.data[i][property] += action;
-      this.data[i][property] = this.data[i][property] < 0 ? 0 : this.data[i][property];
+      this.data[i][property] =
+        this.data[i][property] < 0 ? 0 : this.data[i][property];
       this.store();
     }
   }
@@ -161,20 +165,33 @@ export class Cp2077TrackerMainComponent implements OnInit {
   }
 
   save() {
-    this.saveFileService.SaveAsFile('cp2077tracker',JSON.stringify({kills:this.kills,items:this.data}),'json')
+    this.saveFileService.SaveAsFile(
+      'cp2077tracker',
+      JSON.stringify({ kills: this.kills, items: this.data }),
+      'json'
+    );
   }
 
   upload() {
-    this.dataService.GetJson(JsonDataFiles.CP2077_TRACKER_DATA_JSON)
-    .subscribe( data => {
-      this.data = data.items;
-      this.kills = data.kills;
-      this.store();
-    });
+    this.dataService
+      .GetJson<{ items: Array<Cp2077TrackerEntry>; kills: CP2077Kills }>(
+        JsonDataFiles.CP2077_TRACKER_DATA_JSON
+      )
+      .subscribe((data) => {
+        this.data = data.items;
+        this.kills = data.kills;
+        this.store();
+      });
   }
 
   store() {
-    window.localStorage.setItem(this.key, JSON.stringify({v: this.selectedCharacter,kills:this.kills,items:this.data}));
+    window.localStorage.setItem(
+      this.key,
+      JSON.stringify({
+        v: this.selectedCharacter,
+        kills: this.kills,
+        items: this.data,
+      })
+    );
   }
-
 }

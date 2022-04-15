@@ -7,32 +7,36 @@ import { Injectable } from '@angular/core';
 import { CpRedTemplate } from '../../models/cp-red-template';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CpRedTemplateGeneratorService {
   private _templates: CpRedTemplate[];
 
-  constructor(private dataSerive: DataService,
-              private dice: DiceService) {
-  }
-
+  constructor(private dataSerive: DataService, private dice: DiceService) {}
 
   generateCharacter(role: string): Observable<CpRedBaseCharacter> {
     if (this._templates) {
       return of(this.setCharacter(role));
     }
-    return this.dataSerive.GetJson(JsonDataFiles.CPRED_CHARACTER_TEMPLATE_JSON)
-    .pipe( map(data => {
-      this._templates = data.roles;
-      return  this.setCharacter(role);
-    }));
+    return this.dataSerive
+      .GetJson<{ roles: Array<CpRedTemplate> }>(
+        JsonDataFiles.CPRED_CHARACTER_TEMPLATE_JSON
+      )
+      .pipe(
+        map((data) => {
+          this._templates = data.roles;
+          return this.setCharacter(role);
+        })
+      );
   }
 
   private setCharacter(role: string): CpRedBaseCharacter {
     const character = new CpRedBaseCharacter();
     character.role = role;
     // get the role from the templates
-    const template = this._templates.find( temp => temp.name.toLowerCase() === role.toLowerCase());
+    const template = this._templates.find(
+      (temp) => temp.name.toLowerCase() === role.toLowerCase()
+    );
     // transfer data to character object
     character.armor = template.armor;
     character.skills = template.skills;
