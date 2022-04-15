@@ -6,24 +6,25 @@ import { DataService } from './../file-services';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CmbtZoneStreetObjectService {
-
   _trashData: Array<string>;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService) {}
 
   createTrash(num: number, dice: DiceService): Observable<Array<string>> {
     if (this._trashData && this._trashData.length > 0) {
       return of(this.generateTrashList(num, dice));
     }
     return this.dataService
-    .GetJson(JsonDataFiles.CP2020_COMBAT_ZONE_OBJECTS_JSON).pipe(
-      map( data => {
-        this._trashData = data;
-        return this.generateTrashList(num, dice);
-      }));
+      .GetJson<Array<string>>(JsonDataFiles.CP2020_COMBAT_ZONE_OBJECTS_JSON)
+      .pipe(
+        map((data) => {
+          this._trashData = data;
+          return this.generateTrashList(num, dice);
+        })
+      );
   }
 
   generateTrashList(num: number, dice: DiceService): Array<string> {
@@ -34,5 +35,4 @@ export class CmbtZoneStreetObjectService {
     }
     return results;
   }
-
 }

@@ -1,20 +1,30 @@
+import { DataSkill } from './../../cp2020/cp2020-skills/models/data-skill';
 import { Cp2020CyberdeckManager } from './../../cp2020/cp2020-netrun-gear/models/cp2020-cyberdeck-manager';
 import { Cp2020Vehicle } from './../../cp2020/cp2020-vehicles/models/cp2020-vehicle';
 import { Cp2020IuSkillConverterService } from './../../cp2020/services/cp2020-iu-skill-converter.service';
 import { Cp2020PlayerAmmo } from './../../cp2020/cp2020weapons/models/cp-2020-player-ammo';
 import { DataService, JsonDataFiles } from './../file-services';
 import { CacheKeys } from './../../cache-keys';
-import { Cp2020PlayerSkills, Cp2020PlayerSkill } from './../../cp2020/cp2020-skills/models';
+import {
+  Cp2020PlayerSkills,
+  Cp2020PlayerSkill,
+} from './../../cp2020/cp2020-skills/models';
 import { LifePathResults } from './../../cp2020/cp2020-lifepath/models';
 import { Cp2020PlayerGearList } from './../../models/cp2020character/cp2020-player-gear-list';
-import { CpPlayerWeaponList, CpPlayerWeapon } from '../../cp2020/cp2020weapons/models';
+import {
+  CpPlayerWeaponList,
+  CpPlayerWeapon,
+} from '../../cp2020/cp2020weapons/models';
 import { Cp2020ArmorBlock } from './../../cp2020/cp2020-armor/models';
 import { Cp2020StatBlock } from '../../cp2020/cp2020-stats/models/cp2020-stat-block';
 import { BehaviorSubject } from 'rxjs';
-import { Cp2020PlayerRole} from '../../cp2020/cp2020-role/models/cp2020-player-role';
+import { Cp2020PlayerRole } from '../../cp2020/cp2020-role/models/cp2020-player-role';
 import { Cp2020PlayerCharacter } from '../../models/cp2020character';
 import { Injectable } from '@angular/core';
-import { Cp2020PlayerCyber, Cp2020PlayerCyberList } from '../../cp2020/cp2020-cyberware/models';
+import {
+  Cp2020PlayerCyber,
+  Cp2020PlayerCyberList,
+} from '../../cp2020/cp2020-cyberware/models';
 import { Cp2020Lifestyle } from '../../cp2020/cp2020-lifestyle/models';
 
 @Injectable({
@@ -28,7 +38,10 @@ export class Cp2020CharacterGeneratorService {
 
   private _currCharacter: Cp2020PlayerCharacter;
 
-  constructor(private dataService: DataService, private skillConverter: Cp2020IuSkillConverterService) {
+  constructor(
+    private dataService: DataService,
+    private skillConverter: Cp2020IuSkillConverterService
+  ) {
     this.loadFromStorage();
   }
 
@@ -40,8 +53,8 @@ export class Cp2020CharacterGeneratorService {
     }
     if (value.secondaryRoles) {
       this._currCharacter.secondaryRoles = new Array<Cp2020PlayerRole>();
-      value.secondaryRoles.forEach( role => {
-        const newRole =  new Cp2020PlayerRole();
+      value.secondaryRoles.forEach((role) => {
+        const newRole = new Cp2020PlayerRole();
         newRole.import(role);
         this._currCharacter.secondaryRoles.push(newRole);
       });
@@ -53,18 +66,22 @@ export class Cp2020CharacterGeneratorService {
       this._currCharacter.armor = new Cp2020ArmorBlock(value.armor);
       this._currCharacter.stats.REF.ev = this._currCharacter.armor.ev;
     }
-    if (value.weapons ) {
+    if (value.weapons) {
       if (value.weapons.items) {
         this._currCharacter.weapons.items = new Array<CpPlayerWeapon>();
         value.weapons.items.forEach((w) => {
-        this._currCharacter.weapons.items.push(new CpPlayerWeapon(w));
-      });
+          this._currCharacter.weapons.items.push(new CpPlayerWeapon(w));
+        });
       }
-      this._currCharacter.weapons.ammo = (value.weapons.ammo)?new Array<Cp2020PlayerAmmo>(...value.weapons.ammo):new Array<Cp2020PlayerAmmo>();
+      this._currCharacter.weapons.ammo = value.weapons.ammo
+        ? new Array<Cp2020PlayerAmmo>(...value.weapons.ammo)
+        : new Array<Cp2020PlayerAmmo>();
     }
 
     if (value.lifeStyle) {
-      this._currCharacter.lifeStyle = JSON.parse(JSON.stringify(value.lifeStyle));
+      this._currCharacter.lifeStyle = JSON.parse(
+        JSON.stringify(value.lifeStyle)
+      );
     }
 
     if (value.cyberware) {
@@ -78,12 +95,16 @@ export class Cp2020CharacterGeneratorService {
       this._currCharacter.gear.items = value.gear.items;
     }
 
-    if(value.vehicles) {
-      this._currCharacter.vehicles = value.vehicles.map(veh => new Cp2020Vehicle(veh));
+    if (value.vehicles) {
+      this._currCharacter.vehicles = value.vehicles.map(
+        (veh) => new Cp2020Vehicle(veh)
+      );
     }
 
-    if(value.cyberdeckPrograms) {
-      this._currCharacter.cyberdeckPrograms = new Cp2020CyberdeckManager(value.cyberdeckPrograms);
+    if (value.cyberdeckPrograms) {
+      this._currCharacter.cyberdeckPrograms = new Cp2020CyberdeckManager(
+        value.cyberdeckPrograms
+      );
     }
 
     if (value.lifepath) {
@@ -118,14 +139,18 @@ export class Cp2020CharacterGeneratorService {
       }
       // set the role skills
       let roleSkills = [...value.role.skills];
-      value?.secondaryRoles?.forEach( role => {
+      value?.secondaryRoles?.forEach((role) => {
         roleSkills = roleSkills.concat(role.skills);
       });
       this._currCharacter.skills.setRoleSkills(roleSkills);
       // add/update special abilities
       let spclAbilities = [new Cp2020PlayerSkill(value.role.specialAbility)];
-      spclAbilities= spclAbilities.concat(value.secondaryRoles?.map(role => new Cp2020PlayerSkill(role.specialAbility)));
-      spclAbilities.forEach( sa => {
+      spclAbilities = spclAbilities.concat(
+        value.secondaryRoles?.map(
+          (role) => new Cp2020PlayerSkill(role.specialAbility)
+        )
+      );
+      spclAbilities.forEach((sa) => {
         this._currCharacter.skills.addSpecialAbility(sa);
       });
 
@@ -169,7 +194,7 @@ export class Cp2020CharacterGeneratorService {
    * @memberof Cp2020CharacterGeneratorService
    */
   woundCharacter(value: number) {
-    if( value > 0) {
+    if (value > 0) {
       let damage = value + this._currCharacter.stats.BTM;
       damage = damage < 1 ? 1 : damage; // always take 1 wound after SP.
       this._currCharacter.stats.Damage += damage;
@@ -239,25 +264,28 @@ export class Cp2020CharacterGeneratorService {
 
   changeIU(value: boolean) {
     this._currCharacter.isIU = value;
-    const fileName = (value)? JsonDataFiles.IU_SKILLS_DATA_LIST_JSON : JsonDataFiles.CP2020_SKILLS_DATA_LIST_JSON;
-    this.dataService.GetJson(fileName)
-    .subscribe( skillData => {
-      if(value) {
-        this.skillConverter
-      .convertCP2020SkillsToIU(skillData, this._currCharacter.skills)
-      .subscribe( mapped => {
-        this._currCharacter.skills.importSkills(mapped.skills);
-        this.updateCharacter();
+    const fileName = value
+      ? JsonDataFiles.IU_SKILLS_DATA_LIST_JSON
+      : JsonDataFiles.CP2020_SKILLS_DATA_LIST_JSON;
+    this.dataService
+      .GetJson<Array<DataSkill>>(fileName)
+      .subscribe((skillData) => {
+        if (value) {
+          this.skillConverter
+            .convertCP2020SkillsToIU(skillData, this._currCharacter.skills)
+            .subscribe((mapped) => {
+              this._currCharacter.skills.importSkills(mapped.skills);
+              this.updateCharacter();
+            });
+        } else {
+          this.skillConverter
+            .convertIUSkillsToCP2020(skillData, this._currCharacter.skills)
+            .subscribe((mapped) => {
+              this._currCharacter.skills.importSkills(mapped.skills);
+              this.updateCharacter();
+            });
+        }
       });
-      } else {
-        this.skillConverter
-        .convertIUSkillsToCP2020(skillData, this._currCharacter.skills)
-        .subscribe( mapped => {
-          this._currCharacter.skills.importSkills(mapped.skills);
-          this.updateCharacter();
-        });
-      }
-    });
   }
 
   /**
@@ -299,7 +327,7 @@ export class Cp2020CharacterGeneratorService {
    * @memberof Cp2020CharacterGeneratorService
    */
   updateCharacter() {
-    this.changeCharacter(JSON.parse(JSON.stringify( this._currCharacter)));
+    this.changeCharacter(JSON.parse(JSON.stringify(this._currCharacter)));
   }
 
   clearCharacter(isIU?: boolean) {
@@ -307,12 +335,12 @@ export class Cp2020CharacterGeneratorService {
     this._currCharacter = new Cp2020PlayerCharacter();
     this._currCharacter.isIU = isIU || false;
     this._character.next(this._currCharacter);
-    const fileName: string = this._currCharacter.isIU ? JsonDataFiles.IU_SKILLS_DATA_LIST_JSON : JsonDataFiles.CP2020_SKILLS_DATA_LIST_JSON;
+    const fileName: string = this._currCharacter.isIU
+      ? JsonDataFiles.IU_SKILLS_DATA_LIST_JSON
+      : JsonDataFiles.CP2020_SKILLS_DATA_LIST_JSON;
     const showOther = !(this._currCharacter.isIU ?? false);
     // get the skill data to load to character
-    this.dataService
-    .GetJson(fileName)
-    .subscribe( (data) => {
+    this.dataService.GetJson<Array<DataSkill>>(fileName).subscribe((data) => {
       this._currCharacter.skills = new Cp2020PlayerSkills(data, showOther);
       this._character.next(this._currCharacter);
       return this._currCharacter;

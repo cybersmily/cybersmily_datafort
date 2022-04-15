@@ -9,13 +9,12 @@ import { CmbtZoneEvent } from './../../models/cmbtzone/cmbt-zone-event';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CmbtZoneEventService {
   _events: CmbtZoneEventData;
 
-  constructor(private dataService: DataService) { }
-
+  constructor(private dataService: DataService) {}
 
   /**
    * Creates a single event
@@ -23,17 +22,22 @@ export class CmbtZoneEventService {
    * @returns {Observable<CmbtZoneEvent>}
    * @memberof CmbtZoneEventService
    */
-  createEvent(dice: DiceService, chart: CMBT_ZONE_EVENT_TIME): Observable<CmbtZoneEvent> {
+  createEvent(
+    dice: DiceService,
+    chart: CMBT_ZONE_EVENT_TIME
+  ): Observable<CmbtZoneEvent> {
     if (this._events) {
       return of(this.generateEvent(dice, chart));
     }
-    return this.dataService.GetJson(JsonDataFiles.CP2020_COMBAT_ZONE_EVENTS_JSON)
-    .pipe( map( data => {
-      this._events = data;
-      return this.generateEvent(dice, chart);
-    }));
+    return this.dataService
+      .GetJson<CmbtZoneEventData>(JsonDataFiles.CP2020_COMBAT_ZONE_EVENTS_JSON)
+      .pipe(
+        map((data) => {
+          this._events = data;
+          return this.generateEvent(dice, chart);
+        })
+      );
   }
-
 
   /**
    * Creates a list of events.
@@ -42,15 +46,22 @@ export class CmbtZoneEventService {
    * @returns {Observable<Array<CmbtZoneEvent>>}
    * @memberof CmbtZoneEventService
    */
-  createEvents(count: number, dice: DiceService, chart: CMBT_ZONE_EVENT_TIME): Observable<Array<CmbtZoneEvent>> {
+  createEvents(
+    count: number,
+    dice: DiceService,
+    chart: CMBT_ZONE_EVENT_TIME
+  ): Observable<Array<CmbtZoneEvent>> {
     if (this._events) {
       return of(this.generateEventArray(count, dice, chart));
     }
-    return this.dataService.GetJson(JsonDataFiles.CP2020_COMBAT_ZONE_EVENTS_JSON)
-    .pipe( map( data => {
-      this._events = data;
-      return this.generateEventArray(count, dice, chart);
-    }));
+    return this.dataService
+      .GetJson<CmbtZoneEventData>(JsonDataFiles.CP2020_COMBAT_ZONE_EVENTS_JSON)
+      .pipe(
+        map((data) => {
+          this._events = data;
+          return this.generateEventArray(count, dice, chart);
+        })
+      );
   }
 
   /**
@@ -65,11 +76,10 @@ export class CmbtZoneEventService {
     const result: CmbtZoneEventData = {
       daytime: this.generateWeightTable(data.daytime),
       evening: this.generateWeightTable(data.evening),
-      aftermidnight: this.generateWeightTable(data.aftermidnight)
-    }
+      aftermidnight: this.generateWeightTable(data.aftermidnight),
+    };
     return result;
   }
-
 
   /**
    * Generates a table based on the weight of each of the event items.
@@ -80,14 +90,13 @@ export class CmbtZoneEventService {
    */
   generateWeightTable(events: Array<CmbtZoneEvent>): Array<CmbtZoneEvent> {
     const result = new Array<CmbtZoneEvent>();
-    events.forEach( event => {
-      for ( let i = 0; i < event.weight; i++) {
+    events.forEach((event) => {
+      for (let i = 0; i < event.weight; i++) {
         result.push(event);
       }
     });
     return result;
   }
-
 
   /**
    * generates a random single event.
@@ -96,7 +105,11 @@ export class CmbtZoneEventService {
    * @returns {Array<CmbtZoneEvent>}
    * @memberof CmbtZoneEventService
    */
-  generateEventArray(count: number, dice: DiceService, chart: CMBT_ZONE_EVENT_TIME): Array<CmbtZoneEvent> {
+  generateEventArray(
+    count: number,
+    dice: DiceService,
+    chart: CMBT_ZONE_EVENT_TIME
+  ): Array<CmbtZoneEvent> {
     const results = new Array<CmbtZoneEvent>();
     for (let i = 0; i < count; i++) {
       const roll = dice.generateNumber(0, this._events[chart].length - 1);
@@ -104,7 +117,6 @@ export class CmbtZoneEventService {
     }
     return results;
   }
-
 
   /**
    * generates a random array of events.

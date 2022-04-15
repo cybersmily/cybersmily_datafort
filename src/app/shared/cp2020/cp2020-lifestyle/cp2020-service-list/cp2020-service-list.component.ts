@@ -1,13 +1,31 @@
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { DataService, JsonDataFiles } from './../../../services/file-services';
 import { Cp2020Services } from '../models/cp2020-services';
-import { faTrash, faPlus, faList, faDollarSign, faEuroSign } from '@fortawesome/free-solid-svg-icons';
-import { Component, Input, OnInit, Output, EventEmitter, TemplateRef, OnChanges, ViewChild, ElementRef, ViewChildren, QueryList } from '@angular/core';
+import {
+  faTrash,
+  faPlus,
+  faList,
+  faDollarSign,
+  faEuroSign,
+} from '@fortawesome/free-solid-svg-icons';
+import {
+  Component,
+  Input,
+  OnInit,
+  Output,
+  EventEmitter,
+  TemplateRef,
+  OnChanges,
+  ViewChild,
+  ElementRef,
+  ViewChildren,
+  QueryList,
+} from '@angular/core';
 
 @Component({
   selector: 'cs-cp2020-service-list',
   templateUrl: './cp2020-service-list.component.html',
-  styleUrls: ['./cp2020-service-list.component.css']
+  styleUrls: ['./cp2020-service-list.component.css'],
 })
 export class Cp2020ServiceListComponent implements OnInit, OnChanges {
   faTrash = faTrash;
@@ -19,21 +37,24 @@ export class Cp2020ServiceListComponent implements OnInit, OnChanges {
   modalRef: BsModalRef;
   modalConfig = {
     keyboard: true,
-    class: 'modal-dialog-centered modal-lg'};
+    class: 'modal-dialog-centered modal-lg',
+  };
 
   @Input()
   servicesList: Array<Cp2020Services> = new Array<Cp2020Services>();
 
   @Output()
-  updateServices: EventEmitter<Array<Cp2020Services>> = new EventEmitter<Array<Cp2020Services>>();
+  updateServices: EventEmitter<Array<Cp2020Services>> = new EventEmitter<
+    Array<Cp2020Services>
+  >();
 
   @Output()
   pay: EventEmitter<number> = new EventEmitter<number>();
 
-  @ViewChild('addServiceElem', {static: false})
+  @ViewChild('addServiceElem', { static: false })
   addServiceButton: ElementRef;
 
-  @ViewChild('payServiceElem', {static: false})
+  @ViewChild('payServiceElem', { static: false })
   payServiceButton: ElementRef;
 
   @ViewChildren('serviceNameElem')
@@ -45,23 +66,32 @@ export class Cp2020ServiceListComponent implements OnInit, OnChanges {
     name: '',
     cost: 0,
     count: 1,
-    unit: 'month'
+    unit: 'month',
   };
   selectedIndex: number = -1;
 
   get totalMonthlyCost(): number {
-    const cost = this.currServices.reduce( (a, b) => a + this.calculateMonthlyCost(b), 0);
+    const cost = this.currServices.reduce(
+      (a, b) => a + this.calculateMonthlyCost(b),
+      0
+    );
     return cost;
   }
 
-  constructor(private dataService: DataService, private modalService: BsModalService) { }
+  constructor(
+    private dataService: DataService,
+    private modalService: BsModalService
+  ) {}
 
   ngOnInit(): void {
     this.currServices = JSON.parse(JSON.stringify(this.servicesList));
-    this.dataService.GetJson(JsonDataFiles.CP2020_LIFESTYLE_SERVICES_JSON)
-    .subscribe( data => {
-      this.servicesData = data;
-    });
+    this.dataService
+      .GetJson<Array<Cp2020Services>>(
+        JsonDataFiles.CP2020_LIFESTYLE_SERVICES_JSON
+      )
+      .subscribe((data) => {
+        this.servicesData = data;
+      });
   }
 
   ngOnChanges(): void {
@@ -71,35 +101,40 @@ export class Cp2020ServiceListComponent implements OnInit, OnChanges {
   calculateMonthlyCost(service: Cp2020Services): number {
     let cost = 0;
     if (service.unit === 'month') {
-      cost = (service.cost * service.count);
+      cost = service.cost * service.count;
     } else if (service.unit === 'day') {
-      cost = (service.cost * service.count * 30);
+      cost = service.cost * service.count * 30;
     } else if (service.unit === 'year') {
-      cost = (Math.ceil((service.cost * service.count)/12));
+      cost = Math.ceil((service.cost * service.count) / 12);
     }
     if (service.options && service.options.length > 0) {
-      cost += service.options.reduce( (a,b) => a + this.calculateMonthlyCost(b), 0);
+      cost += service.options.reduce(
+        (a, b) => a + this.calculateMonthlyCost(b),
+        0
+      );
     }
     return cost;
   }
 
   add() {
-    this.currServices.push( {
+    this.currServices.push({
       name: '',
       cost: 0,
       count: 1,
-      unit: 'month'
+      unit: 'month',
     });
     this.update();
   }
 
   changeName(value: string, index: number) {
     const name = value.split(':')[1].trim();
-    const selection = this.servicesData.filter( s => s.name === name)[0];
+    const selection = this.servicesData.filter((s) => s.name === name)[0];
     this.currServices[index].cost = selection.cost;
     this.currServices[index].unit = selection.unit;
     if (selection.options && selection.options.length > 0) {
-      this.currServices[index].options = JSON.parse(JSON.stringify(selection.options));
+      this.currServices[index].options = JSON.parse(
+        JSON.stringify(selection.options)
+      );
     }
     this.update();
   }
@@ -107,7 +142,7 @@ export class Cp2020ServiceListComponent implements OnInit, OnChanges {
   delete(index: number) {
     this.currServices.splice(index, 1);
     this.update();
-    if(index > -1 && this.serviceListElem.length > index) {
+    if (index > -1 && this.serviceListElem.length > index) {
       this.serviceListElem.toArray()[index - 1].nativeElement.focus();
     } else {
       this.addServiceButton.nativeElement.focus();
@@ -127,7 +162,7 @@ export class Cp2020ServiceListComponent implements OnInit, OnChanges {
     this.selectedIndex = index;
     this.modalRef = this.modalService.show(template, this.modalConfig);
     this.modalRef.onHidden.subscribe(() => {
-      if(index > -1 && this.serviceListElem.length > index) {
+      if (index > -1 && this.serviceListElem.length > index) {
         this.serviceListElem.toArray()[index].nativeElement.focus();
       } else {
         this.addServiceButton.nativeElement.focus();
@@ -141,7 +176,8 @@ export class Cp2020ServiceListComponent implements OnInit, OnChanges {
   }
 
   checkOption(index: number) {
-    this.currServices[this.selectedIndex].options[index].count = this.currServices[this.selectedIndex].options[index].count > 0 ? 0 : 1;
+    this.currServices[this.selectedIndex].options[index].count =
+      this.currServices[this.selectedIndex].options[index].count > 0 ? 0 : 1;
     this.update();
   }
 
@@ -151,5 +187,4 @@ export class Cp2020ServiceListComponent implements OnInit, OnChanges {
     }
     return false;
   }
-
 }

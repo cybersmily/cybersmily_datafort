@@ -5,24 +5,31 @@ import { DiceService } from './../dice/dice.service';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CPHeadlinesGeneratorService {
-  private _chart: {topics: Array<string>, subjects: Array<string>, verbs: Array<string>};
-  private _headlines: BehaviorSubject<Array<string>> = new BehaviorSubject<Array<string>>(new Array<string>());
+  private _chart: {
+    topics: Array<string>;
+    subjects: Array<string>;
+    verbs: Array<string>;
+  };
+  private _headlines: BehaviorSubject<Array<string>> = new BehaviorSubject<
+    Array<string>
+  >(new Array<string>());
   headlines: Observable<Array<string>> = this._headlines.asObservable();
 
-  constructor(private dice: DiceService, private dataService: DataService) { }
+  constructor(private dice: DiceService, private dataService: DataService) {}
 
   generate(numOfHeadlines: number) {
-    if(this._chart) {
+    if (this._chart) {
       this.rollHeadlines(numOfHeadlines);
     } else {
-    this.dataService.GetJson(JsonDataFiles.CP_HEADLINES_JSON)
-    .subscribe(data => {
-        this._chart = data;
-        this.rollHeadlines(numOfHeadlines);
-      });
+      this.dataService
+        .GetJson<cpHeadlineChart>(JsonDataFiles.CP_HEADLINES_JSON)
+        .subscribe((data) => {
+          this._chart = data;
+          this.rollHeadlines(numOfHeadlines);
+        });
     }
   }
 
@@ -36,10 +43,10 @@ export class CPHeadlinesGeneratorService {
 
   private rollHeadlines(numOfHeadlines: number) {
     const headlines = [...this._headlines.getValue()];
-    for(let i = 0; i < numOfHeadlines; i++) {
+    for (let i = 0; i < numOfHeadlines; i++) {
       headlines.push(this.generateHeadline());
     }
-    this._headlines.next(headlines.sort((a,b) => a.localeCompare(b)));
+    this._headlines.next(headlines.sort((a, b) => a.localeCompare(b)));
   }
 
   private generateHeadline(): string {
@@ -63,7 +70,13 @@ export class CPHeadlinesGeneratorService {
     do {
       const die = this.dice.generateNumber(0, this._chart.subjects.length - 1);
       result = this._chart.subjects[die][num];
-    } while(result === '');
+    } while (result === '');
     return result;
   }
+}
+
+export interface cpHeadlineChart {
+  topics: Array<string>;
+  subjects: Array<string>;
+  verbs: Array<string>;
 }

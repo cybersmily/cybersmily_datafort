@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { LocalStorageManagerService } from './../../../services/local-storage-manager/local-storage-manager.service';
 import { JsonDataFiles } from './../../../services/file-services/json-data-files';
 import { Observable, of } from 'rxjs';
@@ -30,9 +31,11 @@ export class Cp2020EquipmentDataService {
         this.localStorage.retrive<Array<Cp2020Equipment>>(this.cp2020EquipKey)
       );
     }
-    return this.dataService.GetJson(
-      JsonDataFiles.CP2020_EQUIPMENT_DATA_LIST_JSON
-    );
+    return this.dataService
+      .GetJson<Array<Cp2020Equipment>>(
+        JsonDataFiles.CP2020_EQUIPMENT_DATA_LIST_JSON
+      )
+      .pipe(map((data) => data));
   }
 
   /**
