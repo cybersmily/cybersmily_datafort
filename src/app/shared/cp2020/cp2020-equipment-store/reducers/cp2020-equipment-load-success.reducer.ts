@@ -5,5 +5,8 @@ export const Cp2020EquipmentLoadSuccessReducer = (
   props: { props: Array<Cp2020Equipment> }
 ): Array<Cp2020Equipment> => {
   const newState = [...props.props];
-  return newState;
+  return newState.sort(
+    (a, b) =>
+      a.category.localeCompare(b.category) || a.name.localeCompare(b.name)
+  );
 };

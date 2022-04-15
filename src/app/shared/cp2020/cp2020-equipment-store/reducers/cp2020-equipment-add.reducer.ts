@@ -14,5 +14,8 @@ export const Cp2020EquipmentAddReducer = (
   ) {
     return state;
   }
-  return [...state, props];
+  return [...state, props].sort(
+    (a, b) =>
+      a.category.localeCompare(b.category) || a.name.localeCompare(b.name)
+  );
 };
