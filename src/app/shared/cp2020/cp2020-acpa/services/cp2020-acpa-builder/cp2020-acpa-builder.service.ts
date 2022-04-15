@@ -11,9 +11,10 @@ import { Cp2020ACPASettings } from './../../enums/cp2020-acpa-settings';
 import { Cp2020ACPA } from './../../models/cp2020-acpa';
 import { BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { ACPA } from '../../models';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class Cp2020ACPABuilderService {
   private _acpa = new BehaviorSubject<Cp2020ACPA>(new Cp2020ACPA());
@@ -21,19 +22,24 @@ export class Cp2020ACPABuilderService {
   acpa = this._acpa.asObservable();
 
   constructor(private localStorageManagerService: LocalStorageManagerService) {
-    const acpa = JSON.parse(this.localStorageManagerService.retrive<string>(StorageKeys.ACPA_BUILDER_ACPA));
-    this._currACPA = new Cp2020ACPA(acpa);
+    const storedData = this.localStorageManagerService.retrive<ACPA>(
+      StorageKeys.ACPA_BUILDER_ACPA
+    );
+    this._currACPA = new Cp2020ACPA(storedData);
     this._acpa.next(this._currACPA);
   }
 
   update(acpa?: Cp2020ACPA) {
     this.calculateSIBDFB();
     this.calculateDamage();
-    if(acpa) {
+    if (acpa) {
       this._currACPA = new Cp2020ACPA(acpa);
     }
     this._acpa.next(this._currACPA);
-    this.localStorageManagerService.store(StorageKeys.ACPA_BUILDER_ACPA, JSON.stringify(this._currACPA));
+    this.localStorageManagerService.store(
+      StorageKeys.ACPA_BUILDER_ACPA,
+      JSON.stringify(this._currACPA)
+    );
   }
 
   updateName(name: string) {
@@ -53,21 +59,27 @@ export class Cp2020ACPABuilderService {
 
   updateChassis(chassis: Cp2020ACPAChassis) {
     // remove old chassis
-    this.updateCostWeight(-this._currACPA.chassis.weight, -this._currACPA.chassis.cost);
+    this.updateCostWeight(
+      -this._currACPA.chassis.weight,
+      -this._currACPA.chassis.cost
+    );
     this._currACPA.chassis = new Cp2020ACPAChassis(chassis);
-    this.updateCostWeight(this._currACPA.chassis.weight, this._currACPA.chassis.cost);
+    this.updateCostWeight(
+      this._currACPA.chassis.weight,
+      this._currACPA.chassis.cost
+    );
     this.setLocations(this._currACPA, chassis);
-    if(this._currACPA.manufacturer === '') {
+    if (this._currACPA.manufacturer === '') {
       this._currACPA.manufacturer = chassis.manufacturer;
     }
     this.update();
   }
 
-  updateCostWeight(wt:number, cost:number, isCarried?: boolean) {
+  updateCostWeight(wt: number, cost: number, isCarried?: boolean) {
     if (!isNaN(wt) && isCarried) {
       this._currACPA.weightCarried += wt;
     }
-    if(!isNaN(wt)) {
+    if (!isNaN(wt)) {
       this._currACPA.totalWeight += wt;
     }
     if (!isNaN(cost)) {
@@ -78,9 +90,9 @@ export class Cp2020ACPABuilderService {
   calculateSIBDFB() {
     let sib = this._currACPA.chassis.lift / this._currACPA.totalWeight;
     // crazy calculation from MM pg. 62 on caculating SIB. if it .8 you round up, if less than .8 round down.
-    const checkDecimal = Number(sib.toString().split('.')[1]?.substring(0,1));
+    const checkDecimal = Number(sib.toString().split('.')[1]?.substring(0, 1));
     sib = Math.floor(sib);
-    if(!isNaN(checkDecimal) && checkDecimal >= 8) {
+    if (!isNaN(checkDecimal) && checkDecimal >= 8) {
       sib++;
     }
     sib--;
@@ -90,7 +102,9 @@ export class Cp2020ACPABuilderService {
   }
 
   calculateDamage() {
-    let x = Math.floor(this._currACPA.chassis.str / Cp2020ACPASettings.DAMAGE_DIVISOR);
+    let x = Math.floor(
+      this._currACPA.chassis.str / Cp2020ACPASettings.DAMAGE_DIVISOR
+    );
     let kick = x + Math.floor(x / 2);
     let crush = x + 1;
     let bonus = '';
@@ -110,9 +124,12 @@ export class Cp2020ACPABuilderService {
   updateInterface(realityInterface: Cp2020ACPAComponent) {
     let count = 0;
     // remove the old interface with new one in head location.
-    this.updateCostWeight(-this._currACPA.realityInterface.weight, -this._currACPA.realityInterface.cost);
-    this._currACPA.locations.head.internalComponents = this._currACPA.locations.head.internalComponents
-      .map((comp, i) => {
+    this.updateCostWeight(
+      -this._currACPA.realityInterface.weight,
+      -this._currACPA.realityInterface.cost
+    );
+    this._currACPA.locations.head.internalComponents =
+      this._currACPA.locations.head.internalComponents.map((comp, i) => {
         if (comp && comp.name !== this._currACPA.realityInterface.name) {
           return comp;
         }
@@ -129,48 +146,76 @@ export class Cp2020ACPABuilderService {
   }
 
   updateControlSystem(controlSystem: Cp2020ACPAComponent) {
-    this.updateCostWeight(-this._currACPA.controlSystem.weight, -this._currACPA.controlSystem.cost);
+    this.updateCostWeight(
+      -this._currACPA.controlSystem.weight,
+      -this._currACPA.controlSystem.cost
+    );
     this._currACPA.controlSystem = new Cp2020ACPAComponent(controlSystem);
-    this.updateCostWeight(this._currACPA.controlSystem.weight, this._currACPA.controlSystem.cost);
+    this.updateCostWeight(
+      this._currACPA.controlSystem.weight,
+      this._currACPA.controlSystem.cost
+    );
     this.update();
   }
 
   updateArmor(armor: Cp2020AcpaArmor) {
-    this.updateCostWeight(-this._currACPA.armor.weight, -this._currACPA.armor.cost);
+    this.updateCostWeight(
+      -this._currACPA.armor.weight,
+      -this._currACPA.armor.cost
+    );
     this._currACPA.armor = new Cp2020AcpaArmor(armor);
-    for(const prop in this._currACPA.locations) {
+    for (const prop in this._currACPA.locations) {
       this._currACPA.locations[prop].sp = this._currACPA.armor.sp;
     }
-    this.updateCostWeight(this._currACPA.armor.weight, this._currACPA.armor.cost);
+    this.updateCostWeight(
+      this._currACPA.armor.weight,
+      this._currACPA.armor.cost
+    );
     this.update();
   }
 
   updateTroopSize(weight: number) {
     this.updateCostWeight(-this._currACPA.trooperSize, 0);
-    this._currACPA.trooperSize = isNaN(weight) ? Cp2020ACPASettings.TROOPSIZE_DEFAULT : weight;
+    this._currACPA.trooperSize = isNaN(weight)
+      ? Cp2020ACPASettings.TROOPSIZE_DEFAULT
+      : weight;
     this.updateCostWeight(this._currACPA.trooperSize, 0);
     this.update();
   }
 
-  addEquipment(location: string, type: ACPAEnclosure, equip: Cp2020ACPAComponent | Cp2020ACPAWeapon) {
+  addEquipment(
+    location: string,
+    type: ACPAEnclosure,
+    equip: Cp2020ACPAComponent | Cp2020ACPAWeapon
+  ) {
     location = location.replace(' ', '');
     let carried = false;
-    if(equip?.internal === 'any|all' || equip?.external === 'any|all') {
+    if (equip?.internal === 'any|all' || equip?.external === 'any|all') {
       this.addToAllLocations(this._currACPA.locations[location], type, equip);
-    } else if (type === ACPAEnclosure.internal || type === ACPAEnclosure.external) {
-      this._currACPA.locations[location] = this.addComponentLocation(this._currACPA.locations[location],type , equip);
+    } else if (
+      type === ACPAEnclosure.internal ||
+      type === ACPAEnclosure.external
+    ) {
+      this._currACPA.locations[location] = this.addComponentLocation(
+        this._currACPA.locations[location],
+        type,
+        equip
+      );
     } else {
       this._currACPA.equipment.push(equip);
       carried = true;
     }
-    if(equip?.costMod && equip.costMod.component === Cp2020ACPASettings.TOTAL_COST) {
-        this._currACPA.costModifier += equip.costMod.mod;
+    if (
+      equip?.costMod &&
+      equip.costMod.component === Cp2020ACPASettings.TOTAL_COST
+    ) {
+      this._currACPA.costModifier += equip.costMod.mod;
     }
-    if(equip['ammo']) {
+    if (equip['ammo']) {
       equip.weight += equip['ammo'].weight;
       equip.cost += equip['ammo'].cost;
     }
-    switch(equip?.weightMod?.component) {
+    switch (equip?.weightMod?.component) {
       case Cp2020ACPASettings.TOTAL_WEIGHT:
         this._currACPA.weightModifier += equip.weightMod.mod;
         break;
@@ -185,15 +230,26 @@ export class Cp2020ACPABuilderService {
     this.update(this._currACPA);
   }
 
-  private addComponentLocation(location: Cp2020ACPALocation, type: ACPAEnclosure, equip: Cp2020ACPAComponent | Cp2020ACPAWeapon): Cp2020ACPALocation {
+  private addComponentLocation(
+    location: Cp2020ACPALocation,
+    type: ACPAEnclosure,
+    equip: Cp2020ACPAComponent | Cp2020ACPAWeapon
+  ): Cp2020ACPALocation {
     const loc = new Cp2020ACPALocation(location);
-    const property = (type === ACPAEnclosure.internal) ? 'internal' : (type === ACPAEnclosure.external) ? 'external' : '';
+    const property =
+      type === ACPAEnclosure.internal
+        ? 'internal'
+        : type === ACPAEnclosure.external
+        ? 'external'
+        : '';
     const components = `${property}Components`;
     const usedSpaces = `${property}SpacesUsed`;
-    const index = loc[components].findIndex(item => item == null);
+    const index = loc[components].findIndex((item) => item == null);
     for (let i = 0; i < equip.spaces; i++) {
-      const item = (equip['shots']) ? new Cp2020ACPAWeapon(equip as ACPAWeapon) : new Cp2020ACPAComponent(equip);
-      if( i == 0 ) {
+      const item = equip['shots']
+        ? new Cp2020ACPAWeapon(equip as ACPAWeapon)
+        : new Cp2020ACPAComponent(equip);
+      if (i == 0) {
         const ammo = item['shots'] ? ` (${item['shots']})` : '';
         item.name = `${item.name}${ammo}`;
       } else {
@@ -201,35 +257,67 @@ export class Cp2020ACPABuilderService {
       }
       loc[components][i + index] = item;
     }
-    loc[usedSpaces] += equip.spaces/4;
+    loc[usedSpaces] += equip.spaces / 4;
     return loc;
   }
 
-  private addToAllLocations(property: string, type: ACPAEnclosure, equip:Cp2020ACPAComponent | Cp2020ACPAWeapon ) {
-    for(const prop in this._currACPA.locations) {
-      this._currACPA.locations[prop] = this.addComponentLocation(this._currACPA.locations[prop], type, equip);
+  private addToAllLocations(
+    property: string,
+    type: ACPAEnclosure,
+    equip: Cp2020ACPAComponent | Cp2020ACPAWeapon
+  ) {
+    for (const prop in this._currACPA.locations) {
+      this._currACPA.locations[prop] = this.addComponentLocation(
+        this._currACPA.locations[prop],
+        type,
+        equip
+      );
     }
   }
 
-  private removeFromAllLocations(type: ACPAEnclosure, equip:Cp2020ACPAComponent | Cp2020ACPAWeapon ) {
-    for(const prop in this._currACPA.locations) {
-      this._currACPA.locations[prop] = this.removeLocationComponent(this._currACPA.locations[prop], type, equip);
+  private removeFromAllLocations(
+    type: ACPAEnclosure,
+    equip: Cp2020ACPAComponent | Cp2020ACPAWeapon
+  ) {
+    for (const prop in this._currACPA.locations) {
+      this._currACPA.locations[prop] = this.removeLocationComponent(
+        this._currACPA.locations[prop],
+        type,
+        equip
+      );
     }
   }
 
-  removeEquipment(location: string, type: ACPAEnclosure, equip: Cp2020ACPAComponent | Cp2020ACPAWeapon) {
-    if(equip?.internal === 'any|all' || equip?.external === 'any|all') {
+  removeEquipment(
+    location: string,
+    type: ACPAEnclosure,
+    equip: Cp2020ACPAComponent | Cp2020ACPAWeapon
+  ) {
+    if (equip?.internal === 'any|all' || equip?.external === 'any|all') {
       this.removeFromAllLocations(type, equip);
-    } else if (type === ACPAEnclosure.internal || type === ACPAEnclosure.external) {
-      this._currACPA.locations[location] = this.removeLocationComponent(this._currACPA.locations[location], type, equip);
+    } else if (
+      type === ACPAEnclosure.internal ||
+      type === ACPAEnclosure.external
+    ) {
+      this._currACPA.locations[location] = this.removeLocationComponent(
+        this._currACPA.locations[location],
+        type,
+        equip
+      );
     }
-    if(equip?.costMod && equip.costMod.component === Cp2020ACPASettings.TOTAL_COST) {
-        this._currACPA.costModifier -= equip.costMod.mod;
+    if (
+      equip?.costMod &&
+      equip.costMod.component === Cp2020ACPASettings.TOTAL_COST
+    ) {
+      this._currACPA.costModifier -= equip.costMod.mod;
     }
-    if(equip.weightMod && equip.weightMod.component === Cp2020ACPASettings.TOTAL_WEIGHT) {
-        this._currACPA.weightModifier -= equip.weightMod.mod;
+    if (
+      equip.weightMod &&
+      equip.weightMod.component === Cp2020ACPASettings.TOTAL_WEIGHT
+    ) {
+      this._currACPA.weightModifier -= equip.weightMod.mod;
     }
-    if(equip['ammo']) {
+    if (equip['ammo']) {
       equip.weight -= equip['ammo'].weight;
       equip.cost -= equip['ammo'].cost;
     }
@@ -237,14 +325,25 @@ export class Cp2020ACPABuilderService {
     this.update(this._currACPA);
   }
 
-  private removeLocationComponent(location: Cp2020ACPALocation, type: ACPAEnclosure, equip: Cp2020ACPAComponent | Cp2020ACPAWeapon): Cp2020ACPALocation{
+  private removeLocationComponent(
+    location: Cp2020ACPALocation,
+    type: ACPAEnclosure,
+    equip: Cp2020ACPAComponent | Cp2020ACPAWeapon
+  ): Cp2020ACPALocation {
     const loc = new Cp2020ACPALocation(location);
-    const property = (type === ACPAEnclosure.internal) ? 'internal' : (type === ACPAEnclosure.external) ? 'external' : '';
+    const property =
+      type === ACPAEnclosure.internal
+        ? 'internal'
+        : type === ACPAEnclosure.external
+        ? 'external'
+        : '';
     const components = `${property}Components`;
     const usedSpaces = `${property}SpacesUsed`;
-    const index = loc[components].findIndex(item => item?.name === equip?.name);
+    const index = loc[components].findIndex(
+      (item) => item?.name === equip?.name
+    );
     loc[components].fill(null, index, index + equip.spaces);
-    loc[usedSpaces] -= equip.spaces/4;
+    loc[usedSpaces] -= equip.spaces / 4;
     return loc;
   }
 
@@ -256,29 +355,94 @@ export class Cp2020ACPABuilderService {
     this.update(this._currACPA);
   }
 
-  setLocations(acpa: Cp2020ACPA, chassis:Cp2020ACPAChassis) {
-    this._currACPA.locations.head = this.setLocation('head', acpa.armor.sp, acpa.locations.head.currSP, acpa.locations.head.currSDP, chassis, acpa.locations.head.internalComponents, acpa.locations.head.externalComponents);
-    this._currACPA.locations.torso = this.setLocation('torso', acpa.armor.sp, acpa.locations.torso.currSP, acpa.locations.torso.currSDP, chassis, acpa.locations.torso.internalComponents, acpa.locations.torso.externalComponents);
-    this._currACPA.locations.rarm = this.setLocation('arms', acpa.armor.sp, acpa.locations.rarm.currSP, acpa.locations.rarm.currSDP, chassis, acpa.locations.rarm.internalComponents, acpa.locations.rarm.externalComponents);
-    this._currACPA.locations.larm = this.setLocation('arms', acpa.armor.sp, acpa.locations.larm.currSP, acpa.locations.larm.currSDP, chassis, acpa.locations.larm.internalComponents, acpa.locations.larm.externalComponents);
-    this._currACPA.locations.rleg = this.setLocation('legs', acpa.armor.sp, acpa.locations.rleg.currSP, acpa.locations.rleg.currSDP, chassis, acpa.locations.rleg.internalComponents, acpa.locations.rleg.externalComponents);
-    this._currACPA.locations.lleg = this.setLocation('legs', acpa.armor.sp, acpa.locations.lleg.currSP, acpa.locations.lleg.currSDP, chassis, acpa.locations.lleg.internalComponents, acpa.locations.lleg.externalComponents);
+  setLocations(acpa: Cp2020ACPA, chassis: Cp2020ACPAChassis) {
+    this._currACPA.locations.head = this.setLocation(
+      'head',
+      acpa.armor.sp,
+      acpa.locations.head.currSP,
+      acpa.locations.head.currSDP,
+      chassis,
+      acpa.locations.head.internalComponents,
+      acpa.locations.head.externalComponents
+    );
+    this._currACPA.locations.torso = this.setLocation(
+      'torso',
+      acpa.armor.sp,
+      acpa.locations.torso.currSP,
+      acpa.locations.torso.currSDP,
+      chassis,
+      acpa.locations.torso.internalComponents,
+      acpa.locations.torso.externalComponents
+    );
+    this._currACPA.locations.rarm = this.setLocation(
+      'arms',
+      acpa.armor.sp,
+      acpa.locations.rarm.currSP,
+      acpa.locations.rarm.currSDP,
+      chassis,
+      acpa.locations.rarm.internalComponents,
+      acpa.locations.rarm.externalComponents
+    );
+    this._currACPA.locations.larm = this.setLocation(
+      'arms',
+      acpa.armor.sp,
+      acpa.locations.larm.currSP,
+      acpa.locations.larm.currSDP,
+      chassis,
+      acpa.locations.larm.internalComponents,
+      acpa.locations.larm.externalComponents
+    );
+    this._currACPA.locations.rleg = this.setLocation(
+      'legs',
+      acpa.armor.sp,
+      acpa.locations.rleg.currSP,
+      acpa.locations.rleg.currSDP,
+      chassis,
+      acpa.locations.rleg.internalComponents,
+      acpa.locations.rleg.externalComponents
+    );
+    this._currACPA.locations.lleg = this.setLocation(
+      'legs',
+      acpa.armor.sp,
+      acpa.locations.lleg.currSP,
+      acpa.locations.lleg.currSDP,
+      chassis,
+      acpa.locations.lleg.internalComponents,
+      acpa.locations.lleg.externalComponents
+    );
     this.update();
   }
 
-  private setLocation(location: string, sp: number, currSP: number, currSDP: number, chassis:Cp2020ACPAChassis, internal: Array<Cp2020ACPAWeapon | Cp2020ACPAComponent>, external: Array<Cp2020ACPAWeapon | Cp2020ACPAComponent>): Cp2020ACPALocation {
+  private setLocation(
+    location: string,
+    sp: number,
+    currSP: number,
+    currSDP: number,
+    chassis: Cp2020ACPAChassis,
+    internal: Array<Cp2020ACPAWeapon | Cp2020ACPAComponent>,
+    external: Array<Cp2020ACPAWeapon | Cp2020ACPAComponent>
+  ): Cp2020ACPALocation {
     const loc = new Cp2020ACPALocation({
       name: location,
       sp: sp,
-      currSP: (currSP > sp) ? sp : (currSP < 0 ) ? 0 : currSP,
+      currSP: currSP > sp ? sp : currSP < 0 ? 0 : currSP,
       sdp: chassis.sdp[location],
-      currSDP: (currSDP > chassis.sdp[location]) ? chassis.sdp[location] : (currSDP < 0 ) ? 0 : currSDP,
+      currSDP:
+        currSDP > chassis.sdp[location]
+          ? chassis.sdp[location]
+          : currSDP < 0
+          ? 0
+          : currSDP,
       internalSpaces: chassis.spaces[location],
       internalSpacesUsed: 0,
-      internalComponents: new Array<Cp2020ACPAWeapon | Cp2020ACPAComponent>(chassis.spaces[location] * 4),
+      internalComponents: new Array<Cp2020ACPAWeapon | Cp2020ACPAComponent>(
+        chassis.spaces[location] * 4
+      ),
       externalSpaces: chassis.spaces[location] - 1,
       externalSpacesUsed: 0,
-      externalComponents: new Array<Cp2020ACPAWeapon | Cp2020ACPAComponent>((chassis.spaces[location] > 1) ? (chassis.spaces[location] - 1) * 4 : 0),
+      externalComponents: new Array<Cp2020ACPAWeapon | Cp2020ACPAComponent>(
+        chassis.spaces[location] > 1 ? (chassis.spaces[location] - 1) * 4 : 0
+      ),
     });
     internal.forEach((item, i) => {
       loc.internalComponents[i] = item;
@@ -293,14 +457,14 @@ export class Cp2020ACPABuilderService {
 
   calculateCost() {
     let cost = 0;
-    if(this._currACPA.hasStealth) {
+    if (this._currACPA.hasStealth) {
       cost = cost * 10;
     }
     this._currACPA.totalCost = cost;
   }
 
   calculateItemWeight(wt: number) {
-    if(wt >= 0) {
+    if (wt >= 0) {
       return wt;
     }
     const modifier = wt * -1;
@@ -308,11 +472,10 @@ export class Cp2020ACPABuilderService {
   }
 
   calculateItemCost(cost: number) {
-    if(cost >= 0) {
+    if (cost >= 0) {
       return cost;
     }
     const modifier = cost * -1;
     return Math.ceil(this._currACPA.chassis.cost * modifier);
   }
-
 }
