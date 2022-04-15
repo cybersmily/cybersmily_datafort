@@ -35,6 +35,10 @@ export class Cp2020EquipmentItemComponent implements OnInit {
   constructor(private store: Store) {}
 
   ngOnInit(): void {
+    this.initialize();
+  }
+
+  initialize(): void {
     this.categories$ = this.store.pipe(
       select(cp2020EquipmentCategoriesSelector)
     );
@@ -42,6 +46,7 @@ export class Cp2020EquipmentItemComponent implements OnInit {
   }
 
   updateItem(): void {
+    this.isEditing = false;
     this.update.emit({ ...this.currItem });
   }
   deleteItem(): void {

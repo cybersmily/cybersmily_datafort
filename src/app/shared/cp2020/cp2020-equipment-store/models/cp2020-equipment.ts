@@ -1,9 +1,10 @@
 import { SourceBook } from '../../../models/sourcebook';
 
 export interface Cp2020Equipment {
-  category:string;
+  category: string;
   name: string;
-  notes:string;
-  cost: number|string;
-  source: SourceBook
+  notes: string;
+  cost: number | string;
+  wt: number;
+  source: SourceBook;
 }

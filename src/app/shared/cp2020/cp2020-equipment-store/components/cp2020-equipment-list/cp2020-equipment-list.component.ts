@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { faSave } from '@fortawesome/free-solid-svg-icons';
 import { SaveFileService } from './../../../../services/file-services/save-file/save-file.service';
 import {
@@ -10,9 +11,8 @@ import {
   cp2020EquipmentCategoriesSelector,
 } from './../../selectors/cp2020-equipment-store-selector';
 import { select, Store } from '@ngrx/store';
-import { filter, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Component, Input, OnInit } from '@angular/core';
 import { Cp2020Equipment } from '../../models';
 
 @Component({
@@ -29,7 +29,9 @@ export class Cp2020EquipmentListComponent implements OnInit {
     name: '',
     source: '',
   };
-  private currData: Array<Cp2020Equipment>;
+
+  @Input()
+  isEditable: boolean = false;
 
   constructor(private store: Store, private savefile: SaveFileService) {}
 
@@ -39,13 +41,7 @@ export class Cp2020EquipmentListComponent implements OnInit {
 
   initialize(): void {
     this.store.dispatch(LoadCp2020EquipmentAction(null));
-    this.gearList$ = this.store.pipe(
-      select(cp2020EquipmentStoreSelector),
-      map((data) => {
-        this.currData = [...data];
-        return data;
-      })
-    );
+    this.gearList$ = this.store.pipe(select(cp2020EquipmentStoreSelector));
     this.categoryList$ = this.store.pipe(
       select(cp2020EquipmentCategoriesSelector)
     );

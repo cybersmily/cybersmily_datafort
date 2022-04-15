@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'cs-cp2020-equipment-editor',
   templateUrl: './cp2020-equipment-editor.component.html',
-  styleUrls: ['./cp2020-equipment-editor.component.css']
+  styleUrls: ['./cp2020-equipment-editor.component.css'],
 })
 export class Cp2020EquipmentEditorComponent implements OnInit {
   faPlus = faPlus;
@@ -20,7 +20,7 @@ export class Cp2020EquipmentEditorComponent implements OnInit {
   @Output()
   updateEquipement: EventEmitter<Cp2020Equipment> = new EventEmitter<Cp2020Equipment>();
 
-  constructor(private formBuilder: FormBuilder, private store: Store) { }
+  constructor(private formBuilder: FormBuilder, private store: Store) {}
 
   ngOnInit(): void {
     this.initializeForm();
@@ -33,10 +33,9 @@ export class Cp2020EquipmentEditorComponent implements OnInit {
       cost: [this.equipment?.cost ?? 0, Validators.min(0)],
       notes: [this.equipment?.notes ?? ''],
       book: [this.equipment?.source.book ?? '', Validators.maxLength(4)],
-      page: [this.equipment?.source?.page ?? 0, Validators.min(0)]
+      page: [this.equipment?.source?.page ?? 0, Validators.min(0)],
     });
   }
-
 
   addGear(): void {
     const newItem: Cp2020Equipment = {
@@ -44,12 +43,12 @@ export class Cp2020EquipmentEditorComponent implements OnInit {
       name: this.formGroup.value.name,
       cost: this.formGroup.value.cost,
       notes: this.formGroup.value.notes,
+      wt: 0,
       source: {
         book: this.formGroup.value.book,
         page: this.formGroup.value.page,
-      }
-    }
+      },
+    };
     this.updateEquipement.emit(newItem);
   }
-
 }

@@ -2,10 +2,15 @@
   <div class="col-2">CATEGORY</div>
   <div class="col-3">NAME</div>
   <div class="col-1">COST</div>
-  <div class="col-3">NOTES</div>
+  <div class="col-1">WT</div>
+  <div class="col-2">NOTES</div>
   <div class="col-2">SOURCE</div>
   <div class="col-1">
-    <button class="csd-btn csd-icon-btn csd-icon-xl" (click)="save()">
+    <button
+      *ngIf="isEditable"
+      class="csd-btn csd-icon-btn csd-icon-xl"
+      (click)="save()"
+    >
       <fa-icon [icon]="faSave"></fa-icon>
     </button>
   </div>
@@ -23,7 +28,8 @@
     <input [(ngModel)]="filters.name" type="text" class="w-100" />
   </div>
   <div class="col-1"></div>
-  <div class="col-3"></div>
+  <div class="col-1"></div>
+  <div class="col-2"></div>
   <div class="col-2">
     <input [(ngModel)]="filters.source" type="text" class="w-100" />
   </div>
@@ -38,6 +44,7 @@
       | sourcebookFilter: filters.source
   "
   [item]="gear"
+  [isEditable]="isEditable"
   (update)="update($event)"
   (delete)="delete($event)"
 ></cs-cp2020-equipment-item>

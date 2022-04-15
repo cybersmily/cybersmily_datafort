@@ -1,16 +1,25 @@
-<div *ngIf="!isEditing; else editItem" class="row text-xsmall">
+<div *ngIf="!isEditing; else editItem" class="row text-xsmall cp2020-gear-row">
   <div class="col-2">{{ currItem.category }}</div>
   <div class="col-3">{{ currItem.name }}</div>
   <div class="col-1">{{ currItem.cost }}</div>
-  <div class="col-3">{{ currItem.notes }}</div>
+  <div class="col-1">{{ currItem.wt }}</div>
+  <div class="col-2">{{ currItem.notes }}</div>
   <div class="col-2">
     {{ currItem.source.book | sourcebook }} pg.{{ currItem.source.page }}
   </div>
   <div class="col-1 p-0">
-    <button class="csd-btn csd-icon-btn me-1" (click)="isEditing = true">
+    <button
+      *ngIf="isEditable"
+      class="csd-btn csd-icon-btn me-1"
+      (click)="isEditing = true"
+    >
       <fa-icon [icon]="faPen"></fa-icon>
     </button>
-    <button class="csd-btn csd-icon-btn me-1" (click)="deleteItem()">
+    <button
+      *ngIf="isEditable"
+      class="csd-btn csd-icon-btn me-1"
+      (click)="deleteItem()"
+    >
       <fa-icon [icon]="faTrash"></fa-icon>
     </button>
   </div>
@@ -30,7 +39,14 @@
     <div class="col-1 p-0">
       <input type="text" [(ngModel)]="currItem.cost" class="w-100" />
     </div>
-    <div class="col-3 p-0">
+    <div class="col-1 p-0">
+      <input
+        type="number"
+        [(ngModel)]="currItem.wt"
+        class="w-100 no-spinners"
+      />
+    </div>
+    <div class="col-2 p-0">
       <input type="text" [(ngModel)]="currItem.notes" class="w-100" />
     </div>
     <div class="col-1 p-0">
