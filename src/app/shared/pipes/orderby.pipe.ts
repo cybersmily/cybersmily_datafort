@@ -33,7 +33,6 @@ export class OrderbyPipe implements PipeTransform {
     }
     if (Array.isArray(args[0]) && args[0].length > 0 && args[0][0].prop) {
       const properties = args[0];
-      console.log(properties);
       return value.sort((a, b) => {
         return this.recursiveSort(a, b, properties);
       });

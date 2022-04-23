@@ -44,7 +44,6 @@ export class DataListComponent implements OnInit {
         }
       })
       .filter((entry) => entry);
-    console.log('sortOrder', this.sortOrder);
   }
 
   refreshFilter() {
