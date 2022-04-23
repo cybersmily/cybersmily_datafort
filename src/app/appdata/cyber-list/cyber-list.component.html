@@ -1,34 +1,67 @@
 <div class="container">
   <h2>Master Cyberware List</h2>
-  <div>This is the master list of all cyberware with their sources.
-    Sources were pulled from R. Talsorian Games and the Interface magazines. You should consult the source material.
+  <div>
+    This is the master list of all cyberware with their sources. Sources were
+    pulled from R. Talsorian Games and the Interface magazines. You should
+    consult the source material.
   </div>
-  <div>NOTE: Costs I either show the average if it has a range or empty if the prices is based on another factor. Same with HC. </div>
+  <div>
+    NOTE: Costs I either show the average if it has a range or empty if the
+    prices is based on another factor. Same with HC.
+  </div>
   <div class="row">
-  <table class="cyber-data-table csd-rounded">
-    <tr class="csd-rounded bg-secondary text-light">
+    <table class="cyber-data-table csd-rounded">
+      <tr class="csd-rounded bg-secondary text-light">
         <th>
           TYPE
-          <fa-icon [icon]="(isSorted('type'))?faSortUp:faSortDown" class="csd-btn" (click)="toggleSort('type')"></fa-icon>
+          <fa-icon
+            [icon]="isSorted('type') ? faSortUp : faSortDown"
+            class="csd-btn"
+            (click)="toggleSort('type')"
+          ></fa-icon>
         </th>
-        <th>SUBTYPE
-          <fa-icon [icon]="(isSorted('subtype'))?faSortUp:faSortDown" class="csd-btn" (click)="toggleSort('subtype')"></fa-icon>
+        <th>
+          SUBTYPE
+          <fa-icon
+            [icon]="isSorted('subtype') ? faSortUp : faSortDown"
+            class="csd-btn"
+            (click)="toggleSort('subtype')"
+          ></fa-icon>
         </th>
-        <th>NAME
-          <fa-icon [icon]="(isSorted('name'))?faSortUp:faSortDown" class="csd-btn" (click)="toggleSort('name')"></fa-icon>
+        <th>
+          NAME
+          <fa-icon
+            [icon]="isSorted('name') ? faSortUp : faSortDown"
+            class="csd-btn"
+            (click)="toggleSort('name')"
+          ></fa-icon>
         </th>
         <th>DESCRIPTION</th>
-        <th>COST
-          <fa-icon [icon]="(isSorted('cost'))?faSortUp:faSortDown" class="csd-btn" (click)="toggleSort('cost')"></fa-icon>
+        <th>
+          COST
+          <fa-icon
+            [icon]="isSorted('cost') ? faSortUp : faSortDown"
+            class="csd-btn"
+            (click)="toggleSort('cost')"
+          ></fa-icon>
         </th>
-        <th class="cyber-data-sm text-center">HC
-          <fa-icon [icon]="(isSorted('hc'))?faSortUp:faSortDown" class="csd-btn" (click)="toggleSort('hc')"></fa-icon>
+        <th class="cyber-data-sm text-center">
+          HC
+          <fa-icon
+            [icon]="isSorted('hc') ? faSortUp : faSortDown"
+            class="csd-btn"
+            (click)="toggleSort('hc')"
+          ></fa-icon>
         </th>
-        <th class="cyber-data-sm text-center">SURGERY
-          <fa-icon [icon]="(isSorted('surgery'))?faSortUp:faSortDown" class="csd-btn" (click)="toggleSort('surgery')"></fa-icon>
+        <th class="cyber-data-sm text-center">
+          SURGERY
+          <fa-icon
+            [icon]="isSorted('surgery') ? faSortUp : faSortDown"
+            class="csd-btn"
+            (click)="toggleSort('surgery')"
+          ></fa-icon>
         </th>
-        <th>SOURCE
-        </th>
+        <th>SOURCE</th>
       </tr>
       <tr>
         <td>
@@ -52,34 +85,59 @@
             <option [ngValue]="'LINEAR FRAMES'">Linear Frames</option>
             <option [ngValue]="'NEURALWARE'">Neuralware</option>
           </select>
-        <td><input [(ngModel)]="searchFilter.subtype" type="text" /></td>
-        <td><input [(ngModel)]="searchFilter.name" type="text" class="cyber-data-name" /></td>
-        <td></td>
-        <td></td>
-        <td><input [(ngModel)]="searchFilter.hc" class="cyber-data-sm text-center" type="text" /></td>
-        <td><input [(ngModel)]="searchFilter.surg" class="cyber-data-sm text-center" type="text" /></td>
-        <td><input [(ngModel)]="searchFilter.source" class="cyber-data-source" type="text" /></td>
-      </tr>
-      <tr *ngFor="let cyber of cyberwareList$ | async
-          |filter:'type':searchFilter.type
-          |filter:'subtype':searchFilter.subtype
-          |contains:'name':searchFilter.name
-          |contains:'hc':searchFilter.hc
-          |contains:'surgery':searchFilter.surg
-          |sourcebookFilter:searchFilter.source
-          |orderby:sortOrder
-          " class="cyber-row">
-        <td>{{cyber.type}}
         </td>
-        <td>{{cyber.subtype}}</td>
-        <td>{{cyber.name}}</td>
-        <td>{{cyber.notes}}</td>
-        <td><span *ngIf="cyber.cost > 0">{{cyber.cost | number}}eb.</span></td>
-        <td class="cyber-data-sm text-center">{{cyber.hc}}</td>
-        <td class="cyber-data-sm text-center">{{cyber.surgery}}</td>
-        <td>{{cyber.source.book|sourcebook}} pg.{{cyber.source.page}}</td>
+
+        <td><input [(ngModel)]="searchFilter.subtype" type="text" /></td>
+        <td>
+          <input [(ngModel)]="searchFilter.name" type="text" />
+        </td>
+        <td></td>
+        <td></td>
+        <td>
+          <input
+            [(ngModel)]="searchFilter.hc"
+            class="text-center"
+            type="text"
+          />
+        </td>
+        <td class="text-center">
+          <select [(ngModel)]="searchFilter.surg">
+            <option value="">All</option>
+            <option value="N">N</option>
+            <option value="M">M</option>
+            <option value="MA">MA</option>
+            <option value="CR">CR</option>
+          </select>
+        </td>
+        <td>
+          <input [(ngModel)]="searchFilter.source" class="w-100" type="text" />
+        </td>
+      </tr>
+      <tr
+        *ngFor="
+          let cyber of cyberwareList$
+            | async
+            | filter: 'type':searchFilter.type
+            | filter: 'subtype':searchFilter.subtype
+            | contains: 'name':searchFilter.name
+            | contains: 'hc':searchFilter.hc
+            | contains: 'surgery':searchFilter.surg
+            | sourcebookFilter: searchFilter.source
+            | orderby: sortOrder
+        "
+        class="cyber-row"
+      >
+        <td>{{ cyber.type }}</td>
+        <td>{{ cyber.subtype }}</td>
+        <td>{{ cyber.name }}</td>
+        <td>{{ cyber.notes }}</td>
+        <td>
+          <span *ngIf="cyber.cost > 0">{{ cyber.cost | number }}eb.</span>
+        </td>
+        <td class="text-center">{{ cyber.hc }}</td>
+        <td class="text-center">{{ cyber.surgery }}</td>
+        <td>{{ cyber.source.book | sourcebook }} pg.{{ cyber.source.page }}</td>
       </tr>
     </table>
   </div>
-
 </div>
