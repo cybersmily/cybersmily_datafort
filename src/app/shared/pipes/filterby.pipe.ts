@@ -1,4 +1,4 @@
-import { SearchFilters } from './../modules/pipes/models/search-filters';
+import { SearchFilters } from './../models/search-filters';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
