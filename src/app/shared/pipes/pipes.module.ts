@@ -10,8 +10,7 @@ import { CelsiusPipe } from './celsius.pipe';
 import { WeightNamePipe } from './weight-name.pipe';
 import { ArmorOptionModPipe } from './armor-option-mod.pipe';
 import { SanitizeHtmlPipe } from './sanitize-html.pipe';
-
-
+import { FilterbyPipe } from './filterby.pipe';
 
 @NgModule({
   declarations: [
@@ -24,13 +23,13 @@ import { SanitizeHtmlPipe } from './sanitize-html.pipe';
     CelsiusPipe,
     WeightNamePipe,
     ArmorOptionModPipe,
-    SanitizeHtmlPipe
+    SanitizeHtmlPipe,
+    FilterbyPipe,
   ],
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   exports: [
     FilterPipe,
+    FilterbyPipe,
     SourcebookPipe,
     SourcebookFilterPipe,
     ParsePipe,
@@ -39,7 +38,7 @@ import { SanitizeHtmlPipe } from './sanitize-html.pipe';
     CelsiusPipe,
     WeightNamePipe,
     ArmorOptionModPipe,
-    SanitizeHtmlPipe
-  ]
+    SanitizeHtmlPipe,
+  ],
 })
-export class PipesModule { }
+export class PipesModule {}
