@@ -1,3 +1,4 @@
+import { DataListModule } from './../shared/modules/data-list/data-list.module';
 import { Cp2020EquipmentStoreModule } from './../shared/cp2020/cp2020-equipment-store/cp2020-equipment-store.module';
 import { Cp2020weaponsModule } from './../shared/cp2020/cp2020weapons/cp2020weapons.module';
 import { CyberDataService } from './../shared/cp2020/cp2020-cyberware/services';
@@ -33,6 +34,7 @@ import { GearListComponent } from './gear-list/gear-list.component';
     Cp2020weaponsModule,
     Cp2020CyberwareModule,
     DataSectionRoutingModule,
+    DataListModule,
     Cp2020EquipmentStoreModule,
     PipesModule,
   ],
