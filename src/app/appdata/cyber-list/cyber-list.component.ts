@@ -19,7 +19,7 @@ export class CyberListComponent implements OnInit {
       filters: 'filter',
       inputType: '',
       class: 'col-3 col-md-2',
-      sortable: true,
+      sort: 'type',
       filterValues: [
         { key: 'BIOWARE', value: 'Bioware' },
         { key: 'BODY PLATING', value: 'Body Plating' },
@@ -39,7 +39,6 @@ export class CyberListComponent implements OnInit {
         { key: 'LINEAR FRAMES', value: 'Linear Frames' },
         { key: 'NEURALWARE', value: 'Neuralware' },
       ],
-      isSourcebook: false,
     },
     {
       header: 'subtype',
@@ -47,9 +46,7 @@ export class CyberListComponent implements OnInit {
       filters: 'contains',
       inputType: 'text',
       class: 'col-1 d-none d-md-inline-block',
-      sortable: true,
-      filterValues: null,
-      isSourcebook: false,
+      sort: 'subtype',
     },
     {
       header: 'name',
@@ -57,9 +54,7 @@ export class CyberListComponent implements OnInit {
       filters: 'contains',
       inputType: 'text',
       class: 'col-4 col-md-2',
-      sortable: true,
-      filterValues: null,
-      isSourcebook: false,
+      sort: 'name',
     },
     {
       header: 'description',
@@ -67,9 +62,6 @@ export class CyberListComponent implements OnInit {
       filters: 'contains',
       inputType: 'text',
       class: 'col-2 d-none d-md-inline-block',
-      sortable: false,
-      filterValues: null,
-      isSourcebook: false,
     },
     {
       header: 'cost',
@@ -77,9 +69,7 @@ export class CyberListComponent implements OnInit {
       filters: null,
       inputType: 'number',
       class: 'text-center col-1',
-      sortable: true,
-      filterValues: null,
-      isSourcebook: false,
+      sort: 'cost',
     },
     {
       header: 'H.C.',
@@ -87,9 +77,7 @@ export class CyberListComponent implements OnInit {
       filters: 'contains',
       inputType: 'text',
       class: 'col-2 col-md-1 text-center',
-      sortable: true,
-      filterValues: null,
-      isSourcebook: false,
+      sort: 'hc',
     },
     {
       header: 'surg.',
@@ -97,14 +85,13 @@ export class CyberListComponent implements OnInit {
       filters: 'filter',
       inputType: 'text',
       class: 'text-center col-2 col-md-1',
-      sortable: true,
+      sort: 'surgery',
       filterValues: [
         { key: 'N', value: 'N' },
         { key: 'M', value: 'M' },
         { key: 'MA', value: 'MA' },
         { key: 'CR', value: 'CR' },
       ],
-      isSourcebook: false,
     },
     {
       header: 'source',
@@ -112,8 +99,7 @@ export class CyberListComponent implements OnInit {
       filters: 'sourcebook',
       inputType: 'text',
       class: 'col-2 d-none d-md-inline-block',
-      sortable: false,
-      filterValues: null,
+      sort: 'source.book',
       isSourcebook: true,
     },
   ];

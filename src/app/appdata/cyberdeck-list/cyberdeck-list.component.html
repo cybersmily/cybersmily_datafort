@@ -5,6 +5,14 @@
     based on what the field starts with. Sources were pulled from R. Talsorian
     and the Interface magazines.
   </div>
+  <div class="row">
+    <div class="col-12">
+      <cs-data-list
+        [dataList]="deckList$ | async"
+        [columnsParameters]="columns"
+      ></cs-data-list>
+    </div>
+  </div>
   <table class="mstr-skill-table csd-rounded w-100">
     <tr class="csd-rounded bg-secondary text-light">
       <th class="text-center">Name</th>
@@ -14,60 +22,8 @@
       <th class="text-center">Book Cost</th>
       <th class="text-center">Source</th>
     </tr>
-    <tr>
-      <td>
-        <input
-          [(ngModel)]="filters.name"
-          type="search"
-          placeholder="search on name"
-          class="skill-search w-100"
-        />
-      </td>
-      <td>
-        <input
-          [(ngModel)]="filters.type"
-          type="search"
-          placeholder="search on type"
-          class="skill-search w-100"
-        />
-      </td>
-      <td class="text-center prog-stat">
-        <input
-          [(ngModel)]="filters.speed"
-          type="search"
-          placeholder="search on is speed"
-          class="csd-number skill-search"
-        />
-      </td>
-      <td class="text-center prog-stat">
-        <input
-          [(ngModel)]="filters.mu"
-          type="search"
-          placeholder="search on is mu"
-          class="csd-number skill-search"
-        />
-      </td>
-      <td class="text-center prog-stat"></td>
-      <td>
-        <input
-          [(ngModel)]="filters.source"
-          type="search"
-          placeholder="search on source"
-          class="skill-search w-100"
-        />
-      </td>
-    </tr>
     <tr
-      *ngFor="
-        let deck of deckList$
-          | async
-          | filter: 'totalMU':filters.mu
-          | filter: 'speed':filters.speed
-          | filter: 'type.name':filters.type
-          | filter: 'name':filters.name
-          | contains: 'options':filters.options
-          | sourcebookFilter: filters.source
-      "
+      *ngFor="let deck of deckList$ | async"
       style="vertical-align: top"
       class="prog-row"
     >
