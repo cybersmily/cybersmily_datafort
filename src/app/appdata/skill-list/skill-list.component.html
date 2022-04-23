@@ -1,27 +1,13 @@
 <div class="container">
-<h2>Master Skills List</h2>
-<div>This is the master list of all skills with their sources.
-  Search is based on what the field starts with.
-  Sources were pulled from R. Talsorian and the Interface magazines.</div>
-<table class="mstr-skill-table csd-rounded">
-  <tr class="csd-rounded bg-secondary text-light">
-    <th class="text-center">Name</th>
-    <th class="text-center">Stat</th>
-    <th class="text-center">Is Special Ability</th>
-    <th class="text-center">Source</th>
-  </tr>
-  <tr>
-    <td><input [(ngModel)]="filters.name" type="search" placeholder="search on name" class="skill-search"/></td>
-    <td><input [(ngModel)]="filters.stat" type="search" placeholder="search on stat" class="skill-search"/></td>
-    <td><input [(ngModel)]="filters.sa" type="search" placeholder="search on is special ability" class="skill-search"/></td>
-    <td><input [(ngModel)]="filters.source" type="search" placeholder="search on source" class="skill-search"/></td>
-  </tr>
-  <tr *ngFor="let sk of skillList$ | async |filter:'name': filters.name|filter:'stat': filters.stat|sourcebookFilter:filters.source|filter:'sa': filters.searchSpclAbility"
-      style="vertical-align: top;">
-    <td>{{sk.name | parse}}<span *ngIf="sk.option || sk.option === ''">: {{sk.option}}</span></td>
-    <td class="text-center">{{sk.stat}}</td>
-    <td class="text-center">{{(sk.sa)?'Yes':'No'}}</td>
-    <td class="text-center">{{sk.source|sourcebook}} pg. {{sk.page}}</td>
-  </tr>
-</table>
+  <h2>Master Skills List</h2>
+  <div>
+    This is the master list of all skills with their sources. Search is based on
+    what the field starts with. Sources were pulled from R. Talsorian and the
+    Interface magazines.
+  </div>
+  <br />
+  <cs-data-list
+    [dataList]="skillList$ | async"
+    [columnsParameters]="columns"
+  ></cs-data-list>
 </div>
