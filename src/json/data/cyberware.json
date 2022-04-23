@@ -8,7 +8,7 @@
     "hc": "1d6/2",
     "surgery": "M",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 18
     }
   },
@@ -73,7 +73,7 @@
     "hc": "0.5",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 39
     }
   },
@@ -99,7 +99,7 @@
     "hc": "1d6",
     "surgery": "M",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 18
     }
   },
@@ -125,7 +125,7 @@
     "hc": "1d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 22
     }
   },
@@ -138,7 +138,7 @@
     "hc": "1d6+2",
     "surgery": "MA",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 22
     }
   },
@@ -178,7 +178,7 @@
     "hc": "0.5",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 26
     }
   },
@@ -245,7 +245,7 @@
     "hc": "1d6/2",
     "surgery": "M",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 18
     }
   },
@@ -271,7 +271,7 @@
     "hc": "1",
     "surgery": "MA",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 24
     }
   },
@@ -284,7 +284,7 @@
     "hc": "1d6/2",
     "surgery": "MA",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 24
     }
   },
@@ -297,7 +297,7 @@
     "hc": "1d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 25
     }
   },
@@ -310,7 +310,7 @@
     "hc": "1d6/2",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 8
     }
   },
@@ -323,7 +323,7 @@
     "hc": "1d6/2",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 20
     }
   },
@@ -350,7 +350,7 @@
     "hc": "1d6/2",
     "surgery": "MA",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 19
     }
   },
@@ -363,7 +363,7 @@
     "hc": "1d6",
     "surgery": "CR",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 21
     }
   },
@@ -389,7 +389,7 @@
     "hc": "1d2",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 17
     }
   },
@@ -415,7 +415,7 @@
     "hc": "1d6/2",
     "surgery": "MA",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 27
     }
   },
@@ -428,7 +428,7 @@
     "hc": "1d2",
     "surgery": "M",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 26
     }
   },
@@ -441,7 +441,7 @@
     "hc": "2d6+3",
     "surgery": "MA",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 23
     }
   },
@@ -454,7 +454,7 @@
     "hc": "2d6+3",
     "surgery": "MA",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 23
     },
     "desc": ""
@@ -468,7 +468,7 @@
     "hc": "2d6+3",
     "surgery": "MA",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 23
     },
     "desc": ""
@@ -482,7 +482,7 @@
     "hc": "3d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 23
     },
     "desc": ""
@@ -496,7 +496,7 @@
     "hc": "3d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 23
     }
   },
@@ -509,7 +509,7 @@
     "hc": "1d6/2",
     "surgery": "M",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 23
     }
   },
@@ -522,7 +522,7 @@
     "hc": "1d6/2",
     "surgery": "M",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 23
     }
   },
@@ -535,7 +535,7 @@
     "hc": "1d6/2",
     "surgery": "M",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 23
     }
   },
@@ -574,7 +574,7 @@
     "hc": "1",
     "surgery": "M",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 20
     }
   },
@@ -587,7 +587,7 @@
     "hc": "1",
     "surgery": "MA",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 28
     }
   },
@@ -900,7 +900,7 @@
     "hc": "1d2",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 17
     }
   },
@@ -913,7 +913,7 @@
     "hc": "1d6/2",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 17
     },
     "desc": ""
@@ -927,7 +927,7 @@
     "hc": "1d6+1",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 17
     }
   },
@@ -1146,7 +1146,7 @@
     "hc": "1d6/2+1",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 39
     },
     "abbrev": "LSSKW"
@@ -1188,7 +1188,7 @@
     "hc": "1d6+3",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 9
     },
     "abbrev": "SKW10"
@@ -1202,7 +1202,7 @@
     "hc": "2d6+2",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 9
     },
     "abbrev": "SKW14"
@@ -1216,7 +1216,7 @@
     "hc": "2d6+4",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 9
     },
     "abbrev": "SKW16"
@@ -1230,7 +1230,7 @@
     "hc": "1d6",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 9
     },
     "abbrev": "SKW6"
@@ -1244,7 +1244,7 @@
     "hc": "1d6+1",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 9
     },
     "abbrev": "SKW8"
@@ -1272,7 +1272,7 @@
     "hc": "1d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 33
     },
     "desc": ""
@@ -1286,7 +1286,7 @@
     "hc": "2d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 33
     },
     "desc": ""
@@ -1300,7 +1300,7 @@
     "hc": "3d6",
     "surgery": "CR",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 33
     }
   },
@@ -1341,7 +1341,7 @@
     "hc": "8d6",
     "surgery": "CRx2",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 9
     }
   },
@@ -1410,7 +1410,7 @@
     "hc": "2",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 30
     },
     "desc": "",
@@ -1425,7 +1425,7 @@
     "hc": "1",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 30
     },
     "desc": "",
@@ -1440,7 +1440,7 @@
     "hc": "2",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 30
     },
     "abbrev": "SFL"
@@ -1454,7 +1454,7 @@
     "hc": "3",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 30
     },
     "desc": "",
@@ -1497,7 +1497,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 75
     }
   },
@@ -1510,7 +1510,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 75
     }
   },
@@ -1523,7 +1523,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 39
     }
   },
@@ -1536,7 +1536,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 39
     }
   },
@@ -1549,7 +1549,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 74
     }
   },
@@ -1562,7 +1562,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 15
     }
   },
@@ -1588,7 +1588,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 73
     }
   },
@@ -1601,7 +1601,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 37
     }
   },
@@ -1614,7 +1614,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 75
     }
   },
@@ -1627,7 +1627,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 73
     }
   },
@@ -1640,7 +1640,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 16
     }
   },
@@ -1653,7 +1653,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 16
     }
   },
@@ -1666,7 +1666,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 75
     }
   },
@@ -1679,7 +1679,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 16
     }
   },
@@ -1705,7 +1705,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 75
     }
   },
@@ -1718,7 +1718,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 75
     }
   },
@@ -1757,7 +1757,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 73
     }
   },
@@ -1783,7 +1783,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 74
     }
   },
@@ -1796,7 +1796,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 74
     }
   },
@@ -1809,7 +1809,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 74
     }
   },
@@ -1822,7 +1822,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 37
     }
   },
@@ -1848,7 +1848,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 74
     }
   },
@@ -1861,7 +1861,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 76
     }
   },
@@ -1874,7 +1874,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 73
     }
   },
@@ -1887,7 +1887,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 74
     }
   },
@@ -1900,7 +1900,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 75
     }
   },
@@ -1913,7 +1913,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 73
     }
   },
@@ -1926,7 +1926,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 15
     }
   },
@@ -1987,7 +1987,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 37
     }
   },
@@ -2000,7 +2000,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 74
     }
   },
@@ -2013,7 +2013,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 73
     }
   },
@@ -2026,7 +2026,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 16
     }
   },
@@ -2039,7 +2039,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 75
     }
   },
@@ -2052,7 +2052,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 38
     }
   },
@@ -2091,7 +2091,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 74
     }
   },
@@ -2104,7 +2104,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 76
     }
   },
@@ -2117,7 +2117,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 38
     }
   },
@@ -2171,7 +2171,7 @@
     "hc": "2d6",
     "surgery": "M",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 7
     },
     "numOptions": "2"
@@ -2185,7 +2185,7 @@
     "hc": "3d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 35
     },
     "desc": ""
@@ -2199,7 +2199,7 @@
     "hc": "3d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 35
     },
     "desc": ""
@@ -2213,7 +2213,7 @@
     "hc": "3d6-2",
     "surgery": "MA",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 35
     }
   },
@@ -2282,7 +2282,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 39
     },
     "desc": "",
@@ -2479,7 +2479,7 @@
     "hc": "3",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 5
     }
   },
@@ -2492,7 +2492,7 @@
     "hc": "1",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 5
     }
   },
@@ -2519,7 +2519,7 @@
     "hc": "1d6",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 33
     }
   },
@@ -2633,7 +2633,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 5
     },
     "numOptions": "5"
@@ -2647,7 +2647,7 @@
     "hc": "2",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 26
     }
   },
@@ -2701,7 +2701,7 @@
     "hc": "1d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 31
     },
     "numOptions": "5"
@@ -2715,7 +2715,7 @@
     "hc": "1d6/2",
     "surgery": "MA",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 5
     }
   },
@@ -2728,7 +2728,7 @@
     "hc": "1d6/2",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 5
     }
   },
@@ -2816,7 +2816,7 @@
     "hc": "1",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 4
     },
     "abbrev": "CDAH"
@@ -2830,7 +2830,7 @@
     "hc": "0.5",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 4
     },
     "abbrev": "CDBF"
@@ -2844,7 +2844,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 31
     },
     "abbrev": "CHC"
@@ -2858,7 +2858,7 @@
     "hc": "2",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 32
     },
     "abbrev": "CDDG"
@@ -2872,7 +2872,7 @@
     "hc": "1d6",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 36
     },
     "abbrev": "CDD"
@@ -2900,7 +2900,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 32
     },
     "abbrev": "CDFB"
@@ -2914,7 +2914,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 32
     },
     "abbrev": "CDFM"
@@ -2928,7 +2928,7 @@
     "hc": "2",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 22
     },
     "abbrev": "CDFLR"
@@ -2942,7 +2942,7 @@
     "hc": "1",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 22
     },
     "abbrev": "CDFLH"
@@ -2956,7 +2956,7 @@
     "hc": "1",
     "surgery": "M",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 4
     },
     "abbrev": "CDFM"
@@ -2970,7 +2970,7 @@
     "hc": "1",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 22
     },
     "desc": "",
@@ -2985,7 +2985,7 @@
     "hc": "0.5",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 22
     },
     "abbrev": "CDLP"
@@ -2999,7 +2999,7 @@
     "hc": "0.5",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 32
     },
     "desc": "",
@@ -3014,7 +3014,7 @@
     "hc": "2",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 4
     },
     "abbrev": "CDLGH"
@@ -3028,7 +3028,7 @@
     "hc": "0.5",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 32
     },
     "abbrev": "CDLKPK"
@@ -3042,7 +3042,7 @@
     "hc": "2",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 32
     },
     "abbrev": "CDMS"
@@ -3056,7 +3056,7 @@
     "hc": "1",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 32
     },
     "abbrev": "CDML"
@@ -3070,7 +3070,7 @@
     "hc": "2",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 4
     },
     "abbrev": "CDOSS"
@@ -3084,7 +3084,7 @@
     "hc": "2",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 22
     },
     "abbrev": "CDPMI"
@@ -3098,7 +3098,7 @@
     "hc": "0.5",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 22
     },
     "abbrev": "CDPL"
@@ -3112,7 +3112,7 @@
     "hc": "1",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 4
     },
     "abbrev": "CDQCM"
@@ -3140,7 +3140,7 @@
     "hc": "2",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 4
     },
     "abbrev": "CDGRN"
@@ -3154,7 +3154,7 @@
     "hc": "0.5",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 22
     },
     "abbrev": "CHSC"
@@ -3198,7 +3198,7 @@
     "hc": "0.5",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 4
     },
     "abbrev": "CDTD"
@@ -3212,7 +3212,7 @@
     "hc": "2",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 4
     },
     "abbrev": "CDVID"
@@ -3226,7 +3226,7 @@
     "hc": "1",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 32
     },
     "abbrev": "CDWC"
@@ -3282,7 +3282,7 @@
     "hc": "3d6+4",
     "surgery": "CR",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 5
     },
     "numOptions": "0"
@@ -3296,7 +3296,7 @@
     "hc": "3d6+4",
     "surgery": "M",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 5
     },
     "numOptions": "0"
@@ -3310,7 +3310,7 @@
     "hc": "3d6",
     "surgery": "CR",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 5
     },
     "numOptions": "0"
@@ -3324,7 +3324,7 @@
     "hc": "2d6+2",
     "surgery": "CR",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 34
     },
     "numOptions": "0"
@@ -3338,7 +3338,7 @@
     "hc": "3d6+3",
     "surgery": "CR",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 34
     },
     "numOptions": "0"
@@ -3352,7 +3352,7 @@
     "hc": "2d6",
     "surgery": "CR",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 57
     },
     "numOptions": "4"
@@ -3366,7 +3366,7 @@
     "hc": "2d6",
     "surgery": "CR",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 57
     },
     "numOptions": "3"
@@ -3380,7 +3380,7 @@
     "hc": "4d6",
     "surgery": "CRx2",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 31
     },
     "numOptions": "3"
@@ -3394,7 +3394,7 @@
     "hc": "2d6",
     "surgery": "CR",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 7
     },
     "numOptions": "2"
@@ -3408,7 +3408,7 @@
     "hc": "2d6",
     "surgery": "CR",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 7
     },
     "numOptions": "2"
@@ -3450,7 +3450,7 @@
     "hc": "2d6",
     "surgery": "CR",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 25
     },
     "numOptions": "4"
@@ -3506,7 +3506,7 @@
     "hc": "0.5",
     "surgery": "M",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 26
     }
   },
@@ -3533,7 +3533,7 @@
     "hc": "1d6/2+1",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 36
     }
   },
@@ -3614,7 +3614,7 @@
     "hc": "1d6/2",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 36
     }
   },
@@ -3641,7 +3641,7 @@
     "hc": "1d6+2",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 20
     }
   },
@@ -3654,7 +3654,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 34
     }
   },
@@ -3667,7 +3667,7 @@
     "hc": "3",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 11
     }
   },
@@ -3708,7 +3708,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 6
     }
   },
@@ -3721,7 +3721,7 @@
     "hc": "2",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 23
     }
   },
@@ -3775,7 +3775,7 @@
     "hc": "1",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 33
     }
   },
@@ -3788,7 +3788,7 @@
     "hc": "1d6+3",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 5
     }
   },
@@ -3801,7 +3801,7 @@
     "hc": "2",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 6
     },
     "abbrev": "RJ"
@@ -3857,7 +3857,7 @@
     "hc": "1d6/2",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 6
     },
     "abbrev": "DJ"
@@ -3871,7 +3871,7 @@
     "hc": "4",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 6
     },
     "abbrev": "ELU"
@@ -3885,7 +3885,7 @@
     "hc": "1",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 2
     },
     "abbrev": "ETJA"
@@ -3899,7 +3899,7 @@
     "hc": "0",
     "surgery": "M",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 21
     },
     "abbrev": "FW"
@@ -3913,7 +3913,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 34
     },
     "abbrev": "GJ"
@@ -3941,7 +3941,7 @@
     "hc": "1d6",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 24
     },
     "abbrev": "LB"
@@ -3955,7 +3955,7 @@
     "hc": "1",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 34
     },
     "desc": "",
@@ -3970,7 +3970,7 @@
     "hc": "0.5",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 6
     },
     "abbrev": "LKJT"
@@ -4012,7 +4012,7 @@
     "hc": "1d6+2",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 42
     },
     "abbrev": "PSG"
@@ -4124,7 +4124,7 @@
     "hc": "2d6-2",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 38
     },
     "abbrev": "TZG"
@@ -4278,7 +4278,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 71
     },
     "abbrev": "ED"
@@ -4292,7 +4292,7 @@
     "hc": "1-2",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 71
     },
     "abbrev": "LMLT"
@@ -4347,7 +4347,7 @@
     "hc": "3d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 23
     },
     "numOptions": "6"
@@ -4375,7 +4375,7 @@
     "hc": "3d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 9
     },
     "numOptions": "6"
@@ -4389,7 +4389,7 @@
     "hc": "3d6+",
     "surgery": "CR",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 28
     },
     "numOptions": "2"
@@ -4403,7 +4403,7 @@
     "hc": "3d6-1",
     "surgery": "MA",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 36
     }
   },
@@ -4416,7 +4416,7 @@
     "hc": "3d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 9
     },
     "numOptions": "1"
@@ -4430,7 +4430,7 @@
     "hc": "2d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 7
     },
     "numOptions": "1"
@@ -4472,7 +4472,7 @@
     "hc": "1",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 24
     },
     "abbrev": "CMP"
@@ -4514,7 +4514,7 @@
     "hc": "1",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 39
     },
     "abbrev": "DB"
@@ -4570,7 +4570,7 @@
     "hc": "1",
     "surgery": "M",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 27
     },
     "abbrev": "KOCI"
@@ -4584,7 +4584,7 @@
     "hc": "1",
     "surgery": "M",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 24
     },
     "abbrev": "LCC"
@@ -4654,7 +4654,7 @@
     "hc": "0.5",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 10
     },
     "abbrev": "DSP"
@@ -4668,7 +4668,7 @@
     "hc": "2d6+2",
     "surgery": "MA",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 27
     },
     "abbrev": "OI"
@@ -4696,7 +4696,7 @@
     "hc": "2",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 39
     },
     "abbrev": "TGS"
@@ -4752,7 +4752,7 @@
     "hc": "2",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 38
     },
     "abbrev": "TSP"
@@ -4794,7 +4794,7 @@
     "hc": "3",
     "surgery": "M",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 32
     },
     "abbrev": "VEB"
@@ -4808,7 +4808,7 @@
     "hc": "5",
     "surgery": "M",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 32
     },
     "abbrev": "VEC"
@@ -4822,7 +4822,7 @@
     "hc": "5",
     "surgery": "M",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 32
     },
     "abbrev": "VEVI"
@@ -4836,7 +4836,7 @@
     "hc": "1",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 39
     },
     "abbrev": "VCT"
@@ -4850,7 +4850,7 @@
     "hc": "2",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 39
     },
     "abbrev": "VI"
@@ -4892,7 +4892,7 @@
     "hc": "2d6",
     "surgery": "CR",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 8
     },
     "numOptions": "3"
@@ -4934,7 +4934,7 @@
     "hc": "2",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 8
     },
     "abbrev": "SCR"
@@ -4948,7 +4948,7 @@
     "hc": "2",
     "surgery": "M",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 35
     },
     "abbrev": "FT"
@@ -4976,7 +4976,7 @@
     "hc": "2",
     "surgery": "M",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 35
     },
     "abbrev": "VP"
@@ -5032,7 +5032,7 @@
     "hc": "3d6+1",
     "surgery": "M",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 11
     }
   },
@@ -5045,7 +5045,7 @@
     "hc": "3d6+1",
     "surgery": "MA",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 11
     }
   },
@@ -5058,7 +5058,7 @@
     "hc": "0",
     "surgery": "",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 12
     }
   },
@@ -5071,7 +5071,7 @@
     "hc": "2d6",
     "surgery": "",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 25
     }
   },
@@ -5084,7 +5084,7 @@
     "hc": "2d6+4",
     "surgery": "",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 29
     }
   },
@@ -5111,7 +5111,7 @@
     "hc": "4d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 27
     }
   },
@@ -5124,7 +5124,7 @@
     "hc": "4d6",
     "surgery": "M",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 27
     }
   },
@@ -5137,7 +5137,7 @@
     "hc": "3d6+2",
     "surgery": "",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 9
     }
   },
@@ -5150,7 +5150,7 @@
     "hc": "4d6",
     "surgery": "CR",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 9
     }
   },
@@ -5163,7 +5163,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 35
     }
   },
@@ -5176,7 +5176,7 @@
     "hc": "2d6+3",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 40
     }
   },
@@ -5189,7 +5189,7 @@
     "hc": "1d6+3",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 11
     }
   },
@@ -5241,7 +5241,7 @@
     "hc": "3",
     "surgery": "",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 36
     }
   },
@@ -5267,7 +5267,7 @@
     "hc": "1d6/2",
     "surgery": "M",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 7
     }
   },
@@ -5293,7 +5293,7 @@
     "hc": "1d2",
     "surgery": "MA",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 7
     }
   },
@@ -5306,7 +5306,7 @@
     "hc": "2d6+2",
     "surgery": "MA",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 9
     }
   },
@@ -5387,7 +5387,7 @@
     "hc": "1d6+3",
     "surgery": "M",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 10
     }
   },
@@ -5400,7 +5400,7 @@
     "hc": "1d6/2",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 6
     }
   },
@@ -5441,7 +5441,7 @@
     "hc": "2d6",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 34
     }
   },
@@ -5468,7 +5468,7 @@
     "hc": "13d6",
     "surgery": "CR + MA + Mx3 + Nx2",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 106
     }
   },
@@ -5481,7 +5481,7 @@
     "hc": "19d6",
     "surgery": "CR + MA + Mx3 + N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 107
     }
   },
@@ -5494,7 +5494,7 @@
     "hc": "9d6",
     "surgery": "1MA, 2M, 2N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 109
     },
     "desc": ""
@@ -5508,7 +5508,7 @@
     "hc": "2d6+1d6/2",
     "surgery": "CR + M",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 105
     }
   },
@@ -5521,7 +5521,7 @@
     "hc": "1d6/2",
     "surgery": "M",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 105
     }
   },
@@ -5534,7 +5534,7 @@
     "hc": "4d6+1d6/2",
     "surgery": "MA + M + Nx2",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 106
     }
   },
@@ -5547,7 +5547,7 @@
     "hc": "15d6",
     "surgery": "CRx2 + MAx2 + M + N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 108
     }
   },
@@ -5560,7 +5560,7 @@
     "hc": "4d6+1d6/2",
     "surgery": "MA + M + Nx2",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 104
     }
   },
@@ -5573,7 +5573,7 @@
     "hc": "15d6",
     "surgery": "CR + MAx2 + M + Nx2",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 109
     }
   },
@@ -5586,7 +5586,7 @@
     "hc": "3d6+1d6/2",
     "surgery": "M + Nx2",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 109
     }
   },
@@ -5599,7 +5599,7 @@
     "hc": "10d6+1d6/2",
     "surgery": "CRx2 + MA + M + Nx2",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 108
     }
   },
@@ -5612,7 +5612,7 @@
     "hc": "6d6",
     "surgery": "CR + M + Nx2",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 106
     }
   },
@@ -5625,7 +5625,7 @@
     "hc": "3d6+1d6/2",
     "surgery": "MA + Nx4",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 110
     },
     "desc": ""
@@ -5639,7 +5639,7 @@
     "hc": "1d6",
     "surgery": "Mx2",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 105
     }
   },
@@ -5652,7 +5652,7 @@
     "hc": "4d6",
     "surgery": "M + Nx3",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 105
     }
   },
@@ -5665,7 +5665,7 @@
     "hc": "1d6+1d6/2",
     "surgery": "M + N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 104
     }
   },
@@ -5678,7 +5678,7 @@
     "hc": "12d6",
     "surgery": "MAx2 + Mx2 + Nx3",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 108
     }
   },
@@ -5691,7 +5691,7 @@
     "hc": "6d6",
     "surgery": "MA + M + N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 108
     }
   },
@@ -5704,7 +5704,7 @@
     "hc": "13d6",
     "surgery": "CR + MAx3 + M + Nx8",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 107
     }
   },
@@ -5717,7 +5717,7 @@
     "hc": "7d6",
     "surgery": "CR + MA + M + Nx2",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 106
     }
   },
@@ -5730,7 +5730,7 @@
     "hc": "1d6",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 103
     }
   },
@@ -5743,7 +5743,7 @@
     "hc": "3d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 102
     }
   },
@@ -5756,7 +5756,7 @@
     "hc": "6d6",
     "surgery": "CR",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 102
     }
   },
@@ -5769,7 +5769,7 @@
     "hc": "4d6",
     "surgery": "CR",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 102
     }
   },
@@ -5782,7 +5782,7 @@
     "hc": "2d6",
     "surgery": "CR",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 102
     }
   },
@@ -5795,7 +5795,7 @@
     "hc": "3d6",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 102
     }
   },
@@ -5808,7 +5808,7 @@
     "hc": "3d6",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 102
     }
   },
@@ -5821,7 +5821,7 @@
     "hc": "1d6",
     "surgery": "M",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 102
     }
   },
@@ -5834,7 +5834,7 @@
     "hc": "3d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 102
     }
   },
@@ -5847,7 +5847,7 @@
     "hc": "1d6/2",
     "surgery": "M",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 102
     }
   },
@@ -5860,7 +5860,7 @@
     "hc": "2d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 102
     }
   },
@@ -5873,7 +5873,7 @@
     "hc": "1d6",
     "surgery": "M",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 102
     }
   },
@@ -5886,7 +5886,7 @@
     "hc": "1d6+1",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 102
     }
   },
@@ -5899,7 +5899,7 @@
     "hc": "2d6",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 102
     }
   },
@@ -5912,7 +5912,7 @@
     "hc": "2d6",
     "surgery": "M",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 102
     }
   },
@@ -5925,7 +5925,7 @@
     "hc": "2",
     "surgery": "M",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 102
     }
   },
@@ -5938,7 +5938,7 @@
     "hc": "1d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 103
     }
   },
@@ -5951,7 +5951,7 @@
     "hc": "3d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 102
     }
   },
@@ -5964,7 +5964,7 @@
     "hc": "2d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 102
     }
   },
@@ -6005,7 +6005,7 @@
     "hc": ".5",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 13
     }
   },
@@ -6018,7 +6018,7 @@
     "hc": "1d6",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 35
     }
   },
@@ -6031,7 +6031,7 @@
     "hc": "3d6",
     "surgery": "M",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 35
     }
   },
@@ -6044,7 +6044,7 @@
     "hc": "1",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 6
     }
   },
@@ -6057,7 +6057,7 @@
     "hc": "2",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 36
     }
   },
@@ -6070,7 +6070,7 @@
     "hc": "1",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 36
     }
   },
@@ -6097,7 +6097,7 @@
     "hc": "1d6+4",
     "surgery": "M",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 14
     }
   },
@@ -6193,7 +6193,7 @@
     "hc": "18d6+8",
     "surgery": "CRx2",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 93
     }
   },
@@ -6206,7 +6206,7 @@
     "hc": "23d6+3",
     "surgery": "CRx2",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 104
     }
   },
@@ -6219,7 +6219,7 @@
     "hc": "16d6+4",
     "surgery": "CRx2",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 98
     }
   },
@@ -6232,7 +6232,7 @@
     "hc": "16d6",
     "surgery": "CRx2",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 66
     }
   },
@@ -6245,7 +6245,7 @@
     "hc": "18d6+2",
     "surgery": "CRx2",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 68
     }
   },
@@ -6271,7 +6271,7 @@
     "hc": "19d6",
     "surgery": "CRx2",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 75
     }
   },
@@ -6284,7 +6284,7 @@
     "hc": "19d6",
     "surgery": "CRx2",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 69
     }
   },
@@ -6297,7 +6297,7 @@
     "hc": "42d6+3",
     "surgery": "CRx2",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 82
     }
   },
@@ -6310,7 +6310,7 @@
     "hc": "21d6+3",
     "surgery": "CRx2",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 71
     }
   },
@@ -6323,7 +6323,7 @@
     "hc": "21d6-2",
     "surgery": "CRx2",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 73
     }
   },
@@ -6336,7 +6336,7 @@
     "hc": "16d6+2",
     "surgery": "CRx2",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 77
     }
   },
@@ -6349,7 +6349,7 @@
     "hc": "19d6",
     "surgery": "CRx2",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 95
     }
   },
@@ -6362,7 +6362,7 @@
     "hc": "39d6",
     "surgery": "CRx2",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 100
     }
   },
@@ -6375,7 +6375,7 @@
     "hc": "20d6+1",
     "surgery": "CRx2",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 80
     }
   },
@@ -6388,7 +6388,7 @@
     "hc": "20d6",
     "surgery": "CRx2",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 78
     }
   },
@@ -6401,7 +6401,7 @@
     "hc": "6d6",
     "surgery": "CRx2",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 107
     }
   },
@@ -6414,7 +6414,7 @@
     "hc": "1d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 107
     }
   },
@@ -6427,7 +6427,7 @@
     "hc": "2",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 85
     }
   },
@@ -6440,7 +6440,7 @@
     "hc": "2",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 85
     },
     "desc": ""
@@ -6454,7 +6454,7 @@
     "hc": "2",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 85
     }
   },
@@ -6467,7 +6467,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 84
     }
   },
@@ -6480,7 +6480,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 84
     }
   },
@@ -6493,7 +6493,7 @@
     "hc": "2",
     "surgery": "CR",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 85
     }
   },
@@ -6506,7 +6506,7 @@
     "hc": "1",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 85
     }
   },
@@ -6519,7 +6519,7 @@
     "hc": "2",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 85
     }
   },
@@ -6532,7 +6532,7 @@
     "hc": "6",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 85
     }
   },
@@ -6545,7 +6545,7 @@
     "hc": "Varies",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 84
     }
   },
@@ -6586,7 +6586,7 @@
     "hc": "1d6/2",
     "surgery": "M",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 25
     }
   },
@@ -6599,7 +6599,7 @@
     "hc": "1d6/2",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 9
     }
   },
@@ -6612,7 +6612,7 @@
     "hc": "1d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 10
     }
   },
@@ -6638,7 +6638,7 @@
     "hc": "1d6/2",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 30
     }
   },
@@ -6692,7 +6692,7 @@
     "hc": "1d6+4",
     "surgery": "CR",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 37
     }
   },
@@ -6732,7 +6732,7 @@
     "hc": "2d6+1",
     "surgery": "CRx2",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 28
     }
   },
@@ -6745,7 +6745,7 @@
     "hc": "2d6+3",
     "surgery": "CRx2",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 28
     }
   },
@@ -6758,7 +6758,7 @@
     "hc": "1",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 38
     }
   },
@@ -6797,7 +6797,7 @@
     "hc": "1",
     "surgery": "M",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 6
     }
   },
@@ -6915,7 +6915,7 @@
     "hc": "1d6",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 38
     }
   },
@@ -6955,7 +6955,7 @@
     "hc": "3",
     "surgery": "MA",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 24
     }
   },
@@ -7063,7 +7063,7 @@
     "hc": "1d6+2",
     "surgery": "M",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 31
     }
   },
@@ -7076,7 +7076,7 @@
     "hc": "50% HC",
     "surgery": "N",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 5
     }
   },
@@ -7089,7 +7089,7 @@
     "hc": "1d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 37
     }
   },
@@ -7102,7 +7102,7 @@
     "hc": "1d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 37
     }
   },
@@ -7169,7 +7169,7 @@
     "hc": "1d6+1",
     "surgery": "MA",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 36
     }
   },
@@ -7236,7 +7236,7 @@
     "hc": "1d6/2",
     "surgery": "M",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 8
     }
   },
@@ -7262,7 +7262,7 @@
     "hc": "1d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 37
     }
   },
@@ -7275,7 +7275,7 @@
     "hc": "1d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 37
     }
   },
@@ -7288,7 +7288,7 @@
     "hc": "0",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 38
     }
   },
@@ -7301,7 +7301,7 @@
     "hc": "1d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 35
     }
   },
@@ -7314,7 +7314,7 @@
     "hc": "1d6/2",
     "surgery": "M",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 6
     }
   },
@@ -7327,7 +7327,7 @@
     "hc": "1d6+4",
     "surgery": "MA",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 8
     }
   },
@@ -7354,7 +7354,7 @@
     "hc": "1d6+2",
     "surgery": "MA",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 7
     }
   },
@@ -7367,7 +7367,7 @@
     "hc": "1d6+3",
     "surgery": "MA",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 7
     }
   },
@@ -7380,7 +7380,7 @@
     "hc": "2d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 7
     }
   },
@@ -7393,7 +7393,7 @@
     "hc": "1d2",
     "surgery": "MA",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 7
     }
   },
@@ -7406,7 +7406,7 @@
     "hc": "1d3",
     "surgery": "MA",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 7
     }
   },
@@ -7419,7 +7419,7 @@
     "hc": "1d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 7
     }
   },
@@ -7432,7 +7432,7 @@
     "hc": "3d6",
     "surgery": "CR",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 7
     }
   },
@@ -7445,7 +7445,7 @@
     "hc": "1d6/2+1",
     "surgery": "CR",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 7
     }
   },
@@ -7458,7 +7458,7 @@
     "hc": "1d6",
     "surgery": "CR",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 7
     }
   },
@@ -7471,7 +7471,7 @@
     "hc": "1d6+2",
     "surgery": "CR",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 7
     }
   },
@@ -7484,7 +7484,7 @@
     "hc": "1d6+3",
     "surgery": "CR",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 7
     }
   },
@@ -7497,7 +7497,7 @@
     "hc": "2d6",
     "surgery": "CR",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 7
     }
   },
@@ -7510,7 +7510,7 @@
     "hc": "2d6+2",
     "surgery": "CR",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 7
     }
   },
@@ -7523,7 +7523,7 @@
     "hc": "1d2",
     "surgery": "CR",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 7
     }
   },
@@ -7536,7 +7536,7 @@
     "hc": "1d3",
     "surgery": "CR",
     "source": {
-      "book": "Chr2",
+      "book": "CHR2",
       "page": 7
     }
   },
@@ -7549,7 +7549,7 @@
     "hc": "4d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 34
     }
   },
@@ -7562,7 +7562,7 @@
     "hc": "6d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 34
     }
   },
@@ -7669,7 +7669,7 @@
     "hc": "2",
     "surgery": "N",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 26
     },
     "abbrev": "BWPC"
@@ -7725,7 +7725,7 @@
     "hc": "1d6+3",
     "surgery": "M",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 14
     },
     "abbrev": "CDC"
@@ -7767,7 +7767,7 @@
     "hc": "1d6/2",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 13
     },
     "abbrev": "ESC"
@@ -7824,7 +7824,7 @@
     "hc": "2d6",
     "surgery": "M",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 24
     },
     "abbrev": "LWPLG"
@@ -7838,7 +7838,7 @@
     "hc": "1d6",
     "surgery": "N",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 15
     },
     "abbrev": "LKDN"
@@ -7866,7 +7866,7 @@
     "hc": "1d6/2",
     "surgery": "N",
     "source": {
-      "book": "Chr1",
+      "book": "CHR1",
       "page": 38
     },
     "abbrev": "MDLPG"
@@ -7894,7 +7894,7 @@
     "hc": "2d6",
     "surgery": "MA",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 33
     },
     "abbrev": "M100PLG"
@@ -7992,7 +7992,7 @@
     "hc": "2d6",
     "surgery": "CR",
     "source": {
-      "book": "Chr3",
+      "book": "CHR3",
       "page": 23
     },
     "abbrev": "ACBD"
@@ -8020,7 +8020,7 @@
     "hc": "2",
     "surgery": "M",
     "source": {
-      "book": "Chr4",
+      "book": "CHR4",
       "page": 15
     },
     "abbrev": "TAB"
