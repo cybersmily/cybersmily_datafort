@@ -16,18 +16,20 @@ export class CyberdeckListComponent implements OnInit {
   columns: Array<DataListColumnParameters> = [
     {
       header: 'name',
+      headerClass: 'col-3 text-small',
       property: 'name',
       filters: 'contains',
       inputType: 'text',
-      class: 'col-4 col-md-2',
+      class: 'col-3 text-small',
       sort: 'name',
     },
     {
       header: 'type',
-      property: 'type',
+      headerClass: 'col-3 text-small',
+      property: 'type.name',
       filters: 'filter',
       inputType: '',
-      class: 'col-3 col-md-2',
+      class: 'col-3 text-small',
       sort: 'type.name',
       filterValues: [
         { key: 'cellular', value: 'cellular' },
@@ -40,34 +42,38 @@ export class CyberdeckListComponent implements OnInit {
     },
     {
       header: 'spd',
+      headerClass: 'col-1 text-center text-small',
       property: 'speed',
       filters: 'contains',
       inputType: 'text',
-      class: 'col-2 d-none d-md-inline-block',
+      class: 'col-1 text-center text-small',
       sort: 'speed',
     },
     {
       header: 'mu',
-      property: 'totalmu',
+      headerClass: 'col-1 text-center text-small',
+      property: 'totalMU',
       filters: null,
       inputType: 'number',
-      class: 'text-center col-1',
-      sort: 'totalmu',
+      class: 'text-center col-1 text-small',
+      sort: 'totalMU',
     },
     {
       header: 'cost',
+      headerClass: 'col-1 text-center text-small',
       property: 'bookPrice',
       filters: null,
       inputType: 'number',
-      class: 'text-center col-1',
+      class: 'text-center col-1 text-small',
       sort: 'bookPrice',
     },
     {
       header: 'source',
+      headerClass: 'col-3 text-small',
       property: 'source',
       filters: 'sourcebook',
       inputType: 'text',
-      class: 'col-2 d-none d-md-inline-block',
+      class: 'col-3 text-small',
       sort: 'source.book',
       isSourcebook: true,
     },
@@ -80,7 +86,9 @@ export class CyberdeckListComponent implements OnInit {
       .GetJson(JsonDataFiles.CP2020_CYBERDECK_LIST_JSON)
       .pipe(
         map((data: Array<Cp2020Cyberdeck>) =>
-          data.sort((a, b) => a.name.localeCompare(b.name))
+          data
+            .map((deck) => new Cp2020Cyberdeck(deck))
+            .sort((a, b) => a.name.localeCompare(b.name))
         )
       );
   }
