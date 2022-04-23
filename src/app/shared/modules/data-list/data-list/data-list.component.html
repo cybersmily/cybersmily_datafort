@@ -6,11 +6,7 @@
       class="p-0 p-md-1 p-lg-2"
     >
       {{ col.header }}
-      <button
-        *ngIf="col.sortable"
-        class="csd-btn ms-1"
-        (click)="toggleSort(col)"
-      >
+      <button *ngIf="col.sort" class="csd-btn ms-1" (click)="toggleSort(col)">
         <fa-icon [icon]="isSorted(col) ? faSortUp : faSortDown"></fa-icon>
       </button>
     </div>

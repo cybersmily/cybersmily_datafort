@@ -36,11 +36,8 @@ export class DataListComponent implements OnInit {
             exact: param.filters === 'filter',
           };
         }
-        if (param.sortable) {
-          if (param.isSourcebook) {
-            return { prop: 'source.book', desc: false }; // need to hard code this as the property is an object
-          }
-          return { prop: param.property, desc: false };
+        if (param.sort) {
+          return { prop: param.sort, desc: false };
         }
       })
       .filter((entry) => entry);

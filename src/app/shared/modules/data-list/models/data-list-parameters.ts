@@ -5,7 +5,7 @@ export interface DataListColumnParameters {
   property: string;
   filters: string;
   class: string;
-  sortable: boolean;
-  filterValues: Array<KeyValue<string, string>>;
-  isSourcebook: boolean;
+  sort?: string;
+  filterValues?: Array<KeyValue<string, string>>;
+  isSourcebook?: boolean;
 }
