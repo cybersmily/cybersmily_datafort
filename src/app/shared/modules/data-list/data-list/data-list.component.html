@@ -1,0 +1,83 @@
+<div class="csd-rounded">
+  <div
+    class="csd-rounded bg-secondary text-light text-uppercase text-xsmall row"
+  >
+    <div
+      *ngFor="let col of columnsParameters"
+      [ngClass]="col.class"
+      class="p-0 p-md-1 p-lg-2"
+    >
+      <span>{{ col.header }}</span>
+      <button
+        *ngIf="col.sortable"
+        class="csd-btn p-0"
+        (click)="toggleSort(col)"
+      >
+        <fa-icon [icon]="isSorted(col) ? faSortUp : faSortDown"></fa-icon>
+      </button>
+    </div>
+  </div>
+  <div class="text-xsmall row">
+    <div
+      *ngFor="let col of columnsParameters"
+      [ngClass]="col.class"
+      class="p-0 p-md-1 p-lg-2"
+    >
+      <select
+        *ngIf="col?.filters === 'filter' && col.filterValues?.length > 0"
+        (change)="refreshFilter()"
+        [(ngModel)]="searchFilter[col.property].value"
+        class="w-100"
+      >
+        <option [value]="''">All</option>
+        <option *ngFor="let entry of col.filterValues" [value]="entry.key">
+          {{ entry.value }}
+        </option>
+      </select>
+      <input
+        *ngIf="col?.filters === 'contains'"
+        [type]="col.inputType"
+        [(ngModel)]="searchFilter[col.property].value"
+        (keyup)="refreshFilter()"
+        class="w-100"
+      />
+      <input
+        *ngIf="col?.filters === 'sourcebook'"
+        type="text"
+        [(ngModel)]="sourceFilter"
+        (keyup)="refreshFilter()"
+        class="w-100"
+      />
+    </div>
+  </div>
+  <div
+    *ngFor="
+      let entry of dataList
+        | filterby: searchFilter
+        | sourcebookFilter: sourceFilter
+        | orderby: sortOrder
+    "
+    class="text-xsmall border-bottom border-dark row"
+  >
+    <ng-container *ngFor="let col of columnsParameters">
+      <div
+        *ngIf="!col.isSourcebook; else sourcebook"
+        [ngClass]="col.class"
+        class="p-1 p-lg-2"
+      >
+        {{
+          col.inputType === "number"
+            ? (entry[col.property] | number)
+            : entry[col.property]
+        }}
+      </div>
+      <ng-template #sourcebook>
+        <div [ngClass]="col.class" class="p-1 p-lg-2">
+          {{ entry[col.property]?.book | sourcebook }} pg.{{
+            entry[col.property]?.page
+          }}
+        </div>
+      </ng-template>
+    </ng-container>
+  </div>
+</div>
