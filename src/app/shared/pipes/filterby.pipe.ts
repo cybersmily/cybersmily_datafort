@@ -1,5 +1,6 @@
 import { SearchFilters } from './../models/search-filters';
 import { Pipe, PipeTransform } from '@angular/core';
+import { get } from 'lodash';
 
 @Pipe({
   name: 'filterby',
@@ -21,18 +22,16 @@ export class FilterbyPipe implements PipeTransform {
     return value.filter((value) => {
       let result = true;
       for (let key in searchFilters) {
-        if (searchFilters[key]?.value !== '' && !searchFilters[key]?.exact) {
+        const searchItem = searchFilters[key]?.value + '';
+        const exact = searchFilters[key]?.exact;
+        const item = get(value, key) + '';
+        if (searchItem !== '' && !exact) {
           result =
-            result &&
-            value[key]
-              ?.toLowerCase()
-              .includes(searchFilters[key]?.value?.toLowerCase());
+            result && item?.toLowerCase().includes(searchItem?.toLowerCase());
         }
-        if (searchFilters[key]?.value !== '' && searchFilters[key]?.exact) {
+        if (searchItem !== '' && exact) {
           result =
-            result &&
-            value[key]?.toLowerCase() ===
-              searchFilters[key]?.value?.toLowerCase();
+            result && value[key]?.toLowerCase() === searchItem?.toLowerCase();
         }
       }
       return result;
