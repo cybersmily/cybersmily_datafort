@@ -1,10 +1,11 @@
 <div class="container">
-  <h2>Master Programs List</h2>
+  <h2>Master Cyberdeck List</h2>
   <div>
     This is the master list of all cyberdecks with their sources. Search is
     based on what the field starts with. Sources were pulled from R. Talsorian
     and the Interface magazines.
   </div>
+  <br />
   <div class="row">
     <div class="col-12">
       <cs-data-list
@@ -13,30 +14,4 @@
       ></cs-data-list>
     </div>
   </div>
-  <table class="mstr-skill-table csd-rounded w-100">
-    <tr class="csd-rounded bg-secondary text-light">
-      <th class="text-center">Name</th>
-      <th class="text-center">Type</th>
-      <th class="text-center prog-stat">Spd</th>
-      <th class="text-center prog-stat">MU</th>
-      <th class="text-center">Book Cost</th>
-      <th class="text-center">Source</th>
-    </tr>
-    <tr
-      *ngFor="let deck of deckList$ | async"
-      style="vertical-align: top"
-      class="prog-row"
-    >
-      <td class="">{{ deck.name }}</td>
-      <td class="">{{ deck.type.name }}</td>
-      <td class="text-center prog-stat">
-        {{ deck.speed > 0 ? "+" : "" }}{{ deck.speed }}
-      </td>
-      <td class="text-center prog-stat">{{ deck.totalMU }}</td>
-      <td class="text-center">{{ deck.bookPrice | number }}eb</td>
-      <td class="text-center small">
-        {{ deck.source?.book | sourcebook }} pg. {{ deck.source?.page }}
-      </td>
-    </tr>
-  </table>
 </div>

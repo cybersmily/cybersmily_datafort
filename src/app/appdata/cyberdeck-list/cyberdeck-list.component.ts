@@ -1,3 +1,4 @@
+import { SeoService } from './../../shared/services/seo/seo.service';
 import { DataListColumnParameters } from './../../shared/modules/data-list/models/data-list-parameters';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -79,9 +80,17 @@ export class CyberdeckListComponent implements OnInit {
     },
   ];
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService, private seo: SeoService) {}
 
   ngOnInit(): void {
+    this.initialize();
+  }
+
+  initialize(): void {
+    this.seo.updateMeta(
+      'Cyberpunk 2020 Cyberdeck List',
+      "2022-03, Cybersmily's Datafort Cyberpunk 2020 Cyberdeck List from all sources and search capability."
+    );
     this.deckList$ = this.dataService
       .GetJson(JsonDataFiles.CP2020_CYBERDECK_LIST_JSON)
       .pipe(
