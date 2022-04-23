@@ -1,16 +1,14 @@
-<div class="csd-rounded">
-  <div
-    class="csd-rounded bg-secondary text-light text-uppercase text-xsmall row"
-  >
+<div>
+  <div class="bg-secondary text-light text-uppercase text-small row txt-bold">
     <div
       *ngFor="let col of columnsParameters"
       [ngClass]="col.class"
       class="p-0 p-md-1 p-lg-2"
     >
-      <span>{{ col.header }}</span>
+      {{ col.header }}
       <button
         *ngIf="col.sortable"
-        class="csd-btn p-0"
+        class="csd-btn ms-1"
         (click)="toggleSort(col)"
       >
         <fa-icon [icon]="isSorted(col) ? faSortUp : faSortDown"></fa-icon>
