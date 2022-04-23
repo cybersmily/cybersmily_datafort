@@ -2,6 +2,7 @@ import { SearchFilters } from './../../../models/search-filters';
 import { faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
 import { Component, Input, OnInit } from '@angular/core';
 import { DataListColumnParameters } from '../models/data-list-parameters';
+import { get } from 'lodash';
 
 @Component({
   selector: 'cs-data-list',
@@ -41,6 +42,10 @@ export class DataListComponent implements OnInit {
         }
       })
       .filter((entry) => entry);
+  }
+
+  getValue(item: any, prop: string): any {
+    return get(item, prop);
   }
 
   refreshFilter() {
