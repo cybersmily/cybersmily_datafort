@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { get } from 'lodash';
 
 @Pipe({
   name: 'orderby',
@@ -42,12 +43,13 @@ export class OrderbyPipe implements PipeTransform {
 
   recursiveSort(item1, item2, properties: Array<any>): number {
     const property = properties[0].prop;
-    if (properties.length > 1 && item1[property] === item2[property]) {
+    let value1 = get(item1, property);
+    let value2 = get(item2, property);
+
+    if (properties.length > 1 && value1 === value2) {
       return this.recursiveSort(item1, item2, properties.slice(1));
     }
-    const test = properties[0].desc
-      ? item1[property] > item2[property]
-      : item1[property] < item2[property];
+    const test = properties[0].desc ? value1 > value2 : value1 < value2;
     return test ? -1 : 1;
   }
 }
