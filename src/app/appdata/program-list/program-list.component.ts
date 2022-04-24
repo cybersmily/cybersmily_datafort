@@ -85,7 +85,7 @@ export class ProgramListComponent implements OnInit {
       headerClass: 'col-2 text-center text-small',
       property: 'options',
       filters: 'contains',
-      inputType: 'text',
+      inputType: 'array',
       class: 'text-center col-2 text-xsmall',
     },
     {
