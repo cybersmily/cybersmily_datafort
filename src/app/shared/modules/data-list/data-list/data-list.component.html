@@ -59,11 +59,18 @@
         [ngClass]="col.class"
         class="p-1 p-lg-2"
       >
-        {{
-          col.inputType === "number"
-            ? (getValue(entry, col.property) | number)
-            : getValue(entry, col.property)
-        }}
+        <div *ngIf="col.inputType !== 'array'; else entryList">
+          {{
+            col.inputType === "number"
+              ? (getValue(entry, col.property) | number)
+              : getValue(entry, col.property)
+          }}
+        </div>
+        <ng-template #entryList>
+          <ul>
+            <li *ngFor="let item of entry[col.property]">{{ item }}</li>
+          </ul>
+        </ng-template>
       </div>
       <ng-template #sourcebook>
         <div [ngClass]="col.class" class="p-1 p-lg-2">
