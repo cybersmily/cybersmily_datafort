@@ -1,8 +1,12 @@
+import { DataListColumnParameters } from './../../shared/modules/data-list/models/data-list-parameters';
 import { Observable } from 'rxjs';
 import { faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { WeaponDataService } from './../../shared/cp2020/cp2020weapons/services';
-import { DataWeapon, WeaponProperties } from './../../shared/cp2020/cp2020weapons/models';
+import {
+  DataWeapon,
+  WeaponProperties,
+} from './../../shared/cp2020/cp2020weapons/models';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,70 +15,166 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./wpn-list.component.css'],
 })
 export class WpnListComponent implements OnInit {
-  faSortDown = faSortDown;
-  faSortUp = faSortUp;
-
   wpnList$: Observable<Array<DataWeapon>>;
-  categories = WeaponProperties.categories;
-  weaponTypes = WeaponProperties.types;
   availabilities = WeaponProperties.availabilities;
   concealments = WeaponProperties.concealments;
   reliabilites = WeaponProperties.reliabilites;
 
-  filters = {
-    category: '',
-    subcategory: '',
-    name: '',
-    type: '',
-    source: '',
-    conc: '',
-    avail: '',
-    rel: '',
-    damage: '',
-    ammo: ''
-  };
-
-  sortOrder = [
-    {prop: 'category', desc: false},
-    {prop: 'subcategory', desc: false},
-    {prop: 'name', desc: false},
-    {prop: 'type', desc: false},
-    {prop: 'conc', desc: false},
-    {prop: 'avail', desc: false},
-    {prop: 'rel', desc: false},
-    {prop: 'damage', desc: false},
-    {prop: 'ammo', desc: false},
-    {prop: 'wa', desc: false},
-    {prop: 'shots', desc: false},
-    {prop: 'rof', desc: false},
-    {prop: 'cost', desc: false},
-    {prop: 'range', desc: false}
+  columns: Array<DataListColumnParameters> = [
+    {
+      header: 'category',
+      headerClass: 'col-2 d-none d-md-inline-block text-xsmall',
+      property: 'category',
+      filters: 'filter',
+      filterValues: WeaponProperties.categories.map((cat) => ({
+        key: cat,
+        value: cat,
+      })),
+      inputType: 'text',
+      class: 'col-2 d-none d-md-inline-block text-xsmall',
+      sort: 'category',
+    },
+    {
+      header: 'subcategory',
+      headerClass: 'col-1 d-none d-md-inline-block text-xsmall',
+      property: 'subcategory',
+      filters: 'contains',
+      inputType: 'text',
+      class: 'col-1 d-none d-md-inline-block text-xsmall',
+      sort: 'subcategory',
+    },
+    {
+      header: 'name',
+      headerClass: 'col-3 col-md-2 text-xsmall',
+      property: 'name',
+      filters: 'contains',
+      inputType: 'text',
+      class: 'col-3 col-md-2 text-small',
+      sort: 'name',
+    },
+    {
+      header: 'type',
+      headerClass: 'col text-xsmall text-center',
+      property: 'type',
+      filters: 'filter',
+      filterValues: WeaponProperties.types.map((t) => ({
+        key: t.code,
+        value: t.name,
+      })),
+      inputType: 'text',
+      class: 'col text-xsmall text-center',
+      sort: 'type',
+    },
+    {
+      header: 'wa',
+      headerClass: 'col text-xsmall text-center',
+      property: 'wa',
+      filters: 'contains',
+      inputType: 'text',
+      class: 'col text-xsmall text-center',
+      sort: 'wa',
+    },
+    {
+      header: 'conc.',
+      headerClass: 'col d-none d-md-inline-block text-xsmall text-center',
+      property: 'conc',
+      filters: 'filter',
+      filterValues: WeaponProperties.concealments.map((t) => ({
+        key: t.code,
+        value: t.name,
+      })),
+      inputType: 'text',
+      class: 'col d-none d-md-inline-block text-xsmall text-center',
+      sort: 'conc',
+    },
+    {
+      header: 'avail.',
+      headerClass: 'col d-none d-md-inline-block text-xsmall text-center',
+      property: 'avail',
+      filters: 'filter',
+      filterValues: WeaponProperties.availabilities.map((t) => ({
+        key: t.code,
+        value: t.name,
+      })),
+      inputType: 'text',
+      class: 'col d-none d-md-inline-block text-xsmall text-center',
+      sort: 'avail',
+    },
+    {
+      header: 'dmg',
+      headerClass: 'col text-xsmall',
+      property: 'damage',
+      filters: 'contains',
+      inputType: 'text',
+      class: 'col text-small',
+      sort: 'damage',
+    },
+    {
+      header: 'Shots',
+      headerClass: 'col text-xsmall',
+      property: 'shots',
+      filters: 'contains',
+      inputType: 'text',
+      class: 'col text-small',
+      sort: 'shots',
+    },
+    {
+      header: 'rof',
+      headerClass: 'col text-xsmall',
+      property: 'rof',
+      filters: 'contains',
+      inputType: 'text',
+      class: 'col text-small',
+      sort: 'rof',
+    },
+    {
+      header: 'cost',
+      headerClass: 'col text-xsmall',
+      property: 'cost',
+      filters: null,
+      inputType: 'number',
+      class: 'col text-small',
+      sort: 'cost',
+    },
+    {
+      header: 'rel.',
+      headerClass: 'col text-xsmall text-center',
+      property: 'rel',
+      filters: 'filter',
+      filterValues: WeaponProperties.reliabilites.map((t) => ({
+        key: t.code,
+        value: t.name,
+      })),
+      inputType: 'text',
+      class: 'col text-xsmall text-center',
+      sort: 'rel',
+    },
+    {
+      header: 'source',
+      headerClass: 'col-2 d-none d-md-inline-block text-xsmall',
+      property: 'source',
+      filters: 'sourcebook',
+      inputType: 'text',
+      class: 'col-2 d-none d-md-inline-block text-xsmall',
+      sort: 'source.book',
+      isSourcebook: true,
+    },
   ];
 
   constructor(
     private wpnDataService: WeaponDataService,
     private seo: SeoService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
+    this.initialize();
+  }
+
+  initialize() {
     this.seo.updateMeta(
       'Cyberpunk 2020 Master Weapon List',
       "2020-09, Cybersmily's Datafort Cyberpunk 2020 Master Weapon List is a complied list of weapons from Cyberpunk 2020 source books."
     );
     this.wpnList$ = this.wpnDataService.WeaponList;
-  }
-
-  isSorted(property: string): boolean {
-    return this.sortOrder.find( sort => sort.prop === property).desc;
-  }
-
-  toggleSort(property: string) {
-    const index = this.sortOrder.findIndex( sort => sort.prop === property);
-    this.sortOrder[index].desc = !this.sortOrder[index].desc;
-    // reorder the list
-    this.sortOrder.splice(0, 0, this.sortOrder.splice(index, 1)[0]);
-    // force the pipe to re-evaluate
-    const arr = this.sortOrder.filter(a => a.prop);
-    this.sortOrder = arr;
   }
 }
