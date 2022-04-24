@@ -1,53 +1,14 @@
 <div class="container">
   <h2>Master Roles List</h2>
-  <div>This is the master list of all Roles with their sources.
-    I took some liberty with salaries on ones that weren't offically posted.
-    Search is based on what the field starts with.
-    Sources were pulled from R. Talsorian and the Interface magazines.
+  <div>
+    This is the master list of all Roles with their sources. I took some liberty
+    with salaries on ones that weren't offically posted. Search is based on what
+    the field starts with. Sources were pulled from R. Talsorian and the
+    Interface magazines.
   </div>
-  <table class="mstr-role-table csd-rounded">
-    <tr class="csd-rounded bg-secondary text-light">
-      <th class="text-center">Role</th>
-      <th class="text-center">Base Role</th>
-      <th class="text-center">Special Ability</th>
-      <th class="text-center">Skills</th>
-      <th class="text-center">Secondary Skills</th>
-      <th class="text-center">Salary</th>
-      <th class="text-center">Source</th>
-    </tr>
-    <tr class="csd-rounded">
-      <td><input [(ngModel)]="filters.role" type="search" placeholder="search on role" class="mstr-role-search"/></td>
-      <td><input [(ngModel)]="filters.base" type="search" placeholder="search on base role" class="mstr-role-search"/></td>
-      <td><input [(ngModel)]="filters.sa" type="search" placeholder="search on special ability" class="mstr-role-search"/></td>
-      <td><input [(ngModel)]="filters.skill" type="search" placeholder="search on special ability" class="mstr-role-search"/></td>
-      <td></td>
-      <td></td>
-      <td><input [(ngModel)]="filters.source" type="search" placeholder="search on source" class="mstr-role-search"/></td>
-    </tr>
-    <ng-container *ngFor="let role of roleList$ | async |filter:'name':filters.role|filter:'base':filters.base|filter:'specialability.name':filters.sa|sourcebookFilter:filters.source|filter:'skills':filters.skill">
-    <tr style="vertical-align: top;">
-      <td>{{role.name}}</td>
-      <td>{{role.base}}</td>
-      <td>{{role.specialability.name}}({{role.specialability.stat}})</td>
-      <td class="role-skills">
-        <div *ngFor="let sk of role.skills">{{getSkill(sk)}}</div>
-      </td>
-      <td class="role-skills">
-        <div *ngFor="let sk of role.secondary">{{getSkill(sk)}}</div>
-      </td>
-      <td class="role-salaries">
-        <div>1-5: {{role.salary[0]}}eb</div>
-        <div>&nbsp;&nbsp;6: {{role.salary[1]}}eb</div>
-        <div>&nbsp;&nbsp;7: {{role.salary[2]}}eb</div>
-        <div>&nbsp;&nbsp;8: {{role.salary[3]}}eb</div>
-        <div>&nbsp;&nbsp;9: {{role.salary[4]}}eb</div>
-        <div>&nbsp;10: {{role.salary[5]}}eb</div>
-      </td>
-      <td title="{{role.source|sourcebook}}">{{role.source|sourcebook}} pg. {{role.page}}</td>
-    </tr>
-    <tr>
-
-    </tr>
-  </ng-container>
-  </table>
-  </div>
+  <br />
+  <cs-data-list
+    [dataList]="roleList$ | async"
+    [columnsParameters]="columns"
+  ></cs-data-list>
+</div>
