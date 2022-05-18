@@ -62,7 +62,11 @@
 	{"name":"Fireproofing"       ,"mod":{"lt":4.0,"med":3.0,"hvy":1.5},"desc":"", "effect":"SP20 vs. flame damage"},
 	{"name":"Polylog Material"   ,"mod":3,"desc":"", "effect":"4 different colors. Damaged by EMP/electrical pulses. 5 in 10 chance of malfunctioning in bad conditions (heavy dirt/moisture, etc.)"},
 	{"name":"Reacti-Mesh Panels" ,"mod":2,"desc":"", "effect":"Extra comfort."},
-	{"name":"Polychromic Material","mod":5,"desc":"", "effect":""}
+	{"name":"Polychromic Material","mod":5,"desc":"", "effect":""},
+  {"name":"Surveillance Clothing (x5)","mod":5,"desc":"", "effect":"Woven in cameras and other surveillance gear"},
+  {"name":"Surveillance Clothing (x6)","mod":6,"desc":"", "effect":"Woven in cameras and other surveillance gear"},
+  {"name":"Surveillance Clothing (x7)","mod":7,"desc":"", "effect":"Woven in cameras and other surveillance gear"},
+  {"name":"Radar Absorbent","mod":10,"desc":"", "effect":"Disperse IR, Radar. Invisible to UV."}
 ],
 "armorChart":[
 	{"sp":0,"mod":{"lt":1,   "med":1, "hvy":1 }, "ev":{"lt":0,  "med":0,"hvy":0}},
