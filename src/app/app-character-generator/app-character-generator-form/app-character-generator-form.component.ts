@@ -8,15 +8,35 @@ import { Cp2020ArmorBlock } from './../../shared/cp2020/cp2020-armor/models/cp20
 import { Cp2020PlayerCyberList } from './../../shared/cp2020/cp2020-cyberware/models';
 import { CpPlayerWeaponList } from './../../shared/cp2020/cp2020weapons/models';
 import { SeoService } from './../../shared/services/seo/seo.service';
-import { FileLoaderService, SaveFileService } from './../../shared/services/file-services';
-import { faDice, faUpload, faFilePdf, faSave, faUndo, faQuestionCircle, faChevronRight, faChevronDown, faCog } from '@fortawesome/free-solid-svg-icons';
+import {
+  FileLoaderService,
+  SaveFileService,
+} from './../../shared/services/file-services';
+import {
+  faDice,
+  faUpload,
+  faFilePdf,
+  faSave,
+  faUndo,
+  faQuestionCircle,
+  faChevronRight,
+  faChevronDown,
+  faCog,
+} from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerSkills } from './../../shared/cp2020/cp2020-skills/models/cp2020-player-skills';
 import { LifePathResults } from './../../shared/cp2020/cp2020-lifepath/models';
 import { Cp2020PlayerGearList } from './../../shared/models/cp2020character/cp2020-player-gear-list';
 import { Cp2020StatBlock } from '../../shared/cp2020/cp2020-stats/models/cp2020-stat-block';
 import { Cp2020PlayerCharacter } from './../../shared/models/cp2020character/cp2020-player-character';
 import { Cp2020CharacterGeneratorService } from './../../shared/services/chargen/cp2020-character-generator.service';
-import { Component, OnInit, ViewChild, ElementRef, TemplateRef, Renderer2 } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  TemplateRef,
+  Renderer2,
+} from '@angular/core';
 import { Cp2020PlayerRole } from '../../shared/cp2020/cp2020-role/models/cp2020-player-role';
 import { Cp2020characterToPDF } from './../../shared/models/pdf/cp2020characterToPDF';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -40,8 +60,8 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   faCog = faCog;
 
   isCollapsed = false;
-  get collapseChevron():any {
-    return (this.isNotesCollapsed) ? this.faChevronRight : this.faChevronDown;
+  get collapseChevron(): any {
+    return this.isNotesCollapsed ? this.faChevronRight : this.faChevronDown;
   }
 
   character: Cp2020PlayerCharacter;
@@ -54,7 +74,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   modalRef: BsModalRef;
   config = {
     keyboard: true,
-    class: 'modal-dialog-centered modal-lg'
+    class: 'modal-dialog-centered modal-lg',
   };
 
   focusElem: ElementRef;
@@ -62,12 +82,11 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   @ViewChild('pdfCP2020Character', { static: false })
   pdfCP2020Character: ElementRef;
 
-  @ViewChild('charGenSettingElem', { static: false})
+  @ViewChild('charGenSettingElem', { static: false })
   settingsElem: ElementRef;
 
-  @ViewChild('charGenInstructions', { static: false})
+  @ViewChild('charGenInstructions', { static: false })
   instructionElem: ElementRef;
-
 
   constructor(
     private characterService: Cp2020CharacterGeneratorService,
@@ -79,7 +98,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     private deckmanagerPDFService: Cp2020DeckmanagerPdfSectionService,
     private seo: SeoService,
     private renderer: Renderer2
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.seo.updateMeta(
@@ -90,17 +109,15 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
       this.character = data;
       this.loadSettings();
       this.charGenSettings.isIU = this.character.isIU;
-      this.saveSettings( this.charGenSettings);
+      this.saveSettings(this.charGenSettings);
       this.isNotesCollapsed = this.charGenSettings.isCollapsed;
     });
-    this.sourceService
-    .getSources()
-    .subscribe( sources => {
+    this.sourceService.getSources().subscribe((sources) => {
       this.sources = sources;
     });
   }
 
-  changeCharacter(){
+  changeCharacter() {
     this.characterService.changeCharacter(this.character);
   }
 
@@ -161,15 +178,14 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     this.characterService.changeSkills(value);
   }
 
-  changeImage(value: string) { }
+  changeImage(value: string) {}
 
   changeRep(value: number) {
     this.characterService.changeRep(value);
   }
 
   resetCharacter() {
-    this.characterService
-    .clearCharacter(this.charGenSettings.isIU);
+    this.characterService.clearCharacter(this.charGenSettings.isIU);
   }
 
   updateNotes() {
@@ -189,7 +205,10 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   }
 
   createPDF() {
-    const characterToPDF = new Cp2020characterToPDF(this.armorPDFService, this.deckmanagerPDFService);
+    const characterToPDF = new Cp2020characterToPDF(
+      this.armorPDFService,
+      this.deckmanagerPDFService
+    );
     characterToPDF.generatePdf(this.character);
   }
 
@@ -203,22 +222,28 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   loadCharacter($event) {
     this.fileLoader
       .importJSON($event.target.files[0])
-      .subscribe((data) => this.characterService.changeCharacter(data) );
+      .subscribe((data) => this.characterService.changeCharacter(data));
   }
 
   loadSettings() {
-    const settings:string = window.localStorage.getItem(this.charGenSettingsKey);
+    const settings: string = window.localStorage.getItem(
+      this.charGenSettingsKey
+    );
     this.charGenSettings = new Cp2020CharGenSettings(JSON.parse(settings));
     this.setSkillSettingStats();
   }
 
   saveSettings(settings: Cp2020CharGenSettings) {
-    if(settings.isIU !== this.charGenSettings.isIU) {
+    if (settings.isIU !== this.charGenSettings.isIU) {
       this.characterService.changeIU(settings.isIU);
     }
-    this.charGenSettings = new Cp2020CharGenSettings(this.charGenSettings);
+    this.charGenSettings = new Cp2020CharGenSettings(settings);
     this.setSkillSettingStats();
-    window.localStorage.setItem(this.charGenSettingsKey, JSON.stringify(this.charGenSettings));
+    console.log(this.charGenSettings);
+    window.localStorage.setItem(
+      this.charGenSettingsKey,
+      JSON.stringify(this.charGenSettings)
+    );
   }
 
   setSkillSettingStats() {
@@ -232,7 +257,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
 
   closeModal(elemName?: string) {
     this.modalRef.hide();
-    switch(elemName) {
+    switch (elemName) {
       case 'settings':
         this.settingsElem.nativeElement.focus();
         break;
@@ -244,18 +269,22 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
 
   get combatSense(): number {
     let result = 0;
-    if (this.character.role.specialAbility.name.toLowerCase() === 'combatsense'
-      || this.character.role.specialAbility.name.toLowerCase() === 'combat sense') {
+    if (
+      this.character.role.specialAbility.name.toLowerCase() === 'combatsense' ||
+      this.character.role.specialAbility.name.toLowerCase() === 'combat sense'
+    ) {
       result = this.character.role.specialAbility.value;
     }
     return result;
   }
 
   get initiative(): number {
-    if (!this.character.isIU){
+    if (!this.character.isIU) {
       return -1;
     }
-    const found = this.character.skills.skills.find(sk => sk.name.toLowerCase() === 'initiative');
+    const found = this.character.skills.skills.find(
+      (sk) => sk.name.toLowerCase() === 'initiative'
+    );
     return found ? found.value : 0;
   }
 }
