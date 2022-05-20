@@ -9,9 +9,13 @@
       </div>
     </div>
   </div>
+  <br />
   <div class="row">
     <div class="col-12">
-      <cs-cp2020-equipment-list [isEditable]="true"></cs-cp2020-equipment-list>
+      <cs-data-list
+        [dataList]="gearList$ | async"
+        [columnsParameters]="columns"
+      ></cs-data-list>
     </div>
   </div>
 </div>

@@ -1,0 +1,8601 @@
+[
+	{
+		"category": "SURVEILLANCE",
+		"name": "Advanced Alarm Removal Kit",
+		"notes": "TECH +1 vs card/voco-locks;  security scanners;  movement sensors",
+		"cost": 290,
+		"wt": 3,
+		"source":{"book": "Chr1", "page": 14}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Advanced Communications Suitcase",
+		"notes": "",
+		"cost": 8000,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 4}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Advanced Communications Suitcase w/short wave",
+		"notes": "",
+		"cost": 8800,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 4}
+	},
+	{
+		"category": "TOOLS",
+		"name": "A-Frame",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 53}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Air (1min)",
+		"notes": "Fresh Oxygen",
+		"cost": 5,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Air Compressor",
+		"notes": "",
+		"cost": 600,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 53}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Airhypo",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Alessio' Coveralls",
+		"notes": "",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 7}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "All-Weather Fire Starter",
+		"notes": "",
+		"cost": 5,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 55}
+	},
+	{
+		"category": "MUSICAL EQUIPMENT",
+		"name": "Amplifier",
+		"notes": "Price is average 500-1000",
+		"cost": 800,
+		"wt": 4,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Anti-Pusuit Liquids: BadFumes 1 l.",
+		"notes": "Covers 3 sq. m.; DIFF 20 vs BOD or Resist Drugs",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 69}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Anti-Pusuit Liquids: FireFun 1 l.",
+		"notes": "Covers 3 sq. m.; 3d6/3 turns/30sec",
+		"cost": 700,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 69}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Anti-Pusuit Liquids: Stickum 1 l.",
+		"notes": "Covers 3 sq. m.; DIFF 25 vs Strenght Feat",
+		"cost": 400,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 69}
+	},
+	{
+		"category": "FURNITURE",
+		"name": "Apartment Cube",
+		"notes": "10'x10'x8' fully furnished",
+		"cost": 5000,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "HOUSING",
+		"name": "Apt./Condo 1 room - Combat Zone (1mo)",
+		"notes": "",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "HOUSING",
+		"name": "Apt./Condo 1 room - Corporate Zone (1mo)",
+		"notes": "",
+		"cost": 800,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "HOUSING",
+		"name": "Apt./Condo 1 room - Executive Zone (1mo)",
+		"notes": "",
+		"cost": 1200,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "HOUSING",
+		"name": "Apt./Condo 1 room - Moderate Zone (1mo)",
+		"notes": "",
+		"cost": 400,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "Aquamax' Tank Unit",
+		"notes": "60min; 50m;EV+1",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "SF", "page": 29}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Arc Furnace",
+		"notes": "consumes 300eb of power in a day",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 4}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Armor Inserts (1 location)",
+		"notes": "SP +5; Max SP 20; ",
+		"cost": 40,
+		"wt": 0,
+		"source":{"book": "SW", "page": 34}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Armor Saver Drink",
+		"notes": "restores 2SP of Skinweave",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 72}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Armored Bearskin Hat",
+		"notes": "SP 10",
+		"cost": 75,
+		"wt": 0,"source":{"book": "CB3", "page": 72}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Armored Stockings",
+		"notes": "SP 6; EV 0",
+		"cost": 110,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 28}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Audio Editing Module/Console",
+		"notes": "",
+		"cost": 400,
+		"wt": 0,
+		"source":{"book": "I2.1", "page": 37}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Audio Support Hardware",
+		"notes": "",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "I2.1", "page": 36}
+	},
+	{
+		"category": "CYBERDECK OPTION",
+		"name": "Auto Punchout",
+		"notes": "Inititative rolls -5",
+		"cost": 330,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 8}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Automapper",
+		"notes": "",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 16}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Automapper w/interface",
+		"notes": "",
+		"cost": 220,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 16}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Automedic",
+		"notes": "Has MedTech +10 First Aid +15;",
+		"cost": 12000,
+		"wt": 30,
+		"source":{"book": "HOB", "page": 80}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Automedic: Basic",
+		"notes": "3 drugs;70%;+1 First Aid",
+		"cost": 300,
+		"wt": 1,
+		"source":{"book": "SW", "page": 46}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Automedic: Basic w/internal Biomonitor",
+		"notes": "1",
+		"cost": 420,
+		"wt": 0,
+		"source":{"book": "SW", "page": 46}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Automedic: Deluxe",
+		"notes": "5 drugs;+2/+3 First Aid",
+		"cost": 1000,
+		"wt": 2.5,
+		"source":{"book": "SW", "page": 46}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Autotanner",
+		"notes": "+1 ATT for 1D6 days",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 33}
+	},
+	{
+		"category": "TOOLS",
+		"name": "B&E Tools",
+		"notes": "",
+		"cost": 120,
+		"wt": 1,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Backpack Statellite Uplink",
+		"notes": "72 hrs; ",
+		"cost": 1000,
+		"wt": 15,
+		"source":{"book": "SW ", "page": 47}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Backpack Stove",
+		"notes": "",
+		"cost": 20,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 54}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "Ballistex Marine Survival Vest",
+		"notes": "SP 14 chest; EV 1; EV 4 when inflated; SDP10 for bladders; -2 Swimming deflated; 3d10+20 hours floatation. ",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "CB3", "page": 31}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Ballistics Kit",
+		"notes": "15 SP case",
+		"cost": 600,
+		"wt": 0,
+		"source":{"book": "PS", "page": 40}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Bar-in-a-Briefcase",
+		"notes": "server up to 10 people",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 16}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Basic Tech Kit",
+		"notes": "",
+		"cost": 500,
+		"wt": 1,
+		"source":{"book": "NEO", "page": 53}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Battlefield Sensor:  Radio Sensor",
+		"notes": "radio & radar;70%",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "SW", "page": 48}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Battlefield Sensor: Audio",
+		"notes": "Notice+10",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "SW", "page": 48}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Battlefield Sensor: Visual Sensor",
+		"notes": "50m",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "SW", "page": 48}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Battlefield Sensors: Base Station",
+		"notes": "2km monitor;50km trans",
+		"cost": 1500,
+		"wt": 0,
+		"source":{"book": "SW", "page": 48}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Battlefield Sensors: Extended Range",
+		"notes": "4km monitor;100km trans",
+		"cost": 2000,
+		"wt": 0,
+		"source":{"book": "SW", "page": 48}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Battlefield Sensors: Satellite Uplink",
+		"notes": "unlimited transmission range",
+		"cost": 3000,
+		"wt": 0,
+		"source":{"book": "SW", "page": 48}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Battlegloves",
+		"notes": "3 spaces of standar cyberarm weapon or option except Hydraulic Arm; Crush 3d6; Punch 2d6;",
+		"cost": 900,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 67}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Battlesuit",
+		"notes": "SP 25 head/torso/arms/legs; RSP 6; 8hrs; BOD +1; EV 2",
+		"cost": 50000,
+		"wt": 0,
+		"source":{"book": "DS", "page": 52}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "Beacon Transponders",
+		"notes": "30km range",
+		"cost": 25,
+		"wt": 0,
+		"source":{"book": "SF", "page": 32}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Bearskin Hat",
+		"notes": "",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "CB3", "page": 72}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Berserker",
+		"notes": "+2 BOD; +2 CL; +1 REF; 1d6+1 min",
+		"cost": 40,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 17}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "Big Blue' Rebreather",
+		"notes": "10hrs;100m;+2",
+		"cost": 2600,
+		"wt": 0,
+		"source":{"book": "SF", "page": 30}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Binoculars",
+		"notes": "laser range finder",
+		"cost": 20,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Binoglasses",
+		"notes": "",
+		"cost": 200,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "COMPUTER",
+		"name": "Black Book' Microcomp",
+		"notes": "As E-Book with EMP shielding and SP15",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 15}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Black Lace",
+		"notes": "+3 Stun Save; +2 CL; 1d6+1 hour",
+		"cost": 65,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 123}
+	},
+	{
+		"category": "MUSICAL EQUIPMENT",
+		"name": "BlackBox' Synthamp",
+		"notes": "vocal synth",
+		"cost": 800,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 25}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Blackjack Stealth Armor",
+		"notes": "SP 16; EV 2; +3 Stealth; 4-hr Life support; Radar invisible (90%); Low-lite/Anti-dazzle/Targeting Scope/Times Square Plus optics;",
+		"cost": 10000,
+		"wt": 0,
+		"source":{"book": "SW", "page": 35}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Blanket License 1 year",
+		"notes": "Covers alcohol/tobacco/typical medicine",
+		"cost": 25,
+		"wt": 0,
+		"source":{"book": "WS", "page": 80}
+	},
+	{
+		"category": "DEMOLITION",
+		"name": "Blasting Cap",
+		"notes": "",
+		"cost": 5,
+		"wt": 0,
+		"source":{"book": "LU", "page": 106}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Blood Substitute (pint)",
+		"notes": "Stabilize attempts +1;  requires 3 pints",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 6}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Blood Tester",
+		"notes": "",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "PS", "page": 40}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Blue Glass",
+		"notes": "+1 hallucinogen; 1d6+1 min",
+		"cost": 9,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 123}
+	},
+	{
+		"category": "MUSICAL EQUIPMENT",
+		"name": "Body Rhythm Amp",
+		"notes": "Requires bracelets",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 26}
+	},
+	{
+		"category": "MUSICAL EQUIPMENT",
+		"name": "Body Rhythm Dance Bracelets (pair)",
+		"notes": "15m range; Use Play Instrument or Dance; requirs amp",
+		"cost": 400,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 26}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Bodyfree Masks",
+		"notes": "ATTR +1; +2 with DIFF20 vs Personal Grooming",
+		"cost": 600,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 20}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Bodyfree Masks with smog filter",
+		"notes": "ATTR +1; +2 with DIFF20 vs Personal Grooming",
+		"cost": 650,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 20}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Bodysculpt - Change Appearance AVG",
+		"notes": "DIFF 15 to notice",
+		"cost": 1200,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 121}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Bodysculpt - Change Appearance DIFF",
+		"notes": "DIFF 20 to notice",
+		"cost": 2400,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 121}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Bodysculpt - Change Appearance NI",
+		"notes": "DIFF 30 to notice",
+		"cost": 5000,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 121}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Bodysculpt - Change Appearance V DIFF",
+		"notes": "DIFF 25 to notice",
+		"cost": 3600,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 121}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Bodysculpt - Facial ",
+		"notes": "Muzzle; Whiskers; Animal ears; etc�",
+		"cost": 5000,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 121}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Bodysculpt - Increase Attractiveness (per pt)",
+		"notes": "+1 ATT",
+		"cost": 600,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 121}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Bodysculpt - Skin Alteration",
+		"notes": "Fur; Scales;  exotic skin color; 1 in 10 develop skin cancer",
+		"cost": 10000,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 121}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Bodysculpt - Tail",
+		"notes": "Add vat grown tail",
+		"cost": 3000,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 121}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Bodyscuplt - Hooves/Claws/Paws",
+		"notes": "-2 REF when using hands/feet",
+		"cost": 8000,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 121}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Bone Glue",
+		"notes": "heals 1/2 damage taken to limb",
+		"cost": 25,
+		"wt": 0,
+		"source":{"book": "SW", "page": 46}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Boost",
+		"notes": "+1 INT; 1d6+1 hour",
+		"cost": 6,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 123}
+	},
+	{
+		"category": "VEHICLE ACCESSORY",
+		"name": "Booster Pack",
+		"notes": "+1 MA to manpowered vehicles",
+		"cost": 350,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 18}
+	},
+	{
+		"category": "BRAINDANCE",
+		"name": "Braindance Chip (Buying)",
+		"notes": "60 minutes ",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "RB", "page": 54}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Braindance Editing Unit",
+		"notes": "",
+		"cost": 26000,
+		"wt": 0,
+		"source":{"book": "RB", "page": 64}
+	},
+	{
+		"category": "BRAINDANCE",
+		"name": "Braindance Playback Unit",
+		"notes": "",
+		"cost": 1500,
+		"wt": 0,
+		"source":{"book": "RB", "page": 54}
+	},
+	{
+		"category": "BRAINDANCE",
+		"name": "Braindance Recording Unit",
+		"notes": "",
+		"cost": 12000,
+		"wt": 0,
+		"source":{"book": "RB", "page": 64}
+	},
+	{
+		"category": "BRAINDANCE",
+		"name": "Braindance Vending Unit",
+		"notes": "",
+		"cost": 2000,
+		"wt": 0,
+		"source":{"book": "RB", "page": 62}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Breathers",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "DS", "page": 57}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Breathing Mask",
+		"notes": "",
+		"cost": 30,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Breathing Mask - Filters (10pk)",
+		"notes": "",
+		"cost": 1,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "SECURITY",
+		"name": "BRL-3014 Window Trembler",
+		"notes": "Stops Laser-mikes",
+		"cost": 120,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 20}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Bubble Shelter - 1Man",
+		"notes": "1km beacon; 24 hour air/water supply per person;",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "DS", "page": 52}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Bubble Shelter - 4 Man",
+		"notes": "1km beacon; 24 hour air/water supply per person;",
+		"cost": 600,
+		"wt": 0,
+		"source":{"book": "DS", "page": 52}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Bubble Shelter - 6 Man",
+		"notes": "1km beacon; 24 hour air/water supply per person;",
+		"cost": 800,
+		"wt": 0,
+		"source":{"book": "DS", "page": 52}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Bubble Shelter - Emergency",
+		"notes": "3km beacon; 24 hour air supply; 1 person;",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "DS", "page": 52}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Bug Detector",
+		"notes": "6m radius; 80% reliable",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 20}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Bug Jammer",
+		"notes": "10m radius; 80% reliable",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 20}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Bug Weapon Chip",
+		"notes": "Elect 25 & 5 min to find",
+		"cost": 25,
+		"wt": 0,
+		"source":{"book": "SW", "page": 47}
+	},
+	{
+		"category": "REMOTE/DRONES",
+		"name": "Bumblebee' Remote Rotocraft",
+		"notes": "CM -2; SDP 25; SP6; Speed 120mph; Range 250 miles ",
+		"cost": 4000,
+		"wt": 35,
+		"source":{"book": "Chr2", "page": 31}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Bungee Cords",
+		"notes": "Range of sizes",
+		"cost": 10,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 53}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Cab Hailer",
+		"notes": "1D6 min wait; ",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 5}
+	},
+	{
+		"category": "SERVICE",
+		"name": "Cab Hailer Subscription - monthly",
+		"notes": "",
+		"cost": 10,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 5}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Cable TV (1mo)",
+		"notes": "",
+		"cost": 40,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "SERVICE",
+		"name": "Call Forwarding",
+		"notes": "",
+		"cost": 5,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 13}
+	},
+	{
+		"category": "SERVICE",
+		"name": "Call Waiting",
+		"notes": "",
+		"cost": 5,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 13}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Canteen",
+		"notes": "1 l.",
+		"cost": 10,
+		"wt": 1,
+		"source":{"book": "HOB", "page": 81}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Canteen (Personal)",
+		"notes": "",
+		"cost": 10,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 54}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Canteen 10l",
+		"notes": "10 litre",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 54}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Cardlock - High",
+		"notes": "DIFF 25",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Cardlock - Low",
+		"notes": "DIFF 15",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Cardlock - Maximum",
+		"notes": "DIFF 30",
+		"cost": 400,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Cardlock - Medium",
+		"notes": "DIFF 20",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Cardlock Decryptor",
+		"notes": "+5 Electronic Security vs Cardlocks",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Carfaxx 2002",
+		"notes": "",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 8}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "C-Ballistic Mesh",
+		"notes": "SP 15; Worn over Skin Tight Body Armor",
+		"cost": "",
+		"wt": 0,
+		"source":{"book": "i1.1", "page": 9}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Cellular Phone",
+		"notes": "",
+		"cost": 400,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Cellular Phone",
+		"notes": " Mini",
+		"cost": 800,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Cellular Service",
+		"notes": " 1 month",
+		"cost": 20,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Char",
+		"notes": "+3 COOL; -3EMP; 1d10+1 min",
+		"cost": 5,
+		"wt": 0,
+		"source":{"book": "WS", "page": 81}
+	},
+	{
+		"category": "DEMOLITION",
+		"name": "Chemical Delay Fuse",
+		"notes": "",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "LU", "page": 106}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Child Care - Child Creche (1 day)",
+		"notes": "",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "NC", "page": 11}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Child Care - Safe Child (1 day)",
+		"notes": "",
+		"cost": 350,
+		"wt": 0,
+		"source":{"book": "NC", "page": 11}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "Chipreaders",
+		"notes": "1 option slot; 10 chips; 1 chip access/INT",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 70}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Ciamplo' Gloves",
+		"notes": "",
+		"cost": 400,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 8}
+	},
+	{
+		"category": "REMOTE/DRONES",
+		"name": "Cleaning Bot",
+		"notes": "",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Climbing Spikes",
+		"notes": "+2 Climb; 1D6+3*",
+		"cost": 75,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 15}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Climbing Spikes w/Interface Control",
+		"notes": "+2 Climb; 1D6+3*",
+		"cost": 140,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 15}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Clinic Visit",
+		"notes": "",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Clone Limb Replacement",
+		"notes": "",
+		"cost": 1500,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Code Decryptor",
+		"notes": "+5 vs. Cardlocks",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "HOUSING",
+		"name": "Coffin - Combat Zone (1 night)",
+		"notes": "",
+		"cost": 20,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "HOUSING",
+		"name": "Coffin - Corporate Zone (1 night)",
+		"notes": "",
+		"cost": 80,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "HOUSING",
+		"name": "Coffin - Executive Zone (1 night)",
+		"notes": "",
+		"cost": 120,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "HOUSING",
+		"name": "Coffin - Moderate Zone (1 night)",
+		"notes": "",
+		"cost": 40,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Combo Flash",
+		"notes": "",
+		"cost": 5,
+		"wt": 0,
+		"source":{"book": "DS", "page": 55}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "CompuMod - Bug Detector",
+		"notes": "2MU; 6m radius; 80% reliable",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 18}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "CompuMod - Bug Jammer",
+		"notes": "1MU; 10m radius; 80% reliable",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 18}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "CompuMod - Credit Transactor",
+		"notes": "1 MU",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 18}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "CompuMod - Drug Analyzer",
+		"notes": "4MU; 75% reliable",
+		"cost": 75,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 18}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "CompuMod - Lie Detector",
+		"notes": "3MU; 65% reliable; 75% w/ Voice Stress Analyzer",
+		"cost": 400,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 18}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "CompuMod - Medscanner",
+		"notes": "5MU; +1 Diagnosis",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 18}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "CompuMod - Radar Detector",
+		"notes": "2MU; 60% reliable",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 18}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "CompuMod - Signal Tracker",
+		"notes": "2MU; 80% reliable",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 18}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "CompuMod - Techscanner",
+		"notes": "5MU; 60% reliable with a -3 bonus",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 18}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "CompuMod - Voice Stress Anallyzer",
+		"notes": "3MU; +2 Human Perception and Interrogation",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 18}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Concert ticket",
+		"notes": "",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Contact Lenses",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Contact Lenses (Businesswear)",
+		"notes": "",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Contact Lenses (Generic Chic)",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Contact Lenses (High Fashion)",
+		"notes": "",
+		"cost": 400,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Contact Lenses (Leisurewear)",
+		"notes": "",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Contact Lenses (Urban Flash)",
+		"notes": "",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "CYBERFORM OPTION",
+		"name": "Controller with cybernetic-interface",
+		"notes": "Control Modifer +2 instead of current",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 91}
+	},
+	{
+		"category": "MUSICAL EQUIPMENT",
+		"name": "Cordless Microphone",
+		"notes": "1000ft",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "RB", "page": 21}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Cred Chip Account (1mo)",
+		"notes": "",
+		"cost": 20,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Cred Chip R/W M",
+		"notes": "",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "WS", "page": 57}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Cred Chip WORM",
+		"notes": "",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "WS", "page": 57}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Cryotank",
+		"notes": "",
+		"cost": 100000,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "CYBERDECK OPTION",
+		"name": "CTD Add-on",
+		"notes": "",
+		"cost": "",
+		"wt": 0,
+		"source":{"book": "WS", "page": 75}
+	},
+	{
+		"category": "FURNITURE",
+		"name": "Cushion",
+		"notes": " Large",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 56}
+	},
+	{
+		"category": "FURNITURE",
+		"name": "Cushion",
+		"notes": " Medium",
+		"cost": 30,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 56}
+	},
+	{
+		"category": "FURNITURE",
+		"name": "Cushion",
+		"notes": " Small",
+		"cost": 10,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 56}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "Cutting Torch Fuel Slugs",
+		"notes": "requires Cutting Torch",
+		"cost": 30,
+		"wt": 0.5,
+		"source":{"book": "SF", "page": 32}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Cutting Torch",
+		"notes": " backpack",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Cutting Torch",
+		"notes": " Hand Held",
+		"cost": 40,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "Cutting Torch - Nautical",
+		"notes": "10 SP/rnd; max 40SP;",
+		"cost": 50,
+		"wt": 1,
+		"source":{"book": "SF", "page": 32}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Cutting Torch -  Thermite lance",
+		"notes": "",
+		"cost": 600,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "MUSICAL EQUIPMENT",
+		"name": "Cyber MIDI Effects Controller",
+		"notes": "",
+		"cost": 2000,
+		"wt": 0,
+		"source":{"book": "RB", "page": 26}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Cyber Scanner",
+		"notes": "",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "PS", "page": 40}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Cybercam EX-1",
+		"notes": "Live editing",
+		"cost": 1200,
+		"wt": 2.2,
+		"source":{"book": "Chr1", "page": 13}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Cybercast",
+		"notes": "Equal to a full rest; -2 all actions using limb",
+		"cost": 3000,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 7}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Cybercast 1 day  Rental",
+		"notes": "",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 7}
+	},
+	{
+		"category": "CYBERDECK OPTION",
+		"name": "Cyberdeck battery 1hour",
+		"notes": "For computer last 15 minutes",
+		"cost": 5,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 71}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Cyberleg Restraint System",
+		"notes": "",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 39}
+	},
+	{
+		"category": "PHONE UPGRADES",
+		"name": "Cybermodem Interface",
+		"notes": "-1 Interface",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 33}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Cyberpillow Cases",
+		"notes": "For the Cyberpillow implant",
+		"cost": 10,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 26}
+	},
+	{
+		"category": "MUSICAL EQUIPMENT",
+		"name": "Cybertechnic' Guitar",
+		"notes": "+1 Play Instrument",
+		"cost": 1200,
+		"wt": 0,
+		"source":{"book": "RB", "page": 21}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Data Cache(100MU)",
+		"notes": "100 MU;SDP 15;SP 30",
+		"cost": 8000,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 47}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Data Cache(200MU)",
+		"notes": "200 MU;SDP 15;SP 30",
+		"cost": 10500,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 47}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Data Cache(300MU)",
+		"notes": "300 MU;SDP 15;SP 30",
+		"cost": 13000,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 47}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Data Chip",
+		"notes": "",
+		"cost": 10,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Data Term Net Access (1 minute)",
+		"notes": "",
+		"cost": 1,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Data Term Use (1 min)",
+		"notes": "",
+		"cost": 1,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "Database Lvl 1",
+		"notes": "1/2 option slot; Success Library Use gets +1 to specific Expert skill",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 70}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "Database Lvl 2",
+		"notes": "1 option slot; Success Library Use gets +2 to specific Expert skill",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 70}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "Database Lvl 3",
+		"notes": "1.5 option slot; Success Library Use gets +3 to specific Expert skill",
+		"cost": 1500,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 70}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "Database Lvl 4",
+		"notes": "2 option slot;  Success Library Use gets +4 to specific Expert skill",
+		"cost": 2000,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 70}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "Dataports",
+		"notes": "1/2 option slot; Adds ports to datalines;  external memory and peripherals",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 70}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "Datashielding",
+		"notes": "20% cost of computer; EMP Shielding",
+		"cost": 0,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 17}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Datatel 2350A Vidphone - laptop",
+		"notes": "",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 12}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Datatel 2350A Vidphone - wall",
+		"notes": "",
+		"cost": 400,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 12}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Datatel Holotank",
+		"notes": "4' dia. X 7' tall",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 29}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Datatel Holotank - Medium",
+		"notes": "2' dia. X 3' tall",
+		"cost": 5000,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 29}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Datatel Holotank - Small",
+		"notes": "1' dia. x 1.5' tall",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 29}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "DataTel Mapmaker",
+		"notes": "",
+		"cost": 500,
+		"wt": 1,
+		"source":{"book": "Chr1", "page": 9}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "DataTel Mapmaker w/ Navstar ",
+		"notes": "location within 10m",
+		"cost": 900,
+		"wt": 1,
+		"source":{"book": "Chr1", "page": 9}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Datatel 'Treasurer' Datawatch",
+		"notes": "1 MU storage",
+		"cost": 55,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 16}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Dataterm Hardcopy (1page)",
+		"notes": "",
+		"cost": 0.5,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 217}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "Datawall +1",
+		"notes": "1/2 option slot; Max 10",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 72}
+	},
+	{
+		"category": "CYBERDECK OPTION",
+		"name": "Datawall +1",
+		"notes": "1/2 option slot; Max 10",
+		"cost": 1500,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 72}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "DDI Prayer Ware",
+		"notes": "",
+		"cost": 120,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 13}
+	},
+	{
+		"category": "CYBERDECK OPTION",
+		"name": "Dead Man's Handle",
+		"notes": "All actions -3; roll 2d10 below REF to jack out before black ice hits",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 71}
+	},
+	{
+		"category": "CYBERDECK OPTION",
+		"name": "Deck Security System - Retina",
+		"notes": "",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 9}
+	},
+	{
+		"category": "CYBERDECK OPTION",
+		"name": "Deck Security System - Thumbprint",
+		"notes": "",
+		"cost": 400,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 9}
+	},
+	{
+		"category": "CYBERDECK OPTION",
+		"name": "Deckmate",
+		"notes": "Enable E-Book capability",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 24}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "Deepstar' Tank Unit",
+		"notes": "180min; 100m;+2",
+		"cost": 2000,
+		"wt": 0,
+		"source":{"book": "SF", "page": 29}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "Depth Charge' Multi-Role Dive System",
+		"notes": "10hrs;200m;+3;Rare",
+		"cost": 3250,
+		"wt": 0,
+		"source":{"book": "SF", "page": 30}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Dermal Stapler",
+		"notes": "",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "DEMOLITION",
+		"name": "Detcord High Explosive - 10m",
+		"notes": "Cuts throw SP40",
+		"cost": 900,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 13}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Detection Wand",
+		"notes": "10cm range;2hrs;",
+		"cost": 175,
+		"wt": 0.5,
+		"source":{"book": "Chr3", "page": 18}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Detention Collar",
+		"notes": "48hrs; shock(1d6/2) or drug (Difficult BOD or unconscious; 5 doses); 10m range",
+		"cost": 260,
+		"wt": 0.5,
+		"source":{"book": "Chr2", "page": 13}
+	},
+	{
+		"category": "DEMOLITION",
+		"name": "Detonation Wire",
+		"notes": "cost per meter",
+		"cost": 1,
+		"wt": 0,
+		"source":{"book": "LU", "page": 106}
+	},
+	{
+		"category": "DEMOLITION",
+		"name": "Detonator",
+		"notes": "",
+		"cost": 10,
+		"wt": 0,
+		"source":{"book": "LU", "page": 106}
+	},
+	{
+		"category": "CYBERDECK OPTION",
+		"name": "Diagnet",
+		"notes": "Testing deck and programs. +1 Cyberdeck Design and Programming",
+		"cost": 5000,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 71}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Diamond 4",
+		"notes": "+2 heal; Antibiotic; Antidote",
+		"cost": 17,
+		"wt": 0,
+		"source":{"book": "I1.3", "page": 12}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Digital Camera",
+		"notes": "",
+		"cost": 150,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Digital Chip Player",
+		"notes": "",
+		"cost": 150,
+		"wt": 1,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Digital Music Chip",
+		"notes": "",
+		"cost": 20,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Digital Recorder",
+		"notes": "",
+		"cost": 300,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "PHONE UPGRADES",
+		"name": "Digital Recorder - Phone",
+		"notes": "2 hours;",
+		"cost": 75,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 33}
+	},
+	{
+		"category": "MUSICAL EQUIPMENT",
+		"name": "Digital Recording Studio",
+		"notes": "",
+		"cost": 12000,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 12}
+	},
+	{
+		"category": "WEAPON ACCESSORY",
+		"name": "Digital Weapon Uplink",
+		"notes": "Unjam with +2 TECH",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 12}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Discovery line - 2 Piece",
+		"notes": "Taser when touched DIFF 25; 4 Charges;",
+		"cost": 1500,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 42}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Discovery line - 2 Piece Armored",
+		"notes": "SP 6 torso/arms/legs; Taser when touched DIFF 25; 4 Charges;",
+		"cost": 1725,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 42}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Discovery line - 2 Piece Battery",
+		"notes": "1 week life",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 42}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Discovery line - Jacket",
+		"notes": "Taser when touched DIFF 25; 5 Charges;",
+		"cost": 750,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 42}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Discovery line - Jacket Armored",
+		"notes": "SP 6 torso/arms; Taser when touched DIFF 25; 5 Charges;",
+		"cost": 975,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 42}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Discovery line - Jacket Battery",
+		"notes": "2 weeks life",
+		"cost": 75,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 42}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Discovery line - Jump-suit",
+		"notes": "Taser when touched DIFF 25; 6 Charges;",
+		"cost": 900,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 42}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Discovery line - Jump-suit Armored",
+		"notes": "SP 6 torso/arms/legs; Taser when touched DIFF 25; 6 Charges;",
+		"cost": 1125,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 42}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Discovery line - Jump-suit Battery",
+		"notes": "1 week life",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 42}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Discovery line - Shirt",
+		"notes": "Taser when touched DIFF 25; 3 Charges;",
+		"cost": 125,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 42}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Discovery line - Shirt Armored",
+		"notes": "SP 6 torso/arms; Taser when touched DIFF 25; 3 Charges;",
+		"cost": 450,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 42}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Discovery line - Shirt Battery",
+		"notes": "1 month life",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 42}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Distillation Rig",
+		"notes": "Process 50-100 gallons/day",
+		"cost": 400,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 54}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Distillation Rig (Personal)",
+		"notes": "Process a few gallons/day",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 54}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "Diving Suit",
+		"notes": "up to 10000ft depth for 2 hours; Requires 4 L.B.M. tanks",
+		"cost": 6000,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 15}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "Diving Suit L.B.M. Tank",
+		"notes": "30 minutes",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 15}
+	},
+	{
+		"category": "SECURITY",
+		"name": "DNA Scanner/Recorder",
+		"notes": "",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "PS", "page": 40}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Domitic System (1 sq. m)",
+		"notes": "Home management system;",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Door Gunner's Vest",
+		"notes": "SP 25 torso; EV 3",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 67}
+	},
+	{
+		"category": "DRUGS",
+		"name": "'Dorph",
+		"notes": "+2 Stun Saves; 1d6+1 turns",
+		"cost": 25,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 123}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Drink Bottle",
+		"notes": "holds 1 liter",
+		"cost": 2,
+		"wt": 1,
+		"source":{"book": "DS", "page": 56}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Drivers Test",
+		"notes": "Difficult Task",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "NC", "page": 8}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Drug Analyzer",
+		"notes": "",
+		"cost": 75,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Drug registration (1 year)",
+		"notes": "",
+		"cost": 10,
+		"wt": 0,
+		"source":{"book": "WS", "page": 80}
+	},
+	{
+		"category": "MUSICAL EQUIPMENT",
+		"name": "Drum Synth-Box",
+		"notes": "",
+		"cost": 150,
+		"wt": 3,
+		"source":{"book": "RB", "page": 21}
+	},
+	{
+		"category": "MUSICAL EQUIPMENT",
+		"name": "Drum Synthesizer",
+		"notes": "Price is average of 200-800",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "WEAPON ACCESSORY",
+		"name": "DUD Smartgun Controller",
+		"notes": "Data through cyberaudio and voice activate",
+		"cost": 720,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 12}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Duster Coat",
+		"notes": "",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 56}
+	},
+	{
+		"category": "CYBERDECK OPTION",
+		"name": "EBM 99080  'MUSE'",
+		"notes": "Isolates MU usaage for proection.",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 71}
+	},
+	{
+		"category": "COMPUTER",
+		"name": "E-Book' Microcomp",
+		"notes": "12MU; 5hr battery",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 14}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Echolocation Goggles",
+		"notes": "-1 Awareness in dark",
+		"cost": 1500,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 68}
+	},
+	{
+		"category": "SECURITY",
+		"name": "ECM Comm-Scrambler",
+		"notes": "minimum 5 minutes to crack",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 22}
+	},
+	{
+		"category": "PHONE UPGRADES",
+		"name": "ECM Scrambler",
+		"notes": "",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 33}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Eji Armored Cloak with Light Panels",
+		"notes": "SP 14 torso/arms/legs",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 64}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Eji Designer Jeans",
+		"notes": "",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 64}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Eji Wool Sweater",
+		"notes": "",
+		"cost": 60,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 64}
+	},
+	{
+		"category": "MUSICAL EQUIPMENT",
+		"name": "Electric Bass",
+		"notes": "",
+		"cost": 400,
+		"wt": 3,
+		"source":{"book": "RB", "page": 21}
+	},
+	{
+		"category": "MUSICAL EQUIPMENT",
+		"name": "Electric Guitar",
+		"notes": "Price is average of 100-500eb",
+		"cost": 300,
+		"wt": 3,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "MUSICAL EQUIPMENT",
+		"name": "Electronic Drum Kit",
+		"notes": "price is average",
+		"cost": 750,
+		"wt": 3,
+		"source":{"book": "RB", "page": 21}
+	},
+	{
+		"category": "MUSICAL EQUIPMENT",
+		"name": "Electronic Keyboard",
+		"notes": "price is average of 200-900",
+		"cost": 600,
+		"wt": 4,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Electronics Toolkit",
+		"notes": "",
+		"cost": 100,
+		"wt": 1,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Electro-stick Pad",
+		"notes": "",
+		"cost": 20,
+		"wt": 0,
+		"source":{"book": "DS", "page": 56}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "EMA-1 SoftShell",
+		"notes": "SP25; EV 0; Linear Frame 48 hr use;",
+		"cost": 8500,
+		"wt": 21,
+		"source":{"book": "SW", "page": 35}
+	},
+	{
+		"category": "PHONE UPGRADES",
+		"name": "Emergency Autodialer",
+		"notes": "6 numbers",
+		"cost": 25,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 33}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "Emergency Beacon Set",
+		"notes": "30km range;",
+		"cost": 150,
+		"wt": 2.5,
+		"source":{"book": "SF", "page": 32}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "EnduroDrink 1 can",
+		"notes": "Endurance +1",
+		"cost": 8,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 71}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Entrenching Tool",
+		"notes": "",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 53}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Enviroscanner",
+		"notes": "7m range;12hr;",
+		"cost": 400,
+		"wt": 1,
+		"source":{"book": "Chr2", "page": 11}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Esporma Environment Suit",
+		"notes": "SP10; SP30 vs corrosive chemicals. EV 3; 45min duration.",
+		"cost": 725,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 16}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "EVA Maneuver Unit - Hand Unit",
+		"notes": "150m/sec;30sec to prep",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "DS", "page": 52}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "EVA Maneuver Unit - Manned Maneuver",
+		"notes": "2000m/sec; 10min prep",
+		"cost": 3000,
+		"wt": 0,
+		"source":{"book": "DS", "page": 52}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "EVA Maneuver Unit - Nitrogen/CO2 Cartridge",
+		"notes": "",
+		"cost": 5,
+		"wt": 0,
+		"source":{"book": "DS", "page": 52}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "EVA Maneuver Unit - Small Backpack",
+		"notes": "500m/sec; 3min prep",
+		"cost": 800,
+		"wt": 0,
+		"source":{"book": "DS", "page": 52}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Evidence Bags",
+		"notes": "5 bags",
+		"cost": 6,
+		"wt": 0,
+		"source":{"book": "PS", "page": 41}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "EVPA Maintenance Kit",
+		"notes": "",
+		"cost": 1150,
+		"wt": 10,
+		"source":{"book": "SF", "page": 32}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Executive CTD",
+		"notes": "",
+		"cost": 5000,
+		"wt": 0,
+		"source":{"book": "WS", "page": 56}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Exo-Crutch",
+		"notes": "",
+		"cost": 15,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 41}
+	},
+	{
+		"category": "MUSICAL EQUIPMENT",
+		"name": "Exotic Percussion",
+		"notes": "price is average of 50-300",
+		"cost": 175,
+		"wt": 0,
+		"source":{"book": "RB", "page": 21}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "Expert Series Computer Skill Programs",
+		"notes": "1 MU + 1 MU/skill level; Base skill level 4; +1 lvl/100eb up to level 8",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 16}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Explosive Collar",
+		"notes": "6-30 mile signal area",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 35}
+	},
+	{
+		"category": "DEMOLITION",
+		"name": "Explosives Field Kit",
+		"notes": "",
+		"cost": 1500,
+		"wt": 30,
+		"source":{"book": "HOB", "page": 80}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Extendable Ski Poles",
+		"notes": "+1 maneuver",
+		"cost": 30,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 19}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "External Memory Module",
+		"notes": "10MU",
+		"cost": 750,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 70}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "F81 'Paradactyl' Variable-Geometry Cyber-glider",
+		"notes": "5-15mph coasting; +2 Parachuting/Hang-Gliding skill; SDP 10",
+		"cost": 2300,
+		"wt": 14.3,
+		"source":{"book": "SF", "page": 100}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Family Comlink",
+		"notes": "30-50km",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 57}
+	},
+	{
+		"category": "TOOLS",
+		"name": "'Farinata' Tech Tool Kit",
+		"notes": "Wardrobe & Style +1; Rep +1",
+		"cost": 350,
+		"wt": 1,
+		"source":{"book": "Chr3", "page": 9}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "Fast Food meal",
+		"notes": "",
+		"cost": 5,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "PHONE UPGRADES",
+		"name": "Fax Interface",
+		"notes": "",
+		"cost": 75,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 33}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Fax Plus 1000",
+		"notes": "10 hour battery",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 12}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Fibre-Optic Cable (1m)",
+		"notes": "Netrunner tasks +1",
+		"cost": 0.1,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 4}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Field Pack",
+		"notes": "",
+		"cost": 50,
+		"wt": "",
+		"source":{"book": "HOB", "page": 81}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Filter Mask",
+		"notes": "Filters 3",
+		"cost": 10,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 54}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Finger Booties",
+		"notes": "slip on prints",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "WS", "page": 64}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Fire Starter",
+		"notes": "",
+		"cost": 1,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 55}
+	},
+	{
+		"category": "DEMOLITION",
+		"name": "Fire-Based Fuse",
+		"notes": "cost per meter",
+		"cost": 5,
+		"wt": 0,
+		"source":{"book": "LU", "page": 106}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "First Aid",
+		"notes": "",
+		"cost": 10,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "First Aid/Snake Bite Kit",
+		"notes": "",
+		"cost": 20,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 55}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Flack Pants",
+		"notes": "SP 20 legs; EV 1;",
+		"cost": 200,
+		"wt": 3,
+		"source":{"book": "CP20", "page": 67}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Flack Vest",
+		"notes": "SP 20 torso; EV 1;",
+		"cost": 200,
+		"wt": 3,
+		"source":{"book": "CP20", "page": 67}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Flare Shelter",
+		"notes": "+3 flare protection;18 man-days",
+		"cost": 3000,
+		"wt": 0,
+		"source":{"book": "DS", "page": 56}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Flashlight",
+		"notes": "100-120 foot range",
+		"cost": 2,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Flashlight - Military",
+		"notes": "24 hrs; 120' range",
+		"cost": 20,
+		"wt": 0.5,
+		"source":{"book": "HOB", "page": 81}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Flashpaint (1pt.)",
+		"notes": "4 hrs",
+		"cost": 10,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Flashtape (1ft.)",
+		"notes": "6 hrs",
+		"cost": 10,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Flavored Cigarettes 1carton",
+		"notes": "Flavors: Jalapeno; Chocolate; Pizza; Smoked Beef; Strawberry; Hashish",
+		"cost": 15,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 16}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Flavored Cigarettes 1pk",
+		"notes": "Flavors: Jalapeno; Chocolate; Pizza; Smoked Beef; Strawberry; Hashish",
+		"cost": 2,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 16}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "Flopscreen",
+		"notes": "cost is per sq. foot",
+		"cost": 400,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 16}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Foolkiller",
+		"notes": "+3 CL;A/N & End; pat; 1d10+1 min",
+		"cost": 20,
+		"wt": 0,
+		"source":{"book": "I1.3", "page": 11}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Footwear - Businesswear",
+		"notes": "",
+		"cost": 75,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Footwear - Generic Chic",
+		"notes": "",
+		"cost": 25,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Footwear - High Fashion",
+		"notes": "",
+		"cost": 100,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Footwear - Leisurewear",
+		"notes": "",
+		"cost": 50,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Footwear - Urban Flash",
+		"notes": "",
+		"cost": 50,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Framed Backpack",
+		"notes": "",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 55}
+	},
+	{
+		"category": "TOOLS",
+		"name": "'Francesca' Techscanner",
+		"notes": "Tech diagnosis + 1; Wardrobe & Style +1",
+		"cost": 1200,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 8}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "Fresh Food (1wk)",
+		"notes": "",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Fridigair Bolthole",
+		"notes": "SP30",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "BB", "page": 97}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Frostech Portable Cryogenic Case",
+		"notes": "24hr; SP 10; SDP 5",
+		"cost": 250,
+		"wt": 2,
+		"source":{"book": "Chr2", "page": 13}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Full Plates SP 20 (1 location)",
+		"notes": "+1 EV if torso/legs/arms; (+3 total)",
+		"cost": 60,
+		"wt": 0,
+		"source":{"book": "SW", "page": 34}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Full Plates SP 25 (1 location)",
+		"notes": "+1 EV if torso/legs/arms; (+3 total)",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "SW", "page": 34}
+	},
+	{
+		"category": "FURNITURE",
+		"name": "Futon",
+		"notes": "",
+		"cost": 90,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "G-12 Cold Weather Combat Gear Balaclava",
+		"notes": "24 hr warmth generator. -70 C.",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "CB3", "page": 72}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "G-12 Cold Weather Combat Gear boots",
+		"notes": "24 hr warmth generator. -70 C.",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "CB3", "page": 72}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "G-12 Cold Weather Combat Gear Gloves",
+		"notes": "24 hr warmth generator. -70 C.",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "CB3", "page": 72}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "G-12 Cold Weather Combat Gear Jacket",
+		"notes": "EV 1; 24 hr warmth generator. -70 C.",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "CB3", "page": 72}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "G-12 Cold Weather Combat Gear Outfit",
+		"notes": "EV 1; 24 hr warmth generator. -70 C.",
+		"cost": 575,
+		"wt": 0,
+		"source":{"book": "CB3", "page": 72}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "G-12 Cold Weather Combat Gear pants",
+		"notes": "EV 1; 24 hr warmth generator. -70 C.",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "CB3", "page": 72}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Gas Mask",
+		"notes": "Filters 10",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 55}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "Generic Prepak (1 wk)",
+		"notes": "",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Gianni' Helmet",
+		"notes": "SP20; +10 to resist gases; With Smartgoggles",
+		"cost": 800,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 8}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Gibson Battlegear Cotton T-shirt",
+		"notes": "SP 10 torso",
+		"cost": 10,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 62}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Gibson Battlegear Denim Jacket",
+		"notes": "SP 14 torso/arms",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 62}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Gibson Battlegear IR Combat Cloak",
+		"notes": "Awareness/Notice -5 vs IR; EV2",
+		"cost": 450,
+		"wt": 2,
+		"source":{"book": "Chr1", "page": 15}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Gibson Battlegear Jeans",
+		"notes": "SP 16 legs",
+		"cost": 30,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 62}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Gibson Battlegear 'Sneak Suit'",
+		"notes": "SP 10; EV 0; Awareness/Notice -4 penalty;",
+		"cost": 560,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 28}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Gibson Battlegear 'Sneak Suit' Flak Vest",
+		"notes": "SP 16; EV 1; Awareness/Notice -4 penalty;",
+		"cost": 375,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 28}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Gibson Battlegear 'Sneak Suit' Helmet",
+		"notes": "SP 18; EV 0; Awareness/Notice -4 penalty;",
+		"cost": 185,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 28}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Gibson Battlegear 'Space Sneak Suit'",
+		"notes": "SP 8; EV 2; Awareness/Notice -4 penalty; 40minute air supply",
+		"cost": 2500,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 28}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Gibson Battlegear 'Space Sneak Suit' w/ Sonar Baffler",
+		"notes": "SP 8; EV 2; Awareness/Notice -4 penalty; 40minute air supply",
+		"cost": 3500,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 28}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Glasses - Businesswear",
+		"notes": "",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Glasses - Generic Chic",
+		"notes": "",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Glasses - High Fashion",
+		"notes": "",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Glasses - Leisurewear",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Glasses - Urban Flash",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "CYBERDECK OPTION",
+		"name": "Gloves and Goggles Interface",
+		"notes": "Interface -3; unaffected by anti-personnel",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 47}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Glowstik",
+		"notes": "red/green/blue for 6hrs; 6 in. tube",
+		"cost": 1,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "Good Prepak (1wk)",
+		"notes": "",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Goop Balls",
+		"notes": "cover a 5cm hole",
+		"cost": 0.2,
+		"wt": 0,
+		"source":{"book": "DS", "page": 57}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Grapple Line",
+		"notes": "100m;SDP 30;",
+		"cost": 60,
+		"wt": 3,
+		"source":{"book": "Chr3", "page": 15}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Grip Slippers",
+		"notes": "",
+		"cost": 5,
+		"wt": 0,
+		"source":{"book": "DS", "page": 56}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Guercio' Helmet",
+		"notes": "SP20; +10 to resist gases",
+		"cost": 600,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 8}
+	},
+	{
+		"category": "WEAPON ACCESSORY",
+		"name": "Gun Cam",
+		"notes": "10 images; records if finger on trigger",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 50}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Gun Cleaning Kit",
+		"notes": "Reduce time for Weapon Tech",
+		"cost": 50,
+		"wt": 1,
+		"source":{"book": "NEO", "page": 53}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Gun-Eye Camera",
+		"notes": "10-30min",
+		"cost": 200,
+		"wt": 0.2,
+		"source":{"book": "SW", "page": 46}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Gun-Eye Option: Cyberlinkage",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "SW", "page": 46}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Gun-Eye Option:Teleoptic sight",
+		"notes": "+1WA",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "SW", "page": 46}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Gun-Eye Options (LL;IR;Thermo;Anti-Dazzle)",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "SW", "page": 46}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Gun-Eye Options(image enhancement)",
+		"notes": "",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "SW", "page": 46}
+	},
+	{
+		"category": "MILITARY EQUIPMENT",
+		"name": "Gyro Mount",
+		"notes": "Negates firing from hip penalty",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "HOB", "page": 81}
+	},
+	{
+		"category": "FURNITURE",
+		"name": "Hammock",
+		"notes": "",
+		"cost": 20,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 56}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Hand Scanner",
+		"notes": "holds palm prints",
+		"cost": 350,
+		"wt": 0,
+		"source":{"book": "PS", "page": 40}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "Handbox' Datacartridge",
+		"notes": "Requies 'Handbox' Personal Comp; 1MU",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 63}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "Handbox' Foldable Touchpad",
+		"notes": "Requies 'Handbox' Personal Comp; ",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 63}
+	},
+	{
+		"category": "COMPUTER",
+		"name": "Handbox' Personal Comp",
+		"notes": "INT 1; 3 slots for datacartridges; 2 fiber-optic connectors",
+		"cost": 6700,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 63}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "Handbox' Removable Hard-Disk",
+		"notes": "Requies 'Handbox' Personal Comp; INT +1; Spd +1",
+		"cost": 140,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 63}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Hand-Crank Generator",
+		"notes": "",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 53}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Handcuffs",
+		"notes": "Strength Feat vs DIFF 30",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Hand-Driven Air Pump",
+		"notes": "",
+		"cost": 10,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 54}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Hands-free Comset",
+		"notes": "",
+		"cost": 30,
+		"wt": 0,
+		"source":{"book": "DS", "page": 56}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Happy Kill",
+		"notes": "+3 Endurance; Stun Save; 2d6 min",
+		"cost": 5,
+		"wt": 0,
+		"source":{"book": "CB2", "page": 26}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "Hardshell Maintenance Kit",
+		"notes": "Substitute as Tech Toolkit or Electronic Toolkit +5 DIFF",
+		"cost": 175,
+		"wt": 5,
+		"source":{"book": "SF", "page": 32}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Heads-up Display Goggles",
+		"notes": "Awareness/Notic bonus -3",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 17}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Heads-up Display Mirrorshades",
+		"notes": "Awareness/Notic bonus -3",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 17}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Heads-up Display Monocle",
+		"notes": "Awareness/Notic bonus -3",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 17}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Healing treatment - Nanite/Biotech",
+		"notes": "+1 pt healing/day; Req. Hospital",
+		"cost": 1500,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 117}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Healing Treatment - Speed Healing",
+		"notes": "+2 heal;-1d6/3 REF; 1d6+1 hour",
+		"cost": 165,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 117}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Health Plan (1mo)",
+		"notes": "",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Heavy Armor Jacket",
+		"notes": "SP 20 torso/arms; EV 2;",
+		"cost": 250,
+		"wt": 3,
+		"source":{"book": "CP20", "page": 67}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "Heavy Divesuit",
+		"notes": "10 hours;",
+		"cost": 0,
+		"wt": 0,
+		"source":{"book": "CB3", "page": 32}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Heavy Leather Jacket",
+		"notes": "SP 4 torso/arms; EV 0",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 67}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Heavy Leather Pants",
+		"notes": "SP 4 legs;",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 67}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "Helium/Oxygen/Nitrogen Mix Tank",
+		"notes": "",
+		"cost": 60,
+		"wt": 0,
+		"source":{"book": "SF", "page": 30}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "High Energy Field Ration",
+		"notes": "Typical MRE",
+		"cost": 1.5,
+		"wt": 0.5,
+		"source":{"book": "CB2", "page": 29}
+	},
+	{
+		"category": "FURNITURE",
+		"name": "Hiker's Chair",
+		"notes": "",
+		"cost": 15,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 56}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Holo Generator",
+		"notes": "",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Holographic Camera",
+		"notes": "used for other camera types at 2xcost of camera",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 30}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Holoscreen Holographic  Pocket TV",
+		"notes": "",
+		"cost": 160,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 29}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Holoscreen Holographic Player",
+		"notes": "",
+		"cost": 80,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 29}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Holoscreen Holographic Video Board",
+		"notes": "cost per 1 sq ft",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 29}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "Holovid Driver",
+		"notes": "1/2 option slot. Hooks to holodisplay",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 70}
+	},
+	{
+		"category": "WEAPON ACCESSORY",
+		"name": "Holster",
+		"notes": "",
+		"cost": 20,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 64}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Hospital (1day)",
+		"notes": "",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "CYBERDECK OPTION",
+		"name": "Hot Key' Pad",
+		"notes": "Interface -3; unaffected by anti-personnel",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 47}
+	},
+	{
+		"category": "HOUSING",
+		"name": "House 1 room - Combat Zone (1mo)",
+		"notes": "",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "HOUSING",
+		"name": "House 1 room - Corporate Zone (1mo)",
+		"notes": "",
+		"cost": 600,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "HOUSING",
+		"name": "House 1 room - Executive Zone (1mo)",
+		"notes": "",
+		"cost": 900,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "HOUSING",
+		"name": "House 1 room - Moderate Zone (1mo)",
+		"notes": "",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "COMPUTER",
+		"name": "Hybrid Wearable Computer",
+		"notes": "INT 2; 25MU",
+		"cost": 1000,
+		"wt": 2.1,
+		"source":{"book": "Chr2", "page": 19}
+	},
+	{
+		"category": "COMPUTER",
+		"name": "Hybrid Wearable Computer Chipped",
+		"notes": "INT 2; 25MU",
+		"cost": 1400,
+		"wt": 2.1,
+		"source":{"book": "Chr2", "page": 19}
+	},
+	{
+		"category": "COMPUTER",
+		"name": "Hybrid Wearable Computer Medicwear",
+		"notes": "INT 2; 25MU with Medscanner",
+		"cost": 2500,
+		"wt": 2.1,
+		"source":{"book": "Chr2", "page": 19}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Hype",
+		"notes": "+1 COOL; BODY Type; REF; Reduce wound level by 1; 1 hr; Lose 2 INT; 2d6 HC for 2d6 hrs",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 13}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "ICON America Bomber Jacket",
+		"notes": "",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 61}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "ICON America Boots",
+		"notes": "",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 61}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "ICON America Gun Belt",
+		"notes": "",
+		"cost": 60,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 61}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "ICON America 'Gunfighter' Hat",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 61}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "ICON America Halfboots",
+		"notes": "",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 61}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "ICON America Jacket",
+		"notes": "",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 61}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "ICON America Long Duster",
+		"notes": "",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 61}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "ICON America Long skirt",
+		"notes": "",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 61}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "ICON America Miniskirt",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 61}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "ICON America Pants",
+		"notes": "",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 61}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "ICON America Skirt",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 61}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "ICON America Tunic",
+		"notes": "",
+		"cost": 220,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 61}
+	},
+	{
+		"category": "SECURITY",
+		"name": "ID Badgemaker",
+		"notes": "profressional quality",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 13}
+	},
+	{
+		"category": "SECURITY",
+		"name": "ID Badgemaker for Cookie Cutter Smartgun",
+		"notes": "",
+		"cost": 700,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 13}
+	},
+	{
+		"category": "COMPUTER",
+		"name": "IIKL-4 Workstation",
+		"notes": "INT 3; 40MU; 4 option slot;",
+		"cost": 1200,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 15}
+	},
+	{
+		"category": "COMPUTER",
+		"name": "IIKL-4 Workstation w/cybernetic interface",
+		"notes": "INT 3; 40MU; 4 option slot;",
+		"cost": 1680,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 15}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Image Fashionware Bodyline - Heat Senstive",
+		"notes": "Changes colors based on heat",
+		"cost": 120,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 60}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Image Fashionware Bodyline - Logo/Trademarks",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 60}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Image Fashionware Bodyline - Stars/Shapes",
+		"notes": "",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 60}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Image Wallet",
+		"notes": "",
+		"cost": 100,
+		"wt": 0.1,
+		"source":{"book": "Chr1", "page": 10}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Immersion Heater",
+		"notes": "12 uses",
+		"cost": 15,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 55}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Inertial Compass",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "HOB", "page": 81}
+	},
+	{
+		"category": "FURNITURE",
+		"name": "Inflatable Bed",
+		"notes": "",
+		"cost": 25,
+		"wt": 3,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Info-Helm",
+		"notes": "SP 20; Two-way radio; Various options",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 24}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Infrared Defeating Camo Gloves/Balaclava/helmet",
+		"notes": "-2 to infrared awareness rolls",
+		"cost": 30,
+		"wt": 0,
+		"source":{"book": "CB2", "page": 28}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Infrared Defeating Camo Jacket",
+		"notes": "-2 to infrared awareness rolls",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "CB2", "page": 28}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Infrared Defeating Camo Pants",
+		"notes": "-2 to infrared awareness rolls",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "CB2", "page": 28}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Infrared Defeating Camo Tunic and boots",
+		"notes": "-2 to infrared awareness rolls",
+		"cost": 75,
+		"wt": 0,
+		"source":{"book": "CB2", "page": 28}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Intensive Care (1 day)",
+		"notes": "",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Interface Cables",
+		"notes": "",
+		"cost": 25,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Interface Monitor",
+		"notes": "CyberTech +2",
+		"cost": 800,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 5}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "InterFlex Cybergenics Exercise Machine",
+		"notes": "",
+		"cost": 2800,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 74}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "InterFlex Prime w/Braindance & Ghost Puppet",
+		"notes": "",
+		"cost": 4400,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 75}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Investigation Kit",
+		"notes": "40 specialized scanners; command panel; 4 cyberform spiders",
+		"cost": 45000,
+		"wt": 0,
+		"source":{"book": "PS", "page": 40}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Ion Cuffs",
+		"notes": "Disables Cyberlimbs; BOD/Strength Feat DIFF 25",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "PS", "page": 41}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "IR Combat Cloak",
+		"notes": "-5 IR Notice;EV 2;",
+		"cost": 450,
+		"wt": 2,
+		"source":{"book": "Chr1", "page": 15}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "IR Flashlight",
+		"notes": "",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "IR Flashlight Belt Buckle",
+		"notes": "2 hour;",
+		"cost": 40,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 9}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "IR Flashlight Belt Buckle Battery",
+		"notes": "Req. Belt Buckle; 2 hour;",
+		"cost": 2,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 9}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "IR Goggles",
+		"notes": "need IR flashlight",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "IR Poncho",
+		"notes": "-2 to infrared awareness rolls",
+		"cost": 300,
+		"wt": "",
+		"source":{"book": "HOB", "page": 81}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "Islander' Rebreather",
+		"notes": "20min; 30m;P/C",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "SF", "page": 29}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Jacket - Businesswear",
+		"notes": "",
+		"cost": 105,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Jacket - Generic Chic",
+		"notes": "",
+		"cost": 35,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Jacket - High Fashion",
+		"notes": "",
+		"cost": 140,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Jacket - Leisurewear",
+		"notes": "",
+		"cost": 70,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Jacket - Urban Flash",
+		"notes": "",
+		"cost": 70,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Jack-In-The-Box",
+		"notes": "",
+		"cost": 500,
+		"wt": 0.1,
+		"source":{"book": "WS", "page": 64}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Jamming Transmitter",
+		"notes": "1000ft",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Jazz",
+		"notes": "+2 REF & CL; 1d10+1turns; tablet",
+		"cost": 3,
+		"wt": 0,
+		"source":{"book": "I1.3", "page": 10}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Jet Setter Briefcase",
+		"notes": "SP 30; SDP 10; Lock DIFF 30",
+		"cost": 2000,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 21}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Jet Setter Briefcase w/alarm",
+		"notes": "SP 30; SDP 10; Lock DIFF 30; Silent alarm; gas trap DIFF 25 vs BOD - 6d10+10 min",
+		"cost": 2200,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 21}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Jewerlry - large piece",
+		"notes": "Use Fashion multiplier CP2020 mainbook pg 68",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Jewerlry - medium size",
+		"notes": "Use Fashion multiplier CP2020 mainbook pg 68",
+		"cost": 60,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Jewerlry - small",
+		"notes": "Use Fashion multiplier CP2020 mainbook pg 68",
+		"cost": 10,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Junctions",
+		"notes": "Connects fiber optic cables.",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 4}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Kevlar Backpack SP10",
+		"notes": "protects torso; EV based on contents; Holds up to 50kg; ",
+		"cost": 50,
+		"wt": 0.5,
+		"source":{"book": "Chr4", "page": 73}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Kevlar Backpack SP18",
+		"notes": "protects torso; EV based on contents; Holds up to 50kg; ",
+		"cost": 100,
+		"wt": 0.5,
+		"source":{"book": "Chr4", "page": 73}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Kevlar T-Shirt",
+		"notes": "SP 10 torso; EV 0;",
+		"cost": 90,
+		"wt": 1,
+		"source":{"book": "CP20", "page": 67}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Kevlar Vest",
+		"notes": "SP 10 torso; EV 0;",
+		"cost": 90,
+		"wt": 1,
+		"source":{"book": "CP20", "page": 67}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Keyboard (Computer)",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Keylock - High",
+		"notes": "DIFF 25",
+		"cost": 60,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Keylock - Low",
+		"notes": "DIFF 15",
+		"cost": 20,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Keylock - Maximum",
+		"notes": "DIFF 30",
+		"cost": 80,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Keylock - Medium",
+		"notes": "DIFF 20",
+		"cost": 40,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "Kibble 1 week",
+		"notes": "",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "Kibble (1 bar)",
+		"notes": "",
+		"cost": 1,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 54}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Komaku' Laser Mike",
+		"notes": "50m; Allows Human Perception rolls -5",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 20}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Komaku' Laser Mike",
+		"notes": "50m; Allows Human Perception rolls -5",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 20}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Komaku' Laser Mike Fixed/Mounted",
+		"notes": "75m; Allows Human Perception rolls -5; 4hr battery",
+		"cost": 350,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 20}
+	},
+	{
+		"category": "FURNITURE",
+		"name": "Lamp",
+		"notes": "",
+		"cost": 20,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Lano' Armored Coveralls",
+		"notes": "SP14 torso/arms/legs; EV 2",
+		"cost": 1600,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 7}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Lap Pad",
+		"notes": "stores 100 pages",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "DS", "page": 56}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Lap Pad w/ radiolink",
+		"notes": "stores 100 pages; Links to habitat computer",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "DS", "page": 56}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Laptop Computer",
+		"notes": "",
+		"cost": 900,
+		"wt": 1,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Large Generator",
+		"notes": "",
+		"cost": 1200,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 53}
+	},
+	{
+		"category": "SERVICE",
+		"name": "Lazarus Air Equipped Solider/Agent per month",
+		"notes": "cost is per soldier. Additional fees for experience",
+		"cost": 4250,
+		"wt": 0,
+		"source":{"book": "CB2", "page": 14}
+	},
+	{
+		"category": "SERVICE",
+		"name": "Lazarus Expert Advisor/Consultant per hour",
+		"notes": "",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "CB2", "page": 14}
+	},
+	{
+		"category": "SERVICE",
+		"name": "Lazarus Mechanized Solider/Agent per month",
+		"notes": "cost is per soldier. Additional fees for experience",
+		"cost": 3250,
+		"wt": 0,
+		"source":{"book": "CB2", "page": 14}
+	},
+	{
+		"category": "SERVICE",
+		"name": "Lazarus Rapid Deploy Air Equipped Solider/Agent",
+		"notes": "cost is one time fee.",
+		"cost": 2125,
+		"wt": 0,
+		"source":{"book": "CB2", "page": 14}
+	},
+	{
+		"category": "SERVICE",
+		"name": "Lazarus Rapid Deploy Mechanized Solider/Agent",
+		"notes": "cost is one time fee.",
+		"cost": 1625,
+		"wt": 0,
+		"source":{"book": "CB2", "page": 14}
+	},
+	{
+		"category": "SERVICE",
+		"name": "Lazarus Rapid Deploy Solider/Agent",
+		"notes": "cost is one time fee.",
+		"cost": 1250,
+		"wt": 0,
+		"source":{"book": "CB2", "page": 14}
+	},
+	{
+		"category": "SERVICE",
+		"name": "Lazarus Regular Advisor/Consultant per month",
+		"notes": "",
+		"cost": 3000,
+		"wt": 0,
+		"source":{"book": "CB2", "page": 14}
+	},
+	{
+		"category": "SERVICE",
+		"name": "Lazarus Solider/Agent per month",
+		"notes": "cost is per soldier. Additional fees for experience",
+		"cost": 2500,
+		"wt": 0,
+		"source":{"book": "CB2", "page": 14}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "LBM Diving Suit",
+		"notes": "2hours",
+		"cost": 6000,
+		"wt": 0,
+		"source":{"book": "SF", "page": 30}
+	},
+	{
+		"category": "DRUGS",
+		"name": "LeSade",
+		"notes": "+2 Aphro; Euph; Coagulant; 1d10+1min",
+		"cost": 6,
+		"wt": 0,
+		"source":{"book": "I1.3", "page": 12}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Life Support",
+		"notes": "72 hours;",
+		"cost": 500,
+		"wt": 2,
+		"source":{"book": "Chr1", "page": 6}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Life Support Machines",
+		"notes": "",
+		"cost": 2000000,
+		"wt": 0,
+		"source":{"book": "BB", "page": 30}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Life/Support Hookup",
+		"notes": "72 hours support",
+		"cost": 500,
+		"wt": 2,
+		"source":{"book": "Chr1", "page": 6}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Lifts (drive-on)",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 53}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Lifts (scissors)",
+		"notes": "",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 53}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Light Armor Jacket",
+		"notes": "SP 14 torso/arms; EV 0",
+		"cost": 150,
+		"wt": 3,
+		"source":{"book": "CP20", "page": 67}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Light Booster Goggles",
+		"notes": "DIFF 20 to detect IR beams",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Light Enhancement Mirrorshades",
+		"notes": "Anti-dazzle; IR",
+		"cost": 400,
+		"wt": 0.5,
+		"source":{"book": "I1.1", "page": 39}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Light Mesh Body Armor - Lower Body",
+		"notes": "SP 15 legs;",
+		"cost": 300,
+		"wt": 1.1,
+		"source":{"book": "I1.1", "page": 39}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Light Mesh Body Armor - Upper Body",
+		"notes": "SP 15 Torso/arms;",
+		"cost": 400,
+		"wt": 1.1,
+		"source":{"book": "I1.1", "page": 39}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Limb Preservation/Transport Unit",
+		"notes": "Increase body bank values of limbs by 10-60%",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 6}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Line Tap",
+		"notes": "",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Line Tap Detector",
+		"notes": "",
+		"cost": 60,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 4}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Linear Beam Commlink",
+		"notes": "1 mile;Install - DIFF 20 vs Electronics and 30 min",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 22}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Linear Frame- Beta",
+		"notes": "BOD 14; -2 REF;",
+		"cost": 7000,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 67}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Linear Frame- Omega",
+		"notes": "BOD 16; -2 REF;",
+		"cost": 9000,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 67}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Linear Frame- Sigma",
+		"notes": "BOD 12; -2 REF;",
+		"cost": 5000,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 67}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Linozap",
+		"notes": "",
+		"cost": 350,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 4}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "Liquid Breathing Medium",
+		"notes": "30min/liter;20% fail; cost per liter",
+		"cost": 1250,
+		"wt": 0,
+		"source":{"book": "SF", "page": 30}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Logcompass",
+		"notes": "",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Low Impedence Cables",
+		"notes": "+1 Interface",
+		"cost": 60,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Lucidrine Booster",
+		"notes": "+2 REF; +5 Initiative; 5 min",
+		"cost": 6,
+		"wt": 0,
+		"source":{"book": "BB", "page": 98}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Lunar Tent",
+		"notes": "15 man-days;2 min to inflate",
+		"cost": 800,
+		"wt": 0,
+		"source":{"book": "DS", "page": 56}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "M73 'Mirage Gear' Environmental Assimilation System",
+		"notes": "SP 12; EV 1; Awareness/Notice -2",
+		"cost": 1050,
+		"wt": 1.5,
+		"source":{"book": "Chr2", "page": 28}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "M73 'Mirage Gear' Environmental Assimilation System Flak Vest",
+		"notes": "SP 18; EV 1; Awareness/Notice -2",
+		"cost": 275,
+		"wt": 1.5,
+		"source":{"book": "Chr2", "page": 28}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "M73 'Mirage Gear' Environmental Assimilation System Helmet",
+		"notes": "SP 24; EV 1; Awareness/Notice -2",
+		"cost": 140,
+		"wt": 1.5,
+		"source":{"book": "Chr2", "page": 28}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "M-78 Revised Personal Armor Heavy Vest",
+		"notes": "SP 18 ches; EV 0",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "CB2", "page": 63}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "M-78 Revised Personal Armor Jacket",
+		"notes": "SP 14 arms and chest; EV 1",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "CB2", "page": 63}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "M-78 Revised Personal Armor T-shirt",
+		"notes": "SP 7 chest; EV 0",
+		"cost": 130,
+		"wt": 0,
+		"source":{"book": "CB2", "page": 63}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "M-88 Revised Combat Helmet",
+		"notes": "20 SP; 15 SP for face; 10 SDP; Navigation and computer enehanced.",
+		"cost": 5000,
+		"wt": 0.75,
+		"source":{"book": "CB2", "page": 61}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "M-88A2 Enhanced Combat Helmet",
+		"notes": "SP 25; SP 20 visor; Nullify Awareness penalty; x20 teleoptics/Targetingn Scope/Anti-dazzle/Times Square Plus/Thermograph; Commlinks and sensors",
+		"cost": 2399,
+		"wt": 0.75,
+		"source":{"book": "SW", "page": 35}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "M96 'Ghostsuit' Cameleon Clothing",
+		"notes": "SP 10; EV 1; Awareness/Notice -4 penalty;",
+		"cost": 5300,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 27}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "M96 'Ghostsuit' Cameleon Helmet",
+		"notes": "SP 16; EV 0; Awareness/Notice -4 penalty;",
+		"cost": 600,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 27}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Mag Lev Chit (1 station)",
+		"notes": "",
+		"cost": 0.25,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Maglock",
+		"notes": "12 hr battery; SP 15; DIFF 25",
+		"cost": 300,
+		"wt": 1,
+		"source":{"book": "Chr2", "page": 13}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Maglock Camera",
+		"notes": "",
+		"cost": 380,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 13}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Magnetic Field Detector",
+		"notes": "",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 42}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Magviewer",
+		"notes": "20x magnification; Sonary rangefinder",
+		"cost": 375,
+		"wt": 1,
+		"source":{"book": "Chr3", "page": 18}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Magviewer w/digital Camera",
+		"notes": "",
+		"cost": 450,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 18}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Magviewer w/Lowlite",
+		"notes": "",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 18}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Magviewer w/Passive Infrared",
+		"notes": "",
+		"cost": 475,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 18}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "Marine Mastoid Comm Link",
+		"notes": "100m range;",
+		"cost": 75,
+		"wt": 0.1,
+		"source":{"book": "SF", "page": 32}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Master Mechanic's Tool Kit",
+		"notes": "",
+		"cost": 25000,
+		"wt": 1,
+		"source":{"book": "NEO", "page": 54}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Mastoid Comlink",
+		"notes": "6km/10miles",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Maximum Threat Urban Riot Armour",
+		"notes": "SP 25 torso/arms; SP20 legs; EV 3",
+		"cost": 1200,
+		"wt": 0,
+		"source":{"book": "PS", "page": 39}
+	},
+	{
+		"category": "REMOTE/DRONES",
+		"name": "M-bot",
+		"notes": "SP 3; SDP 10; Cleans a room",
+		"cost": 1150,
+		"wt": 12,
+		"source":{"book": "Chr3", "page": 88}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Mead Electronic Notebook",
+		"notes": "SP 4; 12 hours",
+		"cost": 860,
+		"wt": 2.5,
+		"source":{"book": "Chr2", "page": 12}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Med Armor Jacket",
+		"notes": "SP 18 torso/arms; EV 1;",
+		"cost": 200,
+		"wt": 3,
+		"source":{"book": "CP20", "page": 67}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Medical Examiner's Equipment Pack",
+		"notes": "",
+		"cost": 700,
+		"wt": 0,
+		"source":{"book": "PS", "page": 40}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "MedicGear Combat Medical Armor",
+		"notes": "SP20; EV -3; +2 Med skill rolls",
+		"cost": 3400,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 19}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Medieval Armor",
+		"notes": "SP14; EV 6",
+		"cost": 3500,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 16}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Medkit",
+		"notes": "",
+		"cost": 50,
+		"wt": 1,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Medscanner",
+		"notes": "+2 to Diagnose",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "Memory Upgrade",
+		"notes": "1 option slot; + 10MU",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 70}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "MetalGear",
+		"notes": "SP 25 head/torso/arms/legs; EV 2",
+		"cost": 600,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 67}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Micro Comm Pagestar",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "CB2", "page": 28}
+	},
+	{
+		"category": "SERVICE",
+		"name": "Micro Comm Pagestar 1 month",
+		"notes": "",
+		"cost": 20,
+		"wt": 0,
+		"source":{"book": "CB2", "page": 28}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Micro Comm Pagestar Central Broadcast Computer",
+		"notes": "",
+		"cost": 100000,
+		"wt": 0,
+		"source":{"book": "CB2", "page": 28}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Micromanipulator Rig",
+		"notes": "Skills get a +1: Cyber Tech/Electronics/Cyberdeck Design/Weapon Tech",
+		"cost": 3000,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 5}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Micro-Mate Blender",
+		"notes": "",
+		"cost": 35,
+		"wt": 0,
+		"source":{"book": "CB1", "page": 70}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Microtools",
+		"notes": "",
+		"cost": 15,
+		"wt": 0,
+		"source":{"book": "DS", "page": 55}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Military Assault Armor",
+		"notes": "SP 28; EV 2; NBC protection; Radio; Gas Mask; Low-light; Anti-dazzler; Thermograph; Tareting scope; 2-hr cooling;  IR -3; Radar baffler -5;",
+		"cost": 3000,
+		"wt": "",
+		"source":{"book": "HOB", "page": 87}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Military Assault Armor w/ air tank",
+		"notes": "SP 28; EV 4; NBC protection; Radio; Gas Mask; Low-light; Anti-dazzler; Thermograph; Tareting scope; 2-hr cooling;  IR -3; Radar baffler -5;",
+		"cost": 3500,
+		"wt": "",
+		"source":{"book": "HOB", "page": 87}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Military Medkit",
+		"notes": "",
+		"cost": 100,
+		"wt": "",
+		"source":{"book": "HOB", "page": 81}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Military Sleeping Bag",
+		"notes": "",
+		"cost": 25,
+		"wt": "",
+		"source":{"book": "HOB", "page": 81}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Military Spray Skin (1 can)",
+		"notes": "Stronger than commercial version",
+		"cost": 50,
+		"wt": "",
+		"source":{"book": "HOB", "page": 81}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Mindscape Cyberholo Art Imager",
+		"notes": "Paint or Draw +1",
+		"cost": 600,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 30}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Mine Detector",
+		"notes": "70% effective; 1m range",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "HOB", "page": 81}
+	},
+	{
+		"category": "MUSICAL EQUIPMENT",
+		"name": "Mini Amp",
+		"notes": "10w",
+		"cost": 220,
+		"wt": 0,
+		"source":{"book": "RB", "page": 21}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Mini Cam 14",
+		"notes": "10 minutes of storage or transmit",
+		"cost": 1500,
+		"wt": 0,
+		"source":{"book": "RB", "page": 54}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Miniature Copier",
+		"notes": "6in wide. 1 hour battery",
+		"cost": 230,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 13}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Mini-clinic Visit",
+		"notes": "",
+		"cost": 550,
+		"wt": 0,
+		"source":{"book": "NC", "page": 10}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Mini-printer",
+		"notes": "",
+		"cost": 125,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 8}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Mini-printer paper roll",
+		"notes": "",
+		"cost": 1,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 8}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Mini-vac",
+		"notes": "4 hour battery",
+		"cost": 30,
+		"wt": 0,
+		"source":{"book": "DS", "page": 55}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Mirrorshades - Businesswear",
+		"notes": "",
+		"cost": 300,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Mirrorshades - Generic Chic",
+		"notes": "",
+		"cost": 100,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Mirrorshades - High Fashion",
+		"notes": "",
+		"cost": 400,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Mirrorshades - Leisureware",
+		"notes": "",
+		"cost": 200,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Mirrorshades - Urban Flash",
+		"notes": "",
+		"cost": 200,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Mite' Diagnostic Remote",
+		"notes": "1x1cm camera; ",
+		"cost": 400,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 11}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Mk-4 Signal Detector",
+		"notes": "85%;.",
+		"cost": 2400,
+		"wt": 5,
+		"source":{"book": "SF", "page": 100}
+	},
+	{
+		"category": "CYBERFORM",
+		"name": "Model A-2 'Tarantula'",
+		"notes": "CM: 0; SP 6; SDP 6; MA 10; 8 hr battery; range 4km",
+		"cost": 4000,
+		"wt": 1,
+		"source":{"book": "Chr3", "page": 90}
+	},
+	{
+		"category": "CYBERFORM",
+		"name": "Model A-3 'Beetle'",
+		"notes": "CM: 0; SP 10; SDP 10; MA 5 30day battery; range 10km",
+		"cost": 10000,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 92}
+	},
+	{
+		"category": "CYBERFORM",
+		"name": "Model A-3 'Beetle' Space Ops",
+		"notes": "CM: 0; SP 10; SDP 10; MA 5; Thruster 20mph; RSP 4; 30day battery; range 40km",
+		"cost": 10000,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 92}
+	},
+	{
+		"category": "CYBERFORM",
+		"name": "Model B-2 'Centipede'",
+		"notes": "CM: 0; SP 15; SDP 15; MA 8 30day battery; range 4km;",
+		"cost": 10000,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 91}
+	},
+	{
+		"category": "CYBERFORM",
+		"name": "Model B-2 'Centipede' Space Ops",
+		"notes": "CM: 0; SP 15; SDP 15; MA 8; Thruster 20mph; RSP 4; 30day battery; range 40km;",
+		"cost": 12000,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 91}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "Modem Unit - Cellular",
+		"notes": "",
+		"cost": 1200,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 17}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "Modem Unit - Fiber Optical",
+		"notes": "",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 17}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Modulation Chip",
+		"notes": "Add to radio; Impossible to eavesdrop;",
+		"cost": 20,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 13}
+	},
+	{
+		"category": "SECURITY",
+		"name": "MonoCuffs",
+		"notes": "",
+		"cost": 25,
+		"wt": 0.25,
+		"source":{"book": "I1.1", "page": 39}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Motion Tracker",
+		"notes": "range vaires between 75m-1km;",
+		"cost": 770,
+		"wt": 4,
+		"source":{"book": "Chr4", "page": 71}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Moto-cross Armor",
+		"notes": "",
+		"cost": 750,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 56}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Motorcycle Helmet",
+		"notes": "SP 8",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 56}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Motorcycle Jacket",
+		"notes": "SP 4",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 56}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Motorcycle Jacket (Armored)",
+		"notes": "SP 12",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 56}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Motorcycle Pants",
+		"notes": "",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 56}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Movement Sensor",
+		"notes": "95% reliable",
+		"cost": 40,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Mr. Ex",
+		"notes": "+1 Endurance;-1 CL; 1d10+1 day",
+		"cost": 6,
+		"wt": 0,
+		"source":{"book": "WS", "page": 81}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "MRE",
+		"notes": "",
+		"cost": 10,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 54}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Multiformat Newscam",
+		"notes": "6 hours of recording;  20mile range.",
+		"cost": 2600,
+		"wt": 0,
+		"source":{"book": "RB", "page": 54}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Nano-Paper (1 sheet)",
+		"notes": "Dissolves under special light",
+		"cost": 3,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 70}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Nano-Paper Dissolving Light",
+		"notes": "Device to use to destroy nano-paper",
+		"cost": 10,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 70}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Native American Tipi",
+		"notes": "",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 57}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Naval Armor",
+		"notes": "SP 16 torso/arms/legs; EV 3; Floatation",
+		"cost": 1500,
+		"wt": "",
+		"source":{"book": "HOB", "page": 87}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "NCART Ticket (1 station)",
+		"notes": "",
+		"cost": 0.25,
+		"wt": 0,
+		"source":{"book": "NC", "page": 1}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "NCTC Bus Ticket",
+		"notes": "",
+		"cost": 1,
+		"wt": 0,
+		"source":{"book": "NC", "page": 1}
+	},
+	{
+		"category": "CYBERDECK OPTION",
+		"name": "Netrunner Flip Switch",
+		"notes": "2mx2m window in the NET to real world",
+		"cost": 135,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 9}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Net-Vision IG-Algorithm Glasses",
+		"notes": "See the NET in the physical location; Icon in NET",
+		"cost": 900,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 24}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Net-Vision IG-Algorithm Glasses w/Invisible Icon",
+		"notes": "Can not be detected in NET",
+		"cost": 1200,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 24}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Neurocuffs with Laserkes",
+		"notes": "",
+		"cost": 75,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 39}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Newsviewer",
+		"notes": "",
+		"cost": 100,
+		"wt": 0.1,
+		"source":{"book": "Chr1", "page": 10}
+	},
+	{
+		"category": "SERVICE",
+		"name": "Newsviewer Hourly Rental",
+		"notes": "",
+		"cost": 2,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 10}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Nikkon America Campod",
+		"notes": "8 SP;12hrs;",
+		"cost": 1000,
+		"wt": 2,
+		"source":{"book": "Chr2", "page": 11}
+	},
+	{
+		"category": "WEAPON ACCESSORY",
+		"name": "Nine-Eleven Chip",
+		"notes": "Calls law enforcement when  fired",
+		"cost": 175,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 50}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Nomad Gloves",
+		"notes": "SP 4",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 56}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Nu Tek Tie-Fon",
+		"notes": "a tie & phone",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 60}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "Nuscuba Maintenance Kit",
+		"notes": "Used as Tech Toolkit at +5 DIFF",
+		"cost": 115,
+		"wt": 0.5,
+		"source":{"book": "SF", "page": 32}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Nu-Tek Jacket",
+		"notes": "Video clothing",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 58}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Nu-Tek Skirt",
+		"notes": "Video clothing",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 58}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "Nutrisupplement - 1 day",
+		"notes": "Lose 1 BOD/week of use",
+		"cost": 10,
+		"wt": 0.5,
+		"source":{"book": "Chr2", "page": 11}
+	},
+	{
+		"category": "FURNITURE",
+		"name": "Nylon Carrybag",
+		"notes": "",
+		"cost": 5,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Nylon Helmet",
+		"notes": "SP 20 head; EV 0;",
+		"cost": 100,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 67}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Nymph Perfume/Cologne",
+		"notes": "Seduction/Persuasion +2 vs specific sex",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 11}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Office Communications Suite",
+		"notes": "",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 5}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Office Communications Suite w/ Video Intercom",
+		"notes": "",
+		"cost": 1100,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 5}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Omega Phone Tap by Tritech",
+		"notes": "10 lines; 24hrs;60% avoid",
+		"cost": 1400,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 21}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Omnieye Interviewer's Camera",
+		"notes": "",
+		"cost": 1000,
+		"wt": 2.5,
+		"source":{"book": "I2.1", "page": 2}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Omnieye Interviewer's Camera Battery",
+		"notes": "4hrs",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "I2.1", "page": 2}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Omnieye Interviewer's Camera Chip",
+		"notes": "",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "I2.1", "page": 2}
+	},
+	{
+		"category": "SECURITY",
+		"name": "OmniTec Radar Detector",
+		"notes": "60%;100m",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 21}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "O'Niell Shark Basket",
+		"notes": "1 use",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "CB3", "page": 73}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Optical Remote",
+		"notes": "2m IR eye controlled remote",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 20}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "Oxygen Mix Tank",
+		"notes": "",
+		"cost": 20,
+		"wt": 0,
+		"source":{"book": "SF", "page": 30}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "Oxygen/Nitrogen Mix Tank",
+		"notes": "",
+		"cost": 20,
+		"wt": 0,
+		"source":{"book": "SF", "page": 30}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Pain Stimulator",
+		"notes": "3/4 or 1/2 stats;death 2+ mins",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 35}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Pants - Businesswear",
+		"notes": "",
+		"cost": 60,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Pants - Generic Chic",
+		"notes": "",
+		"cost": 20,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Pants - High Fashion",
+		"notes": "",
+		"cost": 80,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Pants - Leisurewear",
+		"notes": "",
+		"cost": 40,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Pants - Urban Flash",
+		"notes": "",
+		"cost": 40,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Paper Shredder",
+		"notes": "",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 8}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Paracaine",
+		"notes": "+5 Stun Save; 30 min",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "CB3", "page": 32}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Parking (1day) AV",
+		"notes": "",
+		"cost": 125,
+		"wt": 0,
+		"source":{"book": "NC", "page": 9}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Parking (1hr) Ground",
+		"notes": "",
+		"cost": 7,
+		"wt": 0,
+		"source":{"book": "NC", "page": 9}
+	},
+	{
+		"category": "MUSICAL EQUIPMENT",
+		"name": "Parman Drumsticks",
+		"notes": "+2 Play Instrument on drums",
+		"cost": 65,
+		"wt": 0,
+		"source":{"book": "RB", "page": 41}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Passcard",
+		"notes": "",
+		"cost": 10,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Patrol Armor",
+		"notes": "SP 18 Legs;  SP20 Torso;  SP 15 arms; EV 2",
+		"cost": 900,
+		"wt": 0,
+		"source":{"book": "PS", "page": 39}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Patrol Armor w/ Alloy Plates",
+		"notes": "SP 23 Legs; SP25 Torso; SP 20 arms; EV 3",
+		"cost": 900,
+		"wt": 0,
+		"source":{"book": "PS", "page": 39}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Pay Phone Call (1 minute)",
+		"notes": "",
+		"cost": 0.5,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "COMPUTER",
+		"name": "PCX' Minicomp",
+		"notes": "INT 2; 25MU; 2hr batttery; 1 option slot;",
+		"cost": 900,
+		"wt": 1,
+		"source":{"book": "Chr2", "page": 14}
+	},
+	{
+		"category": "COMPUTER",
+		"name": "PCX' Minicomp w/ cybernetic-interface",
+		"notes": "INT 3; 25MU; 2hr batttery;  1 option slot;",
+		"cost": 1200,
+		"wt": 1,
+		"source":{"book": "Chr2", "page": 14}
+	},
+	{
+		"category": "COMPUTER",
+		"name": "PCZ Super' Laptop",
+		"notes": "INT 2; 30MU; 2 1/2 hour battery; 1 option slots",
+		"cost": 1500,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 62}
+	},
+	{
+		"category": "COMPUTER",
+		"name": "PDA+",
+		"notes": "INT 2; 20MU; 6 hour battery",
+		"cost": 680,
+		"wt": 1.1,
+		"source":{"book": "Chr3", "page": 62}
+	},
+	{
+		"category": "TOOLS",
+		"name": "'Pembroke' Techscanner",
+		"notes": "TECH Skills +1 for diagnosis/repair; +2 with latest subscription",
+		"cost": 1500,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 12}
+	},
+	{
+		"category": "SERVICE",
+		"name": "Pembroke' Techscanner 1 Month Subscription",
+		"notes": "Improves TECH Skills for diagnosis/repair by +2",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 12}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Personal Body Alarm - card",
+		"notes": "Requires monthly subscription",
+		"cost": 400,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 14}
+	},
+	{
+		"category": "SERVICE",
+		"name": "Personal Body Alarm - monthly",
+		"notes": "",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 14}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Personal Comlink",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 57}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Personal Kit",
+		"notes": "",
+		"cost": 0,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 55}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Personal Radmeter",
+		"notes": "",
+		"cost": 5,
+		"wt": 0,
+		"source":{"book": "DS", "page": 56}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Personal Tactical Computer Detail Cards",
+		"notes": "Data for use with PTC",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "CB2", "page": 29}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Personal Tactical Computer/GPS",
+		"notes": "",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "CB2", "page": 28}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Phase4 IR laser Glasses",
+		"notes": "",
+		"cost": 75,
+		"wt": 0,
+		"source":{"book": "CB1", "page": 70}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Phase4 IR laser sight",
+		"notes": "",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "CB1", "page": 70}
+	},
+	{
+		"category": "SERVICE",
+		"name": "Phone Conference Calling - 1 month",
+		"notes": "adds 1 more line to phone service",
+		"cost": 5,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 33}
+	},
+	{
+		"category": "SERVICE",
+		"name": "Phone Voicemail - 1 month",
+		"notes": "",
+		"cost": 20,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 33}
+	},
+	{
+		"category": "SERVICE",
+		"name": "Phone (Standard) Service (1mo)",
+		"notes": "",
+		"cost": 30,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Pinamonte' Boots",
+		"notes": "SP20 to feet and ankles",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 8}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Plas-Cuffs",
+		"notes": "BOD/Strength Feat DIFF 25",
+		"cost": 40,
+		"wt": 0,
+		"source":{"book": "PS", "page": 41}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Plasma Arc Torch",
+		"notes": "",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "HOB", "page": 81}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Pleasure Simulator",
+		"notes": "+1 to 10 Cool (12); - to stats",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 35}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Plug-in Air Fouler: Burnt Almond I",
+		"notes": "10'x10' area; Biotoxin I",
+		"cost": 600,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 73}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Plug-in Air Fouler: Burnt Almond II",
+		"notes": "10'x10' area; Biotoxin II",
+		"cost": 700,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 73}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Plug-in Air Fouler: Hickory Smoke",
+		"notes": "10'x10' area; Nausea BOD vs DIFF 20; 2d6 hours",
+		"cost": 575,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 73}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Plug-in Air Fouler: Potpourri",
+		"notes": "10'x10' area; Sleep Drug 2d6 hours",
+		"cost": 550,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 73}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Plug-in Air Fouler: Spring Breeze",
+		"notes": "10'x10' area; BlobAll Pyschogenic 2d6 hours",
+		"cost": 650,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 73}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Plug-in Air Fouler: Wintergreen",
+		"notes": "10'x10' area; Hallucinognic 4d10 minutes",
+		"cost": 550,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 73}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Pocket Commo",
+		"notes": "10 miles range",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Pocket Computer",
+		"notes": "",
+		"cost": 100,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Pocket Credit Transfer Device",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "WS", "page": 55}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Pocket Flashlight",
+		"notes": "25-30 foot",
+		"cost": 1,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Pocket TV",
+		"notes": "",
+		"cost": 80,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Poison Sniffer",
+		"notes": "85% reliable",
+		"cost": 1500,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Police Issue General Purpose Shield",
+		"notes": "SP 10",
+		"cost": 80,
+		"wt": 0,
+		"source":{"book": "PS", "page": 40}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Police Issue Paramedic Helmet",
+		"notes": "SP 20; Two-way radio; Beamlight; Anti-dazzler",
+		"cost": 230,
+		"wt": 0,
+		"source":{"book": "PS", "page": 39}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Police Issue Patrol Helmet",
+		"notes": "SP 25; Two-way radio; Beamlight; Anti-dazzler",
+		"cost": 230,
+		"wt": 0,
+		"source":{"book": "PS", "page": 39}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Police Issue Patrol Helmet w/ Targeting",
+		"notes": "SP 25; Two-way radio; Beamlight:  Anti-dazzler/Smartgun targetting/IR",
+		"cost": 430,
+		"wt": 0,
+		"source":{"book": "PS", "page": 39}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Police Issue Riot Helmet",
+		"notes": "As Patrol Helmet; Sealed  air suppy 10 mins",
+		"cost": 650,
+		"wt": 0,
+		"source":{"book": "PS", "page": 39}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Police Issue Riot Shield",
+		"notes": "SP 15; ",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "PS ", "page": 40}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Police Issue Riot Shield w/strobe light",
+		"notes": "SP 15; Strobelight REF to sheild eyes else BOD save avoid stunned for 1d6 turns; 10 pulse battery",
+		"cost": 180,
+		"wt": 0,
+		"source":{"book": "PS ", "page": 40}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Police Issue Traffic Helmet",
+		"notes": "SP 15; Two-way radio; Beamlight;  Anti-dazzler; Camera",
+		"cost": 230,
+		"wt": 0,
+		"source":{"book": "PS", "page": 39}
+	},
+	{
+		"category": "MILITARY EQUIPMENT",
+		"name": "Portable Artillery Computer",
+		"notes": "+3 to Heavy Weapon artillery.",
+		"cost": 1500,
+		"wt": 0,
+		"source":{"book": "HOB", "page": 81}
+	},
+	{
+		"category": "MILITARY EQUIPMENT",
+		"name": "Portable Artillery Computer w/rangefinder",
+		"notes": "+3 to Heavy Weapon artillery.",
+		"cost": 2000,
+		"wt": 0,
+		"source":{"book": "HOB", "page": 81}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Portable Editing Lab",
+		"notes": "8hrs;",
+		"cost": 6000,
+		"wt": 10,
+		"source":{"book": "I2.1", "page": 2}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Portable Electropack",
+		"notes": "6hr power;",
+		"cost": 100,
+		"wt": 2,
+		"source":{"book": "Chr2", "page": 13}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Portable Intern Unit",
+		"notes": "Diagnose Illness +2;+1 to Stabilize",
+		"cost": 1200,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 7}
+	},
+	{
+		"category": "MILITARY EQUIPMENT",
+		"name": "Portable Laser Range finder",
+		"notes": "mount to weapons",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "HOB", "page": 81}
+	},
+	{
+		"category": "MILITARY EQUIPMENT",
+		"name": "Portable Painting Laser",
+		"notes": "handheld ",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "HOB", "page": 81}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Portable Radar",
+		"notes": "90% effective; 250m range",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "HOB", "page": 81}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Portable Sonar",
+		"notes": "100m range;",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "HOB", "page": 81}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "Portable Sonar (Nautical)",
+		"notes": "50m;",
+		"cost": 95,
+		"wt": 3,
+		"source":{"book": "SF", "page": 32}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Porta-power",
+		"notes": "50x50x100cm; 300watts",
+		"cost": 1500,
+		"wt": 100,
+		"source":{"book": "DS", "page": 57}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Postage Stamp",
+		"notes": "",
+		"cost": 0.95,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 182}
+	},
+	{
+		"category": "MILITARY EQUIPMENT",
+		"name": "Power Exo-Mount",
+		"notes": "-2 REF; -1 MA; -1 WA; Can carry/user heavier weapons",
+		"cost": 5000,
+		"wt": 0,
+		"source":{"book": "HOB", "page": 81}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Power Grid Solar-Electric Panel",
+		"notes": "Extension cord +25eb",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 16}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "Power Strip 2020",
+		"notes": "Protects Netrunner from Stun/Hellbolt/Sword/Firestarter",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 69}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Powerdriver",
+		"notes": "4 hour battery",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "DS", "page": 55}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "PRC-10 2 wayradio",
+		"notes": "",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "CB1", "page": 27}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "PRC-10 cypher-chip",
+		"notes": "",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "CB1", "page": 27}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Pressure Alarm",
+		"notes": "Detects 5%+ difference",
+		"cost": 2,
+		"wt": 0,
+		"source":{"book": "DS", "page": 56}
+	},
+	{
+		"category": "DEMOLITION",
+		"name": "Pressure Triggers (1 sq. ft.)",
+		"notes": "DIFF 20 to spot; ",
+		"cost": 15,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 69}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Priapan Spray (1 use)",
+		"notes": "+1Stun; +2 Stabilise; 2 hr",
+		"cost": 10,
+		"wt": 0,
+		"source":{"book": "CB3", "page": 33}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Priapan Spray (10 use)",
+		"notes": "+1Stun; +2 Stabilise; 2 hr",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "CB3", "page": 33}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Priapan Spray (5 use)",
+		"notes": "+1Stun; +2 Stabilise; 2 hr",
+		"cost": 30,
+		"wt": 0,
+		"source":{"book": "CB3", "page": 33}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Prime",
+		"notes": "+2 CL; +3 A/N;+2 Stun; 1d6+1 hour",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 17}
+	},
+	{
+		"category": "PHONE UPGRADES",
+		"name": "Privacy Plus",
+		"notes": "ECM;bug detector",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 33}
+	},
+	{
+		"category": "PHONE UPGRADES",
+		"name": "Privacy Plus - Number Memory",
+		"notes": "20 names/numbers",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 33}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "Processor Upgrades",
+		"notes": "1/4 option slot; Spd +1 up to +4;",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 70}
+	},
+	{
+		"category": "CYBERDECK OPTION",
+		"name": "Protected Cables and plugs",
+		"notes": "-1 Spd; 40% prevents Firestarter/Hellbolt/Sword/Knockout",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "SW", "page": 42}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Protection Field",
+		"notes": "2m shock field AVG COOL test to approach; 0.5m take 1d6/3 and Difficlt COOL. 5 hours",
+		"cost": 750,
+		"wt": 1.5,
+		"source":{"book": "Chr2", "page": 12}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Protection Field Battery",
+		"notes": "",
+		"cost": 6,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 12}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Protective Goggles",
+		"notes": "",
+		"cost": 20,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Protective Headgear Insert",
+		"notes": "SP 4; EV 0",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 69}
+	},
+	{
+		"category": "COMPUTER",
+		"name": "PS-4040 Portastation",
+		"notes": "INT 3; 30MU; SP 12; SDP 4; 3 option slots",
+		"cost": 1000,
+		"wt": 3,
+		"source":{"book": "Chr3", "page": 61}
+	},
+	{
+		"category": "COMPUTER",
+		"name": "PS-4040 Portastation w/cyber-control",
+		"notes": "INT 3; 30MU; SP 12; SDP 4; 3 option slots; Connect cyberdeck to Netrun",
+		"cost": 1300,
+		"wt": 3,
+		"source":{"book": "Chr3", "page": 61}
+	},
+	{
+		"category": "SECURITY",
+		"name": "R-101 LieDetector",
+		"notes": "DIFF 25 vs COOL",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 15}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Radiation Meter",
+		"notes": "2m range",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "DS", "page": 56}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Radsuit",
+		"notes": "SP 16  head/torso/arms/legs; RSP 6; 10hrs air; EV 3",
+		"cost": 30000,
+		"wt": 0,
+		"source":{"book": "DS", "page": 52}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "Rahab II' Hardshell Suit",
+		"notes": "4 hr support; SP 25; EV 3; 3361m depth;",
+		"cost": 13500,
+		"wt": 40,
+		"source":{"book": "SF", "page": 30}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Rambo-7",
+		"notes": "+2 BOD; REF;A/N; Stun; 1d10+1min",
+		"cost": 8,
+		"wt": 0,
+		"source":{"book": "I1.3", "page": 11}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Rapi Detox",
+		"notes": "Pharmaceutical check to neutralize in 3 turns",
+		"cost": 1500,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 6}
+	},
+	{
+		"category": "REMOTE/DRONES",
+		"name": "RDAK Spy & Assassin Remote",
+		"notes": "CM -1; SDP 10; SP10; MA 12; 5 hour battery; 300m range",
+		"cost": 12000,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 32}
+	},
+	{
+		"category": "FURNITURE",
+		"name": "Real Wood Furniture (1 pc)",
+		"notes": "",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Recrea Tech Powerblades",
+		"notes": "Athletics +1;MA +5; 4 hrs",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 56}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Refractix Binoculars",
+		"notes": "x4-x10; 30-50 degree view",
+		"cost": 350,
+		"wt": 0.5,
+		"source":{"book": "CB2", "page": 62}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Refractix Binoculars with zoom",
+		"notes": "Cyber interface; Low-lite;  range finder; compass. 12 hours",
+		"cost": 550,
+		"wt": 0.5,
+		"source":{"book": "CB2", "page": 62}
+	},
+	{
+		"category": "REMOTE/DRONES",
+		"name": "Remote Assassination Device ('Deathdrone')",
+		"notes": "SP 5; SDP 5; Flight; MA 8; 8hr battery; Weapons vary; ",
+		"cost": 10000,
+		"wt": 0,
+		"source":{"book": "SF", "page": 98}
+	},
+	{
+		"category": "REMOTE/DRONES",
+		"name": "Remote Control System (Cybernetic)",
+		"notes": "Control Modifier 0 or +1; Portable 15km range or Stationary 100km range",
+		"cost": 800,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 30}
+	},
+	{
+		"category": "REMOTE/DRONES",
+		"name": "Remote Control System (HUD)",
+		"notes": "Control Modifer -1; Portable 15km range or Stationary 100km range",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 30}
+	},
+	{
+		"category": "REMOTE/DRONES",
+		"name": "Remote Control System (Manual)",
+		"notes": "Control Modifier -2; Portable 15km range or Stationary 100km range",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 30}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Remote CyberCam 20",
+		"notes": "Used with VideoImager cyberoptics; 2km range; 24 hrs",
+		"cost": 350,
+		"wt": 1,
+		"source":{"book": "Chr2", "page": 13}
+	},
+	{
+		"category": "REMOTE/DRONES",
+		"name": "Repeater Station",
+		"notes": "",
+		"cost": 100,
+		"wt": 0.33,
+		"source":{"book": "PS", "page": 39}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Repeaters",
+		"notes": "boost netsignals",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 4}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Residence",
+		"notes": "Home for INT 6 AI",
+		"cost": 150000,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 48}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "Restaurant Meal (Excellent)",
+		"notes": "",
+		"cost": 60,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "Restaurant Meal (Fair)",
+		"notes": "",
+		"cost": 20,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "Restaurant Meal (Good)",
+		"notes": "",
+		"cost": 40,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Retina Scanner",
+		"notes": "holds 250 images",
+		"cost": 400,
+		"wt": 0,
+		"source":{"book": "PS", "page": 40}
+	},
+	{
+		"category": "MUSICAL EQUIPMENT",
+		"name": "Rickenbackeror Telecaster",
+		"notes": "",
+		"cost": 10000,
+		"wt": 0,
+		"source":{"book": "RB", "page": 21}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "Robot Surveillance Buoy",
+		"notes": "SP15;SDP33;150k",
+		"cost": 15000,
+		"wt": 0,
+		"source":{"book": "SF", "page": 32}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Rope (1ft)",
+		"notes": "holds up to 1000lbs; ",
+		"cost": 2,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "RotoWrighter",
+		"notes": "Disposable printer",
+		"cost": 20,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 13}
+	},
+	{
+		"category": "REMOTE/DRONES",
+		"name": "Rover' Wheeled Remote",
+		"notes": "CM -3; SDP 35; SP 20; Speed 45mph; ",
+		"cost": 9000,
+		"wt": 60,
+		"source":{"book": "Chr2", "page": 31}
+	},
+	{
+		"category": "REMOTE/DRONES",
+		"name": "RPV-400 Light Combat Tiltrotor Remote",
+		"notes": "CM +2; SDP 65; SP 25; Speed 210mph; Range 450 miles; Chainguns",
+		"cost": 150000,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 31}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Rubberized Polymer Boots",
+		"notes": "",
+		"cost": 40,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 9}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Rubberized Polymer Boots w/ hidden space",
+		"notes": "",
+		"cost": 60,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 9}
+	},
+	{
+		"category": "FURNITURE",
+		"name": "Rug (small tent)",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 56}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "RUSH option - Multi-Player Adaptor",
+		"notes": "up to 4 players",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 34}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "RUSH option - Total Environment",
+		"notes": "",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 34}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "RUSH Virtual Entertainment System",
+		"notes": "need plugs",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 34}
+	},
+	{
+		"category": "MUSICAL EQUIPMENT",
+		"name": "RX4000 'Hurricane' Ultrasynth",
+		"notes": "+2 Play Instrument",
+		"cost": 2345,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 14}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Sabotage Weapon Chip",
+		"notes": "Elect 25 & 5 min to find",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "SW", "page": 47}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Sandstorm Shelter",
+		"notes": "18 man-days",
+		"cost": 3000,
+		"wt": 0,
+		"source":{"book": "DS", "page": 56}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Satellite Uplink (backpack)",
+		"notes": "15kg;72hr",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 57}
+	},
+	{
+		"category": "SECURITY",
+		"name": "ScanMan Full Identity Scanner",
+		"notes": "",
+		"cost": 2100,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 22}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Scanner Plate",
+		"notes": "",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Scanway' Scanner Gate",
+		"notes": "95% reliable",
+		"cost": 2800,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 23}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Scanway' Scanner Gate Deluxe",
+		"notes": "95% reliable",
+		"cost": 5400,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 23}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Scanway' Scanner Gate Large Screen Addon",
+		"notes": "Requires Scanway",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 23}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Schlaghund",
+		"notes": "15D6 over 5m or gas over 6m",
+		"cost": 4500,
+		"wt": 0,
+		"source":{"book": "BB", "page": 98}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Scholar Home Learning System",
+		"notes": "Skill +1 per 6hr & 1 day pratice (max +2)",
+		"cost": 750,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 34}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "SCOP Tanks",
+		"notes": "generates 20 days of food per week",
+		"cost": 2000,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 54}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "SCOP Tanks Seed Culture",
+		"notes": "Required by SCOP tank",
+		"cost": 10000,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 54}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Scout' Signal Tracker",
+		"notes": "80% accuracy",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 21}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Screamsheets (1page)",
+		"notes": "newsboxes;vendors",
+		"cost": 0.1,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 183}
+	},
+	{
+		"category": "NAUTICAL GEAR",
+		"name": "Seagod' Hardshell Suit",
+		"notes": "5hr;3000m;SP20;EV2;R",
+		"cost": 35000,
+		"wt": 15,
+		"source":{"book": "SF", "page": 30}
+	},
+	{
+		"category": "WEAPON ACCESSORY",
+		"name": "Security Chipping",
+		"notes": "DIFF 25 vs Elect. Secuirty to unlock",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 50}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Security Scanner",
+		"notes": "75%reliable",
+		"cost": 1500,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Sedative",
+		"notes": "BOD 25 save or unconscious; 1d6+1 hr",
+		"cost": 4,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 17}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "SegAtari Virtual Villains",
+		"notes": "",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 34}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Short-Wave Radio (used)",
+		"notes": "",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 57}
+	},
+	{
+		"category": "WEAPON ACCESSORY",
+		"name": "Shoulder Sling",
+		"notes": "",
+		"cost": 5,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 64}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Shower-in-a-Can",
+		"notes": "100% safe disenfectant/Deodorant",
+		"cost": 3,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 16}
+	},
+	{
+		"category": "WEAPON ACCESSORY",
+		"name": "Silencer",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 64}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Sincard",
+		"notes": "",
+		"cost": 50000,
+		"wt": 0,
+		"source":{"book": "WS", "page": 61}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Sixgun",
+		"notes": "+3 INT & A/N; nerve inject; 1d10+1 hr",
+		"cost": 21,
+		"wt": 0,
+		"source":{"book": "I1.3", "page": 11}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Skate",
+		"notes": "+1 Euph; Endurance; tablet; 1d10+1 hr",
+		"cost": 9,
+		"wt": 0,
+		"source":{"book": "I1.3", "page": 12}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Skateboard Blaster Motorized Board",
+		"notes": "4MA;7MA for 5 mile",
+		"cost": 610,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 19}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Skateboard Parts - Blitzkreig",
+		"notes": "12 MA;9SDP; 1% fail",
+		"cost": 1400,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 18}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Skateboard Parts - Cyber with Cable",
+		"notes": "req machine link",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 19}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Skateboard Parts - Cyberreceiver",
+		"notes": "10m",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 19}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Skateboard Parts - Cybertransmitter",
+		"notes": "HC 1d6",
+		"cost": 350,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 19}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Skateboard Parts - Deck Wood",
+		"notes": "5SP;10SDP",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 18}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Skateboard Parts - Durallex Plastics",
+		"notes": "-3 hearing;+2 man;",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 19}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Skateboard Parts - Engines Vortex",
+		"notes": "7 MA;3 SDP; 30% fail/turn",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 18}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Skateboard Parts - Independent Brakes",
+		"notes": "unaffected by loss of engine",
+		"cost": 0.1,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 18}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Skateboard Parts - Kamakazi",
+		"notes": "10 MA;13SDP; 1% fail",
+		"cost": 1300,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 18}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Skateboard Parts - Long Range",
+		"notes": "60m",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 19}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Skateboard Parts - Metallicore",
+		"notes": "9SP;18SDP",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 18}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Skateboard Parts - Microsteed",
+		"notes": "8 MA;6SDP;20% fail",
+		"cost": 600,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 18}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Skateboard Parts - Neutral Setting",
+		"notes": "can coast if engine stops",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 18}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Skateboard Parts - Pedatrols ",
+		"notes": "",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 19}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Skateboard Parts - Plastech",
+		"notes": "9 MA;19SDP; 10% fail",
+		"cost": 900,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 18}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Skateboard Parts - Plezoplastic",
+		"notes": "6SP;12 SDP; emits light",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 18}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Skateboard Parts - Receiver Cybercables",
+		"notes": "5m",
+		"cost": 20,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 18}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Skateboard Parts - Triplastic",
+		"notes": "7SP;14SDP",
+		"cost": 80,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 18}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Skateboard Parts - Tripolyurethane",
+		"notes": "-2 hearing;+1 man",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 19}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Skateboard Parts - Wheels Polyurethane",
+		"notes": "-1 hearing;+0 man",
+		"cost": 80,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 19}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Skateboard Sunfire Motorized Board",
+		"notes": "8MA;12MA for 5 mile",
+		"cost": 2250,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 19}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Skates - Hydraulic Boot Skate",
+		"notes": "+Ath/4 +Skate/3 to MA",
+		"cost": 275,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 19}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Skates - Snap-down/Snap-on ",
+		"notes": "break -3 MA/sec",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "I1.2", "page": 19}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Skin Foam",
+		"notes": "+2 First Aid;10 doses",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "SW", "page": 46}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Skin Tight",
+		"notes": "",
+		"cost": 2000,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 39}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Skinsuit/LMS",
+		"notes": "SP 6;RSP 0; 1.33hrs air; EV 1",
+		"cost": 2500,
+		"wt": 0,
+		"source":{"book": "DS", "page": 51}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Slag-crete",
+		"notes": "chemical/heat/vacuum/water; ",
+		"cost": 10,
+		"wt": 1,
+		"source":{"book": "DS", "page": 57}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Slap Patch",
+		"notes": "Cost by drug type",
+		"cost": 0,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Slap Patches",
+		"notes": "30cm x 30cm",
+		"cost": 5,
+		"wt": 0,
+		"source":{"book": "DS", "page": 57}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Sleep Inducer",
+		"notes": "Sleep for 2-3hrs",
+		"cost": 85,
+		"wt": 0.5,
+		"source":{"book": "Chr1", "page": 11}
+	},
+	{
+		"category": "FURNITURE",
+		"name": "Sleeping Bag",
+		"notes": "-10",
+		"cost": 60,
+		"wt": 1,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Sleeping Bag (Standard)",
+		"notes": "Comfortable at -10C",
+		"cost": 60,
+		"wt": 1,
+		"source":{"book": "NEO", "page": 56}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Slosh Bag 0-G Shower",
+		"notes": "",
+		"cost": 65,
+		"wt": 2,
+		"source":{"book": "Chr1", "page": 16}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Small Generator",
+		"notes": "",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 53}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Small Wonders' NanoAgents",
+		"notes": "10 uses",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 4}
+	},
+	{
+		"category": "WEAPON ACCESSORY",
+		"name": "Smart Draw Holster",
+		"notes": "+2 Fastdraw or REF Action",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 9}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Smart' Gas Mask",
+		"notes": "100%; 24hrs",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "SW", "page": 45}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Smart Glove",
+		"notes": "DIFF 15 vs REF or -1 WA when grasp",
+		"cost": 110,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 14}
+	},
+	{
+		"category": "WEAPON ACCESSORY",
+		"name": "Smart Glove Gun Modification",
+		"notes": "Add to smartgun chipping",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 14}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Smart Helmet",
+		"notes": "SP 18; Integrated Smartgoggles: Low-lite/ IR/Targeting Scope; Commlink",
+		"cost": 800,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 56}
+	},
+	{
+		"category": "MUSICAL EQUIPMENT",
+		"name": "Smart MIDI' Guitar",
+		"notes": "+2 Play Instrument",
+		"cost": 1600,
+		"wt": 0,
+		"source":{"book": "RB", "page": 21}
+	},
+	{
+		"category": "DEMOLITION",
+		"name": "Smart Mine Trigger - IFF",
+		"notes": "",
+		"cost": 75,
+		"wt": 0,
+		"source":{"book": "SF", "page": 98}
+	},
+	{
+		"category": "DEMOLITION",
+		"name": "Smart Mine Trigger - Indiscriminate",
+		"notes": "",
+		"cost": 20,
+		"wt": 0,
+		"source":{"book": "SF", "page": 98}
+	},
+	{
+		"category": "DEMOLITION",
+		"name": "Smart Mine Trigger - Temperature",
+		"notes": "",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "SF", "page": 98}
+	},
+	{
+		"category": "DEMOLITION",
+		"name": "Smart Mine Trigger - Voice",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "SF", "page": 98}
+	},
+	{
+		"category": "DEMOLITION",
+		"name": "Smart Mine Trigger - Weight",
+		"notes": "",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "SF", "page": 98}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Smartgoggle Mirrorshades",
+		"notes": "2options -10% cost of option",
+		"cost": 450,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 3}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Smartgoggles",
+		"notes": "4 cyberoptic options (10% less); Smartgun plug and cables;",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 67}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Smartgrapple",
+		"notes": "100m winch",
+		"cost": 1500,
+		"wt": 0,
+		"source":{"book": "SW", "page": 48}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Smartgrapple w/optical sensor",
+		"notes": "REF -5",
+		"cost": 2000,
+		"wt": 0,
+		"source":{"book": "SW", "page": 48}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Smartlock Door Security System - High",
+		"notes": "DIFF 25",
+		"cost": 750,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 8}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Smartlock Door Security System - Low",
+		"notes": "DIFF 15",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 8}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Smartlock Door Security System - Max",
+		"notes": "DIFF 30",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 8}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Smartlock Door Security System - Medium",
+		"notes": "DIFF 20",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 8}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Smartlock Door Security System w/ Timed Log In - High",
+		"notes": "DIFF 25",
+		"cost": 970,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 8}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Smartlock Door Security System w/ Timed Log In - Low",
+		"notes": "DIFF 15",
+		"cost": 470,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 8}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Smartlock Door Security System w/ Timed Log In - Max",
+		"notes": "DIFF 30",
+		"cost": 1220,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 8}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Smartlock Door Security System w/ Timed Log In - Medium",
+		"notes": "DIFF 20",
+		"cost": 720,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 8}
+	},
+	{
+		"category": "MUSICAL EQUIPMENT",
+		"name": "Smartsticks",
+		"notes": "+1 Play Instrument",
+		"cost": 800,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 11}
+	},
+	{
+		"category": "COMPUTER OPTION",
+		"name": "Smartstrip",
+		"notes": "used in conjunction with Power Strip 2020. -3 when power normalize",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 69}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Smash",
+		"notes": "+1 euphoric;1d6+1 min; cost per 6pack",
+		"cost": 10,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 123}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Sniffer",
+		"notes": "90% reliable",
+		"cost": 20,
+		"wt": 0,
+		"source":{"book": "DS", "page": 56}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Socialite Light Armor",
+		"notes": "SP 10 torso/arms/legs;",
+		"cost": 475,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 42}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Socialite Light Armor w/ shirt",
+		"notes": "SP 15 torso/arms; SP 10 legs",
+		"cost": 560,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 42}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "Solodrinker Flavor Cartridge: Classic (10 flavors)",
+		"notes": "100 drinks",
+		"cost": 5,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 20}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "Solodrinker Flavor Cartridge: Classic (25 flavors)",
+		"notes": "100drinks",
+		"cost": 15,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 20}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "Solodrinker Flavor Cartridge: Classic (50 flavors)",
+		"notes": "200 drinks",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 20}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "Solodrinker Flavor Cartridge: Exotic (10 flavors)",
+		"notes": "35 drinks",
+		"cost": 9,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 20}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "Solodrinker Flavor Cartridge: Exotic (25 flavors)",
+		"notes": "35 drinks",
+		"cost": 28,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 20}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "Solodrinker Flavor Cartridge: Exotic (45 flavors)",
+		"notes": "35 drinks",
+		"cost": 60,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 20}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "Solodrinker Flavor Cartridge: Francohile (10 flavors)",
+		"notes": "50 drinks",
+		"cost": 8,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 20}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "Solodrinker Flavor Cartridge: Francohile (25 flavors)",
+		"notes": "40 drinks",
+		"cost": 25,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 20}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "Solodrinker Flavor Cartridge: Francohile (50 flavors)",
+		"notes": "30 drinks",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 20}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "Solodrinker The Classic",
+		"notes": "10 flavor cartridges",
+		"cost": 110,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 20}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "Solodrinker The Luxury 12",
+		"notes": "100 flavor cartridges",
+		"cost": 715,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 20}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "Solodrinker The Mate",
+		"notes": "50 flavor cartidges",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 20}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "Solodrinker The Waiter",
+		"notes": "25 flavor cartridges",
+		"cost": 175,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 20}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Sonar Scanner",
+		"notes": "120m radius",
+		"cost": 50,
+		"wt": 0.2,
+		"source":{"book": "Chr1", "page": 8}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Sonic Sensors",
+		"notes": "",
+		"cost": 1500,
+		"wt": 0,
+		"source":{"book": "HOB", "page": 81}
+	},
+	{
+		"category": "MUSICAL EQUIPMENT",
+		"name": "Sound Optimization System",
+		"notes": "+1 Perform",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 70}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Sovite Military Armored Greatcoat",
+		"notes": "SP14 torso/arms/legs; EV 1; -20C temps",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "CB3", "page": 72}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "SPA Anti-Fire Suit",
+		"notes": "30 mins air supply; Max heat 2000F/1093C. Fails with overexposure.",
+		"cost": 1500,
+		"wt": 0,
+		"source":{"book": "CB3", "page": 73}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Spacesuit",
+		"notes": "SP 10 head/torso/arms/legs; RSP 2; 8hrs air; EV 2",
+		"cost": 15000,
+		"wt": 0,
+		"source":{"book": "DS", "page": 51}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Speakeasy",
+		"notes": "Truth serum; DIFF 25 vs Medtech or Resist Torture/drugs;",
+		"cost": 60,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 13}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Speedheal",
+		"notes": "+2 heal;-1d6/3 REF; 1d6+1 hour",
+		"cost": 165,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 122}
+	},
+	{
+		"category": "WEAPON ACCESSORY",
+		"name": "Speedholster",
+		"notes": "Fastdraw with an extra +1 Initiative",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 13}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Spider' MicroWaldo Bracer",
+		"notes": "TECH +1 for small/complex items",
+		"cost": 700,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 11}
+	},
+	{
+		"category": "PHONE UPGRADES",
+		"name": "Split Line",
+		"notes": "2 separate numbers",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 33}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Sport Event ticket",
+		"notes": "",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Spotlight",
+		"notes": "+2 A/N;1d6/2 hour",
+		"cost": 4,
+		"wt": 0,
+		"source":{"book": "CB2", "page": 26}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Spray Skin",
+		"notes": "",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "MUSICAL EQUIPMENT",
+		"name": "Standard Drum Kit",
+		"notes": "",
+		"cost": 1500,
+		"wt": 0,
+		"source":{"book": "RB", "page": 21}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Standard Field Armor",
+		"notes": "SP 14 torso/arms/legs; EV 0; Can be air sealed in 2 turns;",
+		"cost": 1200,
+		"wt": "",
+		"source":{"book": "HOB", "page": 87}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Standard Field Armor w/ inserts",
+		"notes": "SP 20 torso/legs; SP 14 arms; EV 1; Can be air sealed in 2 turns;",
+		"cost": 1200,
+		"wt": "",
+		"source":{"book": "HOB", "page": 87}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Standard Field Cooling Vest",
+		"notes": "1 hour; regulates body temp",
+		"cost": 100,
+		"wt": "",
+		"source":{"book": "HOB", "page": 87}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Standard Nylon Helmet",
+		"notes": "SP20; EV 0; Builtin x20 binoc; Radio; anti-dazzle/low-lite; Gas mask",
+		"cost": 300,
+		"wt": "",
+		"source":{"book": "HOB", "page": 87}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Standard Nylon Helmet w/ Smartgun Target",
+		"notes": "SP20; EV 0; Builtin x20 binoc; Radio; anti-dazzle/low-lite/Targeting Scope; Gas mask",
+		"cost": 500,
+		"wt": "",
+		"source":{"book": "HOB", "page": 87}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Steel Helmet",
+		"notes": "SP 14 head;",
+		"cost": 20,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 67}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Stim",
+		"notes": "+3 Endurance;1d6+1 min",
+		"cost": 5,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 122}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Stim",
+		"notes": "negates wound penalties; 1d6+1 min",
+		"cost": 5,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 17}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Striptape Binders (12pk)",
+		"notes": "Strength Feat vs DIFF 25;",
+		"cost": 5,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Subcarrier Receiver -Adjustable Frequency",
+		"notes": "",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "I2.1", "page": 36}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Subcarrier Receiver -Single Frequency",
+		"notes": "",
+		"cost": 40,
+		"wt": 0,
+		"source":{"book": "I2.1", "page": 36}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Subcarrier Transmitter (1mile)",
+		"notes": "3.14 x sq mile range 2x",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "I2.1", "page": 38}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Sun Block",
+		"notes": "SPF 60",
+		"cost": 10,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 10}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Surge",
+		"notes": "+1 Stun Save;1d6+1 hour",
+		"cost": 7,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 17}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Surgery - Critical",
+		"notes": "6 hrs; 3d6+1 dmg; DIFF 25",
+		"cost": 2500,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 76}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Surgery - Major",
+		"notes": "4hrs; 2d6+1 dmg; DIFF 20",
+		"cost": 1500,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 76}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Surgery - Minor",
+		"notes": "2hrs; 1d6+1 dmg; DIFF 15",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 76}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Surgery - Negligible",
+		"notes": "1hr; 1pt Dmg; DIFF 10",
+		"cost": 0,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 75}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Surgical Kit",
+		"notes": "",
+		"cost": 400,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Surveillance Kit",
+		"notes": "digicamera;mikes;tracers",
+		"cost": 3500,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 18}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Swiss Army Combo Tool  Knife",
+		"notes": "",
+		"cost": 50,
+		"wt": 0.5,
+		"source":{"book": "NEO", "page": 55}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Syncomp 15",
+		"notes": "+3 antidote; -1 REF; 1d6+1 turns",
+		"cost": 15,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 122}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Synth Coke",
+		"notes": "+1 Endurance; 1d6+1 min",
+		"cost": 10,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 122}
+	},
+	{
+		"category": "FURNITURE",
+		"name": "Synthetic Furniture (1 pc)",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Takanaka Exec Line Armored Opera Cloak",
+		"notes": "SP 16 torso/arms",
+		"cost": 1200,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 63}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Takanaka Exec Line Armored Topcoat",
+		"notes": "SP 16 torso/arms",
+		"cost": 2000,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 63}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Takanaka Exec Line Briefcase",
+		"notes": "",
+		"cost": 600,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 63}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Takanaka Exec Line Cape",
+		"notes": "",
+		"cost": 900,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 63}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Takanaka Exec Line Cologne",
+		"notes": "",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 63}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Takanaka Exec Line Cravat",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 63}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Takanaka Exec Line Jacket",
+		"notes": "",
+		"cost": 800,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 63}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Takanaka Exec Line Monogram Shirt",
+		"notes": "",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 63}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Takanaka Exec Line Pants",
+		"notes": "",
+		"cost": 700,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 63}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Takanaka Exec Line Scarf",
+		"notes": "",
+		"cost": 75,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 63}
+	},
+	{
+		"category": "WEAPON ACCESSORY",
+		"name": "Takanaka Exec Line Sword Case",
+		"notes": "",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 63}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Takanaka Exec Line Tie",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 63}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Takanaka Exec Line Top Coat",
+		"notes": "",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 63}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Takanaka Exec Line Vest",
+		"notes": "",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 63}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Tattletale Voice Stress Analyzer",
+		"notes": "Human Perception/Interrogation +1",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 20}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Tattletale Voice Stress Analyzer Cybernetic Interface",
+		"notes": "Human Perception/Interrogation +1; Time Square Marguee display",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 20}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Taxi - AV (1 mile)",
+		"notes": "",
+		"cost": 10,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Taxi - Ground (1 mile)",
+		"notes": "",
+		"cost": 3,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Tech Tool Kit",
+		"notes": "",
+		"cost": 100,
+		"wt": 1,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Technical Scanners",
+		"notes": "80% reliable",
+		"cost": 125,
+		"wt": 0,
+		"source":{"book": "DS", "page": 55}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Techscanner",
+		"notes": "",
+		"cost": 600,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Techscanner (Military)",
+		"notes": "",
+		"cost": 600,
+		"wt": 0,
+		"source":{"book": "HOB", "page": 81}
+	},
+	{
+		"category": "FURNITURE",
+		"name": "Temperfoam Furniture - large piece",
+		"notes": "",
+		"cost": 140,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 13}
+	},
+	{
+		"category": "FURNITURE",
+		"name": "Temperfoam Furniture - medium piece",
+		"notes": "",
+		"cost": 110,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 13}
+	},
+	{
+		"category": "FURNITURE",
+		"name": "Temperfoam Furniture - small piece",
+		"notes": "",
+		"cost": 80,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 13}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Tent (10 Person)",
+		"notes": "",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 56}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Tent (2 Person)",
+		"notes": "",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 56}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Tent (6 Person)",
+		"notes": "",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 56}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Tent (BigTop)",
+		"notes": "",
+		"cost": 12000,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 57}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Tent Stove",
+		"notes": "",
+		"cost": 75,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 55}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Tent (lg)",
+		"notes": "sleeps 4; waterproof; -50C",
+		"cost": 100,
+		"wt": "",
+		"source":{"book": "HOB", "page": 81}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Tent (sm)",
+		"notes": "sleeps 2; waterproof; -50C",
+		"cost": 50,
+		"wt": "",
+		"source":{"book": "HOB", "page": 81}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Terminal",
+		"notes": "-5 Interface",
+		"cost": 400,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Therapy ICT (1week)",
+		"notes": "Requies 168hrs/week; Requires multiple weeks based on surgery; -50% HL",
+		"cost": 10000,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 102}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Therapy Inpatient (1week)",
+		"notes": "Requies 168hrs/week; Requires multiple weeks based on surgery; -33% HL",
+		"cost": 5000,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 102}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Therapy Outpatient (1week)",
+		"notes": "Requies 14hrs/week; Requires multiple weeks based on surgery; -25% HL",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 102}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Thermal Decoys",
+		"notes": "30mins;",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "SW", "page": 47}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Thermal Decoys w/IFF",
+		"notes": "30mins; IFF",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "SW", "page": 47}
+	},
+	{
+		"category": "DEMOLITION",
+		"name": "Thermite-In-A-Tube",
+		"notes": "15 SP or 4D4 damage for 3 turns",
+		"cost": 90,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 72}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Three-D Holophone",
+		"notes": "3m dia. View",
+		"cost": 900,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 13}
+	},
+	{
+		"category": "COMMUNICATION",
+		"name": "Three-D Holophone Icon Chip",
+		"notes": "shows Net style Icon",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 13}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Thrill",
+		"notes": "+1 Euphoric; muscular inject; 1d10+1 turns",
+		"cost": 7,
+		"wt": 0,
+		"source":{"book": "I1.3", "page": 12}
+	},
+	{
+		"category": "PHONE UPGRADES",
+		"name": "Tight Beam",
+		"notes": "1 mile range. Transmit line of sight",
+		"cost": 200,
+		"wt": 0.3,
+		"source":{"book": "Chr3", "page": 13}
+	},
+	{
+		"category": "CYBERDECK OPTION",
+		"name": "Tight-Beam Radio Relay",
+		"notes": "100km range. -2 Initiative for Netrunner",
+		"cost": 1500,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 71}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Timewarp",
+		"notes": "+3 Initiative;1d6+1 min",
+		"cost": 30,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 17}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Tire Chains",
+		"notes": "",
+		"cost": 60,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 55}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Tissue Glue",
+		"notes": "+3 First Aid",
+		"cost": 25,
+		"wt": 0,
+		"source":{"book": "SW", "page": 46}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Tool Kits by Buchsterhude Gmbh",
+		"notes": "Repair/Consturction skill rolls add +1; ",
+		"cost": 1000,
+		"wt": 1,
+		"source":{"book": "Chr3", "page": 12}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Top - Businesswear",
+		"notes": "",
+		"cost": 45,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Top - Generic Chic",
+		"notes": "",
+		"cost": 15,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Top - High Fashion",
+		"notes": "",
+		"cost": 60,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Top - Leisurewear",
+		"notes": "",
+		"cost": 30,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Top - Urban Flash",
+		"notes": "",
+		"cost": 30,
+		"wt": 0.5,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "MEDICAL",
+		"name": "Toxi-Stoppers",
+		"notes": "+4 to save",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "SW", "page": 47}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Tracer Button (set of 6)",
+		"notes": "",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Tracking Device",
+		"notes": "1 mile range",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "CYBERDECK OPTION",
+		"name": "Transcripter",
+		"notes": "records a hardcopy of a netrun",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 48}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Transmitter (1mile)",
+		"notes": "3.14 x sq mile range 2x",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "I2.1", "page": 38}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Traum Team Acct (1mo)",
+		"notes": "",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Trauma I",
+		"notes": "Death Saves 3pts easier; 1d6+1 turns",
+		"cost": 6,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 17}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Travel Kit",
+		"notes": "",
+		"cost": 150,
+		"wt": 5,
+		"source":{"book": "Chr1", "page": 16}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Travel Kit - 10 Disposable PJs",
+		"notes": "",
+		"cost": 10,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 16}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Travel to GEO (1 ton cargo)",
+		"notes": "",
+		"cost": 50000,
+		"wt": 0,
+		"source":{"book": "DS", "page": 43}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Travel to GEO (1kg cargo)",
+		"notes": "",
+		"cost": 65,
+		"wt": 0,
+		"source":{"book": "DS", "page": 43}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Travel to GEO (1st Class)",
+		"notes": "",
+		"cost": 3000,
+		"wt": 0,
+		"source":{"book": "DS", "page": 43}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Travel to GEO (Coach)",
+		"notes": "",
+		"cost": 2500,
+		"wt": 0,
+		"source":{"book": "DS", "page": 43}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Travel to L1 (1 ton cargo)",
+		"notes": "",
+		"cost": 53000,
+		"wt": 0,
+		"source":{"book": "DS", "page": 43}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Travel to L1 (1kg cargo)",
+		"notes": "",
+		"cost": 70,
+		"wt": 0,
+		"source":{"book": "DS", "page": 43}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Travel to L1 (1st Class)",
+		"notes": "",
+		"cost": 3000,
+		"wt": 0,
+		"source":{"book": "DS", "page": 43}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Travel to L1 (Coach)",
+		"notes": "",
+		"cost": 2500,
+		"wt": 0,
+		"source":{"book": "DS", "page": 43}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Travel to L2 - L5 (1 ton cargo)",
+		"notes": "",
+		"cost": 53000,
+		"wt": 0,
+		"source":{"book": "DS", "page": 43}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Travel to L2 - L5 (1kg cargo)",
+		"notes": "",
+		"cost": 70,
+		"wt": 0,
+		"source":{"book": "DS", "page": 43}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Travel to L2 - L5 (1st Class)",
+		"notes": "",
+		"cost": 4000,
+		"wt": 0,
+		"source":{"book": "DS", "page": 43}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Travel to L2 - L5 (Coach)",
+		"notes": "",
+		"cost": 3000,
+		"wt": 0,
+		"source":{"book": "DS", "page": 43}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Travel to LEO (1 ton cargo)",
+		"notes": "",
+		"cost": 40000,
+		"wt": 0,
+		"source":{"book": "DS", "page": 43}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Travel to LEO (1kg cargo)",
+		"notes": "",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "DS", "page": 43}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Travel to LEO (1st Class)",
+		"notes": "",
+		"cost": 2500,
+		"wt": 0,
+		"source":{"book": "DS", "page": 43}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Travel to LEO (Coach)",
+		"notes": "",
+		"cost": 1500,
+		"wt": 0,
+		"source":{"book": "DS", "page": 43}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Travel to Luna Orbit (1 ton cargo)",
+		"notes": "",
+		"cost": 60000,
+		"wt": 0,
+		"source":{"book": "DS", "page": 43}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Travel to Luna Orbit (1kg cargo)",
+		"notes": "",
+		"cost": 80,
+		"wt": 0,
+		"source":{"book": "DS", "page": 43}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Travel to Luna Orbit (1st Class)",
+		"notes": "",
+		"cost": 5000,
+		"wt": 0,
+		"source":{"book": "DS", "page": 43}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Travel to Luna Orbit (Coach)",
+		"notes": "",
+		"cost": 4000,
+		"wt": 0,
+		"source":{"book": "DS", "page": 43}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Travel to Luna Surface (1 ton cargo)",
+		"notes": "",
+		"cost": 72000,
+		"wt": 0,
+		"source":{"book": "DS", "page": 43}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Travel to Luna Surface (1kg cargo)",
+		"notes": "",
+		"cost": 95,
+		"wt": 0,
+		"source":{"book": "DS", "page": 43}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Travel to Luna Surface (1st Class)",
+		"notes": "",
+		"cost": 7500,
+		"wt": 0,
+		"source":{"book": "DS", "page": 43}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Travel to Luna Surface (Coach)",
+		"notes": "",
+		"cost": 5000,
+		"wt": 0,
+		"source":{"book": "DS", "page": 43}
+	},
+	{
+		"category": "TOOLS",
+		"name": "Tripod' Waldo Set",
+		"notes": "extra hands",
+		"cost": 800,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 10}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Tritech 'Mumbler' White Noise Generator",
+		"notes": "3m radius;90% reliable",
+		"cost": 3500,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 22}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Trode Set",
+		"notes": "-2 Interface",
+		"cost": "",
+		"wt": 20,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "DRUGS",
+		"name": "Twitch",
+		"notes": "+2 euphoric;-1 REF; 1d10+1 min",
+		"cost": 3,
+		"wt": 0,
+		"source":{"book": "WS", "page": 81}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Uniware Armor Trenchcoat",
+		"notes": "SP 18 torso/arms/legs",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 59}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Uniware Armorjacket",
+		"notes": "SP 14 torso/arms",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 59}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Uniware Blouse/shirt",
+		"notes": "",
+		"cost": 20,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 59}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Uniware Boots",
+		"notes": "",
+		"cost": 30,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 59}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Uniware Dress",
+		"notes": "",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 59}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Uniware Jumpsuit",
+		"notes": "",
+		"cost": 75,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 59}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Uniware Legpads",
+		"notes": "SP 10 legs",
+		"cost": 60,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 59}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Uniware Pants",
+		"notes": "",
+		"cost": 35,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 59}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Uniware Skirt",
+		"notes": "",
+		"cost": 35,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 59}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Uniware Torso Armor",
+		"notes": "SP 10 torso",
+		"cost": 60,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 59}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Uniware Utility Belt",
+		"notes": "",
+		"cost": 15,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 59}
+	},
+	{
+		"category": "ARMOR/CLOTHING",
+		"name": "Uniware Vest",
+		"notes": "",
+		"cost": 25,
+		"wt": 0,
+		"source":{"book": "Chr1", "page": 59}
+	},
+	{
+		"category": "SERVICE",
+		"name": "Utilities - Combat Zone (1mo)",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "SERVICE",
+		"name": "Utilities - Corporate Zone (1mo)",
+		"notes": "",
+		"cost": 400,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "SERVICE",
+		"name": "Utilities - Executive Zone (1mo)",
+		"notes": "",
+		"cost": 600,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "SERVICE",
+		"name": "Utilities - Moderate Zone (1mo)",
+		"notes": "",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Vac-solderer",
+		"notes": "4 hour battery",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "DS", "page": 55}
+	},
+	{
+		"category": "REMOTE/DRONES",
+		"name": "V-bot",
+		"notes": "SP 3; SDP 9; cleaning bot",
+		"cost": 650,
+		"wt": 6,
+		"source":{"book": "Chr3", "page": 89}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Vehicle Registry-AV/Gyro/Drigible",
+		"notes": "Northern California",
+		"cost": 2200,
+		"wt": 0,
+		"source":{"book": "NC", "page": 8}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Vehicle Registry-Car",
+		"notes": "Northern California",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "NC", "page": 8}
+	},
+	{
+		"category": "TRANSPORT",
+		"name": "Vehicle Rental - Honda-Avis (1day)",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "NC", "page": 10}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Vehicle Rental - Renta-Robo  Economy (1day)",
+		"notes": "",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "NC", "page": 10}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Vehicle Rental - Renta-Robo Luxury  (1day)",
+		"notes": "",
+		"cost": 220,
+		"wt": 0,
+		"source":{"book": "NC", "page": 10}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Vehicle Rental - Renta-Robo Mileage (1mile)",
+		"notes": "",
+		"cost": 0.6,
+		"wt": 0,
+		"source":{"book": "NC", "page": 10}
+	},
+	{
+		"category": "SPACE GEAR",
+		"name": "Velcro (12 pk)",
+		"notes": "",
+		"cost": 1,
+		"wt": 0,
+		"source":{"book": "DS", "page": 56}
+	},
+	{
+		"category": "LIFESTYLE",
+		"name": "Vendor CTD",
+		"notes": "",
+		"cost": 1500,
+		"wt": 0,
+		"source":{"book": "WS", "page": 56}
+	},
+	{
+		"category": "TOOLS",
+		"name": "'Venedico' Electronics Tool Kit",
+		"notes": "Wardrobe & Style +1; Rep +1",
+		"cost": 350,
+		"wt": 1,
+		"source":{"book": "Chr3", "page": 9}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Video Cam",
+		"notes": "",
+		"cost": 800,
+		"wt": 1,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Video Editing Console",
+		"notes": "",
+		"cost": 300,
+		"wt": 0,
+		"source":{"book": "I2.1", "page": 37}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Video Editing Console w/ Monitoring",
+		"notes": "",
+		"cost": 700,
+		"wt": 0,
+		"source":{"book": "I2.1", "page": 37}
+	},
+	{
+		"category": "PHONE UPGRADES",
+		"name": "Video Option",
+		"notes": "2 in. x2 in. screen",
+		"cost": 150,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 33}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Video Support Hardware",
+		"notes": "",
+		"cost": 500,
+		"wt": 0,
+		"source":{"book": "I2.1", "page": 37}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Video Tape",
+		"notes": "",
+		"cost": 4,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Video Wall",
+		"notes": "6'x6'",
+		"cost": 3500,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 34}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Video/Audio Tape Player",
+		"notes": "",
+		"cost": 40,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 59}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "VideoBoard (1 sq. ft.)",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 69}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: D-Day 12hrs",
+		"notes": "",
+		"cost": 6600,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: D-Day 3hrs",
+		"notes": "",
+		"cost": 1650,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: D-Day 6hrs",
+		"notes": "",
+		"cost": 3300,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: French Revolution 12hrs",
+		"notes": "",
+		"cost": 6400,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: French Revolution 3hrs",
+		"notes": "",
+		"cost": 1600,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: French Revolution 6hrs",
+		"notes": "",
+		"cost": 3200,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: Jack the Ripper 12hrs",
+		"notes": "",
+		"cost": 4000,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: Jack the Ripper 3hrs",
+		"notes": "",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: Jack the Ripper 6hrs",
+		"notes": "",
+		"cost": 2000,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: Jerusalem 12hrs",
+		"notes": "",
+		"cost": 3800,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: Jerusalem 3hrs",
+		"notes": "",
+		"cost": 950,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: Jerusalem 6hrs",
+		"notes": "",
+		"cost": 1900,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: Julius Caesar 12hrs",
+		"notes": "",
+		"cost": 3600,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: Julius Caesar 3hrs",
+		"notes": "",
+		"cost": 900,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: Julius Caesar 6hrs",
+		"notes": "",
+		"cost": 1800,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: Norsemen 12hrs",
+		"notes": "",
+		"cost": 3600,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: Norsemen 3hrs",
+		"notes": "",
+		"cost": 900,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: Norsemen 6hrs",
+		"notes": "",
+		"cost": 1800,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: Pompei 12 hrs",
+		"notes": "",
+		"cost": 4000,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: Pompei 3 hrs",
+		"notes": "",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: Pompei 6 hrs",
+		"notes": "",
+		"cost": 2000,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: The Crucifixion 12hrs",
+		"notes": "",
+		"cost": 10000,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: The Crucifixion 3hrs",
+		"notes": "",
+		"cost": 2500,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: The Crucifixion 6hrs",
+		"notes": "",
+		"cost": 5000,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: Titanic 12hrs",
+		"notes": "",
+		"cost": 6000,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: Titanic 3 hrs",
+		"notes": "",
+		"cost": 1500,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: Titanic 6hrs",
+		"notes": "",
+		"cost": 3000,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: Versailles 12hrs",
+		"notes": "",
+		"cost": 4800,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: Versailles 3hrs",
+		"notes": "",
+		"cost": 1200,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Virtual Ventures: Versailles 6hrs",
+		"notes": "",
+		"cost": 2400,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 19}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Virtualizer",
+		"notes": "",
+		"cost": 2000,
+		"wt": 0,
+		"source":{"book": "I2.1", "page": 38}
+	},
+	{
+		"category": "MEDIA EQUIPMENT",
+		"name": "Virtualizer 2/ Image Scanner",
+		"notes": "",
+		"cost": 2400,
+		"wt": 0,
+		"source":{"book": "I2.1", "page": 38}
+	},
+	{
+		"category": "PERSONAL ELECTRONICS",
+		"name": "Vision Goggles",
+		"notes": "options: Image Intensifier (250eb); Thermograph (200eb); Smartlink Target (200eb); 25x magnification (200eb);",
+		"cost": 0,
+		"wt": "",
+		"source":{"book": "HOB", "page": 81}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Visual Adapter w/ IR",
+		"notes": "attach to camera",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 18}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Visual Adapter w/Lowlite",
+		"notes": "attach to camera",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 18}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Visual Adapter w/Telescopic",
+		"notes": "attach to camera",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 18}
+	},
+	{
+		"category": "SURVEILLANCE",
+		"name": "Visual Adapter w/UV",
+		"notes": "attach to camera",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 18}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Voc Decryptor",
+		"notes": "+5 vs.Vocolocks",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "FURNITURE",
+		"name": "Vocal Switcher System",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 71}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Vocolock - High",
+		"notes": "DIFF 25",
+		"cost": 600,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Vocolock - Low",
+		"notes": "DIFF 15",
+		"cost": 200,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Vocolock - Maximum",
+		"notes": "DIFF 30",
+		"cost": 800,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "SECURITY",
+		"name": "Vocolock - Medium",
+		"notes": "DIFF 20",
+		"cost": 400,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 70}
+	},
+	{
+		"category": "REMOTE/DRONES",
+		"name": "WAD Controller",
+		"notes": "Controller for WADs; Radio/wired/laser/microwave/cell",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 112}
+	},
+	{
+		"category": "MUSICAL EQUIPMENT",
+		"name": "Wall Speakers",
+		"notes": "",
+		"cost": 250,
+		"wt": 0,
+		"source":{"book": "Chr4", "page": 72}
+	},
+	{
+		"category": "REMOTE/DRONES",
+		"name": "Washbot",
+		"notes": "SP 2; SDP 4; Wasing bot",
+		"cost": 425,
+		"wt": 1.5,
+		"source":{"book": "Chr3", "page": 88}
+	},
+	{
+		"category": "MUSICAL EQUIPMENT",
+		"name": "Washburn Soundmachine Guitar",
+		"notes": "+1 Perform",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "Chr2", "page": 26}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Water Purification Kit (Family)",
+		"notes": "",
+		"cost": 100,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 56}
+	},
+	{
+		"category": "SURVIVAL GEAR",
+		"name": "Water Purification Kit (Personal)",
+		"notes": "",
+		"cost": 50,
+		"wt": 0,
+		"source":{"book": "NEO", "page": 55}
+	},
+	{
+		"category": "DEMOLITION",
+		"name": "Waterproof Charges",
+		"notes": "4x1kg blocks of C-6+",
+		"cost": 3000,
+		"wt": 0,
+		"source":{"book": "SF", "page": 32}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "Well Drink (Excellent)",
+		"notes": "",
+		"cost": 9,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "Well Drink (Fair)",
+		"notes": "",
+		"cost": 3,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "FOOD & DRINK",
+		"name": "Well Drink (Good)",
+		"notes": "",
+		"cost": 6,
+		"wt": 0,
+		"source":{"book": "CP20", "page": 68}
+	},
+	{
+		"category": "DRUGS",
+		"name": "WhiteLace",
+		"notes": "+1 COOL; BODY Type; Reduce wound level by 1; 1 hr; 2d6 HC for 3d6 hrs",
+		"cost": 60,
+		"wt": 0,
+		"source":{"book": "I1.1", "page": 13}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Wirehead Unit  Permanent Refit",
+		"notes": "Price is averate of 5k-25k",
+		"cost": 15000,
+		"wt": 0,
+		"source":{"book": "I2.1", "page": 11}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Wirehead Unit Radio Control",
+		"notes": "",
+		"cost": 1500,
+		"wt": 0,
+		"source":{"book": "I2.1", "page": 11}
+	},
+	{
+		"category": "ENTERTAINMENT",
+		"name": "Wirehead Unit Refit",
+		"notes": "Price is average of 1d10 x 100",
+		"cost": 550,
+		"wt": 0,
+		"source":{"book": "I2.1", "page": 11}
+	}
+]
