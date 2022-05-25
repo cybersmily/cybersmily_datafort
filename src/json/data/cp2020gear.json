@@ -912,8 +912,8 @@
 	},
 	{
 		"category": "COMMUNICATION",
-		"name": "Cellular Phone",
-		"notes": " Mini",
+		"name": "Cellular Phone - Mini",
+		"notes": "",
 		"cost": 800,
 		"wt": 0,
 		"source":{"book": "CP20", "page": 70}
