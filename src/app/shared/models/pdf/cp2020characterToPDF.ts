@@ -280,7 +280,16 @@ export class Cp2020characterToPDF {
     doc.setFillColor('white');
     doc.setTextColor('black');
     doc.roundedRect(this._midPage, this._top + 10, 100, 80, 0.5, 0.5, 'S');
-    doc.addImage(img, 'JPEG', this._midPage + 10, this._top + 12, 76, 76);
+    // set the width to the ratio of the image hxw
+    const props = doc.getImageProperties(img);
+    const ratio = props.width / props.height;
+    let width = ratio * 76;
+    // set max width
+    width = width > 96 ? 96 : width;
+    // center the image
+    let left = this._midPage + 50;
+    left -= width / 2;
+    doc.addImage(img, 'JPEG', left, this._top + 12, width, 76);
     doc.setFontSize(this._fontSize);
   }
 
