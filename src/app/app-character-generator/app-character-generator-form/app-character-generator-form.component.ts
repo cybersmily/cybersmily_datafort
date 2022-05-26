@@ -1,3 +1,5 @@
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { Cp2020DeckmanagerPdfSectionService } from './../../shared/cp2020/cp2020-netrun-gear/services/cp2020-deckmanager-pdf-section/cp2020-deckmanager-pdf-section.service';
 import { Cp2020ArmorPDFSectionService } from './../../shared/cp2020/cp2020-armor/services/cp2020-armor-pdf-section/cp2020-armor-pdf-section.service';
 import { Cp2020CyberdeckManager } from './../../shared/cp2020/cp2020-netrun-gear/models/cp2020-cyberdeck-manager';
@@ -35,7 +37,6 @@ import {
   ViewChild,
   ElementRef,
   TemplateRef,
-  Renderer2,
 } from '@angular/core';
 import { Cp2020PlayerRole } from '../../shared/cp2020/cp2020-role/models/cp2020-player-role';
 import { Cp2020characterToPDF } from './../../shared/models/pdf/cp2020characterToPDF';
@@ -64,10 +65,14 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     return this.isNotesCollapsed ? this.faChevronRight : this.faChevronDown;
   }
 
-  character: Cp2020PlayerCharacter;
+  character$: Observable<Cp2020PlayerCharacter>;
   sources = new Array<TitleValue>();
   charGenSettings: Cp2020CharGenSettings = new Cp2020CharGenSettings();
   charGenSettingsKey: string = 'CP2020_CharGenSettings';
+  initiative: number = 0;
+  combatSense: number = 0;
+  baseRef: number = 0;
+  baseInt: number = 0;
 
   isNotesCollapsed = false;
 
@@ -96,8 +101,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     private modalService: BsModalService,
     private armorPDFService: Cp2020ArmorPDFSectionService,
     private deckmanagerPDFService: Cp2020DeckmanagerPdfSectionService,
-    private seo: SeoService,
-    private renderer: Renderer2
+    private seo: SeoService
   ) {}
 
   ngOnInit() {
@@ -105,20 +109,26 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
       'Character Generator for Cyberpunk 2020',
       "2021-11-21 Cybersmily's Datafort Character Generator for Cyberpunk 2020. This app can print to PDF and save/load the character sheet"
     );
-    this.characterService.character.subscribe((data) => {
-      this.character = data;
-      this.loadSettings();
-      this.charGenSettings.isIU = this.character.isIU;
-      this.saveSettings(this.charGenSettings);
-      this.isNotesCollapsed = this.charGenSettings.isCollapsed;
-    });
+    this.character$ = this.characterService.character.pipe(
+      map((data) => {
+        this.loadSettings();
+        this.charGenSettings.isIU = data.isIU;
+        this.saveSettings(this.charGenSettings);
+        this.isNotesCollapsed = this.charGenSettings.isCollapsed;
+        this.initiative = this.getInitiative(data);
+        this.combatSense = this.getCombatSense(data);
+        this.baseInt = data.stats.INT.Base;
+        this.baseRef = data.stats.REF.Base;
+        return data;
+      })
+    );
     this.sourceService.getSources().subscribe((sources) => {
       this.sources = sources;
     });
   }
 
   changeCharacter() {
-    this.characterService.changeCharacter(this.character);
+    //this.characterService.changeCharacter(this.character);
   }
 
   changeHandle(value: string) {
@@ -178,7 +188,9 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     this.characterService.changeSkills(value);
   }
 
-  changeImage(value: string) {}
+  changeImage(value: string) {
+    this.characterService.changeImage(value);
+  }
 
   changeRep(value: number) {
     this.characterService.changeRep(value);
@@ -189,7 +201,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   }
 
   updateNotes() {
-    this.characterService.changeNotes(this.character.notes);
+    //this.characterService.changeNotes(this.character.notes);
   }
 
   /**
@@ -198,10 +210,14 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
    * @memberof AppCharacterGeneratorFormComponent
    */
   saveCharacter() {
-    this.saveFileService.SaveAsFile(
-      'CP2020_' + this.character.handle.replace(' ', '_'),
-      JSON.stringify(this.character)
-    );
+    this.character$
+      .subscribe((character) =>
+        this.saveFileService.SaveAsFile(
+          'CP2020_' + character.handle.replace(' ', '_'),
+          JSON.stringify(character)
+        )
+      )
+      .unsubscribe();
   }
 
   createPDF() {
@@ -209,7 +225,9 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
       this.armorPDFService,
       this.deckmanagerPDFService
     );
-    characterToPDF.generatePdf(this.character);
+    this.character$
+      .subscribe((character) => characterToPDF.generatePdf(character))
+      .unsubscribe();
   }
 
   /**
@@ -239,7 +257,6 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     }
     this.charGenSettings = new Cp2020CharGenSettings(settings);
     this.setSkillSettingStats();
-    console.log(this.charGenSettings);
     window.localStorage.setItem(
       this.charGenSettingsKey,
       JSON.stringify(this.charGenSettings)
@@ -247,8 +264,8 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   }
 
   setSkillSettingStats() {
-    this.charGenSettings.skillSettings.ref = this.character.stats.REF.Base;
-    this.charGenSettings.skillSettings.ref = this.character.stats.INT.Base;
+    this.charGenSettings.skillSettings.ref = this.baseRef;
+    this.charGenSettings.skillSettings.ref = this.baseInt;
   }
 
   openModal(template: TemplateRef<any>) {
@@ -267,22 +284,22 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     }
   }
 
-  get combatSense(): number {
+  getCombatSense(character: Cp2020PlayerCharacter): number {
     let result = 0;
     if (
-      this.character.role.specialAbility.name.toLowerCase() === 'combatsense' ||
-      this.character.role.specialAbility.name.toLowerCase() === 'combat sense'
+      character.role.specialAbility.name.toLowerCase() === 'combatsense' ||
+      character.role.specialAbility.name.toLowerCase() === 'combat sense'
     ) {
-      result = this.character.role.specialAbility.value;
+      result = character.role.specialAbility.value;
     }
     return result;
   }
 
-  get initiative(): number {
-    if (!this.character.isIU) {
+  getInitiative(character: Cp2020PlayerCharacter): number {
+    if (!character.isIU) {
       return -1;
     }
-    const found = this.character.skills.skills.find(
+    const found = character.skills.skills.find(
       (sk) => sk.name.toLowerCase() === 'initiative'
     );
     return found ? found.value : 0;

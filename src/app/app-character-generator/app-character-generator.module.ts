@@ -1,3 +1,4 @@
+import { ImageHolderModule } from './../shared/modules/image-holder/image-holder.module';
 import { Cp2020NetrunGearModule } from '../shared/cp2020/cp2020-netrun-gear/cp2020-netrun-gear.module';
 import { Cp2020LifepathModule } from './../shared/cp2020/cp2020-lifepath/cp2020-lifepath.module';
 import { Cp2020VehiclesModule } from './../shared/cp2020/cp2020-vehicles/cp2020-vehicles.module';
@@ -38,7 +39,7 @@ import { AppCharacterSettingsComponent } from './app-character-settings/app-char
     AppCharacterImageComponent,
     AppCharacterGearComponent,
     AppCharacterInstructionComponent,
-    AppCharacterSettingsComponent
+    AppCharacterSettingsComponent,
   ],
   imports: [
     CommonModule,
@@ -55,7 +56,8 @@ import { AppCharacterSettingsComponent } from './app-character-settings/app-char
     Cp2020VehiclesModule,
     Cp2020LifepathModule,
     Cp2020NetrunGearModule,
-    ModalModule.forRoot()
+    ImageHolderModule,
+    ModalModule.forRoot(),
   ],
   providers: [
     DiceService,
@@ -67,7 +69,7 @@ import { AppCharacterSettingsComponent } from './app-character-settings/app-char
     EthnicityGeneratorService,
     LifeEventsGeneratorService,
     LifePathGeneratorService,
-    BsModalRef
-  ]
+    BsModalRef,
+  ],
 })
-export class AppCharacterGeneratorModule { }
+export class AppCharacterGeneratorModule {}

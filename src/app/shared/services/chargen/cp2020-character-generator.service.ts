@@ -47,7 +47,8 @@ export class Cp2020CharacterGeneratorService {
 
   changeCharacter(value: any) {
     this._currCharacter = new Cp2020PlayerCharacter(value?.isIU);
-    this._currCharacter.handle = value.handle ? value.handle : '';
+    this._currCharacter.handle = value?.handle ?? '';
+    this._currCharacter.image = value?.image ?? '';
     if (value.role) {
       this._currCharacter.role.import(value.role);
     }
@@ -236,6 +237,11 @@ export class Cp2020CharacterGeneratorService {
 
   changeNotes(value: string) {
     this._currCharacter.notes = value;
+    this.updateCharacter();
+  }
+
+  changeImage(value: string) {
+    this._currCharacter.image = value;
     this.updateCharacter();
   }
 
