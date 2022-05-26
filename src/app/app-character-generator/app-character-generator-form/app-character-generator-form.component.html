@@ -247,6 +247,7 @@
           [(ngModel)]="notes"
           class="chargen-notes"
           (change)="updateNotes()"
+          (keyup)="updateNotes()"
         ></textarea>
       </div>
     </div>
