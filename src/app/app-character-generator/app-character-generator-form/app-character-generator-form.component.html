@@ -128,7 +128,10 @@
           </cs-cp2020-armor-table>
         </div>
       </div>
-      <div class="row print-fix">
+      <div
+        *ngIf="charGenSettings.sectionSettings.showSkills"
+        class="row print-fix"
+      >
         <div class="col-12">
           <cs-cp2020-skill-list-full
             [stats]="character.stats"
@@ -139,7 +142,10 @@
           ></cs-cp2020-skill-list-full>
         </div>
       </div>
-      <div class="row print-fix csd-linebreak">
+      <div
+        *ngIf="charGenSettings.sectionSettings.showWeapons"
+        class="row print-fix csd-linebreak"
+      >
         <div class="col">
           <cs-cp2020weapontable
             [weapons]="character.weapons"
@@ -156,7 +162,10 @@
           </cs-cp2020weapontable>
         </div>
       </div>
-      <div class="row print-fix csd-linebreak">
+      <div
+        class="row print-fix csd-linebreak"
+        *ngIf="charGenSettings.sectionSettings.showArmor"
+      >
         <div class="col">
           <cs-cp2020-armor-section
             [isCollapsed]="charGenSettings.isCollapsed"
@@ -165,7 +174,10 @@
           ></cs-cp2020-armor-section>
         </div>
       </div>
-      <div class="row print-fix csd-linebreak">
+      <div
+        class="row print-fix csd-linebreak"
+        *ngIf="charGenSettings.sectionSettings.showCybernetics"
+      >
         <div class="col">
           <cs-cp2020-cyberware-table
             [cyberList]="character.cyberware"
@@ -177,7 +189,10 @@
         </div>
       </div>
 
-      <div class="row print-fix">
+      <div
+        class="row print-fix"
+        *ngIf="charGenSettings.sectionSettings.showGear"
+      >
         <div class="col">
           <cs-app-character-gear
             [gear]="character.gear"
@@ -186,7 +201,10 @@
           ></cs-app-character-gear>
         </div>
       </div>
-      <div class="row print-fix">
+      <div
+        class="row print-fix"
+        *ngIf="charGenSettings.sectionSettings.showCyberdeck"
+      >
         <div class="col">
           <cs-cp2020-cyber-deck-section
             [isCollapsed]="charGenSettings.isCollapsed"
@@ -195,7 +213,10 @@
           ></cs-cp2020-cyber-deck-section>
         </div>
       </div>
-      <div class="row print-fix csd-linebreak">
+      <div
+        class="row print-fix csd-linebreak"
+        *ngIf="charGenSettings.sectionSettings.showVehicles"
+      >
         <div class="col">
           <cs-cp2020-vehicle-table
             [vehicles]="character.vehicles"
@@ -205,7 +226,10 @@
         </div>
       </div>
 
-      <div class="row print-fix">
+      <div
+        class="row print-fix"
+        *ngIf="charGenSettings.sectionSettings.showLifestyle"
+      >
         <div class="col">
           <cs-cp2020-lifestyle
             [lifeStyle]="character.lifeStyle"
@@ -215,7 +239,10 @@
           </cs-cp2020-lifestyle>
         </div>
       </div>
-      <div class="row print-fix csd-linebreak g-0">
+      <div
+        class="row print-fix csd-linebreak g-0"
+        *ngIf="charGenSettings.sectionSettings.showLifePath"
+      >
         <div class="col">
           <cs-cp2020-lifepath-section
             [lifepath]="character.lifepath"
@@ -228,7 +255,10 @@
           </cs-cp2020-lifepath-section>
         </div>
       </div>
-      <div class="chargen-label chargen-fill chargen-page-header csd-linebreak">
+      <div
+        class="chargen-label chargen-fill chargen-page-header csd-linebreak"
+        *ngIf="charGenSettings.sectionSettings.showNotes"
+      >
         <h4
           class="d-inline-block csd-btn me-4"
           (click)="isNotesCollapsed = !isNotesCollapsed"
