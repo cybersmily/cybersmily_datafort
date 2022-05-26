@@ -242,11 +242,13 @@
           ></fa-icon>
         </h4>
       </div>
-      <textarea
-        [collapse]="isNotesCollapsed"
-        [(ngModel)]="character.notes"
-        class="chargen-notes"
-      ></textarea>
+      <div [collapse]="isNotesCollapsed">
+        <textarea
+          [(ngModel)]="notes"
+          class="chargen-notes"
+          (change)="updateNotes()"
+        ></textarea>
+      </div>
     </div>
   </div>
 </div>

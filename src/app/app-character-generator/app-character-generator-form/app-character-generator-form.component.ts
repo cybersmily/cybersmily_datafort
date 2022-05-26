@@ -73,6 +73,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   combatSense: number = 0;
   baseRef: number = 0;
   baseInt: number = 0;
+  notes: string = '';
 
   isNotesCollapsed = false;
 
@@ -109,16 +110,17 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
       'Character Generator for Cyberpunk 2020',
       "2021-11-21 Cybersmily's Datafort Character Generator for Cyberpunk 2020. This app can print to PDF and save/load the character sheet"
     );
+    this.loadSettings();
+    this.isNotesCollapsed = this.charGenSettings.isCollapsed;
     this.character$ = this.characterService.character.pipe(
       map((data) => {
-        this.loadSettings();
         this.charGenSettings.isIU = data.isIU;
-        this.saveSettings(this.charGenSettings);
-        this.isNotesCollapsed = this.charGenSettings.isCollapsed;
-        this.initiative = this.getInitiative(data);
-        this.combatSense = this.getCombatSense(data);
         this.baseInt = data.stats.INT.Base;
         this.baseRef = data.stats.REF.Base;
+        this.saveSettings(this.charGenSettings);
+        this.initiative = this.getInitiative(data);
+        this.combatSense = this.getCombatSense(data);
+        this.notes = data.notes;
         return data;
       })
     );
@@ -201,7 +203,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   }
 
   updateNotes() {
-    //this.characterService.changeNotes(this.character.notes);
+    this.characterService.changeNotes(this.notes);
   }
 
   /**
