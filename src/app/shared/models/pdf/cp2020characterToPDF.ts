@@ -271,15 +271,16 @@ export class Cp2020characterToPDF {
   }
 
   private addCharImage(doc: jsPDF, img: string) {
-    doc.setTextColor('black');
+    doc.setFillColor('black');
     doc.rect(this._midPage, this._top, 100, 10, 'DF');
     doc.setTextColor('white');
     doc.setFont(this._font, 'bold');
     doc.setFontSize(15);
     doc.text('CYBERPUNK 2020', this._midPage + 25, this._top + 6);
+    doc.setFillColor('white');
+    doc.setTextColor('black');
     doc.roundedRect(this._midPage, this._top + 10, 100, 80, 0.5, 0.5, 'S');
-    console.log(img);
-    doc.addImage(img, 'JPEG', this._midPage + 10, this._top + 10, 80, 80);
+    doc.addImage(img, 'JPEG', this._midPage + 10, this._top + 12, 76, 76);
     doc.setFontSize(this._fontSize);
   }
 
