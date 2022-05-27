@@ -2,11 +2,11 @@
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://cybersmily.net/index.html</loc>
-    <lastmod>2022-05-25</lastmod>
+    <lastmod>2022-05-30</lastmod>
   </url>
   <url>
     <loc>https://cybersmily.net/apps/chargen</loc>
-    <lastmod>2022-05-25</lastmod>
+    <lastmod>2022-05-30</lastmod>
   </url>
   <url>
     <loc>https://cybersmily.net/apps/cmbttrk</loc>
@@ -30,7 +30,7 @@
   </url>
   <url>
     <loc>https://cybersmily.net/apps/fixcalc</loc>
-    <lastmod>2022-02-05</lastmod>
+    <lastmod>2022-05-30</lastmod>
   </url>
   <url>
     <loc>https://cybersmily.net/apps/qkpregen</loc>
@@ -97,7 +97,7 @@
     <lastmod>2022-05-25</lastmod>
   </url>
   <url>
-    <loc>https://cybersmily.net/data/wpns</loc>
+    <loc>https://cybersmily.net/data/gear</loc>
     <lastmod>2022-05-25</lastmod>
   </url>
   <url>
@@ -110,7 +110,7 @@
   </url>
   <url>
     <loc>https://cybersmily.net/data/moreguns</loc>
-    <lastmod>2022-02-05</lastmod>
+    <lastmod>2022-02-30</lastmod>
   </url>
   <url>
     <loc>https://cybersmily.net/data/proteus/prog</loc>
