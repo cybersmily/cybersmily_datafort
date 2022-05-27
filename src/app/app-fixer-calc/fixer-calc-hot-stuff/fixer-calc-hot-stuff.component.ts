@@ -1,15 +1,27 @@
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { SaveFileService } from './../../shared/services/file-services';
-import { faPlus, faSave, faRedo, faFile, faDice } from '@fortawesome/free-solid-svg-icons';
+import {
+  faPlus,
+  faSave,
+  faRedo,
+  faFile,
+  faDice,
+} from '@fortawesome/free-solid-svg-icons';
 import { HotStuffArea } from './../../shared/models/fixer/hot-stuff-area';
 import { FixerHotStuffService } from './../../shared/services/fixer/fixer-hot-stuff.service';
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { ChartItem } from './../../shared/cp2020/cp2020-fixerCalc/fixerchart';
 
 @Component({
   selector: 'cs-fixer-calc-hot-stuff',
   templateUrl: './fixer-calc-hot-stuff.component.html',
-  styleUrls: ['./fixer-calc-hot-stuff.component.css']
+  styleUrls: ['./fixer-calc-hot-stuff.component.css'],
 })
 export class FixerCalcHotStuffComponent implements OnInit {
   faPlus = faPlus;
@@ -21,20 +33,27 @@ export class FixerCalcHotStuffComponent implements OnInit {
   @Input()
   fields: Array<string> = new Array<string>();
 
-  streetdeal: number;
+  @Input()
+  streetdeal: number = 0;
+
   newArea: HotStuffArea = new HotStuffArea();
   areas: Array<HotStuffArea> = new Array<HotStuffArea>();
 
-  constructor( private hotstuff: FixerHotStuffService,
-                private fileService: SaveFileService,
-                private dice: DiceService
-    ) { }
+  constructor(
+    private hotstuff: FixerHotStuffService,
+    private fileService: SaveFileService,
+    private dice: DiceService
+  ) {}
 
   ngOnInit() {
-    this.hotstuff.model.subscribe( m => {
+    this.hotstuff.setStreetdeal(this.streetdeal);
+    this.hotstuff.model.subscribe((m) => {
       this.areas = m.areas;
-      this.streetdeal = m.streetdeal;
     });
+  }
+
+  ngOnChanges() {
+    this.hotstuff.setStreetdeal(this.streetdeal);
   }
 
   get totalPoints(): number {
@@ -50,30 +69,35 @@ export class FixerCalcHotStuffComponent implements OnInit {
   }
 
   get canAdd(): boolean {
-    return ( (this.newArea.area !== '' && this.newArea.rolls > 0 && !this.exists)
-    && this.isUnderPoints);
+    return (
+      this.newArea.area !== '' &&
+      this.newArea.rolls > 0 &&
+      !this.exists &&
+      this.isUnderPoints
+    );
   }
 
   get isUnderPoints(): boolean {
-    return (this.newArea.points + this.spentPoints <= this.totalPoints);
+    return this.newArea.points + this.spentPoints <= this.totalPoints;
   }
 
   get exists(): boolean {
-    return this.areas.some( a => a.area.toLowerCase() === this.newArea.area);
+    return this.areas.some((a) => a.area.toLowerCase() === this.newArea.area);
   }
 
   get canRoll(): boolean {
-    return (this.streetdeal > 0) && (this.totalPoints - 3 > this.spentPoints);
+    return this.streetdeal > 0 && this.totalPoints - 3 > this.spentPoints;
   }
 
   generate() {
-    if(this.streetdeal > 0) {
+    if (this.streetdeal > 0) {
       this.hotstuff.randomlyGenerate(this.dice, this.fields);
     }
   }
 
-  generateArea(){
-    this.newArea.area = this.fields[this.dice.generateNumber(0, this.fields.length - 1)];
+  generateArea() {
+    this.newArea.area =
+      this.fields[this.dice.generateNumber(0, this.fields.length - 1)];
   }
 
   addArea() {
@@ -91,17 +115,13 @@ export class FixerCalcHotStuffComponent implements OnInit {
   }
 
   changeNewRolls() {
-    if (this.newArea.rolls > 6 ) {
+    if (this.newArea.rolls > 6) {
       this.newArea.rolls = 6;
     }
   }
 
-  changeStreetdeal() {
-    this.hotstuff.setStreetdeal(this.streetdeal);
-  }
-
   reset() {
-    this.hotstuff.reset();
+    this.hotstuff.reset(this.streetdeal);
   }
 
   save() {

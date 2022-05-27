@@ -1,3 +1,6 @@
+import { DataListColumnParameters } from './../../shared/modules/data-list/models/data-list-parameters';
+import { DataWeapon } from './../../shared/cp2020/cp2020weapons/models/data-weapon';
+import { WeaponProperties } from './../../shared/cp2020/cp2020weapons/models/weapon-properties';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { JsonDataFiles } from './../../shared/services/file-services';
@@ -12,22 +15,165 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./moreguns.component.css'],
 })
 export class MoregunsComponent implements OnInit {
-  weaponList$: Observable<Array<WeaponGroup>>;
+  wpnList$: Observable<Array<DataWeapon>>;
+  availabilities = WeaponProperties.availabilities;
+  concealments = WeaponProperties.concealments;
+  reliabilites = WeaponProperties.reliabilites;
+
+  columns: Array<DataListColumnParameters> = [
+    {
+      header: 'category',
+      headerClass: 'col-2 d-none d-md-inline-block text-xsmall',
+      property: 'category',
+      filters: 'filter',
+      filterValues: WeaponProperties.categories.map((cat) => ({
+        key: cat,
+        value: cat,
+      })),
+      inputType: 'text',
+      class: 'col-2 d-none d-md-inline-block text-xsmall',
+      sort: 'category',
+    },
+    {
+      header: 'subcategory',
+      headerClass: 'col-1 d-none d-md-inline-block text-xsmall',
+      property: 'subcategory',
+      filters: 'contains',
+      inputType: 'text',
+      class: 'col-1 d-none d-md-inline-block text-xsmall',
+      sort: 'subcategory',
+    },
+    {
+      header: 'name',
+      headerClass: 'col-3 col-md-2 text-xsmall',
+      property: 'name',
+      filters: 'contains',
+      inputType: 'text',
+      class: 'col-3 col-md-2 text-small',
+      sort: 'name',
+    },
+    {
+      header: 'type',
+      headerClass: 'col text-xsmall text-center',
+      property: 'type',
+      filters: 'filter',
+      filterValues: WeaponProperties.types.map((t) => ({
+        key: t.code,
+        value: t.name,
+      })),
+      inputType: 'text',
+      class: 'col text-xsmall text-center',
+      sort: 'type',
+    },
+    {
+      header: 'wa',
+      headerClass: 'col text-xsmall text-center',
+      property: 'wa',
+      filters: 'contains',
+      inputType: 'text',
+      class: 'col text-xsmall text-center',
+      sort: 'wa',
+    },
+    {
+      header: 'conc.',
+      headerClass: 'col d-none d-md-inline-block text-xsmall text-center',
+      property: 'conc',
+      filters: 'filter',
+      filterValues: WeaponProperties.concealments.map((t) => ({
+        key: t.code,
+        value: t.name,
+      })),
+      inputType: 'text',
+      class: 'col d-none d-md-inline-block text-xsmall text-center',
+      sort: 'conc',
+    },
+    {
+      header: 'avail.',
+      headerClass: 'col d-none d-md-inline-block text-xsmall text-center',
+      property: 'avail',
+      filters: 'filter',
+      filterValues: WeaponProperties.availabilities.map((t) => ({
+        key: t.code,
+        value: t.name,
+      })),
+      inputType: 'text',
+      class: 'col d-none d-md-inline-block text-xsmall text-center',
+      sort: 'avail',
+    },
+    {
+      header: 'dmg',
+      headerClass: 'col text-xsmall',
+      property: 'damage',
+      filters: 'contains',
+      inputType: 'text',
+      class: 'col text-small',
+      sort: 'damage',
+    },
+    {
+      header: 'Shots',
+      headerClass: 'col text-xsmall',
+      property: 'shots',
+      filters: 'contains',
+      inputType: 'text',
+      class: 'col text-small',
+      sort: 'shots',
+    },
+    {
+      header: 'rof',
+      headerClass: 'col text-xsmall',
+      property: 'rof',
+      filters: 'contains',
+      inputType: 'text',
+      class: 'col text-small',
+      sort: 'rof',
+    },
+    {
+      header: 'cost',
+      headerClass: 'col text-xsmall',
+      property: 'cost',
+      filters: null,
+      inputType: 'number',
+      class: 'col text-small',
+      sort: 'cost',
+    },
+    {
+      header: 'rel.',
+      headerClass: 'col text-xsmall text-center',
+      property: 'rel',
+      filters: 'filter',
+      filterValues: WeaponProperties.reliabilites.map((t) => ({
+        key: t.code,
+        value: t.name,
+      })),
+      inputType: 'text',
+      class: 'col text-xsmall text-center',
+      sort: 'rel',
+    },
+    {
+      header: 'source',
+      headerClass: 'col-2 d-none d-md-inline-block text-xsmall',
+      property: 'source',
+      filters: 'sourcebook',
+      inputType: 'text',
+      class: 'col-2 d-none d-md-inline-block text-xsmall',
+      sort: 'source.book',
+      isSourcebook: true,
+    },
+  ];
+
   constructor(private dataService: DataService, private seo: SeoService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.initialize();
+  }
+
+  initialize() {
     this.seo.updateMeta(
       'Cyberpunk 2020 More Guns',
       "2020-07, Cybersmily's Datafort Cyberpunk 2020 More Guns is a complied list of guns from The Edge of the Sword Vol 1 and Solo of Fortune."
     );
-    this.getWeapons();
-  }
-
-  private getWeapons() {
-    this.weaponList$ = this.dataService
-      .GetJson<{ weapons: Array<WeaponGroup> }>(
-        JsonDataFiles.CP2020_MORE_GUNS_JSON
-      )
-      .pipe(map((data) => data.weapons));
+    this.wpnList$ = this.dataService.GetJson<Array<DataWeapon>>(
+      JsonDataFiles.CP2020_MORE_GUNS_JSON
+    );
   }
 }

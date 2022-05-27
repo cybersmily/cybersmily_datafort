@@ -1,5 +1,10 @@
 import { DiceService } from './../../shared/services/dice/dice.service';
-import { faSave, faRedo, faFile, faDice } from '@fortawesome/free-solid-svg-icons';
+import {
+  faSave,
+  faRedo,
+  faFile,
+  faDice,
+} from '@fortawesome/free-solid-svg-icons';
 import { SaveFileService } from './../../shared/services/file-services';
 import { BigLeagueContact } from './../../shared/models/fixer/big-league-contact';
 import { FixerBigLeagueService } from './../../shared/services/fixer/fixer-big-league.service';
@@ -8,7 +13,7 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'cs-fixer-calc-big-league',
   templateUrl: './fixer-calc-big-league.component.html',
-  styleUrls: ['./fixer-calc-big-league.component.css']
+  styleUrls: ['./fixer-calc-big-league.component.css'],
 })
 export class FixerCalcBigLeagueComponent implements OnInit {
   faSave = faSave;
@@ -16,22 +21,29 @@ export class FixerCalcBigLeagueComponent implements OnInit {
   faFile = faFile;
   faDice = faDice;
 
-  streetdeal = 5;
   contacts: Array<BigLeagueContact> = new Array<BigLeagueContact>();
 
   @Input()
   contactList: Array<string> = new Array<string>();
 
-  constructor(private bigLeague: FixerBigLeagueService,
-              private fileService: SaveFileService,
-              private dice: DiceService
-    ) {}
+  @Input()
+  streetdeal = 5;
+
+  constructor(
+    private bigLeague: FixerBigLeagueService,
+    private fileService: SaveFileService,
+    private dice: DiceService
+  ) {}
 
   ngOnInit() {
-    this.bigLeague.model.subscribe( c => {
+    this.bigLeague.setStreetdeal(this.streetdeal);
+    this.bigLeague.model.subscribe((c) => {
       this.contacts = c.contacts;
-      this.streetdeal = c.streetdeal;
     });
+  }
+
+  ngOnChanges() {
+    this.bigLeague.setStreetdeal(this.streetdeal);
   }
 
   get totalPoints(): number {
@@ -47,11 +59,11 @@ export class FixerCalcBigLeagueComponent implements OnInit {
   }
 
   get canGenerateContacts(): boolean {
-    return (this.streetdeal > 0) && (this.availablePoints >= 1);
+    return this.streetdeal > 0 && this.availablePoints >= 1;
   }
 
   generateContacts() {
-    if( this.canGenerateContacts) {
+    if (this.canGenerateContacts) {
       this.bigLeague.generateContactList(this.dice, this.contactList);
     }
   }
@@ -72,10 +84,13 @@ export class FixerCalcBigLeagueComponent implements OnInit {
   }
 
   reset() {
-    this.bigLeague.reset();
+    this.bigLeague.reset(this.streetdeal);
   }
 
   save() {
-    this.fileService.SaveAsFile('FixerBigLeagueContacts', this.bigLeague.toString());
+    this.fileService.SaveAsFile(
+      'FixerBigLeagueContacts',
+      this.bigLeague.toString()
+    );
   }
 }

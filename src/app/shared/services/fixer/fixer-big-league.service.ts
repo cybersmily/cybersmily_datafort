@@ -6,7 +6,7 @@ import { BigLeagueContact } from './../../models/fixer/big-league-contact';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FixerBigLeagueService {
   private key = 'csdBigLeagueContacts';
@@ -21,7 +21,6 @@ export class FixerBigLeagueService {
     this._spentPoints = this.calculatePoints();
   }
 
-
   /**
    * Sets the current streetdeal level and updates the observable model
    *
@@ -33,7 +32,6 @@ export class FixerBigLeagueService {
     this.updateModel();
   }
 
-
   /**
    * Add a bigLeagueContact to the current list of contact.
    * Will not add if there is not enough available points.
@@ -42,7 +40,7 @@ export class FixerBigLeagueService {
    * @memberof FixerBigLeagueService
    */
   addContact(contact: BigLeagueContact) {
-    if ( contact.cost + this.spentPoints <= this.totalPoints) {
+    if (contact.cost + this.spentPoints <= this.totalPoints) {
       const c = new BigLeagueContact();
       c.name = contact.name;
       c.reputation = contact.reputation;
@@ -53,7 +51,6 @@ export class FixerBigLeagueService {
       this.updateModel();
     }
   }
-
 
   /**
    * Removes the contact at the index from the current contact list.
@@ -66,7 +63,6 @@ export class FixerBigLeagueService {
     this.updateModel();
   }
 
-
   /**
    * removes the contact based on name and total cost.
    * If there are mutliples same name and cost, then first one found.
@@ -74,11 +70,15 @@ export class FixerBigLeagueService {
    * @memberof FixerBigLeagueService
    */
   updateContact(contact: BigLeagueContact) {
-    const i = this._curModel.contacts.findIndex(c => c.name === contact.name && c.cost === contact.cost && c.details === contact.details);
+    const i = this._curModel.contacts.findIndex(
+      (c) =>
+        c.name === contact.name &&
+        c.cost === contact.cost &&
+        c.details === contact.details
+    );
     this._curModel.contacts[i] = contact;
     this.updateModel();
   }
-
 
   /**
    * Generate a random list of contacts based on the available points
@@ -87,8 +87,8 @@ export class FixerBigLeagueService {
    * @param {Array<string>} contactTypes
    * @memberof FixerBigLeagueService
    */
-  generateContactList(dice: DiceService, contactTypes: Array<string>, ) {
-    while(this.availablePoints >= 1) {
+  generateContactList(dice: DiceService, contactTypes: Array<string>) {
+    while (this.availablePoints >= 1) {
       const contact = this.generateRandomContact(dice, contactTypes);
       this.addContact(contact);
     }
@@ -103,17 +103,32 @@ export class FixerBigLeagueService {
    * @return {*}  {BigLeagueContact}
    * @memberof FixerBigLeagueService
    */
-  generateRandomContact(dice: DiceService, contactTypes: Array<string>): BigLeagueContact {
+  generateRandomContact(
+    dice: DiceService,
+    contactTypes: Array<string>
+  ): BigLeagueContact {
     const categories = new BigLeagueCategories();
     const contact = new BigLeagueContact();
-    contact.name = contactTypes[dice.generateNumber(0, contactTypes.length - 1)];
-    contact.capability = categories.capabilities[dice.generateNumber(0, categories.capabilities.length - 1)];
-    contact.availability = categories.availabilities[dice.generateNumber(0, categories.availabilities.length - 1)];
-    contact.reliability = categories.reliabilities[dice.generateNumber(0, categories.reliabilities.length - 1)];
-    contact.reputation = categories.reputations[dice.generateNumber(0, categories.reputations.length - 1)];
+    contact.name =
+      contactTypes[dice.generateNumber(0, contactTypes.length - 1)];
+    contact.capability =
+      categories.capabilities[
+        dice.generateNumber(0, categories.capabilities.length - 1)
+      ];
+    contact.availability =
+      categories.availabilities[
+        dice.generateNumber(0, categories.availabilities.length - 1)
+      ];
+    contact.reliability =
+      categories.reliabilities[
+        dice.generateNumber(0, categories.reliabilities.length - 1)
+      ];
+    contact.reputation =
+      categories.reputations[
+        dice.generateNumber(0, categories.reputations.length - 1)
+      ];
     return contact;
   }
-
 
   /**
    * returns the total number of points a fixer would have to spend
@@ -123,12 +138,11 @@ export class FixerBigLeagueService {
    * @memberof FixerBigLeagueService
    */
   get totalPoints(): number {
-    if ( this._curModel && this._curModel.streetdeal) {
-      return (this._curModel.streetdeal * 2) * (this._curModel.streetdeal * 2);
+    if (this._curModel && this._curModel.streetdeal) {
+      return this._curModel.streetdeal * 2 * (this._curModel.streetdeal * 2);
     }
     return 0;
   }
-
 
   /**
    * retunrs the current spent Contact Points for the contacts
@@ -141,7 +155,6 @@ export class FixerBigLeagueService {
     return this._spentPoints;
   }
 
-
   /**
    * returns the available Contact Points that can be spent.
    *
@@ -153,17 +166,18 @@ export class FixerBigLeagueService {
     return this.totalPoints - this._spentPoints;
   }
 
-
   /**
    * Resets the current BigLeague model to a new instance.
    *
    * @memberof FixerBigLeagueService
    */
-  reset() {
+  reset(streetdeal?: number) {
     this._curModel = new BigLeagueModel();
+    if (streetdeal) {
+      this._curModel.streetdeal = streetdeal;
+    }
     this.updateModel();
   }
-
 
   /**
    * updates the model and current cache of it.
@@ -180,13 +194,12 @@ export class FixerBigLeagueService {
   private calculatePoints(): number {
     let sum = 0;
     if (this._curModel && this._curModel.contacts) {
-      this._curModel.contacts.forEach(c => {
-       sum += c.cost;
+      this._curModel.contacts.forEach((c) => {
+        sum += c.cost;
       });
     }
     return sum;
   }
-
 
   /**
    * Gets the current BigLeague model from localStorage
@@ -200,8 +213,8 @@ export class FixerBigLeagueService {
     if (localStorage && localStorage[this.key]) {
       const storage = JSON.parse(localStorage[this.key]);
       results.streetdeal = storage.streetdeal;
-      if ( storage.contacts) {
-        storage.contacts.forEach(a => {
+      if (storage.contacts) {
+        storage.contacts.forEach((a) => {
           const contact = new BigLeagueContact(a);
           results.contacts.push(contact);
         });
@@ -209,7 +222,6 @@ export class FixerBigLeagueService {
     }
     return results;
   }
-
 
   /**
    * Sets the localStorage with the current BigLeague model.
@@ -222,7 +234,6 @@ export class FixerBigLeagueService {
       localStorage.setItem(this.key, JSON.stringify(model));
     }
   }
-
 
   /**
    * Converts the current BigLeague model into a string.
@@ -238,7 +249,7 @@ export class FixerBigLeagueService {
     output += `  total - ${this.totalPoints}((${this._curModel.streetdeal}*2)*(${this._curModel.streetdeal}*2))\n`;
     output += `Points: ${this.spentPoints}/${this.totalPoints}\n`;
     output += 'Contacts:\n';
-    this._curModel.contacts.forEach( c => {
+    this._curModel.contacts.forEach((c) => {
       output += `  ${c.name} (`;
       output += `${c.capability.name}/`;
       output += `${c.reputation.name} rep/`;

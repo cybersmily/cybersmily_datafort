@@ -9,11 +9,20 @@
     </button>
     <h4 class="d-inline">Big League</h4>
     <button
-      class="csd-btn csd-icon-xl csd-icon-btn ms-2 hidden-print"
+      class="csd-btn csd-icon-xl csd-icon-btn ms-2 me-3 hidden-print"
       title="Reset Streetdeal and clear all contacts"
       (click)="reset()"
     >
       <fa-icon [icon]="faRedo"></fa-icon>
+    </button>
+    Contact Points Used: {{ spentPoints }}/{{ totalPoints }}
+    <button
+      *ngIf="canGenerateContacts"
+      class="csd-btn csd-icon-btn csd-icon-xl ms-2"
+      title="Generate list of contacts"
+      (click)="generateContacts()"
+    >
+      <fa-icon [icon]="faDice"></fa-icon>
     </button>
     <div class="hidden-print">
       This system has a set amount of points that can be distributed amongst
@@ -22,29 +31,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-6">
-    Streetdeal:
-    <input
-      [(ngModel)]="streetdeal"
-      type="number"
-      min="0"
-      max="10"
-      title="Streetdeal skill level"
-      (change)="changeStreetdeal()"
-      class="text-center"
-    />
-  </div>
-  <div class="col-6">
-    Contact Points Used: {{ spentPoints }}/{{ totalPoints }}
-    <button
-      *ngIf="canGenerateContacts"
-      class="csd-btn csd-icon-btn csd-icon-xl float-end"
-      title="Generate list of contacts"
-      (click)="generateContacts()"
-    >
-      <fa-icon [icon]="faDice"></fa-icon>
-    </button>
-  </div>
+  <div class="col-6"></div>
 </div>
 <br />
 <div class="csd-rounded">

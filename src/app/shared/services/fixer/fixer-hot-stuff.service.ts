@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 import { ChartItem } from '../../cp2020/cp2020-fixerCalc/fixerchart';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FixerHotStuffService {
   private key = 'csdHotStuffAreas';
@@ -29,7 +29,7 @@ export class FixerHotStuffService {
   }
 
   get spentPoints(): number {
-    return this.curModel.areas.reduce( (a, b) => a + b.points, 0);
+    return this.curModel.areas.reduce((a, b) => a + b.points, 0);
   }
 
   addArea(area: HotStuffArea) {
@@ -39,7 +39,7 @@ export class FixerHotStuffService {
       newArea.rolls = area.rolls;
       newArea.details = area.details;
       this.curModel.areas.push(newArea);
-      this.curModel.areas.sort( (a, b) => (a.area > b.area) ? 1 : -1);
+      this.curModel.areas.sort((a, b) => (a.area > b.area ? 1 : -1));
       this.updateModel();
     }
   }
@@ -50,7 +50,7 @@ export class FixerHotStuffService {
   }
 
   updateArea(area: HotStuffArea) {
-    const index = this.curModel.areas.findIndex( a => a.area === area.area);
+    const index = this.curModel.areas.findIndex((a) => a.area === area.area);
     this.curModel.areas[index] = area;
     this.updateModel();
   }
@@ -59,16 +59,16 @@ export class FixerHotStuffService {
     // check to see if there are available points
     let numOfRolls = this.getMaxRoll(this.totalPoints - this.spentPoints);
     // loop until there is no more possible rolls
-    while(numOfRolls > 0) {
+    while (numOfRolls > 0) {
       // generate an area
       const area = new HotStuffArea();
       // check to make sure there are no duplicate areas
       do {
         area.area = fields[dice.generateNumber(0, fields.length - 1)];
-      } while(this.curModel.areas.some(f => f.area === area.area));
+      } while (this.curModel.areas.some((f) => f.area === area.area));
       area.rolls = dice.generateNumber(1, numOfRolls);
       this.curModel.areas.push(area);
-      this.curModel.areas.sort( (a, b) => (a.area > b.area) ? 1 : -1);
+      this.curModel.areas.sort((a, b) => (a.area > b.area ? 1 : -1));
       this.updateModel();
       numOfRolls = this.getMaxRoll(this.totalPoints - this.spentPoints);
     }
@@ -78,20 +78,23 @@ export class FixerHotStuffService {
     // return the number of rolls based on available points
     if (remaingPoints < 4) {
       return 0;
-    } else if(remaingPoints > 3 && remaingPoints < 8) {
+    } else if (remaingPoints > 3 && remaingPoints < 8) {
       return 1;
-    } else if(remaingPoints > 7 && remaingPoints < 16) {
+    } else if (remaingPoints > 7 && remaingPoints < 16) {
       return 2;
-    } else if(remaingPoints > 15 && remaingPoints < 32) {
+    } else if (remaingPoints > 15 && remaingPoints < 32) {
       return 3;
-    } else if(remaingPoints > 31 && remaingPoints < 64) {
+    } else if (remaingPoints > 31 && remaingPoints < 64) {
       return 4;
     }
     return 5;
   }
 
-  reset() {
+  reset(streetdeal?: number) {
     this.curModel = new HotStuffModel();
+    if (streetdeal) {
+      this.curModel.streetdeal = streetdeal;
+    }
     this.updateModel();
   }
 
@@ -102,7 +105,7 @@ export class FixerHotStuffService {
     output += `  spent - ${this.spentPoints}\n`;
     output += `  total - ${this.totalPoints}(${this.curModel.streetdeal}*${this.curModel.streetdeal})\n`;
     output += 'Contacts:\n';
-    this.curModel.areas.forEach( a => {
+    this.curModel.areas.forEach((a) => {
       output += `  ${a.area} (rolls: ${a.rolls}/cost:${a.points}pts)\n`;
       output += `  ${a.details}\n\n`;
     });
@@ -119,8 +122,8 @@ export class FixerHotStuffService {
     if (localStorage && localStorage[this.key]) {
       const storage = JSON.parse(localStorage[this.key]);
       results.streetdeal = storage.streetdeal;
-      if ( storage.areas) {
-        storage.areas.forEach(a => {
+      if (storage.areas) {
+        storage.areas.forEach((a) => {
           results.areas.push(new HotStuffArea(a));
         });
       }

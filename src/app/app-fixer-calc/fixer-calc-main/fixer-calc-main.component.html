@@ -3,24 +3,50 @@
     <div class="col-12">
       <h2>Fixer Calculator</h2>
       <div>
-        The Fixer Calculator is for Cyberpunk 2020 using the rules from <a
-          href="https://talsorianstore.com/collections/cyberpunk/products/wildside" target="_blank">Wildside
-          Sourcebook</a>.
-        Below are the two system from that book, Hot Stuff and Big League.
+        The Fixer Calculator is for Cyberpunk 2020 using the rules from
+        <a
+          href="https://talsorianstore.com/collections/cyberpunk/products/wildside"
+          target="_blank"
+          >Wildside Sourcebook</a
+        >. Below are the two system from that book, Hot Stuff and Big League.
         Both systems are used to create contacts for your Cyberpunk 2020 fixer.
       </div>
     </div>
   </div>
-  <br>
   <div class="row">
-    <div class="csd-rounded col-12">
-      <cs-fixer-calc-hot-stuff [fields]="(contactData$ | async)?.areaList"></cs-fixer-calc-hot-stuff>
-    </div>
-  </div>
-  <br>
-  <div class="row">
-    <div class="csd-rounded col-12">
-      <cs-fixer-calc-big-league [contactList]="(contactData$ | async)?.contactList"></cs-fixer-calc-big-league>
+    <div class="csd-rounded col-12 p-4">
+      <div class="row">
+        <div class="col-12">
+          STREETDEAL:
+          <input
+            [(ngModel)]="streetdeal"
+            type="number"
+            min="0"
+            max="10"
+            class="csd-number no-spinners mf-2 text-center"
+            (change)="changeStreetdeal()"
+            (keyup)="changeStreetdeal()"
+          />
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="csd-rounded col-12">
+          <cs-fixer-calc-hot-stuff
+            [streetdeal]="streetdeal"
+            [fields]="(contactData$ | async)?.areaList"
+          ></cs-fixer-calc-hot-stuff>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="csd-rounded col-12">
+          <cs-fixer-calc-big-league
+            [streetdeal]="streetdeal"
+            [contactList]="(contactData$ | async)?.contactList"
+          ></cs-fixer-calc-big-league>
+        </div>
+      </div>
     </div>
   </div>
 </div>

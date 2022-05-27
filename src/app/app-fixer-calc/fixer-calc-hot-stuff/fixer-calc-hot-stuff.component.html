@@ -9,43 +9,25 @@
     </button>
     <h4 class="d-inline">Hot Stuff</h4>
     <button
-      class="csd-btn csd-icon-xl csd-icon-btn ms-2 hidden-print"
+      class="csd-btn csd-icon-xl csd-icon-btn ms-2 me-3 hidden-print"
       title="Reset Streetdeal and clear all areas/fields."
       (click)="reset()"
     >
       <fa-icon [icon]="faRedo"></fa-icon>
     </button>
-    <div class="hidden-print">
-      This system has a set amount of points that can be distributed amongst
-      contacts.
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-3">
-    Streetdeal:
-    <input
-      [(ngModel)]="streetdeal"
-      type="number"
-      min="0"
-      max="10"
-      (change)="changeStreetdeal()"
-      class="text-center"
-      title="Streetdeal skill level"
-    />
-  </div>
-  <div class="col-6">
     Network Points Used: {{ spentPoints }}/{{ totalPoints }}
-  </div>
-  <div class="col-3 text-end">
     <button
       *ngIf="canRoll"
-      class="csd-btn csd-icon-btn csd-icon-xl"
+      class="csd-btn csd-icon-btn csd-icon-xl ms-2"
       title="Generate randomly"
       (click)="generate()"
     >
       <fa-icon [icon]="faDice"></fa-icon>
     </button>
+    <div class="hidden-print">
+      This system has a set amount of points that can be distributed amongst
+      contacts.
+    </div>
   </div>
 </div>
 <br />
