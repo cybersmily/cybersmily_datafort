@@ -573,6 +573,12 @@ export class TopNavLinks {
           target: '_blank',
         },
         {
+          title: 'Tales from the Forlorn Dopes',
+          link: 'https://www.youtube.com/playlist?list=PLuWVzb4wLUOiCW3UmwUiWfjY2y9Q3c7Wk',
+          desc: 'VOD/POD Cast',
+          target: '_blank',
+        },
+        {
           title: 'Tokyo Red: Cyberpunk Red',
           link: 'https://www.youtube.com/playlist?list=PLM-HN-1Cf8rggbs5RiHn-OkUjncMTAzYE',
           desc: 'Liveplay',
