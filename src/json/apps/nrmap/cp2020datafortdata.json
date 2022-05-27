@@ -1,206 +1,138 @@
 {
   "skills": [
-    "Accounting",
-    "Anthropology",
-    "Botany",
-    "Chemistry",
-    "Composition",
-    "Cryotank Operation",
-    "Diagnose Illness",
-    "Driving",
-    "Education & General Knowledge",
-    "Gamble",
-    "Geology",
-    "Heavy Weapons (as a mounted weapon)",
-    "History",
-    "Language",
-    "Ubrary Search",
-    "Mathematics",
-    "Operate Hvy. Machinery",
-    "Paint or Draw",
-    "Pharmaceuticals",
-    "Physics",
-    "Pilot",
-    "Play Instrument (if electronic)",
-    "Programming",
-    "Rifle (as a mounted weapon)",
-    "Stock Market",
-    "Submachinegun (as a mounted weapon)",
-    "System Knowledge",
-    "Teaching",
-    "Zoology"
+    "Accounting" , "Anthropology" , "Botany" , "Chemistry" , "Composition" , "Cryotank Operation" , "Diagnose Illness" , "Driving" , "Education & General Knowledge" , "Gamble" , "Geology" , "Heavy Weapons (as a mounted weapon)" , "History" , "Language" , "Ubrary Search" , "Mathematics" , "Operate Hvy. Machinery" , "Paint or Draw" , "Pharmaceuticals" , "Physics" , "Pilot" , "Play Instrument (if electronic)" , "Programming" , "Rifle (as a mounted weapon)" , "Stock Market" , "Submachinegun (as a mounted weapon)" , "System Knowledge" , "Teaching" , "Zoology"
   ],
   "ai": {
     "personalities": [
-      {"name": "Friendly, curious"                , "weight": 1},
-      {"name": "Hostile, paranoid"                , "weight": 1},
-      {"name": "Stable, intelligent, businesslike", "weight": 1},
-      {"name": "Intellectual, detached"           , "weight": 1},
-      {"name": "Machinelike"                      , "weight": 1},
-      {"name": "Remote and godlike"               , "weight": 1}
+      {"name": "Friendly, curious" , "weight": 1},
+      {"name": "Hostile, paranoid" , "weight": 1},
+      {"name": "Stable, intelligent, businesslike" , "weight": 1},
+      {"name": "Intellectual, detached" , "weight": 1},
+      {"name": "Machinelike" , "weight": 1},
+      {"name": "Remote and godlike" , "weight": 1 }
     ],
-    "reactions":[
-      {"name": "Neutral"                        , "weight": 2},
-      {"name": "Kill all intruders"             , "weight": 1},
-      {"name": "Observe intruders, then act"    , "weight": 1},
-      {"name": "Report all intruders"           , "weight": 1},
-      {"name": "Talk to intruder to find intent", "weight": 1}
-    ],
+    "reactions": [
+      { "name": "Neutral" , "weight": 2},
+      { "name": "Kill all intruders" , "weight": 1},
+      { "name": "Observe intruders, then act" , "weight": 1},
+      { "name": "Report all intruders" , "weight": 1},
+      { "name": "Talk to intruder to find intent" , "weight": 1}
+     ],
     "icons": [
-      {"name": "Human"       , "weight": 1},
-      {"name": "Geometric"   , "weight": 1},
-      {"name": "Mythological", "weight": 1},
-      {"name": "Voice only"  , "weight": 1},
-      {"name": "Technic"     , "weight": 1},
-      {"name": "Humanoid"    , "weight": 1}
+      { "name": "Human" , "weight": 1},
+      { "name": "Geometric" , "weight": 1},
+      { "name": "Mythological" , "weight": 1 },
+      { "name": "Voice only" , "weight": 1 },
+      { "name": "Technic" , "weight": 1 },
+      { "name": "Humanoid" , "weight": 1 }
     ]
   },
   "filesTypes": [
-    {"name": "Inter Office"          , "weight": 2},
-    {"name": "Database"              , "weight": 2},
-    {"name": "Business Records"      , "weight": 2},
-    {"name": "Financial Transactions", "weight": 2},
-    {"name": "Grey Ops"              , "weight": 1},
-    {"name": "Black Ops"             , "weight": 1}
+    { "name": "Inter Office" , "weight": 2},
+    { "name": "Database" , "weight": 2},
+    { "name": "Business Records" , "weight": 2},
+    { "name": "Financial Transactions" , "weight": 2},
+    { "name": "Grey Ops" , "weight": 1},
+    { "name": "Black Ops" , "weight": 1}
   ],
   "virtuals": [
-    {"name": "Conference", "weight":2, "mu":1, "cost":10000},
-    {"name": "Office"    , "weight":1, "mu":2, "cost":50000},
-    {"name": "Rec-Area"  , "weight":1, "mu":4, "cost":100000},
-    {"name": "Building"  , "weight":1, "mu":8, "cost":500000},
-    {"name": "City"      , "weight":1, "mu":16,"cost":1000000},
-    {"name": "World"     , "weight":1, "mu":32,"cost":10000000}
+    { "name": "Conference" , "weight": 2 , "mu": 1 , "cost": 10000},
+    { "name": "Office" , "weight": 1 , "mu": 2 , "cost": 50000},
+    { "name": "Rec-Area" , "weight": 1 , "mu": 4 , "cost": 100000},
+    { "name": "Building" , "weight": 1 , "mu": 8 , "cost": 500000},
+    { "name": "City" , "weight": 1 , "mu": 16 , "cost": 1000000},
+    { "name": "World" , "weight": 1 , "mu": 32 , "cost": 10000000}
   ],
   "virtualRealism": [
-    {"name":"Simple"         , "weight": 2},
-    {"name":"Contextual"     , "weight": 1},
-    {"name":"Fractal"        , "weight": 1},
-    {"name": "Photorealistic", "weight": 1},
-    {"name": "Superrealistic", "weight": 1}
+    { "name": "Simple" , "weight": 2},
+    { "name": "Contextual" , "weight": 1},
+    { "name": "Fractal" , "weight": 1},
+    { "name": "Photorealistic" , "weight": 1},
+    { "name": "Superrealistic" , "weight": 1}
   ],
-  "programsTypes":[
-    {"name": "Detection/Alarm", "prop":"detection_alarm", "weight": 4},
-    {"name": "Anti-IC"        , "prop":"anti_ic"        , "weight": 2},
-    {"name": "Anti-System"    , "prop":"anti_system"    , "weight": 2},
-    {"name": "Anti-Personnel" , "prop":"anti_personnel" , "weight": 2}
+  "programsTypes": [
+    { "name": "Detection/Alarm" , "prop": "detection_alarm" , "weight": 4},
+    { "name": "Anti-IC" , "prop": "anti_ic" , "weight": 2},
+    { "name": "Anti-System" , "prop": "anti_system" , "weight": 2},
+    { "name": "Anti-Personnel" , "prop": "anti_personnel" , "weight": 2}
   ],
   "programs": {
-    "detection_alarm":[
-      {"name": "Watchdog"  , "weight": 2},
-      {"name": "Bloodhound", "weight": 2},
-      {"name": "Pitbull"   , "weight": 2}
+    "detection_alarm": [
+      { "name": "Watchdog" , "weight": 2},
+      { "name": "Bloodhound" , "weight": 2},
+      { "name": "Pitbull" , "weight": 2}
     ],
     "anti_ic": [
-      {"name": "Killer II", "weight": 2},
-      {"name": "Killer VI", "weight": 2},
-      {"name": "Killer IV", "weight": 2},
-      {"name": "Manticore", "weight": 6},
-      {"name": "Aardvark" , "weight": 6}
+      { "name": "Killer II" , "weight": 2},
+      { "name": "Killer VI" , "weight": 2},
+      { "name": "Killer IV" , "weight": 2},
+      { "name": "Manticore" , "weight": 6},
+      { "name": "Aardvark" , "weight": 6}
     ],
     "anti_system": [
-      {"name":"Flatline"       , "weight": 1},
-      {"name":"Poison Flatline", "weight": 1},
-      {"name":"Krash"          , "weight": 1},
-      {"name": "Viral15"       , "weight": 1},
-      {"name": "DecKrash"      , "weight": 1},
-      {"name": "Murphy"        , "weight": 1}
+      { "name": "Flatline" , "weight": 1},
+      { "name": "Poison Flatline" , "weight": 1},
+      { "name": "Krash" , "weight": 1},
+      { "name": "Viral15" , "weight": 1},
+      { "name": "DecKrash" , "weight": 1},
+      { "name": "Murphy" , "weight": 1}
     ],
-    "anti_personnel":[
-      {"name": "Stun"     , "weight": 1},
-      {"name": "Hellbolt" , "weight": 1},
-      {"name": "Brainwipe", "weight": 1},
-      {"name": "Knockout" , "weight": 1},
-      {"name": "Zombie"   , "weight": 1},
-      {"name": "Hellhound", "weight": 1}
+    "anti_personnel": [
+      { "name": "Stun" , "weight": 1},
+      { "name": "Hellbolt" , "weight": 1},
+      { "name": "Brainwipe" , "weight": 1},
+      { "name": "Knockout" , "weight": 1},
+      { "name": "Zombie" , "weight": 1},
+      { "name": "Hellhound" , "weight": 1}
     ]
   },
-  "remotes": [
-    {"name": "Microphone"         , "weight": 2, "icon":"fa-microphone"},
-    {"name": "TV camera"          , "weight": 2, "icon":"fa-video"},
-    {"name": "Extra Terminal"     , "weight": 2, "icon":"fa-laptop"},
-    {"name": "Videoboard"         , "weight": 2, "icon":"fa-tv"},
-    {"name": "Printer"            , "weight": 2, "icon":"fa-file"},
-    {"name": "Remote vehicle"     , "weight": 1, "icon":"fa-truck"},
-    {"name": "Remote robot"       , "weight": 1, "icon":"fa-bezier-curve"},
-    {"name": "Automatic door/gate", "weight": 2, "icon":"fa-door-closed"},
-    {"name": "Elevator"           , "weight": 2, "icon":"fa-calendar"},
-    {"name": "Manipulator"        , "weight": 1, "icon":"fa-hand-lizard"},
-    {"name": "Autofactory"        , "weight": 1, "icon":"fa-cogs"}
-  ],
-  "layouts": [
-    [
-      {"x":2, "y":2}, {"x":3, "y":2}, {"x":5, "y":2}, {"x":6, "y":2},
-      {"x":2, "y":3}, {"x":7, "y":3},
-      {"x":2, "y":4}, {"x":5, "y":4}, {"x":7, "y":4},
-      {"x":3, "y":5}, {"x":6, "y":5},
-      {"x":2, "y":6}, {"x":7, "y":6},
-      {"x":2, "y":7},{"x":4, "y":7},{"x":5, "y":7},
-      {"x":6, "y":8},{"x":7, "y":8}
-    ],
-    [
-      {"x":2, "y":2}, {"x":5, "y":2}, {"x":6, "y":2}, {"x":7, "y":2},
-      {"x":3, "y":3},
-      {"x":2, "y":4}, {"x":7, "y":4},
-      {"x":1, "y":5}, {"x":5, "y":5},
-      {"x":2, "y":6}, {"x":3, "y":6}, {"x":7, "y":6},
-      {"x":3, "y":7}, {"x":6, "y":7}, {"x":7, "y":7},
-      {"x":4, "y":8}, {"x":5, "y":8}
-    ],
-    [
-      {"x":2, "y":1}, {"x":4, "y":1}, {"x":5, "y":1}, {"x":6, "y":1},
-      {"x":7, "y":2},
-      {"x":2, "y":3}, {"x":5, "y":3}, {"x":7, "y":3}, {"x":8, "y":3},
-      {"x":1, "y":4},
-      {"x":1, "y":5}, {"x":3, "y":5}, {"x":7, "y":5},
-      {"x":1, "y":6}, {"x":4, "y":6}, {"x":8, "y":6},
-      {"x":2, "y":7}, {"x":8, "y":7},
-      {"x":3, "y":8}, {"x":4, "y":8}, {"x":6, "y":8}, {"x":7, "y":8}, {"x":8, "y":8}
-    ],
-    [
-      {"x":4, "y":1},
-      {"x":2, "y":2}, {"x":4, "y":2}, {"x":5, "y":2}, {"x":6, "y":2}, {"x":7, "y":2},
-      {"x":1, "y":3}, {"x":6, "y":3},
-      {"x":4, "y":4}, {"x":6, "y":4},
-      {"x":2, "y":5}, {"x":6, "y":5}, {"x":8, "y":5},
-      {"x":2, "y":6}, {"x":8, "y":6},
-      {"x":1, "y":7}, {"x":2, "y":7}, {"x":4, "y":7}, {"x":5, "y":7}, {"x":8, "y":7},
-      {"x":6, "y":8}, {"x":7, "y":8}
-    ],
-    [
-      {"x":3, "y":1},
-      {"x":2, "y":2}, {"x":4, "y":2}, {"x":7, "y":2},
-      {"x":1, "y":3}, {"x":5, "y":3}, {"x":6, "y":3}, {"x":8, "y":3},
-      {"x":1, "y":4}, {"x":2, "y":4}, {"x":3, "y":4}, {"x":8, "y":4},
-      {"x":1, "y":5}, {"x":4, "y":5},
-      {"x":1, "y":6}, {"x":6, "y":6}, {"x":7, "y":6},
-      {"x":2, "y":7}, {"x":6, "y":7},
-      {"x":3, "y":8}, {"x":4, "y":8}, {"x":8, "y":8}
-    ],
-    [
-      {"x":2, "y":1}, {"x":3, "y":1}, {"x":4, "y":1}, {"x":5, "y":1}, {"x":6, "y":1}, {"x":7, "y":1},
-      {"x":1, "y":2}, {"x":7, "y":2},
-      {"x":2, "y":3}, {"x":4, "y":3}, {"x":6, "y":3}, {"x":8, "y":3},
-      {"x":1, "y":4}, {"x":2, "y":4}, {"x":8, "y":4},
-      {"x":2, "y":5}, {"x":4, "y":5}, {"x":6, "y":5}, {"x":8, "y":5},
-
-      {"x":2, "y":7}, {"x":4, "y":7}, {"x":5, "y":7}, {"x":6, "y":7}, {"x":7, "y":7},
-      {"x":3, "y":8}, {"x":5, "y":8}
-    ]
-  ],
-  "codegateLayout": [
-    [{"y":2, "x":4},{"y":7, "x":3},{"y":7, "x":7},{"y":3, "x":5},{"y":5, "x":4},{"y":5, "x":1},{"y":5, "x":8}],
-    [{"y":2, "x":4},{"y":3, "x":7},{"y":5, "x":7},{"y":5, "x":4},{"y":6, "x":6},{"y":3, "x":1},{"y":4, "x":4}],
-    [{"y":4, "x":8},{"y":8, "x":5},{"y":2, "x":2},{"y":1, "x":3},{"y":4, "x":3},{"y":2, "x":4},{"y":3, "x":6}],
-    [{"y":7, "x":3},{"y":4, "x":1},{"y":1, "x":3},{"y":4, "x":7},{"y":6, "x":6},{"y":3, "x":4},{"y":5, "x":5}],
-    [{"y":5, "x":8},{"y":8, "x":5},{"y":8, "x":7},{"y":7, "x":8},{"y":5, "x":5},{"y":4, "x":7},{"y":6, "x":3}],
-    [{"y":6, "x":1},{"y":6, "x":8},{"y":3, "x":3},{"y":3, "x":5},{"y":4, "x":6},{"y":5, "x":7},{"y":5, "x":5}]
-  ],
-  "defenseLayout": [
-    [{"y":3, "x":4},{"y":6, "x":3},{"y":7, "x":6},{"y":3, "x":6},{"y":5, "x":5},{"y":5, "x":2},{"y":5, "x":7},{"y":0, "x":1},{"y":2, "x":7},{"y":8, "x":8},{"y":1, "x":8},{"y":8, "x":5},{"y":6, "x":6}],
-    [{"y":2, "x":3},{"y":5, "x":6},{"y":3, "x":4},{"y":3, "x":6},{"y":6, "x":5},{"y":3, "x":2},{"y":4, "x":3},{"y":2, "x":3},{"y":7, "x":2},{"y":1, "x":7},{"y":8, "x":6},{"y":6, "x":8},{"y":4, "x":8}],
-    [{"y":2, "x":3},{"y":4, "x":7},{"y":7, "x":5},{"y":7, "x":5},{"y":4, "x":2},{"y":2, "x":5},{"y":6, "x":3},{"y":3, "x":1},{"y":1, "x":8},{"y":8, "x":1},{"y":1, "x":3},{"y":3, "x":4},{"y":6, "x":6}],
-    [{"y":2, "x":3},{"y":4, "x":2},{"y":5, "x":7},{"y":6, "x":3},{"y":4, "x":5},{"y":3, "x":5},{"y":8, "x":8},{"y":1, "x":6},{"y":8, "x":5},{"y":1, "x":5},{"y":3, "x":7},{"y":5, "x":4},{"y":1, "x":8}],
-    [{"y":7, "x":5},{"y":5, "x":7},{"y":7, "x":7},{"y":3, "x":3},{"y":4, "x":5},{"y":4, "x":6},{"y":6, "x":2},{"y":1, "x":1},{"y":1, "x":8},{"y":2, "x":6},{"y":0, "x":0},{"y":5, "x":3},{"y":4, "x":6}],
-    [{"y":6, "x":7},{"y":6, "x":2},{"y":1, "x":1},{"y":1, "x":8},{"y":8, "x":4},{"y":2, "x":3},{"y":4, "x":5},{"y":6, "x":5},{"y":4, "x":3},{"y":7, "x":3},{"y":8, "x":8},{"y":3, "x":7},{"y":2, "x":6}]
-  ]
+"remotes": [
+  { "name": "Microphone" , "weight": 2 , "icon": "fa-microphone"},
+  { "name": "TV camera" , "weight": 2 , "icon": "fa-video"},
+  { "name": "Extra Terminal" , "weight": 2 , "icon": "fa-laptop"},
+  { "name": "Videoboard" , "weight": 2 , "icon": "fa-tv"},
+  { "name": "Printer" , "weight": 2 , "icon": "fa-file"},
+  { "name": "Remote vehicle" , "weight": 1 , "icon": "fa-truck"},
+  { "name": "Remote robot" , "weight": 1 , "icon": "fa-bezier-curve"},
+  { "name": "Automatic door/gate" , "weight": 2 , "icon": "fa-door-closed"},
+  { "name": "Elevator" , "weight": 2 , "icon": "fa-calendar"},
+  { "name": "Manipulator" , "weight": 1 , "icon": "fa-hand-lizard"},
+  { "name": "Autofactory" , "weight": 1 , "icon": "fa-cogs"}
+],
+"layouts": [
+  [ { "x": 2 , "y": 2}, { "x": 3 , "y": 2}, { "x": 5 , "y": 2}, { "x": 6 , "y": 2}, { "x": 2 , "y": 3}, { "x": 7 , "y": 3}, { "x": 2 , "y": 4}, { "x": 5 , "y": 4}, { "x": 7 , "y": 4}, { "x": 3 , "y": 5}, { "x": 6 , "y": 5}, { "x": 2 , "y": 6}, { "x": 7 , "y": 6}, { "x": 2 , "y": 7}, { "x": 4 , "y": 7}, { "x": 5 , "y": 7}, { "x": 6 , "y": 8}, { "x": 7 , "y": 8}],
+  [ { "x": 2 , "y": 2}, { "x": 5 , "y": 2}, { "x": 6 , "y": 2}, { "x": 7 , "y": 2}, { "x": 3 , "y": 3}, { "x": 2 , "y": 4}, { "x": 7 , "y": 4}, { "x": 1 , "y": 5}, { "x": 5 , "y": 5}, { "x": 2 , "y": 6}, { "x": 3 , "y": 6}, { "x": 7 , "y": 6}, { "x": 3 , "y": 7}, { "x": 6 , "y": 7}, { "x": 7 , "y": 7}, { "x": 4 , "y": 8}, { "x": 5 , "y": 8}],
+  [ { "x": 2 , "y": 1}, { "x": 4 , "y": 1}, { "x": 5 , "y": 1}, { "x": 6 , "y": 1}, { "x": 7 , "y": 2}, { "x": 2 , "y": 3}, { "x": 5 , "y": 3}, { "x": 7 , "y": 3}, { "x": 8 , "y": 3}, { "x": 1 , "y": 4}, { "x": 1 , "y": 5}, { "x": 3 , "y": 5}, { "x": 7 , "y": 5}, { "x": 1 , "y": 6}, { "x": 4 , "y": 6}, { "x": 8 , "y": 6}, { "x": 2 , "y": 7}, { "x": 8 , "y": 7}, { "x": 3 , "y": 8}, { "x": 4 , "y": 8}, { "x": 6 , "y": 8}, { "x": 7 , "y": 8}, { "x": 8 , "y": 8}],
+  [ { "x": 4 , "y": 1}, { "x": 2 , "y": 2}, { "x": 4 , "y": 2}, { "x": 5 , "y": 2}, { "x": 6 , "y": 2}, { "x": 7 , "y": 2}, { "x": 1 , "y": 3}, { "x": 6 , "y": 3}, { "x": 4 , "y": 4}, { "x": 6 , "y": 4}, { "x": 2 , "y": 5}, { "x": 6 , "y": 5}, { "x": 8 , "y": 5}, { "x": 2 , "y": 6}, { "x": 8 , "y": 6}, { "x": 1 , "y": 7}, { "x": 2 , "y": 7}, { "x": 4 , "y": 7}, { "x": 5 , "y": 7}, { "x": 8 , "y": 7}, { "x": 6 , "y": 8}, { "x": 7 , "y": 8}],
+  [ { "x": 3 , "y": 1}, { "x": 2 , "y": 2}, { "x": 4 , "y": 2}, { "x": 7 , "y": 2}, { "x": 1 , "y": 3}, { "x": 5 , "y": 3}, { "x": 6 , "y": 3}, { "x": 8 , "y": 3}, { "x": 1 , "y": 4}, { "x": 2 , "y": 4}, { "x": 3 , "y": 4}, { "x": 8 , "y": 4}, { "x": 1 , "y": 5}, { "x": 4 , "y": 5}, { "x": 1 , "y": 6}, { "x": 6 , "y": 6}, { "x": 7 , "y": 6}, { "x": 2 , "y": 7}, { "x": 6 , "y": 7}, { "x": 3 , "y": 8}, { "x": 4 , "y": 8}, { "x": 8 , "y": 8}],
+  [ { "x": 2 , "y": 1}, { "x": 3 , "y": 1}, { "x": 4 , "y": 1}, { "x": 5 , "y": 1}, { "x": 6 , "y": 1}, { "x": 7 , "y": 1}, { "x": 1 , "y": 2}, { "x": 7 , "y": 2}, { "x": 2 , "y": 3}, { "x": 4 , "y": 3}, { "x": 6 , "y": 3}, { "x": 8 , "y": 3}, { "x": 1 , "y": 4}, { "x": 2 , "y": 4}, { "x": 8 , "y": 4}, { "x": 2 , "y": 5}, { "x": 4 , "y": 5}, { "x": 6 , "y": 5}, { "x": 8 , "y": 5}, { "x": 2 , "y": 7}, { "x": 4 , "y": 7}, { "x": 5 , "y": 7}, { "x": 6 , "y": 7}, { "x": 7 , "y": 7}, { "x": 3 , "y": 8}, { "x": 5 , "y": 8}],
+  [ { "x": 1 , "y": 2}, { "x": 2 , "y": 2}, { "x": 3 , "y": 1}, { "x": 3 , "y": 2}, { "x": 5 , "y": 1}, { "x": 6 , "y": 1}, { "x": 8 , "y": 1}, { "x": 8 , "y": 2}, { "x": 9 , "y": 2}, { "x": 10 , "y": 2}, { "x": 1 , "y": 4}, { "x": 1 , "y": 5}, { "x": 2 , "y": 5}, { "x": 3 , "y": 5}, { "x": 3 , "y": 6}, { "x": 3 , "y": 8}, { "x": 9 , "y": 8}, { "x": 9 , "y": 7}, { "x": 9 , "y": 6}, { "x": 9 , "y": 5}, { "x": 9 , "y": 4}, { "x": 10 , "y": 4}, { "x": 3 , "y": 7}, { "x": 3 , "y": 9}, { "x": 3 , "y": 11}, { "x": 4 , "y": 11}, { "x": 5 , "y": 11}, { "x": 6 , "y": 11}, { "x": 6 , "y": 10}, { "x": 6 , "y": 9}, { "x": 7 , "y": 9}, { "x": 9 , "y": 9}, { "x": 4 , "y": 6}, { "x": 5 , "y": 6}, { "x": 6 , "y": 6}, { "x": 8 , "y": 6}, { "x": 3 , "y": 4}, { "x": 4 , "y": 1}, { "x": 7 , "y": 1}, { "x": 7 , "y": 3}, { "x": 7 , "y": 4}, { "x": 7 , "y": 11}, { "x": 8 , "y": 11}, { "x": 9 , "y": 11}],
+  [{"x":5,"y":2},{"x":4,"y":3},{"x":4,"y":4},{"x":7,"y":2},{"x":8,"y":3},{"x":8,"y":4},{"x":3,"y":5},{"x":2,"y":5},{"x":1,"y":6},{"x":1,"y":8},{"x":2,"y":9},{"x":3,"y":9},{"x":4,"y":10},{"x":4,"y":11},{"x":5,"y":12},{"x":7,"y":12},{"x":8,"y":11},{"x":8,"y":10},{"x":9,"y":9},{"x":10,"y":9},{"x":11,"y":8},{"x":11,"y":6},{"x":10,"y":5},{"x":9,"y":5},{"x":5,"y":6},{"x":7,"y":6},{"x":7,"y":8},{"x":4,"y":8},{"x":5,"y":8},{"x":8,"y":8},{"x":4,"y":6},{"x":8,"y":6}],
+  [{"x":4,"y":5},{"x":4,"y":7},{"x":6,"y":7},{"x":6,"y":5},{"x":4,"y":4},{"x":3,"y":4},{"x":2,"y":3},{"x":2,"y":1},{"x":3,"y":1},{"x":4,"y":1},{"x":5,"y":1},{"x":6,"y":1},{"x":8,"y":1},{"x":8,"y":2},{"x":8,"y":4},{"x":7,"y":4},{"x":6,"y":4},{"x":1,"y":8},{"x":1,"y":9},{"x":3,"y":11},{"x":4,"y":11},{"x":6,"y":11},{"x":6,"y":8},{"x":7,"y":8},{"x":8,"y":8},{"x":9,"y":8},{"x":9,"y":9},{"x":7,"y":11},{"x":9,"y":7},{"x":9,"y":5},{"x":9,"y":4},{"x":3,"y":10},{"x":7,"y":10},{"x":6,"y":2},{"x":1,"y":7},{"x":2,"y":7},{"x":3,"y":7},{"x":3,"y":9},{"x":10,"y":4},{"x":11,"y":4},{"x":12,"y":5},{"x":12,"y":7},{"x":12,"y":8},{"x":11,"y":8},{"x":10,"y":8},{"x":1,"y":4},{"x":1,"y":6},{"x":9,"y":1},{"x":10,"y":1},{"x":11,"y":1},{"x":12,"y":1},{"x":12,"y":3},{"x":2,"y":2},{"x":12,"y":4},{"x":5,"y":12}],
+  [{"x":1,"y":7},{"x":2,"y":6},{"x":4,"y":4},{"x":5,"y":3},{"x":6,"y":2},{"x":7,"y":2},{"x":9,"y":2},{"x":9,"y":3},{"x":9,"y":5},{"x":9,"y":6},{"x":10,"y":7},{"x":10,"y":4},{"x":3,"y":6},{"x":3,"y":3},{"x":1,"y":9},{"x":2,"y":9},{"x":3,"y":9},{"x":4,"y":9},{"x":5,"y":8},{"x":6,"y":8},{"x":7,"y":9},{"x":8,"y":9},{"x":7,"y":8},{"x":9,"y":10},{"x":11,"y":9},{"x":11,"y":8},{"x":11,"y":10},{"x":2,"y":3},{"x":1,"y":3},{"x":1,"y":4},{"x":1,"y":6}]
+],
+"codegateLayout": [
+  [ { "y": 2 , "x": 4}, { "y": 7 , "x": 3}, { "y": 7 , "x": 7}, { "y": 3 , "x": 5}, { "y": 5 , "x": 4}, { "y": 5 , "x": 1}, { "y": 5 , "x": 8}],
+  [ { "y": 2 , "x": 4}, { "y": 3 , "x": 7}, { "y": 5 , "x": 7}, { "y": 5 , "x": 4}, { "y": 6 , "x": 6}, { "y": 3 , "x": 1}, { "y": 4 , "x": 4}],
+  [ { "y": 4 , "x": 8}, { "y": 8 , "x": 5}, { "y": 2 , "x": 2}, { "y": 1 , "x": 3}, { "y": 4 , "x": 3}, { "y": 2 , "x": 4}, { "y": 3 , "x": 6}],
+  [ { "y": 7 , "x": 3}, { "y": 4 , "x": 1}, { "y": 1 , "x": 3}, { "y": 4 , "x": 7}, { "y": 6 , "x": 6}, { "y": 3 , "x": 4}, { "y": 5 , "x": 5}],
+  [ { "y": 5 , "x": 8}, { "y": 8 , "x": 5}, { "y": 8 , "x": 7}, { "y": 7 , "x": 8}, { "y": 5 , "x": 5}, { "y": 4 , "x": 7}, { "y": 6 , "x": 3}],
+  [ { "y": 6 , "x": 1}, { "y": 6 , "x": 8}, { "y": 3 , "x": 3}, { "y": 3 , "x": 5}, { "y": 4 , "x": 6}, { "y": 5 , "x": 7}, { "y": 5 , "x": 5}],
+  [ { "x": 1 , "y": 3}, { "x": 3 , "y": 10}, { "x": 9 , "y": 10}, { "x": 10 , "y": 3}, { "x": 3 , "y": 3}, { "x": 8 , "y": 9}, { "x": 7 , "y": 5}],
+  [ {"x":6,"y":12},{"x":11,"y":7},{"x":6,"y":2},{"x":1,"y":7},{"x":6,"y":5},{"x":6,"y":9},{"x":4,"y":7}],
+  [{"x":7,"y":2},{"x":1,"y":5},{"x":2,"y":9},{"x":8,"y":9},{"x":12,"y":6},{"x":12,"y":2},{"x":5,"y":6}],
+  [{"x":8,"y":2},{"x":10,"y":10},{"x":1,"y":8},{"x":4,"y":7},{"x":8,"y":7},{"x":1,"y":5},{"x":4,"y":2}]
+],
+"defenseLayout": [
+  [ { "y": 3 , "x": 4}, { "y": 6 , "x": 3}, { "y": 7 , "x": 6}, { "y": 3 , "x": 6}, { "y": 5 , "x": 5}, { "y": 5 , "x": 2}, { "y": 5 , "x": 7}, { "y": 0 , "x": 1}, { "y": 2 , "x": 7}, { "y": 8 , "x": 8}, { "y": 1 , "x": 8}, { "y": 8 , "x": 5}, { "y": 6 , "x": 6}],
+  [ { "y": 2 , "x": 3}, { "y": 5 , "x": 6}, { "y": 3 , "x": 4}, { "y": 3 , "x": 6}, { "y": 6 , "x": 5}, { "y": 3 , "x": 2}, { "y": 4 , "x": 3}, { "y": 2 , "x": 3}, { "y": 7 , "x": 2}, { "y": 1 , "x": 7}, { "y": 8 , "x": 6}, { "y": 6 , "x": 8}, { "y": 4 , "x": 8}],
+  [ { "y": 2 , "x": 3}, { "y": 4 , "x": 7}, { "y": 7 , "x": 5}, { "y": 7 , "x": 5}, { "y": 4 , "x": 2}, { "y": 2 , "x": 5}, { "y": 6 , "x": 3}, { "y": 3 , "x": 1}, { "y": 1 , "x": 8}, { "y": 8 , "x": 1}, { "y": 1 , "x": 3}, { "y": 3 , "x": 4}, { "y": 6 , "x": 6}],
+  [ { "y": 2 , "x": 3}, { "y": 4 , "x": 2}, { "y": 5 , "x": 7}, { "y": 6 , "x": 3}, { "y": 4 , "x": 5}, { "y": 3 , "x": 5}, { "y": 8 , "x": 8}, { "y": 1 , "x": 6}, { "y": 8 , "x": 5}, { "y": 1 , "x": 5}, { "y": 3 , "x": 7}, { "y": 5 , "x": 4}, { "y": 1 , "x": 8}],
+  [ { "y": 7 , "x": 5}, { "y": 5 , "x": 7}, { "y": 7 , "x": 7}, { "y": 3 , "x": 3}, { "y": 4 , "x": 5}, { "y": 4 , "x": 6}, { "y": 6 , "x": 2}, { "y": 1 , "x": 1}, { "y": 1 , "x": 8}, { "y": 2 , "x": 6}, { "y": 0 , "x": 0}, { "y": 5 , "x": 3}, { "y": 4 , "x": 6}],
+  [ { "y": 6 , "x": 7}, { "y": 6 , "x": 2}, { "y": 1 , "x": 1}, { "y": 1 , "x": 8}, { "y": 8 , "x": 4}, { "y": 2 , "x": 3}, { "y": 4 , "x": 5}, { "y": 6 , "x": 5}, { "y": 4 , "x": 3}, { "y": 7 , "x": 3}, { "y": 8 , "x": 8}, { "y": 3 , "x": 7}, { "y": 2 , "x": 6}],
+  [ { "x": 2 , "y": 3}, { "x": 9 , "y": 3}, { "x": 4 , "y": 9}, { "x": 7 , "y": 10}, { "x": 6 , "y": 5}, { "x": 4 , "y": 2}, { "x": 6 , "y": 0}, { "x": 6 , "y": 12}, { "x": 10 , "y": 7}, { "x": 2 , "y": 8}, { "x": 8 , "y": 7}, { "x": 8 , "y": 5}, { "x": 2 , "y": 4}],
+  [{"x":6,"y":3},{"x":2,"y":7},{"x":6,"y":11},{"x":10,"y":7},{"x":8,"y":7},{"x":6,"y":4},{"x":6,"y":10},{"x":3,"y":11},{"x":10,"y":4},{"x":2,"y":4},{"x":9,"y":11},{"x":8,"y":5},{"x":4,"y":9}],
+  [{"x":7,"y":3},{"x":11,"y":6},{"x":5,"y":9},{"x":3,"y":5},{"x":5,"y":5},{"x":9,"y":6},{"x":11,"y":3},{"x":2,"y":8},{"x":13,"y":8},{"x":0,"y":4},{"x":5,"y":3},{"x":7,"y":7},{"x":9,"y":0}],
+  [{"x":10,"y":9},{"x":7,"y":3},{"x":2,"y":4},{"x":2,"y":10},{"x":4,"y":5},{"x":7,"y":7},{"x":4,"y":3},{"x":10,"y":1},{"x":9,"y":4},{"x":12,"y":10},{"x":0,"y":3},{"x":7,"y":5},{"x":2,"y":7}]
+ ]
 }
