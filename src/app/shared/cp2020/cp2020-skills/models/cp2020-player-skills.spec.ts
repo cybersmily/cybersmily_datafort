@@ -7,30 +7,107 @@ describe('Cp2020PlayerSkills', () => {
 
   beforeEach(() => {
     dataSkillList = new Array<DataSkill>();
-    dataSkillList.push({ name: 'test1', stat: 'INT', ipmod: 1, source: 'CP2020', page: 1, sa: true, description: 'test skill' });
-    dataSkillList.push({ name: 'test2', stat: 'INT', ipmod: 1, source: 'CP2020', page: 1, sa: false, description: 'test skill' });
-    dataSkillList.push({ name: 'test3', stat: 'BODY', ipmod: 1, source: 'CP2020', page: 1, sa: false, description: 'test skill' });
-    dataSkillList.push({ name: 'test4', stat: 'ATTR', ipmod: 1, source: 'CP2020', page: 1, sa: false, description: 'test skill' });
-    dataSkillList.push({ name: 'Melee', stat: 'REF', ipmod: 1, source: 'CP2020', page: 1, sa: false, description: 'test skill' });
-    dataSkillList.push({ name: 'Pistol', stat: 'REF', ipmod: 1, source: 'CP2020', page: 1, sa: false, description: 'test skill' });
-    dataSkillList.push({ name: 'test6', stat: 'TECH', ipmod: 1, source: 'CP2020', page: 1, sa: false, description: 'test skill' });
-    dataSkillList.push({ name: 'test7', stat: 'EMP', ipmod: 1, source: 'CP2020', page: 1, sa: false, description: 'test skill' });
-    dataSkillList.push({ name: 'test8', stat: 'COOL', ipmod: 1, source: 'CP2020', page: 1, sa: false, description: 'test skill' });
-    dataSkillList.push({ name: 'test9', stat: 'COOL', ipmod: 1, source: 'CP2020', page: 1, sa: false, description: 'test skill' });
-    dataSkillList.push({ name: 'test1', stat: 'INT', ipmod: 1, source: 'CP2020', page: 1, sa: true, description: 'test skill' });
+    dataSkillList.push({
+      name: 'test1',
+      stat: 'INT',
+      ipmod: 1,
+      source: { book: 'CP2020', page: 1 },
+      sa: true,
+      description: 'test skill',
+    });
+    dataSkillList.push({
+      name: 'test2',
+      stat: 'INT',
+      ipmod: 1,
+      source: { book: 'CP2020', page: 1 },
+      sa: false,
+      description: 'test skill',
+    });
+    dataSkillList.push({
+      name: 'test3',
+      stat: 'BODY',
+      ipmod: 1,
+      source: { book: 'CP2020', page: 1 },
+      sa: false,
+      description: 'test skill',
+    });
+    dataSkillList.push({
+      name: 'test4',
+      stat: 'ATTR',
+      ipmod: 1,
+      source: { book: 'CP2020', page: 1 },
+      sa: false,
+      description: 'test skill',
+    });
+    dataSkillList.push({
+      name: 'Melee',
+      stat: 'REF',
+      ipmod: 1,
+      source: { book: 'CP2020', page: 1 },
+      sa: false,
+      description: 'test skill',
+    });
+    dataSkillList.push({
+      name: 'Pistol',
+      stat: 'REF',
+      ipmod: 1,
+      source: { book: 'CP2020', page: 1 },
+      sa: false,
+      description: 'test skill',
+    });
+    dataSkillList.push({
+      name: 'test6',
+      stat: 'TECH',
+      ipmod: 1,
+      source: { book: 'CP2020', page: 1 },
+      sa: false,
+      description: 'test skill',
+    });
+    dataSkillList.push({
+      name: 'test7',
+      stat: 'EMP',
+      ipmod: 1,
+      source: { book: 'CP2020', page: 1 },
+      sa: false,
+      description: 'test skill',
+    });
+    dataSkillList.push({
+      name: 'test8',
+      stat: 'COOL',
+      ipmod: 1,
+      source: { book: 'CP2020', page: 1 },
+      sa: false,
+      description: 'test skill',
+    });
+    dataSkillList.push({
+      name: 'test9',
+      stat: 'COOL',
+      ipmod: 1,
+      source: { book: 'CP2020', page: 1 },
+      sa: false,
+      description: 'test skill',
+    });
+    dataSkillList.push({
+      name: 'test1',
+      stat: 'INT',
+      ipmod: 1,
+      source: { book: 'CP2020', page: 1 },
+      sa: true,
+      description: 'test skill',
+    });
 
     playerSkills = new Cp2020PlayerSkills(dataSkillList);
-    for( let i = 0; i < playerSkills.skills.length; i++) {
+    for (let i = 0; i < playerSkills.skills.length; i++) {
       playerSkills.skills[i].value = i;
       playerSkills.skills[i].ip = i * 10;
-      playerSkills.skills[i].isRoleSkill = i%10 === 3;
-      playerSkills.skills[i].chipped = i%10 === 4;
+      playerSkills.skills[i].isRoleSkill = i % 10 === 3;
+      playerSkills.skills[i].chipped = i % 10 === 4;
     }
   });
 
-  afterEach(()=> {
+  afterEach(() => {
     dataSkillList = undefined;
-  })
+  });
 
   describe('constructor and loading', () => {
     it('should create', () => {
@@ -53,7 +130,9 @@ describe('Cp2020PlayerSkills', () => {
 
   describe('properties', () => {
     it('should return all skills with values', () => {
-      expect(playerSkills.SkillsWithValues.length).toEqual(dataSkillList.length - 1);
+      expect(playerSkills.SkillsWithValues.length).toEqual(
+        dataSkillList.length - 1
+      );
     });
 
     it('should return special ability skills', () => {
@@ -176,7 +255,6 @@ describe('Cp2020PlayerSkills', () => {
     });
   });
   describe('setRoleSkills()', () => {
-    it('should set skills to role ones', () => {
-    });
+    it('should set skills to role ones', () => {});
   });
 });

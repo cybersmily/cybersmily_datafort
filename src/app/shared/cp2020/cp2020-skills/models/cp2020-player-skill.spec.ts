@@ -4,14 +4,14 @@ import { Cp2020PlayerSkill } from './cp2020-player-skill';
 
 describe('Cp2020PlayerSkill', () => {
   let param: SkillParameters;
-  beforeEach(()=> {
+  beforeEach(() => {
     param = {
       name: 'test',
       desc: 'test skill',
       stat: 'REF',
       value: 3,
       ipmod: 1,
-      ip: 0
+      ip: 0,
     };
   });
 
@@ -32,10 +32,10 @@ describe('Cp2020PlayerSkill', () => {
   describe('totalModifiers()', () => {
     it('should total Modifiers', () => {
       const skill = new Cp2020PlayerSkill(param);
-      skill.modifiers.push({name: 'mod1', mod: 1});
-      skill.modifiers.push({name: 'mod2', mod: -3});
-      skill.modifiers.push({name: 'mod3', mod: 2});
-      skill.modifiers.push({name: 'mod4', mod: 3});
+      skill.modifiers.push({ name: 'mod1', mod: 1 });
+      skill.modifiers.push({ name: 'mod2', mod: -3 });
+      skill.modifiers.push({ name: 'mod3', mod: 2 });
+      skill.modifiers.push({ name: 'mod4', mod: 3 });
       expect(skill.totalModifiers).toEqual(3);
     });
   });
@@ -48,8 +48,8 @@ describe('Cp2020PlayerSkill', () => {
       expect(dataSkill.name).toEqual(param.name);
       expect(dataSkill.stat).toEqual(param.stat);
       expect(dataSkill.ipmod).toEqual(param.ipmod);
-      expect(dataSkill.source).toEqual('');
-      expect(dataSkill.page).toEqual(0);
+      expect(dataSkill.source.book).toEqual('');
+      expect(dataSkill.source.page).toEqual(0);
       expect(dataSkill.sa).toEqual(false);
       expect(dataSkill.description).toEqual(param.desc);
       expect(dataSkill['ip']).toBeUndefined();
@@ -57,17 +57,15 @@ describe('Cp2020PlayerSkill', () => {
     });
   });
 
-
   describe('fromDataSkill()', () => {
     it('should create Skill from DataSkill type', () => {
       const dataSkill: DataSkill = {
         name: 'test',
         stat: 'INT',
         ipmod: 1,
-        source: 'CP2020',
-        page: 1,
+        source: { book: 'CP2020', page: 1 },
         sa: true,
-        description: 'test skill'
+        description: 'test skill',
       };
       const skill = new Cp2020PlayerSkill();
       skill.fromDataSkill(dataSkill);

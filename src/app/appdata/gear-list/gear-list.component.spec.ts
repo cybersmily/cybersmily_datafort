@@ -1,3 +1,6 @@
+import { DataService } from './../../shared/services/file-services/dataservice/data.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GearListComponent } from './gear-list.component';
@@ -8,9 +11,10 @@ describe('GearListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GearListComponent ]
-    })
-    .compileComponents();
+      declarations: [GearListComponent],
+      imports: [CommonUiModule, HttpClientTestingModule],
+      providers: [DataService],
+    }).compileComponents();
   });
 
   beforeEach(() => {

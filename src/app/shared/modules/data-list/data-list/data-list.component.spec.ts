@@ -1,3 +1,5 @@
+import { PipesModule } from './../../../pipes/pipes.module';
+import { CommonUiModule } from './../../common-ui/common-ui.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DataListComponent } from './data-list.component';
@@ -8,9 +10,9 @@ describe('DataListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DataListComponent ]
-    })
-    .compileComponents();
+      declarations: [DataListComponent],
+      imports: [CommonUiModule, PipesModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -1,6 +1,13 @@
-import { faDice, faThumbtack, faTrash } from '@fortawesome/free-solid-svg-icons';
+import {
+  faDice,
+  faThumbtack,
+  faTrash,
+} from '@fortawesome/free-solid-svg-icons';
 import { Cp2020StatBlock } from './../../shared/cp2020/cp2020-stats/models/cp2020-stat-block';
-import { Cp2020ArmorPiece, Cp2020ArmorBlock } from './../../shared/cp2020/cp2020-armor/models';
+import {
+  Cp2020ArmorPiece,
+  Cp2020ArmorBlock,
+} from './../../shared/cp2020/cp2020-armor/models';
 import { CpPlayerWeaponList } from './../../shared/cp2020/cp2020weapons/models/cp-player-weapon-list';
 import { CpPlayerWeapon } from './../../shared/cp2020/cp2020weapons/models/cp-player-weapon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,26 +37,42 @@ describe('CmbtTrckOpponentCardComponent', () => {
 
   let roles: Array<Cp2020Role> = [
     {
-      name: 'Solo', base: '',
-      specialability: { name: 'combat sense', stat: 'REF', description: '', ipmod: 1 },
+      name: 'Solo',
+      base: '',
+      specialability: {
+        name: 'combat sense',
+        stat: 'REF',
+        description: '',
+        ipmod: 1,
+      },
       skills: [
         { name: 'Awareness', stat: 'INT', description: '', ipmod: 1 },
         { name: 'Handgun', stat: 'REF', description: '', ipmod: 1 },
         { name: 'Stealth', stat: 'REF', description: '', ipmod: 1 },
-        { name: 'Martial Arts', stat: 'REF', description: '', ipmod: 1 }
+        { name: 'Martial Arts', stat: 'REF', description: '', ipmod: 1 },
       ],
-      source: '', page: 0,
-      salary: [1000, 2000, 3000, 4000, 5000, 6000]
+      source: { book: '', page: 0 },
+      salary: [1000, 2000, 3000, 4000, 5000, 6000],
     },
     {
-      name: 'Fixer', base: '',
-      specialability: { name: 'Streetdeal', stat: 'COOL', description: '', ipmod: 1 },
+      name: 'Fixer',
+      base: '',
+      specialability: {
+        name: 'Streetdeal',
+        stat: 'COOL',
+        description: '',
+        ipmod: 1,
+      },
       skills: [
-        'Awareness','Handgun','Intimidate','Pick Lock', `Fast Talk \\\& Persuasion`
+        'Awareness',
+        'Handgun',
+        'Intimidate',
+        'Pick Lock',
+        `Fast Talk \\\& Persuasion`,
       ],
-      source: '', page: 0,
-      salary: [1000, 2000, 3000, 4000, 5000, 6000]
-    }
+      source: { book: '', page: 0 },
+      salary: [1000, 2000, 3000, 4000, 5000, 6000],
+    },
   ];
 
   beforeEach(waitForAsync(() => {
@@ -58,7 +81,7 @@ describe('CmbtTrckOpponentCardComponent', () => {
         CmbtTrckOpponentCardComponent,
         CmbtTrkSkillsComponent,
         CmbtTrkCyberComponent,
-        CmbtTrckGearComponent
+        CmbtTrckGearComponent,
       ],
       imports: [
         CommonUiModule,
@@ -68,15 +91,10 @@ describe('CmbtTrckOpponentCardComponent', () => {
         Cp2020weaponsModule,
         Cp2020WoundsModule,
         Cp2020StatsModule,
-        Cp2020ArmorModule
+        Cp2020ArmorModule,
       ],
-      providers: [
-        DiceService,
-        DataService
-      ]
-    })
-      .compileComponents();
-
+      providers: [DiceService, DataService],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -117,7 +135,7 @@ describe('CmbtTrckOpponentCardComponent', () => {
     expect(component.currOpponent.name).toEqual('Test Opponent');
     expect(component.selectedRole).toBeNull();
     expect(component.selectedTemplate).toBeNull();
-  })
+  });
 
   it('should ngInit', () => {
     expect(component.currOpponent.name).toEqual('Test Opponent');
@@ -139,7 +157,7 @@ describe('CmbtTrckOpponentCardComponent', () => {
   });
 
   describe('changeOpponent()', () => {
-    it('should chnage opponent', ()=> {
+    it('should chnage opponent', () => {
       expect(component.currOpponent.name).toEqual('Test Opponent');
       component.changeOpponent();
       expect(component.currOpponent.name).toEqual('Test Opponent');
@@ -151,7 +169,6 @@ describe('CmbtTrckOpponentCardComponent', () => {
       component.changeOpponent(opp);
       fixture.autoDetectChanges();
       expect(component.currOpponent.name).toEqual('New Opponent');
-
     });
   });
 
@@ -169,7 +186,7 @@ describe('CmbtTrckOpponentCardComponent', () => {
       const wpn = new CpPlayerWeapon();
       wpn.name = 'test weapon';
       const wpnLst = new CpPlayerWeaponList();
-      wpnLst.addWeapon(wpn)
+      wpnLst.addWeapon(wpn);
       component.changeWeapons(wpnLst);
       fixture.detectChanges();
       expect(component.currOpponent.weapons).toBeTruthy();
@@ -193,8 +210,22 @@ describe('CmbtTrckOpponentCardComponent', () => {
     it('should change cyber', () => {
       expect(component.currOpponent.cyberware.length).toEqual(0);
       const cyber: Array<OppCyberware> = [
-        { name: 'test1', abbrev: 't1', cost: 0, notes: '', hc: '1d6', surgery: 'M' },
-        { name: 'test2', abbrev: 't2', cost: 0, notes: '', hc: '1d6', surgery: 'M' }
+        {
+          name: 'test1',
+          abbrev: 't1',
+          cost: 0,
+          notes: '',
+          hc: '1d6',
+          surgery: 'M',
+        },
+        {
+          name: 'test2',
+          abbrev: 't2',
+          cost: 0,
+          notes: '',
+          hc: '1d6',
+          surgery: 'M',
+        },
       ];
       component.changeCyber(cyber);
       fixture.detectChanges();
@@ -206,10 +237,14 @@ describe('CmbtTrckOpponentCardComponent', () => {
       expect(component.currOpponent.cyberware.length).toEqual(0);
       const cyber: Array<OppCyberware> = [
         {
-          name: 'skinweave', abbrev: 'skw', cost: 0, notes: '',
+          name: 'skinweave',
+          abbrev: 'skw',
+          cost: 0,
+          notes: '',
           armor: {},
-          hc: '1d6', surgery: 'M'
-        }
+          hc: '1d6',
+          surgery: 'M',
+        },
       ];
       component.changeCyber(cyber);
       fixture.detectChanges();
@@ -228,8 +263,8 @@ describe('CmbtTrckOpponentCardComponent', () => {
     });
   });
 
-  describe('deleteRole()', ()=> {
-    it('should delete role', ()=> {
+  describe('deleteRole()', () => {
+    it('should delete role', () => {
       expect(component.currOpponent.role).toEqual('Solo');
       component.deleteRole();
       fixture.autoDetectChanges();
@@ -237,8 +272,8 @@ describe('CmbtTrckOpponentCardComponent', () => {
     });
   });
 
-  describe('changeArmor()', ()=> {
-    it('should change armor', ()=> {
+  describe('changeArmor()', () => {
+    it('should change armor', () => {
       expect(component.currOpponent.armor.activePieces.length).toEqual(0);
       const armor = new Cp2020ArmorBlock();
       const layer = new Cp2020ArmorPiece();
@@ -254,12 +289,12 @@ describe('CmbtTrckOpponentCardComponent', () => {
     });
   });
 
-  describe('changeTemplate()', ()=> {
-    it('should change template', ()=> {});
+  describe('changeTemplate()', () => {
+    it('should change template', () => {});
   });
 
-  describe('onStatBlockChange()', ()=> {
-    it('should change stat block', ()=> {
+  describe('onStatBlockChange()', () => {
+    it('should change stat block', () => {
       expect(component.currOpponent.stats.REF.Adjusted).toEqual(0);
       const stats = new Cp2020StatBlock();
       stats.REF.Base = 10;
@@ -268,5 +303,4 @@ describe('CmbtTrckOpponentCardComponent', () => {
       expect(component.currOpponent.stats.REF.Adjusted).toEqual(10);
     });
   });
-
 });

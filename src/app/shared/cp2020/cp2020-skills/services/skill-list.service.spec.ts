@@ -12,19 +12,36 @@ describe('SkillListService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientModule
-      ],
-      providers: [
-        DataService
-      ]
+      imports: [HttpClientModule],
+      providers: [DataService],
     });
     dataService = TestBed.inject(DataService);
     service = new SkillListService(dataService);
     testSkillList = new Array<DataSkill>();
-    testSkillList.push({ name: 'test1', stat: 'INT', ipmod: 1, source: 'CP2020', page: 2, sa: false, description: '' });
-    testSkillList.push({ name: 'test2', stat: 'REF', ipmod: 1, source: 'CP2020', page: 6, sa: true, description: '' });
-    testSkillList.push({ name: 'test3', stat: 'EMP', ipmod: 1, source: 'CP2020', page: 3, sa: false, description: '' });
+    testSkillList.push({
+      name: 'test1',
+      stat: 'INT',
+      ipmod: 1,
+      source: { book: 'CP2020', page: 2 },
+      sa: false,
+      description: '',
+    });
+    testSkillList.push({
+      name: 'test2',
+      stat: 'REF',
+      ipmod: 1,
+      source: { book: 'CP2020', page: 6 },
+      sa: true,
+      description: '',
+    });
+    testSkillList.push({
+      name: 'test3',
+      stat: 'EMP',
+      ipmod: 1,
+      source: { book: 'CP2020', page: 3 },
+      sa: false,
+      description: '',
+    });
   });
 
   it('should be created', () => {
@@ -33,7 +50,7 @@ describe('SkillListService', () => {
 
   describe('Get SkillList', () => {
     it('should get skills from file', (done) => {
-      service.Skills.subscribe(skills => {
+      service.Skills.subscribe((skills) => {
         expect(skills).toBeTruthy();
         expect(Array.isArray(skills)).toEqual(true);
         expect(skills.length).toBeGreaterThanOrEqual(1);
@@ -42,7 +59,7 @@ describe('SkillListService', () => {
     });
     it('should get skills from cache', (done) => {
       service['_skillList'] = testSkillList;
-      service.Skills.subscribe(skills => {
+      service.Skills.subscribe((skills) => {
         expect(skills).toBeTruthy();
         expect(Array.isArray(skills)).toEqual(true);
         expect(skills.length).toEqual(3);
@@ -55,7 +72,7 @@ describe('SkillListService', () => {
 
   describe('Get Special Abilities', () => {
     it('should get special abilities', (done) => {
-      service.SpecialAbilities.subscribe(skills => {
+      service.SpecialAbilities.subscribe((skills) => {
         expect(skills).toBeTruthy();
         expect(Array.isArray(skills)).toEqual(true);
         expect(skills.length).toBeGreaterThan(1);
@@ -64,7 +81,7 @@ describe('SkillListService', () => {
     });
     it('should get special abilities', (done) => {
       service['_skillList'] = testSkillList;
-      service.SpecialAbilities.subscribe(skills => {
+      service.SpecialAbilities.subscribe((skills) => {
         expect(skills).toBeTruthy();
         expect(Array.isArray(skills)).toEqual(true);
         expect(skills.length).toEqual(1);
@@ -87,7 +104,7 @@ describe('SkillListService', () => {
     });
 
     it('should get skill by name from file', (done) => {
-      service.SpecialAbilities.subscribe(skills => {
+      service.SpecialAbilities.subscribe((skills) => {
         expect(skills).toBeTruthy();
         const skill = service.findSkill('HandGun');
         expect(skill).toBeTruthy();
@@ -118,7 +135,7 @@ describe('SkillListService', () => {
     });
 
     it('should get skill by name from file', (done) => {
-      service.SpecialAbilities.subscribe(skills => {
+      service.SpecialAbilities.subscribe((skills) => {
         expect(skills).toBeTruthy();
         const list = service.findDataSkillList(findArray);
         expect(Array.isArray(list)).toEqual(true);
@@ -150,7 +167,7 @@ describe('SkillListService', () => {
     });
 
     it('should get skill by name from file', (done) => {
-      service.SpecialAbilities.subscribe(skills => {
+      service.SpecialAbilities.subscribe((skills) => {
         expect(skills).toBeTruthy();
         const list = service.getCP2020SkillList(findArray);
         expect(Array.isArray(list)).toEqual(true);
