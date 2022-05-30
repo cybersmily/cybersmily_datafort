@@ -4,11 +4,27 @@
 }
 ul li div.csd-link-menu {
   column-fill: auto;
-  padding-bottom:15px !important;
-  padding-top: 20px !important;
+  padding-bottom:10px !important;
+  padding-top: 0px !important;
 }
 .csd-link-menu A {
   color:#CCC;
+}
+.mega-menu {
+  margin-top: -15px !important;
+}
+.csd-submenu-title {
+  font-style: italic;
+  font-weight: normal !important;
+  color: #777;
+}
+
+.mega-menu a:hover {
+ color: white;
+}
+
+.mega-menu a:hover span {background-color: rgba(255, 255, 255, 0.4) !important;
+
 }
 
 
@@ -30,7 +46,7 @@ ul li div.csd-link-menu {
   .navbar .mega-dropdown .dropdown-menu.mega-menu .sub-menu ul li a{
   width:100%;-webkit-transition:.3s;transition:.3s
   }
-  .navbar .mega-dropdown .dropdown-menu.mega-menu .sub-menu ul li a:hover{
+  .navbar .mega-dropdown .dropdown-menu.mega-menu a:hover{
   background-color:rgba(0,0,0,0.2);-webkit-transition:.3s;transition:.3s
   }
   .navbar .mega-dropdown .dropdown-menu.mega-menu.v-1 .sub-menu .news-single{
