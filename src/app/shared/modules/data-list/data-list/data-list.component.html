@@ -57,7 +57,7 @@
       <div
         *ngIf="!col.isSourcebook; else sourcebook"
         [ngClass]="col.class"
-        class="p-1 p-lg-2"
+        class="p-1 p-lg-2 letter-spacing-1"
       >
         <div *ngIf="col.inputType !== 'array'; else entryList">
           {{
@@ -73,7 +73,7 @@
         </ng-template>
       </div>
       <ng-template #sourcebook>
-        <div [ngClass]="col.class" class="p-1 p-lg-2">
+        <div [ngClass]="col.class" class="p-1 p-lg-2 letter-spacing-1">
           {{ entry[col.property]?.book | sourcebook }} pg.{{
             entry[col.property]?.page
           }}

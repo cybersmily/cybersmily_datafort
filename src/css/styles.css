@@ -1,5 +1,41 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
+Body {
+  background-image: linear-gradient(#111, #EEE,#EEE,#111);
+  background-attachment: fixed;
+}
+
+.container {
+  background-color: white;
+  padding-bottom: 0.4em;
+  padding-top: 0.5em;
+  -webkit-border-top-left-radius: .5em !important;
+    -webkit-border-bottom-left-radius: .5em !important;
+    -moz-border-radius-topleft: .5em !important;
+    -moz-border-radius-bottomleft: .5em !important;
+    border-top-left-radius: 0.5em !important;
+    border-bottom-left-radius: 0.5em !important;
+    -webkit-border-top-right-radius: .5em !important;
+    -webkit-border-bottom-right-radius: .5em !important;
+    -moz-border-radius-topright: .5em !important;
+    -moz-border-radius-bottomright: .5em !important;
+    border-top-right-radius: 0.5em !important;
+    border-bottom-right-radius: 0.5em !important;
+}
+
+h1, h2 {
+  letter-spacing: 3px;
+}
+
+h3,
+h4 {
+  letter-spacing: 2px;
+}
+h5,
+h6 {
+  letter-spacing: 1px;
+}
+
 .w-90 {
   width: 90%;
 }
@@ -240,9 +276,20 @@ SELECT option.font-italic {
 
 .csd-disclaimer {
     margin-top: 3px;
-    font-size: xx-small !important;
-    color: #333;
-    display: none;
+    font-size: x-small !important;
+    color: #AAA;
+    letter-spacing: 1px;
+}
+.csd-disclaimer h6 {
+  letter-spacing: 3px;
+}
+.csd-disclaimer a {
+  color: #FFF !important;
+  font-weight: bolder;
+}
+.csd-disclaimer a:hover {
+  color: #FFF !important;
+  font-weight: bold !important;
 }
 
 .csd-rounded:disabled {

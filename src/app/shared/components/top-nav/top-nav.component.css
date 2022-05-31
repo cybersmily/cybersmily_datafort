@@ -1,4 +1,6 @@
-.csdHeader {background-color: #666;padding-bottom:10px;}
+.csdHeader {
+  letter-spacing: 1px;
+}
 .csdHeaderTitle, .csdHeader .nav-bar .nav-item A.nav-link {
   color:#CCC;
 }
@@ -11,8 +13,15 @@ ul li div.csd-link-menu {
   color:#CCC;
 }
 .mega-menu {
+  margin: 0px 50px;
+  width: 90% !important;
   margin-top: -15px !important;
 }
+
+.mega-menu a {
+  letter-spacing: 1px !important;
+}
+
 .csd-submenu-title {
   font-style: italic;
   font-weight: normal !important;

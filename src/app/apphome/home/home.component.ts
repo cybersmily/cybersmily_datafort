@@ -5,18 +5,19 @@ import { NewsArticle } from '../../shared/models/articles';
 @Component({
   selector: 'cs-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
+  newItems: NewsArticle[] = [];
+  showMoreItems: boolean = false;
+  moreItems: NewsArticle[] = [];
 
-  newItems: NewsArticle[];
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService) {}
 
   ngOnInit() {
-    this.dataService.GetDataNews()
-    .subscribe( data => {
-      this.newItems = data.news;
+    this.dataService.GetDataNews().subscribe((data) => {
+      this.newItems = data.news.slice(0, 3);
+      this.moreItems = data.news.slice(3);
     });
   }
-
 }

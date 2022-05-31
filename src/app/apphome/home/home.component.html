@@ -1,53 +1,48 @@
 <div class="container">
-    <h2 class="text-center">Welcome to Cybersmily's Datafort!</h2>
-    <div>
-      This site was created back in the late 90's as an unofficial fan site dedicated to the R. Talsorian's tabletop RPG Cyberpunk 2020 and Cyberpunk Red. Here you will find articles, web page apps, and other unofficial resources for CyberPunk 2020/Red.
+  <div class="w-100 text-center">
+    <div class="csd-title w-75 text-center csd-rounded mx-auto">
+      <img src="/img/cs150x125.png" alt="The Cybersmily" />
+      <h1>Welcome to Cybersmily's Datafort!</h1>
+      <h5>
+        A Fan Site for Cyberpunk 2020 and Cyberpunk Red by R.Talsorian Games
+      </h5>
     </div>
-    <br/>
-     <div class="row">
-    <div class="col-sm-12 col-md-3 csd-rounded csd-border">
-      <h4 class="text-center">Sections</h4>
-      <ul class="list-unstyled">
-        <li>
-          <h5>Data</h5>
-          <p>Data I have collected. Lists of things (gear, programs, vehicles, stuff) that I have compiled. Most of the content is conversions of other sources to fit with Cyberpunk 2020 rule set.</p>
-        </li>
-        <li>
-          <h5>Mods</h5>
-          <p>Modifications to the rules. This section contains unofficial rule mods and house rules I have used in some of my games over the years. Some are good, some not so much. But figure I'd share as a few of them might fit with your style of play.</p>
-        </li>
-        <li>
-          <h5>Shop</h5>
-          <p>Shop for custom gear I have created or re-engineered from other sources.</p>
-        </li>
-        <li>
-          <h5>Peeps</h5>
-          <p>The peeps that are in my campaign. NPCs and PCs from my games. Some of them are used within the scenarios on this site.</p>
-        </li>
-        <li>
-          <h5>Gigs</h5>
-          <p>Gigs for your edgerunners. Some scenarios I have run at conventions and with my group. You can also find here a news cast following the Firestorm supplement from R. Talsorian.</p>
-        </li>
-        <li>
-          <h5>Apps - 2020/RED</h5>
-          <p>Applications (unofficial online utilities) for your game. Includes a cyberpunk 2020 lifepath generator, Cyberpunk 2020 fashion calculator, Cyberpunk 2020 Max Metal Calculator, Cyberpunk 2020 Character generator, Cyberpunk Red Character generator, Cyberpunk Red lifepath generator and a Cyberpunk 2020 Netrunning utility app for navigating the net.</p>
-        </li>
-        <li>
-          <h5>DLow</h5>
-          <p>Downloads for use with your game. There's a PC Sheet, image files of maps, and Campaign Cartographer vector maps of Night City.</p>
-        </li>
-        <li>
-          <h5>LDLs/Vids</h5>
-          <p>Long Distance Links of other dataforts I visit, and. some of the websites I believe are required for use with running and playing Cyberpunk 2020/Cyberpunk Red.</p>
-        </li>
-      </ul>
-    </div>
-    <div class="col-sm-12 col-md-1"></div>
-    <div class="col-sm-12 col-md-7 csd-rounded csd-border">
+  </div>
+  <br />
+  <br />
+  <div>
+    This site was created back in the late 90's as an unofficial fan site
+    dedicated to the R. Talsorian's tabletop RPG Cyberpunk 2020 and Cyberpunk
+    Red. Here you will find articles, web page apps, and other unofficial
+    resources for CyberPunk 2020/Red.
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-12 csd-rounded csd-border">
       <h4 class="text-center">Recent Updates</h4>
-      <div *ngFor="let newItem of newItems">
-        <h5>{{newItem.date}}</h5>
-        <p *ngFor="let entry of newItem.entries" [innerHTML]="entry"></p>
+      <div *ngFor="let newItem of newItems" class="mb-2 small">
+        <h5>{{ newItem.date }}</h5>
+        <p
+          class="ms-3 my-0"
+          *ngFor="let entry of newItem.entries"
+          [innerHTML]="entry"
+        ></p>
+      </div>
+      <div *ngIf="showMoreItems">
+        <div *ngFor="let newItem of newItems">
+          <h5>{{ newItem.date }}</h5>
+          <p
+            class="ms-3 my-0"
+            *ngFor="let entry of newItem.entries"
+            [innerHTML]="entry"
+          ></p>
+        </div>
+      </div>
+      <div
+        class="w-100 text-center font-weight-bold csd-btn"
+        (click)="showMoreItems = !showMoreItems"
+      >
+        <h4>{{ showMoreItems ? "Show less" : "Show More" }}</h4>
       </div>
     </div>
   </div>
