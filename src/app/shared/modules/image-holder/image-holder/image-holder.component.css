@@ -5,6 +5,10 @@
   top: 45%;
   display: none;
 }
+.csd-image {
+  min-height: 100px;
+  background-color: #DDD;
+}
 
 .csd-image:hover button {
   display: inline-block;
