@@ -1,7 +1,7 @@
 import { CPRedLifepathModule } from './../shared/cpred/c-p-red-lifepath/c-p-red-lifepath.module';
 import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';
 import { NameGeneratorService } from './../shared/services/namegen/name-generator.service';
-import { CpRedTemplateGeneratorService } from '../shared/cpred/services/cpredpc/cp-red-template-generator.service';
+import { CpRedTemplateGeneratorService } from '../shared/cpred/services/cp-red-template-generator/cp-red-template-generator.service';
 import { DiceService } from './../shared/services/dice/dice.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -23,17 +23,14 @@ import { TempGeneratorArmorComponent } from './temp-generator-armor/temp-generat
     TempGeneratorGearComponent,
     TempGeneratorLifepathComponent,
     TempGeneratorStatsComponent,
-    TempGeneratorArmorComponent],
+    TempGeneratorArmorComponent,
+  ],
   imports: [
     CommonModule,
     CommonUiModule,
     CPRedLifepathModule,
-    AppCpRedTemplateCharacterRoutingModule
+    AppCpRedTemplateCharacterRoutingModule,
   ],
-  providers: [
-    DiceService,
-    CpRedTemplateGeneratorService,
-    NameGeneratorService
-  ]
+  providers: [DiceService, CpRedTemplateGeneratorService, NameGeneratorService],
 })
-export class AppCpRedTemplateCharacterModule { }
+export class AppCpRedTemplateCharacterModule {}

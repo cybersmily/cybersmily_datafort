@@ -6,7 +6,7 @@ import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { NameGeneratorService } from '../../shared/services/namegen/name-generator.service';
 import { DiceService } from './../../shared/services/dice/dice.service';
-import { CpRedTemplateGeneratorService } from '../../shared/cpred/services/cpredpc/cp-red-template-generator.service';
+import { CpRedTemplateGeneratorService } from '../../shared/cpred/services/cp-red-template-generator/cp-red-template-generator.service';
 import { CpRedBaseCharacter } from '../../shared/cpred/models/cp-red-base-character';
 import { Component, OnInit } from '@angular/core';
 

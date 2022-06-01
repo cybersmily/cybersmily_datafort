@@ -1,5 +1,5 @@
 import { map } from 'rxjs/operators';
-import { JsonDataFiles, DataService } from './../../../services/file-services';
+import { JsonDataFiles, DataService } from '../../../services/file-services';
 import { Observable, of } from 'rxjs';
 import { CpRedBaseCharacter } from '../../models/cp-red-base-character';
 import { DiceService } from '../../../services/dice/dice.service';
