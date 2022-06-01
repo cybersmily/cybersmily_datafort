@@ -7,7 +7,10 @@
 }
 .csd-image {
   min-height: 100px;
-  background-color: #DDD;
+  background-color: #EEE;
+}
+.csd-image:hover {
+  background-color: #CCC;
 }
 
 .csd-image:hover button {
