@@ -1,0 +1,16 @@
+.csd-add-image {
+  position: absolute;
+  right: 50%;
+  left: 49%;
+  top: 45%;
+  display: none;
+}
+
+.csd-image:hover button {
+  display: inline-block;
+  z-index: 100;
+}
+
+.csd-image:hover img {
+  opacity: 0.5;
+}

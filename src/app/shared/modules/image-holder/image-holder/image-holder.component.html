@@ -1,9 +1,6 @@
-<div class="h-100">
-  <img [src]="image" class="h-100" />
-  <button
-    (click)="compressFile()"
-    class="float-end csd-icon-btn csd-icon-lg me-3"
-  >
+<div class="h-100 position-relative csd-image csd-btn" (click)="compressFile()">
+  <button class="csd-icon-btn csd-icon-xl csd-add-image">
     <fa-icon [icon]="faPlus"></fa-icon>
   </button>
+  <img [src]="image" class="h-100 rounded" />
 </div>
