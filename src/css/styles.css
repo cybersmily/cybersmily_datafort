@@ -1,7 +1,7 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
 Body {
-  background-image: linear-gradient(#111, #EEE,#EEE,#111);
+  background-image: linear-gradient(#111, #EEE);
   background-attachment: fixed;
 }
 
@@ -9,6 +9,8 @@ Body {
 
 .container {
   background-color: white;
+  background-image: linear-gradient(white, #DDD);
+  background-attachment: fixed;
   padding-bottom: 0.4em;
   padding-top: 0.5em;
   min-height: 350px;
@@ -298,6 +300,9 @@ SELECT option.font-italic {
     font-size: x-small !important;
     color: #AAA;
     letter-spacing: 1px;
+}
+.csd-disclaimer .container {
+  background-image: none;
 }
 .csd-disclaimer h6 {
   letter-spacing: 3px;
@@ -758,6 +763,30 @@ INPUT, SELECT, TEXTAREA {
   -moz-border-radius-bottomright: .3em !important;
   border-top-right-radius: 0.3em !important;
   border-bottom-right-radius: 0.3em !important;
+}
+
+A {
+  color: inherit;
+  font-weight: bolder;
+}
+a:link {
+  text-decoration: none;
+}
+
+
+a:visited {
+  text-decoration: none;
+}
+
+
+a:hover {
+  color: inherit;
+  text-decoration: underline;
+}
+
+
+a:active {
+  text-decoration: none;
 }
 
 

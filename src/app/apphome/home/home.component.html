@@ -18,32 +18,60 @@
   </div>
   <br />
   <div class="row">
-    <div class="col-12 csd-rounded csd-border">
-      <h4 class="text-center">Recent Updates</h4>
-      <div *ngFor="let newItem of newItems" class="mb-2 small">
+    <div class="col-1"></div>
+    <div class="col-10">
+      <h2 class="text-center text-weight-bold">Recent Updates</h2>
+    </div>
+    <div class="col-1"></div>
+  </div>
+  <div *ngFor="let newItem of newItems" class="row">
+    <div class="col-1"></div>
+    <div class="col-1">
+      <h5>{{ newItem.date }}</h5>
+    </div>
+    <div class="col-9">
+      <div class="mb-2 small">
+        <p
+          class="my-0"
+          *ngFor="let entry of newItem.entries"
+          [innerHTML]="entry"
+        ></p>
+      </div>
+    </div>
+    <div class="col-1"></div>
+  </div>
+  <div *ngIf="showMoreItems">
+    <div *ngFor="let newItem of moreItems" class="row">
+      <div class="col-1"></div>
+      <div class="col-1">
         <h5>{{ newItem.date }}</h5>
+      </div>
+      <div class="col-9">
         <p
           class="ms-3 my-0"
           *ngFor="let entry of newItem.entries"
           [innerHTML]="entry"
         ></p>
       </div>
-      <div *ngIf="showMoreItems">
-        <div *ngFor="let newItem of newItems">
-          <h5>{{ newItem.date }}</h5>
-          <p
-            class="ms-3 my-0"
-            *ngFor="let entry of newItem.entries"
-            [innerHTML]="entry"
-          ></p>
-        </div>
-      </div>
+      <div class="col-1"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
       <div
-        class="w-100 text-center font-weight-bold csd-btn"
+        class="w-100 text-center font-weight-bold csd-btn text-danger"
         (click)="showMoreItems = !showMoreItems"
       >
-        <h4>{{ showMoreItems ? "Show less" : "Show More" }}</h4>
+        <div *ngIf="showMoreItems">
+          <fa-icon class="csd-icon-btn" [icon]="faChevronUp"></fa-icon>
+        </div>
+        <h6>{{ showMoreItems ? "Show less" : "Show More" }}</h6>
+        <div *ngIf="!showMoreItems">
+          <fa-icon class="csd-icon-btn" [icon]="faChevronDown"></fa-icon>
+        </div>
       </div>
     </div>
+    <div class="col-1"></div>
   </div>
 </div>
