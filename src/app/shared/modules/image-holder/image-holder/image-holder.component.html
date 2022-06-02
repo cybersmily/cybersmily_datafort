@@ -1,6 +1,14 @@
-<div class="h-100 position-relative csd-image csd-btn" (click)="compressFile()">
+<div
+  class="h-100 position-relative d-block csd-image csd-btn"
+  [ngStyle]="{ 'max-height': maxHeight, 'max-width': maxWidth }"
+  (click)="compressFile()"
+>
   <button class="csd-icon-btn csd-icon-xl csd-add-image">
     <fa-icon [icon]="faPlus"></fa-icon>
   </button>
-  <img [src]="image" class="h-100 rounded" />
+  <img
+    [src]="image"
+    class="h-100 rounded"
+    [ngStyle]="{ 'max-height': maxHeight, 'max-width': maxWidth }"
+  />
 </div>
