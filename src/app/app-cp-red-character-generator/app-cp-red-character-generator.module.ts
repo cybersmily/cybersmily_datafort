@@ -1,5 +1,4 @@
-import { ImageHolderModule } from './../shared/modules/image-holder/image-holder.module';
-import { CPRedStatsModule } from './../shared/cpred/c-p-red-stats/c-p-red-stats.module';
+import { CpRedCharacterModule } from './../shared/cpred/cp-red-character/cp-red-character.module';
 import {
   FileLoaderService,
   DataService,
@@ -19,8 +18,7 @@ import { CpRedCharacterMainComponent } from './cp-red-character-main/cp-red-char
     CommonModule,
     CommonUiModule,
     AppCpRedCharacterGeneratorRoutingModule,
-    CPRedStatsModule,
-    ImageHolderModule,
+    CpRedCharacterModule,
   ],
   providers: [DiceService, SaveFileService, DataService, FileLoaderService],
 })

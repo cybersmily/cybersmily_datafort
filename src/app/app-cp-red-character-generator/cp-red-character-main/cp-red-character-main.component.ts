@@ -1,10 +1,20 @@
-import { DOCUMENT } from '@angular/common';
+import { CpRedCharacter } from './../../shared/cpred/models/cp-red-character';
+import { CPRedCharacterSheet } from './../../shared/cpred/models';
+import { Observable } from 'rxjs';
+import { CpRedCharacterManagerService } from './../../shared/cpred/cp-red-character/services/cp-red-character-manager/cp-red-character-manager.service';
+import {
+  SaveFileService,
+  FileLoaderService,
+} from './../../shared/services/file-services';
+import { LocalStorageManagerService } from './../../shared/services/local-storage-manager/local-storage-manager.service';
+import { SeoService } from './../../shared/services/seo/seo.service';
 import {
   faFile,
   faFilePdf,
   faUpload,
   faUndo,
   faQuestionCircle,
+  faCog,
 } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit, Inject } from '@angular/core';
 
@@ -19,19 +29,65 @@ export class CpRedCharacterMainComponent implements OnInit {
   faUpload = faUpload;
   faUndo = faUndo;
   faQuestionCircle = faQuestionCircle;
+  faCog = faCog;
 
-  constructor(@Inject(DOCUMENT) private document: Document) {}
+  currSheet$: Observable<CPRedCharacterSheet> =
+    new Observable<CPRedCharacterSheet>();
+  STORAGE_KEY: string = 'cpr-character-generator';
+
+  constructor(
+    private seo: SeoService,
+    private storageService: LocalStorageManagerService,
+    private fileLoadService: FileLoaderService,
+    private fileSaveService: SaveFileService,
+    private characterManagerService: CpRedCharacterManagerService
+  ) {}
 
   ngOnInit(): void {
-    console.log(this.document.body.style);
-    this.document.body.style.backgroundImage = 'linear-gradient(#F00, #EEE)';
+    this.initialize();
   }
 
-  save() {}
+  initialize(): void {
+    this.seo.updateMeta(
+      'Character Generator for Cyberpunk Red',
+      "2022-06, Cybersmily's Datafort Character Generator utility for Cyberpunk Red."
+    );
+    this.currSheet$ = this.characterManagerService.sheet;
+    if (this.storageService.hasKey(this.STORAGE_KEY)) {
+      this.characterManagerService.updateCharacter(
+        this.storageService.retrive<CpRedCharacter>(this.STORAGE_KEY)
+      );
+    }
+  }
 
-  upload() {}
+  updateSheet(sheet: CPRedCharacterSheet): void {
+    this.characterManagerService.updateCharacter(sheet.character);
+    this.storageService.store(this.STORAGE_KEY, sheet.character);
+  }
 
-  saveAsPdf() {}
+  save(): void {
+    this.currSheet$.subscribe((sheet: CPRedCharacterSheet) => {
+      const regex = /^0-9A-Za-z ,.!$&()-=@{}[]-/g;
+      const filename =
+        sheet.character.handle === ''
+          ? 'cpred_character'
+          : sheet.character.handle.replace(regex, '_');
+      this.fileSaveService.SaveAsFile(filename, sheet.character, '.json');
+    });
+  }
 
-  reset() {}
+  upload($event): void {
+    this.fileLoadService
+      .importJSON<CpRedCharacter>($event.target.files[0])
+      .subscribe((data) => {
+        this.updateSheet(new CPRedCharacterSheet(data));
+      });
+  }
+
+  saveAsPdf(): void {}
+
+  reset(): void {
+    this.storageService.clear(this.STORAGE_KEY);
+    this.characterManagerService.clear();
+  }
 }

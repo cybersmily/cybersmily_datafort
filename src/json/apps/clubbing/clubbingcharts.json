@@ -1,0 +1,89 @@
+{
+  "clubs": {
+
+  },
+  "clubbers": {
+    "ages": [
+      { "ageRange":{"min":13,"max":16}, "wt": 1},
+      { "ageRange":{"min":17,"max":18}, "wt": 2},
+      { "ageRange":{"min":19,"max":21}, "wt": 24},
+      { "ageRange":{"min":22,"max":24}, "wt": 25},
+      { "ageRange":{"min":25,"max":27}, "wt": 20},
+      { "ageRange":{"min":28,"max":30}, "wt": 10},
+      { "ageRange":{"min":31,"max":39}, "wt": 5},
+      { "ageRange":{"min":40,"max":49}, "wt": 2},
+      { "ageRange":{"min":50,"max":70}, "wt": 1}
+    ],
+    "styles": [
+      {"value":"Goth/Cyber", "wt": 1},
+      {"value":"Leisurewear", "wt": 1},
+      {"value":"Edgerunner", "wt": 1},
+      {"value":"Punk", "wt": 1},
+      {"value":"Chromer", "wt": 1},
+      {"value":"Generic (jeans/t-shirt)", "wt": 1},
+      {"value":"Generic Chic (fancier)", "wt": 1},
+      {"value":"Clubwear", "wt": 2},
+      {"value":"Club theme", "wt": 2},
+      {"value":"Urban Flash", "wt": 1},
+      {"value":"Cosplay", "wt": 1},
+      {"value":"Fetish", "wt": 1},
+      {"value":"Business", "wt": 1},
+      {"value":"Booster", "wt": 1},
+      {"value":"High Fashion", "wt": 1},
+      {"value":"Occupational", "wt": 1},
+      {"value":"Poser", "wt": 1}
+    ],
+    "stat": [
+      {"value":2, "wt": 1},
+      {"value":3, "wt": 2},
+      {"value":4, "wt": 3},
+      {"value":5, "wt": 4},
+      {"value":6, "wt": 5},
+      {"value":7, "wt": 4},
+      {"value":8, "wt": 3},
+      {"value":9, "wt": 2},
+      {"value":10, "wt": 1}
+    ],
+    "skill": [
+      {"value":0, "wt": 20},
+      {"value":1, "wt": 25},
+      {"value":2, "wt": 15},
+      {"value":3, "wt": 10},
+      {"value":4, "wt": 10},
+      {"value":5, "wt": 5},
+      {"value":6, "wt": 5},
+      {"value":7, "wt": 4},
+      {"value":8, "wt": 3},
+      {"value":9, "wt": 2},
+      {"value":10, "wt": 1}
+    ],
+    "haircolor": [
+      {"value":"Red",    "wt": 10},
+      {"value":"Blonde", "wt": 20},
+      {"value":"Black",  "wt": 20},
+      {"value":"Brown",  "wt": 30},
+      {"value":"Blue",  "wt": 2},
+      {"value":"silver",  "wt": 2},
+      {"value":"orange",  "wt": 1},
+      {"value":"pink",  "wt": 1},
+      {"value":"purple",  "wt": 2},
+      {"value":"other",  "wt": 2}
+    ],
+    "hairstyle": [
+        {"value":"Bald",  "wt": 2},
+        {"value":"Buzz",  "wt": 2},
+        {"value":"Short",  "wt": 2},
+        {"value":"Medium",  "wt": 3},
+        {"value":"Long",  "wt": 3},
+        {"value":"Very Long",  "wt": 2},
+        {"value":"Pony Tail",  "wt": 2},
+        {"value":"Braided",  "wt": 2},
+        {"value":"Pigtails",  "wt": 1},
+        {"value":"Fancy style",  "wt": 1}
+    ],
+    "cyberware": [
+
+    ]
+
+  }
+}

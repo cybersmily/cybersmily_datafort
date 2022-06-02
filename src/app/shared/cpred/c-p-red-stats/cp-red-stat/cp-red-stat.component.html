@@ -1,0 +1,13 @@
+<div>
+  <div class="csd-cpr-stat my-1 d-inline-block" (click)="showModal(statEditor)">
+    <div class="w-100 small text-end">{{ stat.name }}</div>
+    <div class="d-inline-block">{{ stat.base }}</div>
+    <div class="d-inline-block float-end">{{ stat.base }}</div>
+  </div>
+  <button class="csd-btn csd-icon-btn csd-icon-lg float-end">
+    <fa-icon [icon]="faDice"></fa-icon>
+  </button>
+</div>
+<ng-template #statEditor>
+  <cs-cp-red-stat-editor></cs-cp-red-stat-editor>
+</ng-template>

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CPRedStatComponent } from './c-p-red-stat.component';
+import { CPRedStatComponent } from './cp-red-stat.component';
 
 describe('CPRedStatComponent', () => {
   let component: CPRedStatComponent;
@@ -8,9 +8,8 @@ describe('CPRedStatComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CPRedStatComponent ]
-    })
-    .compileComponents();
+      declarations: [CPRedStatComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
