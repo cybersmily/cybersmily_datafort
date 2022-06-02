@@ -1,15 +1,3 @@
-
-export interface cpRedStatMod {
-  name: string;
-  value: number;
-}
-
-export interface cpRedStat {
-  base: number;
-  modified: number;
-  modifiers: Array<cpRedStatMod>;
-}
-
 export interface cpRedRoleAbility {
   name: string;
   rank: number;
@@ -60,7 +48,8 @@ export interface cpRedGear {
 
 export interface cpRedCyberware {
   name: string;
-  notes; string;
+  notes;
+  string;
   hc: string;
   humanityLoss: number;
   cost: number;
@@ -107,65 +96,23 @@ export interface cpRedLifePath {
   roleSpecific: string;
 }
 
-export interface cpRedCharacter {
-  handle: string;
-  aliases: string;
-  notes: string;
-
-  role: cpRedRole;
-
-  stats: {
-    int: cpRedStat;
-    ref: cpRedStat;
-    dex: cpRedStat;
-    tech: cpRedStat;
-    cool: cpRedStat;
-    will: cpRedStat;
-    luck: cpRedStat;
-    move: cpRedStat;
-    body: cpRedStat;
-    emp: cpRedStat;
-  };
-
-  humanity: number;
-  wounds: number;
-  deathsave: number;
-  criticalInjuries: string;
-  addictions: string;
-
-  skills: Array<cpRedSkill>;
-
-  ip: number;
-  curIP: number;
-  rep: number;
-  repEvents: string;
-
-  weapons: Array<cpRedWeapon>;
-  gear: Array<cpRedGear>;
-  cash: number;
-  creadit: number;
-
-  fashion: string;
-  housing: string;
-  rent: string;
-  lifestyle: string;
-  lifePath: cpRedLifePath;
-
-  cyberware: cpRedCharacterCyberware;
-}
+import { CpRedCharacter } from './cp-red-character';
 
 export class CPRedCharacterSheet {
-  private _character: cpRedCharacter;
+  character: CpRedCharacter;
 
-  constructor(character?: cpRedCharacter) {
-    if(character) {
-      this._character = character;
+  constructor(character?: CpRedCharacter) {
+    if (character) {
+      this.character = character;
     } else {
-      this._character = {
+      this.character = {
         handle: '',
         aliases: '',
         notes: '',
+        image: '',
         role: undefined,
+        stats: undefined,
+        /*
         stats: {
           int: undefined,
           ref: undefined,
@@ -176,8 +123,9 @@ export class CPRedCharacterSheet {
           luck: undefined,
           move: undefined,
           body: undefined,
-          emp: undefined
+          emp: undefined,
         },
+        */
 
         humanity: 0,
         wounds: 0,
@@ -185,7 +133,7 @@ export class CPRedCharacterSheet {
         criticalInjuries: '',
         addictions: '',
 
-        skills: new Array<cpRedSkill>(),
+        /*skills: new Array<cpRedSkill>(),
 
         ip: 0,
         curIP: 0,
@@ -203,10 +151,9 @@ export class CPRedCharacterSheet {
         lifestyle: '',
         lifePath: undefined,
 
-        cyberware: undefined
-
+        cyberware: undefined,
+        */
       };
     }
-
   }
 }

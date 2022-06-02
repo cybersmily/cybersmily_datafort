@@ -1,4 +1,4 @@
-import { CPRedCharacterSheet } from './c-p-red-character';
+import { CPRedCharacterSheet } from './cp-red-character-sheet';
 
 describe('CPRedCharacter', () => {
   it('should create an instance', () => {
