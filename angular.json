@@ -32,10 +32,10 @@
             "styles": [
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/css/styles.css"
+              "src/css/styles.css",
+              "src/css/modal.css"
             ],
-            "scripts": [
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -86,11 +86,8 @@
             "karmaConfig": "./karma.conf.js",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
-            "scripts": [
-            ],
-            "styles": [
-              "src/css/styles.css"
-            ],
+            "scripts": [],
+            "styles": ["src/css/styles.css"],
             "sourceMap": false,
             "codeCoverage": true,
             "assets": [

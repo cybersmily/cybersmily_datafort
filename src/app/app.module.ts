@@ -15,28 +15,25 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 @NgModule({
-    declarations: [
-        AppComponent,
-        NpcProfileModalComponent
-    ],
-    imports: [
-        AppBootstrapModule,
-        CommonUiModule,
-        SharedModule,
-        HttpClientModule,
-        ApphomeModule,
-        PipesModule,
-        AppRoutingModule,
-        FontAwesomeModule,
-        BrowserAnimationsModule,
-        StoreModule.forRoot({}),
-        StoreDevtoolsModule.instrument({ maxAge: 4, logOnly: environment.production }),
-        EffectsModule.forRoot([]) /* Keep last as it is important for routing */
-    ],
-    providers: [
-        DataService,
-        SaveFileService
-    ],
-    bootstrap: [AppComponent]
+  declarations: [AppComponent, NpcProfileModalComponent],
+  imports: [
+    AppBootstrapModule,
+    CommonUiModule,
+    SharedModule,
+    HttpClientModule,
+    ApphomeModule,
+    PipesModule,
+    AppRoutingModule,
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+    StoreModule.forRoot({}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 4,
+      logOnly: environment.production,
+    }),
+    EffectsModule.forRoot([]) /* Keep last as it is important for routing */,
+  ],
+  providers: [DataService, SaveFileService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
