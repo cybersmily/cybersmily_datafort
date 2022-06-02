@@ -24,7 +24,14 @@ export class ImageHolderComponent implements OnInit {
 
   constructor(private imageCompress: NgxImageCompressService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (isNaN(this.maxHeight)) {
+      this.maxHeight = 300;
+    }
+    if (isNaN(this.maxWidth)) {
+      this.maxWidth = 300;
+    }
+  }
 
   compressFile() {
     this.imageCompress.uploadFile().then(({ image, orientation }) => {
@@ -39,6 +46,9 @@ export class ImageHolderComponent implements OnInit {
         ) // 50% ratio, 50% quality
         .then((compressedImage) => {
           this.update.emit(compressedImage);
+        })
+        .catch((error) => {
+          console.error(error);
         });
     });
   }
