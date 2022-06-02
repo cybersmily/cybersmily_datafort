@@ -1,0 +1,82 @@
+body .modal .modal-dialog.modal-left,
+body .modal .modal-dialog.modal-right,
+body .modal .modal-dialog.modal-top,
+body .modal .modal-dialog.modal-bottom {
+  -webkit-transform: translate3d(0%, 0, 0);
+  -ms-transform: translate3d(0%, 0, 0);
+  -o-transform: translate3d(0%, 0, 0);
+  transform: translate3d(0%, 0, 0);
+}
+
+/* Left & Right */
+
+body .modal .modal-dialog.modal-left,
+body .modal .modal-dialog.modal-right {
+  position: fixed;
+  margin: auto;
+  width: 0%;
+  max-width: 100%;
+  height: 100%;
+}
+
+.modal .modal-dialog.modal-right {
+  right:0;
+}
+
+body .modal .modal-left .modal-content,
+body .modal .modal-right .modal-content {
+  height: 100%;
+  overflow-y: auto;
+}
+
+body .modal .modal-left .modal-body,
+body .modal .modal-right .modal-body {
+  padding: 15px 15px 80px;
+}
+
+.modal.fade .modal-dialog.modal-left {
+  left: -500px;
+  -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+  -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+  -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+  transition: opacity 0.3s linear, left 0.3s ease-out;
+}
+
+.modal.fade.show .modal-dialog.modal-left {
+  left: 0;
+}
+
+body .modal.fade .modal-dialog.modal-right {
+  -webkit-transition: opacity 0.3s linear, width 0.3s ease-out;
+  -moz-transition: opacity 0.3s linear, width 0.3s ease-out;
+  -o-transition: opacity 0.3s linear, width 0.3s ease-out;
+  transition: opacity 0.3s linear, width 0.3s ease-out;
+}
+
+body .modal.fade.show .modal-dialog.modal-right {
+  width: 50%;
+}
+
+body .modal-dialog.modal-left .modal-content,
+body .modal-dialog.modal-right .modal-content,
+body .modal-dialog.modal-top .modal-content,
+body .modal-dialog.modal-bottom .modal-content,
+body .modal-dialog.modal-full .modal-content {
+  border-radius: 0;
+  border: none;
+}
+
+body.modal .modal-dialog.modal-left.modal-sm,
+body.modal .modal-dialog.modal-right.modal-sm {
+  width: 25%;
+}
+
+body .modal .modal-dialog.modal-left.modal-lg,
+body .modal .modal-dialog.modal-right.modal-lg {
+  width: 90%;
+}
+
+.modal .modal-dialog.modal-left.modal-xl,
+.modal .modal-dialog.modal-right.modal-xl {
+  width: 100%;
+}
