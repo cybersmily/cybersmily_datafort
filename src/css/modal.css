@@ -44,6 +44,7 @@ body .modal .modal-right .modal-body {
 
 .modal.fade.show .modal-dialog.modal-left {
   left: 0;
+  width: 50%;
 }
 
 body .modal.fade .modal-dialog.modal-right {
