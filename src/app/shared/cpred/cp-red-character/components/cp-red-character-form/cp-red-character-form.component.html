@@ -1,16 +1,28 @@
 <div class="row">
   <div class="col-12">
     <div class="row">
-      <div class="col-12 col-md-6 col-lg-3 text-center">
+      <div class="col-12 h1">
+        <input
+          class="csd-cpr-handle w-100 w-md-50"
+          type="text"
+          [(ngModel)]="currSheet.character.handle"
+          placeholder="Enter character name"
+          (change)="update()"
+          (keyup)="update()"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 col-md-2 col-lg-1">
+        <cs-cp-red-character-stats></cs-cp-red-character-stats>
+      </div>
+      <div class="col-9 col-md-10 col-lg-3 text-center">
         <cs-image-holder
           [maxWidth]="300"
           [maxHeight]="200"
           [image]="sheet.character?.image"
           (update)="updateImage($event)"
         ></cs-image-holder>
-      </div>
-      <div class="col-12 col-md-2 col-lg-1">
-        <cs-cp-red-character-stats></cs-cp-red-character-stats>
       </div>
     </div>
   </div>

@@ -1,0 +1,9 @@
+.csd-cpr-handle {
+  border: 0px transparent solid;
+  background-color: inherit;
+}
+
+.csd-cpr-handle:focus {
+  border: 0px transparent solid;
+  background-color: #CCC;
+}
