@@ -9,7 +9,6 @@ Body {
 
 .container {
   background-color: white;
-  background-image: linear-gradient(white, #DDD);
   background-attachment: fixed;
   padding-bottom: 0.4em;
   padding-top: 0.5em;
@@ -733,19 +732,55 @@ INPUT.csd-hide-spinner[type=number] {
 INPUT, SELECT, TEXTAREA {
   cursor: pointer;
   background-color: #EEE;
-  -webkit-border-top-left-radius: .3em !important;
-  -webkit-border-bottom-left-radius: .3em !important;
-  -moz-border-radius-topleft: .3em !important;
-  -moz-border-radius-bottomleft: .3em !important;
-  border-top-left-radius: 0.3em !important;
-  border-bottom-left-radius: 0.3em !important;
-  -webkit-border-top-right-radius: .3em !important;
-  -webkit-border-bottom-right-radius: .3em !important;
-  -moz-border-radius-topright: .3em !important;
-  -moz-border-radius-bottomright: .3em !important;
-  border-top-right-radius: 0.3em !important;
-  border-bottom-right-radius: 0.3em !important;
+  -webkit-border-top-left-radius: .3em;
+  -webkit-border-bottom-left-radius: .3em;
+  -moz-border-radius-topleft: .3em;
+  -moz-border-radius-bottomleft: .3em;
+  border-top-left-radius: 0.3em;
+  border-bottom-left-radius: 0.3em;
+  -webkit-border-top-right-radius: .3em;
+  -webkit-border-bottom-right-radius: .3em;
+  -moz-border-radius-topright: .3em;
+  -moz-border-radius-bottomright: .3em;
+  border-top-right-radius: 0.3em;
+  border-bottom-right-radius: 0.3em;
 }
+
+INPUT.csd-plain-input {
+  border: 0px transparent solid;
+  background-color: inherit;
+  -webkit-border-top-left-radius: 0 !important;
+  -webkit-border-bottom-left-radius: 0;
+  -moz-border-radius-topleft: 0;
+  -moz-border-radius-bottomleft: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  -webkit-border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+  -moz-border-radius-topright: 0;
+  -moz-border-radius-bottomright: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+INPUT.csd-plain-input:focus {
+  outline: none;
+  border-bottom: 1px #666 solid;
+}
+
+INPUT.csd-plain-input::placeholder {
+  color: #AAA;
+  font-size: x-small;
+  position: absolute;
+  margin: 0px !important;
+  top: 0 !important;text-overflow: ellipsis;
+}
+
+INPUT.csd-plain-input:focus::placeholder {
+  color: #DDD;
+  font-size: x-small;text-overflow: ellipsis;
+}
+
 
 A {
   color: inherit;
