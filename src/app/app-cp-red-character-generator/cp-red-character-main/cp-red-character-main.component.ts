@@ -66,14 +66,16 @@ export class CpRedCharacterMainComponent implements OnInit {
   }
 
   save(): void {
-    this.currSheet$.subscribe((sheet: CPRedCharacterSheet) => {
-      const regex = /^0-9A-Za-z ,.!$&()-=@{}[]-/g;
-      const filename =
-        sheet.character.handle === ''
-          ? 'cpred_character'
-          : sheet.character.handle.replace(regex, '_');
-      this.fileSaveService.SaveAsFile(filename, sheet.character, '.json');
-    });
+    this.currSheet$
+      .subscribe((sheet: CPRedCharacterSheet) => {
+        const regex = /^0-9A-Za-z ,.!$&()-=@{}[]-/g;
+        const filename =
+          sheet.character.handle === ''
+            ? 'cpred_character'
+            : sheet.character.handle.replace(regex, '_');
+        this.fileSaveService.SaveAsFile(filename, sheet.character, '.json');
+      })
+      .unsubscribe();
   }
 
   upload($event): void {
