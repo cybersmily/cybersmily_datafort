@@ -1,3 +1,5 @@
+import { CpRedCharacterStats } from './cp-red-character-stats';
+import { CpRedStats } from './cp-red-stats';
 export interface cpRedRoleAbility {
   name: string;
   rank: number;
@@ -111,7 +113,7 @@ export class CPRedCharacterSheet {
         notes: '',
         image: '',
         role: undefined,
-        stats: undefined,
+        stats: new CpRedCharacterStats(),
         /*
         stats: {
           int: undefined,
