@@ -23,25 +23,27 @@
       >
         <fa-icon [icon]="faFilePdf"></fa-icon>
       </button>
-      <input
-        type="file"
-        id="loadFile"
-        title="load a character .json file"
-        name="Load"
-        Style="display: none"
-        (change)="upload($event)"
-        #inputFile
-        (click)="inputFile.value = null"
-        (keyup.enter)="inputFile.value = null"
-        tabindex="0"
-        accept="text/plain;text/json;application/json;"
-      />
-      <label for="loadFile" class="csd-btn csd-icon-btn csd-icon-xl mx-2">
-        <fa-icon
-          [icon]="faUpload"
+      <div class="d-inline-block csd-btn csd-icon-btn csd-icon-xl mx-2">
+        <input
+          type="file"
+          id="loadFile"
           title="load a character .json file"
-        ></fa-icon>
-      </label>
+          name="Load"
+          Style="display: none"
+          (change)="upload($event)"
+          #inputFile
+          (click)="inputFile.value = null"
+          (keyup.enter)="inputFile.value = null"
+          tabindex="0"
+          accept="text/plain;text/json;application/json;"
+        />
+        <label for="loadFile">
+          <fa-icon
+            [icon]="faUpload"
+            title="load a character .json file"
+          ></fa-icon>
+        </label>
+      </div>
       <button
         tabindex="0"
         class="csd-btn csd-icon-btn csd-icon-xl mx-2"
