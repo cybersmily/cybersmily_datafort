@@ -16,28 +16,10 @@ import {
   styleUrls: ['./cp-red-stat.component.css'],
 })
 export class CPRedStatComponent implements OnInit {
-  modalRef: BsModalRef;
-  modalConfig: ModalOptions = {
-    class: 'modal-right',
-    animated: true,
-  };
-  faDice = faDice;
-
   @Input()
   stat: CpRedStat = new CpRedCharacterStat();
 
-  @Output()
-  updateStat: EventEmitter<CpRedStat> = new EventEmitter<CpRedStat>();
-
-  constructor(private modalService: BsModalService) {}
+  constructor() {}
 
   ngOnInit(): void {}
-
-  showModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template, this.modalConfig);
-  }
-
-  closeModal() {
-    this.modalRef.hide();
-  }
 }
