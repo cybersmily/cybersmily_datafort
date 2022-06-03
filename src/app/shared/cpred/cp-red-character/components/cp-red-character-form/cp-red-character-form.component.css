@@ -1,9 +1,17 @@
 .csd-cpr-handle {
+  outline: none;
   border: 0px transparent solid;
   background-color: inherit;
 }
+.csd-cpr-handle::placeholder {
+  color: #BBB;
+}
 
-.csd-cpr-handle:focus {
-  border: 0px transparent solid;
-  background-color: #CCC;
+INPUT.csd-cpr-handle:focus {
+  outline: none;
+  border-bottom: 1px #666 solid !important;
+  background-color: inherit !important;
+}
+INPUT.csd-cpr-handle:focus::placeholder {
+  color: #DDD;
 }

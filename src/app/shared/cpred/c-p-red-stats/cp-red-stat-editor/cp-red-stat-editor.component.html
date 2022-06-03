@@ -1,1 +1,82 @@
-<p>c-p-red-stat-editor works!</p>
+<div class="container ps-4" *ngIf="currStat">
+  <div class="row">
+    <div class="col-2 text-uppercase text-end ps-0 pt-2">
+      {{ currStat.name }}:
+    </div>
+    <div class="col-2 px-0 py-0">
+      <div class="position-relative text-center px-0 py-0 w-100">
+        <div class="position-absolute text-xxsmall align-top w-100">base</div>
+        <input
+          type="number"
+          tabindex="0"
+          class="text-center no-spinners w-100 pt-2 csd-plain-input"
+          [(ngModel)]="currStat.base"
+          max="10"
+          min="0"
+        />
+      </div>
+    </div>
+    <div class="col-2 px-0 py-0">
+      <div
+        class="position-relative text-center px-0 py-0 w-100"
+        (click)="toggleModifiers()"
+      >
+        <div class="position-absolute text-xxsmall align-top w-100">total</div>
+        <div class="w-100 pt-2">
+          {{ currStat.modified }}
+        </div>
+      </div>
+    </div>
+    <div class="col-4 col-md-6 px-0 pt-2">
+      <button
+        tabindex="0"
+        class="csd-btn csd-icon-btn csd-icon-lg px-3"
+        (click)="toggleModifiers()"
+      >
+        <fa-icon [icon]="faIcon"></fa-icon>
+      </button>
+    </div>
+  </div>
+  <ng-container *ngIf="showModifiers">
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col-7 text-xxsmall csd-btn align-top ps-0">MODIFIERS</div>
+    </div>
+    <div *ngFor="let mod of currStat.modifiers; let i = index" class="row">
+      <div class="col-4"></div>
+      <div class="col-2 text-center small py-0">
+        {{ mod.value }}
+      </div>
+      <div class="col-6 small py-0">
+        {{ mod.name }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4 col-md-5">
+        <button
+          class="csd-btn csd-icon-btn csd-icon-lg float-end"
+          [disabled]="!newMod.value"
+          (click)="addModifier()"
+        >
+          <fa-icon [icon]="faPlus"></fa-icon>
+        </button>
+      </div>
+      <div class="col-2 col-md-1 px-0">
+        <input
+          type="number"
+          class="w-100 text-center csd-plain-input align-text-top no-spinners"
+          placeholder="#"
+          [(ngModel)]="newMod.value"
+        />
+      </div>
+      <div class="col-4 col-md-5">
+        <input
+          type="text"
+          class="w-100 csd-plain-input align-text-top"
+          placeholder="enter modifier name"
+          [(ngModel)]="newMod.name"
+        />
+      </div>
+    </div>
+  </ng-container>
+</div>
