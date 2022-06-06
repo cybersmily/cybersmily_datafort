@@ -192,8 +192,9 @@
   ],
   "types":[
       {"type":"Caseless"               ,"costMultiplier":1    ,"notes":"","source": {"book":"BH" ,"page":43 }},
-      {"type":"Brass-Cased"            ,"costMultiplier":3   ,"notes":"","source": {"book":"BH" ,"page":43 }},
-      {"type":"Plastic-Cased"          ,"costMultiplier":3   ,"notes":"","source": {"book":"BH" ,"page":43 }},
+      {"type":"Brass-Cased"            ,"costMultiplier":3    ,"notes":"This is the latest cost from Blackhand's Street Weapon.","source": {"book":"BH" ,"page":43 }},
+      {"type":"Brass-Cased(old)"       ,"costMultiplier":2    ,"notes":"This is from the original mainbook. Blackhand's increased the multipler","source": {"book":"CP20" ,"page":64 }},
+      {"type":"Plastic-Cased"          ,"costMultiplier":3    ,"notes":"","source": {"book":"BH" ,"page":43 }},
       {"type":"AP"                     ,"costMultiplier":3    ,"notes":"","source": {"book":"BH" ,"page":44 }},
       {"type":"API"                    ,"costMultiplier":4    ,"notes":"","source": {"book":"BH" ,"page":44 }},
       {"type":"DP"                     ,"costMultiplier":4    ,"notes":"","source": {"book":"BH" ,"page":44 }},
