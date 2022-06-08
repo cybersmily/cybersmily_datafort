@@ -44,6 +44,11 @@ export class TopNavLinks {
           desc: 'Movies, TV shows, Books, anime, manga, webisodes, etc for Cyberpunk inspiration',
         },
         {
+          title: 'Master Corporation List',
+          link: 'data/corporations',
+          desc: 'List of canon corporations in Cyberpunk 2020 and Cyberpunk Red',
+        },
+        {
           title: 'Master Cyberware List',
           link: 'data/cyber',
           desc: 'List of all canon roles in Cyberpunk 2020',
