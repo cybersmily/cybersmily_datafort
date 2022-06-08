@@ -63,6 +63,8 @@
           {{
             col.inputType === "number"
               ? (getValue(entry, col.property) | number)
+              : col.inputType === "checkbox"
+              ? getBoolean(entry, col.property)
               : getValue(entry, col.property)
           }}
         </div>

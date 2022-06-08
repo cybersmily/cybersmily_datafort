@@ -48,6 +48,14 @@ export class DataListComponent implements OnInit {
     return get(item, prop);
   }
 
+  getBoolean(item: any, prop: string): string {
+    const value = get(item, prop);
+    if (value === true) {
+      return 'yes';
+    }
+    return value === false ? 'no' : '??';
+  }
+
   refreshFilter() {
     this.searchFilter = { ...this.searchFilter };
   }
