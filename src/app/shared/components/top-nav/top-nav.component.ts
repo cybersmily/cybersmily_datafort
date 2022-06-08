@@ -1,17 +1,26 @@
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import {
+  faChevronLeft,
+  faChevronRight,
+} from '@fortawesome/free-solid-svg-icons';
 import { TopNavLinks } from './../../Models/TopNavLinks';
 import { Component, OnInit } from '@angular/core';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import {
+  faDiscord,
+  faGithub,
+  faReddit,
+} from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-top-nav',
   templateUrl: './top-nav.component.html',
-  styleUrls: ['./top-nav.component.css']
+  styleUrls: ['./top-nav.component.css'],
 })
 export class TopNavComponent implements OnInit {
   faEnvelope = faEnvelope;
   faGithub = faGithub;
+  faDiscord = faDiscord;
+  faReddit = faReddit;
   faChevronRight = faChevronRight;
   faChevronLeft = faChevronLeft;
 
@@ -24,8 +33,7 @@ export class TopNavComponent implements OnInit {
     this.topNavLinks = new TopNavLinks();
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   /**
    * sendEmail redirects the browser to mailto
@@ -37,7 +45,6 @@ export class TopNavComponent implements OnInit {
   }
 
   isExternal(url: string): boolean {
-    return (url.indexOf('http') > -1);
+    return url.indexOf('http') > -1;
   }
-
 }
