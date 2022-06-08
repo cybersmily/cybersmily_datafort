@@ -197,13 +197,23 @@
     {"type":"Plastic-Cased"          ,"costMultiplier":1    ,"notes":"Used instead of brass. Poor availability","source": {"book":"BH" ,"page":43 }}
   ],
   "types":[
-      {"type":"AP"                     ,"costMultiplier":3    ,"notes":"1/2 SP, 1/2 damage vs flesh","source": {"book":"BH" ,"page":44 }},
-      {"type":"API"                    ,"costMultiplier":4    ,"notes":"1/2 SP, 1/2 damage vs flesh, plus 1d6 damage 1st turn, 1d6/2 2nd turn of fire damage. 50% to ignite. Cannot be used with ET guns","source": {"book":"BH" ,"page":44 }},
-      {"type":"DP"                     ,"costMultiplier":4    ,"notes":"1/2 SP, 1/2 damage vs flesh for armored, x1.5 damage vs unarmored.","source": {"book":"BH" ,"page":44 }},
-      {"type":"ET"                     ,"costMultiplier":1.5  ,"notes":"Required for electro thermal weapons.","source": {"book":"BH" ,"page":44 }},
-      {"type":"Hollowpoints"           ,"costMultiplier":1.125,"notes":"2xSP, damage x1.5","source": {"book":"BH" ,"page":44 }},
-      {"type":"Fragmentation Flechette","costMultiplier":5    ,"notes":"Soft armor 1/2 SP, normal damage  pentrated.","source": {"book":"BH" ,"page":44 }},
-      {"type":"Rubber"                 ,"costMultiplier":0.33 ,"notes":"Stun damage. Less than 3m 1/2 real, 1/2 stun.","source": {"book":"BH" ,"page":45 }},
-      {"type":"Safety"                 ,"costMultiplier":6    ,"notes":"SP10+ no effect. SP x2, pentrated damage x3","source": {"book":"BH" ,"page":45 }}
+    {"type":"Caseless"                ,"costMultiplier":1     ,"notes":""                                                                                                                                ,"source": {"book":"BH"   ,"page":43 }},
+    {"type":"Brass-Cased"             ,"costMultiplier":3     ,"notes":"Required for old guns. This is the latest cost from Blackhand's Street Weapon."                                                  ,"source": {"book":"BH"   ,"page":43 }},
+    {"type":"Brass-Cased(old)"        ,"costMultiplier":2     ,"notes":"Required for old guns. This is from the original mainbook. Blackhand's increased the multipler"                                  ,"source": {"book":"CP20" ,"page":64 }},
+    {"type":"Plastic-Cased"           ,"costMultiplier":1     ,"notes":"Used instead of brass. Poor availability"                                                                                        ,"source": {"book":"BH"   ,"page":43 }},
+    {"type":"AP"                      ,"costMultiplier":3     ,"notes":"1/2 SP, 1/2 damage vs flesh"                                                                                                     ,"source": {"book":"BH"   ,"page":44 }},
+    {"type":"API"                     ,"costMultiplier":4     ,"notes":"1/2 SP, 1/2 damage vs flesh, plus 1d6 damage 1st turn, 1d6/2 2nd turn of fire damage. 50% to ignite. Cannot be used with ET guns","source": {"book":"BH"   ,"page":44 }},
+    {"type":"DP"                      ,"costMultiplier":4     ,"notes":"1/2 SP, 1/2 damage vs flesh for armored, x1.5 damage vs unarmored."                                                              ,"source": {"book":"BH"   ,"page":44 }},
+    {"type":"Hollowpoints"            ,"costMultiplier":1.125 ,"notes":"2xSP, damage x1.5"                                                                                                               ,"source": {"book":"BH"   ,"page":44 }},
+    {"type":"Fragmentation Flechette" ,"costMultiplier":5     ,"notes":"Soft armor 1/2 SP, normal damage  pentrated."                                                                                    ,"source": {"book":"BH"   ,"page":44 }},
+    {"type":"Rubber"                  ,"costMultiplier":0.33  ,"notes":"Stun damage. Less than 3m 1/2 real, 1/2 stun."                                                                                   ,"source": {"book":"BH"   ,"page":45 }},
+    {"type":"Safety"                  ,"costMultiplier":6     ,"notes":"SP10+ no effect. SP x2, pentrated damage x3"                                                                                     ,"source": {"book":"BH"   ,"page":45 }},
+    {"type":"ET"                      ,"costMultiplier":1.5   ,"notes":"Required for electro thermal weapons."                                                                                           ,"source": {"book":"BH"   ,"page":44 }},
+    {"type":"ET-AP"                   ,"costMultiplier":3     ,"notes":"1/2 SP, 1/2 damage vs flesh. Required for electro thermal weapons."                                                              ,"source": {"book":"BH"   ,"page":44 }},
+    {"type":"ET-DP"                   ,"costMultiplier":6     ,"notes":"1/2 SP, 1/2 damage vs flesh for armored, x1.5 damage vs unarmored. Required for electro thermal weapons."                        ,"source": {"book":"BH"   ,"page":44 }},
+    {"type":"ET-Hollowpoints"         ,"costMultiplier":1.875 ,"notes":"2xSP, damage x1.5. Required for electro thermal weapons."                                                                        ,"source": {"book":"BH"   ,"page":44 }},
+    {"type":"ET-Rubber"               ,"costMultiplier":0.5   ,"notes":"Stun damage. Less than 3m 1/2 real, 1/2 stun. Required for electro thermal weapons."                                             ,"source": {"book":"BH"   ,"page":44 }},
+    {"type":"ET-Rubber"               ,"costMultiplier":9     ,"notes":"SP10+ no effect. SP x2, pentrated damage x3. Required for electro thermal weapons."                                              ,"source": {"book":"BH"   ,"page":44 }}
+
     ]
 }
