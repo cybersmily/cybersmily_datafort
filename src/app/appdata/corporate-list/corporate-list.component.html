@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2>Master Corporation List</h2>
+      <div>
+        This is the master list of Corporations for Cyberpunk 2020 and Cyberpunk
+        Red with their sources. Sources were pulled from R. Talsorian Games and
+        the Interface magazines. You should consult the source material.
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-12">
+      <cs-data-list
+        [dataList]="corporateList$ | async"
+        [columnsParameters]="columns"
+      ></cs-data-list>
+    </div>
+  </div>
+</div>

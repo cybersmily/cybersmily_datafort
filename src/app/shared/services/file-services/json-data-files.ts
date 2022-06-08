@@ -6,6 +6,7 @@ export class JsonDataFiles {
   public static GIG_NEWS_JSON = `/json/gigs/news.json`;
 
   // DATA lists
+  public static DATA_LIST_CORPORATIONS = `/json/data/corporations.json`;
   public static CP2020_ROLES_LIST_JSON = `/json/apps/chargen/cp2020rolesext.json`;
   public static IU_ROLES_LIST_JSON = `/json/apps/chargen/iuroles.json`;
   public static CP2020_WEAPON_DATA_LIST_JSON = `/json/wpns/cp2020weapons.json`;

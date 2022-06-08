@@ -1,3 +1,4 @@
+import { CorporateListComponent } from './corporate-list/corporate-list.component';
 import { GearListComponent } from './gear-list/gear-list.component';
 import { CyberdeckListComponent } from './cyberdeck-list/cyberdeck-list.component';
 import { ProgramListComponent } from './program-list/program-list.component';
@@ -43,6 +44,7 @@ export const dataRoutes: Routes = [
       { path: 'gear', component: GearListComponent },
       { path: 'admincyber', component: AdminCyberListComponent },
       { path: 'adminwpn', component: AdminWpnListComponent },
+      { path: 'corporations', component: CorporateListComponent },
     ],
   },
 ];
