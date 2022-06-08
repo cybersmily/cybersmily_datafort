@@ -24,14 +24,20 @@ export class FilterbyPipe implements PipeTransform {
       for (let key in searchFilters) {
         const searchItem = searchFilters[key]?.value + '';
         const exact = searchFilters[key]?.exact;
-        const item = get(value, key) + '';
-        if (searchItem !== '' && !exact) {
-          result =
-            result && item?.toLowerCase().includes(searchItem?.toLowerCase());
+        let item = get(value, key);
+        if (typeof item === 'string') {
+          item += '';
+          if (searchItem !== '' && !exact) {
+            result =
+              result && item?.toLowerCase().includes(searchItem?.toLowerCase());
+          }
+          if (searchItem !== '' && exact) {
+            result =
+              result && value[key]?.toLowerCase() === searchItem?.toLowerCase();
+          }
         }
-        if (searchItem !== '' && exact) {
-          result =
-            result && value[key]?.toLowerCase() === searchItem?.toLowerCase();
+        if (Array.isArray(item) && searchItem !== '') {
+          result = item.includes(searchItem);
         }
       }
       return result;
