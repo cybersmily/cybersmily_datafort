@@ -40,6 +40,7 @@ export class Cp2020ammoComponent implements OnInit {
 
   ammoDataList: Array<Cp2020Ammo> = new Array<Cp2020Ammo>();
   ammoTypeList: Array<Cp2020AmmoTypes> = new Array<Cp2020AmmoTypes>();
+  ammoCasingList: Array<Cp2020AmmoTypes> = new Array<Cp2020AmmoTypes>();
   isCollapsed: boolean = false;
   get collapseChevron(): any {
     return this.isCollapsed ? faChevronRight : this.faChevronDown;
@@ -47,17 +48,21 @@ export class Cp2020ammoComponent implements OnInit {
 
   selectedAmmoIndex: number = -1;
   selectedAmmoSubtypeIndex: number = 0;
+  selectedAmmoCasingIndex: number = 0;
 
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
     this.dataService
-      .GetJson<{ ammo: Array<Cp2020Ammo>; types: Array<Cp2020AmmoTypes> }>(
-        JsonDataFiles.CP2020_WEAPON_AMMO_LIST_JSON
-      )
+      .GetJson<{
+        ammo: Array<Cp2020Ammo>;
+        types: Array<Cp2020AmmoTypes>;
+        casing: Array<Cp2020AmmoTypes>;
+      }>(JsonDataFiles.CP2020_WEAPON_AMMO_LIST_JSON)
       .subscribe((data) => {
         this.ammoDataList = new Array<Cp2020Ammo>(...data.ammo);
         this.ammoTypeList = new Array<Cp2020AmmoTypes>(...data.types);
+        this.ammoCasingList = new Array<Cp2020AmmoTypes>(...data.casing);
       });
   }
 
@@ -67,6 +72,10 @@ export class Cp2020ammoComponent implements OnInit {
     }
     const ammo = this.ammoDataList[this.selectedAmmoIndex];
     let cost = ammo.cost;
+    if (ammo.hasTypes && this.selectedAmmoCasingIndex > -1) {
+      cost =
+        cost * this.ammoCasingList[this.selectedAmmoCasingIndex].costMultiplier;
+    }
     if (ammo.hasTypes && this.selectedAmmoSubtypeIndex > -1) {
       cost =
         cost * this.ammoTypeList[this.selectedAmmoSubtypeIndex].costMultiplier;
@@ -101,12 +110,23 @@ export class Cp2020ammoComponent implements OnInit {
       newAmmo.name = ammo.type;
       newAmmo.subtype = ammo.subtype ? ` ${ammo.subtype}` : '';
       newAmmo.notes = ammo.notes;
+
+      if (ammo.hasTypes && this.selectedAmmoCasingIndex > -1) {
+        newAmmo.subtype =
+          this.ammoCasingList[this.selectedAmmoCasingIndex].type;
+        newAmmo.notes += ` ${
+          this.ammoCasingList[this.selectedAmmoCasingIndex].notes
+        }`;
+      }
       if (ammo.hasTypes && this.selectedAmmoSubtypeIndex > -1) {
-        newAmmo.subtype = this.ammoTypeList[this.selectedAmmoSubtypeIndex].type;
+        newAmmo.subtype += ` ${
+          this.ammoTypeList[this.selectedAmmoSubtypeIndex].type
+        }`;
         newAmmo.notes += ` ${
           this.ammoTypeList[this.selectedAmmoSubtypeIndex].notes
         }`;
       }
+
       newAmmo.cost = this.selectedCost;
       newAmmo.rounds = ammo.perBox;
       newAmmo.perBox = ammo.perBox;

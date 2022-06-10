@@ -190,17 +190,13 @@
     {"type": "25mm grenade"     , "subtype" :"Fragmentation",   "perBox":     1  , "cost": 30 ,"source": {"book":"BH" ,"page": 41 }},
     {"type": "25mm grenade"     , "subtype" :"HEP",             "perBox":     1  , "cost": 30 ,"source": {"book":"BH" ,"page": 41 }}
   ],
-  "casings": [
-    {"type":"Caseless"               ,"costMultiplier":1    ,"notes":"","source": {"book":"BH" ,"page":43 }},
-    {"type":"Brass-Cased"            ,"costMultiplier":3    ,"notes":"Required for old guns. This is the latest cost from Blackhand's Street Weapon.","source": {"book":"BH" ,"page":43 }},
-    {"type":"Brass-Cased(old)"       ,"costMultiplier":2    ,"notes":"Required for old guns. This is from the original mainbook. Blackhand's increased the multipler","source": {"book":"CP20" ,"page":64 }},
-    {"type":"Plastic-Cased"          ,"costMultiplier":1    ,"notes":"Used instead of brass. Poor availability","source": {"book":"BH" ,"page":43 }}
+  "casing":[
+    {"type":"Caseless"          ,"costMultiplier":1     ,"notes":""                                                                                                                                ,"source": {"book":"BH"   ,"page":43 }},
+    {"type":"Brass"             ,"costMultiplier":3     ,"notes":"Required for old guns. This is the latest cost from Blackhand's Street Weapon."                                                  ,"source": {"book":"BH"   ,"page":43 }},
+    {"type":"Brass(old)"        ,"costMultiplier":2     ,"notes":"Required for old guns. This is from the original mainbook. Blackhand's increased the multipler"                                  ,"source": {"book":"CP20" ,"page":64 }},
+    {"type":"Plastic"           ,"costMultiplier":1     ,"notes":"Used instead of brass. Poor availability"                                                                                        ,"source": {"book":"BH"   ,"page":43 }}
   ],
   "types":[
-    {"type":"Caseless"                ,"costMultiplier":1     ,"notes":""                                                                                                                                ,"source": {"book":"BH"   ,"page":43 }},
-    {"type":"Brass-Cased"             ,"costMultiplier":3     ,"notes":"Required for old guns. This is the latest cost from Blackhand's Street Weapon."                                                  ,"source": {"book":"BH"   ,"page":43 }},
-    {"type":"Brass-Cased(old)"        ,"costMultiplier":2     ,"notes":"Required for old guns. This is from the original mainbook. Blackhand's increased the multipler"                                  ,"source": {"book":"CP20" ,"page":64 }},
-    {"type":"Plastic-Cased"           ,"costMultiplier":1     ,"notes":"Used instead of brass. Poor availability"                                                                                        ,"source": {"book":"BH"   ,"page":43 }},
     {"type":"AP"                      ,"costMultiplier":3     ,"notes":"1/2 SP, 1/2 damage vs flesh"                                                                                                     ,"source": {"book":"BH"   ,"page":44 }},
     {"type":"API"                     ,"costMultiplier":4     ,"notes":"1/2 SP, 1/2 damage vs flesh, plus 1d6 damage 1st turn, 1d6/2 2nd turn of fire damage. 50% to ignite. Cannot be used with ET guns","source": {"book":"BH"   ,"page":44 }},
     {"type":"DP"                      ,"costMultiplier":4     ,"notes":"1/2 SP, 1/2 damage vs flesh for armored, x1.5 damage vs unarmored."                                                              ,"source": {"book":"BH"   ,"page":44 }},

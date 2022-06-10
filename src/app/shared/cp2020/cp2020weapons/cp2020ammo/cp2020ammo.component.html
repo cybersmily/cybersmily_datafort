@@ -2,9 +2,18 @@
   <div class="col">
     <div class="cp2020-label border border-dark row g-0">
       <div class="col">
-        <h5 #ammoTitleElem class="d-inline-block csd-btn" (click)="isCollapsed = !isCollapsed" (keyup.enter)="isCollapsed = !isCollapsed" tabindex="0">
+        <h5
+          #ammoTitleElem
+          class="d-inline-block csd-btn"
+          (click)="isCollapsed = !isCollapsed"
+          (keyup.enter)="isCollapsed = !isCollapsed"
+          tabindex="0"
+        >
           AMMO
-          <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ms-1"></fa-icon>
+          <fa-icon
+            [icon]="collapseChevron"
+            class="csd-icon-btn csd-icon-xl ms-1"
+          ></fa-icon>
         </h5>
       </div>
     </div>
@@ -12,10 +21,16 @@
       <div class="col">
         <div class="row border border-dark g-0">
           <div class="col-12 col-md-6">
-            <ng-container [ngTemplateOutlet]="ammoColumn" [ngTemplateOutletContext]="{ammoList:columnOne, column:1}"></ng-container>
+            <ng-container
+              [ngTemplateOutlet]="ammoColumn"
+              [ngTemplateOutletContext]="{ ammoList: columnOne, column: 1 }"
+            ></ng-container>
           </div>
           <div class="col-12 col-md-6">
-            <ng-container [ngTemplateOutlet]="ammoColumn" [ngTemplateOutletContext]="{ammoList:columnTwo, column:2}"></ng-container>
+            <ng-container
+              [ngTemplateOutlet]="ammoColumn"
+              [ngTemplateOutletContext]="{ ammoList: columnTwo, column: 2 }"
+            ></ng-container>
           </div>
         </div>
         <ng-container [ngTemplateOutlet]="newAmmo"></ng-container>
@@ -26,50 +41,102 @@
 
 <ng-template #ammoColumn let-ammoList="ammoList" let-column="column">
   <div class="row g-0">
-    <div class="col-2 col-md-3 col-lg-2 d-none d-md-inline-block border border-dark ps-1" [ngClass]="{'d-none d-md-line-block': column > 1}">Rounds</div>
-    <div class="col-8 col-md-6 col-lg-8 d-none d-md-inline-block border border-dark ps-1" [ngClass]="{'d-none d-md-line-block': column > 1}">Type</div>
-    <div class="col-2 col-md-3 col-lg-2 d-none d-md-inline-block border border-dark ps-1" [ngClass]="{'d-none d-md-line-block': column > 1}">Cost</div>
+    <div
+      class="col-2 col-md-3 col-lg-2 d-none d-md-inline-block border border-dark ps-1"
+      [ngClass]="{ 'd-none d-md-line-block': column > 1 }"
+    >
+      Rounds
+    </div>
+    <div
+      class="col-8 col-md-6 col-lg-8 d-none d-md-inline-block border border-dark ps-1"
+      [ngClass]="{ 'd-none d-md-line-block': column > 1 }"
+    >
+      Type
+    </div>
+    <div
+      class="col-2 col-md-3 col-lg-2 d-none d-md-inline-block border border-dark ps-1"
+      [ngClass]="{ 'd-none d-md-line-block': column > 1 }"
+    >
+      Cost
+    </div>
   </div>
-  <div class="row border border-dark g-0" *ngFor="let ammo of ammoList;let i = index">
+  <div
+    class="row border border-dark g-0"
+    *ngFor="let ammo of ammoList; let i = index"
+  >
     <div class="col-2 col-md-3 col-lg-2 border border-dark g-0 ps-1 pe-1">
-      <input type="number" title="Number of rounds available" class="csd-number float-start" [(ngModel)]="ammo.rounds" tabindex="0">
-      <button class="csd-btn csd-icon-btn float-end" title="Remove ammo from list" (click)="delete(i, column)" tabindex="0">
+      <input
+        type="number"
+        title="Number of rounds available"
+        class="csd-number float-start"
+        [(ngModel)]="ammo.rounds"
+        tabindex="0"
+      />
+      <button
+        class="csd-btn csd-icon-btn float-end"
+        title="Remove ammo from list"
+        (click)="delete(i, column)"
+        tabindex="0"
+      >
         <fa-icon [icon]="faTrash"></fa-icon>
       </button>
     </div>
-    <div class="col border border-dark">{{ammo.name}} {{ammo.subtype}}</div>
-    <div class="col-2 col-md-3 col-lg-2 border border-dark">{{ammo.cost|number}}eb/{{ammo.perBox}}</div>
+    <div class="col border border-dark">{{ ammo.name }} {{ ammo.subtype }}</div>
+    <div class="col-2 col-md-3 col-lg-2 border border-dark">
+      {{ ammo.cost | number }}eb/{{ ammo.perBox }}
+    </div>
   </div>
 </ng-template>
 
 <ng-template #newAmmo>
   <div class="row g-0">
-    <div class="col-7 col-md-5 col-lg-4 ps-1">
-      Type
+    <div class="col-7 col-md-5 col-lg-4 ps-1">Type</div>
+    <div class="col-2 col-md-1 text-center">Rds/Box:</div>
+    <div class="col-2 col-md-1 text-center">Cost/box:</div>
+    <div class="d-none d-md-inline-block col-md-2 text-center">
+      <span *ngIf="hasSubtype(selectedAmmoIndex)">Casing:</span>
     </div>
-    <div class="col-2 col-md-1 text-center">Rds/Box: </div>
-    <div class="col-2 col-md-1 text-center">Cost/box: </div>
-    <div class="col-2">
-    </div>
+    <div class="col-2"></div>
   </div>
   <div class="row g-0">
     <div class="col-7 col-md-5 col-lg-4 ps-1">
       <select [(ngModel)]="selectedAmmoIndex" tabindex="0" class="w-90">
-        <option *ngIf="0 > selectedAmmoIndex" [ngValue]="-1" class="small"><i>choose ammo...</i></option>
-        <option *ngFor="let ammo of ammoDataList;let i = index" [value]="i">{{ammo.type}}<span
-            *ngIf="ammo.subtype"> -
-            {{ammo.subtype}}</span></option>
+        <option *ngIf="0 > selectedAmmoIndex" [ngValue]="-1" class="small">
+          <i>choose ammo...</i>
+        </option>
+        <option *ngFor="let ammo of ammoDataList; let i = index" [value]="i">
+          {{ ammo.type }}<span *ngIf="ammo.subtype"> - {{ ammo.subtype }}</span>
+        </option>
       </select>
       <button class="csd-btn csd-icon-btn ms-2" (click)="add()" tabindex="0">
         <fa-icon [icon]="faPlus"></fa-icon>
       </button>
     </div>
-    <div class="col-2 col-md-1 text-center">{{roundsPerBox}}</div>
-    <div class="col-2 col-md-1 text-center">{{selectedCost|number}}eb</div>
-    <div class="col-2 ps-1">
-      <select *ngIf="hasSubtype(selectedAmmoIndex)" [(ngModel)]="selectedAmmoSubtypeIndex" tabindex="0">
-        <option *ngFor="let type of ammoTypeList;let i = index" [value]="i">{{type.type}}
-          (x{{type.costMultiplier}})
+    <div class="col-2 col-md-1 text-center">{{ roundsPerBox }}</div>
+    <div class="col-2 col-md-1 text-center">{{ selectedCost | number }}eb</div>
+    <div class="col-3 col-md-2 ps-1">
+      <select
+        *ngIf="hasSubtype(selectedAmmoIndex)"
+        [(ngModel)]="selectedAmmoCasingIndex"
+        tabindex="0"
+      >
+        <option
+          *ngFor="let casing of ammoCasingList; let i = index"
+          [value]="i"
+        >
+          {{ casing.type }} (x{{ casing.costMultiplier }})
+        </option>
+      </select>
+    </div>
+    <div class="col-9 col-md-3 col-lg-5 ps-1">
+      <select
+        class="w-100"
+        *ngIf="hasSubtype(selectedAmmoIndex)"
+        [(ngModel)]="selectedAmmoSubtypeIndex"
+        tabindex="0"
+      >
+        <option *ngFor="let type of ammoTypeList; let i = index" [value]="i">
+          {{ type.type }} (x{{ type.costMultiplier }})
         </option>
       </select>
     </div>
