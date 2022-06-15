@@ -15,4 +15,5 @@ export interface Club {
   privacy: string;
   ownership: string;
   security: string;
+  summary: string;
 }
