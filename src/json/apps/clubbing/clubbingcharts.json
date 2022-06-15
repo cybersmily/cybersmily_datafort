@@ -1,6 +1,161 @@
 {
-  "clubs": {
-
+  "clubsCharts": {
+    "types": [
+      {"value":"bar"         , "wt": 20},
+      {"value":"lounge"      , "wt": 10},
+      {"value":"pub"         , "wt": 10},
+      {"value":"dance bar"   , "wt": 10},
+      {"value":"night club"  , "wt": 30},
+      {"value":"rave party"  , "wt": 10},
+      {"value":"dance lounge", "wt": 10}
+    ],
+    "themes":[
+      {"value":"generic"        , "wt": 20},
+      {"value":"sports"         , "wt": 9 },
+      {"value":"sex/strip/BD"   , "wt": 9 },
+      {"value":"chrome"         , "wt": 9 },
+      {"value":"retro"          , "wt": 9 },
+      {"value":"pop"            , "wt": 9 },
+      {"value":"classy"         , "wt": 9 },
+      {"value":"punk"           , "wt": 9 },
+      {"value":"C&W"            , "wt": 5 },
+      {"value":"jazz"           , "wt": 2 },
+      {"value":"LGBTQ+"         , "wt": 6 },
+      {"value":"goth/industrial", "wt": 3 },
+      {"value":"poser"          , "wt": 2 }
+    ],
+    "music": [
+      {"value":"live band"           , "wt": 20},
+      {"value":"DJ"                  , "wt": 30},
+      {"value":"jukebox"             , "wt": 35},
+      {"value":"DJ & jukebox"        , "wt": 5 },
+      {"value":"live band & jukebox" , "wt": 5 },
+      {"value":"live band & DJ"      , "wt": 5 }
+    ],
+    "gimmicks": [
+      {"value":"LGBTQ+ friendly attitude"           , "wt": 1},
+      {"value":"family friendly attitude"           , "wt": 1},
+      {"value":"gang friendly attitude"             , "wt": 1},
+      {"value":"nomad friendly attitude"            , "wt": 1},
+      {"value":"corporate friendly attitude"        , "wt": 1},
+      {"value":"netrunner friendly attitude"        , "wt": 1},
+      {"value":"sole/ex-military friendly attitude" , "wt": 1},
+      {"value":"cop friendly attitude"              , "wt": 1},
+      {"value":"media friendly attitude"            , "wt": 1},
+      {"value":"rocker friendly attitude"           , "wt": 1},
+      {"value":"techie friendly attitude"           , "wt": 1},
+      {"value":"med techie friendly attitude"       , "wt": 1},
+      {"value":"holograms"                          , "wt": 1},
+      {"value":"smoke/drug friendly"                , "wt": 1},
+      {"value":"water feature(s)"                   , "wt": 1},
+      {"value":"weapons allowed"                    , "wt": 1},
+      {"value":"karaoke"                            , "wt": 1},
+      {"value":"violence friendly"                  , "wt": 1},
+      {"value":"cage dancers"                       , "wt": 1},
+      {"value":"criminal dealings"                  , "wt": 1},
+      {"value":"local acts"                         , "wt": 1},
+      {"value":"plants"                             , "wt": 1},
+      {"value":"big acts"                           , "wt": 1},
+      {"value":"animal(s)"                          , "wt": 1},
+      {"value":"costumed staff"                     , "wt": 1},
+      {"value":"VLTs"                               , "wt": 1},
+      {"value":"pool tables"                        , "wt": 1},
+      {"value":"light food"                         , "wt": 1},
+      {"value":"video games"                        , "wt": 1},
+      {"value":"full restaurant"                    , "wt": 1},
+      {"value":"TV/videos"                          , "wt": 1},
+      {"value":"bigot attitude"                     , "wt": 1},
+      {"value":"fire shows"                         , "wt": 1},
+      {"value":"bar room fights"                    , "wt": 1},
+      {"value":"ties to a gang"                     , "wt": 1},
+      {"value":"ties to a corporation"              , "wt": 1},
+      {"value":"ties to organized"                  , "wt": 1},
+      {"value":"sex shows"                          , "wt": 1},
+      {"value":"derelict look"                      , "wt": 1}
+    ],
+    "capacity":[
+      {"value":"10-20"    , "wt": 10},
+      {"value":"20-100"   , "wt": 10},
+      {"value":"100-200"  , "wt": 20},
+      {"value":"200-400"  , "wt": 20},
+      {"value":"400-600"  , "wt": 20},
+      {"value":"600-1000" , "wt": 10},
+      {"value":"1000+"    , "wt": 10}
+    ],
+    "occupancy":[
+      {"value":"dead (10%)"    , "wt": 5 },
+      {"value":"light (25%)"   , "wt": 10},
+      {"value":"slow (50%)"    , "wt": 20},
+      {"value":"hopping (75%)" , "wt": 20},
+      {"value":"full (100%)"   , "wt": 20},
+      {"value":"crowded (125%)", "wt": 20},
+      {"value":"backed up (150%)" , "wt": 5 }
+    ],
+    "wait": [
+      {"value":"no"                     , "wt": 20},
+      {"value":"a few minutes"          , "wt": 20},
+      {"value":"half an hour"           , "wt": 30},
+      {"value":"1-2 hours"              , "wt": 20},
+      {"value":"ridiculous(3+ hours)"   , "wt": 10}
+    ],
+    "regulars": [
+      {"value":"10%" , "wt": 3 },
+      {"value":"20%" , "wt": 10},
+      {"value":"30%" , "wt": 10},
+      {"value":"40%" , "wt": 20},
+      {"value":"50%" , "wt": 20},
+      {"value":"60%" , "wt": 10},
+      {"value":"70%" , "wt": 10},
+      {"value":"80%" , "wt": 10},
+      {"value":"90%" , "wt": 5 },
+      {"value":"100%", "wt": 2 }
+    ],
+    "crowd": [
+      {"value":"uniformal"                                     , "wt": 5  },
+      {"value":"mostly uniformal (80%+)"                       , "wt": 10 },
+      {"value":"an equal amount uniformal and individualistic" , "wt": 15 },
+      {"value":"partially uniformal (less than 30%)"           , "wt": 20 },
+      {"value":"all individualistic"                           , "wt": 50 }
+    ],
+    "attitude": [
+      {"value":"xenophilic"           , "wt": 15 },
+      {"value":"don't care either way", "wt": 60 },
+      {"value":"xenophobic"           , "wt": 15 }
+    ],
+    "dresscode":[
+      {"value":"anything legal" , "wt": 30},
+      {"value":"less than legal", "wt": 10},
+      {"value":"minimal/casual" , "wt": 30},
+      {"value":"semi-formal"    , "wt": 20},
+      {"value":"formal"         , "wt": 10}
+    ],
+    "membersonly": [
+      {"value":"members only"                             , "wt": 10},
+      {"value":"partial private (certain areas are off-limit to public)", "wt": 20},
+      {"value":"open to the public"                       , "wt": 70}
+    ],
+    "privacy": [
+      {"value":"good lighting"     , "wt": 20},
+      {"value":"bad lighting"      , "wt": 30},
+      {"value":"booths"            , "wt": 10},
+      {"value":"dark corners"      , "wt": 10},
+      {"value":"semi-private rooms", "wt": 10},
+      {"value":"private rooms"     , "wt": 10},
+      {"value":"dark alleys"        , "wt": 10}
+    ],
+    "ownership": [
+      {"value":"controlled by a gang"                 , "wt": 15},
+      {"value":"controlled by organized crime"        , "wt": 15},
+      {"value":"controlled by a corporation"          , "wt": 40},
+      {"value":"independently owned"                  , "wt": 30}
+    ],
+    "security":[
+      {"value":"no"                                       , "wt": 10},
+      {"value":"lax (single bouncer)"                     , "wt": 30},
+      {"value":"sharp (several bouncers, cameras)"        , "wt": 30},
+      {"value":"strict (covert security, metal detectors)", "wt": 20},
+      {"value":"exclusive, milspec"                       , "wt": 10}
+    ]
   },
   "clubbers": {
     "ages": [
@@ -15,33 +170,33 @@
       { "ageRange":{"min":50,"max":70}, "wt": 1}
     ],
     "styles": [
-      {"value":"Goth/Cyber", "wt": 1},
-      {"value":"Leisurewear", "wt": 1},
-      {"value":"Edgerunner", "wt": 1},
-      {"value":"Punk", "wt": 1},
-      {"value":"Chromer", "wt": 1},
-      {"value":"Generic (jeans/t-shirt)", "wt": 1},
-      {"value":"Generic Chic (fancier)", "wt": 1},
-      {"value":"Clubwear", "wt": 2},
-      {"value":"Club theme", "wt": 2},
-      {"value":"Urban Flash", "wt": 1},
-      {"value":"Cosplay", "wt": 1},
-      {"value":"Fetish", "wt": 1},
-      {"value":"Business", "wt": 1},
-      {"value":"Booster", "wt": 1},
-      {"value":"High Fashion", "wt": 1},
-      {"value":"Occupational", "wt": 1},
-      {"value":"Poser", "wt": 1}
+      {"value":"Goth/Cyber"             , "wt": 5 },
+      {"value":"Leisurewear"            , "wt": 5 },
+      {"value":"Edgerunner"             , "wt": 5 },
+      {"value":"Punk"                   , "wt": 5 },
+      {"value":"Chromer"                , "wt": 5 },
+      {"value":"Generic (jeans/t-shirt)", "wt": 5 },
+      {"value":"Generic Chic (fancier)" , "wt": 5 },
+      {"value":"Clubwear"               , "wt": 10},
+      {"value":"Club theme"             , "wt": 10},
+      {"value":"Urban Flash"            , "wt": 10},
+      {"value":"Cosplay"                , "wt": 5 },
+      {"value":"Fetish"                 , "wt": 5 },
+      {"value":"Business"               , "wt": 5 },
+      {"value":"Booster"                , "wt": 5 },
+      {"value":"High Fashion"           , "wt": 5 },
+      {"value":"Occupational"           , "wt": 5 },
+      {"value":"Poser"                  , "wt": 5 }
     ],
     "stat": [
       {"value":2, "wt": 1},
-      {"value":3, "wt": 2},
-      {"value":4, "wt": 3},
-      {"value":5, "wt": 4},
-      {"value":6, "wt": 5},
-      {"value":7, "wt": 4},
-      {"value":8, "wt": 3},
-      {"value":9, "wt": 2},
+      {"value":3, "wt": 4},
+      {"value":4, "wt": 10},
+      {"value":5, "wt": 20},
+      {"value":6, "wt": 30},
+      {"value":7, "wt": 20},
+      {"value":8, "wt": 10},
+      {"value":9, "wt": 4},
       {"value":10, "wt": 1}
     ],
     "skill": [
@@ -58,31 +213,38 @@
       {"value":10, "wt": 1}
     ],
     "haircolor": [
-      {"value":"Red",    "wt": 10},
+      {"value":"Red"   , "wt": 10},
       {"value":"Blonde", "wt": 20},
-      {"value":"Black",  "wt": 20},
-      {"value":"Brown",  "wt": 30},
-      {"value":"Blue",  "wt": 2},
-      {"value":"silver",  "wt": 2},
-      {"value":"orange",  "wt": 1},
-      {"value":"pink",  "wt": 1},
-      {"value":"purple",  "wt": 2},
-      {"value":"other",  "wt": 2}
+      {"value":"Black" , "wt": 20},
+      {"value":"Brown" , "wt": 30},
+      {"value":"Blue"  , "wt": 4 },
+      {"value":"silver", "wt": 4 },
+      {"value":"orange", "wt": 2 },
+      {"value":"pink"  , "wt": 2 },
+      {"value":"purple", "wt": 4 },
+      {"value":"other" , "wt": 4 }
     ],
     "hairstyle": [
-        {"value":"Bald",  "wt": 2},
-        {"value":"Buzz",  "wt": 2},
-        {"value":"Short",  "wt": 2},
-        {"value":"Medium",  "wt": 3},
-        {"value":"Long",  "wt": 3},
-        {"value":"Very Long",  "wt": 2},
-        {"value":"Pony Tail",  "wt": 2},
-        {"value":"Braided",  "wt": 2},
-        {"value":"Pigtails",  "wt": 1},
-        {"value":"Fancy style",  "wt": 1}
+      {"value":"Bald"       , "wt": 10},
+      {"value":"Buzz"       , "wt": 10},
+      {"value":"Short"      , "wt": 10},
+      {"value":"Medium"     , "wt": 15},
+      {"value":"Long"       , "wt": 15},
+      {"value":"Very Long"  , "wt": 10},
+      {"value":"Pony Tail"  , "wt": 10},
+      {"value":"Braided"    , "wt": 10},
+      {"value":"Pigtails"   , "wt": 5 },
+      {"value":"Fancy style", "wt": 5 }
     ],
     "cyberware": [
-
+      {"value":"Tech-hair"            , "wt": 10},
+      {"value":"Skin watch"           , "wt": 20},
+      {"value":"Light Tatoo"          , "wt": 20},
+      {"value":"Cyberlimb"            , "wt": 10},
+      {"value":"Cyber eyes"           , "wt": 10},
+      {"value":"Exotic conversion"    , "wt": 10},
+      {"value":"Playbeing"            , "wt": 10},
+      {"value":"Weapons and/or armor" , "wt": 10}
     ]
 
   }

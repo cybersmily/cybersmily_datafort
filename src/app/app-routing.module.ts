@@ -37,6 +37,13 @@ export const mainRoutes: Routes = [
       import('./appgigs/gigsection.module').then((m) => m.GigSectionModule),
   },
   {
+    path: 'apps/clubgen',
+    loadChildren: () =>
+      import('./app-club-generator/app-club-generator.module').then(
+        (m) => m.AppClubGeneratorModule
+      ),
+  },
+  {
     path: 'apps/fashcalc',
     loadChildren: () =>
       import('./app-fashion-generator/app-fashion-generator.module').then(

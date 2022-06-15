@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-4">
+    <h4 class="d-inline-block">Clubs</h4>
+    <input
+      type="number"
+      class="csd-number ms-2 text-center"
+      [(ngModel)]="count"
+    />
+    <button class="csd-btn csd-icon-btn csd-icon-lg ms-2" (click)="rollClubs()">
+      <fa-icon [icon]="faDice"></fa-icon>
+    </button>
+  </div>
+</div>
+<br />
+<div *ngIf="clubs">
+  <div *ngFor="let club of clubs; let i = index" class="row">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-12">
+          <h4 class="d-inline-block">{{ club.name }}</h4>
+          <button class="csd-btn csd-icon-btn csd-icon-lg float-end">
+            <fa-icon [icon]="faTrash"></fa-icon>
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <span class="text-capitalize">{{ club.themes }}</span>
+          {{ club.types }} {{ club.ownership }}. It has {{ club.music }} for
+          music and known for its {{ club.gimmicks }}. {{ club.name }} can hold
+          {{ club.capacity }} people. The {{ club.types }} is
+          {{ club.occupancy }}/{{ club.regulars }} regulars, with
+          {{ club.wait }} wait. The crowd is {{ club.crowd }} and
+          {{ club.attitude }} about new comers.The {{ club.types }} is
+          {{ club.membersonly }} with a {{ club.dresscode }} dresscode and has
+          {{ club.security }} security. The {{ club.types }} has
+          {{ club.privacy }} for privacy.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br />

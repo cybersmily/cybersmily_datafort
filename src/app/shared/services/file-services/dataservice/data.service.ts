@@ -9,6 +9,7 @@ export class DataService {
   constructor(private http: HttpClient) {}
 
   public GetJson<T>(url: string): Observable<T> {
+    console.log(url);
     return this.http.get<T>(url);
   }
 
