@@ -1,5 +1,5 @@
 import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, first } from 'rxjs';
 import { Cp2020DeckmanagerPdfSectionService } from './../../shared/cp2020/cp2020-netrun-gear/services/cp2020-deckmanager-pdf-section/cp2020-deckmanager-pdf-section.service';
 import { Cp2020ArmorPDFSectionService } from './../../shared/cp2020/cp2020-armor/services/cp2020-armor-pdf-section/cp2020-armor-pdf-section.service';
 import { Cp2020CyberdeckManager } from './../../shared/cp2020/cp2020-netrun-gear/models/cp2020-cyberdeck-manager';
@@ -213,13 +213,13 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
    */
   saveCharacter() {
     this.character$
+      .pipe(first())
       .subscribe((character) =>
         this.saveFileService.SaveAsFile(
           'CP2020_' + character.handle.replace(' ', '_'),
           JSON.stringify(character)
         )
-      )
-      .unsubscribe();
+      );
   }
 
   createPDF() {
@@ -228,8 +228,8 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
       this.deckmanagerPDFService
     );
     this.character$
-      .subscribe((character) => characterToPDF.generatePdf(character))
-      .unsubscribe();
+      .pipe(first())
+      .subscribe((character) => characterToPDF.generatePdf(character));
   }
 
   /**
