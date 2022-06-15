@@ -40,5 +40,7 @@ export class ClubDisplayComponent implements OnInit {
     });
   }
 
-  deleteClub(index: number): void {}
+  deleteClub(index: number): void {
+    this.clubs.splice(index, 1);
+  }
 }
