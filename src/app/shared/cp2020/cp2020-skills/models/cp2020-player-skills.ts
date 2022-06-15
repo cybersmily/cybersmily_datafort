@@ -17,7 +17,7 @@ export class Cp2020PlayerSkills {
     this.ip = 0;
   }
 
-  import(playerSkills:Cp2020PlayerSkills) {
+  import(playerSkills: Cp2020PlayerSkills) {
     this.RoleTotal = playerSkills.RoleTotal;
     this.OtherTotal = playerSkills.OtherTotal;
     this.rep = playerSkills.rep;
@@ -26,11 +26,12 @@ export class Cp2020PlayerSkills {
     this.calculateTotals();
   }
 
-
   importSkills(skills: Array<Cp2020PlayerSkill>, roleSkills?: any[]) {
-    skills.forEach(skill => {
+    skills.forEach((skill) => {
       const sk = new Cp2020PlayerSkill(skill);
-      const i = this.skills.findIndex(s => s.name === skill.name && s.option === skill.option);
+      const i = this.skills.findIndex(
+        (s) => s.name === skill.name && s.option === skill.option
+      );
       if (i > -1) {
         sk.ipMod = this.skills[i].ipMod;
         sk.stat = this.skills[i].stat;
@@ -46,61 +47,83 @@ export class Cp2020PlayerSkills {
 
   private initiateSkills(skillList?: Array<DataSkill>, includeOther?: boolean) {
     if (skillList) {
-      skillList.forEach(sk => {
+      skillList.forEach((sk) => {
         this.skills.push(new Cp2020PlayerSkill(sk));
       });
     }
     // Other
     if (includeOther) {
       for (let i = 0; i < 7; i++) {
-        this.skills.push(new Cp2020PlayerSkill({ name: 'Other', option: '', ipmod: 1, stat: '' }));
+        this.skills.push(
+          new Cp2020PlayerSkill({
+            name: 'Other',
+            option: '',
+            ipmod: 1,
+            stat: '',
+          })
+        );
       }
     }
-
   }
 
   get SkillsWithValues(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter(skill => skill.value > 0);
+    return this.skills.filter((skill) => skill.value > 0);
   }
 
   get specialAbilites(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter(sk => sk.isSA);
+    return this.skills.filter((sk) => sk.isSA);
   }
 
   get ATTR(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter(sk => sk.stat && sk.stat.toLowerCase() === 'attr' && !sk.isSA);
+    return this.skills.filter(
+      (sk) => sk.stat && sk.stat.toLowerCase() === 'attr' && !sk.isSA
+    );
   }
 
   get BODY(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter(sk => sk.stat && sk.stat.toLowerCase() === 'body' && !sk.isSA);
+    return this.skills.filter(
+      (sk) => sk.stat && sk.stat.toLowerCase() === 'body' && !sk.isSA
+    );
   }
 
   get COOL(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter((sk) => sk.stat && sk.stat.toLowerCase() === 'cool' && !sk.isSA);
+    return this.skills.filter(
+      (sk) => sk.stat && sk.stat.toLowerCase() === 'cool' && !sk.isSA
+    );
   }
 
   get EMP(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter((sk) => sk.stat && sk.stat.toLowerCase() === 'emp' && !sk.isSA);
+    return this.skills.filter(
+      (sk) => sk.stat && sk.stat.toLowerCase() === 'emp' && !sk.isSA
+    );
   }
 
   get INT(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter((sk) => sk.stat && sk.stat.toLowerCase() === 'int' && !sk.isSA);
+    return this.skills.filter(
+      (sk) => sk.stat && sk.stat.toLowerCase() === 'int' && !sk.isSA
+    );
   }
 
   get REF(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter(sk => sk.stat && sk.stat.toLowerCase() === 'ref' && !sk.isSA);
+    return this.skills.filter(
+      (sk) => sk.stat && sk.stat.toLowerCase() === 'ref' && !sk.isSA
+    );
   }
 
   get TECH(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter((sk) => sk.stat && sk.stat.toLowerCase() === 'tech' && !sk.isSA);
+    return this.skills.filter(
+      (sk) => sk.stat && sk.stat.toLowerCase() === 'tech' && !sk.isSA
+    );
   }
 
   get Other(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter((sk) => sk.name.toLowerCase() === 'other' && !sk.isSA);
+    return this.skills.filter(
+      (sk) => sk.name.toLowerCase() === 'other' && !sk.isSA
+    );
   }
 
   get RoleSKills(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter(sk => sk.isRoleSkill && !sk.chipped);
+    return this.skills.filter((sk) => sk.isRoleSkill && !sk.chipped);
   }
 
   get RoleSKillTotal(): number {
@@ -108,11 +131,11 @@ export class Cp2020PlayerSkills {
   }
 
   get ChippedSkills(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter(sk => sk.chipped);
+    return this.skills.filter((sk) => sk.chipped);
   }
 
   get NonRoleSkills(): Array<Cp2020PlayerSkill> {
-    return this.skills.filter(sk => !sk.chipped && !sk.isRoleSkill);
+    return this.skills.filter((sk) => !sk.chipped && !sk.isRoleSkill);
   }
 
   get NonRoleSKillTotal(): number {
@@ -126,14 +149,26 @@ export class Cp2020PlayerSkills {
     let list = new Array<Cp2020PlayerSkill>();
     switch (type.toLowerCase()) {
       case 'p':
-        list = this.REF.filter((s) => s.name.toLowerCase().startsWith('handgun') || s?.option?.toLowerCase() === 'handgun');
+        list = this.REF.filter(
+          (s) =>
+            s.name.toLowerCase().startsWith('handgun') ||
+            s?.option?.toLowerCase() === 'handgun'
+        );
         break;
       case 'smg':
-        list = this.REF.filter((s) => s.name.toLowerCase().startsWith('submachinegun') || s?.option?.toLowerCase() === 'sub machinegun');
+        list = this.REF.filter(
+          (s) =>
+            s.name.toLowerCase().startsWith('submachinegun') ||
+            s?.option?.toLowerCase() === 'sub machinegun'
+        );
         break;
       case 'rif':
       case 'sht':
-        list = this.REF.filter((s) => s.name.toLowerCase().startsWith('rifle') || s?.option?.toLowerCase() === 'rifle');
+        list = this.REF.filter(
+          (s) =>
+            s.name.toLowerCase().startsWith('rifle') ||
+            s?.option?.toLowerCase() === 'rifle'
+        );
         break;
       case 'mel':
         list = this.getPhysicalCombatSkills();
@@ -142,16 +177,21 @@ export class Cp2020PlayerSkills {
         );
         break;
       case 'hvy':
-        list = this.REF.filter((s) =>
-          s.name.toLowerCase().startsWith('heavy weapons') || s?.option?.toLowerCase() === 'heavy weapons'
-          || s.name.toLowerCase().startsWith('athletics') || s?.option?.toLowerCase() === 'athletics'
+        list = this.REF.filter(
+          (s) =>
+            s.name.toLowerCase().startsWith('heavy weapons') ||
+            s?.option?.toLowerCase() === 'heavy weapons' ||
+            s.name.toLowerCase().startsWith('athletics') ||
+            s?.option?.toLowerCase() === 'athletics'
         );
         break;
       default:
         list = this.getCombatSkills();
     }
     if (list.length < 1) {
-      return [new Cp2020PlayerSkill({ name: 'Not trained', stat: 'ref', value: 0 })];
+      return [
+        new Cp2020PlayerSkill({ name: 'Not trained', stat: 'ref', value: 0 }),
+      ];
     }
     return list;
   }
@@ -165,7 +205,6 @@ export class Cp2020PlayerSkills {
         s.name.toLowerCase() === 'athletics' ||
         s.name.toLowerCase() === 'fencing'
     );
-
   }
 
   getCombatSkills(): Array<Cp2020PlayerSkill> {
@@ -193,7 +232,7 @@ export class Cp2020PlayerSkills {
   }
 
   setRoleSkills(roleSkills: any[]) {
-    this.skills = this.skills.map(sk => {
+    this.skills = this.skills.map((sk) => {
       sk.isRoleSkill = false;
       sk.roleChoice = false;
       return sk;
@@ -219,10 +258,13 @@ export class Cp2020PlayerSkills {
     skills = this.processRoleSkillArray(this.INT, skills, true);
     skills = this.processRoleSkillArray(this.REF, skills, true);
     this.addToOthers(skills);
-
   }
 
-  private processRoleSkillArray(skillArray: Array<Cp2020PlayerSkill>, roleSkills: any[], isSecondary?: boolean) {
+  private processRoleSkillArray(
+    skillArray: Array<Cp2020PlayerSkill>,
+    roleSkills: any[],
+    isSecondary?: boolean
+  ) {
     if (!Array.isArray(roleSkills)) {
       return;
     }
@@ -234,27 +276,55 @@ export class Cp2020PlayerSkills {
       if (Array.isArray(roleSkill)) {
         let j = rSkills[index].length - 1;
         while (j >= 0) {
-          rSkills[index] = this.setRoleSkill(roleSkill[j], skillArray, rSkills[index], j, isSecondary, true);
+          rSkills[index] = this.setRoleSkill(
+            roleSkill[j],
+            skillArray,
+            rSkills[index],
+            j,
+            isSecondary,
+            true
+          );
           j--;
         }
       } else {
-        rSkills = this.setRoleSkill(roleSkill.toLowerCase(), skillArray, rSkills, index, isSecondary, false);
+        rSkills = this.setRoleSkill(
+          roleSkill.toLowerCase(),
+          skillArray,
+          rSkills,
+          index,
+          isSecondary,
+          false
+        );
       }
       index--;
     }
     return rSkills;
   }
 
-  private setRoleSkill(skillToFind: string, skillArray: Array<Cp2020PlayerSkill>, roleSkills: any[], index: number, isSecondary: boolean, isChoice: boolean) {
+  private setRoleSkill(
+    skillToFind: string,
+    skillArray: Array<Cp2020PlayerSkill>,
+    roleSkills: any[],
+    index: number,
+    isSecondary: boolean,
+    isChoice: boolean
+  ) {
     let found = -1;
     // determine if this skill has options
     if (skillToFind.includes(':')) {
       const parsed = skillToFind.split(':');
       const name = parsed[0].trim();
       const option = parsed[1].trim();
-      found = skillArray.findIndex(s => s.name.toLowerCase() === name && s.option && s.option.toLowerCase() === option);
+      found = skillArray.findIndex(
+        (s) =>
+          s.name.toLowerCase() === name &&
+          s.option &&
+          s.option.toLowerCase() === option
+      );
     } else {
-      found = skillArray.findIndex(s => s.name?.toLowerCase() === skillToFind.toLowerCase());
+      found = skillArray.findIndex(
+        (s) => s.name?.toLowerCase() === skillToFind.toLowerCase()
+      );
     }
 
     if (found > -1) {
@@ -268,7 +338,10 @@ export class Cp2020PlayerSkills {
 
   addToOthers(roleSkills: any[]) {
     // reset all the skills.
-    this.Other.map(skill => { skill.isRoleSkill = false; skill.roleChoice = false; });
+    this.Other.map((skill) => {
+      skill.isRoleSkill = false;
+      skill.roleChoice = false;
+    });
     let index = roleSkills ? roleSkills.length - 1 : -1;
     // loop through the role array of skills.
     while (index >= 0) {
@@ -279,7 +352,9 @@ export class Cp2020PlayerSkills {
           if (sk.indexOf('Expert') > -1) {
             this.addExpert(sk);
           } else {
-            const found = this.Other.findIndex(skill => skill.option?.toLowerCase() === sk?.toLowerCase());
+            const found = this.Other.findIndex(
+              (skill) => skill.option?.toLowerCase() === sk?.toLowerCase()
+            );
             if (found < 0) {
               const newSkill = new Cp2020PlayerSkill(sk);
               newSkill.name = 'Other';
@@ -294,13 +369,18 @@ export class Cp2020PlayerSkills {
         if (roleSkills[index]?.indexOf('Expert') > -1) {
           this.addExpert(roleSkills[index]);
         } else {
-          const found = this.Other.findIndex(sk => sk.option?.toLowerCase() === roleSkills[index]?.toLowerCase());
+          const found = this.Other.findIndex(
+            (sk) =>
+              sk.option?.toLowerCase() === roleSkills[index]?.toLowerCase()
+          );
           if (found < 0) {
-            const i = this.Other.findIndex(sk => sk.option === '');
+            const i = this.Other.findIndex((sk) => sk.option === '');
             if (i > -1) {
               this.Other[i].option = roleSkills[index];
               this.Other[i].isRoleSkill = true;
             }
+          } else {
+            this.Other[found].isRoleSkill = true;
           }
         }
       }
@@ -315,7 +395,9 @@ export class Cp2020PlayerSkills {
   addSpecialAbility(skill: Cp2020PlayerSkill) {
     if (skill && skill.name !== '') {
       skill.isSA = true;
-      const found = this.skills.findIndex(sk => sk.name.toLowerCase() === skill.name.toLowerCase());
+      const found = this.skills.findIndex(
+        (sk) => sk.name.toLowerCase() === skill.name.toLowerCase()
+      );
       if (found < 0) {
         skill.isRoleSkill = true;
         this.skills.push(new Cp2020PlayerSkill(skill));
@@ -327,9 +409,12 @@ export class Cp2020PlayerSkills {
   }
 
   deleteSkill(skill: Cp2020PlayerSkill) {
-    const index = this.skills.findIndex(sk => {
+    const index = this.skills.findIndex((sk) => {
       if (skill.option) {
-        return sk.name.toLocaleLowerCase() === skill.name.toLocaleLowerCase() && sk.option.toLocaleLowerCase() === skill.option.toLocaleLowerCase();
+        return (
+          sk.name.toLocaleLowerCase() === skill.name.toLocaleLowerCase() &&
+          sk.option.toLocaleLowerCase() === skill.option.toLocaleLowerCase()
+        );
       }
       return sk.name.toLocaleLowerCase() === skill.name.toLocaleLowerCase();
     });
@@ -340,7 +425,11 @@ export class Cp2020PlayerSkills {
 
   editSkill(skill: Cp2020PlayerSkill) {
     const skills = [...this.skills];
-    const i = skills.findIndex(sk => sk.name.toLowerCase() === skill.name.toLowerCase() && sk.option === skill.option);
+    const i = skills.findIndex(
+      (sk) =>
+        sk.name.toLowerCase() === skill.name.toLowerCase() &&
+        sk.option === skill.option
+    );
     if (i > -1) {
       skills[i] = new Cp2020PlayerSkill(skill);
     }
@@ -348,7 +437,9 @@ export class Cp2020PlayerSkills {
   }
 
   addExpert(skillName: string) {
-    const index = this.INT.findIndex(sk => sk.name.toLowerCase() === 'expert');
+    const index = this.INT.findIndex(
+      (sk) => sk.name.toLowerCase() === 'expert'
+    );
     this.INT[index].option = skillName.replace('Expert: ', '');
     this.INT[index].isRoleSkill = true;
   }
