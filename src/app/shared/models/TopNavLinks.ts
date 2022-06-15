@@ -267,6 +267,11 @@ export class TopNavLinks {
           desc: 'Cyberpunk 2020 character sheet.',
         },
         {
+          title: 'Club Generator',
+          link: 'apps/clubgen',
+          desc: 'Club generator for Cyberpunk Red/2020',
+        },
+        {
           title: 'Combat Tracker',
           link: 'apps/cmbttrk',
           desc: 'Cyberpunk 2020 combat tracking utiltiy.',
@@ -332,6 +337,11 @@ export class TopNavLinks {
           title: 'Bodegas Generator',
           link: 'apps/nightmarket',
           desc: 'Bodegas generator for Cyberpunk Red.',
+        },
+        {
+          title: 'Club Generator',
+          link: 'apps/clubgen',
+          desc: 'Club generator for Cyberpunk Red/2020',
         },
         {
           title: 'CP Red Jumpstart Kit Character',
