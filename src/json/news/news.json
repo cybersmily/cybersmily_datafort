@@ -3,14 +3,14 @@
     {
       "date": "2022-06",
       "entries": [
-        "<strong>06-XX</strong> - Another release with some more goodness to the site!",
+        "<strong>06-19</strong> - Another release with some more goodness to the site!",
         "First I have created both a subreddit and a discord to help support my site's feedback and communication. Stop by either, I will be posting updates in both. The links are on the top right.",
         "Next we have enhancements:",
+        "&nbsp;* new Club Generator for Cyberpunk Red and 2020. Thanks to MurdocAddams from Reddit on provide some tables to base the utility on. Now randomly generate a bunch of bars, clubs, lounges, what have you for your game.",
         "&nbsp;* Corporation Master Data List. This list I plan on having both Cyberpunk 2020 and Cyberpunk Red corporations. It is a work in progress. If you see one that is missing please email me or contact me through Reddit or Discord. I just ask that you have the reference of what book mentioned it and the page.",
         "&nbsp;* Character Generator for Cyberpunk 2020 Ammo Section now has Casing and Type. So you can now get a brass cased AP rounds.",
-        "&nbsp;* ",
-        "&nbsp;* ",
-        "&nbsp;* ",
+        "&nbsp;* Bug fix on Character Generator where Cash wasn't always getting saved in cache.",
+        "&nbsp;* Bug fix on Character Generator for Role Skills that are under Other not being marked properly.",
         "In the process of working on a Character Generator for Cyberpunk Red. I don't have an ETA on it yet, but it's coming along.",
         "Please check out The Tales from the Forlorn Dopes over on <a href='https://www.twitch.tv/cybernationuncensored'>Cybernation Uncensored twitch</a>. The schedule of every 1st and 3rd Wednesday of the month at 19:00 EST/18:00 CST/16:00 PST/00:00 GMT(which actually Thursday for those across the pond). Wisdom000 from <a href='http://datafortess2020.com'>Datafortress 2020</a> and myself ramble on about Cyberpunk 2020, Red, and other Cyberpunk genre media. Please check us out. You can see old episodes on Cybernation Uncensored's Youtube Channel",
         "Till next time.",
