@@ -20,6 +20,10 @@ export class ClubDisplayComponent implements OnInit {
 
   count: number = 1;
 
+  get isDisabled(): boolean {
+    return !this.clubs || this.clubs?.length < 1;
+  }
+
   constructor(
     private clubGenerator: ClubGeneratorService,
     private clubNameGenerator: ClubNameGeneratorService,

@@ -6,11 +6,15 @@
       class="csd-number ms-2 text-center"
       [(ngModel)]="count"
     />
-    <button class="csd-btn csd-icon-btn csd-icon-lg ms-2" (click)="rollClubs()">
+    <button class="csd-btn csd-icon-btn csd-icon-xl ms-2" (click)="rollClubs()">
       <fa-icon [icon]="faDice"></fa-icon>
     </button>
 
-    <button class="csd-btn csd-icon-btn csd-icon-lg ms-2" (click)="savePDF()">
+    <button
+      class="csd-btn csd-icon-btn csd-icon-xl ms-2 float-end"
+      (click)="savePDF()"
+      [disabled]="isDisabled"
+    >
       <fa-icon [icon]="faFilePdf"></fa-icon>
     </button>
   </div>
