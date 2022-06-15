@@ -18,7 +18,10 @@
       <div class="row">
         <div class="col-12">
           <h4 class="d-inline-block">{{ club.name }}</h4>
-          <button class="csd-btn csd-icon-btn csd-icon-lg float-end">
+          <button
+            class="csd-btn csd-icon-btn csd-icon-lg float-end"
+            (click)="delete(i)"
+          >
             <fa-icon [icon]="faTrash"></fa-icon>
           </button>
         </div>
