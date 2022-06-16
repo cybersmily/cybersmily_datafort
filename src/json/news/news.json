@@ -11,6 +11,8 @@
         "&nbsp;* Character Generator for Cyberpunk 2020 Ammo Section now has Casing and Type. So you can now get a brass cased AP rounds.",
         "&nbsp;* Bug fix on Character Generator where Cash wasn't always getting saved in cache.",
         "&nbsp;* Bug fix on Character Generator for Role Skills that are under Other not being marked properly.",
+        "&nbsp;* Bug fix on Character Generator for Vehicles in which the Off-Road selection was mapped to Cost field.",
+        "&nbsp;* Bug fix on Character Generator for Vehicles in which previous vehicle would remain after loading a new character.",
         "In the process of working on a Character Generator for Cyberpunk Red. I don't have an ETA on it yet, but it's coming along.",
         "Please check out The Tales from the Forlorn Dopes over on <a href='https://www.twitch.tv/cybernationuncensored'>Cybernation Uncensored twitch</a>. The schedule of every 1st and 3rd Wednesday of the month at 19:00 EST/18:00 CST/16:00 PST/00:00 GMT(which actually Thursday for those across the pond). Wisdom000 from <a href='http://datafortess2020.com'>Datafortress 2020</a> and myself ramble on about Cyberpunk 2020, Red, and other Cyberpunk genre media. Please check us out. You can see old episodes on Cybernation Uncensored's Youtube Channel",
         "Till next time.",
