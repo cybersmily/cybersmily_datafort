@@ -11,6 +11,8 @@
           tabindex="0"
           class="text-center no-spinners w-100 pt-2 csd-plain-input"
           [(ngModel)]="currStat.base"
+          (change)="updateStatBase()"
+          (keyup)="updateStatBase()"
           max="10"
           min="0"
         />
@@ -40,15 +42,17 @@
   <ng-container *ngIf="showModifiers">
     <div class="row">
       <div class="col-4"></div>
-      <div class="col-7 text-xxsmall csd-btn align-top ps-0">MODIFIERS</div>
+      <div class="col-8 text-xxsmall csd-btn align-top ps-0">MODIFIERS</div>
     </div>
     <div *ngFor="let mod of currStat.modifiers; let i = index" class="row">
       <div class="col-4"></div>
-      <div class="col-2 text-center small py-0">
-        {{ mod.value }}
+      <div class="col-7 small py-0 csd-btn" (click)="activateModifier(i)">
+        {{ mod.value > 0 ? "+" : "" }} {{ mod.value }} {{ mod.name }}
       </div>
-      <div class="col-6 small py-0">
-        {{ mod.name }}
+      <div class="col-1">
+        <button class="csd-btn csd-icon-btn float-end" (click)="addModifier()">
+          <fa-icon [icon]="faTrash"></fa-icon>
+        </button>
       </div>
     </div>
     <div class="row">

@@ -1,4 +1,4 @@
-import { CpRedStats } from './cp-red-stats';
+import { CpRedStats } from './../c-p-red-stats/models';
 import { cpRedRole } from './cp-red-character-sheet';
 
 export interface CpRedCharacter {

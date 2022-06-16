@@ -1,5 +1,4 @@
-import { CpRedCharacterStats } from './cp-red-character-stats';
-import { CpRedStats } from './cp-red-stats';
+import { CpRedCharacterStats } from './../c-p-red-stats/models/';
 export interface cpRedRoleAbility {
   name: string;
   rank: number;

@@ -1,6 +1,6 @@
 import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
-import { CpRedStats, CpRedCharacterStats } from './../../models';
+import { CpRedStats, CpRedCharacterStats } from '../../models';
 import {
   Component,
   Input,
@@ -11,11 +11,11 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp-red-character-stats',
-  templateUrl: './cp-red-character-stats.component.html',
-  styleUrls: ['./cp-red-character-stats.component.css'],
+  selector: 'cs-cp-red-stats',
+  templateUrl: './cp-red-stats.component.html',
+  styleUrls: ['./cp-red-stats.component.css'],
 })
-export class CpRedCharacterStatsComponent implements OnInit {
+export class CpRedStatsComponent implements OnInit {
   faDice = faDice;
   modalRef: BsModalRef;
   modalConfig: ModalOptions = {

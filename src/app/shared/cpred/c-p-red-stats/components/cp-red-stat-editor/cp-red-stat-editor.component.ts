@@ -1,9 +1,9 @@
-import { AppCpRedDatingModule } from './../../../../app-cp-red-dating/app-cp-red-dating.module';
-import { CpRedStatMod } from './../../models/cp-red-stat-mod';
+import { CpRedStatMod } from '../../models/cp-red-stat-mod';
 import {
   faPlus,
   faChevronDown,
   faChevronRight,
+  faTrash,
 } from '@fortawesome/free-solid-svg-icons';
 import { CpRedStat } from './../../models/cp-red-stat';
 import {
@@ -25,6 +25,7 @@ export class CPRedStatEditorComponent implements OnInit, OnChanges {
   faChevronDown = faChevronDown;
   faChevronRight = faChevronRight;
   faIcon = this.faChevronRight;
+  faTrash = faTrash;
 
   showModifiers = false;
 
@@ -39,7 +40,7 @@ export class CPRedStatEditorComponent implements OnInit, OnChanges {
   currStat: CpRedStat;
 
   @Output()
-  updateStat: EventEmitter<CpRedStat> = new EventEmitter<CpRedStat>();
+  changeStat: EventEmitter<CpRedStat> = new EventEmitter<CpRedStat>();
 
   constructor() {}
 
@@ -50,9 +51,25 @@ export class CPRedStatEditorComponent implements OnInit, OnChanges {
     this.currStat = this.stat;
   }
 
+  updateStatBase(): void {
+    this.changeStat.emit(this.currStat);
+  }
+
   toggleModifiers(): void {
     this.showModifiers = !this.showModifiers;
     this.faIcon = this.showModifiers ? this.faChevronDown : this.faChevronRight;
+    this.changeStat.emit(this.currStat);
+  }
+
+  activateModifier(index: number): void {
+    this.currStat.modifiers[index].active =
+      !this.currStat.modifiers[index].active;
+    this.changeStat.emit(this.currStat);
+  }
+
+  delectModifier(index: number): void {
+    this.currStat.modifiers.splice(index, 1);
+    this.changeStat.emit(this.currStat);
   }
 
   addModifier(): void {
@@ -62,5 +79,6 @@ export class CPRedStatEditorComponent implements OnInit, OnChanges {
       value: null,
       active: true,
     };
+    this.changeStat.emit(this.currStat);
   }
 }

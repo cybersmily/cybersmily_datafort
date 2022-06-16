@@ -1,8 +1,4 @@
-import {
-  CpRedStats,
-  CPRedCharacterSheet,
-  CpRedCharacter,
-} from './../../../models';
+import { CPRedCharacterSheet, CpRedCharacter } from './../../../models';
 import {} from './../../../models/cp-red-character-sheet';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';

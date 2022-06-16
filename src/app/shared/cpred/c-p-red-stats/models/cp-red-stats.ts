@@ -1,5 +1,3 @@
-import { CpRedHitpoints } from './cp-red-hitpoints';
-import { CpRedHumanity } from './cp-red-humanity';
 import { CpRedStat } from './cp-red-stat';
 
 export interface CpRedStats {

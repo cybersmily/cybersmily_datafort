@@ -1,0 +1,13 @@
+<div class="row cs-cpr-stats rounded" (click)="showModal(statsEditor)">
+  <div class="col-11 csd-btn">
+    <cs-cp-red-stat [stat]="stats.int"></cs-cp-red-stat>
+  </div>
+  <div class="col-1 px-0">
+    <button class="csd-btn csd-icon-btn csd-icon-sm">
+      <fa-icon [icon]="faDice"></fa-icon>
+    </button>
+  </div>
+</div>
+<ng-template #statsEditor>
+  <cs-cp-red-stats-editor [stats]="stats"></cs-cp-red-stats-editor>
+</ng-template>

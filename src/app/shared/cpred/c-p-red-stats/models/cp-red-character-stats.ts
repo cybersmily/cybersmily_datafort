@@ -1,10 +1,6 @@
-import { CalculateCpRedStatModified } from './../functions/calculate-cp-red-stat-modified';
-import { CpRedHumanity } from './cp-red-humanity';
-import { CpRedHitpoints } from './cp-red-hitpoints';
 import { CpRedStats } from './cp-red-stats';
 import { CpRedStat } from './cp-red-stat';
 import { CpRedCharacterStat } from './cp-red-character-stat';
-import { CpRedStatMod } from './cp-red-stat-mod';
 
 export class CpRedCharacterStats implements CpRedStats {
   int: CpRedStat;
