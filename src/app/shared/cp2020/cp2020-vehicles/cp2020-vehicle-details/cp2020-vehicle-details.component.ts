@@ -1,14 +1,29 @@
 import { Cp2020VehicleWeapon } from './../../cp2020weapons/models';
 import { Cp2020Vehicle, Cp2020VehicleTypes } from './../models';
-import { faPen, faPlus, faTrash, faSave } from '@fortawesome/free-solid-svg-icons';
-import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import {
+  faPen,
+  faPlus,
+  faTrash,
+  faSave,
+} from '@fortawesome/free-solid-svg-icons';
+import {
+  Component,
+  Input,
+  OnInit,
+  Output,
+  EventEmitter,
+  ViewChild,
+  ElementRef,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'cs-cp2020-vehicle-details',
   templateUrl: './cp2020-vehicle-details.component.html',
-  styleUrls: ['./cp2020-vehicle-details.component.css']
+  styleUrls: ['./cp2020-vehicle-details.component.css'],
 })
-export class Cp2020VehicleDetailsComponent implements OnInit {
+export class Cp2020VehicleDetailsComponent implements OnInit, OnChanges {
   faPen = faPen;
   faPlus = faPlus;
   faTrash = faTrash;
@@ -26,7 +41,7 @@ export class Cp2020VehicleDetailsComponent implements OnInit {
   @Output()
   delete: EventEmitter<number> = new EventEmitter<number>();
 
-  @ViewChild('vehicleNameElem', {static: false})
+  @ViewChild('vehicleNameElem', { static: false })
   vehicleNameInput: ElementRef;
 
   currVehicle: Cp2020Vehicle = new Cp2020Vehicle();
@@ -37,12 +52,16 @@ export class Cp2020VehicleDetailsComponent implements OnInit {
   }
 
   get maxSP(): number {
-    return Math.ceil(this.currVehicle.sdp/2);
+    return Math.ceil(this.currVehicle.sdp / 2);
   }
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
+    this.currVehicle = new Cp2020Vehicle(this.vehicle);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
     this.currVehicle = new Cp2020Vehicle(this.vehicle);
   }
 
@@ -72,12 +91,11 @@ export class Cp2020VehicleDetailsComponent implements OnInit {
       name: '',
       type: '',
       cost: 0,
-      spaces: ''
+      spaces: '',
     });
   }
 
   deleteOption(index: number) {
     this.currVehicle.options.splice(index, 1);
   }
-
 }
