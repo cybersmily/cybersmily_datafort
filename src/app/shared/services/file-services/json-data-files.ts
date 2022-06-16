@@ -9,14 +9,14 @@ export class JsonDataFiles {
   public static DATA_LIST_CORPORATIONS = `/json/data/corporations.json`;
   public static CLUB_DATA_CHARTS = `/json/apps/clubbing/clubbingcharts.json`;
   public static CLUB_NAME_CHARTS = `/json/apps/clubbing/clubnames.json`;
-  public static CP2020_ROLES_LIST_JSON = `/json/apps/chargen/cp2020rolesext.json`;
   public static IU_ROLES_LIST_JSON = `/json/apps/chargen/iuroles.json`;
+  public static IU_SKILLS_DATA_LIST_JSON = `/json/apps/chargen/iuskills.json`;
+  public static IU_SKILLS_MAPPING_LIST_JSON = `/json/apps/chargen/iuskillmappings.json`;
+  public static CP2020_ROLES_LIST_JSON = `/json/apps/chargen/cp2020rolesext.json`;
   public static CP2020_WEAPON_DATA_LIST_JSON = `/json/wpns/cp2020weapons.json`;
   public static CP2020_WEAPON_OPTIONS_LIST_JSON = `/json/wpns/cp2020weaponoptions.json`;
   public static CP2020_WEAPON_AMMO_LIST_JSON = `/json/wpns/cp2020weaponammo.json`;
   public static CP2020_SKILLS_DATA_LIST_JSON = `/json/apps/chargen/cp2020skills.json`;
-  public static IU_SKILLS_DATA_LIST_JSON = `/json/apps/chargen/iuskills.json`;
-  public static IU_SKILLS_MAPPING_LIST_JSON = `/json/apps/chargen/iuskillmappings.json`;
   public static CP2020_MARTIAL_ARTS_LIST_JSON =
     '/json/wpns/cp2020martialarts.json';
   public static CP2020_CYBERWARE_DATA_LIST_JSON = `/json/data/cyberware.json`;
@@ -83,11 +83,17 @@ export class JsonDataFiles {
   public static CP2020_CMBTTRCK_MODIFIERS_JSON = `/json/apps/cbttrk/modifiers.json`;
   public static CP2020_CMBTTRCK_OPP_TEMPLATES_JSON = `/json/apps/cbttrk/opptemplates.json`;
 
+  public static CP2020_NETRUN_MAPDATA_JSON = `/json/apps/nrmap/data.json`;
+  public static CP2020_NETRUN_MAPPATH_JSON = `/json/apps/nrmap/`;
+
+  /**************************************************
+   * Cyberpunk Red JSON files
+   * *************************************************
+   */
   public static CPRED_LIFEPATH_CHART_JSON = `/json/apps/lifepath/cpredjkchart.json`;
   public static CPRED_CHARACTER_TEMPLATE_JSON = `/json/apps/chargen/cpredtemplates.json`;
 
-  public static CP2020_NETRUN_MAPDATA_JSON = `/json/apps/nrmap/data.json`;
-  public static CP2020_NETRUN_MAPPATH_JSON = `/json/apps/nrmap/`;
+  public static CPRED_SKILL_DATA_JSON = `/json/apps/reddata/cp-red-skills.json`;
 
   public static CPRED_NET_ARCH_DEMONS_JSON = `/json/apps/rednet/demons.json`;
   public static CPRED_NET_ARCH_CHARTS_JSON = `/json/apps/rednet/archcharts.json`;
