@@ -1,17 +1,20 @@
 <div class="row">
   <div class="col-12">
-    <h4 class="d-inline-block">Clubs</h4>
+    <h4 class="d-inline-block">CLUBS/BARS</h4>
     <input
       type="number"
       class="csd-number ms-2 text-center"
       [(ngModel)]="count"
     />
-    <button class="csd-btn csd-icon-btn csd-icon-xl ms-2" (click)="rollClubs()">
+    <button
+      class="csd-btn csd-icon-btn csd-icon-xl ms-4 p-1"
+      (click)="rollClubs()"
+    >
       <fa-icon [icon]="faDice"></fa-icon>
     </button>
 
     <button
-      class="csd-btn csd-icon-btn csd-icon-xl ms-2 float-end"
+      class="csd-btn csd-icon-btn csd-icon-xl ms-4 p-1"
       (click)="savePDF()"
       [disabled]="isDisabled"
     >
@@ -21,13 +24,13 @@
 </div>
 <br />
 <div *ngIf="clubs">
-  <div *ngFor="let club of clubs; let i = index" class="row">
+  <div *ngFor="let club of clubs; let i = index" class="row mb-4">
     <div class="col-12">
       <div class="row">
         <div class="col-12">
           <h4 class="d-inline-block">{{ club.name }}</h4>
           <button
-            class="csd-btn csd-icon-btn csd-icon-lg float-end"
+            class="csd-btn csd-icon-btn csd-icon-lg ms-4"
             (click)="delete(i)"
           >
             <fa-icon [icon]="faTrash"></fa-icon>
