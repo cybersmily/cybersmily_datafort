@@ -51,4 +51,8 @@ export class CpRedStatsManagerService {
     stats[statName].modified = CalculateCpRedStatModified(stats[statName]);
     this._redStats.next(stats);
   }
+
+  clear(): void {
+    this._redStats.next(new CpRedCharacterStats());
+  }
 }

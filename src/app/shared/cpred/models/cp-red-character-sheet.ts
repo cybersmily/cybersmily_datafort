@@ -113,20 +113,6 @@ export class CPRedCharacterSheet {
         image: '',
         role: undefined,
         stats: new CpRedCharacterStats(),
-        /*
-        stats: {
-          int: undefined,
-          ref: undefined,
-          dex: undefined,
-          tech: undefined,
-          cool: undefined,
-          will: undefined,
-          luck: undefined,
-          move: undefined,
-          body: undefined,
-          emp: undefined,
-        },
-        */
 
         humanity: 0,
         wounds: 0,

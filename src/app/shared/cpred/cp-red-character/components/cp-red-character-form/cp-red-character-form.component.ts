@@ -33,7 +33,7 @@ export class CpRedCharacterFormComponent implements OnInit, OnChanges {
   }
 
   initialize(): void {
-    this.currSheet = new CPRedCharacterSheet(this.sheet.character);
+    this.currSheet = new CPRedCharacterSheet(this.sheet?.character);
   }
 
   updateImage(image: string): void {
