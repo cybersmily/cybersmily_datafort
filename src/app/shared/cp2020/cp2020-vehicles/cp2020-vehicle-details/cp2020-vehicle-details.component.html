@@ -1,17 +1,37 @@
 <div>
   <div class="row">
-    <div class="col-8">Name:
-      <span *ngIf="!isEditable">{{currVehicle.name}}</span>
-      <input #vehicleNameElem *ngIf="isEditable" type="text" [(ngModel)]="currVehicle.name">
+    <div class="col-8">
+      Name:
+      <span *ngIf="!isEditable">{{ currVehicle.name }}</span>
+      <input
+        #vehicleNameElem
+        *ngIf="isEditable"
+        type="text"
+        [(ngModel)]="currVehicle.name"
+      />
     </div>
     <div class="col-4 text-end">
-      <button *ngIf="isEditable" class="csd-btn csd-icon-btn ms-2" title="Save changes" (click)="save()">
+      <button
+        *ngIf="isEditable"
+        class="csd-btn csd-icon-btn ms-2"
+        title="Save changes"
+        (click)="save()"
+      >
         <fa-icon [icon]="faSave"></fa-icon>
       </button>
-      <button *ngIf="!isEditable" class="csd-btn csd-icon-btn ms-2" title="Edit vehicle" (click)="isEditable = !isEditable">
+      <button
+        *ngIf="!isEditable"
+        class="csd-btn csd-icon-btn ms-2"
+        title="Edit vehicle"
+        (click)="isEditable = !isEditable"
+      >
         <fa-icon [icon]="faPen"></fa-icon>
       </button>
-      <button class="csd-btn csd-icon-btn ms-2 me-1" title="Delete vehicle" (click)="deleteVehicle()">
+      <button
+        class="csd-btn csd-icon-btn ms-2 me-1"
+        title="Delete vehicle"
+        (click)="deleteVehicle()"
+      >
         <fa-icon [icon]="faTrash"></fa-icon>
       </button>
     </div>
@@ -19,75 +39,149 @@
   <div class="row small">
     <div class="col">
       <span>Type: </span>
-      <span *ngIf="!isEditable">{{currVehicle.type}}</span>
+      <span *ngIf="!isEditable">{{ currVehicle.type }}</span>
       <select *ngIf="isEditable" [(ngModel)]="currVehicle.type">
         <option value=""></option>
-        <option *ngFor="let type of types" [value]="type">{{type}}</option>
+        <option *ngFor="let type of types" [value]="type">{{ type }}</option>
       </select>
     </div>
-    <div class="col">SDP/SP:
-      <span *ngIf="!isEditable">{{currVehicle.sdp}}/{{currVehicle.sp}}</span>
+    <div class="col">
+      SDP/SP:
+      <span *ngIf="!isEditable"
+        >{{ currVehicle.sdp }}/{{ currVehicle.sp }}</span
+      >
       <span *ngIf="isEditable">
-        <input type="number" min="0" max="3750" class="csd-number" [(ngModel)]="currVehicle.sdp">/
-        <input type="number" min="0" max="maxSP" class="csd-number" [(ngModel)]="currVehicle.sp">
+        <input
+          type="number"
+          min="0"
+          max="3750"
+          class="csd-number"
+          [(ngModel)]="currVehicle.sdp"
+        />/
+        <input
+          type="number"
+          min="0"
+          max="maxSP"
+          class="csd-number"
+          [(ngModel)]="currVehicle.sp"
+        />
       </span>
     </div>
   </div>
   <div class="row small">
-    <div class="col">Speed:
-      <span *ngIf="!isEditable">{{currVehicle.speed}} mph</span>
+    <div class="col">
+      Speed:
+      <span *ngIf="!isEditable">{{ currVehicle.speed }} mph</span>
       <span *ngIf="isEditable">
-        <input type="number" min="0" class="csd-number" [(ngModel)]="currVehicle.speed">
+        <input
+          type="number"
+          min="0"
+          class="csd-number"
+          [(ngModel)]="currVehicle.speed"
+        />
       </span>
     </div>
-    <div class="col">Acc/Dec:
-      <span *ngIf="!isEditable">{{currVehicle.accelerate}}mph/{{currVehicle.decelerate}}mph</span>
+    <div class="col">
+      Acc/Dec:
+      <span *ngIf="!isEditable"
+        >{{ currVehicle.accelerate }}mph/{{ currVehicle.decelerate }}mph</span
+      >
       <span *ngIf="isEditable">
-        <input type="number" min="0" max="100" class="csd-number-sm" [(ngModel)]="currVehicle.accelerate">/
-        <input type="number" min="0" max="75" class="csd-number-sm" [(ngModel)]="currVehicle.decelerate">
-      </span>
-    </div>
-  </div>
-  <div class="row small">
-    <div class="col">Range:
-      <span *ngIf="!isEditable">{{currVehicle.range}} mph</span>
-      <span *ngIf="isEditable">
-        <input type="number" min="0" class="csd-number" [(ngModel)]="currVehicle.range">
-      </span>
-    </div>
-    <div class="col">Manuever:
-      <span *ngIf="!isEditable">{{currVehicle.manuever}} mph</span>
-      <span *ngIf="isEditable">
-        <input type="number" min="0" max="5" class="csd-number-sm" [(ngModel)]="currVehicle.manuever">
-      </span>
-    </div>
-  </div>
-  <div class="row small">
-    <div class="col">Crew/Passenger:
-      <span *ngIf="!isEditable">{{currVehicle.crew}}/{{currVehicle.passengers}}</span>
-      <span *ngIf="isEditable">
-        <input type="number" min="0" class="csd-number-sm" [(ngModel)]="currVehicle.crew">/
-        <input type="number" min="0" class="csd-number-sm" [(ngModel)]="currVehicle.passengers">
-      </span>
-    </div>
-    <div class="col">Cargo:
-      <span *ngIf="!isEditable">{{currVehicle.cargo}}</span>
-      <span *ngIf="isEditable">
-        <input type="text" style="width:80%" [(ngModel)]="currVehicle.cargo">
+        <input
+          type="number"
+          min="0"
+          max="100"
+          class="csd-number-sm"
+          [(ngModel)]="currVehicle.accelerate"
+        />/
+        <input
+          type="number"
+          min="0"
+          max="75"
+          class="csd-number-sm"
+          [(ngModel)]="currVehicle.decelerate"
+        />
       </span>
     </div>
   </div>
   <div class="row small">
-    <div class="col">is Off-Road:
-      <span *ngIf="!isEditable">{{currVehicle.offRoad ? 'yes': 'no'}} </span>
+    <div class="col">
+      Range:
+      <span *ngIf="!isEditable">{{ currVehicle.range }} mph</span>
       <span *ngIf="isEditable">
-        <input type="number" min="0" class="w-50 text-end" [(ngModel)]="currVehicle.cost">
+        <input
+          type="number"
+          min="0"
+          class="csd-number"
+          [(ngModel)]="currVehicle.range"
+        />
       </span>
     </div>
-    <div class="col">Cost:
-      <span *ngIf="!isEditable">{{currVehicle.cost}} eb</span>
+    <div class="col">
+      Manuever:
+      <span *ngIf="!isEditable">{{ currVehicle.manuever }} mph</span>
       <span *ngIf="isEditable">
-        <input type="number" min="0" class="w-50 text-end" [(ngModel)]="currVehicle.cost">
+        <input
+          type="number"
+          min="0"
+          max="5"
+          class="csd-number-sm"
+          [(ngModel)]="currVehicle.manuever"
+        />
+      </span>
+    </div>
+  </div>
+  <div class="row small">
+    <div class="col">
+      Crew/Passenger:
+      <span *ngIf="!isEditable"
+        >{{ currVehicle.crew }}/{{ currVehicle.passengers }}</span
+      >
+      <span *ngIf="isEditable">
+        <input
+          type="number"
+          min="0"
+          class="csd-number-sm"
+          [(ngModel)]="currVehicle.crew"
+        />/
+        <input
+          type="number"
+          min="0"
+          class="csd-number-sm"
+          [(ngModel)]="currVehicle.passengers"
+        />
+      </span>
+    </div>
+    <div class="col">
+      Cargo:
+      <span *ngIf="!isEditable">{{ currVehicle.cargo }}</span>
+      <span *ngIf="isEditable">
+        <input type="text" style="width: 80%" [(ngModel)]="currVehicle.cargo" />
+      </span>
+    </div>
+  </div>
+  <div class="row small">
+    <div class="col">
+      is Off-Road:
+      <span *ngIf="!isEditable">{{ currVehicle.offRoad ? "yes" : "no" }} </span>
+      <span *ngIf="isEditable">
+        <select [(ngModel)]="currVehicle.offRoad">
+          <option [value]="null"></option>
+          <option [value]="false">no</option>
+          <option [value]="true">yes</option>
+        </select>
+      </span>
+    </div>
+    <div class="col">
+      Cost:
+      <span *ngIf="!isEditable">{{ currVehicle.cost }} eb</span>
+      <span *ngIf="isEditable">
+        <input
+          type="number"
+          min="0"
+          class="w-50 text-end"
+          [(ngModel)]="currVehicle.cost"
+        />
       </span>
     </div>
   </div>
@@ -98,14 +192,18 @@
       </div>
       <ng-container *ngIf="!isEditable">
         <div class="row" *ngFor="let wpn of currVehicle.weapons">
-          <div class="col">{{wpn.name}}</div>
+          <div class="col">{{ wpn.name }}</div>
         </div>
       </ng-container>
       <ng-container *ngIf="isEditable">
-        <div class="row" *ngFor="let wpn of currVehicle.weapons;let i = index">
+        <div class="row" *ngFor="let wpn of currVehicle.weapons; let i = index">
           <div class="col">
-            <input type="text" [(ngModel)]="wpn.name">
-            <button class="csd-btn csd-icon-btn csd-icon-md ms-2" (click)="deleteWeapon(i)" title="Delete weapon">
+            <input type="text" [(ngModel)]="wpn.name" />
+            <button
+              class="csd-btn csd-icon-btn csd-icon-md ms-2"
+              (click)="deleteWeapon(i)"
+              title="Delete weapon"
+            >
               <fa-icon [icon]="faTrash"></fa-icon>
             </button>
           </div>
@@ -113,7 +211,11 @@
       </ng-container>
       <div class="row" *ngIf="isEditable">
         <div class="col text-center">
-          <button class="csd-btn csd-icon-btn" (click)="addWeapon()" title="Add weapon">
+          <button
+            class="csd-btn csd-icon-btn"
+            (click)="addWeapon()"
+            title="Add weapon"
+          >
             <fa-icon [icon]="faPlus"></fa-icon>
           </button>
         </div>
@@ -125,14 +227,18 @@
       </div>
       <ng-container *ngIf="!isEditable">
         <div class="row" *ngFor="let opt of currVehicle.options">
-          <div class="col">{{opt.name}}</div>
+          <div class="col">{{ opt.name }}</div>
         </div>
       </ng-container>
       <ng-container *ngIf="isEditable">
-        <div class="row" *ngFor="let opt of currVehicle.options;let i = index">
+        <div class="row" *ngFor="let opt of currVehicle.options; let i = index">
           <div class="col">
-            <input type="text" [(ngModel)]="opt.name">
-            <button class="csd-btn csd-icon-btn csd-icon-md ms-2" (click)="deleteOption(i)" title="Delete option">
+            <input type="text" [(ngModel)]="opt.name" />
+            <button
+              class="csd-btn csd-icon-btn csd-icon-md ms-2"
+              (click)="deleteOption(i)"
+              title="Delete option"
+            >
               <fa-icon [icon]="faTrash"></fa-icon>
             </button>
           </div>
@@ -140,7 +246,11 @@
       </ng-container>
       <div class="row" *ngIf="isEditable">
         <div class="col text-center">
-          <button class="csd-btn csd-icon-btn" (click)="addOption()" title="Add option">
+          <button
+            class="csd-btn csd-icon-btn"
+            (click)="addOption()"
+            title="Add option"
+          >
             <fa-icon [icon]="faPlus"></fa-icon>
           </button>
         </div>
@@ -149,10 +259,16 @@
   </div>
   <div class="row small">
     <div class="col">
-      <span *ngIf="!isEditable">{{'Description: ' + currVehicle.description}}</span>
+      <span *ngIf="!isEditable">{{
+        "Description: " + currVehicle.description
+      }}</span>
       <span *ngIf="isEditable">
         Description:
-        <textarea [(ngModel)]="currVehicle.description" class="w-100" rows=5></textarea>
+        <textarea
+          [(ngModel)]="currVehicle.description"
+          class="w-100"
+          rows="5"
+        ></textarea>
       </span>
     </div>
   </div>
