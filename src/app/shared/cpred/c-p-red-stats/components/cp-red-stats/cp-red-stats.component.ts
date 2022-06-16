@@ -1,6 +1,6 @@
-import { faDice } from '@fortawesome/free-solid-svg-icons';
+import { Observable, map } from 'rxjs';
+import { CpRedStatsManagerService } from './../../services/cp-red-stats-manager/cp-red-stats-manager.service';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
-import { CpRedStats, CpRedCharacterStats } from '../../models';
 import {
   Component,
   Input,
@@ -16,20 +16,22 @@ import {
   styleUrls: ['./cp-red-stats.component.css'],
 })
 export class CpRedStatsComponent implements OnInit {
-  faDice = faDice;
   modalRef: BsModalRef;
   modalConfig: ModalOptions = {
     class: 'modal-left modal-sm',
     animated: true,
   };
 
-  @Input()
-  stats: CpRedStats = new CpRedCharacterStats();
+  constructor(
+    private modalService: BsModalService,
+    private statManager: CpRedStatsManagerService
+  ) {}
 
-  @Output()
-  updateStats: EventEmitter<CpRedStats> = new EventEmitter<CpRedStats>();
-
-  constructor(private modalService: BsModalService) {}
+  get statNames(): Observable<Array<string>> {
+    return this.statManager.characterStats.pipe(
+      map((stats) => Object.keys(stats))
+    );
+  }
 
   ngOnInit(): void {}
 

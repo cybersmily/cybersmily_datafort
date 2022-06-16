@@ -1,10 +1,7 @@
-<div class="container p-4">
-  <div class="row">
+<div *ngIf="statNames | async as stats" class="container p-4">
+  <div *ngFor="let statName of stats" class="row">
     <div class="col-12">
-      <cs-cp-red-stat-editor
-        [stat]="stats.int"
-        (changeStat)="updateStat($event)"
-      ></cs-cp-red-stat-editor>
+      <cs-cp-red-stat-editor [statName]="statName"></cs-cp-red-stat-editor>
     </div>
   </div>
 </div>

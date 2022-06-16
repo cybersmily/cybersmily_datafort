@@ -10,10 +10,10 @@ export class CpRedCharacterStat implements CpRedStat {
 
   constructor(params?: any) {
     this.name = params?.name ?? '';
+    this.base = params?.base ?? 0;
     this.modifiers = params?.modifiers
       ? [...params.modifiers]
       : new Array<CpRedStatMod>();
-    this.base = params?.base ?? 0;
-    this.modified = CalculateCpRedStatModified(params);
+    this.modified = CalculateCpRedStatModified(this);
   }
 }

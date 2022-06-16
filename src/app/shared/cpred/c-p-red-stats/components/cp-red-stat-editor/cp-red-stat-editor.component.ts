@@ -1,11 +1,14 @@
-import { CpRedStatMod } from '../../models/cp-red-stat-mod';
+import { Observable, map } from 'rxjs';
+import { CpRedStatsManagerService } from './../../services/cp-red-stats-manager/cp-red-stats-manager.service';
+import { CpRedStatMod, CpRedCharacterStat, CpRedStat } from '../../models';
 import {
   faPlus,
   faChevronDown,
   faChevronRight,
   faTrash,
+  faDotCircle,
+  faCheckCircle,
 } from '@fortawesome/free-solid-svg-icons';
-import { CpRedStat } from './../../models/cp-red-stat';
 import {
   Component,
   Input,
@@ -20,12 +23,14 @@ import {
   templateUrl: './cp-red-stat-editor.component.html',
   styleUrls: ['./cp-red-stat-editor.component.css'],
 })
-export class CPRedStatEditorComponent implements OnInit, OnChanges {
+export class CPRedStatEditorComponent implements OnInit {
   faPlus = faPlus;
   faChevronDown = faChevronDown;
   faChevronRight = faChevronRight;
   faIcon = this.faChevronRight;
   faTrash = faTrash;
+  faDotCircle = faDotCircle;
+  faCheckCircle = faCheckCircle;
 
   showModifiers = false;
 
@@ -36,49 +41,41 @@ export class CPRedStatEditorComponent implements OnInit, OnChanges {
   };
 
   @Input()
-  stat: CpRedStat;
-  currStat: CpRedStat;
+  statName: string;
 
-  @Output()
-  changeStat: EventEmitter<CpRedStat> = new EventEmitter<CpRedStat>();
+  constructor(private statsManager: CpRedStatsManagerService) {}
 
-  constructor() {}
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-    this.currStat = this.stat;
-  }
-  ngOnChanges(): void {
-    this.currStat = this.stat;
+  get stat(): Observable<CpRedCharacterStat> {
+    return this.statsManager.characterStats.pipe(
+      map((stats) => stats[this.statName])
+    );
   }
 
-  updateStatBase(): void {
-    this.changeStat.emit(this.currStat);
+  updateStatBase(value: number): void {
+    this.statsManager.updateStatBase(this.statName, Number(value));
   }
 
   toggleModifiers(): void {
     this.showModifiers = !this.showModifiers;
     this.faIcon = this.showModifiers ? this.faChevronDown : this.faChevronRight;
-    this.changeStat.emit(this.currStat);
   }
 
   activateModifier(index: number): void {
-    this.currStat.modifiers[index].active =
-      !this.currStat.modifiers[index].active;
-    this.changeStat.emit(this.currStat);
+    this.statsManager.toggleStatModifierActive(this.statName, index);
   }
 
-  delectModifier(index: number): void {
-    this.currStat.modifiers.splice(index, 1);
-    this.changeStat.emit(this.currStat);
+  deleteModifier(index: number): void {
+    this.statsManager.deleteStatModifier(this.statName, index);
   }
 
   addModifier(): void {
-    this.currStat.modifiers.push({ ...this.newMod });
+    this.statsManager.addStatModifier(this.statName, { ...this.newMod });
     this.newMod = {
       name: null,
       value: null,
       active: true,
     };
-    this.changeStat.emit(this.currStat);
   }
 }

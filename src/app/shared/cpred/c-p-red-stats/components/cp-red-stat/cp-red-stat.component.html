@@ -1,5 +1,9 @@
 <div class="csd-cpr-stat my-1 d-inline-block text-uppercase w-100">
-  <div class="w-100 text-xsmall align-top text-end pe-1">{{ stat.name }}</div>
-  <div class="d-inline-block text-center w-50">{{ stat.base }}</div>
-  <div class="d-inline-block text-center w-50">{{ stat.modified }}</div>
+  <div class="w-100 text-xsmall align-top text-end pe-1">
+    {{ (stat | async).name }}
+  </div>
+  <div class="d-inline-block text-center w-50">{{ (stat | async).base }}</div>
+  <div class="d-inline-block text-center w-50">
+    {{ (stat | async).modified }}
+  </div>
 </div>

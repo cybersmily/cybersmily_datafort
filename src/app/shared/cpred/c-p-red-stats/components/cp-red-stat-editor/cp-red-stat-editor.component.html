@@ -1,8 +1,6 @@
 <div class="ps-4">
   <div class="row">
-    <div class="col-2 text-uppercase text-end ps-0 pt-2">
-      {{ currStat.name }}:
-    </div>
+    <div class="col-2 text-uppercase text-end ps-0 pt-2">{{ statName }}:</div>
     <div class="col-2 px-0 py-0">
       <div class="position-relative text-center px-0 py-0 w-100">
         <div class="position-absolute text-xxsmall align-top w-100">base</div>
@@ -10,9 +8,9 @@
           type="number"
           tabindex="0"
           class="text-center no-spinners w-100 pt-2 csd-plain-input"
-          [(ngModel)]="currStat.base"
-          (change)="updateStatBase()"
-          (keyup)="updateStatBase()"
+          [ngModel]="(stat | async)?.base"
+          (change)="updateStatBase($event.target.value)"
+          (keyup)="updateStatBase($event.target.value)"
           max="10"
           min="0"
         />
@@ -25,7 +23,7 @@
       >
         <div class="position-absolute text-xxsmall align-top w-100">total</div>
         <div class="w-100 pt-2">
-          {{ currStat.modified }}
+          {{ (stat | async)?.modified }}
         </div>
       </div>
     </div>
@@ -44,13 +42,25 @@
       <div class="col-4"></div>
       <div class="col-8 text-xxsmall csd-btn align-top ps-0">MODIFIERS</div>
     </div>
-    <div *ngFor="let mod of currStat.modifiers; let i = index" class="row">
+    <div
+      *ngFor="let mod of (stat | async)?.modifiers; let i = index"
+      class="row"
+    >
       <div class="col-4"></div>
-      <div class="col-7 small py-0 csd-btn" (click)="activateModifier(i)">
+      <div
+        class="col-7 small py-0 csd-btn"
+        (click)="activateModifier(i)"
+        title="Click to toggle active/deactive"
+      >
+        <fa-icon
+          [icon]="mod.active ? faCheckCircle : faDotCircle"
+          class="csd-icon-btn csd-icon-sm me-2"
+        ></fa-icon>
         {{ mod.value > 0 ? "+" : "" }} {{ mod.value }} {{ mod.name }}
-      </div>
-      <div class="col-1">
-        <button class="csd-btn csd-icon-btn float-end" (click)="addModifier()">
+        <button
+          class="csd-btn csd-icon-btn csd-icon-sm float-end"
+          (click)="deleteModifier(i)"
+        >
           <fa-icon [icon]="faTrash"></fa-icon>
         </button>
       </div>
