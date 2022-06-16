@@ -55,7 +55,7 @@ export class ClubChartDataService {
           return data;
         }),
         catchError((err) => {
-          console.log(err);
+          console.error(err);
           return of(null);
         })
       );

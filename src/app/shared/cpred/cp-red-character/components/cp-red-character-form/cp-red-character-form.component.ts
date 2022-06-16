@@ -33,7 +33,6 @@ export class CpRedCharacterFormComponent implements OnInit, OnChanges {
   }
 
   initialize(): void {
-    console.log('initialize', this.sheet.character);
     this.currSheet = new CPRedCharacterSheet(this.sheet.character);
   }
 
@@ -43,8 +42,6 @@ export class CpRedCharacterFormComponent implements OnInit, OnChanges {
   }
 
   update(): void {
-    console.log('beforeSheet', this.sheet.character);
-    console.log('currCharacter', this.currSheet.character);
     this.updateSheet.emit(this.currSheet);
   }
 }

@@ -15,8 +15,6 @@ export class CpRedStatsEditorComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.currStats = this.stats;
-    console.log(this.stats);
-    console.log(this.currStats);
   }
 
   ngOnChanges(): void {
