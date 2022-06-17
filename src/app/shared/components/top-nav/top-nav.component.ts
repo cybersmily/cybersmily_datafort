@@ -2,6 +2,7 @@ import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import {
   faChevronLeft,
   faChevronRight,
+  faTimes,
 } from '@fortawesome/free-solid-svg-icons';
 import { TopNavLinks } from './../../Models/TopNavLinks';
 import { Component, OnInit, TemplateRef } from '@angular/core';
@@ -24,6 +25,7 @@ export class TopNavComponent implements OnInit {
   faReddit = faReddit;
   faChevronRight = faChevronRight;
   faChevronLeft = faChevronLeft;
+  faTimes = faTimes;
 
   topNavLinks: TopNavLinks = new TopNavLinks();
   isCollapsed = true;
@@ -57,5 +59,9 @@ export class TopNavComponent implements OnInit {
 
   showModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, this.modalConfig);
+  }
+
+  closeModal() {
+    this.modalRef.hide();
   }
 }

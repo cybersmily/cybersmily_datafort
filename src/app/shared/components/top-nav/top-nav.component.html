@@ -111,6 +111,12 @@
 
 <ng-template #sideNavBar>
   <div class="bg-dark w-100 h-100" id="navbarCybersmily2sidebar">
+    <button
+      class="csd-btn float-end text-light p-3 rounded"
+      (click)="closeModal()"
+    >
+      <fa-icon class="text-light" [icon]="faTimes"></fa-icon>
+    </button>
     <ul class="navbar-nav me-auto bg-dark px-2">
       <li
         class="nav-item dropdown mega-dropdown"
@@ -144,7 +150,7 @@
                 [target]="lk.target ? lk.target : undefined"
                 [attr.download]="lk.download ? lk.download : undefined"
                 [attr.title]="lk.desc"
-                (click)="isCollapsed = !isCollapsed"
+                (click)="closeModal()"
                 ><span class="rounded p-0">{{ lk.title }}</span></a
               >
               <a
@@ -153,19 +159,27 @@
                 class="dropdown-item nav-link bg-dark pt-1 pb-0 my-0"
                 [target]="'_blank'"
                 [attr.title]="lk.desc"
-                (click)="isCollapsed = !isCollapsed"
+                (click)="closeModal()"
                 ><span class="rounded p-0">{{ lk.title }}</span></a
               >
             </div>
           </div>
         </div>
       </li>
-      <li class="pt-2 ps-4">
+      <li class="pt-2 ps-2">
+        <fa-icon
+          [icon]="faEnvelope"
+          inverse="true"
+          (click)="sendEmail()"
+          class="btn csd-btn me-4"
+          title="Email Cybersmily"
+        >
+        </fa-icon>
         <a
           href="https://github.com/cybersmily/cybersmily_datafort"
           title="GitHub Cybersmily Datafort Project - Log issues, request features, and learn more about the code!"
           target="_blank"
-          class="me-2"
+          class="me-4"
         >
           <fa-icon [icon]="faGithub" inverse="true"></fa-icon>
         </a>
@@ -173,7 +187,7 @@
           href="https://discord.gg/Jhy9Txx5hP"
           title="Cybersmily's Datafort Discord Server"
           target="_blank"
-          class="me-2"
+          class="me-4"
         >
           <fa-icon [icon]="faDiscord" inverse="true"></fa-icon>
         </a>
@@ -181,18 +195,10 @@
           href="https://www.reddit.com/r/cybersmilydatafort/"
           title="Cybersmily's Datafort subreddit channel"
           target="_blank"
-          class="me-2"
+          class="me-4"
         >
           <fa-icon [icon]="faReddit" inverse="true"></fa-icon>
         </a>
-        <fa-icon
-          [icon]="faEnvelope"
-          inverse="true"
-          (click)="sendEmail()"
-          class="btn csd-btn me-2"
-          title="Email Cybersmily"
-        >
-        </fa-icon>
       </li>
     </ul>
   </div>

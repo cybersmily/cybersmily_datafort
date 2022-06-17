@@ -71,12 +71,12 @@ body .modal-dialog.modal-full .modal-content {
 
 body .modal.fade.show .modal-dialog.modal-left.modal-lg,
 body .modal.fade.show .modal-dialog.modal-right.modal-lg {
-  width: 90%;
+  width: 85%;
 }
 
 body .modal .modal-dialog.modal-left.modal-lg,
 body .modal .modal-dialog.modal-right.modal-lg {
-  width: 90%;
+  width: 85%;
 }
 
 .modal .modal-dialog.modal-left.modal-xl,
