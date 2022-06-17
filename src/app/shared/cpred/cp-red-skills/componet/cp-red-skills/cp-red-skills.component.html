@@ -1,1 +1,66 @@
-<p>cp-red-skills works!</p>
+<div *ngIf="skills$ | async as skills">
+  <div class="row">
+    <div class="col-12">
+      <div class="btn-group" dropdown>
+        <button
+          id="button-basic"
+          dropdownToggle
+          type="button"
+          class="csd-btn dropdown-toggle text-capitalize"
+          aria-controls="dropdown-basic"
+        >
+          {{ sortOn }}
+        </button>
+        <ul
+          id="dropdown-basic"
+          *dropdownMenu
+          class="dropdown-menu"
+          role="menu"
+          aria-labelledby="button-basic"
+        >
+          <li role="menuitem" (click)="sortOn = 'name'">Name</li>
+          <li role="menuitem" (click)="sortOn = 'type'">Type</li>
+          <li role="menuitem" (click)="sortOn = 'stat'">Stat</li>
+          <li role="menuitem" (click)="sortOn = 'modfied'">Level</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-4 pe-3">
+      <cs-cp-red-skill
+        *ngFor="
+          let skill of (skills | orderby: sortOn:sortDirection).slice(
+            0,
+            skills.length * 0.34
+          );
+          let i = index
+        "
+        [skill]="skill"
+      ></cs-cp-red-skill>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 pe-3">
+      <cs-cp-red-skill
+        *ngFor="
+          let skill of (skills | orderby: sortOn:sortDirection).slice(
+            skills.length * 0.34,
+            skills.length * 0.68
+          );
+          let i = index
+        "
+        [skill]="skill"
+      ></cs-cp-red-skill>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 pe-3">
+      <cs-cp-red-skill
+        *ngFor="
+          let skill of (skills | orderby: sortOn:sortDirection).slice(
+            skills.length * 0.68
+          );
+          let i = index
+        "
+        [skill]="skill"
+      ></cs-cp-red-skill>
+    </div>
+  </div>
+</div>

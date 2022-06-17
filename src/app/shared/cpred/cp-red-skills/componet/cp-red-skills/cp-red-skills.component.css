@@ -1,0 +1,29 @@
+select {
+  appearance: none;
+  border-bottom: 1px gray solid;
+}
+
+select:active, select:focus {
+  border-width: 0px;
+  box-sizing: content-box;
+  border: 0;
+  outline: 0;
+}
+
+select option:hover, select option:checked {
+  background: transparent !important;
+  outline: 0;
+  box-shadow: 0 0 10px 100px #CCC inset !important;
+  background-color: #CCC !important;
+}
+
+select option:checked:after {
+  content: attr(title);
+  background: #CCC;
+  color: #111;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  border: none;
+}
+

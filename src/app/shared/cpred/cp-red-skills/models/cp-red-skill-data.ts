@@ -3,6 +3,7 @@ export interface CpRedSkillData {
   type: string;
   stat: string;
   source: string;
+  required: boolean;
   ipMod?: number;
   options?: Array<string>;
   description: string;

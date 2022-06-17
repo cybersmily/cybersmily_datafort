@@ -1,1 +1,17 @@
-<p>cp-red-skill works!</p>
+<div class="row">
+  <div
+    [ngClass]="{
+      'col-6 col-md-9 p-0 small text-smaller': true,
+      'fw-bold': skill.required
+    }"
+  >
+    <span class="text-capitalize">{{ skill.name }}</span>
+    <span *ngIf="skill.ipMod" class="ms-1 text-smaller"
+      >(x{{ skill.ipMod }})</span
+    >
+    <span class="text-uppercase ms-1 text-smaller">({{ skill.stat }})</span>
+  </div>
+  <div class="col-2 col-md-1 p-0">{{ skill.modified }}</div>
+  <div class="col-2 col-md-1 p-0">10</div>
+  <div class="col-2 col-md-1 p-0">10</div>
+</div>

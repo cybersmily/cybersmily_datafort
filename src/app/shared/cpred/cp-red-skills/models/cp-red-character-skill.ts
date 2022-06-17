@@ -10,6 +10,7 @@ export class CpRedCharacterSkill implements CpRedSkill {
   modifiers: Array<CpRedSkillMod>;
   source: string;
   description: string;
+  required: boolean;
   ipMod?: number;
   option?: string;
 

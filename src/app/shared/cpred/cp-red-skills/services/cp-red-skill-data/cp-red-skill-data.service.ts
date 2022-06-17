@@ -53,15 +53,19 @@ export class CpRedSkillDataService {
   get skillListAsCharacterSkills(): Observable<Array<CpRedCharacterSkill>> {
     return this.skillList.pipe(
       map((skills) =>
-        skills.map((skill) => {
+        skills?.map((skill) => {
           const sk = new CpRedCharacterSkill();
-          sk.name = skill.name;
-          sk.type = skill.type;
-          sk.description = skill.description;
-          sk.source = skill.source;
-          sk.stat = skill.stat;
-          sk.ipMod = skill?.ipMod ?? undefined;
-          sk.option = skill?.options[0] ?? undefined;
+          sk.name = skill?.name;
+          sk.type = skill?.type;
+          sk.description = skill?.description;
+          sk.source = skill?.source;
+          sk.stat = skill?.stat;
+          sk.required = skill?.required;
+          sk.base = 0;
+          sk.modified = 0;
+          if (skill?.ipMod) {
+            sk['ipMod'] = skill.ipMod;
+          }
           return sk;
         })
       )
