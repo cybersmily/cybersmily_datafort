@@ -35,7 +35,14 @@ ul li div.csd-link-menu {
 .mega-menu a:hover span {background-color: rgba(255, 255, 255, 0.4) !important;
 
 }
+#navbarCybersmily2sidebar A {
+  text-decoration: none;
+  color: #CCC;
+}
 
+#navbarCybersmily2sidebar .dropdown-menu{
+  max-height: none !important;
+}
 
 .navbar .mega-dropdown{
   position:static

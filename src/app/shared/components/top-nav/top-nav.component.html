@@ -6,11 +6,7 @@
     <button
       class="navbar-toggler d-lg-none"
       type="button"
-      data-target="#navbarCybersmily2"
-      (click)="isCollapsed = !isCollapsed"
-      [attr.aria-expanded]="isCollapsed"
-      aria-controls="navbarCybersmily2"
-      aria-label="Toggle navigation"
+      (click)="showModal(sideNavBar)"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -112,3 +108,92 @@
     </div>
   </nav>
 </div>
+
+<ng-template #sideNavBar>
+  <div class="bg-dark w-100 h-100" id="navbarCybersmily2sidebar">
+    <ul class="navbar-nav me-auto bg-dark px-2">
+      <li
+        class="nav-item dropdown mega-dropdown"
+        dropdown
+        *ngFor="let lnk of topNavLinks.menuItems"
+      >
+        <a
+          class="nav-link dropdown-toggle text-uppsercase"
+          data-toggle=""
+          aria-haspopup="true"
+          aria-expand="false"
+          dropdownToggle
+          [attr.title]="lnk.description"
+        >
+          {{ lnk.groupTitle }}
+        </a>
+        <div
+          class="dropdown-menu mega-menu z-depth-1 ms-2 py-2 px-0 bg-dark text-light h-100"
+          *dropdownMenu
+        >
+          <div class="d-block mt-0 pt-0 font-italic small csd-submenu-title">
+            {{ lnk.description }}
+          </div>
+          <div class="csd-link-menu pt-0 mt-0 h-100">
+            <div *ngFor="let lk of lnk.links" class="bg-dark p-0 my-0">
+              <a
+                *ngIf="!isExternal(lk.link)"
+                [routerLink]="lk.link"
+                routerLinkActive="active"
+                class="dropdown-item nav-link bg-dark rounded pt-1 pb-0 my-0"
+                [target]="lk.target ? lk.target : undefined"
+                [attr.download]="lk.download ? lk.download : undefined"
+                [attr.title]="lk.desc"
+                (click)="isCollapsed = !isCollapsed"
+                ><span class="rounded p-0">{{ lk.title }}</span></a
+              >
+              <a
+                *ngIf="isExternal(lk.link)"
+                [href]="lk.link"
+                class="dropdown-item nav-link bg-dark pt-1 pb-0 my-0"
+                [target]="'_blank'"
+                [attr.title]="lk.desc"
+                (click)="isCollapsed = !isCollapsed"
+                ><span class="rounded p-0">{{ lk.title }}</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="pt-2 ps-4">
+        <a
+          href="https://github.com/cybersmily/cybersmily_datafort"
+          title="GitHub Cybersmily Datafort Project - Log issues, request features, and learn more about the code!"
+          target="_blank"
+          class="me-2"
+        >
+          <fa-icon [icon]="faGithub" inverse="true"></fa-icon>
+        </a>
+        <a
+          href="https://discord.gg/Jhy9Txx5hP"
+          title="Cybersmily's Datafort Discord Server"
+          target="_blank"
+          class="me-2"
+        >
+          <fa-icon [icon]="faDiscord" inverse="true"></fa-icon>
+        </a>
+        <a
+          href="https://www.reddit.com/r/cybersmilydatafort/"
+          title="Cybersmily's Datafort subreddit channel"
+          target="_blank"
+          class="me-2"
+        >
+          <fa-icon [icon]="faReddit" inverse="true"></fa-icon>
+        </a>
+        <fa-icon
+          [icon]="faEnvelope"
+          inverse="true"
+          (click)="sendEmail()"
+          class="btn csd-btn me-2"
+          title="Email Cybersmily"
+        >
+        </fa-icon>
+      </li>
+    </ul>
+  </div>
+</ng-template>

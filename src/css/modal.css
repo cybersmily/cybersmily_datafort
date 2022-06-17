@@ -69,6 +69,10 @@ body .modal-dialog.modal-full .modal-content {
   border: none;
 }
 
+body .modal.fade.show .modal-dialog.modal-left.modal-lg,
+body .modal.fade.show .modal-dialog.modal-right.modal-lg {
+  width: 90%;
+}
 
 body .modal .modal-dialog.modal-left.modal-lg,
 body .modal .modal-dialog.modal-right.modal-lg {
