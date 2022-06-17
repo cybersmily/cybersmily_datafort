@@ -15,18 +15,14 @@ import { CsdComboBoxComponent } from './csd-combo-box/csd-combo-box.component';
 import { NgxMasonryModule } from 'ngx-masonry';
 import { AngularDraggableModule } from 'angular2-draggable';
 
-
-
 @NgModule({
-  declarations: [
-    CsdComboBoxComponent
-  ],
+  declarations: [CsdComboBoxComponent],
   imports: [
     CommonModule,
     FormsModule,
     NgxMasonryModule,
     AccordionModule.forRoot(),
-    BsDropdownModule,
+    BsDropdownModule.forRoot(),
     CollapseModule.forRoot(),
     ModalModule,
     PopoverModule.forRoot(),
@@ -35,7 +31,7 @@ import { AngularDraggableModule } from 'angular2-draggable';
     TooltipModule.forRoot(),
     TypeaheadModule.forRoot(),
     AngularDraggableModule,
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
   exports: [
     FormsModule,
@@ -52,11 +48,8 @@ import { AngularDraggableModule } from 'angular2-draggable';
     TypeaheadModule,
     FontAwesomeModule,
     AngularDraggableModule,
-    CsdComboBoxComponent
+    CsdComboBoxComponent,
   ],
-  providers: [
-    BsModalService,
-    BsModalRef
-  ]
+  providers: [BsModalService, BsModalRef],
 })
-export class CommonUiModule { }
+export class CommonUiModule {}
