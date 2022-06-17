@@ -5,6 +5,15 @@ import { get } from 'lodash';
   name: 'orderby',
 })
 export class OrderbyPipe implements PipeTransform {
+  /**
+   * sorty by will sort an array based on the property provide as the first argument,
+   * second argument determines if it is descending order.
+   *
+   * @param {any[]} value
+   * @param {...unknown[]} args
+   * @return {*}  {any[]}
+   * @memberof OrderbyPipe
+   */
   transform(value: any[], ...args: unknown[]): any[] {
     if (!value || value.length <= 1) {
       return value;
