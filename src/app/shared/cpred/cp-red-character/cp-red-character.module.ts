@@ -6,15 +6,20 @@ import { CpRedCharacterFormComponent } from './components/cp-red-character-form/
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CpRedCharacterSettingsFormComponent } from './components/cp-red-character-settings-form/cp-red-character-settings-form.component';
+import { CpRedSkillsModule } from '../cp-red-skills/cp-red-skills.module';
 
 @NgModule({
-  declarations: [CpRedCharacterFormComponent, CpRedCharacterSettingsFormComponent],
+  declarations: [
+    CpRedCharacterFormComponent,
+    CpRedCharacterSettingsFormComponent,
+  ],
   imports: [
     CommonModule,
     CommonUiModule,
     ImageHolderModule,
     PipesModule,
     CPRedStatsModule,
+    CpRedSkillsModule,
   ],
   exports: [CpRedCharacterFormComponent],
 })
