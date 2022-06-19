@@ -1,4 +1,7 @@
-on: push
+on: 
+  push:
+    branches:
+    - 'prod'
 name: Build Angular
 jobs:
   build:
@@ -32,7 +35,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
+          tag_name: rel ${{ github.ref }}
           release_name: Release ${{ github.ref }}
           draft: false
           prerelease: false
