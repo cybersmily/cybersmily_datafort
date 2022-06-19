@@ -1,6 +1,7 @@
 {
   "skillTypes": ["awareness","body","control","education","fighting","performance","ranged weapon","social", "technique"],
-"skills":[
+  "skillStats": ["cool", "dex", "int", "ref", "tech","will"],
+  "skills":[
     { "name": "concentration"         , "type": "awareness"     , "stat": "will" , "source": "CPR pg.131", "required": true, "description":    ""                                                                                                             },
     { "name": "conceal/reveal object" , "type": "awareness"     , "stat": "int"  , "source": "CPR pg.131", "required": false, "description":    ""                                                                                                             },
     { "name": "lip reading"           , "type": "awareness"     , "stat": "int"  , "source": "CPR pg.131", "required": false, "description":    ""                                                                                                             },
@@ -34,7 +35,7 @@
     { "name": "wilderness survival"   , "type": "education"     , "stat": "int"  , "source": "CPR pg.136", "required": false, "description":    ""                                                                                                             },
     { "name": "brawling"              , "type": "fighting"      , "stat": "dex"  , "source": "CPR pg.136", "required": true, "description":    ""                                                                                                             },
     { "name": "evasion"               , "type": "fighting"      , "stat": "dex"  , "source": "CPR pg.137", "required": true, "description":    ""                                                                                                             },
-    { "name": "martial arts"          , "type": "fighting"      , "stat": "dex"  , "source": "CPR pg.137", "required": false, "ipMod"      : 2, "options"     :["Karate","Taekwondo","Judo","Aikido"], "description": ""                                       },
+    { "name": "martial arts"          , "type": "fighting"      , "stat": "dex"  , "source": "CPR pg.137", "required": false, "ipMod"      : 2, "options"     :["","Karate","Taekwondo","Judo","Aikido"], "description": ""                                       },
     { "name": "melee weapon"          , "type": "fighting"      , "stat": "dex"  , "source": "CPR pg.137", "required": false, "description":    ""                                                                                                             },
     { "name": "acting"                , "type": "performance"   , "stat": "cool" , "source": "CPR pg.137", "required": false, "description":    ""                                                                                                             },
     { "name": "play instrument"       , "type": "performance"   , "stat": "tech" , "source": "CPR pg.137", "required": false, "options"    :[  "", "singing"     ,"guitar","drums","violin","piano"], "description": ""                                           },
@@ -66,5 +67,5 @@
     { "name": "pick pocket"           , "type": "technique"     , "stat": "tech" , "source": "CPR pg.142", "required": false, "description":    ""},
     { "name": "sea vehicle tech"      , "type": "technique"     , "stat": "tech" , "source": "CPR pg.142", "required": false, "description":    ""},
     { "name": "weaponstech"           , "type": "technique"     , "stat": "tech" , "source": "CPR pg.142", "required": false, "description":    ""}
-]
+  ]
 }
