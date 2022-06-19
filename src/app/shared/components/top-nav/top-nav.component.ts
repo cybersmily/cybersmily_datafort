@@ -4,7 +4,7 @@ import {
   faChevronRight,
   faTimes,
 } from '@fortawesome/free-solid-svg-icons';
-import { TopNavLinks } from './../../Models/TopNavLinks';
+import { TopNavLinks } from '../../models';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import {
