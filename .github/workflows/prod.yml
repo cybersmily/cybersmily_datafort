@@ -25,10 +25,8 @@ jobs:
         run: |
           npm i
           npm run build
-      - name: Push Build to Releases
-        uses: ncipollo/release-action@v1
+            - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v2
         with:
-          artifacts: "dist/**"
-          artifactContentType: "zip"
-          generateReleaseNotes: true
-          token: ${{ secrets.TOKEN }}
+          name: deploy_dist
+          path: dist
