@@ -28,5 +28,7 @@ jobs:
       - name: Push Build to Releases
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "dist/*"
+          artifacts: "dist/**"
+          artifactContentType: "zip"
+          generateReleaseNotes: true
           token: ${{ secrets.TOKEN }}
