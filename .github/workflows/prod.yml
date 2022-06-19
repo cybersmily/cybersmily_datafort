@@ -1,9 +1,9 @@
-on: 
+on:
   push:
     branches:
-    - 'prod'
+      - "prod"
     tags:
-    - '*'
+      - "*"
 name: Build Angular
 jobs:
   build:
@@ -31,11 +31,13 @@ jobs:
           npm i
           npm run build
           zip -r dist_folder dist
+      # try to get a tag
       - name: Get tag
         id: tag
         uses: dawidd6/action-get-tag@v1
         with:
           strip_v: true
+      # create the release
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
