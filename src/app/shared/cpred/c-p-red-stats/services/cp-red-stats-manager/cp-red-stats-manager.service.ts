@@ -2,7 +2,7 @@ import { CpRedStats } from './../../models/cp-red-stats';
 import { CalculateCpRedStatModified } from './../../functions/calculate-cp-red-stat-modified';
 import { CpRedStatMod } from './../../models/cp-red-stat-mod';
 import { CpRedCharacterStats, CpRedCharacterStat } from './../../models';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, map } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -15,6 +15,10 @@ export class CpRedStatsManagerService {
     this._redStats.asObservable();
 
   constructor() {}
+
+  getStat(name: string): Observable<CpRedCharacterStat> {
+    return this.characterStats.pipe(map((stats) => stats[name]));
+  }
 
   initialize(stats: CpRedStats): void {
     this._redStats.next(new CpRedCharacterStats(stats));

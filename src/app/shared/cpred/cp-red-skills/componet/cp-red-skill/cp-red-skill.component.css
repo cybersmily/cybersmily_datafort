@@ -1,0 +1,9 @@
+.csd-red-skill-roll button {
+  display: none;
+}
+.csd-red-skill-roll:hover button{
+  display: inline-block;
+  position: absolute;
+  right: -1.0em;
+
+}

@@ -1,7 +1,7 @@
 <div class="row">
   <div
     [ngClass]="{
-      'col-6 col-md-9 p-0 small text-smaller': true,
+      'col-6 col-md-9 small text-smaller': true,
       'fw-bold': skill.required
     }"
   >
@@ -11,7 +11,33 @@
     >
     <span class="text-uppercase ms-1 text-smaller">({{ skill.stat }})</span>
   </div>
-  <div class="col-2 col-md-1 p-0">{{ skill.modified }}</div>
-  <div class="col-2 col-md-1 p-0">10</div>
-  <div class="col-2 col-md-1 p-0">10</div>
+  <div class="col-2 col-md-1 p-0 text-center" title="Skill Level w/modifiers">
+    {{ skill.modified }}
+  </div>
+  <div
+    class="col-2 col-md-1 p-0 text-center"
+    title="Skill Stat value w/modifiers"
+  >
+    {{ (stat$ | async)?.modified }}
+  </div>
+  <div
+    class="col-2 col-md-1 p-0 csd-red-skill-roll csd-btn text-center position-relative"
+    title="Skill base to add to roll"
+    (click)="showModal(rollDice)"
+  >
+    {{ (stat$ | async)?.modified + skill.modified }}
+    <button class="csd-icon-btn">
+      <fa-icon [icon]="faDice"></fa-icon>
+    </button>
+  </div>
 </div>
+<ng-template #rollDice>
+  <div>
+    <button
+      class="csd-btn csd-icon-btn csd-icon-xl float-end"
+      (click)="closeModal()"
+    >
+      <fa-icon [icon]="faTimes"></fa-icon>
+    </button>
+  </div>
+</ng-template>
