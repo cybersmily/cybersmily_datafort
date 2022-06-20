@@ -3,16 +3,37 @@ import { DataWeapon } from './../models/data-weapon';
 import { Cp2020StatBlock } from './../../cp2020-stats/models/cp2020-stat-block';
 import { WeaponDataService } from './../services';
 import { DiceService } from './../../../services/dice/dice.service';
-import { CpPlayerWeaponList, CpPlayerWeapon, Cp2020PlayerAmmo } from './../models';
+import {
+  CpPlayerWeaponList,
+  CpPlayerWeapon,
+  Cp2020PlayerAmmo,
+} from './../models';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { faDice, faPlus, faCrosshairs, faCog, faCalculator, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import {
+  faDice,
+  faPlus,
+  faCrosshairs,
+  faCog,
+  faCalculator,
+  faChevronDown,
+  faChevronRight,
+} from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerSkills } from './../../cp2020-skills/models';
-import { Component, OnInit, Input, Output, EventEmitter, TemplateRef, ViewChild, ElementRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  TemplateRef,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 
 @Component({
   selector: 'cs-cp2020weapontable',
   templateUrl: './cp2020weapontable.component.html',
-  styleUrls: ['./cp2020weapontable.component.css']
+  styleUrls: ['./cp2020weapontable.component.css'],
 })
 export class Cp2020weapontableComponent implements OnInit {
   faDice = faDice;
@@ -26,15 +47,14 @@ export class Cp2020weapontableComponent implements OnInit {
   isIUCollapsed = false;
   isWeaponsCollapsed = false;
 
-
   collapseChevron(isCollapsed: boolean): any {
-    return (isCollapsed) ? faChevronRight : this.faChevronDown;
+    return isCollapsed ? faChevronRight : this.faChevronDown;
   }
 
   modalRef: BsModalRef;
   modalConfig = {
     keyboard: true,
-    class: 'modal-dialog-centered modal-lg'
+    class: 'modal-right modal-lg',
   };
   newWeapon: CpPlayerWeapon = new CpPlayerWeapon();
 
@@ -73,19 +93,23 @@ export class Cp2020weapontableComponent implements OnInit {
   @ViewChild('newWeaponElem', { static: false })
   newWeaponButton: ElementRef;
 
-  constructor(private modalService: BsModalService, private diceService: DiceService, private weaponData: WeaponDataService) { }
+  constructor(
+    private modalService: BsModalService,
+    private diceService: DiceService,
+    private weaponData: WeaponDataService
+  ) {}
 
   ngOnInit(): void {
     this.wpnParam = {
       type: ['PISTOLS', 'SMG', 'RIFLES', 'MELEE', 'SHOTGUNS'],
       subtype: ['LIGHT', 'MEDIUM', 'HEAVY', 'ASSAULT'],
-      availability: ['E', 'C']
+      availability: ['E', 'C'],
     };
     this.isIUCollapsed = this.isCollapsed;
     this.isWeaponsCollapsed = this.isCollapsed;
   }
 
-  updateWeapon(data: { index: number, weapon: CpPlayerWeapon }) {
+  updateWeapon(data: { index: number; weapon: CpPlayerWeapon }) {
     this.weapons.updateWeapon(data.index, data.weapon);
     this.changeWeapons.emit(this.weapons);
   }
@@ -109,12 +133,11 @@ export class Cp2020weapontableComponent implements OnInit {
     this.weaponData
       .generateWeapons(1, this.diceService, this.wpnParam)
       .subscribe((data: Array<DataWeapon>) => {
-        data.forEach(wpn => {
+        data.forEach((wpn) => {
           this.weapons.addDataWeapon(wpn);
         });
         this.changeWeapons.emit(this.weapons);
       });
-
   }
 
   openModal(template: TemplateRef<any>, returnFocus?: string) {
@@ -140,7 +163,12 @@ export class Cp2020weapontableComponent implements OnInit {
   }
 
   paramChecked(value: Array<string>, item: string): boolean {
-    return value && value.some((t) => { return t === item });
+    return (
+      value &&
+      value.some((t) => {
+        return t === item;
+      })
+    );
   }
 
   addParam($event, type: string, value: string) {
@@ -149,10 +177,9 @@ export class Cp2020weapontableComponent implements OnInit {
         if ($event.target.checked) {
           this.wpnParam.type.push(value);
         } else {
-          const i = this.wpnParam.type.findIndex(t => t === value);
+          const i = this.wpnParam.type.findIndex((t) => t === value);
           this.wpnParam.type.splice(i, 1);
         }
-
       } else {
         this.wpnParam['type'] = new Array<string>();
         this.wpnParam.type.push(value);
@@ -163,10 +190,9 @@ export class Cp2020weapontableComponent implements OnInit {
         if ($event.target.checked) {
           this.wpnParam.subtype.push(value);
         } else {
-          const i = this.wpnParam.subtype.findIndex(t => t === value);
+          const i = this.wpnParam.subtype.findIndex((t) => t === value);
           this.wpnParam.subtype.splice(i, 1);
         }
-
       } else {
         this.wpnParam['subtype'] = new Array<string>();
         this.wpnParam.subtype.push(value);
@@ -177,19 +203,15 @@ export class Cp2020weapontableComponent implements OnInit {
         if ($event.target.checked) {
           this.wpnParam.availability.push(value);
         } else {
-          const i = this.wpnParam.availability.findIndex(t => t === value);
+          const i = this.wpnParam.availability.findIndex((t) => t === value);
           this.wpnParam.availability.splice(i, 1);
         }
-
       } else {
         this.wpnParam['availability'] = new Array<string>();
         this.wpnParam.availability.push(value);
       }
-
     }
     if (type === 'exclude') {
-
     }
   }
-
 }

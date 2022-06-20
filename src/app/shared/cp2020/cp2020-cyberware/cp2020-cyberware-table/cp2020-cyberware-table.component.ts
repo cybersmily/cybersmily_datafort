@@ -1,14 +1,32 @@
 import { CyberDataService } from './../services';
 import { Cp2020CyberwareGeneratorService } from './../services/cp2020-cyberware-generator.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { faDice, faPlus, faPen, faTrash, faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import {
+  faDice,
+  faPlus,
+  faPen,
+  faTrash,
+  faChevronRight,
+  faChevronDown,
+} from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerCyberList, Cp2020PlayerCyber } from './../models';
-import { Component, OnInit, Input, Output, EventEmitter, TemplateRef, ViewChild, ElementRef, ViewChildren, QueryList } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  TemplateRef,
+  ViewChild,
+  ElementRef,
+  ViewChildren,
+  QueryList,
+} from '@angular/core';
 
 @Component({
   selector: 'cs-cp2020-cyberware-table',
   templateUrl: './cp2020-cyberware-table.component.html',
-  styleUrls: ['./cp2020-cyberware-table.component.css']
+  styleUrls: ['./cp2020-cyberware-table.component.css'],
 })
 export class Cp2020CyberwareTableComponent implements OnInit {
   faDice = faDice;
@@ -18,14 +36,14 @@ export class Cp2020CyberwareTableComponent implements OnInit {
   faChevronRight = faChevronRight;
   faChevronDown = faChevronDown;
 
-  get collapseChevron():any {
-    return (this.isCollapsed) ? this.faChevronRight : this.faChevronDown;
+  get collapseChevron(): any {
+    return this.isCollapsed ? this.faChevronRight : this.faChevronDown;
   }
 
   modalRef: BsModalRef;
   modalConfig = {
     keyboard: true,
-    class: 'modal-dialog-centered modal-lg'
+    class: 'modal-lg modal-right',
   };
 
   selectedCyberware: Cp2020PlayerCyber = new Cp2020PlayerCyber();
@@ -49,51 +67,55 @@ export class Cp2020CyberwareTableComponent implements OnInit {
   @Output()
   changeList: EventEmitter<Cp2020PlayerCyberList> = new EventEmitter<Cp2020PlayerCyberList>();
 
-  @ViewChild('newCyberElem', {static: false})
+  @ViewChild('newCyberElem', { static: false })
   newCyberButton: ElementRef;
 
   @ViewChildren('cyberNameElem')
   cyberNameElemList: QueryList<ElementRef>;
 
-  constructor(private modalService: BsModalService,
+  constructor(
+    private modalService: BsModalService,
     private cyberGenerator: Cp2020CyberwareGeneratorService,
-    private cyberData: CyberDataService) { }
+    private cyberData: CyberDataService
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   updateList() {
     this.sortList();
     this.changeList.emit(this.cyberList);
   }
 
-  deleteFromModal(index: number){
+  deleteFromModal(index: number) {
     this.delete(index);
     this.modalRef.hide();
   }
 
-  delete(index: number, isSecondColumn?:boolean) {
-    if(isSecondColumn) {
-      index = index + Math.ceil(this.cyberList.items.length/2);
+  delete(index: number, isSecondColumn?: boolean) {
+    if (isSecondColumn) {
+      index = index + Math.ceil(this.cyberList.items.length / 2);
     }
     this.cyberList.items.splice(index, 1);
     this.updateList();
-    if(this.cyberNameElemList.length > index){
+    if (this.cyberNameElemList.length > index) {
       this.cyberNameElemList?.toArray()[index]?.nativeElement.focus();
     } else {
-
     }
   }
 
-  update(data: {index: number, cyber: Cp2020PlayerCyber}) {
+  update(data: { index: number; cyber: Cp2020PlayerCyber }) {
     this.cyberList.items[data.index] = data.cyber;
     this.updateList();
     this.closeModal();
   }
 
-  editCyberware(index: number, template: TemplateRef<any>, isSecondColumn?:boolean) {
-    if(isSecondColumn) {
-      index = index + Math.ceil(this.cyberList.items.length/2);
+  editCyberware(
+    index: number,
+    template: TemplateRef<any>,
+    isSecondColumn?: boolean
+  ) {
+    if (isSecondColumn) {
+      index = index + Math.ceil(this.cyberList.items.length / 2);
     }
     this.selectedIndex = index;
     this.selectedCyberware = this.cyberList.items[index];
@@ -102,22 +124,26 @@ export class Cp2020CyberwareTableComponent implements OnInit {
 
   getColumn(isTwoColumn: boolean): Array<Cp2020PlayerCyber> {
     if (isTwoColumn) {
-      return this.cyberList.items.slice(0, Math.ceil(this.cyberList.items.length/2));
+      return this.cyberList.items.slice(
+        0,
+        Math.ceil(this.cyberList.items.length / 2)
+      );
     }
     return this.cyberList.items;
   }
 
   getColumnTwo(): Array<Cp2020PlayerCyber> {
-    return this.cyberList.items.slice(Math.ceil(this.cyberList.items.length/2));
+    return this.cyberList.items.slice(
+      Math.ceil(this.cyberList.items.length / 2)
+    );
   }
-
 
   add(cyberArray: Array<Cp2020PlayerCyber>) {
     // remove blank entries
-    if (this.cyberList.items.some(c => c.name === '')) {
-      for (let i = 0; i < cyberArray.length; i++ ) {
-        const index = this.cyberList.items.findIndex( c => c.name === '');
-        if ( index > -1) {
+    if (this.cyberList.items.some((c) => c.name === '')) {
+      for (let i = 0; i < cyberArray.length; i++) {
+        const index = this.cyberList.items.findIndex((c) => c.name === '');
+        if (index > -1) {
           this.cyberList.items.splice(index, 1);
         }
       }
@@ -127,8 +153,8 @@ export class Cp2020CyberwareTableComponent implements OnInit {
   }
 
   generateCyberware() {
-    this.cyberData.cp2020CyberwareList.subscribe( list => {
-      this.cyberGenerator.generateCyberList(1, list).subscribe( data => {
+    this.cyberData.cp2020CyberwareList.subscribe((list) => {
+      this.cyberGenerator.generateCyberList(1, list).subscribe((data) => {
         this.add(data);
       });
     });
@@ -137,20 +163,19 @@ export class Cp2020CyberwareTableComponent implements OnInit {
   sortList() {
     // very weird behavior when an entry is blank. so did the below to have all the
     // ones with a name to be at top and the other on the bottom.
-    const namedCyber = this.cyberList.items.filter( c => c.name !== '');
-    const blankCyber = this.cyberList.items.filter( c => c.name === '');
-    namedCyber.sort( (a, b) => {
+    const namedCyber = this.cyberList.items.filter((c) => c.name !== '');
+    const blankCyber = this.cyberList.items.filter((c) => c.name === '');
+    namedCyber.sort((a, b) => {
       return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
     });
     this.cyberList.items = namedCyber.concat(blankCyber);
   }
 
-
   openModal(template: TemplateRef<any>, returnFocus?: string) {
     this.modalRef = this.modalService.show(template, this.modalConfig);
-    if(returnFocus){
-      this.modalRef.onHidden.subscribe(()=> {
-        switch(returnFocus){
+    if (returnFocus) {
+      this.modalRef.onHidden.subscribe(() => {
+        switch (returnFocus) {
           case 'edit':
             break;
           case 'new':
@@ -164,5 +189,4 @@ export class Cp2020CyberwareTableComponent implements OnInit {
   closeModal() {
     this.modalRef.hide();
   }
-
 }

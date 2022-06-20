@@ -1,9 +1,24 @@
 import { Cp2020WeaponMagazine } from './../models/cp-2020-weapon-magazine';
 import { CpPlayerWeaponOption } from './../models/cp-player-weapon-option';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { faSave, faPen, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
+import {
+  faSave,
+  faPen,
+  faPlus,
+  faTrash,
+} from '@fortawesome/free-solid-svg-icons';
 import { CpPlayerWeapon, WeaponProperties } from './../models';
-import { Component, OnInit, Input, Output, EventEmitter, TemplateRef, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  TemplateRef,
+  AfterViewInit,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 
 @Component({
   selector: 'cs-cp2020weapon-editor',
@@ -24,18 +39,16 @@ export class Cp2020weaponEditorComponent implements OnInit, AfterViewInit {
   modalRef: BsModalRef;
   modalConfig = {
     keyboard: true,
-    class: 'modal-dialog-centered modal-lg'
+    class: 'modal-right  modal-lg',
   };
 
   @Input()
   weapon: CpPlayerWeapon = new CpPlayerWeapon();
 
   @Output()
-  updateWeapon: EventEmitter<CpPlayerWeapon> = new EventEmitter<
-    CpPlayerWeapon
-  >();
+  updateWeapon: EventEmitter<CpPlayerWeapon> = new EventEmitter<CpPlayerWeapon>();
 
-  @ViewChild('newWeaponNameElem', {static: false})
+  @ViewChild('newWeaponNameElem', { static: false })
   newWpnElem: ElementRef;
 
   constructor(private modalService: BsModalService) {}
@@ -55,7 +68,7 @@ export class Cp2020weaponEditorComponent implements OnInit, AfterViewInit {
     }
   }
 
-  updateOptions(options: Array<CpPlayerWeaponOption>){
+  updateOptions(options: Array<CpPlayerWeaponOption>) {
     this.newWeapon.options = new Array(...options);
   }
 
@@ -63,13 +76,11 @@ export class Cp2020weaponEditorComponent implements OnInit, AfterViewInit {
     this.newWeapon.magazines = magazines;
   }
 
-  openModal(template: TemplateRef<any>){
+  openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, this.modalConfig);
   }
 
   closeModal() {
     this.modalRef.hide();
   }
-
-
 }
