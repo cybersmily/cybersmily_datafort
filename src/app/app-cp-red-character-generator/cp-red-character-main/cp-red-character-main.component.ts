@@ -1,3 +1,4 @@
+import { CpRedSkillManagerService } from './../../shared/cpred/cp-red-skills/services/cp-red-skill-manager/cp-red-skill-manager.service';
 import { map } from 'rxjs/operators';
 import { CpRedStatsManagerService } from './../../shared/cpred/c-p-red-stats/services/cp-red-stats-manager/cp-red-stats-manager.service';
 import { CpRedCharacter } from './../../shared/cpred/models/cp-red-character';
@@ -44,7 +45,8 @@ export class CpRedCharacterMainComponent implements OnInit, OnDestroy {
     private fileLoadService: FileLoaderService,
     private fileSaveService: SaveFileService,
     private characterManagerService: CpRedCharacterManagerService,
-    private statManager: CpRedStatsManagerService
+    private statManager: CpRedStatsManagerService,
+    private skillManager: CpRedSkillManagerService
   ) {}
 
   ngOnInit(): void {
@@ -61,13 +63,19 @@ export class CpRedCharacterMainComponent implements OnInit, OnDestroy {
       "2022-06, Cybersmily's Datafort Character Generator utility for Cyberpunk Red."
     );
     this.currSheet$ = this.characterManagerService.sheet;
+    const characterSheet = new CPRedCharacterSheet();
     if (this.storageService.hasKey(this.STORAGE_KEY)) {
-      const character = this.storageService.retrive<CpRedCharacter>(
+      characterSheet.character = this.storageService.retrive<CpRedCharacter>(
         this.STORAGE_KEY
       );
-      this.characterManagerService.updateCharacter(character);
-      this.statManager.initialize(character.stats);
     }
+    this.initializeManagers(characterSheet.character);
+  }
+
+  initializeManagers(character: CpRedCharacter) {
+    this.characterManagerService.updateCharacter(character);
+    this.statManager.initialize(character.stats);
+    this.skillManager.initialize(character.skills);
     this.subscribeToManagers();
   }
 
@@ -82,11 +90,17 @@ export class CpRedCharacterMainComponent implements OnInit, OnDestroy {
         this.characterManagerService.updateStats(stats);
       })
     );
+    this._subscriptions.add(
+      this.skillManager.skills.subscribe((skills) => {
+        this.characterManagerService.updateSkills(skills);
+      })
+    );
   }
 
   updateSheet(sheet: CPRedCharacterSheet): void {
     this.characterManagerService.updateCharacter(sheet.character);
     this.statManager.initialize(sheet.character.stats);
+    this.skillManager.initialize(sheet.character.skills);
   }
 
   save(): void {
@@ -113,6 +127,7 @@ export class CpRedCharacterMainComponent implements OnInit, OnDestroy {
   reset(): void {
     this.storageService.clear(this.STORAGE_KEY);
     this.characterManagerService.clear();
+    this.skillManager.loadSkills();
     this.statManager.clear();
   }
 }

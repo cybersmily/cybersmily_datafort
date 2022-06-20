@@ -18,6 +18,5 @@ export class CpRedSkillsComponent implements OnInit {
 
   ngOnInit(): void {
     this.skills$ = this.skillManager.skills;
-    this.skillManager.loadSkills();
   }
 }

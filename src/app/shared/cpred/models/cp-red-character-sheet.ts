@@ -1,3 +1,4 @@
+import { CpRedCharacterSkill } from './../cp-red-skills/models/cp-red-character-skill';
 import { CpRedCharacterStats } from './../c-p-red-stats/models/';
 export interface cpRedRoleAbility {
   name: string;
@@ -120,8 +121,8 @@ export class CPRedCharacterSheet {
         criticalInjuries: '',
         addictions: '',
 
-        /*skills: new Array<cpRedSkill>(),
-
+        skills: new Array<CpRedCharacterSkill>(),
+        /*
         ip: 0,
         curIP: 0,
         rep: 0,

@@ -14,5 +14,18 @@ export class CpRedCharacterSkill implements CpRedSkill {
   ipMod?: number;
   option?: string;
 
-  constructor() {}
+  constructor(param?: any) {
+    this.name = param?.name ?? '';
+    this.type = param?.type ?? '';
+    this.stat = param?.stat ?? '';
+    this.base = param?.base ?? 0;
+    this.modifiers =
+      param?.modifiers?.map((mod: CpRedSkillMod) => ({ ...mod })) ??
+      new Array<CpRedSkillMod>();
+    this.source = param?.source ?? '';
+    this.description = param?.description ?? '';
+    this.required = param?.required ?? false;
+    this.ipMod = param?.ipMod ?? undefined;
+    this.option = param?.option ?? undefined;
+  }
 }
