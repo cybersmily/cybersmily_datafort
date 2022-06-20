@@ -1,0 +1,14 @@
+{
+  "roles":[
+    {"name": "rockerboy","specialAbility":{"name": "charismatic impact", "description":"", "abilities":[], "source":{"book":"CPRED", "page": 144}}, "source":{"book":"CPRED", "page": 30}},
+    {"name": "solo","specialAbility":{"name": "combat awareness", "description":"", "abilities":[], "source":{"book":"CPRED", "page": 146}}, "source":{"book":"CPRED", "page": 31}},
+    {"name": "netrunner","specialAbility":{"name": "interface", "description":"", "abilities":[], "source":{"book":"CPRED", "page": 147}}, "source":{"book":"CPRED", "page": 32}},
+    {"name": "tech","specialAbility":{"name": "maker", "description":"", "abilities":[], "source":{"book":"CPRED", "page": 147}}, "source":{"book":"CPRED", "page": 33}},
+    {"name": "medtech","specialAbility":{"name": "medicine", "description":"", "abilities":[], "source":{"book":"CPRED", "page": 149}}, "source":{"book":"CPRED", "page": 34}},
+    {"name": "media","specialAbility":{"name": "credibility", "description":"", "abilities":[], "source":{"book":"CPRED", "page":151 }}, "source":{"book":"CPRED", "page": 35}},
+    {"name": "exec","specialAbility":{"name": "teamwork", "description":"", "abilities":[], "source":{"book":"CPRED", "page": 153}}, "source":{"book":"CPRED", "page": 36}},
+    {"name": "lawman","specialAbility":{"name": "backup", "description":"", "abilities":[], "source":{"book":"CPRED", "page": 158}}, "source":{"book":"CPRED", "page": 37}},
+    {"name": "fixer","specialAbility":{"name": "operator", "description":"", "abilities":[], "source":{"book":"CPRED", "page": 159}}, "source":{"book":"CPRED", "page": 38}},
+    {"name": "nomad","specialAbility":{"name": "moto", "description":"", "abilities":[], "source":{"book":"CPRED", "page": 161}}, "source":{"book":"CPRED", "page": 39}}
+  ]
+}
