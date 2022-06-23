@@ -1,0 +1,74 @@
+﻿{"name":"Terri",
+	"handle":"Terri 3 Fingers",
+	"aliases":"Terribyte",
+	"age":25,
+	"img":"territhreefingers",
+	"career":{"name":"Netrunner","specialability":"Interface","value":6},
+	"stats":{
+		"ref":4,
+		"int":7,
+		"tech":8,
+		"cool":7,
+		"attr":7,
+		"luck":2,
+		"ma":7,
+		"body":6,
+		"emp":6,
+		"hc":13,
+    "rep":4
+  },
+	"skills":{
+		"attr":[
+			{"name":"Personal Grooming","value":3},
+			{"name":"Wardrobe/Style","value":4}
+		],
+		"cool":[
+			{"name":"Streetwise","value":4}
+		],
+		"emp":[
+			{"name":"Social","value":4}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":5},
+			{"name":"Composition","value":3},
+			{"name":"Education/Gen. Know","value":3},
+			{"name":"Gamble","value":7},
+      {"name":"Hide/Evade","value":4},
+			{"name":"Language: English","value":0},
+			{"name":"Library Search","value":4},
+			{"name":"Programming","value":3},
+			{"name":"System Knowledge","value":5}
+		],
+		"ref":[
+			{"name":"Dodge/Escape","value":2},
+			{"name":"Handgun","value":3},
+			{"name":"Stealth","value":4}
+		],
+		"tech":[
+			{"name":"Cyberdeck Design","value":4},
+			{"name":"Cyber Tech","value":5},
+			{"name":"Electronics","value":5}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Friendly and outgoing",
+			"valuedperson":"Mentor",
+			"valuemost":"Friendship",
+			"feelaboutpeople":"I like almost everyone",
+			"valuedpossession":"A recoding"
+		},
+		"style":{
+			"clothes":"Urban Flash",
+			"hair":"Wild, short",
+			"affectations":"Weird Contacts",
+			"ethnicity":"Central American",
+			"languages":"English"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":["Neural Ware w/cybermodem link, dataterm link, plugs", "Top of the line data cache, with high security", "light tattoos"],
+	"gear":[],
+	"history":"Terri is a data mule and has a severe gambling addiction. She is called 3 fingers due to a bet that went wrong for her with members of the Russian mob. Even though she known for her gambling habits, she is a good mule. She has done work for quite a few corporates in Night City and is reliable (most of the time)."
+}
