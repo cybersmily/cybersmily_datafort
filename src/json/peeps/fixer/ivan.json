@@ -1,0 +1,76 @@
+﻿{"name":"Ivan",
+	"handle":"Ivan the Scrapper",
+	"aliases":"",
+	"age":65,
+	"img":"ivan",
+	"career":{"name":"Fixer","specialability":"Streetdeal","value":8},
+	"stats":{
+		"ref":6,
+		"int":8,
+		"tech":9,
+		"cool":9,
+		"attr":4,
+		"luck":9,
+		"ma":4,
+		"body":5,
+		"emp":8,
+    "rep": 7,
+		"hc":33},
+	"skills":{
+		"cool":[
+			{"name":"Intimidate","value":5}
+		],
+		"emp":[
+			{"name":"Human Perception","value":4},
+			{"name":"Persuasion/Fast Talk","value":6}
+		],
+		"int":[
+			{"name":"Accounting","value":4},
+			{"name":"Awareness/Notice","value":5},
+			{"name":"Education/Gen. Know","value":3},
+			{"name":"Expert: Law","value":4},
+			{"name":"Language: Russian","value":8},
+      {"name":"Language: English","value":4},
+      {"name":"Pharmaceuticals","value":3}
+		],
+		"ref":[
+			{"name":"Brawling","value":4},
+			{"name":"Driving","value":3},
+			{"name":"Handgun","value":5},
+			{"name":"Melee","value":5},
+			{"name":"Operate Hvy. Mach.","value":5},
+			{"name":"Rifle","value":4}
+		],
+		"tech":[
+			{"name":"AV Tech","value":3},
+			{"name":"Basic Tech","value":8},
+			{"name":"Demolitions","value":3},
+			{"name":"Elect. Security","value":4},
+			{"name":"Forgery","value":5},
+			{"name":"Pick Lock","value":4}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Intellectual and detached",
+			"valuedperson":"His father",
+			"valuemost":"Honety",
+			"feelaboutpeople":"Neutral",
+			"valuedpossession":"A tool"
+		},
+		"style":{
+			"clothes":"Bag lady chic",
+			"hair":"Wild, all over",
+			"affectations":"Ritual scars",
+			"ethnicity":"Russian",
+			"languages":"Russian"
+		},
+		"family":"",
+		"siblings":"unknown"
+	},
+	"cyberware":["Cyberaudio w/amplifie hearing, phone splice, level damper, bug detector, voice stress analyzer, wide band radio scanner",
+  "Neural Processor w/plugs, machine link, vehicle link",
+  "Chip Socket w/ Stress Chip, Visual Recognition, Photo Memory RAM, Pharmaceuticals +3"],
+	"gear":[],
+	"history":"Ivan owns and operators Ivan's Rustpot Scrapyard. From here Ivan operates a chop shop and black market for vehicles. He runs the place with his 4 sons. He can get you want you want or scrap any vehicles, no questions asked. Ivan is older and walks with a bit of a limp. "
+}

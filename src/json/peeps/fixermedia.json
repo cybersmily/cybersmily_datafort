@@ -1,6 +1,7 @@
 ﻿{"npcs":[
     {"name":"Big Man","img":"bigman","career":"Fixer"},
     {"name":"Chub Citrine","img":"chubcitrine","career":"Fixer"},
+    {"name":"Ivan","img":"ivan","career":"Fixer"},
     {"name":"Kestrel","img":"kestrel","career":"Fixer"},
     {"name":"Silent Su","img":"silentsu","career":"Fixer"},
     {"name":"Stevens","img":"cstevens","career":"Fixer"},
