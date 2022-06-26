@@ -45,17 +45,12 @@ export class DiceService {
     const results = new DiceRolls();
     let roll = 0;
     roll = this.generateNumber(1, 10);
-    if (roll === 10) {
+    results.rolls.push(roll);
+    results.total += roll;
+    if (roll === 10 || roll === 1) {
       let second = this.generateNumber(1, 10);
-      results.rolls.push(roll);
       results.rolls.push(second);
-      results.total += roll + second;
-    }
-    if (roll === 1) {
-      let second = this.generateNumber(1, 10);
-      results.rolls.push(roll);
-      results.rolls.push(second);
-      results.total += roll - second;
+      results.total += second * (roll === 1 ? -1 : 1);
     }
     return results;
   }
