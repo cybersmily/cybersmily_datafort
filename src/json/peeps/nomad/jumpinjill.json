@@ -1,0 +1,84 @@
+﻿{"name":"Jillian Connors",
+	"handle":"Jumpin' Jill",
+	"aliases":"JJ, Fearless Honcho",
+	"age":32,
+	"img":"jumpinjill",
+	"career":{"name":"Nomad","specialability":"Family","value":8},
+	"stats":{
+		"ref":8,
+		"int":6,
+		"tech":7,
+		"cool":7,
+		"attr":5,
+		"luck":4,
+		"ma":7,
+		"body":6,
+		"emp":7,
+    "rep": 6,
+		"hc":0},
+	"skills":{
+		"body":[
+			{"name":"Endurance","value":4},
+			{"name":"Strength Feat","value":2}
+		],
+		"cool":[
+			{"name":"Intimidate","value":2},
+			{"name":"Resist Torture/Drugs","value":4},
+			{"name":"Streetwise","value":2}
+		],
+		"emp":[
+			{"name":"Human Perception","value":4},
+			{"name":"Leadership","value":6},
+			{"name":"Social","value":4},
+			{"name":"Persuasion/Fast Talk","value":2}
+		],
+		"int":[
+			{"name":"Awareness/Notice","value":3},
+			{"name":"Education/Gen. Know","value":5},
+			{"name":"Hide/Evade","value":2},
+			{"name":"History","value":0},
+			{"name":"Language: English","value":6},
+      {"name":"Language: Spanish","value":5},
+			{"name":"Teaching","value":4},
+			{"name":"Wilderness Survival","value":5}
+		],
+		"ref":[
+			{"name":"Athletics","value":4},
+			{"name":"Brawling","value":5},
+			{"name":"Dodge/Escape","value":3},
+			{"name":"Driving","value":7},
+			{"name":"Handgun","value":2},
+			{"name":"Melee","value":6},
+			{"name":"Motorcycle","value":3},
+			{"name":"Rifle","value":4},
+			{"name":"Stealth","value":3}
+		],
+		"tech":[
+			{"name":"Basic Tech","value":3},
+			{"name":"First Aid","value":4},
+			{"name":"Pick Lock","value":2},
+			{"name":"Weaponsmith","value":3}
+		]
+	},
+	"background":{
+		"motivations":{
+			"traits":"Friendly and outgoing",
+			"valuedperson":"Mentor",
+			"valuemost":"Money",
+			"feelaboutpeople":"Neutral",
+			"valuedpossession":"Custom bowie knife"
+		},
+		"style":{
+			"clothes":"Nude",
+			"hair":"Wild, all over",
+			"affectations":"Spiked gloves",
+			"ethnicity":"American",
+			"languages":"English"
+		},
+		"family":"",
+		"siblings":""
+	},
+	"cyberware":["Cyberoptic (left) w/targeting scope, teleoptics, image enhancer, anti-dazzle", "Cyberarm w/hydraulic arm, reinforced joints, armor covering", "Nasal filters", "Neural Processer w/ Vehicle link, smartgun link, plugs"],
+	"gear":["Custom car", "mono-edged mono knife", "bomber jacket SP 16", "leather chaps SP 10"],
+	"history":"Jumpin' Jill Connor is the leader of the nomad family Spider Posse. This family ships and smuggles goods throughout Nor Cal and SoCal that need to be 'off the books'. The Spider Posse has be quite successful in avoiding hi-way patrol and other organizations sent after any cargo they haul. There are some shipping corporations that have a bounty for her because they view her as too much of a competition for them and would like to see the family gone. Jumpin' Jill is a friendly person and her family is very loyal to her. The family knows they are targetted. They are vigilant at protecting Jill from anyone looking to take her down. Jumpin' Jill will always head to The Slammer when she's in Night City, sometimes entering the arena for a fight or two. If anyone is looking to transport goods under the radar, they should seek out the Spider Posse and Jumpin' Jill. They give good rates and have an almost perfect success rate at getting cargo to where it needs to go."
+}
