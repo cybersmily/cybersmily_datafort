@@ -4,10 +4,10 @@ import { PipesModule } from './../../pipes/pipes.module';
 import { CommonUiModule } from './../../modules/common-ui/common-ui.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CpRedSkillComponent } from './componet/cp-red-skill/cp-red-skill.component';
-import { CpRedSkillEditorComponent } from './componet/cp-red-skill-editor/cp-red-skill-editor.component';
-import { CpRedSkillsEditorComponent } from './componet/cp-red-skills-editor/cp-red-skills-editor.component';
-import { CpRedSkillsComponent } from './componet/cp-red-skills/cp-red-skills.component';
+import { CpRedSkillComponent } from './components/cp-red-skill/cp-red-skill.component';
+import { CpRedSkillEditorComponent } from './components/cp-red-skill-editor/cp-red-skill-editor.component';
+import { CpRedSkillsEditorComponent } from './components/cp-red-skills-editor/cp-red-skills-editor.component';
+import { CpRedSkillsComponent } from './components/cp-red-skills/cp-red-skills.component';
 
 @NgModule({
   declarations: [
