@@ -11,8 +11,9 @@ export class CpRedCharacterSkill implements CpRedSkill {
   source: string;
   description: string;
   required: boolean;
-  ipMod?: number;
+  ipMod: number;
   option?: string;
+  isChipped?: boolean;
 
   constructor(param?: any) {
     this.name = param?.name ?? '';
@@ -28,8 +29,9 @@ export class CpRedCharacterSkill implements CpRedSkill {
     if (this.required && this.base < 2) {
       this.base = 2;
     }
-    this.ipMod = param?.ipMod ?? undefined;
+    this.ipMod = param?.ipMod ?? 1;
     this.option = param?.option ?? undefined;
+    this.isChipped = param?.isChipped ?? false;
     this.level =
       this.modifiers.reduce((a, b) => a + (b.active ? b.value : 0), 0) +
       this.base;
