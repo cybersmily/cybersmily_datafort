@@ -1,3 +1,9 @@
+import {
+  faFilter,
+  faSearch,
+  faSort,
+  faTimes,
+} from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 import { CpRedSkillManagerService } from './../../services/cp-red-skill-manager/cp-red-skill-manager.service';
 import { Component, OnInit } from '@angular/core';
@@ -9,14 +15,25 @@ import { CpRedCharacterSkill } from '../../models';
   styleUrls: ['./cp-red-skills.component.css'],
 })
 export class CpRedSkillsComponent implements OnInit {
+  faSearch = faSearch;
+  faFilter = faFilter;
+  faSort = faSort;
+  faTimes = faTimes;
+
   skills$: Observable<Array<CpRedCharacterSkill>>;
 
   sortOn: string = 'name';
   sortDirection: boolean = false;
+  searchText: string = '';
+  groupBy: string = 'name';
 
   constructor(private skillManager: CpRedSkillManagerService) {}
 
   ngOnInit(): void {
     this.skills$ = this.skillManager.skills;
+  }
+
+  roundUp(value: number, multiplier: number): number {
+    return Math.ceil(value * multiplier);
   }
 }

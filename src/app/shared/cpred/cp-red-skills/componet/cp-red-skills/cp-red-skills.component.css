@@ -27,3 +27,7 @@ select option:checked:after {
   border: none;
 }
 
+.dropdown-menu li:hover {
+  cursor: pointer;
+  background: #CCC;
+}

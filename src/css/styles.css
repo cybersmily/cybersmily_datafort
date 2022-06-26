@@ -270,6 +270,27 @@ SELECT option.font-italic {
   cursor: no-drop !important;
 }
 
+.csd-clear-search {
+  color: #BBB !important;
+  cursor: pointer !important;
+  position: absolute;
+  margin-left: -15px;
+}
+input[type="search"]::-webkit-search-cancel-button {
+  /* Remove default */
+  -webkit-appearance: none;
+}
+
+.csd-sort-selector {
+  color: #333;
+  text-align: left;
+  cursor: pointer;
+}
+
+.csd-sort-selector:hover {
+  border-bottom: #333 1px solid;
+}
+
 .csd-desc-sect {
     border: solid 2px #a9f5bc;
     background-color: #ddd;
@@ -765,6 +786,9 @@ INPUT.csd-plain-input, SELECT.csd-plain-input {
   border-bottom-right-radius: 0;
 }
 
+INPUT.csd-plain-input:hover,
+SELECT.csd-plain-input:hover,
+SELECT.csd-plain-input:focus,
 INPUT.csd-plain-input:focus {
   outline: none;
   border-bottom: 1px #666 solid;
@@ -783,6 +807,10 @@ INPUT.csd-plain-input:focus::placeholder {
   font-size: x-small;text-overflow: ellipsis;
 }
 
+.dropdown-item.active, .drop-item:active {
+  background-color: #CCC !important;
+  color: #222;
+}
 
 A {
   color: inherit;
