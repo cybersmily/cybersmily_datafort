@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row cpr-skill py-0 w-100">
   <div
     [ngClass]="{
       'col-6 col-md-9 small text-smaller': true,
@@ -31,13 +31,23 @@
     </button>
   </div>
 </div>
-<ng-template #rollDice>
-  <div>
+
+<ng-template #rollDice
+  ><div class="modal-header">
+    <h4>Roll Dice</h4>
     <button
       class="csd-btn csd-icon-btn csd-icon-xl float-end"
       (click)="closeModal()"
     >
       <fa-icon [icon]="faTimes"></fa-icon>
     </button>
+  </div>
+  <div class="modal-body">
+    <div *ngIf="stat$ | async as stat">
+      <cs-cp-red-skill-dice-roll
+        [stat]="stat"
+        [skill]="skill"
+      ></cs-cp-red-skill-dice-roll>
+    </div>
   </div>
 </ng-template>

@@ -7,3 +7,10 @@
   right: -1.0em;
 
 }
+.cpr-skill:hover .csd-red-skill-roll button{
+  display: inline-block;
+  position: absolute;
+  right: -0.3em;
+  margin-top: -0.7em;
+
+}

@@ -14,6 +14,7 @@ export class CpRedSkillDiceRollComponent implements OnInit {
   faDice = faDice;
 
   dieRoll: DiceRolls = new DiceRolls();
+  modifier: number = 0;
 
   @Input()
   stat: CpRedCharacterStat = new CpRedCharacterStat();
@@ -26,6 +27,8 @@ export class CpRedSkillDiceRollComponent implements OnInit {
   ngOnInit(): void {}
 
   rollDice(): void {
+    console.log('rolling');
     this.dieRoll = this.dice.rollCPRedD10();
+    console.log('rolled', this.dieRoll);
   }
 }

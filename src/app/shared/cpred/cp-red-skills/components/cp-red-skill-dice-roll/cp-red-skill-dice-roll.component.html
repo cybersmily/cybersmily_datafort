@@ -1,21 +1,48 @@
 <div class="container">
   <div class="row">
-    <div class="col-6 text-capitalize">{{ skill.name }}:</div>
+    <div class="col-6 text-capitalize text-end">{{ skill.name }}:</div>
     <div class="col-6">{{ skill.level }}</div>
   </div>
   <div class="row">
-    <div class="col-6 text-uppercase">{{ stat.name }}:</div>
+    <div class="col-6 text-uppercase text-end">{{ stat.name }}:</div>
     <div class="col-6">{{ stat.modified }}</div>
   </div>
   <div class="row">
-    <div class="col-6 text-uppercase">Modifier:</div>
-    <div class="col-6">{{ stat.modified }}</div>
+    <div class="col-6 text-end">Addnl. Mod.:</div>
+    <div class="col-6">
+      <input
+        title="Additional modifier to roll."
+        [(ngModel)]="modifier"
+        type="number"
+        class="csd-plain-input no-spinners"
+      />
+    </div>
   </div>
   <div class="row">
-    <div class="col-6"></div>
-    <div class="col-6">{{ stat.modified }}</div>
+    <div class="col-6">
+      <button
+        class="csd-btn csd-icon-btn csd-icon-lg float-end"
+        (click)="rollDice()"
+      >
+        <fa-icon [icon]="faDice"></fa-icon>
+      </button>
+    </div>
+    <div class="col-6">{{ dieRoll.show() }}</div>
   </div>
+  <hr />
   <div class="row">
-    <div class="col"></div>
+    <div class="col-6 text-uppercase text-end">total:</div>
+    <div class="col-6">
+      <div *ngIf="dieRoll.rolls.length > 0">
+        {{ skill.level + stat.modified + modifier + dieRoll.total }}
+        {{
+          dieRoll.rolls[0] === 10
+            ? " CRIT SUCCESS!"
+            : dieRoll.rolls[0] === 1
+            ? " FUMBLE!"
+            : ""
+        }}
+      </div>
+    </div>
   </div>
 </div>

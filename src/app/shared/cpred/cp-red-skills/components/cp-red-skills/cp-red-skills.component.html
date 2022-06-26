@@ -93,34 +93,59 @@
   </div>
   <div class="row">
     <div class="col-12 col-md-6 col-lg-4 pe-3">
-      <cs-cp-red-skill
+      <ng-container
         *ngFor="
-          let skill of skills.slice(0, roundUp(skills.length, 0.34));
+          let skill of skills.slice(0, roundUp(skills.length, 0.334));
           let i = index
         "
-        [skill]="skill"
-      ></cs-cp-red-skill>
+        [ngTemplateOutlet]="skillTemplate"
+        [ngTemplateOutletContext]="{ skill: skill, index: i }"
+      ></ng-container>
     </div>
     <div class="col-12 col-md-6 col-lg-4 pe-3">
-      <cs-cp-red-skill
+      <ng-container
         *ngFor="
           let skill of skills.slice(
-            roundUp(skills.length, 0.34),
-            roundUp(skills.length, 0.67)
+            roundUp(skills.length, 0.334),
+            roundUp(skills.length, 0.667)
           );
           let i = index
         "
-        [skill]="skill"
-      ></cs-cp-red-skill>
+        [ngTemplateOutlet]="skillTemplate"
+        [ngTemplateOutletContext]="{ skill: skill, index: i }"
+      ></ng-container>
     </div>
     <div class="col-12 col-md-6 col-lg-4 pe-3">
-      <cs-cp-red-skill
+      <ng-container
         *ngFor="
-          let skill of skills.slice(roundUp(skills.length, 0.67));
+          let skill of skills.slice(roundUp(skills.length, 0.667));
           let i = index
         "
-        [skill]="skill"
-      ></cs-cp-red-skill>
+        [ngTemplateOutlet]="skillTemplate"
+        [ngTemplateOutletContext]="{ skill: skill, index: i }"
+      ></ng-container>
     </div>
   </div>
 </div>
+
+<ng-template #skillTemplate let-skill="skill" let-index="index">
+  <div class="btn-group w-100" dropdown [insideClick]="true">
+    <div
+      id="button-skill{{ index }}"
+      class="row cpr-skill py-0 w-100"
+      dropdownToggle
+      aria-controls="dropdown-skill{{ index }}"
+    >
+      <cs-cp-red-skill [skill]="skill"></cs-cp-red-skill>
+    </div>
+    <div
+      id="dropdown-skill{{ index }}"
+      *dropdownMenu
+      class="dropdown-menu py-0 w-100"
+      role="menu"
+      aria-labelledby="button-skill{{ index }}"
+    >
+      <cs-cp-red-skill-editor [skill]="skill"></cs-cp-red-skill-editor>
+    </div>
+  </div>
+</ng-template>
