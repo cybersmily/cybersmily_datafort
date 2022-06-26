@@ -62,7 +62,7 @@ export class CpRedSkillDataService {
           sk.stat = skill?.stat;
           sk.required = skill?.required;
           sk.base = 0;
-          sk.modified = 0;
+          sk.level = 0;
           if (skill?.ipMod) {
             sk['ipMod'] = skill.ipMod;
           }

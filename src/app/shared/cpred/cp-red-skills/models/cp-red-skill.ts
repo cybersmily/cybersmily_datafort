@@ -4,7 +4,7 @@ export interface CpRedSkill {
   type: string;
   stat: string;
   base: number;
-  modified: number;
+  level: number;
   modifiers: Array<CpRedSkillMod>;
   ipMod?: number;
   option?: string;

@@ -6,7 +6,7 @@ export class CpRedCharacterSkill implements CpRedSkill {
   type: string;
   stat: string;
   base: number;
-  modified: number;
+  level: number;
   modifiers: Array<CpRedSkillMod>;
   source: string;
   description: string;
@@ -30,7 +30,7 @@ export class CpRedCharacterSkill implements CpRedSkill {
     }
     this.ipMod = param?.ipMod ?? undefined;
     this.option = param?.option ?? undefined;
-    this.modified =
+    this.level =
       this.modifiers.reduce((a, b) => a + (b.active ? b.value : 0), 0) +
       this.base;
   }
