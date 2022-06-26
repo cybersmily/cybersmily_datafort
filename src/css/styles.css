@@ -228,6 +228,19 @@ BUTTON {
   border-bottom-right-radius: 0.2em !important;
 }
 
+.csd-input-label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  font-size: x-small;
+  color: #777;
+  font-style: italic;
+}
+
+.csd-input-label:parent {
+  position: relative;
+}
+
 .csd-menu-btn {
   margin-left: 4px;
 }
