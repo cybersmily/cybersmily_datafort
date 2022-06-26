@@ -1,3 +1,4 @@
+import { CpRedSkillDiceRollComponent } from './components/cp-red-skill-dice-roll/cp-red-skill-dice-roll.component';
 import { CpRedSkillManagerService } from './services/cp-red-skill-manager/cp-red-skill-manager.service';
 import { CpRedSkillDataService } from './services/cp-red-skill-data/cp-red-skill-data.service';
 import { PipesModule } from './../../pipes/pipes.module';
@@ -15,12 +16,14 @@ import { CpRedSkillsComponent } from './components/cp-red-skills/cp-red-skills.c
     CpRedSkillEditorComponent,
     CpRedSkillsEditorComponent,
     CpRedSkillsComponent,
+    CpRedSkillDiceRollComponent,
   ],
   exports: [
     CpRedSkillComponent,
     CpRedSkillEditorComponent,
     CpRedSkillsEditorComponent,
     CpRedSkillsComponent,
+    CpRedSkillDiceRollComponent,
   ],
   imports: [CommonModule, CommonUiModule, PipesModule],
   providers: [CpRedSkillDataService, CpRedSkillManagerService],
