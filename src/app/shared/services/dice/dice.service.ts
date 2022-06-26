@@ -1,13 +1,8 @@
-import {
-  DiceRolls
-} from './../../models/dice-rolls';
-import {
-  Injectable
-} from '@angular/core';
+import { DiceRolls } from './../../models/dice-rolls';
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class DiceService {
-
   constructor() {}
 
   /**
@@ -19,7 +14,6 @@ export class DiceService {
   rollMoreDice(str: string): DiceRolls {
     return this.recurse(str);
   }
-
 
   /**
    * Rolls Cyberpunk 2020 d10 with 10s exploding.
@@ -34,8 +28,35 @@ export class DiceService {
       roll = this.generateNumber(1, 10);
       results.rolls.push(roll);
       results.total += roll;
-    } while (roll === 10 );
+    } while (roll === 10);
 
+    return results;
+  }
+
+  /**
+   * Rolls a skill roll for CP red.
+   * on a 10 roll another die and add it
+   * on a 1 roll another die and subtract it
+   *
+   * @return {*}  {DiceRolls}
+   * @memberof DiceService
+   */
+  rollCPRedD10(): DiceRolls {
+    const results = new DiceRolls();
+    let roll = 0;
+    roll = this.generateNumber(1, 10);
+    if (roll === 10) {
+      let second = this.generateNumber(1, 10);
+      results.rolls.push(roll);
+      results.rolls.push(second);
+      results.total += roll + second;
+    }
+    if (roll === 1) {
+      let second = this.generateNumber(1, 10);
+      results.rolls.push(roll);
+      results.rolls.push(second);
+      results.total += roll - second;
+    }
     return results;
   }
 
@@ -67,9 +88,10 @@ export class DiceService {
         r.total = v;
         r.rolls.push(v);
       } else {
-        console.error(`Attempted to roll ${str} and parse it to a dice roll. String cannot be parsed.`);
+        console.error(
+          `Attempted to roll ${str} and parse it to a dice roll. String cannot be parsed.`
+        );
       }
-
     }
     return r;
   }
@@ -95,7 +117,6 @@ export class DiceService {
     return roll;
   }
 
-
   /**
    * Performs multiple, adds, substraction, and divide function on the dice.
    *
@@ -106,7 +127,7 @@ export class DiceService {
    * @memberof DiceService
    */
   private performOperation(str: string, val: DiceRolls): DiceRolls {
-    if (str.match(/[\/\+\*\-]\d+/g) && typeof (val.total) !== 'undefined') {
+    if (str.match(/[\/\+\*\-]\d+/g) && typeof val.total !== 'undefined') {
       val.mod = str;
       const b = str.split(/[\/\+\*\-]/)[1];
       const c = str.match(/[\/\+\*\-]/);
@@ -164,7 +185,11 @@ export class DiceService {
       const a = parseInt(str.substring(0, str.indexOf('(')), 0);
       t = isNaN(a) ? 1 : a;
       for (let i = 0; i < t; i++) {
-        total.add(this.recurse(str.substring(str.indexOf('(') + 1, str.lastIndexOf(')'))));
+        total.add(
+          this.recurse(
+            str.substring(str.indexOf('(') + 1, str.lastIndexOf(')'))
+          )
+        );
       }
       const d = str.substring(str.lastIndexOf(')') + 1);
       total = this.performOperation(d, total);
@@ -172,13 +197,11 @@ export class DiceService {
       const e = str.split(/[\+\*\/-]/g);
       total = this.rollDice(e[0]);
       total = this.performOperation(str.replace(e[0], ''), total);
-
     } else if (regDice.test(str)) {
       // if string is just a dice, then roll them.
       return this.rollDice(str);
     }
     return total;
-
   }
 
   /**
@@ -205,35 +228,35 @@ export class DiceService {
     return choosen;
   }
 
-/**
- * processResult will parse the string and generate random options
- * within the text. Fomrating for the string is [[]] or [{}] can
- * be used as well a |. This will have random dice rolled to
- * determine what option to use, then replace in the string. *
- * @param {string} r - string to parse and modify
- * @returns {string} - string with the parse options.
- * @memberof DiceService
- */
-processResult(r: string): string {
+  /**
+   * processResult will parse the string and generate random options
+   * within the text. Fomrating for the string is [[]] or [{}] can
+   * be used as well a |. This will have random dice rolled to
+   * determine what option to use, then replace in the string. *
+   * @param {string} r - string to parse and modify
+   * @returns {string} - string with the parse options.
+   * @memberof DiceService
+   */
+  processResult(r: string): string {
     let c: string = r;
-    if (typeof (c) !== 'undefined' && c.indexOf('[[') > -1) {
+    if (typeof c !== 'undefined' && c.indexOf('[[') > -1) {
       const b: string = c.substring(0, c.indexOf('[['));
       const d: string = c.substring(c.indexOf('[[') + 2, c.indexOf(']]'));
       const e: string = c.substring(c.indexOf(']]') + 2);
       const t: string[] = d.split('|');
-      c = b + t[this.generateNumber(0, (t.length - 1))] + this.processResult(e);
+      c = b + t[this.generateNumber(0, t.length - 1)] + this.processResult(e);
     }
-    if (typeof (c) !== 'undefined' && c.indexOf('[{') > -1) {
+    if (typeof c !== 'undefined' && c.indexOf('[{') > -1) {
       const d: string = c.substring(c.indexOf('[{') + 2, c.indexOf('}]'));
       const i: number = parseInt(d.split(':')[1], 10);
       const n: number = parseInt(d.split(':')[0], 10);
       if (!isNaN(i) && !isNaN(n)) {
-        const max = (n * 10);
+        const max = n * 10;
         const dieRoll = this.generateNumber(n, max) * i;
         c = c.replace('[{' + d + '}]', dieRoll.toString());
       }
     }
-    if (typeof (c) !== 'undefined' && c.indexOf('{{') > -1) {
+    if (typeof c !== 'undefined' && c.indexOf('{{') > -1) {
       const d: string = c.substring(c.indexOf('{{') + 2, c.indexOf('}}'));
       const i: number = parseInt(d.split(':')[1]);
       const n: number = parseInt(d.split(':')[0]);
@@ -257,22 +280,22 @@ processResult(r: string): string {
    * @memberof DiceService
    */
   rollOnChart(chart, source): string {
-    if ((typeof (chart[source]) === 'undefined') && source.indexOf('-') > -1) {
+    if (typeof chart[source] === 'undefined' && source.indexOf('-') > -1) {
       const v: string[] = source.split('-');
       if (v.length > 2) {
-        source = (typeof (chart[v[1]]) === 'undefined') ? v[0] : v[1];
+        source = typeof chart[v[1]] === 'undefined' ? v[0] : v[1];
       } else {
         source = v[0];
       }
     }
-    if (typeof (chart[source]) === 'undefined') {
-        source = 'CP2020';
+    if (typeof chart[source] === 'undefined') {
+      source = 'CP2020';
     }
     const c = chart[source];
 
     let result = c[this.generateNumber(0, c.length - 1)];
     if (result === 'ROLL TWICE') {
-      result =  c[this.generateNumber(0, c.length - 2)];
+      result = c[this.generateNumber(0, c.length - 2)];
       result += ' & ' + c[this.generateNumber(0, c.length - 2)];
     }
     return this.processResult(result);
