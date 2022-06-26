@@ -44,13 +44,7 @@ body .modal .modal-right .modal-body {
 
 body .modal.fade.show .modal-dialog.modal-left,
 body .modal.fade.show .modal-dialog.modal-right {
-  width: 50%;
-}
-@media (min-width: 48em) {
-  .modal.fade.show .modal-dialog.modal-left.modal-sm,
-  .modal.fade.show .modal-dialog.modal-right.modal-sm {
-    width: 25%;
-  }
+  width: 60%;
 }
 
 body .modal.fade .modal-dialog.modal-right {
@@ -82,4 +76,12 @@ body .modal .modal-dialog.modal-right.modal-lg {
 .modal .modal-dialog.modal-left.modal-xl,
 .modal .modal-dialog.modal-right.modal-xl {
   width: 100%;
+}
+
+@media (min-width: 48em) {
+
+  .modal.fade.show .modal-dialog.modal-left.modal-sm,
+  .modal.fade.show .modal-dialog.modal-right.modal-sm {
+    width: 25%;
+  }
 }

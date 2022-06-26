@@ -182,6 +182,14 @@ BUTTON {
   font-size: small !important;
 }
 
+.csd-icon-xs {
+  font-size: x-small !important;
+}
+
+.csd-icon-xxs {
+  font-size: xx-small !important;
+}
+
 .cs-color-swatch {
   display: inline-block;
   height: 16px;
@@ -268,6 +276,10 @@ SELECT option.font-italic {
 .csd-disabled {
   color: #BBB !important;
   cursor: no-drop !important;
+}
+
+.csd-icon-greyedout {
+  color: #BBB !important;
 }
 
 .csd-clear-search {

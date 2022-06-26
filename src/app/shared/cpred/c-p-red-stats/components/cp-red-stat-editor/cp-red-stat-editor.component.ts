@@ -66,6 +66,16 @@ export class CPRedStatEditorComponent implements OnInit {
     this.statsManager.toggleStatModifierActive(this.statName, index);
   }
 
+  getModifierTotal(modifiers: Array<CpRedStatMod>): number {
+    if (modifiers == null) {
+      return 0;
+    }
+    return modifiers.reduce(
+      (total, mod) => total + (mod.active ? mod.value : 0),
+      0
+    );
+  }
+
   deleteModifier(index: number): void {
     this.statsManager.deleteStatModifier(this.statName, index);
   }

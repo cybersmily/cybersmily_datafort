@@ -1,6 +1,8 @@
 <div class="ps-4">
   <div class="row">
-    <div class="col-2 text-uppercase text-end ps-0 pt-2">{{ statName }}:</div>
+    <div class="col-3 col-lg-2 text-uppercase text-end ps-0 pt-2">
+      {{ statName }}:
+    </div>
     <div class="col-2 px-0 py-0">
       <div class="position-relative text-center px-0 py-0 w-100">
         <div class="position-absolute text-xxsmall align-top w-100">base</div>
@@ -16,57 +18,75 @@
         />
       </div>
     </div>
+    <div class="col-1 px-0 py-0 pt-2 text-center">+</div>
+    <div class="col-3 px-0 py-0 csd-btn" (click)="toggleModifiers()">
+      <div class="position-relative text-center d-inline-block px-0 py-0 w-100">
+        <div class="position-absolute text-xxsmall align-top w-100">mod.</div>
+        <div class="w-100 pt-2">
+          {{ getModifierTotal((stat | async)?.modifiers) }}
+          <button
+            tabindex="0"
+            class="csd-icon-btn csd-icon-xs mt-0"
+            (click)="toggleModifiers()"
+          >
+            <fa-icon [icon]="faIcon"></fa-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-1 px-0 py-0 pt-2 text-center">=</div>
     <div class="col-2 px-0 py-0">
       <div
         class="position-relative text-center px-0 py-0 w-100"
         (click)="toggleModifiers()"
       >
         <div class="position-absolute text-xxsmall align-top w-100">total</div>
-        <div class="w-100 pt-2">
-          {{ (stat | async)?.modified }}
-        </div>
+        <div class="w-100 pt-2">{{ (stat | async)?.modified }}</div>
       </div>
-    </div>
-    <div class="col-4 col-md-6 px-0 pt-2">
-      <button
-        tabindex="0"
-        class="csd-btn csd-icon-btn csd-icon-lg px-3"
-        (click)="toggleModifiers()"
-      >
-        <fa-icon [icon]="faIcon"></fa-icon>
-      </button>
     </div>
   </div>
   <ng-container *ngIf="showModifiers">
     <div class="row">
-      <div class="col-4"></div>
-      <div class="col-8 text-xxsmall csd-btn align-top ps-0">MODIFIERS</div>
+      <div class="col-3"></div>
+      <div class="col-9 text-xxsmall csd-btn align-top ps-0">MODIFIERS</div>
     </div>
     <div
       *ngFor="let mod of (stat | async)?.modifiers; let i = index"
       class="row"
     >
-      <div class="col-4"></div>
+      <div class="col-3"></div>
       <div
-        class="col-7 small py-0 csd-btn"
-        (click)="activateModifier(i)"
+        class="col-1 align-top csd-btn text-center px-0"
         title="Click to toggle active/deactive"
+        (click)="activateModifier(i)"
       >
-        <fa-icon
-          [icon]="mod.active ? faCheckCircle : faDotCircle"
-          class="csd-icon-btn csd-icon-sm me-2"
-        ></fa-icon>
-        {{ mod.value > 0 ? "+" : "" }} {{ mod.value }} {{ mod.name }}
         <button
-          class="csd-btn csd-icon-btn csd-icon-sm float-end"
-          (click)="deleteModifier(i)"
+          [ngClass]="{
+            'csd-icon-btn csd-icon-xs align-top pt-1 w-100 text-center': true,
+            'csd-icon-greyedout': !mod.active
+          }"
         >
+          <fa-icon [icon]="mod.active ? faCheckCircle : faDotCircle"></fa-icon>
+        </button>
+      </div>
+      <div class="col-1 px-0 small">
+        {{ mod.value > 0 ? "+" : "" }}{{ mod.value }}
+      </div>
+      <div class="col-6 small pe-0 py-0 text-truncate" [title]="mod.name">
+        {{ mod.name }}
+      </div>
+      <div
+        class="col-1 csd-btn px-0"
+        title="Delete modifier"
+        (click)="deleteModifier(i)"
+      >
+        <button class="csd-icon-btn csd-icon-sm text-center">
           <fa-icon [icon]="faTrash"></fa-icon>
         </button>
       </div>
     </div>
     <div class="row">
-      <div class="col-4 col-md-5">
+      <div class="col-4">
         <button
           class="csd-btn csd-icon-btn csd-icon-lg float-end"
           [disabled]="!newMod.value"
@@ -75,7 +95,7 @@
           <fa-icon [icon]="faPlus"></fa-icon>
         </button>
       </div>
-      <div class="col-2 col-md-1 px-0">
+      <div class="col-1 px-0">
         <input
           type="number"
           class="w-100 text-center csd-plain-input align-text-top no-spinners"
@@ -83,7 +103,7 @@
           [(ngModel)]="newMod.value"
         />
       </div>
-      <div class="col-4 col-md-5">
+      <div class="col-6">
         <input
           type="text"
           class="w-100 csd-plain-input align-text-top"
