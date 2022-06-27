@@ -223,17 +223,14 @@
       </div>
       <script type="text/javascript">
         var ua = window.navigator.userAgent;
-        var msie = ua.indexOf("MSIE<p>);
+        var msie = ua.indexOf("MSIE");
         if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
           // IE is being used and needs to tell user to use a modern browser like Edge, Chrome, of Firefox.
           console.error(
-           <p>This browser is IE and is incompatible with the site. Please upgrade to a modern browser."
+            "<p>This browser is IE and is incompatible with the site. Please upgrade to a modern browser.<p>"
           );
           var element = document.getElementById("csd-main-content-ie");
-          element.className = element.className.replace(
-            /\bhidden-for-ie\b/g,
-           <p>"
-          );
+          element.className = element.className.replace(/\bhidden-for-ie\b/g);
         }
       </script>
     </app-root>
