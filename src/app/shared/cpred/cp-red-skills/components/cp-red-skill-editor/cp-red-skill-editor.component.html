@@ -78,7 +78,7 @@
       </ul>
     </div>
   </div>
-  <div class="col-2 position-relative text-center">
+  <div class="col-2 position-relative text-center px-0">
     <div class="csd-input-label ps-2">ip mod</div>
     <input
       [(ngModel)]="currSkill.ipMod"
@@ -86,10 +86,18 @@
       class="csd-plain-input w-100 text-center mt-2 pt-1 ms-2 no-spinners"
     />
   </div>
-  <div class="col-3 position-relative text-center px-0">
-    <div class="csd-input-label ps-2">chipped?</div>
+  <div class="col-2 position-relative text-center px-0">
+    <div class="csd-input-label">IP Req.</div>
+    <div class="mt-2 pt-1" title="IP needed for next level">
+      {{ ipRequired }}
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-2 position-relative text-center">
+    <div class="csd-input-label ps-3">chipped?</div>
     <button
-      class="csd-btn csd-icon-btn csd-btn-lg m-0 mt-2 pt-2 ms-0 ps-0"
+      class="csd-btn csd-icon-btn csd-btn-lg mt-3 ms-3"
       title="Chipped skill"
       (click)="toggleChipped($event)"
     >
@@ -98,25 +106,24 @@
       ></fa-icon>
     </button>
   </div>
-</div>
-<div class="row">
   <div class="col-2 position-relative text-center">
     <div class="csd-input-label ps-2">base</div>
     <input
       [(ngModel)]="currSkill.base"
       type="number"
-      class="csd-plain-input w-100 mt-2 ms-2 no-spinners"
+      class="csd-plain-input w-100 mt-3 ms-2 text-center no-spinners"
     />
   </div>
   <div class="col-2 position-relative text-center py-0">
     <div class="csd-input-label">mod.</div>
-    <div class="mt-2">{{ skillModifierTotal }}</div>
+    <div class="mt-3">{{ skillModifierTotal }}</div>
   </div>
 
   <div class="col-2 position-relative text-center py-0">
     <div class="csd-input-label">level</div>
-    <div class="mt-2">{{ currSkill.level }}</div>
+    <div class="mt-3">{{ currSkill.level }}</div>
   </div>
+  <div class="col-2"></div>
 </div>
 <div class="row">
   <div class="col-12 position-relative">

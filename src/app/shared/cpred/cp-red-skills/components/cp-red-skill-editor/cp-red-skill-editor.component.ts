@@ -29,6 +29,13 @@ export class CpRedSkillEditorComponent implements OnInit {
     );
   }
 
+  get ipRequired(): number {
+    if (this.currSkill.base < 10) {
+      return (this.currSkill.base + 1) * 20 * this.currSkill.ipMod;
+    }
+    return null;
+  }
+
   toggleChipped(event) {
     event.stopPropagation();
     this.currSkill.isChipped = !this.currSkill.isChipped;
