@@ -4,7 +4,7 @@ export interface CpRedSkillData {
   stat: string;
   source: string;
   required: boolean;
-  ipMod?: number;
+  ipMod: number;
   options?: Array<string>;
   description: string;
 }
