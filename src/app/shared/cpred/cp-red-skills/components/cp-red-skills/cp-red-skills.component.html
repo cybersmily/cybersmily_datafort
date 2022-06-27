@@ -7,7 +7,31 @@
   "
 >
   <div class="row align-top">
-    <div class="col-6 col-md-4" title="Skills grouped by {{ groupBy }}">
+    <div class="col-4 col-md-2">
+      SKILLS
+      <div class="btn-group position-relative" dropdown [insideClick]="true">
+        <div
+          id="button-newskill"
+          class="py-0"
+          dropdownToggle
+          aria-controls="dropdown-newskill"
+        >
+          <button class="csd-icon-btn csd-icon-lg ms-1" title="Add new skill">
+            <fa-icon [icon]="faPlus"></fa-icon>
+          </button>
+        </div>
+        <div
+          id="dropdown-newskill"
+          *dropdownMenu
+          class="dropdown-menu py-0 new-skill-dropdown"
+          role="menu"
+          aria-labelledby="button-newskill"
+        >
+          <cs-cp-red-skill-editor [skill]="newSkill"></cs-cp-red-skill-editor>
+        </div>
+      </div>
+    </div>
+    <div class="col-3 col-md-2" title="Skills grouped by {{ groupBy }}">
       <fa-icon [icon]="faFilter" class="csd-icon-btn"></fa-icon>
       <div class="btn-group px-1 align-top w-50" dropdown>
         <button
@@ -33,7 +57,7 @@
         </ul>
       </div>
     </div>
-    <div class="col-12 col-md-4">
+    <div class="col-12 order-last order-md-1 offset-md-0 col-md-4">
       <div class="position-relative">
         <fa-icon
           [icon]="faSearch"
@@ -55,7 +79,7 @@
         ></fa-icon>
       </div>
     </div>
-    <div class="col-6 col-md-4" title="Skills sorted by {{ sortOn }}">
+    <div class="col-5 order-2 col-md-4" title="Skills sorted by {{ sortOn }}">
       <fa-icon [icon]="faSort" class="csd-icon-btn"></fa-icon>
       <div class="btn-group align-top w-50" dropdown>
         <button
@@ -92,7 +116,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12 col-md-6 col-lg-4 pe-3">
+    <div class="col-12 col-md-6 col-lg-4">
       <ng-container
         *ngFor="
           let skill of skills.slice(0, roundUp(skills.length, 0.334));
@@ -102,7 +126,7 @@
         [ngTemplateOutletContext]="{ skill: skill, index: i }"
       ></ng-container>
     </div>
-    <div class="col-12 col-md-6 col-lg-4 pe-3">
+    <div class="col-12 col-md-6 col-lg-4">
       <ng-container
         *ngFor="
           let skill of skills.slice(
@@ -115,7 +139,7 @@
         [ngTemplateOutletContext]="{ skill: skill, index: i }"
       ></ng-container>
     </div>
-    <div class="col-12 col-md-6 col-lg-4 pe-3">
+    <div class="col-12 col-md-6 col-lg-4">
       <ng-container
         *ngFor="
           let skill of skills.slice(roundUp(skills.length, 0.667));

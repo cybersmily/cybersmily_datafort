@@ -3,6 +3,7 @@ import {
   faSearch,
   faSort,
   faTimes,
+  faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 import { CpRedSkillManagerService } from './../../services/cp-red-skill-manager/cp-red-skill-manager.service';
@@ -19,8 +20,11 @@ export class CpRedSkillsComponent implements OnInit {
   faFilter = faFilter;
   faSort = faSort;
   faTimes = faTimes;
+  faPlus = faPlus;
 
   skills$: Observable<Array<CpRedCharacterSkill>>;
+
+  newSkill: CpRedCharacterSkill = new CpRedCharacterSkill();
 
   sortOn: string = 'name';
   sortDirection: boolean = false;
