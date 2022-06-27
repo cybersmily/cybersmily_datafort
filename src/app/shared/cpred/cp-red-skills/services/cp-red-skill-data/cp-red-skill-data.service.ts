@@ -49,19 +49,7 @@ export class CpRedSkillDataService {
     return this.skillList.pipe(
       map((skills) =>
         skills?.map((skill) => {
-          const sk = new CpRedCharacterSkill();
-          sk.name = skill?.name;
-          sk.type = skill?.type;
-          sk.description = skill?.description;
-          sk.source = skill?.source;
-          sk.stat = skill?.stat;
-          sk.required = skill?.required;
-          sk.base = 0;
-          sk.level = 0;
-          if (skill?.ipMod) {
-            sk['ipMod'] = skill.ipMod;
-          }
-          return sk;
+          return new CpRedCharacterSkill(skill);
         })
       )
     );

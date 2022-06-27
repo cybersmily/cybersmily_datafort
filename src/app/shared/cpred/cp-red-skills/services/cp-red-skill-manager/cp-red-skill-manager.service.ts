@@ -36,4 +36,47 @@ export class CpRedSkillManagerService {
         this._skills.next(list);
       });
   }
+
+  addSkill(skill: CpRedCharacterSkill): void {
+    const skills = this._skills.getValue();
+    let index = skills.findIndex(
+      (sk) => sk.name.toLowerCase() === skill.name.toLowerCase()
+    );
+    let count = 1;
+    if (index < 0) {
+      skills.push(skill);
+      this.updateSkills(skills);
+    } else {
+      // if the skill name already exists, append a number
+      while (index > -1) {
+        skill.name += count + '';
+        count++;
+        index = skills.findIndex(
+          (sk) => sk.name.toLowerCase() === skill.name.toLowerCase()
+        );
+      }
+    }
+  }
+
+  updateSkill(oldSkillName: string, newSkill: CpRedCharacterSkill): void {
+    const skills = this._skills.getValue();
+    const index = skills.findIndex(
+      (sk) => sk.name.toLowerCase() === oldSkillName.toLowerCase()
+    );
+    if (index > -1) {
+      skills[index] = new CpRedCharacterSkill(newSkill);
+      this.updateSkills(skills);
+    }
+  }
+
+  deleteSkill(skillName: string): void {
+    const skills = this._skills.getValue();
+    const index = skills.findIndex(
+      (sk) => sk.name.toLowerCase() === skillName.toLowerCase()
+    );
+    if (index > -1) {
+      skills.splice(index, 1);
+      this.updateSkills(skills);
+    }
+  }
 }
