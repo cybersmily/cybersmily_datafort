@@ -1,3 +1,4 @@
+import { CpRedSkillMod } from './../../models/cp-red-skill-mod';
 import { CpRedSkill } from './../../models/cp-red-skill';
 import { CpRedSkillDataService } from './../cp-red-skill-data/cp-red-skill-data.service';
 import { BehaviorSubject, Observable, first } from 'rxjs';

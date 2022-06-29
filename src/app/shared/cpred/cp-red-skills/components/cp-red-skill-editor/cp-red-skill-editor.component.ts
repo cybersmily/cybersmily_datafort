@@ -1,8 +1,15 @@
+import { CpRedSkillManagerService } from './../../services/cp-red-skill-manager/cp-red-skill-manager.service';
+import { CpRedSkillMod } from './../../models/cp-red-skill-mod';
 import { Observable } from 'rxjs';
 import { CpRedSkillDataService } from './../../services/cp-red-skill-data/cp-red-skill-data.service';
 import { CpRedCharacterSkill } from './../../models/cp-red-character-skill';
 import { Component, Input, OnInit } from '@angular/core';
-import { faCheckCircle, faDotCircle } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCheckCircle,
+  faDotCircle,
+  faPlus,
+  faTrash,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'cs-cp-red-skill-editor',
@@ -12,29 +19,22 @@ import { faCheckCircle, faDotCircle } from '@fortawesome/free-solid-svg-icons';
 export class CpRedSkillEditorComponent implements OnInit {
   faCheckCircle = faCheckCircle;
   faDotCircle = faDotCircle;
+  faPlus = faPlus;
+  faTrash = faTrash;
 
   currSkill: CpRedCharacterSkill = new CpRedCharacterSkill();
   skillStats$: Observable<Array<string>>;
   skillTypes$: Observable<Array<string>>;
+  showModifiers: boolean = false;
+  newMod: CpRedSkillMod = { active: true, name: '', value: 0 };
 
   @Input()
   skill: CpRedCharacterSkill = new CpRedCharacterSkill();
 
-  constructor(private skillDataService: CpRedSkillDataService) {}
-
-  get skillModifierTotal(): number {
-    return this.currSkill.modifiers.reduce(
-      (total, mod) => total + (mod.active ? mod.value : 0),
-      0
-    );
-  }
-
-  get ipRequired(): number {
-    if (this.currSkill.base < 10) {
-      return (this.currSkill.base + 1) * 20 * this.currSkill.ipMod;
-    }
-    return null;
-  }
+  constructor(
+    private skillDataService: CpRedSkillDataService,
+    private skillsManager: CpRedSkillManagerService
+  ) {}
 
   toggleChipped(event) {
     event.stopPropagation();
@@ -43,8 +43,29 @@ export class CpRedSkillEditorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.currSkill = { ...this.skill };
+    this.currSkill = new CpRedCharacterSkill(this.skill);
     this.skillTypes$ = this.skillDataService.skillTypes;
     this.skillStats$ = this.skillDataService.skillStats;
+  }
+
+  addModifier(event: Event): void {
+    event.stopPropagation();
+    this.currSkill.modifiers.push({ ...this.newMod });
+    this.newMod = { active: true, name: '', value: 0 };
+  }
+
+  deleteModifier(event: Event, index: number): void {
+    event.stopPropagation();
+    this.currSkill.modifiers.splice(index, 1);
+  }
+
+  toggleModifierActivation(event: Event, index: number): void {
+    event.stopPropagation();
+    this.currSkill.modifiers[index].active =
+      !this.currSkill.modifiers[index].active;
+  }
+
+  udpateSkill() {
+    this.skillsManager.updateSkill(this.skill.name, this.currSkill);
   }
 }

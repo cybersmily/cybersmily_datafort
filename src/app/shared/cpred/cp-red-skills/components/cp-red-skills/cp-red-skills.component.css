@@ -31,3 +31,9 @@ select option:checked:after {
   cursor: pointer;
   background: #CCC;
 }
+
+.new-skill-dropdown {
+  margin-left: -100px;
+  width: 350px;
+  min-width: 350px;
+}

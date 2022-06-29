@@ -1,133 +1,213 @@
-<div class="row py-0 mt-0">
-  <div class="col-12 py-0 ps-3 position-relative">
-    <div class="csd-input-label ps-4">name</div>
-    <div class="position-absolute text-xsmall fst-italic ps-2 csd-source">
+<div>
+  <div class="row py-0 mt-0">
+    <div class="col-12 py-0 ps-3 position-relative">
+      <div class="csd-input-label ps-4">name</div>
+      <div class="position-absolute text-xsmall fst-italic ps-2 csd-source">
+        <input
+          [(ngModel)]="currSkill.source"
+          type="text"
+          class="csd-plain-input text-end"
+          placeholder="Source reference"
+        />
+      </div>
       <input
-        [(ngModel)]="currSkill.source"
+        [(ngModel)]="currSkill.name"
         type="text"
-        class="csd-plain-input text-end"
+        class="csd-plain-input w-80 text-capitalize mt-1 pt-1"
       />
     </div>
-    <input
-      [(ngModel)]="currSkill.name"
-      type="text"
-      class="csd-plain-input w-80 text-capitalize mt-1 pt-1"
-    />
   </div>
-</div>
-<div class="row">
-  <div class="col-4 position-relative small">
-    <div class="csd-input-label ps-4">type</div>
-    <div class="btn-group px-1 mt-2 pt-1" dropdown>
-      <button
-        id="button-type"
-        dropdownToggle
-        type="button"
-        class="csd-sort-selector px-1 w-100 text-uppercase"
-        aria-controls="dropdown-type"
-        title="Skill type"
-      >
-        {{ currSkill?.type }}
-      </button>
-      <ul
-        id="dropdown-type"
-        *dropdownMenu
-        class="dropdown-menu px-2"
-        role="menu"
-        aria-labelledby="button-type"
-      >
-        <li
-          *ngFor="let skillType of skillTypes$ | async"
-          role="menuitem"
-          class="text-uppercase"
-          (click)="currSkill.type = skillType"
+  <div class="row">
+    <div class="col-4 position-relative small">
+      <div class="csd-input-label ps-4">type</div>
+      <div class="btn-group px-1 mt-2 pt-1 w-100" dropdown>
+        <button
+          id="button-type"
+          dropdownToggle
+          type="button"
+          class="csd-sort-selector px-1 w-100 text-uppercase"
+          aria-controls="dropdown-type"
+          title="Skill type"
         >
-          {{ skillType }}
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div class="col-2 position-relative small">
-    <div class="csd-input-label ps-4">stat</div>
-    <div class="btn-group px-1 align-top mt-2 pt-1" dropdown>
-      <button
-        id="button-stat"
-        dropdownToggle
-        type="button"
-        class="csd-sort-selector px-1 w-100 text-uppercase"
-        aria-controls="dropdown-stat"
-        title="Skill stat"
-      >
-        {{ currSkill?.stat }}
-      </button>
-      <ul
-        id="dropdown-stat"
-        *dropdownMenu
-        class="dropdown-menu px-2"
-        role="menu"
-        aria-labelledby="button-stat"
-      >
-        <li
-          *ngFor="let stat of skillStats$ | async"
-          role="menuitem"
-          class="text-uppercase"
-          (click)="currSkill.stat = stat"
+          {{ currSkill.type ? currSkill.type : "..." }}
+        </button>
+        <ul
+          id="dropdown-type"
+          *dropdownMenu
+          class="dropdown-menu px-2"
+          role="menu"
+          aria-labelledby="button-type"
         >
-          {{ stat }}
-        </li>
-      </ul>
+          <li
+            *ngFor="let skillType of skillTypes$ | async"
+            role="menuitem"
+            class="text-uppercase"
+            (click)="currSkill.type = skillType"
+          >
+            {{ skillType }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-2 position-relative small">
+      <div class="csd-input-label ps-4">stat</div>
+      <div class="btn-group px-1 align-top mt-2 pt-1" dropdown>
+        <button
+          id="button-stat"
+          dropdownToggle
+          type="button"
+          class="csd-sort-selector px-1 w-100 text-uppercase"
+          aria-controls="dropdown-stat"
+          title="Skill stat"
+        >
+          {{ currSkill.stat ? currSkill.stat : "..." }}
+        </button>
+        <ul
+          id="dropdown-stat"
+          *dropdownMenu
+          class="dropdown-menu px-2"
+          role="menu"
+          aria-labelledby="button-stat"
+        >
+          <li
+            *ngFor="let stat of skillStats$ | async"
+            role="menuitem"
+            class="text-uppercase"
+            (click)="currSkill.stat = stat"
+          >
+            {{ stat }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-2 position-relative text-center px-0">
+      <div class="csd-input-label ps-2">ip mod</div>
+      <input
+        [(ngModel)]="currSkill.ipMod"
+        type="number"
+        class="csd-plain-input w-100 text-center mt-2 pt-1 ms-2 no-spinners"
+      />
+    </div>
+    <div class="col-2 position-relative text-center px-0">
+      <div class="csd-input-label">IP Req.</div>
+      <div class="mt-2 pt-1" title="IP needed for next level">
+        {{ currSkill.nextLevelIP }}
+      </div>
     </div>
   </div>
-  <div class="col-2 position-relative text-center px-0">
-    <div class="csd-input-label ps-2">ip mod</div>
-    <input
-      [(ngModel)]="currSkill.ipMod"
-      type="number"
-      class="csd-plain-input w-100 text-center mt-2 pt-1 ms-2 no-spinners"
-    />
-  </div>
-  <div class="col-2 position-relative text-center px-0">
-    <div class="csd-input-label">IP Req.</div>
-    <div class="mt-2 pt-1" title="IP needed for next level">
-      {{ ipRequired }}
+  <div class="row">
+    <div class="col-2 position-relative text-center">
+      <div class="csd-input-label ps-3">chipped?</div>
+      <button
+        class="csd-btn csd-icon-btn csd-btn-lg mt-3 ms-3"
+        title="Chipped skill"
+        (click)="toggleChipped($event)"
+      >
+        <fa-icon
+          [icon]="currSkill.isChipped ? faCheckCircle : faDotCircle"
+        ></fa-icon>
+      </button>
     </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-2 position-relative text-center">
-    <div class="csd-input-label ps-3">chipped?</div>
-    <button
-      class="csd-btn csd-icon-btn csd-btn-lg mt-3 ms-3"
-      title="Chipped skill"
-      (click)="toggleChipped($event)"
-    >
-      <fa-icon
-        [icon]="currSkill.isChipped ? faCheckCircle : faDotCircle"
-      ></fa-icon>
-    </button>
-  </div>
-  <div class="col-2 position-relative text-center">
-    <div class="csd-input-label ps-2">base</div>
-    <input
-      [(ngModel)]="currSkill.base"
-      type="number"
-      class="csd-plain-input w-100 mt-3 ms-2 text-center no-spinners"
-    />
-  </div>
-  <div class="col-2 position-relative text-center py-0">
-    <div class="csd-input-label">mod.</div>
-    <div class="mt-3">{{ skillModifierTotal }}</div>
+    <div class="col-2 position-relative text-center">
+      <div class="csd-input-label ps-2">base</div>
+      <input
+        [(ngModel)]="currSkill.base"
+        type="number"
+        class="csd-plain-input w-100 mt-3 ms-2 text-center no-spinners"
+      />
+    </div>
+    <div class="col-2 position-relative text-center py-0">
+      <div class="csd-input-label">mod. {{ currSkill.modifiers.length }}</div>
+      <div
+        class="mt-3 csd-btn"
+        title="Show skill modifiers."
+        (click)="showModifiers = !showModifiers"
+      >
+        {{ currSkill.modifierTotal }}
+      </div>
+    </div>
+
+    <div class="col-2 position-relative text-center py-0">
+      <div class="csd-input-label">level</div>
+      <div class="mt-3">{{ currSkill.level }}</div>
+    </div>
+    <div class="col-2"></div>
   </div>
 
-  <div class="col-2 position-relative text-center py-0">
-    <div class="csd-input-label">level</div>
-    <div class="mt-3">{{ currSkill.level }}</div>
+  <div *ngIf="showModifiers" class="row">
+    <div class="col-2"></div>
+    <div class="col-10">
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-9 text-xxsmall align-top ps-0">MODIFIERS</div>
+      </div>
+      <div *ngFor="let mod of currSkill.modifiers; let i = index" class="row">
+        <div class="col-3"></div>
+        <div
+          class="col-1 align-top csd-btn text-center px-0"
+          title="Click to toggle active/deactive"
+        >
+          <button
+            [ngClass]="{
+              'csd-icon-btn csd-icon-xs align-top pt-1 w-100 text-center': true,
+              'csd-icon-greyedout': !mod.active
+            }"
+            (click)="toggleModifierActivation($event, i)"
+          >
+            <fa-icon
+              [icon]="mod.active ? faCheckCircle : faDotCircle"
+            ></fa-icon>
+          </button>
+        </div>
+        <div class="col-1 px-0 small">
+          {{ mod.value > 0 ? "+" : "" }}{{ mod.value }}
+        </div>
+        <div class="col-6 small pe-0 py-0 text-truncate" [title]="mod.name">
+          {{ mod.name }}
+        </div>
+        <div class="col-1 csd-btn px-0" title="Delete modifier">
+          <button
+            class="csd-icon-btn csd-icon-sm text-center"
+            (click)="deleteModifier($event, i)"
+          >
+            <fa-icon [icon]="faTrash"></fa-icon>
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <button
+            class="csd-btn csd-icon-btn csd-icon-lg float-end"
+            [disabled]="!newMod.value"
+            (click)="addModifier($event)"
+          >
+            <fa-icon [icon]="faPlus"></fa-icon>
+          </button>
+        </div>
+        <div class="col-1 px-0">
+          <input
+            type="number"
+            class="w-100 text-center csd-plain-input align-text-top no-spinners"
+            placeholder="#"
+            [(ngModel)]="newMod.value"
+          />
+        </div>
+        <div class="col-6">
+          <input
+            type="text"
+            class="w-100 csd-plain-input align-text-top"
+            placeholder="enter modifier name"
+            [(ngModel)]="newMod.name"
+          />
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-2"></div>
-</div>
-<div class="row">
-  <div class="col-12 position-relative">
-    <div class="csd-input-label ps-4">description</div>
-    <textarea class="w-100" [(ngModel)]="skill.description"></textarea>
+
+  <div class="row">
+    <div class="col-12 position-relative">
+      <div class="csd-input-label ps-4">description</div>
+      <textarea class="w-100" [(ngModel)]="skill.description"></textarea>
+    </div>
   </div>
 </div>
