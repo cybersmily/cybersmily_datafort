@@ -834,8 +834,8 @@ INPUT.csd-plain-input:focus::placeholder {
 }
 
 .dropdown-item.active, .drop-item:active {
-  background-color: #CCC !important;
-  color: #222;
+  background-color: #555 !important;
+  color: #CCC;
 }
 
 A {
