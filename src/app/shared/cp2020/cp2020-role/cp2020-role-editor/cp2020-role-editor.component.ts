@@ -1,20 +1,39 @@
-import { faSearch, faSearchLocation, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { forkJoin } from 'rxjs';
+import { DataSkill } from './../../cp2020-skills/models/data-skill';
+import { SkillListService } from './../../cp2020-skills/services/skill-list.service';
+import {
+  faSearch,
+  faSearchLocation,
+  faTrash,
+} from '@fortawesome/free-solid-svg-icons';
+import { forkJoin, Observable, map, first } from 'rxjs';
 import { JsonDataFiles } from './../../../services/file-services/json-data-files';
 import { DiceService } from './../../../services/dice/dice.service';
 import { Cp2020RolesDataService } from './../services/cp2020-roles-data.service';
 import { Cp2020PlayerRole } from './../models/cp2020-player-role';
-import { Component, Input, OnInit, Output, EventEmitter, OnChanges, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  Output,
+  EventEmitter,
+  OnChanges,
+  AfterViewInit,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 import { Cp2020Role } from '../models';
 import { Cp2020PlayerSkill } from '../../cp2020-skills/models';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
+import { Data } from '@angular/router';
 
 @Component({
   selector: 'cs-cp2020-role-editor',
   templateUrl: './cp2020-role-editor.component.html',
-  styleUrls: ['./cp2020-role-editor.component.css']
+  styleUrls: ['./cp2020-role-editor.component.css'],
 })
-export class Cp2020RoleEditorComponent implements OnInit, OnChanges, AfterViewInit {
+export class Cp2020RoleEditorComponent
+  implements OnInit, OnChanges, AfterViewInit
+{
   faSearch = faSearch;
   faTrash = faTrash;
   optionOnBlur: any;
@@ -37,7 +56,7 @@ export class Cp2020RoleEditorComponent implements OnInit, OnChanges, AfterViewIn
   @Output()
   deleteRole: EventEmitter<Cp2020PlayerRole> = new EventEmitter<Cp2020PlayerRole>();
 
-  @ViewChild('roleName', {static: false})
+  @ViewChild('roleName', { static: false })
   roleNameElem: ElementRef;
 
   currentRole: Cp2020PlayerRole = new Cp2020PlayerRole();
@@ -47,8 +66,10 @@ export class Cp2020RoleEditorComponent implements OnInit, OnChanges, AfterViewIn
   roleList: Array<string> = new Array<string>();
   selectedRole: Cp2020Role = new Cp2020Role();
   roleSkills: Array<any> = new Array<any>();
+  selectedSkills: Array<string> = ['', '', '', '', '', '', '', '', '', ''];
   cp2020NumOfSkill: number = 9;
   iuNumOfSkill: number = 3;
+  skillList$: Observable<Array<string>>;
 
   get salary(): number {
     return this.currentRole?.salary || 0;
@@ -57,10 +78,20 @@ export class Cp2020RoleEditorComponent implements OnInit, OnChanges, AfterViewIn
   set salary(value: number) {
     this.currentRole.salary = value;
   }
-
-  constructor( private roleService: Cp2020RolesDataService, private dice: DiceService) { }
+  constructor(
+    private roleService: Cp2020RolesDataService,
+    private skillListService: SkillListService
+  ) {}
 
   ngOnInit(): void {
+    this.skillList$ = this.skillListService.Skills.pipe(
+      first(),
+      map((skills) =>
+        skills.map(
+          (skill) => skill.name + (skill.option ? `: ${skill.option}` : '')
+        )
+      )
+    );
     this.loadData();
   }
 
@@ -69,7 +100,7 @@ export class Cp2020RoleEditorComponent implements OnInit, OnChanges, AfterViewIn
   }
 
   ngAfterViewInit(): void {
-    if(this.isFocus) {
+    if (this.isFocus) {
       this.roleNameElem.nativeElement.focus();
     }
   }
@@ -77,33 +108,46 @@ export class Cp2020RoleEditorComponent implements OnInit, OnChanges, AfterViewIn
   private loadData() {
     this.currentRole = new Cp2020PlayerRole(this.role);
     this.roleSkills = this.currentRole.skills;
-    if(this.currentRole.name === '') {
+    this.selectedSkills = this.currentRole.skills.map((skill) =>
+      Array.isArray(skill) ? '' : skill
+    );
+    console.log(this.selectedSkills);
+    if (this.currentRole.name === '') {
       this.fillSkillArraysBlank();
     }
     const roles = this.roleService.getRoles(this.isIU);
-    forkJoin({roles}).subscribe(data => {
+    forkJoin({ roles }).subscribe((data) => {
       this.roleData = data.roles;
-      const found = this.roleData.findIndex( role => role.name.toLowerCase() === this.currentRole.name.toLowerCase());
+      const found = this.roleData.findIndex(
+        (role) =>
+          role.name.toLowerCase() === this.currentRole.name.toLowerCase()
+      );
       if (found > -1) {
         this.selectedRole = this.roleData[found];
       }
-      this.roleList = this.roleData.map( role => (role.base ? `${role.base} - `: ``) + role.name );
+      this.roleList = this.roleData.map(
+        (role) => (role.base ? `${role.base} - ` : ``) + role.name
+      );
     });
   }
 
   updateRoleName() {
     const selected = this.currentRole.name.split(' - ');
     const name = selected.length > 1 ? selected[1] : selected[0];
-    const found = this.roleData.findIndex(role => role.name.toLocaleLowerCase() === name?.toLocaleLowerCase());
+    const found = this.roleData.findIndex(
+      (role) => role.name.toLocaleLowerCase() === name?.toLocaleLowerCase()
+    );
     if (found > -1) {
-      const role = this.roleData[found];
-      this.currentRole.specialAbility = new Cp2020PlayerSkill(role.specialability);
-      this.roleSkills = role.skills.map(sk => sk);
-      this.currentRole.skills = role.skills.map( sk => {
-        if(Array.isArray(sk)) {
-          sk = sk.map( s => s.replace("\\&", '&'));
+      this.selectedRole = this.roleData[found];
+      this.currentRole.specialAbility = new Cp2020PlayerSkill(
+        this.selectedRole.specialability
+      );
+      this.roleSkills = this.selectedRole.skills.map((sk) => sk);
+      this.currentRole.skills = this.selectedRole.skills.map((sk) => {
+        if (Array.isArray(sk)) {
+          return '';
         } else {
-          sk = sk.replace("\\&", '&');
+          sk = sk.replace('\\&', '&');
         }
         return sk;
       });
@@ -119,7 +163,7 @@ export class Cp2020RoleEditorComponent implements OnInit, OnChanges, AfterViewIn
   }
 
   updateSkill(event, index) {
-    if(index > -1 && index < this.currentRole.skills.length){
+    if (index > -1 && index < this.currentRole.skills.length) {
       this.currentRole.skills[index] = event.target.value;
       this.update();
     }
@@ -129,7 +173,6 @@ export class Cp2020RoleEditorComponent implements OnInit, OnChanges, AfterViewIn
     this.deleteRole.emit(this.currentRole);
   }
 
-
   /**
    * Fills the currentRole and roleSkills with blank values for player input.
    *
@@ -137,10 +180,9 @@ export class Cp2020RoleEditorComponent implements OnInit, OnChanges, AfterViewIn
    */
   fillSkillArraysBlank() {
     const length = this.isIU ? this.iuNumOfSkill : this.cp2020NumOfSkill;
-    this.currentRole.skills = new Array(length).fill('',0, length);
-    this.roleSkills = new Array(length).fill('',0, length);
+    this.currentRole.skills = new Array(length).fill('', 0, length);
+    this.roleSkills = new Array(length).fill('', 0, length);
   }
-
 
   /**
    * return the role skill as a string if it is an array.
@@ -149,11 +191,11 @@ export class Cp2020RoleEditorComponent implements OnInit, OnChanges, AfterViewIn
    * @return {*}  {string}
    * @memberof Cp2020RoleSectionComponent
    */
-   isArray(skill:any): boolean {
+  isArray(skill: any): boolean {
     return Array.isArray(skill);
   }
 
   getSkillOptions(index: number): Array<string> {
-    return this.selectedRole.skills[index];
+    return [...this.selectedRole.skills[index]];
   }
 }
