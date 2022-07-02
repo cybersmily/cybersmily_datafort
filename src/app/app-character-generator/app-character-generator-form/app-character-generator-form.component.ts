@@ -1,5 +1,5 @@
-import { map } from 'rxjs/operators';
-import { Observable, first } from 'rxjs';
+import { debounce, debounceTime, map } from 'rxjs/operators';
+import { Observable, first, Subject } from 'rxjs';
 import { Cp2020DeckmanagerPdfSectionService } from './../../shared/cp2020/cp2020-netrun-gear/services/cp2020-deckmanager-pdf-section/cp2020-deckmanager-pdf-section.service';
 import { Cp2020ArmorPDFSectionService } from './../../shared/cp2020/cp2020-armor/services/cp2020-armor-pdf-section/cp2020-armor-pdf-section.service';
 import { Cp2020CyberdeckManager } from './../../shared/cp2020/cp2020-netrun-gear/models/cp2020-cyberdeck-manager';
@@ -94,6 +94,8 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   @ViewChild('charGenInstructions', { static: false })
   instructionElem: ElementRef;
 
+  notesSubject: Subject<string> = new Subject();
+
   constructor(
     private characterService: Cp2020CharacterGeneratorService,
     private saveFileService: SaveFileService,
@@ -127,6 +129,13 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     this.sourceService.getSources().subscribe((sources) => {
       this.sources = sources;
     });
+    this.notesSubject.pipe(debounceTime(500)).subscribe((note) => {
+      this.characterService.changeNotes(this.notes);
+    });
+  }
+
+  OnDestroy(): void {
+    this.notesSubject.unsubscribe();
   }
 
   changeCharacter() {
@@ -203,7 +212,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   }
 
   updateNotes() {
-    this.characterService.changeNotes(this.notes);
+    this.notesSubject.next(this.notes);
   }
 
   /**
