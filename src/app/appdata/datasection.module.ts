@@ -26,6 +26,7 @@ import { ProgramListComponent } from './program-list/program-list.component';
 import { CyberdeckListComponent } from './cyberdeck-list/cyberdeck-list.component';
 import { GearListComponent } from './gear-list/gear-list.component';
 import { CorporateListComponent } from './corporate-list/corporate-list.component';
+import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
 
 @NgModule({
   imports: [
@@ -54,6 +55,7 @@ import { CorporateListComponent } from './corporate-list/corporate-list.componen
     CyberdeckListComponent,
     GearListComponent,
     CorporateListComponent,
+    VehicleListComponent,
   ],
   providers: [DataService, CyberDataService],
 })

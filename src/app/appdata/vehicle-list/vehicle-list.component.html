@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>Master Vehicles List</h2>
+  <div>
+    This is the master list of all vehicles with their sources. Search is based
+    on what the field starts with. Sources were pulled from R. Talsorian.
+  </div>
+  <div>
+    NOTE: Not all the attributes are listed as the source didn't specify them in
+    print. This may change in the future, but for now the list is as per source.
+  </div>
+  <br />
+  <cs-data-list
+    [dataList]="vehicleList$ | async"
+    [columnsParameters]="columns"
+  ></cs-data-list>
+</div>

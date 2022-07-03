@@ -79,6 +79,11 @@ export class TopNavLinks {
           desc: 'List of all canon skills in Cyberpunk 2020',
         },
         {
+          title: 'Master Vehicle List',
+          link: 'data/veh',
+          desc: 'List of all canon vehicles in Cyberpunk 2020',
+        },
+        {
           title: 'Master Weapons List',
           link: 'data/wpns',
           desc: 'List of all canon weapons in Cyberpunk 2020',

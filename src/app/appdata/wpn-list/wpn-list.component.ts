@@ -1,6 +1,5 @@
 import { DataListColumnParameters } from './../../shared/modules/data-list/models/data-list-parameters';
 import { Observable } from 'rxjs';
-import { faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { WeaponDataService } from './../../shared/cp2020/cp2020weapons/services';
 import {

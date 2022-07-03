@@ -67,6 +67,7 @@ export class JsonDataFiles {
   public static CP2020_MAXMETAL_OPTIONS_JSON = `/json/apps/maxmetal/mmoptions.json`;
   public static CP2020_MAXMETAL_MOUNTS_JSON = `/json/apps/maxmetal/mmweaponmounts.json`;
   public static CP2020_MAXMETAL_TYPES_JSON = `/json/apps/maxmetal/mmTypes.json`;
+  public static CP2020_VEHICLE_DATA_LIST_JSON = `/json/apps/maxmetal/cp2020-vehicles.json`;
 
   public static CP2020_LIFEPATH_STYLE_JSON = `/json/apps/lifepath/stylecharts.json`;
   public static CP2020_LIFEPATH_SOURCES_JSON = `/json/apps/lifepath/sources.json`;
