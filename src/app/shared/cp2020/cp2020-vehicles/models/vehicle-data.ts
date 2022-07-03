@@ -15,6 +15,7 @@ export interface VehicleData {
   range?: number;
   passengers?: number;
   cargo?: string;
+  spaces?: number;
   manuever?: number;
   sdp?: number;
   sp?: number;
@@ -23,6 +24,6 @@ export interface VehicleData {
   cost?: string;
   bookCost?: number;
   options?: string;
+  weapons?: string;
   source?: SourceBook;
 }
-
