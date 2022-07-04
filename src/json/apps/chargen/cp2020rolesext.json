@@ -28,7 +28,7 @@
         "Education & Gen. Know.",
         [
           "History",
-          "Area Knowledge"
+          "Area Knowledge: Choose one"
         ],
         "Rhetoric",
         "Bureaucracy",
@@ -498,7 +498,7 @@
       "skills": [
         "Interrogation",
         "Human Perception",
-        "Expert: Corp. Admin",
+        "Bureaucracy",
         "Library Search",
         "Elect. Security",
         "Pick Lock",
@@ -1004,7 +1004,7 @@
         "Interview",
         "Social",
         "Composition",
-        "Expert: Culture",
+        "Culture",
         "Human Perception",
         ""
       ]
@@ -1098,13 +1098,13 @@
       ],
       "skills": [
         "Awareness/Notice",
-        "Expert: Culture",
+        "Culture",
         "Perform",
         "Photo & Film",
         [
           "Corporate Policy",
           "Business Sense",
-          "Expert: politics"
+          "Expert: Politics"
         ],
         "Composition",
         "Education & Gen. Know.",
@@ -1390,8 +1390,8 @@
         "Library Search",
         "Pharmaceuticals",
         "Biogenetics",
-        "Expert: Deep Sea Zoology",
-        "Expert: Psychology",
+        "Marine Biology",
+        "Psychology",
         "Underwater Survival"
       ]
     },
@@ -2602,7 +2602,7 @@
         "Brawling",
         "Handgun",
         "Melee",
-        "Pharmacology",
+        "Pharmaceuticals",
         "",
         ""
       ]
@@ -2807,7 +2807,7 @@
         "Human Perception",
         "Social",
         "Education & Gen. Know.",
-        "Expert: Culture",
+        "Culture",
         "Interview"
       ]
     },
@@ -2937,7 +2937,7 @@
         "Pilot: Sub (Large/Small)",
         "Sub Tech",
         "Pilot: Deep Dive Suit",
-        "Expert: Marine Science",
+        "Expert: Marine Technology",
         "Pilot: Flying Sub",
         "Flying Sub Tech",
         "Undersea Equipment"
@@ -3231,7 +3231,7 @@
         "Pilot: OTV",
         "Basic Tech",
         "Electronics",
-        "Expert: Construction Techniques",
+        "Expert: Construction",
         "Strength Feat"
       ]
     },
