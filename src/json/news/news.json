@@ -1,6 +1,23 @@
 ﻿{
   "news": [
     {
+      "date": "2022-07",
+      "entries": [
+        "<strong>07-??</strong> - The updates keep coming. This month we have bug fixes and some new stuff",
+        "&nbsp;* Master Vehicle List is now live. This contains all the RTG vehicles that are cannon with Cyberpunk 2020. Some of the attributes are blank as per the source. I am still debating on whether to keep them that way or update them to be more inline with Max Metal stats. Thanks to Ikarius over on <a href='https://discord.gg/Jhy9Txx5hP'>Discord</a> for helping with this.",
+        "&nbsp;* Character Generator Roles sections has been reworked, specifically on the skills. I remove the hard limit of selectable skills, change it to free for text box but will a hint displaying the skill that should be there as well as a type ahead search for adding skills.",
+        "&nbsp;* Speaking of skills, the list has been update to be more inline with some other sources and removed redundancies. Thanks to Tekquest for assisting in the clean up.",
+        "&nbsp;* Character Generator for Cyberpunk 2020 also has improved the notes section. There were issues with performance when typing in that section, hopefully you will see some improvements there.",
+        "&nbsp;* Updated some of the Max Metal metadata in the Max Metal Calculator. Added Cyberwalk type and updated some of the source pages on equipment.",
+        "&nbsp;* Fixed a bug in the ACPA Generator for the PDF where internal slots were duplicated to the external ones.",
+        "&nbsp;* Added a few new Peeps that were NPCs in my game.",
+        "I am still working on the Character Generator for Cyberpunk Red. I am making progress, slow, but some. It will be coming and just takes time to get things the way I want them. I am enjoying all the feedback I am getting on the Cybersmily's Datafort Discord. There has been some great things coming from the community. It is helping me and this site a lot to hear it all. If you are interested, please click the Discord icon in the menu bar. ",
+        "Please check out The Tales from the Forlorn Dopes over on <a href='https://www.twitch.tv/cybernationuncensored'>Cybernation Uncensored twitch</a>. The schedule of every 1st and 3rd Wednesday of the month at 19:00 EST/18:00 CST/16:00 PST/00:00 GMT(which actually Thursday for those across the pond). Wisdom000 from <a href='http://datafortess2020.com'>Datafortress 2020</a> and myself ramble on about Cyberpunk 2020, Red, and other Cyberpunk genre media. Please check us out. You can see old episodes on Cybernation Uncensored's Youtube Channel",
+        "Till next time.",
+        "CYBER :D"
+      ]
+    },
+    {
       "date": "2022-06",
       "entries": [
         "<strong>06-19</strong> - Another release with some more goodness to the site!",
