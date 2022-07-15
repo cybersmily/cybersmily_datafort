@@ -14,35 +14,18 @@ describe('HomeComponent', () => {
 
   const newsData: News = {
     news: [
-      { date: '2019-01-01', entries: [
-        'test one',
-        'test two'
-      ]},
-      { date: '2019-02-02', entries: [
-        'test three',
-        'test four'
-      ]},
-      { date: '2019-03-03', entries: [
-        'test five',
-        'test six'
-      ]}
-    ]
+      { date: '2019-01-01', entries: ['test one', 'test two'] },
+      { date: '2019-02-02', entries: ['test three', 'test four'] },
+      { date: '2019-03-03', entries: ['test five', 'test six'] },
+    ],
   };
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        HomeComponent
-      ],
-      imports: [
-        HttpClientTestingModule,
-        CommonUiModule
-      ],
-      providers: [
-        DataService
-      ]
-    })
-    .compileComponents();
+      declarations: [HomeComponent],
+      imports: [HttpClientTestingModule, CommonUiModule],
+      providers: [DataService],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -61,8 +44,8 @@ describe('HomeComponent', () => {
     spyOn(dataService, 'GetDataNews').and.returnValue(of(newsData));
     homeComoponent.ngOnInit();
     expect(homeComoponent.newItems).toBeTruthy();
-    expect(homeComoponent.newItems.length).toEqual(3);
-    expect(homeComoponent.newItems[2].date).toEqual('2019-03-03');
+    expect(homeComoponent.newItems.length).toEqual(1);
+    expect(homeComoponent.newItems[0].date).toEqual('2019-01-01');
     expect(homeComoponent.newItems[0].entries.length).toEqual(2);
   });
 });

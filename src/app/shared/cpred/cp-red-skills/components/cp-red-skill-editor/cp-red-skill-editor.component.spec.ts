@@ -1,3 +1,5 @@
+import { DataService } from './../../../../services/file-services/dataservice/data.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CpRedSkillEditorComponent } from './cp-red-skill-editor.component';
@@ -8,9 +10,10 @@ describe('CpRedSkillEditorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CpRedSkillEditorComponent ]
-    })
-    .compileComponents();
+      declarations: [CpRedSkillEditorComponent],
+      imports: [HttpClientTestingModule],
+      providers: [DataService],
+    }).compileComponents();
   });
 
   beforeEach(() => {

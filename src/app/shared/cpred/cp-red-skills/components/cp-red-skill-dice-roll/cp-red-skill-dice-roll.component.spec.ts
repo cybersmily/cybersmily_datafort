@@ -1,3 +1,4 @@
+import { DiceService } from './../../../../services/dice/dice.service';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CpRedSkillDiceRollComponent } from './cp-red-skill-dice-roll.component';
@@ -8,9 +9,9 @@ describe('CpRedSkillDiceRollComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CpRedSkillDiceRollComponent ]
-    })
-    .compileComponents();
+      declarations: [CpRedSkillDiceRollComponent],
+      providers: [DiceService],
+    }).compileComponents();
   });
 
   beforeEach(() => {

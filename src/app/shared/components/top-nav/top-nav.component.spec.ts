@@ -1,3 +1,4 @@
+import { CommonUiModule } from './../../modules/common-ui/common-ui.module';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -12,15 +13,9 @@ describe('TopNavComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ TopNavComponent ],
-      imports: [
-        RouterTestingModule,
-        CollapseModule,
-        FontAwesomeModule,
-        BrowserAnimationsModule
-      ]
-    })
-    .compileComponents();
+      declarations: [TopNavComponent],
+      imports: [RouterTestingModule, CommonUiModule, BrowserAnimationsModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -41,5 +36,4 @@ describe('TopNavComponent', () => {
   afterAll(() => {
     TestBed.resetTestingModule();
   });
-
 });

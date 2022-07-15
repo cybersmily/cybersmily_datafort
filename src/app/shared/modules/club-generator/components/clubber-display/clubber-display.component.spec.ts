@@ -1,3 +1,4 @@
+import { DiceService } from './../../../../services/dice/dice.service';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ClubberDisplayComponent } from './clubber-display.component';
@@ -8,9 +9,9 @@ describe('ClubberDisplayComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ClubberDisplayComponent ]
-    })
-    .compileComponents();
+      declarations: [ClubberDisplayComponent],
+      providers: [DiceService],
+    }).compileComponents();
   });
 
   beforeEach(() => {
