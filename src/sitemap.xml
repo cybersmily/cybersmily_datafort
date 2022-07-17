@@ -2,11 +2,11 @@
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://cybersmily.net/index.html</loc>
-    <lastmod>2022-06-19</lastmod>
+    <lastmod>2022-07-17</lastmod>
   </url>
   <url>
     <loc>https://cybersmily.net/apps/chargen</loc>
-    <lastmod>2022-06-19</lastmod>
+    <lastmod>2022-07-17</lastmod>
   </url>
   <url>
     <loc>https://cybersmily.net/apps/cmbttrk</loc>
@@ -105,6 +105,10 @@
     <lastmod>2022-05-25</lastmod>
   </url>
   <url>
+    <loc>https://cybersmily.net/data/veh</loc>
+    <lastmod>2022-07-17</lastmod>
+  </url>
+  <url>
     <loc>https://cybersmily.net/data/gear</loc>
     <lastmod>2022-05-25</lastmod>
   </url>
@@ -190,7 +194,7 @@
   </url>
   <url>
     <loc>https://cybersmily.net/peeps/fixermedia</loc>
-    <lastmod>2022-02-05</lastmod>
+    <lastmod>2022-07-17</lastmod>
   </url>
   <url>
     <loc>https://cybersmily.net/peeps/medtechnr</loc>
@@ -198,7 +202,7 @@
   </url>
   <url>
     <loc>https://cybersmily.net/peeps/nomadrocker</loc>
-    <lastmod>2022-02-05</lastmod>
+    <lastmod>2022-07-17</lastmod>
   </url>
   <url>
     <loc>https://cybersmily.net/peeps/solotechie</loc>
