@@ -3,7 +3,7 @@
     {
       "date": "2022-07",
       "entries": [
-        "<strong>07-??</strong> - The updates keep coming. This month we have bug fixes and some new stuff",
+        "<strong>07-17</strong> - The updates keep coming. This month we have bug fixes and some new stuff",
         "&nbsp;* Master Vehicle List is now live. This contains all the RTG vehicles that are cannon with Cyberpunk 2020. Some of the attributes are blank as per the source. I am still debating on whether to keep them that way or update them to be more inline with Max Metal stats. Thanks to Ikarius over on <a href='https://discord.gg/Jhy9Txx5hP'>Discord</a> for helping with this.",
         "&nbsp;* Character Generator Roles sections has been reworked, specifically on the skills. I remove the hard limit of selectable skills, change it to free for text box but will a hint displaying the skill that should be there as well as a type ahead search for adding skills.",
         "&nbsp;* Speaking of skills, the list has been update to be more inline with some other sources and removed redundancies. Thanks to Tekquest for assisting in the clean up.",
