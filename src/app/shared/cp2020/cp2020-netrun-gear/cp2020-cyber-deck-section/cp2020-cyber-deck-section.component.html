@@ -14,11 +14,14 @@
         ></fa-icon>
       </h4>
       <div
-        *ngIf="!isCollapsed"
+        *ngIf="!isCollapsed && showQNR"
         class="d-inline-block float-end"
         title="This is if you use Cybersmily's Quick Netrunning Rules in the Mod section of this site."
       >
-        QNR PM: {{ qnrPM > 0 ? "+" + qnrPM : qnrPM }}
+        Quick NR PM: {{ qnrPM > 0 ? "+" + qnrPM : qnrPM }}
+        <button class="ms-1 me-2 csd-btn csd-icon-btn csd-icon-lg">
+          <fa-icon [icon]="faDice"></fa-icon>
+        </button>
       </div>
     </div>
   </div>

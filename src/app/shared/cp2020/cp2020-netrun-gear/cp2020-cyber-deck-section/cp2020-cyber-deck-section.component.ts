@@ -1,3 +1,4 @@
+import { Cp2020StatBlock } from './../../cp2020-stats/models/cp2020-stat-block';
 import { QuickNrCalculatorService } from './../services/quick-nr-calculator/quick-nr-calculator.service';
 import { NrDeckManagerService } from './../../../services/netrun/nr-deck-manager.service';
 import {
@@ -8,6 +9,7 @@ import {
 import {
   faChevronDown,
   faChevronRight,
+  faDice,
 } from '@fortawesome/free-solid-svg-icons';
 import {
   Component,
@@ -26,6 +28,7 @@ import {
 export class Cp2020CyberDeckSectionComponent implements OnInit, OnChanges {
   faChevronDown = faChevronDown;
   faChevronRight = faChevronRight;
+  faDice = faDice;
 
   qnrPM = 0;
 
@@ -40,6 +43,15 @@ export class Cp2020CyberDeckSectionComponent implements OnInit, OnChanges {
 
   @Input()
   cyberdeckManager = new Cp2020CyberdeckManager();
+
+  @Input()
+  interface = 0;
+
+  @Input()
+  stats: Cp2020StatBlock = new Cp2020StatBlock();
+
+  @Input()
+  showQNR = false;
 
   @Output()
   updateCyberdeckPrograms = new EventEmitter<Cp2020CyberdeckManager>();

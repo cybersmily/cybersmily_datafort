@@ -207,6 +207,7 @@
       >
         <div class="col">
           <cs-cp2020-cyber-deck-section
+            [showQNR]="charGenSettings?.cyberdeckSettings?.useQNR"
             [isCollapsed]="charGenSettings.isCollapsed"
             (updateCyberdeckPrograms)="changeCyberdeckPrograms($event)"
             [cyberdeckManager]="character.cyberdeckPrograms"

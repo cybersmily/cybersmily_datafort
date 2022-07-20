@@ -254,3 +254,26 @@
     </div>
   </div>
 </div>
+
+<div class="row">
+  <div class="col">
+    <div class="row">
+      <div class="col">
+        <h6>CYBERDECK & PROGRAMS</h6>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col">
+        Use Quick Netrunning Rules :
+        <input
+          type="checkbox"
+          [(ngModel)]="currSettings.cyberdeckSettings.useQNR"
+          (change)="saveSettings()"
+          tabindex="0"
+        />
+        <span class="small">(see MOD section for details)</span>
+      </div>
+    </div>
+  </div>
+</div>
