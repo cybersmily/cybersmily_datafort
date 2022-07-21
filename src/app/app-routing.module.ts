@@ -143,6 +143,13 @@ export const mainRoutes: Routes = [
       ),
   },
   {
+    path: 'apps/ganggen',
+    loadChildren: () =>
+      import('./app-gang-generator/app-gang-generator.module').then(
+        (m) => m.AppGangGeneratorModule
+      ),
+  },
+  {
     path: 'apps/maxmetal',
     loadChildren: () =>
       import('./app-maxmetal/app-maxmetal.module').then(

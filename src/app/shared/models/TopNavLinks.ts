@@ -307,6 +307,11 @@ export class TopNavLinks {
           desc: 'Cyberpunk 2020 Fixe contact generator using rules from Wildside.',
         },
         {
+          title: 'Gang Generator',
+          link: 'apps/ganggen',
+          desc: "Gang generator using Ocelot's charts and system",
+        },
+        {
           title: 'Headline Generator',
           link: 'apps/headlines',
           desc: 'Utility to generate news headlines for Cyberpunk 2020/Red.',
@@ -357,6 +362,11 @@ export class TopNavLinks {
           title: 'Dating Generator',
           link: 'apps/reddating',
           desc: 'Dating generator for Cyberpunk Red.',
+        },
+        {
+          title: 'Gang Generator',
+          link: 'apps/ganggen',
+          desc: "Gang generator using Ocelot's charts and system",
         },
         {
           title: 'LifePath for Cyberpunk Red',
