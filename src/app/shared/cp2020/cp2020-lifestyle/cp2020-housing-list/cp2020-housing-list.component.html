@@ -73,7 +73,7 @@
   </div>
   <div class="modal-body container">
     <div class="row">
-      <div class="col-2">Name:</div>
+      <div class="col-2 col-lg-1">Name:</div>
       <div class="col">
         <input
           type="text"
@@ -88,59 +88,65 @@
         ></fa-icon>
       </div>
     </div>
-    <div class="row">
-      <div class="col-2">Owned:</div>
-      <div class="col">
+    <div class="row mt-2">
+      <div class="col-2 col-lg-1">
+        {{ selectedHousing.owns ? "Cost" : "Rent" }}:
+      </div>
+      <div *ngIf="!selectedHousing.owns; else housingCostInput" class="col-3">
+        {{ selectedHousing.cost }}eb/room
+      </div>
+      <ng-template #housingCostInput>
+        <div class="col-3">
+          <input
+            type="number"
+            min="0"
+            [(ngModel)]="selectedHousing.mortgage"
+            class="w-100"
+          />
+        </div>
+      </ng-template>
+      <div class="col-7">
         <input
           type="checkbox"
-          title="Character owns the proptery, not renting"
+          title="Character owns the proptery or enter a custom cost"
           [(ngModel)]="selectedHousing.owns"
         />
+        is owned/custom cost
       </div>
     </div>
-    <div class="row">
-      <div class="col-2">Type:</div>
-      <div class="col">
+    <div class="row mt-2">
+      <div class="col-2 col-lg-1">Type:</div>
+      <div class="col-10 col-md-4 col-lg-3">
         <select [(ngModel)]="selectedHousing.cost">
           <option [ngValue]="200">Apt./Condo</option>
           <option [ngValue]="150">House</option>
         </select>
       </div>
-    </div>
-    <div *ngIf="!selectedHousing.owns" class="row">
-      <div class="col-2">Rent:</div>
-      <div class="col">{{ selectedHousing.cost }}eb/room</div>
-    </div>
-    <div *ngIf="selectedHousing.owns" class="row">
-      <div class="col-2">Mortgage:</div>
-      <div class="col">
-        <input type="number" min="0" [(ngModel)]="selectedHousing.mortgage" />
+      <div class="col-2 col-lg-1">Rooms:</div>
+      <div class="col-10 col-md-4 col-lg-3">
+        <input
+          type="number"
+          min="0"
+          [(ngModel)]="selectedHousing.rooms"
+          class="w-50"
+        />
       </div>
-    </div>
-    <div class="row">
-      <div class="col-2">Rooms:</div>
-      <div class="col">
-        <input type="number" min="0" [(ngModel)]="selectedHousing.rooms" />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-2">Quality:</div>
-      <div class="col">
+      <div class="col-2 col-lg-1">Quality:</div>
+      <div class="col-10 col-lg-3">
         <select [(ngModel)]="selectedHousing.qualityMod">
-          <option [ngValue]="1">Combat Zone</option>
-          <option [ngValue]="2">Moderate Zone</option>
-          <option [ngValue]="4">Corporate Zone</option>
-          <option [ngValue]="6">Executive Zone</option>
+          <option [ngValue]="1">Combat Zone (x1)</option>
+          <option [ngValue]="2">Moderate Zone (x2)</option>
+          <option [ngValue]="4">Corporate Zone (x4)</option>
+          <option [ngValue]="6">Executive Zone (x6)</option>
         </select>
-        X {{ selectedHousing.qualityMod }}
       </div>
     </div>
-    <div class="row">
+    <div class="row mt-2">
       <div class="col-2">Location:</div>
       <div class="col">
         <input
           type="text"
-          placeholder="Enter location..."
+          placeholder="Enter location, ex. street/district etc..."
           [(ngModel)]="selectedHousing.location"
         />
       </div>
@@ -155,8 +161,8 @@
         ></textarea>
       </div>
     </div>
-    <div class="row">
-      <div class="col-2">Utitlies:</div>
+    <div class="row mt-2">
+      <div class="col-2 col-lg-1">Utitlies:</div>
       <div class="col">
         <div
           class="row"
@@ -212,8 +218,8 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-2">Contents:</div>
+    <div class="row mt-2 mb-5">
+      <div class="col-2 col-lg-1">Contents:</div>
       <div class="col">
         <div class="row">
           <div class="col-12 col-md-6">
