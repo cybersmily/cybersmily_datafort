@@ -5,6 +5,7 @@
       <div class="position-absolute text-xsmall fst-italic ps-2 csd-source">
         <input
           [(ngModel)]="currSkill.source"
+          (change)="update()"
           type="text"
           class="csd-plain-input text-end"
           placeholder="Source reference"
@@ -12,6 +13,7 @@
       </div>
       <input
         [(ngModel)]="currSkill.name"
+        (change)="update()"
         type="text"
         class="csd-plain-input w-80 text-capitalize mt-1 pt-1"
       />
@@ -42,7 +44,7 @@
             *ngFor="let skillType of skillTypes$ | async"
             role="menuitem"
             class="text-uppercase"
-            (click)="currSkill.type = skillType"
+            (click)="setSkillType(skillType)"
           >
             {{ skillType }}
           </li>
@@ -73,7 +75,7 @@
             *ngFor="let stat of skillStats$ | async"
             role="menuitem"
             class="text-uppercase"
-            (click)="currSkill.stat = stat"
+            (click)="setSkillStat(stat)"
           >
             {{ stat }}
           </li>
@@ -84,6 +86,7 @@
       <div class="csd-input-label ps-2">ip mod</div>
       <input
         [(ngModel)]="currSkill.ipMod"
+        (change)="update()"
         type="number"
         class="csd-plain-input w-100 text-center mt-2 pt-1 ms-2 no-spinners"
       />
@@ -112,6 +115,7 @@
       <div class="csd-input-label ps-2">base</div>
       <input
         [(ngModel)]="currSkill.base"
+        (change)="update()"
         type="number"
         class="csd-plain-input w-100 mt-3 ms-2 text-center no-spinners"
       />

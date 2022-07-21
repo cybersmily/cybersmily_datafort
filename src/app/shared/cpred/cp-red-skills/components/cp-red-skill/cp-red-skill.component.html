@@ -1,37 +1,67 @@
-<div class="row cpr-skill py-0 w-100">
+<div
+  class="btn-group w-100"
+  dropdown
+  (onHidden)="closeDropdown()"
+  [insideClick]="true"
+>
   <div
-    [ngClass]="{
-      'col-6 col-md-9 small text-smaller': true,
-      'fw-bold': skill.required
-    }"
+    id="button-cpr-skill"
+    class="row cpr-skill py-0 w-100"
+    dropdownToggle
+    aria-controls="dropdown-cpr-skill"
   >
-    <span class="text-capitalize">{{ skill.name }}</span>
-    <span *ngIf="skill.ipMod" class="ms-1 text-smaller"
-      >(x{{ skill.ipMod }})</span
-    >
-    <span class="text-uppercase ms-1 text-smaller">({{ skill.stat }})</span>
-  </div>
-  <div class="col-2 col-md-1 p-0 text-center" title="Skill Level w/modifiers">
-    {{ skill.level }}
+    <div class="row cpr-skill py-0 w-100">
+      <div
+        [ngClass]="{
+          'col-6 col-md-9 small text-smaller': true,
+          'fw-bold': currSkill.required
+        }"
+      >
+        <span class="text-capitalize">{{ currSkill.name }}</span>
+        <span *ngIf="currSkill.ipMod" class="ms-1 text-smaller"
+          >(x{{ currSkill.ipMod }})</span
+        >
+        <span class="text-uppercase ms-1 text-smaller"
+          >({{ currSkill.stat }})</span
+        >
+      </div>
+      <div
+        class="col-2 col-md-1 p-0 text-center"
+        title="Skill Level w/modifiers"
+      >
+        {{ currSkill.level }}
+      </div>
+      <div
+        class="col-2 col-md-1 p-0 text-center"
+        title="Skill Stat value w/modifiers"
+      >
+        {{ (stat$ | async)?.modified }}
+      </div>
+      <div
+        class="col-2 col-md-1 p-0 csd-red-skill-roll csd-btn text-center position-relative"
+        title="Skill base to add to roll"
+        (click)="showModal(rollDice)"
+      >
+        {{ (stat$ | async)?.modified + currSkill.level }}
+        <button class="csd-icon-btn">
+          <fa-icon [icon]="faDice"></fa-icon>
+        </button>
+      </div>
+    </div>
   </div>
   <div
-    class="col-2 col-md-1 p-0 text-center"
-    title="Skill Stat value w/modifiers"
+    id="dropdown-cpr-skill"
+    *dropdownMenu
+    class="dropdown-menu py-0 w-100"
+    role="menu"
+    aria-labelledby="button-cpr-skill"
   >
-    {{ (stat$ | async)?.modified }}
-  </div>
-  <div
-    class="col-2 col-md-1 p-0 csd-red-skill-roll csd-btn text-center position-relative"
-    title="Skill base to add to roll"
-    (click)="showModal(rollDice)"
-  >
-    {{ (stat$ | async)?.modified + skill.level }}
-    <button class="csd-icon-btn">
-      <fa-icon [icon]="faDice"></fa-icon>
-    </button>
+    <cs-cp-red-skill-editor
+      [skill]="currSkill"
+      (updateSkill)="updateSkill($event)"
+    ></cs-cp-red-skill-editor>
   </div>
 </div>
-
 <ng-template #rollDice
   ><div class="modal-header">
     <h4>Roll Dice</h4>
@@ -46,7 +76,7 @@
     <div *ngIf="stat$ | async as stat">
       <cs-cp-red-skill-dice-roll
         [stat]="stat"
-        [skill]="skill"
+        [skill]="currSkill"
       ></cs-cp-red-skill-dice-roll>
     </div>
   </div>

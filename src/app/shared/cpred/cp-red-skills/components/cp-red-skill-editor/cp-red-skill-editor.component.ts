@@ -1,9 +1,8 @@
-import { CpRedSkillManagerService } from './../../services/cp-red-skill-manager/cp-red-skill-manager.service';
 import { CpRedSkillMod } from './../../models/cp-red-skill-mod';
 import { Observable } from 'rxjs';
 import { CpRedSkillDataService } from './../../services/cp-red-skill-data/cp-red-skill-data.service';
 import { CpRedCharacterSkill } from './../../models/cp-red-character-skill';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import {
   faCheckCircle,
   faDotCircle,
@@ -31,14 +30,15 @@ export class CpRedSkillEditorComponent implements OnInit {
   @Input()
   skill: CpRedCharacterSkill = new CpRedCharacterSkill();
 
-  constructor(
-    private skillDataService: CpRedSkillDataService,
-    private skillsManager: CpRedSkillManagerService
-  ) {}
+  @Output()
+  updateSkill: EventEmitter<CpRedCharacterSkill> = new EventEmitter<CpRedCharacterSkill>();
+
+  constructor(private skillDataService: CpRedSkillDataService) {}
 
   toggleChipped(event) {
     event.stopPropagation();
     this.currSkill.isChipped = !this.currSkill.isChipped;
+    this.update();
     return false;
   }
 
@@ -52,20 +52,33 @@ export class CpRedSkillEditorComponent implements OnInit {
     event.stopPropagation();
     this.currSkill.modifiers.push({ ...this.newMod });
     this.newMod = { active: true, name: '', value: 0 };
+    this.update();
   }
 
   deleteModifier(event: Event, index: number): void {
     event.stopPropagation();
     this.currSkill.modifiers.splice(index, 1);
+    this.update();
   }
 
   toggleModifierActivation(event: Event, index: number): void {
     event.stopPropagation();
     this.currSkill.modifiers[index].active =
       !this.currSkill.modifiers[index].active;
+    this.update();
   }
 
-  udpateSkill() {
-    this.skillsManager.updateSkill(this.skill.name, this.currSkill);
+  setSkillType(skillType: string): void {
+    this.currSkill.type = skillType;
+    this.update();
+  }
+
+  setSkillStat(stat: string): void {
+    this.currSkill.stat = stat;
+    this.update();
+  }
+
+  update(): void {
+    this.updateSkill.emit(this.currSkill);
   }
 }
