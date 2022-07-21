@@ -1,6 +1,20 @@
 ﻿{
   "news": [
     {
+      "date": "2022-08",
+      "entries": [
+        "<strong>08-??</strong> - More things fixed and added",
+        "&nbsp;* Character Generator for Cyberpunk 2020 add the <a href='https://cybersmily.net/mods/nr' alt='Cybersmily Datfort modified netrunning rules on this site.'>Quick Netrunner Rules</a> Program Modifier caculation if you use those rules.",
+        "&nbsp;* Character Generator fixed a but with Cyberdeck in which you couldn't update the deck stats.",
+
+        "Progress is still being made on the Character Generator for Cyberpunk Red.",
+        "I am getting great feedback from eveyone on the Cybersmily's Datafort Discord. I appreciate those of you providing me with bugs and ideas for the site. Please join by clicking the Discord icon in the menu bar. ",
+         "Please check out The Tales from the Forlorn Dopes over on <a href='https://www.twitch.tv/cybernationuncensored'>Cybernation Uncensored twitch</a>. The schedule of every 1st and 3rd Wednesday of the month at 19:00 EST/18:00 CST/16:00 PST/00:00 GMT(which actually Thursday for those across the pond). Wisdom000 from <a href='http://datafortess2020.com'>Datafortress 2020</a> and myself ramble on about Cyberpunk 2020, Red, and other Cyberpunk genre media. Please check us out. You can see old episodes on Cybernation Uncensored's Youtube Channel",
+        "Till next time.",
+        "CYBER :D"
+      ]
+    },
+    {
       "date": "2022-07",
       "entries": [
         "<strong>07-17</strong> - The updates keep coming. This month we have bug fixes and some new stuff",
