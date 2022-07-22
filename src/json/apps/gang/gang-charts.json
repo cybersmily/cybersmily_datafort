@@ -1,60 +1,60 @@
 {
   "type": [
-    {"weight": 10, "name": "Booster Gang - cybered-up, cyberpsychotic thugs."},
-    {"weight": 10, "name": "Chromers - chromatic rock fans."},
-    {"weight": 5, "name": "Combat Gangs - street \"warriors\"."},
-    {"weight": 5, "name": "Drug Gangs - dealers, makers, & takers of drugs."},
-    {"weight": 3, "name": "Eco-Gangs - localized eco-terrorists."},
-    {"weight": 3, "name": "Exotic Gangs - flaunting far-out biosculpts."},
-    {"weight": 7, "name": "Go Gangs - skaters, bikers, & speed racers."},
-    {"weight": 5, "name": "Guardian Gangs - guardian angels of the streets."},
-    {"weight": 4, "name": "Netrunner Gangs - tight-knit hackers & data thieves."},
-    {"weight": 3, "name": "Nihilist Gangs - it's better to burn out than to fade away…"},
-    {"weight": 4, "name": "Nostalgia Gangs - groups who dream of yesteryear."},
-    {"weight": 7, "name": "Party Gangs - futuristic ravers and party animals."},
-    {"weight": 5, "name": "Political Gangs - militant political activists."},
-    {"weight": 4, "name": "Poser Gangs - walking in someone else's shoes."},
-    {"weight": 3, "name": "Prank Gangs - street comedians who get the last laugh."},
-    {"weight": 5, "name": "Puppet Gangs - corporate controlled youth."},
-    {"weight": 5, "name": "Racist Gangs - preaching the superiority of the master race."},
-    {"weight": 5, "name": "Taggers - using territorial pissings of spray paint to mark turf."},
-    {"weight": 4, "name": "Theo-Gangs - oh yes, He's testing us! He's testing us..!"},
-    {"weight": 2, "name": "Uni-Sex Gangs - futuristic bra-burners and male chauvinists."}
+    {"wt": 10, "value":"booster gang(cybered-up, cyberpsychotic thugs)"},
+    {"wt": 10, "value":"chromer gang(chromatic rock fans)"},
+    {"wt": 5, "value": "combat gang(street \"warriors\")"},
+    {"wt": 5, "value": "drug gang(dealers, makers, & takers of drugs)"},
+    {"wt": 3, "value": "eco gang(localized eco-terrorists)"},
+    {"wt": 3, "value": "exotic gang(flaunting far-out biosculpts)"},
+    {"wt": 7, "value": "go gang gang(skaters, bikers, & speed racers)"},
+    {"wt": 5, "value": "guardian gang(guardian angels of the streets)"},
+    {"wt": 4, "value": "netrunner gang(tight-knit hackers & data thieves)"},
+    {"wt": 3, "value": "nihilist gang(it's better to burn out than to fade away…)"},
+    {"wt": 4, "value": "nostalgia gang(groups who dream of yesteryear)"},
+    {"wt": 7, "value": "party gang(futuristic ravers and party animals)"},
+    {"wt": 5, "value": "political gang(militant political activists)"},
+    {"wt": 4, "value": "poser gang(walking in someone else's shoes)"},
+    {"wt": 3, "value": "prank gang(street comedians who get the last laugh)"},
+    {"wt": 5, "value": "puppet gang(corporate controlled youth)"},
+    {"wt": 5, "value": "racist gang(preaching the superiority of the master race)"},
+    {"wt": 5, "value": "taggers gang(using territorial pissings of spray paint to mark turf)"},
+    {"wt": 4, "value": "religious gang(oh yes, He's testing us! He's testing us..!)"},
+    {"wt": 2, "value": "uni-sex gang(futuristic bra-burners and male chauvinists)"}
   ],
   "age": [
-    {"weight": 4, "name": "New, Active 1-12 Months.", "mod": {"chart":"member", "value":-2}},
-    {"weight": 3, "name": "Young, Active 1-4 Years.", "mod": {"chart":"member", "value":-1}},
-    {"weight": 2, "name": "Middle Aged, Active 5-10 Years.", "mod": {"chart":"member", "value":0}},
-    {"weight": 1, "name": "Old, Active 10-20 Years.", "mod": {"chart":"member", "value":1}}
+    {"wt": 4, "value": "1-12 months", "mod": {"chart":"member", "value":-2}},
+    {"wt": 3, "value": "1-4 years", "mod": {"chart":"member", "value":-1}},
+    {"wt": 2, "value": "5-10 years", "mod": {"chart":"member", "value":0}},
+    {"wt": 1, "value": "10-20 years", "mod": {"chart":"member", "value":1}}
   ],
   "memberAge": [
-    {"weight": 1, "name": "13 years old"},
-    {"weight": 1, "name": "15 years old"},
-    {"weight": 1, "name": "17 years old"},
-    {"weight": 1, "name": "19 years old"},
-    {"weight": 1, "name": "21 years old (Note that senior members of a gang may be much older)"}
+    {"wt": 1, "value": "13 years old"},
+    {"wt": 1, "value": "15 years old"},
+    {"wt": 1, "value": "17 years old"},
+    {"wt": 1, "value": "19 years old"},
+    {"wt": 1, "value": "21 years old (Note that senior members of a gang may be much older)"}
   ],
   "member": [
-    {"weight": 1, "name": "Tiny Gang, 1-5 Members.", "mod": {"chart":"turf", "value":-3}},
-    {"weight": 1, "name": "Small Gang, 6-10 Members.", "mod": {"chart":"turf", "value":-2}},
-    {"weight": 4, "name": "Mid-Sized Gang, 11-25 Members.", "mod": {"chart":"turf", "value":-1}},
-    {"weight": 3, "name": "Large Gang, 26-50 Members.", "mod": {"chart":"turf", "value":0}},
-    {"weight": 1, "name": "Huge Gang, 51-100 Members.", "mod": {"chart":"turf", "value":1}},
-    {"weight": 1, "name": "Gigantic Gang, 101+ members.", "mod": {"chart":"turf", "value":2}}
+    {"wt": 1, "value": "tiny (1-5 members)", "mod": {"chart":"turf", "value":-3}},
+    {"wt": 1, "value": "small (6-10 members)", "mod": {"chart":"turf", "value":-2}},
+    {"wt": 4, "value": "mid-sized (11-25 members)", "mod": {"chart":"turf", "value":-1}},
+    {"wt": 3, "value": "large (26-50 members)", "mod": {"chart":"turf", "value":0}},
+    {"wt": 1, "value": "huge (51-100 members)", "mod": {"chart":"turf", "value":1}},
+    {"wt": 1, "value": "gigantic (101+ members)", "mod": {"chart":"turf", "value":2}}
   ],
   "turf": [
-    {"weight": 1, "name": "No Turf.", "mod": {"chart":"expansion", "value":-4}},
-    {"weight": 2, "name": "Couple of Buildings.", "mod": {"chart":"expansion", "value":-3}},
-    {"weight": 3, "name": "1 City Block.", "mod": {"chart":"expansion", "value":-2}},
-    {"weight": 1, "name": "2 or 3 City Blocks.", "mod": {"chart":"expansion", "value":-1}},
-    {"weight": 3, "name": "4 to 6 City Blocks.", "mod": {"chart":"expansion", "value":0}},
-    {"weight": 1, "name": "7 to 10 City Blocks, Boltholes Everywhere.", "mod": {"chart":"expansion", "value":1}}
+    {"wt": 1, "value": "no turf", "mod": {"chart":"expansion", "value":-4}},
+    {"wt": 2, "value": "couple of buildings", "mod": {"chart":"expansion", "value":-3}},
+    {"wt": 3, "value": "1 city block", "mod": {"chart":"expansion", "value":-2}},
+    {"wt": 1, "value": "2 or 3 city blocks", "mod": {"chart":"expansion", "value":-1}},
+    {"wt": 3, "value": "4 to 6 city blocks", "mod": {"chart":"expansion", "value":0}},
+    {"wt": 1, "value": "7 to 10 city blocks, boltholes everywhere", "mod": {"chart":"expansion", "value":1}}
   ],
   "expansion": [
-    {"weight": 3, "name": "No External Growth, Confined To One City."},
-    {"weight": 1, "name": "Influence in Adjacent City/Town."},
-    {"weight": 1, "name": "Influence in 2 or 3 Cities in Same Region."},
-    {"weight": 1, "name": "Influence in Four to Six Cities Nationwide."}
+    {"wt": 3, "value": "no external growth, confined to one city"},
+    {"wt": 1, "value": "influence in adjacent city/town"},
+    {"wt": 1, "value": "influence in 2 or 3 cities in same region"},
+    {"wt": 1, "value": "influence in four to six cities nationwide"}
   ]
 
 }
