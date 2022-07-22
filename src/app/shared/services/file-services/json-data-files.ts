@@ -27,6 +27,7 @@ export class JsonDataFiles {
   public static CP2020_COMBAT_ZONE_DATA_JSON = `/json/apps/cmbtzone/cmbtzone.json`;
   public static CP2020_COMBAT_ZONE_OBJECTS_JSON = `/json/apps/cmbtzone/streetobjects.json`;
   public static CP2020_COMBAT_ZONE_GANGS_JSON = `/json/apps/cmbtzone/gangs.json`;
+  public static GANG_CHART_DATA_JSON = `/json/apps/gang/gang-charts.json`;
   public static CP2020_COMBAT_ZONE_BLOCKS_JSON = `/json/apps/cmbtzone/blocks.json`;
   public static CP2020_COMBAT_ZONE_EVENTS_JSON = `/json/apps/cmbtzone/events.json`;
 
