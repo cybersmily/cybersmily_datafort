@@ -1,1 +1,40 @@
-<p>gang-generator-display works!</p>
+<div class="row">
+  <div class="col-12">
+    <button
+      class="csd-btn csd-icon-btn csd-icon-lg me-2"
+      title="Generate gang(s)."
+      (click)="generateGangs()"
+    >
+      <fa-icon [icon]="faDice"></fa-icon>
+    </button>
+    <input
+      type="number"
+      class="csd-number me-2"
+      title="Number of gangs to generate."
+      [(ngModel)]="count"
+    />
+    number of gangs
+
+    <button
+      class="csd-btn csd-icon-btn csd-icon-lg ms-2"
+      title="Clear the list."
+      (click)="clear()"
+    >
+      <fa-icon [icon]="faRedo"></fa-icon>
+    </button>
+
+    <button
+      class="csd-btn csd-icon-btn csd-icon-xl float-end"
+      title="Save as PDF file."
+      (click)="savePDF()"
+      [disabled]="!(result$ | async)"
+    >
+      <fa-icon [icon]="faFilePdf"></fa-icon>
+    </button>
+  </div>
+</div>
+<div *ngFor="let gang of result$ | async" class="row mb-3">
+  <div class="col-12">
+    <cs-gang-display [gang]="gang"></cs-gang-display>
+  </div>
+</div>

@@ -1,3 +1,8 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { CommonUiModule } from './../../../common-ui/common-ui.module';
+import { GangGeneratorService } from './../../services/gang-generator/gang-generator.service';
+import { DataService } from './../../../../services/file-services/dataservice/data.service';
+import { DiceService } from './../../../../services/dice/dice.service';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GangGeneratorDisplayComponent } from './gang-generator-display.component';
@@ -8,9 +13,10 @@ describe('GangGeneratorDisplayComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GangGeneratorDisplayComponent ]
-    })
-    .compileComponents();
+      declarations: [GangGeneratorDisplayComponent],
+      imports: [CommonUiModule, HttpClientTestingModule],
+      providers: [DiceService, DataService, GangGeneratorService],
+    }).compileComponents();
   });
 
   beforeEach(() => {

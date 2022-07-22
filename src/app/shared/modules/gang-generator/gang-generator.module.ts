@@ -1,3 +1,6 @@
+import { GangPdfService } from './services/gang-pdf/gang-pdf.service';
+import { GangDataService } from './services/gang-data/gang-data.service';
+import { GangGeneratorService } from './services/gang-generator/gang-generator.service';
 import { DataService } from './../../services/file-services/dataservice/data.service';
 import { DiceService } from './../../services/dice/dice.service';
 import { CommonUiModule } from './../common-ui/common-ui.module';
@@ -10,6 +13,12 @@ import { GangGeneratorDisplayComponent } from './components/gang-generator-displ
   declarations: [GangDisplayComponent, GangGeneratorDisplayComponent],
   exports: [GangDisplayComponent, GangGeneratorDisplayComponent],
   imports: [CommonModule, CommonUiModule],
-  providers: [DiceService, DataService],
+  providers: [
+    DiceService,
+    DataService,
+    GangGeneratorService,
+    GangDataService,
+    GangPdfService,
+  ],
 })
 export class GangGeneratorModule {}
