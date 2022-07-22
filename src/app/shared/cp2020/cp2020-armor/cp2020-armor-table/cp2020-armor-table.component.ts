@@ -4,14 +4,27 @@ import { Cp2020SDP } from '../models/cp2020-sdp';
 import { DiceService } from './../../../services/dice/dice.service';
 import { ArmorDataListService } from '../services/armor-data-list/armor-data-list.service';
 import { Cp2020ArmorPiece, Cp2020ArmorBlock } from './../models';
-import { faShieldAlt, faPlus, faTrash, faDice, faPen } from '@fortawesome/free-solid-svg-icons';
-import { Component, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
+import {
+  faShieldAlt,
+  faPlus,
+  faTrash,
+  faDice,
+  faPen,
+} from '@fortawesome/free-solid-svg-icons';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  TemplateRef,
+} from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'cs-cp2020-armor-table',
   templateUrl: './cp2020-armor-table.component.html',
-  styleUrls: ['./cp2020-armor-table.component.css']
+  styleUrls: ['./cp2020-armor-table.component.css'],
 })
 export class Cp2020ArmorTableComponent implements OnInit {
   faShieldAlt = faShieldAlt;
@@ -20,12 +33,12 @@ export class Cp2020ArmorTableComponent implements OnInit {
   faPen = faPen;
   faDice = faDice;
 
-  locations: Array<string> = ['head','torso', 'rarm', 'larm', 'rleg', 'lleg'];
+  locations: Array<string> = ['head', 'torso', 'rarm', 'larm', 'rleg', 'lleg'];
 
   modalRef: BsModalRef;
   modalConfig = {
     keyboard: true,
-    class: 'modal-dialog-centered modal-lg'
+    class: 'modal-dialog-centered modal-lg',
   };
 
   @Input()
@@ -47,27 +60,29 @@ export class Cp2020ArmorTableComponent implements OnInit {
   damageType = Cp2020AmmoTypes.NORMAL_ROUND;
 
   getSDPStyle(sdp: Cp2020SDP): string {
-    if(sdp.destroyed !== 0 && sdp.curr >= sdp.destroyed){
+    if (sdp.destroyed !== 0 && sdp.curr >= sdp.destroyed) {
       return ' chargen-sdp-dest';
-    } else if(sdp.damaged !== 0 && sdp.curr >= sdp.damaged ) {
+    } else if (sdp.damaged !== 0 && sdp.curr >= sdp.damaged) {
       return ' chargen-sdp-dmg';
     }
     return '';
   }
 
   getSDPStatus(sdp: Cp2020SDP): string {
-    if(sdp.destroyed !== 0 && sdp.curr >= sdp.destroyed){
+    if (sdp.destroyed !== 0 && sdp.curr >= sdp.destroyed) {
       return 'Destroyed!!';
-    } else if(sdp.damaged !== 0 && sdp.curr >= sdp.damaged ) {
+    } else if (sdp.damaged !== 0 && sdp.curr >= sdp.damaged) {
       return 'Impaired';
     }
     return '';
   }
 
-  constructor(private modalService: BsModalService, private damageCalculatorService: Cp2020DamageCalculatorService) { }
+  constructor(
+    private modalService: BsModalService,
+    private damageCalculatorService: Cp2020DamageCalculatorService
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onChangeArmor() {
     this.changeArmor.emit(this.armor);
@@ -84,7 +99,7 @@ export class Cp2020ArmorTableComponent implements OnInit {
   applyDamage() {
     const isHard = this.armor.hasHardLayer(this.selectedLocation);
     let sp = 0;
-    switch(this.selectedLocation) {
+    switch (this.selectedLocation) {
       case 'head':
         sp = this.armor.headSP;
         break;
@@ -103,14 +118,25 @@ export class Cp2020ArmorTableComponent implements OnInit {
       default:
         sp = this.armor.torsoSP;
     }
-    const dmg = this.damageCalculatorService
-    .getWounds(this.damage, this.damageType, this.selectedLocation, sp, isHard);
-    if (dmg > 0){
+    const dmg = this.damageCalculatorService.getWounds(
+      this.damage,
+      this.damageType,
+      this.selectedLocation,
+      sp,
+      isHard
+    );
+    if (dmg > 0) {
       this.armor.damageSP(this.selectedLocation, this.spDamage);
     }
-    if(this.armor.sdp[this.selectedLocation]?.curr > 0) {
-      this.armor.sdp[this.selectedLocation].curr -= dmg;
-      this.armor.sdp[this.selectedLocation].curr = this.armor.sdp[this.selectedLocation].curr < 0 ? 0 : this.armor.sdp[this.selectedLocation].curr;
+    if (
+      this.armor.sdp[this.selectedLocation]?.damaged > 0 ||
+      this.armor.sdp[this.selectedLocation]?.destroyed > 0
+    ) {
+      this.armor.sdp[this.selectedLocation].curr += dmg;
+      this.armor.sdp[this.selectedLocation].curr =
+        this.armor.sdp[this.selectedLocation].curr < 0
+          ? 0
+          : this.armor.sdp[this.selectedLocation].curr;
     } else {
       this.damageCharacter.emit(dmg);
     }
@@ -122,7 +148,7 @@ export class Cp2020ArmorTableComponent implements OnInit {
   }
 
   resetSDP(location: string) {
-    this.armor.sdp[location] = { curr: 0, damaged: 0, destroyed: 0};
+    this.armor.sdp[location] = { curr: 0, damaged: 0, destroyed: 0 };
     this.onChangeArmor();
   }
 }
