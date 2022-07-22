@@ -19,28 +19,30 @@
         title="This is if you use Cybersmily's Quick Netrunning Rules in the Mod section of this site."
       >
         Quick NR PM: {{ qnrPM > 0 ? "+" + qnrPM : qnrPM }}
+        <!--
         <button class="ms-1 me-2 csd-btn csd-icon-btn csd-icon-lg">
           <fa-icon [icon]="faDice"></fa-icon>
         </button>
       </div>
+      --></div>
     </div>
-  </div>
-  <div class="row border border-dark g-0" [collapse]="isCollapsed">
-    <div class="col">
-      <div class="row g-0">
-        <div class="col-12 col-lg-6 border border-dark ps-1 pe-1">
-          <cs-cp2020-cyberdeck-form
-            [deck]="currManager.deck"
-            (update)="updateDeck($event)"
-          ></cs-cp2020-cyberdeck-form>
-          <br />
-        </div>
-        <div class="col col-lg-6 border border-dark ps-1 pe-1">
-          <cs-program-list
-            [programList]="currManager.programList"
-            [maxMu]="currManager.deck.mu"
-            (updateList)="uploadList($event)"
-          ></cs-program-list>
+    <div class="row border border-dark g-0" [collapse]="isCollapsed">
+      <div class="col">
+        <div class="row g-0">
+          <div class="col-12 col-lg-6 border border-dark ps-1 pe-1">
+            <cs-cp2020-cyberdeck-form
+              [deck]="currManager.deck"
+              (update)="updateDeck($event)"
+            ></cs-cp2020-cyberdeck-form>
+            <br />
+          </div>
+          <div class="col col-lg-6 border border-dark ps-1 pe-1">
+            <cs-program-list
+              [programList]="currManager.programList"
+              [maxMu]="currManager.deck.mu"
+              (updateList)="uploadList($event)"
+            ></cs-program-list>
+          </div>
         </div>
       </div>
     </div>
