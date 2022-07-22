@@ -4,11 +4,12 @@
       "date": "2022-08",
       "entries": [
         "<strong>08-??</strong> - More things fixed and added",
-        "&nbsp;* Character Generator for Cyberpunk 2020 add the <a href='https://cybersmily.net/mods/nr' alt='Cybersmily Datfort modified netrunning rules on this site.'>Quick Netrunner Rules</a> Program Modifier caculation if you use those rules.",
-        "&nbsp;* Character Generator fixed a bug with Cyberdeck in which you couldn't update the deck stats.",
-        "&nbsp;* Character Generator fixed a bug with LifeStyle groceries not being cached and getting lost.",
-        "&nbsp;* Character Generator added the functionality to add more utilities to housing.",
-        "&nbsp;* Character Generator cleaned up lifestyle housing and added functionality to set custom rent/mortgage cost.",
+        "&nbsp;* Character Generator Cyberpunk 2020 add the <a href='https://cybersmily.net/mods/nr' alt='Cybersmily Datfort modified netrunning rules on this site.'>Quick Netrunner Rules</a> Program Modifier caculation if you use those rules.",
+        "&nbsp;* Character Generator Cyberpunk 2020 fixed a bug with Cyberdeck in which you couldn't update the deck stats.",
+        "&nbsp;* Character Generator Cyberpunk 2020 fixed a bug where apply damage to a cyberlimb location wasn't marking off sdp but wounds.",
+        "&nbsp;* Character Generator Cyberpunk 2020 fixed a bug with LifeStyle groceries not being cached and getting lost.",
+        "&nbsp;* Character Generator Cyberpunk 2020 added the functionality to add more utilities to housing.",
+        "&nbsp;* Character Generator Cyberpunk 2020 cleaned up lifestyle housing and added functionality to set custom rent/mortgage cost.",
 
         "Progress is still being made on the Character Generator for Cyberpunk Red.",
         "I am getting great feedback from eveyone on the Cybersmily's Datafort Discord. I appreciate those of you providing me with bugs and ideas for the site. Please join by clicking the Discord icon in the menu bar. ",
