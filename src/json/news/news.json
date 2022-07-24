@@ -1,26 +1,21 @@
 ﻿{
   "news": [
     {
-      "date": "2022-08",
+      "date": "2022-07",
       "entries": [
-        "<strong>08-??</strong> - More things fixed and added",
+        "<strong>07-24</strong> - More new things and fixes added to the site:",
+        "&nbsp;* Gang Generator for Cyberpunk 2020/Cyberpunk Red. This utility will create gangs using Ocelot's gang generation system from back in the day. A shout out to Ocelot for allowing me to get this built. The utlity will also generate a gang name as well. You can save the results as a PDF as well.",
         "&nbsp;* Character Generator Cyberpunk 2020 add the <a href='https://cybersmily.net/mods/nr' alt='Cybersmily Datfort modified netrunning rules on this site.'>Quick Netrunner Rules</a> Program Modifier caculation if you use those rules.",
         "&nbsp;* Character Generator Cyberpunk 2020 fixed a bug with Cyberdeck in which you couldn't update the deck stats.",
         "&nbsp;* Character Generator Cyberpunk 2020 fixed a bug where apply damage to a cyberlimb location wasn't marking off sdp but wounds.",
         "&nbsp;* Character Generator Cyberpunk 2020 fixed a bug with LifeStyle groceries not being cached and getting lost.",
         "&nbsp;* Character Generator Cyberpunk 2020 added the functionality to add more utilities to housing.",
         "&nbsp;* Character Generator Cyberpunk 2020 cleaned up lifestyle housing and added functionality to set custom rent/mortgage cost.",
-
         "Progress is still being made on the Character Generator for Cyberpunk Red.",
         "I am getting great feedback from eveyone on the Cybersmily's Datafort Discord. I appreciate those of you providing me with bugs and ideas for the site. Please join by clicking the Discord icon in the menu bar. ",
          "Please check out The Tales from the Forlorn Dopes over on <a href='https://www.twitch.tv/cybernationuncensored'>Cybernation Uncensored twitch</a>. The schedule of every 1st and 3rd Wednesday of the month at 19:00 EST/18:00 CST/16:00 PST/00:00 GMT(which actually Thursday for those across the pond). Wisdom000 from <a href='http://datafortess2020.com'>Datafortress 2020</a> and myself ramble on about Cyberpunk 2020, Red, and other Cyberpunk genre media. Please check us out. You can see old episodes on Cybernation Uncensored's Youtube Channel",
         "Till next time.",
-        "CYBER :D"
-      ]
-    },
-    {
-      "date": "2022-07",
-      "entries": [
+        "CYBER :D",
         "<strong>07-17</strong> - The updates keep coming. This month we have bug fixes and some new stuff",
         "&nbsp;* Master Vehicle List is now live. This contains all the RTG vehicles that are cannon with Cyberpunk 2020. Some of the attributes are blank as per the source. I am still debating on whether to keep them that way or update them to be more inline with Max Metal stats. Thanks to Ikarius over on <a href='https://discord.gg/Jhy9Txx5hP'>Discord</a> for helping with this.",
         "&nbsp;* Character Generator Roles sections has been reworked, specifically on the skills. I remove the hard limit of selectable skills, change it to free for text box but will a hint displaying the skill that should be there as well as a type ahead search for adding skills.",
