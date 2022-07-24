@@ -50,6 +50,11 @@ export class GangGeneratorService {
     this._gangCharts.member = this.fillChart(data.member);
     this._gangCharts.turf = this.fillChart(data.turf);
     this._gangCharts.expansion = this.fillChart(data.expansion);
+    this._gangCharts.naming = {
+      adjectives: [...data.naming.adjectives],
+      objects: [...data.naming.objects],
+      units: [...data.naming.units],
+    };
   }
 
   private fillChart(list: Array<ValueWeight<string>>): Array<GangChartEntry> {
@@ -67,6 +72,7 @@ export class GangGeneratorService {
 
   private rollGang(charts: GangChart): CpGang {
     const gang = new CpGang();
+    gang.name = this.generateName(charts);
     // roll for type
     let entry = this.generateEntry(charts.type);
     gang.type = entry.value;
@@ -102,5 +108,37 @@ export class GangGeneratorService {
       return chart[dieRoll];
     }
     return this.dice.rollRandomItem<GangChartEntry>(chart);
+  }
+
+  private generateName(charts: GangChart): string {
+    const unit = this.dice.rollRandomItem<string>(charts.naming?.units);
+    const adjective = this.dice.rollRandomItem<string>(
+      charts.naming?.adjectives
+    );
+    const object = this.dice.rollRandomItem<string>(charts.naming?.objects);
+    let name = '';
+    const dieRoll = this.dice.generateNumber(1, 10);
+    console.log(dieRoll);
+    switch (dieRoll) {
+      case 1:
+        name = `${adjective} ${object} ${unit}`;
+        break;
+      case 2:
+        name = `${unit} of ${adjective} ${object}`;
+        break;
+      case 3:
+        name = `the ${adjective} ${object}`;
+        break;
+      case 4:
+        name = `the ${adjective} ${object} ${unit}`;
+        break;
+      case 5:
+        name = `${object} of ${adjective}`;
+        break;
+      default:
+        name = `${adjective} ${object}`;
+    }
+
+    return name;
   }
 }

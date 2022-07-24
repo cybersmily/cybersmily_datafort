@@ -6,4 +6,9 @@ export interface GangChartData {
   member: Array<ValueWeight<string>>;
   turf: Array<ValueWeight<string>>;
   expansion: Array<ValueWeight<string>>;
+  naming: {
+    adjectives: Array<string>;
+    objects: Array<string>;
+    units: Array<string>;
+  };
 }

@@ -6,6 +6,11 @@ export class GangChart {
   member: Array<GangChartEntry>;
   turf: Array<GangChartEntry>;
   expansion: Array<GangChartEntry>;
+  naming: {
+    adjectives: Array<string>;
+    objects: Array<string>;
+    units: Array<string>;
+  };
 
   constructor() {
     this.type = new Array<GangChartEntry>();
@@ -14,5 +19,10 @@ export class GangChart {
     this.member = new Array<GangChartEntry>();
     this.turf = new Array<GangChartEntry>();
     this.expansion = new Array<GangChartEntry>();
+    this.naming = {
+      adjectives: new Array<string>(),
+      objects: new Array<string>(),
+      units: new Array<string>(),
+    };
   }
 }

@@ -20,7 +20,16 @@ export class GangPdfService {
   }
 
   private addGangEntry(gang: CpGang, pdf: jsPDF, line: number): number {
-    const text = `${gang.member} ${gang.type}. The gang has been around for ${gang.age} with the average member's age being ${gang.memberAge}. The gang controls ${gang.turf} with ${gang.expansion}.`;
+    pdf.setFont(undefined, 'bold');
+    pdf.text(
+      gang.name.toUpperCase(),
+      PdfPageSettings.MARGIN_LEFT.valueOf(),
+      line
+    );
+    pdf.setFont(undefined, 'normal');
+    line += PdfPageSettings.LINEHEIGHT.valueOf();
+
+    const text = `A ${gang.member} ${gang.type}. The gang has been around for ${gang.age} with the average member's age being ${gang.memberAge}. The gang controls ${gang.turf} with ${gang.expansion}.`;
     const paragraph = pdf.splitTextToSize(text, 200);
 
     paragraph.forEach((textLine) => {
