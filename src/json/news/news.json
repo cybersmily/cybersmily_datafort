@@ -5,7 +5,7 @@
       "entries": [
         "<strong>07-24</strong> - More new things and fixes added to the site:",
         "&nbsp;* Gang Generator for Cyberpunk 2020/Cyberpunk Red. This utility will create gangs using Ocelot's gang generation system from back in the day. A shout out to Ocelot for allowing me to get this built. The utlity will also generate a gang name as well. You can save the results as a PDF as well.",
-        "&nbsp;* Character Generator Cyberpunk 2020 add the <a href='https://cybersmily.net/mods/nr' alt='Cybersmily Datfort modified netrunning rules on this site.'>Quick Netrunner Rules</a> Program Modifier caculation if you use those rules.",
+        "&nbsp;* Character Generator Cyberpunk 2020 add the <a href='https://cybersmily.net/mods/nr' alt='Cybersmily Datfort modified netrunning rules on this site.'>Quick Netrunner Rules</a> Program Modifier caculation if you use those rules. To enable this on the sheet you will need to go to the Settings (gear icon) and enable it.",
         "&nbsp;* Character Generator Cyberpunk 2020 fixed a bug with Cyberdeck in which you couldn't update the deck stats.",
         "&nbsp;* Character Generator Cyberpunk 2020 fixed a bug where apply damage to a cyberlimb location wasn't marking off sdp but wounds.",
         "&nbsp;* Character Generator Cyberpunk 2020 fixed a bug with LifeStyle groceries not being cached and getting lost.",
