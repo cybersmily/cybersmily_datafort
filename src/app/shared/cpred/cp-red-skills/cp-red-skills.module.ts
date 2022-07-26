@@ -9,6 +9,9 @@ import { CpRedSkillComponent } from './components/cp-red-skill/cp-red-skill.comp
 import { CpRedSkillEditorComponent } from './components/cp-red-skill-editor/cp-red-skill-editor.component';
 import { CpRedSkillsEditorComponent } from './components/cp-red-skills-editor/cp-red-skills-editor.component';
 import { CpRedSkillsComponent } from './components/cp-red-skills/cp-red-skills.component';
+import { CpRedSkillsByNameComponent } from './components/cp-red-skills-by-name/cp-red-skills-by-name.component';
+import { CpRedSkillsByStatComponent } from './components/cp-red-skills-by-stat/cp-red-skills-by-stat.component';
+import { CpRedSkillsByTypeComponent } from './components/cp-red-skills-by-type/cp-red-skills-by-type.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,9 @@ import { CpRedSkillsComponent } from './components/cp-red-skills/cp-red-skills.c
     CpRedSkillsEditorComponent,
     CpRedSkillsComponent,
     CpRedSkillDiceRollComponent,
+    CpRedSkillsByNameComponent,
+    CpRedSkillsByStatComponent,
+    CpRedSkillsByTypeComponent,
   ],
   exports: [
     CpRedSkillComponent,

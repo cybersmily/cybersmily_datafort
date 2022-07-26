@@ -28,6 +28,9 @@
           aria-labelledby="button-newskill"
         >
           <cs-cp-red-skill-editor [skill]="newSkill"></cs-cp-red-skill-editor>
+          <button class="csd-btn csd-icon-btn csd-icon-sm float-end">
+            <fa-icon [icon]="faSave"></fa-icon>
+          </button>
         </div>
       </div>
     </div>
@@ -69,6 +72,7 @@
           [(ngModel)]="searchText"
           [typeahead]="skills"
           typeaheadOptionField="name"
+          [typeaheadSelectFirstItem]="false"
           placeholder="Enter search term..."
         />
         <fa-icon
