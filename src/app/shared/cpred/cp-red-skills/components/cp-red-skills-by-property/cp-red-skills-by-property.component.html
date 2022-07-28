@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-12 col-md-6 col-lg-4">
+    <ng-container
+      *ngFor="
+        let skill of skills.slice(0, roundUp(skills.length, 0.334));
+        let i = index
+      "
+      [ngTemplateOutlet]="skillTemplate"
+      [ngTemplateOutletContext]="{ skill: skill, index: i }"
+    ></ng-container>
+  </div>
+  <div class="col-12 col-md-6 col-lg-4">
+    <ng-container
+      *ngFor="
+        let skill of skills.slice(
+          roundUp(skills.length, 0.334),
+          roundUp(skills.length, 0.667)
+        );
+        let i = index
+      "
+      [ngTemplateOutlet]="skillTemplate"
+      [ngTemplateOutletContext]="{ skill: skill, index: i }"
+    ></ng-container>
+  </div>
+  <div class="col-12 col-md-6 col-lg-4">
+    <ng-container
+      *ngFor="
+        let skill of skills.slice(roundUp(skills.length, 0.667));
+        let i = index
+      "
+      [ngTemplateOutlet]="skillTemplate"
+      [ngTemplateOutletContext]="{ skill: skill, index: i }"
+    ></ng-container>
+  </div>
+</div>
+<ng-template #skillTemplate let-skill="skill" let-index="index">
+  <div *ngIf="propChange(skill); else skillDisplay">
+    <h6 class="text-uppercase">{{ prop }}</h6>
+    <cs-cp-red-skill [skill]="skill"></cs-cp-red-skill>
+  </div>
+  <ng-template #skillDisplay>
+    <cs-cp-red-skill [skill]="skill"></cs-cp-red-skill>
+  </ng-template>
+</ng-template>

@@ -38,8 +38,4 @@ export class CpRedSkillsComponent implements OnInit {
   ngOnInit(): void {
     this.skills$ = this.skillManager.skills;
   }
-
-  roundUp(value: number, multiplier: number): number {
-    return Math.ceil(value * multiplier);
-  }
 }

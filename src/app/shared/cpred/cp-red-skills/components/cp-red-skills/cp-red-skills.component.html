@@ -119,43 +119,23 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-12 col-md-6 col-lg-4">
-      <ng-container
-        *ngFor="
-          let skill of skills.slice(0, roundUp(skills.length, 0.334));
-          let i = index
-        "
-        [ngTemplateOutlet]="skillTemplate"
-        [ngTemplateOutletContext]="{ skill: skill, index: i }"
-      ></ng-container>
+  <div [ngSwitch]="sortOn">
+    <div *ngSwitchCase="'stat'">
+      <cs-cp-red-skills-by-property
+        [skills]="skills"
+        [property]="sortOn"
+      ></cs-cp-red-skills-by-property>
     </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <ng-container
-        *ngFor="
-          let skill of skills.slice(
-            roundUp(skills.length, 0.334),
-            roundUp(skills.length, 0.667)
-          );
-          let i = index
-        "
-        [ngTemplateOutlet]="skillTemplate"
-        [ngTemplateOutletContext]="{ skill: skill, index: i }"
-      ></ng-container>
+    <div *ngSwitchCase="'type'">
+      <cs-cp-red-skills-by-property
+        [skills]="skills"
+        [property]="sortOn"
+      ></cs-cp-red-skills-by-property>
     </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <ng-container
-        *ngFor="
-          let skill of skills.slice(roundUp(skills.length, 0.667));
-          let i = index
-        "
-        [ngTemplateOutlet]="skillTemplate"
-        [ngTemplateOutletContext]="{ skill: skill, index: i }"
-      ></ng-container>
+    <div *ngSwitchDefault>
+      <cs-cp-red-skills-by-property
+        [skills]="skills"
+      ></cs-cp-red-skills-by-property>
     </div>
   </div>
 </div>
-
-<ng-template #skillTemplate let-skill="skill" let-index="index">
-  <cs-cp-red-skill [skill]="skill"></cs-cp-red-skill>
-</ng-template>
