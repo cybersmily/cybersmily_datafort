@@ -11,6 +11,7 @@ import { WeightNamePipe } from './weight-name.pipe';
 import { ArmorOptionModPipe } from './armor-option-mod.pipe';
 import { SanitizeHtmlPipe } from './sanitize-html.pipe';
 import { FilterbyPipe } from './filterby.pipe';
+import { HasValuePipe } from './has-value.pipe';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FilterbyPipe } from './filterby.pipe';
     ArmorOptionModPipe,
     SanitizeHtmlPipe,
     FilterbyPipe,
+    HasValuePipe,
   ],
   imports: [CommonModule],
   exports: [
@@ -39,6 +41,7 @@ import { FilterbyPipe } from './filterby.pipe';
     WeightNamePipe,
     ArmorOptionModPipe,
     SanitizeHtmlPipe,
+    HasValuePipe,
   ],
 })
 export class PipesModule {}
