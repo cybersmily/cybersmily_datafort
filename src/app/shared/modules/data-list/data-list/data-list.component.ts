@@ -52,6 +52,9 @@ export class DataListComponent implements OnInit {
     if (Array.isArray(item)) {
       return item.join(', ');
     }
+    if (typeof item === 'boolean') {
+      return item ? 'yes' : 'no';
+    }
     return item;
   }
 
