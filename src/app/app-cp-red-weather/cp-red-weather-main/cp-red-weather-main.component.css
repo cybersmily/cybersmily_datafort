@@ -1,15 +1,26 @@
 .cp-week-day {
   display: inline-block;
-  width: 14%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .cp-day {
   display: inline-block;
   width: 150px;
+  margin-left: 10%;
+  margin-right: 10%
 }
 
 hr {
   margin-top: 0px;
   padding-top: 0px;
   margin-bottom: 2px;
+}
+
+@media (min-width: 48em) {
+  .cp-week-day {
+    width:14% !important;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }

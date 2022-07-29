@@ -3,18 +3,26 @@
     <div class="col-12">
       <h2>Weather Generator for Cyberpunk Red/Cyberpunk 2020</h2>
       <p>
-        This unofficial utility is for generating a daily/weekly/monthly weather for your game.
-        These charts are taken from R Talsorian's downloadable
-        <a href="https://rtalsoriangames.com/wp-content/uploads/2021/07/RTG-CPR-NightCityWeather.pdf"
-          alt="Night City Weather.pdf">
-          Night City Weather</a>. You will need to download it to lookup the effects of some of the weather.
+        This unofficial utility is for generating a daily/weekly/monthly weather
+        for your game. These charts are taken from R Talsorian's downloadable
+        <a
+          href="https://rtalsoriangames.com/wp-content/uploads/2021/07/RTG-CPR-NightCityWeather.pdf"
+          alt="Night City Weather.pdf"
+        >
+          Night City Weather</a
+        >. You will need to download it to lookup the effects of some of the
+        weather.
       </p>
     </div>
   </div>
   <div class="row hidden-print">
     <div class="col">
-      <button class="csd-btn csd-icon-btn csd-icon-xl me-2" (click)="rollWeather()" title="Generate weather">
-        <fa-icon [icon]="faDice" ></fa-icon>
+      <button
+        class="csd-btn csd-icon-btn csd-icon-xl me-2"
+        (click)="rollWeather()"
+        title="Generate weather"
+      >
+        <fa-icon [icon]="faDice"></fa-icon>
       </button>
       System:
       <select [(ngModel)]="system" class="me-3">
@@ -33,47 +41,89 @@
         <option [value]="7">Week</option>
         <option [value]="30">Month</option>
       </select>
-      <button class="csd-btn csd-icon-btn csd-icon-xl float-end" title="Export to PDF" (click)="saveToPDF()">
+      <button
+        class="csd-btn csd-icon-btn csd-icon-xl float-end"
+        title="Export to PDF"
+        (click)="saveToPDF()"
+      >
         <fa-icon [icon]="faFilePdf"></fa-icon>
       </button>
     </div>
   </div>
-  <br>
+  <br />
   <div *ngIf="weatherForecast$ | async as results">
     <div *ngIf="results.length === 1" class="row">
       <div class="col text-center">
-        <ng-container [ngTemplateOutlet]="weekWeather" [ngTemplateOutletContext]="{day: results[0], dayOfWeek:'TODAY', isOneDay: true}"></ng-container>
+        <ng-container
+          [ngTemplateOutlet]="weekWeather"
+          [ngTemplateOutletContext]="{
+            day: results[0],
+            dayOfWeek: 'TODAY',
+            isOneDay: true
+          }"
+        ></ng-container>
       </div>
     </div>
     <div *ngIf="results.length === 7" class="row">
-      <div class="col">
-        <ng-container *ngFor="let day of results; let i = index" [ngTemplateOutlet]="weekWeather" [ngTemplateOutletContext]="{day: day, dayOfWeek:DAYS_OF_WEEK[i], isOneDay: false}"></ng-container>
+      <div class="col-12">
+        <ng-container
+          *ngFor="let day of results; let i = index"
+          [ngTemplateOutlet]="weekWeather"
+          [ngTemplateOutletContext]="{
+            day: day,
+            dayOfWeek: DAYS_OF_WEEK[i],
+            isOneDay: false
+          }"
+        ></ng-container>
       </div>
     </div>
     <ng-container *ngIf="results.length > 7">
       <div *ngFor="let week of results | monthArray" class="row">
-        <div class="col">
-          <ng-container *ngFor="let day of week; let i = index" [ngTemplateOutlet]="weekWeather" [ngTemplateOutletContext]="{day: day, dayOfWeek:DAYS_OF_WEEK[i], isOneDay: false}"></ng-container>
+        <div class="col-12">
+          <ng-container
+            *ngFor="let day of week; let i = index"
+            [ngTemplateOutlet]="weekWeather"
+            [ngTemplateOutletContext]="{
+              day: day,
+              dayOfWeek: DAYS_OF_WEEK[i],
+              isOneDay: false
+            }"
+          ></ng-container>
         </div>
       </div>
     </ng-container>
   </div>
-  <br>
-  <br>
+  <br />
+  <br />
 </div>
 
-<ng-template #weekWeather let-day="day" let-dayOfWeek="dayOfWeek" let-isOneDay="isOneDay">
-  <div [ngClass]="{'csd-rounded': true, 'cp-week-day align-top text-center': !isOneDay, 'cp-day': isOneDay}">
+<ng-template
+  #weekWeather
+  let-day="day"
+  let-dayOfWeek="dayOfWeek"
+  let-isOneDay="isOneDay"
+>
+  <div
+    [ngClass]="{
+      'csd-rounded w-80': true,
+      'cp-week-day align-top text-center': !isOneDay,
+      'cp-day': isOneDay
+    }"
+  >
     <div class="large align-top">
-      <h5 class="d-inline-block">{{dayOfWeek}}</h5>
+      <h5 class="d-inline-block">{{ dayOfWeek }}</h5>
     </div>
-    <hr>
+    <hr />
     <div class="large align-top">
-      <h5 class="d-inline-block">{{day.tempature}}<span class="align-top h6">&#176;F</span></h5>
+      <h5 class="d-inline-block">
+        {{ day.tempature }}<span class="align-top h6">&#176;F</span>
+      </h5>
     </div>
     <div class="large align-top">
-      <h5 class="d-inline-block">{{day.tempature | celsius}}<span class="align-top h6">&#176;C</span></h5>
+      <h5 class="d-inline-block">
+        {{ day.tempature | celsius }}<span class="align-top h6">&#176;C</span>
+      </h5>
     </div>
-    <div class="small">{{day.condition}}</div>
+    <div class="small">{{ day.condition }}</div>
   </div>
 </ng-template>
