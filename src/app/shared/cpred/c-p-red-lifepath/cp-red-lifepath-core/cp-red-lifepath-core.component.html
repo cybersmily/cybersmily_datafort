@@ -5,28 +5,28 @@
     </div>
     <div class="row csd-redcore-lp-culture">
       <div class="col-12 col-md-3 col-lg-1 csd-redcore-lp-hdr">CULTURE</div>
-      <div class="col-12 col-md-4 col-lg-3">
+      <div class="col-12 col-md-4 col-lg-3 position-relative">
         <span class="csd-redcore-lp-label ms-3">Region</span>
-        <input type="text" [(ngModel)]="coreLifePath.culture.name">
+        <input type="text" [(ngModel)]="coreLifePath.culture.name" />
       </div>
-      <div class="col-12 col-md-4 col-lg-3">
+      <div class="col-12 col-md-4 col-lg-3 position-relative">
         <span class="csd-redcore-lp-label ms-3">Language</span>
-        <input type="text" [(ngModel)]="coreLifePath.culture.language">
+        <input type="text" [(ngModel)]="coreLifePath.culture.language" />
       </div>
     </div>
     <div class="row">
       <div class="col csd-redcore-lp-hdr">APPEARANCE</div>
     </div>
     <div class="row">
-      <div class="col-12 col-md-6 col-lg-4">
+      <div class="col-12 col-md-6 col-lg-4 position-relative">
         <span class="csd-redcore-lp-label ms-3">Hairstyle</span>
         <textarea [(ngModel)]="coreLifePath.appearance.hairstyle"></textarea>
       </div>
-      <div class="col-12 col-md-6 col-lg-4">
+      <div class="col-12 col-md-6 col-lg-4 position-relative">
         <span class="csd-redcore-lp-label ms-3">Clothing</span>
         <textarea [(ngModel)]="coreLifePath.appearance.clothing"></textarea>
       </div>
-      <div class="col-12 col-md-6 col-lg-4">
+      <div class="col-12 col-md-6 col-lg-4 position-relative">
         <span class="csd-redcore-lp-label ms-3">Affectations</span>
         <textarea [(ngModel)]="coreLifePath.appearance.affectations"></textarea>
       </div>
@@ -36,65 +36,86 @@
     </div>
 
     <div class="row">
-      <div class="col-12 col-md-6 col-lg-4">
+      <div class="col-12 col-md-6 col-lg-4 position-relative">
         <span class="csd-redcore-lp-label ms-3">Personality</span>
         <textarea [(ngModel)]="coreLifePath.motivations.personality"></textarea>
       </div>
-      <div class="col-12 col-md-6 col-lg-4">
+      <div class="col-12 col-md-6 col-lg-4 position-relative">
         <span class="csd-redcore-lp-label ms-3">Value Most</span>
         <textarea [(ngModel)]="coreLifePath.motivations.valueMost"></textarea>
       </div>
-      <div class="col-12 col-md-6 col-lg-4">
+      <div class="col-12 col-md-6 col-lg-4 position-relative">
         <span class="csd-redcore-lp-label ms-3">Value Possession</span>
-        <textarea [(ngModel)]="coreLifePath.motivations.valuedPossession"></textarea>
+        <textarea
+          [(ngModel)]="coreLifePath.motivations.valuedPossession"
+        ></textarea>
       </div>
-      <div class="col-12 col-md-6 col-lg-4">
+      <div class="col-12 col-md-6 col-lg-4 position-relative">
         <span class="csd-redcore-lp-label ms-3">Valued Person</span>
-        <textarea [(ngModel)]="coreLifePath.motivations.valuedPerson"></textarea>
+        <textarea
+          [(ngModel)]="coreLifePath.motivations.valuedPerson"
+        ></textarea>
       </div>
-      <div class="col-12 col-md-6 col-lg-4">
+      <div class="col-12 col-md-6 col-lg-4 position-relative">
         <span class="csd-redcore-lp-label ms-3">Feel About People</span>
-        <textarea [(ngModel)]="coreLifePath.motivations.feelAboutPeople"></textarea>
+        <textarea
+          [(ngModel)]="coreLifePath.motivations.feelAboutPeople"
+        ></textarea>
       </div>
-      <div class="col-12 col-md-6 col-lg-4">
+      <div class="col-12 col-md-6 col-lg-4 position-relative">
         <span class="csd-redcore-lp-label ms-3">Goal</span>
         <textarea [(ngModel)]="coreLifePath.motivations.goal"></textarea>
       </div>
     </div>
     <div class="row">
-      <div class="col csd-redcore-lp-hdr">FRIENDS ({{coreLifePath.friends.length}})</div>
+      <div class="col csd-redcore-lp-hdr">
+        FRIENDS ({{ coreLifePath.friends.length }})
+      </div>
     </div>
 
     <div class="row">
-      <div class="col-12 col-md-6 col-lg-4" *ngFor="let friend of coreLifePath.friends">
+      <div
+        class="col-12 col-md-6 col-lg-4"
+        *ngFor="let friend of coreLifePath.friends"
+      >
         <textarea [(ngModel)]="friend.who"></textarea>
       </div>
     </div>
     <div class="row">
-      <div class="col csd-redcore-lp-hdr">ROMANCES ({{coreLifePath.loveAffairs.length}})</div>
+      <div class="col csd-redcore-lp-hdr">
+        ROMANCES ({{ coreLifePath.loveAffairs.length }})
+      </div>
     </div>
     <div class="row">
-      <div class="col-12 col-md-6 col-lg-4" *ngFor="let lovers of coreLifePath.loveAffairs">
+      <div
+        class="col-12 col-md-6 col-lg-4"
+        *ngFor="let lovers of coreLifePath.loveAffairs"
+      >
         <textarea [(ngModel)]="lovers.kind"></textarea>
       </div>
     </div>
     <div class="row">
-      <div class="col csd-redcore-lp-hdr">ENEMIES ({{coreLifePath.enemies.length}})</div>
+      <div class="col csd-redcore-lp-hdr">
+        ENEMIES ({{ coreLifePath.enemies.length }})
+      </div>
     </div>
     <div class="row" *ngFor="let enemy of coreLifePath.enemies">
-      <div class="col-3">
+      <div class="col-12 col-md-4 position-relative">
         <span class="csd-redcore-lp-label ms-3">Who?</span>
         <textarea [(ngModel)]="enemy.who"></textarea>
       </div>
-      <div class="col-3">
+      <div class="col-2 d-md-none"></div>
+      <div class="col-10 col-md-8 position-relative">
         <span class="csd-redcore-lp-label ms-3">Why?</span>
         <textarea [(ngModel)]="enemy.cause"></textarea>
       </div>
-      <div class="col-3">
+      <div class="col-2 col-md-4"></div>
+      <div class="col-10 col-md-8 position-relative">
         <span class="csd-redcore-lp-label ms-3">Resources?</span>
         <textarea [(ngModel)]="enemy.resources"></textarea>
       </div>
-      <div class="col-3">
+      <div class="col-2 col-md-4"></div>
+      <div class="col-10 col-md-8 position-relative">
         <span class="csd-redcore-lp-label ms-3">Reaction?</span>
         <textarea [(ngModel)]="enemy.reaction"></textarea>
       </div>
@@ -103,17 +124,19 @@
       <div class="col csd-redcore-lp-hdr">FAMILY</div>
     </div>
     <div class="row">
-      <div class="col-12 col-md-6">
+      <div class="col-12 col-md-6 position-relative">
         <span class="csd-redcore-lp-label ms-3">Background</span>
         <textarea [(ngModel)]="coreLifePath.family.background"></textarea>
       </div>
-      <div class="col-12 col-md-6">
+      <div class="col-12 col-md-6 position-relative">
         <span class="csd-redcore-lp-label ms-3">Childhood Environment</span>
-        <textarea [(ngModel)]="coreLifePath.family.childhoodEnvironment"></textarea>
+        <textarea
+          [(ngModel)]="coreLifePath.family.childhoodEnvironment"
+        ></textarea>
       </div>
     </div>
     <div class="row">
-      <div class="col">
+      <div class="col position-relative">
         <span class="csd-redcore-lp-label ms-3">Family Crisis</span>
         <textarea [(ngModel)]="coreLifePath.family.familyCrisis"></textarea>
       </div>
@@ -122,15 +145,16 @@
       <div class="col csd-redcore-lp-hdr">ROLE LIFEPATH</div>
     </div>
     <div class="row">
-      <div class="col-12 col-md-6 col-lg-4" *ngFor="let prop of coreLifePath.role">
-        <span class="csd-redcore-lp-label ms-3">{{prop.key}}</span>
+      <div
+        class="col-12 col-md-6 col-lg-4 position-relative"
+        *ngFor="let prop of coreLifePath.role"
+      >
+        <span class="csd-redcore-lp-label ms-3">{{ prop.key }}</span>
         <textarea [(ngModel)]="prop.value"></textarea>
       </div>
     </div>
     <div class="row">
       <div class="col">&nbsp;</div>
     </div>
-
-
   </div>
 </div>
