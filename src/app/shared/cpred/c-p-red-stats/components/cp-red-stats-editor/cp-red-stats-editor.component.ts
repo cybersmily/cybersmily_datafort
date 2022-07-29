@@ -12,6 +12,10 @@ export class CpRedStatsEditorComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  get statTotal(): Observable<number> {
+    return this.statManager.getTotalStatPoints();
+  }
+
   get statNames(): Observable<Array<string>> {
     return this.statManager.characterStats.pipe(
       map((stats) => Object.keys(stats))

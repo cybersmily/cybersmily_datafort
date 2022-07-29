@@ -1,4 +1,10 @@
 <div *ngIf="statNames | async as stats" class="container p-4">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="d-inline-block">STATS</h2>
+      <span class="float-end">Total: {{ statTotal | async }}pts</span>
+    </div>
+  </div>
   <div *ngFor="let statName of stats" class="row">
     <div class="col-12">
       <cs-cp-red-stat-editor [statName]="statName"></cs-cp-red-stat-editor>

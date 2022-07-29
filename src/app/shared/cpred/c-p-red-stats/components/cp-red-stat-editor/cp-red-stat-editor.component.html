@@ -9,7 +9,7 @@
         <input
           type="number"
           tabindex="0"
-          class="text-center no-spinners w-100 pt-2 csd-plain-input"
+          class="text-center no-spinners w-100 pt-2 csd-plain-input csd-input-underline"
           [ngModel]="(stat | async)?.base"
           (change)="updateStatBase($event.target.value)"
           (keyup)="updateStatBase($event.target.value)"
@@ -98,7 +98,7 @@
       <div class="col-1 px-0">
         <input
           type="number"
-          class="w-100 text-center csd-plain-input align-text-top no-spinners"
+          class="w-100 text-center csd-plain-input align-text-top no-spinners csd-input-underline"
           placeholder="#"
           [(ngModel)]="newMod.value"
         />
@@ -106,8 +106,8 @@
       <div class="col-6">
         <input
           type="text"
-          class="w-100 csd-plain-input align-text-top"
-          placeholder="enter modifier name"
+          class="w-100 csd-plain-input align-text-top csd-input-underline"
+          placeholder="mod. name"
           [(ngModel)]="newMod.name"
         />
       </div>
