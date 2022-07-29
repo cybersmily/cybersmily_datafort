@@ -1,4 +1,3 @@
-import { CpRedSkillMod } from './../../models/cp-red-skill-mod';
 import { CpRedSkill } from './../../models/cp-red-skill';
 import { CpRedSkillDataService } from './../cp-red-skill-data/cp-red-skill-data.service';
 import { BehaviorSubject, Observable, first } from 'rxjs';
@@ -18,6 +17,7 @@ export class CpRedSkillManagerService {
   constructor(private skillDataService: CpRedSkillDataService) {}
 
   initialize(skills?: Array<CpRedSkill>): void {
+    console.log(skills);
     if (skills && skills.length > 0) {
       this.updateSkills(skills as Array<CpRedCharacterSkill>);
     } else {
@@ -26,7 +26,13 @@ export class CpRedSkillManagerService {
   }
 
   updateSkills(skills: Array<CpRedCharacterSkill>): void {
-    const newSkills = skills.map((sk) => new CpRedCharacterSkill(sk));
+    const newSkills = [
+      ...skills
+        .map((sk) => new CpRedCharacterSkill(sk))
+        .sort((a, b) =>
+          a.name.localeCompare(b.name, undefined, { sensitivity: 'base' })
+        ),
+    ];
     this._skills.next(newSkills);
   }
 

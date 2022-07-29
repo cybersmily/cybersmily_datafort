@@ -33,7 +33,7 @@ select option:checked:after {
 }
 
 .new-skill-dropdown {
-  margin-left: -100px;
+  left: 0;
   width: 350px;
   min-width: 350px;
 }

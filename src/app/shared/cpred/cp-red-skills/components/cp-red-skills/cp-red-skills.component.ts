@@ -5,6 +5,8 @@ import {
   faTimes,
   faPlus,
   faSave,
+  faChevronDown,
+  faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 import { CpRedSkillManagerService } from './../../services/cp-red-skill-manager/cp-red-skill-manager.service';
@@ -23,6 +25,8 @@ export class CpRedSkillsComponent implements OnInit {
   faTimes = faTimes;
   faPlus = faPlus;
   faSave = faSave;
+  faChevronDown = faChevronDown;
+  faChevronRight = faChevronRight;
 
   skills$: Observable<Array<CpRedCharacterSkill>>;
 
@@ -31,15 +35,32 @@ export class CpRedSkillsComponent implements OnInit {
   sortOn: string = 'name';
   sortDirection: boolean = false;
   searchText: string = '';
-  forceNameSort: string = 'name';
   groupBy: string = '';
   filterOn: string;
+  isCollapsed: boolean = false;
 
   constructor(private skillManager: CpRedSkillManagerService) {}
 
   ngOnInit(): void {
     this.skills$ = this.skillManager.skills;
   }
+
+  updateNewSkill(skill: CpRedCharacterSkill): void {
+    this.newSkill = new CpRedCharacterSkill(skill);
+  }
+
+  saveNewSkill(): void {
+    this.skillManager.addSkill(new CpRedCharacterSkill(this.newSkill));
+  }
+
+  get enableNewSkillSave(): boolean {
+    return (
+      this.newSkill.name !== '' &&
+      this.newSkill.stat !== '' &&
+      this.newSkill.type !== ''
+    );
+  }
+
   groupSortOn(filter: string): void {
     this.skills$ = this.skillManager.skills;
     switch (filter) {
@@ -48,28 +69,24 @@ export class CpRedSkillsComponent implements OnInit {
         this.groupBy = filter;
         this.sortDirection = false;
         this.filterOn = null;
-        this.forceNameSort = 'name';
         break;
       case 'type':
         this.sortOn = filter;
         this.groupBy = filter;
         this.sortDirection = false;
         this.filterOn = null;
-        this.forceNameSort = 'name';
         break;
       case 'level':
         this.sortOn = 'name';
         this.groupBy = '';
         this.sortDirection = false;
         this.filterOn = 'base';
-        this.forceNameSort = 'name';
         break;
       default:
         this.sortOn = 'name';
         this.groupBy = '';
         this.sortDirection = false;
         this.filterOn = null;
-        this.forceNameSort = 'name';
     }
   }
 }

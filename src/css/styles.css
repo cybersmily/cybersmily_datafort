@@ -812,7 +812,8 @@ INPUT.csd-plain-input, SELECT.csd-plain-input {
   border-bottom-right-radius: 0;
 }
 INPUT.csd-plain-input.csd-input-underline,
-SELECT.csd-plain-input.csd-input-underline {
+SELECT.csd-plain-input.csd-input-underline,
+.csd-sort-selector.csd-input-underline {
   border-bottom: 1px #AAA solid;
 }
 

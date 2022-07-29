@@ -27,7 +27,7 @@ export class CpRedCharacterSkill implements CpRedSkill {
   }
 
   constructor(param?: any) {
-    this.name = param?.name ?? '';
+    this.name = param?.name?.toLowerCase() ?? '';
     this.type = param?.type ?? '';
     this.stat = param?.stat ?? '';
     this.base = param?.base ?? 0;

@@ -7,13 +7,15 @@
           [(ngModel)]="currSkill.source"
           (change)="update()"
           type="text"
-          class="csd-plain-input text-end"
+          class="csd-plain-input text-end csd-input-underline"
           placeholder="Source reference"
+          tabindex="0"
         />
         <button
           *ngIf="showDelete"
           class="csd-btn csd-icon-btn csd-icon-sm"
           (click)="delete()"
+          tabindex="0"
         >
           <fa-icon [icon]="faTrash"></fa-icon>
         </button>
@@ -22,7 +24,8 @@
         [(ngModel)]="currSkill.name"
         (change)="update()"
         type="text"
-        class="csd-plain-input w-80 text-capitalize mt-1 pt-1"
+        class="csd-plain-input csd-input-underline w-80 text-capitalize mt-1 pt-1"
+        tabindex="0"
       />
     </div>
   </div>
@@ -34,9 +37,10 @@
           id="button-type"
           dropdownToggle
           type="button"
-          class="csd-sort-selector px-1 w-100 text-uppercase"
+          class="csd-sort-selector csd-input-underline px-1 w-100 text-uppercase"
           aria-controls="dropdown-type"
           title="Skill type"
+          tabindex="0"
         >
           {{ currSkill.type ? currSkill.type : "..." }}
         </button>
@@ -65,9 +69,10 @@
           id="button-stat"
           dropdownToggle
           type="button"
-          class="csd-sort-selector px-1 w-100 text-uppercase"
+          class="csd-sort-selector csd-input-underline px-1 w-100 text-uppercase"
           aria-controls="dropdown-stat"
           title="Skill stat"
+          tabindex="0"
         >
           {{ currSkill.stat ? currSkill.stat : "..." }}
         </button>
@@ -95,7 +100,8 @@
         [(ngModel)]="currSkill.ipMod"
         (change)="update()"
         type="number"
-        class="csd-plain-input w-100 text-center mt-2 pt-1 ms-2 no-spinners"
+        class="csd-plain-input csd-input-underline w-100 text-center mt-2 pt-1 ms-2 no-spinners"
+        tabindex="0"
       />
     </div>
     <div class="col-2 position-relative text-center px-0">
@@ -112,6 +118,7 @@
         class="csd-btn csd-icon-btn csd-btn-lg mt-3 ms-3"
         title="Chipped skill"
         (click)="toggleChipped($event)"
+        tabindex="0"
       >
         <fa-icon
           [icon]="currSkill.isChipped ? faCheckCircle : faDotCircle"
@@ -124,7 +131,8 @@
         [(ngModel)]="currSkill.base"
         (change)="update()"
         type="number"
-        class="csd-plain-input w-100 mt-3 ms-2 text-center no-spinners"
+        class="csd-plain-input csd-input-underline w-100 mt-3 ms-2 text-center no-spinners"
+        tabindex="0"
       />
     </div>
     <div class="col-2 position-relative text-center py-0">
@@ -133,6 +141,7 @@
         class="mt-3 csd-btn"
         title="Show skill modifiers."
         (click)="showModifiers = !showModifiers"
+        tabindex="0"
       >
         {{ currSkill.modifierTotal }}
       </div>
@@ -164,6 +173,7 @@
               'csd-icon-greyedout': !mod.active
             }"
             (click)="toggleModifierActivation($event, i)"
+            tabindex="0"
           >
             <fa-icon
               [icon]="mod.active ? faCheckCircle : faDotCircle"
@@ -180,6 +190,7 @@
           <button
             class="csd-icon-btn csd-icon-sm text-center"
             (click)="deleteModifier($event, i)"
+            tabindex="0"
           >
             <fa-icon [icon]="faTrash"></fa-icon>
           </button>
@@ -191,6 +202,7 @@
             class="csd-btn csd-icon-btn csd-icon-lg float-end"
             [disabled]="!newMod.value"
             (click)="addModifier($event)"
+            tabindex="0"
           >
             <fa-icon [icon]="faPlus"></fa-icon>
           </button>
@@ -198,17 +210,19 @@
         <div class="col-1 px-0">
           <input
             type="number"
-            class="w-100 text-center csd-plain-input align-text-top no-spinners"
+            class="w-100 text-center csd-plain-input csd-input-underline align-text-top no-spinners"
             placeholder="#"
             [(ngModel)]="newMod.value"
+            tabindex="0"
           />
         </div>
         <div class="col-6">
           <input
             type="text"
-            class="w-100 csd-plain-input align-text-top"
-            placeholder="enter modifier name"
+            class="w-100 csd-plain-input csd-input-underline align-text-top"
+            placeholder="mod. name"
             [(ngModel)]="newMod.name"
+            tabindex="0"
           />
         </div>
       </div>

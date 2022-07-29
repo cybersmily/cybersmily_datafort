@@ -1,6 +1,6 @@
 {
   "skillTypes": ["awareness","body","control","education","fighting","performance","ranged weapon","social", "technique"],
-  "skillStats": ["cool", "dex", "int", "ref", "tech","will"],
+  "skillStats": ["cool", "dex", "emp", "int", "ref", "tech","will"],
   "skills":[
     { "name": "accounting"                , "type": "education"     , "stat": "int"  , "source": "CPR pg.133", "required": false, "ipMod" : 1, "description" : ""                                                                                                                },
     { "name": "acting"                    , "type": "performance"   , "stat": "cool" , "source": "CPR pg.137", "required": false, "ipMod" : 1, "description" : ""                                                                                                                },

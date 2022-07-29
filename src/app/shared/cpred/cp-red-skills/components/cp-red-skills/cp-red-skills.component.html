@@ -4,90 +4,133 @@
       | async
       | hasValue: filterOn
       | contains: 'name':searchText
-      | orderByProps: [sortOn, 'name']:['asc', sortDirection] as skills
+      | orderByProps: [sortOn, 'name']:['asc', 'asc'] as skills
   "
 >
-  <div class="row align-top">
-    <div class="col-6 col-md-4">
-      SKILLS
-      <div class="btn-group position-relative" dropdown [insideClick]="true">
-        <div
-          id="button-newskill"
-          class="py-0"
-          dropdownToggle
-          aria-controls="dropdown-newskill"
-        >
-          <button class="csd-icon-btn csd-icon-lg ms-1" title="Add new skill">
-            <fa-icon [icon]="faPlus"></fa-icon>
-          </button>
-        </div>
-        <div
-          id="dropdown-newskill"
-          *dropdownMenu
-          class="dropdown-menu py-0 new-skill-dropdown"
-          role="menu"
-          aria-labelledby="button-newskill"
-        >
-          <cs-cp-red-skill-editor [skill]="newSkill"></cs-cp-red-skill-editor>
-          <button class="csd-btn csd-icon-btn csd-icon-sm float-end">
-            <fa-icon [icon]="faSave"></fa-icon>
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 order-last order-md-1 offset-md-0 col-md-4">
-      <div class="position-relative">
-        <fa-icon
-          [icon]="faSearch"
-          class="position-absolute csd-icon-btn"
-        ></fa-icon>
-        <input
-          type="search"
-          class="csd-plain-input ps-4 pe-4 w-100"
-          [(ngModel)]="searchText"
-          [typeahead]="skills"
-          typeaheadOptionField="name"
-          [typeaheadSelectFirstItem]="false"
-          placeholder="Enter search term..."
-        />
-        <fa-icon
-          *ngIf="searchText != ''"
-          [icon]="faTimes"
-          class="csd-clear-search"
-          (click)="searchText = ''"
-        ></fa-icon>
-      </div>
-    </div>
-    <div class="col-6 order-2 col-md-4" title="Skills sorted by {{ sortOn }}">
-      <fa-icon [icon]="faSort" class="csd-icon-btn"></fa-icon>
-      <div class="btn-group align-top w-50" dropdown>
-        <button
-          id="button-sort"
-          dropdownToggle
-          type="button"
-          class="csd-sort-selector w-100 px-1 text-capitalize"
-          aria-controls="dropdown-sort"
-          title="Skills sorted by {{ sortOn }}"
-        >
-          {{ sortOn }}
+  <div class="row">
+    <div class="col-12">
+      <div
+        class="d-inline-block"
+        role="button"
+        tabindex="0"
+        (click)="isCollapsed = !isCollapsed"
+      >
+        <h4 class="d-inline-block">SKILLS</h4>
+        <button class="csd-icon-btn csd-icon-lg ms-1">
+          <fa-icon
+            [icon]="isCollapsed ? faChevronRight : faChevronDown"
+          ></fa-icon>
         </button>
-        <ul
-          id="dropdown-sort"
-          *dropdownMenu
-          class="dropdown-menu"
-          role="menu"
-          aria-labelledby="button-sort"
-        >
-          <li role="menuitem" (click)="groupSortOn('name')">Name</li>
-          <li role="menuitem" (click)="groupSortOn('type')">Type</li>
-          <li role="menuitem" (click)="groupSortOn('stat')">Stat</li>
-          <li role="menuitem" (click)="groupSortOn('level')">Has Level</li>
-        </ul>
       </div>
     </div>
   </div>
-  <cs-cp-red-skills-by-property
-    [skills]="skills"
-    [property]="groupBy"
-  ></cs-cp-red-skills-by-property>
+  <div [collapse]="isCollapsed">
+    <div class="row align-top">
+      <div class="col-6 col-md-4">
+        <div
+          class="btn-group position-relative"
+          dropdown
+          #newSkillDropdown="bs-dropdown"
+          [insideClick]="true"
+        >
+          <div
+            id="button-newskill"
+            class="py-0"
+            dropdownToggle
+            aria-controls="dropdown-newskill"
+            tabindex="0"
+          >
+            <button
+              class="csd-icon-btn csd-icon-lg ms-1 me-1"
+              title="Add new skill"
+            >
+              <fa-icon [icon]="faPlus"></fa-icon>
+              <i class="ms-2">New Skill</i>
+            </button>
+          </div>
+          <div
+            id="dropdown-newskill"
+            *dropdownMenu
+            class="dropdown-menu py-0 new-skill-dropdown"
+            role="menu"
+            aria-labelledby="button-newskill"
+          >
+            <button
+              class="csd-btn csd-icon-btn float-end"
+              title="Save new skill"
+              (click)="saveNewSkill(); newSkillDropdown.hide()"
+              [disabled]="!enableNewSkillSave"
+            >
+              <fa-icon [icon]="faSave"></fa-icon>
+            </button>
+            <cs-cp-red-skill-editor
+              [skill]="newSkill"
+              (updateSkill)="updateNewSkill($event)"
+            ></cs-cp-red-skill-editor>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 order-last order-md-1 offset-md-0 col-md-4">
+        <div class="position-relative">
+          <fa-icon
+            [icon]="faSearch"
+            class="position-absolute csd-icon-btn"
+          ></fa-icon>
+          <input
+            type="search"
+            class="csd-plain-input ps-4 pe-4 w-100"
+            [(ngModel)]="searchText"
+            [typeahead]="skills"
+            typeaheadOptionField="name"
+            [typeaheadSelectFirstItem]="false"
+            placeholder="Enter search term..."
+            tabindex="0"
+          />
+          <fa-icon
+            *ngIf="searchText != ''"
+            [icon]="faTimes"
+            class="csd-clear-search"
+            (click)="searchText = ''"
+            tabindex="0"
+          ></fa-icon>
+        </div>
+      </div>
+      <div
+        class="col-6 order-2 col-md-4"
+        title="Skills sorted by {{ sortOn }}"
+        tabindex="0"
+      >
+        <fa-icon [icon]="faSort" class="csd-icon-btn"></fa-icon>
+        <div class="btn-group align-top w-50" dropdown>
+          <button
+            id="button-sort"
+            dropdownToggle
+            type="button"
+            class="csd-sort-selector w-100 px-1 text-capitalize"
+            aria-controls="dropdown-sort"
+            title="Skills sorted by {{ sortOn }}"
+            tabindex="0"
+          >
+            {{ sortOn }}
+          </button>
+          <ul
+            id="dropdown-sort"
+            *dropdownMenu
+            class="dropdown-menu"
+            role="menu"
+            aria-labelledby="button-sort"
+          >
+            <li role="menuitem" (click)="groupSortOn('name')">Name</li>
+            <li role="menuitem" (click)="groupSortOn('type')">Type</li>
+            <li role="menuitem" (click)="groupSortOn('stat')">Stat</li>
+            <li role="menuitem" (click)="groupSortOn('level')">Has Level</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <cs-cp-red-skills-by-property
+      [skills]="skills"
+      [property]="groupBy"
+    ></cs-cp-red-skills-by-property>
+  </div>
 </div>
