@@ -7,7 +7,7 @@ import { orderBy } from 'lodash';
 export class OrderByPropsPipe implements PipeTransform {
   transform(
     array: Array<any>,
-    sortBy: Array<string>,
+    sortBy: Array<any>,
     order?: Array<string>
   ): Array<any> {
     const sortOrder = order ? order : ['asc']; // setting default ascending order

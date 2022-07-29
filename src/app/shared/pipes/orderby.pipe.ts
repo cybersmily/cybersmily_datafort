@@ -56,7 +56,9 @@ export class OrderbyPipe implements PipeTransform {
 
   sortString(a, b, property): number {
     if (typeof a[property] === 'string') {
-      return a[property]?.localeCompare(b[property]);
+      return a[property]
+        ?.toLowerCase()
+        .localeCompare(b[property].toLowerCase());
     }
     return a[property] < b[property] ? 1 : -1;
   }
