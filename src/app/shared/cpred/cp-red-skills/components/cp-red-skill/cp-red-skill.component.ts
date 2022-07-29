@@ -50,8 +50,10 @@ export class CpRedSkillComponent implements OnInit, OnChanges {
   ) {}
 
   ngOnInit(): void {
-    this.stat$ = this.statManager.getStat(this.skill.stat);
-    this.currSkill = new CpRedCharacterSkill(this.skill);
+    if (this.skill) {
+      this.stat$ = this.statManager.getStat(this.skill?.stat);
+      this.currSkill = new CpRedCharacterSkill(this.skill);
+    }
   }
 
   ngOnChanges(): void {}

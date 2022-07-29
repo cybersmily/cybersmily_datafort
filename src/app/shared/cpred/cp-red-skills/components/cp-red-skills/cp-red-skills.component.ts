@@ -31,11 +31,45 @@ export class CpRedSkillsComponent implements OnInit {
   sortOn: string = 'name';
   sortDirection: boolean = false;
   searchText: string = '';
-  groupBy: string = 'name';
+  forceNameSort: string = 'name';
+  groupBy: string = '';
+  filterOn: string;
 
   constructor(private skillManager: CpRedSkillManagerService) {}
 
   ngOnInit(): void {
     this.skills$ = this.skillManager.skills;
+  }
+  groupSortOn(filter: string): void {
+    this.skills$ = this.skillManager.skills;
+    switch (filter) {
+      case 'stat':
+        this.sortOn = filter;
+        this.groupBy = filter;
+        this.sortDirection = false;
+        this.filterOn = null;
+        this.forceNameSort = 'name';
+        break;
+      case 'type':
+        this.sortOn = filter;
+        this.groupBy = filter;
+        this.sortDirection = false;
+        this.filterOn = null;
+        this.forceNameSort = 'name';
+        break;
+      case 'level':
+        this.sortOn = 'name';
+        this.groupBy = '';
+        this.sortDirection = false;
+        this.filterOn = 'base';
+        this.forceNameSort = 'name';
+        break;
+      default:
+        this.sortOn = 'name';
+        this.groupBy = '';
+        this.sortDirection = false;
+        this.filterOn = null;
+        this.forceNameSort = 'name';
+    }
   }
 }

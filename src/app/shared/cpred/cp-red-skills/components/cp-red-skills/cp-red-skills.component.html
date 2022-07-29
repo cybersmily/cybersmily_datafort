@@ -2,12 +2,13 @@
   *ngIf="
     skills$
       | async
-      | orderby: sortOn:sortDirection
-      | contains: 'name':searchText as skills
+      | hasValue: filterOn
+      | contains: 'name':searchText
+      | orderByProps: [sortOn, 'name']:['asc', sortDirection] as skills
   "
 >
   <div class="row align-top">
-    <div class="col-4 col-md-2">
+    <div class="col-6 col-md-4">
       SKILLS
       <div class="btn-group position-relative" dropdown [insideClick]="true">
         <div
@@ -34,32 +35,6 @@
         </div>
       </div>
     </div>
-    <div class="col-3 col-md-2" title="Skills grouped by {{ groupBy }}">
-      <fa-icon [icon]="faFilter" class="csd-icon-btn"></fa-icon>
-      <div class="btn-group px-1 align-top w-50" dropdown>
-        <button
-          id="button-basic"
-          dropdownToggle
-          type="button"
-          class="csd-sort-selector px-1 w-100 text-capitalize"
-          aria-controls="dropdown-basic"
-          title="Skills grouped by {{ groupBy }}"
-        >
-          {{ groupBy }}
-        </button>
-        <ul
-          id="dropdown-basic"
-          *dropdownMenu
-          class="dropdown-menu px-2"
-          role="menu"
-          aria-labelledby="button-basic"
-        >
-          <li role="menuitem" (click)="groupBy = 'name'">Name</li>
-          <li role="menuitem" (click)="groupBy = 'type'">Type</li>
-          <li role="menuitem" (click)="groupBy = 'stat'">Stat</li>
-        </ul>
-      </div>
-    </div>
     <div class="col-12 order-last order-md-1 offset-md-0 col-md-4">
       <div class="position-relative">
         <fa-icon
@@ -83,7 +58,7 @@
         ></fa-icon>
       </div>
     </div>
-    <div class="col-5 order-2 col-md-4" title="Skills sorted by {{ sortOn }}">
+    <div class="col-6 order-2 col-md-4" title="Skills sorted by {{ sortOn }}">
       <fa-icon [icon]="faSort" class="csd-icon-btn"></fa-icon>
       <div class="btn-group align-top w-50" dropdown>
         <button
@@ -103,39 +78,16 @@
           role="menu"
           aria-labelledby="button-sort"
         >
-          <li role="menuitem" (click)="sortOn = 'name'; sortDirection = false">
-            Name
-          </li>
-          <li role="menuitem" (click)="sortOn = 'type'; sortDirection = false">
-            Type
-          </li>
-          <li role="menuitem" (click)="sortOn = 'stat'; sortDirection = false">
-            Stat
-          </li>
-          <li role="menuitem" (click)="sortOn = 'level'; sortDirection = true">
-            Level
-          </li>
+          <li role="menuitem" (click)="groupSortOn('name')">Name</li>
+          <li role="menuitem" (click)="groupSortOn('type')">Type</li>
+          <li role="menuitem" (click)="groupSortOn('stat')">Stat</li>
+          <li role="menuitem" (click)="groupSortOn('level')">Has Level</li>
         </ul>
       </div>
     </div>
   </div>
-  <div [ngSwitch]="sortOn">
-    <div *ngSwitchCase="'stat'">
-      <cs-cp-red-skills-by-property
-        [skills]="skills"
-        [property]="sortOn"
-      ></cs-cp-red-skills-by-property>
-    </div>
-    <div *ngSwitchCase="'type'">
-      <cs-cp-red-skills-by-property
-        [skills]="skills"
-        [property]="sortOn"
-      ></cs-cp-red-skills-by-property>
-    </div>
-    <div *ngSwitchDefault>
-      <cs-cp-red-skills-by-property
-        [skills]="skills"
-      ></cs-cp-red-skills-by-property>
-    </div>
-  </div>
+  <cs-cp-red-skills-by-property
+    [skills]="skills"
+    [property]="groupBy"
+  ></cs-cp-red-skills-by-property>
 </div>
