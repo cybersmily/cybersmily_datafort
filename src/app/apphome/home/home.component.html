@@ -25,11 +25,11 @@
     <div class="col-1"></div>
   </div>
   <div *ngFor="let newItem of newItems" class="row">
-    <div class="col-1"></div>
-    <div class="col-1">
-      <h5>{{ newItem.date }}</h5>
+    <div class="col-1 d-none d-md-inline-block"></div>
+    <div class="col-2 col-md-1">
+      <div class="h6">{{ newItem.date }}</div>
     </div>
-    <div class="col-9">
+    <div class="col-10 col-md-9">
       <div class="mb-2 small">
         <p
           class="my-0"
@@ -38,13 +38,13 @@
         ></p>
       </div>
     </div>
-    <div class="col-1"></div>
+    <div class="col-1 d-none d-md-inline-block"></div>
   </div>
   <div *ngIf="showMoreItems">
     <div *ngFor="let newItem of moreItems" class="row">
       <div class="col-1"></div>
       <div class="col-1">
-        <h5>{{ newItem.date }}</h5>
+        <div class="h6">{{ newItem.date }}</div>
       </div>
       <div class="col-9">
         <p
