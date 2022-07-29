@@ -12,6 +12,7 @@ import { ArmorOptionModPipe } from './armor-option-mod.pipe';
 import { SanitizeHtmlPipe } from './sanitize-html.pipe';
 import { FilterbyPipe } from './filterby.pipe';
 import { HasValuePipe } from './has-value.pipe';
+import { OrderByPropsPipe } from './order-by-props.pipe';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { HasValuePipe } from './has-value.pipe';
     SanitizeHtmlPipe,
     FilterbyPipe,
     HasValuePipe,
+    OrderByPropsPipe,
   ],
   imports: [CommonModule],
   exports: [
@@ -42,6 +44,7 @@ import { HasValuePipe } from './has-value.pipe';
     ArmorOptionModPipe,
     SanitizeHtmlPipe,
     HasValuePipe,
+    OrderByPropsPipe,
   ],
 })
 export class PipesModule {}
