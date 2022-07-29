@@ -70,10 +70,13 @@ export class CpRedSkillManagerService {
     }
   }
 
-  deleteSkill(skillName: string): void {
+  deleteSkill(skillName: CpRedCharacterSkill): void {
     const skills = this._skills.getValue();
     const index = skills.findIndex(
-      (sk) => sk.name.toLowerCase() === skillName.toLowerCase()
+      (sk) =>
+        sk.name.toLowerCase() === skillName.name.toLowerCase() &&
+        sk.type.toLowerCase() === skillName.type.toLowerCase() &&
+        sk.stat.toLowerCase() === skillName.stat.toLowerCase()
     );
     if (index > -1) {
       skills.splice(index, 1);

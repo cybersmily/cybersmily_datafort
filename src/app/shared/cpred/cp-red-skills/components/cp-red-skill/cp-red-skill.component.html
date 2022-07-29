@@ -58,7 +58,9 @@
   >
     <cs-cp-red-skill-editor
       [skill]="currSkill"
+      [showDelete]="true"
       (updateSkill)="updateSkill($event)"
+      (deleteSkill)="deleteSkill($event)"
     ></cs-cp-red-skill-editor>
   </div>
 </div>

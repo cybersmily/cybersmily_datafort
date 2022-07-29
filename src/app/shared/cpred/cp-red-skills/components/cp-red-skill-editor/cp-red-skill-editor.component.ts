@@ -30,8 +30,14 @@ export class CpRedSkillEditorComponent implements OnInit {
   @Input()
   skill: CpRedCharacterSkill = new CpRedCharacterSkill();
 
+  @Input()
+  showDelete: boolean = false;
+
   @Output()
   updateSkill: EventEmitter<CpRedCharacterSkill> = new EventEmitter<CpRedCharacterSkill>();
+
+  @Output()
+  deleteSkill: EventEmitter<CpRedCharacterSkill> = new EventEmitter<CpRedCharacterSkill>();
 
   constructor(private skillDataService: CpRedSkillDataService) {}
 
@@ -80,5 +86,9 @@ export class CpRedSkillEditorComponent implements OnInit {
 
   update(): void {
     this.updateSkill.emit(this.currSkill);
+  }
+
+  delete(): void {
+    this.deleteSkill.emit(this.currSkill);
   }
 }

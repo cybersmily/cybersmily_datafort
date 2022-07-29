@@ -77,4 +77,8 @@ export class CpRedSkillComponent implements OnInit, OnChanges {
   changeSkill(): void {
     this.skillsManager.updateSkill(this.skill.name, this.currSkill);
   }
+
+  deleteSkill(skill: CpRedCharacterSkill): void {
+    this.skillsManager.deleteSkill(skill);
+  }
 }

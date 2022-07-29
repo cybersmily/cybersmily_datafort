@@ -10,6 +10,13 @@
           class="csd-plain-input text-end"
           placeholder="Source reference"
         />
+        <button
+          *ngIf="showDelete"
+          class="csd-btn csd-icon-btn csd-icon-sm"
+          (click)="delete()"
+        >
+          <fa-icon [icon]="faTrash"></fa-icon>
+        </button>
       </div>
       <input
         [(ngModel)]="currSkill.name"
