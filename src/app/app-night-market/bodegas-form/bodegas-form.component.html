@@ -1,28 +1,36 @@
 <div class="row">
   <div class="col">
-    <fa-icon [icon]="faDice" title="Generate bodegas" class="csd-btn csd-icon-btn csd-icon-xl" (click)="generate()"></fa-icon>
+    <fa-icon
+      [icon]="faDice"
+      title="Generate bodegas"
+      class="csd-btn csd-icon-btn csd-icon-xl"
+      (click)="generate()"
+    ></fa-icon>
     &nbsp;- roll to generate
   </div>
 </div>
 <div class="row">
-  <div class="col">
+  <div class="d-none d-md-inline-block col-4">
     <h4>Owner</h4>
   </div>
-  <div class="col">
-  <h4>Customer 1</h4>
+  <div class="col-4 d-none d-md-inline-block">
+    <h4>Customer 1</h4>
   </div>
-  <div class="col">
-  <h4>Customer 2</h4>
+  <div class="col-4 d-none d-md-inline-block">
+    <h4>Customer 2</h4>
   </div>
 </div>
-<div class="row" *ngIf="bodegas$ | async as bodegas">
-  <div class="col">
-    {{bodegas.owner}}
+<div class="row mb-4" *ngIf="bodegas$ | async as bodegas">
+  <div class="col-3 d-md-none text-small">Owner</div>
+  <div class="col-9 col-md-4">
+    {{ bodegas.owner }}
   </div>
-  <div class="col">
-    {{bodegas.customer1}}
+  <div class="col-3 d-md-none text-small">Customer 1</div>
+  <div class="col-9 col-md-4">
+    {{ bodegas.customer1 }}
   </div>
-  <div class="col">
-    {{bodegas.customer2}}
+  <div class="col-3 d-md-none text-small">Customer 2</div>
+  <div class="col-9 col-md-4">
+    {{ bodegas.customer2 }}
   </div>
 </div>
