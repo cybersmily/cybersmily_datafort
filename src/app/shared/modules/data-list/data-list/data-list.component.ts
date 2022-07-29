@@ -48,6 +48,13 @@ export class DataListComponent implements OnInit {
     return get(item, prop);
   }
 
+  convertItem(item: any): any {
+    if (Array.isArray(item)) {
+      return item.join(', ');
+    }
+    return item;
+  }
+
   getBoolean(item: any, prop: string): string {
     const value = get(item, prop);
     if (value === true) {

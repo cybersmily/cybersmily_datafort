@@ -70,7 +70,9 @@
         </div>
         <ng-template #entryList>
           <ul>
-            <li *ngFor="let item of entry[col.property]">{{ item }}</li>
+            <li *ngFor="let item of entry[col.property]">
+              {{ convertItem(item) }}
+            </li>
           </ul>
         </ng-template>
       </div>
