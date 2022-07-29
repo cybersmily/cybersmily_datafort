@@ -17,7 +17,6 @@ export class CpRedSkillManagerService {
   constructor(private skillDataService: CpRedSkillDataService) {}
 
   initialize(skills?: Array<CpRedSkill>): void {
-    console.log(skills);
     if (skills && skills.length > 0) {
       this.updateSkills(skills as Array<CpRedCharacterSkill>);
     } else {

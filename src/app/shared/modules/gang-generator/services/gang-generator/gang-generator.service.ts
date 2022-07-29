@@ -118,7 +118,6 @@ export class GangGeneratorService {
     const object = this.dice.rollRandomItem<string>(charts.naming?.objects);
     let name = '';
     const dieRoll = this.dice.generateNumber(1, 10);
-    console.log(dieRoll);
     switch (dieRoll) {
       case 1:
         name = `${adjective} ${object} ${unit}`;

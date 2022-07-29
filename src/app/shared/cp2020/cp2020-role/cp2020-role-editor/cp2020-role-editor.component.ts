@@ -111,7 +111,6 @@ export class Cp2020RoleEditorComponent
     this.selectedSkills = this.currentRole.skills.map((skill) =>
       Array.isArray(skill) ? '' : skill
     );
-    console.log(this.selectedSkills);
     if (this.currentRole.name === '') {
       this.fillSkillArraysBlank();
     }

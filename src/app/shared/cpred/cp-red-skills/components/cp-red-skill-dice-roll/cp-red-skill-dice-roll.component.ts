@@ -27,8 +27,6 @@ export class CpRedSkillDiceRollComponent implements OnInit {
   ngOnInit(): void {}
 
   rollDice(): void {
-    console.log('rolling');
     this.dieRoll = this.dice.rollCPRedD10();
-    console.log('rolled', this.dieRoll);
   }
 }
