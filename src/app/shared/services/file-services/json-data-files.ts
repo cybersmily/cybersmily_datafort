@@ -1,6 +1,7 @@
 export class JsonDataFiles {
   public static NEWS_JSON = `/json/news/news.json`;
   public static BLUEPRINTs_JSON = '/json/dlow/blueprints.json';
+  public static DLOW_JPGS_JSON = '/json/dlow/dlow-jpgs.json';
   public static MOD_ARTICLES_JSON = `/json/mods/articles.json`;
 
   public static GIG_NEWS_JSON = `/json/gigs/news.json`;
