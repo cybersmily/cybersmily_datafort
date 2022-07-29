@@ -3,25 +3,34 @@
     <div class="col-12">
       <h2>Drug Lab Calculator</h2>
       <div>
-        The Drug Lab Calculator is for Cyberpunk 2020 using the rules from <a
-          href="https://talsorianstore.com/products/cyberpunk-2020" target="_blank">Cyberpunk 2020 2nd Edition</a>.
+        The Drug Lab Calculator is for Cyberpunk 2020 using the rules from
+        <a
+          href="https://talsorianstore.com/products/cyberpunk-2020"
+          target="_blank"
+          >Cyberpunk 2020 2nd Edition</a
+        >.
       </div>
     </div>
   </div>
-  <br>
-  <br>
+  <br />
+  <br />
   <div class="row">
-    <div class="col">
-
-    </div>
+    <div class="col"></div>
   </div>
   <div class="row">
-    <div class="csd-rounded col-6">
-      <cs-drug-lab-generator [selectedDrug]="selectedDrug" (addDrug)="add($event)"></cs-drug-lab-generator>
+    <div class="csd-rounded col-12 col-lg-6">
+      <cs-drug-lab-generator
+        [selectedDrug]="selectedDrug"
+        (addDrug)="add($event)"
+      ></cs-drug-lab-generator>
     </div>
     <div class="col-1"></div>
-    <div class="csd-rounded col-5">
-      <cs-drug-lab-list [drugList]="list" (resetList)="resetDrugList($event)" (deleteItem)="delete($event)"></cs-drug-lab-list>
+    <div class="csd-rounded col-12 col-lg-">
+      <cs-drug-lab-list
+        [drugList]="list"
+        (resetList)="resetDrugList($event)"
+        (deleteItem)="delete($event)"
+      ></cs-drug-lab-list>
     </div>
   </div>
 </div>
