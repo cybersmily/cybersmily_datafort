@@ -811,6 +811,10 @@ INPUT.csd-plain-input, SELECT.csd-plain-input {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
+INPUT.csd-plain-input.csd-input-underline,
+SELECT.csd-plain-input.csd-input-underline {
+  border-bottom: 1px #AAA solid;
+}
 
 INPUT.csd-plain-input:hover,
 SELECT.csd-plain-input:hover,
