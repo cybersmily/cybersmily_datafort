@@ -16,11 +16,11 @@ export class CorporateListComponent implements OnInit {
   columns: Array<DataListColumnParameters> = [
     {
       header: 'name',
-      headerClass: 'col-3 text-small',
+      headerClass: 'col-5 col-md-3 text-small',
       property: 'name',
       filters: 'contains',
       inputType: 'text',
-      class: 'col-3 text-small',
+      class: 'col-5 col-md-3 text-small',
       sort: 'name',
     },
     {
@@ -33,19 +33,19 @@ export class CorporateListComponent implements OnInit {
     },
     {
       header: 'Headquarters',
-      headerClass: 'col-2 text-center text-small',
+      headerClass: 'col-2 d-none d-md-inline-block text-center text-small',
       property: 'hq',
       filters: 'contains',
       inputType: 'text',
-      class: 'text-center col-2 text-xsmall',
+      class: 'text-center col-2 d-none d-md-inline-block text-xsmall',
     },
     {
       header: 'version',
-      headerClass: 'col-1 text-center text-small',
+      headerClass: 'col-1 d-none d-md-inline-block text-center text-small',
       property: 'version',
       filters: 'filter',
       inputType: 'text',
-      class: 'col-1 text-center text-xsmall',
+      class: 'col-1 d-none d-md-inline-block text-center text-xsmall',
       sort: 'version',
       filterValues: [
         { key: 'cyberpunk 2020', value: 'cyberpunk 2020' },
@@ -54,11 +54,11 @@ export class CorporateListComponent implements OnInit {
     },
     {
       header: 'source',
-      headerClass: 'col-2 text-xsmall',
+      headerClass: 'col-3 col-md-2 text-xsmall',
       property: 'source',
       filters: 'sourcebook',
       inputType: 'text',
-      class: 'col-2 text-xsmall',
+      class: 'col-3 col-md-2 text-xsmall',
       sort: 'source.book',
       isSourcebook: true,
     },

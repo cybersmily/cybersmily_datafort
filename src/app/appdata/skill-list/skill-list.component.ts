@@ -40,9 +40,9 @@ export class SkillListComponent implements OnInit {
       header: 'sa',
       headerClass: 'col-2 text-center text-small',
       property: 'sa',
-      filters: 'contains',
-      inputType: 'text',
-      class: 'text-center col-2 text-small',
+      filters: null,
+      inputType: 'checkbox',
+      class: 'text-center col-2 text-small text-capitalize',
       sort: 'sa',
     },
     {

@@ -17,20 +17,20 @@ export class CyberdeckListComponent implements OnInit {
   columns: Array<DataListColumnParameters> = [
     {
       header: 'name',
-      headerClass: 'col-3 text-small',
+      headerClass: 'col-4 col-md-3 text-small',
       property: 'name',
       filters: 'contains',
       inputType: 'text',
-      class: 'col-3 text-small',
+      class: 'col-4 col-md-3 text-small',
       sort: 'name',
     },
     {
       header: 'type',
-      headerClass: 'col-3 text-small',
+      headerClass: 'col-3 d-none d-md-inline-block text-small',
       property: 'type.name',
       filters: 'filter',
       inputType: '',
-      class: 'col-3 text-small',
+      class: 'col-3 d-none d-md-inline-block text-small',
       sort: 'type.name',
       filterValues: [
         { key: 'cellular', value: 'cellular' },
@@ -61,11 +61,11 @@ export class CyberdeckListComponent implements OnInit {
     },
     {
       header: 'cost',
-      headerClass: 'col-1 text-center text-small',
+      headerClass: 'col-2 col-md-1 text-center text-small',
       property: 'bookPrice',
       filters: null,
       inputType: 'number',
-      class: 'text-center col-1 text-small',
+      class: 'text-center col-2 col-md-1 text-small',
       sort: 'bookPrice',
     },
     {
