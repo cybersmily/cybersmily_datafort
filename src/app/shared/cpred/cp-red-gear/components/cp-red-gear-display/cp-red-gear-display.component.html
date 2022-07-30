@@ -1,1 +1,19 @@
-<p>cp-red-gear-display works!</p>
+<div class="row">
+  <div class="col-12">
+    <span (click)="isCollapsed = !isCollapsed">
+      <h6 class="d-inline-block">GEAR</h6>
+      <button class="csd-icon-btn ms-2">
+        <fa-icon
+          [icon]="isCollapsed ? faChevronRight : faChevronDown"
+        ></fa-icon>
+      </button>
+    </span>
+  </div>
+</div>
+<div class="px-2" [collapse]="isCollapsed">
+  <div class="row">
+    <div class="col-12 text-center">GEAR LIST</div>
+  </div>
+  <cs-cp-red-fashion-display></cs-cp-red-fashion-display>
+  <cs-cp-red-housing-display></cs-cp-red-housing-display>
+</div>

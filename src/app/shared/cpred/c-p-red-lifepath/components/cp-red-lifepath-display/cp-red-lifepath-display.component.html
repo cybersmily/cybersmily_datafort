@@ -1,1 +1,15 @@
-<p>cp-red-lifepath-display works!</p>
+<div class="row">
+  <div class="col-12">
+    <span (click)="isCollapsed = !isCollapsed">
+      <h6 class="d-inline-block">LIFEPATH</h6>
+      <button class="csd-icon-btn ms-2">
+        <fa-icon
+          [icon]="isCollapsed ? faChevronRight : faChevronDown"
+        ></fa-icon>
+      </button>
+    </span>
+  </div>
+</div>
+<div class="px-2" [collapse]="isCollapsed">
+  <cs-cp-red-lifepath-core></cs-cp-red-lifepath-core>
+</div>

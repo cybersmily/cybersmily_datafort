@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-12">
     <span (click)="isCollapsed = !isCollapsed">
-      <h6 class="d-inline-block">CYBERWARE</h6>
+      <h6 class="d-inline-block">NOTES</h6>
       <button class="csd-icon-btn ms-2">
         <fa-icon
           [icon]="isCollapsed ? faChevronRight : faChevronDown"
@@ -11,5 +11,9 @@
   </div>
 </div>
 <div class="px-2" [collapse]="isCollapsed">
-  <cs-cp-red-cyber-list></cs-cp-red-cyber-list>
+  <div class="row">
+    <div class="col-12">
+      <textarea class="w-100"></textarea>
+    </div>
+  </div>
 </div>

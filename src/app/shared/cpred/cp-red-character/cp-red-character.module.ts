@@ -15,11 +15,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CpRedCharacterSettingsFormComponent } from './components/cp-red-character-settings-form/cp-red-character-settings-form.component';
 import { CpRedSkillsModule } from '../cp-red-skills/cp-red-skills.module';
+import { CpRedCharacterNotesComponent } from './components/cp-red-character-notes/cp-red-character-notes.component';
 
 @NgModule({
   declarations: [
     CpRedCharacterFormComponent,
     CpRedCharacterSettingsFormComponent,
+    CpRedCharacterNotesComponent,
   ],
   imports: [
     CommonModule,
