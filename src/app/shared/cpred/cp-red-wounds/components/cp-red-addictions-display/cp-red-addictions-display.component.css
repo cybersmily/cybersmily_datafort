@@ -1,0 +1,9 @@
+.addictions-dropdown {
+  margin-left: -150px;
+  width: 350px;
+  min-height: 200px;
+}
+
+.addictions-dropdown textarea {
+  min-height: 190px;
+}

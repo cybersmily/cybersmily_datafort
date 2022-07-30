@@ -1,0 +1,40 @@
+<div
+  class="btn-group position-relative"
+  dropdown
+  #addictionDropdown="bs-dropdown"
+  [insideClick]="true"
+>
+  <div
+    id="button-addictions"
+    class="py-0"
+    dropdownToggle
+    aria-controls="dropdown-addictions"
+    tabindex="0"
+    role="button"
+  >
+    Addictions
+    <fa-icon
+      class="ms-1 csd-icon-btn"
+      [icon]="addictionDropdown.isOpen ? faChevronDown : faChevronRight"
+    ></fa-icon>
+  </div>
+  <div
+    id="dropdown-addictions"
+    *dropdownMenu
+    class="dropdown-menu py-0 addictions-dropdown position-absolute"
+    role="menu"
+    aria-labelledby="button-addictions"
+  >
+    <div class="w-100 position-relative p-2">
+      <button
+        class="csd-icon-btn csd-icon-lg position-absolute"
+        style="right: 0.7em; top: 0.3em"
+        title="close addictions window"
+        (click)="addictionDropdown.hide()"
+      >
+        <fa-icon [icon]="faTimes"></fa-icon>
+      </button>
+      <textarea class="w-100" placeholder="enter addictions..."></textarea>
+    </div>
+  </div>
+</div>
