@@ -24,7 +24,7 @@
       </div>
     </div>
   </div>
-  <div [collapse]="isCollapsed">
+  <div class="px-2" [collapse]="isCollapsed">
     <div class="row align-top">
       <div class="col-6 col-md-4">
         <div
@@ -120,10 +120,18 @@
             role="menu"
             aria-labelledby="button-sort"
           >
-            <li role="menuitem" (click)="groupSortOn('name')">Name</li>
-            <li role="menuitem" (click)="groupSortOn('type')">Type</li>
-            <li role="menuitem" (click)="groupSortOn('stat')">Stat</li>
-            <li role="menuitem" (click)="groupSortOn('level')">Has Level</li>
+            <li role="menuitem" class="ps-2" (click)="groupSortOn('name')">
+              Name
+            </li>
+            <li role="menuitem" class="ps-2" (click)="groupSortOn('type')">
+              Type
+            </li>
+            <li role="menuitem" class="ps-2" (click)="groupSortOn('stat')">
+              Stat
+            </li>
+            <li role="menuitem" class="ps-2" (click)="groupSortOn('level')">
+              Has Level
+            </li>
           </ul>
         </div>
       </div>

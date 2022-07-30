@@ -1,20 +1,20 @@
 <div class="container">
   <div class="row">
     <div class="col-6 text-capitalize text-end">{{ skill.name }}:</div>
-    <div class="col-6">{{ skill.level }}</div>
+    <div class="col-2 text-center">{{ skill.level }}</div>
   </div>
   <div class="row">
     <div class="col-6 text-uppercase text-end">{{ stat.name }}:</div>
-    <div class="col-6">{{ stat.modified }}</div>
+    <div class="col-2 text-center">{{ stat.modified }}</div>
   </div>
   <div class="row">
     <div class="col-6 text-end">Addnl. Mod.:</div>
-    <div class="col-6">
+    <div class="col-2 text-center">
       <input
         title="Additional modifier to roll."
         [(ngModel)]="modifier"
         type="number"
-        class="csd-plain-input no-spinners"
+        class="csd-plain-input no-spinners csd-input-underline w-100 text-center"
       />
     </div>
   </div>
