@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-12">
     <span (click)="isCollapsed = !isCollapsed">
-      <h6 class="d-inline-block">WEAPONS</h6>
+      <h6 class="d-inline-block">ROLES</h6>
       <button
         [ngClass]="{ 'csd-icon-btn ms-2': true, 'd-md-none': !isCollapsed }"
       >
@@ -13,12 +13,7 @@
   </div>
 </div>
 <div class="px-2" [collapse]="isCollapsed">
-  <div class="row text-xsmall">
-    <div class="col-4"></div>
-    <div class="col-3">AMMO</div>
-    <div class="col-3">DMG</div>
-    <div class="col-2">ROF</div>
-  </div>
+  <cs-cp-red-role-display></cs-cp-red-role-display>
   <div class="row">
     <div class="col-12 text-center">
       <button class="csd-icon-btn">

@@ -1,7 +1,3 @@
-import {
-  faChevronDown,
-  faChevronRight,
-} from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,11 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cp-red-role-display.component.css'],
 })
 export class CpRedRoleDisplayComponent implements OnInit {
-  faChevronDown = faChevronDown;
-  faChevronRight = faChevronRight;
-
-  isCollapsed = false;
-
   constructor() {}
 
   ngOnInit(): void {}
