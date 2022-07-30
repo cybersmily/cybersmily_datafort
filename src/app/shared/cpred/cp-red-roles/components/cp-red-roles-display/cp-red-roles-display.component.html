@@ -2,9 +2,7 @@
   <div class="col-12">
     <span (click)="isCollapsed = !isCollapsed">
       <h6 class="d-inline-block">ROLES</h6>
-      <button
-        [ngClass]="{ 'csd-icon-btn ms-2': true, 'd-md-none': !isCollapsed }"
-      >
+      <button class="csd-icon-btn ms-2">
         <fa-icon
           [icon]="isCollapsed ? faChevronRight : faChevronDown"
         ></fa-icon>

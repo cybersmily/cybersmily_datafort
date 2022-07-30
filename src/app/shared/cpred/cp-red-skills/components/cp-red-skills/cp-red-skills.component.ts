@@ -10,7 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 import { CpRedSkillManagerService } from './../../services/cp-red-skill-manager/cp-red-skill-manager.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { CpRedCharacterSkill } from '../../models';
 
 @Component({
@@ -43,6 +43,11 @@ export class CpRedSkillsComponent implements OnInit {
 
   ngOnInit(): void {
     this.skills$ = this.skillManager.skills;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  resizeWindow() {
+    this.isCollapsed = window.innerWidth < 768;
   }
 
   updateNewSkill(skill: CpRedCharacterSkill): void {

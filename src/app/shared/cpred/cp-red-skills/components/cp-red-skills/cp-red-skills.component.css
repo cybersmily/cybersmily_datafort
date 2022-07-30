@@ -34,6 +34,6 @@ select option:checked:after {
 
 .new-skill-dropdown {
   left: 0;
-  width: 350px;
-  min-width: 350px;
+  width: 335px;
+  min-width: 335px;
 }

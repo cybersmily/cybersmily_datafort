@@ -3,7 +3,7 @@ import {
   faChevronRight,
   faPlus,
 } from '@fortawesome/free-solid-svg-icons';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 @Component({
   selector: 'cs-cp-red-roles-display',
@@ -19,4 +19,9 @@ export class CpRedRolesDisplayComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  @HostListener('window:resize', ['$event'])
+  resizeWindow() {
+    this.isCollapsed = window.innerWidth < 768;
+  }
 }

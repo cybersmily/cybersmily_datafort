@@ -1,3 +1,6 @@
+import { CPRedLifepathModule } from './../c-p-red-lifepath/c-p-red-lifepath.module';
+import { CpRedCyberwareModule } from './../cp-red-cyberware/cp-red-cyberware.module';
+import { CpRedGearModule } from './../cp-red-gear/cp-red-gear.module';
 import { CpRedWeaponsModule } from './../cp-red-weapons/cp-red-weapons.module';
 import { CpRedArmorModule } from './../cp-red-armor/cp-red-armor.module';
 import { cpRedArmor } from './../models/cp-red-character-sheet';
@@ -29,6 +32,9 @@ import { CpRedSkillsModule } from '../cp-red-skills/cp-red-skills.module';
     CpRedWoundsModule,
     CpRedArmorModule,
     CpRedWeaponsModule,
+    CpRedGearModule,
+    CpRedCyberwareModule,
+    CPRedLifepathModule,
   ],
   exports: [CpRedCharacterFormComponent],
 })
