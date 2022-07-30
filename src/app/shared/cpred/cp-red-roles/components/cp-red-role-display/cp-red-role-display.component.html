@@ -1,5 +1,42 @@
-<div class="row">
-  <div class="col-4">name</div>
-  <div class="col-4">ability</div>
-  <div class="col-12">notes</div>
+<div *ngIf="!isEditing; else editRole" class="row">
+  <div class="col-12 col-md-4">
+    <div class="row">
+      <div
+        class="col-12 col-lg-5 position-relative cpr-role-name"
+        role="button"
+        (click)="isEditing = !isEditing"
+      >
+        <div class="csd-input-label ms-2">role name</div>
+        <div class="mt-2">
+          Lawman
+          <button class="float-end csd-icon-btn d-none">
+            <fa-icon [icon]="faPen"></fa-icon>
+          </button>
+        </div>
+      </div>
+      <div class="col-1 text-center">
+        <button class="csd-icon-btn csd-icon-sm mt-2" (click)="delete()">
+          <fa-icon [icon]="faTrash"></fa-icon>
+        </button>
+      </div>
+      <div class="col-8 col-lg-4 position-relative">
+        <div class="csd-input-label ms-2">ability</div>
+        <div class="mt-2">Backup</div>
+      </div>
+      <div class="col-2 position-relative">
+        <div class="csd-input-label ms-2">rank</div>
+        <div class="mt-2">0</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-8 position-relative">
+    <div class="csd-input-label ps-3">role notes</div>
+    <div class="mt-2"></div>
+  </div>
 </div>
+<ng-template #editRole>
+  <button class="float-start csd-icon-btn" (click)="saveChanges()">
+    <fa-icon [icon]="faSave"></fa-icon>
+  </button>
+  <cs-cp-red-role-editor></cs-cp-red-role-editor>
+</ng-template>

@@ -12,11 +12,38 @@
 </div>
 <div class="px-2" [collapse]="isCollapsed">
   <cs-cp-red-role-display></cs-cp-red-role-display>
-  <div class="row">
+  <div class="row mt-1">
     <div class="col-12 text-center">
-      <button class="csd-icon-btn">
-        <fa-icon [icon]="faPlus"></fa-icon>
-      </button>
+      <div
+        class="btn-group position-relative w-100"
+        dropdown
+        #addRoleDropdown="bs-dropdown"
+        [insideClick]="true"
+      >
+        <div
+          id="button-addRole"
+          class="py-0 w-100"
+          dropdownToggle
+          aria-controls="dropdown-addRole"
+          tabindex="0"
+          role="button"
+        >
+          <button class="csd-icon-btn" title="Add another role">
+            <fa-icon [icon]="faPlus"></fa-icon>
+          </button>
+        </div>
+        <div
+          id="dropdown-addRole"
+          *dropdownMenu
+          class="dropdown-menu py-0 addRole-dropdown position-absolute w-100"
+          role="menu"
+          aria-labelledby="button-addRole"
+        >
+          <div class="w-100 position-relative p-2">
+            <cs-cp-red-role-editor></cs-cp-red-role-editor>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
