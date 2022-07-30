@@ -1,0 +1,14 @@
+.cpr-armor-section:hover BUTTON,
+.cpr-armor-sp:hover BUTTON {
+  display: inline-block !important;
+}
+
+.cpr-armor-sp {
+  position: relative;
+}
+
+.cpr-armor-sp BUTTON {
+  position: absolute;
+  right: 0;
+  top: 0;
+}

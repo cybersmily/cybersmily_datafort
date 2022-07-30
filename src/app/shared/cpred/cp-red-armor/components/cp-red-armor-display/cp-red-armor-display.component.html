@@ -14,23 +14,11 @@
 </div>
 <div class="px-2" [collapse]="isCollapsed">
   <div class="row">
-    <div class="col-6"></div>
-    <div class="col-3 text-center text-xsmall">SP</div>
-    <div class="col-3 text-center text-xsmall">Pen.</div>
+    <div class="col-8"></div>
+    <div class="col-2 col-lg-1 text-center text-xsmall">SP</div>
+    <div class="col-2 text-center text-xsmall">Pen.</div>
   </div>
-  <div class="row">
-    <div class="col-6">Head</div>
-    <div class="col-3 text-center">0</div>
-    <div class="col-3 text-center">0</div>
-  </div>
-  <div class="row">
-    <div class="col-6">Body</div>
-    <div class="col-3 text-center">0</div>
-    <div class="col-3 text-center">0</div>
-  </div>
-  <div class="row">
-    <div class="col-6">Shield</div>
-    <div class="col-3 text-center">0</div>
-    <div class="col-3 text-center">0</div>
-  </div>
+  <cs-cp-red-armor-row [armorSection]="armor.head"></cs-cp-red-armor-row>
+  <cs-cp-red-armor-row [armorSection]="armor.body"></cs-cp-red-armor-row>
+  <cs-cp-red-armor-row [armorSection]="armor.shield"></cs-cp-red-armor-row>
 </div>

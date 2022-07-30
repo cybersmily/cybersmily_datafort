@@ -1,6 +1,10 @@
+import { CprCharacterArmor } from './../../models/cpr-character-armor';
 import {
   faChevronDown,
   faChevronRight,
+  faPen,
+  faWrench,
+  faMinus,
 } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit } from '@angular/core';
 
@@ -12,6 +16,11 @@ import { Component, OnInit } from '@angular/core';
 export class CpRedArmorDisplayComponent implements OnInit {
   faChevronDown = faChevronDown;
   faChevronRight = faChevronRight;
+  faPen = faPen;
+  faMinus = faMinus;
+  faWrench = faWrench;
+
+  armor: CprCharacterArmor = new CprCharacterArmor();
 
   isCollapsed = false;
 

@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-8 small cpr-armor-section" role="button">
+    <div
+      class="btn-group position-relative w-100"
+      dropdown
+      #ediArmorDropdown="bs-dropdown"
+      [insideClick]="true"
+    >
+      <div
+        id="button-edit{{ armorSection.name }}"
+        class="py-0 w-100 text-capitalize"
+        dropdownToggle
+        [attr.aria-controls]="'dropdown-edit' + armorSection.name"
+        tabindex="0"
+        role="button"
+      >
+        {{ armorSection.name }}
+        <button class="csd-icon-btn csd-icon-xs ms-1 d-none">
+          <fa-icon [icon]="faPen"></fa-icon>
+        </button>
+      </div>
+      <div
+        id="dropdown-edit{{ armorSection.name }}"
+        *dropdownMenu
+        class="dropdown-menu py-0 edit{{
+          armorSection.name
+        }}-dropdown position-absolute w-100"
+        role="menu"
+        aria-labelledby="button-edit{{ armorSection.name }}"
+      >
+        <div class="w-100 position-relative p-2"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-2 col-lg-1 text-center cpr-armor-sp" role="button">
+    {{ armorSection.sp.curr }}
+    <button class="csd-icon-btn csd-icon-xxs ms-1 d-none">
+      <fa-icon [icon]="faMinus"></fa-icon>
+    </button>
+  </div>
+  <div class="col-2 col-lg-1 text-center">
+    {{ armorSection.penalty }}
+  </div>
+</div>
