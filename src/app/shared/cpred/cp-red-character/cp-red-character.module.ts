@@ -1,3 +1,8 @@
+import { CpRedWeaponsModule } from './../cp-red-weapons/cp-red-weapons.module';
+import { CpRedArmorModule } from './../cp-red-armor/cp-red-armor.module';
+import { cpRedArmor } from './../models/cp-red-character-sheet';
+import { CpRedWoundsModule } from './../cp-red-wounds/cp-red-wounds.module';
+import { CpRedRolesModule } from './../cp-red-roles/cp-red-roles.module';
 import { CPRedStatsModule } from './../c-p-red-stats/c-p-red-stats.module';
 import { PipesModule } from './../../pipes/pipes.module';
 import { ImageHolderModule } from './../../modules/image-holder/image-holder.module';
@@ -20,6 +25,10 @@ import { CpRedSkillsModule } from '../cp-red-skills/cp-red-skills.module';
     PipesModule,
     CPRedStatsModule,
     CpRedSkillsModule,
+    CpRedRolesModule,
+    CpRedWoundsModule,
+    CpRedArmorModule,
+    CpRedWeaponsModule,
   ],
   exports: [CpRedCharacterFormComponent],
 })

@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-12">
+    <span (click)="isCollapsed = !isCollapsed">
+      <h6 class="d-inline-block">ARMOR</h6>
+      <button
+        [ngClass]="{ 'csd-icon-btn ms-2': true, 'd-md-none': !isCollapsed }"
+      >
+        <fa-icon
+          [icon]="isCollapsed ? faChevronRight : faChevronDown"
+        ></fa-icon>
+      </button>
+    </span>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6"></div>
+  <div class="col-3">SP</div>
+  <div class="col-3 text-xsmall">Penalty</div>
+</div>
+<div class="row">
+  <div class="col-6">Head</div>
+  <div class="col-3"></div>
+  <div class="col-3"></div>
+</div>
+<div class="row">
+  <div class="col-6">Body</div>
+  <div class="col-3"></div>
+  <div class="col-3"></div>
+</div>
+<div class="row">
+  <div class="col-6">Shield</div>
+  <div class="col-3"></div>
+  <div class="col-3"></div>
+</div>
