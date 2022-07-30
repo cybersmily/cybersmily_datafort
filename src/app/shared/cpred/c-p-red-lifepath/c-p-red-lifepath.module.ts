@@ -5,22 +5,19 @@ import { DiceService } from './../../services/dice/dice.service';
 import { CommonUiModule } from './../../modules/common-ui/common-ui.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CpRedLifepathDisplayComponent } from './components/cp-red-lifepath-display/cp-red-lifepath-display.component';
 @NgModule({
   declarations: [
     CpRedLifepathCoreComponent,
-    CpRedLifepathJumpstartComponent
+    CpRedLifepathJumpstartComponent,
+    CpRedLifepathDisplayComponent,
   ],
-  imports: [
-    CommonModule,
-    CommonUiModule
-  ],
-  providers: [
-    DiceService,
-    CPRedLifePathService
-  ],
+  imports: [CommonModule, CommonUiModule],
+  providers: [DiceService, CPRedLifePathService],
   exports: [
     CpRedLifepathCoreComponent,
-    CpRedLifepathJumpstartComponent
-  ]
+    CpRedLifepathJumpstartComponent,
+    CpRedLifepathDisplayComponent,
+  ],
 })
-export class CPRedLifepathModule { }
+export class CPRedLifepathModule {}
