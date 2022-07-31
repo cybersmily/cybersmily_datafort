@@ -1,4 +1,4 @@
-import { CpRedSkill } from './../cp-red-skills/models/cp-red-skill';
+import { CpRedCharacterSkill } from './../cp-red-skills/models/cp-red-character-skill';
 import { CpRedStats } from './../c-p-red-stats/models';
 import { cpRedRole } from './cp-red-character-sheet';
 
@@ -17,7 +17,7 @@ export interface CpRedCharacter {
   deathsave: number;
   criticalInjuries: string;
   addictions: string;
-  skills: Array<CpRedSkill>;
+  skills: Array<CpRedCharacterSkill>;
   /*
 
   ip: number;

@@ -1,3 +1,4 @@
+import { CpRedStatsPdfService } from './services/cp-red-stats-pdf/cp-red-stats-pdf.service';
 import { CommonUiModule } from './../../modules/common-ui/common-ui.module';
 import { CpRedStatsComponent } from './components/cp-red-stats/cp-red-stats.component';
 import { NgModule } from '@angular/core';
@@ -20,5 +21,6 @@ import { CpRedStatsEditorComponent } from './components/cp-red-stats-editor/cp-r
     CpRedStatsComponent,
     CpRedStatsEditorComponent,
   ],
+  providers: [CpRedStatsPdfService],
 })
 export class CPRedStatsModule {}

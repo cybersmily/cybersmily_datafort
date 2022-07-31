@@ -1,3 +1,5 @@
+import { CpRedCharacterStats } from './../../shared/cpred/c-p-red-stats/models/cp-red-character-stats';
+import { CpRedCharacterPdfService } from './../../shared/cpred/cp-red-character/services/cp-red-character-pdf/cp-red-character-pdf.service';
 import { CpRedSkillManagerService } from './../../shared/cpred/cp-red-skills/services/cp-red-skill-manager/cp-red-skill-manager.service';
 import { map } from 'rxjs/operators';
 import { CpRedStatsManagerService } from './../../shared/cpred/c-p-red-stats/services/cp-red-stats-manager/cp-red-stats-manager.service';
@@ -46,7 +48,8 @@ export class CpRedCharacterMainComponent implements OnInit, OnDestroy {
     private fileSaveService: SaveFileService,
     private characterManagerService: CpRedCharacterManagerService,
     private statManager: CpRedStatsManagerService,
-    private skillManager: CpRedSkillManagerService
+    private skillManager: CpRedSkillManagerService,
+    private characterPDFService: CpRedCharacterPdfService
   ) {}
 
   ngOnInit(): void {
@@ -122,7 +125,11 @@ export class CpRedCharacterMainComponent implements OnInit, OnDestroy {
       });
   }
 
-  saveAsPdf(): void {}
+  saveAsPdf(): void {
+    this.characterManagerService.sheet.pipe(first()).subscribe((sheet) => {
+      this.characterPDFService.savePDF(sheet);
+    });
+  }
 
   reset(): void {
     this.storageService.clear(this.STORAGE_KEY);

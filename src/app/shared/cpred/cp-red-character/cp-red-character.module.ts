@@ -1,3 +1,4 @@
+import { CpRedCharacterPdfService } from './services/cp-red-character-pdf/cp-red-character-pdf.service';
 import { CPRedLifepathModule } from './../c-p-red-lifepath/c-p-red-lifepath.module';
 import { CpRedCyberwareModule } from './../cp-red-cyberware/cp-red-cyberware.module';
 import { CpRedGearModule } from './../cp-red-gear/cp-red-gear.module';
@@ -39,5 +40,6 @@ import { CpRedCharacterNotesComponent } from './components/cp-red-character-note
     CPRedLifepathModule,
   ],
   exports: [CpRedCharacterFormComponent],
+  providers: [CpRedCharacterPdfService],
 })
 export class CpRedCharacterModule {}
