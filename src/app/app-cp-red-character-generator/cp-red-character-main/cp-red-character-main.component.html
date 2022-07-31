@@ -1,16 +1,19 @@
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col-12 d-none d-lg-inline-block">
       <h4>CHARACTER GENERATOR FOR CYBERPUNK RED</h4>
       This is an unofficial character generator for Cyberpunk Red as per R
       Talsorian Homebrew policies.
+    </div>
+    <div class="col-12 d-lg-none">
+      <h6>CHARACTER GENERATOR FOR CYBERPUNK RED</h6>
     </div>
   </div>
   <div class="row">
     <div class="col-12">
       <button
         tabindex="0"
-        class="csd-btn csd-icon-btn csd-icon-xl mx-2"
+        class="csd-btn csd-icon-btn csd-icon-lg mx-2 float-end"
         title="Save character sheet as JSON to upload later."
         (click)="save()"
       >
@@ -18,13 +21,15 @@
       </button>
       <button
         tabindex="0"
-        class="csd-btn csd-icon-btn csd-icon-xl mx-2"
+        class="csd-btn csd-icon-btn csd-icon-lg mx-2 float-end"
         title="Save character sheet as PDF."
         (click)="saveAsPdf()"
       >
         <fa-icon [icon]="faFilePdf"></fa-icon>
       </button>
-      <div class="d-inline-block csd-btn csd-icon-btn csd-icon-xl mx-2">
+      <div
+        class="d-inline-block csd-btn csd-icon-btn csd-icon-lg mx-2 float-end"
+      >
         <input
           type="file"
           id="loadFile"
@@ -47,13 +52,16 @@
       </div>
       <button
         tabindex="0"
-        class="csd-btn csd-icon-btn csd-icon-xl mx-2"
+        class="csd-btn csd-icon-btn csd-icon-lg mx-2 float-end"
         title="Reset the character sheet."
         (click)="reset()"
       >
         <fa-icon [icon]="faUndo"></fa-icon>
       </button>
-      <button tabindex="0" class="csd-btn csd-icon-btn csd-icon-xl mx-2">
+      <button
+        tabindex="0"
+        class="csd-btn csd-icon-btn csd-icon-lg mx-2 float-end"
+      >
         <fa-icon [icon]="faQuestionCircle"></fa-icon>
       </button>
     </div>

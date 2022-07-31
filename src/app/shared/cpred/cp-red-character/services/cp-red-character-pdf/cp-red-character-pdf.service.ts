@@ -33,6 +33,7 @@ export class CpRedCharacterPdfService {
     this.statsPDF.drawStatSection(character.stats, this._pdf, 64, 5, 14);
     this.skillsPDF.drawSkillSection(
       character.skills,
+      character.stats,
       this._pdf,
       80,
       5,

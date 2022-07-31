@@ -99,6 +99,7 @@ export interface cpRedLifePath {
 }
 
 import { CpRedCharacter } from './cp-red-character';
+import { CpRedCharacterWounds } from '../cp-red-wounds/models/cp-red-character-wounds';
 
 export class CPRedCharacterSheet {
   character: CpRedCharacter;
@@ -116,10 +117,7 @@ export class CPRedCharacterSheet {
         stats: new CpRedCharacterStats(),
 
         humanity: 0,
-        wounds: 0,
-        deathsave: 0,
-        criticalInjuries: '',
-        addictions: '',
+        wounds: new CpRedCharacterWounds(),
 
         skills: new Array<CpRedCharacterSkill>(),
         /*

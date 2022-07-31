@@ -1,3 +1,7 @@
+import {
+  CpRedCharacterStat,
+  CpRedCharacterStats,
+} from './../../../c-p-red-stats/models';
 import { jsPDF } from 'jspdf';
 import { Injectable } from '@angular/core';
 import { CpRedCharacterSkill } from '../../models';
@@ -12,6 +16,7 @@ export class CpRedSkillsPdfService {
 
   drawSkillSection(
     skills: Array<CpRedCharacterSkill>,
+    stats: CpRedCharacterStats,
     pdf: jsPDF,
     left: number,
     line: number,
@@ -36,7 +41,8 @@ export class CpRedSkillsPdfService {
         newline += rowHt + 1;
         counter++;
       }
-      this.drawSkill(skill, pdf, margin, newline, rowHt, fontSize);
+      const stat = stats[skill.stat] ?? new CpRedCharacterStat();
+      this.drawSkill(skill, stat, pdf, margin, newline, rowHt, fontSize);
       newline += rowHt + 1;
       if (counter > rowLength) {
         counter = 0;
@@ -46,18 +52,45 @@ export class CpRedSkillsPdfService {
         counter++;
       }
     });
+    pdf
+      .setTextColor('white')
+      .setFont(undefined, 'bold')
+      .text(
+        '*- on LVL indicates modified lvl. @- Indicates skill is chipped.',
+        left + 2,
+        height + line - rowHt,
+        { align: 'left' }
+      );
   }
 
+  /**
+   * Draw the skill with its values in white boxes
+   *
+   * @private
+   * @param {CpRedCharacterSkill} skill
+   * @param {CpRedCharacterStat} stat
+   * @param {jsPDF} pdf
+   * @param {number} left
+   * @param {number} line
+   * @param {number} height
+   * @param {number} fontSize
+   * @return {*}  {number}
+   * @memberof CpRedSkillsPdfService
+   */
   private drawSkill(
     skill: CpRedCharacterSkill,
+    stat: CpRedCharacterStat,
     pdf: jsPDF,
     left: number,
     line: number,
     height: number,
     fontSize: number
   ): number {
+    pdf.setFont(undefined, skill.required ? 'bold' : 'normal');
     this.drawTextBox(
-      `${skill.name} (${skill.stat.toUpperCase()})`,
+      `${skill.name} (${skill.stat.toUpperCase()})${
+        skill.isChipped ? '@' : ''
+      }`,
       pdf,
       left,
       line,
@@ -68,9 +101,10 @@ export class CpRedSkillsPdfService {
       'white',
       'black'
     );
+    pdf.setFont(undefined, 'normal');
     let margin = left + this._nameWidth + 1;
     this.drawTextBox(
-      skill.base.toString(),
+      `${skill.level}${skill.modifiers.length > 0 ? '*' : ''}`,
       pdf,
       margin,
       line,
@@ -83,7 +117,7 @@ export class CpRedSkillsPdfService {
     );
     margin += this._valueWidth + 1;
     this.drawTextBox(
-      skill.level.toString(),
+      stat.modified.toString(),
       pdf,
       margin,
       line,
@@ -96,7 +130,7 @@ export class CpRedSkillsPdfService {
     );
     margin += this._valueWidth + 1;
     this.drawTextBox(
-      skill.modifierTotal.toString(),
+      `${skill.level + stat.modified}`,
       pdf,
       margin,
       line,
@@ -110,6 +144,19 @@ export class CpRedSkillsPdfService {
     return line;
   }
 
+  /**
+   * Draws the Type sections in black boxes, that the skills are grouped in
+   *
+   * @private
+   * @param {string} type
+   * @param {jsPDF} pdf
+   * @param {number} left
+   * @param {number} line
+   * @param {number} height
+   * @param {number} fontSize
+   * @return {*}  {number}
+   * @memberof CpRedSkillsPdfService
+   */
   private drawHeader(
     type: string,
     pdf: jsPDF,
@@ -119,6 +166,7 @@ export class CpRedSkillsPdfService {
     fontSize: number
   ): number {
     type = type[0].toUpperCase() + type.substring(1);
+    pdf.setFont(undefined, 'bold');
     this.drawTextBox(
       `${type} Skills`,
       pdf,
@@ -185,11 +233,12 @@ export class CpRedSkillsPdfService {
     fillColor: string,
     textColor: string
   ): void {
-    pdf.setFillColor(fillColor);
-    pdf.setDrawColor(fillColor);
-    pdf.rect(left, line, width, height, 'DF');
-    pdf.setFontSize(fontSize);
-    pdf.setTextColor(textColor);
+    pdf
+      .setFillColor(fillColor)
+      .setDrawColor(fillColor)
+      .rect(left, line, width, height, 'DF')
+      .setFontSize(fontSize)
+      .setTextColor(textColor);
     left = txtAlign === 'left' ? left + 1 : left + width / 2;
     pdf.text(text, left, line + height - 1, { align: txtAlign });
   }

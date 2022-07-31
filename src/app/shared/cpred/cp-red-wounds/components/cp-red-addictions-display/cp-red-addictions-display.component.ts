@@ -1,11 +1,7 @@
-import {
-  faChevronDown,
-  faChevronRight,
-  faPlus,
-  faTimes,
-} from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { CpRedCharacterAddiction } from '../../models';
 
 @Component({
   selector: 'cs-cp-red-addictions-display',
@@ -13,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cp-red-addictions-display.component.css'],
 })
 export class CpRedAddictionsDisplayComponent implements OnInit {
-  faChevronRight = faChevronRight;
-  faChevronDown = faChevronDown;
-  faTimes = faTimes;
+  faPlus = faPlus;
+
+  @Input()
+  addictions: Array<CpRedCharacterAddiction>;
+
+  @Output()
+  updateAddictions: EventEmitter<Array<CpRedCharacterAddiction>> =
+    new EventEmitter<Array<CpRedCharacterAddiction>>();
 
   constructor() {}
 

@@ -3,6 +3,7 @@ import { CPRedCharacterSheet, CpRedCharacter } from './../../../models';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { CpRedCharacterSkill } from '../../../cp-red-skills/models';
+import { CpRedCharacterWounds } from '../../../cp-red-wounds/models';
 
 @Injectable({
   providedIn: 'root',
@@ -27,6 +28,12 @@ export class CpRedCharacterManagerService {
   updateSkills(skills: Array<CpRedCharacterSkill>): void {
     const sheet = this._sheet.getValue();
     sheet.character.skills = skills.map((sk) => new CpRedCharacterSkill(sk));
+    this._sheet.next(sheet);
+  }
+
+  updateWounds(wounds: CpRedCharacterWounds) {
+    const sheet = this._sheet.getValue();
+    sheet.character.wounds = new CpRedCharacterWounds(wounds);
     this._sheet.next(sheet);
   }
 

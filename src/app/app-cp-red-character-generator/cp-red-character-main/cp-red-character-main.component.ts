@@ -1,3 +1,4 @@
+import { CpRedWoundsManagerService } from './../../shared/cpred/cp-red-wounds/services/cp-red-wounds-manager/cp-red-wounds-manager.service';
 import { CpRedCharacterStats } from './../../shared/cpred/c-p-red-stats/models/cp-red-character-stats';
 import { CpRedCharacterPdfService } from './../../shared/cpred/cp-red-character/services/cp-red-character-pdf/cp-red-character-pdf.service';
 import { CpRedSkillManagerService } from './../../shared/cpred/cp-red-skills/services/cp-red-skill-manager/cp-red-skill-manager.service';
@@ -49,6 +50,7 @@ export class CpRedCharacterMainComponent implements OnInit, OnDestroy {
     private characterManagerService: CpRedCharacterManagerService,
     private statManager: CpRedStatsManagerService,
     private skillManager: CpRedSkillManagerService,
+    private woundsManager: CpRedWoundsManagerService,
     private characterPDFService: CpRedCharacterPdfService
   ) {}
 
@@ -73,37 +75,45 @@ export class CpRedCharacterMainComponent implements OnInit, OnDestroy {
       );
     }
     this.initializeManagers(characterSheet.character);
+    this.subscribeToManagers();
   }
 
   initializeManagers(character: CpRedCharacter) {
     this.characterManagerService.updateCharacter(character);
+    this.woundsManager.initialize(character.wounds);
     this.statManager.initialize(character.stats);
     this.skillManager.initialize(character.skills);
-    this.subscribeToManagers();
   }
 
   subscribeToManagers(): void {
     this._subscriptions.add(
       this.characterManagerService.sheet.subscribe((sheet) => {
+        console.log('sheet update', sheet);
         this.storageService.store(this.STORAGE_KEY, sheet.character);
       })
     );
     this._subscriptions.add(
+      this.woundsManager.wounds.subscribe((wounds) => {
+        console.log('wounds update', wounds);
+        this.characterManagerService.updateWounds(wounds);
+      })
+    );
+    this._subscriptions.add(
       this.statManager.characterStats.subscribe((stats) => {
+        console.log('stats update', stats);
         this.characterManagerService.updateStats(stats);
       })
     );
     this._subscriptions.add(
       this.skillManager.skills.subscribe((skills) => {
+        console.log('skills update', skills);
         this.characterManagerService.updateSkills(skills);
       })
     );
   }
 
   updateSheet(sheet: CPRedCharacterSheet): void {
-    this.characterManagerService.updateCharacter(sheet.character);
-    this.statManager.initialize(sheet.character.stats);
-    this.skillManager.initialize(sheet.character.skills);
+    this.initializeManagers(sheet.character);
   }
 
   save(): void {
@@ -127,6 +137,7 @@ export class CpRedCharacterMainComponent implements OnInit, OnDestroy {
 
   saveAsPdf(): void {
     this.characterManagerService.sheet.pipe(first()).subscribe((sheet) => {
+      console.log('pdf sheet', sheet);
       this.characterPDFService.savePDF(sheet);
     });
   }

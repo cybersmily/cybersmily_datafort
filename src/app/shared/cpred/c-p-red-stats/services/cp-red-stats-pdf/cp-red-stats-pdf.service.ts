@@ -31,9 +31,10 @@ export class CpRedStatsPdfService {
     line: number,
     size: number
   ): number {
-    pdf.setFillColor('red');
-    pdf.rect(left, line, size, size, 'F');
-    pdf.setFillColor('white');
+    pdf
+      .setFillColor('red')
+      .rect(left, line, size, size, 'F')
+      .setFillColor('white');
     const rside = left + size - 1;
     const lside = left + 1;
     const topSide = line + 1;
@@ -46,16 +47,17 @@ export class CpRedStatsPdfService {
       { op: 'l', c: [lside, topSide + 3] },
       { op: 'h', c: [] },
     ];
-    pdf.path(paths);
-    pdf.fill();
-    pdf.setFontSize(9);
-    pdf.text(stat.name.toUpperCase(), rside - 1, topSide + 3, {
-      align: 'right',
-    });
-    pdf.setFontSize(14);
+    pdf
+      .path(paths)
+      .fill()
+      .setFontSize(8)
+      .text(stat.name.toUpperCase(), rside - 1, topSide + 3, {
+        align: 'right',
+      })
+      .setFontSize(12);
     let center = left + size / 2;
     pdf.text(
-      `${stat.base.toString()} | ${stat.modified.toString()}`,
+      `${stat.base} |${(stat.modified > 9 ? '' : ' ') + stat.modified}`,
       center,
       topSide + 10,
       {

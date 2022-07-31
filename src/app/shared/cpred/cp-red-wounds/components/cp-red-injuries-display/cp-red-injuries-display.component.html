@@ -1,40 +1,22 @@
-<div
-  class="btn-group position-relative"
-  dropdown
-  #injuriesDropdown="bs-dropdown"
-  [insideClick]="true"
->
-  <div
-    id="button-injuries"
-    class="py-0 small"
-    dropdownToggle
-    aria-controls="dropdown-injuries"
-    tabindex="0"
-    role="button"
-  >
-    Critical Injuries
-    <fa-icon
-      class="ms-1 csd-icon-btn"
-      [icon]="injuriesDropdown.isOpen ? faChevronDown : faChevronRight"
-    ></fa-icon>
+<div class="row">
+  <div class="col-12">
+    <h5>Critical Injuries ({{ criticalInjuries.length }})</h5>
   </div>
-  <div
-    id="dropdown-injuries"
-    *dropdownMenu
-    class="dropdown-menu py-0 injuries-dropdown position-absolute"
-    role="menu"
-    aria-labelledby="button-injuries"
-  >
-    <div class="w-100 position-relative p-2">
-      <button
-        class="csd-icon-btn csd-icon-lg position-absolute"
-        style="right: 0.7em; top: 0.3em"
-        title="close injuries window"
-        (click)="injuriesDropdown.hide()"
-      >
-        <fa-icon [icon]="faTimes"></fa-icon>
-      </button>
-      <textarea class="w-100" placeholder="enter injuries..."></textarea>
-    </div>
+</div>
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-3">Name</div>
+  <div class="col-8">Effect</div>
+</div>
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-3">
+    <button class="csd-icon-btn me-2">
+      <fa-icon [icon]="faPlus"></fa-icon>
+    </button>
+    <input type="text" class="w-90" />
+  </div>
+  <div class="col-8">
+    <textarea class="w-100"></textarea>
   </div>
 </div>

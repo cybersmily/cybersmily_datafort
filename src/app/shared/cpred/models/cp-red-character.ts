@@ -1,3 +1,4 @@
+import { CpRedCharacterWounds } from './../cp-red-wounds/models/cp-red-character-wounds';
 import { CpRedCharacterSkill } from './../cp-red-skills/models/cp-red-character-skill';
 import { CpRedStats } from './../c-p-red-stats/models';
 import { cpRedRole } from './cp-red-character-sheet';
@@ -13,10 +14,7 @@ export interface CpRedCharacter {
   stats: CpRedStats;
 
   humanity: number;
-  wounds: number;
-  deathsave: number;
-  criticalInjuries: string;
-  addictions: string;
+  wounds: CpRedCharacterWounds;
   skills: Array<CpRedCharacterSkill>;
   /*
 

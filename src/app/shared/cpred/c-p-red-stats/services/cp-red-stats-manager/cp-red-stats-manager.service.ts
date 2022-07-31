@@ -1,3 +1,4 @@
+import { CpRedWoundsManagerService } from './../../../cp-red-wounds/services/cp-red-wounds-manager/cp-red-wounds-manager.service';
 import { CpRedStats } from './../../models/cp-red-stats';
 import { CalculateCpRedStatModified } from './../../functions/calculate-cp-red-stat-modified';
 import { CpRedStatMod } from './../../models/cp-red-stat-mod';
@@ -14,7 +15,7 @@ export class CpRedStatsManagerService {
   characterStats: Observable<CpRedCharacterStats> =
     this._redStats.asObservable();
 
-  constructor() {}
+  constructor(private woundManager: CpRedWoundsManagerService) {}
 
   getStat(name: string): Observable<CpRedCharacterStat> {
     return this.characterStats.pipe(map((stats) => stats[name]));
@@ -41,12 +42,16 @@ export class CpRedStatsManagerService {
 
   initialize(stats: CpRedStats): void {
     this._redStats.next(new CpRedCharacterStats(stats));
+    this.woundManager.setWoundProperties(stats.body.base, stats.will.base);
   }
 
   updateStatBase(statName: string, value: number): void {
     const stats = this._redStats.getValue();
     stats[statName].base = value;
     stats[statName].modified = CalculateCpRedStatModified(stats[statName]);
+    if (statName === 'body' || statName === 'will') {
+      this.woundManager.setWoundProperties(stats.body.base, stats.will.base);
+    }
     this._redStats.next(stats);
   }
 
