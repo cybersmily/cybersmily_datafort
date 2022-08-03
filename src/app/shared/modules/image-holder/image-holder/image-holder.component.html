@@ -1,6 +1,5 @@
 <div
-  class="position-relative d-block csd-image csd-btn"
-  [ngStyle]="{ 'max-height': maxHeight, 'max-width': maxWidth }"
+  class="position-relative d-block csd-image csd-btn text-center w-100"
   (click)="compressFile()"
 >
   <button class="csd-icon-btn csd-icon-xl csd-add-image">
@@ -8,7 +7,11 @@
   </button>
   <img
     [src]="image"
-    class="w-100 rounded"
-    [ngStyle]="{ 'max-height': maxHeight, 'max-width': maxWidth }"
+    class="rounded"
+    [ngStyle]="{
+      'max-height': maxHeight + 'px',
+      'max-width': maxWidth + 'px',
+      'min-height': '200px'
+    }"
   />
 </div>

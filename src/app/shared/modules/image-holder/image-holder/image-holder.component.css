@@ -1,8 +1,8 @@
 .csd-add-image {
   position: absolute;
-  right: 50%;
+  right: auto;
   left: 49%;
-  top: 45%;
+  top: 40%;
   display: none;
 }
 .csd-image {
