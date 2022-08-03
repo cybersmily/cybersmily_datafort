@@ -1,3 +1,4 @@
+import { CpRedCharacterDeathSave } from './cp-red-character-death-save';
 import { CP_RED_WOUND_LEVELS } from './enums';
 import { CpRedWounds } from './cp-red-wounds';
 import { CpRedCharacterCriticalInjury } from './cp-red-character-critical-injury';
@@ -8,7 +9,7 @@ export class CpRedCharacterWounds implements CpRedWounds {
     curr: number;
     base: number;
   };
-  deathSave: number;
+  deathSave: CpRedCharacterDeathSave;
   seriouslyWound: number;
   addictions: Array<CpRedCharacterAddiction>;
   criticalInjuries: Array<CpRedCharacterCriticalInjury>;
@@ -20,7 +21,7 @@ export class CpRedCharacterWounds implements CpRedWounds {
       curr: param?.hitPoints?.curr ?? 0,
       base: param?.hitPoints?.base ?? 0,
     };
-    this.deathSave = param?.deathSave ?? 0;
+    this.deathSave = new CpRedCharacterDeathSave(param?.deathSave);
     this.seriouslyWound = param?.seriouslyWound ?? 0;
     this.addictions =
       param?.addictions?.map((add) => ({ ...add })) ??

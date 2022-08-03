@@ -29,38 +29,69 @@
   </div>
 
   <div class="row mt-2">
-    <div class="col-3 col-lg-4 col-xl-3 text-xsmall">
-      Seriously<br />Wounded
+    <div class="col-6">
+      <div class="row">
+        <div class="col-7 text-xsmall">Seriously Wounded</div>
+        <div class="col-5">{{ wounds.seriouslyWound }}</div>
+      </div>
     </div>
-    <div class="col-2 text-center">{{ wounds.seriouslyWound }}</div>
-    <div class="col-2 col-lg-3 col-xl-2 text-xsmall">Death<br />Save</div>
-    <div class="col-2 text-center">{{ wounds.deathSave }}</div>
-  </div>
-  <div class="row">
-    <div class="col-12 text-xsmall">-2 all actions when seriosly wounded</div>
-  </div>
-  <div class="mt-2" role="button" (click)="showModal(woundsEditor)">
-    <div class="row">
-      <div class="col-12 small">
-        Cirtical Injuiries ({{ wounds.criticalInjuries.length }})
+    <div class="col-6">
+      <div
+        [ngClass]="{ row: true, 'text-danger fw-bold': wounds.hitPoints.curr &lt; 1 }"
+      >
+        <div class="col-1">
+          <span *ngIf="wounds.hitPoints.curr &lt; 1">**</span>
+        </div>
+        <div class="col-5 text-xsmall">Death Save</div>
+        <div class="col-4">
+          <div class="position-relative cpr-death-save" role="button">
+            {{ wounds.deathSave?.curr }}
+            <button
+              *ngIf="wounds.hitPoints.curr &lt; 1"
+              class="csd-icon-btn csd-icon-sm d-none"
+            >
+              <fa-icon [icon]="faDice"></fa-icon>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-1"></div>
-      <div class="col-11"></div>
+      <div class="col-12 text-xsmall">-2 all actions when seriosly wounded</div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-12">Addictions ({{ wounds.addictions.length }})</div>
-  </div>
+    <div class="mt-2" role="button" (click)="showModal(woundsEditor)">
+      <div class="row">
+        <div class="col-12 small">
+          Cirtical Injuiries ({{ wounds.criticalInjuries.length }})
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-11 text-xsmall">
+          {{ currentInjuries(wounds.criticalInjuries) }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 small">
+          Addictions ({{ wounds.addictions.length }})
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-11 text-xsmall">
+          {{ currentAddictions(wounds.addictions) }}
+        </div>
+      </div>
+    </div>
 
-  <ng-template #woundsEditor>
-    <div class="container">
-      <h4>Wounds Editor</h4>
-      <cs-cp-red-injuries-display
-        [criticalInjuries]="wounds.criticalInjuries"
-      ></cs-cp-red-injuries-display>
-      <cs-cp-red-addictions-display></cs-cp-red-addictions-display>
-    </div>
-  </ng-template>
+    <ng-template #woundsEditor>
+      <div class="container">
+        <h4>Wounds Editor</h4>
+        <cs-cp-red-injuries-display
+          [criticalInjuries]="wounds.criticalInjuries"
+        ></cs-cp-red-injuries-display>
+        <cs-cp-red-addictions-display></cs-cp-red-addictions-display>
+      </div>
+    </ng-template>
+  </div>
 </div>

@@ -1,5 +1,5 @@
+import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
-import { CP_RED_WOUND_LEVELS } from './../../models/enums';
 import { Observable } from 'rxjs';
 import { CpRedWoundsManagerService } from './../../services/cp-red-wounds-manager/cp-red-wounds-manager.service';
 import { Component, OnInit, TemplateRef } from '@angular/core';
@@ -7,6 +7,7 @@ import {
   CpRedCharacterAddiction,
   CpRedCharacterCriticalInjury,
   CpRedCharacterWounds,
+  CP_RED_WOUND_LEVELS,
 } from '../../models';
 
 @Component({
@@ -15,6 +16,8 @@ import {
   styleUrls: ['./cp-red-wounds-display.component.css'],
 })
 export class CpRedWoundsDisplayComponent implements OnInit {
+  faDice = faDice;
+
   wounds$: Observable<CpRedCharacterWounds>;
   notWounded = CP_RED_WOUND_LEVELS.NONE;
   modalRef: BsModalRef;

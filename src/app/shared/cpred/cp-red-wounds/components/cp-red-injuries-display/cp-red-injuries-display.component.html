@@ -1,22 +1,104 @@
 <div class="row">
-  <div class="col-12">
-    <h5>Critical Injuries ({{ criticalInjuries.length }})</h5>
-  </div>
-</div>
-<div class="row">
-  <div class="col-1"></div>
-  <div class="col-3">Name</div>
-  <div class="col-8">Effect</div>
-</div>
-<div class="row">
-  <div class="col-1"></div>
-  <div class="col-3">
+  <div class="col-12" (click)="isCollapsed = !isCollapsed">
+    <h5 class="d-inline-block">
+      Critical Injuries ({{ criticalInjuries.length }})
+    </h5>
     <button class="csd-icon-btn me-2">
-      <fa-icon [icon]="faPlus"></fa-icon>
+      <fa-icon [icon]="isCollapsed ? faChevronRight : faChevronDown"></fa-icon>
     </button>
-    <input type="text" class="w-90" />
   </div>
-  <div class="col-8">
-    <textarea class="w-100"></textarea>
+</div>
+<div class="px-1" [collapse]="isCollapsed">
+  <div
+    *ngFor="let injury of criticalInjuries; let i = index"
+    class="row mb-2 cpr-edit-injury"
+  >
+    <div class="col-1"></div>
+    <div class="col-11 col-lg-4">
+      <span
+        (click)="selectedIndex = selectedIndex === i ? -1 : i"
+        *ngIf="selectedIndex !== i; else editInjuryTemplate"
+        role="button"
+      >
+        {{ injury.name }}
+        <button class="csd-icon-btn m1-2">
+          <fa-icon
+            [icon]="selectedIndex === i ? faChevronDown : faChevronRight"
+          ></fa-icon>
+        </button>
+      </span>
+      <ng-template #editInjuryTemplate>
+        <input
+          *ngIf="selectedIndex === i"
+          [(ngModel)]="injury.name"
+          class="w-80 csd-plain-input csd-input-underline"
+        />
+        <button class="csd-icon-btn m1-2">
+          <fa-icon
+            [icon]="selectedIndex === i ? faChevronDown : faChevronRight"
+          ></fa-icon>
+        </button>
+      </ng-template>
+      <button
+        class="csd-icon-btn mx-2 float-end"
+        (click)="delete(injury)"
+        title="Delete critical injury"
+        tabindex="0"
+      >
+        <fa-icon [icon]="faTrash"></fa-icon>
+      </button>
+      <button
+        class="csd-icon-btn mx-2 float-end"
+        (click)="toggleEdit(index)"
+        title="Edit critical injury"
+        tabindex="0"
+      >
+        <fa-icon [icon]="faPen"></fa-icon>
+      </button>
+    </div>
+    <div class="col-1 d-lg-none"></div>
+    <div class="col-11 col-lg-7 small" [collapse]="selectedIndex !== i">
+      <textarea
+        class="w-100 csd-plain-input csd-input-underline"
+        [(ngModel)]="injury.effect"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-1">
+      <button
+        class="csd-icon-btn float-end"
+        (click)="add()"
+        [disabled]="isAddDisabled"
+      >
+        <fa-icon [icon]="faPlus"></fa-icon>
+      </button>
+    </div>
+    <div class="col-11">
+      <div class="row">
+        <div class="col-12 col-lg-4">
+          <input
+            type="text"
+            class="w-80 csd-plain-input csd-input-underline"
+            placeholder="Injury name"
+            [(ngModel)]="newInjury.name"
+          />
+          <span
+            *ngIf="isAddDisabled"
+            class="float-start text-xsmall text-danger ms-2"
+            >Enter unique name for injury</span
+          >
+        </div>
+        <div class="col-12 col-lg-8">
+          <textarea
+            *ngIf="!isAddDisabled"
+            class="w-100 csd-plain-input small"
+            placeholder="Injury effect..."
+            [(ngModel)]="newInjury.effect"
+          ></textarea>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

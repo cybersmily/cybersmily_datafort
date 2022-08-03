@@ -3,7 +3,11 @@ import { CpRedCharacterAddiction } from './../../models/cp-red-character-addicti
 import { BehaviorSubject } from 'rxjs';
 import { CpRedStatsManagerService } from './../../../c-p-red-stats/services/cp-red-stats-manager/cp-red-stats-manager.service';
 import { Injectable } from '@angular/core';
-import { CpRedCharacterWounds, CP_RED_WOUND_LEVELS } from '../../models';
+import {
+  CpRedCharacterDeathSave,
+  CpRedCharacterWounds,
+  CP_RED_WOUND_LEVELS,
+} from '../../models';
 
 @Injectable({
   providedIn: 'root',
@@ -30,7 +34,7 @@ export class CpRedWoundsManagerService {
     if (wounds.hitPoints.curr < 1 && !wounds.isDead) {
       wounds.hitPoints.curr = wounds.hitPoints.base;
     }
-    wounds.deathSave = body;
+    wounds.deathSave = new CpRedCharacterDeathSave({ base: body, curr: body });
     this.updateWounds(wounds);
   }
 
@@ -42,7 +46,6 @@ export class CpRedWoundsManagerService {
   updateCurrentHitPoints(hitPoints: number): void {
     const wounds = new CpRedCharacterWounds(this._wounds.getValue());
     wounds.hitPoints.curr = this.setHitPoints(hitPoints, wounds.hitPoints.base);
-    wounds.isDead = wounds.hitPoints.curr < 1;
     this.updateWounds(wounds);
   }
 
@@ -84,10 +87,13 @@ export class CpRedWoundsManagerService {
     this.updateWounds(wounds);
   }
 
-  updateCriticalInjury(injury: CpRedCharacterCriticalInjury): void {
+  updateCriticalInjury(
+    injuryName: string,
+    injury: CpRedCharacterCriticalInjury
+  ): void {
     const wounds = new CpRedCharacterWounds(this._wounds.getValue());
     const index = wounds.criticalInjuries.findIndex(
-      (critical) => critical.name === injury.name
+      (critical) => critical.name === injuryName
     );
     if (index > -1) {
       wounds.criticalInjuries[index] = { ...injury };
@@ -101,7 +107,7 @@ export class CpRedWoundsManagerService {
       (critical) => critical.name === injury.name
     );
     if (index > -1) {
-      wounds.addictions.splice(index, 1);
+      wounds.criticalInjuries.splice(index, 1);
       this.updateWounds(wounds);
     }
   }

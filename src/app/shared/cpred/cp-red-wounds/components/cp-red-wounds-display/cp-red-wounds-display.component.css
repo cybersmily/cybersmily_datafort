@@ -1,0 +1,6 @@
+.cpr-death-save:hover BUTTON {
+  display: inline-block !important;
+  position: absolute;
+  top: -0.5em;
+  left: 0.5em;
+}

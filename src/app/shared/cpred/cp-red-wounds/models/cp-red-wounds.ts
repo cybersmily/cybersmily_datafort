@@ -1,3 +1,5 @@
+import { CpRedDeathSave } from './cp-red-death-save';
+import { CpRedCharacterDeathSave } from './cp-red-character-death-save';
 import { CP_RED_WOUND_LEVELS } from './enums';
 import { CpRedCharacterCriticalInjury } from './cp-red-character-critical-injury';
 import { CpRedCharacterAddiction } from './cp-red-character-addiction';
@@ -7,7 +9,7 @@ export interface CpRedWounds {
     curr: number;
     base: number;
   };
-  deathSave: number;
+  deathSave: CpRedDeathSave;
   seriouslyWound: number;
   addictions: Array<CpRedCharacterAddiction>;
   criticalInjuries: Array<CpRedCharacterCriticalInjury>;

@@ -811,6 +811,24 @@ INPUT.csd-plain-input, SELECT.csd-plain-input {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
+
+TEXTAREA.csd-plain-input {
+  background-color: inherit;
+  -webkit-border-top-left-radius: 0 !important;
+  -webkit-border-bottom-left-radius: 0;
+  -moz-border-radius-topleft: 0;
+  -moz-border-radius-bottomleft: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  -webkit-border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+  -moz-border-radius-topright: 0;
+  -moz-border-radius-bottomright: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+
+}
+
 INPUT.csd-plain-input.csd-input-underline,
 SELECT.csd-plain-input.csd-input-underline,
 .csd-sort-selector.csd-input-underline {
@@ -825,7 +843,7 @@ INPUT.csd-plain-input:focus {
   border-bottom: 1px #666 solid;
 }
 
-INPUT.csd-plain-input::placeholder {
+INPUT.csd-plain-input::placeholder, TEXTAREA.csd-plain-input::placeholder {
   color: #AAA;
   font-size: x-small;
   position: absolute;
@@ -833,7 +851,8 @@ INPUT.csd-plain-input::placeholder {
   top: 0 !important;text-overflow: ellipsis;
 }
 
-INPUT.csd-plain-input:focus::placeholder {
+INPUT.csd-plain-input:focus::placeholder,
+TEXTAREA.csd-plain-input::placeholder {
   color: #DDD;
   font-size: x-small;text-overflow: ellipsis;
 }

@@ -1,22 +1,49 @@
 <div class="row">
-  <div class="col-12">
-    <h5>Addictions ({{ addictions.length }})</h5>
-  </div>
-</div>
-<div class="row">
-  <div class="col-1"></div>
-  <div class="col-3">Name</div>
-  <div class="col-8">Effect</div>
-</div>
-<div class="row">
-  <div class="col-1"></div>
-  <div class="col-3">
+  <div class="col-12" (click)="isCollapsed = !isCollapsed">
+    <h5 class="d-inline-block">Addictions ({{ addictions.length }})</h5>
     <button class="csd-icon-btn me-2">
-      <fa-icon [icon]="faPlus"></fa-icon>
+      <fa-icon [icon]="isCollapsed ? faChevronRight : faChevronDown"></fa-icon>
     </button>
-    <input type="text" class="w-90" />
   </div>
-  <div class="col-8">
-    <textarea class="w-100"></textarea>
+</div>
+<div class="px-1" [collapse]="isCollapsed">
+  <div class="row text-xsmall">
+    <div class="col-1"></div>
+    <div class="col-4">Name</div>
+    <div class="col-7 d-none d-md-inline-block">Effect</div>
+  </div>
+  <div *ngFor="let addiction of addictions" class="row">
+    <div class="col-1"></div>
+    <div class="col-11 col-md-4">
+      {{ addiction.name }}
+      <button class="csd-icon-btn me-2">
+        <fa-icon [icon]="faPen"></fa-icon>
+      </button>
+    </div>
+    <div class="col-1 d-md-none"></div>
+    <div class="col-11 col-md-7">
+      {{ addiction.effect }}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-11 col-md-4">
+      <button class="csd-icon-btn me-2">
+        <fa-icon [icon]="faPlus"></fa-icon>
+      </button>
+      <input
+        type="text"
+        class="w-80 csd-plain-input csd-input-underline"
+        placeholder="Addiction name"
+      />
+    </div>
+    <div class="col-1 d-md-none"></div>
+    <div class="col-11 col-md-7">
+      <textarea
+        class="w-100 csd-plain-input small"
+        placeholder="Addiction effect..."
+      ></textarea>
+    </div>
   </div>
 </div>
