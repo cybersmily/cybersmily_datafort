@@ -21,3 +21,26 @@
 .csd-image:hover img {
   opacity: 0.5;
 }
+.csd-image img {
+    min-height: 50px;
+    height: 100px;
+    max-height: 50px;
+}
+
+@media (min-width: 34em) {
+  .csd-image img {
+    min-height: 100px;
+  }
+}
+
+@media (min-width: 48em) {
+  .csd-image img {
+    min-height: 150px;
+  }
+}
+
+@media (min-width: 75em) {
+  .csd-image img {
+      min-height: 200px;
+    }
+}
