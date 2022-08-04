@@ -1,4 +1,4 @@
-import { CpRedCharacterPenaltyModifier } from './cp-red-character-penalty-modifier';
+import { CpRedCharacterPenaltyModifier } from '../../models/cp-red-character-penalty-modifier';
 
 export class CpRedCharacterCriticalInjury {
   name: string;
