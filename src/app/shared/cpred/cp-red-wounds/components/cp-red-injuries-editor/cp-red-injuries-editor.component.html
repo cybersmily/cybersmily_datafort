@@ -1,0 +1,45 @@
+<div class="row">
+  <div *ngIf="showAdd" class="col-1 px-0">
+    <button
+      class="csd-icon-btn float-end"
+      (click)="add()"
+      [disabled]="isAddDisabled"
+    >
+      <fa-icon [icon]="faPlus"></fa-icon>
+    </button>
+  </div>
+  <div class="col-11">
+    <div class="row">
+      <div class="col-12 col-lg-4">
+        <input
+          type="text"
+          class="w-80 csd-plain-input csd-input-underline"
+          placeholder="Injury name"
+          [(ngModel)]="newInjury.name"
+        />
+        <span
+          *ngIf="isAddDisabled"
+          class="float-start text-xsmall text-danger ms-2"
+          >Enter unique name for injury</span
+        >
+        <button
+          *ngIf="showDelete"
+          class="csd-icon-btn mx-2 float-end"
+          (click)="delete()"
+          title="Delete critical injury"
+          tabindex="0"
+        >
+          <fa-icon [icon]="faTrash"></fa-icon>
+        </button>
+      </div>
+      <div class="col-12 col-lg-8">
+        <textarea
+          *ngIf="!isAddDisabled"
+          class="w-100 csd-plain-input small"
+          placeholder="Injury effect..."
+          [(ngModel)]="newInjury.effect"
+        ></textarea>
+      </div>
+    </div>
+  </div>
+</div>
