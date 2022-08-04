@@ -39,22 +39,6 @@ export class CpRedInjuriesDisplayComponent implements OnInit {
     );
   }
 
-  /**
-   * Only enable adding if the name is not blank and doesn't already exist.
-   *
-   * @readonly
-   * @type {boolean}
-   * @memberof CpRedInjuriesDisplayComponent
-   */
-  get isAddDisabled(): boolean {
-    return (
-      this.newInjury.name === '' ||
-      this.currInjuries.some(
-        (inj) => inj.name.toLowerCase() === this.newInjury.name.toLowerCase()
-      )
-    );
-  }
-
   add(): void {
     this.woundManager.addCriticalInjury(
       new CpRedCharacterCriticalInjury(this.newInjury)
