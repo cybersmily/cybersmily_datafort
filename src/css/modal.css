@@ -42,10 +42,6 @@ body .modal .modal-right .modal-body {
   transition: opacity 0.3s linear, left 0.3s ease-out;
 }
 
-body .modal.fade.show .modal-dialog.modal-left,
-body .modal.fade.show .modal-dialog.modal-right {
-  width: 60%;
-}
 
 body .modal.fade .modal-dialog.modal-right {
   -webkit-transition: opacity 0.3s linear, width 0.3s ease-out;
@@ -63,22 +59,23 @@ body .modal-dialog.modal-full .modal-content {
   border: none;
 }
 
-body .modal.fade.show .modal-dialog.modal-left.modal-lg,
-body .modal.fade.show .modal-dialog.modal-right.modal-lg {
-  width: 85%;
-}
-
+body .modal.fade.show .modal-dialog.modal-left,
+body .modal.fade.show .modal-dialog.modal-right,
 body .modal .modal-dialog.modal-left.modal-lg,
 body .modal .modal-dialog.modal-right.modal-lg {
-  width: 85%;
+  width: 80%;
 }
 
 .modal .modal-dialog.modal-left.modal-xl,
 .modal .modal-dialog.modal-right.modal-xl {
-  width: 100%;
+  width: 95%;
 }
 
 @media (min-width: 48em) {
+  body .modal.fade.show .modal-dialog.modal-left,
+  body .modal.fade.show .modal-dialog.modal-right {
+    width: 60%;
+  }
 
   .modal.fade.show .modal-dialog.modal-left.modal-sm,
   .modal.fade.show .modal-dialog.modal-right.modal-sm {
