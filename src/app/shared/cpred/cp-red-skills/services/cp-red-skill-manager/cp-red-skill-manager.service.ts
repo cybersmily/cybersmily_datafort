@@ -1,6 +1,7 @@
+import { CpRedSkillMod } from './../../models/cp-red-skill-mod';
 import { CpRedSkill } from './../../models/cp-red-skill';
 import { CpRedSkillDataService } from './../cp-red-skill-data/cp-red-skill-data.service';
-import { BehaviorSubject, Observable, first } from 'rxjs';
+import { BehaviorSubject, Observable, first, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { CpRedCharacterSkill } from '../../models';
 
@@ -22,6 +23,12 @@ export class CpRedSkillManagerService {
     } else {
       this.loadSkills();
     }
+  }
+
+  getSkill(skillName: string): CpRedCharacterSkill {
+    return this._skills
+      .getValue()
+      .find((skill) => skill.name.toLowerCase() === skillName.toLowerCase());
   }
 
   updateSkills(skills: Array<CpRedCharacterSkill>): void {
@@ -87,5 +94,55 @@ export class CpRedSkillManagerService {
       skills.splice(index, 1);
       this.updateSkills(skills);
     }
+  }
+
+  addSkillModifier(skillName: string, modifier: CpRedSkillMod): void {
+    const skill = this.getSkill(skillName);
+    if (skill?.modifiers == null) {
+      skill.modifiers = new Array<CpRedSkillMod>();
+    }
+    if (
+      !skill?.modifiers.some((mod: CpRedSkillMod) =>
+        mod.name.toLowerCase().localeCompare(modifier.name.toLowerCase())
+      )
+    ) {
+      skill?.modifiers.push(modifier);
+      this.updateSkill(skill.name, skill);
+    }
+  }
+
+  deleteSkillModifier(skillName: string, modifier: CpRedSkillMod): void {
+    const skill = this.getSkill(skillName);
+    const index = skill.modifiers.findIndex(
+      (mod: CpRedSkillMod) =>
+        mod.name.toLowerCase() === modifier.name.toLowerCase()
+    );
+    if (index > -1) {
+      skill.modifiers.splice(index, 1);
+      this.updateSkill(skill.name, skill);
+    }
+  }
+
+  hasSkillModifier(skillName: string, modName: string): Observable<boolean> {
+    if (!skillName || !modName) {
+      return of(false);
+    }
+    const skill = this.getSkill(skillName);
+    return of(
+      skill?.modifiers.some(
+        (mod: CpRedSkillMod) =>
+          mod.name?.toLowerCase() === modName?.toLowerCase()
+      )
+    );
+  }
+
+  toggleSkillModifierActive(skillName: string, index: number): void {
+    const skill = this.getSkill(skillName);
+    skill.modifiers[index].active = !skill.modifiers[index]?.active;
+    this.updateSkill(skill.name, skill);
+  }
+
+  clear(): void {
+    this._skills.next(new Array<CpRedCharacterSkill>());
   }
 }
