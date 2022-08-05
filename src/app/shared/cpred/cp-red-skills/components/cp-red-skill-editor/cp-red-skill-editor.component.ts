@@ -1,5 +1,6 @@
+import { CpRedSkillManagerService } from './../../services/cp-red-skill-manager/cp-red-skill-manager.service';
 import { CpRedSkillMod } from './../../models/cp-red-skill-mod';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { CpRedSkillDataService } from './../../services/cp-red-skill-data/cp-red-skill-data.service';
 import { CpRedCharacterSkill } from './../../models/cp-red-character-skill';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
@@ -39,7 +40,10 @@ export class CpRedSkillEditorComponent implements OnInit {
   @Output()
   deleteSkill: EventEmitter<CpRedCharacterSkill> = new EventEmitter<CpRedCharacterSkill>();
 
-  constructor(private skillDataService: CpRedSkillDataService) {}
+  constructor(
+    private skillDataService: CpRedSkillDataService,
+    private skillManager: CpRedSkillManagerService
+  ) {}
 
   toggleChipped(event) {
     event.stopPropagation();
@@ -90,5 +94,19 @@ export class CpRedSkillEditorComponent implements OnInit {
 
   delete(): void {
     this.deleteSkill.emit(this.currSkill);
+  }
+
+  get disableAddSkillMod$(): Observable<boolean> {
+    return this.skillManager
+      .hasSkillModifier(this.currSkill.name, this.newMod.name)
+      .pipe(
+        map(
+          (found) =>
+            found ||
+            !this.newMod.name ||
+            this.newMod.name === '' ||
+            !this.newMod.value
+        )
+      );
   }
 }

@@ -200,7 +200,7 @@
         <div class="col-4">
           <button
             class="csd-btn csd-icon-btn csd-icon-lg float-end"
-            [disabled]="!newMod.value"
+            [disabled]="disableAddSkillMod$ | async"
             (click)="addModifier($event)"
             tabindex="0"
           >
