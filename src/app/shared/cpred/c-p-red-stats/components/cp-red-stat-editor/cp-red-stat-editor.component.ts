@@ -76,8 +76,8 @@ export class CPRedStatEditorComponent implements OnInit {
     );
   }
 
-  deleteModifier(index: number): void {
-    this.statsManager.deleteStatModifier(this.statName, index);
+  deleteModifier(modifier: CpRedStatMod): void {
+    this.statsManager.deleteStatModifier(this.statName, modifier);
   }
 
   addModifier(): void {
@@ -87,5 +87,19 @@ export class CPRedStatEditorComponent implements OnInit {
       value: null,
       active: true,
     };
+  }
+
+  get disableAddStatMod$(): Observable<boolean> {
+    return this.statsManager
+      .hasStatModifier(this.statName, this.newMod.name)
+      .pipe(
+        map(
+          (found) =>
+            found ||
+            !this.newMod.name ||
+            this.newMod.name === '' ||
+            !this.newMod.value
+        )
+      );
   }
 }

@@ -60,16 +60,41 @@ export class CpRedStatsManagerService {
     if (stats[statName]?.modifiers == null) {
       stats[statName].modifiers = new Array<CpRedStatMod>();
     }
-    stats[statName]?.modifiers.push(modifier);
-    stats[statName].modified = CalculateCpRedStatModified(stats[statName]);
-    this._redStats.next(stats);
+    if (
+      !stats[statName]?.modifiers.some((mod: CpRedStatMod) =>
+        mod.name.toLowerCase().localeCompare(modifier.name.toLowerCase())
+      )
+    ) {
+      stats[statName]?.modifiers.push(modifier);
+      stats[statName].modified = CalculateCpRedStatModified(stats[statName]);
+      this._redStats.next(stats);
+    }
   }
 
-  deleteStatModifier(statName: string, index: number): void {
+  deleteStatModifier(statName: string, modifier: CpRedStatMod): void {
     const stats = this._redStats.getValue();
-    stats[statName].modifiers.splice(index, 1);
-    stats[statName].modified = CalculateCpRedStatModified(stats[statName]);
-    this._redStats.next(stats);
+    const index = stats[statName].modifiers.findIndex(
+      (mod: CpRedStatMod) =>
+        mod.name.toLowerCase() === modifier.name.toLowerCase()
+    );
+    if (index > -1) {
+      stats[statName].modifiers.splice(index, 1);
+      stats[statName].modified = CalculateCpRedStatModified(stats[statName]);
+      this._redStats.next(stats);
+    }
+  }
+
+  hasStatModifier(statName: string, modName: string): Observable<boolean> {
+    if (!statName || !modName) {
+      return of(false);
+    }
+    const stat: CpRedCharacterStat = this._redStats.getValue()[statName];
+    return of(
+      stat?.modifiers.some(
+        (mod: CpRedStatMod) =>
+          mod.name?.toLowerCase() === modName?.toLowerCase()
+      )
+    );
   }
 
   toggleStatModifierActive(statName: string, index: number): void {

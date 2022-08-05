@@ -78,7 +78,7 @@
       <div
         class="col-1 csd-btn px-0"
         title="Delete modifier"
-        (click)="deleteModifier(i)"
+        (click)="deleteModifier(mod)"
       >
         <button class="csd-icon-btn csd-icon-sm text-center">
           <fa-icon [icon]="faTrash"></fa-icon>
@@ -89,7 +89,7 @@
       <div class="col-4">
         <button
           class="csd-btn csd-icon-btn csd-icon-lg float-end"
-          [disabled]="!newMod.value"
+          [disabled]="disableAddStatMod$ | async"
           (click)="addModifier()"
         >
           <fa-icon [icon]="faPlus"></fa-icon>
