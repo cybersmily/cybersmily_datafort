@@ -1,49 +1,31 @@
 <div class="row">
   <div class="col-12" (click)="isCollapsed = !isCollapsed">
-    <h5 class="d-inline-block">Addictions ({{ addictions.length }})</h5>
+    <h5 class="d-inline-block">Addictions ({{ currAddictions.length }})</h5>
     <button class="csd-icon-btn me-2">
       <fa-icon [icon]="isCollapsed ? faChevronRight : faChevronDown"></fa-icon>
     </button>
   </div>
 </div>
 <div class="px-1" [collapse]="isCollapsed">
-  <div class="row text-xsmall">
+  <div
+    *ngFor="let addiction of currAddictions; let i = index"
+    class="row mb-2 cpr-edit-injury"
+  >
     <div class="col-1"></div>
-    <div class="col-4">Name</div>
-    <div class="col-7 d-none d-md-inline-block">Effect</div>
-  </div>
-  <div *ngFor="let addiction of addictions" class="row">
-    <div class="col-1"></div>
-    <div class="col-11 col-md-4">
-      {{ addiction.name }}
-      <button class="csd-icon-btn me-2">
-        <fa-icon [icon]="faPen"></fa-icon>
-      </button>
-    </div>
-    <div class="col-1 d-md-none"></div>
-    <div class="col-11 col-md-7">
-      {{ addiction.effect }}
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-1"></div>
-    <div class="col-11 col-md-4">
-      <button class="csd-icon-btn me-2">
-        <fa-icon [icon]="faPlus"></fa-icon>
-      </button>
-      <input
-        type="text"
-        class="w-80 csd-plain-input csd-input-underline"
-        placeholder="Addiction name"
-      />
-    </div>
-    <div class="col-1 d-md-none"></div>
-    <div class="col-11 col-md-7">
-      <textarea
-        class="w-100 csd-plain-input small"
-        placeholder="Addiction effect..."
-      ></textarea>
+    <div class="col-11">
+      <span
+        (click)="selectedIndex = selectedIndex === i ? -1 : i"
+        *ngIf="selectedIndex !== i; else editAddictionTemplate"
+        role="button"
+      >
+        {{ injury.name }}
+        <button class="csd-icon-btn m1-2">
+          <fa-icon
+            [icon]="selectedIndex === i ? faChevronDown : faChevronRight"
+          ></fa-icon>
+        </button>
+      </span>
+      <ng-template #editAddictionTemplate> </ng-template>
     </div>
   </div>
 </div>

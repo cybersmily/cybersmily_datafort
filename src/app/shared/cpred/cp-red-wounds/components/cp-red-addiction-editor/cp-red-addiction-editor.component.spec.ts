@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CpRedAddictionsEditorComponent } from './cp-red-addictions-editor.component';
+import { CpRedAddictionsEditorComponent } from './cp-red-addiction-editor.component';
 
 describe('CpRedAddictionsEditorComponent', () => {
   let component: CpRedAddictionsEditorComponent;
@@ -8,9 +8,8 @@ describe('CpRedAddictionsEditorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CpRedAddictionsEditorComponent ]
-    })
-    .compileComponents();
+      declarations: [CpRedAddictionsEditorComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

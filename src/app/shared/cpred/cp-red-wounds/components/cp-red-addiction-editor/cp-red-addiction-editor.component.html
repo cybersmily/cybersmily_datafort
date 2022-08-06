@@ -1,0 +1,61 @@
+<div class="row">
+  <div *ngIf="showAdd" class="col-1 px-0">
+    <button
+      class="csd-icon-btn float-end"
+      (click)="add()"
+      [disabled]="isAddDisabled$ | async"
+      title="Add addiction"
+    >
+      <fa-icon [icon]="faPlus"></fa-icon>
+    </button>
+  </div>
+  <div class="col-11">
+    <div class="row">
+      <div class="col-10 col-lg-4">
+        <input
+          type="text"
+          class="w-100 csd-plain-input csd-input-underline"
+          placeholder="Addiction name"
+          [(ngModel)]="newAddiction.name"
+        />
+        <span
+          *ngIf="
+            (isAddDisabled$ | async) && addiction?.name !== newAddiction.name
+          "
+          class="float-start text-xsmall text-danger ms-2"
+          >Enter unique name for addiction</span
+        >
+      </div>
+      <div
+        class="col-2 col-lg-1 order-lg-last px-0"
+        *ngIf="showDelete || showSave"
+      >
+        <button
+          *ngIf="showSave"
+          class="csd-icon-btn"
+          title="Save addiction"
+          (click)="update()"
+          tabindex="0"
+        >
+          <fa-icon [icon]="faSave"></fa-icon>
+        </button>
+        <button
+          *ngIf="showDelete"
+          class="csd-icon-btn ms-1"
+          (click)="delete()"
+          title="Delete addiction"
+          tabindex="0"
+        >
+          <fa-icon [icon]="faTrash"></fa-icon>
+        </button>
+      </div>
+      <div class="col-12 col-lg-7">
+        <textarea
+          class="w-100 csd-plain-input small"
+          placeholder="Addiction effect..."
+          [(ngModel)]="newAddiction.effect"
+        ></textarea>
+      </div>
+    </div>
+  </div>
+</div>

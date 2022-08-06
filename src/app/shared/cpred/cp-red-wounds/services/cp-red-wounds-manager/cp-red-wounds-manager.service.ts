@@ -1,7 +1,6 @@
 import { CpRedCharacterCriticalInjury } from './../../models/cp-red-character-critical-injury';
 import { CpRedCharacterAddiction } from './../../models/cp-red-character-addiction';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { CpRedStatsManagerService } from './../../../c-p-red-stats/services/cp-red-stats-manager/cp-red-stats-manager.service';
 import { Injectable } from '@angular/core';
 import {
   CpRedCharacterDeathSave,
@@ -59,10 +58,13 @@ export class CpRedWoundsManagerService {
     this.updateWounds(wounds);
   }
 
-  updateAddiction(addiction: CpRedCharacterAddiction): void {
+  updateAddiction(
+    addictinoName: string,
+    addiction: CpRedCharacterAddiction
+  ): void {
     const wounds = new CpRedCharacterWounds(this._wounds.getValue());
     const index = wounds.addictions.findIndex(
-      (addctn) => addiction.name === addctn.name && addiction.dv === addctn.dv
+      (addctn) => addiction.name.toLowerCase() === addictinoName.toLowerCase()
     );
     if (index > -1) {
       wounds.addictions[index] = { ...addiction };
@@ -73,12 +75,28 @@ export class CpRedWoundsManagerService {
   removeAddiction(addiction: CpRedCharacterAddiction): void {
     const wounds = new CpRedCharacterWounds(this._wounds.getValue());
     const index = wounds.addictions.findIndex(
-      (addctn) => addiction.name === addctn.name && addiction.dv === addctn.dv
+      (addctn) =>
+        addiction.name.toLowerCase() === addctn.name.toLowerCase() &&
+        addiction.dv === addctn.dv
     );
     if (index > -1) {
       wounds.addictions.splice(index, 1);
       this.updateWounds(wounds);
     }
+  }
+
+  hasAddiction(addictionName: string): Observable<boolean> {
+    if (addictionName === null || addictionName.trim() === '') {
+      of(false);
+    }
+    return of(
+      this._wounds
+        .getValue()
+        ?.addictions?.some(
+          (addiction) =>
+            addiction.name.toLowerCase() === addictionName.toLowerCase()
+        )
+    );
   }
 
   addCriticalInjury(injury: CpRedCharacterCriticalInjury): void {

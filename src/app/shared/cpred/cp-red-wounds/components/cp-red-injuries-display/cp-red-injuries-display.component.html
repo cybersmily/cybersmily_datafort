@@ -22,24 +22,22 @@
       >
         {{ injury.name }}
         <button class="csd-icon-btn m1-2">
-          <fa-icon
-            [icon]="selectedIndex === i ? faChevronDown : faChevronRight"
-          ></fa-icon>
+          <fa-icon [icon]="faChevronRight"></fa-icon>
         </button>
       </span>
       <ng-template #editInjuryTemplate>
-        <cs-cp-red-injuries-editor
-          [injury]="injury"
+        <cs-cp-red-injury-editor
           [showDelete]="true"
-          [showSave]="selectedIndex === i"
+          [showSave]="true"
+          [injury]="injury"
           (updateInjury)="update($event)"
           (deleteInjury)="delete($event)"
-        ></cs-cp-red-injuries-editor>
+        ></cs-cp-red-injury-editor>
       </ng-template>
     </div>
   </div>
-  <cs-cp-red-injuries-editor
+  <cs-cp-red-injury-editor
     [showAdd]="true"
     (addInjury)="add($event)"
-  ></cs-cp-red-injuries-editor>
+  ></cs-cp-red-injury-editor>
 </div>

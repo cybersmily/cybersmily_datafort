@@ -2,11 +2,8 @@ import { CpRedWoundsManagerService } from './../../services/cp-red-wounds-manage
 import {
   faChevronDown,
   faChevronRight,
-  faPen,
-  faPlus,
-  faTrash,
 } from '@fortawesome/free-solid-svg-icons';
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CpRedCharacterCriticalInjury } from '../../models';
 
 @Component({
@@ -15,11 +12,8 @@ import { CpRedCharacterCriticalInjury } from '../../models';
   styleUrls: ['./cp-red-injuries-display.component.css'],
 })
 export class CpRedInjuriesDisplayComponent implements OnInit {
-  faChevronRight = faChevronRight;
   faChevronDown = faChevronDown;
-  faPen = faPen;
-  faPlus = faPlus;
-  faTrash = faTrash;
+  faChevronRight = faChevronRight;
 
   isCollapsed = false;
 
@@ -28,6 +22,7 @@ export class CpRedInjuriesDisplayComponent implements OnInit {
 
   @Input()
   criticalInjuries: Array<CpRedCharacterCriticalInjury>;
+
   currInjuries: Array<CpRedCharacterCriticalInjury> =
     new Array<CpRedCharacterCriticalInjury>();
 

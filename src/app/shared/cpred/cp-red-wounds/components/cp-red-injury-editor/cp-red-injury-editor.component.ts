@@ -1,6 +1,6 @@
 import { Observable, map } from 'rxjs';
-import { CpRedWoundsManagerService } from './../../services/cp-red-wounds-manager/cp-red-wounds-manager.service';
-import { CpRedCharacterCriticalInjury } from './../../models/cp-red-character-critical-injury';
+import { CpRedWoundsManagerService } from '../../services/cp-red-wounds-manager/cp-red-wounds-manager.service';
+import { CpRedCharacterCriticalInjury } from '../../models/cp-red-character-critical-injury';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import {
   faPen,
@@ -10,11 +10,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'cs-cp-red-injuries-editor',
-  templateUrl: './cp-red-injuries-editor.component.html',
-  styleUrls: ['./cp-red-injuries-editor.component.css'],
+  selector: 'cs-cp-red-injury-editor',
+  templateUrl: './cp-red-injury-editor.component.html',
+  styleUrls: ['./cp-red-injury-editor.component.css'],
 })
-export class CpRedInjuriesEditorComponent implements OnInit {
+export class CpRedInjuryEditorComponent implements OnInit {
   faPen = faPen;
   faPlus = faPlus;
   faTrash = faTrash;
