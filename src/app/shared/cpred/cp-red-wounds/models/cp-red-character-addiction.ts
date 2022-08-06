@@ -8,6 +8,7 @@ export class CpRedCharacterAddiction {
   constructor(param?: any) {
     this.name = param?.name ?? '';
     this.effect = param?.effect ?? '';
+    this.dv = param?.dv ?? 12;
     this.penalties =
       param?.penalties?.map((p) => ({ ...p })) ??
       new Array<CpRedCharacterPenaltyModifier>();

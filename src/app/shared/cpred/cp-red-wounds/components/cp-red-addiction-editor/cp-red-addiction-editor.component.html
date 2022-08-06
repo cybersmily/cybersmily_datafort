@@ -11,7 +11,7 @@
   </div>
   <div class="col-11">
     <div class="row">
-      <div class="col-10 col-lg-4">
+      <div class="col-8 col-lg-3">
         <input
           type="text"
           class="w-100 csd-plain-input csd-input-underline"
@@ -25,6 +25,15 @@
           class="float-start text-xsmall text-danger ms-2"
           >Enter unique name for addiction</span
         >
+      </div>
+      <div class="col-2 col-lg-1">
+        <input
+          type="number"
+          class="w-100 csd-plain-input csd-input-underline no-spinners text-center"
+          placeholder="DV"
+          [(ngModel)]="newAddiction.dv"
+          min="0"
+        />
       </div>
       <div
         class="col-2 col-lg-1 order-lg-last px-0"

@@ -58,7 +58,7 @@ export class CpRedAddictionEditorComponent implements OnInit {
    */
   get isAddDisabled$(): Observable<boolean> {
     return this.woundManager
-      .hasCriticalInjury(this.newAddiction?.name)
+      .hasAddiction(this.newAddiction?.name)
       .pipe(
         map(
           (found) =>

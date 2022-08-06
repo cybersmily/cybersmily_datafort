@@ -6,7 +6,15 @@ import {
   faPlus,
   faTrash,
 } from '@fortawesome/free-solid-svg-icons';
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  Output,
+  EventEmitter,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { CpRedCharacterAddiction } from '../../models';
 
 @Component({
@@ -14,7 +22,7 @@ import { CpRedCharacterAddiction } from '../../models';
   templateUrl: './cp-red-addictions-display.component.html',
   styleUrls: ['./cp-red-addictions-display.component.css'],
 })
-export class CpRedAddictionsDisplayComponent implements OnInit {
+export class CpRedAddictionsDisplayComponent implements OnInit, OnChanges {
   faChevronRight = faChevronRight;
   faChevronDown = faChevronDown;
   faPen = faPen;
@@ -28,6 +36,7 @@ export class CpRedAddictionsDisplayComponent implements OnInit {
 
   @Input()
   addictions: Array<CpRedCharacterAddiction>;
+
   currAddictions: Array<CpRedCharacterAddiction> =
     new Array<CpRedCharacterAddiction>();
 
@@ -39,12 +48,22 @@ export class CpRedAddictionsDisplayComponent implements OnInit {
     );
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    this.currAddictions = this.addictions.map(
+      (addiction) => new CpRedCharacterAddiction(addiction)
+    );
+    this.selectedIndex = -1;
+  }
+
   add(addiction: CpRedCharacterAddiction): void {
+    console.log('add', addiction);
     this.woundManager.addAddiction(new CpRedCharacterAddiction(addiction));
     this.newAddiction = new CpRedCharacterAddiction();
+    this.selectedIndex = -1;
   }
 
   delete(addiction: CpRedCharacterAddiction): void {
+    console.log('delete', addiction);
     this.woundManager.removeAddiction(addiction);
     this.selectedIndex = -1;
   }
@@ -57,7 +76,9 @@ export class CpRedAddictionsDisplayComponent implements OnInit {
     addictionName: string;
     addiction: CpRedCharacterAddiction;
   }): void {
+    console.log('update', param);
     this.woundManager.updateAddiction(param.addictionName, param.addiction);
+    console.log('updateIndex');
     this.selectedIndex = -1;
   }
 }

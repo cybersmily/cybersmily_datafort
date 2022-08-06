@@ -59,13 +59,17 @@ export class CpRedWoundsManagerService {
   }
 
   updateAddiction(
-    addictinoName: string,
+    addictionName: string,
     addiction: CpRedCharacterAddiction
   ): void {
+    console.log('addiction name', addictionName);
+    console.log('addiction', addiction);
     const wounds = new CpRedCharacterWounds(this._wounds.getValue());
     const index = wounds.addictions.findIndex(
-      (addctn) => addiction.name.toLowerCase() === addictinoName.toLowerCase()
+      (addiction) =>
+        addiction.name.toLowerCase() === addictionName.toLowerCase()
     );
+    console.log('addcition index', index);
     if (index > -1) {
       wounds.addictions[index] = { ...addiction };
       this.updateWounds(wounds);
@@ -73,11 +77,10 @@ export class CpRedWoundsManagerService {
   }
 
   removeAddiction(addiction: CpRedCharacterAddiction): void {
+    console.log('addiction', addiction);
     const wounds = new CpRedCharacterWounds(this._wounds.getValue());
     const index = wounds.addictions.findIndex(
-      (addctn) =>
-        addiction.name.toLowerCase() === addctn.name.toLowerCase() &&
-        addiction.dv === addctn.dv
+      (add) => addiction.name.toLowerCase() === add.name.toLowerCase()
     );
     if (index > -1) {
       wounds.addictions.splice(index, 1);
