@@ -39,22 +39,27 @@ export class CpRedInjuriesDisplayComponent implements OnInit {
     );
   }
 
-  add(): void {
+  add(injury: CpRedCharacterCriticalInjury): void {
     this.woundManager.addCriticalInjury(
-      new CpRedCharacterCriticalInjury(this.newInjury)
+      new CpRedCharacterCriticalInjury(injury)
     );
     this.newInjury = new CpRedCharacterCriticalInjury();
   }
 
   delete(injury: CpRedCharacterCriticalInjury): void {
     this.woundManager.removeCriticalInjury(injury);
+    this.selectedIndex = -1;
   }
 
   toggleEdit(index: number): void {
     this.selectedIndex = index === this.selectedIndex ? -1 : index;
   }
 
-  update(injury): void {
-    this.woundManager.removeCriticalInjury(injury);
+  update(param: {
+    injuryName: string;
+    injury: CpRedCharacterCriticalInjury;
+  }): void {
+    this.woundManager.updateCriticalInjury(param.injuryName, param.injury);
+    this.selectedIndex = -1;
   }
 }

@@ -14,7 +14,7 @@
     class="row mb-2 cpr-edit-injury"
   >
     <div class="col-1"></div>
-    <div class="col-11 col-lg-4">
+    <div class="col-11">
       <span
         (click)="selectedIndex = selectedIndex === i ? -1 : i"
         *ngIf="selectedIndex !== i; else editInjuryTemplate"
@@ -31,9 +31,15 @@
         <cs-cp-red-injuries-editor
           [injury]="injury"
           [showDelete]="true"
+          [showSave]="selectedIndex === i"
+          (updateInjury)="update($event)"
+          (deleteInjury)="delete($event)"
         ></cs-cp-red-injuries-editor>
       </ng-template>
     </div>
   </div>
-  <cs-cp-red-injuries-editor [showAdd]="true"></cs-cp-red-injuries-editor>
+  <cs-cp-red-injuries-editor
+    [showAdd]="true"
+    (addInjury)="add($event)"
+  ></cs-cp-red-injuries-editor>
 </div>

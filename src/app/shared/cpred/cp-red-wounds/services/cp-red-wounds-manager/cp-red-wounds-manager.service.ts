@@ -1,6 +1,6 @@
 import { CpRedCharacterCriticalInjury } from './../../models/cp-red-character-critical-injury';
 import { CpRedCharacterAddiction } from './../../models/cp-red-character-addiction';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { CpRedStatsManagerService } from './../../../c-p-red-stats/services/cp-red-stats-manager/cp-red-stats-manager.service';
 import { Injectable } from '@angular/core';
 import {
@@ -99,6 +99,19 @@ export class CpRedWoundsManagerService {
       wounds.criticalInjuries[index] = { ...injury };
       this.updateWounds(wounds);
     }
+  }
+
+  hasCriticalInjury(injuryName: string): Observable<boolean> {
+    if (injuryName === null || injuryName.trim() === '') {
+      of(false);
+    }
+    return of(
+      this._wounds
+        .getValue()
+        ?.criticalInjuries?.some(
+          (inj) => inj.name.toLowerCase() === injuryName.toLowerCase()
+        )
+    );
   }
 
   removeCriticalInjury(injury: CpRedCharacterCriticalInjury): void {

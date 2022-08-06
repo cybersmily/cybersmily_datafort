@@ -13,7 +13,7 @@ export class CpRedCharacterCriticalInjury {
     this.fix = param?.fix ?? '';
     this.treatment = param?.treatment ?? '';
     this.penalties =
-      param?.penalties.map((p) => ({ ...p })) ??
+      param?.penalties?.map((p) => ({ ...p })) ??
       new Array<CpRedCharacterPenaltyModifier>();
   }
 }
