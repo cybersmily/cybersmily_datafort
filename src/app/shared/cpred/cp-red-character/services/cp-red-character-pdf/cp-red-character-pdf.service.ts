@@ -1,3 +1,4 @@
+import { CpRedWoundsPdfService } from './../../../cp-red-wounds/services/cp-red-wounds-pdf/cp-red-wounds-pdf.service';
 import { CpRedSkillsPdfService } from './../../../cp-red-skills/services/cp-red-skills-pdf/cp-red-skills-pdf.service';
 import { Coord } from './../../../../models/coord';
 import { CPRedCharacterSheet } from './../../../models/cp-red-character-sheet';
@@ -22,7 +23,8 @@ export class CpRedCharacterPdfService {
 
   constructor(
     private statsPDF: CpRedStatsPdfService,
-    private skillsPDF: CpRedSkillsPdfService
+    private skillsPDF: CpRedSkillsPdfService,
+    private woundsPDF: CpRedWoundsPdfService
   ) {}
 
   savePDF(sheet: CPRedCharacterSheet): void {
@@ -41,6 +43,15 @@ export class CpRedCharacterPdfService {
       140,
       3.75,
       6.5
+    );
+    this.woundsPDF.drawWoundsSection(
+      character.wounds,
+      this._pdf,
+      5,
+      70,
+      56,
+      60,
+      16
     );
     this._pdf.save('CPR-Character');
   }
