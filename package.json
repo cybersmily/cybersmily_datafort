@@ -41,6 +41,7 @@
     "canvg": "^4.0.0",
     "core-js": "^2.5.7",
     "file-saver": "^2.0.5",
+    "googleapis": "^39.2.0",
     "jasmine-marbles": "^0.6.0",
     "jspdf": "^2.5.1",
     "masonry-layout": "^4.2.2",
