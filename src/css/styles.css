@@ -893,6 +893,12 @@ a:active {
   border-radius: 0;;
 }
 
+.nav-link {
+  white-space: nowrap;
+    overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 div svg circle.neticon:hover {
   fill: red !important;
   background-color: red;

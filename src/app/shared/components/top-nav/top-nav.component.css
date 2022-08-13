@@ -115,23 +115,9 @@ ul li div.csd-link-menu {
       column-count: 2;
     }
   }
-/* md */
-@media (min-width: 768px) {
-  .csd-link-menu {
-    column-count: 3;
-  }
-}
-
-/* lg */
-@media (min-width: 992px) {
-  .csd-link-menu {
-    column-count: 3;
-  }
-}
-
 /* xl */
 @media (min-width: 1200px) {
   .csd-link-menu {
-    column-count: 4;
+    column-count: 3;
   }
 }
