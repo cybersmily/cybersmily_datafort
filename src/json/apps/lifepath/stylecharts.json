@@ -69,6 +69,18 @@
           "Big Suits",
 					"Bag Lady Chic",
           "Paramilitary"
+        ],
+        "CSDSpace":[
+          "Corporate",
+          "Station uniform",
+          "Jumpsuit",
+          "Skinsuit",
+          "Jumpsuit",
+          "Fatigues",
+          "Shorts and Tee",
+          "Nude",
+          "Bag lady chic",
+          "Urban Flash"
         ]
 			},
 		  "hairstyle":{
@@ -141,8 +153,19 @@
           "Tied",
           "Box fade",
           "Tech cut"
-        ]
-			},
+        ],
+        "CSDSpace":[
+          "Mohawk",
+          "Short, Neat",
+          "Short, Curly",
+          "Slicked Back",
+          "Short, Spiked",
+          "Long, Braided",
+          "Crew/Fade Out",
+          "Short, Striped",
+          "Short, Dreads",
+          "Bald"]
+        },
 		  "affectations": {
 		    	"CP2020":[
 					"Tattoos",
@@ -212,7 +235,19 @@
           "Androgyne make-up",
           "Bandanas/hairbands",
           "Pouches/bags"
-				]
+				],
+        "CSDSpace":[
+          "ritual scars",
+          "facial piercings",
+          "utility belts/harness",
+          "tatoos",
+          "headset, working or otherwise",
+          "fingerless gloves",
+          "hat, baseball/beanie/fedora",
+          "earrings",
+          "weird contact lenses",
+          "tatoos"
+        ]
 			}
 		}
 }

@@ -14,7 +14,8 @@
 		{"title":"PacRim - Southeast Asia","value":"PacRimSEAsia"},
     {"title":"Interlock Unlimited (IU)","value":"IU"},
     {"title":"IU - Central/South Am","value":"IUCentralSoAm"},
-    {"title":"IU - African","value":"IUAfrican"}
+    {"title":"IU - African","value":"IUAfrican"},
+    {"title":"Deep Space Alternative","value":"CSDSpace"}
 	],
 	"origins":{
 		"CP2020": [
@@ -72,7 +73,28 @@
 			{"name":"Borneo Tribe", "languages":["Malaysia","Bahasa","English","Indonesian","Pidgin"]},
 			{"name":"Filipino", "languages":["Philipino(Tagalog)","English"]},
       {"name":"Spanish", "languages":["Spanish","Philipino","English"]}
-    ]
+    ],
+  "CSDSpace":[
+   {"name":"Middle Eastern", "languages":["Arabic","Hebrew","Persian"]},
+{"name":"African - Southern", "languages":["Xhosa","Swahili","Chewa","Showa","Sotho","Afrikaans"]},
+{"name":"Soviet/Central European", "languages":["Bulgarian","Russian","Czech","Polish","Ukranian","Slovak"]},
+{"name":"African - Northern", "languages":["Arabic","Berber","Songhay"]},
+{"name":"Central Asian", "languages":["Hindi","Punjabi","Nepali","Bengali","Arabic"]},
+{"name":"African- Eastern", "languages":["Arabic","Amharic","Oromo","Somali","Swahili"]},
+{"name":"European", "languages":["French","German","English","Spanish","Italian","Greek","Danish","Dutch","Norwegian","Swedish","Finnish"]},
+{"name":"African - Southern", "languages":["Xhosa","Swahili","Chewa","Showa","Sotho","Afrikaans"]},
+{"name":"African - Western", "languages":["Yoruba","Igbo","Fulani"]},
+{"name":"East Asian", "languages":["Burmese","Cantonese","Mandarin","Thai","Tibetan","Vietnamese","Japanese","Korean"]},
+{"name":"Anglo-American", "languages":["English"]},
+{"name":"African - Southern", "languages":["Xhosa","Swahili","Chewa","Shona","Sotho","Afrikaans"]},
+{"name":"African - Western", "languages":["Yoruba","Igbo","Manding","Arabic","Hausa"]},
+{"name":"European", "languages":["French","German","English","Spanish","Italian","Greek","Danish","Dutch","Norwegian","Swedish","Finnish"]},
+{"name":"African-American", "languages":["English", "Haitian Creole","Papiamento","Spanish"]},
+{"name":"European", "languages":["French","German","English","Spanish","Italian","Greek","Danish","Dutch","Norwegian","Swedish","Finnish"]},
+{"name":"Soviet/Central European", "languages":["Bulgarian","Russian","Czech","Polish","Ukranian","Slovak"]},
+{"name":"African - Eastern", "languages":["Arabic","Amharic","Oromo"]},
+{"name":"Central/South American", "languages":["Spanish","Portuguese" ]}
+  ]
 	},
 	"motivations":[
 		{
@@ -277,6 +299,18 @@
           "Big Suits",
 					"Bag Lady Chic",
           "Paramilitary"
+        ],
+        "CSDSpace":[
+          "Corporate",
+          "Station uniform",
+          "Jumpsuit",
+          "Skinsuit",
+          "Jumpsuit",
+          "Fatigues",
+          "Shorts and Tee",
+          "Nude",
+          "Bag lady chic",
+          "Urban Flash"
         ]
 			}
 		},
@@ -352,7 +386,18 @@
           "Tied",
           "Box fade",
           "Tech cut"
-        ]
+        ],
+        "CSDSpace":[
+          "Mohawk",
+          "Short, Neat",
+          "Short, Curly",
+          "Slicked Back",
+          "Short, Spiked",
+          "Long, Braided",
+          "Crew/Fade Out",
+          "Short, Striped",
+          "Short, Dreads",
+          "Bald"]
 			}
 		},
 		{
@@ -426,7 +471,19 @@
           "Androgyne make-up",
           "Bandanas/hairbands",
           "Pouches/bags"
-				]
+				],
+        "CSDSpace":[
+          "ritual scars",
+          "facial piercings",
+          "utility belts/harness",
+          "tatoos",
+          "headset, working or otherwise",
+          "fingerless gloves",
+          "hat, baseball/beanie/fedora",
+          "earrings",
+          "weird contact lenses",
+          "tatoos"
+        ]
 			}
 		}
 	],
@@ -527,7 +584,19 @@
         "Refugee family (displaced and running from persecution)",
         "Agricultural family (Farmers, working for landowners or on a corporate farm)",
         "Political radical family (Family was comprised of Terrorists, Rebels, Political Activists)"
-      ]
+      ],
+    "CSDSpace": [
+      "Corporate Exec",
+      "[[Station|Colony]] Manager",
+      "Technician",
+      "Highrider Family",
+      "Pirate Fleet",
+      "Gang Family",
+      "Corporate Manager",
+      "Reasearchers",
+      "Miner/Surveyor",
+      "Government Official"
+    ]
 		},
 		"parentSomethingHappen":{
 		    "CP2020":[
@@ -601,7 +670,19 @@
         "Your parent(s) were murdered",
         "Your parent(s) exiled from tribe or community",
         "Your parent(s) vanished"
-      ]
+      ],
+    "CSDSpace": [
+      "Your parent(s) died in warfare.",
+      "Your parent(s) died in an accident.",
+      "Your parent(s) were murdered.",
+      "Your parent(s) had AI raise you.",
+      "Orphaned at a young age.",
+      "Your parent(s) are in hiding to protect you.",
+      "You were left with relatives for safekeeping.",
+      "You grew up in boarding school/kitbitz and rarely saw parents.",
+      "Your parent(s) gave you up for adoption.",
+      "Your parent(s) sold you for money."
+    ]
 		},
 		"familyTragedy":{
 		    "CP2020":[
@@ -639,7 +720,19 @@
         "Family incurred wrath of corporate executive, rebel leader, politician or cartel leader",
         "Family held responsible for village or community misfortune",
         "Family involved in territorial, religious, or political conflict"
-      ]
+      ],
+      "CSDSpace":[
+      "Family lost everything through betrayal.",
+      "Family lost everything through bad management.",
+      "Family exiled from colony/station.",
+      "Family is imprisoned and you alone escaped.",
+      "Family vanished. You are the only remaining member.",
+      "Family was murdered/killed and you were the only survivor.",
+      "Family is involved in longterm conspiracy/organization/association, such as Highrider revolutionary group.",
+      "Your family fleed to Earth.",
+      "Your family is hunted by an Orbital faction.",
+      "You are the inheritor of a family debt; you must honor this debt before moving on with your life."
+    ]
 		},
 		"childhoodEnvironment":{
 		    "CP2020":[
@@ -700,7 +793,19 @@
         "Spent in prison",
         "Spent living on the street",
         "Spent in corporate work program (basically slave labor)"
-      ]
+      ],
+      "CSDSpace":[
+      "spent on [[O'Neil|Luna]] colony with no adult supervision.",
+      "spent on Earth.",
+      "spent living on a [[research|transfer|workshack]] station.",
+      "spent in a OTV flying between colonies.",
+      "spent in a Corporate Zone on [[O'Neil|Luna]] colony.",
+      "spent in hopping from abandon stations with Highrider pack.",
+      "spent in Crystal Palace.",
+      "spent supervised at [[O'Neil|Luna]] colony.",
+      "spent in a Pirate Pack.",
+      "spent with prospectors/explorers, travelling constantly."
+  ]
 		},
 		"siblingFeeling":{
 		    "CP2020":[

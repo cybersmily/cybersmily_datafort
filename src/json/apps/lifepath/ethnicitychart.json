@@ -68,5 +68,26 @@
     {"name":"Borneo Tribe", "languages":["Malaysia","Bahasa","English","Indonesian","Pidgin"]},
     {"name":"Filipino", "languages":["Philipino(Tagalog)","English"]},
     {"name":"Spanish", "languages":["Spanish","Philipino","English"]}
+  ],
+  "CSDSpace":[
+   {"name":"Middle Eastern", "languages":["Arabic","Hebrew","Persian"]},
+{"name":"African - Southern", "languages":["Xhosa","Swahili","Chewa","Showa","Sotho","Afrikaans"]},
+{"name":"Soviet/Central European", "languages":["Bulgarian","Russian","Czech","Polish","Ukranian","Slovak"]},
+{"name":"African - Northern", "languages":["Arabic","Berber","Songhay"]},
+{"name":"Central Asian", "languages":["Hindi","Punjabi","Nepali","Bengali","Arabic"]},
+{"name":"African- Eastern", "languages":["Arabic","Amharic","Oromo","Somali","Swahili"]},
+{"name":"European", "languages":["French","German","English","Spanish","Italian","Greek","Danish","Dutch","Norwegian","Swedish","Finnish"]},
+{"name":"African - Southern", "languages":["Xhosa","Swahili","Chewa","Showa","Sotho","Afrikaans"]},
+{"name":"African - Western", "languages":["Yoruba","Igbo","Fulani"]},
+{"name":"East Asian", "languages":["Burmese","Cantonese","Mandarin","Thai","Tibetan","Vietnamese","Japanese","Korean"]},
+{"name":"Anglo-American", "languages":["English"]},
+{"name":"African - Southern", "languages":["Xhosa","Swahili","Chewa","Shona","Sotho","Afrikaans"]},
+{"name":"African - Western", "languages":["Yoruba","Igbo","Manding","Arabic","Hausa"]},
+{"name":"European", "languages":["French","German","English","Spanish","Italian","Greek","Danish","Dutch","Norwegian","Swedish","Finnish"]},
+{"name":"African-American", "languages":["English", "Haitian Creole","Papiamento","Spanish"]},
+{"name":"European", "languages":["French","German","English","Spanish","Italian","Greek","Danish","Dutch","Norwegian","Swedish","Finnish"]},
+{"name":"Soviet/Central European", "languages":["Bulgarian","Russian","Czech","Polish","Ukranian","Slovak"]},
+{"name":"African - Eastern", "languages":["Arabic","Amharic","Oromo"]},
+{"name":"Central/South American", "languages":["Spanish","Portuguese" ]}
   ]
 }

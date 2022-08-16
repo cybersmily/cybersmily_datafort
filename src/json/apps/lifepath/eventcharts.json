@@ -61,6 +61,69 @@
       {
         "roll": "0"
       }
+    ],
+    "CSDSpace":[
+      {
+        "roll": "1",
+        "chart": [
+          "GetDisaster"
+        ]
+      },
+      {
+        "roll": "2",
+        "chart": [
+          "GetDisaster"
+        ]
+      },
+      {
+        "roll": "3",
+        "chart": [
+          "GetWin"
+        ]
+      },
+      {
+        "roll": "4",
+        "chart": [
+          "GetWin"
+        ]
+      },
+      {
+        "roll": "5",
+        "chart": [
+          "GetFriend"
+        ]
+      },
+      {
+        "roll": "6",
+        "chart": [
+          "GetFriend"
+        ]
+      },
+      {
+        "roll": "7",
+        "chart": [
+          "GetEnemy"
+        ]
+      },
+      {
+        "roll": "8",
+        "chart": [
+          "GetEnemy"
+        ]
+      },
+      {
+        "roll": "9",
+        "chart": [
+          "GetRomance"
+        ]
+      },
+      {
+        "roll": "0",
+        "chart": [
+          "GetRomance"
+        ]
+      }
+
     ]
   },
   "Wins": {
@@ -183,16 +246,28 @@
       "Honor of Corporate R&D testing (recieve one piece of basic basic cyber or bioware, albiet at twice humanity cost, use DROCS rules to adjust)",
       "Gain influence in a tribe or small community (+1 Family)",
       "Find a driving instructor (+2 Driving to starting character skills)"
+    ],
+    "CSDSpace":[
+      "Make a Powerful Connection: You make a connection with a high ranking member: [[in Interpol/USAF/SRC|in Interpol/USAF/SRC|in Interpol/USAF/SRC|in Interpol/USAF/SRC|they are a manager in one of the colony/bases|they are a manager in one of the colony/bases|they are a manager in one of the colony/bases|Senior leadership of colony/base|Senior leadership of colony/base|Senior leadership of colony/base]]",
+      "Cyberware Windfall: gain [{1:10}]0eb worth of cyberware.",
+      "Find a Teacher: get a +1 to existing INT skill or start one at +2.",
+      "Find a Sensei: get +2 to Zero-G Combat",
+      "Find a Mentor: get a +1 to existing TECH skill or start one at +2",
+      "Powerful Exec owes you one favor",
+      "Highrider Tribe/Family Connection: A different highrider family/tribe befriends you. You can call on them once a month and is equivalent to +2 Family.",
+      "Make a Friend on Security Force: you can call on them for one favor a month with the equivalent of Streetwise +2 for security related situations.",
+      "Find a Hustler: add +1 to any COOL/EMP skill or start one at +2.",
+      "Find a Combat Teacher: add +1 to a weapon skill except Zero-G Combat or start a new combat skill at +2"
     ]
   },
   "Disasters": {
     "Event": {
       "CP2020": [
         "Financial Loss/Debt: You have lost [{1:100}] eurodollars. If you can't pay this now, you have a debt to pay, in cash - or blood.",
-        "Imprisonmnet: You have been in prison, or possibly held hostage (your choice) for [{1:12}] months.",
+        "Imprisonment: You have been in prison, or possibly held hostage (your choice) for {{1:12}} months.",
         "Illness/addiction: You have contracted either an illness or drug habit in this time. Lost 1 pt of REF permanently as a result.",
         "Betrayal: You have been backstabbed in some manner. [[You are being blackmailed.:You are being blackmailed.|You are being blackmailed.|A secret was exposed.|A secret was exposed.|A secret was exposed.|A secret was exposed.|A secret was exposed.|You were betrayed by a close friend in either romance or career (you choose).|You were betrayed by a close friend in either romance or career (you choose).|You were betrayed by a close friend in either romance or career (you choose).]]",
-        "Accident: You were in some kind of terrible accident. [[You were terribly disfigured and must subtract -5 from your ATT.|You were terribly disfigured and must subtract -5 from your ATT.|You were terribly disfigured and must subtract -5 from your ATT.|You were terribly disfigured and must subtract -5 from your ATT.|You were hospitalized for [{1:1}] months that year.|You were hospitalized for [{1:1}] months that year.|You have lost [{1:1}] months of memory of that year.|You constantly relive nightmares (8 in 10 chance each night) of the accident and wake up screaming.|You constantly relive nightmares (8 in 10 chance each night) of the accident and wake up screaming.|You constantly relive nightmares (8 in 10 chance each night) of the accident and wake up screaming.]]",
+        "Accident: You were in some kind of terrible accident. [[You were terribly disfigured and must subtract -5 from your ATT.|You were terribly disfigured and must subtract -5 from your ATT.|You were terribly disfigured and must subtract -5 from your ATT.|You were terribly disfigured and must subtract -5 from your ATT.|You were hospitalized for {{1:10}} months that year.|You were hospitalized for {{1:10}} months that year.|You have lost {{1:10}} months of memory of that year.|You constantly relive nightmares (8 in 10 chance each night) of the accident and wake up screaming.|You constantly relive nightmares (8 in 10 chance each night) of the accident and wake up screaming.|You constantly relive nightmares (8 in 10 chance each night) of the accident and wake up screaming.]]",
         "Lover/friend/relative killed: You lost someone you really cared about. [[They died accidentally.|They died accidentally.|They died accidentally.|They died accidentally.|They died accidentally.|They were murdered by unknown parties.|They were murdered by unknown parties.|They were murdered by unknown parties.|They were murdered and you know who did it. You just need the proof.|They were murdered and you know who did it. You just need the proof.]]",
         "False accusation: You were set up. [[Accused of theft.|Accused of theft.|Accused of theft.|Accused of cowardice.|Accused of cowardice.|Accused of murder.|Accused of murder.|Accused of murder.|Accused of rape.|Accused of lying or betrayal.]]",
         "Hunted by the Law: You are hunted by the law for crimes you may or may not have committed (your choice). [[Only a couple local cops want you.|Only a couple local cops want you.|Only a couple local cops want you.|It's the entire local force that want you.|It's the entire local force that want you.|It's the entire local force that want you.|It's the State Police/Militia that want you.|It's the State Police/Militia that want you.|It's the FBI or equivalent national police force that want you.|It's the FBI or equivalent national police force that want you.]]",
@@ -270,6 +345,18 @@
         "Home/Homelands taken by foreign corporation (family and friends relocated or shipped off to work for corp. in slave labor like conditions, you are left destitute, character only recieves absolute basics ie. what he can carry on his back, lose [{1:100}]eb starting cash)",
         "Wanted by 'Death Squad' (if they catch you, they will torture and kill you)",
         "Spent a year in prison"
+      ],
+      "CSDSpace":[
+        "Exiled: You were exiled from your former Highrider tribe/family/colony. Members are hostile toward you when encountered.",
+        "Imprisonment: You were thrown in the brig or held hostage. This lasted for {{1:12}} months.",
+        "Illness: You contracted an illness. Lost 1 REF permanently.",
+        "Betrayal: You were backstabbed. [[You are being blackmailed|You are being blackmailed|You are being blackmailed|A secret of yours was exposed|A secret of yours was exposed|A secret of yours was exposed|A secret of yours was exposed|You were betrayed by a close friend or a tribe member|You were betrayed by a close friend or a tribe member|You were betrayed by a close friend or a tribe member]].",
+        "Accident: You were in an accident. [[You were disfigured, - {{1:3}} ATT (min ATT 2)|You were disfigured, - {{1:3}} ATT (min ATT 2)|You were disfigured, - {{1:3}} ATT (min ATT 2)|You were disfigured, - {{1:3}} ATT (min ATT 2)|You were hospitalized for {{1:10}} months|You were hospitalized for {{1:10}} months|You lost {{1:10}} months of memory|You lost {{1:10}} months of memory|You have night terrors of the event|You have night terrors of the event]].",
+        "Someone Close Killed: A friend/ally/relative/tribe member you were close too was lost. [[they died in an accident|they died in an accident|they died in an accident|they died in an accident|they died in an accident|they were murdered, you don't know who did it|they were murdered, you don't know who did it|they were murdered, you don't know who did it|they were murdered and you do know who did it, just need proof|they were murdered and you do know who did it, just need proof]].",
+        "False Accusation: You were set up. You are [[accused of theft|accused of theft|accused of theft|accused of cowardice|accused of cowardice|accused of murder|accused of murder|accused of murder|accused of sexual assault|accused of betrayal]]",
+        "Hunted by Law: You are hunted by law enforcement for a crime you may or may not have committed. [[Only a few agents are looking for you|Only a few agents are looking for you|Only a few agents are looking for you|It's the security of one of the station/base/colony|It's the security of one of the station/base/colony|It's the security of one of the station/base/colony|It's the security of one of the station/base/colony|wanted by one of the factions in orbit (ESA/USAF/...)|wanted by one of the factions in orbit (ESA/USAF/...)|multiple factions are hunting you, if not all of them]].",
+        "Hunted by a Corp: One of the orbital corporation is hunting for you. A [[small independent firm on one of the stations/bases|small independent firm on one of the stations/bases|small independent firm on one of the stations/bases|small independent firm on one of the stations/bases|large corp with assets in a few of the stations/bases|large corp with assets in a few of the stations/bases|large corp with assets in a few of the stations/bases|large corp with assets in a few of the stations/bases|a large corp that has assets in all the stations/bases in orbit|a large corp that has assets in all the stations/bases in orbit]].",
+        "Mental/Physical Incapacitation: you had some type of mental/physical breakdown. [[a nervous disorder, lose 1 REF|a nervous disorder, lose 1 REF|a nervous disorder, lose 1 REF|have anxiety attacks or phobias, lose 1 COOL|have anxiety attacks or phobias, lose 1 COOL|have anxiety attacks or phobias, lose 1 COOL|have anxiety attacks or phobias, lose 1 COOL|have anxiety attacks or phobias, lose 1 COOL|major psychosis, you hear voices, delusional, severe depression, irrational/violent. Lose 1 COOL and 1 REF|major psychosis, you hear voices, delusional, severe depression, irrational/violent. Lose 1 COOL and 1 REF|major psychosis, you hear voices, delusional, severe depression, irrational/violent. Lose 1 COOL and 1 REF|major psychosis, you hear voices, delusional, severe depression, irrational/violent. Lose 1 COOL and 1 REF]]."
       ]
     },
     "Response": {
@@ -400,6 +487,18 @@
         "a Independent Criminal.",
         "a Military.",
         "a Media."
+      ],
+      "CSDSpace": [
+        "an ex friend.",
+        "an ex lover.",
+        "a relative.",
+        "a childhood enemy.",
+        "a person working for you.",
+        "a person you work for.",
+        "a partner or co-worker.",
+        "a Highrider Family/Tribe member.",
+        "a Corporate Exec.",
+        "a Government Official."
       ]
     },
     "cause": {
@@ -460,11 +559,11 @@
     },
     "resource": {
       "CP2020": [
-        "just himself.",
-        "just himself.",
-        "just himself.",
-        "himself and a few friends.",
-        "himself and a few friends.",
+        "just themself.",
+        "just themself.",
+        "just themself.",
+        "themself and a few friends.",
+        "themself and a few friends.",
         "an entire gang.",
         "an entire gang.",
         "a small corporation.",
@@ -483,6 +582,18 @@
         "The whole organization, and he's got contacts everywhere!",
         "The whole organization, and he's got contacts everywhere!",
         "The whole organization, and he's got contacts everywhere!"
+      ],
+      "CSDSpace": [
+        "just themself.",
+        "just themself.",
+        "just themself.",
+        "themself and a few friends.",
+        "themself and a few friends.",
+        "a Highrider pack.",
+        "a Highrider pack.",
+        "a Highrider Family/Tribe.",
+        "an orbital corporation.",
+        "an entire Government Agency."
       ]
     }
   },

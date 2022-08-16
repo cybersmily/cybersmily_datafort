@@ -95,6 +95,18 @@
       "Refugee family (displaced and running from persecution)",
       "Agricultural family (Farmers, working for landowners or on a corporate farm)",
       "Political radical family (Family was comprised of Terrorists, Rebels, Political Activists)"
+    ],
+    "CSDSpace": [
+      "Corporate Exec",
+      "[[Station|Colony]] Manager",
+      "Technician",
+      "Highrider Family",
+      "Pirate Fleet",
+      "Gang Family",
+      "Corporate Manager",
+      "Reasearchers",
+      "Miner/Surveyor",
+      "Government Official"
     ]
   },
   "parentSomethingHappen":{
@@ -169,6 +181,18 @@
       "Your parent(s) were murdered",
       "Your parent(s) exiled from tribe or community",
       "Your parent(s) vanished"
+    ],
+    "CSDSpace": [
+      "Your parent(s) died in warfare.",
+      "Your parent(s) died in an accident.",
+      "Your parent(s) were murdered.",
+      "Your parent(s) had AI raise you.",
+      "Orphaned at a young age.",
+      "Your parent(s) are in hiding to protect you.",
+      "You were left with relatives for safekeeping.",
+      "You grew up in boarding school/kitbitz and rarely saw parents.",
+      "Your parent(s) gave you up for adoption.",
+      "Your parent(s) sold you for money."
     ]
   },
   "familyTragedy":{
@@ -207,6 +231,18 @@
       "Family incurred wrath of corporate executive, rebel leader, politician or cartel leader",
       "Family held responsible for village or community misfortune",
       "Family involved in territorial, religious, or political conflict"
+    ],
+      "CSDSpace":[
+      "Family lost everything through betrayal.",
+      "Family lost everything through bad management.",
+      "Family exiled from colony/station.",
+      "Family is imprisoned and you alone escaped.",
+      "Family vanished. You are the only remaining member.",
+      "Family was murdered/killed and you were the only survivor.",
+      "Family is involved in longterm conspiracy/organization/association, such as Highrider revolutionary group.",
+      "Your family fleed to Earth.",
+      "Your family is hunted by an Orbital faction.",
+      "You are the inheritor of a family debt; you must honor this debt before moving on with your life."
     ]
   },
   "childhoodEnvironment":{
@@ -268,7 +304,19 @@
       "Spent in prison",
       "Spent living on the street",
       "Spent in corporate work program (basically slave labor)"
-    ]
+    ],
+      "CSDSpace":[
+      "spent on [[O'Neil|Luna]] colony with no adult supervision.",
+      "spent on Earth.",
+      "spent living on a [[research|transfer|workshack]] station.",
+      "spent in a OTV flying between colonies.",
+      "spent in a Corporate Zone on [[O'Neil|Luna]] colony.",
+      "spent in hopping from abandon stations with Highrider pack.",
+      "spent in Crystal Palace.",
+      "spent supervised at [[O'Neil|Luna]] colony.",
+      "spent in a Pirate Pack.",
+      "spent with prospectors/explorers, travelling constantly."
+  ]
   },
   "siblingFeeling":{
       "CP2020":[
