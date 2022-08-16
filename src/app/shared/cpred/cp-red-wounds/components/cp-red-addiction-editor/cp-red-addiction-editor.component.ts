@@ -76,7 +76,6 @@ export class CpRedAddictionEditorComponent implements OnInit {
   }
 
   update(): void {
-    console.log('update', this.addiction.name, this.newAddiction.name);
     this.updateAddiction.emit({
       addictionName: this.addiction.name,
       addiction: this.newAddiction,

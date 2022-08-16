@@ -1,13 +1,25 @@
 import { Cp2020SkillListSettings } from './../models/cp2020-skill-list-settings';
-import { faDice, faChevronDown, faChevronRight, faSearch } from '@fortawesome/free-solid-svg-icons';
+import {
+  faDice,
+  faChevronDown,
+  faChevronRight,
+  faSearch,
+} from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerSkill, Cp2020PlayerSkills } from './../models';
 import { Cp2020StatBlock } from '../../cp2020-stats/models/cp2020-stat-block';
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'cs-cp2020-skill-list-full',
   templateUrl: './cp2020-skill-list-full.component.html',
-  styleUrls: ['./cp2020-skill-list-full.component.css']
+  styleUrls: ['./cp2020-skill-list-full.component.css'],
 })
 export class Cp2020SkillListFullComponent implements OnInit, OnChanges {
   faDice = faDice;
@@ -16,14 +28,14 @@ export class Cp2020SkillListFullComponent implements OnInit, OnChanges {
   faSearch = faSearch;
 
   get collapseChevron(): any {
-    return (this.isCollapsed)? this.faChevronRight : this.faChevronDown;
+    return this.isCollapsed ? this.faChevronRight : this.faChevronDown;
   }
 
   @Input()
   stats = new Cp2020StatBlock();
 
   @Input()
-  skills:Cp2020PlayerSkills = new Cp2020PlayerSkills();
+  skills: Cp2020PlayerSkills = new Cp2020PlayerSkills();
 
   @Input()
   isCollapsed = false;
@@ -34,7 +46,7 @@ export class Cp2020SkillListFullComponent implements OnInit, OnChanges {
   @Output()
   changeSKills = new EventEmitter<Cp2020PlayerSkills>();
 
-  skillTotals = { role: {}, other: {}};
+  skillTotals = { role: {}, other: {} };
   currentSkills: Cp2020PlayerSkills = new Cp2020PlayerSkills();
   currentSettings = new Cp2020SkillListSettings();
   skillFilter: string = '';
@@ -57,8 +69,8 @@ export class Cp2020SkillListFullComponent implements OnInit, OnChanges {
     this.currentSkills.import(this.skills);
   }
 
-  onChangeSkill(skill?:Cp2020PlayerSkill) {
-    if(skill) {
+  onChangeSkill(skill?: Cp2020PlayerSkill) {
+    if (skill) {
       this.currentSkills.editSkill(skill);
     }
     this.changeSKills.emit(this.currentSkills);
@@ -69,9 +81,8 @@ export class Cp2020SkillListFullComponent implements OnInit, OnChanges {
     this.onChangeSkill();
   }
 
-  onDeleteSkill(skill:Cp2020PlayerSkill) {
+  onDeleteSkill(skill: Cp2020PlayerSkill) {
     this.currentSkills.deleteSkill(skill);
     this.onChangeSkill();
   }
-
 }

@@ -1,13 +1,25 @@
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { faPlus, faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import {
+  faPlus,
+  faChevronRight,
+  faChevronDown,
+} from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerSkill } from './../models/cp2020-player-skill';
 import { Cp2020Stat } from './../../cp2020-stats/models/cp2020-stat';
-import { Component, Input, OnInit, Output, EventEmitter, TemplateRef, OnChanges } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  Output,
+  EventEmitter,
+  TemplateRef,
+  OnChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'cs-cp2020-skill-stat-section',
   templateUrl: './cp2020-skill-stat-section.component.html',
-  styleUrls: ['./cp2020-skill-stat-section.component.css']
+  styleUrls: ['./cp2020-skill-stat-section.component.css'],
 })
 export class Cp2020SkillStatSectionComponent implements OnInit, OnChanges {
   faPlus = faPlus;
@@ -15,9 +27,7 @@ export class Cp2020SkillStatSectionComponent implements OnInit, OnChanges {
   faChevronDown = faChevronDown;
 
   modalRef: BsModalRef;
-  modalConfig = {
-
-  };
+  modalConfig = {};
   isCollapsed = false;
 
   @Input()
@@ -46,32 +56,44 @@ export class Cp2020SkillStatSectionComponent implements OnInit, OnChanges {
   @Output()
   deleteSkill = new EventEmitter<Cp2020PlayerSkill>();
 
-  get collapseArrow():any {
-    return (this.isCollapsed) ? this.faChevronRight : this.faChevronDown;
+  get collapseArrow(): any {
+    return this.isCollapsed ? this.faChevronRight : this.faChevronDown;
   }
 
   get columnLength(): number {
-    return Math.ceil(this.currSkills.length * ((this.currSkills.length%3 === 0) ? 0.33 : 0.34));
+    return Math.ceil(
+      this.currSkills.length * (this.currSkills.length % 3 === 0 ? 0.33 : 0.34)
+    );
   }
 
   get statName(): string {
-    return this.skills.length > 0 && this.skills[0].stat ? this.skills[0].stat.toLowerCase() : '';
+    return this.skills.length > 0 && this.skills[0].stat
+      ? this.skills[0].stat.toLowerCase()
+      : '';
   }
 
-  constructor(private modalService: BsModalService) { }
+  constructor(private modalService: BsModalService) {}
 
   ngOnInit(): void {
     this.currSkills = new Array(...this.skills);
-    this.currSkills.sort( (a,b) => (a.name.toLowerCase() === b.name.toLowerCase() && a.option && b.option) ? a.option.localeCompare(b.option) : a.name.localeCompare(b.name));
+    this.currSkills.sort((a, b) =>
+      a.name.toLowerCase() === b.name.toLowerCase() && a.option && b.option
+        ? a.option.localeCompare(b.option)
+        : a.name.localeCompare(b.name)
+    );
   }
 
   ngOnChanges(): void {
     this.currSkills = new Array(...this.skills);
-    this.currSkills.sort( (a,b) => (a.name.toLowerCase() === b.name.toLowerCase() && a.option && b.option) ? a.option.localeCompare(b.option) : a.name.localeCompare(b.name));
+    this.currSkills.sort((a, b) =>
+      a.name.toLowerCase() === b.name.toLowerCase() && a.option && b.option
+        ? a.option.localeCompare(b.option)
+        : a.name.localeCompare(b.name)
+    );
   }
 
   getColumnOne(): Array<Cp2020PlayerSkill> {
-    return this.currSkills.slice(0,this.columnLength);
+    return this.currSkills.slice(0, this.columnLength);
   }
 
   getColumnTwo(): Array<Cp2020PlayerSkill> {
@@ -97,7 +119,7 @@ export class Cp2020SkillStatSectionComponent implements OnInit, OnChanges {
     this.addSkill.emit(skill);
   }
 
-  deleteCurrentSkill(skill:Cp2020PlayerSkill) {
+  deleteCurrentSkill(skill: Cp2020PlayerSkill) {
     this.deleteSkill.emit(skill);
   }
 }

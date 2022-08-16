@@ -75,7 +75,6 @@ export class CpRedInjuryEditorComponent implements OnInit {
   }
 
   update(): void {
-    console.log('update', this.injury.name, this.newInjury.name);
     this.updateInjury.emit({
       injuryName: this.injury.name,
       injury: this.newInjury,

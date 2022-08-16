@@ -56,14 +56,12 @@ export class CpRedAddictionsDisplayComponent implements OnInit, OnChanges {
   }
 
   add(addiction: CpRedCharacterAddiction): void {
-    console.log('add', addiction);
     this.woundManager.addAddiction(new CpRedCharacterAddiction(addiction));
     this.newAddiction = new CpRedCharacterAddiction();
     this.selectedIndex = -1;
   }
 
   delete(addiction: CpRedCharacterAddiction): void {
-    console.log('delete', addiction);
     this.woundManager.removeAddiction(addiction);
     this.selectedIndex = -1;
   }
@@ -76,9 +74,7 @@ export class CpRedAddictionsDisplayComponent implements OnInit, OnChanges {
     addictionName: string;
     addiction: CpRedCharacterAddiction;
   }): void {
-    console.log('update', param);
     this.woundManager.updateAddiction(param.addictionName, param.addiction);
-    console.log('updateIndex');
     this.selectedIndex = -1;
   }
 }

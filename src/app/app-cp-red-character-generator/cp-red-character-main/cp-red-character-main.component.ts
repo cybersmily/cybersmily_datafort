@@ -88,25 +88,21 @@ export class CpRedCharacterMainComponent implements OnInit, OnDestroy {
   subscribeToManagers(): void {
     this._subscriptions.add(
       this.characterManagerService.sheet.subscribe((sheet) => {
-        console.log('sheet update', sheet);
         this.storageService.store(this.STORAGE_KEY, sheet.character);
       })
     );
     this._subscriptions.add(
       this.woundsManager.wounds.subscribe((wounds) => {
-        console.log('wounds update', wounds);
         this.characterManagerService.updateWounds(wounds);
       })
     );
     this._subscriptions.add(
       this.statManager.characterStats.subscribe((stats) => {
-        console.log('stats update', stats);
         this.characterManagerService.updateStats(stats);
       })
     );
     this._subscriptions.add(
       this.skillManager.skills.subscribe((skills) => {
-        console.log('skills update', skills);
         this.characterManagerService.updateSkills(skills);
       })
     );
@@ -137,7 +133,6 @@ export class CpRedCharacterMainComponent implements OnInit, OnDestroy {
 
   saveAsPdf(): void {
     this.characterManagerService.sheet.pipe(first()).subscribe((sheet) => {
-      console.log('pdf sheet', sheet);
       this.characterPDFService.savePDF(sheet);
     });
   }

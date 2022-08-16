@@ -428,7 +428,7 @@ export class Cp2020PlayerSkills {
     const i = skills.findIndex(
       (sk) =>
         sk.name.toLowerCase() === skill.name.toLowerCase() &&
-        sk.option === skill.option
+        sk.option?.toLowerCase() === skill.option?.toLowerCase()
     );
     if (i > -1) {
       skills[i] = new Cp2020PlayerSkill(skill);
