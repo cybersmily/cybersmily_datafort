@@ -1,0 +1,55 @@
+<div class="csd-npc-stats">
+  <div>
+    <div class="csd-role">
+      <span class="csd-section-hdr">Role</span>
+      {% if variables.role is defined %} {{ variables.role}} {% endif %}
+    </div>
+  </div>
+  <div class="csd-stat-block">
+    {% if variables.int is defined %}
+    <div class="csd-stat">INT: {{ variables.int}}</div>
+    {% endif %} {% if variables.ref is defined %}
+    <div class="csd-stat">REF: {{ variables.ref}}</div>
+    {% endif %} {% if variables.tech is defined %}
+    <div class="csd-stat">TECH: {{ variables.tech}}</div>
+    {% endif %} {% if variables.cool is defined %}
+    <div class="csd-stat">COOL: {{ variables.cool}}</div>
+    {% endif %} {% if variables.attr is defined %}
+    <div class="csd-stat">ATTR: {{ variables.attr}}</div>
+    {% endif %} {% if variables.luck is defined %}
+    <div class="csd-stat">LUCK: {{ variables.luck}}</div>
+    {% endif %} {% if variables.ma is defined %}
+    <div class="csd-stat">MA: {{ variables.ma}}</div>
+    {% endif %} {% if variables.body is defined %}
+    <div class="csd-stat">BODY: {{ variables.body}}</div>
+    {% endif %} {% if variables.emp is defined %}
+    <div class="csd-stat">EMP: {{ variables.emp}}</div>
+    {% endif %} {% if variables.btm is defined %}
+    <div class="csd-stat">BTM: {{ variables.btm}}</div>
+    {% endif %}
+  </div>
+  <div class="csd-armor">
+    {% if variables.armor is defined %}
+    <dt class="csd-section-hdr">Armor</dt>
+    <dd>{{ variables.armor|ParseTable}}</dd>
+    {% endif %}
+  </div>
+  <div>
+    {% if variables.cybernetics is defined %}
+    <dt class="csd-section-hdr">Cybernetics</dt>
+    <dd>{{ variables.cybernetics}}</dd>
+    {% endif %}
+  </div>
+  <div>
+    {% if variables.skills is defined %}
+    <dt class="csd-section-hdr">Skills</dt>
+    <dd>{{ variables.skills}}</dd>
+    {% endif %}
+  </div>
+  <div>
+    {% if variables.possessions is defined %}
+    <dt class="csd-section-hdr">Possessions</dt>
+    <dd>{{ variables.possessions}}</dd>
+    {% endif %}
+  </div>
+</div>

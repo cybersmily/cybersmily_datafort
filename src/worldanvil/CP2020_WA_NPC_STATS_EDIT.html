@@ -1,0 +1,275 @@
+<div class="form-wrapper">
+  <div class="ibox">
+    <div class="ibox-content">
+      <label for="name" class="col-sm-2 control-label">
+        <h4 class="header-title">Name</h4>
+      </label>
+      <div class="col-sm-12">
+        <input
+          value="{{ variables.name is defined ? variables.name }}"
+          required="required"
+          class="form-control"
+          id="name"
+          name="name"
+          placeholder="The name of the Cyberpunk 2020 NPC"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="ibox">
+    <div class="ibox-content">
+      <label for="role" class="col-sm-2 control-label">
+        <h4 class="header-title">Role</h4>
+      </label>
+      <div class="col-sm-12">
+        <input
+          value="{{ variables.role is defined ? variables.role }}"
+          class="form-control mention"
+          id="role"
+          name="role"
+          placeholder=""
+          type="text"
+        />
+        <p class="description form-control-description"></p>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+      <label for="int" class="col-1 control-label d-inline-block">
+        <h4 class="header-title d-inline-block">INT</h4>
+      </label>
+      <div class="col-1">
+        <input
+          value="{{ variables.int is defined ? variables.int }}"
+          class="form-control d-inline-block"
+          id="int"
+          name="int"
+          placeholder=""
+          type="number"
+        />
+        <p class="description form-control-description"></p>
+      </div>
+      <label for="ref" class="col-1 control-label">
+        <h4 class="header-title">REF</h4>
+      </label>
+      <div class="col-1">
+        <input
+          value="{{ variables.ref is defined ? variables.ref }}"
+          class="form-control"
+          id="ref"
+          name="ref"
+          placeholder=""
+          type="number"
+        />
+        <p class="description form-control-description"></p>
+      </div>
+      <label for="tech" class="col-1 control-label">
+        <h4 class="header-title">TECH</h4>
+      </label>
+      <div class="col-1">
+        <input
+          value="{{ variables.tech is defined ? variables.tech }}"
+          class="form-control"
+          id="tech"
+          name="tech"
+          placeholder=""
+          type="number"
+        />
+        <p class="description form-control-description"></p>
+      </div>
+      <label for="cool" class="col-1 control-label">
+        <h4 class="header-title">COOL</h4>
+      </label>
+      <div class="col-1">
+        <input
+          value="{{ variables.cool is defined ? variables.cool }}"
+          class="form-control"
+          id="cool"
+          name="cool"
+          placeholder=""
+          type="number"
+        />
+        <p class="description form-control-description"></p>
+      </div>
+      <label for="attr" class="col-1 control-label">
+        <h4 class="header-title">ATTR</h4>
+      </label>
+      <div class="col-1">
+        <input
+          value="{{ variables.attr is defined ? variables.attr }}"
+          class="form-control"
+          id="attr"
+          name="attr"
+          placeholder=""
+          type="number"
+        />
+        <p class="description form-control-description"></p>
+      </div>
+      <label for="luck" class="col-1 control-label">
+        <h4 class="header-title">LUCK</h4>
+      </label>
+      <div class="col-1">
+        <input
+          value="{{ variables.luck is defined ? variables.luck }}"
+          class="form-control"
+          id="luck"
+          name="luck"
+          placeholder=""
+          type="number"
+        />
+        <p class="description form-control-description"></p>
+      </div>
+      <label for="ma" class="col-1 control-label">
+        <h4 class="header-title">MA</h4>
+      </label>
+      <div class="col-1">
+        <input
+          value="{{ variables.ma is defined ? variables.ma }}"
+          class="form-control"
+          id="ma"
+          name="ma"
+          placeholder=""
+          type="number"
+        />
+        <p class="description form-control-description"></p>
+      </div>
+      <label for="body" class="col-1 control-label">
+        <h4 class="header-title">BODY</h4>
+      </label>
+      <div class="col-1">
+        <input
+          value="{{ variables.body is defined ? variables.body }}"
+          class="form-control"
+          id="body"
+          name="body"
+          placeholder=""
+          type="number"
+        />
+        <p class="description form-control-description"></p>
+      </div>
+      <label for="emp" class="col-1 control-label">
+        <h4 class="header-title">EMP</h4>
+      </label>
+      <div class="col-1">
+        <input
+          value="{{ variables.emp is defined ? variables.emp }}"
+          class="form-control"
+          id="emp"
+          name="emp"
+          placeholder=""
+          type="number"
+        />
+        <p class="description form-control-description"></p>
+      </div>
+      <label for="btm" class="col-1 control-label">
+        <h4 class="header-title">BTM</h4>
+      </label>
+      <div class="col-1">
+        <input
+          value="{{ variables.btm is defined ? variables.btm }}"
+          class="form-control"
+          id="btm"
+          name="btm"
+          placeholder=""
+          type="number"
+        />
+        <p class="description form-control-description"></p>
+      </div>
+      <label for="wounds" class="col-1 control-label">
+        <h4 class="header-title">Wounds</h4>
+      </label>
+      <div class="col-1">
+        <input
+          value="{{ variables.wounds is defined ? variables.wounds }}"
+          class="form-control"
+          id="wounds"
+          name="wounds"
+          placeholder=""
+          type="number"
+        />
+        <p class="description form-control-description"></p>
+      </div>
+    </div>
+  </div>
+  <div class="ibox">
+    <div class="ibox-content">
+      <label for="armor" class="col-sm-2 control-label">
+        <h4 class="header-title">Armor</h4>
+      </label>
+      <div class="col-sm-12">
+        <textarea
+          class="form-control"
+          id="armor"
+          name="armor"
+          rows="6"
+          placeholder="Name|Damage
+Longsword|1d8
+Shortsword|1d6
+Dagger|1d4
+                                        "
+        >
+{{ variables.armor is defined ? variables.armor }}</textarea
+        >
+        <p class="description form-control-description"></p>
+      </div>
+    </div>
+  </div>
+  <div class="ibox">
+    <div class="ibox-content">
+      <label for="cybernetics" class="col-sm-2 control-label">
+        <h4 class="header-title">Cybernetics</h4>
+      </label>
+      <div class="col-sm-12">
+        <textarea
+          class="form-control mention"
+          id="cybernetics"
+          name="cybernetics"
+          rows="3"
+          placeholder=""
+        >
+{{ variables.cybernetics is defined ? variables.cybernetics }}</textarea
+        >
+        <p class="description form-control-description"></p>
+      </div>
+    </div>
+  </div>
+  <div class="ibox">
+    <div class="ibox-content">
+      <label for="skills" class="col-sm-2 control-label">
+        <h4 class="header-title">Skills</h4>
+      </label>
+      <div class="col-sm-12">
+        <textarea
+          class="form-control mention"
+          id="skills"
+          name="skills"
+          rows="3"
+          placeholder=""
+        >
+{{ variables.skills is defined ? variables.skills }}</textarea
+        >
+        <p class="description form-control-description"></p>
+      </div>
+    </div>
+  </div>
+  <div class="ibox">
+    <div class="ibox-content">
+      <label for="possessions" class="col-sm-2 control-label">
+        <h4 class="header-title">Possessions</h4>
+      </label>
+      <div class="col-sm-12">
+        <textarea
+          class="form-control mention"
+          id="possessions"
+          name="possessions"
+          rows="3"
+          placeholder=""
+        >
+{{ variables.possessions is defined ? variables.possessions }}</textarea
+        >
+        <p class="description form-control-description"></p>
+      </div>
+    </div>
+  </div>
+</div>

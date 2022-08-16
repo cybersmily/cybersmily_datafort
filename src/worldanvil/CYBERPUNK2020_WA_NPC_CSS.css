@@ -1,0 +1,61 @@
+.csd-stat {
+  width: 75px;
+  float: left;
+  display: inline-block;
+  position: relative;
+  margin-left: 3px;
+}
+
+.csd-name {
+  display: inline-block;
+  max-width: 50% !important;
+}
+
+.csd-role {
+  display: inline-block;
+}
+
+.csd-npc-stats {
+  background-color: #fff;
+  color: #000;
+  border: 1px black solid;
+  margin: 0px !important;
+  padding: 0px !important;
+  position: relative !important;
+}
+
+.csd-stat-block {
+  display: block;
+  clear: both;
+}
+
+.csd-armor {
+  clear: both;
+}
+
+.csd-section-hdr {
+  text-transform: uppercase;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  padding: 4px 8px;
+}
+
+div.csd-armor dd table tbody tr th {
+  background-color: black !important;
+  border: 1px black solid !important;
+  color: white !important;
+  font-size: 0.8em !important;
+  font-weight: normal !important;
+  [strike][/strike] font: arial !important;
+  padding: 0px !important;
+  text-align: center !important;
+}
+
+div.csd-armor dd table tbody tr td {
+  background-color: white !important;
+  border: 1px black solid !important;
+  color: black !important;
+  padding: 1px !important;
+  text-align: center !important;
+}
