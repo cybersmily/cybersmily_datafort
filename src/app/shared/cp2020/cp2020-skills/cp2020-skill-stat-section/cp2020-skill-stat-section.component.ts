@@ -67,9 +67,11 @@ export class Cp2020SkillStatSectionComponent implements OnInit, OnChanges {
   }
 
   get statName(): string {
-    return this.skills.length > 0 && this.skills[0].stat
+    return this.skills.length > 0 && this.skills[0].stat && !this.skills[0].isSA
       ? this.skills[0].stat.toLowerCase()
-      : '';
+      : this.skills[0].isSA
+      ? 'special abillity'
+      : 'other';
   }
 
   constructor(private modalService: BsModalService) {}

@@ -6,7 +6,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'cs-cp2020-skill-new',
   templateUrl: './cp2020-skill-new.component.html',
-  styleUrls: ['./cp2020-skill-new.component.css']
+  styleUrls: ['./cp2020-skill-new.component.css'],
 })
 export class Cp2020SkillNewComponent implements OnInit {
   faSave = faSave;
@@ -26,22 +26,42 @@ export class Cp2020SkillNewComponent implements OnInit {
 
   newMA: MartialBonuses;
 
-  constructor() { }
-
-  ngOnInit(): void {
-    this.currSkill =  new Cp2020PlayerSkill(this.skill);
+  get skillParents(): Array<string> {
+    switch (this.currSkill.stat) {
+      case 'int':
+        return ['Expert', 'Language'];
+      case 'ref':
+        return ['Martial Arts', 'Pilot'];
+      default:
+        return [];
+    }
   }
 
-  update(){
+  constructor() {}
+
+  ngOnInit(): void {
+    this.currSkill = new Cp2020PlayerSkill(this.skill);
+    console.log(this.stat);
+    if (
+      !this.stat.toLowerCase().startsWith('special') &&
+      this.stat.toLowerCase() !== 'other'
+    ) {
+      this.currSkill.stat = this.stat.toLowerCase();
+    }
+    if (this.stat.toLowerCase() === 'other') {
+      this.currSkill.name = 'Other';
+    }
+  }
+
+  update() {
     this.updateSkill.emit(this.currSkill);
   }
 
   toggleMA() {
-    if(this.currSkill.maBonuses) {
+    if (this.currSkill.maBonuses) {
       this.currSkill.maBonuses = undefined;
     } else {
       this.currSkill.maBonuses = new MartialBonuses();
     }
   }
-
 }

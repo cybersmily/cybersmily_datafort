@@ -1,61 +1,127 @@
 <div
-  [ngClass]="{'article': true, 'row': true, 'chargen-skill-is-role': currSkill.isRoleSkill,'chargen-skill-is-secodary ': currSkill.isSecondarySkill, 'chargen-role-choice': currSkill.roleChoice, 'chargen-skill': true}">
+  [ngClass]="{
+    article: true,
+    row: true,
+    'chargen-skill-is-role': currSkill.isRoleSkill,
+    'chargen-skill-is-secodary ': currSkill.isSecondarySkill,
+    'chargen-role-choice': currSkill.roleChoice,
+    'chargen-skill': true
+  }"
+>
   <div class="col-9 col-md-8 col-xl-9 pe-0 text-start">
-    <fa-icon [icon]="faDice" title="Click to Roll" (click)="onClick(chargenSkillRoll)"></fa-icon>
-    <button #skillNameElem [ngClass]="{'w-75 rounded skill-name csd-btn text-start': true, 'sa-name': sa }"
-      (click)="showModal(skillDetails,'skillName')" tabindex="0">
-      {{currSkill.name}}
-      <span *ngIf="currSkill.option">: {{currSkill.option}}</span>
-      <span *ngIf="currSkill.option === ''">: {{currSkill.option}}</span>
-      <span *ngIf="currSkill?.ipMod > 1" class="skill-name"> ({{currSkill.ipMod}})</span>
+    <fa-icon
+      [icon]="faDice"
+      title="Click to Roll"
+      (click)="onClick(chargenSkillRoll)"
+    ></fa-icon>
+    <button
+      #skillNameElem
+      [ngClass]="{
+        'w-75 rounded skill-name csd-btn text-start': true,
+        'sa-name': sa
+      }"
+      (click)="showModal(skillDetails, 'skillName')"
+      tabindex="0"
+    >
+      {{ currSkill.name }}
+      <span *ngIf="currSkill.option">: {{ currSkill.option }}</span>
+      <span *ngIf="currSkill.option === ''">: {{ currSkill.option }}</span>
+      <span *ngIf="currSkill?.ipMod > 1" class="skill-name">
+        ({{ currSkill.ipMod }})</span
+      >
     </button>
-    <span [ngClass]="{'d-none':sa, 'float-end': true}" title="Skill + Stat">
-      [{{ currSkill.value + ((stat)?stat.Adjusted:0 )}}]
+    <span [ngClass]="{ 'd-none': sa, 'float-end': true }" title="Skill + Stat">
+      [{{ currSkill.value + (stat ? stat.Adjusted : 0) }}]
     </span>
   </div>
   <div class="col-3 col-md-4 col-xl-3 ps-0">
     <span class="skill-inputs ms-1">
-      <input [(ngModel)]="currSkill.value" (change)="onChangeSkill()" min="0" max="10" type="number" title="Skill Value"
-        [ngClass]="{'me-1':true,'chargen-skill-input': true, 'chargen-skill-has-value': (currSkill.value > 0)}"
+      <input
+        [(ngModel)]="currSkill.value"
+        (change)="onChangeSkill()"
+        min="0"
+        max="10"
+        type="number"
+        title="Skill Value"
+        [ngClass]="{
+          'me-1': true,
+          'chargen-skill-input': true,
+          'chargen-skill-has-value': currSkill.value > 0
+        }"
         tabindex="0" />
-      <input [(ngModel)]="currSkill.ip" (change)="onChangeSkill()" min="0" max="1000" type="number" Title="SKill IP"
-        [ngClass]="{'me-1':true,'chargen-skill-input': true, 'chargen-skill-has-value': (currSkill.value > 0)}"
+      <input
+        [(ngModel)]="currSkill.ip"
+        (change)="onChangeSkill()"
+        min="0"
+        max="1000"
+        type="number"
+        Title="SKill IP"
+        [ngClass]="{
+          'me-1': true,
+          'chargen-skill-input': true,
+          'chargen-skill-has-value': currSkill.value > 0
+        }"
         tabindex="-1" />
-      <input [(ngModel)]="currSkill.chipped" type="checkbox" title="Skill is chipped?" [ngClass]="{'d-none':sa}"
-        (change)="onChangeSkill()" tabindex="-1"></span>
+      <input
+        [(ngModel)]="currSkill.chipped"
+        type="checkbox"
+        title="Skill is chipped?"
+        [ngClass]="{ 'd-none': sa }"
+        (change)="onChangeSkill()"
+        tabindex="-1"
+    /></span>
   </div>
 </div>
 
 <ng-template #chargenSkillRoll>
   <div class="modal-header">
-    <h4 class="modal-title float-start">{{currSkill.name}}{{(currSkill.option ? ': ' + currSkill.option : '')}} Dice
-      Roll
+    <h4 class="modal-title float-start">
+      {{ currSkill.name
+      }}{{ currSkill.option ? ": " + currSkill.option : "" }} Dice Roll
     </h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()"></button>
+    <button
+      type="button"
+      class="btn-close float-end"
+      aria-label="Close"
+      (click)="modalRef.hide()"
+    ></button>
   </div>
   <div class="modal-body">
     <div>
-      {{currSkill.value}}(skill) + <span *ngIf="stat">{{stat.Adjusted}}(stat) +</span> {{dieRoll}}(roll) +
-      {{modifierTotal}}(modifiers) = {{totalRoll}}
+      {{ currSkill.value }}(skill) +
+      <span *ngIf="stat">{{ stat.Adjusted }}(stat) +</span> {{ dieRoll }}(roll)
+      + {{ modifierTotal }}(modifiers) = {{ totalRoll }}
       total
     </div>
     <div>
-      {{rollMessage}}
+      {{ rollMessage }}
     </div>
   </div>
 </ng-template>
 
 <ng-template #skillDetails>
   <div class="modal-header">
-    <h4 class="modal-title float-start">{{currSkill.name}}</h4>
-    <button class="csd-btn csd-icon-btn csd-icon-xl ms-2" title="delete skill" (click)="deleteSkill()">
+    <h4 class="modal-title float-start">{{ currSkill.name }}</h4>
+    <button
+      class="csd-btn csd-icon-btn csd-icon-xl ms-2"
+      title="delete skill"
+      (click)="deleteSkill()"
+    >
       <fa-icon [icon]="faTrash"></fa-icon>
     </button>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
-    </button>
+    <button
+      type="button"
+      class="btn-close float-end"
+      aria-label="Close"
+      (click)="modalRef.hide()"
+    ></button>
   </div>
   <div class="modal-body">
-    <cs-cp2020-skill-editor [skill]="currSkill" [stat]="stat" (updateSkill)="onChangeSkill($event)">
+    <cs-cp2020-skill-editor
+      [skill]="currSkill"
+      [stat]="stat"
+      (updateSkill)="updateSkill($event)"
+    >
     </cs-cp2020-skill-editor>
   </div>
 </ng-template>

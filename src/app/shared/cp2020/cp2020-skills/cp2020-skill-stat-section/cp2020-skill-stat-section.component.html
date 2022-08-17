@@ -1,31 +1,61 @@
 <div class="row g-0 border border-dark mt-1">
   <div class="col-12">
-    <div class="chargen-skill-stat csd-btn" (click)="isCollapsed = !isCollapsed">
-      {{title}}
+    <div
+      class="chargen-skill-stat csd-btn"
+      (click)="isCollapsed = !isCollapsed"
+    >
+      {{ title }}
       <fa-icon [icon]="collapseArrow" class="csd-icon-btn ms-2"></fa-icon>
-
     </div>
   </div>
 </div>
 <div class="row g-0 border border-dark mb-1" [collapse]="isCollapsed">
   <div class="col">
     <div class="row g-0">
-      <div class="col-12 col-md-6 col-lg-4 order-1 ps-1 pe-1 border-lg border-dark">
-        <cs-cp2020-skill *ngFor="let skill of getColumnOne()" [skill]="skill" (changeSkill)="onChangeSkill($event)"
-          [stat]="stat" [sa]="spclAbility" (delete)="deleteCurrentSkill($event)"></cs-cp2020-skill>
+      <div
+        class="col-12 col-md-6 col-lg-4 order-1 ps-1 pe-1 border-lg border-dark"
+      >
+        <cs-cp2020-skill
+          *ngFor="let skill of getColumnOne()"
+          [skill]="skill"
+          (changeSkill)="onChangeSkill($event)"
+          [stat]="stat"
+          [sa]="spclAbility"
+          (delete)="deleteCurrentSkill($event)"
+        ></cs-cp2020-skill>
       </div>
-      <div class="col-12 col-md-6 order-2 order-md-3 order-lg-2 col-lg-4 ps-1 pe-1 border-lg border-dark">
-        <cs-cp2020-skill *ngFor="let skill of getColumnTwo()" [skill]="skill" (changeSkill)="onChangeSkill($event)"
-          [stat]="stat" [sa]="spclAbility" (delete)="deleteCurrentSkill($event)"></cs-cp2020-skill>
+      <div
+        class="col-12 col-md-6 order-2 order-md-3 order-lg-2 col-lg-4 ps-1 pe-1 border-lg border-dark"
+      >
+        <cs-cp2020-skill
+          *ngFor="let skill of getColumnTwo()"
+          [skill]="skill"
+          (changeSkill)="onChangeSkill($event)"
+          [stat]="stat"
+          [sa]="spclAbility"
+          (delete)="deleteCurrentSkill($event)"
+        ></cs-cp2020-skill>
       </div>
-      <div class="col-12 col-md-6 col-lg-4  order-3 order-md-2 order-lg-3 ps-1 pe-1 border-lg border-dark">
-        <cs-cp2020-skill *ngFor="let skill of getColumnThree()" [skill]="skill" (changeSkill)="onChangeSkill($event)"
-          [stat]="stat" [sa]="spclAbility" (delete)="deleteCurrentSkill($event)"></cs-cp2020-skill>
+      <div
+        class="col-12 col-md-6 col-lg-4 order-3 order-md-2 order-lg-3 ps-1 pe-1 border-lg border-dark"
+      >
+        <cs-cp2020-skill
+          *ngFor="let skill of getColumnThree()"
+          [skill]="skill"
+          (changeSkill)="onChangeSkill($event)"
+          [stat]="stat"
+          [sa]="spclAbility"
+          (delete)="deleteCurrentSkill($event)"
+        ></cs-cp2020-skill>
       </div>
     </div>
     <div *ngIf="showAddSkill" class="row">
       <div class="col text-center">
-        <button class="w-100 csd-btn csd-icon-btn" title="Add a new skill" (click)="showModal(newSkillTemplate)">
+        <button
+          class="w-100 csd-btn csd-icon-btn"
+          title="Add a new skill"
+          (click)="showModal(newSkillTemplate)"
+        >
           <fa-icon [icon]="faPlus" class="csd-icon-sm"></fa-icon>
         </button>
       </div>
@@ -33,12 +63,20 @@
   </div>
 </div>
 
-<ng-template #newSkillTemplate >
+<ng-template #newSkillTemplate>
   <div class="modal-header">
-    <h4 class="modal-title float-start">New {{title}} Skill</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()"></button>
+    <h4 class="modal-title float-start">New {{ title }} Skill</h4>
+    <button
+      type="button"
+      class="btn-close float-end"
+      aria-label="Close"
+      (click)="modalRef.hide()"
+    ></button>
   </div>
   <div class="modal-body">
-    <cs-cp2020-skill-new [stat]="statName" (updateSkill)="addNewSkill($event)" ></cs-cp2020-skill-new>
+    <cs-cp2020-skill-new
+      [stat]="statName"
+      (updateSkill)="addNewSkill($event)"
+    ></cs-cp2020-skill-new>
   </div>
 </ng-template>
