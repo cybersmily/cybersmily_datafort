@@ -11,5 +11,7 @@
 {"title":"NCPoliceDept."   ,"src":"/assets/ncjpgs/NCPD.JPG"             ,"thumbnail":"/img/dlow/th_NCPD.JPG"             },
 {"title":"NCGangs"         ,"src":"/assets/ncjpgs/NCGangs.JPG"          ,"thumbnail":"/img/dlow/th_NCGangs.JPG"          },
 {"title":"NCParking"       ,"src":"/assets/ncjpgs/NC-Parking-AVFac.JPG" ,"thumbnail":"/img/dlow/th_NC-Parking-AVFac.JPG" },
-{"title":"NCDistricts"     ,"src":"/assets/ncjpgs/NCDistricts.JPG"      ,"thumbnail":"/img/dlow/th_NCDistricts.JPG"      }
+{"title":"NCDistricts"     ,"src":"/assets/ncjpgs/NCDistricts.JPG"      ,"thumbnail":"/img/dlow/th_NCDistricts.JPG"      },
+{"title":"OrbitalMap"     ,"src":"/assets/othermaps/orbital_map_new.jpg","thumbnail":"/assets/othermaps/th_orbital_map_new.jpg"      }
+
 ]

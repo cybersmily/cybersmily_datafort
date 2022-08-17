@@ -412,6 +412,13 @@ export class TopNavLinks {
           target: 'self',
         },
         {
+          title: 'A Night to Remember - short story',
+          link: 'assets/anighttoremember.pdf',
+          desc: 'This is a short story about one of my characters/NPCs in the time of the Red.',
+          download: 'anighttoremember.pdf',
+          target: 'self',
+        },
+        {
           title: 'CC3+ NC Maps',
           link: 'dlow/cc3',
           desc: 'Campaign Cartographer files for Night City during 2020.',

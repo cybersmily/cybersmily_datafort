@@ -1,4 +1,11 @@
 [
+    {
+    "name":"Bio Tech Research Facility",
+    "desc":"This a one story complex with some labortories for a bio tech firm I used in my game, Ether Technologies.",
+    "img": "biotech-lab",
+    "imgSize": "1800x1800",
+    "cc3": "biotech-lab"
+  },
   {
     "name":"The Night Owl",
     "desc":"This is my take on the floorplan for the Night Owl nightclub mentioned in Night City sourcebook, pg. 116. However, unlike the description being a bar on the top floor of the hotel, I have a dance floor. What top floor hotel bar wouldn't?",
