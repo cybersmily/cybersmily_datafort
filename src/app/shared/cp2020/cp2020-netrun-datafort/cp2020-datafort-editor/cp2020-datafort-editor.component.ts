@@ -1,7 +1,14 @@
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Cp2020Program } from './../../cp2020-netrun-gear/models/cp2020-program';
 import { KeyValue } from '@angular/common';
-import { faChevronDown, faChevronRight, faDice, faPen, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
+import {
+  faChevronDown,
+  faChevronRight,
+  faDice,
+  faPen,
+  faTrash,
+  faPlus,
+} from '@fortawesome/free-solid-svg-icons';
 import { NrNodeType } from './../enums/nr-node-type';
 import { NrMapDefaults } from '../enums/nr-map-defaults';
 import { Cp2020NrDatafort } from './../models/cp2020-nr-datafort';
@@ -12,7 +19,7 @@ import { NrDatafortRefData } from '../models/nr-datafort-ref-data';
 @Component({
   selector: 'cs-cp2020-datafort-editor',
   templateUrl: './cp2020-datafort-editor.component.html',
-  styleUrls: ['./cp2020-datafort-editor.component.css']
+  styleUrls: ['./cp2020-datafort-editor.component.css'],
 })
 export class Cp2020DatafortEditorComponent implements OnInit {
   faChevronDown = faChevronDown;
@@ -24,7 +31,7 @@ export class Cp2020DatafortEditorComponent implements OnInit {
   modalRef: BsModalRef;
   config = {
     keyboard: true,
-    class: 'modal-dialog-centered modal-lg'
+    class: 'modal-dialog-centered modal-lg',
   };
 
   NrNodeType = NrNodeType;
@@ -38,22 +45,27 @@ export class Cp2020DatafortEditorComponent implements OnInit {
   isDefensesCollapsed = true;
   isNotesCollapsed = true;
 
-  newSkill: KeyValue<string, number> = {key: '', value: 4};
+  newSkill: KeyValue<string, number> = { key: '', value: 4 };
   selectedProgram: Cp2020Program = new Cp2020Program();
   selectedProgramIndex = -1;
 
   @Input()
   cp2020DatafortRefData: NrDatafortRefData;
 
-  constructor(private datafortBuilderService: Cp2020DatafortBuilderService, private modalService: BsModalService) { }
+  constructor(
+    private datafortBuilderService: Cp2020DatafortBuilderService,
+    private modalService: BsModalService
+  ) {}
 
   get usedFileCount(): number {
-    return this.currDatafort.mu.filter(mu => mu.key !== '').length;
+    return this.currDatafort.mu.filter((mu) => mu.key !== '').length;
   }
 
   ngOnInit(): void {
-    this.datafortBuilderService.datafort.subscribe(datafort => {
+    this.datafortBuilderService.datafort.subscribe((datafort) => {
+      console.log(datafort);
       this.currDatafort = new Cp2020NrDatafort(datafort);
+      console.log(this.currDatafort);
     });
   }
 
@@ -63,10 +75,10 @@ export class Cp2020DatafortEditorComponent implements OnInit {
 
   addSkill() {
     this.datafortBuilderService.addSkill(this.newSkill);
-    this.newSkill = {key: '', value: 4};
+    this.newSkill = { key: '', value: 4 };
   }
 
-  removeRemote(index:number) {
+  removeRemote(index: number) {
     this.datafortBuilderService.removeRemoteByIndex(index);
   }
 
@@ -83,17 +95,20 @@ export class Cp2020DatafortEditorComponent implements OnInit {
 
   updateProgram(program: Cp2020Program) {
     if (this.selectedProgramIndex > -1) {
-      this.currDatafort.defenses[this.selectedProgramIndex].program = new Cp2020Program(program);
+      this.currDatafort.defenses[this.selectedProgramIndex].program =
+        new Cp2020Program(program);
       this.update();
     }
     this.selectedProgramIndex = -1;
     this.selectedProgram = new Cp2020Program();
   }
 
-  showSelected(index: number, template:TemplateRef<any>) {
-    if( index > -1 && index < this.currDatafort.defenses.length) {
+  showSelected(index: number, template: TemplateRef<any>) {
+    if (index > -1 && index < this.currDatafort.defenses.length) {
       this.selectedProgramIndex = index;
-      this.selectedProgram = new Cp2020Program(this.currDatafort.defenses[index].program);
+      this.selectedProgram = new Cp2020Program(
+        this.currDatafort.defenses[index].program
+      );
       this.modalRef = this.modalService.show(template, this.config);
     }
   }

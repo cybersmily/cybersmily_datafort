@@ -11,7 +11,7 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'cs-cp2020-datafort-map',
   templateUrl: './cp2020-datafort-map.component.html',
-  styleUrls: ['./cp2020-datafort-map.component.css']
+  styleUrls: ['./cp2020-datafort-map.component.css'],
 })
 export class Cp2020DatafortMapComponent implements OnInit {
   NrNodeIcons = NrNodeIcons;
@@ -23,14 +23,17 @@ export class Cp2020DatafortMapComponent implements OnInit {
   svgWidth = 100;
   svgHeight = 100;
 
-  constructor(private datafortBuilderService: Cp2020DatafortBuilderService, private sanitizer: DomSanitizer) { }
+  constructor(
+    private datafortBuilderService: Cp2020DatafortBuilderService,
+    private sanitizer: DomSanitizer
+  ) {}
 
   get gridSize(): number {
     return NrMapDefaults.GRID_SIZE * this.scale;
   }
 
   get quarterGrid(): number {
-    return Math.floor(this.gridSize/4) ;
+    return Math.floor(this.gridSize / 4);
   }
 
   trashX(x: number, gridSize: number): number {
@@ -42,12 +45,12 @@ export class Cp2020DatafortMapComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.datafortBuilderService.datafort.subscribe(datafort => {
+    this.datafortBuilderService.datafort.subscribe((datafort) => {
       this.currDatafort = new Cp2020NrDatafort(datafort);
-      this.grid = new Array()
-      for(let row = 0; row < this.currDatafort.rows; row++) {
+      this.grid = new Array();
+      for (let row = 0; row < this.currDatafort.rows; row++) {
         const rowArray = new Array();
-        for(let col = 0; col < this.currDatafort.columns; col++) {
+        for (let col = 0; col < this.currDatafort.columns; col++) {
           rowArray.push(col);
         }
         this.grid.push(rowArray);
@@ -61,7 +64,7 @@ export class Cp2020DatafortMapComponent implements OnInit {
     this.datafortBuilderService.updateNode(x, y);
   }
 
-  removeDatawall(x:  number, y: number) {
+  removeDatawall(x: number, y: number) {
     this.datafortBuilderService.removeDataWall(x, y);
   }
 
@@ -90,7 +93,7 @@ export class Cp2020DatafortMapComponent implements OnInit {
   }
 
   getRemoteIcon(type: NrNodeType): string {
-    switch(type) {
+    switch (type) {
       case NrNodeType.ALARM:
         return NrNodeIcons.ALARM;
       case NrNodeType.AUTOFACTORY:
@@ -121,5 +124,4 @@ export class Cp2020DatafortMapComponent implements OnInit {
         return '';
     }
   }
-
 }

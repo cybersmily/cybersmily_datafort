@@ -1,31 +1,69 @@
 <div class="row">
   <div class="col-12 col-lg-4">
-    <cs-cp2020-datafort-editor [cp2020DatafortRefData]="datafortRefData"></cs-cp2020-datafort-editor>
+    <cs-cp2020-datafort-editor
+      [cp2020DatafortRefData]="datafortRefData"
+    ></cs-cp2020-datafort-editor>
   </div>
   <div class="col-12 col-lg-8 csd-rounded">
     <div class="row">
       <div class="col align-middle">
-        <fa-icon [icon]="faRedo" class="float-start csd-btn csd-icon-btn csd-icon-xl me-2"
-          title="Reset the datafort with a new one." (click)="reset()"></fa-icon>
+        <fa-icon
+          [icon]="faRedo"
+          class="float-start csd-btn csd-icon-btn csd-icon-xl me-2"
+          title="Reset the datafort with a new one."
+          (click)="reset()"
+        ></fa-icon>
 
-        <fa-icon [icon]="faDice" class="float-start csd-btn csd-icon-btn csd-icon-xl me-2"
-          title="Randomly generate the datafort." (click)="generate()"></fa-icon>
+        <fa-icon
+          [icon]="faDice"
+          class="float-start csd-btn csd-icon-btn csd-icon-xl me-2"
+          title="Randomly generate the datafort."
+          (click)="generate()"
+        ></fa-icon>
 
-        <fa-icon [icon]="faFileImage" class="float-end csd-btn csd-icon-btn csd-icon-xl me-2"
-        title="Save as a PNG." (click)="printPNG()"></fa-icon>
+        <fa-icon
+          [icon]="faFileImage"
+          class="float-end csd-btn csd-icon-btn csd-icon-xl me-2"
+          title="Save as a PNG."
+          (click)="printPNG()"
+        ></fa-icon>
 
-        <fa-icon [icon]="faImage" class="float-end csd-btn csd-icon-btn csd-icon-xl me-2"
-        title="Save as a SVG file." (click)="printSVG()"></fa-icon>
+        <fa-icon
+          [icon]="faImage"
+          class="float-end csd-btn csd-icon-btn csd-icon-xl me-2"
+          title="Save as a SVG file."
+          (click)="printSVG()"
+        ></fa-icon>
 
-        <input type="file" id="loadFile" title="load a datafort .json file" name="Load" Style="display: none"
-        (change)="uploadJSON($event)" #inputFile (click)="inputFile.value = null" accept="text/plain;text/json" />
-        <label for="loadFile" class="csd-btn float-end csd-icon-btn csd-icon-xl me-2">
-          <fa-icon [icon]="faUpload" title="load a datafort .json file"></fa-icon>
+        <input
+          type="file"
+          id="loadFile"
+          title="load a datafort .json file"
+          name="Load"
+          Style="display: none"
+          (change)="uploadJSON($event)"
+          #inputFile
+          (click)="inputFile.value = null"
+          accept="text/plain;text/json"
+        />
+        <label
+          for="loadFile"
+          class="csd-btn float-end csd-icon-btn csd-icon-xl me-2"
+        >
+          <fa-icon
+            [icon]="faUpload"
+            title="load a datafort .json file"
+          ></fa-icon>
         </label>
-        <fa-icon [icon]="faSave" class="float-end csd-btn csd-icon-btn csd-icon-xl me-2"
-          title="Reset the datafort with a new one." (click)="saveJSON()"></fa-icon>
-        <div class="d-inline-block float-end h-100 me-2 mt-2" >Include data in image files?
-          <input type="checkbox" [(ngModel)]="includeData">
+        <fa-icon
+          [icon]="faSave"
+          class="float-end csd-btn csd-icon-btn csd-icon-xl me-2"
+          title="Save the datafort to a JSON file."
+          (click)="saveJSON()"
+        ></fa-icon>
+        <div class="d-inline-block float-end h-100 me-2 mt-2">
+          Include data in image files?
+          <input type="checkbox" [(ngModel)]="includeData" />
         </div>
       </div>
     </div>
@@ -35,7 +73,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col ">
+      <div class="col">
         <cs-cp2020-datafort-map></cs-cp2020-datafort-map>
       </div>
     </div>
