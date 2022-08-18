@@ -1,3 +1,4 @@
+import { first } from 'rxjs';
 import { NrDatafort } from './../models/nr-datafort';
 import { Cp2020DatafortRandomGeneratorService } from './../services/cp2020-datafort-random-generator.service';
 import { Cp2020DatafortSvgBuilderService } from './../services/cp2020-datafort-svg-builder.service';
@@ -73,8 +74,10 @@ export class Cp2020DatafortFormComponent implements OnInit {
   }
 
   generate() {
-    const df = this.randomGeneratorService.generate(this.datafortRefData);
-    this.datafortBuilderService.update(df);
+    this.randomGeneratorService
+      .generate(this.datafortRefData)
+      .pipe(first())
+      .subscribe((datafort) => this.datafortBuilderService.update(datafort));
   }
 
   printPNG() {
