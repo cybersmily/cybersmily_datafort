@@ -11,20 +11,22 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class Cp2020ProgramDataService {
-  private _classes: Array<ProgramOption> = new Array<ProgramOption>();
-  private _options: Array<ProgramOption> = new Array<ProgramOption>();
-  private _programs: Array<Cp2020Program> = new Array<Cp2020Program>();
+  private _classes: Array<ProgramOption>;
+  private _options: Array<ProgramOption>;
+  private _programs: Array<Cp2020Program>;
 
   constructor(private dataService: DataService) {}
 
   get cp2020Programs(): Observable<Array<Cp2020Program>> {
-    if (this._programs === null) {
+    if (!this._programs) {
       return this._setData().pipe(
         map((data) => {
+          console.log('refPrograms', this._programs);
           return this._programs;
         })
       );
     }
+    console.log('refPrograms', this._programs);
     return of(this._programs);
   }
 
@@ -55,6 +57,7 @@ export class Cp2020ProgramDataService {
       .GetJson<ProgramData>(JsonDataFiles.CP2020_PROGRAM_DATA_JSON)
       .pipe(
         map((data) => {
+          console.log('program data json', data);
           this._classes = data.classes;
           this._options = data.options;
           this._programs = this._createProgramList(
@@ -70,14 +73,18 @@ export class Cp2020ProgramDataService {
     programs: Array<Program>,
     classes: Array<ProgramOption>
   ): Array<Cp2020Program> {
-    return programs.map((prog) => {
+    return programs.map((prog: any) => {
       const cls = {
         ...classes.find(
-          (c) => c.name.toLowerCase() === prog.name.toLowerCase()
+          (c) => c.name.toLowerCase() === prog.class?.toLowerCase()
         ),
       };
+      const opts = prog.options?.map((opt: string) =>
+        this._options.find((o) => o.name.toLowerCase() === opt.toLowerCase())
+      );
       const program = new Cp2020Program(prog);
       program.class = cls;
+      program.options = [...opts];
       return program;
     });
   }

@@ -97,8 +97,6 @@ export class Cp2020Program implements Program {
 
   get diff(): number {
     let diff: number = this.class.diff ? this.class.diff : 0;
-    console.log('diff', diff);
-    console.log('class', this.class);
     diff += this.strength;
     if (this.options.length > 0) {
       diff += this.options.reduce((a, b) => a + b.diff, 0);

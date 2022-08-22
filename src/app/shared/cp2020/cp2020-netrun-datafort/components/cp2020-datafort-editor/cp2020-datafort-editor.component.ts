@@ -61,9 +61,7 @@ export class Cp2020DatafortEditorComponent implements OnInit {
 
   ngOnInit(): void {
     this.datafortBuilderService.datafort.subscribe((datafort) => {
-      console.log(datafort);
       this.currDatafort = new Cp2020NrDatafort(datafort);
-      console.log(this.currDatafort);
     });
   }
 

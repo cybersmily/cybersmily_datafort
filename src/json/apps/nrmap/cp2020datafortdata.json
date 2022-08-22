@@ -60,7 +60,7 @@
     "detection_alarm": [
       { "name": "Watchdog" , "weight": 2},
       { "name": "Bloodhound" , "weight": 2},
-      { "name": "Pitbull" , "weight": 2}
+      { "name": "Pit Bull" , "weight": 2}
     ],
     "anti_ic": [
       { "name": "Killer II" , "weight": 2},
@@ -73,7 +73,7 @@
       { "name": "Flatline" , "weight": 1},
       { "name": "Poison Flatline" , "weight": 1},
       { "name": "Krash" , "weight": 1},
-      { "name": "Viral15" , "weight": 1},
+      { "name": "Viral 15" , "weight": 1},
       { "name": "DecKrash" , "weight": 1},
       { "name": "Murphy" , "weight": 1}
     ],

@@ -1,3 +1,4 @@
+import { Cp2020ProgramDataService } from './../../../cp2020-netrun-gear/services';
 import { Observable, of, map } from 'rxjs';
 import { NrDatafortDefense } from '../../models/nr-datafort-defense';
 import { KeyValue } from '@angular/common';
@@ -17,22 +18,20 @@ import { NrDatafortCodegate } from '../../models/nr-datafort-codegate';
 })
 export class Cp2020DatafortRandomGeneratorService {
   private _progList: Array<any> = null;
+
   constructor(
     private diceService: DiceService,
-    private dataService: DataService
+    private programDataService: Cp2020ProgramDataService
   ) {}
 
   generate(refData: NrDatafortRefData): Observable<Cp2020NrDatafort> {
     if (this._progList === null) {
-      return this.dataService
-        .GetJson<Array<Program>>(JsonDataFiles.CP2020_PROGRAM_LIST_JSON)
-        .pipe(
-          map((progList) => {
-            console.log(progList);
-            this._progList = progList;
-            return this.createDataFort(refData, this._progList);
-          })
-        );
+      return this.programDataService.cp2020Programs.pipe(
+        map((progList) => {
+          this._progList = progList;
+          return this.createDataFort(refData, this._progList);
+        })
+      );
     }
     return of(this.createDataFort(refData, this._progList));
   }
@@ -80,9 +79,9 @@ export class Cp2020DatafortRandomGeneratorService {
     icon: string;
   } {
     // has AI
-    const aiPersonalityChart = this.createChart(refData.ai.personalities);
-    const aiReactionChart = this.createChart(refData.ai.reactions);
-    const aiIconChart = this.createChart(refData.ai.icons);
+    const aiPersonalityChart = this.createChart(refData?.ai?.personalities);
+    const aiReactionChart = this.createChart(refData?.ai?.reactions);
+    const aiIconChart = this.createChart(refData?.ai?.icons);
     const ai = { personality: '', reaction: '', icon: '' };
     let die = this.diceService.generateNumber(0, aiPersonalityChart.length - 1);
     ai.personality = aiPersonalityChart[die];
@@ -161,6 +160,7 @@ export class Cp2020DatafortRandomGeneratorService {
         program: new Cp2020Program(),
         coord: refData.defenseLayout[layout][i],
       };
+      console.log(result);
       const index = programData.findIndex(
         (prog) => prog.name.toLowerCase() === result.name.toLowerCase()
       );
@@ -169,7 +169,6 @@ export class Cp2020DatafortRandomGeneratorService {
       }
       programList.push(result);
     }
-
     return programList;
   }
 
