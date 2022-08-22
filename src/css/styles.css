@@ -5,6 +5,23 @@ Body {
   background-attachment: fixed;
 }
 
+.popover {
+  position: absolute;
+  top: 0;
+  left: 0
+}
+
+.popover-arrow {
+  position: absolute;
+}
+
+.tooltip {
+  position: absolute;
+}
+
+.tooltip-arrow {
+  position: absolute;
+}
 
 
 .container {
