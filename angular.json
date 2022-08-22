@@ -33,7 +33,9 @@
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/css/styles.css",
-              "src/css/modal.css"
+              "src/css/modal.css",
+              "src/css/bootstrap-overrides.css",
+              "src/css/print-styles.css"
             ],
             "scripts": []
           },

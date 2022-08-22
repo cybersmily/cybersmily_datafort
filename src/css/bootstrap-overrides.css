@@ -1,0 +1,50 @@
+.container {
+  background-color: white;
+  background-attachment: fixed;
+  padding-bottom: 0.4em;
+  padding-top: 0.5em;
+  min-height: 350px;
+  -webkit-border-top-left-radius: .5em !important;
+  -webkit-border-bottom-left-radius: .5em !important;
+  -moz-border-radius-topleft: .5em !important;
+  -moz-border-radius-bottomleft: .5em !important;
+  border-top-left-radius: 0.5em !important;
+  border-bottom-left-radius: 0.5em !important;
+  -webkit-border-top-right-radius: .5em !important;
+  -webkit-border-bottom-right-radius: .5em !important;
+  -moz-border-radius-topright: .5em !important;
+  -moz-border-radius-bottomright: .5em !important;
+  border-top-right-radius: 0.5em !important;
+  border-bottom-right-radius: 0.5em !important;
+}
+
+.navbar .mega-dropdown .dropdown-menu.mega-menu {
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+  ;
+}
+
+.nav-link {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.popover {
+  position: absolute;
+  top: 0;
+  left: 0
+}
+
+.popover-arrow {
+  position: absolute;
+}
+
+.tooltip {
+  position: absolute;
+}
+
+.tooltip-arrow {
+  position: absolute;
+}
