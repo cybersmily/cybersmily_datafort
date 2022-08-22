@@ -160,7 +160,6 @@ export class Cp2020DatafortRandomGeneratorService {
         program: new Cp2020Program(),
         coord: refData.defenseLayout[layout][i],
       };
-      console.log(result);
       const index = programData.findIndex(
         (prog) => prog.name.toLowerCase() === result.name.toLowerCase()
       );

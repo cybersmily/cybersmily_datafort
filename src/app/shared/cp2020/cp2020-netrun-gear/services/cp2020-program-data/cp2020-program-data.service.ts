@@ -21,12 +21,10 @@ export class Cp2020ProgramDataService {
     if (!this._programs) {
       return this._setData().pipe(
         map((data) => {
-          console.log('refPrograms', this._programs);
           return this._programs;
         })
       );
     }
-    console.log('refPrograms', this._programs);
     return of(this._programs);
   }
 
@@ -57,7 +55,6 @@ export class Cp2020ProgramDataService {
       .GetJson<ProgramData>(JsonDataFiles.CP2020_PROGRAM_DATA_JSON)
       .pipe(
         map((data) => {
-          console.log('program data json', data);
           this._classes = data.classes;
           this._options = data.options;
           this._programs = this._createProgramList(

@@ -51,7 +51,6 @@ export class ArmorGeneratorService {
         settings?.armor == ArmorSettingsChoices.both
           ? dice.generateNumber(0, 1) === 1
           : settings.armor == ArmorSettingsChoices.armor;
-      console.log('armor', armor);
       if (canBeArmor && armor.clothes.loc !== '') {
         const spValues = clothingLists.armorChart.filter(
           (item) => item.mod[armor.clothes.wt]

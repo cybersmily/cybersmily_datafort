@@ -41,7 +41,6 @@ export class Cp2020SkillNewComponent implements OnInit {
 
   ngOnInit(): void {
     this.currSkill = new Cp2020PlayerSkill(this.skill);
-    console.log(this.stat);
     if (
       !this.stat.toLowerCase().startsWith('special') &&
       this.stat.toLowerCase() !== 'other'
