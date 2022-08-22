@@ -13,11 +13,18 @@ export class Cp2020Program implements Program {
   bookCost?: number;
 
   constructor(param?: any) {
-    console.log(param);
     this.name = param?.name ?? '';
     this.description = param?.description ?? '';
     this.icon = param?.icon ?? '';
-    this.class = param?.class ?? {};
+    if (typeof param?.class === 'string') {
+      this.class = {
+        name: param?.class,
+        diff: param?.diff ?? 0,
+        description: '',
+      };
+    } else {
+      this.class = param?.class ?? {};
+    }
     this.options = param?.options ?? new Array<ProgramOption>();
     this.loaded = param?.loaded ?? false;
     this._str = param
@@ -90,6 +97,8 @@ export class Cp2020Program implements Program {
 
   get diff(): number {
     let diff: number = this.class.diff ? this.class.diff : 0;
+    console.log('diff', diff);
+    console.log('class', this.class);
     diff += this.strength;
     if (this.options.length > 0) {
       diff += this.options.reduce((a, b) => a + b.diff, 0);

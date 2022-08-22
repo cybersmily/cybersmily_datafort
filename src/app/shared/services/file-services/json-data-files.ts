@@ -55,7 +55,7 @@ export class JsonDataFiles {
   public static CP_HEADLINES_JSON = '/json/apps/headlines.json';
 
   public static CP2020_DRUG_EFFECTS_JSON = `/json/apps/rxlab/rxeffects.json`;
-  public static CP2020_PROGRAM_OPTIONS_JSON = `/json/apps/nrmap/program.json`;
+  public static CP2020_PROGRAM_DATA_JSON = `/json/apps/nrmap/cp2020-program-data.json`;
   public static CP2020_DECK_DATA_JSON = '/json/apps/nrmap/nrdeckdata.json';
   public static CP2020_CYBERDECK_LIST_JSON =
     '/json/apps/nrmap/cp2020decks.json';

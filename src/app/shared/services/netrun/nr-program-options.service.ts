@@ -46,7 +46,7 @@ export class NrProgramOptionsService {
       .GetJson<{
         classes: Array<ProgramOption>;
         options: Array<ProgramOption>;
-      }>(JsonDataFiles.CP2020_PROGRAM_OPTIONS_JSON)
+      }>(JsonDataFiles.CP2020_PROGRAM_DATA_JSON)
       .pipe(
         map((data) => {
           this._classes = data.classes;
