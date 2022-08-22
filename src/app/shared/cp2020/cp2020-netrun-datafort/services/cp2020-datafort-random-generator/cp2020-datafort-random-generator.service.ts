@@ -1,16 +1,16 @@
 import { Observable, of, map } from 'rxjs';
-import { NrDatafortDefense } from './../models/nr-datafort-defense';
+import { NrDatafortDefense } from '../../models/nr-datafort-defense';
 import { KeyValue } from '@angular/common';
-import { JsonDataFiles } from './../../../services/file-services/json-data-files';
-import { DataService } from './../../../services/file-services/dataservice/data.service';
-import { NrDatafortRefDataProgram } from './../models/nr-datafort-ref-data-program';
-import { Cp2020Program, Program } from './../../cp2020-netrun-gear/models';
-import { Cp2020NrDatafort } from './../models/cp2020-nr-datafort';
-import { DiceService } from './../../../services/dice/dice.service';
+import { JsonDataFiles } from '../../../../services/file-services/json-data-files';
+import { DataService } from '../../../../services/file-services/dataservice/data.service';
+import { NrDatafortRefDataProgram } from '../../models/nr-datafort-ref-data-program';
+import { Cp2020Program, Program } from '../../../cp2020-netrun-gear/models';
+import { Cp2020NrDatafort } from '../../models/cp2020-nr-datafort';
+import { DiceService } from '../../../../services/dice/dice.service';
 import { Injectable } from '@angular/core';
-import { NrDatafortRefData } from '../models/nr-datafort-ref-data';
-import { NrDatafortRefDataEntry } from '../models/nr-datafort-ref-data-entry';
-import { NrDatafortCodegate } from '../models/nr-datafort-codegate';
+import { NrDatafortRefData } from '../../models/nr-datafort-ref-data';
+import { NrDatafortRefDataEntry } from '../../models/nr-datafort-ref-data-entry';
+import { NrDatafortCodegate } from '../../models/nr-datafort-codegate';
 
 @Injectable({
   providedIn: 'root',

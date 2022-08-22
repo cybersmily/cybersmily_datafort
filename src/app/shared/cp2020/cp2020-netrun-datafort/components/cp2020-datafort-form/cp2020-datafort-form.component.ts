@@ -1,11 +1,13 @@
 import { first } from 'rxjs';
-import { NrDatafort } from './../models/nr-datafort';
-import { Cp2020DatafortRandomGeneratorService } from './../services/cp2020-datafort-random-generator.service';
-import { Cp2020DatafortSvgBuilderService } from './../services/cp2020-datafort-svg-builder.service';
-import { NrMapDefaults } from './../enums/nr-map-defaults';
-import { Cp2020NrDatafort } from './../models/cp2020-nr-datafort';
-import { SaveFileService } from './../../../services/file-services/save-file/save-file.service';
-import { FileLoaderService } from './../../../services/file-services/file-loader/file-loader.service';
+import { NrDatafort } from '../../models/nr-datafort';
+import { NrMapDefaults } from '../../enums/nr-map-defaults';
+import { Cp2020NrDatafort } from '../../models/cp2020-nr-datafort';
+import {
+  SaveFileService,
+  FileLoaderService,
+  DataService,
+  Cp2020AppFiles,
+} from '../../../../services/file-services';
 import {
   faRedo,
   faSave,
@@ -15,11 +17,13 @@ import {
   faDice,
   faFileImage,
 } from '@fortawesome/free-solid-svg-icons';
-import { Cp2020DatafortBuilderService } from './../services/cp2020-datafort-builder.service';
-import { Cp2020AppFiles } from './../../../services/file-services/enum/cp2020-app-files';
-import { DataService } from './../../../services/file-services/dataservice/data.service';
+import {
+  Cp2020DatafortBuilderService,
+  Cp2020DatafortRandomGeneratorService,
+  Cp2020DatafortSvgBuilderService,
+} from '../../services';
 import { Component, OnInit } from '@angular/core';
-import { NrDatafortRefData } from '../models/nr-datafort-ref-data';
+import { NrDatafortRefData } from '../../models/nr-datafort-ref-data';
 
 @Component({
   selector: 'cs-cp2020-datafort-form',

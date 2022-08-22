@@ -1,11 +1,8 @@
-import { Coord } from './../../../models/coord';
-import { VehicleBase } from './../../cp2020-vehicles/models/vehicle-base';
-import { NrNodeType } from './../enums/nr-node-type';
+import { Coord } from '../../../../models/coord';
+import { NrNodeType, NrMapDefaults, NrNodeIcons } from '../../enums';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { NrNodeIcons } from './../enums/nr-node-icons';
-import { Cp2020DatafortBuilderService } from './../services/cp2020-datafort-builder.service';
-import { NrMapDefaults } from '../enums/nr-map-defaults';
-import { Cp2020NrDatafort } from './../models/cp2020-nr-datafort';
+import { Cp2020DatafortBuilderService } from '../../services';
+import { Cp2020NrDatafort } from '../../models';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({

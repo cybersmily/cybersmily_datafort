@@ -1,5 +1,5 @@
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { Cp2020Program } from './../../cp2020-netrun-gear/models/cp2020-program';
+import { Cp2020Program } from '../../../cp2020-netrun-gear/models/cp2020-program';
 import { KeyValue } from '@angular/common';
 import {
   faChevronDown,
@@ -9,12 +9,10 @@ import {
   faTrash,
   faPlus,
 } from '@fortawesome/free-solid-svg-icons';
-import { NrNodeType } from './../enums/nr-node-type';
-import { NrMapDefaults } from '../enums/nr-map-defaults';
-import { Cp2020NrDatafort } from './../models/cp2020-nr-datafort';
-import { Cp2020DatafortBuilderService } from './../services/cp2020-datafort-builder.service';
+import { NrNodeType, NrMapDefaults } from '../../enums';
+import { Cp2020DatafortBuilderService } from '../../services';
 import { Component, Input, OnInit, TemplateRef } from '@angular/core';
-import { NrDatafortRefData } from '../models/nr-datafort-ref-data';
+import { NrDatafortRefData, Cp2020NrDatafort } from '../../models';
 
 @Component({
   selector: 'cs-cp2020-datafort-editor',
