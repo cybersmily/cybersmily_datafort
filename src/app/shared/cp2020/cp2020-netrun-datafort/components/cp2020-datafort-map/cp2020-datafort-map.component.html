@@ -1,114 +1,340 @@
 <div class="cs-nr-datafort-map-container">
-  <svg [attr.width]="svgWidth" [attr.height]="svgHeight" [attr.viewBox]="'0 0 ' + svgWidth + ' ' + svgHeight">
-    <g *ngFor="let row of grid;let y = index">
-      <rect *ngFor="let col of row;let x = index" class="nr-datafort-node" [attr.x]="x * gridSize"
-        [attr.y]="y * gridSize" [attr.height]="gridSize" [attr.width]="gridSize" fill="white" stroke="black"
-        [attr.stroke-width]="1" (click)="updateNode(x, y)"></rect>
+  <svg
+    [attr.width]="svgWidth"
+    [attr.height]="svgHeight"
+    [attr.viewBox]="'0 0 ' + svgWidth + ' ' + svgHeight"
+  >
+    <g *ngFor="let row of grid; let y = index">
+      <rect
+        *ngFor="let col of row; let x = index"
+        class="nr-datafort-node"
+        [attr.x]="x * gridSize"
+        [attr.y]="y * gridSize"
+        [attr.height]="gridSize"
+        [attr.width]="gridSize"
+        fill="white"
+        stroke="black"
+        [attr.stroke-width]="1"
+        (click)="updateNode(x, y)"
+        dndDropzone
+        [dndDisableDropIf]="disableDrop(x, y)"
+        (dndDrop)="onDrop($event, x, y)"
+      ></rect>
     </g>
     <!-- DATAWALL NODES -->
-    <g id="datawalls" class="csd-map-node" *ngFor="let datawall of currDatafort?.datawallNodes;let i = index">
-      <svg [attr.x]="datawall.x * gridSize" [attr.y]="datawall.y * gridSize" [attr.height]="gridSize"
-        [attr.width]="gridSize" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-        [innerHTML]="NrNodeIcons.DATAWALL | sanitizeHtml">
-      </svg>
-      <rect [attr.x]="datawall.x * gridSize" [attr.y]="datawall.y * gridSize" [attr.height]="gridSize"
-        [attr.width]="gridSize" class="csd-cell-overlay rounded" fill-opacity="0"></rect>
-      <g class="csd-trash-node csd-btn" (click)="removeDatawall(datawall.x, datawall.y)">
-        <circle [attr.cx]="datawall.x * gridSize + gridSize - 7" [attr.cy]="datawall.y * gridSize + 7" r="7" stroke="black"
-          stroke-width="1" fill="white" />
-        <line [attr.x1]="datawall.x * gridSize + gridSize - 10" [attr.x2]="datawall.x * gridSize + gridSize - 3"
-          [attr.y1]="datawall.y * gridSize + 7" [attr.y2]="datawall.y * gridSize + 7" stroke="red" stroke-width="2" />
+    <g
+      id="datawalls"
+      class="csd-map-node"
+      *ngFor="let datawall of currDatafort?.datawallNodes; let i = index"
+    >
+      <svg
+        [attr.x]="datawall.x * gridSize"
+        [attr.y]="datawall.y * gridSize"
+        [attr.height]="gridSize"
+        [attr.width]="gridSize"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512"
+        [innerHTML]="NrNodeIcons.DATAWALL | sanitizeHtml"
+      ></svg>
+      <rect
+        [attr.x]="datawall.x * gridSize"
+        [attr.y]="datawall.y * gridSize"
+        [attr.height]="gridSize"
+        [attr.width]="gridSize"
+        class="csd-cell-overlay rounded"
+        fill-opacity="0"
+      ></rect>
+      <g
+        class="csd-trash-node csd-btn"
+        (click)="removeDatawall(datawall.x, datawall.y)"
+      >
+        <circle
+          [attr.cx]="datawall.x * gridSize + gridSize - 7"
+          [attr.cy]="datawall.y * gridSize + 7"
+          r="7"
+          stroke="black"
+          stroke-width="1"
+          fill="white"
+        />
+        <line
+          [attr.x1]="datawall.x * gridSize + gridSize - 10"
+          [attr.x2]="datawall.x * gridSize + gridSize - 3"
+          [attr.y1]="datawall.y * gridSize + 7"
+          [attr.y2]="datawall.y * gridSize + 7"
+          stroke="red"
+          stroke-width="2"
+        />
       </g>
     </g>
     <!-- CODEGATE NODES -->
-    <g id="codegates" *ngFor="let codegate of currDatafort?.codegates;let i = index" class="csd-map-node">
-      <svg [attr.x]="codegate.coord.x * gridSize" [attr.y]="codegate.coord.y * gridSize" [attr.height]="gridSize"
-        [attr.width]="gridSize" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"
-        [innerHTML]="NrNodeIcons.CODEGATE | sanitizeHtml">
-      </svg>
-      <text [attr.x]="codegate.coord.x * gridSize + (gridSize/2)" [attr.y]="codegate.coord.y * gridSize + (gridSize/1.7) "
-        [style]="'font-size: '+ (gridSize * 0.3) + 'px;'" fill="black" dominant-baseline="bottom"
-        text-anchor="middle">{{codegate.str}}</text>
-      <rect [attr.x]="codegate.coord.x * gridSize" [attr.y]="codegate.coord.y * gridSize" [attr.height]="gridSize"
-        [attr.width]="gridSize" class="csd-cell-overlay rounded" fill-opacity="0"></rect>
-      <g class="csd-trash-node csd-btn" (click)="removeCodegate(codegate.coord)">
-        <circle [attr.cx]="codegate.coord.x * gridSize + (gridSize/2)" [attr.cy]="codegate.coord.y * gridSize + (gridSize/1.7)" [attr.r]="gridSize * 0.4" stroke="black"
-          stroke-width="0" fill="black" />
-       <text [attr.x]="codegate.coord.x * gridSize + (gridSize/2)" [attr.y]="codegate.coord.y * gridSize + (gridSize/1.7) "
-          [style]="'font-size: '+ (gridSize * 0.7) + 'px;'" fill="white" dominant-baseline="middle"
-          text-anchor="middle">{{i + 1}}</text>
-        <circle [attr.cx]="codegate.coord.x * gridSize + gridSize - 7" [attr.cy]="codegate.coord.y * gridSize + 7" r="7" stroke="black"
-          stroke-width="1" fill="white" />
-        <line [attr.x1]="codegate.coord.x * gridSize + gridSize - 10" [attr.x2]="codegate.coord.x * gridSize + gridSize - 3"
-          [attr.y1]="codegate.coord.y * gridSize + 7" [attr.y2]="codegate.coord.y * gridSize + 7" stroke="red" stroke-width="2" />
+    <g
+      id="codegates"
+      *ngFor="let codegate of currDatafort?.codegates; let i = index"
+      class="csd-map-node"
+    >
+      <svg
+        [attr.x]="codegate.coord.x * gridSize"
+        [attr.y]="codegate.coord.y * gridSize"
+        [attr.height]="gridSize"
+        [attr.width]="gridSize"
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+        [innerHTML]="NrNodeIcons.CODEGATE | sanitizeHtml"
+      ></svg>
+      <text
+        [attr.x]="codegate.coord.x * gridSize + gridSize / 2"
+        [attr.y]="codegate.coord.y * gridSize + gridSize / 1.7"
+        [style]="'font-size: ' + gridSize * 0.3 + 'px;'"
+        fill="black"
+        dominant-baseline="bottom"
+        text-anchor="middle"
+      >
+        {{ codegate.str }}
+      </text>
+      <rect
+        [attr.x]="codegate.coord.x * gridSize"
+        [attr.y]="codegate.coord.y * gridSize"
+        [attr.height]="gridSize"
+        [attr.width]="gridSize"
+        class="csd-cell-overlay rounded"
+        fill-opacity="0"
+      ></rect>
+      <g
+        class="csd-trash-node csd-btn"
+        (click)="removeCodegate(codegate.coord)"
+      >
+        <circle
+          [attr.cx]="codegate.coord.x * gridSize + gridSize / 2"
+          [attr.cy]="codegate.coord.y * gridSize + gridSize / 1.7"
+          [attr.r]="gridSize * 0.4"
+          stroke="black"
+          stroke-width="0"
+          fill="black"
+        />
+        <text
+          [attr.x]="codegate.coord.x * gridSize + gridSize / 2"
+          [attr.y]="codegate.coord.y * gridSize + gridSize / 1.7"
+          [style]="'font-size: ' + gridSize * 0.7 + 'px;'"
+          fill="white"
+          dominant-baseline="middle"
+          text-anchor="middle"
+        >
+          {{ i + 1 }}
+        </text>
+        <circle
+          [attr.cx]="codegate.coord.x * gridSize + gridSize - 7"
+          [attr.cy]="codegate.coord.y * gridSize + 7"
+          r="7"
+          stroke="black"
+          stroke-width="1"
+          fill="white"
+        />
+        <line
+          [attr.x1]="codegate.coord.x * gridSize + gridSize - 10"
+          [attr.x2]="codegate.coord.x * gridSize + gridSize - 3"
+          [attr.y1]="codegate.coord.y * gridSize + 7"
+          [attr.y2]="codegate.coord.y * gridSize + 7"
+          stroke="red"
+          stroke-width="2"
+        />
       </g>
     </g>
     <!-- CPU NODES -->
-    <g id="cpus" *ngFor="let cpu of currDatafort?.cpuNodes;let i = index" class="csd-map-node">
-      <svg [attr.x]="cpu.x * gridSize" [attr.y]="cpu.y * gridSize" [attr.height]="gridSize"
-        [attr.width]="gridSize" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"
-        [innerHTML]="NrNodeIcons.CPU | sanitizeHtml">
-      </svg>
-      <rect [attr.x]="cpu.x * gridSize" [attr.y]="cpu.y * gridSize" [attr.height]="gridSize" [attr.width]="gridSize"
-        class="csd-cell-overlay rounded" fill-opacity="0" (click)="removeCPU(cpu.x, cpu.y)"></rect>
+    <g
+      id="cpus"
+      *ngFor="let cpu of currDatafort?.cpuNodes; let i = index"
+      class="csd-map-node"
+    >
+      <svg
+        [attr.x]="cpu.x * gridSize"
+        [attr.y]="cpu.y * gridSize"
+        [attr.height]="gridSize"
+        [attr.width]="gridSize"
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+        [innerHTML]="NrNodeIcons.CPU | sanitizeHtml"
+      ></svg>
+      <rect
+        [attr.x]="cpu.x * gridSize"
+        [attr.y]="cpu.y * gridSize"
+        [attr.height]="gridSize"
+        [attr.width]="gridSize"
+        class="csd-cell-overlay rounded"
+        fill-opacity="0"
+        (click)="removeCPU(cpu.x, cpu.y)"
+      ></rect>
       <g class="csd-trash-node csd-btn" (click)="removeCPU(cpu.x, cpu.y)">
-        <circle [attr.cx]="cpu.x * gridSize + gridSize - 7" [attr.cy]="cpu.y * gridSize + 7" r="7" stroke="black"
-          stroke-width="1" fill="white" />
-        <line [attr.x1]="cpu.x * gridSize + gridSize - 10" [attr.x2]="cpu.x * gridSize + gridSize - 3"
-          [attr.y1]="cpu.y * gridSize + 7" [attr.y2]="cpu.y * gridSize + 7" stroke="red" stroke-width="2" />
+        <circle
+          [attr.cx]="cpu.x * gridSize + gridSize - 7"
+          [attr.cy]="cpu.y * gridSize + 7"
+          r="7"
+          stroke="black"
+          stroke-width="1"
+          fill="white"
+        />
+        <line
+          [attr.x1]="cpu.x * gridSize + gridSize - 10"
+          [attr.x2]="cpu.x * gridSize + gridSize - 3"
+          [attr.y1]="cpu.y * gridSize + 7"
+          [attr.y2]="cpu.y * gridSize + 7"
+          stroke="red"
+          stroke-width="2"
+        />
       </g>
     </g>
     <!-- MEMORY NODES -->
-    <g *ngFor="let mu of currDatafort?.muNodes;let i = index" id="mu{{x}}" class="csd-map-node">
-      <text [attr.x]="mu.x * gridSize + (gridSize/2)" [attr.y]="mu.y * gridSize + (gridSize/2)" fill="black"
-        dominant-baseline="middle" text-anchor="middle">{{i + 1}}</text>
-      <svg [attr.x]="mu.x * gridSize" [attr.y]="mu.y * gridSize" [attr.height]="gridSize" [attr.width]="gridSize"
-        viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" [innerHTML]="NrNodeIcons.MU | sanitizeHtml">
-      </svg>
-      <rect [attr.x]="mu.x * gridSize" [attr.y]="mu.y * gridSize" [attr.height]="gridSize" [attr.width]="gridSize"
-        class="csd-cell-overlay rounded" fill-opacity="0"></rect>
+    <g
+      *ngFor="let mu of currDatafort?.muNodes; let i = index"
+      id="mu{{ x }}"
+      class="csd-map-node"
+    >
+      <text
+        [attr.x]="mu.x * gridSize + gridSize / 2"
+        [attr.y]="mu.y * gridSize + gridSize / 2"
+        fill="black"
+        dominant-baseline="middle"
+        text-anchor="middle"
+      >
+        {{ i + 1 }}
+      </text>
+      <svg
+        [attr.x]="mu.x * gridSize"
+        [attr.y]="mu.y * gridSize"
+        [attr.height]="gridSize"
+        [attr.width]="gridSize"
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+        [innerHTML]="NrNodeIcons.MU | sanitizeHtml"
+      ></svg>
+      <rect
+        [attr.x]="mu.x * gridSize"
+        [attr.y]="mu.y * gridSize"
+        [attr.height]="gridSize"
+        [attr.width]="gridSize"
+        class="csd-cell-overlay rounded"
+        fill-opacity="0"
+      ></rect>
       <g class="csd-trash-node csd-btn" (click)="removeMemory(mu.x, mu.y)">
-        <circle [attr.cx]="mu.x * gridSize + gridSize - 7" [attr.cy]="mu.y * gridSize + 7" r="7" stroke="black" stroke-width="1"
-          fill="white" />
-        <line [attr.x1]="mu.x * gridSize + gridSize - 10" [attr.x2]="mu.x * gridSize + gridSize - 3"
-          [attr.y1]="mu.y * gridSize + 7" [attr.y2]="mu.y * gridSize + 7" stroke="red" stroke-width="2" />
+        <circle
+          [attr.cx]="mu.x * gridSize + gridSize - 7"
+          [attr.cy]="mu.y * gridSize + 7"
+          r="7"
+          stroke="black"
+          stroke-width="1"
+          fill="white"
+        />
+        <line
+          [attr.x1]="mu.x * gridSize + gridSize - 10"
+          [attr.x2]="mu.x * gridSize + gridSize - 3"
+          [attr.y1]="mu.y * gridSize + 7"
+          [attr.y2]="mu.y * gridSize + 7"
+          stroke="red"
+          stroke-width="2"
+        />
       </g>
     </g>
     <!-- REMOTE NODES -->
-    <g *ngFor="let remote of currDatafort?.remotes;let i = index" id="remotes{{x}}" class="csd-map-node">
-      <svg [attr.x]="remote.coord.x * gridSize" [attr.y]="remote.coord.y * gridSize" [attr.height]="gridSize * 0.75"
-        [attr.width]="gridSize" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"
-        [innerHTML]="getRemoteIcon(remote.type) | sanitizeHtml">
-      </svg>
-      <text [attr.x]="remote.coord.x * gridSize + (gridSize/2)" [attr.y]="remote.coord.y * gridSize + gridSize - 2"
-        [style]="'font-size: '+ (gridSize * 0.3) + 'px;'" fill="black" dominant-baseline="bottom"
-        text-anchor="middle">{{i + 1}}</text>
-      <rect [attr.x]="remote.coord.x * gridSize" [attr.y]="remote.coord.y * gridSize" [attr.height]="gridSize"
-        [attr.width]="gridSize" class="csd-cell-overlay rounded" fill-opacity="0"></rect>
+    <g
+      *ngFor="let remote of currDatafort?.remotes; let i = index"
+      id="remotes{{ x }}"
+      class="csd-map-node"
+    >
+      <svg
+        [attr.x]="remote.coord.x * gridSize"
+        [attr.y]="remote.coord.y * gridSize"
+        [attr.height]="gridSize * 0.75"
+        [attr.width]="gridSize"
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+        [innerHTML]="getRemoteIcon(remote.type) | sanitizeHtml"
+      ></svg>
+      <text
+        [attr.x]="remote.coord.x * gridSize + gridSize / 2"
+        [attr.y]="remote.coord.y * gridSize + gridSize - 2"
+        [style]="'font-size: ' + gridSize * 0.3 + 'px;'"
+        fill="black"
+        dominant-baseline="bottom"
+        text-anchor="middle"
+      >
+        {{ i + 1 }}
+      </text>
+      <rect
+        [attr.x]="remote.coord.x * gridSize"
+        [attr.y]="remote.coord.y * gridSize"
+        [attr.height]="gridSize"
+        [attr.width]="gridSize"
+        class="csd-cell-overlay rounded"
+        fill-opacity="0"
+      ></rect>
       <g class="csd-trash-node csd-btn" (click)="removeRemote(remote.coord)">
-        <circle [attr.cx]="remote.coord.x * gridSize + gridSize - 7" [attr.cy]="remote.coord.y * gridSize + 7" r="7"
-          stroke="black" stroke-width="1" fill="white" />
-        <line [attr.x1]="remote.coord.x * gridSize + gridSize - 10" [attr.x2]="remote.coord.x * gridSize + gridSize -3"
-          [attr.y1]="remote.coord.y * gridSize + 7" [attr.y2]="remote.coord.y * gridSize + 7" stroke="red" stroke-width="2" />
+        <circle
+          [attr.cx]="remote.coord.x * gridSize + gridSize - 7"
+          [attr.cy]="remote.coord.y * gridSize + 7"
+          r="7"
+          stroke="black"
+          stroke-width="1"
+          fill="white"
+        />
+        <line
+          [attr.x1]="remote.coord.x * gridSize + gridSize - 10"
+          [attr.x2]="remote.coord.x * gridSize + gridSize - 3"
+          [attr.y1]="remote.coord.y * gridSize + 7"
+          [attr.y2]="remote.coord.y * gridSize + 7"
+          stroke="red"
+          stroke-width="2"
+        />
       </g>
     </g>
     <!-- DEFENSE NODES -->
-    <g *ngFor="let defense of currDatafort?.defenses;let i = index" id="defense{{x}}"  class="csd-map-node">
-      <svg [attr.x]="defense.coord.x * gridSize" [attr.y]="defense.coord.y * gridSize" [attr.height]="gridSize * 0.75"
-        [attr.width]="gridSize" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"
-        [innerHTML]="NrNodeIcons.PROGRAM | sanitizeHtml">
-      </svg>
-      <text [attr.x]="defense.coord.x * gridSize + (gridSize/2)" [attr.y]="defense.coord.y * gridSize + gridSize - 2"
-        [style]="'font-size: '+ (gridSize * 0.3) + 'px;'" fill="black" dominant-baseline="bottom"
-        text-anchor="middle">{{i + 1}}</text>
-      <rect [attr.x]="defense.coord.x * gridSize" [attr.y]="defense.coord.y * gridSize" [attr.height]="gridSize"
-        [attr.width]="gridSize" class="csd-cell-overlay rounded" fill-opacity="0"></rect>
+    <g
+      *ngFor="let defense of currDatafort?.defenses; let i = index"
+      id="defense{{ x }}"
+      class="csd-map-node"
+    >
+      <svg
+        [attr.x]="defense.coord.x * gridSize"
+        [attr.y]="defense.coord.y * gridSize"
+        [attr.height]="gridSize * 0.75"
+        [attr.width]="gridSize"
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+        [innerHTML]="NrNodeIcons.PROGRAM | sanitizeHtml"
+      ></svg>
+      <text
+        [attr.x]="defense.coord.x * gridSize + gridSize / 2"
+        [attr.y]="defense.coord.y * gridSize + gridSize - 2"
+        [style]="'font-size: ' + gridSize * 0.3 + 'px;'"
+        fill="black"
+        dominant-baseline="bottom"
+        text-anchor="middle"
+      >
+        {{ i + 1 }}
+      </text>
+      <rect
+        [attr.x]="defense.coord.x * gridSize"
+        [attr.y]="defense.coord.y * gridSize"
+        [attr.height]="gridSize"
+        [attr.width]="gridSize"
+        class="csd-cell-overlay rounded"
+        fill-opacity="0"
+      ></rect>
       <g class="csd-trash-node csd-btn" (click)="removeDefense(defense.coord)">
-        <circle [attr.cx]="defense.coord.x * gridSize + gridSize - 7" [attr.cy]="defense.coord.y * gridSize + 7" r="7"
-          stroke="black" stroke-width="1" fill="white" />
-        <line [attr.x1]="defense.coord.x * gridSize + gridSize - 10"
-          [attr.x2]="defense.coord.x * gridSize + gridSize - 3" [attr.y1]="defense.coord.y * gridSize + 7"
-          [attr.y2]="defense.coord.y * gridSize + 7" stroke="red" stroke-width="2" />
+        <circle
+          [attr.cx]="defense.coord.x * gridSize + gridSize - 7"
+          [attr.cy]="defense.coord.y * gridSize + 7"
+          r="7"
+          stroke="black"
+          stroke-width="1"
+          fill="white"
+        />
+        <line
+          [attr.x1]="defense.coord.x * gridSize + gridSize - 10"
+          [attr.x2]="defense.coord.x * gridSize + gridSize - 3"
+          [attr.y1]="defense.coord.y * gridSize + 7"
+          [attr.y2]="defense.coord.y * gridSize + 7"
+          stroke="red"
+          stroke-width="2"
+        />
       </g>
     </g>
   </svg>

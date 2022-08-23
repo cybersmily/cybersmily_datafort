@@ -37,6 +37,23 @@ export class Cp2020DatafortBuilderService {
     return this.selectedTool === nodeType;
   }
 
+  cellHasNode(x: number, y: number): boolean {
+    return (
+      this._currDatafort.codegates.some(
+        (cg) => cg.coord.x === x && cg.coord.y === y
+      ) ||
+      this._currDatafort.datawallNodes.some((dw) => dw.x === x && dw.y === y) ||
+      this._currDatafort.remotes.some(
+        (rem) => rem.coord.x === x && rem.coord.y === y
+      ) ||
+      this._currDatafort.defenses.some(
+        (def) => def.coord.x === x && def.coord.y === y
+      ) ||
+      this._currDatafort.cpuNodes.some((cpu) => cpu.x === x && cpu.y === y) ||
+      this._currDatafort.muNodes.some((mu) => mu.x === x && mu.y === y)
+    );
+  }
+
   update(datafort: NrDatafort) {
     if (datafort) {
       // validation on values
@@ -127,6 +144,53 @@ export class Cp2020DatafortBuilderService {
 
   addSkill(skill: KeyValue<string, number>) {
     this._currDatafort.skills.push({ key: skill.key, value: skill.value });
+    this.update(this._currDatafort);
+  }
+
+  addRemoteNode(type: NrNodeType, x: number, y: number): void {
+    this._currDatafort.remotes.push({
+      name: NrNodeType[type]?.toLowerCase(),
+      type: type,
+      coord: { x: x, y: y },
+    });
+    this.update(this._currDatafort);
+  }
+
+  addCodeGate(x: number, y: number): void {
+    this._currDatafort.codegates.push({
+      str: 2,
+      coord: { x: x, y: y },
+    });
+    this.update(this._currDatafort);
+  }
+
+  addDataWall(x: number, y: number): void {
+    this._currDatafort.datawallNodes.push({ x: x, y: y });
+    this.update(this._currDatafort);
+  }
+
+  addCPU(x: number, y: number): void {
+    if (this._currDatafort.cpu > this._currDatafort.cpuNodes.length) {
+      this._currDatafort.cpuNodes.push({ x: x, y: y });
+      this.update(this._currDatafort);
+    }
+  }
+
+  addMU(x: number, y: number): void {
+    if (this._currDatafort.muAvailable > 0) {
+      this._currDatafort.muNodes.push({ x: x, y: y });
+      this.update(this._currDatafort);
+    }
+  }
+
+  addProgram(x: number, y: number): void {
+    const program = new Cp2020Program();
+    program.name = 'program';
+    this._currDatafort.defenses.push({
+      name: 'program',
+      program: program,
+      coord: { x: x, y: y },
+    });
     this.update(this._currDatafort);
   }
 

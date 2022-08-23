@@ -46,6 +46,7 @@
     "masonry-layout": "^4.2.2",
     "ngx-bootstrap": "^9.0.0",
     "ngx-color": "^7.3.3",
+    "ngx-drag-drop": "^13.0.1",
     "ngx-image-compress": "^13.1.13",
     "ngx-masonry": "^13.0.0",
     "ngx-ui-loader": "^11.0.0",

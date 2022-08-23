@@ -1,9 +1,11 @@
+import { element } from 'protractor';
 import { Coord } from '../../../../models/coord';
 import { NrNodeType, NrMapDefaults, NrNodeIcons } from '../../enums';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Cp2020DatafortBuilderService } from '../../services';
 import { Cp2020NrDatafort } from '../../models';
 import { Component, Input, OnInit } from '@angular/core';
+import { DndDropEvent, DropEffect, EffectAllowed } from 'ngx-drag-drop';
 
 @Component({
   selector: 'cs-cp2020-datafort-map',
@@ -13,6 +15,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class Cp2020DatafortMapComponent implements OnInit {
   NrNodeIcons = NrNodeIcons;
   NrNodeType = NrNodeType;
+
+  effectAllowed: EffectAllowed = 'move';
 
   currDatafort: Cp2020NrDatafort;
   scale: number = 1.0;
@@ -39,6 +43,10 @@ export class Cp2020DatafortMapComponent implements OnInit {
 
   trashY(y: number, gridSize: number): number {
     return gridSize * y;
+  }
+
+  disableDrop(x: number, y: number): boolean {
+    return this.datafortBuilderService.cellHasNode(x, y);
   }
 
   ngOnInit(): void {
@@ -119,6 +127,83 @@ export class Cp2020DatafortMapComponent implements OnInit {
         return NrNodeIcons.VEHICLE;
       default:
         return '';
+    }
+  }
+
+  onDrop(event: DndDropEvent, col: number, row: number): void {
+    if (event.data?.add) {
+      switch (event.data?.icon) {
+        case NrNodeType.ALARM:
+        case NrNodeType.AUTOFACTORY:
+        case NrNodeType.DOOR:
+        case NrNodeType.ELEVATOR:
+        case NrNodeType.TERMINAL:
+        case NrNodeType.LDL:
+        case NrNodeType.CAMERA:
+        case NrNodeType.MICROPHONE:
+        case NrNodeType.VIDEO:
+        case NrNodeType.HOLODISPLAY:
+        case NrNodeType.PRINTER:
+        case NrNodeType.MANIPULATOR:
+        case NrNodeType.VEHICLE:
+        case NrNodeType.PROGRAM:
+          this.datafortBuilderService.addProgram(col, row);
+          break;
+        case NrNodeType.CODEGATE:
+          this.datafortBuilderService.addCodeGate(col, row);
+          break;
+        case NrNodeType.CPU:
+          console.log('addCPU', col, row);
+          this.datafortBuilderService.addCPU(col, row);
+          break;
+        case NrNodeType.MU:
+          this.datafortBuilderService.addMU(col, row);
+          break;
+        case NrNodeType.DATAWALL:
+          this.datafortBuilderService.addDataWall(col, row);
+          break;
+        default:
+      }
+    } else {
+      //move icon
+      switch (event.data?.icon) {
+        case NrNodeType.ALARM:
+        case NrNodeType.AUTOFACTORY:
+        case NrNodeType.DOOR:
+        case NrNodeType.ELEVATOR:
+        case NrNodeType.TERMINAL:
+        case NrNodeType.LDL:
+        case NrNodeType.CAMERA:
+        case NrNodeType.MICROPHONE:
+        case NrNodeType.VIDEO:
+        case NrNodeType.HOLODISPLAY:
+        case NrNodeType.PRINTER:
+        case NrNodeType.MANIPULATOR:
+        case NrNodeType.VEHICLE:
+          this.datafortBuilderService.addRemoteNode(event.data?.icon, col, row);
+          break;
+        case NrNodeType.PROGRAM:
+          this.datafortBuilderService.addProgram(col, row);
+          break;
+        case NrNodeType.CODEGATE:
+          this.datafortBuilderService.addCodeGate(col, row);
+          break;
+        case NrNodeType.CPU:
+          console.log('addCPU', col, row);
+          this.datafortBuilderService.addCPU(col, row);
+          break;
+        case NrNodeType.MU:
+          this.datafortBuilderService.addMU(col, row);
+          break;
+        case NrNodeType.DATAWALL:
+          this.datafortBuilderService.removeDataWall(
+            event.data?.x,
+            event.data?.x
+          );
+          this.datafortBuilderService.addDataWall(col, row);
+          break;
+        default:
+      }
     }
   }
 }

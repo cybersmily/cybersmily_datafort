@@ -3,6 +3,7 @@ import { Cp2020NrDatafort } from '../../models';
 import { Cp2020DatafortBuilderService } from '../../services';
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { EffectAllowed } from 'ngx-drag-drop';
 
 @Component({
   selector: 'cs-cp2020-datafort-toolbar',
@@ -13,6 +14,7 @@ export class Cp2020DatafortToolbarComponent implements OnInit {
   NrNodeIcons = NrNodeIcons;
 
   currDatafort = new Cp2020NrDatafort();
+  effectAllowed: EffectAllowed = 'copy';
 
   icons = [
     {
@@ -125,5 +127,9 @@ export class Cp2020DatafortToolbarComponent implements OnInit {
     } else {
       this.datafortBuilderService.selectedTool = icon;
     }
+  }
+
+  onDraggableCopied(event: DragEvent): void {
+    console.log('onDraggableCopied', event);
   }
 }

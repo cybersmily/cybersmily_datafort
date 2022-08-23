@@ -14,6 +14,7 @@ import { NgModule } from '@angular/core';
 import { CsdComboBoxComponent } from './csd-combo-box/csd-combo-box.component';
 import { NgxMasonryModule } from 'ngx-masonry';
 import { AngularDraggableModule } from 'angular2-draggable';
+import { DndModule } from 'ngx-drag-drop';
 
 @NgModule({
   declarations: [CsdComboBoxComponent],
@@ -21,6 +22,7 @@ import { AngularDraggableModule } from 'angular2-draggable';
     CommonModule,
     FormsModule,
     NgxMasonryModule,
+    DndModule,
     AccordionModule.forRoot(),
     BsDropdownModule.forRoot(),
     CollapseModule.forRoot(),
@@ -38,6 +40,7 @@ import { AngularDraggableModule } from 'angular2-draggable';
     ReactiveFormsModule,
     AccordionModule,
     NgxMasonryModule,
+    DndModule,
     BsDropdownModule,
     CollapseModule,
     ModalModule,
