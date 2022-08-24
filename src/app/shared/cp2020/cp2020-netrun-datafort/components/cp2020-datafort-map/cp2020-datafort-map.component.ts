@@ -208,70 +208,84 @@ export class Cp2020DatafortMapComponent implements OnInit {
   }
 
   endDrag(event): void {
+    console.log(event.target.parentElement.classList);
     if (this.selectedSVGElement) {
       const x = this.selectedSVGElement.firstChild.getAttributeNS(null, 'x');
       const y = this.selectedSVGElement.firstChild.getAttributeNS(null, 'y');
       const col = this.arrayIndex(x);
       const row = this.arrayIndex(y);
+      if (!this.disableDrop(col, row)) {
+        //move icon
+        switch (this.selectedNode) {
+          case NrNodeType.ALARM:
+          case NrNodeType.AUTOFACTORY:
+          case NrNodeType.DOOR:
+          case NrNodeType.ELEVATOR:
+          case NrNodeType.TERMINAL:
+          case NrNodeType.LDL:
+          case NrNodeType.CAMERA:
+          case NrNodeType.MICROPHONE:
+          case NrNodeType.VIDEO:
+          case NrNodeType.HOLODISPLAY:
+          case NrNodeType.PRINTER:
+          case NrNodeType.MANIPULATOR:
+          case NrNodeType.VEHICLE:
+            this.datafortBuilderService.updateRemoteNode(
+              this.selectedNodeIndex,
+              col,
+              row
+            );
+            break;
+          case NrNodeType.PROGRAM:
+            this.datafortBuilderService.updateProgramNode(
+              this.selectedNodeIndex,
+              col,
+              row
+            );
+            break;
+          case NrNodeType.CODEGATE:
+            this.datafortBuilderService.updateCodeGate(
+              this.selectedNodeIndex,
+              col,
+              row
+            );
+            break;
+          case NrNodeType.CPU:
+            this.datafortBuilderService.updateCPU(
+              this.selectedNodeIndex,
+              col,
+              row
+            );
+            break;
+          case NrNodeType.MU:
+            this.datafortBuilderService.updateMU(
+              this.selectedNodeIndex,
+              col,
+              row
+            );
+            break;
+          case NrNodeType.DATAWALL:
+            this.datafortBuilderService.updateWall(
+              this.selectedNodeIndex,
+              col,
+              row
+            );
+            break;
+          default:
+        }
 
-      //move icon
-      switch (this.selectedNode) {
-        case NrNodeType.ALARM:
-        case NrNodeType.AUTOFACTORY:
-        case NrNodeType.DOOR:
-        case NrNodeType.ELEVATOR:
-        case NrNodeType.TERMINAL:
-        case NrNodeType.LDL:
-        case NrNodeType.CAMERA:
-        case NrNodeType.MICROPHONE:
-        case NrNodeType.VIDEO:
-        case NrNodeType.HOLODISPLAY:
-        case NrNodeType.PRINTER:
-        case NrNodeType.MANIPULATOR:
-        case NrNodeType.VEHICLE:
-          this.datafortBuilderService.updateRemoteNode(
-            this.selectedNodeIndex,
-            col,
-            row
-          );
-          break;
-        case NrNodeType.PROGRAM:
-          this.datafortBuilderService.updateProgramNode(
-            this.selectedNodeIndex,
-            col,
-            row
-          );
-          break;
-        case NrNodeType.CODEGATE:
-          this.datafortBuilderService.updateCodeGate(
-            this.selectedNodeIndex,
-            col,
-            row
-          );
-          break;
-        case NrNodeType.CPU:
-          this.datafortBuilderService.updateCPU(
-            this.selectedNodeIndex,
-            col,
-            row
-          );
-          break;
-        case NrNodeType.MU:
-          this.datafortBuilderService.updateMU(
-            this.selectedNodeIndex,
-            col,
-            row
-          );
-          break;
-        case NrNodeType.DATAWALL:
-          this.datafortBuilderService.updateWall(
-            this.selectedNodeIndex,
-            col,
-            row
-          );
-          break;
-        default:
+        this.selectedSVGElement = null;
+        this.startingColRow = null;
+        this.selectedNode = null;
+        this.selectedNodeIndex = -1;
       }
+    }
+  }
+
+  dragLeave(event): void {
+    if (this.selectedSVGElement) {
+      this.datafortBuilderService.update(this.currDatafort);
+      //move icon
 
       this.selectedSVGElement = null;
       this.startingColRow = null;

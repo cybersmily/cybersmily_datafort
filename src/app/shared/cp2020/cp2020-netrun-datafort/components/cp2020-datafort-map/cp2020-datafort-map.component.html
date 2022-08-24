@@ -8,7 +8,7 @@
     (mousedown)="startDrag($event)"
     (mousemove)="drag($event)"
     (mouseup)="endDrag($event)"
-    (mouseleave)="endDrag($event)"
+    (mouseleave)="dragLeave($event)"
   >
     <g *ngFor="let row of grid; let y = index">
       <rect
