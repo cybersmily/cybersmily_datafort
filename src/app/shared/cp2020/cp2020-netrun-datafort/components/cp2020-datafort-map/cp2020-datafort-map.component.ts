@@ -1,10 +1,9 @@
-import { element } from 'protractor';
 import { Coord } from '../../../../models/coord';
 import { NrNodeType, NrMapDefaults, NrNodeIcons } from '../../enums';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Cp2020DatafortBuilderService } from '../../services';
 import { Cp2020NrDatafort } from '../../models';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { DndDropEvent, DropEffect, EffectAllowed } from 'ngx-drag-drop';
 
 @Component({
@@ -146,40 +145,6 @@ export class Cp2020DatafortMapComponent implements OnInit {
         case NrNodeType.PRINTER:
         case NrNodeType.MANIPULATOR:
         case NrNodeType.VEHICLE:
-        case NrNodeType.PROGRAM:
-          this.datafortBuilderService.addProgram(col, row);
-          break;
-        case NrNodeType.CODEGATE:
-          this.datafortBuilderService.addCodeGate(col, row);
-          break;
-        case NrNodeType.CPU:
-          console.log('addCPU', col, row);
-          this.datafortBuilderService.addCPU(col, row);
-          break;
-        case NrNodeType.MU:
-          this.datafortBuilderService.addMU(col, row);
-          break;
-        case NrNodeType.DATAWALL:
-          this.datafortBuilderService.addDataWall(col, row);
-          break;
-        default:
-      }
-    } else {
-      //move icon
-      switch (event.data?.icon) {
-        case NrNodeType.ALARM:
-        case NrNodeType.AUTOFACTORY:
-        case NrNodeType.DOOR:
-        case NrNodeType.ELEVATOR:
-        case NrNodeType.TERMINAL:
-        case NrNodeType.LDL:
-        case NrNodeType.CAMERA:
-        case NrNodeType.MICROPHONE:
-        case NrNodeType.VIDEO:
-        case NrNodeType.HOLODISPLAY:
-        case NrNodeType.PRINTER:
-        case NrNodeType.MANIPULATOR:
-        case NrNodeType.VEHICLE:
           this.datafortBuilderService.addRemoteNode(event.data?.icon, col, row);
           break;
         case NrNodeType.PROGRAM:
@@ -196,14 +161,134 @@ export class Cp2020DatafortMapComponent implements OnInit {
           this.datafortBuilderService.addMU(col, row);
           break;
         case NrNodeType.DATAWALL:
-          this.datafortBuilderService.removeDataWall(
-            event.data?.x,
-            event.data?.x
-          );
           this.datafortBuilderService.addDataWall(col, row);
           break;
         default:
       }
     }
+  }
+
+  rootSVG = null;
+  selectedSVGElement = null;
+  selectedNode: NrNodeType = null;
+  startingColRow: { col: number; row: number } = null;
+  selectedNodeIndex: number = null;
+
+  makeDraggable(event) {
+    this.rootSVG = event.target;
+  }
+
+  startDrag(event): void {
+    if (event.target.parentElement.classList.contains('draggable')) {
+      const x = event.target.parentElement.getAttributeNS(null, 'x');
+      const y = event.target.parentElement.getAttributeNS(null, 'y');
+      this.startingColRow = {
+        col: this.arrayIndex(x) + 1,
+        row: this.arrayIndex(y) + 1,
+      };
+      this.selectedSVGElement = event.target.parentElement.parentElement;
+      this.selectedNode = Number(
+        this.selectedSVGElement.getAttributeNS(null, 'nodeType')
+      );
+      this.selectedNodeIndex = Number(
+        this.selectedSVGElement.getAttributeNS(null, 'nodeIndex')
+      );
+    }
+  }
+
+  drag(event): void {
+    if (this.selectedSVGElement) {
+      event.preventDefault();
+      const coord = this.getMousePosition(event);
+      this.selectedSVGElement.querySelectorAll('svg').forEach((child) => {
+        child.setAttributeNS(null, 'x', coord.x);
+        child.setAttributeNS(null, 'y', coord.y);
+      });
+    }
+  }
+
+  endDrag(event): void {
+    if (this.selectedSVGElement) {
+      const x = this.selectedSVGElement.firstChild.getAttributeNS(null, 'x');
+      const y = this.selectedSVGElement.firstChild.getAttributeNS(null, 'y');
+      const col = this.arrayIndex(x);
+      const row = this.arrayIndex(y);
+
+      //move icon
+      switch (this.selectedNode) {
+        case NrNodeType.ALARM:
+        case NrNodeType.AUTOFACTORY:
+        case NrNodeType.DOOR:
+        case NrNodeType.ELEVATOR:
+        case NrNodeType.TERMINAL:
+        case NrNodeType.LDL:
+        case NrNodeType.CAMERA:
+        case NrNodeType.MICROPHONE:
+        case NrNodeType.VIDEO:
+        case NrNodeType.HOLODISPLAY:
+        case NrNodeType.PRINTER:
+        case NrNodeType.MANIPULATOR:
+        case NrNodeType.VEHICLE:
+          this.datafortBuilderService.updateRemoteNode(
+            this.selectedNodeIndex,
+            col,
+            row
+          );
+          break;
+        case NrNodeType.PROGRAM:
+          this.datafortBuilderService.updateProgramNode(
+            this.selectedNodeIndex,
+            col,
+            row
+          );
+          break;
+        case NrNodeType.CODEGATE:
+          this.datafortBuilderService.updateCodeGate(
+            this.selectedNodeIndex,
+            col,
+            row
+          );
+          break;
+        case NrNodeType.CPU:
+          this.datafortBuilderService.updateCPU(
+            this.selectedNodeIndex,
+            col,
+            row
+          );
+          break;
+        case NrNodeType.MU:
+          this.datafortBuilderService.updateMU(
+            this.selectedNodeIndex,
+            col,
+            row
+          );
+          break;
+        case NrNodeType.DATAWALL:
+          this.datafortBuilderService.updateWall(
+            this.selectedNodeIndex,
+            col,
+            row
+          );
+          break;
+        default:
+      }
+
+      this.selectedSVGElement = null;
+      this.startingColRow = null;
+      this.selectedNode = null;
+      this.selectedNodeIndex = -1;
+    }
+  }
+
+  private arrayIndex(num: number): number {
+    return Math.ceil(num / this.gridSize) - 1;
+  }
+
+  private getMousePosition(event): Coord {
+    const ctm = this.rootSVG.getScreenCTM();
+    return {
+      x: (event.clientX - ctm.e) / ctm.a,
+      y: (event.clientY - ctm.f) / ctm.d,
+    };
   }
 }

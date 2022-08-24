@@ -156,6 +156,14 @@ export class Cp2020DatafortBuilderService {
     this.update(this._currDatafort);
   }
 
+  updateRemoteNode(index: number, x: number, y: number): void {
+    if (index < 0 || index >= this._currDatafort.remotes.length) {
+      return;
+    }
+    this._currDatafort.remotes[index].coord = { x: x, y: y };
+    this.update(this._currDatafort);
+  }
+
   addCodeGate(x: number, y: number): void {
     this._currDatafort.codegates.push({
       str: 2,
@@ -164,8 +172,24 @@ export class Cp2020DatafortBuilderService {
     this.update(this._currDatafort);
   }
 
+  updateCodeGate(index: number, x: number, y: number): void {
+    if (index < 0 || index >= this._currDatafort.codegates.length) {
+      return;
+    }
+    this._currDatafort.codegates[index].coord = { x: x, y: y };
+    this.update(this._currDatafort);
+  }
+
   addDataWall(x: number, y: number): void {
     this._currDatafort.datawallNodes.push({ x: x, y: y });
+    this.update(this._currDatafort);
+  }
+
+  updateWall(index: number, x: number, y: number): void {
+    if (index < 0 || index >= this._currDatafort.datawallNodes.length) {
+      return;
+    }
+    this._currDatafort.datawallNodes[index] = { x: x, y: y };
     this.update(this._currDatafort);
   }
 
@@ -176,11 +200,27 @@ export class Cp2020DatafortBuilderService {
     }
   }
 
+  updateCPU(index: number, x: number, y: number): void {
+    if (index < 0 || index >= this._currDatafort.cpuNodes.length) {
+      return;
+    }
+    this._currDatafort.cpuNodes[index] = { x: x, y: y };
+    this.update(this._currDatafort);
+  }
+
   addMU(x: number, y: number): void {
     if (this._currDatafort.muAvailable > 0) {
       this._currDatafort.muNodes.push({ x: x, y: y });
       this.update(this._currDatafort);
     }
+  }
+
+  updateMU(index: number, x: number, y: number): void {
+    if (index < 0 || index >= this._currDatafort.muNodes.length) {
+      return;
+    }
+    this._currDatafort.muNodes[index] = { x: x, y: y };
+    this.update(this._currDatafort);
   }
 
   addProgram(x: number, y: number): void {
@@ -191,6 +231,14 @@ export class Cp2020DatafortBuilderService {
       program: program,
       coord: { x: x, y: y },
     });
+    this.update(this._currDatafort);
+  }
+
+  updateProgramNode(index: number, x: number, y: number): void {
+    if (index < 0 || index >= this._currDatafort.defenses.length) {
+      return;
+    }
+    this._currDatafort.defenses[index].coord = { x: x, y: y };
     this.update(this._currDatafort);
   }
 

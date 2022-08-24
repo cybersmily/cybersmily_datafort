@@ -15,7 +15,6 @@
         (click)="selectTool(icon.type)"
         [dndDraggable]="{ add: true, icon: icon.type }"
         [dndEffectAllowed]="effectAllowed"
-        (dndCopied)="onDraggableCopied($event)"
       >
         <span class="datafort-node-counter rounded">{{
           getCount(icon.type)

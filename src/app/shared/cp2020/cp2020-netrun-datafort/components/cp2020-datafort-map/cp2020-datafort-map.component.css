@@ -25,6 +25,11 @@
   overflow: auto;
 }
 
+
+.csd-pass-through {
+  pointer-events: none;
+}
+
 .csd-cell-overlay:hover {
   fill: #a9f5bc;
   fill-opacity: 0.5;

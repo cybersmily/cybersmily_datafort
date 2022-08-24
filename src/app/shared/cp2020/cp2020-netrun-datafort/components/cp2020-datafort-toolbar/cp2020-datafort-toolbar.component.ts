@@ -128,8 +128,4 @@ export class Cp2020DatafortToolbarComponent implements OnInit {
       this.datafortBuilderService.selectedTool = icon;
     }
   }
-
-  onDraggableCopied(event: DragEvent): void {
-    console.log('onDraggableCopied', event);
-  }
 }
