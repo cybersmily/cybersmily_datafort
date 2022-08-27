@@ -151,7 +151,6 @@
 {"name":"Programming"                                                  , "ipmod":1,"stat":"INT" ,"source": {"book":"CP2020" ,"page":49   },"sa":false,"description":"" },
 {"name":"Psychology"                                                   , "ipmod":1,"stat":"INT" ,"source": {"book":"WS"     ,"page":21   },"sa":false,"description":"" },
 {"name":"Reconnaissance"                                               , "ipmod":1,"stat":"INT" ,"source": {"book":"NEO"    ,"page":40   },"sa":true ,"description":"" },
-{"name":"Remove Alarm"                                                 , "ipmod":1,"stat":"REF" ,"source": {"book":"HW"     ,"page":21   },"sa":false,"description":"" },
 {"name":"Resist Torture/Drugs"                                         , "ipmod":1,"stat":"COOL","source": {"book":"CP2020" ,"page":47   },"sa":false,"description":"" },
 {"name":"Resources"                                                    , "ipmod":1,"stat":"INT" ,"source": {"book":"CP2020" ,"page":46   },"sa":true ,"description":"" },
 {"name":"Rhetoric"                                                     , "ipmod":1,"stat":"COOL","source": {"book":"PAC"    ,"page":153  },"sa":false,"description":"" },
