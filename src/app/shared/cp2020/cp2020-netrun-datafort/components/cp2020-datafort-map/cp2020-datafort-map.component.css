@@ -25,9 +25,16 @@
   overflow: auto;
 }
 
-
 .csd-pass-through {
   pointer-events: none;
+}
+
+.csd-cell-overlay, .draggable {
+  cursor: grab;
+}
+
+.dragging, .dragging  .draggable {
+  cursor: grabbing !important;
 }
 
 .csd-cell-overlay:hover {
