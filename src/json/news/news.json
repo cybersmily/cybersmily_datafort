@@ -3,6 +3,10 @@
     {
 "date": "2022-08",
       "entries": [
+        "<strong>08-28</strong> - A couple of fixes made to the site this time.",
+        "&nbsp;* Fixed a bug with random armor not setting all the locations properly on the combat tracker and character generator for Cyberpunk 2020",
+        "&nbsp;* Add program details to the Datafort Designer for Cyberpunk 2020 so that you don't need to fill them out after you randomly generate a fort.",
+        "&nbsp;* Add Drag/Drop funcationality to the Datafort Designer, so now you can drag the icons around and place them where you need to. There are still some glitches with it, but I would say it falls within the 90/10 rule of functionality.",
         "<strong>08-17</strong> - Not much going on with the site. Been concentrating on creating a Deep Space campaign centered around the O'Neil Two reovlt during the 4th Corporate war. That is an on going process as I flesh out the fluff in space.",
         "Here's a list of things I've done to the site so far this month:",
         "&nbsp;* Fixed a nasty bug in the NET Architect Generator for Cyberpunk Red. Switching a node type was deleting the parent nodes.",
