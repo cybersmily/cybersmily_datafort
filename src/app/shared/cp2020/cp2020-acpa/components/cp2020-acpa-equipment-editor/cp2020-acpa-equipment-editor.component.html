@@ -1,0 +1,77 @@
+<div>modifiers?: any;</div>
+<div class="row mt-3">
+  <div class="col-9">
+    <input
+      [(ngModel)]="currComponent.name"
+      type="text"
+      class="w-100"
+      title="category"
+      placeholder="Name..."
+    />
+  </div>
+  <div class="col-3">
+    <button
+      class="csd-btn csd-icon-btn csd-icon-xl float-end"
+      [disabled]="currComponent.name == ''"
+      (click)="save()"
+    >
+      <fa-icon [icon]="faSave"></fa-icon>
+    </button>
+  </div>
+</div>
+<div class="row text-xsmall">
+  <div class="col-2">sdp</div>
+  <div class="col-2">sp</div>
+  <div class="col-2">spaces</div>
+  <div class="col-2">wt (kg)</div>
+  <div class="col-2">cost</div>
+</div>
+<div class="row">
+  <div class="col-2">
+    <input
+      [(ngModel)]="currComponent.sdp"
+      type="number"
+      class="no-spinners w-100"
+    />
+  </div>
+  <div class="col-2">
+    <input
+      [(ngModel)]="currComponent.sp"
+      type="number"
+      class="no-spinners w-100"
+    />
+  </div>
+  <div class="col-2">
+    <input
+      [(ngModel)]="currComponent.spaces"
+      type="number"
+      class="no-spinners w-100"
+    />
+  </div>
+  <div class="col-2">
+    <input
+      [(ngModel)]="currComponent.weight"
+      type="number"
+      class="no-spinners w-100"
+    />
+  </div>
+  <div class="col-2">
+    <input
+      [(ngModel)]="currComponent.cost"
+      type="number"
+      class="no-spinners w-100"
+    />
+  </div>
+</div>
+<div class="row">
+  <div class="col"></div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <textarea
+      class="w-100"
+      placeholder="notes..."
+      [(ngModel)]="currComponent.notes"
+    ></textarea>
+  </div>
+</div>
