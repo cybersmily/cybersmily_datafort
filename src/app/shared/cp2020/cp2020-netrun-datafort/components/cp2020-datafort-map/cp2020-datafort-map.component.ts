@@ -186,6 +186,7 @@ export class Cp2020DatafortMapComponent implements OnInit {
         row: this.arrayIndex(y) + 1,
       };
       this.selectedSVGElement = event.target.parentElement.parentElement;
+      this.rootSVG?.classList?.add('dragging');
       this.selectedNode = Number(
         this.selectedSVGElement.getAttributeNS(null, 'nodeType')
       );
@@ -208,6 +209,7 @@ export class Cp2020DatafortMapComponent implements OnInit {
 
   endDrag(event): void {
     if (this.selectedSVGElement) {
+      this.rootSVG.classList.remove('dragging');
       const x = this.selectedSVGElement.firstChild.getAttributeNS(null, 'x');
       const y = this.selectedSVGElement.firstChild.getAttributeNS(null, 'y');
       const col = this.arrayIndex(x);
@@ -282,6 +284,7 @@ export class Cp2020DatafortMapComponent implements OnInit {
 
   dragLeave(event): void {
     if (this.selectedSVGElement) {
+      this.rootSVG.classList.remove('dragging');
       this.datafortBuilderService.update(this.currDatafort);
       //move icon
 
