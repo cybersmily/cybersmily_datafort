@@ -154,7 +154,6 @@ export class Cp2020DatafortMapComponent implements OnInit {
           this.datafortBuilderService.addCodeGate(col, row);
           break;
         case NrNodeType.CPU:
-          console.log('addCPU', col, row);
           this.datafortBuilderService.addCPU(col, row);
           break;
         case NrNodeType.MU:
@@ -208,7 +207,6 @@ export class Cp2020DatafortMapComponent implements OnInit {
   }
 
   endDrag(event): void {
-    console.log(event.target.parentElement.classList);
     if (this.selectedSVGElement) {
       const x = this.selectedSVGElement.firstChild.getAttributeNS(null, 'x');
       const y = this.selectedSVGElement.firstChild.getAttributeNS(null, 'y');

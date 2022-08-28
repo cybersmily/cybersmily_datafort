@@ -89,7 +89,6 @@ export class Cp2020AcpaSelectEquipmentComponent implements OnInit {
   }
 
   selectEquipment(equip: Cp2020ACPAComponent | Cp2020ACPAWeapon) {
-    console.log(equip);
     this.chooseEquipment.emit(equip);
   }
 }
