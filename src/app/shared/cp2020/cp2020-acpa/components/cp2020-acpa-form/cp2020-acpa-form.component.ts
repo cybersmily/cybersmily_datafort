@@ -255,6 +255,14 @@ export class Cp2020AcpaFormComponent implements OnInit {
     this.acpaBuilderService.updateNote(this.selectedNote);
   }
 
+  toggleWad() {
+    this.acpaBuilderService.toggleWad();
+  }
+
+  updateMA() {
+    this.acpaBuilderService.updateMA(this.currACPA.ma);
+  }
+
   reset() {
     this.acpaBuilderService.update(new Cp2020ACPA());
   }

@@ -16,6 +16,8 @@ export class Cp2020ACPA implements ACPA {
   costModifier: number;
   chassis: ACPAChassis;
   armor: ACPAArmor;
+  isWad: boolean;
+  ma: number;
   sib: number;
   dfb: number;
   punch: string;
@@ -51,8 +53,11 @@ export class Cp2020ACPA implements ACPA {
     this.run = param?.run ?? 0;
     this.leap = param?.leap ?? 0;
     this.jump = param?.jump ?? 0;
+    this.isWad = param?.isWad ?? false;
+    this.ma = param?.ma ?? 5;
 
-    this.trooperSize = param?.trooperSize ?? Cp2020ACPASettings.TROOPSIZE_DEFAULT.valueOf();
+    this.trooperSize =
+      param?.trooperSize ?? Cp2020ACPASettings.TROOPSIZE_DEFAULT.valueOf();
     this.totalWeight = param?.totalWeight ?? this.trooperSize;
     this.toughnessMod = param?.toughnessMod ?? 0;
     this.realityInterface = new Cp2020ACPAComponent(param?.realityInterface);
@@ -60,8 +65,8 @@ export class Cp2020ACPA implements ACPA {
     this.hasStealth = param?.hasStealth ?? false;
 
     this.notes = param?.notes ?? '';
-    this.equipment = param?.equipment?.map(equip => equip)?? new Array<any>();
+    this.equipment =
+      param?.equipment?.map((equip) => equip) ?? new Array<any>();
     this.locations = new Cp2020ACPALocations(param?.locations);
-
   }
 }

@@ -101,16 +101,36 @@
     </div>
     <div class="row">
       <div class="col">
-        TROOPER SIZE:
+        <span *ngIf="!currACPA.isWad; else acpaMA">
+          TROOPER SIZE:
+          <input
+            type="number"
+            min="0"
+            class="csd-number"
+            [(ngModel)]="selectedTroopSize"
+            (change)="updateTroopSize()"
+            [disabled]="isDisabled"
+          />
+          kg</span
+        >
+        <ng-template #acpaMA>
+          MA:
+          <input
+            type="number"
+            min="0"
+            max="10"
+            class="csd-number"
+            [(ngModel)]="currACPA.ma"
+            (change)="updateMA()"
+          />
+        </ng-template>
         <input
-          type="number"
-          min="0"
-          class="csd-number"
-          [(ngModel)]="selectedTroopSize"
-          (change)="updateTroopSize()"
-          [disabled]="isDisabled"
+          type="checkbox"
+          class="ms-2"
+          [ngModel]="currACPA.isWad"
+          (change)="toggleWad()"
         />
-        kg
+        is WAD?
       </div>
       <div class="col">
         TOUGHNESS MODIFIER: {{ currACPA?.chassis?.toughness }}

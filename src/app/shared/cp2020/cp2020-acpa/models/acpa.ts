@@ -28,4 +28,6 @@ export interface ACPA {
   notes: string;
   equipment: Array<any>;
   locations: ACPALocations;
+  isWad?: boolean;
+  ma?: number;
 }

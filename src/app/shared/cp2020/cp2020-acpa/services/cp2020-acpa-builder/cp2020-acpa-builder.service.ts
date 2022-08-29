@@ -478,4 +478,48 @@ export class Cp2020ACPABuilderService {
     const modifier = cost * -1;
     return Math.ceil(this._currACPA.chassis.cost * modifier);
   }
+
+  toggleWad(): void {
+    const servo = this.getServoComponent();
+    if (this._currACPA.isWad) {
+      this.updateMA(this._currACPA.ma);
+      this._currACPA.ma = 5;
+      this.removeEquipment('all', ACPAEnclosure.internal, servo);
+      // add back trooper size
+      this._currACPA.trooperSize =
+        Cp2020ACPASettings.TROOPSIZE_DEFAULT.valueOf();
+      this.updateCostWeight(this._currACPA.trooperSize, 0);
+      this._currACPA.isWad = false;
+    } else {
+      this.addEquipment('all', ACPAEnclosure.internal, servo);
+      // remove trooper size
+      this.updateCostWeight(-this._currACPA.trooperSize, 0);
+      this._currACPA.trooperSize = 0;
+      this._currACPA.isWad = true;
+    }
+    this.update();
+  }
+
+  private getServoComponent(): Cp2020ACPAComponent {
+    const servo = new Cp2020ACPAComponent();
+    servo.name = 'Android Control Circuit';
+    servo.spaces = 4;
+    servo.weight = 5 * Object.keys(this._currACPA.locations).length;
+    servo.cost = 500;
+    servo.internal = 'all';
+    return servo;
+  }
+
+  updateMA(ma: number): void {
+    if (this._currACPA.isWad) {
+      ma = ma < 0 ? 0 : ma > 10 ? 10 : ma;
+      const maDiff = ma - this._currACPA.ma;
+      this._currACPA.ma = ma;
+      const modifier = maDiff * 0.1;
+      const wt = 5 * Object.keys(this._currACPA.locations).length * modifier;
+      const cost = 500 * modifier;
+      this.updateCostWeight(wt, cost);
+      this.update();
+    }
+  }
 }
