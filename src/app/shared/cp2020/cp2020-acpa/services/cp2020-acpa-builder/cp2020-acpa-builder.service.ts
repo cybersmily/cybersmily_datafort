@@ -506,7 +506,7 @@ export class Cp2020ACPABuilderService {
     servo.spaces = 4;
     servo.weight = 5 * Object.keys(this._currACPA.locations).length;
     servo.cost = 500;
-    servo.internal = 'all';
+    servo.internal = 'any|all';
     return servo;
   }
 

@@ -122,6 +122,7 @@
             class="csd-number"
             [(ngModel)]="currACPA.ma"
             (change)="updateMA()"
+            [disabled]="isDisabled"
           />
         </ng-template>
         <input
@@ -129,6 +130,7 @@
           class="ms-2"
           [ngModel]="currACPA.isWad"
           (change)="toggleWad()"
+          [disabled]="isDisabled"
         />
         is WAD?
       </div>
