@@ -43,7 +43,6 @@ export class Cp2020AcpaFormComponent implements OnInit {
     weapons: [],
   };
 
-  // currACPA = new Cp2020ACPA();
   currACPA$: Observable<Cp2020ACPA>;
 
   selectedName = '';

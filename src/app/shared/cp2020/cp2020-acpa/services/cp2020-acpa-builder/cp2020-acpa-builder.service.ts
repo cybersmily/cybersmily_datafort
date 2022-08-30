@@ -369,9 +369,7 @@ export class Cp2020ACPABuilderService {
   }
 
   setLocations(acpa: Cp2020ACPA, chassis: Cp2020ACPAChassis) {
-    console.log('setLocations', acpa, chassis);
     for (const prop in this._currACPA.locations) {
-      console.log('setLocations', prop);
       const loc = this.getLocationString(prop);
       this._currACPA.locations[prop] = this.setLocation(
         loc,

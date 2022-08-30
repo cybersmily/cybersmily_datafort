@@ -61,47 +61,53 @@ export class Cp2020AcpaSelectEquipmentComponent implements OnInit {
   }
 
   filterWeapons(list: Array<Cp2020ACPAWeapon>): Array<Cp2020ACPAWeapon> {
-    console.log('filterWeapons');
     return this.filterList(list) as Array<Cp2020ACPAWeapon>;
   }
 
   filterComponents(
     list: Array<Cp2020ACPAComponent>
   ): Array<Cp2020ACPAComponent> {
-    console.log('filterComponents');
     return this.filterList(list) as Array<Cp2020ACPAComponent>;
   }
 
   filterList(
     list: Array<Cp2020ACPAComponent | Cp2020ACPAWeapon>
   ): Array<Cp2020ACPAComponent | Cp2020ACPAWeapon> {
+    const location = this.location.includes('arm')
+      ? 'arm'
+      : this.location.includes('leg')
+      ? 'leg'
+      : this.location;
+    let results = new Array<Cp2020ACPAWeapon | Cp2020ACPAComponent>();
     switch (this.enclosureType) {
       case ACPAEnclosure.internal:
-        return list.filter(
+        results = list.filter(
           (item) =>
-            (item?.internal?.includes(this.location) ||
+            (item?.internal?.includes(location) ||
               item?.internal?.includes('any')) &&
             item.spaces > 0 &&
             item.spaces <= this.availableSpaces
         );
+        break;
       case ACPAEnclosure.external:
-        return list.filter(
+        results = list.filter(
           (item) =>
-            (item?.external?.includes(this.location) ||
+            (item?.external?.includes(location) ||
               item?.external?.includes('any')) &&
             item.spaces > 0 &&
             item.spaces <= this.availableSpaces
         );
+        break;
       case ACPAEnclosure.carried:
-        return list.filter(
+        results = list.filter(
           (item) =>
             item?.external?.includes('handed') ||
             item?.external?.includes('any') ||
             item.spaces === 0
         );
-      default:
-        return new Array<Cp2020ACPAWeapon | Cp2020ACPAComponent>();
+        break;
     }
+    return results;
   }
 
   selectEquipment(equip: Cp2020ACPAComponent | Cp2020ACPAWeapon) {
