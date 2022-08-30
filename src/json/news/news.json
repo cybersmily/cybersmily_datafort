@@ -4,7 +4,8 @@
       "entries": [
         "<strong>09-??</strong> - More goodness to the site. Worked on a few things so far:",
         "&nbsp;* ACPA has custom weapon/component option to add to locations on the ACPA.",
-        "&nbsp;* ACPA fixed a but when removing components/weapons from a location.",
+        "&nbsp;* ACPA fixed a bug when removing components/weapons from a location.",
+        "&nbsp;* ACPA fixed a bug with notes not being retained after typing.",
         "&nbsp;* ACPA has STR 18 chassis to choose. This is NOT cannon, but was requested.",
         "&nbsp;* ACPA now can create WADs for you robot/drone lovers.",
         "Again, coming join my Discord server. I welcome feedback and chat on Cyberpunk related topics. The link is in the menu above.",
