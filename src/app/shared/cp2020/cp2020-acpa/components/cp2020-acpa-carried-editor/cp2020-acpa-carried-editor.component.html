@@ -1,0 +1,69 @@
+<div *ngIf="carriedEquipment$ | async as carriedEquipment">
+  <div class="row chargen-label">
+    <div class="col text-center fw-bold">EQUIPMENT CARRIED/INSTALLED</div>
+  </div>
+  <div class="row border border-dark">
+    <div class="col-12 col-lg-6">
+      <div class="row small fw-bold">
+        <div class="col-8 border border-dark">ITEM</div>
+        <div class="col border border-dark text-center">SP/SDP/WT</div>
+      </div>
+      <ng-container
+        [ngTemplateOutlet]="equipmentCarried"
+        [ngTemplateOutletContext]="{
+          equipment: getEquipmentColumnOne(carriedEquipment),
+          start: 0
+        }"
+      ></ng-container>
+    </div>
+    <div class="col-12 col-lg-6">
+      <div class="row small fw-bold">
+        <div class="col-8 border border-dark d-none d-lg-inline-block">
+          ITEM
+        </div>
+        <div
+          class="col border border-dark d-none d-lg-inline-block text-center"
+        >
+          SP/SDP/WT
+        </div>
+      </div>
+      <ng-container
+        [ngTemplateOutlet]="equipmentCarried"
+        [ngTemplateOutletContext]="{
+          equipment: getEquipmentColumnTwo(carriedEquipment),
+          start: getEquipmentColumnOne(carriedEquipment).length
+        }"
+      ></ng-container>
+    </div>
+    <div class="col-12">
+      <div *ngIf="!isDisabled" class="row">
+        <div class="col text-center">
+          <fa-icon
+            [icon]="faPlus"
+            class="csd-btn csd-icon-btn csd-icon-lg"
+            title="Add carried/installed item"
+            (click)="showCarriedComponent('handed', -1, addComponentModal)"
+          ></fa-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #equipmentCarried let-equipment="equipment" let-start="start">
+  <div *ngFor="let equip of equipment; let i = index" class="row small">
+    <div class="col-8 border border-dark">
+      {{ equip?.name }}
+      {{ getHands(equip?.external) }}
+      <fa-icon
+        [icon]="faTrash"
+        class="csd-btn csd-icon-btn float-end me-1"
+        title="Remove equipment"
+        (click)="removeCarriedComponent(i + start)"
+      ></fa-icon>
+    </div>
+    <div class="col border border-dark text-center">
+      {{ equip?.sp }}/{{ equip?.sdp }}/{{ getWeight(equip?.weight) | number }}kg
+    </div>
+  </div>
+</ng-template>

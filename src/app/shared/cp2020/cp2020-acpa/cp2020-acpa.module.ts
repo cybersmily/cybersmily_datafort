@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
 import { Cp2020AcpaFormComponent } from './components/cp2020-acpa-form/cp2020-acpa-form.component';
 import { Cp2020AcpaSelectEquipmentComponent } from './components/cp2020-acpa-select-equipment/cp2020-acpa-select-equipment.component';
 import { Cp2020AcpaWeaponEditorComponent } from './components/cp2020-acpa-weapon-editor/cp2020-acpa-weapon-editor.component';
+import { Cp2020AcpaLocationEditorComponent } from './components/cp2020-acpa-location-editor/cp2020-acpa-location-editor.component';
+import { Cp2020AcpaCarriedEditorComponent } from './components/cp2020-acpa-carried-editor/cp2020-acpa-carried-editor.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { Cp2020AcpaWeaponEditorComponent } from './components/cp2020-acpa-weapon
     Cp2020AcpaSelectEquipmentComponent,
     Cp2020AcpaWeaponEditorComponent,
     Cp2020AcpaEquipmentEditorComponent,
+    Cp2020AcpaLocationEditorComponent,
+    Cp2020AcpaCarriedEditorComponent,
   ],
   imports: [CommonModule, CommonUiModule, PipesModule],
   providers: [
@@ -30,6 +34,7 @@ import { Cp2020AcpaWeaponEditorComponent } from './components/cp2020-acpa-weapon
     Cp2020AcpaSelectEquipmentComponent,
     Cp2020AcpaWeaponEditorComponent,
     Cp2020AcpaEquipmentEditorComponent,
+    Cp2020AcpaLocationEditorComponent,
   ],
 })
 export class Cp2020ACPAModule {}

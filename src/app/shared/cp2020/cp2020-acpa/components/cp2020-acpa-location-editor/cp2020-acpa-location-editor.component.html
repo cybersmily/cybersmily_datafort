@@ -1,0 +1,150 @@
+<div *ngIf="acpalocations$ | async as acpalocations">
+  <div class="row chargen-label">
+    <div class="col text-center fw-bold">S P A C E S</div>
+  </div>
+  <div class="row small">
+    <div
+      *ngFor="let location of locations"
+      class="col-12 col-md-6 border border-dark"
+    >
+      <div class="row small">
+        <div class="col border border-dark text-center text-capitalize">
+          <h6>{{ formatTitle(location.title) }}</h6>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2 fw-bold">SP</div>
+        <div class="col-4">
+          {{ location.location?.sp }}/<input
+            type="number"
+            class="csd-number"
+            min="0"
+            [max]="location?.sp"
+            [(ngModel)]="location.location.currSP"
+            title="Current {{ title }} SP"
+            (change)="updateLocations()"
+          />
+        </div>
+        <div class="col-2 fw-bold">SDP</div>
+        <div class="col-4">
+          {{ location.location?.sdp }}/<input
+            type="number"
+            class="csd-number"
+            min="0"
+            [max]="location.location?.sdp"
+            [(ngModel)]="location.location.currSDP"
+            title="Current {{ location.title }} SDP"
+            (change)="updateLocations()"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <ng-container
+          [ngTemplateOutlet]="locationSection"
+          [ngTemplateOutletContext]="{
+            sectionTitle: 'INTERNAL',
+            locationName: location.title,
+            enclosure: ACPAEnclosure.internal,
+            spacesUsed: location.location?.internalSpacesUsed,
+            spaces: location.location?.internalSpaces,
+            equipList: location.location?.internalComponents
+          }"
+        ></ng-container>
+        <ng-container
+          [ngTemplateOutlet]="locationSection"
+          [ngTemplateOutletContext]="{
+            sectionTitle: 'EXTERNAL',
+            locationName: location.title,
+            enclosure: ACPAEnclosure.external,
+            spacesUsed: location.location?.externalSpacesUsed,
+            spaces: location.location?.externalSpaces,
+            equipList: location.location?.externalComponents
+          }"
+        ></ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template
+  #locationSection
+  let-sectionTitle="sectionTitle"
+  let-locationName="locationName"
+  let-enclosure="enclosure"
+  let-spacesUsed="spacesUsed"
+  let-spaces="spaces"
+  let-equipList="equipList"
+>
+  <div class="col">
+    <div class="row fw-bold mt-2">
+      <div class="col-9">
+        {{ sectionTitle }} ({{ spacesUsed }}/{{ spaces }})
+        <fa-icon
+          *ngIf="spacesUsed &lt; spaces"
+          [icon]="faPlus"
+          class="csd-btn csd-icon-btn ms-2"
+          (click)="
+            showEquipment(
+              locationName,
+              spaces - spacesUsed,
+              enclosure,
+              addComponentModal
+            )
+          "
+        >
+        </fa-icon>
+      </div>
+      <div class="col-2 text-center">SDP</div>
+    </div>
+    <hr class="mt-1 mb-0" />
+    <ng-conainer *ngFor="let item of equipList; let i = index">
+      <div class="row">
+        <div class="col-1">
+          <span *ngIf="i % 4 == 0">{{ i / 4 + 1 }}</span>
+        </div>
+        <div class="col-8 pe-0 ps-0">
+          <span
+            title="{{ item?.weight | number }}kg {{ item?.cost | number }}eb {{
+              item?.source.book | sourcebook
+            }} pg.{{ item?.source.page }}"
+            [ngClass]="{ 'csd-collection': nameIsCollection(item?.name) }"
+            >{{ item?.name }}</span
+          >
+          <fa-icon
+            *ngIf="item != null && item.category !== ''"
+            [icon]="faTrash"
+            class="csd-btn csd-icon-btn float-end"
+            (click)="removeEquipment(locationName, enclosure, item)"
+          ></fa-icon>
+        </div>
+        <div class="col-2 text-center">
+          {{ item?.sdp }}
+        </div>
+      </div>
+      <hr *ngIf="i > 0 && i % 4 == 3" class="mt-1 mb-0" />
+    </ng-conainer>
+  </div>
+</ng-template>
+
+<ng-template #addComponentModal>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col">
+        <button
+          type="button"
+          class="btn-close float-end"
+          aria-label="Close"
+          (click)="modalRef.hide()"
+        ></button>
+        <cs-cp2020-acpa-select-equipment
+          [enclosureType]="selectedEnclosure"
+          [location]="selectedLocation"
+          [availableSpaces]="availableSpaces"
+          (chooseEquipment)="addEquipment($event)"
+        >
+        </cs-cp2020-acpa-select-equipment>
+      </div>
+    </div>
+  </div>
+</ng-template>

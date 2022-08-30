@@ -1,6 +1,8 @@
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { Cp2020ACPADataAttributesService } from './../../services/cp2020-acpa-data-attrbutes/cp2020-acpa-data-attributes.service';
 import { ACPAEnclosure } from './../../enums/acpa-enclossure';
-import { Cp2020ACPAWeapon } from '../../models/cp2020-acpa-weapon';
-import { Cp2020ACPAComponent } from '../../models/cp2020-acpa-component';
+import { Cp2020ACPAWeapon, Cp2020ACPAComponent } from '../../models';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -9,10 +11,13 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./cp2020-acpa-select-equipment.component.css'],
 })
 export class Cp2020AcpaSelectEquipmentComponent implements OnInit {
-  weaponCategories = new Array<string>();
-  componentCategories = new Array<string>();
+  weaponCategories$: Observable<Array<string>>;
+  weaponList$: Observable<Array<Cp2020ACPAWeapon>>;
+
+  componentCategories$: Observable<Array<string>>;
+  componentList$: Observable<Array<Cp2020ACPAComponent>>;
+
   selectedOption = { type: '', category: '' };
-  filterLocation = '';
 
   @Input()
   location = '';
@@ -21,60 +26,71 @@ export class Cp2020AcpaSelectEquipmentComponent implements OnInit {
   enclosureType: ACPAEnclosure = ACPAEnclosure.internal;
 
   @Input()
-  componentList = new Array<Cp2020ACPAComponent>();
-
-  @Input()
-  weaponList = new Array<Cp2020ACPAWeapon>();
+  availableSpaces: number;
 
   @Output()
   chooseEquipment = new EventEmitter<Cp2020ACPAWeapon | Cp2020ACPAComponent>();
 
-  constructor() {}
+  constructor(private acpaDataService: Cp2020ACPADataAttributesService) {}
 
   ngOnInit(): void {
-    this.filterLocation = this.location.replace('r ', '').replace('l ', '');
-    this.weaponCategories = this.currWeaponList
-      .map((wpn) => wpn.category)
-      .filter((value, index, self) => self.indexOf(value) === index);
-    this.componentCategories = this.currComponentList
-      .map((comp) => comp.category)
-      .filter((value, index, self) => self.indexOf(value) === index);
+    this.weaponCategories$ = this.acpaDataService
+      .getData()
+      .pipe(
+        map((data) =>
+          data.weapons
+            .map((wpn) => wpn.category)
+            .filter((value, index, self) => self.indexOf(value) === index)
+        )
+      );
+    this.componentCategories$ = this.acpaDataService
+      .getData()
+      .pipe(
+        map((data) =>
+          data.components
+            .map((comp) => comp.category)
+            .filter((value, index, self) => self.indexOf(value) === index)
+        )
+      );
+    this.componentList$ = this.acpaDataService
+      .getData()
+      .pipe(map((data) => this.filterComponents(data.components)));
+    this.weaponList$ = this.acpaDataService
+      .getData()
+      .pipe(map((data) => this.filterWeapons(data.weapons)));
   }
 
-  get currComponentList(): Array<Cp2020ACPAComponent> {
-    let list = this.componentList;
+  filterWeapons(list: Array<Cp2020ACPAWeapon>): Array<Cp2020ACPAWeapon> {
+    console.log('filterWeapons');
+    return this.filterList(list) as Array<Cp2020ACPAWeapon>;
+  }
+
+  filterComponents(
+    list: Array<Cp2020ACPAComponent>
+  ): Array<Cp2020ACPAComponent> {
+    console.log('filterComponents');
+    return this.filterList(list) as Array<Cp2020ACPAComponent>;
+  }
+
+  filterList(
+    list: Array<Cp2020ACPAComponent | Cp2020ACPAWeapon>
+  ): Array<Cp2020ACPAComponent | Cp2020ACPAWeapon> {
     switch (this.enclosureType) {
       case ACPAEnclosure.internal:
         return list.filter(
           (item) =>
-            item?.internal?.includes(this.filterLocation) ||
-            item?.internal?.includes('any')
+            (item?.internal?.includes(this.location) ||
+              item?.internal?.includes('any')) &&
+            item.spaces > 0 &&
+            item.spaces <= this.availableSpaces
         );
       case ACPAEnclosure.external:
         return list.filter(
           (item) =>
-            item?.external?.includes(this.filterLocation) ||
-            item?.external?.includes('any')
-        );
-      default:
-        return list.filter((item) => item.spaces === 0);
-    }
-  }
-
-  get currWeaponList(): Array<Cp2020ACPAWeapon> {
-    let list = this.weaponList;
-    switch (this.enclosureType) {
-      case ACPAEnclosure.internal:
-        return list.filter(
-          (item) =>
-            item?.internal?.includes(this.filterLocation) ||
-            item?.internal?.includes('any')
-        );
-      case ACPAEnclosure.external:
-        return list.filter(
-          (item) =>
-            item?.external?.includes(this.filterLocation) ||
-            item?.external?.includes('any')
+            (item?.external?.includes(this.location) ||
+              item?.external?.includes('any')) &&
+            item.spaces > 0 &&
+            item.spaces <= this.availableSpaces
         );
       case ACPAEnclosure.carried:
         return list.filter(
@@ -84,7 +100,7 @@ export class Cp2020AcpaSelectEquipmentComponent implements OnInit {
             item.spaces === 0
         );
       default:
-        return new Array<Cp2020ACPAWeapon>();
+        return new Array<Cp2020ACPAWeapon | Cp2020ACPAComponent>();
     }
   }
 

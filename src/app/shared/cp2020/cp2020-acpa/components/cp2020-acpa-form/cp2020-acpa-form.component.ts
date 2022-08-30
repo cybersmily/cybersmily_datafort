@@ -1,3 +1,6 @@
+import { Cp2020ACPASettings } from './../../enums/cp2020-acpa-settings';
+import { map, switchMap } from 'rxjs/operators';
+import { Observable, first } from 'rxjs';
 import { SaveFileService } from '../../../../services/file-services/save-file/save-file.service';
 import { FileLoaderService } from '../../../../services/file-services/file-loader/file-loader.service';
 import { ACPAEnclosure } from '../../enums/acpa-enclossure';
@@ -19,6 +22,7 @@ import { Cp2020ACPADataAttributesService } from '../../services/cp2020-acpa-data
 import { AcpaAttributeData } from '../../models/acpa-attribute-data';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { Cp2020ACPALocation } from '../../models/cp2020-acpa-location';
 
 @Component({
   selector: 'cs-cp2020-acpa-form',
@@ -45,7 +49,9 @@ export class Cp2020AcpaFormComponent implements OnInit {
     weapons: [],
   };
 
-  currACPA = new Cp2020ACPA();
+  // currACPA = new Cp2020ACPA();
+  currACPA$: Observable<Cp2020ACPA>;
+
   selectedName = '';
   selectedManufacturer = '';
   selectedNote = '';
@@ -57,31 +63,11 @@ export class Cp2020AcpaFormComponent implements OnInit {
   selectedComponentCat = 'x';
   selectedComponent = new Cp2020ACPAComponent();
   selectedWeaponCat = 'x';
-  selectedLocation = '';
-  availableSpaces = 0;
-  selectedEnclosure: ACPAEnclosure = ACPAEnclosure.internal;
 
   get filteredArmor(): Array<Cp2020AcpaArmor> {
     return this.attributeData.armor.filter(
       (armor) => armor.sp < this.selectedChassis?.str * 2
     );
-  }
-
-  installableComponents = new Array<Cp2020ACPAComponent>();
-  installableWeapons = new Array<Cp2020ACPAWeapon>();
-
-  get isDisabled(): boolean {
-    return this.currACPA.chassis.str < 10;
-  }
-
-  get equipmentColumnOne(): Array<Cp2020ACPAComponent | Cp2020ACPAWeapon> {
-    const count = Math.ceil(this.currACPA.equipment.length / 2);
-    return this.currACPA.equipment.slice(0, count);
-  }
-
-  get equipmentColumnTwo(): Array<Cp2020ACPAComponent | Cp2020ACPAWeapon> {
-    const count = Math.ceil(this.currACPA.equipment.length / 2);
-    return this.currACPA.equipment.slice(count);
   }
 
   constructor(
@@ -91,31 +77,42 @@ export class Cp2020AcpaFormComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.attributesService.getData().subscribe((data) => {
-      this.attributeData = data;
-      this.acpaBuilderService.acpa.subscribe((acpa: ACPA) => {
-        this.currACPA = new Cp2020ACPA(acpa);
-        const index = this.attributeData.chassis.findIndex(
-          (chassis) =>
-            this.currACPA.chassis?.str === chassis?.str &&
-            this.currACPA.chassis?.name === chassis?.name
-        );
-        this.selectedChassis = this.attributeData.chassis[index];
-        this.selectedArmor = this.attributeData.armor.find(
-          (armor) => armor.sp === this.currACPA.armor.sp
-        );
-        this.selectedInterface = this.attributeData.realityInterfaces.find(
-          (intrfc) => intrfc.name === this.currACPA.realityInterface.name
-        );
-        this.selectedControl = this.attributeData.controlSystems.find(
-          (control) => control.name === this.currACPA.controlSystem.name
-        );
-        this.selectedTroopSize = acpa.trooperSize;
-        this.selectedManufacturer = acpa.manufacturer;
-        this.selectedName = acpa.name;
-        this.selectedNote = acpa.notes;
-      });
-    });
+    this.currACPA$ = this.attributesService.getData().pipe(
+      first(),
+      map((data) => {
+        this.attributeData = data;
+      }),
+      switchMap((data) =>
+        this.acpaBuilderService.acpa.pipe(
+          map((acpa: ACPA) => {
+            return this.setVariables(new Cp2020ACPA(acpa));
+          })
+        )
+      )
+    );
+  }
+
+  private setVariables(acpa: Cp2020ACPA): Cp2020ACPA {
+    const index = this.attributeData.chassis.findIndex(
+      (chassis) =>
+        acpa.chassis?.str === chassis?.str &&
+        acpa.chassis?.name === chassis?.name
+    );
+    this.selectedChassis = this.attributeData.chassis[index];
+    this.selectedArmor = this.attributeData.armor.find(
+      (armor) => armor.sp === acpa.armor.sp
+    );
+    this.selectedInterface = this.attributeData.realityInterfaces.find(
+      (intrfc) => intrfc.name === acpa.realityInterface.name
+    );
+    this.selectedControl = this.attributeData.controlSystems.find(
+      (control) => control.name === acpa.controlSystem.name
+    );
+    this.selectedTroopSize = acpa.trooperSize;
+    this.selectedManufacturer = acpa.manufacturer;
+    this.selectedName = acpa.name;
+    this.selectedNote = acpa.notes;
+    return acpa;
   }
 
   updateChassis() {
@@ -137,108 +134,6 @@ export class Cp2020AcpaFormComponent implements OnInit {
     this.acpaBuilderService.updateTroopSize(this.selectedTroopSize);
   }
 
-  showInternalComponent(
-    location: string,
-    availableSpaces: number,
-    template: TemplateRef<any>
-  ) {
-    this.installableComponents = this.attributeData.components.filter(
-      (item) => item.spaces > 0 && item.spaces <= availableSpaces * 4
-    );
-    this.installableWeapons = this.attributeData.weapons.filter(
-      (item) => item.spaces > 0 && item.spaces <= availableSpaces * 4
-    );
-    this.showEquipment(
-      location,
-      availableSpaces,
-      ACPAEnclosure.internal,
-      template
-    );
-  }
-
-  showExternalComponent(
-    location: string,
-    availableSpaces: number,
-    template: TemplateRef<any>
-  ) {
-    this.installableComponents = this.attributeData.components.filter(
-      (item) => item.spaces > 0 && item.spaces <= availableSpaces * 4
-    );
-    this.installableWeapons = this.attributeData.weapons.filter(
-      (item) => item.spaces > 0 && item.spaces <= availableSpaces * 4
-    );
-    this.showEquipment(
-      location,
-      availableSpaces,
-      ACPAEnclosure.external,
-      template
-    );
-  }
-
-  showCarriedComponent(
-    location: string,
-    availableSpaces: number,
-    template: TemplateRef<any>
-  ) {
-    this.installableComponents = this.attributeData.components.filter(
-      (item) => item.spaces === 0
-    );
-    this.installableWeapons = this.attributeData.weapons;
-    this.showEquipment(
-      location,
-      availableSpaces,
-      ACPAEnclosure.carried,
-      template
-    );
-  }
-
-  showEquipment(
-    location: string,
-    availableSpaces: number,
-    enclosure: ACPAEnclosure,
-    template: TemplateRef<any>
-  ) {
-    this.selectedEnclosure = enclosure;
-    this.selectedLocation = location?.toLocaleLowerCase();
-    this.availableSpaces = availableSpaces * 4;
-    this.showModal(template);
-  }
-
-  addEquipment(equip: Cp2020ACPAWeapon | Cp2020ACPAComponent) {
-    const type = this.selectedEnclosure;
-    this.acpaBuilderService.addEquipment(this.selectedLocation, type, equip);
-    this.modalRef.hide();
-  }
-  removeInternalComponent(
-    location: string,
-    equip: Cp2020ACPAWeapon | Cp2020ACPAComponent
-  ) {
-    this.removeComponent(location, ACPAEnclosure.internal, equip);
-  }
-
-  removeExternalComponent(
-    location: string,
-    equip: Cp2020ACPAWeapon | Cp2020ACPAComponent
-  ) {
-    this.removeComponent(location, ACPAEnclosure.external, equip);
-  }
-
-  removeCarriedComponent(index: number) {
-    this.acpaBuilderService.removeCarriedEquipment(index);
-  }
-
-  removeComponent(
-    location: string,
-    type: ACPAEnclosure,
-    equip: Cp2020ACPAWeapon | Cp2020ACPAComponent
-  ) {
-    this.acpaBuilderService.removeEquipment(
-      location.toLowerCase().replace(' ', ''),
-      type,
-      equip
-    );
-  }
-
   updateName() {
     this.acpaBuilderService.updateName(this.selectedName);
   }
@@ -247,8 +142,8 @@ export class Cp2020AcpaFormComponent implements OnInit {
     this.acpaBuilderService.updateManufacturer(this.selectedManufacturer);
   }
 
-  updateLocations() {
-    this.acpaBuilderService.setLocations(this.currACPA, this.currACPA.chassis);
+  updateLocations(acpa: Cp2020ACPA) {
+    this.acpaBuilderService.setLocations(acpa, acpa.chassis);
   }
 
   updateNote() {
@@ -259,12 +154,20 @@ export class Cp2020AcpaFormComponent implements OnInit {
     this.acpaBuilderService.toggleWad();
   }
 
-  updateMA() {
-    this.acpaBuilderService.updateMA(this.currACPA.ma);
+  updateMA(ma: number) {
+    this.acpaBuilderService.updateMA(ma);
   }
 
   reset() {
     this.acpaBuilderService.update(new Cp2020ACPA());
+    this.selectedChassis = null;
+    this.selectedArmor = null;
+    this.selectedInterface = null;
+    this.selectedControl = null;
+    this.selectedTroopSize = Cp2020ACPASettings.TROOPSIZE_DEFAULT.valueOf();
+    this.selectedManufacturer = '';
+    this.selectedName = '';
+    this.selectedNote = '';
   }
 
   showModal(template: TemplateRef<any>) {
@@ -289,6 +192,7 @@ export class Cp2020AcpaFormComponent implements OnInit {
     }
     return locations.split('|').filter((loc) => loc.includes('handed'))[0];
   }
+
   getLocations(locations: string): Array<string> {
     const loc = [];
     if (locations === null) {
@@ -309,9 +213,5 @@ export class Cp2020AcpaFormComponent implements OnInit {
       loc.push('l leg');
     }
     return loc;
-  }
-
-  nameIsCollection(name: string): boolean {
-    return name?.startsWith('(');
   }
 }

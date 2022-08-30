@@ -10,7 +10,7 @@
       </option>
       <optgroup label="EQUIPEMENT">
         <option
-          *ngFor="let category of componentCategories"
+          *ngFor="let category of componentCategories$ | async"
           [ngValue]="{ type: 'component', category: category }"
         >
           {{ category }}
@@ -18,7 +18,7 @@
       </optgroup>
       <optgroup label="WEAPONS">
         <option
-          *ngFor="let category of weaponCategories"
+          *ngFor="let category of weaponCategories$ | async"
           [ngValue]="{ type: 'weapon', category: category }"
         >
           {{ category }}
@@ -27,7 +27,13 @@
     </select>
   </div>
 </div>
-<div *ngIf="selectedOption.type == 'component'" class="row">
+<div
+  *ngIf="
+    selectedOption.type == 'component' && componentList$
+      | async as componentList
+  "
+  class="row"
+>
   <div class="col-12">
     <div class="row">
       <div class="col">NAME</div>
@@ -38,8 +44,7 @@
     </div>
     <div
       *ngFor="
-        let comp of currComponentList
-          | filter: 'category':selectedOption.category
+        let comp of componentList | filter: 'category':selectedOption.category
       "
       class="row small csd-acpa-equip"
       (click)="selectEquipment(comp)"
@@ -59,11 +64,14 @@
     </div>
   </div>
 </div>
-<div *ngIf="selectedOption.type == 'weapon'" class="row small">
+<div
+  *ngIf="selectedOption.type == 'weapon' && weaponList$ | async as weaponList"
+  class="row small"
+>
   <div class="col-12">
     <div
       *ngFor="
-        let wpn of currWeaponList | filter: 'category':selectedOption.category
+        let wpn of weaponList | filter: 'category':selectedOption.category
       "
       class="row csd-acpa-equip mb-1 mt-1"
       title="{{ wpn?.source?.book | sourcebook }} pg.{{ wpn?.source?.page }}"
