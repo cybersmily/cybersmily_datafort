@@ -1,16 +1,23 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'filter'
+  name: 'filter',
 })
 export class FilterPipe implements PipeTransform {
-
   transform(array: any[], property: string, value: any): any[] {
-    if (!property || property === '' || value === null || value === undefined || value === '') {
+    if (
+      array === null ||
+      !property ||
+      property === '' ||
+      property === null ||
+      value === null ||
+      value === undefined ||
+      value === ''
+    ) {
       return array;
     }
-    const result = array.filter( obj => {
-      switch ( typeof obj[property]) {
+    const result = array.filter((obj) => {
+      switch (typeof obj[property]) {
         case 'string':
           return obj[property].toLowerCase().startsWith(value.toLowerCase());
         case 'number':
@@ -26,7 +33,7 @@ export class FilterPipe implements PipeTransform {
         default:
           if (Array.isArray(obj[property])) {
             const ar = [].concat(...obj[property]);
-            return ar.find( (sk: string) => {
+            return ar.find((sk: string) => {
               return sk.toLowerCase().startsWith(value.toLowerCase());
             });
           }
@@ -37,7 +44,6 @@ export class FilterPipe implements PipeTransform {
     return result;
   }
 
-
   /**
    * Process an object item
    *
@@ -47,19 +53,25 @@ export class FilterPipe implements PipeTransform {
    * @returns {boolean}
    * @memberof FilterPipe
    */
-  processObject(obj: any, property: string, value: any ): boolean {
+  processObject(obj: any, property: string, value: any): boolean {
     // property should use ':' to designate the object property
     if (!property.includes('.')) {
       return false;
     }
     const objProp = property.split('.')[0];
     const subProp = property.split('.')[1];
-    if (obj[objProp] === undefined || obj[objProp] === null || obj[objProp][subProp] === undefined) {
+    if (
+      obj[objProp] === undefined ||
+      obj[objProp] === null ||
+      obj[objProp][subProp] === undefined
+    ) {
       return false;
     }
-    switch ( typeof obj[objProp][subProp]) {
+    switch (typeof obj[objProp][subProp]) {
       case 'string':
-        return obj[objProp][subProp].toLowerCase().startsWith(value.toLowerCase());
+        return obj[objProp][subProp]
+          .toLowerCase()
+          .startsWith(value.toLowerCase());
       case 'number':
         return obj[objProp][subProp] === value;
       case 'boolean':
@@ -69,5 +81,4 @@ export class FilterPipe implements PipeTransform {
         return false;
     }
   }
-
 }
