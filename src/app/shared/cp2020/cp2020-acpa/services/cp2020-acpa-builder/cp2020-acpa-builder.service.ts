@@ -339,11 +339,14 @@ export class Cp2020ACPABuilderService {
         : '';
     const components = `${property}Components`;
     const usedSpaces = `${property}SpacesUsed`;
-    const index = loc[components].findIndex(
-      (item) => item?.name === equip?.name
+    const itemName = equip.name.startsWith('(')
+      ? equip.name.replace(')', '').replace('(', '')
+      : equip.name;
+    const index = loc[components].findIndex((item) =>
+      item?.name.includes(itemName)
     );
     loc[components].fill(null, index, index + equip.spaces);
-    loc[usedSpaces] -= equip.spaces / 4;
+    loc[usedSpaces] = loc[components].filter((item) => item).length / 4;
     return loc;
   }
 
@@ -355,61 +358,31 @@ export class Cp2020ACPABuilderService {
     this.update(this._currACPA);
   }
 
+  private getLocationString(prop: string) {
+    if (prop.includes('arm')) {
+      return 'arms';
+    }
+    if (prop.includes('leg')) {
+      return 'legs';
+    }
+    return prop;
+  }
+
   setLocations(acpa: Cp2020ACPA, chassis: Cp2020ACPAChassis) {
-    this._currACPA.locations.head = this.setLocation(
-      'head',
-      acpa.armor.sp,
-      acpa.locations.head.currSP,
-      acpa.locations.head.currSDP,
-      chassis,
-      acpa.locations.head.internalComponents,
-      acpa.locations.head.externalComponents
-    );
-    this._currACPA.locations.torso = this.setLocation(
-      'torso',
-      acpa.armor.sp,
-      acpa.locations.torso.currSP,
-      acpa.locations.torso.currSDP,
-      chassis,
-      acpa.locations.torso.internalComponents,
-      acpa.locations.torso.externalComponents
-    );
-    this._currACPA.locations.rarm = this.setLocation(
-      'arms',
-      acpa.armor.sp,
-      acpa.locations.rarm.currSP,
-      acpa.locations.rarm.currSDP,
-      chassis,
-      acpa.locations.rarm.internalComponents,
-      acpa.locations.rarm.externalComponents
-    );
-    this._currACPA.locations.larm = this.setLocation(
-      'arms',
-      acpa.armor.sp,
-      acpa.locations.larm.currSP,
-      acpa.locations.larm.currSDP,
-      chassis,
-      acpa.locations.larm.internalComponents,
-      acpa.locations.larm.externalComponents
-    );
-    this._currACPA.locations.rleg = this.setLocation(
-      'legs',
-      acpa.armor.sp,
-      acpa.locations.rleg.currSP,
-      acpa.locations.rleg.currSDP,
-      chassis,
-      acpa.locations.rleg.internalComponents,
-      acpa.locations.rleg.externalComponents
-    );
-    this._currACPA.locations.lleg = this.setLocation(
-      'legs',
-      acpa.armor.sp,
-      acpa.locations.lleg.currSP,
-      acpa.locations.lleg.currSDP,
-      chassis,
-      acpa.locations.lleg.internalComponents,
-      acpa.locations.lleg.externalComponents
-    );
+    console.log('setLocations', acpa, chassis);
+    for (const prop in this._currACPA.locations) {
+      console.log('setLocations', prop);
+      const loc = this.getLocationString(prop);
+      this._currACPA.locations[prop] = this.setLocation(
+        loc,
+        acpa.armor.sp,
+        acpa.locations[prop].currSP,
+        acpa.locations[prop].currSDP,
+        chassis,
+        acpa.locations[prop].internalComponents,
+        acpa.locations[prop].externalComponents
+      );
+    }
     this.update();
   }
 
