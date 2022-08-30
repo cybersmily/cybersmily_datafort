@@ -1,6 +1,6 @@
 import { Cp2020ACPASettings } from './../../enums/cp2020-acpa-settings';
-import { map, switchMap } from 'rxjs/operators';
-import { Observable, first } from 'rxjs';
+import { map, switchMap, debounceTime } from 'rxjs/operators';
+import { Observable, first, Subject } from 'rxjs';
 import { SaveFileService } from '../../../../services/file-services/save-file/save-file.service';
 import { FileLoaderService } from '../../../../services/file-services/file-loader/file-loader.service';
 import { ACPAEnclosure } from '../../enums/acpa-enclossure';
@@ -53,6 +53,7 @@ export class Cp2020AcpaFormComponent implements OnInit {
   selectedInterface = new Cp2020ACPAComponent();
   selectedControl = new Cp2020ACPAComponent();
   selectedTroopSize = 0;
+  notesSubject: Subject<string> = new Subject();
 
   get filteredArmor(): Array<Cp2020AcpaArmor> {
     return this.attributeData.armor.filter(
@@ -79,6 +80,9 @@ export class Cp2020AcpaFormComponent implements OnInit {
         )
       )
     );
+    this.notesSubject.pipe(debounceTime(500)).subscribe((note) => {
+      this.acpaBuilderService.updateNote(this.selectedNote);
+    });
   }
 
   private setVariables(acpa: Cp2020ACPA): Cp2020ACPA {
@@ -132,7 +136,7 @@ export class Cp2020AcpaFormComponent implements OnInit {
   }
 
   updateNote() {
-    this.acpaBuilderService.updateNote(this.selectedNote);
+    this.notesSubject.next(this.selectedNote);
   }
 
   toggleWad() {
