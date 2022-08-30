@@ -1,7 +1,19 @@
 ﻿{
   "news": [
-    {
-"date": "2022-08",
+    {"date": "2022-09",
+      "entries": [
+        "<strong>09-??</strong> - More goodness to the site. Worked on a few things so far:",
+        "&nbsp;* ACPA has custom weapon/component option to add to locations on the ACPA.",
+        "&nbsp;* ACPA fixed a but when removing components/weapons from a location.",
+        "&nbsp;* ACPA has STR 18 chassis to choose. This is NOT cannon, but was requested.",
+        "&nbsp;* ACPA now can create WADs for you robot/drone lovers.",
+        "Again, coming join my Discord server. I welcome feedback and chat on Cyberpunk related topics. The link is in the menu above.",
+        "Tales from the Forlorn Dopes pod/vod cast is going on. Wisdom 000 and I over on <a href='https://www.twitch.tv/cybernationuncensored'>Cybernation Uncensored twitch</a> channel every 1st and 3rd Wednesday of the month. We start around 19:00 EST/18:00 CST/16:00 PST/00:00 GMT (which actually Thursday for those across the pond). We ramble on about Cyberpunk 2020, Cyberpunk Red, Cyberpunk 2077 and other Cyberpunk genre media like movies, TV servies, comics, anime, etc. Come join us. You can see old episodes on <a href=\"https://www.youtube.com/c/CybernationUncensored\">Cybernation Uncensored's Youtube Channel</a>.",
+        "Till next time gatos.",
+        "CYBER :D"
+      ]
+    },
+    { "date": "2022-08",
       "entries": [
         "<strong>08-28</strong> - A couple of fixes made to the site this time.",
         "&nbsp;* Fixed a bug with random armor not setting all the locations properly on the combat tracker and character generator for Cyberpunk 2020",
