@@ -1,6 +1,8 @@
 export * from './acpa';
+export * from './acpa-ammo';
 export * from './acpa-armor';
 export * from './acpa-attribute-data';
+export * from './acpa-carried-item';
 export * from './acpa-chassis';
 export * from './acpa-component';
 export * from './acpa-location';
@@ -9,4 +11,9 @@ export * from './acpa-weapon';
 
 export * from './cp2020-acpa';
 export * from './cp2020-acpa-armor';
+export * from './cp2020-acpa-carried-item';
 export * from './cp2020-acpa-chassis';
+export * from './cp2020-acpa-component';
+export * from './cp2020-acpa-location';
+export * from './cp2020-acpa-locations';
+export * from './cp2020-acpa-weapon';
