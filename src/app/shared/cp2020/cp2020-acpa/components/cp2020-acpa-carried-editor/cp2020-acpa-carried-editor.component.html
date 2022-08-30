@@ -42,7 +42,7 @@
             [icon]="faPlus"
             class="csd-btn csd-icon-btn csd-icon-lg"
             title="Add carried/installed item"
-            (click)="showCarriedComponent('handed', -1, addComponentModal)"
+            (click)="showModal(addComponentModal)"
           ></fa-icon>
         </div>
       </div>
@@ -64,6 +64,28 @@
     </div>
     <div class="col border border-dark text-center">
       {{ equip?.sp }}/{{ equip?.sdp }}/{{ getWeight(equip?.weight) | number }}kg
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #addComponentModal>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col">
+        <button
+          type="button"
+          class="btn-close float-end"
+          aria-label="Close"
+          (click)="modalRef.hide()"
+        ></button>
+        <cs-cp2020-acpa-select-equipment
+          [enclosureType]="selectedEnclosure"
+          [location]="selectedLocation"
+          [availableSpaces]="availableSpaces"
+          (chooseEquipment)="addEquipment($event)"
+        >
+        </cs-cp2020-acpa-select-equipment>
+      </div>
     </div>
   </div>
 </ng-template>

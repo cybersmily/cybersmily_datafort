@@ -34,12 +34,6 @@ export class Cp2020AcpaFormComponent implements OnInit {
   faTrash = faTrash;
   faRedo = faRedo;
 
-  modalRef: BsModalRef;
-  config = {
-    keyboard: true,
-    class: 'modal-dialog-centered modal-lg',
-  };
-
   attributeData: AcpaAttributeData = {
     chassis: [],
     armor: [],
@@ -60,9 +54,6 @@ export class Cp2020AcpaFormComponent implements OnInit {
   selectedInterface = new Cp2020ACPAComponent();
   selectedControl = new Cp2020ACPAComponent();
   selectedTroopSize = 0;
-  selectedComponentCat = 'x';
-  selectedComponent = new Cp2020ACPAComponent();
-  selectedWeaponCat = 'x';
 
   get filteredArmor(): Array<Cp2020AcpaArmor> {
     return this.attributeData.armor.filter(
@@ -72,8 +63,7 @@ export class Cp2020AcpaFormComponent implements OnInit {
 
   constructor(
     private attributesService: Cp2020ACPADataAttributesService,
-    private acpaBuilderService: Cp2020ACPABuilderService,
-    private modalService: BsModalService
+    private acpaBuilderService: Cp2020ACPABuilderService
   ) {}
 
   ngOnInit(): void {
@@ -142,10 +132,6 @@ export class Cp2020AcpaFormComponent implements OnInit {
     this.acpaBuilderService.updateManufacturer(this.selectedManufacturer);
   }
 
-  updateLocations(acpa: Cp2020ACPA) {
-    this.acpaBuilderService.setLocations(acpa, acpa.chassis);
-  }
-
   updateNote() {
     this.acpaBuilderService.updateNote(this.selectedNote);
   }
@@ -168,50 +154,5 @@ export class Cp2020AcpaFormComponent implements OnInit {
     this.selectedManufacturer = '';
     this.selectedName = '';
     this.selectedNote = '';
-  }
-
-  showModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template, this.config);
-  }
-
-  showLocationChoice(
-    component: Cp2020ACPAComponent,
-    template: TemplateRef<any>
-  ) {
-    this.selectedComponent = component;
-    this.showModal(template);
-  }
-
-  getWeight(wt: number): number {
-    return this.acpaBuilderService.calculateItemWeight(wt);
-  }
-
-  getHands(locations: string): string {
-    if (!locations || !locations.includes('handed')) {
-      return '';
-    }
-    return locations.split('|').filter((loc) => loc.includes('handed'))[0];
-  }
-
-  getLocations(locations: string): Array<string> {
-    const loc = [];
-    if (locations === null) {
-      return loc;
-    }
-    if (locations.includes('head') || locations.includes('any')) {
-      loc.push('head');
-    }
-    if (locations.includes('torso') || locations.includes('any')) {
-      loc.push('torso');
-    }
-    if (locations.includes('arms') || locations.includes('any')) {
-      loc.push('r arm');
-      loc.push('l arm');
-    }
-    if (locations.includes('legs') || locations.includes('any')) {
-      loc.push('r leg');
-      loc.push('l leg');
-    }
-    return loc;
   }
 }

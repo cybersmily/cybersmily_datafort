@@ -35,6 +35,7 @@ import { Cp2020AcpaCarriedEditorComponent } from './components/cp2020-acpa-carri
     Cp2020AcpaWeaponEditorComponent,
     Cp2020AcpaEquipmentEditorComponent,
     Cp2020AcpaLocationEditorComponent,
+    Cp2020AcpaCarriedEditorComponent,
   ],
 })
 export class Cp2020ACPAModule {}
