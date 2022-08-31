@@ -16,14 +16,18 @@ export class Cp2020ACPAPdfService {
 
   saveFile(acpa: Cp2020ACPA) {
     const doc = this.PdfGeneratorService.createDoc(PdfPageOrientation.PORTRAIT);
+    const titlePrefix = acpa.isWad
+      ? 'W O R K I N G  A S S I S T A N T  D R O N E S'
+      : 'P O W E R   A R M O R';
     let line = this.addTitle(
       doc,
       PdfPageSettings.MARGIN_TOP - 5,
-      'P O W E R   A R M O R   S P E C I F I C A T I O N S'
+      `${titlePrefix}   S P E C I F I C A T I O N S`
     );
     line = this.addDetailsSection(doc, acpa, line);
     line = this.addTitle(doc, line, 'S   P   A   C   E   S');
     line = this.addSpaceSection(doc, acpa, line);
+    line = this.checkPageHeight(line, doc);
     line = this.addTitle(
       doc,
       line,
@@ -36,6 +40,14 @@ export class Cp2020ACPAPdfService {
     line = this.addNoteSection(doc, acpa, line);
 
     doc.save('cp2020_acpa.pdf');
+  }
+
+  private checkPageHeight(line: number, doc: jsPDF): number {
+    if (line > PdfPageSettings.PAGE_HEIGHT) {
+      doc.addPage();
+      return PdfPageSettings.MARGIN_TOP - 5;
+    }
+    return line;
   }
 
   private addTitle(doc: jsPDF, line: number, title: string): number {
@@ -58,9 +70,9 @@ export class Cp2020ACPAPdfService {
   ): number {
     const start = line;
     const left = PdfPageSettings.MARGIN_LEFT + 3;
-    doc.text(`SUIT NAME: ${acpa.name}`, left, line + 5);
+    doc.text(`NAME: ${acpa.name.toUpperCase()}`, left, line + 5);
     doc.text(
-      `MANUFACTURER: ${acpa.manufacturer}`,
+      `MANUFACTURER: ${acpa.manufacturer.toUpperCase()}`,
       PdfPageSettings.MIDPAGE,
       line + 5
     );
@@ -77,7 +89,9 @@ export class Cp2020ACPAPdfService {
     );
     line += PdfPageSettings.LINEHEIGHT_SM;
     doc.text(
-      `CHASSIS TYPE: ${acpa.chassis.name} STR ${acpa.chassis.str}`,
+      `CHASSIS TYPE: ${acpa.chassis.name.toUpperCase()} STR ${
+        acpa.chassis.str
+      }`,
       left,
       line + 5
     );
@@ -101,11 +115,19 @@ export class Cp2020ACPAPdfService {
       left,
       line + 5
     );
-    doc.text(
-      `TROOPER SIZE: ${acpa.trooperSize.toLocaleString()}kg`,
-      PdfPageSettings.MIDPAGE,
-      line + 5
-    );
+    if (acpa.isWad) {
+      doc.text(
+        `MOVE ALLOWANCE: ${acpa.ma.toLocaleString()}`,
+        PdfPageSettings.MIDPAGE,
+        line + 5
+      );
+    } else {
+      doc.text(
+        `TROOPER SIZE: ${acpa.trooperSize.toLocaleString()}kg`,
+        PdfPageSettings.MIDPAGE,
+        line + 5
+      );
+    }
     line += PdfPageSettings.LINEHEIGHT_SM;
     doc.text(
       `PUNCH:${acpa.punch}    KICK:${acpa.kick}    CRUSH:${acpa.crush}`,
@@ -119,12 +141,12 @@ export class Cp2020ACPAPdfService {
     );
     line += PdfPageSettings.LINEHEIGHT_SM;
     doc.text(
-      `REALITY INTERFACE: ${acpa.realityInterface.name}`,
+      `REALITY INTERFACE: ${acpa.realityInterface.name.toUpperCase()}`,
       left,
       line + 5
     );
     doc.text(
-      `CONTROL SYSTEM: ${acpa.controlSystem.name}`,
+      `CONTROL SYSTEM: ${acpa.controlSystem.name.toUpperCase()}`,
       PdfPageSettings.MIDPAGE,
       line + 5
     );
@@ -212,6 +234,41 @@ export class Cp2020ACPAPdfService {
     end = line > end ? line : end;
     doc.rect(left, start, width, end - start, 'S');
     doc.rect(PdfPageSettings.MARGIN_LEFT, start, 200, end - start, 'S');
+    if (acpa.locations.arms.length > 2 || acpa.locations.legs.length > 2) {
+      start = end;
+      left = PdfPageSettings.MARGIN_LEFT;
+      acpa.locations.arms.slice(0, 2).forEach((arm, index) => {
+        line = this.addLocationSection(
+          doc,
+          `EXTRA ARM${index + 1}`,
+          start,
+          left,
+          width,
+          arm
+        );
+        end = line > end ? line : end;
+        doc.rect(left, start, width, end - start, 'S');
+        left += width;
+      });
+      acpa.locations.legs.slice(0, 2).forEach((leg, index) => {
+        line = this.addLocationSection(
+          doc,
+          `EXTRA LEG${index + 1}`,
+          start,
+          left,
+          width,
+          leg
+        );
+        end = line > end ? line : end;
+        doc.rect(left, start, width, end - start, 'S');
+        left += width;
+      });
+      end = line > end ? line : end;
+      doc.rect(left, start, width, end - start, 'S');
+      doc.addPage();
+      line = PdfPageSettings.MARGIN_TOP + 5;
+    }
+
     return line;
   }
 

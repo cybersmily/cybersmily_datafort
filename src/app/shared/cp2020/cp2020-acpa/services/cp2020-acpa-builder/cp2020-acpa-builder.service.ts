@@ -165,9 +165,16 @@ export class Cp2020ACPABuilderService {
       -this._currACPA.armor.cost
     );
     this._currACPA.armor = new Cp2020AcpaArmor(armor);
-    for (const prop in this._currACPA.locations) {
-      this._currACPA.locations[prop].sp = this._currACPA.armor.sp;
+
+    this._currACPA.locations.head.sp = this._currACPA.armor.sp;
+    this._currACPA.locations.torso.sp = this._currACPA.armor.sp;
+    for (let i = 0; i < this._currACPA.locations.arms.length; i++) {
+      this._currACPA.locations.arms[i].sp = this._currACPA.armor.sp;
     }
+    for (let i = 0; i < this._currACPA.locations.legs.length; i++) {
+      this._currACPA.locations.legs[i].sp = this._currACPA.armor.sp;
+    }
+
     this.updateCostWeight(
       this._currACPA.armor.weight,
       this._currACPA.armor.cost
