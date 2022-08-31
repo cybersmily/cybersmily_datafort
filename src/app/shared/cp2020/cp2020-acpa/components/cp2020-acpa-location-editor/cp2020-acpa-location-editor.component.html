@@ -3,69 +3,131 @@
     <div class="col text-center fw-bold">S P A C E S</div>
   </div>
   <div class="row small">
-    <div
-      *ngFor="let location of locations"
-      class="col-12 col-md-6 border border-dark"
+    <ng-container
+      [ngTemplateOutlet]="bodySection"
+      [ngTemplateOutletContext]="{
+        location: acpalocations.head,
+        showDelete: false,
+        showAdd: false
+      }"
     >
-      <div class="row small">
-        <div class="col border border-dark text-center text-capitalize">
-          <h6>{{ formatTitle(location.title) }}</h6>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-2 fw-bold">SP</div>
-        <div class="col-4">
-          {{ location.location?.sp }}/<input
-            type="number"
-            class="csd-number"
-            min="0"
-            [max]="location?.sp"
-            [(ngModel)]="location.location.currSP"
-            title="Current {{ title }} SP"
-            (change)="updateLocations()"
-          />
-        </div>
-        <div class="col-2 fw-bold">SDP</div>
-        <div class="col-4">
-          {{ location.location?.sdp }}/<input
-            type="number"
-            class="csd-number"
-            min="0"
-            [max]="location.location?.sdp"
-            [(ngModel)]="location.location.currSDP"
-            title="Current {{ location.title }} SDP"
-            (change)="updateLocations()"
-          />
-        </div>
-      </div>
-
-      <div class="row">
-        <ng-container
-          [ngTemplateOutlet]="locationSection"
-          [ngTemplateOutletContext]="{
-            sectionTitle: 'INTERNAL',
-            locationName: location.title,
-            enclosure: ACPAEnclosure.internal,
-            spacesUsed: location.location?.internalSpacesUsed,
-            spaces: location.location?.internalSpaces,
-            equipList: location.location?.internalComponents
-          }"
-        ></ng-container>
-        <ng-container
-          [ngTemplateOutlet]="locationSection"
-          [ngTemplateOutletContext]="{
-            sectionTitle: 'EXTERNAL',
-            locationName: location.title,
-            enclosure: ACPAEnclosure.external,
-            spacesUsed: location.location?.externalSpacesUsed,
-            spaces: location.location?.externalSpaces,
-            equipList: location.location?.externalComponents
-          }"
-        ></ng-container>
-      </div>
-    </div>
+    </ng-container>
+    <ng-container
+      [ngTemplateOutlet]="bodySection"
+      [ngTemplateOutletContext]="{
+        location: acpalocations.torso,
+        showDelete: false,
+        showAdd: false
+      }"
+    >
+    </ng-container>
+    <ng-container
+      [ngTemplateOutlet]="bodySection"
+      [ngTemplateOutletContext]="{
+        location: location,
+        showDelete: i > 1,
+        showAdd: i == acpalocations.arms.length - 1,
+        index: i
+      }"
+      *ngFor="let location of acpalocations.arms; let i = index"
+    >
+    </ng-container>
+    <ng-container
+      [ngTemplateOutlet]="bodySection"
+      [ngTemplateOutletContext]="{
+        location: location,
+        showDelete: i > 1,
+        showAdd: i == acpalocations.legs.length - 1,
+        index: i
+      }"
+      *ngFor="let location of acpalocations.legs; let i = index"
+    >
+    </ng-container>
   </div>
 </div>
+
+<ng-template
+  #bodySection
+  let-location="location"
+  let-showDelete="showDelete"
+  let-showAdd="showAdd"
+  let-index="index"
+>
+  <div class="col-12 col-md-6 border border-dark">
+    <div class="row small">
+      <div class="col border border-dark text-center text-capitalize">
+        <h6 class="d-inline-block">{{ formatTitle(location?.name, index) }}</h6>
+        <button
+          *ngIf="showDelete && isWad"
+          class="ms-2 csd-btn csd-icon-btn csd-icon-lg"
+          (click)="removeLimb(location?.name, index)"
+        >
+          <fa-icon [icon]="faTrash"></fa-icon>
+        </button>
+        <button
+          *ngIf="showAdd && isWad"
+          class="ms-2 csd-btn csd-icon-btn csd-icon-lg"
+          (click)="addLimb(location?.name)"
+        >
+          <fa-icon [icon]="faPlus"></fa-icon>
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2 fw-bold">SP</div>
+      <div class="col-4">
+        {{ location?.sp }}/<input
+          type="number"
+          class="csd-number"
+          min="0"
+          [max]="location?.sp"
+          [(ngModel)]="location.currSP"
+          title="Current {{ location?.name }} SP"
+          (change)="updateLocations()"
+        />
+      </div>
+      <div class="col-2 fw-bold">SDP</div>
+      <div class="col-4">
+        {{ location?.sdp }}/<input
+          type="number"
+          class="csd-number"
+          min="0"
+          [max]="location?.sdp"
+          [(ngModel)]="location.currSDP"
+          title="Current {{ location?.name }} SDP"
+          (change)="updateLocations()"
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <ng-container
+        [ngTemplateOutlet]="locationSection"
+        [ngTemplateOutletContext]="{
+          sectionTitle: 'INTERNAL',
+          locationName: location?.name,
+          enclosure: ACPAEnclosure.internal,
+          spacesUsed: location?.internalSpacesUsed,
+          spaces: location?.internalSpaces,
+          equipList: location?.internalComponents,
+          index: index
+        }"
+      ></ng-container>
+      <ng-container
+        [ngTemplateOutlet]="locationSection"
+        [ngTemplateOutletContext]="{
+          sectionTitle: 'EXTERNAL',
+          locationName: location?.name,
+          enclosure: ACPAEnclosure.external,
+          spacesUsed: location?.externalSpacesUsed,
+          spaces: location?.externalSpaces,
+          equipList: location?.externalComponents,
+          index: index
+        }"
+      ></ng-container>
+    </div>
+  </div>
+</ng-template>
 
 <ng-template
   #locationSection
@@ -75,6 +137,7 @@
   let-spacesUsed="spacesUsed"
   let-spaces="spaces"
   let-equipList="equipList"
+  let-index="index"
 >
   <div class="col">
     <div class="row fw-bold mt-2">
@@ -89,7 +152,8 @@
               locationName,
               spaces - spacesUsed,
               enclosure,
-              addComponentModal
+              addComponentModal,
+              index
             )
           "
         >
@@ -115,7 +179,7 @@
             *ngIf="item != null && item.category !== ''"
             [icon]="faTrash"
             class="csd-btn csd-icon-btn float-end"
-            (click)="removeEquipment(locationName, enclosure, item)"
+            (click)="removeEquipment(locationName, enclosure, item, index)"
           ></fa-icon>
         </div>
         <div class="col-2 text-center">

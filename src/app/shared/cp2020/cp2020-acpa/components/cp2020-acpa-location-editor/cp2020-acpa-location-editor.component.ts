@@ -39,8 +39,10 @@ export class Cp2020AcpaLocationEditorComponent implements OnInit {
   selectedLocation = '';
   availableSpaces = 0;
   selectedEnclosure: ACPAEnclosure = ACPAEnclosure.internal;
+  selectedIndex = null;
 
   ACPAEnclosure = ACPAEnclosure;
+  isWad = false;
 
   constructor(
     private modalService: BsModalService,
@@ -51,6 +53,7 @@ export class Cp2020AcpaLocationEditorComponent implements OnInit {
     this.acpalocations$ = this.acpaBuilderService.acpa.pipe(
       map((acpa) => {
         this.locations = this.getLocationEntries(acpa.locations);
+        this.isWad = acpa.isWad;
         return acpa.locations;
       })
     );
@@ -60,12 +63,14 @@ export class Cp2020AcpaLocationEditorComponent implements OnInit {
     this.modalRef = this.modalService.show(template, this.config);
   }
 
-  formatTitle(name: string): string {
-    return name
-      .replace(/larm/g, 'l arm')
-      .replace(/rarm/g, 'r arm')
-      .replace(/lleg/g, 'l leg')
-      .replace(/rleg/g, 'r leg');
+  formatTitle(name: string, index?: number): string {
+    if (index == 0 || index == 1) {
+      const sides = ['r', 'l'];
+      return `${sides[index]} ${name.replace(/s+$/, '')}`;
+    } else if (index > 1) {
+      return `Extra ${name.replace(/s+$/, '')} ${index - 1}`;
+    }
+    return name;
   }
 
   getLocationEntries(acpaLocations: Cp2020ACPALocations): Array<any> {
@@ -80,33 +85,50 @@ export class Cp2020AcpaLocationEditorComponent implements OnInit {
     location: string,
     availableSpaces: number,
     enclosure: ACPAEnclosure,
-    template: TemplateRef<any>
+    template: TemplateRef<any>,
+    index?: number
   ) {
     this.selectedEnclosure = enclosure;
     this.selectedLocation = location?.toLocaleLowerCase();
     this.availableSpaces = availableSpaces * 4;
+    this.selectedIndex = index;
     this.showModal(template);
   }
 
   addEquipment(equip: Cp2020ACPAWeapon | Cp2020ACPAComponent) {
     const type = this.selectedEnclosure;
-    this.acpaBuilderService.addEquipment(this.selectedLocation, type, equip);
+    this.acpaBuilderService.addEquipment(
+      this.selectedLocation,
+      type,
+      equip,
+      this.selectedIndex
+    );
     this.modalRef.hide();
   }
 
   removeEquipment(
     location: string,
     type: ACPAEnclosure,
-    equip: Cp2020ACPAWeapon | Cp2020ACPAComponent
+    equip: Cp2020ACPAWeapon | Cp2020ACPAComponent,
+    index: number
   ) {
     this.acpaBuilderService.removeEquipment(
       location.toLowerCase().replace(' ', ''),
       type,
-      equip
+      equip,
+      index
     );
   }
 
   nameIsCollection(name: string): boolean {
     return name?.startsWith('(');
+  }
+
+  addLimb(locationName: string): void {
+    this.acpaBuilderService.addNewLimb(locationName);
+  }
+
+  removeLimb(locationName: string, index: number): void {
+    this.acpaBuilderService.removeLimb(locationName, index);
   }
 }

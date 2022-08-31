@@ -1,3 +1,4 @@
+import { ACPA_WAD_RULES } from './../../enums/acpa-wad-rules';
 import { ACPAWeapon } from './../../models/acpa-weapon';
 import { Cp2020AcpaArmor } from './../../models/cp2020-acpa-armor';
 import { Cp2020ACPAChassis } from './../../models/cp2020-acpa-chassis';
@@ -186,7 +187,8 @@ export class Cp2020ACPABuilderService {
   addEquipment(
     location: string,
     type: ACPAEnclosure,
-    equip: Cp2020ACPAComponent | Cp2020ACPAWeapon
+    equip: Cp2020ACPAComponent | Cp2020ACPAWeapon,
+    index?: number
   ) {
     location = location.replace(' ', '');
     let carried = false;
@@ -196,11 +198,19 @@ export class Cp2020ACPABuilderService {
       type === ACPAEnclosure.internal ||
       type === ACPAEnclosure.external
     ) {
-      this._currACPA.locations[location] = this.addComponentLocation(
-        this._currACPA.locations[location],
-        type,
-        equip
-      );
+      if (Array.isArray(this._currACPA.locations[location]) && index !== null) {
+        this._currACPA.locations[location][index] = this.addComponentLocation(
+          this._currACPA.locations[location][index],
+          type,
+          equip
+        );
+      } else {
+        this._currACPA.locations[location] = this.addComponentLocation(
+          this._currACPA.locations[location],
+          type,
+          equip
+        );
+      }
     } else {
       this._currACPA.equipment.push(equip);
       carried = true;
@@ -266,9 +276,27 @@ export class Cp2020ACPABuilderService {
     type: ACPAEnclosure,
     equip: Cp2020ACPAComponent | Cp2020ACPAWeapon
   ) {
-    for (const prop in this._currACPA.locations) {
-      this._currACPA.locations[prop] = this.addComponentLocation(
-        this._currACPA.locations[prop],
+    this._currACPA.locations.head = this.addComponentLocation(
+      this._currACPA.locations.head,
+      type,
+      equip
+    );
+
+    this._currACPA.locations.torso = this.addComponentLocation(
+      this._currACPA.locations.torso,
+      type,
+      equip
+    );
+    for (let i = 0; i < this._currACPA.locations.arms.length; i++) {
+      this._currACPA.locations.arms[i] = this.addComponentLocation(
+        this._currACPA.locations.arms[i],
+        type,
+        equip
+      );
+    }
+    for (let i = 0; i < this._currACPA.locations.legs.length; i++) {
+      this._currACPA.locations.legs[i] = this.addComponentLocation(
+        this._currACPA.locations.legs[i],
         type,
         equip
       );
@@ -279,9 +307,27 @@ export class Cp2020ACPABuilderService {
     type: ACPAEnclosure,
     equip: Cp2020ACPAComponent | Cp2020ACPAWeapon
   ) {
-    for (const prop in this._currACPA.locations) {
-      this._currACPA.locations[prop] = this.removeLocationComponent(
-        this._currACPA.locations[prop],
+    this._currACPA.locations.head = this.removeLocationComponent(
+      this._currACPA.locations.head,
+      type,
+      equip
+    );
+
+    this._currACPA.locations.torso = this.removeLocationComponent(
+      this._currACPA.locations.torso,
+      type,
+      equip
+    );
+    for (let i = 0; i < this._currACPA.locations.arms.length; i++) {
+      this._currACPA.locations.arms[i] = this.removeLocationComponent(
+        this._currACPA.locations.arms[i],
+        type,
+        equip
+      );
+    }
+    for (let i = 0; i < this._currACPA.locations.legs.length; i++) {
+      this._currACPA.locations.legs[i] = this.removeLocationComponent(
+        this._currACPA.locations.legs[i],
         type,
         equip
       );
@@ -291,7 +337,8 @@ export class Cp2020ACPABuilderService {
   removeEquipment(
     location: string,
     type: ACPAEnclosure,
-    equip: Cp2020ACPAComponent | Cp2020ACPAWeapon
+    equip: Cp2020ACPAComponent | Cp2020ACPAWeapon,
+    index?: number
   ) {
     if (equip?.internal === 'any|all' || equip?.external === 'any|all') {
       this.removeFromAllLocations(type, equip);
@@ -299,11 +346,20 @@ export class Cp2020ACPABuilderService {
       type === ACPAEnclosure.internal ||
       type === ACPAEnclosure.external
     ) {
-      this._currACPA.locations[location] = this.removeLocationComponent(
-        this._currACPA.locations[location],
-        type,
-        equip
-      );
+      if (Array.isArray(this._currACPA.locations[location]) && index !== null) {
+        this._currACPA.locations[location][index] =
+          this.removeLocationComponent(
+            this._currACPA.locations[location][index],
+            type,
+            equip
+          );
+      } else {
+        this._currACPA.locations[location] = this.removeLocationComponent(
+          this._currACPA.locations[location],
+          type,
+          equip
+        );
+      }
     }
     if (
       equip?.costMod &&
@@ -358,29 +414,47 @@ export class Cp2020ACPABuilderService {
     this.update(this._currACPA);
   }
 
-  private getLocationString(prop: string) {
-    if (prop.includes('arm')) {
-      return 'arms';
-    }
-    if (prop.includes('leg')) {
-      return 'legs';
-    }
-    return prop;
-  }
-
   setLocations(acpa: Cp2020ACPA, chassis: Cp2020ACPAChassis) {
-    for (const prop in this._currACPA.locations) {
-      const loc = this.getLocationString(prop);
-      this._currACPA.locations[prop] = this.setLocation(
-        loc,
+    this._currACPA.locations.head = this.setLocation(
+      'head',
+      acpa.armor.sp,
+      acpa.locations.head.currSP,
+      acpa.locations.head.currSDP,
+      chassis,
+      acpa.locations.head.internalComponents,
+      acpa.locations.head.externalComponents
+    );
+    this._currACPA.locations.torso = this.setLocation(
+      'torso',
+      acpa.armor.sp,
+      acpa.locations.torso.currSP,
+      acpa.locations.torso.currSDP,
+      chassis,
+      acpa.locations.torso.internalComponents,
+      acpa.locations.torso.externalComponents
+    );
+    this._currACPA.locations.arms = acpa.locations.arms.map((arm) =>
+      this.setLocation(
+        'arms',
         acpa.armor.sp,
-        acpa.locations[prop].currSP,
-        acpa.locations[prop].currSDP,
+        arm.currSP,
+        arm.currSDP,
         chassis,
-        acpa.locations[prop].internalComponents,
-        acpa.locations[prop].externalComponents
-      );
-    }
+        arm.internalComponents,
+        arm.externalComponents
+      )
+    );
+    this._currACPA.locations.legs = acpa.locations.legs.map((leg) =>
+      this.setLocation(
+        'legs',
+        acpa.armor.sp,
+        leg.currSP,
+        leg.currSDP,
+        chassis,
+        leg.internalComponents,
+        leg.externalComponents
+      )
+    );
     this.update();
   }
 
@@ -475,7 +549,11 @@ export class Cp2020ACPABuilderService {
     const servo = new Cp2020ACPAComponent();
     servo.name = 'Android Control Circuit';
     servo.spaces = 4;
-    servo.weight = 5 * Object.keys(this._currACPA.locations).length;
+    servo.weight =
+      5 *
+      (2 +
+        this._currACPA.locations.arms.length +
+        this._currACPA.locations.legs.length);
     servo.cost = 500;
     servo.internal = 'any|all';
     return servo;
@@ -492,5 +570,76 @@ export class Cp2020ACPABuilderService {
       this.updateCostWeight(wt, cost);
       this.update();
     }
+  }
+
+  addNewLimb(locationName: string): void {
+    if (locationName.includes('arm') || locationName.includes('leg')) {
+      let location = this.setLocation(
+        locationName,
+        this._currACPA.armor.sp,
+        0,
+        0,
+        this._currACPA.chassis,
+        new Array<Cp2020ACPAWeapon | Cp2020ACPAComponent>(),
+        new Array<Cp2020ACPAWeapon | Cp2020ACPAComponent>()
+      );
+      location = this.addComponentLocation(
+        location,
+        ACPAEnclosure.internal,
+        this.getServoComponent()
+      );
+      this._currACPA.locations[locationName].push(location);
+
+      const cost = Math.ceil(this._currACPA.chassis.cost * 0.1);
+      const weight = Math.ceil(this._currACPA.chassis.weight * 0.15);
+      this.updateCostWeight(weight + 5, cost); // add 5 for servo
+      if (!this._currACPA.notes.includes(ACPA_WAD_RULES[locationName])) {
+        this._currACPA.notes = `${ACPA_WAD_RULES[locationName]}\n${this._currACPA.notes}`;
+      }
+      this.update();
+    }
+  }
+
+  removeLimb(locationName: string, index: number): void {
+    if (index < 2) {
+      return;
+    }
+    if (locationName.includes('arm') || locationName.includes('leg')) {
+      let cost = -1 * Math.ceil(this._currACPA.chassis.cost * 0.1);
+      let weight = -1 * Math.ceil(this._currACPA.chassis.weight * 0.15);
+      const externals = this.getListOfComponentsToRemove(
+        this._currACPA.locations[locationName][index],
+        'externalComponents',
+        'externalComponent'
+      );
+      const internals = this.getListOfComponentsToRemove(
+        this._currACPA.locations[locationName][index],
+        'internalComponents',
+        'Android Control Circuit'
+      );
+      [...externals, ...internals].forEach((equip) => {
+        cost -= equip.cost;
+        weight -= equip.weight;
+        if (equip['ammo']) {
+          weight -= equip['ammo'].weight;
+          cost -= equip['ammo'].cost;
+        }
+      });
+
+      this._currACPA.locations[locationName].splice(index, 1);
+      this.updateCostWeight(weight - 5, cost); // remove 5 for servo
+      this.update();
+    }
+  }
+
+  private getListOfComponentsToRemove(
+    location: Cp2020ACPALocation,
+    section: string,
+    exclude?: string
+  ): Array<Cp2020ACPAComponent | Cp2020ACPAWeapon> {
+    return location[section].filter(
+      (equip) =>
+        equip && !equip.name.startsWith('(') && !equip.name.includes(exclude)
+    );
   }
 }

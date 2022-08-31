@@ -163,7 +163,7 @@ export class Cp2020ACPAPdfService {
       start,
       left,
       width,
-      acpa.locations.rarm
+      acpa.locations.arms[0]
     );
     end = line > end ? line : end;
     doc.rect(left, start, width, end - start, 'S');
@@ -174,7 +174,7 @@ export class Cp2020ACPAPdfService {
       start,
       left,
       width,
-      acpa.locations.larm
+      acpa.locations.arms[1]
     );
     end = line > end ? line : end;
     doc.rect(left, start, width, end - start, 'S');
@@ -185,7 +185,7 @@ export class Cp2020ACPAPdfService {
       start,
       left,
       width,
-      acpa.locations.rleg
+      acpa.locations.legs[0]
     );
     end = line > end ? line : end;
     doc.rect(left, start, width, end - start, 'S');
@@ -196,7 +196,7 @@ export class Cp2020ACPAPdfService {
       start,
       left,
       width,
-      acpa.locations.lleg
+      acpa.locations.legs[1]
     );
     end = line > end ? line : end;
     doc.rect(left, start, width, end - start, 'S');
