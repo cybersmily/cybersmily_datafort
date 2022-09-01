@@ -172,11 +172,14 @@
             title="{{ item?.weight | number }}kg {{ item?.cost | number }}eb {{
               item?.source.book | sourcebook
             }} pg.{{ item?.source.page }}"
-            [ngClass]="{ 'csd-collection': nameIsCollection(item?.name) }"
+            [ngClass]="{
+              'csd-collection': nameIsCollection(item?.name),
+              small: true
+            }"
             >{{ item?.name }}</span
           >
           <fa-icon
-            *ngIf="item != null && item.category !== ''"
+            *ngIf="item != null && item.category !== '' && item.name[0] !== '('"
             [icon]="faTrash"
             class="csd-btn csd-icon-btn float-end"
             (click)="removeEquipment(locationName, enclosure, item, index)"

@@ -52,12 +52,17 @@
           class="col"
         >
           CHASSIS TYPE:
-          <select [(ngModel)]="selectedChassis" (change)="updateChassis()">
+          <select
+            class="csd-acpa-chassis-select"
+            [(ngModel)]="selectedChassis"
+            (change)="updateChassis()"
+          >
             <option
+              class="w-100"
               *ngFor="let chassis of attributeData.chassis"
               [ngValue]="chassis"
             >
-              {{ chassis.name }}, STR {{ chassis.str }}
+              STR {{ chassis.str }} - {{ chassis.name }}
             </option>
           </select>
           <span
