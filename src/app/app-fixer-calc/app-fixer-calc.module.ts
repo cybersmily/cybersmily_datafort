@@ -1,42 +1,21 @@
+import { Cp2020ContactsModule } from './../shared/cp2020/cp2020-contacts/cp2020-contacts.module';
 import { DataService } from './../shared/services/file-services';
 import { DiceService } from './../shared/services/dice/dice.service';
 import { SaveFileService } from './../shared/services/file-services';
-import { FixerHotStuffService } from './../shared/services/fixer/fixer-hot-stuff.service';
-import { FixerBigLeagueService } from './../shared/services/fixer/fixer-big-league.service';
 import { CommonModule } from '@angular/common';
 import { CommonUiModule } from './../shared/modules/common-ui/common-ui.module';
 import { NgModule } from '@angular/core';
 
 import { AppFixerCalcRoutingModule } from './app-fixer-calc-routing.module';
 import { FixerCalcMainComponent } from './fixer-calc-main/fixer-calc-main.component';
-import { FixerCalcHotStuffComponent } from './fixer-calc-hot-stuff/fixer-calc-hot-stuff.component';
-import { FixerCalcBigLeagueComponent } from './fixer-calc-big-league/fixer-calc-big-league.component';
-import { FixerCalcHotStuffAreaComponent } from './fixer-calc-hot-stuff-area/fixer-calc-hot-stuff-area.component';
-import { FixerCalcBigLeagueContactNewComponent } from './fixer-calc-big-league-contact-new/fixer-calc-big-league-contact-new.component';
-import { FixerCalcBigLeagueContactComponent } from './fixer-calc-big-league-contact/fixer-calc-big-league-contact.component';
-
-
 @NgModule({
-  declarations: [
-    FixerCalcMainComponent,
-    FixerCalcHotStuffComponent,
-    FixerCalcBigLeagueComponent,
-    FixerCalcHotStuffAreaComponent,
-    FixerCalcBigLeagueContactNewComponent,
-    FixerCalcBigLeagueContactComponent
-  ],
+  declarations: [FixerCalcMainComponent],
   imports: [
     CommonModule,
     CommonUiModule,
-    AppFixerCalcRoutingModule
+    AppFixerCalcRoutingModule,
+    Cp2020ContactsModule,
   ],
-  providers: [
-    FixerBigLeagueService,
-    FixerHotStuffService,
-    SaveFileService,
-    DiceService,
-    DataService
-  ]
+  providers: [SaveFileService, DiceService, DataService],
 })
-export class AppFixerCalcModule {
-}
+export class AppFixerCalcModule {}

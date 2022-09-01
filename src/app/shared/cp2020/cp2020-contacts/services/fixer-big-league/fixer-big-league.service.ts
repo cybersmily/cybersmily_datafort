@@ -1,8 +1,10 @@
-import { BigLeagueCategories } from './../../models/fixer/big-league-categories';
-import { DiceService } from './../dice/dice.service';
-import { BigLeagueModel } from './../../models/fixer/big-league-model';
+import { DiceService } from './../../../../services/dice/dice.service';
+import {
+  BigLeagueModel,
+  BigLeagueContact,
+  BigLeagueCategories,
+} from './../../models';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { BigLeagueContact } from './../../models/fixer/big-league-contact';
 import { Injectable } from '@angular/core';
 
 @Injectable({

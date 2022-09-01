@@ -1,12 +1,11 @@
-import { BigLeagueCategories } from './../../shared/models/fixer/big-league-categories';
+import { BigLeagueCategories, BigLeagueContact } from './../../models';
 import { faPen, faTrash, faSave } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { BigLeagueContact } from './../../shared/models/fixer/big-league-contact';
 
 @Component({
   selector: 'cs-fixer-calc-big-league-contact',
   templateUrl: './fixer-calc-big-league-contact.component.html',
-  styleUrls: ['./fixer-calc-big-league-contact.component.css']
+  styleUrls: ['./fixer-calc-big-league-contact.component.css'],
 })
 export class FixerCalcBigLeagueContactComponent implements OnInit {
   faPen = faPen;
@@ -27,48 +26,63 @@ export class FixerCalcBigLeagueContactComponent implements OnInit {
   @Output()
   edit = new EventEmitter<BigLeagueContact>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   get capability(): string {
-    return (this.contact && this.contact.capability) ? this.contact.capability.name : '';
+    return this.contact && this.contact.capability
+      ? this.contact.capability.name
+      : '';
   }
 
   set capability(value: string) {
     if (value !== '') {
-      this.contact.capability = this.catagories.capabilities.find( c => c.name === value);
+      this.contact.capability = this.catagories.capabilities.find(
+        (c) => c.name === value
+      );
     }
   }
 
   get reputation(): string {
-    return (this.contact && this.contact.reputation) ? this.contact.reputation.name : '';
+    return this.contact && this.contact.reputation
+      ? this.contact.reputation.name
+      : '';
   }
 
   set reputation(value: string) {
     if (value !== '') {
-      this.contact.reputation = this.catagories.reputations.find( c => c.name === value);
+      this.contact.reputation = this.catagories.reputations.find(
+        (c) => c.name === value
+      );
     }
   }
 
   get availability(): string {
-    return (this.contact && this.contact.availability) ? this.contact.availability.name : '';
+    return this.contact && this.contact.availability
+      ? this.contact.availability.name
+      : '';
   }
 
   set availability(value: string) {
     if (value !== '') {
-      this.contact.availability = this.catagories.availabilities.find( c => c.name === value);
+      this.contact.availability = this.catagories.availabilities.find(
+        (c) => c.name === value
+      );
     }
   }
 
   get reliability(): string {
-    return (this.contact && this.contact.reliability) ? this.contact.reliability.name : '';
+    return this.contact && this.contact.reliability
+      ? this.contact.reliability.name
+      : '';
   }
 
   set reliability(value: string) {
     if (value !== '') {
-      this.contact.reliability = this.catagories.reliabilities.find( c => c.name === value);
+      this.contact.reliability = this.catagories.reliabilities.find(
+        (c) => c.name === value
+      );
     }
   }
 
@@ -84,5 +98,4 @@ export class FixerCalcBigLeagueContactComponent implements OnInit {
     this.editMode = false;
     this.edit.emit(this.contact);
   }
-
 }

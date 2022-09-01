@@ -1,6 +1,5 @@
 import { HotStuffArea } from './hot-stuff-area';
 import { TestBed } from '@angular/core/testing';
-import { htmlAstToRender3Ast } from '@angular/compiler/src/render3/r3_template_transform';
 
 describe('HotStuffArea', () => {
   beforeEach(() => {
@@ -28,7 +27,6 @@ describe('HotStuffArea', () => {
     expect(area.points === 128).toBeTruthy();
   });
 
-
   it('should not add more than 6 rolls', () => {
     const area = new HotStuffArea();
     area.rolls = 7;
@@ -42,5 +40,4 @@ describe('HotStuffArea', () => {
     expect(area.rolls === 0).toBeTruthy();
     expect(area.points === 0).toBeTruthy();
   });
-
 });

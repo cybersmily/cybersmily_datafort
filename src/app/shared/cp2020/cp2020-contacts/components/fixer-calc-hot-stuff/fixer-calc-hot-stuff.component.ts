@@ -1,5 +1,5 @@
-import { DiceService } from './../../shared/services/dice/dice.service';
-import { SaveFileService } from './../../shared/services/file-services';
+import { DiceService } from './../../../../services/dice/dice.service';
+import { SaveFileService } from './../../../../services/file-services';
 import {
   faPlus,
   faSave,
@@ -7,16 +7,9 @@ import {
   faFile,
   faDice,
 } from '@fortawesome/free-solid-svg-icons';
-import { HotStuffArea } from './../../shared/models/fixer/hot-stuff-area';
-import { FixerHotStuffService } from './../../shared/services/fixer/fixer-hot-stuff.service';
-import {
-  Component,
-  OnInit,
-  Input,
-  OnChanges,
-  SimpleChanges,
-} from '@angular/core';
-import { ChartItem } from './../../shared/cp2020/cp2020-fixerCalc/fixerchart';
+import { HotStuffArea } from './../../models';
+import { FixerHotStuffService } from './../../services/fixer-hot-stuff/fixer-hot-stuff.service';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'cs-fixer-calc-hot-stuff',

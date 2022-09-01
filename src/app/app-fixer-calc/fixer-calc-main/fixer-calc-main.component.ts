@@ -1,11 +1,13 @@
 import { LocalStorageManagerService } from './../../shared/services/local-storage-manager/local-storage-manager.service';
 import { map } from 'rxjs/operators';
 import { Observable, take } from 'rxjs';
-import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
-import { DataService } from './../../shared/services/file-services';
+import {
+  DataService,
+  JsonDataFiles,
+} from './../../shared/services/file-services';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { Component, OnInit } from '@angular/core';
-import { FixerCharts } from './../../shared/cp2020/cp2020-fixerCalc/fixerchart';
+import { FixerCharts } from '../../shared/cp2020/cp2020-contacts/models';
 
 @Component({
   selector: 'cs-fixer-calc-main',

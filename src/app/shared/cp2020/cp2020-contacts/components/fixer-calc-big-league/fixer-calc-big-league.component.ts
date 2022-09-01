@@ -1,13 +1,13 @@
-import { DiceService } from './../../shared/services/dice/dice.service';
+import { DiceService } from '../../../../services/dice/dice.service';
 import {
   faSave,
   faRedo,
   faFile,
   faDice,
 } from '@fortawesome/free-solid-svg-icons';
-import { SaveFileService } from './../../shared/services/file-services';
-import { BigLeagueContact } from './../../shared/models/fixer/big-league-contact';
-import { FixerBigLeagueService } from './../../shared/services/fixer/fixer-big-league.service';
+import { SaveFileService } from '../../../../services/file-services';
+import { BigLeagueContact } from './../../models';
+import { FixerBigLeagueService } from './../../services/fixer-big-league/fixer-big-league.service';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({

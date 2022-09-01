@@ -1,4 +1,4 @@
-import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
+import { CommonUiModule } from './../../../../modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { FixerCalcBigLeagueContactComponent } from './fixer-calc-big-league-contact.component';
@@ -9,10 +9,9 @@ describe('FixerCalcBigLeagueContactComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ FixerCalcBigLeagueContactComponent ],
-      imports: [CommonUiModule]
-    })
-    .compileComponents();
+      declarations: [FixerCalcBigLeagueContactComponent],
+      imports: [CommonUiModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

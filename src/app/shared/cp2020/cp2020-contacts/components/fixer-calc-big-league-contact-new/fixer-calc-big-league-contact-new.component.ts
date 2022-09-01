@@ -1,17 +1,26 @@
-import { DiceService } from './../../shared/services/dice/dice.service';
-import { FixerBigLeagueService } from './../../shared/services/fixer/fixer-big-league.service';
+import { DiceService } from './../../../../services/dice/dice.service';
+import { FixerBigLeagueService } from './../../services/fixer-big-league/fixer-big-league.service';
 import { faPlus, faDice } from '@fortawesome/free-solid-svg-icons';
-import { BigLeagueCategory } from './../../shared/models/fixer/big-league-category';
-import { BigLeagueContact } from './../../shared/models/fixer/big-league-contact';
-import { Component, OnInit, EventEmitter, Output, Input, OnChanges } from '@angular/core';
-import { BigLeagueCategories } from './../../shared/models/fixer/big-league-categories';
+import {
+  BigLeagueCategory,
+  BigLeagueContact,
+  BigLeagueCategories,
+} from './../../models';
+import {
+  Component,
+  OnInit,
+  EventEmitter,
+  Output,
+  Input,
+  OnChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'cs-fixer-calc-big-league-contact-new',
   templateUrl: './fixer-calc-big-league-contact-new.component.html',
-  styleUrls: ['./fixer-calc-big-league-contact-new.component.css']
+  styleUrls: ['./fixer-calc-big-league-contact-new.component.css'],
 })
-export class FixerCalcBigLeagueContactNewComponent implements OnInit{
+export class FixerCalcBigLeagueContactNewComponent implements OnInit {
   faPlus = faPlus;
   faDice = faDice;
 
@@ -35,11 +44,12 @@ export class FixerCalcBigLeagueContactNewComponent implements OnInit{
   reliability = '';
   availability = '';
 
-  constructor(private bigLeagueService: FixerBigLeagueService,
-    private dice: DiceService) { }
+  constructor(
+    private bigLeagueService: FixerBigLeagueService,
+    private dice: DiceService
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   createContact() {
     if (this.canAdd) {
@@ -48,11 +58,11 @@ export class FixerCalcBigLeagueContactNewComponent implements OnInit{
   }
 
   get hasPoints(): boolean {
-    return (this.availablePoints > 0.624);
+    return this.availablePoints > 0.624;
   }
 
   get overPoints(): boolean {
-    return (this.newContact.cost > this.availablePoints);
+    return this.newContact.cost > this.availablePoints;
   }
 
   get capabilities(): Array<BigLeagueCategory> {
@@ -61,21 +71,24 @@ export class FixerCalcBigLeagueContactNewComponent implements OnInit{
 
   get canAdd(): boolean {
     return (
-      this.newContact.name !== ''
-      && this.newContact.availability != null
-      && this.newContact.capability != null
-      && this.newContact.reliability != null
-      && this.newContact.reputation != null
-      && !this.exists
+      this.newContact.name !== '' &&
+      this.newContact.availability != null &&
+      this.newContact.capability != null &&
+      this.newContact.reliability != null &&
+      this.newContact.reputation != null &&
+      !this.exists
     );
   }
 
   get exists(): boolean {
-    return this.contacts.some(c => c.name === this.newContact.name);
+    return this.contacts.some((c) => c.name === this.newContact.name);
   }
 
   generateContact() {
-    this.newContact = this.bigLeagueService.generateRandomContact(this.dice, this.contactTypes);
+    this.newContact = this.bigLeagueService.generateRandomContact(
+      this.dice,
+      this.contactTypes
+    );
     this.capability = this.newContact.capability.name;
     this.reliability = this.newContact.reliability.name;
     this.availability = this.newContact.availability.name;
@@ -84,7 +97,9 @@ export class FixerCalcBigLeagueContactNewComponent implements OnInit{
 
   changeCapability() {
     if (this.capability !== '') {
-      this.newContact.capability = this.categories.capabilities.find( c => c.name === this.capability);
+      this.newContact.capability = this.categories.capabilities.find(
+        (c) => c.name === this.capability
+      );
     } else {
       this.newContact.capability = null;
     }
@@ -92,7 +107,9 @@ export class FixerCalcBigLeagueContactNewComponent implements OnInit{
 
   changeReputation() {
     if (this.reputation !== '') {
-      this.newContact.reputation = this.categories.reputations.find( c => c.name === this.reputation);
+      this.newContact.reputation = this.categories.reputations.find(
+        (c) => c.name === this.reputation
+      );
     } else {
       this.newContact.reputation = null;
     }
@@ -100,7 +117,9 @@ export class FixerCalcBigLeagueContactNewComponent implements OnInit{
 
   changeReliability() {
     if (this.reliability !== '') {
-      this.newContact.reliability = this.categories.reliabilities.find( c => c.name === this.reliability);
+      this.newContact.reliability = this.categories.reliabilities.find(
+        (c) => c.name === this.reliability
+      );
     } else {
       this.newContact.reliability = null;
     }
@@ -108,7 +127,9 @@ export class FixerCalcBigLeagueContactNewComponent implements OnInit{
 
   changeAvailability() {
     if (this.availability !== '') {
-      this.newContact.availability = this.categories.availabilities.find( c => c.name === this.availability);
+      this.newContact.availability = this.categories.availabilities.find(
+        (c) => c.name === this.availability
+      );
     } else {
       this.newContact.availability = null;
     }

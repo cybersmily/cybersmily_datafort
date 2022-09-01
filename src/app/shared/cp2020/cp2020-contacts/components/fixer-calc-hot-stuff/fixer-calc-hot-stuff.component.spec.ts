@@ -1,9 +1,9 @@
-import { DataService } from './../../shared/services/file-services';
-import { DiceService } from './../../shared/services/dice/dice.service';
-import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
+import { DataService } from './../../../../services/file-services';
+import { DiceService } from './../../../../services/dice/dice.service';
+import { CommonUiModule } from './../../../../modules/common-ui/common-ui.module';
 import { FixerCalcHotStuffAreaComponent } from './../fixer-calc-hot-stuff-area/fixer-calc-hot-stuff-area.component';
-import { FixerHotStuffService } from './../../shared/services/fixer/fixer-hot-stuff.service';
-import { FixerBigLeagueService } from './../../shared/services/fixer/fixer-big-league.service';
+import { FixerHotStuffService } from './../../services/fixer-hot-stuff/fixer-hot-stuff.service';
+import { FixerBigLeagueService } from './../../services/fixer-big-league/fixer-big-league.service';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { FixerCalcHotStuffComponent } from './fixer-calc-hot-stuff.component';
@@ -14,21 +14,18 @@ describe('FixerCalcHotStuffComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [
-        CommonUiModule
-      ],
+      imports: [CommonUiModule],
       declarations: [
         FixerCalcHotStuffComponent,
-        FixerCalcHotStuffAreaComponent
+        FixerCalcHotStuffAreaComponent,
       ],
       providers: [
         FixerBigLeagueService,
         FixerHotStuffService,
         DiceService,
-        DataService
-      ]
-    })
-    .compileComponents();
+        DataService,
+      ],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

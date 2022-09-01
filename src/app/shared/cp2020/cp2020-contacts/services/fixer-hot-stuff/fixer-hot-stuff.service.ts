@@ -1,9 +1,7 @@
-import { DiceService } from './../dice/dice.service';
-import { HotStuffModel } from './../../models/fixer/hot-stuff-model';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { HotStuffArea } from './../../models/fixer/hot-stuff-area';
+import { DiceService } from './../../../../services/dice/dice.service';
+import { HotStuffModel, HotStuffArea } from './../../models';
+import { BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { ChartItem } from '../../cp2020/cp2020-fixerCalc/fixerchart';
 
 @Injectable({
   providedIn: 'root',

@@ -1,11 +1,11 @@
 import { faPen, faTrash, faSave } from '@fortawesome/free-solid-svg-icons';
-import { HotStuffArea } from './../../shared/models/fixer/hot-stuff-area';
+import { HotStuffArea } from './../../models';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'cs-fixer-calc-hot-stuff-area',
   templateUrl: './fixer-calc-hot-stuff-area.component.html',
-  styleUrls: ['./fixer-calc-hot-stuff-area.component.css']
+  styleUrls: ['./fixer-calc-hot-stuff-area.component.css'],
 })
 export class FixerCalcHotStuffAreaComponent implements OnInit {
   faPen = faPen;
@@ -26,10 +26,9 @@ export class FixerCalcHotStuffAreaComponent implements OnInit {
   @Output()
   edit = new EventEmitter<HotStuffArea>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onDelete() {
     this.delete.emit(this.index);
@@ -43,5 +42,4 @@ export class FixerCalcHotStuffAreaComponent implements OnInit {
     this.editMode = false;
     this.edit.emit(this.area);
   }
-
 }
