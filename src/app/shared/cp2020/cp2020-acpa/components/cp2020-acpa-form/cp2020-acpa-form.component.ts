@@ -1,17 +1,12 @@
+import { DataService } from './../../../../services/file-services/dataservice/data.service';
 import { Cp2020ACPASettings } from './../../enums/cp2020-acpa-settings';
 import { map, switchMap, debounceTime } from 'rxjs/operators';
 import { Observable, first, Subject } from 'rxjs';
-import { SaveFileService } from '../../../../services/file-services/save-file/save-file.service';
-import { FileLoaderService } from '../../../../services/file-services/file-loader/file-loader.service';
-import { ACPAEnclosure } from '../../enums/acpa-enclossure';
-import { Cp2020ACPAWeapon } from '../../models/cp2020-acpa-weapon';
 import {
   faPlus,
   faTrash,
-  faFilePdf,
   faRedo,
-  faFile,
-  faUpload,
+  faSearch,
 } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020ACPAComponent } from '../../models/cp2020-acpa-component';
 import { Cp2020AcpaArmor } from '../../models/cp2020-acpa-armor';
@@ -22,7 +17,6 @@ import { Cp2020ACPADataAttributesService } from '../../services/cp2020-acpa-data
 import { AcpaAttributeData } from '../../models/acpa-attribute-data';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { Cp2020ACPALocation } from '../../models/cp2020-acpa-location';
 
 @Component({
   selector: 'cs-cp2020-acpa-form',
@@ -33,6 +27,7 @@ export class Cp2020AcpaFormComponent implements OnInit {
   faPlus = faPlus;
   faTrash = faTrash;
   faRedo = faRedo;
+  faSearch = faSearch;
 
   attributeData: AcpaAttributeData = {
     chassis: [],
@@ -41,6 +36,12 @@ export class Cp2020AcpaFormComponent implements OnInit {
     controlSystems: [],
     components: [],
     weapons: [],
+    stockDesigns: [],
+  };
+  modalRef: BsModalRef;
+  config = {
+    keyboard: true,
+    class: 'modal-dialog-centered modal-lg',
   };
 
   currACPA$: Observable<Cp2020ACPA>;
@@ -62,8 +63,10 @@ export class Cp2020AcpaFormComponent implements OnInit {
   }
 
   constructor(
+    private modalService: BsModalService,
     private attributesService: Cp2020ACPADataAttributesService,
-    private acpaBuilderService: Cp2020ACPABuilderService
+    private acpaBuilderService: Cp2020ACPABuilderService,
+    private dataService: DataService
   ) {}
 
   ngOnInit(): void {
@@ -83,6 +86,10 @@ export class Cp2020AcpaFormComponent implements OnInit {
     this.notesSubject.pipe(debounceTime(500)).subscribe((note) => {
       this.acpaBuilderService.updateNote(this.selectedNote);
     });
+  }
+
+  showModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, this.config);
   }
 
   private setVariables(acpa: Cp2020ACPA): Cp2020ACPA {
@@ -157,5 +164,12 @@ export class Cp2020AcpaFormComponent implements OnInit {
     this.selectedManufacturer = '';
     this.selectedName = '';
     this.selectedNote = '';
+  }
+
+  loadJSONFile(fileName: string): void {
+    this.dataService.GetJson<Cp2020ACPA>(fileName).subscribe((data) => {
+      this.acpaBuilderService.update(data);
+      this.modalRef.hide();
+    });
   }
 }

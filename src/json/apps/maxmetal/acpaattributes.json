@@ -241,5 +241,25 @@
     {"category":"Utility Packs"          , "name":"BOM Wire Obstacle"             , "internal": "any"                     , "external":     "head|torso|arms|legs"                         , "wa"   :-1    , "damage":"" , "pen":             0    , "shots" : 1     , "rof"   : 1    , "range" : 5     , "spaces":2      , "cost"   :100 , "weight": 2 , "sp":20 , "sdp":10 ,"source":    {"book"     :"mm"       ,"page":74 }                                                                      },
     {"category":"Utility Packs"          , "name":"BPL Plastic Obstacle"          , "internal": "any"                     , "external":     "head|torso|arms|legs"                         , "wa"   : 0    , "damage":"" , "pen":             0    , "shots" : 1     , "rof"   : 1    , "range" : 10    , "spaces":2      , "cost"   :10 , "weight": 2 , "sp":20 , "sdp":10 ,"source":     {"book"     :"mm"       ,"page":74 }                                                                      },
     {"category":"Utility Packs"          , "name":"BSS Silicon Spray"             , "internal":"any", "external":"head|torso|arms|legs"                , "wa":-1 , "damage":""                   , "pen": 0  , "shots": 1    , "rof":1   , "range": 5     , "spaces":2  , "cost":30     , "weight": 2   , "sp":20 , "sdp":10  ,"source": {"book":"mm","page":74 }                                                          }
+  ],
+  "stockDesigns": [
+    {"name": "Amphib. Armor Unit AAU-3A2 Landshark", "file": "/json/data/acpas/cp2020_landshark_acpa.json"},
+    {"name": "Arasaka DaiOni", "file": "/json/data/acpas/cp2020_daioni_acpa.json"},
+    {"name": "Arasaka Guardian", "file": "/json/data/acpas/cp2020_guardian_acpa.json"},
+    {"name": "Arasaka Standard B", "file": "/json/data/acpas/cp2020_arasaka_standardb_acpa.json"},
+    {"name": "Durol/Janvier Frelon (WAD)", "file": "/json/data/acpas/cp2020_frelon_wad.json"},
+    {"name": "Durol/Janvier Scarabee (WAD)", "file": "/json/data/acpas/cp2020_scarabee_wad.json"},
+    {"name": "Dynalar/Zetatech Grasshopper", "file": "/json/data/acpas/cp2020_grasshopper_acpa.json"},
+    {"name": "Fiat Nova", "file": "/json/data/acpas/cp2020_nova_wad.json"},
+    {"name": "IEC Newport Mk. II (WAD)", "file": "/json/data/acpas/cp2020_newport_wad.json"},
+    {"name": "Meta Industries Chiba Custom \"Superjack\"", "file": "/json/data/acpas/cp2020_superjack_acpa.json"},
+    {"name": "Mexican Metals Nemesis", "file": "/json/data/acpas/cp2020_nemesis_acpa.json"},
+    {"name": "Militech Commando", "file": "/json/data/acpas/cp2020_commando_acpa.json"},
+    {"name": "OA/Zetatech/Raven Microcyb Spider", "file": "/json/data/acpas/cp2020_spider_acpa.json"},
+    {"name": "RussianArms Boris 1", "file": "/json/data/acpas/cp2020_acpa_boris.json"},
+    {"name": "Trauma Team/IEC Lifeline", "file": "/json/data/acpas/cp2020_lifeline_acpa.json"},
+    {"name": "US Army General Unit-12A2 Grunt", "file": "/json/data/acpas/cp2020_grunt_acpa.json"},
+    {"name": "US Army Powered Gun Unit-10D Pigman", "file": "/json/data/acpas/cp2020_pigman_acpa.json"},
+    {"name": "USAF General EVA Unit-12NT", "file": "/json/data/acpas/cp2020_eva_acpa.json"}
   ]
 }

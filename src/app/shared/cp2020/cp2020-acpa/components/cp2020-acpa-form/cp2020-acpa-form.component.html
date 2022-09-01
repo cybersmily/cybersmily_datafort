@@ -2,6 +2,13 @@
   <div class="row">
     <div class="col chargen-label">
       <h4 class="d-inline-block">POWERED ARMOR SPECIFICATIONS</h4>
+      <button
+        class="csd-btn csd-icon-btn csd-icon-lg ms-3"
+        title="Load a stock design from the sourcebooks."
+        (click)="showModal(acpaPicker)"
+      >
+        <fa-icon [icon]="faSearch"></fa-icon>
+      </button>
       <fa-icon
         [icon]="faRedo"
         class="csd-btn csd-icon-btn csd-icon-lg ms-3"
@@ -203,3 +210,23 @@
     </div>
   </div>
 </div>
+
+<ng-template #acpaPicker>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col">
+        <button
+          type="button"
+          class="btn-close float-end"
+          aria-label="Close"
+          (click)="modalRef.hide()"
+        ></button>
+      </div>
+    </div>
+    <div *ngFor="let acpaDesign of attributeData.stockDesigns" class="row">
+      <div class="col csd-btn" (click)="loadJSONFile(acpaDesign.file)">
+        {{ acpaDesign.name }}
+      </div>
+    </div>
+  </div>
+</ng-template>

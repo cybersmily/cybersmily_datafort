@@ -6,7 +6,8 @@ export interface AcpaAttributeData {
   chassis: Array<ACPAChassis>;
   armor: Array<ACPAArmor>;
   realityInterfaces: Array<ACPAComponent>;
-  controlSystems:  Array<ACPAComponent>;
+  controlSystems: Array<ACPAComponent>;
   components: Array<ACPAComponent>;
   weapons: Array<ACPAWeapon>;
+  stockDesigns: Array<{ name: string; file: string }>;
 }
