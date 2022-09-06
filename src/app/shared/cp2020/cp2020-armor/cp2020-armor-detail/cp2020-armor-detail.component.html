@@ -193,9 +193,24 @@
 <div class="row">
   <div class="col-2 text-end">
     SP:
-    <select [(ngModel)]="selectedSP">
+    <select *ngIf="!currArmor?.isSPOverride" [(ngModel)]="selectedSP">
       <option *ngFor="let sp of spValues" [ngValue]="sp">{{ sp.sp }}</option>
     </select>
+    <input
+      *ngIf="currArmor?.isSPOverride"
+      class="csd-number"
+      type="number"
+      [(ngModel)]="overriddenSP"
+    />
+    <br />
+    <span class="small">
+      <input
+        type="checkbox"
+        [(ngModel)]="currArmor.isSPOverride"
+        title="Override the dropdown and enter a custom SP value."
+      />
+      Override
+    </span>
   </div>
   <div class="col-1 g-0 text-center border border-dark ps-0 pe-0">
     <input
