@@ -1,3 +1,9 @@
+export * from './cp-contact-settings';
+export * from './cp-contacts';
+export * from './cp2020-contact';
+export * from './cp2020-contact-settings';
+export * from './cp2020-player-contact';
+export * from './cp2020-player-contacts';
 export * from './fixerchartitem';
 export * from './fixercharts';
 export * from './big-league-categories';
@@ -6,4 +12,5 @@ export * from './big-league-contact';
 export * from './big-league-contact-parameters';
 export * from './big-league-model';
 export * from './hot-stuff-area';
+export * from './hot-stuff-contact';
 export * from './hot-stuff-model';

@@ -1,13 +1,16 @@
+import { HotStuffContact } from './hot-stuff-contact';
 
-export class HotStuffArea {
+export class HotStuffArea implements HotStuffContact {
   area: string;
   private _rolls: number;
+  private _points: number;
   details: string;
 
   constructor(param?: any) {
-    this.area = (param) ? param.area : '';
-    this._rolls = (param) ? param._rolls : 0;
-    this.details = (param) ? param.details : '';
+    this.area = param?.area ?? '';
+    this._rolls = param?._rolls ?? 0;
+    this._points = this.setPoints(this._rolls);
+    this.details = param?.details ?? '';
   }
 
   get rolls(): number {
@@ -15,11 +18,16 @@ export class HotStuffArea {
   }
 
   set rolls(value: number) {
-    this._rolls = ( value > 6 || value < 0) ? 0 : value;
+    this._rolls = value > 6 || value < 0 ? 0 : value;
+    this._points = this.setPoints(this._rolls);
   }
 
   get points(): number {
-    switch (this.rolls) {
+    return this._points;
+  }
+
+  private setPoints(rolls: number): number {
+    switch (rolls) {
       case 1:
         return 4;
       case 2:
