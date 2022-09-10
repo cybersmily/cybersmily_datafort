@@ -1,3 +1,4 @@
+import { Cp2020ContactsManagerService } from './../../cp2020/cp2020-contacts/services/cp2020-contacts-manager/cp2020-contacts-manager.service';
 import { DataSkill } from './../../cp2020/cp2020-skills/models/data-skill';
 import { Cp2020CyberdeckManager } from './../../cp2020/cp2020-netrun-gear/models/cp2020-cyberdeck-manager';
 import { Cp2020Vehicle } from './../../cp2020/cp2020-vehicles/models/cp2020-vehicle';
@@ -26,6 +27,7 @@ import {
   Cp2020PlayerCyberList,
 } from '../../cp2020/cp2020-cyberware/models';
 import { Cp2020Lifestyle } from '../../cp2020/cp2020-lifestyle/models';
+import { Cp2020PlayerContacts } from '../../cp2020/cp2020-contacts/models/cp2020-player-contacts';
 
 @Injectable({
   providedIn: 'root',
@@ -92,21 +94,13 @@ export class Cp2020CharacterGeneratorService {
       });
     }
 
-    if (value.gear) {
-      this._currCharacter.gear.items = value.gear.items;
-    }
-
-    if (value.vehicles) {
-      this._currCharacter.vehicles = value.vehicles.map(
-        (veh) => new Cp2020Vehicle(veh)
-      );
-    }
-
-    if (value.cyberdeckPrograms) {
-      this._currCharacter.cyberdeckPrograms = new Cp2020CyberdeckManager(
-        value.cyberdeckPrograms
-      );
-    }
+    this._currCharacter.gear.items = value?.gear?.items ?? new Array<any>();
+    this._currCharacter.vehicles =
+      value?.vehicles?.map((veh) => new Cp2020Vehicle(veh)) ??
+      new Array<Cp2020Vehicle>();
+    this._currCharacter.cyberdeckPrograms = new Cp2020CyberdeckManager(
+      value?.cyberdeckPrograms
+    );
 
     if (value.lifepath) {
       this._currCharacter.lifepath.appearance = value.lifepath.appearance;
@@ -159,6 +153,8 @@ export class Cp2020CharacterGeneratorService {
       this._currCharacter.skills.ip = value.skills.ip;
       this._currCharacter.skills.rep = value.skills.rep;
     }
+    // update contacts
+    this._currCharacter.contacts = new Cp2020PlayerContacts(value?.contacts);
 
     if (value.notes) {
       this._currCharacter.notes = value.notes;
@@ -232,6 +228,11 @@ export class Cp2020CharacterGeneratorService {
 
   changeLifeStyle(value: Cp2020Lifestyle) {
     this._currCharacter.lifeStyle = value;
+    this.updateCharacter();
+  }
+
+  changeContact(value: Cp2020PlayerContacts): void {
+    this._currCharacter.contacts = value;
     this.updateCharacter();
   }
 

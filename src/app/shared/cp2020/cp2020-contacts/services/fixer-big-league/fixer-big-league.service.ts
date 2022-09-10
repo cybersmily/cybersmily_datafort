@@ -89,7 +89,7 @@ export class FixerBigLeagueService {
    * @param {Array<string>} contactTypes
    * @memberof FixerBigLeagueService
    */
-  generateContactList(dice: DiceService, contactTypes: Array<string>) {
+  generateContactList(dice: DiceService, contactTypes: Array<string>): void {
     while (this.availablePoints >= 1) {
       const contact = this.generateRandomContact(dice, contactTypes);
       this.addContact(contact);

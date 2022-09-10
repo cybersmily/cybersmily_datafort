@@ -1,3 +1,4 @@
+import { Cp2020ContactSettings } from './../cp2020-contacts/models/cp2020-contact-settings';
 import { Cp2020CyberdeckSettings } from './cp2020-cyberdeck-settings';
 import { Cp2020CharGenSectionSettings } from './cp2020-char-gen-section-settings';
 import { Cp2020SkillListSettings } from './../cp2020-skills/models/cp2020-skill-list-settings';
@@ -10,6 +11,7 @@ export class Cp2020CharGenSettings {
   skillSettings: Cp2020SkillListSettings;
   sectionSettings: Cp2020CharGenSectionSettings;
   cyberdeckSettings: Cp2020CyberdeckSettings;
+  contactSettings: Cp2020ContactSettings;
 
   constructor(param?: any) {
     this.isIU = param?.isIU || false;
@@ -24,5 +26,6 @@ export class Cp2020CharGenSettings {
     this.cyberdeckSettings = new Cp2020CyberdeckSettings(
       param?.cyberdeckSettings
     );
+    this.contactSettings = new Cp2020ContactSettings(param?.contactSettings);
   }
 }
