@@ -35,9 +35,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
   templateUrl: './cp2020-armor-detail.component.html',
   styleUrls: ['./cp2020-armor-detail.component.css'],
 })
-export class Cp2020ArmorDetailComponent
-  implements OnInit, OnChanges, AfterViewInit
-{
+export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
   faDice = faDice;
   faRedo = faRedo;
   faSearch = faSearch;
@@ -80,7 +78,6 @@ export class Cp2020ArmorDetailComponent
         this.currArmor.clothes.loc
       );
       this.currArmor.ev = value?.ev[this.currArmor.clothes.wt] ?? 0;
-      console.log('selectedSP', this.currArmor);
       this.update();
     }
   }
@@ -95,7 +92,6 @@ export class Cp2020ArmorDetailComponent
       value,
       this.currArmor.clothes.loc
     );
-    console.log('overriddenSP', this.currArmor);
     this.update();
   }
 
@@ -109,7 +105,9 @@ export class Cp2020ArmorDetailComponent
   ) {}
 
   ngOnInit() {
+    console.log(this.armor);
     this.currArmor = new Cp2020ArmorPiece(this.armor);
+    console.log('onInit', this.currArmor);
     this.armorDataAttributesService.getData().subscribe((data) => {
       this.armorAttributes = new Cp2020ArmorAttributeLists(data);
       this.setSelected();
@@ -119,12 +117,8 @@ export class Cp2020ArmorDetailComponent
     });
   }
 
-  ngOnChanges() {
-    this.currArmor = new Cp2020ArmorPiece(this.armor);
-    this.setSelected();
-  }
-
   ngAfterViewInit(): void {
+    console.log('afterView', this.currArmor);
     this.armorNameInput.nativeElement.focus();
   }
 
@@ -185,7 +179,6 @@ export class Cp2020ArmorDetailComponent
       this.currArmor,
       this.armorAttributes.armorChart
     );
-    console.log('update(armor component', this.currArmor);
     this.updateArmor.emit(this.currArmor);
   }
 
@@ -228,7 +221,6 @@ export class Cp2020ArmorDetailComponent
       locations.push(location);
     }
     this.currArmor.clothes.loc = locations.join('|');
-    console.log('setLocation', this.currArmor);
     this.currArmor.locations = this.armorCalculatorService.setLocationSP(
       this.currArmor.baseSP,
       this.currArmor.clothes.loc

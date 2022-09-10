@@ -203,13 +203,16 @@
       [(ngModel)]="overriddenSP"
     />
     <br />
-    <span class="small">
+    <span
+      class="small"
+      title="Override the dropdown selection to enter any value."
+    >
+      custom SP?
       <input
         type="checkbox"
         [(ngModel)]="currArmor.isSPOverride"
         title="Override the dropdown and enter a custom SP value."
       />
-      Override
     </span>
   </div>
   <div class="col-1 g-0 text-center border border-dark ps-0 pe-0">

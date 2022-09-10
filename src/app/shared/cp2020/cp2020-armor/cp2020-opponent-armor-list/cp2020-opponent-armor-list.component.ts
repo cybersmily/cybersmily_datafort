@@ -5,15 +5,33 @@ import { ArmorRandomGenSettingsService } from './../services/armor-random-gen-se
 import { DiceService } from './../../../services/dice/dice.service';
 import { ArmorGeneratorService } from './../services/armor-generator/armor-generator.service';
 import { Cp2020ArmorPiece } from '../models/cp2020-armor-piece';
-import { faWrench, faTrash, faPlus, faDice, faSave, faCog, faRedo, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import {
+  faWrench,
+  faTrash,
+  faPlus,
+  faDice,
+  faSave,
+  faCog,
+  faRedo,
+  faChevronDown,
+  faChevronRight,
+} from '@fortawesome/free-solid-svg-icons';
 import { Cp2020ArmorBlock } from '../models/cp2020-armor-block';
-import { Component, Input, OnInit, Output, TemplateRef, EventEmitter, OnChanges } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  Output,
+  TemplateRef,
+  EventEmitter,
+  OnChanges,
+} from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'cs-cp2020-opponent-armor-list',
   templateUrl: './cp2020-opponent-armor-list.component.html',
-  styleUrls: ['./cp2020-opponent-armor-list.component.css']
+  styleUrls: ['./cp2020-opponent-armor-list.component.css'],
 })
 export class Cp2020OpponentArmorListComponent implements OnInit, OnChanges {
   faWrench = faWrench;
@@ -29,7 +47,8 @@ export class Cp2020OpponentArmorListComponent implements OnInit, OnChanges {
   modalRef: BsModalRef;
   config: {} = {
     keyboard: true,
-    class: 'modal-dialog-centered modal-lg'};
+    class: 'modal-dialog-centered modal-lg',
+  };
 
   @Input()
   armorBlock = new Cp2020ArmorBlock();
@@ -46,19 +65,20 @@ export class Cp2020OpponentArmorListComponent implements OnInit, OnChanges {
   armorAttributes = new Cp2020ArmorAttributeLists();
   settings = new CP2020ArmorRandomSettings();
 
-  constructor(private modalService: BsModalService,
+  constructor(
+    private modalService: BsModalService,
     private armorGeneratorService: ArmorGeneratorService,
     private dice: DiceService,
     private randomSettings: ArmorRandomGenSettingsService,
-    private armorDataAttributesService: ArmorDataAttributesService) { }
+    private armorDataAttributesService: ArmorDataAttributesService
+  ) {}
 
   ngOnInit(): void {
     this.currArmorBlock = new Cp2020ArmorBlock(this.armorBlock);
-    this.armorDataAttributesService.getData()
-    .subscribe( data => {
+    this.armorDataAttributesService.getData().subscribe((data) => {
       this.armorAttributes = new Cp2020ArmorAttributeLists(data);
     });
-    this.randomSettings.settings.subscribe( settings => {
+    this.randomSettings.settings.subscribe((settings) => {
       this.settings = settings;
     });
   }
@@ -72,8 +92,17 @@ export class Cp2020OpponentArmorListComponent implements OnInit, OnChanges {
   }
 
   repairArmor(armor: Cp2020ArmorPiece) {
-    armor.locations = this.currArmorBlock.repairArmorAllLocations(armor.baseSP, armor.locations);
+    armor.locations = this.currArmorBlock.repairArmorAllLocations(
+      armor.baseSP,
+      armor.locations
+    );
     this.update();
+  }
+
+  editArmor(index: number, template: TemplateRef<any>): void {
+    this.selectedArmor = this.currArmorBlock.armorPieces[index];
+    this.selectedIndex = index;
+    this.showModal(template);
   }
 
   deleteArmor(index: number) {
@@ -86,9 +115,8 @@ export class Cp2020OpponentArmorListComponent implements OnInit, OnChanges {
     this.update();
   }
 
-
   toggleActiveArmor(event, index: number) {
-    if(event.target.checked) {
+    if (event.target.checked) {
       this.currArmorBlock.activatePiece(index);
     } else {
       this.currArmorBlock.deactivatePiece(index);
@@ -97,7 +125,11 @@ export class Cp2020OpponentArmorListComponent implements OnInit, OnChanges {
   }
 
   rollrandom() {
-    const randomArmor = this.armorGeneratorService.generate(this.settings, this.dice, this.armorAttributes);
+    const randomArmor = this.armorGeneratorService.generate(
+      this.settings,
+      this.dice,
+      this.armorAttributes
+    );
     this.currArmorBlock.addPiece(randomArmor);
     this.update();
   }
@@ -109,7 +141,7 @@ export class Cp2020OpponentArmorListComponent implements OnInit, OnChanges {
   closeArmorDetailModal() {
     this.selectedArmor = new Cp2020ArmorPiece();
     this.selectedIndex = -1;
-    if(this.modalRef) {
+    if (this.modalRef) {
       this.modalRef.hide();
     }
   }
@@ -119,9 +151,17 @@ export class Cp2020OpponentArmorListComponent implements OnInit, OnChanges {
   }
 
   saveNewArmor() {
-    this.currArmorBlock.addPiece(this.selectedArmor);
+    console.log(this.selectedArmor);
+    if (this.selectedIndex < 0) {
+      this.currArmorBlock.addPiece(new Cp2020ArmorPiece(this.selectedArmor));
+    } else {
+      this.currArmorBlock.updatePiece(
+        new Cp2020ArmorPiece(this.selectedArmor),
+        this.selectedIndex
+      );
+    }
+    console.log(this.currArmorBlock);
     this.closeArmorDetailModal();
     this.update();
   }
-
 }

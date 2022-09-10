@@ -77,16 +77,13 @@ export class ArmorGeneratorService {
       if (settings?.hasOptions) {
         armor.options = new Array<ArmorOption>();
         // roll number of options with a low chance of getting them.
-        let numOfOptions = dice.generateNumber(
-          0,
-          clothingLists.options.length + 3
-        );
+        let numOfOptions = dice.generateNumber(0, 9);
         numOfOptions = numOfOptions - 3;
         for (let i = 0; i < numOfOptions; i++) {
           const newOpt = dice.rollRandomItem<ArmorOption>(
             clothingLists.options
           );
-          if (!armor.options.some((opt) => opt.name === newOpt.name)) {
+          if (!armor.options.some((opt) => opt.type === newOpt.type)) {
             armor.options.push(newOpt);
           }
         }
