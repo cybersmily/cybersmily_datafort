@@ -1,0 +1,81 @@
+<div class="border border-dark">
+  <div class="row hidden-print small">
+    <div class="col-8 col-md-4 ps-3">
+      <input [(ngModel)]="contact.name" placeholder="Name..." class="w-80" />
+      <button
+        (click)="addContact()"
+        title="Add contact"
+        class="csd-btn csd-icon-btn csd-icon-sm float-start me-2"
+      >
+        <fa-icon [icon]="faPlus"></fa-icon>
+      </button>
+    </div>
+    <div class="col-4 col-md-2 small ps-0">
+      <select
+        [(ngModel)]="capability"
+        title="Choose a capability for the contact"
+      >
+        <option
+          *ngFor="let c of catagories.capabilities"
+          [ngValue]="c.name"
+          title="Skill check {{ c.effect }}"
+        >
+          {{ c.name }}({{ c.cost }}pts)
+        </option>
+      </select>
+    </div>
+    <div class="col-2 offset-2 offset-md-0 col-md-1 small ps-0">
+      <select
+        [(ngModel)]="reputation"
+        title="Choose a reputation for the contact"
+      >
+        <option
+          *ngFor="let c of catagories.reputations"
+          [ngValue]="c.name"
+          title="{{ c.effect }}"
+        >
+          {{ c.name }}(x{{ c.multiplier }})
+        </option>
+      </select>
+    </div>
+    <div class="col-3 col-md-2 small ps-0">
+      <select
+        [(ngModel)]="availability"
+        title="Choose a availability for the contact"
+      >
+        <option
+          *ngFor="let c of catagories.availabilities"
+          [ngValue]="c.name"
+          title="Availability test {{ c.effect }}"
+        >
+          {{ c.name }}(x{{ c.multiplier }})
+        </option>
+      </select>
+    </div>
+    <div class="col-3 col-md-2 small ps-0">
+      <select
+        [(ngModel)]="reliability"
+        title="Choose a reliability for the contact"
+      >
+        <option
+          *ngFor="let c of catagories.reliabilities"
+          [ngValue]="c.name"
+          title="{{ c.effect }}"
+        >
+          {{ c.name }}(x{{ c.multiplier }})
+        </option>
+      </select>
+    </div>
+    <div class="col-2 col-md-1 small pe-3 text-end">{{ contact.cost }}pts</div>
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10 big-league-details">
+      <textarea
+        class="w-100"
+        [(ngModel)]="contact.details"
+        placeholder="Enter details about contact..."
+      ></textarea>
+    </div>
+  </div>
+</div>

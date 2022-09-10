@@ -1,0 +1,41 @@
+<div class="border border-dark py-0">
+  <div class="row g-0 pt-0">
+    <div class="col-12 mt-0">
+      <div class="cp2020-label d-inline-block mt-0">BIG LEAGUE</div>
+      <button
+        class="csd-btn csd-icon-lg csd-icon-btn ms-2 me-3 hidden-print"
+        title="Reset Streetdeal and clear all contacts"
+        (click)="reset()"
+      >
+        <fa-icon [icon]="faRedo"></fa-icon>
+      </button>
+      Contact Points Used: {{ spentPoints }}/{{ totalPoints }}
+      <button
+        class="csd-btn csd-icon-btn csd-icon-lg ms-2"
+        title="Generate list of contacts"
+        (click)="generateContacts()"
+        [disabled]="!canGenerateContacts"
+      >
+        <fa-icon [icon]="faDice"></fa-icon>
+      </button>
+    </div>
+  </div>
+  <div *ngFor="let contact of currContacts; let i = index" class="row g-0">
+    <div class="col-12">
+      <cs-cp2020-big-league-contact
+        [contact]="contact"
+        [index]="i"
+        (delete)="deleteContact($event)"
+        (edit)="updateContact($event)"
+      ></cs-cp2020-big-league-contact>
+    </div>
+  </div>
+  <div class="row g-0">
+    <div class="col-12">
+      <cs-cp2020-big-league-contact-new
+        *ngIf="availablePoints > 1"
+        (save)="addContact($event)"
+      ></cs-cp2020-big-league-contact-new>
+    </div>
+  </div>
+</div>

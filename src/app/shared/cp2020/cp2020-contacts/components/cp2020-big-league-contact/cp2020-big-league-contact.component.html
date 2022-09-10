@@ -1,0 +1,160 @@
+<div class="border border-dark" *ngIf="!editMode; else inEditMode">
+  <div class="row">
+    <div class="col-8 col-md-4 ps-3">
+      {{ contact.name || "contact" + index }}
+      <button
+        (click)="deleteContact()"
+        title="Delete contact"
+        class="csd-icon-btn hidden-print csd-icon-sm csd-btn float-end"
+      >
+        <fa-icon [icon]="faTrash"></fa-icon>
+      </button>
+      <button
+        (click)="editContact()"
+        title="Edit contact"
+        class="csd-icon-btn hidden-print csd-icon-sm csd-btn me-2 float-end"
+      >
+        <fa-icon [icon]="faPen"></fa-icon>
+      </button>
+    </div>
+    <div
+      class="col-4 col-md-2 small ps-0"
+      title="Skill check {{
+        contact.capability ? contact.capability.effect : ''
+      }}"
+    >
+      {{ contact.capability ? contact.capability.name : "" }}({{
+        contact.capability ? contact.capability.cost : 0
+      }}pts)
+    </div>
+    <div
+      class="col-2 offset-2 offset-md-0 col-md-1 small ps-0"
+      title="{{ contact.reputation ? contact.reputation.effect : '' }}"
+    >
+      {{
+        contact.reputation
+          ? contact.reputation.name +
+            " (x" +
+            contact.reputation.multiplier +
+            ")"
+          : ""
+      }}
+    </div>
+    <div
+      class="col-3 col-md-2 small ps-0"
+      title="Availablity Check {{
+        contact.availability ? contact.availability.effect : ''
+      }}"
+    >
+      {{
+        contact.availability
+          ? contact.availability.name +
+            " (x" +
+            contact.availability.multiplier +
+            ")"
+          : ""
+      }}
+    </div>
+    <div
+      class="col-3 col-md-2 small ps-0"
+      title="{{ contact.reliability ? contact.reliability.effect : '' }}"
+    >
+      {{
+        contact.reliability
+          ? contact.reliability.name +
+            " (x" +
+            contact.reliability.multiplier +
+            ")"
+          : ""
+      }}
+    </div>
+    <div class="col-2 col-md-1 small ps-0">{{ contact.cost }}pts</div>
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10 big-league-details">
+      {{ contact.details }}
+    </div>
+  </div>
+</div>
+<ng-template #inEditMode>
+  <div class="row hidden-print small">
+    <div class="col-8 col-md-4 ps-3">
+      <input [(ngModel)]="contact.name" class="w-80" />
+      <button
+        (click)="saveContact()"
+        title="Save contact changes"
+        class="csd-btn csd-icon-btn csd-icon-sm float-end"
+      >
+        <fa-icon [icon]="faSave"></fa-icon>
+      </button>
+    </div>
+    <div class="col-4 col-md-2 small ps-0">
+      <select
+        [(ngModel)]="capability"
+        title="Choose a capability for the contact"
+      >
+        <option
+          *ngFor="let c of catagories.capabilities"
+          [ngValue]="c.name"
+          title="Skill check {{ c.effect }}"
+        >
+          {{ c.name }}({{ c.cost }}pts)
+        </option>
+      </select>
+    </div>
+    <div class="col-2 offset-2 offset-md-0 col-md-1 small ps-0">
+      <select
+        [(ngModel)]="reputation"
+        title="Choose a reputation for the contact"
+      >
+        <option
+          *ngFor="let c of catagories.reputations"
+          [ngValue]="c.name"
+          title="{{ c.effect }}"
+        >
+          {{ c.name }}(x{{ c.multiplier }})
+        </option>
+      </select>
+    </div>
+    <div class="col-3 col-md-2 small ps-0">
+      <select
+        [(ngModel)]="availability"
+        title="Choose a availability for the contact"
+      >
+        <option
+          *ngFor="let c of catagories.availabilities"
+          [ngValue]="c.name"
+          title="Availability test {{ c.effect }}"
+        >
+          {{ c.name }}(x{{ c.multiplier }})
+        </option>
+      </select>
+    </div>
+    <div class="col-3 col-md-2 small ps-0">
+      <select
+        [(ngModel)]="reliability"
+        title="Choose a reliability for the contact"
+      >
+        <option
+          *ngFor="let c of catagories.reliabilities"
+          [ngValue]="c.name"
+          title="{{ c.effect }}"
+        >
+          {{ c.name }}(x{{ c.multiplier }})
+        </option>
+      </select>
+    </div>
+    <div class="col-2 col-md-1 small pe-3 text-end">{{ contact.cost }}pts</div>
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10 big-league-details">
+      <textarea
+        class="w-100"
+        [(ngModel)]="contact.details"
+        placeholder="Enter details about contact..."
+      ></textarea>
+    </div>
+  </div>
+</ng-template>
