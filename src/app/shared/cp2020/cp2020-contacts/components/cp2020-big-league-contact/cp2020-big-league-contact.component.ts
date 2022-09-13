@@ -1,5 +1,11 @@
 import { BigLeagueCategories, BigLeagueContact } from './../../models';
-import { faPen, faTrash, faSave } from '@fortawesome/free-solid-svg-icons';
+import {
+  faPen,
+  faTrash,
+  faSave,
+  faChevronDown,
+  faChevronRight,
+} from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -11,7 +17,11 @@ export class Cp2020BigLeagueContactComponent implements OnInit {
   faPen = faPen;
   faTrash = faTrash;
   faSave = faSave;
+  faChevronDown = faChevronDown;
+  faChevronRight = faChevronRight;
+
   editMode = false;
+  isCollapse = true;
   catagories = new BigLeagueCategories();
 
   @Input()

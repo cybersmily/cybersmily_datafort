@@ -1,106 +1,136 @@
-<div class="border border-dark py-2">
-  <div class="row hidden-print small">
-    <div class="col-8 col-md-4 ps-3">
-      <input
-        [(ngModel)]="contact.name"
-        placeholder="* Name..."
-        class="w-80 csd-required"
-      />
-      <button
-        (click)="addContact()"
-        title="Add contact"
-        class="csd-btn csd-icon-btn csd-icon-sm float-start me-3"
-        [disabled]="isDisabled"
-      >
-        <fa-icon [icon]="faPlus"></fa-icon>
-      </button>
-    </div>
-    <div class="col-4 col-md-2 small ps-0">
-      <select
-        class="csd-required"
-        [(ngModel)]="capability"
-        title="Choose a capability for the contact"
-      >
-        <option *ngIf="!capability" [ngValue]="null">* Choose...</option>
-        <option
-          *ngFor="let c of catagories.capabilities"
-          [ngValue]="c.name"
-          title="Skill check {{ c.effect }}"
-        >
-          {{ c.name }}({{ c.cost }}pts)
-        </option>
-      </select>
-    </div>
-    <div class="col-2 offset-2 offset-md-0 col-md-1 small ps-0">
-      <select
-        class="csd-required"
-        [(ngModel)]="reputation"
-        title="Choose a reputation for the contact"
-      >
-        <option *ngIf="!reputation" [ngValue]="null">* Choose...</option>
-        <option
-          *ngFor="let c of catagories.reputations"
-          [ngValue]="c.name"
-          title="{{ c.effect }}"
-        >
-          {{ c.name }}(x{{ c.multiplier }})
-        </option>
-      </select>
-    </div>
-    <div class="col-3 col-md-2 small ps-0">
-      <select
-        class="csd-required"
-        [(ngModel)]="availability"
-        title="Choose a availability for the contact"
-      >
-        <option *ngIf="!availability" [ngValue]="null">* Choose...</option>
-        <option
-          *ngFor="let c of catagories.availabilities"
-          [ngValue]="c.name"
-          title="Availability test {{ c.effect }}"
-        >
-          {{ c.name }}(x{{ c.multiplier }})
-        </option>
-      </select>
-    </div>
-    <div class="col-3 col-md-2 small ps-0">
-      <select
-        class="csd-required"
-        [(ngModel)]="reliability"
-        title="Choose a reliability for the contact"
-      >
-        <option *ngIf="!reliability" [ngValue]="null">* Choose...</option>
-        <option
-          *ngFor="let c of catagories.reliabilities"
-          [ngValue]="c.name"
-          title="{{ c.effect }}"
-        >
-          {{ c.name }}(x{{ c.multiplier }})
-        </option>
-      </select>
-    </div>
+<div class="border border-dark py-2 px-3">
+  <div *ngIf="!isAdding; else addBigLeagueContact">
     <div
-      [ngClass]="{
-        'col-2 col-md-1 small pe-3 text-end': true,
-        'csd-highlight': contact.cost > maxPoints
-      }"
+      class="row csd-btn"
+      title="Add new Big League Contact"
+      tab-index="0"
+      (click)="isAdding = !isAdding"
     >
-      {{ contact.cost }}pts
+      <div class="col-12 text-center">
+        <fa-icon class="csd-icon-btn csd-icon-xl" [icon]="faPlus"></fa-icon>
+      </div>
     </div>
   </div>
-  <div class="row small" *ngIf="contact.cost > maxPoints">
-    <div class="col-10 offset-1">
-      <span class="csd-highlight">Exceeded available points.</span>
+  <ng-template #addBigLeagueContact>
+    <div class="row hidden-print small">
+      <div class="col-9 col-md-2">
+        <input
+          [(ngModel)]="contact.name"
+          placeholder="* Name..."
+          class="w-100 csd-required"
+        />
+      </div>
+      <div
+        [ngClass]="{
+          'col-1 small pe-3 order-md-last': true,
+          'csd-highlight': contact.cost > maxPoints
+        }"
+      >
+        {{ contact.cost }}pts
+      </div>
+      <div class="col-2 col-md-1 order-md-last text-end pt-0">
+        <button
+          (click)="addContact()"
+          title="Add contact"
+          class="csd-btn csd-icon-btn csd-icon-xl mt-0 me-3"
+          [disabled]="isDisabled"
+        >
+          <fa-icon [icon]="faSave"></fa-icon>
+        </button>
+        <button
+          (click)="isAdding = false"
+          title="Cancel"
+          class="csd-btn csd-icon-btn csd-icon-xl mt-0"
+        >
+          <fa-icon [icon]="faTimes"></fa-icon>
+        </button>
+      </div>
+      <div class="col-6 col-md-2 small ps-md-0 pt-1">
+        <span class="d-md-none me-1">Capability:</span>
+        <select
+          class="csd-required"
+          [(ngModel)]="capability"
+          title="Choose a capability for the contact"
+        >
+          <option *ngIf="!capability" [ngValue]="null">* capability...</option>
+          <option
+            *ngFor="let c of catagories.capabilities"
+            [ngValue]="c.name"
+            title="Skill check {{ c.effect }}"
+          >
+            {{ c.name }}({{ c.cost }}pts)
+          </option>
+        </select>
+      </div>
+      <div class="col-6 col-md-2 small ps-md-0 pt-1">
+        <span class="d-md-none me-1">Rep:</span>
+        <select
+          class="csd-required"
+          [(ngModel)]="reputation"
+          title="Choose a reputation for the contact"
+        >
+          <option *ngIf="!reputation" [ngValue]="null">* reputation...</option>
+          <option
+            *ngFor="let c of catagories.reputations"
+            [ngValue]="c.name"
+            title="{{ c.effect }}"
+          >
+            {{ c.name }}(x{{ c.multiplier }})
+          </option>
+        </select>
+      </div>
+      <div class="col-6 col-md-2 small ps-md-0 pt-1">
+        <span class="d-md-none">Avail.: </span>
+        <select
+          class="csd-required"
+          [(ngModel)]="availability"
+          title="Choose a availability for the contact"
+        >
+          <option *ngIf="!availability" [ngValue]="null">
+            * availability...
+          </option>
+          <option
+            *ngFor="let c of catagories.availabilities"
+            [ngValue]="c.name"
+            title="Availability test {{ c.effect }}"
+          >
+            {{ c.name }}(x{{ c.multiplier }})
+          </option>
+        </select>
+      </div>
+      <div class="col-6 col-md-2 small ps-md-0 pt-1">
+        <span class="d-md-none">Rel.: </span>
+        <select
+          class="csd-required"
+          [(ngModel)]="reliability"
+          title="Choose a reliability for the contact"
+        >
+          <option *ngIf="!reliability" [ngValue]="null">
+            * reliability...
+          </option>
+          <option
+            *ngFor="let c of catagories.reliabilities"
+            [ngValue]="c.name"
+            title="{{ c.effect }}"
+          >
+            {{ c.name }}(x{{ c.multiplier }})
+          </option>
+        </select>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-1"></div>
-    <div class="col-10 big-league-details">
-      <textarea
-        class="w-100"
-        [(ngModel)]="contact.details"
-        placeholder="Enter details about contact..."
-      ></textarea>
+    <div class="row small" *ngIf="contact.cost > maxPoints">
+      <div class="col-10 offset-1">
+        <span class="csd-highlight">Exceeded available points.</span>
+      </div>
     </div>
-  </div>
+    <div class="row mt-2">
+      <div class="col-11 big-league-details">
+        <textarea
+          class="w-100"
+          [(ngModel)]="contact.details"
+          placeholder="Enter details about contact..."
+        ></textarea>
+      </div>
+    </div>
+  </ng-template>
 </div>

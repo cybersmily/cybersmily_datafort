@@ -1,7 +1,19 @@
-<div class="border border-dark" *ngIf="!editMode; else inEditMode">
+<div class="border border-dark px-3" *ngIf="!editMode; else inEditMode">
   <div class="row">
-    <div class="col-8 col-md-4 ps-3">
-      {{ contact.name || "contact" + index }}
+    <div class="col-12 col-md-4 ps-0">
+      <span
+        (click)="isCollapse = !isCollapse"
+        [ngClass]="{ 'cursor-pointer': contact.details }"
+        title="Expand to show details"
+      >
+        <fa-icon
+          class="csd-icon-btn"
+          *ngIf="contact.details"
+          [icon]="isCollapse ? faChevronRight : faChevronDown"
+        ></fa-icon>
+        {{ contact.name || "contact" + index }}
+      </span>
+
       <button
         (click)="deleteContact()"
         title="Delete contact"
@@ -18,7 +30,7 @@
       </button>
     </div>
     <div
-      class="col-4 col-md-2 small ps-0"
+      class="col-3 col-md-2 small pe-0"
       title="Skill check {{
         contact.capability ? contact.capability.effect : ''
       }}"
@@ -26,9 +38,10 @@
       {{ contact.capability ? contact.capability.name : "" }}
     </div>
     <div
-      class="col-2 offset-2 offset-md-0 col-md-1 small ps-0"
+      class="col-2 col-md-1 small ps-0"
       title="{{ contact.reputation ? contact.reputation.effect : '' }}"
     >
+      <span class="d-md-none">Rep: </span>
       {{ contact.reputation ? contact.reputation.name : "" }}
     </div>
     <div
@@ -37,36 +50,38 @@
         contact.availability ? contact.availability.effect : ''
       }}"
     >
+      <span class="d-md-none">Avail: </span>
       {{ contact.availability ? contact.availability.name : "" }}
     </div>
     <div
       class="col-3 col-md-2 small ps-0"
       title="{{ contact.reliability ? contact.reliability.effect : '' }}"
     >
+      <span class="d-md-none">Rel.: </span>
       {{ contact.reliability ? contact.reliability.name : "" }}
     </div>
-    <div class="col-2 col-md-1 small ps-0">{{ contact.cost }}pts</div>
+    <div class="col-1 small ps-0">{{ contact.cost }}pts</div>
   </div>
   <div class="row">
     <div class="col-1"></div>
-    <div class="col-10 big-league-details">
-      {{ contact.details }}
+    <div class="col-10 big-league-details" [collapse]="isCollapse">
+      Notes: {{ contact.details }}
     </div>
   </div>
 </div>
 <ng-template #inEditMode>
   <div class="row hidden-print small">
-    <div class="col-8 col-md-4 ps-3">
-      <input [(ngModel)]="contact.name" class="w-80" />
+    <div class="col-12 col-md-4 ps-3">
       <button
         (click)="saveContact()"
         title="Save contact changes"
-        class="csd-btn csd-icon-btn csd-icon-sm float-end"
+        class="csd-btn csd-icon-btn csd-icon-xl pe-2"
       >
         <fa-icon [icon]="faSave"></fa-icon>
       </button>
+      <input [(ngModel)]="contact.name" class="w-80" />
     </div>
-    <div class="col-4 col-md-2 small ps-0">
+    <div class="col-4 col-md-2 small ps-0 pt-2">
       <select
         [(ngModel)]="capability"
         title="Choose a capability for the contact"
@@ -80,7 +95,7 @@
         </option>
       </select>
     </div>
-    <div class="col-2 offset-2 offset-md-0 col-md-1 small ps-0">
+    <div class="col-2 offset-2 offset-md-0 col-md-1 small ps-0 pt-2">
       <select
         [(ngModel)]="reputation"
         title="Choose a reputation for the contact"
@@ -94,7 +109,7 @@
         </option>
       </select>
     </div>
-    <div class="col-3 col-md-2 small ps-0">
+    <div class="col-3 col-md-2 small ps-0 pt-2">
       <select
         [(ngModel)]="availability"
         title="Choose a availability for the contact"
@@ -108,7 +123,7 @@
         </option>
       </select>
     </div>
-    <div class="col-3 col-md-2 small ps-0">
+    <div class="col-3 col-md-2 small ps-0 pt-2">
       <select
         [(ngModel)]="reliability"
         title="Choose a reliability for the contact"
@@ -122,7 +137,7 @@
         </option>
       </select>
     </div>
-    <div class="col-2 col-md-1 small pe-3 text-end">{{ contact.cost }}pts</div>
+    <div class="col-2 col-md-1 small ps-0 pt-2">{{ contact.cost }}pts</div>
   </div>
   <div class="row">
     <div class="col-1"></div>

@@ -18,19 +18,21 @@
   <div [collapse]="isCollapsed">
     <div *ngIf="contacts$ | async as contacts">
       <cs-cp2020-big-league-contacts
-        *ngIf="contactSettings.showBigLeague"
+        *ngIf="contactSettings.showBigLeague && skillLevel$ | async"
         [bigLeagueContacts]="contacts?.bigLeague"
         [skillLevel]="skillLevel$ | async"
         (updateContacts)="updateBigLeague($event)"
       ></cs-cp2020-big-league-contacts>
       <cs-cp2020-hot-stuff-contacts
-        *ngIf="contactSettings.showHotStuff"
+        *ngIf="contactSettings.showHotStuff && skillLevel$ | async"
         [hotStuffContacts]="contacts?.hotStuff"
         [skillLevel]="skillLevel$ | async"
         (updateContacts)="updateHotStuff($event)"
       ></cs-cp2020-hot-stuff-contacts>
       <cs-cp2020-other-contacts
         *ngIf="contactSettings.showOthers"
+        [contacts]="contacts?.other"
+        (updateContacts)="updatePlayerContacts($event)"
       ></cs-cp2020-other-contacts>
     </div>
   </div>

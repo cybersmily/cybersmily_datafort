@@ -5,7 +5,7 @@ import {
   Cp2020PlayerContacts,
   Cp2020ContactSettings,
   BigLeagueContact,
-  Cp2020Contact,
+  Cp2020PlayerContact,
 } from './../../models';
 import {
   faChevronDown,
@@ -72,7 +72,7 @@ export class Cp2020ContactsSectionComponent implements OnInit {
     this.characterService.changeContact(this.currContacts);
   }
 
-  updatePlayerContacts(event: Array<Cp2020Contact>): void {
+  updatePlayerContacts(event: Array<Cp2020PlayerContact>): void {
     this.currContacts.other = event;
     this.characterService.changeContact(this.currContacts);
   }

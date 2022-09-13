@@ -241,6 +241,14 @@
         </div>
       </div>
       <div
+        class="row print-fix"
+        *ngIf="charGenSettings.sectionSettings.showContacts"
+      >
+        <div class="col">
+          <cs-cp2020-contacts-section></cs-cp2020-contacts-section>
+        </div>
+      </div>
+      <div
         class="row print-fix csd-linebreak g-0"
         *ngIf="charGenSettings.sectionSettings.showLifePath"
       >

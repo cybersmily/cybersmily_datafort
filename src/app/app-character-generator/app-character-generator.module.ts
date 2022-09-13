@@ -1,3 +1,4 @@
+import { Cp2020ContactsModule } from './../shared/cp2020/cp2020-contacts/cp2020-contacts.module';
 import { ImageHolderModule } from './../shared/modules/image-holder/image-holder.module';
 import { Cp2020NetrunGearModule } from '../shared/cp2020/cp2020-netrun-gear/cp2020-netrun-gear.module';
 import { Cp2020LifepathModule } from './../shared/cp2020/cp2020-lifepath/cp2020-lifepath.module';
@@ -56,6 +57,7 @@ import { AppCharacterSettingsComponent } from './app-character-settings/app-char
     Cp2020VehiclesModule,
     Cp2020LifepathModule,
     Cp2020NetrunGearModule,
+    Cp2020ContactsModule,
     ImageHolderModule,
     ModalModule.forRoot(),
   ],

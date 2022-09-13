@@ -1,5 +1,10 @@
 import { BigLeagueCategories, BigLeagueContact } from './../../models';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import {
+  faPlus,
+  fas,
+  faSave,
+  faTimes,
+} from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
@@ -9,8 +14,11 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 })
 export class Cp2020BigLeagueContactNewComponent implements OnInit {
   faPlus = faPlus;
+  faSave = faSave;
+  faTimes = faTimes;
 
   catagories = new BigLeagueCategories();
+  isAdding = false;
 
   contact: BigLeagueContact = new BigLeagueContact();
 
@@ -32,9 +40,7 @@ export class Cp2020BigLeagueContactNewComponent implements OnInit {
   }
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.contact);
-  }
+  ngOnInit(): void {}
 
   get capability(): string {
     return this.contact && this.contact.capability

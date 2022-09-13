@@ -20,13 +20,15 @@
       </button>
     </div>
   </div>
-  <div class="row text-uppercase">
-    <div class="col-8 col-md-4 ps-3">Name</div>
-    <div class="col-4 col-md-2 small ps-0 text-truncate">Capability</div>
-    <div class="col-2 offset-2 offset-md-0 col-md-1 small ps-0">Rep</div>
-    <div class="col-3 col-md-2 small ps-0">Avail.</div>
-    <div class="col-3 col-md-2 small ps-0">Rel.</div>
-    <div class="col-2 col-md-1 small ps-0">Cost</div>
+  <div class="d-none d-md-block px-2">
+    <div class="row text-uppercase">
+      <div class="col-8 col-md-4 ps-3">Name</div>
+      <div class="col-4 col-md-2 small ps-0 text-truncate">Capability</div>
+      <div class="col-2 offset-2 offset-md-0 col-md-1 small ps-0">Rep</div>
+      <div class="col-3 col-md-2 small ps-0">Avail.</div>
+      <div class="col-3 col-md-2 small ps-0">Rel.</div>
+      <div class="col-2 col-md-1 small ps-0">Cost</div>
+    </div>
   </div>
   <div *ngFor="let contact of currContacts; let i = index" class="row g-0">
     <div class="col-12">
