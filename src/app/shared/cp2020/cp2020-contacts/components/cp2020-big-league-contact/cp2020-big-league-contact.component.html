@@ -23,22 +23,13 @@
         contact.capability ? contact.capability.effect : ''
       }}"
     >
-      {{ contact.capability ? contact.capability.name : "" }}({{
-        contact.capability ? contact.capability.cost : 0
-      }}pts)
+      {{ contact.capability ? contact.capability.name : "" }}
     </div>
     <div
       class="col-2 offset-2 offset-md-0 col-md-1 small ps-0"
       title="{{ contact.reputation ? contact.reputation.effect : '' }}"
     >
-      {{
-        contact.reputation
-          ? contact.reputation.name +
-            " (x" +
-            contact.reputation.multiplier +
-            ")"
-          : ""
-      }}
+      {{ contact.reputation ? contact.reputation.name : "" }}
     </div>
     <div
       class="col-3 col-md-2 small ps-0"
@@ -46,27 +37,13 @@
         contact.availability ? contact.availability.effect : ''
       }}"
     >
-      {{
-        contact.availability
-          ? contact.availability.name +
-            " (x" +
-            contact.availability.multiplier +
-            ")"
-          : ""
-      }}
+      {{ contact.availability ? contact.availability.name : "" }}
     </div>
     <div
       class="col-3 col-md-2 small ps-0"
       title="{{ contact.reliability ? contact.reliability.effect : '' }}"
     >
-      {{
-        contact.reliability
-          ? contact.reliability.name +
-            " (x" +
-            contact.reliability.multiplier +
-            ")"
-          : ""
-      }}
+      {{ contact.reliability ? contact.reliability.name : "" }}
     </div>
     <div class="col-2 col-md-1 small ps-0">{{ contact.cost }}pts</div>
   </div>

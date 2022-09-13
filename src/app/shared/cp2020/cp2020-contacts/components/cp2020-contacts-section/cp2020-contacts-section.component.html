@@ -1,0 +1,37 @@
+<div class="cp2020-section border border-dark">
+  <div class="cp2020-label row g-0">
+    <div class="col">
+      <h4
+        class="d-inline-block csd-btn me-4"
+        (click)="isCollapsed = !isCollapsed"
+        (keyup.enter)="isCollapsed = !isCollapsed"
+        tabindex="0"
+      >
+        CONTACTS
+        <fa-icon
+          [icon]="collapseChevron"
+          class="csd-icon-btn csd-icon-xl ms-2"
+        ></fa-icon>
+      </h4>
+    </div>
+  </div>
+  <div [collapse]="isCollapsed">
+    <div *ngIf="contacts$ | async as contacts">
+      <cs-cp2020-big-league-contacts
+        *ngIf="contactSettings.showBigLeague"
+        [bigLeagueContacts]="contacts?.bigLeague"
+        [skillLevel]="skillLevel$ | async"
+        (updateContacts)="updateBigLeague($event)"
+      ></cs-cp2020-big-league-contacts>
+      <cs-cp2020-hot-stuff-contacts
+        *ngIf="contactSettings.showHotStuff"
+        [hotStuffContacts]="contacts?.hotStuff"
+        [skillLevel]="skillLevel$ | async"
+        (updateContacts)="updateHotStuff($event)"
+      ></cs-cp2020-hot-stuff-contacts>
+      <cs-cp2020-other-contacts
+        *ngIf="contactSettings.showOthers"
+      ></cs-cp2020-other-contacts>
+    </div>
+  </div>
+</div>

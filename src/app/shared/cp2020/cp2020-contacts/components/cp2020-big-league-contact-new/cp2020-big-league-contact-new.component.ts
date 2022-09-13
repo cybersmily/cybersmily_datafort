@@ -14,12 +14,27 @@ export class Cp2020BigLeagueContactNewComponent implements OnInit {
 
   contact: BigLeagueContact = new BigLeagueContact();
 
+  @Input()
+  maxPoints: number;
+
   @Output()
   save = new EventEmitter<BigLeagueContact>();
 
+  get isDisabled(): boolean {
+    return (
+      !this.contact.name ||
+      !this.reliability ||
+      !this.capability ||
+      !this.availability ||
+      !this.reputation ||
+      this.contact.cost > this.maxPoints
+    );
+  }
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.contact);
+  }
 
   get capability(): string {
     return this.contact && this.contact.capability

@@ -186,6 +186,11 @@ BUTTON {
   font-size: xx-large;
 }
 
+.csd-select-choose {
+  font-style: italic;
+  color: #999;
+}
+
 .csd-btn {
   cursor: pointer;
 }
