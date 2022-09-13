@@ -1,0 +1,64 @@
+<div class="border border-dark">
+  <div class="row g-0">
+    <div class="col-12">
+      <div class="cp2020-label d-inline-block mt-0">HOT STUFF</div>
+      <button
+        class="csd-btn csd-icon-lg csd-icon-btn ms-2 me-3 hidden-print"
+        title="Reset Streetdeal and clear all contacts"
+        (click)="reset()"
+      >
+        <fa-icon [icon]="faRedo"></fa-icon>
+      </button>
+      Contact Points Used: {{ spentPoints }}/{{ totalPoints }}
+      <button
+        class="csd-btn csd-icon-btn csd-icon-lg ms-2"
+        title="Generate list of contacts"
+        (click)="generate()"
+      >
+        <fa-icon [icon]="faDice"></fa-icon>
+      </button>
+    </div>
+  </div>
+  <div class="mx-2">
+    <div class="row">
+      <div class="col-12 col-lg-6">
+        <div class="row">
+          <div class="col-8"><h5>AREA</h5></div>
+          <div class="col-2 text-center"><h5>ROLLS</h5></div>
+          <div class="col-2 text-center"><h5>PTs</h5></div>
+        </div>
+        <cs-cp2020-hot-stuff-contact
+          *ngFor="let contact of firstColumn; let i = index"
+          [area]="contact"
+          [index]="i"
+          (delete)="delete($event)"
+          (edit)="edit($event)"
+        ></cs-cp2020-hot-stuff-contact>
+      </div>
+      <div class="col-12 col-lg-6">
+        <div class="row">
+          <div class="col-8 d-none d-lg-inline-block"><h5>AREA</h5></div>
+          <div class="col-2 d-none d-lg-inline-block text-center">
+            <h5>ROLLS</h5>
+          </div>
+          <div class="col-2 d-none d-lg-inline-block text-center">
+            <h5>PTs</h5>
+          </div>
+        </div>
+        <cs-cp2020-hot-stuff-contact
+          *ngFor="let contact of secondColumn; let i = index"
+          [area]="contact"
+          [index]="i + columnTwoIndex"
+          (delete)="delete($event)"
+          (edit)="edit($event)"
+        ></cs-cp2020-hot-stuff-contact>
+      </div>
+    </div>
+    <br />
+    <cs-cp2020-hot-stuff-contact-new
+      *ngIf="spentPoints &lt; totalPoints"
+      [maxPoints]="totalPoints - spentPoints"
+      (add)="add($event)"
+    ></cs-cp2020-hot-stuff-contact-new>
+  </div>
+</div>

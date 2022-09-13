@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-6">
+    <button
+      (click)="addArea()"
+      [ngClass]="{
+        'csd-btn csd-icon-sm me-3': true,
+        'csd-icon-btn': canAdd,
+        'csd-disabled': !canAdd
+      }"
+      title="Add{{
+        canAdd ? '' : ' - must enter an area/field and roll 1 or above'
+      }}"
+      [disabled]="newArea.area === '' && newArea.rolls &lt; 1"
+    >
+      <fa-icon [icon]="faPlus"></fa-icon>
+    </button>
+    <input
+      [(ngModel)]="newArea.area"
+      class="w-85"
+      type="text"
+      placeholder="* Enter area/field..."
+      title="Required. Cannot be an area/field that already exists."
+    />
+  </div>
+  <div class="col-4 col-lg-2">
+    <span class="csd-required">
+      <input
+        class="text-center"
+        [(ngModel)]="newArea.rolls"
+        type="number"
+        min="0"
+        [max]="maxRolls"
+        title="Must be a value between 1 and 6."
+      />
+      rolls
+    </span>
+  </div>
+  <div [ngClass]="{ 'col-1': true, 'hot-stuff-over': !isUnderPoints }">
+    {{ newArea.points }}pts
+  </div>
+</div>
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10 hot-stuff-details">
+    <textarea
+      class="w-100"
+      [(ngModel)]="newArea.details"
+      title="Details about the area to gain extra rolls"
+      placeholder="Enter details about the area/field..."
+    ></textarea>
+  </div>
+</div>
