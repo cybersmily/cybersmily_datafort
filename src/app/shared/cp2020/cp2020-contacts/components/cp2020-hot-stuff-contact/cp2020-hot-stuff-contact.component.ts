@@ -1,4 +1,10 @@
-import { faPen, faTrash, faSave } from '@fortawesome/free-solid-svg-icons';
+import {
+  faPen,
+  faTrash,
+  faSave,
+  faChevronDown,
+  faChevronRight,
+} from '@fortawesome/free-solid-svg-icons';
 import { HotStuffArea } from './../../models';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
@@ -11,8 +17,11 @@ export class Cp2020HotStuffContactComponent implements OnInit {
   faPen = faPen;
   faTrash = faTrash;
   faSave = faSave;
+  faChevronDown = faChevronDown;
+  faChevronRight = faChevronRight;
 
   editMode = false;
+  isCollapse = true;
 
   @Input()
   area: HotStuffArea = new HotStuffArea();

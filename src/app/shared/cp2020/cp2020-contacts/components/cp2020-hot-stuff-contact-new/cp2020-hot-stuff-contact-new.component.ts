@@ -1,5 +1,10 @@
 import { HotStuffArea } from './../../models/hot-stuff-area';
-import { faPlus, faDice, faSave } from '@fortawesome/free-solid-svg-icons';
+import {
+  faPlus,
+  faDice,
+  faSave,
+  faTimes,
+} from '@fortawesome/free-solid-svg-icons';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -11,8 +16,9 @@ export class Cp2020HotStuffContactNewComponent implements OnInit {
   faPlus = faPlus;
   faDice = faDice;
   faSave = faSave;
+  faTimes = faTimes;
 
-  editMode = false;
+  isEdit = false;
   isUnderPoints = false;
   canAdd = true;
 
