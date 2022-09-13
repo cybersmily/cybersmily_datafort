@@ -3,13 +3,13 @@
     <div class="col-8 col-md-4 ps-3">
       <input
         [(ngModel)]="contact.name"
-        placeholder="Name..."
+        placeholder="* Name..."
         class="w-80 csd-required"
       />
       <button
         (click)="addContact()"
         title="Add contact"
-        class="csd-btn csd-icon-btn csd-icon-sm float-start me-2"
+        class="csd-btn csd-icon-btn csd-icon-sm float-start me-3"
         [disabled]="isDisabled"
       >
         <fa-icon [icon]="faPlus"></fa-icon>
@@ -21,9 +21,7 @@
         [(ngModel)]="capability"
         title="Choose a capability for the contact"
       >
-        <option *ngIf="!capability" [ngValue]="null" class="csd-select-choose">
-          Choose...
-        </option>
+        <option *ngIf="!capability" [ngValue]="null">* Choose...</option>
         <option
           *ngFor="let c of catagories.capabilities"
           [ngValue]="c.name"
@@ -39,7 +37,7 @@
         [(ngModel)]="reputation"
         title="Choose a reputation for the contact"
       >
-        <option *ngIf="!reputation" [ngValue]="null">Choose...</option>
+        <option *ngIf="!reputation" [ngValue]="null">* Choose...</option>
         <option
           *ngFor="let c of catagories.reputations"
           [ngValue]="c.name"
@@ -55,7 +53,7 @@
         [(ngModel)]="availability"
         title="Choose a availability for the contact"
       >
-        <option *ngIf="!availability" [ngValue]="null">Choose...</option>
+        <option *ngIf="!availability" [ngValue]="null">* Choose...</option>
         <option
           *ngFor="let c of catagories.availabilities"
           [ngValue]="c.name"
@@ -71,7 +69,7 @@
         [(ngModel)]="reliability"
         title="Choose a reliability for the contact"
       >
-        <option *ngIf="!reliability" [ngValue]="null">Choose...</option>
+        <option *ngIf="!reliability" [ngValue]="null">* Choose...</option>
         <option
           *ngFor="let c of catagories.reliabilities"
           [ngValue]="c.name"
