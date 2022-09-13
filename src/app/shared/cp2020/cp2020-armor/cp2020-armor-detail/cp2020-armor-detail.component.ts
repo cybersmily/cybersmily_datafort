@@ -105,9 +105,7 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit() {
-    console.log(this.armor);
     this.currArmor = new Cp2020ArmorPiece(this.armor);
-    console.log('onInit', this.currArmor);
     this.armorDataAttributesService.getData().subscribe((data) => {
       this.armorAttributes = new Cp2020ArmorAttributeLists(data);
       this.setSelected();
@@ -118,7 +116,6 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log('afterView', this.currArmor);
     this.armorNameInput.nativeElement.focus();
   }
 

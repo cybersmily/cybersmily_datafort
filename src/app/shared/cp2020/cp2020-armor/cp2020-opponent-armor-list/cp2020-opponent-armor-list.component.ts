@@ -151,7 +151,6 @@ export class Cp2020OpponentArmorListComponent implements OnInit, OnChanges {
   }
 
   saveNewArmor() {
-    console.log(this.selectedArmor);
     if (this.selectedIndex < 0) {
       this.currArmorBlock.addPiece(new Cp2020ArmorPiece(this.selectedArmor));
     } else {
@@ -160,7 +159,6 @@ export class Cp2020OpponentArmorListComponent implements OnInit, OnChanges {
         this.selectedIndex
       );
     }
-    console.log(this.currArmorBlock);
     this.closeArmorDetailModal();
     this.update();
   }

@@ -24,7 +24,6 @@ export class FixerHotStuffGenerationService {
       // check to make sure there are no duplicate areas
       do {
         area.area = fields[dice.generateNumber(0, fields.length - 1)];
-        console.log(area);
       } while (results.some((f) => f.area === area.area));
       area.rolls = dice.generateNumber(1, numOfRolls);
       results.push(area);
