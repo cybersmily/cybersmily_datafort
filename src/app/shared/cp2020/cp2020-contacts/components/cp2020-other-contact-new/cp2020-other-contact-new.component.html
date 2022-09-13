@@ -1,1 +1,61 @@
-<p>cp2020-other-contact-new works!</p>
+<div class="py-1">
+  <div
+    class="row"
+    *ngIf="!isEdit; else addNewItem"
+    tab-index="0"
+    (click)="isEdit = !isEdit"
+    title="Add new contact"
+  >
+    <div class="col-12 text-center">
+      <fa-icon
+        class="csd-btn csd-icon-btn csd-icon-xl"
+        [icon]="faPlus"
+      ></fa-icon>
+    </div>
+  </div>
+  <ng-template #addNewItem>
+    <div class="row">
+      <div class="col-11 col-md-4">
+        <input
+          [(ngModel)]="currContact.name"
+          class="w-90 ms-3"
+          type="text"
+          placeholder="* Name..."
+          title="Enter the name of the contact"
+        />
+        <input
+          [(ngModel)]="currContact.description"
+          class="w-90 ms-3"
+          type="text"
+          placeholder="Description..."
+          title="Enter the description of the contact"
+        />
+      </div>
+      <div class="col-1 order-2 order-md-last">
+        <button
+          class="csd-btn csd-icon-btn csd-icon-xl ms-1 me-3"
+          title="Add the contact to the list of generic contacts"
+          (click)="addContact()"
+          [disabled]="currContact.name === ''"
+        >
+          <fa-icon [icon]="faSave"></fa-icon>
+        </button>
+        <button
+          class="csd-btn csd-icon-btn csd-icon-xl ms-1 me-3"
+          title="Cancel"
+          (click)="isEdit = !isEdit"
+        >
+          <fa-icon [icon]="faTimes"></fa-icon>
+        </button>
+      </div>
+      <div class="col-11 col-md-7">
+        <textarea
+          [(ngModel)]="currContact.notes"
+          placeholder="Notes..."
+          class="w-100"
+          rows="3"
+        ></textarea>
+      </div>
+    </div>
+  </ng-template>
+</div>

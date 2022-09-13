@@ -48,3 +48,7 @@
 .tooltip-arrow {
   position: absolute;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}
