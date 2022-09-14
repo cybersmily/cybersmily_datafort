@@ -15,7 +15,7 @@ export class CpRedWoundsManagerService {
   private _wounds: BehaviorSubject<CpRedCharacterWounds> = new BehaviorSubject(
     new CpRedCharacterWounds()
   );
-  wounds = this._wounds.asObservable();
+  wounds$: Observable<CpRedCharacterWounds> = this._wounds;
 
   constructor() {}
 

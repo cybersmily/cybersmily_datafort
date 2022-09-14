@@ -1,6 +1,6 @@
 import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { CpRedWoundsManagerService } from './../../services/cp-red-wounds-manager/cp-red-wounds-manager.service';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import {
@@ -32,7 +32,11 @@ export class CpRedWoundsDisplayComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.wounds$ = this.woundsManager.wounds;
+    this.wounds$ = this.woundsManager.wounds$.pipe(
+      map((wounds) => {
+        return wounds;
+      })
+    );
   }
 
   updateCurrHitPoints(event: any): void {

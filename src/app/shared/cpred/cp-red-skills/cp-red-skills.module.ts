@@ -29,6 +29,5 @@ import { CpRedSkillsByPropertyComponent } from './components/cp-red-skills-by-pr
     CpRedSkillsByPropertyComponent,
   ],
   imports: [CommonModule, CommonUiModule, PipesModule],
-  providers: [CpRedSkillDataService, CpRedSkillManagerService],
 })
 export class CpRedSkillsModule {}

@@ -24,7 +24,6 @@ import { CpRedAddictionsDisplayComponent } from './components/cp-red-addictions-
     CpRedAddictionEditorComponent,
     CpRedInjuryEditorComponent,
   ],
-  providers: [CpRedWoundsManagerService, CpRedWoundsPdfService],
   imports: [CommonModule, CommonUiModule],
 })
 export class CpRedWoundsModule {}

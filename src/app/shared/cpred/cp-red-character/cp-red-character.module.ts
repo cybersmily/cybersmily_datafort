@@ -40,6 +40,5 @@ import { CpRedCharacterNotesComponent } from './components/cp-red-character-note
     CPRedLifepathModule,
   ],
   exports: [CpRedCharacterFormComponent],
-  providers: [CpRedCharacterPdfService],
 })
 export class CpRedCharacterModule {}

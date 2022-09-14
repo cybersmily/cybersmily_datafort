@@ -8,14 +8,14 @@
           woundLevelClass(wounds.woundLevel)
         }}"
       >
-        {{ wounds.woundLevel }}
+        {{ wounds?.woundLevel }}
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-6 position-relative text-center">
       <div class="csd-input-label ps-3">total</div>
-      <div class="mt-3">{{ wounds.hitPoints.base }}</div>
+      <div class="mt-3">{{ wounds?.hitPoints.base }}</div>
     </div>
     <div class="col-6 position-relative text-center">
       <div class="csd-input-label ps-3">current</div>
@@ -39,11 +39,10 @@
       <div
         [ngClass]="{ row: true, 'text-danger fw-bold': wounds.hitPoints.curr &lt; 1 }"
       >
-        <div class="col-1">
-          <span *ngIf="wounds.hitPoints.curr &lt; 1">**</span>
+        <div class="col-5 text-xsmall">
+          <span *ngIf="wounds.hitPoints.curr &lt; 1">**</span>Death Save
         </div>
-        <div class="col-5 text-xsmall">Death Save</div>
-        <div class="col-4">
+        <div class="col-4 pe-0">
           <div class="position-relative cpr-death-save" role="button">
             {{ wounds.deathSave?.curr }}
             <button

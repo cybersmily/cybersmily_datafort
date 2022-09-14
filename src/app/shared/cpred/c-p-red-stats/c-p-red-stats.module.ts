@@ -21,6 +21,5 @@ import { CpRedStatsEditorComponent } from './components/cp-red-stats-editor/cp-r
     CpRedStatsComponent,
     CpRedStatsEditorComponent,
   ],
-  providers: [CpRedStatsPdfService],
 })
 export class CPRedStatsModule {}

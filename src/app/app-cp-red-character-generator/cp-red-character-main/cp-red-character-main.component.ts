@@ -92,7 +92,7 @@ export class CpRedCharacterMainComponent implements OnInit, OnDestroy {
       })
     );
     this._subscriptions.add(
-      this.woundsManager.wounds.subscribe((wounds) => {
+      this.woundsManager.wounds$.subscribe((wounds) => {
         this.characterManagerService.updateWounds(wounds);
       })
     );
