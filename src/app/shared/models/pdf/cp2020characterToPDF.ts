@@ -1,3 +1,4 @@
+import { Cp2020ContactSectionPdfService } from './../../cp2020/cp2020-contacts/services/cp2020-contact-section-pdf/cp2020-contact-section-pdf.service';
 import { Cp2020DeckmanagerPdfSectionService } from './../../cp2020/cp2020-netrun-gear/services/cp2020-deckmanager-pdf-section/cp2020-deckmanager-pdf-section.service';
 import { Cp2020ArmorPDFSectionService } from './../../cp2020/cp2020-armor/services/cp2020-armor-pdf-section/cp2020-armor-pdf-section.service';
 import { Cp2020Identity } from './../../cp2020/cp2020-lifestyle/models/cp2020-identity';
@@ -34,7 +35,8 @@ export class Cp2020characterToPDF {
 
   constructor(
     private armorPdfService: Cp2020ArmorPDFSectionService,
-    private deckmanagerPdfService: Cp2020DeckmanagerPdfSectionService
+    private deckmanagerPdfService: Cp2020DeckmanagerPdfSectionService,
+    private contactPdfService: Cp2020ContactSectionPdfService
   ) {}
 
   generatePdf(character: Cp2020PlayerCharacter) {
@@ -186,12 +188,13 @@ export class Cp2020characterToPDF {
     doc.setTextColor('white');
     doc.setFont(this._font, 'bold');
     doc.text('LIFESTYLE', this._left + 2, this._top + 5);
-    this.addLifeStyle(
+    const line = this.addLifeStyle(
       doc,
       this._character.lifeStyle,
       this._left,
       this._top + 10
     );
+    this.contactPdfService.generatePDF(doc, this._character.contacts, line);
   }
   createFifthPage(doc: jsPDF) {
     doc.addPage();
@@ -1290,7 +1293,7 @@ export class Cp2020characterToPDF {
     lifestyle: Cp2020Lifestyle,
     left: number,
     line: number
-  ) {
+  ): number {
     const ht = 6.5;
     const recth = 6;
     let startLine = line;
@@ -1304,6 +1307,7 @@ export class Cp2020characterToPDF {
     line = this.addServices(doc, lifestyle, left, line, ht, recth);
     line = this.addGroceries(doc, lifestyle, left, line, ht, recth);
     line = this.addIdenties(doc, lifestyle, left, line, ht, recth);
+    return line + 12;
   }
 
   private addMoney(
@@ -1374,7 +1378,8 @@ export class Cp2020characterToPDF {
       line = result.line;
       housingRect += result.recth;
     });
-    doc.rect(left, startLine, 200, housingRect - ht, 'S');
+    doc.setTextColor('black');
+    doc.rect(left, startLine, 200, line - startLine, 'S');
 
     return line;
   }
@@ -1554,6 +1559,7 @@ export class Cp2020characterToPDF {
     recth: number
   ): number {
     const startLine = line;
+    doc.setFillColor('black');
     doc.rect(left, line, 20, recth, 'FD');
     doc.setTextColor('white');
     doc.text('Identities', left + 2, line + 4);

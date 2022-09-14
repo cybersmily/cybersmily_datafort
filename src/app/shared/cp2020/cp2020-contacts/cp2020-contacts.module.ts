@@ -1,3 +1,4 @@
+import { Cp2020ContactSectionPdfService } from './services/cp2020-contact-section-pdf/cp2020-contact-section-pdf.service';
 import { PipesModule } from './../../pipes/pipes.module';
 import { CommonUiModule } from './../../modules/common-ui/common-ui.module';
 import { FixerCalcHotStuffComponent } from './components/fixer-calc-hot-stuff/fixer-calc-hot-stuff.component';
@@ -36,6 +37,7 @@ import { Cp2020OtherContactNewComponent } from './components/cp2020-other-contac
     Cp2020HotStuffContactNewComponent,
     Cp2020OtherContactNewComponent,
   ],
+  providers: [Cp2020ContactSectionPdfService],
   imports: [CommonModule, CommonUiModule, PipesModule],
   exports: [
     FixerCalcBigLeagueComponent,
