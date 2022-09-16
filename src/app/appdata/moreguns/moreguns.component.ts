@@ -103,6 +103,15 @@ export class MoregunsComponent implements OnInit {
       sort: 'avail',
     },
     {
+      header: 'ammo',
+      headerClass: 'col text-xsmall',
+      property: 'ammo',
+      filters: 'contains',
+      inputType: 'text',
+      class: 'col text-small',
+      sort: 'ammo',
+    },
+    {
       header: 'dmg',
       headerClass: 'col text-xsmall',
       property: 'damage',
@@ -150,16 +159,6 @@ export class MoregunsComponent implements OnInit {
       inputType: 'text',
       class: 'col text-xsmall text-center',
       sort: 'rel',
-    },
-    {
-      header: 'source',
-      headerClass: 'col-2 d-none d-md-inline-block text-xsmall',
-      property: 'source',
-      filters: 'sourcebook',
-      inputType: 'text',
-      class: 'col-2 d-none d-md-inline-block text-xsmall',
-      sort: 'source.book',
-      isSourcebook: true,
     },
   ];
 

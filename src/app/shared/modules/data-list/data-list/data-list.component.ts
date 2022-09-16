@@ -67,7 +67,6 @@ export class DataListComponent implements OnInit {
   }
 
   refreshFilter() {
-    console.log(this.searchFilter);
     this.searchFilter = { ...this.searchFilter };
   }
 
