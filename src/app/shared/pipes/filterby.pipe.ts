@@ -26,8 +26,7 @@ export class FilterbyPipe implements PipeTransform {
         const exact = searchFilters[key]?.exact;
         let item = get(value, key);
         if (searchItem !== '' && !isNaN(Number(searchItem))) {
-          console.log('is a number', Number(searchItem), item);
-          result = item === Number(searchItem);
+          result = result && item === Number(searchItem);
         } else if (typeof item === 'string') {
           item += '';
           if (searchItem !== '' && !exact) {

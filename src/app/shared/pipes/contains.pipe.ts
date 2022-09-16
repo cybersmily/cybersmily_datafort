@@ -15,10 +15,6 @@ export class ContainsPipe implements PipeTransform {
       return array;
     }
     const result = array.filter((obj) => {
-      if (!isNaN(obj[property])) {
-        console.log('is a number');
-        return obj[property] === Number(value);
-      }
       switch (typeof obj[property]) {
         case 'string':
           return obj[property].toLowerCase().includes(value.toLowerCase());
@@ -69,10 +65,6 @@ export class ContainsPipe implements PipeTransform {
       obj[objProp][subProp] === undefined
     ) {
       return true;
-    }
-    if (!isNaN(obj[property])) {
-      console.log('is a number');
-      return obj[property] === Number(value);
     }
     switch (typeof obj[objProp][subProp]) {
       case 'string':
