@@ -39,6 +39,11 @@ export class TopNavLinks {
           desc: 'Conversion of Chromebook 2 vehicles to Maximum Metal rules.',
         },
         {
+          title: 'Edge of Sword Conversions',
+          link: 'data/moreguns',
+          desc: "Guns updated from R. Talsorian's Edge of Sword supplement",
+        },
+        {
           title: 'In the Media',
           link: 'data/inmedia',
           desc: 'Movies, TV shows, Books, anime, manga, webisodes, etc for Cyberpunk inspiration',
@@ -87,11 +92,6 @@ export class TopNavLinks {
           title: 'Master Weapons List',
           link: 'data/wpns',
           desc: 'List of all canon weapons in Cyberpunk 2020',
-        },
-        {
-          title: 'More Guns',
-          link: 'data/moreguns',
-          desc: "Guns updated from R. Talsorian's Edge of Sword supplement",
         },
         {
           title: 'Proteus - Programs',

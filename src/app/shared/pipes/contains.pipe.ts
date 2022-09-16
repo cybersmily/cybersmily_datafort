@@ -1,19 +1,29 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'contains'
+  name: 'contains',
 })
 export class ContainsPipe implements PipeTransform {
-
   transform(array: any[], property: string, value: any): any {
-    if (!property || property === '' || value === null || value === undefined || value === '') {
+    if (
+      !property ||
+      property === '' ||
+      value === null ||
+      value === undefined ||
+      value === ''
+    ) {
       return array;
     }
-    const result = array.filter( obj => {
-      switch ( typeof obj[property]) {
+    const result = array.filter((obj) => {
+      if (!isNaN(obj[property])) {
+        console.log('is a number');
+        return obj[property] === Number(value);
+      }
+      switch (typeof obj[property]) {
         case 'string':
           return obj[property].toLowerCase().includes(value.toLowerCase());
         case 'number':
+          console.log(value);
           return obj[property] === value;
         case 'boolean':
           return obj[property] === value;
@@ -26,7 +36,7 @@ export class ContainsPipe implements PipeTransform {
         default:
           if (Array.isArray(obj[property])) {
             const ar = [].concat(...obj[property]);
-            return ar.find( (sk: string) => {
+            return ar.find((sk: string) => {
               return sk.toLowerCase().includes(value.toLowerCase());
             });
           }
@@ -37,7 +47,6 @@ export class ContainsPipe implements PipeTransform {
     return result;
   }
 
-
   /**
    * Process an object item
    *
@@ -47,19 +56,29 @@ export class ContainsPipe implements PipeTransform {
    * @returns {boolean}
    * @memberof FilterPipe
    */
-  processObject(obj: any, property: string, value: any ): boolean {
+  processObject(obj: any, property: string, value: any): boolean {
     // property should use ':' to designate the object property
     if (!property.includes('.')) {
       return true;
     }
     const objProp = property.split('.')[0];
     const subProp = property.split('.')[1];
-    if (obj[objProp] === undefined || obj[objProp] === null || obj[objProp][subProp] === undefined) {
+    if (
+      obj[objProp] === undefined ||
+      obj[objProp] === null ||
+      obj[objProp][subProp] === undefined
+    ) {
       return true;
     }
-    switch ( typeof obj[objProp][subProp]) {
+    if (!isNaN(obj[property])) {
+      console.log('is a number');
+      return obj[property] === Number(value);
+    }
+    switch (typeof obj[objProp][subProp]) {
       case 'string':
-        return obj[objProp][subProp].toLowerCase().includes(value.toLowerCase());
+        return obj[objProp][subProp]
+          .toLowerCase()
+          .includes(value.toLowerCase());
       case 'number':
         return obj[objProp][subProp] === value;
       case 'boolean':

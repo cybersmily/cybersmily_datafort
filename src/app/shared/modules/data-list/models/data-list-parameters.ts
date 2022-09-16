@@ -7,6 +7,6 @@ export interface DataListColumnParameters {
   filters: string;
   class: string;
   sort?: string;
-  filterValues?: Array<KeyValue<string, string>>;
+  filterValues?: Array<KeyValue<string, any>>;
   isSourcebook?: boolean;
 }

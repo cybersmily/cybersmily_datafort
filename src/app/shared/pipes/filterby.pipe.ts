@@ -25,7 +25,10 @@ export class FilterbyPipe implements PipeTransform {
         const searchItem = searchFilters[key]?.value + '';
         const exact = searchFilters[key]?.exact;
         let item = get(value, key);
-        if (typeof item === 'string') {
+        if (searchItem !== '' && !isNaN(Number(searchItem))) {
+          console.log('is a number', Number(searchItem), item);
+          result = item === Number(searchItem);
+        } else if (typeof item === 'string') {
           item += '';
           if (searchItem !== '' && !exact) {
             result =
@@ -35,8 +38,7 @@ export class FilterbyPipe implements PipeTransform {
             result =
               result && value[key]?.toLowerCase() === searchItem?.toLowerCase();
           }
-        }
-        if (Array.isArray(item) && searchItem !== '') {
+        } else if (Array.isArray(item) && searchItem !== '') {
           result = item.includes(searchItem);
         }
       }
