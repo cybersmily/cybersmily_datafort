@@ -245,7 +245,9 @@
         *ngIf="charGenSettings.sectionSettings.showContacts"
       >
         <div class="col">
-          <cs-cp2020-contacts-section></cs-cp2020-contacts-section>
+          <cs-cp2020-contacts-section
+            [isCollapsed]="charGenSettings.isCollapsed"
+          ></cs-cp2020-contacts-section>
         </div>
       </div>
       <div
