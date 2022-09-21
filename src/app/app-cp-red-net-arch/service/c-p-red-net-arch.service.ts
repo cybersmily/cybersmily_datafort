@@ -45,7 +45,7 @@ export class CPRedNetArchService {
   update(node: CPRedNetArchNode) {
     let currNode = this._architect.getValue();
     // if this is an update to an existing node, then update else use the new node
-    if (currNode.hasChild(node.id)) {
+    if (currNode?.hasChild(node.id)) {
       currNode.update(node);
     } else {
       currNode = node;
