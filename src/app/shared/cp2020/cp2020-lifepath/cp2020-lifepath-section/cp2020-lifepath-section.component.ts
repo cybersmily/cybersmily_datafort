@@ -1,26 +1,46 @@
 import { LifePathGeneratorService, SourcesDataService } from './../services';
 import { TitleValue } from './../../../models/title-value';
 import { Sibling, LifePathResults, LifepathEvent } from './../models';
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, ViewChildren, QueryList, ElementRef, ViewChild } from '@angular/core';
-import { faMars, faVenus, faDice, faPlus, faGenderless, faTrash, faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges,
+  ViewChildren,
+  QueryList,
+  ElementRef,
+  ViewChild,
+} from '@angular/core';
+import {
+  faMars,
+  faVenus,
+  faDice,
+  faPlus,
+  faGenderless,
+  faTrash,
+  faChevronRight,
+  faChevronDown,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'cs-cp2020-lifepath-section',
   templateUrl: './cp2020-lifepath-section.component.html',
-  styleUrls: ['./cp2020-lifepath-section.component.css']
+  styleUrls: ['./cp2020-lifepath-section.component.css'],
 })
 export class Cp2020LifepathSectionComponent implements OnInit {
   faMars = faMars;
   faVenus = faVenus;
-  faGenderless= faGenderless;
+  faGenderless = faGenderless;
   faDice = faDice;
   faPlus = faPlus;
   faTrash = faTrash;
   faChevronRight = faChevronRight;
   faChevronDown = faChevronDown;
 
-  get collapseChevron():any {
-    return (this.isCollapsed) ? this.faChevronRight : this.faChevronDown;
+  get collapseChevron(): any {
+    return this.isCollapsed ? this.faChevronRight : this.faChevronDown;
   }
 
   sources = new Array<TitleValue>();
@@ -51,18 +71,17 @@ export class Cp2020LifepathSectionComponent implements OnInit {
   @ViewChildren('siblingNameElem')
   siblingNameInputList: QueryList<ElementRef>;
 
-  @ViewChild('newSiblingElem', {static: false})
+  @ViewChild('newSiblingElem', { static: false })
   newSiblingButton: ElementRef;
 
-  constructor( private sourceService: SourcesDataService,
+  constructor(
+    private sourceService: SourcesDataService,
     private lifepathGenerator: LifePathGeneratorService
-    ) { }
+  ) {}
 
   ngOnInit() {
     this.newLifPath = new LifePathResults(this.lifepath);
-    this.sourceService
-    .getSources()
-    .subscribe( sources => {
+    this.sourceService.getSources().subscribe((sources) => {
       this.sources = sources;
       this.years = this.eventYears;
       this.eventful = this.isAlwaysEventful;
@@ -78,8 +97,8 @@ export class Cp2020LifepathSectionComponent implements OnInit {
   }
 
   get siblings(): Array<Sibling> {
-    if ( this.lifepath && this.lifepath.family.siblings) {
-      return this.newLifPath.family.siblings.siblings.sort( (a, b) => a.age.localeCompare(b.age));
+    if (this.lifepath && this.lifepath.family.siblings) {
+      return this.newLifPath.family.siblings.siblings;
     }
     return new Array<Sibling>();
   }
@@ -103,11 +122,15 @@ export class Cp2020LifepathSectionComponent implements OnInit {
   roll() {
     this.newLifPath = new LifePathResults();
     this.lifepathGenerator
-    .generateLifePath(this.selectedSource, this.eventful, this.years.toString())
-    .subscribe( lifepath => {
-      this.newLifPath = lifepath;
-      this.onChangeLifePath();
-    });
+      .generateLifePath(
+        this.selectedSource,
+        this.eventful,
+        this.years.toString()
+      )
+      .subscribe((lifepath) => {
+        this.newLifPath = lifepath;
+        this.onChangeLifePath();
+      });
   }
 
   addSibling() {
@@ -120,7 +143,7 @@ export class Cp2020LifepathSectionComponent implements OnInit {
   removeSibling(index: number) {
     this.newLifPath.family.siblings.siblings.splice(index, 1);
     this.changeLifepath.emit(this.newLifPath);
-    if(this.siblingNameInputList.length > 0) {
+    if (this.siblingNameInputList.length > 0) {
       this.siblingNameInputList.last.nativeElement.focus();
     } else {
       this.newSiblingButton.nativeElement.focus();
@@ -128,13 +151,13 @@ export class Cp2020LifepathSectionComponent implements OnInit {
   }
 
   changeYear() {
-    if ( this.years > 12) {
+    if (this.years > 12) {
       this.years = 12;
     }
   }
 
   addYear() {
-    const year: LifepathEvent = {age: 0, event: ''};
+    const year: LifepathEvent = { age: 0, event: '' };
     this.newLifPath.events.push(year);
     this.changeLifepath.emit(this.newLifPath);
   }
@@ -143,5 +166,4 @@ export class Cp2020LifepathSectionComponent implements OnInit {
     this.newLifPath.events.splice(index, 1);
     this.changeLifepath.emit(this.newLifPath);
   }
-
 }

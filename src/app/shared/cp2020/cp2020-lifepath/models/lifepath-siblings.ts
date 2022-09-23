@@ -4,7 +4,8 @@ export class Siblings {
   siblings: Sibling[];
 
   constructor(param?: any) {
-    this.siblings = (param && param.siblings) ? param.siblings : new Array<Sibling>();
+    this.siblings =
+      param && param.siblings ? param.siblings : new Array<Sibling>();
   }
 
   getBrothersCount(): number {
@@ -36,34 +37,34 @@ export class Siblings {
     }
     let results = this.siblings.length + ' siblings: ';
     const twinCount = this.getSameAgeCount();
-    this.siblings.sort( (a, b) => a.age.localeCompare(b.age)).forEach((sibling, i) => {
+    this.siblings.forEach((sibling, i) => {
       let age = sibling.age;
-      if ( sibling.age === 'same'){
-      switch (twinCount) {
-        case 1:
-          age = 'twin';
-          break;
-        case 2:
-          age = 'triplet';
-          break;
-        case 3:
-          age = 'quadruplet';
-          break;
-        case 4:
-          age = 'quintuplet';
-          break;
-        case 5:
-          age = 'sextuplet';
-          break;
-        case 6:
-          age = 'septuplet';
-          break;
-        default:
-          age = 'tuplet';
+      if (sibling.age === 'same') {
+        switch (twinCount) {
+          case 1:
+            age = 'twin';
+            break;
+          case 2:
+            age = 'triplet';
+            break;
+          case 3:
+            age = 'quadruplet';
+            break;
+          case 4:
+            age = 'quintuplet';
+            break;
+          case 5:
+            age = 'sextuplet';
+            break;
+          case 6:
+            age = 'septuplet';
+            break;
+          default:
+            age = 'tuplet';
+        }
       }
-    }
       results += `${age} ${sibling.gender} [${sibling.feeling}]`;
-      if (i < (this.siblings.length - 1)) {
+      if (i < this.siblings.length - 1) {
         results += ', ';
       }
     });
@@ -71,7 +72,7 @@ export class Siblings {
   }
   getGenderCount(gender: string): number {
     let siblingCount = 0;
-    this.siblings.forEach(sib => {
+    this.siblings.forEach((sib) => {
       if (sib.gender === gender) {
         siblingCount++;
       }
