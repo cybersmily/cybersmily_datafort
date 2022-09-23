@@ -1,18 +1,50 @@
 <div class="cp2020-section border border-dark">
   <div class="cp2020-label row g-0">
     <div class="col">
-      <h4 class="d-inline-block csd-btn me-4" (click)="isWeaponsCollapsed = !isWeaponsCollapsed" (keyup.enter)="isWeaponsCollapsed = !isWeaponsCollapsed" tabindex="0">
+      <h4
+        class="d-inline-block csd-btn me-4"
+        (click)="isWeaponsCollapsed = !isWeaponsCollapsed"
+        (keyup.enter)="isWeaponsCollapsed = !isWeaponsCollapsed"
+        tabindex="0"
+      >
         WEAPONS
-        <fa-icon [icon]="collapseChevron(isWeaponsCollapsed)" class="csd-icon-btn csd-icon-xl ms-1"></fa-icon>
+        <fa-icon
+          [icon]="collapseChevron(isWeaponsCollapsed)"
+          class="csd-icon-btn csd-icon-xl ms-1"
+        ></fa-icon>
       </h4>
       <ng-container *ngIf="!isWeaponsCollapsed">
-        <fa-icon [ngClass]="{'csd-dice': true, 'ms-2': true, 'd-none': !showRandomGenerator}" [icon]="faDice"
-          (click)="randomGenerateWeapon()" title="Add random weapon"></fa-icon>
-        <fa-icon [ngClass]="{'csd-dice': true, 'ms-2': true, 'd-none': !showRandomGenerator}" [icon]="faCog"
-          title="Set settings" (click)="openModal(wpnSettings)"></fa-icon>
-        <fa-icon [icon]="faCrosshairs" title="Show Combat Calculator"
-          [ngClass]="{'csd-btn': true, 'csd-icon-btn': true,  'ms-2': true,'d-none': !showCalculator}"
-          (click)="openModal(combatCalcModal)">
+        <fa-icon
+          [ngClass]="{
+            'csd-dice': true,
+            'ms-2': true,
+            'd-none': !showRandomGenerator
+          }"
+          [icon]="faDice"
+          (click)="randomGenerateWeapon()"
+          title="Add random weapon"
+        ></fa-icon>
+        <fa-icon
+          [ngClass]="{
+            'csd-dice': true,
+            'ms-2': true,
+            'd-none': !showRandomGenerator
+          }"
+          [icon]="faCog"
+          title="Set settings"
+          (click)="openModal(wpnSettings)"
+        ></fa-icon>
+        <fa-icon
+          [icon]="faCrosshairs"
+          title="Show Combat Calculator"
+          [ngClass]="{
+            'csd-btn': true,
+            'csd-icon-btn': true,
+            'ms-2': true,
+            'd-none': !showCalculator
+          }"
+          (click)="openModal(combatCalcModal)"
+        >
         </fa-icon>
       </ng-container>
     </div>
@@ -28,65 +60,118 @@
       <div class="col-1 wpn-narrow text-center">#Shots</div>
       <div class="col-1 wpn-narrow text-center">ROF</div>
       <div class="col-1 wpn-narrow text-center">Rel</div>
-      <div class="col-1 d-none d-lg-inline-block wpn-narrow text-center">Rng</div>
-      <div class="col-1 d-none d-lg-inline-block wpn-narrow text-center">Cost</div>
+      <div class="col-1 d-none d-lg-inline-block wpn-narrow text-center">
+        Rng
+      </div>
+      <div class="col-1 d-none d-lg-inline-block wpn-narrow text-center">
+        Cost
+      </div>
     </div>
-    <cs-cp2020weapon *ngFor="let wpn of weapons.items;let i = index" [index]="i" [weapon]="wpn"
-      [Ref]="stats.REF.Adjusted" [BodDamageMod]="stats.BodyDmgMod" [skill]="skills.getSkillForWeaponType(wpn.type)"
-      (deleteWeapon)="deleteWeapon($event)" (updateWeapon)="updateWeapon($event)">
+    <cs-cp2020weapon
+      *ngFor="let wpn of weapons.items; let i = index"
+      [index]="i"
+      [weapon]="wpn"
+      [Ref]="stats.REF.Adjusted"
+      [BodDamageMod]="stats.BodyDmgMod"
+      [skill]="skills.getSkillForWeaponType(wpn.type)"
+      (deleteWeapon)="deleteWeapon($event)"
+      (updateWeapon)="updateWeapon($event)"
+    >
     </cs-cp2020weapon>
     <div class="row g-0">
       <div class="col-12 text-center border border-dark ps-0 pe-0">
-        <button #newWeaponElem class="csd-btn text-center w-100" title="Add another weapon"
-          (click)="openModal(newWeaponModal, 'newWeapon')" tabindex="0">
+        <button
+          #newWeaponElem
+          class="csd-btn text-center w-100"
+          title="Add another weapon"
+          (click)="openModal(newWeaponModal, 'newWeapon')"
+          tabindex="0"
+        >
           <fa-icon class="csd-icon-btn" [icon]="faPlus"></fa-icon>
         </button>
       </div>
     </div>
-    <cs-cp2020ammo *ngIf="showAmmo" [ammoList]="weapons.ammo" (updateAmmo)="updateAmmo($event)"></cs-cp2020ammo>
+    <cs-cp2020ammo
+      *ngIf="showAmmo"
+      [ammoList]="weapons.ammo"
+      (updateAmmo)="updateAmmo($event)"
+    ></cs-cp2020ammo>
   </div>
 </div>
 
 <ng-container *ngIf="showIU">
-<div class="cp2020-section border border-dark">
-  <div class="cp2020-label row g-0">
-    <div class="col">
-      <h4 class="d-inline-block csd-btn me-4 ms-0 ps-0" (click)="isIUCollapsed = !isIUCollapsed">IU COMBAT ACTIONS
-        <fa-icon [icon]="collapseChevron(isIUCollapsed)" class="csd-icon-btn csd-icon-xl ms-1"></fa-icon>
-      </h4>
+  <div class="cp2020-section border border-dark">
+    <div class="cp2020-label row g-0">
+      <div class="col">
+        <h4
+          class="d-inline-block csd-btn me-4 ms-0 ps-0"
+          (click)="isIUCollapsed = !isIUCollapsed"
+        >
+          IU COMBAT ACTIONS
+          <fa-icon
+            [icon]="collapseChevron(isIUCollapsed)"
+            class="csd-icon-btn csd-icon-xl ms-1"
+          ></fa-icon>
+        </h4>
+      </div>
+    </div>
+    <div class="row border border-dark g-0" [collapse]="isIUCollapsed">
+      <div class="col">
+        <cs-i-u-combat-actions
+          [skills]="skills.getCombatSkills()"
+          [combatSense]="combatSense"
+          [stats]="stats"
+        ></cs-i-u-combat-actions>
+      </div>
     </div>
   </div>
-  <div class="row border border-dark g-0" [collapse]="isIUCollapsed">
-    <div class="col">
-      <cs-i-u-combat-actions [skills]="skills.getCombatSkills()" [stats]="stats"></cs-i-u-combat-actions>
-    </div>
-  </div>
-</div>
 </ng-container>
 
 <ng-template #newWeaponModal>
   <div class="modal-body">
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()" (keyup.enter)="closeModal()"></button>
+    <button
+      type="button"
+      class="btn-close float-end"
+      aria-label="Close"
+      (click)="closeModal()"
+      (keyup.enter)="closeModal()"
+    ></button>
     <tabset>
       <tab heading="New Weapon" id="tab1" tabindex="0">
-        <cs-cp2020weapon-editor [weapon]="newWeapon" (updateWeapon)="addWeapon($event)"></cs-cp2020weapon-editor>
+        <cs-cp2020weapon-editor
+          [weapon]="newWeapon"
+          (updateWeapon)="addWeapon($event)"
+        ></cs-cp2020weapon-editor>
       </tab>
       <tab *ngIf="showSelector" heading="Search Weapons" id="tab2" tabindex="0">
-        <cs-cp2020weapon-selector (addWeapons)="addWeaponList($event)"></cs-cp2020weapon-selector>
+        <cs-cp2020weapon-selector
+          (addWeapons)="addWeaponList($event)"
+        ></cs-cp2020weapon-selector>
       </tab>
     </tabset>
   </div>
 </ng-template>
 
-
 <ng-template #combatCalcModal>
   <div class="modal-header">
     <h4 class="modal-title float-start">Combat Calculator</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()" tabindex="0" (keyup.enter)="closeModal()">    </button>
+    <button
+      type="button"
+      class="btn-close float-end"
+      aria-label="Close"
+      (click)="closeModal()"
+      tabindex="0"
+      (keyup.enter)="closeModal()"
+    ></button>
   </div>
   <div class="modal-body">
-    <cs-cp2020weapon-calculator [weaponList]="weapons" [skills]="skills" [body]="stats.BODY.Adjusted"
-      [ref]="stats.REF.Adjusted" [bodyDamageMod]="stats.BodyDmgMod">
+    <cs-cp2020weapon-calculator
+      [weaponList]="weapons"
+      [skills]="skills"
+      [body]="stats.BODY.Adjusted"
+      [ref]="stats.REF.Adjusted"
+      [bodyDamageMod]="stats.BodyDmgMod"
+    >
     </cs-cp2020weapon-calculator>
   </div>
 </ng-template>
@@ -94,8 +179,14 @@
 <ng-template #wpnSettings>
   <div class="modal-header">
     <h4 class="modal-title float-start">Settings</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()" tabindex="0" (keyup.enter)="closeModal()">
-    </button>
+    <button
+      type="button"
+      class="btn-close float-end"
+      aria-label="Close"
+      (click)="closeModal()"
+      tabindex="0"
+      (keyup.enter)="closeModal()"
+    ></button>
   </div>
   <div class="modal-body">
     <div class="row">
@@ -114,44 +205,79 @@
       <div class="col">
         <div class="row">
           <div class="col">
-            <input type="checkbox" [checked]="paramChecked(wpnParam.type, 'PISTOLS')"
-              (change)="addParam($event, 'category', 'PISTOLS')" tabindex="0"> - PISTOLS
+            <input
+              type="checkbox"
+              [checked]="paramChecked(wpnParam.type, 'PISTOLS')"
+              (change)="addParam($event, 'category', 'PISTOLS')"
+              tabindex="0"
+            />
+            - PISTOLS
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <input type="checkbox" [checked]="paramChecked(wpnParam.type, 'SMG')"
-              (change)="addParam($event, 'category', 'SMG')" tabindex="0"> - SMG
+            <input
+              type="checkbox"
+              [checked]="paramChecked(wpnParam.type, 'SMG')"
+              (change)="addParam($event, 'category', 'SMG')"
+              tabindex="0"
+            />
+            - SMG
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <input type="checkbox" [checked]="paramChecked(wpnParam.type, 'RIFLES')"
-              (change)="addParam($event, 'category', 'RIFLES')" tabindex="0"> - RIFLES
+            <input
+              type="checkbox"
+              [checked]="paramChecked(wpnParam.type, 'RIFLES')"
+              (change)="addParam($event, 'category', 'RIFLES')"
+              tabindex="0"
+            />
+            - RIFLES
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <input type="checkbox" [checked]="paramChecked(wpnParam.type, 'MELEE')"
-              (change)="addParam($event, 'category', 'MELEE')" tabindex="0"> - MELEE
+            <input
+              type="checkbox"
+              [checked]="paramChecked(wpnParam.type, 'MELEE')"
+              (change)="addParam($event, 'category', 'MELEE')"
+              tabindex="0"
+            />
+            - MELEE
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <input type="checkbox" [checked]="paramChecked(wpnParam.type, 'EXOTICS')"
-              (change)="addParam($event, 'category', 'EXOTICS')" tabindex="0"> - EXOTICS
+            <input
+              type="checkbox"
+              [checked]="paramChecked(wpnParam.type, 'EXOTICS')"
+              (change)="addParam($event, 'category', 'EXOTICS')"
+              tabindex="0"
+            />
+            - EXOTICS
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <input type="checkbox" [checked]="paramChecked(wpnParam.type, 'SHOTGUNS')"
-              (change)="addParam($event, 'category', 'SHOTGUNS')" tabindex="0"> - SHOTGUNS
+            <input
+              type="checkbox"
+              [checked]="paramChecked(wpnParam.type, 'SHOTGUNS')"
+              (change)="addParam($event, 'category', 'SHOTGUNS')"
+              tabindex="0"
+            />
+            - SHOTGUNS
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <input type="checkbox" [checked]="paramChecked(wpnParam.type, 'HEAVY WEAPONS')"
-              (change)="addParam($event, 'category', 'HEAVY WEAPONS')" tabindex="0"> - HEAVY WEAPONS
+            <input
+              type="checkbox"
+              [checked]="paramChecked(wpnParam.type, 'HEAVY WEAPONS')"
+              (change)="addParam($event, 'category', 'HEAVY WEAPONS')"
+              tabindex="0"
+            />
+            - HEAVY WEAPONS
           </div>
         </div>
       </div>
@@ -162,63 +288,112 @@
       <div class="col">
         <div class="row">
           <div class="col">
-            <input type="checkbox" [checked]="paramChecked(wpnParam.subtype, 'LIGHT')"
-              (change)="addParam($event, 'subcategory', 'LIGHT')" tabindex="0"> - LIGHT (pistols, smgs)
+            <input
+              type="checkbox"
+              [checked]="paramChecked(wpnParam.subtype, 'LIGHT')"
+              (change)="addParam($event, 'subcategory', 'LIGHT')"
+              tabindex="0"
+            />
+            - LIGHT (pistols, smgs)
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <input type="checkbox" [checked]="paramChecked(wpnParam.subtype, 'MEDIUM')"
-              (change)="addParam($event, 'subcategory', 'MEDIUM')" tabindex="0"> - MEDIUM (pistols, smgs)
+            <input
+              type="checkbox"
+              [checked]="paramChecked(wpnParam.subtype, 'MEDIUM')"
+              (change)="addParam($event, 'subcategory', 'MEDIUM')"
+              tabindex="0"
+            />
+            - MEDIUM (pistols, smgs)
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <input type="checkbox" [checked]="paramChecked(wpnParam.subtype, 'HEAVY')"
-              (change)="addParam($event, 'subcategory', 'HEAVY')" tabindex="0"> - HEAVY (pistols, smgs)
+            <input
+              type="checkbox"
+              [checked]="paramChecked(wpnParam.subtype, 'HEAVY')"
+              (change)="addParam($event, 'subcategory', 'HEAVY')"
+              tabindex="0"
+            />
+            - HEAVY (pistols, smgs)
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <input type="checkbox" [checked]="paramChecked(wpnParam.subtype, 'VERY HEAVY')"
-              (change)="addParam($event, 'subcategory', 'VERY HEAVY')" tabindex="0"> - VERY HEAVY (pistols)
+            <input
+              type="checkbox"
+              [checked]="paramChecked(wpnParam.subtype, 'VERY HEAVY')"
+              (change)="addParam($event, 'subcategory', 'VERY HEAVY')"
+              tabindex="0"
+            />
+            - VERY HEAVY (pistols)
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <input type="checkbox" [checked]="paramChecked(wpnParam.subtype, 'SNIPER')"
-              (change)="addParam($event, 'subcategory', 'SNIPER')" tabindex="0"> - SNIPER (rifles)
+            <input
+              type="checkbox"
+              [checked]="paramChecked(wpnParam.subtype, 'SNIPER')"
+              (change)="addParam($event, 'subcategory', 'SNIPER')"
+              tabindex="0"
+            />
+            - SNIPER (rifles)
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <input type="checkbox" [checked]="paramChecked(wpnParam.subtype, 'ASSAULT')"
-              (change)="addParam($event, 'subcategory', 'ASSAULT')" tabindex="0"> - ASSAULT (rifles)
+            <input
+              type="checkbox"
+              [checked]="paramChecked(wpnParam.subtype, 'ASSAULT')"
+              (change)="addParam($event, 'subcategory', 'ASSAULT')"
+              tabindex="0"
+            />
+            - ASSAULT (rifles)
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <input type="checkbox" [checked]="paramChecked(wpnParam.subtype, 'BOWS')"
-              (change)="addParam($event, 'subcategory', 'BOWS')" tabindex="0"> - BOWS (exotics)
+            <input
+              type="checkbox"
+              [checked]="paramChecked(wpnParam.subtype, 'BOWS')"
+              (change)="addParam($event, 'subcategory', 'BOWS')"
+              tabindex="0"
+            />
+            - BOWS (exotics)
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <input type="checkbox" [checked]="paramChecked(wpnParam.subtype, 'CROSSBOWS')"
-              (change)="addParam($event, 'subcategory', 'CROSSBOWS')" tabindex="0"> - CROSSBOWS (exotics)
+            <input
+              type="checkbox"
+              [checked]="paramChecked(wpnParam.subtype, 'CROSSBOWS')"
+              (change)="addParam($event, 'subcategory', 'CROSSBOWS')"
+              tabindex="0"
+            />
+            - CROSSBOWS (exotics)
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <input type="checkbox" [checked]="paramChecked(wpnParam.subtype, 'OTHER')"
-              (change)="addParam($event, 'subcategory', 'OTHER')" tabindex="0"> - OTHER (rifles)
+            <input
+              type="checkbox"
+              [checked]="paramChecked(wpnParam.subtype, 'OTHER')"
+              (change)="addParam($event, 'subcategory', 'OTHER')"
+              tabindex="0"
+            />
+            - OTHER (rifles)
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <input type="checkbox" [checked]="paramChecked(wpnParam.subtype, 'Borg Weapon')"
-              (change)="addParam($event, 'subcategory', 'Borg Weapon')" tabindex="0"> - BORG (rifles, pistols, smgs, melee, Hvy
-            weapons)
+            <input
+              type="checkbox"
+              [checked]="paramChecked(wpnParam.subtype, 'Borg Weapon')"
+              (change)="addParam($event, 'subcategory', 'Borg Weapon')"
+              tabindex="0"
+            />
+            - BORG (rifles, pistols, smgs, melee, Hvy weapons)
           </div>
         </div>
       </div>
@@ -229,26 +404,46 @@
       <div class="col">
         <div class="row">
           <div class="col">
-            <input type="checkbox" [checked]="paramChecked(wpnParam.availability, 'E')"
-              (change)="addParam($event, 'avail', 'E')" tabindex="0"> - EXCELLENT
+            <input
+              type="checkbox"
+              [checked]="paramChecked(wpnParam.availability, 'E')"
+              (change)="addParam($event, 'avail', 'E')"
+              tabindex="0"
+            />
+            - EXCELLENT
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <input type="checkbox" [checked]="paramChecked(wpnParam.availability, 'C')"
-              (change)="addParam($event, 'avail', 'C')" tabindex="0"> - COMMON
+            <input
+              type="checkbox"
+              [checked]="paramChecked(wpnParam.availability, 'C')"
+              (change)="addParam($event, 'avail', 'C')"
+              tabindex="0"
+            />
+            - COMMON
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <input type="checkbox" [checked]="paramChecked(wpnParam.availability, 'P')"
-              (change)="addParam($event, 'avail', 'P')" tabindex="0"> - POOR
+            <input
+              type="checkbox"
+              [checked]="paramChecked(wpnParam.availability, 'P')"
+              (change)="addParam($event, 'avail', 'P')"
+              tabindex="0"
+            />
+            - POOR
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <input type="checkbox" [checked]="paramChecked(wpnParam.availability, 'R')"
-              (change)="addParam($event, 'avail', 'R')" tabindex="0"> - RARE
+            <input
+              type="checkbox"
+              [checked]="paramChecked(wpnParam.availability, 'R')"
+              (change)="addParam($event, 'avail', 'R')"
+              tabindex="0"
+            />
+            - RARE
           </div>
         </div>
       </div>
@@ -256,8 +451,7 @@
     <div class="row">
       <div class="col-1"></div>
       <div class="col-3">Exclude containing:</div>
-      <div class="col"><input type="text" tabindex="0">
-      </div>
+      <div class="col"><input type="text" tabindex="0" /></div>
     </div>
   </div>
 </ng-template>

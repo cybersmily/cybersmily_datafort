@@ -1,3 +1,4 @@
+import { Cp2020PlayerSkill } from './../../cp2020-skills/models/cp2020-player-skill';
 import { CpWeaponListParam } from './../models/cp-weapon-list-param';
 import { DataWeapon } from './../models/data-weapon';
 import { Cp2020StatBlock } from './../../cp2020-stats/models/cp2020-stat-block';
@@ -92,6 +93,12 @@ export class Cp2020weapontableComponent implements OnInit {
 
   @ViewChild('newWeaponElem', { static: false })
   newWeaponButton: ElementRef;
+
+  get combatSense(): Cp2020PlayerSkill {
+    return this.skills.specialAbilites.find(
+      (sk) => sk.name.toLowerCase() === 'combat sense'
+    );
+  }
 
   constructor(
     private modalService: BsModalService,

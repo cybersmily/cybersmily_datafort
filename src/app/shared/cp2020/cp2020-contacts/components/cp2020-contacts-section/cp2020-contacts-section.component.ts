@@ -53,9 +53,9 @@ export class Cp2020ContactsSectionComponent implements OnInit {
         }
         const useSkill = this.contactSettings.useSkill;
         const skill = char.skills.skills.find(
-          (skill) => skill.name.toLowerCase() === useSkill.toLowerCase()
+          (skill) => skill?.name?.toLowerCase() === useSkill?.toLowerCase()
         );
-        return skill.value;
+        return skill?.value;
       })
     );
   }
