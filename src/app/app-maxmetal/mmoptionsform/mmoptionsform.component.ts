@@ -1,14 +1,16 @@
-import { MaxMetalVehicle, MaxMetalOption } from './../../shared/cp2020/cp2020-vehicles/models';
+import {
+  MaxMetalVehicle,
+  MaxMetalOption,
+} from './../../shared/cp2020/cp2020-vehicles/models';
 import { MaxMetalDataService } from '../../shared/cp2020/cp2020-vehicles/services';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'cs-mmoptionsform',
   templateUrl: './mmoptionsform.component.html',
-  styleUrls: ['./mmoptionsform.component.css']
+  styleUrls: ['./mmoptionsform.component.css'],
 })
 export class MmoptionsformComponent implements OnInit {
-
   @Input()
   vehicle: MaxMetalVehicle;
 
@@ -16,7 +18,7 @@ export class MmoptionsformComponent implements OnInit {
   addOption = new EventEmitter();
 
   options: any[];
-  selectedCategory: any =  null;
+  selectedCategory: any = null;
   selectedOption: MaxMetalOption = null;
   currOption: MaxMetalOption;
   addDisabled: boolean;
@@ -28,12 +30,20 @@ export class MmoptionsformComponent implements OnInit {
     return new Array<MaxMetalOption>();
   }
 
-  constructor(private mmDataService: MaxMetalDataService) { }
+  get currOptionSpaces(): number {
+    return this.currOption.calculateSpaces(this.vehicle.maxSpaces);
+  }
+
+  get currOptionCost(): number {
+    return this.currOption.calculateCost(this.vehicle.baseCost);
+  }
+
+  constructor(private mmDataService: MaxMetalDataService) {}
 
   ngOnInit() {
     this.currOption = new MaxMetalOption();
     this.addDisabled = true;
-    this.mmDataService.loadOptions().subscribe( data => {
+    this.mmDataService.loadOptions().subscribe((data) => {
       this.options = data;
     });
   }
@@ -45,7 +55,7 @@ export class MmoptionsformComponent implements OnInit {
   changeOption() {
     this.currOption = new MaxMetalOption();
     this.currOption.copy(this.selectedOption);
-    this.addDisabled = (this.currOption.name === '');
+    this.addDisabled = this.currOption.name === '';
   }
 
   addOpt() {

@@ -7,20 +7,31 @@
       <div class="col-2">Cost</div>
     </div>
     <div *ngFor="let opt of optionList.options" class="row">
-      <div class="col-7">{{(opt.count > 1) ? opt.count + ' ': ''}}{{opt.name}}</div>
-      <div class="col-2">{{opt.spaces}}</div>
-      <div class="col-2">{{opt.calculateCost(vehicle) | number:'1.00'}}eb</div>
+      <div class="col-7">
+        {{ opt.count > 1 ? opt.count + " " : "" }}{{ opt.name }}
+      </div>
+      <div class="col-2">
+        {{ opt.calculateSpaces(vehicle.maxSpaces) | number: "1.0" }}
+      </div>
+      <div class="col-2">
+        {{ opt.calculateCost(vehicle.baseCost) | number: "1.00" }}eb
+      </div>
       <div class="col-1">
-        <button class="btn btn-secondary btn-sm"
-         (click)="removeOpt(opt)"
-        >X</button>
+        <button class="btn btn-secondary btn-sm" (click)="removeOpt(opt)">
+          X
+        </button>
       </div>
     </div>
-    <br>
-  <div class="row">
-    <div class="col-8">Total:</div>
-    <div class="col-2">{{optionList.calculateSpace(vehicle.sdp.base) | number:'1.0'}}</div>
-    <div class="col-2">{{optionList.calculateCost(vehicle.baseCost) | number:'1.00'}}eb</div>
+    <br />
+    <div class="row">
+      <div class="col-8">Total:</div>
+      <div class="col-2">
+        {{ optionList.calculateSpace(vehicle.maxSpaces) | number: "1.0" }}
+      </div>
+      <div class="col-2">
+        {{ optionList.calculateCost(vehicle.baseCost) | number: "1.00" }}eb
+      </div>
+    </div>
+    <br />
   </div>
-  <br>
 </div>
