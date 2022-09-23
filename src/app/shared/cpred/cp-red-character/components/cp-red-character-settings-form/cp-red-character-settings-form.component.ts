@@ -1,6 +1,7 @@
-import { CpRedCharacterSettingsManagerService } from './../../../services/cp-red-character-settings-manager/cp-red-character-settings-manager.service';
+import { CpRedPlayerCharacterSettings } from '../../../cp-red-character-gen-settings/models/cp-red-player-character-settings';
+import { CpRedCharacterSettingsManagerService } from '../../../cp-red-character-gen-settings/services/cp-red-character-settings-manager/cp-red-character-settings-manager.service';
 import { Observable } from 'rxjs';
-import { CpRedCharacterSettings } from './../../../models/cp-red-character-settings';
+import { CpRedCharacterSettings } from '../../../cp-red-character-gen-settings/models/cp-red-character-settings';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cp-red-character-settings-form.component.css'],
 })
 export class CpRedCharacterSettingsFormComponent implements OnInit {
-  currSettings: CpRedCharacterSettings = {};
+  currSettings: CpRedCharacterSettings = new CpRedPlayerCharacterSettings();
 
   constructor(private settingsService: CpRedCharacterSettingsManagerService) {}
 

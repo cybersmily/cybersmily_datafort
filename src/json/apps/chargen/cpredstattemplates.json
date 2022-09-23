@@ -1,0 +1,122 @@
+ {
+  "rockerboy": [
+{"int":7, "ref": 6, "dex": 6,"tech": 5, "cool": 6,"will": 8,"luck": 7,"move": 7,"body": 3, "emp": 8},
+{"int":3, "ref": 7, "dex": 7,"tech": 7, "cool": 7,"will": 6,"luck": 7,"move": 7,"body": 5, "emp": 8},
+{"int":4, "ref": 5, "dex": 7,"tech": 7, "cool": 6,"will": 6,"luck": 7,"move": 7,"body": 5, "emp": 8},
+{"int":4, "ref": 5, "dex": 7,"tech": 7, "cool": 6,"will": 8,"luck": 7,"move": 6,"body": 3, "emp": 8},
+{"int":3, "ref": 7, "dex": 7,"tech": 7, "cool": 6,"will": 8,"luck": 6,"move": 5,"body": 4, "emp": 7},
+{"int":5, "ref": 6, "dex": 7,"tech": 5, "cool": 7,"will": 8,"luck": 5,"move": 7,"body": 3, "emp": 7},
+{"int":5, "ref": 6, "dex": 6,"tech": 7, "cool": 7,"will": 8,"luck": 7,"move": 6,"body": 3, "emp": 6},
+{"int":5, "ref": 7, "dex": 7,"tech": 5, "cool": 6,"will": 6,"luck": 6,"move": 6,"body": 4, "emp": 8},
+{"int":3, "ref": 5, "dex": 5,"tech": 6, "cool": 7,"will": 8,"luck": 7,"move": 5,"body": 5, "emp": 7},
+{"int":4, "ref": 5, "dex": 6,"tech": 5, "cool": 8,"will": 8,"luck": 7,"move": 6,"body": 4, "emp": 7}
+],
+"solo":[
+{"int":6, "ref": 7, "dex": 7,"tech": 3, "cool": 8,"will": 6,"luck": 5,"move": 5,"body": 6, "emp": 5},
+{"int":7, "ref": 8, "dex": 6,"tech": 3, "cool": 6,"will": 6,"luck": 7,"move": 5,"body": 6, "emp": 6},
+{"int":5, "ref": 8, "dex": 7,"tech": 4, "cool": 7,"will": 7,"luck": 6,"move": 7,"body": 8, "emp": 5},
+{"int":5, "ref": 8, "dex": 6,"tech": 4, "cool": 6,"will": 7,"luck": 6,"move": 5,"body": 7, "emp": 6},
+{"int":6, "ref": 6, "dex": 7,"tech": 5, "cool": 7,"will": 6,"luck": 7,"move": 6,"body": 8, "emp": 4},
+{"int":7, "ref": 7, "dex": 6,"tech": 5, "cool": 7,"will": 6,"luck": 6,"move": 7,"body": 7, "emp": 5},
+{"int":7, "ref": 7, "dex": 6,"tech": 5, "cool": 6,"will": 7,"luck": 7,"move": 6,"body": 6, "emp": 6},
+{"int":7, "ref": 8, "dex": 7,"tech": 5, "cool": 6,"will": 6,"luck": 5,"move": 6,"body": 8, "emp": 4},
+{"int":7, "ref": 7, "dex": 6,"tech": 4, "cool": 6,"will": 6,"luck": 6,"move": 5,"body": 6, "emp": 5},
+{"int":6, "ref": 6, "dex": 8,"tech": 5, "cool": 6,"will": 6,"luck": 5,"move": 6,"body": 6, "emp": 5}
+],
+"netrunner":[
+{"int":5, "ref": 8, "dex": 7,"tech": 7, "cool": 7,"will": 4,"luck": 8,"move": 7,"body": 7, "emp": 4},
+{"int":5, "ref": 6, "dex": 7,"tech": 5, "cool": 8,"will": 3,"luck": 8,"move": 7,"body": 5, "emp": 5},
+{"int":5, "ref": 6, "dex": 8,"tech": 6, "cool": 6,"will": 4,"luck": 7,"move": 6,"body": 7, "emp": 4},
+{"int":5, "ref": 7, "dex": 7,"tech": 7, "cool": 7,"will": 5,"luck": 8,"move": 6,"body": 5, "emp": 5},
+{"int":5, "ref": 8, "dex": 8,"tech": 5, "cool": 7,"will": 3,"luck": 7,"move": 5,"body": 5, "emp": 6},
+{"int":6, "ref": 6, "dex": 6,"tech": 7, "cool": 8,"will": 4,"luck": 7,"move": 7,"body": 6, "emp": 6},
+{"int":6, "ref": 6, "dex": 6,"tech": 7, "cool": 6,"will": 5,"luck": 7,"move": 7,"body": 7, "emp": 6},
+{"int":5, "ref": 7, "dex": 8,"tech": 6, "cool": 8,"will": 4,"luck": 8,"move": 5,"body": 7, "emp": 4},
+{"int":7, "ref": 6, "dex": 7,"tech": 7, "cool": 6,"will": 3,"luck": 6,"move": 5,"body": 6, "emp": 5},
+{"int":7, "ref": 8, "dex": 6,"tech": 6, "cool": 6,"will": 4,"luck": 7,"move": 7,"body": 5, "emp": 6}
+],
+"tech":[
+{"int":6, "ref": 7, "dex": 7,"tech": 8, "cool": 4,"will": 4,"luck": 5,"move": 5,"body": 7, "emp": 6},
+{"int":7, "ref": 6, "dex": 6,"tech": 7, "cool": 5,"will": 3,"luck": 7,"move": 7,"body": 5, "emp": 5},
+{"int":8, "ref": 6, "dex": 5,"tech": 7, "cool": 5,"will": 4,"luck": 7,"move": 7,"body": 5, "emp": 7},
+{"int":7, "ref": 8, "dex": 7,"tech": 8, "cool": 4,"will": 4,"luck": 6,"move": 5,"body": 6, "emp": 7},
+{"int":6, "ref": 6, "dex": 7,"tech": 6, "cool": 4,"will": 3,"luck": 7,"move": 7,"body": 6, "emp": 6},
+{"int":8, "ref": 7, "dex": 5,"tech": 6, "cool": 3,"will": 3,"luck": 7,"move": 6,"body": 6, "emp": 7},
+{"int":8, "ref": 6, "dex": 7,"tech": 8, "cool": 4,"will": 4,"luck": 7,"move": 6,"body": 7, "emp": 6},
+{"int":8, "ref": 8, "dex": 7,"tech": 8, "cool": 5,"will": 4,"luck": 6,"move": 5,"body": 6, "emp": 6},
+{"int":6, "ref": 6, "dex": 7,"tech": 8, "cool": 3,"will": 3,"luck": 5,"move": 7,"body": 7, "emp": 7},
+{"int":8, "ref": 8, "dex": 5,"tech": 6, "cool": 4,"will": 4,"luck": 6,"move": 5,"body": 6, "emp": 6}
+],
+"medtech":[
+{"int":7, "ref": 5, "dex": 6,"tech": 7, "cool": 5,"will": 3,"luck": 8,"move": 5,"body": 5, "emp": 7},
+{"int":6, "ref": 7, "dex": 7,"tech": 7, "cool": 4,"will": 4,"luck": 6,"move": 7,"body": 7, "emp": 7},
+{"int":6, "ref": 5, "dex": 5,"tech": 8, "cool": 5,"will": 3,"luck": 8,"move": 5,"body": 7, "emp": 8},
+{"int":8, "ref": 7, "dex": 6,"tech": 8, "cool": 3,"will": 5,"luck": 6,"move": 6,"body": 5, "emp": 7},
+{"int":6, "ref": 7, "dex": 5,"tech": 7, "cool": 5,"will": 5,"luck": 8,"move": 7,"body": 6, "emp": 8},
+{"int":8, "ref": 5, "dex": 5,"tech": 8, "cool": 5,"will": 5,"luck": 6,"move": 6,"body": 5, "emp": 6},
+{"int":8, "ref": 6, "dex": 5,"tech": 8, "cool": 5,"will": 4,"luck": 8,"move": 5,"body": 7, "emp": 7},
+{"int":6, "ref": 5, "dex": 7,"tech": 7, "cool": 3,"will": 5,"luck": 8,"move": 5,"body": 5, "emp": 8},
+{"int":6, "ref": 6, "dex": 7,"tech": 7, "cool": 5,"will": 4,"luck": 6,"move": 6,"body": 5, "emp": 6},
+{"int":8, "ref": 7, "dex": 6,"tech": 6, "cool": 3,"will": 4,"luck": 8,"move": 7,"body": 6, "emp": 7}
+],
+"media":[
+{"int":6, "ref": 6, "dex": 5,"tech": 5, "cool": 8,"will": 7,"luck": 5,"move": 7,"body": 5, "emp": 7},
+{"int":8, "ref": 7, "dex": 7,"tech": 3, "cool": 6,"will": 6,"luck": 6,"move": 5,"body": 6, "emp": 8},
+{"int":6, "ref": 7, "dex": 7,"tech": 5, "cool": 6,"will": 8,"luck": 5,"move": 5,"body": 5, "emp": 7},
+{"int":6, "ref": 5, "dex": 7,"tech": 5, "cool": 6,"will": 7,"luck": 5,"move": 5,"body": 6, "emp": 6},
+{"int":6, "ref": 6, "dex": 7,"tech": 4, "cool": 8,"will": 7,"luck": 6,"move": 7,"body": 5, "emp": 8},
+{"int":7, "ref": 5, "dex": 5,"tech": 4, "cool": 8,"will": 7,"luck": 6,"move": 7,"body": 5, "emp": 8},
+{"int":8, "ref": 5, "dex": 6,"tech": 3, "cool": 7,"will": 6,"luck": 6,"move": 5,"body": 6, "emp": 7},
+{"int":6, "ref": 5, "dex": 6,"tech": 5, "cool": 6,"will": 8,"luck": 6,"move": 6,"body": 7, "emp": 8},
+{"int":7, "ref": 7, "dex": 5,"tech": 4, "cool": 6,"will": 7,"luck": 6,"move": 5,"body": 6, "emp": 7},
+{"int":7, "ref": 6, "dex": 6,"tech": 3, "cool": 7,"will": 6,"luck": 7,"move": 6,"body": 7, "emp": 6}
+],
+"lawman":[
+{"int":5, "ref": 6, "dex": 7,"tech": 5, "cool": 7,"will": 8,"luck": 5,"move": 6,"body": 5, "emp": 6},
+{"int":6, "ref": 6, "dex": 6,"tech": 5, "cool": 6,"will": 8,"luck": 5,"move": 7,"body": 5, "emp": 5},
+{"int":5, "ref": 7, "dex": 7,"tech": 7, "cool": 6,"will": 7,"luck": 5,"move": 5,"body": 7, "emp": 6},
+{"int":6, "ref": 6, "dex": 7,"tech": 6, "cool": 6,"will": 8,"luck": 5,"move": 7,"body": 7, "emp": 6},
+{"int":6, "ref": 6, "dex": 7,"tech": 6, "cool": 7,"will": 7,"luck": 6,"move": 5,"body": 5, "emp": 6},
+{"int":7, "ref": 6, "dex": 5,"tech": 5, "cool": 7,"will": 8,"luck": 5,"move": 6,"body": 7, "emp": 4},
+{"int":7, "ref": 8, "dex": 7,"tech": 5, "cool": 6,"will": 8,"luck": 7,"move": 6,"body": 5, "emp": 4},
+{"int":5, "ref": 6, "dex": 6,"tech": 5, "cool": 6,"will": 8,"luck": 5,"move": 7,"body": 6, "emp": 4},
+{"int":7, "ref": 7, "dex": 5,"tech": 5, "cool": 7,"will": 7,"luck": 6,"move": 5,"body": 5, "emp": 6},
+{"int":6, "ref": 6, "dex": 5,"tech": 6, "cool": 8,"will": 7,"luck": 5,"move": 7,"body": 6, "emp": 6}
+],
+"exec":[
+{"int":8, "ref": 5, "dex": 5,"tech": 3, "cool": 8,"will": 6,"luck": 6,"move": 5,"body": 5, "emp": 7},
+{"int":8, "ref": 6, "dex": 6,"tech": 4, "cool": 7,"will": 6,"luck": 7,"move": 7,"body": 5, "emp": 7},
+{"int":8, "ref": 7, "dex": 6,"tech": 3, "cool": 8,"will": 6,"luck": 7,"move": 6,"body": 4, "emp": 5},
+{"int":8, "ref": 5, "dex": 7,"tech": 5, "cool": 6,"will": 5,"luck": 6,"move": 5,"body": 5, "emp": 7},
+{"int":7, "ref": 7, "dex": 6,"tech": 5, "cool": 8,"will": 5,"luck": 7,"move": 7,"body": 5, "emp": 6},
+{"int":5, "ref": 7, "dex": 7,"tech": 3, "cool": 6,"will": 7,"luck": 6,"move": 5,"body": 5, "emp": 7},
+{"int":6, "ref": 6, "dex": 7,"tech": 5, "cool": 8,"will": 7,"luck": 6,"move": 7,"body": 4, "emp": 6},
+{"int":6, "ref": 7, "dex": 7,"tech": 3, "cool": 7,"will": 5,"luck": 7,"move": 5,"body": 5, "emp": 7},
+{"int":7, "ref": 6, "dex": 7,"tech": 5, "cool": 7,"will": 5,"luck": 7,"move": 6,"body": 5, "emp": 5},
+{"int":7, "ref": 7, "dex": 5,"tech": 5, "cool": 8,"will": 6,"luck": 6,"move": 7,"body": 4, "emp": 7}
+],
+"fixer":[
+{"int":8, "ref": 5, "dex": 7,"tech": 4, "cool": 6,"will": 5,"luck": 8,"move": 5,"body": 5, "emp": 8},
+{"int":8, "ref": 5, "dex": 5,"tech": 5, "cool": 6,"will": 7,"luck": 8,"move": 7,"body": 5, "emp": 7},
+{"int":6, "ref": 6, "dex": 6,"tech": 4, "cool": 5,"will": 6,"luck": 8,"move": 6,"body": 3, "emp": 8},
+{"int":7, "ref": 7, "dex": 5,"tech": 5, "cool": 7,"will": 6,"luck": 7,"move": 7,"body": 5, "emp": 8},
+{"int":8, "ref": 6, "dex": 6,"tech": 3, "cool": 6,"will": 5,"luck": 8,"move": 7,"body": 5, "emp": 6},
+{"int":8, "ref": 7, "dex": 5,"tech": 5, "cool": 6,"will": 7,"luck": 7,"move": 5,"body": 3, "emp": 6},
+{"int":8, "ref": 6, "dex": 6,"tech": 5, "cool": 6,"will": 5,"luck": 6,"move": 7,"body": 5, "emp": 8},
+{"int":6, "ref": 6, "dex": 7,"tech": 4, "cool": 7,"will": 6,"luck": 7,"move": 7,"body": 4, "emp": 7},
+{"int":8, "ref": 7, "dex": 7,"tech": 5, "cool": 5,"will": 5,"luck": 7,"move": 6,"body": 5, "emp": 7},
+{"int":6, "ref": 5, "dex": 6,"tech": 5, "cool": 5,"will": 6,"luck": 8,"move": 6,"body": 4, "emp": 7}
+],
+"nomad":[
+{"int":6, "ref": 6, "dex": 8,"tech": 3, "cool": 6,"will": 7,"luck": 6,"move": 6,"body": 6, "emp": 4},
+{"int":5, "ref": 7, "dex": 6,"tech": 5, "cool": 8,"will": 8,"luck": 8,"move": 7,"body": 5, "emp": 4},
+{"int":5, "ref": 8, "dex": 6,"tech": 3, "cool": 8,"will": 7,"luck": 6,"move": 5,"body": 6, "emp": 5},
+{"int":5, "ref": 8, "dex": 7,"tech": 4, "cool": 8,"will": 6,"luck": 7,"move": 7,"body": 7, "emp": 5},
+{"int":6, "ref": 6, "dex": 6,"tech": 3, "cool": 6,"will": 7,"luck": 6,"move": 7,"body": 7, "emp": 4},
+{"int":7, "ref": 6, "dex": 8,"tech": 4, "cool": 6,"will": 7,"luck": 6,"move": 5,"body": 6, "emp": 5},
+{"int":6, "ref": 7, "dex": 8,"tech": 4, "cool": 6,"will": 6,"luck": 7,"move": 5,"body": 7, "emp": 5},
+{"int":5, "ref": 7, "dex": 8,"tech": 3, "cool": 8,"will": 6,"luck": 7,"move": 5,"body": 5, "emp": 5},
+{"int":6, "ref": 7, "dex": 6,"tech": 4, "cool": 8,"will": 6,"luck": 6,"move": 6,"body": 6, "emp": 6},
+{"int":5, "ref": 6, "dex": 7,"tech": 4, "cool": 7,"will": 8,"luck": 7,"move": 7,"body": 7, "emp": 4}
+]
+ }

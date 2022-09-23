@@ -1,15 +1,17 @@
-import { LocalStorageManagerService } from './../../../services/local-storage-manager/local-storage-manager.service';
+import { CpRedPlayerCharacterSettings } from '../../models/cp-red-player-character-settings';
+import { LocalStorageManagerService } from '../../../../services/local-storage-manager/local-storage-manager.service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { CpRedCharacterSettings } from '../../models';
-import { ThisReceiver } from '@angular/compiler';
+import { CpRedCharacterSettings } from '../../../models';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CpRedCharacterSettingsManagerService {
   private _settings: BehaviorSubject<CpRedCharacterSettings> =
-    new BehaviorSubject<CpRedCharacterSettings>({});
+    new BehaviorSubject<CpRedCharacterSettings>(
+      new CpRedPlayerCharacterSettings()
+    );
   settings: Observable<CpRedCharacterSettings> = this._settings.asObservable();
 
   private _SETTINGS_KEY = 'cpr-char-settings';

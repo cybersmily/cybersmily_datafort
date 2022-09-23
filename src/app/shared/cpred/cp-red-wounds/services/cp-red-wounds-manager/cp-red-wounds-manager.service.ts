@@ -26,30 +26,39 @@ export class CpRedWoundsManagerService {
   }
 
   setWoundProperties(body: number, will: number): void {
-    const wounds = new CpRedCharacterWounds(this._wounds.getValue());
+    const wounds = this._wounds.getValue();
     const bodyWill = body + will; // intellisense isn't allow proper addition in formula.
     wounds.hitPoints.base = Math.ceil(bodyWill / 2) * 5 + 10;
     wounds.seriouslyWound = Math.ceil(wounds.hitPoints.base / 2);
     if (wounds.hitPoints.curr < 1 && !wounds.isDead) {
       wounds.hitPoints.curr = wounds.hitPoints.base;
     }
-    wounds.deathSave = new CpRedCharacterDeathSave({ base: body, curr: body });
+    wounds.deathSave.base = body;
     this.updateWounds(wounds);
   }
 
   updateWounds(wounds: CpRedCharacterWounds): void {
     wounds.woundLevel = this.setWoundLevel(wounds);
-    this._wounds.next(new CpRedCharacterWounds(wounds));
+    this._wounds.next(wounds);
   }
 
   updateCurrentHitPoints(hitPoints: number): void {
     const wounds = new CpRedCharacterWounds(this._wounds.getValue());
-    wounds.hitPoints.curr = this.setHitPoints(hitPoints, wounds.hitPoints.base);
+    wounds.hitPoints.curr = this.setValueWithBase(
+      hitPoints,
+      wounds.hitPoints.base
+    );
     this.updateWounds(wounds);
   }
 
-  private setHitPoints(curr: number, base: number): number {
+  private setValueWithBase(curr: number, base: number): number {
     return curr < 0 ? 0 : curr > base ? base : curr;
+  }
+
+  updateCurrentDeathSave(deathSave: number): void {
+    const wounds = new CpRedCharacterWounds(this._wounds.getValue());
+    wounds.deathSave.curr = deathSave;
+    this.updateWounds(wounds);
   }
 
   addAddiction(addiction: CpRedCharacterAddiction): void {

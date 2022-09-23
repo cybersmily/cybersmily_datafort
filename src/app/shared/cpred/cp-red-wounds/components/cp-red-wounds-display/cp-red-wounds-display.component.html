@@ -44,7 +44,12 @@
         </div>
         <div class="col-4 pe-0">
           <div class="position-relative cpr-death-save" role="button">
-            {{ wounds.deathSave?.curr }}
+            <input
+              type="number"
+              class="w-80 text-center csd-plain-input csd-input-underline no-spinners"
+              [ngModel]="wounds.deathSave.curr"
+              (change)="updateCurrDeathSave($event)"
+            />
             <button
               *ngIf="wounds.hitPoints.curr &lt; 1"
               class="csd-icon-btn csd-icon-sm d-none"

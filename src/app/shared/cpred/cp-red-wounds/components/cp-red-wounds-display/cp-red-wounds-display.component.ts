@@ -34,6 +34,7 @@ export class CpRedWoundsDisplayComponent implements OnInit {
   ngOnInit(): void {
     this.wounds$ = this.woundsManager.wounds$.pipe(
       map((wounds) => {
+        
         return wounds;
       })
     );
@@ -43,6 +44,13 @@ export class CpRedWoundsDisplayComponent implements OnInit {
     const hp = event?.target?.value;
     if (!isNaN(hp)) {
       this.woundsManager.updateCurrentHitPoints(hp);
+    }
+  }
+
+  updateCurrDeathSave(event: any): void {
+    const deathSave = Number(event?.target?.value);
+    if (!isNaN(deathSave)) {
+      this.woundsManager.updateCurrentDeathSave(deathSave);
     }
   }
 
