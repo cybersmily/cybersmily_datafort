@@ -1,3 +1,4 @@
+import { Cp2020SkillUpdate } from './../models/cp2020-skill-update';
 import {
   Cp2020Stat,
   StatModifier,
@@ -31,7 +32,7 @@ export class Cp2020SkillEditorComponent implements OnInit, AfterViewInit {
   stat: Cp2020Stat = new Cp2020Stat();
 
   @Output()
-  updateSkill: EventEmitter<Cp2020PlayerSkill> = new EventEmitter<Cp2020PlayerSkill>();
+  updateSkill: EventEmitter<Cp2020SkillUpdate> = new EventEmitter<Cp2020SkillUpdate>();
 
   @ViewChild('subskillElem', { static: false })
   subskillInput: ElementRef;
@@ -75,7 +76,7 @@ export class Cp2020SkillEditorComponent implements OnInit, AfterViewInit {
       name: this.newModifier.name,
       mod: this.newModifier.mod,
     });
-    this.updateSkill.emit(this.currSkill);
+    this.updateSkill.emit(new Cp2020SkillUpdate(this.skill, this.currSkill));
     this.newModifier = { name: '', mod: 0 };
   }
 
@@ -88,7 +89,11 @@ export class Cp2020SkillEditorComponent implements OnInit, AfterViewInit {
   }
 
   onChangeSkill() {
-    const skill = new Cp2020PlayerSkill(this.currSkill);
-    this.updateSkill.emit(skill);
+    this.updateSkill.emit(
+      new Cp2020SkillUpdate(
+        new Cp2020PlayerSkill(this.skill),
+        new Cp2020PlayerSkill(this.currSkill)
+      )
+    );
   }
 }

@@ -1,3 +1,4 @@
+import { Cp2020SkillUpdate } from './../models/cp2020-skill-update';
 import { Cp2020SkillListSettings } from './../models/cp2020-skill-list-settings';
 import {
   faDice,
@@ -69,9 +70,9 @@ export class Cp2020SkillListFullComponent implements OnInit, OnChanges {
     this.currentSkills.import(this.skills);
   }
 
-  onChangeSkill(skill?: Cp2020PlayerSkill) {
-    if (skill) {
-      this.currentSkills.editSkill(skill);
+  onChangeSkill(skillUpdate?: Cp2020SkillUpdate) {
+    if (skillUpdate) {
+      this.currentSkills.editSkill(skillUpdate);
     }
     this.changeSKills.emit(this.currentSkills);
   }

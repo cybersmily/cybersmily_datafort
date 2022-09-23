@@ -1,3 +1,4 @@
+import { Cp2020SkillUpdate } from './cp2020-skill-update';
 import { DataSkill } from './data-skill';
 import { Cp2020PlayerSkill } from './cp2020-player-skill';
 export class Cp2020PlayerSkills {
@@ -423,15 +424,15 @@ export class Cp2020PlayerSkills {
     }
   }
 
-  editSkill(skill: Cp2020PlayerSkill) {
+  editSkill(skillUpdate: Cp2020SkillUpdate) {
     const skills = [...this.skills];
     const i = skills.findIndex(
       (sk) =>
-        sk.name.toLowerCase() === skill.name.toLowerCase() &&
-        sk.option?.toLowerCase() === skill.option?.toLowerCase()
+        sk.name.toLowerCase() === skillUpdate.current.name.toLowerCase() &&
+        sk.option?.toLowerCase() === skillUpdate.current.option?.toLowerCase()
     );
     if (i > -1) {
-      skills[i] = new Cp2020PlayerSkill(skill);
+      skills[i] = new Cp2020PlayerSkill(skillUpdate.update);
     }
     this.skills = [...skills];
   }

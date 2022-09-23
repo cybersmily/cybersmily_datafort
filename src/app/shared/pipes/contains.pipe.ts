@@ -19,7 +19,6 @@ export class ContainsPipe implements PipeTransform {
         case 'string':
           return obj[property].toLowerCase().includes(value.toLowerCase());
         case 'number':
-          console.log(value);
           return obj[property] === value;
         case 'boolean':
           return obj[property] === value;

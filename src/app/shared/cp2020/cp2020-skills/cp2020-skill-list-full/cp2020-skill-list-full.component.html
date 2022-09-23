@@ -1,20 +1,42 @@
 <div class="chargen-section">
   <div class="cp2020-label row g-0">
     <div class="col-4">
-      <h4 class="d-inline-block csd-btn" (click)="isCollapsed = !isCollapsed" (keyup.enter)="isCollapsed = !isCollapsed" tabindex="0">
+      <h4
+        class="d-inline-block csd-btn"
+        (click)="isCollapsed = !isCollapsed"
+        (keyup.enter)="isCollapsed = !isCollapsed"
+        tabindex="0"
+      >
         SKILLS
-        <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ms-2"></fa-icon>
+        <fa-icon
+          [icon]="collapseChevron"
+          class="csd-icon-btn csd-icon-xl ms-2"
+        ></fa-icon>
       </h4>
-
     </div>
     <div *ngIf="!isCollapsed" class="col-4 small fw-normal">
-      <fa-icon [icon]="faSearch" class="csd-icon-btn csd-icon-sm d-inline-block ms-1 mt-1" style="position:absolute;z-index:100"></fa-icon>
-      <input type="search" class="w-100 ps-4 d-inline-block" placeholder="Search for skill..." [(ngModel)]="skillFilter" tabindex="0">
+      <fa-icon
+        [icon]="faSearch"
+        class="csd-icon-btn csd-icon-sm d-inline-block ms-1 mt-1"
+        style="position: absolute; z-index: 100"
+      ></fa-icon>
+      <input
+        type="search"
+        class="w-100 ps-4 d-inline-block"
+        placeholder="Search for skill..."
+        [(ngModel)]="skillFilter"
+        tabindex="0"
+      />
     </div>
     <div class="col-2"></div>
     <div *ngIf="!isCollapsed" class="col-2 small">
-      <input [(ngModel)]="currentSkills.ip" type="number" class="chargen-general-ip-input ms-1 w-50 float-end"
-      (change)="onChangeSkill()"  tabindex="0"/>
+      <input
+        [(ngModel)]="currentSkills.ip"
+        type="number"
+        class="chargen-general-ip-input ms-1 w-50 float-end"
+        (change)="onChangeSkill(null, null)"
+        tabindex="0"
+      />
       <span class="d-none d-md-block small pe-0 ps-0 text-end float-end">
         General IP:
       </span>
@@ -23,49 +45,120 @@
   <div [collapse]="isCollapsed">
     <div class="row border border-dark g-0">
       <div class="col-12 small chargen-skills-instructions">
-        <span [ngClass]="{'text-danger': currentSkills.RoleTotal &gt; currentSettings.roleSkillPoints}">[ROLE: {{currentSkills.RoleTotal}} of {{currentSettings.roleSkillPoints}}]</span>
-        <span [ngClass]="{'text-danger': currentSkills.OtherTotal &gt; currentSettings.secondarySkillPoints}">[SECONDARY: {{currentSkills.OtherTotal}} of {{currentSettings.secondarySkillPoints }}]</span>
+        <span
+          [ngClass]="{'text-danger': currentSkills.RoleTotal &gt; currentSettings.roleSkillPoints}"
+          >[ROLE: {{ currentSkills.RoleTotal }} of
+          {{ currentSettings.roleSkillPoints }}]</span
+        >
+        <span
+          [ngClass]="{'text-danger': currentSkills.OtherTotal &gt; currentSettings.secondarySkillPoints}"
+          >[SECONDARY: {{ currentSkills.OtherTotal }} of
+          {{ currentSettings.secondarySkillPoints }}]</span
+        >
         <span>
-          (#) is the combined stat + skill. [#] is the skill level. Checkbox is if chipped. Role skills are highlighted
-          with *, @ is choose one as role, ! is for secondary skill.</span>
+          (#) is the combined stat + skill. [#] is the skill level. Checkbox is
+          if chipped. Role skills are highlighted with *, @ is choose one as
+          role, ! is for secondary skill.</span
+        >
       </div>
     </div>
 
-    <cs-cp2020-skill-stat-section [title]="'SPECIAL ABILITIES'" [skills]="currentSkills.specialAbilites | contains:'name':skillFilter"
-      [sa]="true" [showAddSkill]="skillFilter === ''"
-      (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)"
-      (deleteSkill)="onDeleteSkill($event)"></cs-cp2020-skill-stat-section>
-    <cs-cp2020-skill-stat-section [title]="'ATTR'" [stat]="stats.ATTR" [skills]="currentSkills.ATTR | contains:'name':skillFilter" [sa]="false"
-    [showAddSkill]="skillFilter === ''"
-      (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)">
-    </cs-cp2020-skill-stat-section>
-    <cs-cp2020-skill-stat-section [title]="'BODY'" [stat]="stats.BODY" [skills]="currentSkills.BODY | contains:'name':skillFilter" [sa]="false"
-    [showAddSkill]="skillFilter === ''"
-      (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)">
-    </cs-cp2020-skill-stat-section>
-    <cs-cp2020-skill-stat-section [title]="'COOL/WILL'" [stat]="stats.COOL" [skills]="currentSkills.COOL | contains:'name':skillFilter" [sa]="false"
+    <cs-cp2020-skill-stat-section
+      [title]="'SPECIAL ABILITIES'"
+      [skills]="currentSkills.specialAbilites | contains: 'name':skillFilter"
+      [sa]="true"
       [showAddSkill]="skillFilter === ''"
-      (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)">
+      (changeSkill)="onChangeSkill($event)"
+      (addSkill)="onNewSkill($event)"
+      (deleteSkill)="onDeleteSkill($event)"
+    ></cs-cp2020-skill-stat-section>
+    <cs-cp2020-skill-stat-section
+      [title]="'ATTR'"
+      [stat]="stats.ATTR"
+      [skills]="currentSkills.ATTR | contains: 'name':skillFilter"
+      [sa]="false"
+      [showAddSkill]="skillFilter === ''"
+      (changeSkill)="onChangeSkill($event)"
+      (addSkill)="onNewSkill($event)"
+      (deleteSkill)="onDeleteSkill($event)"
+    >
     </cs-cp2020-skill-stat-section>
-    <cs-cp2020-skill-stat-section [title]="'EMPATHY'" [stat]="stats.EMP" [skills]="currentSkills.EMP | contains:'name':skillFilter" [sa]="false"
-    [showAddSkill]="skillFilter === ''"
-      (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)">
+    <cs-cp2020-skill-stat-section
+      [title]="'BODY'"
+      [stat]="stats.BODY"
+      [skills]="currentSkills.BODY | contains: 'name':skillFilter"
+      [sa]="false"
+      [showAddSkill]="skillFilter === ''"
+      (changeSkill)="onChangeSkill($event)"
+      (addSkill)="onNewSkill($event)"
+      (deleteSkill)="onDeleteSkill($event)"
+    >
     </cs-cp2020-skill-stat-section>
-    <cs-cp2020-skill-stat-section [title]="'INT'" [stat]="stats.INT" [skills]="currentSkills.INT | contains:'name':skillFilter" [sa]="false"
-    [showAddSkill]="skillFilter === ''"
-      (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)">
+    <cs-cp2020-skill-stat-section
+      [title]="'COOL/WILL'"
+      [stat]="stats.COOL"
+      [skills]="currentSkills.COOL | contains: 'name':skillFilter"
+      [sa]="false"
+      [showAddSkill]="skillFilter === ''"
+      (changeSkill)="onChangeSkill($event)"
+      (addSkill)="onNewSkill($event)"
+      (deleteSkill)="onDeleteSkill($event)"
+    >
     </cs-cp2020-skill-stat-section>
-    <cs-cp2020-skill-stat-section [title]="'REF'" [stat]="stats.REF" [skills]="currentSkills.REF | contains:'name':skillFilter" [sa]="false"
-    [showAddSkill]="skillFilter === ''"
-      (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)">
+    <cs-cp2020-skill-stat-section
+      [title]="'EMPATHY'"
+      [stat]="stats.EMP"
+      [skills]="currentSkills.EMP | contains: 'name':skillFilter"
+      [sa]="false"
+      [showAddSkill]="skillFilter === ''"
+      (changeSkill)="onChangeSkill($event)"
+      (addSkill)="onNewSkill($event)"
+      (deleteSkill)="onDeleteSkill($event)"
+    >
     </cs-cp2020-skill-stat-section>
-    <cs-cp2020-skill-stat-section [title]="'TECH'" [stat]="stats.TECH" [skills]="currentSkills.TECH | contains:'name':skillFilter" [sa]="false"
-    [showAddSkill]="skillFilter === ''"
-      (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)">
+    <cs-cp2020-skill-stat-section
+      [title]="'INT'"
+      [stat]="stats.INT"
+      [skills]="currentSkills.INT | contains: 'name':skillFilter"
+      [sa]="false"
+      [showAddSkill]="skillFilter === ''"
+      (changeSkill)="onChangeSkill($event)"
+      (addSkill)="onNewSkill($event)"
+      (deleteSkill)="onDeleteSkill($event)"
+    >
     </cs-cp2020-skill-stat-section>
-    <cs-cp2020-skill-stat-section [title]="'OTHER'" [stat]="undefined" [skills]="currentSkills.Other | contains:'name':skillFilter" [sa]="false"
-    [showAddSkill]="skillFilter === ''"
-      (changeSkill)="onChangeSkill($event)" (addSkill)="onNewSkill($event)" (deleteSkill)="onDeleteSkill($event)">
+    <cs-cp2020-skill-stat-section
+      [title]="'REF'"
+      [stat]="stats.REF"
+      [skills]="currentSkills.REF | contains: 'name':skillFilter"
+      [sa]="false"
+      [showAddSkill]="skillFilter === ''"
+      (changeSkill)="onChangeSkill($event)"
+      (addSkill)="onNewSkill($event)"
+      (deleteSkill)="onDeleteSkill($event)"
+    >
+    </cs-cp2020-skill-stat-section>
+    <cs-cp2020-skill-stat-section
+      [title]="'TECH'"
+      [stat]="stats.TECH"
+      [skills]="currentSkills.TECH | contains: 'name':skillFilter"
+      [sa]="false"
+      [showAddSkill]="skillFilter === ''"
+      (changeSkill)="onChangeSkill($event)"
+      (addSkill)="onNewSkill($event)"
+      (deleteSkill)="onDeleteSkill($event)"
+    >
+    </cs-cp2020-skill-stat-section>
+    <cs-cp2020-skill-stat-section
+      [title]="'OTHER'"
+      [stat]="undefined"
+      [skills]="currentSkills.Other | contains: 'name':skillFilter"
+      [sa]="false"
+      [showAddSkill]="skillFilter === ''"
+      (changeSkill)="onChangeSkill($event)"
+      (addSkill)="onNewSkill($event)"
+      (deleteSkill)="onDeleteSkill($event)"
+    >
     </cs-cp2020-skill-stat-section>
   </div>
 </div>

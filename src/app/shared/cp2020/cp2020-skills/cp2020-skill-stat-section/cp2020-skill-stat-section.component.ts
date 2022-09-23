@@ -1,3 +1,4 @@
+import { Cp2020SkillUpdate } from './../models/cp2020-skill-update';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import {
   faPlus,
@@ -48,7 +49,7 @@ export class Cp2020SkillStatSectionComponent implements OnInit, OnChanges {
   showAddSkill: boolean = true;
 
   @Output()
-  changeSkill = new EventEmitter<Cp2020PlayerSkill>();
+  changeSkill = new EventEmitter<Cp2020SkillUpdate>();
 
   @Output()
   addSkill = new EventEmitter<Cp2020PlayerSkill>();
@@ -106,8 +107,8 @@ export class Cp2020SkillStatSectionComponent implements OnInit, OnChanges {
     return this.currSkills.slice(this.columnLength * 2);
   }
 
-  onChangeSkill(skill: Cp2020PlayerSkill) {
-    this.changeSkill.emit(new Cp2020PlayerSkill(skill));
+  onChangeSkill(skillUpdate: Cp2020SkillUpdate) {
+    this.changeSkill.emit(skillUpdate);
   }
 
   showModal(template: TemplateRef<any>) {

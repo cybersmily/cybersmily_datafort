@@ -1,3 +1,4 @@
+import { Cp2020SkillUpdate } from './../models/cp2020-skill-update';
 import {
   Component,
   OnInit,
@@ -50,7 +51,7 @@ export class Cp2020SkillComponent implements OnInit, OnChanges {
   sa = false;
 
   @Output()
-  changeSkill = new EventEmitter<Cp2020PlayerSkill>();
+  changeSkill = new EventEmitter<Cp2020SkillUpdate>();
 
   @Output()
   delete = new EventEmitter<Cp2020PlayerSkill>();
@@ -76,13 +77,12 @@ export class Cp2020SkillComponent implements OnInit, OnChanges {
   }
   ngOnChanges() {}
 
-  onChangeSkill(skill?: Cp2020PlayerSkill) {
-    const sk = skill ?? this.currSkill;
-    this.changeSkill.emit(new Cp2020PlayerSkill(sk));
+  onChangeSkill() {
+    this.changeSkill.emit(new Cp2020SkillUpdate(this.skill, this.currSkill));
   }
 
-  updateSkill(skill: Cp2020PlayerSkill): void {
-    this.currSkill = new Cp2020PlayerSkill(skill);
+  updateSkill(skillUpdate: Cp2020SkillUpdate): void {
+    this.currSkill = new Cp2020PlayerSkill(skillUpdate.update);
   }
 
   onClick(template: TemplateRef<any>) {
