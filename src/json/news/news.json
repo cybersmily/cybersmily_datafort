@@ -2,6 +2,13 @@
   "news": [
     {"date": "2022-09",
       "entries": [
+        "<strong>09-25</strong> - Some bug fixes to end the month off:",
+        "&nbsp;* Renaming option of blank Language, Exper, Martial Art skill failing.",
+        "&nbsp;* Net Arch for CP Red not loading saved json files.",
+        "&nbsp;* Generator for Maximum Metal not calculating Stealth Armor and Damage Control spaces/cost correctly.",
+        "&nbsp;* Removed auto sorting of siblings in the Charcter Generator for Cyberpunk 2020.",
+        "&nbsp;* Fixed IU RT calculation on the Character Generator for Cyberpunk 2020.",
+        "If you have ideas for enhancements to the apps or want to report a bug, head over to my Discord server (link up in right corner) and use the #datafort-bugs or #datafort-enhancements channels. Also, you can chat up on Cyberpunk topics in some of the other channels I have.",
         "<strong>09-17</strong> - Another release this month with the following:",
         "&nbsp;* New Contacts section to the Character Generator for Cyberpunk 2020. This includes the Big League and Hot Stuff areas if you have Streetdeal skill and a place to put generic contacts to the sheet.",
         "&nbsp;* Bug fix on Combat Tracker for Cyberpunk 2020. Issues with Armor. Now you can override the set limits on SP as well as edit armor in the tracker instead having to delete the piece and recreate.",
