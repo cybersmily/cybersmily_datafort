@@ -29,28 +29,41 @@ export class Cp2020ArmorBlock implements ArmorBlock {
   isLayerEVCalcEnabled: boolean = true;
 
   constructor(param?: any) {
-    this.armorPieces = param?.armorPieces?.map(piece => new Cp2020ArmorPiece(piece)) ?? new Array<Cp2020ArmorPiece>();
+    this.armorPieces =
+      param?.armorPieces?.map((piece) => new Cp2020ArmorPiece(piece)) ??
+      new Array<Cp2020ArmorPiece>();
     // used for backward compatible
     if (Array.isArray(param?.layers)) {
-      this.armorPieces = param.layers?.map(layer => new Cp2020ArmorPiece(layer));
-    } else if (param?.head > 0
-      || param?.torso > 0
-      || param?.rarm > 0
-      || param?.larm > 0
-      || param?.rleg > 0
-      || param?.lleg > 0) {
-      this.armorPieces.push(new Cp2020ArmorPiece({
-        name: 'Misc.',
-        head: param.head, torso: param.torso,
-        rarm: param.rarm, larm: param.larm,
-        rleg: param.rleg, lleg: param.lleg,
-        ev: 0, isHard: false, isSkinWeave: false, isActive: true
-      }));
+      this.armorPieces = param.layers?.map(
+        (layer) => new Cp2020ArmorPiece(layer)
+      );
+    } else if (
+      param?.head > 0 ||
+      param?.torso > 0 ||
+      param?.rarm > 0 ||
+      param?.larm > 0 ||
+      param?.rleg > 0 ||
+      param?.lleg > 0
+    ) {
+      this.armorPieces.push(
+        new Cp2020ArmorPiece({
+          name: 'Misc.',
+          head: param.head,
+          torso: param.torso,
+          rarm: param.rarm,
+          larm: param.larm,
+          rleg: param.rleg,
+          lleg: param.lleg,
+          ev: 0,
+          isHard: false,
+          isSkinWeave: false,
+          isActive: true,
+        })
+      );
     }
     this.isLayerEVCalcEnabled = param?.isLayerEVCalcEnabled ?? true;
     this.sdp = new Cp2020SDPBlock(param?.sdp);
   }
-
 
   /**
    * ev returns the total ev cost for all the layers
@@ -60,15 +73,28 @@ export class Cp2020ArmorBlock implements ArmorBlock {
    * @memberof Cp2020ArmorBlock
    */
   get ev(): number {
-    const torso = this.armorPieces.filter(l => l.locations?.torso > 0 && !l.isSkinWeave && l.isActive);
-    const legs = this.armorPieces.filter(l => (l.locations?.rleg > 0 || l.locations?.lleg > 0) && !l.isSkinWeave && l.isActive);
-    const arms = this.armorPieces.filter(l => (l.locations?.rarm > 0 || l.locations?.larm > 0) && !l.isSkinWeave && l.isActive);
-    let armorEv = this.armorPieces.reduce(((a, b) => {
+    const torso = this.armorPieces.filter(
+      (l) => l.locations?.torso > 0 && !l.isSkinWeave && l.isActive
+    )?.length;
+    const rleg = this.armorPieces.filter(
+      (l) => l.locations?.rleg > 0 && !l.isSkinWeave && l.isActive
+    )?.length;
+    const lleg = this.armorPieces.filter(
+      (l) => l.locations?.lleg > 0 && !l.isSkinWeave && l.isActive
+    )?.length;
+    const rarm = this.armorPieces.filter(
+      (l) => l.locations?.rarm > 0 && !l.isSkinWeave && l.isActive
+    )?.length;
+    const larm = this.armorPieces.filter(
+      (l) => l.locations?.larm > 0 && !l.isSkinWeave && l.isActive
+    )?.length;
+
+    let armorEv = this.armorPieces.reduce((a, b) => {
       return a + (b.isActive ? b.ev : 0);
-    }), 0);
-    const armor = torso.length > arms.length ? torso : (arms.length > legs.length ? arms : legs);
-    if(this.isLayerEVCalcEnabled) {
-      armorEv += (armor.length === 2) ? 1 : (armor.length === 3) ? 3 : 0;
+    }, 0);
+    const numOfLayers = Math.max(torso, rarm, larm, rleg, lleg);
+    if (this.isLayerEVCalcEnabled) {
+      armorEv += numOfLayers === 2 ? 1 : numOfLayers > 2 ? 3 : 0;
     }
     return armorEv;
   }
@@ -81,15 +107,15 @@ export class Cp2020ArmorBlock implements ArmorBlock {
    * @memberof Cp2020ArmorBlock
    */
   get activePieces(): Array<Cp2020ArmorPiece> {
-    return this.armorPieces.filter(l => l.isActive);
+    return this.armorPieces.filter((l) => l.isActive);
   }
 
   get armor(): Array<Cp2020ArmorPiece> {
-    return this.armorPieces.filter(piece => piece.baseSP > 0);
+    return this.armorPieces.filter((piece) => piece.baseSP > 0);
   }
 
   get clothing(): Array<Cp2020ArmorPiece> {
-    return this.armorPieces.filter(piece => piece.baseSP < 1);
+    return this.armorPieces.filter((piece) => piece.baseSP < 1);
   }
 
   addPiece(layer: Cp2020ArmorPiece) {
@@ -121,33 +147,40 @@ export class Cp2020ArmorBlock implements ArmorBlock {
   }
 
   ableToActivate(layer: Cp2020ArmorPiece): boolean {
-    const found = Object.keys(layer.locations).filter(location => {
-      return this.hasThreeLayer(location) || (layer.isHard && this.hasHardLayer(location))
+    const found = Object.keys(layer.locations).filter((location) => {
+      return (
+        this.hasThreeLayer(location) ||
+        (layer.isHard && this.hasHardLayer(location))
+      );
     });
     return found.length < 1;
   }
 
-
   hasThreeLayer(location: string): boolean {
-    const active = this.armorPieces
-      .filter(l => l.isActive && l.locations.hasOwnProperty(location));
-    return (active.length >= 3);
+    const active = this.armorPieces.filter(
+      (l) => l.isActive && l.locations.hasOwnProperty(location)
+    );
+    return active.length >= 3;
   }
 
   hasHardLayer(location: string): boolean {
-    return this.armorPieces.some(l => l.isActive && l.locations.hasOwnProperty(location) && l.isHard);
+    return this.armorPieces.some(
+      (l) => l.isActive && l.locations.hasOwnProperty(location) && l.isHard
+    );
   }
 
   removePiece(index: number) {
     this.armorPieces.splice(index, 1);
   }
 
-  repairArmorAllLocations(baseSP: number, locations:ArmorLocations): ArmorLocations {
+  repairArmorAllLocations(
+    baseSP: number,
+    locations: ArmorLocations
+  ): ArmorLocations {
     if (baseSP > 0 && locations) {
       const newlocations = {};
-      Object.keys(locations)
-        .forEach(loc => {
-          newlocations[loc] = baseSP;
+      Object.keys(locations).forEach((loc) => {
+        newlocations[loc] = baseSP;
       });
       return newlocations;
     }
@@ -180,7 +213,7 @@ export class Cp2020ArmorBlock implements ArmorBlock {
 
   getTotalSP(location: string): number {
     const activeArmor = this.armorPieces
-      .filter(l => l.isActive && l.locations?.[location])
+      .filter((l) => l.isActive && l.locations?.[location])
       .sort((a, b) => a.order - b.order);
 
     // can't have more than 3 layers.
@@ -190,7 +223,10 @@ export class Cp2020ArmorBlock implements ArmorBlock {
         if (i < 1) {
           sp = activeArmor[i].locations[location];
         } else {
-          sp = ProportionalSpTable.calculateNewSP(sp, activeArmor[i].locations[location]);
+          sp = ProportionalSpTable.calculateNewSP(
+            sp,
+            activeArmor[i].locations[location]
+          );
         }
       }
       return sp;
@@ -199,10 +235,11 @@ export class Cp2020ArmorBlock implements ArmorBlock {
   }
 
   damageSP(location: string, damage: number) {
-    this.armorPieces = this.armorPieces.map(layer => {
+    this.armorPieces = this.armorPieces.map((layer) => {
       if (layer.locations[location] !== undefined && layer.isActive) {
         layer.locations[location] -= damage;
-        layer.locations[location] = layer.locations[location] > 0 ? layer.locations[location] : 0;
+        layer.locations[location] =
+          layer.locations[location] > 0 ? layer.locations[location] : 0;
       }
       return layer;
     });
