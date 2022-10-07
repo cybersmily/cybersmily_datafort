@@ -35,21 +35,63 @@
   </div>
 </div>
 <div class="row">
-  <div class="col">
-    Cost:
-    <input type="number" class="csd-number" [(ngModel)]="currArmor.cost" />eb
+  <div class="col-12">
+    <span class="text-xsmall ms-2 align-middle">
+      <input
+        type="checkbox"
+        name="calc-cost"
+        [(ngModel)]="currArmor.isCalculatedCost"
+        (change)="update()"
+        (keypress)="update()"
+        title="Calculate the cost of the piece of clothing."
+      />
+      <label for="calc-cost" class="ps-2"> Calculated Cost, Weight, EV</label>
+    </span>
   </div>
-  <div class="col text-capitalize">
+</div>
+<div class="row">
+  <div class="col-12 col-md-4">
+    Cost:
+    <input
+      *ngIf="!currArmor?.isCalculatedCost"
+      type="number"
+      class="csd-number"
+      [(ngModel)]="currArmor.cost"
+    />
+    <span class="csd-number" *ngIf="currArmor?.isCalculatedCost">{{
+      currArmor.cost | number
+    }}</span
+    >eb
+  </div>
+  <div class="col-6 col-md-5 text-capitalize p-0">
     Weight:
-    <select [(ngModel)]="currArmor.clothes.wt">
+    <select
+      *ngIf="!currArmor?.isCalculatedCost"
+      [(ngModel)]="selectedWeight"
+      (change)="update()"
+    >
       <option value=""></option>
       <option value="lt">Light</option>
       <option value="med">Medium</option>
       <option value="hvy">Heavy</option>
     </select>
+    <span *ngIf="currArmor?.isCalculatedCost" class="ps-2">{{
+      currWeight
+    }}</span>
   </div>
-  <div class="col-3">
-    EV: <input type="number" class="csd-number" [(ngModel)]="currArmor.ev" />
+  <div class="col-6 col-md-3">
+    EV:
+    <input
+      *ngIf="!currArmor?.isCalculatedCost"
+      type="number"
+      class="csd-number"
+      [(ngModel)]="currArmor.ev"
+      (change)="update()"
+      (keypress)="update()"
+    />
+    <span *ngIf="currArmor?.isCalculatedCost" class="ps-2">{{
+      currArmor.ev
+    }}</span>
   </div>
 </div>
 <div class="row mb-2">

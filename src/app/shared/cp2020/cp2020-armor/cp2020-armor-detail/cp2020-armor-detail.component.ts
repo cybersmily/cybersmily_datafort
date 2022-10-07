@@ -53,6 +53,7 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
   selectedClothing: PieceOfClothing;
   selectedQuality: ArmorOption;
   selectedStyle: ArmorOption;
+  selectedWeight: string;
   settings = new CP2020ArmorRandomSettings();
   isOverrideSP = false;
 
@@ -77,8 +78,23 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
         value?.sp,
         this.currArmor.clothes.loc
       );
-      this.currArmor.ev = value?.ev[this.currArmor.clothes.wt] ?? 0;
+      if (this.currArmor.isCalculatedCost) {
+        this.currArmor.ev = value?.ev[this.currArmor.clothes.wt] ?? 0;
+      }
       this.update();
+    }
+  }
+
+  get currWeight(): string {
+    switch (this.currArmor.clothes.wt) {
+      case 'lt':
+        return 'Light';
+      case 'med':
+        return 'Medium';
+      case 'hvy':
+        return 'Heavy';
+      default:
+        return '';
     }
   }
 
@@ -106,6 +122,7 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.currArmor = new Cp2020ArmorPiece(this.armor);
+    this.selectedWeight = this.currArmor.clothes?.wt ?? '';
     this.armorDataAttributesService.getData().subscribe((data) => {
       this.armorAttributes = new Cp2020ArmorAttributeLists(data);
       this.setSelected();
@@ -125,6 +142,9 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
 
   changeClothing() {
     this.currArmor.clothes = this.selectedClothing;
+    if (this.currArmor.isCalculatedCost) {
+      this.selectedWeight = this.currArmor.clothes?.wt ?? '';
+    }
     this.spValues = this.armorAttributes.armorChart.filter(
       (sp) => sp.mod[this.currArmor.clothes.wt] !== undefined
     );
@@ -172,10 +192,13 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
   update() {
     this.currArmor.style = this.selectedStyle ?? { name: '', mod: 1 };
     this.currArmor.quality = this.selectedQuality ?? { name: '', mod: 1 };
-    this.currArmor.cost = this.armorCalculatorService.calculateCost(
-      this.currArmor,
-      this.armorAttributes.armorChart
-    );
+    this.currArmor.clothes.wt = this.selectedWeight ?? '';
+    if (this.currArmor?.isCalculatedCost) {
+      this.currArmor.cost = this.armorCalculatorService.calculateCost(
+        this.currArmor,
+        this.armorAttributes.armorChart
+      );
+    }
     this.updateArmor.emit(this.currArmor);
   }
 

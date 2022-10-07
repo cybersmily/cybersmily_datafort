@@ -20,6 +20,7 @@ export class Cp2020ArmorPiece implements ArmorPiece {
   isSkinWeave: boolean;
   isLeather: boolean;
   isSPOverride?: boolean;
+  isCalculatedCost?: boolean;
   cost: number;
   source?: SourceBook;
 
@@ -57,7 +58,7 @@ export class Cp2020ArmorPiece implements ArmorPiece {
     this.isSkinWeave = param?.isSkinWeave ?? false;
     this.isLeather = param?.isLeather ?? false;
     this.isSPOverride = param?.isSPOverride ?? false;
-
+    this.isCalculatedCost = param?.isCalculatedCost ?? false;
     this.cost = param?.cost ?? 0;
 
     const locations = new Array<string>();
