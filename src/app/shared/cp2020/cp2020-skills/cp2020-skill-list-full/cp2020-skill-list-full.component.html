@@ -27,6 +27,18 @@
         [(ngModel)]="skillFilter"
         tabindex="0"
       />
+      <br />
+      <input
+        name="showSkillsWithValue"
+        type="checkbox"
+        class="d-inline-block"
+        [(ngModel)]="currentSkills.showWithValues"
+        tabindex="0"
+        (change)="toggleSkillValueFilter()"
+      />
+      <label for="showSkillsWithValue" class="small ms-2"
+        >Show Only Skills with Rank</label
+      >
     </div>
     <div class="col-2"></div>
     <div *ngIf="!isCollapsed" class="col-2 small">
@@ -65,7 +77,11 @@
 
     <cs-cp2020-skill-stat-section
       [title]="'SPECIAL ABILITIES'"
-      [skills]="currentSkills.specialAbilites | contains: 'name':skillFilter"
+      [skills]="
+        specialAbilities
+          | contains: 'name':skillFilter
+          | greaterThan: skillValueFilter:0
+      "
       [sa]="true"
       [showAddSkill]="skillFilter === ''"
       (changeSkill)="onChangeSkill($event)"
@@ -75,7 +91,11 @@
     <cs-cp2020-skill-stat-section
       [title]="'ATTR'"
       [stat]="stats.ATTR"
-      [skills]="currentSkills.ATTR | contains: 'name':skillFilter"
+      [skills]="
+        currentSkills.ATTR
+          | contains: 'name':skillFilter
+          | greaterThan: skillValueFilter:0
+      "
       [sa]="false"
       [showAddSkill]="skillFilter === ''"
       (changeSkill)="onChangeSkill($event)"
@@ -86,7 +106,11 @@
     <cs-cp2020-skill-stat-section
       [title]="'BODY'"
       [stat]="stats.BODY"
-      [skills]="currentSkills.BODY | contains: 'name':skillFilter"
+      [skills]="
+        currentSkills.BODY
+          | contains: 'name':skillFilter
+          | greaterThan: skillValueFilter:0
+      "
       [sa]="false"
       [showAddSkill]="skillFilter === ''"
       (changeSkill)="onChangeSkill($event)"
@@ -97,7 +121,11 @@
     <cs-cp2020-skill-stat-section
       [title]="'COOL/WILL'"
       [stat]="stats.COOL"
-      [skills]="currentSkills.COOL | contains: 'name':skillFilter"
+      [skills]="
+        currentSkills.COOL
+          | contains: 'name':skillFilter
+          | greaterThan: skillValueFilter:0
+      "
       [sa]="false"
       [showAddSkill]="skillFilter === ''"
       (changeSkill)="onChangeSkill($event)"
@@ -108,7 +136,11 @@
     <cs-cp2020-skill-stat-section
       [title]="'EMPATHY'"
       [stat]="stats.EMP"
-      [skills]="currentSkills.EMP | contains: 'name':skillFilter"
+      [skills]="
+        currentSkills.EMP
+          | contains: 'name':skillFilter
+          | greaterThan: skillValueFilter:0
+      "
       [sa]="false"
       [showAddSkill]="skillFilter === ''"
       (changeSkill)="onChangeSkill($event)"
@@ -119,7 +151,11 @@
     <cs-cp2020-skill-stat-section
       [title]="'INT'"
       [stat]="stats.INT"
-      [skills]="currentSkills.INT | contains: 'name':skillFilter"
+      [skills]="
+        currentSkills.INT
+          | contains: 'name':skillFilter
+          | greaterThan: skillValueFilter:0
+      "
       [sa]="false"
       [showAddSkill]="skillFilter === ''"
       (changeSkill)="onChangeSkill($event)"
@@ -130,7 +166,11 @@
     <cs-cp2020-skill-stat-section
       [title]="'REF'"
       [stat]="stats.REF"
-      [skills]="currentSkills.REF | contains: 'name':skillFilter"
+      [skills]="
+        currentSkills.REF
+          | contains: 'name':skillFilter
+          | greaterThan: skillValueFilter:0
+      "
       [sa]="false"
       [showAddSkill]="skillFilter === ''"
       (changeSkill)="onChangeSkill($event)"
@@ -141,7 +181,11 @@
     <cs-cp2020-skill-stat-section
       [title]="'TECH'"
       [stat]="stats.TECH"
-      [skills]="currentSkills.TECH | contains: 'name':skillFilter"
+      [skills]="
+        currentSkills.TECH
+          | contains: 'name':skillFilter
+          | greaterThan: skillValueFilter:0
+      "
       [sa]="false"
       [showAddSkill]="skillFilter === ''"
       (changeSkill)="onChangeSkill($event)"
@@ -152,7 +196,11 @@
     <cs-cp2020-skill-stat-section
       [title]="'OTHER'"
       [stat]="undefined"
-      [skills]="currentSkills.Other | contains: 'name':skillFilter"
+      [skills]="
+        currentSkills.Other
+          | contains: 'name':skillFilter
+          | greaterThan: skillValueFilter:0
+      "
       [sa]="false"
       [showAddSkill]="skillFilter === ''"
       (changeSkill)="onChangeSkill($event)"

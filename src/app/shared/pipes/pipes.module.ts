@@ -13,6 +13,7 @@ import { SanitizeHtmlPipe } from './sanitize-html.pipe';
 import { FilterbyPipe } from './filterby.pipe';
 import { HasValuePipe } from './has-value.pipe';
 import { OrderByPropsPipe } from './order-by-props.pipe';
+import { GreaterThanPipe } from './greater-than.pipe';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { OrderByPropsPipe } from './order-by-props.pipe';
     FilterbyPipe,
     HasValuePipe,
     OrderByPropsPipe,
+    GreaterThanPipe,
   ],
   imports: [CommonModule],
   exports: [
@@ -45,6 +47,7 @@ import { OrderByPropsPipe } from './order-by-props.pipe';
     SanitizeHtmlPipe,
     HasValuePipe,
     OrderByPropsPipe,
+    GreaterThanPipe,
   ],
 })
 export class PipesModule {}

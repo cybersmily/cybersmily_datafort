@@ -152,6 +152,7 @@ export class Cp2020CharacterGeneratorService {
       this._currCharacter.skills.calculateTotals();
       this._currCharacter.skills.ip = value.skills.ip;
       this._currCharacter.skills.rep = value.skills.rep;
+      this._currCharacter.skills.showWithValues = value.skills.showWithValues;
     }
     // update contacts
     this._currCharacter.contacts = new Cp2020PlayerContacts(value?.contacts);

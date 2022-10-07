@@ -4,6 +4,7 @@ import { Cp2020PlayerSkill } from './cp2020-player-skill';
 export class Cp2020PlayerSkills {
   RoleTotal: number;
   OtherTotal: number;
+  showWithValues: boolean;
   skills: Array<Cp2020PlayerSkill>;
 
   rep: number;
@@ -14,6 +15,7 @@ export class Cp2020PlayerSkills {
     this.initiateSkills(dataList, includeOther);
     this.RoleTotal = 0;
     this.OtherTotal = 0;
+    this.showWithValues = false;
     this.rep = 1;
     this.ip = 0;
   }
@@ -21,6 +23,7 @@ export class Cp2020PlayerSkills {
   import(playerSkills: Cp2020PlayerSkills) {
     this.RoleTotal = playerSkills.RoleTotal;
     this.OtherTotal = playerSkills.OtherTotal;
+    this.showWithValues = playerSkills?.showWithValues ?? false;
     this.rep = playerSkills.rep;
     this.ip = playerSkills.ip;
     this.importSkills(playerSkills.skills);

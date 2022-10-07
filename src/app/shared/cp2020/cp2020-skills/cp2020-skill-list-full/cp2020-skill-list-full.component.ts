@@ -51,6 +51,14 @@ export class Cp2020SkillListFullComponent implements OnInit, OnChanges {
   currentSkills: Cp2020PlayerSkills = new Cp2020PlayerSkills();
   currentSettings = new Cp2020SkillListSettings();
   skillFilter: string = '';
+  skillValueFilter: string;
+
+  get specialAbilities(): Array<Cp2020PlayerSkill> {
+    if (this.currentSkills.showWithValues) {
+      return this.currentSkills.specialAbilites.filter((sk) => sk.value > 0);
+    }
+    return this.currentSkills.specialAbilites;
+  }
 
   constructor() {}
 
@@ -60,6 +68,7 @@ export class Cp2020SkillListFullComponent implements OnInit, OnChanges {
     this.skillSettings.int = this.stats.INT.Base;
     this.currentSettings = new Cp2020SkillListSettings(this.skillSettings);
     this.currentSkills.import(this.skills);
+    this.skillValueFilter = this.currentSkills.showWithValues ? 'value' : null;
   }
 
   ngOnChanges() {
@@ -68,6 +77,7 @@ export class Cp2020SkillListFullComponent implements OnInit, OnChanges {
     this.skillSettings.int = this.stats.INT.Base;
     this.currentSettings = new Cp2020SkillListSettings(this.skillSettings);
     this.currentSkills.import(this.skills);
+    this.skillValueFilter = this.currentSkills.showWithValues ? 'value' : null;
   }
 
   onChangeSkill(skillUpdate?: Cp2020SkillUpdate) {
@@ -84,6 +94,11 @@ export class Cp2020SkillListFullComponent implements OnInit, OnChanges {
 
   onDeleteSkill(skill: Cp2020PlayerSkill) {
     this.currentSkills.deleteSkill(skill);
+    this.onChangeSkill();
+  }
+
+  toggleSkillValueFilter(): void {
+    this.skillValueFilter = this.currentSkills.showWithValues ? 'value' : null;
     this.onChangeSkill();
   }
 }
