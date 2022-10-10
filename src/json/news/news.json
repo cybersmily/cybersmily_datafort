@@ -1,5 +1,16 @@
 ﻿{
   "news": [
+    {"date": "2022-10",
+      "entries": [
+        "<strong>10-10</strong> - bug fixes and enhancements to the character generator for 2020:",
+        "&nbsp;* Add check box to show just the skills with points in them.",
+        "&nbsp;* Armor section allows to either calculate the EV/Cost/Weight of a piece or allow the player to customize the values.",
+        "&nbsp;* Bug fix on armor section too, the EV will not count different pieces of armor on different limbs as a different layer for EV. So if you have a left arm piece with SP 20 and a right arm with SP 12, the EV won't see them as differnt layers for stacking purposes.",
+        "Again, plugging Wisdom000 and my VOD cast: Tales from the Forlorn Dopes. Check it out live every 1st/3rd Wednesday of the month on <a href='https://www.twitch.tv/cybernationuncensored'>Cybernation Uncensored twitch</a> at 7PM EST/12AM GMT/4PM PST or watch them on <a href=\"https://www.youtube.com/c/CybernationUncensored\">Cybernation Uncensored's Youtube Channel</a>.",
+        "Till next time gatos.",
+        "CYBER :D"
+      ]
+    },
     {"date": "2022-09",
       "entries": [
         "<strong>09-25</strong> - Some bug fixes to end the month off:",
