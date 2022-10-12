@@ -1,5 +1,6 @@
 export interface NightMarketEntry {
   name: string;
-  weight: number;
+  weight?: number;
   price?: number;
+  required?: NightMarketEntry;
 }

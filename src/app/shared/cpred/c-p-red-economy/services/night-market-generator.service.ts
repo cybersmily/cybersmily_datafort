@@ -9,6 +9,7 @@ import {
 } from '../models';
 import { of, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { time } from 'console';
 
 @Injectable({
   providedIn: 'root',
@@ -91,9 +92,18 @@ export class NightMarketGeneratorService {
         : numberOfItems;
     let items = chart.chart.slice();
     for (let i = 0; i < count; i++) {
-      const roll = this.roll(items.length - 1);
-      results.push(this.formatItem(items[roll]));
-      items.splice(roll, 1); // remove the item so
+      let roll;
+      let item;
+      // check to make sure a duplicate isn't added.
+      do {
+        roll = this.roll(items.length - 1);
+        item = items[roll];
+      } while (results.includes(this.formatItem(item)));
+      results.push(this.formatItem(item));
+
+      if (item?.required && !results.includes(this.formatItem(item.required))) {
+        results.push(this.formatItem(item.required));
+      }
     }
     return results.sort((a, b) =>
       a.toLowerCase().localeCompare(b.toLowerCase())
