@@ -13,6 +13,7 @@ import { CpRedLifepathDisplayComponent } from './components/cp-red-lifepath-disp
     CpRedLifepathDisplayComponent,
   ],
   imports: [CommonModule, CommonUiModule],
+  providers: [CPRedLifePathService, DiceService],
   exports: [
     CpRedLifepathCoreComponent,
     CpRedLifepathJumpstartComponent,
