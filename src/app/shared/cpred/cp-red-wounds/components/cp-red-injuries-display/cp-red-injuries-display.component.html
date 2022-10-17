@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-12" (click)="isCollapsed = !isCollapsed">
     <h5 class="d-inline-block">
-      Critical Injuries ({{ criticalInjuries.length }})
+      Critical Injuries ({{ criticalInjuries?.length }})
     </h5>
     <button class="csd-icon-btn me-2">
       <fa-icon [icon]="isCollapsed ? faChevronRight : faChevronDown"></fa-icon>

@@ -23,15 +23,15 @@ export class CpRedInjuriesDisplayComponent implements OnInit {
   @Input()
   criticalInjuries: Array<CpRedCharacterCriticalInjury>;
 
-  currInjuries: Array<CpRedCharacterCriticalInjury> =
-    new Array<CpRedCharacterCriticalInjury>();
+  currInjuries: Array<CpRedCharacterCriticalInjury>;
 
   constructor(private woundManager: CpRedWoundsManagerService) {}
 
   ngOnInit(): void {
-    this.currInjuries = this.criticalInjuries.map(
-      (injury) => new CpRedCharacterCriticalInjury(injury)
-    );
+    this.currInjuries =
+      this.criticalInjuries?.map(
+        (injury) => new CpRedCharacterCriticalInjury(injury)
+      ) ?? new Array<CpRedCharacterCriticalInjury>();
   }
 
   add(injury: CpRedCharacterCriticalInjury): void {

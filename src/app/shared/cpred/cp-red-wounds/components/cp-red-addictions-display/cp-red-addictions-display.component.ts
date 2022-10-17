@@ -10,8 +10,6 @@ import {
   Component,
   Input,
   OnInit,
-  Output,
-  EventEmitter,
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
@@ -37,15 +35,15 @@ export class CpRedAddictionsDisplayComponent implements OnInit, OnChanges {
   @Input()
   addictions: Array<CpRedCharacterAddiction>;
 
-  currAddictions: Array<CpRedCharacterAddiction> =
-    new Array<CpRedCharacterAddiction>();
+  currAddictions: Array<CpRedCharacterAddiction>;
 
   constructor(private woundManager: CpRedWoundsManagerService) {}
 
   ngOnInit(): void {
-    this.currAddictions = this.addictions.map(
-      (addiction) => new CpRedCharacterAddiction(addiction)
-    );
+    this.currAddictions =
+      this.addictions?.map(
+        (addiction) => new CpRedCharacterAddiction(addiction)
+      ) ?? new Array<CpRedCharacterAddiction>();
   }
 
   ngOnChanges(changes: SimpleChanges): void {

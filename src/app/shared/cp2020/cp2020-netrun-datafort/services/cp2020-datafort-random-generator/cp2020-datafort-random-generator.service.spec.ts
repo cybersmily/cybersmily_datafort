@@ -1,3 +1,5 @@
+import { DataService } from './../../../../services/file-services/dataservice/data.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { DiceService } from '../../../../services/dice/dice.service';
 import { TestBed } from '@angular/core/testing';
 
@@ -8,7 +10,8 @@ describe('Cp2020DatafortRandomGeneratorService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [DiceService],
+      imports: [HttpClientTestingModule],
+      providers: [DiceService, DataService],
     });
     service = TestBed.inject(Cp2020DatafortRandomGeneratorService);
   });

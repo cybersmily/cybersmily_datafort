@@ -1,3 +1,8 @@
+import { CpRedWoundsManagerService } from './../../services/cp-red-wounds-manager/cp-red-wounds-manager.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
+import { CommonUiModule } from './../../../../modules/common-ui/common-ui.module';
+import { CpRedWoundsModule } from './../../cp-red-wounds.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CpRedWoundsDisplayComponent } from './cp-red-wounds-display.component';
@@ -8,9 +13,15 @@ describe('CpRedWoundsDisplayComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CpRedWoundsDisplayComponent ]
-    })
-    .compileComponents();
+      declarations: [CpRedWoundsDisplayComponent],
+      imports: [
+        CpRedWoundsModule,
+        CommonUiModule,
+        CommonModule,
+        BrowserAnimationsModule,
+      ],
+      providers: [CpRedWoundsManagerService],
+    }).compileComponents();
   });
 
   beforeEach(() => {

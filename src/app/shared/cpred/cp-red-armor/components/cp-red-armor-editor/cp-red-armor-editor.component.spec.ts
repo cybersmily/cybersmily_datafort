@@ -1,3 +1,5 @@
+import { CommonUiModule } from './../../../../modules/common-ui/common-ui.module';
+import { CpRedArmorModule } from './../../cp-red-armor.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CpRedArmorEditorComponent } from './cp-red-armor-editor.component';
@@ -8,9 +10,9 @@ describe('CpRedArmorEditorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CpRedArmorEditorComponent ]
-    })
-    .compileComponents();
+      declarations: [CpRedArmorEditorComponent],
+      imports: [CpRedArmorModule, CommonUiModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

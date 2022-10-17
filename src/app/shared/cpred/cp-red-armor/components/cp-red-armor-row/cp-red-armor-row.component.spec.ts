@@ -1,3 +1,6 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonUiModule } from './../../../../modules/common-ui/common-ui.module';
+import { CpRedArmorModule } from './../../cp-red-armor.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CpRedArmorRowComponent } from './cp-red-armor-row.component';
@@ -8,9 +11,9 @@ describe('CpRedArmorRowComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CpRedArmorRowComponent ]
-    })
-    .compileComponents();
+      declarations: [CpRedArmorRowComponent],
+      imports: [CpRedArmorModule, CommonUiModule, BrowserAnimationsModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

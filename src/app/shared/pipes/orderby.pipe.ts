@@ -34,16 +34,13 @@ export class OrderbyPipe implements PipeTransform {
     if (typeof args[0] === 'string') {
       const property = args[0];
       const descending = args[1];
-      if (descending) {
-        return value
-          .sort((a, b) => {
-            return this.sortString(a, b, property);
-          })
-          .reverse();
-      }
-      return value.sort((a, b) => {
+      const result = value.sort((a, b) => {
         return this.sortString(a, b, property);
       });
+      if (descending) {
+        return result.reverse();
+      }
+      return result;
     }
     if (Array.isArray(args[0]) && args[0].length > 0 && args[0][0].prop) {
       const properties = args[0];
@@ -60,7 +57,7 @@ export class OrderbyPipe implements PipeTransform {
         ?.toLowerCase()
         .localeCompare(b[property].toLowerCase());
     }
-    return a[property] < b[property] ? 1 : -1;
+    return a[property] < b[property] ? -1 : 1;
   }
 
   recursiveSort(item1, item2, properties: Array<any>): number {

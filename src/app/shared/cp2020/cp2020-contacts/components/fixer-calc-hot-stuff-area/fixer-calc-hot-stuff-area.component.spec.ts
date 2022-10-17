@@ -1,4 +1,4 @@
-import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
+import { CommonUiModule } from './../../../../modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { FixerCalcHotStuffAreaComponent } from './fixer-calc-hot-stuff-area.component';
@@ -9,12 +9,9 @@ describe('FixerCalcHotStuffAreaComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ FixerCalcHotStuffAreaComponent ],
-      imports: [
-        CommonUiModule
-      ]
-    })
-    .compileComponents();
+      declarations: [FixerCalcHotStuffAreaComponent],
+      imports: [CommonUiModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

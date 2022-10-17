@@ -1,7 +1,9 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CpRedSkillsModule } from './../../cp-red-skills.module';
+import { CommonUiModule } from './../../../../modules/common-ui/common-ui.module';
 import { PipesModule } from './../../../../pipes/pipes.module';
 import { DataService } from './../../../../services/file-services/dataservice/data.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { CpRedSkillDataService } from './../../services/cp-red-skill-data/cp-red-skill-data.service';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CpRedSkillsComponent } from './cp-red-skills.component';
@@ -13,8 +15,14 @@ describe('CpRedSkillsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [CpRedSkillsComponent],
-      imports: [HttpClientTestingModule, PipesModule],
-      providers: [CpRedSkillDataService, DataService],
+      imports: [
+        HttpClientTestingModule,
+        CpRedSkillsModule,
+        CommonUiModule,
+        BrowserAnimationsModule,
+        PipesModule,
+      ],
+      providers: [DataService],
     }).compileComponents();
   });
 

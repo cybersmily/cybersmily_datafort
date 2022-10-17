@@ -1,4 +1,4 @@
-import { Cp2020ContactsModule } from './../../shard/cp2020/cp2020-contacts/cp2020-contacts.module';
+import { Cp2020ContactsModule } from './../../shared/cp2020/cp2020-contacts/cp2020-contacts.module';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { DataService } from './../../shared/services/file-services';
 import { HttpClientTestingModule } from '@angular/common/http/testing';

@@ -1,4 +1,6 @@
+import { CommonUiModule } from './../../../../modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { CpRedRolesModule } from './../../cp-red-roles.module';
 
 import { CpRedRoleEditorComponent } from './cp-red-role-editor.component';
 
@@ -8,9 +10,9 @@ describe('CpRedRoleEditorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CpRedRoleEditorComponent ]
-    })
-    .compileComponents();
+      declarations: [CpRedRoleEditorComponent],
+      imports: [CpRedRolesModule, CommonUiModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

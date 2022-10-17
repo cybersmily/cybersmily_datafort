@@ -32,12 +32,7 @@ export class CpRedWoundsDisplayComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.wounds$ = this.woundsManager.wounds$.pipe(
-      map((wounds) => {
-        
-        return wounds;
-      })
-    );
+    this.wounds$ = this.woundsManager?.wounds$;
   }
 
   updateCurrHitPoints(event: any): void {

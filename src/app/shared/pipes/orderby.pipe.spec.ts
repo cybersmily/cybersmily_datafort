@@ -50,7 +50,6 @@ describe('OrderbyPipe', () => {
     expect(arr[8]).toEqual(9);
   });
 
-
   it('should return sorted non-object array decending', () => {
     let arr = pipe.transform(stringArray, true);
     expect(arr[2]).toEqual('hello');
@@ -62,6 +61,7 @@ describe('OrderbyPipe', () => {
     expect(arr[1]).toEqual(8);
     expect(arr[0]).toEqual(9);
   });
+
   describe('Sort object array', () => {
     describe('Ascending', () => {
       it('should sort on name', () => {
@@ -86,7 +86,6 @@ describe('OrderbyPipe', () => {
       });
     });
     describe('Descending', () => {
-
       it('should sort on name', () => {
         const arr = pipe.transform(objArray, 'name', true);
         expect(arr[8].name).toEqual('test1');
@@ -107,11 +106,6 @@ describe('OrderbyPipe', () => {
         expect(arr[0].name).toEqual('test5');
         expect(arr[0].id).toEqual(9);
       });
-
     });
-
   });
-
-
-
 });
