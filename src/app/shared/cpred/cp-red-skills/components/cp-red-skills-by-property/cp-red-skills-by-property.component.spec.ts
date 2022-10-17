@@ -1,3 +1,5 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonUiModule } from './../../../../modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CpRedSkillsByPropertyComponent } from './cp-red-skills-by-property.component';
@@ -8,9 +10,9 @@ describe('CpRedSkillsByPropertyComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CpRedSkillsByPropertyComponent ]
-    })
-    .compileComponents();
+      declarations: [CpRedSkillsByPropertyComponent],
+      imports: [CommonUiModule, BrowserAnimationsModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

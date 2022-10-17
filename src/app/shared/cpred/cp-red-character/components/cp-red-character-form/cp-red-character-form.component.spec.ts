@@ -1,3 +1,5 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonUiModule } from './../../../../modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CpRedCharacterFormComponent } from './cp-red-character-form.component';
@@ -8,9 +10,9 @@ describe('CpRedCharacterFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CpRedCharacterFormComponent ]
-    })
-    .compileComponents();
+      declarations: [CpRedCharacterFormComponent],
+      imports: [CommonUiModule, BrowserAnimationsModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {
