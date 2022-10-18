@@ -1,0 +1,82 @@
+<div class="row mb-3">
+  <div class="col">
+    <div class="row">
+      <div class="col">
+        <h5 class="cp2020-label d-inline-block">Haggling</h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-5">
+        Character:
+        <select [(ngModel)]="selectedPlayerSkill">
+          <option *ngFor="let skill of playerSkills" [ngValue]="skill">
+            {{ skill?.name }}
+          </option>
+        </select>
+        <span class="mx-2">{{ selectedPlayerSkill?.value }}</span
+        >+ <span class="mx-2">{{ cool }}</span>
+      </div>
+      <div class="col-1 text-center">VS</div>
+      <div class="col-11 col-md-5">
+        Buyer/Seller:
+        <select [(ngModel)]="selectedTargetSkill">
+          <option value="streetwise">Streetwise</option>
+          <option value="streetdeal">Streetdeal</option>
+        </select>
+        <input
+          type="number"
+          class="csd-number no-spinners text-center mx-2"
+          [(ngModel)]="targetSkillValue"
+          placeholder="skill + COOL"
+          title="skill rank + cool"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-5">
+        Cost
+        <button class="csd-btn csd-icon-btn csd-icon-lg" (click)="haggle()">
+          <fa-icon [icon]="faDice"></fa-icon>
+        </button>
+      </div>
+      <div class="col-3 text-center">
+        Buy (x{{ playerModifier / 100 | number: "1.0-2" }})
+      </div>
+      <div class="col-3 text-center">
+        Sell (x{{ targetModifier / 100 | number: "1.0-2" }})
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-5">
+        <input
+          [(ngModel)]="selectedCost"
+          (change)="changeCost()"
+          type="number"
+          class="no-spinners text-start w-100"
+          title="Base cost"
+          placeholder="Base cost..."
+        />
+      </div>
+      <div class="col-3 text-center">
+        {{ (playerModifier * selectedCost) / 100 | number }}
+      </div>
+      <div class="col-3 text-center">
+        {{ (targetModifier * selectedCost) / 100 | number }}
+      </div>
+    </div>
+    <div *ngFor="let cost of items; let i = index" class="row">
+      <div class="col-1"></div>
+      <div class="col-5">
+        {{ cost | number }}
+      </div>
+      <div class="col-3 text-center">
+        {{ (playerModifier * cost) / 100 | number }}
+      </div>
+      <div class="col-3 text-center">
+        {{ (targetModifier * cost) / 100 | number }}
+      </div>
+    </div>
+  </div>
+</div>

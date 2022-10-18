@@ -16,13 +16,13 @@ export class Cp2020HagglingService {
    * @param {number} cool - Player's COOL stat
    * @param {string} targetSkill - Target's skill used to haggle
    * @param {number} targetValue - total value of target's skill rank + COOL stat.
-   * @return {*}  {number} - multiplier to apply to cost of goods/services
+   * @return {*}  {number} - percentage
    * @memberof Cp2020HagglingService
    */
   calculateHaggleModifier(
     skill: Cp2020PlayerSkill,
     cool: number,
-    targetSkill: 'Streetwise' | 'Streetdeal',
+    targetSkill: string,
     targetValue: number
   ): number {
     skill = skill ?? new Cp2020PlayerSkill({ name: 'Streetwise', value: 0 });
@@ -35,16 +35,16 @@ export class Cp2020HagglingService {
     const targetResult = this.diceService.rollCP2020D10().total + targetValue;
     // get the modifier
     const modifier =
-      skill.name.toLowerCase() === targetSkill.toLowerCase() ? 0.02 : 0.05;
+      skill.name.toLowerCase() === targetSkill.toLowerCase() ? 2 : 5;
 
     const difference = (targetResult - characterResult) * modifier;
-    const value = 1 + difference;
+    const value = 100 + difference;
 
-    if (value >= 0.5 && value <= 1.5) {
+    if (value >= 50 && value <= 150) {
       return value;
-    } else if (value < 0.5) {
-      return 0.5;
+    } else if (value < 50) {
+      return 50;
     }
-    return 1.5;
+    return 150;
   }
 }

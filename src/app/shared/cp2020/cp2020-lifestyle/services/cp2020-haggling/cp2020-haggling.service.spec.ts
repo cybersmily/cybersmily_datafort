@@ -37,7 +37,7 @@ describe('Cp2020HagglingService', () => {
     it('should be 2% for streetdeal', () => {
       const playerTotal = 20; // cool 8 + skill 7 + die roll 5
       const targetTotal = 15;
-      const expected = 1 + (targetTotal - playerTotal) * 0.02;
+      const expected = 100 + (targetTotal - playerTotal) * 2;
 
       const result = service.calculateHaggleModifier(
         playerStreetdeal,
@@ -51,7 +51,7 @@ describe('Cp2020HagglingService', () => {
     it('should be 2% for streetwise', () => {
       const playerTotal = 20; // cool 8 + skill 7 + die roll 5
       const targetTotal = 15;
-      const expected = 1 + (targetTotal - playerTotal) * 0.02;
+      const expected = 100 + (targetTotal - playerTotal) * 2;
 
       const result = service.calculateHaggleModifier(
         playerStreetwise,
@@ -65,7 +65,7 @@ describe('Cp2020HagglingService', () => {
     it('should be 2% for streetwise vs null', () => {
       let playerTotal = 20; // cool 8 + skill 7 + die roll 5
       let targetTotal = 15;
-      let expected = 1 + (targetTotal - playerTotal) * 0.02;
+      let expected = 100 + (targetTotal - playerTotal) * 2;
 
       let result = service.calculateHaggleModifier(
         playerStreetwise,
@@ -76,7 +76,7 @@ describe('Cp2020HagglingService', () => {
       expect(result).toEqual(expected);
 
       playerTotal = 13; // cool 8 + no skill + die roll 5
-      expected = 1 + (targetTotal - playerTotal) * 0.02;
+      expected = 100 + (targetTotal - playerTotal) * 2;
 
       result = service.calculateHaggleModifier(null, cool, 'Streetwise', 10);
       expect(result).toEqual(expected);
@@ -87,7 +87,7 @@ describe('Cp2020HagglingService', () => {
     it('should be 5% for player streetdeal vs target', () => {
       const playerTotal = 20; // cool 8 + skill 7 + die roll 5
       const targetTotal = 15;
-      const expected = 1 + (targetTotal - playerTotal) * 0.05;
+      const expected = 100 + (targetTotal - playerTotal) * 5;
 
       let result = service.calculateHaggleModifier(
         playerStreetdeal,
@@ -109,7 +109,7 @@ describe('Cp2020HagglingService', () => {
     it('should be 5% for player streetwise/null vs target streetdeal', () => {
       let playerTotal = 20; // cool 8 + skill 7 + die roll 5
       const targetTotal = 15;
-      let expected = 1 + (targetTotal - playerTotal) * 0.05;
+      let expected = 100 + (targetTotal - playerTotal) * 5;
 
       let result = service.calculateHaggleModifier(
         playerStreetwise,
@@ -120,7 +120,7 @@ describe('Cp2020HagglingService', () => {
       expect(result).toEqual(expected);
 
       playerTotal = 13; // cool 8 + no skill + die roll 5
-      expected = 1 + (targetTotal - playerTotal) * 0.05;
+      expected = 100 + (targetTotal - playerTotal) * 5;
       result = service.calculateHaggleModifier(null, cool, 'Streetdeal', 10);
       expect(result).toEqual(expected);
     });
