@@ -85,7 +85,9 @@
           min="0"
           (change)="onChangeArmor()"
           [max]="armor.sdp.head.destroyed"
-          class="csd-number csd-btn {{ getSDPStyle(armor.sdp.head) }}"
+          class="csd-number csd-btn no-spinners {{
+            getSDPStyle(armor.sdp.head)
+          }}"
           title="Max {{ armor.sdp.head.destroyed }}"
         />
         <div *ngIf="armor.sdp.head.curr >= armor.sdp.head.damaged">
@@ -100,7 +102,9 @@
           type="number"
           min="0"
           [max]="armor.sdp.torso.destroyed"
-          class="csd-number csd-btn {{ getSDPStyle(armor.sdp.torso) }}"
+          class="csd-number csd-btn no-spinners {{
+            getSDPStyle(armor.sdp.torso)
+          }}"
           title="Max {{ armor.sdp.torso.destroyed }}"
         />
         <div *ngIf="armor.sdp.torso.curr >= armor.sdp.torso.damaged">
@@ -115,7 +119,9 @@
           type="number"
           min="0"
           [max]="armor.sdp.rarm.destroyed"
-          class="csd-number csd-btn {{ getSDPStyle(armor.sdp.rarm) }}"
+          class="csd-number csd-btn no-spinners {{
+            getSDPStyle(armor.sdp.rarm)
+          }}"
           title="Max {{ armor.sdp.rarm.destroyed }}"
         />
         <div *ngIf="armor.sdp.rarm.curr >= armor.sdp.rarm.damaged">
@@ -130,7 +136,9 @@
           type="number"
           min="0"
           [max]="armor.sdp.larm.destroyed"
-          class="csd-number csd-btn {{ getSDPStyle(armor.sdp.larm) }}"
+          class="csd-number csd-btn no-spinners {{
+            getSDPStyle(armor.sdp.larm)
+          }}"
           title="Max {{ armor.sdp.larm.destroyed }}"
         />
         <div *ngIf="armor.sdp.larm.curr >= armor.sdp.larm.damaged">
@@ -145,7 +153,9 @@
           type="number"
           min="0"
           [max]="armor.sdp.rleg.destroyed"
-          class="csd-number csd-btn {{ getSDPStyle(armor.sdp.rleg) }}"
+          class="csd-number csd-btn no-spinners {{
+            getSDPStyle(armor.sdp.rleg)
+          }}"
           title="Max {{ armor.sdp.rleg.destroyed }}"
         />
         <div *ngIf="armor.sdp.rleg.curr >= armor.sdp.rleg.damaged">
@@ -160,7 +170,9 @@
           type="number"
           min="0"
           [max]="armor.sdp.lleg.destroyed"
-          class="csd-number csd-btn {{ getSDPStyle(armor.sdp.lleg) }}"
+          class="csd-number csd-btn no-spinners {{
+            getSDPStyle(armor.sdp.lleg)
+          }}"
           title="Max {{ armor.sdp.lleg.destroyed }}"
         />
         <div *ngIf="armor.sdp.lleg.curr >= armor.sdp.lleg.damaged">

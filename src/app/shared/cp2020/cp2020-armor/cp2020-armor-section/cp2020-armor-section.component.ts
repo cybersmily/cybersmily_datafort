@@ -51,10 +51,11 @@ export class Cp2020ArmorSectionComponent implements OnInit {
   faChevronDown = faChevronDown;
 
   modalRef: BsModalRef;
-  config: {
-    keyboard: true;
-    class: 'modal-dialog-centered modal-xl';
+  config = {
+    keyboard: true,
+    class: 'modal-right modal-lg',
   };
+
   numberOfPieces = 1;
 
   settings = new CP2020ArmorRandomSettings();
@@ -137,6 +138,7 @@ export class Cp2020ArmorSectionComponent implements OnInit {
       this.armorBlock.updatePiece(this.selectedArmor, this.selectedIndex);
     } else {
       // is a new item
+      this.selectedArmor.name = this.selectedArmor.name || `armor piece`;
       this.armorBlock.addPiece(this.selectedArmor);
     }
     this.update();
