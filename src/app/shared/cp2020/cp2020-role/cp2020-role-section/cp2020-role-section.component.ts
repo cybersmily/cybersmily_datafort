@@ -2,13 +2,28 @@ import { Cp2020RolesDataService } from './../services/cp2020-roles-data.service'
 import { DiceService } from './../../../services/dice/dice.service';
 import { Cp2020PlayerRole } from '../models/cp2020-player-role';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { faDice, faPen, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { Component, Input, Output, OnInit, TemplateRef, EventEmitter, OnChanges, ViewChild, ElementRef } from '@angular/core';
+import {
+  faDice,
+  faPen,
+  faPlus,
+  faTrash,
+} from '@fortawesome/free-solid-svg-icons';
+import {
+  Component,
+  Input,
+  Output,
+  OnInit,
+  TemplateRef,
+  EventEmitter,
+  OnChanges,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 
 @Component({
   selector: 'cs-cp2020-role-section',
   templateUrl: './cp2020-role-section.component.html',
-  styleUrls: ['./cp2020-role-section.component.css']
+  styleUrls: ['./cp2020-role-section.component.css'],
 })
 export class Cp2020RoleSectionComponent implements OnInit, OnChanges {
   faDice = faDice;
@@ -19,7 +34,7 @@ export class Cp2020RoleSectionComponent implements OnInit, OnChanges {
   modalRef: BsModalRef;
   config = {
     keyboard: true,
-    class: 'modal-dialog-centered modal-lg'
+    class: 'modal-right modal-lg',
   };
 
   @Input()
@@ -37,18 +52,21 @@ export class Cp2020RoleSectionComponent implements OnInit, OnChanges {
   @Output()
   changeSecondaryRoles = new EventEmitter<Array<Cp2020PlayerRole>>();
 
-  @ViewChild('roleEditorElem', {static: false})
+  @ViewChild('roleEditorElem', { static: false })
   roleEditElem: ElementRef;
 
   currentPrimary: Cp2020PlayerRole = new Cp2020PlayerRole();
   currentSecondary: Array<Cp2020PlayerRole> = new Array<Cp2020PlayerRole>();
 
   get secondaryList(): string {
-    return this.currentSecondary.map( r => r.name).join(', ');
+    return this.currentSecondary.map((r) => r.name).join(', ');
   }
 
- constructor(private modalService: BsModalService, private rolesService: Cp2020RolesDataService, private diceService: DiceService) {
-   }
+  constructor(
+    private modalService: BsModalService,
+    private rolesService: Cp2020RolesDataService,
+    private diceService: DiceService
+  ) {}
 
   ngOnInit(): void {
     this.loadRoles();
@@ -65,7 +83,7 @@ export class Cp2020RoleSectionComponent implements OnInit, OnChanges {
    */
   loadRoles() {
     this.currentPrimary = new Cp2020PlayerRole(this.primaryRole);
-    this.currentSecondary = this.secondaryRoles.map( r => {
+    this.currentSecondary = this.secondaryRoles.map((r) => {
       return new Cp2020PlayerRole(r);
     });
   }
@@ -75,19 +93,19 @@ export class Cp2020RoleSectionComponent implements OnInit, OnChanges {
    *
    * @memberof AppCharacterRoleComponent
    */
-   onPrimaryChange(value: Cp2020PlayerRole) {
+  onPrimaryChange(value: Cp2020PlayerRole) {
     this.changePrimaryRole.emit(value);
   }
 
-   /**
+  /**
    * When a role is changed in the input, this will emit the change up to the parent component.
    *
    * @memberof AppCharacterRoleComponent
    */
-   onSecondaryChange(value: Cp2020PlayerRole, index: number) {
-     this.currentSecondary[index] = value;
-      this.changeSecondaryRoles.emit(this.currentSecondary);
-    }
+  onSecondaryChange(value: Cp2020PlayerRole, index: number) {
+    this.currentSecondary[index] = value;
+    this.changeSecondaryRoles.emit(this.currentSecondary);
+  }
 
   /**
    * Randomly roll a role for the PC
@@ -95,10 +113,11 @@ export class Cp2020RoleSectionComponent implements OnInit, OnChanges {
    * @memberof AppCharacterRoleComponent
    */
   rollPrimaryRole() {
-    this.rolesService.rollRandomRole(this.diceService, this.isIU)
-    .subscribe( role => {
-      this.onPrimaryChange(new Cp2020PlayerRole(role));
-    });
+    this.rolesService
+      .rollRandomRole(this.diceService, this.isIU)
+      .subscribe((role) => {
+        this.onPrimaryChange(new Cp2020PlayerRole(role));
+      });
   }
 
   addSecondary() {
@@ -106,9 +125,8 @@ export class Cp2020RoleSectionComponent implements OnInit, OnChanges {
     this.changeSecondaryRoles.emit(this.currentSecondary);
   }
 
-
   deleteRole(role: Cp2020PlayerRole) {
-    const found = this.currentSecondary.findIndex(r => r.name === role.name);
+    const found = this.currentSecondary.findIndex((r) => r.name === role.name);
     if (found > -1) {
       this.currentSecondary.splice(found, 1);
       this.changeSecondaryRoles.emit(this.currentSecondary);

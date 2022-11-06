@@ -31,6 +31,7 @@
         [(ngModel)]="currentRole.specialAbility.name"
         (change)="update()"
         tabindex="0"
+        [typeahead]="specialAbilites$ | async"
       />
     </div>
     <div class="col-4" *ngIf="!isIU">
@@ -54,6 +55,7 @@
   <div class="row ms-1">
     <div class="col">
       <div class="row">
+        <div class="col">Skills:</div>
         <div class="col">Skills:</div>
       </div>
       <div class="row">

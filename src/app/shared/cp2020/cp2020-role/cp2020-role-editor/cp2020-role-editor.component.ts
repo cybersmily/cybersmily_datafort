@@ -70,6 +70,7 @@ export class Cp2020RoleEditorComponent
   cp2020NumOfSkill: number = 9;
   iuNumOfSkill: number = 3;
   skillList$: Observable<Array<string>>;
+  specialAbilites$: Observable<Array<string>>;
 
   get salary(): number {
     return this.currentRole?.salary || 0;
@@ -92,6 +93,11 @@ export class Cp2020RoleEditorComponent
         )
       )
     );
+    this.specialAbilites$ = this.skillListService.SpecialAbilities.pipe(
+      first(),
+      map((skills) => skills.map((sk) => sk.name))
+    );
+
     this.loadData();
   }
 
