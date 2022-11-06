@@ -40,7 +40,11 @@
     {"title":"Automata","description":"alright, not the greatest"},
     {"title":"Hardcore Henry","description":"Roller coaster ride on a POV of crazy action-packed thriller. You might need to take some Dramamine."},
     {"title":"Ex Machina","description":"Fear those A.I. bastards and give them no pity else you doom the human race."},
-    {"title":"Ghost in the Shell(ScarJo)","description":"Though it tried to capture pivotal scenes from the anime, the plot and acting and overall it failed miserably. Producer and director should be ashame of themselves."}
+    {"title":"Ghost in the Shell(ScarJo)","description":"Though it tried to capture pivotal scenes from the anime, the plot and acting and overall it failed miserably. Producer and director should be ashame of themselves."},
+    {"title":"Mute","description":"Great cyberpunk sleeper hit."},
+    {"title":"ANON","description":"Good movie about hacking visual and memories."},
+    {"title":"Spiderhead","description":"Fun chemistry experiment with mind control."}
+
 ],
 "anime":[
     {"title":"Akira","description":"Go gang meets military experiment. Great movie and manga!"},
@@ -55,7 +59,9 @@
     {"title":"Pyscho Pass","description":"Started watching this, not too bad."},
     {"title":"Ergo Proxy","description":"Nice. Very Nice!"},
     {"title":"Love, Death + Robots","description":"Anime by netfix. Some of the episodes are not necessarily cyberpunk, but over all great series."},
-    {"title":"Cyber City Oedo 808","description":"Cyberpunk prisoners"}
+    {"title":"Cyber City Oedo 808","description":"Cyberpunk prisoners"},
+    {"title":"Edgerunners","description":"MUST SEE! Based on Cyberpunk 2077. Great series!"},
+    {"title":"Spriggan","description":"A little more on the supernatural side, but the visuals are very cyberpunk."}
 
 ],
 "series":[
@@ -69,6 +75,10 @@
     {"title":"Black Mirror","description":"Netflix series that is a must watch"},
     {"title":"Electric Dreams","description":"Amazon series based on Philip K Dick's stories. Great series."},
     {"title":"Alter Carbon","description":"Borderline cyberpunk, if it wasn't for the aliens. Great tech."},
-    {"title":"Incorporated","description":"Great cyberpunk series. Loved the corporates in it."}
+    {"title":"Incorporated","description":"Great cyberpunk series. Loved the corporates in it."},
+    {"title":"Westworld","description":"HBO series that is great. Season 3 is the most cyberpunk."},
+    {"title":"The Expanse","description":"Similiar to Alter Carbo with aliens, but near future sci-fi always has cyberpunk elements in it."},
+    {"title":"DMZ","description":"HBO series for a DC graphic novel about the aftermath of USA civil war."}
+
 ]
 }

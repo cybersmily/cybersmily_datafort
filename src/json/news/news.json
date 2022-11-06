@@ -2,6 +2,11 @@
   "news": [
     {"date": "2022-10",
       "entries": [
+        "<strong>10-XX</strong> - A few things have been added:",
+        "&nbsp;* Add haggling calculator to the Character Generator for Cyberpunk 2020 under the Lifestyle Section of the sheet. This will use rules from Wildside supplement.",
+
+        "Till next time gatos.",
+        "CYBER :D",
         "<strong>10-10</strong> - bug fixes and enhancements to the character generator for 2020:",
         "&nbsp;* Add check box to show just the skills with points in them.",
         "&nbsp;* Armor section allows to either calculate the EV/Cost/Weight of a piece or allow the player to customize the values.",
