@@ -241,7 +241,9 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     );
     this.character$
       .pipe(first())
-      .subscribe((character) => characterToPDF.generatePdf(character));
+      .subscribe((character) =>
+        characterToPDF.generatePdf(character, this.charGenSettings)
+      );
   }
 
   /**

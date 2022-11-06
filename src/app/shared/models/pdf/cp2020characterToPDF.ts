@@ -1,3 +1,4 @@
+import { Cp2020CharGenSettings } from './../../cp2020/models/cp2020-char-gen-settings';
 import { Cp2020ContactSectionPdfService } from './../../cp2020/cp2020-contacts/services/cp2020-contact-section-pdf/cp2020-contact-section-pdf.service';
 import { Cp2020DeckmanagerPdfSectionService } from './../../cp2020/cp2020-netrun-gear/services/cp2020-deckmanager-pdf-section/cp2020-deckmanager-pdf-section.service';
 import { Cp2020ArmorPDFSectionService } from './../../cp2020/cp2020-armor/services/cp2020-armor-pdf-section/cp2020-armor-pdf-section.service';
@@ -39,19 +40,28 @@ export class Cp2020characterToPDF {
     private contactPdfService: Cp2020ContactSectionPdfService
   ) {}
 
-  generatePdf(character: Cp2020PlayerCharacter) {
+  generatePdf(
+    character: Cp2020PlayerCharacter,
+    settings?: Cp2020CharGenSettings
+  ): void {
     this._character = character;
     const doc = this.setupDoc();
     doc.setFont(this._font, 'normal');
     doc.setFontSize(this._fontSize);
-    this.createFirstPage(doc);
-    this.createSecondPage(doc);
+    let line = this.createFirstPage(doc, settings);
+    line = this.createSecondPage(doc, line, settings);
     if (this._character.vehicles.length > 0) {
       this.createVehiclesPage(doc);
     }
-    this.createThirdPage(doc);
-    this.createFourthPage(doc);
-    this.createFifthPage(doc);
+    if (!settings || settings.sectionSettings.showLifePath) {
+      this.createLifepathPage(doc);
+    }
+    if (!settings || settings.sectionSettings.showLifestyle) {
+      this.createLifeStylePage(doc);
+    }
+    if (!settings || settings.sectionSettings.showNotes) {
+      this.createNotesPage(doc);
+    }
     const filename = this._character.handle.replace(/[^A-Za-z0-9_]/gi, '');
     doc.save(`CP2020_${filename}.pdf`);
   }
@@ -88,7 +98,7 @@ export class Cp2020characterToPDF {
     return 'courier';
   }
 
-  createFirstPage(doc: jsPDF) {
+  createFirstPage(doc: jsPDF, settings?: Cp2020CharGenSettings): number {
     let line = this._top;
     // add Handle
     line = this.addHandle(doc, this._character.handle, line);
@@ -127,38 +137,57 @@ export class Cp2020characterToPDF {
       this._character.stats.BodyDmgMod,
       line
     );
-    this.addSkills(
-      doc,
-      this._character.role.specialAbility,
-      this._character.skills,
-      this._character.stats,
-      this._left,
-      line
-    );
+    if (!settings || settings.sectionSettings.showSkills) {
+      line = this.addSkills(
+        doc,
+        this._character.role.specialAbility,
+        this._character.skills,
+        this._character.stats,
+        this._left,
+        line
+      );
+    }
+    return line;
   }
 
-  createSecondPage(doc: jsPDF) {
-    doc.addPage();
-    let line = this._top;
-    line = this.addWeapons(doc, this._character.weapons, this._left, line);
-    line = this.armorPdfService.createCp2020ArmorSection(
-      doc,
-      this._character.armor,
-      this._font,
-      this._left,
-      line
-    );
-    doc.addPage();
-    line = this._top;
-    line = this.addCyberware(doc, this._character.cyberware, this._left, line);
-    line = this.addGear(doc, this._character.gear, this._left, line);
-    line = this.deckmanagerPdfService.createCp2020CyberdeckProgramsSection(
-      doc,
-      this._character.cyberdeckPrograms,
-      this._font,
-      this._left,
-      line
-    );
+  createSecondPage(
+    doc: jsPDF,
+    line: number,
+    settings?: Cp2020CharGenSettings
+  ): number {
+    if (!settings || settings.sectionSettings.showWeapons) {
+      line = this.addWeapons(doc, this._character.weapons, this._left, line);
+    }
+    if (!settings || settings.sectionSettings.showArmor) {
+      line = this.armorPdfService.createCp2020ArmorSection(
+        doc,
+        this._character.armor,
+        this._font,
+        this._left,
+        line
+      );
+    }
+    if (!settings || settings.sectionSettings.showCybernetics) {
+      line = this.addCyberware(
+        doc,
+        this._character.cyberware,
+        this._left,
+        line
+      );
+    }
+    if (!settings || settings.sectionSettings.showGear) {
+      line = this.addGear(doc, this._character.gear, this._left, line);
+    }
+    if (!settings || settings.sectionSettings.showCyberdeck) {
+      line = this.deckmanagerPdfService.createCp2020CyberdeckProgramsSection(
+        doc,
+        this._character.cyberdeckPrograms,
+        this._font,
+        this._left,
+        line
+      );
+    }
+    return line;
   }
 
   createVehiclesPage(doc: jsPDF) {
@@ -171,7 +200,7 @@ export class Cp2020characterToPDF {
     this.addVehicles(doc, this._character.vehicles, this._left, this._top + 7);
   }
 
-  createThirdPage(doc: jsPDF) {
+  createLifepathPage(doc: jsPDF): void {
     doc.addPage();
     doc.setFillColor('black');
     doc.rect(this._left, this._top, 200, 7, 'DF');
@@ -181,7 +210,7 @@ export class Cp2020characterToPDF {
     this.addLifePath(doc, this._character.lifepath, this._left, this._top + 10);
   }
 
-  createFourthPage(doc: jsPDF) {
+  createLifeStylePage(doc: jsPDF): void {
     doc.addPage();
     doc.setFillColor('black');
     doc.rect(this._left, this._top, 200, 7, 'DF');
@@ -196,7 +225,8 @@ export class Cp2020characterToPDF {
     );
     this.contactPdfService.generatePDF(doc, this._character.contacts, line);
   }
-  createFifthPage(doc: jsPDF) {
+
+  createNotesPage(doc: jsPDF): void {
     doc.addPage();
     doc.setFillColor('black');
     doc.rect(this._left, this._top, 200, 7, 'DF');
@@ -489,7 +519,7 @@ export class Cp2020characterToPDF {
     stats: Cp2020StatBlock,
     left: number,
     line: number
-  ) {
+  ): number {
     line = this.printSkillSectionTitle(doc, line, left, skills.ip.toString());
     const colWidth = 50;
     let col = left;
@@ -586,6 +616,7 @@ export class Cp2020characterToPDF {
 
     line = this.printSkills(doc, skills.Other, 'OTHER', 0, line, col);
     line += 6;
+    return line;
   }
 
   private printSkillSectionTitle(
@@ -670,6 +701,18 @@ export class Cp2020characterToPDF {
     left: number,
     line: number
   ): number {
+    const ht = 6;
+    const index = Math.ceil(cyber.items.length / 2);
+    const colOne = cyber.items.slice(0, index);
+    const colTwo = cyber.items.slice(index, index * 2);
+    // split to a new page if this section is too long
+    let sectLength = colOne.length * ht + ht + 15;
+    if (line + sectLength > this._pageHeight) {
+      doc.addPage();
+      line = this._top;
+    }
+    line += 7;
+
     doc.setFillColor('black');
     doc.rect(left, line, 200, 7, 'DF');
     doc.setTextColor('white');
@@ -679,10 +722,6 @@ export class Cp2020characterToPDF {
     doc.setFont(this._font, 'normal');
     line += 7;
     doc.setFontSize(8);
-    const ht = 6;
-    const index = Math.ceil(cyber.items.length / 2);
-    const colOne = cyber.items.slice(0, index);
-    const colTwo = cyber.items.slice(index, index * 2);
     this.printCyberColumn(doc, colOne, left, line);
     this.printCyberColumn(doc, colTwo, this._midPage, line);
     line += colOne.length * ht + ht;
@@ -749,6 +788,16 @@ export class Cp2020characterToPDF {
     left: number,
     line: number
   ): number {
+    const ht = 6;
+    const index = Math.ceil(gear.items.length / 2);
+    const colOne = gear.items.slice(0, index);
+    const colTwo = gear.items.slice(index, index * 2);
+    let sectLength = colOne.length * ht + ht + 8;
+    if (line + sectLength > this._pageHeight) {
+      doc.addPage();
+      line = this._top;
+    }
+
     doc.setFillColor('black');
     doc.rect(left, line, 200, 7, 'DF');
     doc.setTextColor('white');
@@ -758,10 +807,6 @@ export class Cp2020characterToPDF {
     doc.setFont(this._font, 'normal');
     line += 7;
     doc.setFontSize(9);
-    const ht = 6;
-    const index = Math.ceil(gear.items.length / 2);
-    const colOne = gear.items.slice(0, index);
-    const colTwo = gear.items.slice(index, index * 2);
     this.printGearColumn(doc, colOne, left, line);
     this.printGearColumn(doc, colTwo, this._midPage, line);
     doc.setFontSize(this._fontSize);
