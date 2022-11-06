@@ -3,73 +3,169 @@
     <tr>
       <td class="chargen-label chargen-armor-label">Location</td>
       <td class="chargen-armor-space"></td>
-      <td class="chargen-armor-cell">Head<br>1</td>
-      <td class="chargen-armor-cell">Torso<br>2-4</td>
-      <td class="chargen-armor-cell">R.Arm<br>5</td>
-      <td class="chargen-armor-cell">L.Arm<br>6</td>
-      <td class="chargen-armor-cell">R.Leg<br>7-8</td>
-      <td class="chargen-armor-cell">L.Leg<br>9-0</td>
+      <td class="chargen-armor-cell">Head<br />1</td>
+      <td class="chargen-armor-cell">Torso<br />2-4</td>
+      <td class="chargen-armor-cell">R.Arm<br />5</td>
+      <td class="chargen-armor-cell">L.Arm<br />6</td>
+      <td class="chargen-armor-cell">R.Leg<br />7-8</td>
+      <td class="chargen-armor-cell">L.Leg<br />9-0</td>
       <td class="chargen-armor-cell">EV</td>
     </tr>
     <tr>
       <td class="chargen-label chargen-armor-label">Armor SP</td>
       <td class="chargen-armor-space"></td>
-      <td class="chargen-armor-cell csd-btn" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'head'">
-        {{armor.headSP}}</td>
-      <td class="chargen-armor-cell csd-btn" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'torso'">
-        {{armor.torsoSP}}</td>
-      <td class="chargen-armor-cell csd-btn" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'rarm'">
-        {{armor.rArmSP}}</td>
-      <td class="chargen-armor-cell csd-btn" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'larm'">
-        {{armor.lArmSP}}</td>
-      <td class="chargen-armor-cell csd-btn" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'rleg'">
-        {{armor.rLegSP}}</td>
-      <td class="chargen-armor-cell csd-btn" [popover]="armorDamage" [outsideClick]="true" (click)="selectedLocation = 'lleg'">
-        {{armor.lLegSP}}</td>
-      <td class="chargen-armor-cell ">+{{armor.ev}}</td>
+      <td
+        class="chargen-armor-cell csd-btn"
+        [popover]="armorDamage"
+        [outsideClick]="true"
+        (click)="selectedLocation = 'head'"
+      >
+        {{ armor.headSP }}
+      </td>
+      <td
+        class="chargen-armor-cell csd-btn"
+        [popover]="armorDamage"
+        [outsideClick]="true"
+        (click)="selectedLocation = 'torso'"
+      >
+        {{ armor.torsoSP }}
+      </td>
+      <td
+        class="chargen-armor-cell csd-btn"
+        [popover]="armorDamage"
+        [outsideClick]="true"
+        (click)="selectedLocation = 'rarm'"
+      >
+        {{ armor.rArmSP }}
+      </td>
+      <td
+        class="chargen-armor-cell csd-btn"
+        [popover]="armorDamage"
+        [outsideClick]="true"
+        (click)="selectedLocation = 'larm'"
+      >
+        {{ armor.lArmSP }}
+      </td>
+      <td
+        class="chargen-armor-cell csd-btn"
+        [popover]="armorDamage"
+        [outsideClick]="true"
+        (click)="selectedLocation = 'rleg'"
+      >
+        {{ armor.rLegSP }}
+      </td>
+      <td
+        class="chargen-armor-cell csd-btn"
+        [popover]="armorDamage"
+        [outsideClick]="true"
+        (click)="selectedLocation = 'lleg'"
+      >
+        {{ armor.lLegSP }}
+      </td>
+      <td class="chargen-armor-cell">+{{ armor.ev }}</td>
     </tr>
     <tr>
-      <td class="chargen-label chargen-armor-label">SDP
-        <button class="csd-btn csd-icon-btn hidden-print float-end" (click)="openModal(sdpModal)"
-        title="Manage/Configure SDP" tabindex="0">
-        <fa-icon [icon]="faPen"></fa-icon>
+      <td class="chargen-label chargen-armor-label">
+        SDP
+        <button
+          class="csd-btn csd-icon-btn hidden-print float-end"
+          (click)="openModal(sdpModal)"
+          title="Manage/Configure SDP"
+          tabindex="0"
+        >
+          <fa-icon [icon]="faPen"></fa-icon>
         </button>
       </td>
       <td class="chargen-armor-space"></td>
       <td class="chargen-armor-cell">
-        <input *ngIf="armor.sdp.head.destroyed > 0" [(ngModel)]="armor.sdp.head.curr" type="number" min=0
-        (change)="onChangeArmor()"
-          [max]="armor.sdp.head.destroyed" class="csd-number csd-btn {{getSDPStyle(armor.sdp.head)}}"
-          title="Max {{armor.sdp.head.destroyed}}">
-        <div *ngIf="armor.sdp.head.curr >= armor.sdp.head.damaged">{{getSDPStatus(armor.sdp.head)}}</div>
+        <input
+          *ngIf="armor.sdp.head.destroyed > 0"
+          [(ngModel)]="armor.sdp.head.curr"
+          type="number"
+          min="0"
+          (change)="onChangeArmor()"
+          [max]="armor.sdp.head.destroyed"
+          class="csd-number csd-btn {{ getSDPStyle(armor.sdp.head) }}"
+          title="Max {{ armor.sdp.head.destroyed }}"
+        />
+        <div *ngIf="armor.sdp.head.curr >= armor.sdp.head.damaged">
+          {{ getSDPStatus(armor.sdp.head) }}
+        </div>
       </td>
       <td class="chargen-armor-cell">
-        <input *ngIf="armor.sdp.torso.destroyed > 0" [(ngModel)]="armor.sdp.torso.curr" (change)="onChangeArmor()"
-          type="number" min=0 [max]="armor.sdp.torso.destroyed" class="csd-number csd-btn {{getSDPStyle(armor.sdp.torso)}}"
-          title="Max {{armor.sdp.torso.destroyed}}">
-        <div *ngIf="armor.sdp.torso.curr >= armor.sdp.torso.damaged">{{getSDPStatus(armor.sdp.torso)}}</div>
+        <input
+          *ngIf="armor.sdp.torso.destroyed > 0"
+          [(ngModel)]="armor.sdp.torso.curr"
+          (change)="onChangeArmor()"
+          type="number"
+          min="0"
+          [max]="armor.sdp.torso.destroyed"
+          class="csd-number csd-btn {{ getSDPStyle(armor.sdp.torso) }}"
+          title="Max {{ armor.sdp.torso.destroyed }}"
+        />
+        <div *ngIf="armor.sdp.torso.curr >= armor.sdp.torso.damaged">
+          {{ getSDPStatus(armor.sdp.torso) }}
+        </div>
       </td>
       <td class="chargen-armor-cell">
-        <input *ngIf="armor.sdp.rarm.destroyed > 0" [(ngModel)]="armor.sdp.rarm.curr" (change)="onChangeArmor()"
-          type="number" min=0 [max]="armor.sdp.rarm.destroyed" class="csd-number csd-btn {{getSDPStyle(armor.sdp.rarm)}}"
-          title="Max {{armor.sdp.rarm.destroyed}}">
-        <div *ngIf="armor.sdp.rarm.curr >= armor.sdp.rarm.damaged">{{getSDPStatus(armor.sdp.rarm)}}</div>
+        <input
+          *ngIf="armor.sdp.rarm.destroyed > 0"
+          [(ngModel)]="armor.sdp.rarm.curr"
+          (change)="onChangeArmor()"
+          type="number"
+          min="0"
+          [max]="armor.sdp.rarm.destroyed"
+          class="csd-number csd-btn {{ getSDPStyle(armor.sdp.rarm) }}"
+          title="Max {{ armor.sdp.rarm.destroyed }}"
+        />
+        <div *ngIf="armor.sdp.rarm.curr >= armor.sdp.rarm.damaged">
+          {{ getSDPStatus(armor.sdp.rarm) }}
+        </div>
       </td>
-      <td class="chargen-armor-cell"><input *ngIf="armor.sdp.larm.destroyed > 0" [(ngModel)]="armor.sdp.larm.curr"
-         (change)="onChangeArmor()"
-          type="number" min=0 [max]="armor.sdp.larm.destroyed" class="csd-number csd-btn {{getSDPStyle(armor.sdp.larm)}}"
-          title="Max {{armor.sdp.larm.destroyed}}">
-        <div *ngIf="armor.sdp.larm.curr >= armor.sdp.larm.damaged">{{getSDPStatus(armor.sdp.larm)}}</div>
+      <td class="chargen-armor-cell">
+        <input
+          *ngIf="armor.sdp.larm.destroyed > 0"
+          [(ngModel)]="armor.sdp.larm.curr"
+          (change)="onChangeArmor()"
+          type="number"
+          min="0"
+          [max]="armor.sdp.larm.destroyed"
+          class="csd-number csd-btn {{ getSDPStyle(armor.sdp.larm) }}"
+          title="Max {{ armor.sdp.larm.destroyed }}"
+        />
+        <div *ngIf="armor.sdp.larm.curr >= armor.sdp.larm.damaged">
+          {{ getSDPStatus(armor.sdp.larm) }}
+        </div>
       </td>
-      <td class="chargen-armor-cell"><input *ngIf="armor.sdp.rleg.destroyed > 0" [(ngModel)]="armor.sdp.rleg.curr" (change)="onChangeArmor()"
-          type="number" min=0 [max]="armor.sdp.rleg.destroyed" class="csd-number csd-btn {{getSDPStyle(armor.sdp.rleg)}}"
-          title="Max {{armor.sdp.rleg.destroyed}}">
-        <div *ngIf="armor.sdp.rleg.curr >= armor.sdp.rleg.damaged">{{getSDPStatus(armor.sdp.rleg)}}</div>
+      <td class="chargen-armor-cell">
+        <input
+          *ngIf="armor.sdp.rleg.destroyed > 0"
+          [(ngModel)]="armor.sdp.rleg.curr"
+          (change)="onChangeArmor()"
+          type="number"
+          min="0"
+          [max]="armor.sdp.rleg.destroyed"
+          class="csd-number csd-btn {{ getSDPStyle(armor.sdp.rleg) }}"
+          title="Max {{ armor.sdp.rleg.destroyed }}"
+        />
+        <div *ngIf="armor.sdp.rleg.curr >= armor.sdp.rleg.damaged">
+          {{ getSDPStatus(armor.sdp.rleg) }}
+        </div>
       </td>
-      <td class="chargen-armor-cell"><input *ngIf="armor.sdp.lleg.destroyed > 0" [(ngModel)]="armor.sdp.lleg.curr" (change)="onChangeArmor()"
-          type="number" min=0 [max]="armor.sdp.lleg.destroyed" class="csd-number csd-btn {{getSDPStyle(armor.sdp.lleg)}}"
-          title="Max {{armor.sdp.lleg.destroyed}}">
-        <div *ngIf="armor.sdp.lleg.curr >= armor.sdp.lleg.damaged">{{getSDPStatus(armor.sdp.lleg)}}</div>
+      <td class="chargen-armor-cell">
+        <input
+          *ngIf="armor.sdp.lleg.destroyed > 0"
+          [(ngModel)]="armor.sdp.lleg.curr"
+          (change)="onChangeArmor()"
+          type="number"
+          min="0"
+          [max]="armor.sdp.lleg.destroyed"
+          class="csd-number csd-btn {{ getSDPStyle(armor.sdp.lleg) }}"
+          title="Max {{ armor.sdp.lleg.destroyed }}"
+        />
+        <div *ngIf="armor.sdp.lleg.curr >= armor.sdp.lleg.damaged">
+          {{ getSDPStatus(armor.sdp.lleg) }}
+        </div>
       </td>
       <td class="chargen-armor-cell"></td>
     </tr>
@@ -78,36 +174,49 @@
 
 <ng-template #armorDamage>
   <div class="row armor-dmg text-center">
-    <div class="col">Damage: <input [(ngModel)]="damage" type="number" value="1" min="0">
-    </div>
-  </div>
-  <div class="row armor-dmg text-center">
-    <div class="col">Ammo Type: <select [(ngModel)]="damageType">
-      <option [ngValue]="0">NORMAL ROUND</option>
-      <option [ngValue]="1">AP ROUND (1/2 SP 1/2 Dmg)</option>
-      <option [ngValue]="2">DP ROUND (1/2 SP 1/2 Dmg || 1.5xDmg)</option>
-      <option [ngValue]="3">API ROUND (1/2 SP 1/2 Dmg+)</option>
-      <option [ngValue]="4">HOLLOWPOINT ROUND (2xSP 1.5xDmg)</option>
-      <option [ngValue]="5">SAFETY ROUND (2xSP 3xDmg for SP less than 11)</option>
-      <option [ngValue]="6">FLECHETTE ROUND (1/2 SP Full Dmg)</option>
-      <option [ngValue]="7">SLUG SHELL (1/2 SP Full Dmg)</option>
-      <option [ngValue]="8">FLECHETTE SHELL (1/4 SP 1/4 Dmg)</option>
-      <option [ngValue]="9">KNIFE AP (1/2 SP Full Dmg)</option>
-      <option [ngValue]="10">MONOBLADE (1/3SP vs Soft,2/3SP vs Hard, Full Dmg)</option>
-      <option [ngValue]="11">BROADHEAD ARROW (1/2 SP 2xDmg)</option>
-      <option [ngValue]="12">SPINNER ARROW (1/2 SP 3xDmg)</option>
-      <option [ngValue]="13">IGNORE ARMOR (No SP Full Dmg)</option>
-      <option [ngValue]="14">HEP/HEAT ROUND (No SP Full Dmg)</option>
-    </select>
-    </div>
-  </div>
-  <div class="row armor-dmg text-center">
-    <div class="col">SP Damage: <input [(ngModel)]="spDamage" type="number" value="1">
+    <div class="col">
+      Damage: <input [(ngModel)]="damage" type="number" value="1" min="0" />
     </div>
   </div>
   <div class="row armor-dmg text-center">
     <div class="col">
-      <button class="btn btn-sm btn-secondary csd-rounded" (click)="applyDamage()">Apply</button>
+      Ammo Type:
+      <select [(ngModel)]="damageType">
+        <option [ngValue]="0">NORMAL ROUND</option>
+        <option [ngValue]="1">AP ROUND (1/2 SP 1/2 Dmg)</option>
+        <option [ngValue]="2">DP ROUND (1/2 SP 1/2 Dmg || 1.5xDmg)</option>
+        <option [ngValue]="3">API ROUND (1/2 SP 1/2 Dmg+)</option>
+        <option [ngValue]="4">HOLLOWPOINT ROUND (2xSP 1.5xDmg)</option>
+        <option [ngValue]="5">
+          SAFETY ROUND (2xSP 3xDmg for SP less than 11)
+        </option>
+        <option [ngValue]="6">FLECHETTE ROUND (1/2 SP Full Dmg)</option>
+        <option [ngValue]="7">SLUG SHELL (1/2 SP Full Dmg)</option>
+        <option [ngValue]="8">FLECHETTE SHELL (1/4 SP 1/4 Dmg)</option>
+        <option [ngValue]="9">KNIFE AP (1/2 SP Full Dmg)</option>
+        <option [ngValue]="10">
+          MONOBLADE (1/3SP vs Soft,2/3SP vs Hard, Full Dmg)
+        </option>
+        <option [ngValue]="11">BROADHEAD ARROW (1/2 SP 2xDmg)</option>
+        <option [ngValue]="12">SPINNER ARROW (1/2 SP 3xDmg)</option>
+        <option [ngValue]="13">IGNORE ARMOR (No SP Full Dmg)</option>
+        <option [ngValue]="14">HEP/HEAT ROUND (No SP Full Dmg)</option>
+      </select>
+    </div>
+  </div>
+  <div class="row armor-dmg text-center">
+    <div class="col">
+      SP Damage: <input [(ngModel)]="spDamage" type="number" value="1" />
+    </div>
+  </div>
+  <div class="row armor-dmg text-center">
+    <div class="col">
+      <button
+        class="btn btn-sm btn-secondary csd-rounded"
+        (click)="applyDamage()"
+      >
+        Apply
+      </button>
     </div>
   </div>
 </ng-template>
@@ -115,66 +224,297 @@
 <ng-template #sdpModal>
   <div class="modal-header">
     <h4 id="armor-modal-name" class="modal-title float-start">SDP Manager</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()">
-
-    </button>
+    <button
+      type="button"
+      class="btn-close float-end"
+      aria-label="Close"
+      (click)="closeModal()"
+    ></button>
   </div>
   <div class="modal-body">
     <div class="row">
-      <div class="col-3 text-center"></div>
-      <div class="col-1 text-center">Head <fa-icon *ngIf="armor.sdp.head.destroyed > 0" [icon]="faTrash" class="csd-btn csd-icon-btn" title="Reset location" (click)="resetSDP('head')"></fa-icon></div>
-      <div class="col-1 text-center">Torso <fa-icon *ngIf="armor.sdp.torso.destroyed > 0" [icon]="faTrash" class="csd-btn csd-icon-btn" title="Reset location" (click)="resetSDP('torso')"></fa-icon></div>
-      <div class="col-1 text-center">R Arm <fa-icon *ngIf="armor.sdp.rarm.destroyed > 0" [icon]="faTrash" class="csd-btn csd-icon-btn" title="Reset location" (click)="resetSDP('rarm')"></fa-icon></div>
-      <div class="col-1 text-center">L Arm <fa-icon *ngIf="armor.sdp.larm.destroyed > 0" [icon]="faTrash" class="csd-btn csd-icon-btn" title="Reset location" (click)="resetSDP('larm')"></fa-icon></div>
-      <div class="col-1 text-center">R Leg <fa-icon *ngIf="armor.sdp.rleg.destroyed > 0" [icon]="faTrash" class="csd-btn csd-icon-btn" title="Reset location" (click)="resetSDP('rleg')"></fa-icon></div>
-      <div class="col-1 text-center">L Leg <fa-icon *ngIf="armor.sdp.lleg.destroyed > 0" [icon]="faTrash" class="csd-btn csd-icon-btn" title="Reset location" (click)="resetSDP('lleg')"></fa-icon></div>
+      <div class="col-2 col-offset-1">Location</div>
+      <div class="col-2 text-center">Current</div>
+      <div class="col-2 text-center">Impaired</div>
+      <div class="col-2 text-center">Destroyed</div>
     </div>
     <div class="row">
-      <div class="col-3">Current Damaged</div>
-      <div class="col-1 text-center"><input type="number" min=0 [max]="armor.sdp.head.destroyed"
-          class="csd-number text-center csd-btn" [(ngModel)]="armor.sdp.head.curr" (change)="onChangeArmor()"></div>
-      <div class="col-1 text-center"><input type="number" min=0 [max]="armor.sdp.torso.destroyed"
-          class="csd-number text-center csd-btn" [(ngModel)]="armor.sdp.torso.curr" (change)="onChangeArmor()"></div>
-      <div class="col-1 text-center"><input type="number" min=0 [max]="armor.sdp.rarm.destroyed"
-          class="csd-number text-center csd-btn" [(ngModel)]="armor.sdp.rarm.curr" (change)="onChangeArmor()"></div>
-      <div class="col-1 text-center"><input type="number" min=0 [max]="armor.sdp.larm.destroyed"
-          class="csd-number text-center csd-btn" [(ngModel)]="armor.sdp.larm.curr" (change)="onChangeArmor()"></div>
-      <div class="col-1 text-center"><input type="number" min=0 [max]="armor.sdp.rleg.destroyed"
-          class="csd-number text-center csd-btn" [(ngModel)]="armor.sdp.rleg.curr" (change)="onChangeArmor()"></div>
-      <div class="col-1 text-center"><input type="number" min=0 [max]="armor.sdp.lleg.destroyed"
-          class="csd-number text-center csd-btn" [(ngModel)]="armor.sdp.lleg.curr" (change)="onChangeArmor()"></div>
+      <div class="col-2 col-offset-1 text-end">
+        Head
+        <fa-icon
+          *ngIf="armor.sdp.head.destroyed > 0"
+          [icon]="faTrash"
+          class="csd-btn csd-icon-btn"
+          title="Reset location"
+          (click)="resetSDP('head')"
+        ></fa-icon>
+      </div>
+      <div class="col-2 text-center">
+        <input
+          type="number"
+          min="0"
+          [max]="armor.sdp.head.destroyed"
+          class="csd-number text-center csd-btn no-spinners"
+          [(ngModel)]="armor.sdp.head.curr"
+          (change)="onChangeArmor()"
+          [popover]="currentPopover"
+          triggers="focus"
+        />
+      </div>
+      <div class="col-2 text-center">
+        <input
+          type="number"
+          min="0"
+          class="csd-number text-center no-spinners"
+          [(ngModel)]="armor.sdp.head.damaged"
+          (change)="onChangeArmor()"
+          [popover]="impairedPopover"
+          triggers="focus"
+        />
+      </div>
+      <div class="col-2 text-center">
+        <input
+          type="number"
+          [min]="armor.sdp.head.damaged"
+          class="csd-number text-center no-spinners"
+          [(ngModel)]="armor.sdp.head.destroyed"
+          (change)="onChangeArmor()"
+          [popover]="destroyedPopover"
+          triggers="focus"
+        />
+      </div>
     </div>
     <div class="row">
-      <div class="col-3">Impaired</div>
-      <div class="col-1 text-center"><input type="number" min=0 class="csd-number text-center"
-          [(ngModel)]="armor.sdp.head.damaged" (change)="onChangeArmor()"></div>
-      <div class="col-1 text-center"><input type="number" min=0 class="csd-number text-center"
-          [(ngModel)]="armor.sdp.torso.damaged" (change)="onChangeArmor()"></div>
-      <div class="col-1 text-center"><input type="number" min=0 class="csd-number text-center"
-          [(ngModel)]="armor.sdp.rarm.damaged" (change)="onChangeArmor()"></div>
-      <div class="col-1 text-center"><input type="number" min=0 class="csd-number text-center"
-          [(ngModel)]="armor.sdp.larm.damaged" (change)="onChangeArmor()"></div>
-      <div class="col-1 text-center"><input type="number" min=0 class="csd-number text-center"
-          [(ngModel)]="armor.sdp.rleg.damaged" (change)="onChangeArmor()"></div>
-      <div class="col-1 text-center"><input type="number" min=0 class="csd-number text-center"
-          [(ngModel)]="armor.sdp.lleg.damaged" (change)="onChangeArmor()"></div>
+      <div class="col-2 col-offset-1 text-end">
+        Torso
+        <fa-icon
+          *ngIf="armor.sdp.torso.destroyed > 0"
+          [icon]="faTrash"
+          class="csd-btn csd-icon-btn"
+          title="Reset location"
+          (click)="resetSDP('torso')"
+        ></fa-icon>
+      </div>
+      <div class="col-2 text-center">
+        <input
+          type="number"
+          min="0"
+          [max]="armor.sdp.torso.destroyed"
+          class="csd-number text-center csd-btn no-spinners"
+          [(ngModel)]="armor.sdp.torso.curr"
+          (change)="onChangeArmor()"
+          [popover]="currentPopover"
+          triggers="focus"
+        />
+      </div>
+      <div class="col-2 text-center">
+        <input
+          type="number"
+          min="0"
+          class="csd-number text-center no-spinners"
+          [(ngModel)]="armor.sdp.torso.damaged"
+          (change)="onChangeArmor()"
+          [popover]="impairedPopover"
+          triggers="focus"
+        />
+      </div>
+      <div class="col-2 text-center">
+        <input
+          type="number"
+          [min]="armor.sdp.torso.damaged"
+          class="csd-number text-center no-spinners"
+          [(ngModel)]="armor.sdp.torso.destroyed"
+          (change)="onChangeArmor()"
+          [popover]="destroyedPopover"
+          triggers="focus"
+        />
+      </div>
     </div>
     <div class="row">
-      <div class="col-3">destroyed</div>
-      <div class="col-1 text-center"><input type="number" [min]="armor.sdp.head.damaged" class="csd-number text-center"
-          [(ngModel)]="armor.sdp.head.destroyed" (change)="onChangeArmor()"></div>
-      <div class="col-1 text-center"><input type="number" [min]="armor.sdp.torso.damaged" class="csd-number text-center"
-          [(ngModel)]="armor.sdp.torso.destroyed" (change)="onChangeArmor()"></div>
-      <div class="col-1 text-center"><input type="number" [min]="armor.sdp.rarm.damaged" class="csd-number text-center"
-          [(ngModel)]="armor.sdp.rarm.destroyed" (change)="onChangeArmor()"></div>
-      <div class="col-1 text-center"><input type="number" [min]="armor.sdp.larm.damaged" class="csd-number text-center"
-          [(ngModel)]="armor.sdp.larm.destroyed" (change)="onChangeArmor()"></div>
-      <div class="col-1 text-center"><input type="number" [min]="armor.sdp.rleg.damaged" class="csd-number text-center"
-          [(ngModel)]="armor.sdp.rleg.destroyed" (change)="onChangeArmor()"></div>
-      <div class="col-1 text-center"><input type="number" [min]="armor.sdp.lleg.damaged" class="csd-number text-center"
-          [(ngModel)]="armor.sdp.lleg.destroyed" (change)="onChangeArmor()"></div>
+      <div class="col-2 col-offset-1 text-end">
+        R Arm
+        <fa-icon
+          *ngIf="armor.sdp.rarm.destroyed > 0"
+          [icon]="faTrash"
+          class="csd-btn csd-icon-btn"
+          title="Reset location"
+          (click)="resetSDP('rarm')"
+        ></fa-icon>
+      </div>
+      <div class="col-2 text-center">
+        <input
+          type="number"
+          min="0"
+          [max]="armor.sdp.rarm.destroyed"
+          class="csd-number text-center csd-btn no-spinners"
+          [(ngModel)]="armor.sdp.rarm.curr"
+          (change)="onChangeArmor()"
+          [popover]="currentPopover"
+          triggers="focus"
+        />
+      </div>
+      <div class="col-2 text-center">
+        <input
+          type="number"
+          min="0"
+          class="csd-number text-center no-spinners"
+          [(ngModel)]="armor.sdp.rarm.damaged"
+          (change)="onChangeArmor()"
+          [popover]="impairedPopover"
+          triggers="focus"
+        />
+      </div>
+      <div class="col-2 text-center">
+        <input
+          type="number"
+          [min]="armor.sdp.rarm.damaged"
+          class="csd-number text-center no-spinners"
+          [(ngModel)]="armor.sdp.rarm.destroyed"
+          (change)="onChangeArmor()"
+          [popover]="destroyedPopover"
+          triggers="focus"
+        />
+      </div>
     </div>
-    <br>
-    <br>
+    <div class="row">
+      <div class="col-2 col-offset-1 text-end">
+        L Arm
+        <fa-icon
+          *ngIf="armor.sdp.larm.destroyed > 0"
+          [icon]="faTrash"
+          class="csd-btn csd-icon-btn"
+          title="Reset location"
+          (click)="resetSDP('larm')"
+        ></fa-icon>
+      </div>
+      <div class="col-2 text-center">
+        <input
+          type="number"
+          min="0"
+          [max]="armor.sdp.larm.destroyed"
+          class="csd-number text-center csd-btn no-spinners"
+          [(ngModel)]="armor.sdp.larm.curr"
+          (change)="onChangeArmor()"
+          [popover]="currentPopover"
+          triggers="focus"
+        />
+      </div>
+      <div class="col-2 text-center">
+        <input
+          type="number"
+          min="0"
+          class="csd-number text-center no-spinners"
+          [(ngModel)]="armor.sdp.larm.damaged"
+          (change)="onChangeArmor()"
+          [popover]="impairedPopover"
+          triggers="focus"
+        />
+      </div>
+      <div class="col-2 text-center">
+        <input
+          type="number"
+          [min]="armor.sdp.larm.damaged"
+          class="csd-number text-center no-spinners"
+          [(ngModel)]="armor.sdp.larm.destroyed"
+          (change)="onChangeArmor()"
+          [popover]="destroyedPopover"
+          triggers="focus"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2 col-offset-1 text-end">
+        R Leg
+        <fa-icon
+          *ngIf="armor.sdp.rleg.destroyed > 0"
+          [icon]="faTrash"
+          class="csd-btn csd-icon-btn"
+          title="Reset location"
+          (click)="resetSDP('rleg')"
+        ></fa-icon>
+      </div>
+      <div class="col-2 text-center">
+        <input
+          type="number"
+          min="0"
+          [max]="armor.sdp.rleg.destroyed"
+          class="csd-number text-center csd-btn no-spinners"
+          [(ngModel)]="armor.sdp.rleg.curr"
+          (change)="onChangeArmor()"
+          [popover]="currentPopover"
+          triggers="focus"
+        />
+      </div>
+      <div class="col-2 text-center">
+        <input
+          type="number"
+          min="0"
+          class="csd-number text-center no-spinners"
+          [(ngModel)]="armor.sdp.rleg.damaged"
+          (change)="onChangeArmor()"
+          [popover]="impairedPopover"
+          triggers="focus"
+        />
+      </div>
+      <div class="col-2 text-center">
+        <input
+          type="number"
+          [min]="armor.sdp.rleg.damaged"
+          class="csd-number text-center no-spinners"
+          [(ngModel)]="armor.sdp.rleg.destroyed"
+          (change)="onChangeArmor()"
+          [popover]="destroyedPopover"
+          triggers="focus"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2 col-offset-1 text-end">
+        L Leg
+        <fa-icon
+          *ngIf="armor.sdp.lleg.destroyed > 0"
+          [icon]="faTrash"
+          class="csd-btn csd-icon-btn"
+          title="Reset location"
+          (click)="resetSDP('lleg')"
+        ></fa-icon>
+      </div>
+      <div class="col-2 text-center">
+        <input
+          type="number"
+          min="0"
+          [max]="armor.sdp.lleg.destroyed"
+          class="csd-number text-center csd-btn no-spinners"
+          [(ngModel)]="armor.sdp.lleg.curr"
+          (change)="onChangeArmor()"
+          [popover]="currentPopover"
+          triggers="focus"
+        />
+      </div>
+      <div class="col-2 text-center">
+        <input
+          type="number"
+          min="0"
+          class="csd-number text-center no-spinners"
+          [(ngModel)]="armor.sdp.lleg.damaged"
+          (change)="onChangeArmor()"
+          [popover]="impairedPopover"
+          triggers="focus"
+        />
+      </div>
+      <div class="col-2 text-center">
+        <input
+          type="number"
+          [min]="armor.sdp.lleg.damaged"
+          class="csd-number text-center no-spinners"
+          [(ngModel)]="armor.sdp.lleg.destroyed"
+          (change)="onChangeArmor()"
+          [popover]="destroyedPopover"
+          triggers="focus"
+        />
+      </div>
+    </div>
+    <br />
+    <br />
   </div>
 </ng-template>

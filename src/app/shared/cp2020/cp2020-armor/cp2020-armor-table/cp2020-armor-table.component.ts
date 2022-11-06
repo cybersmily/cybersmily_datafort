@@ -38,7 +38,7 @@ export class Cp2020ArmorTableComponent implements OnInit {
   modalRef: BsModalRef;
   modalConfig = {
     keyboard: true,
-    class: 'modal-dialog-centered modal-lg',
+    class: 'modal-right modal-lg',
   };
 
   @Input()
@@ -58,6 +58,10 @@ export class Cp2020ArmorTableComponent implements OnInit {
   spDamage = 1;
   damage = 0;
   damageType = Cp2020AmmoTypes.NORMAL_ROUND;
+
+  destroyedPopover = 'Damage to make the limb destroyed.';
+  impairedPopover = 'Damage to make the limb impaired.';
+  currentPopover = 'Current SDP damage to the limb.';
 
   getSDPStyle(sdp: Cp2020SDP): string {
     if (sdp.destroyed !== 0 && sdp.curr >= sdp.destroyed) {
