@@ -1,3 +1,5 @@
+import { PdfPageSettings } from './../../enums/pdf-page-settings';
+import { CpPlayerWeapon } from './../../cp2020/cp2020weapons/models/cp-player-weapon';
 import { Cp2020CharGenSettings } from './../../cp2020/models/cp2020-char-gen-settings';
 import { Cp2020ContactSectionPdfService } from './../../cp2020/cp2020-contacts/services/cp2020-contact-section-pdf/cp2020-contact-section-pdf.service';
 import { Cp2020DeckmanagerPdfSectionService } from './../../cp2020/cp2020-netrun-gear/services/cp2020-deckmanager-pdf-section/cp2020-deckmanager-pdf-section.service';
@@ -27,11 +29,11 @@ export class Cp2020characterToPDF {
   private _character: Cp2020PlayerCharacter;
 
   private _left = 5;
-  private _top = 2;
+  private _top = 10;
   private _lineheight = 7;
   private _midPage = 105;
   private _fontSize = 11;
-  private _pageHeight = 290;
+  private _pageHeight = PdfPageSettings.PAGE_HEIGHT.valueOf();
   private _font = 'Arial';
 
   constructor(
@@ -521,6 +523,9 @@ export class Cp2020characterToPDF {
     line: number
   ): number {
     line = this.printSkillSectionTitle(doc, line, left, skills.ip.toString());
+    if (skills.showWithValues) {
+      skills.skills = skills.skills.filter((sk) => sk.value > 0);
+    }
     const colWidth = 50;
     let col = left;
     line += 4;
@@ -942,13 +947,30 @@ export class Cp2020characterToPDF {
     const ht = 5;
     const leftMargin = left;
     line += 7;
+
+    line = this.addWeaponColumnHeaders(doc, ht, left, line);
+
+    weapons.items.forEach((w) => {
+      line = this.addWeaponRow(doc, w, ht, left, line);
+    });
+    doc.setFontSize(this._fontSize);
+    return line + 6;
+  }
+
+  private addWeaponColumnHeaders(
+    doc: jsPDF,
+    ht: number,
+    left: number,
+    line: number
+  ): number {
+    doc.setFont(this._font, 'bold');
     // header
     doc.rect(left, line, 30, ht, 'S');
     doc.text('Name', left + 1, line + 4);
     left += 30;
 
     doc.rect(left, line, 8, ht, 'S');
-    doc.text('type', left + 0.5, line + 4);
+    doc.text('Type', left + 0.5, line + 4);
     left += 8;
 
     doc.rect(left, line, 8, ht, 'S');
@@ -981,98 +1003,139 @@ export class Cp2020characterToPDF {
 
     doc.rect(this._midPage, line, 100, ht, 'S');
     doc.text('Notes', this._midPage + 3, line + 4);
+    doc.setFont(this._font, 'normal');
     left += 7;
 
     line += ht;
-    weapons.items.forEach((w) => {
-      const startLine = line;
-      left = leftMargin;
-      const textLine = line + 3.5;
-      doc.rect(left, line, 30, ht, 'S');
-      doc.text(w.name ? w.name : '', left + 1, textLine);
-      left += 30;
+    return line;
+  }
 
-      doc.rect(left, line, 8, ht, 'S');
-      doc.text(w.type ? w.type : '', left + 0.5, textLine);
-      left += 8;
+  private addWeaponRow(
+    doc: jsPDF,
+    weapon: CpPlayerWeapon,
+    ht: number,
+    left: number,
+    line: number
+  ): number {
+    const rowHt = this.calculateWeaponRowHeight(doc, weapon);
+    if (line + rowHt > this._pageHeight) {
+      doc.addPage();
+      line = this.addWeaponColumnHeaders(doc, ht, left, this._top);
+    }
+    const startLine = line;
+    left = this._left;
+    const textLine = line + 3.5;
+    doc.rect(left, line, 30, ht, 'S');
+    doc.text(weapon.name ? weapon.name : '', left + 1, textLine);
+    left += 30;
 
-      doc.rect(left, line, 8, ht, 'S');
-      doc.text(w.wa ? w.wa.toString() : '', left + 0.5, textLine);
-      left += 8;
+    doc.rect(left, line, 8, ht, 'S');
+    doc.text(weapon.type ? weapon.type : '', left + 0.5, textLine);
+    left += 8;
 
-      doc.rect(left, line, 8, ht, 'S');
-      doc.text(w.conc ? w.conc : '', left + 0.5, textLine);
-      left += 8;
+    doc.rect(left, line, 8, ht, 'S');
+    doc.text(weapon.wa ? weapon.wa.toString() : '', left + 0.5, textLine);
+    left += 8;
 
-      doc.rect(left, line, 8, ht, 'S');
-      doc.text(w.avail ? w.avail : '', left + 0.5, textLine);
-      left += 8;
+    doc.rect(left, line, 8, ht, 'S');
+    doc.text(weapon.conc ? weapon.conc : '', left + 0.5, textLine);
+    left += 8;
 
-      doc.rect(left, line, 12, ht, 'S');
-      doc.text(w.damage ? w.damage : '', left + 0.5, textLine);
-      left += 12;
+    doc.rect(left, line, 8, ht, 'S');
+    doc.text(weapon.avail ? weapon.avail : '', left + 0.5, textLine);
+    left += 8;
 
-      doc.rect(left, line, 10, ht, 'S');
-      doc.text(w.shots ? w.shots.toString() : '', left + 0.5, textLine);
-      left += 10;
+    doc.rect(left, line, 12, ht, 'S');
+    doc.text(weapon.damage ? weapon.damage : '', left + 0.5, textLine);
+    left += 12;
 
-      doc.rect(left, line, 9, ht, 'S');
-      doc.text(w.rof ? w.rof.toString() : '', left + 0.5, textLine);
-      left += 9;
+    doc.rect(left, line, 10, ht, 'S');
+    doc.text(weapon.shots ? weapon.shots.toString() : '', left + 0.5, textLine);
+    left += 10;
 
-      doc.rect(left, line, 7, ht, 'S');
-      doc.text(w.rel ? w.rel : '', left + 0.5, textLine);
-      left += 7;
-      line += ht;
+    doc.rect(left, line, 9, ht, 'S');
+    doc.text(weapon.rof ? weapon.rof.toString() : '', left + 0.5, textLine);
+    left += 9;
 
-      let shotsHt = 0;
-      if (w.shots && w.shots > 1) {
-        left = leftMargin + 5;
-        for (let i = 0; i < w.shots; i++) {
-          doc.rect(left, line + shotsHt + 1, 2, 2, 'S');
-          left += 3;
-          if ((i + 1) % 30 === 0) {
-            left = leftMargin + 5;
-            shotsHt += ht;
-          }
+    doc.rect(left, line, 7, ht, 'S');
+    doc.text(weapon.rel ? weapon.rel : '', left + 0.5, textLine);
+    left += 7;
+    line += ht;
+
+    let shotsHt = 0;
+    if (weapon.shots && weapon.shots > 1) {
+      left = this._left + 5;
+      for (let i = 0; i < weapon.shots; i++) {
+        doc.rect(left, line + shotsHt + 1, 2, 2, 'S');
+        left += 3;
+        if ((i + 1) % 30 === 0) {
+          left = this._left + 5;
+          shotsHt += ht;
         }
-        shotsHt += ht;
-        doc.rect(leftMargin, line, 100, shotsHt, 'S');
       }
-      let noteHeight = 0;
-      if (w.options && w.options.length > 0) {
-        let noteLine = line + shotsHt + ht - 2;
-        let left = leftMargin + 5;
-        const opts = w.options.map((o) => `${o.count} ${o.name}`).join(', ');
-        const optText = doc.splitTextToSize(`Options: ${opts}`, 90);
-        optText.forEach((txt) => {
-          noteHeight += ht;
-          doc.text(txt, left, noteLine);
-          noteLine += ht - 2;
-        });
-        doc.rect(leftMargin, line + shotsHt, 100, noteHeight, 'S');
-      }
+      shotsHt += ht;
+      doc.rect(this._left, line, 100, shotsHt, 'S');
+    }
+    let noteHeight = 0;
+    if (weapon.options && weapon.options.length > 0) {
+      let noteLine = line + shotsHt + ht - 2;
+      let left = this._left + 5;
+      const opts = weapon.options.map((o) => `${o.count} ${o.name}`).join(', ');
+      const optText = doc.splitTextToSize(`Options: ${opts}`, 90);
+      optText.forEach((txt) => {
+        noteHeight += ht;
+        doc.text(txt, left, noteLine);
+        noteLine += ht - 2;
+      });
+      doc.rect(this._left, line + shotsHt, 100, noteHeight, 'S');
+    }
 
-      let rectHt = ht;
-      if ((w.notes && w.notes !== '') || w.thrown) {
-        const text = (w.thrown ? 'Thrown. ' : '') + (w.notes ? w.notes : '');
-        let notes = new Array<string>();
-        notes = doc.splitTextToSize(text, 90);
-        rectHt = ht;
-        let noteLine = startLine;
-        notes.forEach((txt) => {
-          doc.text(txt, this._midPage + 2, noteLine + 3.5);
-          noteLine += ht;
-          rectHt += ht;
-        });
-      }
-      const adjHt =
-        rectHt > shotsHt + noteHeight ? rectHt - ht : shotsHt + noteHeight;
-      doc.rect(this._midPage, startLine, 100, adjHt + ht, 'S');
-      line += adjHt;
-    });
-    doc.setFontSize(this._fontSize);
-    return line + 6;
+    let rectHt = ht;
+    if ((weapon.notes && weapon.notes !== '') || weapon.thrown) {
+      const text =
+        (weapon.thrown ? 'Throweapon.. ' : '') +
+        (weapon.notes ? weapon.notes : '');
+      let notes = new Array<string>();
+      notes = doc.splitTextToSize(text, 90);
+      rectHt = ht;
+      let noteLine = startLine;
+      notes.forEach((txt) => {
+        doc.text(txt, this._midPage + 2, noteLine + 3.5);
+        noteLine += ht;
+        rectHt += ht;
+      });
+    }
+    const adjHt =
+      rectHt > shotsHt + noteHeight ? rectHt - ht : shotsHt + noteHeight;
+    doc.rect(this._midPage, startLine, 100, adjHt + ht, 'S');
+    line += adjHt;
+    return line;
+  }
+
+  private calculateWeaponRowHeight(doc: jsPDF, weapon: CpPlayerWeapon): number {
+    let ht = 7;
+    if (weapon.shots && weapon.shots > 1) {
+      ht += Math.ceil(weapon.shots / 30) * 7;
+    }
+    if (weapon.options && weapon.options.length > 0) {
+      const opts = weapon.options.map((o) => `${o.count} ${o.name}`).join(', ');
+      const optText: Array<string> = doc.splitTextToSize(
+        `Options: ${opts}`,
+        90
+      );
+      ht += optText?.length * 7;
+    }
+
+    let noteHt = 0;
+    if ((weapon.notes && weapon.notes !== '') || weapon.thrown) {
+      const text =
+        (weapon.thrown ? 'Throweapon.. ' : '') +
+        (weapon.notes ? weapon.notes : '');
+      let notes: Array<string> = doc.splitTextToSize(text, 90);
+      noteHt = notes.length * 7;
+    }
+
+    return ht > noteHt ? ht : noteHt;
   }
 
   private printLifepathLine(

@@ -14,7 +14,7 @@ export enum PdfPageSettings {
   FONT_SIZE_LG = 15,
   FONT_SIZE_XL = 20,
   FONT_SIZE_XXL = 25,
-  PAGE_HEIGHT = 280,
+  PAGE_HEIGHT = 290,
   PAGE_WIDTH = 210,
-  DEFAULT_FONT = 'Arial'
+  DEFAULT_FONT = 'Arial',
 }
