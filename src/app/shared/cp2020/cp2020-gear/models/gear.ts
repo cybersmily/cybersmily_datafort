@@ -1,4 +1,4 @@
-import { SourceBook } from '../sourcebook';
+import { SourceBook } from '../../../models/sourcebook';
 
 export interface Gear {
   name: string;

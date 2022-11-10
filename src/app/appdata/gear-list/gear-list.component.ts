@@ -1,5 +1,5 @@
 import { KeyValue } from '@angular/common';
-import { Cp2020Gear } from './../../shared/models/gear/cp2020-gear';
+import { Cp2020Gear } from '../../shared/cp2020/cp2020-gear/models/cp2020-gear';
 import { DataListColumnParameters } from './../../shared/modules/data-list/models/data-list-parameters';
 import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
 import { map } from 'rxjs/operators';

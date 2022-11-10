@@ -1,6 +1,5 @@
 import { Cp2020WeaponSectionPdfService } from './../../cp2020/cp2020weapons/services/cp2020-weapon-section-pdf/cp2020-weapon-section-pdf.service';
 import { PdfPageSettings } from './../../enums/pdf-page-settings';
-import { CpPlayerWeapon } from './../../cp2020/cp2020weapons/models/cp-player-weapon';
 import { Cp2020CharGenSettings } from './../../cp2020/models/cp2020-char-gen-settings';
 import { Cp2020ContactSectionPdfService } from './../../cp2020/cp2020-contacts/services/cp2020-contact-section-pdf/cp2020-contact-section-pdf.service';
 import { Cp2020DeckmanagerPdfSectionService } from './../../cp2020/cp2020-netrun-gear/services/cp2020-deckmanager-pdf-section/cp2020-deckmanager-pdf-section.service';
@@ -16,9 +15,10 @@ import {
   Cp2020PlayerSkill,
 } from './../../cp2020/cp2020-skills/models';
 import { LifePathResults } from './../../cp2020/cp2020-lifepath/models';
-import { CpPlayerWeaponList } from './../../cp2020/cp2020weapons/models';
-import { Cp2020PlayerGearList } from './../cp2020character/cp2020-player-gear-list';
-import { Cp2020PlayerGear } from './../cp2020character/cp2020-player-gear';
+import {
+  Cp2020PlayerGearList,
+  Cp2020PlayerGear,
+} from '../../cp2020/cp2020-gear/models';
 import { Cp2020StatBlock } from '../../cp2020/cp2020-stats/models/cp2020-stat-block';
 import { Cp2020PlayerCharacter } from '../cp2020character/cp2020-player-character';
 

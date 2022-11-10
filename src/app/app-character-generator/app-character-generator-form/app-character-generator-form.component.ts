@@ -29,7 +29,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerSkills } from './../../shared/cp2020/cp2020-skills/models/cp2020-player-skills';
 import { LifePathResults } from './../../shared/cp2020/cp2020-lifepath/models';
-import { Cp2020PlayerGearList } from './../../shared/models/cp2020character/cp2020-player-gear-list';
+import { Cp2020PlayerGearList } from '../../shared/cp2020/cp2020-gear/models/cp2020-player-gear-list';
 import { Cp2020StatBlock } from '../../shared/cp2020/cp2020-stats/models/cp2020-stat-block';
 import { Cp2020PlayerCharacter } from './../../shared/models/cp2020character/cp2020-player-character';
 import { Cp2020CharacterGeneratorService } from './../../shared/services/chargen/cp2020-character-generator.service';

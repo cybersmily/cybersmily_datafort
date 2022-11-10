@@ -11,7 +11,7 @@ import {
   Cp2020PlayerSkill,
 } from './../../cp2020/cp2020-skills/models';
 import { LifePathResults } from './../../cp2020/cp2020-lifepath/models';
-import { Cp2020PlayerGearList } from './../../models/cp2020character/cp2020-player-gear-list';
+import { Cp2020PlayerGearList } from '../../cp2020/cp2020-gear/models/cp2020-player-gear-list';
 import {
   CpPlayerWeaponList,
   CpPlayerWeapon,
