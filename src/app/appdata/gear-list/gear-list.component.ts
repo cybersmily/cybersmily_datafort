@@ -1,5 +1,5 @@
 import { KeyValue } from '@angular/common';
-import { Cp2020Gear } from '../../shared/cp2020/cp2020-gear/models/cp2020-gear';
+import { Cp2020Gear } from '../../shared/cp2020/cp2020-gear/models';
 import { DataListColumnParameters } from './../../shared/modules/data-list/models/data-list-parameters';
 import { JsonDataFiles } from './../../shared/services/file-services/json-data-files';
 import { map } from 'rxjs/operators';
@@ -15,9 +15,6 @@ import { Observable } from 'rxjs';
 })
 export class GearListComponent implements OnInit {
   gearList$: Observable<Array<Cp2020Gear>>;
-  categoryList: Array<KeyValue<string, string>> = new Array<
-    KeyValue<string, string>
-  >();
   columns: Array<DataListColumnParameters> = [
     {
       header: 'category',
@@ -117,17 +114,8 @@ export class GearListComponent implements OnInit {
       'Cyberpunk 2020 Gear List',
       "2022-05, Cybersmily's Datafort Cyberpunk 2020 Gear List from all sources and search capability."
     );
-    this.gearList$ = this.dataService
-      .GetJson(JsonDataFiles.CP2020_GEAR_DATA_LIST_JSON)
-      .pipe(
-        map((data: Array<Cp2020Gear>) => {
-          this.categoryList = data
-            .map((e) => ({ key: e.category, value: e.category }))
-            .filter((item, index, array) => array.indexOf(item) === index);
-          return data
-            .sort((a, b) => a.name.localeCompare(b.name))
-            .sort((a, b) => a.category.localeCompare(a.category));
-        })
-      );
+    this.gearList$ = this.dataService.GetJson(
+      JsonDataFiles.CP2020_GEAR_DATA_LIST_JSON
+    );
   }
 }
