@@ -10,6 +10,10 @@
   padding: 2px 0px;
 }
 
+.cs-cyberware-name {
+  min-width: 50px;
+  min-height: 1.0em;
+}
 
 /* Chrome, Safari, Edge, Opera */
 .csd-cyber-row input::-webkit-outer-spin-button,

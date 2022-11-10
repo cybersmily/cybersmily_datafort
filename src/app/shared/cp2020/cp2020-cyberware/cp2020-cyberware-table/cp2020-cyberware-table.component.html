@@ -1,13 +1,25 @@
 <div class="cp2020-section border border-dark">
   <div class="cp2020-label row g-0">
     <div class="col">
-      <h4 class="d-inline-block csd-btn me-4" (click)="isCollapsed = !isCollapsed"
-        (keyup.enter)="isCollapsed = !isCollapsed" tabindex="0">
+      <h4
+        class="d-inline-block csd-btn me-4"
+        (click)="isCollapsed = !isCollapsed"
+        (keyup.enter)="isCollapsed = !isCollapsed"
+        tabindex="0"
+      >
         CYBERNETICS
-        <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ms-2"></fa-icon>
+        <fa-icon
+          [icon]="collapseChevron"
+          class="csd-icon-btn csd-icon-xl ms-2"
+        ></fa-icon>
       </h4>
-      <fa-icon *ngIf="!isCollapsed" [icon]="faDice" class="csd-dice csd-btn" title="Generate random cyberware"
-        (click)="generateCyberware()">
+      <fa-icon
+        *ngIf="!isCollapsed"
+        [icon]="faDice"
+        class="csd-dice csd-btn"
+        title="Generate random cyberware"
+        (click)="generateCyberware()"
+      >
       </fa-icon>
     </div>
   </div>
@@ -24,64 +36,106 @@
         <div class="row g-0">
           <div class="col-10 small ps-1 border border-dark">TYPE</div>
           <div class="col-1 text-center small border border-dark">HL</div>
-          <div class="col-1 ps-1 text-center small border border-dark">COST</div>
+          <div class="col-1 ps-1 text-center small border border-dark">
+            COST
+          </div>
         </div>
       </div>
     </div>
     <div class="row g-0">
       <div class="col-12 col-lg-6">
-        <ng-container [ngTemplateOutlet]="cyberColumn"
-          [ngTemplateOutletContext]="{cyberList:getColumn(showTwoColumns)}">
+        <ng-container
+          [ngTemplateOutlet]="cyberColumn"
+          [ngTemplateOutletContext]="{ cyberList: getColumn(showTwoColumns) }"
+        >
         </ng-container>
       </div>
       <div class="col" *ngIf="showTwoColumns">
-        <ng-container [ngTemplateOutlet]="cyberColumn"
-          [ngTemplateOutletContext]="{cyberList:getColumnTwo(), isSecondColumn: true}">
+        <ng-container
+          [ngTemplateOutlet]="cyberColumn"
+          [ngTemplateOutletContext]="{
+            cyberList: getColumnTwo(),
+            isSecondColumn: true
+          }"
+        >
         </ng-container>
       </div>
     </div>
 
     <div class="row csd-cyber-row g-0">
       <div class="col">
-        <button #newCyberElem class="csd-btn text-center csd-icon-btn w-100" (click)="openModal(cyberSelect, 'new')">
+        <button
+          #newCyberElem
+          class="csd-btn text-center csd-icon-btn w-100"
+          (click)="openModal(cyberSelect, 'new')"
+        >
           <fa-icon [icon]="faPlus"></fa-icon>
         </button>
       </div>
     </div>
     <div class="row csd-cyber-row g-0">
       <div class="col">Total HL and Euro Costs</div>
-      <div class="col-1 small text-center">{{cyberList.totalHL | number}}</div>
-      <div class="col-1 small text-end pe-1">{{cyberList.totalCost | number}}</div>
+      <div class="col-1 small text-center">
+        {{ cyberList.totalHL | number }}
+      </div>
+      <div class="col-1 small text-end pe-1">
+        {{ cyberList.totalCost | number }}
+      </div>
     </div>
   </div>
 </div>
 
-<ng-template #cyberColumn let-cyberList="cyberList" let-isSecondColumn="isSecondColumn">
-  <div *ngFor="let cyber of cyberList;let i = index" class="csd-cyber-row row g-0">
-    <div class="col-9 cyber-name no-right-border" title="{{cyber.notes}}">
-      <button #cyberNameElem class="csd-btn text-start w-100" (click)="editCyberware(i, cyberEdit, isSecondColumn)" tabindex="0">
-        {{cyber.toString()}}
+<ng-template
+  #cyberColumn
+  let-cyberList="cyberList"
+  let-isSecondColumn="isSecondColumn"
+>
+  <div
+    *ngFor="let cyber of cyberList; let i = index"
+    class="csd-cyber-row row g-0"
+  >
+    <div class="col-9 cyber-name no-right-border" title="{{ cyber.notes }}">
+      <button
+        #cyberNameElem
+        class="csd-btn text-start w-100 cs-cyberware-name"
+        (click)="editCyberware(i, cyberEdit, isSecondColumn)"
+        tabindex="0"
+      >
+        {{ cyber.toString() }}
       </button>
     </div>
     <div class="col-1 no-left-border">
-      <button class="float-end csd-btn small me-1 csd-icon-btn" (click)="delete(i, isSecondColumn)"
-        title="Delete Cyberware" tabindex="0">
+      <button
+        class="float-end csd-btn small me-1 csd-icon-btn"
+        (click)="delete(i, isSecondColumn)"
+        title="Delete Cyberware"
+        tabindex="0"
+      >
         <fa-icon [icon]="faTrash"></fa-icon>
       </button>
     </div>
-    <div class="col-1 text-center small">{{cyber.totalHL}}</div>
-    <div class="col-1 text-end small pe-1">{{cyber.totalCost | number}}</div>
+    <div class="col-1 text-center small">{{ cyber.totalHL }}</div>
+    <div class="col-1 text-end small pe-1">{{ cyber.totalCost | number }}</div>
   </div>
 </ng-template>
 
 <ng-template #cyberEdit>
   <div class="modal-header">
     <h4 class="modal-title float-start">Edit Cyberware</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()"></button>
+    <button
+      type="button"
+      class="btn-close float-end"
+      aria-label="Close"
+      (click)="closeModal()"
+    ></button>
   </div>
   <div class="modal-body">
-    <cs-cp2020-cyberware-editor [cyberware]="selectedCyberware" [index]="selectedIndex"
-      (changeCybeware)="update($event)" (deleteCyberware)="deleteFromModal($event)"></cs-cp2020-cyberware-editor>
+    <cs-cp2020-cyberware-editor
+      [cyberware]="selectedCyberware"
+      [index]="selectedIndex"
+      (changeCybeware)="update($event)"
+      (deleteCyberware)="deleteFromModal($event)"
+    ></cs-cp2020-cyberware-editor>
   </div>
 </ng-template>
 
@@ -89,32 +143,43 @@
   <div class="cyber-selector-modal">
     <div class="modal-header">
       <h4 class="modal-title float-start">Add Cyberware</h4>
-      <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()"></button>
+      <button
+        type="button"
+        class="btn-close float-end"
+        aria-label="Close"
+        (click)="closeModal()"
+      ></button>
     </div>
     <div class="modal-body">
-      <cs-cp2020-cyberware-selector (addCyberware)="add($event)"></cs-cp2020-cyberware-selector>
+      <cs-cp2020-cyberware-selector
+        (addCyberware)="add($event)"
+      ></cs-cp2020-cyberware-selector>
     </div>
   </div>
 </ng-template>
 
 <ng-template #cyberDetails let-item="item">
   <div class="row cyber-popover">
-    <div class="col">{{item.notes}}</div>
+    <div class="col">{{ item.notes }}</div>
   </div>
   <div class="row">
-    <div class="col">HL: {{item.hl}} ({{item.hc}})</div>
-    <div class="col">Surgery: {{item.surgery}}</div>
+    <div class="col">HL: {{ item.hl }} ({{ item.hc }})</div>
+    <div class="col">Surgery: {{ item.surgery }}</div>
   </div>
   <div *ngIf="item.source" class="row">
-    <div class="col"><i>{{item.source.book}} pg. {{item.source.page}}</i></div>
+    <div class="col">
+      <i>{{ item.source.book }} pg. {{ item.source.page }}</i>
+    </div>
   </div>
   <ng-container *ngIf="item.options && item.options.length > 0">
     <div class="row mt-3">
       <div class="col">Options:</div>
     </div>
     <div class="row" *ngFor="let opt of item.options">
-      <div class="col ms-1">{{(opt.abbrev)?opt.abbrev + ' (' + opt.name + ')': opt.name}} - {{opt.notes}} (HC:
-        {{opt.hc}})</div>
+      <div class="col ms-1">
+        {{ opt.abbrev ? opt.abbrev + " (" + opt.name + ")" : opt.name }} -
+        {{ opt.notes }} (HC: {{ opt.hc }})
+      </div>
     </div>
   </ng-container>
 </ng-template>
