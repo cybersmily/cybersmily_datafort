@@ -87,11 +87,11 @@ export class Cp2020GearPdfService {
   ): number {
     // determine how tall the cell is and apply new page if needed.
     const gearOneName: Array<string> = doc.splitTextToSize(
-      gear.items[indexOne].gear,
+      gear.items[indexOne].gear ?? '',
       80
     );
     const gearTwoName: Array<string> = doc.splitTextToSize(
-      gear.items[indexTwo].gear,
+      gear.items[indexTwo]?.gear ?? '',
       80
     );
 
@@ -119,9 +119,10 @@ export class Cp2020GearPdfService {
 
     gearCost = gear.items[indexTwo]?.cost?.toString() ?? '';
     gearWt = gear.items[indexTwo]?.weight?.toString() ?? '';
-    const cellTwo = this.addGearCell(
+
+    this.addGearCell(
       doc,
-      gearTwoName,
+      gearTwoName ?? [],
       gearCost,
       gearWt,
       cellHt,

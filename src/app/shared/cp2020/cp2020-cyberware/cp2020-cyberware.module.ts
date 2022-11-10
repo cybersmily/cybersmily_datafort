@@ -1,3 +1,4 @@
+import { Cp2020CyberwarePdfService } from './services/cp2020-cyberware-pdf/cp2020-cyberware-pdf.service';
 import { CyberwareCardComponent } from './cyberware-card/cyberware-card.component';
 import { CyberwareCardColumnComponent } from './cyberware-card-column/cyberware-card-column.component';
 import { Cp2020CyberwareGeneratorService, CyberDataService } from './services';
@@ -18,25 +19,22 @@ import { Cp2020CyberwareSettingsComponent } from './cp2020-cyberware-settings/cp
     Cp2020CyberwareTableComponent,
     Cp2020CyberwareSelectorComponent,
     Cp2020CyberwareEditorComponent,
-    Cp2020CyberwareSettingsComponent
+    Cp2020CyberwareSettingsComponent,
   ],
-  imports: [
-    CommonModule,
-    CommonUiModule,
-    PipesModule
-  ],
+  imports: [CommonModule, CommonUiModule, PipesModule],
   providers: [
     CyberDataService,
     DiceService,
     DataService,
-    Cp2020CyberwareGeneratorService
+    Cp2020CyberwareGeneratorService,
+    Cp2020CyberwarePdfService,
   ],
   exports: [
     CyberwareCardComponent,
     CyberwareCardColumnComponent,
     Cp2020CyberwareTableComponent,
     Cp2020CyberwareSelectorComponent,
-    Cp2020CyberwareEditorComponent
-  ]
+    Cp2020CyberwareEditorComponent,
+  ],
 })
-export class Cp2020CyberwareModule { }
+export class Cp2020CyberwareModule {}

@@ -1,3 +1,4 @@
+import { Cp2020CyberwarePdfService } from './../../cp2020/cp2020-cyberware/services/cp2020-cyberware-pdf/cp2020-cyberware-pdf.service';
 import { Cp2020GearPdfService } from './../../cp2020/cp2020-gear/services/cp2020-gear-pdf/cp2020-gear-pdf.service';
 import { Cp2020WeaponSectionPdfService } from './../../cp2020/cp2020weapons/services/cp2020-weapon-section-pdf/cp2020-weapon-section-pdf.service';
 import { PdfPageSettings } from './../../enums/pdf-page-settings';
@@ -38,6 +39,7 @@ export class Cp2020characterToPDF {
     private armorPdfService: Cp2020ArmorPDFSectionService,
     private weaponPdfService: Cp2020WeaponSectionPdfService,
     private gearPdfService: Cp2020GearPdfService,
+    private cyberPdfService: Cp2020CyberwarePdfService,
     private deckmanagerPdfService: Cp2020DeckmanagerPdfSectionService,
     private contactPdfService: Cp2020ContactSectionPdfService
   ) {}
@@ -175,11 +177,12 @@ export class Cp2020characterToPDF {
       );
     }
     if (!settings || settings.sectionSettings.showCybernetics) {
-      line = this.addCyberware(
+      line = this.cyberPdfService.addCyberwareSection(
         doc,
         this._character.cyberware,
         this._left,
-        line
+        line,
+        PdfPageSettings.LINEHEIGHT
       );
     }
     if (!settings || settings.sectionSettings.showGear) {
@@ -709,93 +712,6 @@ export class Cp2020characterToPDF {
       doc.text(name, col + 9, line);
       line += 4;
     });
-  }
-
-  private addCyberware(
-    doc: jsPDF,
-    cyber: Cp2020PlayerCyberList,
-    left: number,
-    line: number
-  ): number {
-    const ht = 6;
-    const index = Math.ceil(cyber.items.length / 2);
-    const colOne = cyber.items.slice(0, index);
-    const colTwo = cyber.items.slice(index, index * 2);
-    // split to a new page if this section is too long
-    let sectLength = colOne.length * ht + ht + 15;
-    if (line + sectLength > this._pageHeight) {
-      doc.addPage();
-      line = this._top;
-    }
-    line += 7;
-
-    doc.setFillColor('black');
-    doc.rect(left, line, 200, 7, 'DF');
-    doc.setTextColor('white');
-    doc.setFont(this._font, 'bold');
-    doc.text('CYBERNETICS', left + 2, line + 5);
-    doc.setTextColor('black');
-    doc.setFont(this._font, 'normal');
-    line += 7;
-    doc.setFontSize(8);
-    this.printCyberColumn(doc, colOne, left, line);
-    this.printCyberColumn(doc, colTwo, this._midPage, line);
-    line += colOne.length * ht + ht;
-    // footer
-    doc.rect(left, line, this._midPage + 75, ht, 'S');
-    doc.rect(this._midPage + 80, line, 10, ht, 'S');
-    doc.rect(this._midPage + 90, line, 10, ht, 'S');
-    doc.text('Total HL and Cost', left + 2, line + 4);
-    doc.text(
-      cyber.totalHL ? cyber.totalHL.toString() : '',
-      this._midPage + 81,
-      line + 4
-    );
-    doc.text(
-      cyber.totalCost ? cyber.totalCost.toLocaleString('en') : '',
-      this._midPage + 91,
-      line + 4
-    );
-
-    return line + 7;
-  }
-
-  private printCyberColumn(
-    doc: jsPDF,
-    cyber: Array<Cp2020PlayerCyber>,
-    left: number,
-    line: number
-  ): number {
-    const ht = 6;
-    // header
-    doc.rect(left, line, 80, ht, 'S');
-    doc.rect(left + 80, line, 10, ht, 'S');
-    doc.rect(left + 90, line, 10, ht, 'S');
-    doc.text('Type', left + 2, line + 4);
-    doc.text('HL', left + 81, line + 4);
-    doc.text('Cost', left + 91, line + 4);
-    line += ht;
-    cyber.forEach((c) => {
-      let cyberName = new Array<string>();
-      cyberName = doc.splitTextToSize(c.toString(), 79);
-      let rectHt = 0;
-      const rectLine = line;
-      cyberName.forEach((txt) => {
-        doc.text(txt, left + 2, line + 4);
-        line += ht;
-        rectHt += ht;
-      });
-      doc.rect(left, rectLine, 80, rectHt, 'S');
-      doc.rect(left + 80, rectLine, 10, rectHt, 'S');
-      doc.rect(left + 90, rectLine, 10, rectHt, 'S');
-      doc.text(c.totalHL ? c.totalHL.toString() : '', left + 81, rectLine + 4);
-      doc.text(
-        c.totalCost ? c.totalCost.toLocaleString('en') : '',
-        left + 91,
-        rectLine + 4
-      );
-    });
-    return cyber.length * ht + ht;
   }
 
   private addVehicles(
