@@ -118,42 +118,52 @@ export class Cp2020WeaponSectionPdfService {
     const startLine = line;
     left = PdfPageSettings.MARGIN_LEFT;
     const textLine = line + 3.5;
-    doc.rect(left, line, 30, ht, 'S');
-    doc.text(weapon.name ? weapon.name : '', left + 1, textLine);
+    const weaponName: Array<string> = doc.splitTextToSize(
+      weapon?.name ?? '',
+      28
+    );
+    const wpnHt = weaponName.length * PdfPageSettings.LINEHEIGHT_SM;
+    doc.rect(left, line, 30, wpnHt, 'S');
+    let nameLine = line + 3.5;
+    weaponName.forEach((name) => {
+      doc.text(name, left + 1, nameLine);
+      nameLine += PdfPageSettings.LINEHEIGHT_SM;
+    });
+
     left += 30;
 
-    doc.rect(left, line, 8, ht, 'S');
+    doc.rect(left, line, 8, wpnHt, 'S');
     doc.text(weapon.type ? weapon.type : '', left + 0.5, textLine);
     left += 8;
 
-    doc.rect(left, line, 8, ht, 'S');
+    doc.rect(left, line, 8, wpnHt, 'S');
     doc.text(weapon.wa ? weapon.wa.toString() : '', left + 0.5, textLine);
     left += 8;
 
-    doc.rect(left, line, 8, ht, 'S');
+    doc.rect(left, line, 8, wpnHt, 'S');
     doc.text(weapon.conc ? weapon.conc : '', left + 0.5, textLine);
     left += 8;
 
-    doc.rect(left, line, 8, ht, 'S');
+    doc.rect(left, line, 8, wpnHt, 'S');
     doc.text(weapon.avail ? weapon.avail : '', left + 0.5, textLine);
     left += 8;
 
-    doc.rect(left, line, 12, ht, 'S');
+    doc.rect(left, line, 12, wpnHt, 'S');
     doc.text(weapon.damage ? weapon.damage : '', left + 0.5, textLine);
     left += 12;
 
-    doc.rect(left, line, 10, ht, 'S');
+    doc.rect(left, line, 10, wpnHt, 'S');
     doc.text(weapon.shots ? weapon.shots.toString() : '', left + 0.5, textLine);
     left += 10;
 
-    doc.rect(left, line, 9, ht, 'S');
+    doc.rect(left, line, 9, wpnHt, 'S');
     doc.text(weapon.rof ? weapon.rof.toString() : '', left + 0.5, textLine);
     left += 9;
 
-    doc.rect(left, line, 7, ht, 'S');
+    doc.rect(left, line, 7, wpnHt, 'S');
     doc.text(weapon.rel ? weapon.rel : '', left + 0.5, textLine);
     left += 7;
-    line += ht;
+    line += wpnHt;
 
     let shotsHt = 0;
     if (weapon.shots && weapon.shots > 1) {
@@ -171,14 +181,14 @@ export class Cp2020WeaponSectionPdfService {
     }
     let noteHeight = 0;
     if (weapon.options && weapon.options.length > 0) {
-      let noteLine = line + shotsHt + ht - 2;
+      let noteLine = line + shotsHt + PdfPageSettings.LINEHEIGHT - 2;
       let left = PdfPageSettings.MARGIN_LEFT + 5;
       const opts = weapon.options.map((o) => `${o.count} ${o.name}`).join(', ');
       const optText = doc.splitTextToSize(`Options: ${opts}`, 90);
       optText.forEach((txt) => {
-        noteHeight += ht;
+        noteHeight += PdfPageSettings.LINEHEIGHT;
         doc.text(txt, left, noteLine);
-        noteLine += ht - 2;
+        noteLine += PdfPageSettings.LINEHEIGHT - 2;
       });
       doc.rect(
         PdfPageSettings.MARGIN_LEFT,
@@ -212,7 +222,8 @@ export class Cp2020WeaponSectionPdfService {
   }
 
   private calculateWeaponRowHeight(doc: jsPDF, weapon: CpPlayerWeapon): number {
-    let ht = 7;
+    let ht =
+      doc.splitTextToSize(weapon.name, 28).length * PdfPageSettings.LINEHEIGHT;
     if (weapon.shots && weapon.shots > 1) {
       ht += Math.ceil(weapon.shots / 30) * 7;
     }
