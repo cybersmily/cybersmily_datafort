@@ -3,9 +3,9 @@ export class Cp2020PlayerGear {
   weight: number;
   cost: number;
 
-  constructor() {
-    this.gear = '';
-    this.weight = 0;
-    this.cost = 0;
+  constructor(para?: any) {
+    this.gear = para?.gear ?? para?.name ?? '';
+    this.weight = para?.weight ?? para?.wt ?? 0;
+    this.cost = para?.cost ?? 0;
   }
 }

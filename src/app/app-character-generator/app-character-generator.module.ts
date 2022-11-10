@@ -1,3 +1,4 @@
+import { Cp2020GearModule } from './../shared/cp2020/cp2020-gear/cp2020-gear.module';
 import { Cp2020ContactsModule } from './../shared/cp2020/cp2020-contacts/cp2020-contacts.module';
 import { ImageHolderModule } from './../shared/modules/image-holder/image-holder.module';
 import { Cp2020NetrunGearModule } from '../shared/cp2020/cp2020-netrun-gear/cp2020-netrun-gear.module';
@@ -29,7 +30,6 @@ import { AppCharacterGeneratorRoutingModule } from './app-character-generator-ro
 import { AppCharacterGeneratorFormComponent } from './app-character-generator-form/app-character-generator-form.component';
 import { AppCharacterHandleComponent } from './app-character-handle/app-character-handle.component';
 import { AppCharacterImageComponent } from './app-character-image/app-character-image.component';
-import { AppCharacterGearComponent } from './app-character-gear/app-character-gear.component';
 import { AppCharacterInstructionComponent } from './app-character-instruction/app-character-instruction.component';
 import { AppCharacterSettingsComponent } from './app-character-settings/app-character-settings.component';
 
@@ -38,7 +38,6 @@ import { AppCharacterSettingsComponent } from './app-character-settings/app-char
     AppCharacterGeneratorFormComponent,
     AppCharacterHandleComponent,
     AppCharacterImageComponent,
-    AppCharacterGearComponent,
     AppCharacterInstructionComponent,
     AppCharacterSettingsComponent,
   ],
@@ -58,6 +57,7 @@ import { AppCharacterSettingsComponent } from './app-character-settings/app-char
     Cp2020LifepathModule,
     Cp2020NetrunGearModule,
     Cp2020ContactsModule,
+    Cp2020GearModule,
     ImageHolderModule,
     ModalModule.forRoot(),
   ],

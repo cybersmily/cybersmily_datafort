@@ -1,3 +1,4 @@
+import { Cp2020GearPdfService } from './../../cp2020/cp2020-gear/services/cp2020-gear-pdf/cp2020-gear-pdf.service';
 import { Cp2020WeaponSectionPdfService } from './../../cp2020/cp2020weapons/services/cp2020-weapon-section-pdf/cp2020-weapon-section-pdf.service';
 import { PdfPageSettings } from './../../enums/pdf-page-settings';
 import { Cp2020CharGenSettings } from './../../cp2020/models/cp2020-char-gen-settings';
@@ -15,10 +16,6 @@ import {
   Cp2020PlayerSkill,
 } from './../../cp2020/cp2020-skills/models';
 import { LifePathResults } from './../../cp2020/cp2020-lifepath/models';
-import {
-  Cp2020PlayerGearList,
-  Cp2020PlayerGear,
-} from '../../cp2020/cp2020-gear/models';
 import { Cp2020StatBlock } from '../../cp2020/cp2020-stats/models/cp2020-stat-block';
 import { Cp2020PlayerCharacter } from '../cp2020character/cp2020-player-character';
 
@@ -40,6 +37,7 @@ export class Cp2020characterToPDF {
   constructor(
     private armorPdfService: Cp2020ArmorPDFSectionService,
     private weaponPdfService: Cp2020WeaponSectionPdfService,
+    private gearPdfService: Cp2020GearPdfService,
     private deckmanagerPdfService: Cp2020DeckmanagerPdfSectionService,
     private contactPdfService: Cp2020ContactSectionPdfService
   ) {}
@@ -185,7 +183,13 @@ export class Cp2020characterToPDF {
       );
     }
     if (!settings || settings.sectionSettings.showGear) {
-      line = this.addGear(doc, this._character.gear, this._left, line);
+      line = this.gearPdfService.addGearSection(
+        doc,
+        this._character.gear,
+        this._left,
+        line,
+        PdfPageSettings.LINEHEIGHT
+      );
     }
     if (!settings || settings.sectionSettings.showCyberdeck) {
       line = this.deckmanagerPdfService.createCp2020CyberdeckProgramsSection(
@@ -792,67 +796,6 @@ export class Cp2020characterToPDF {
       );
     });
     return cyber.length * ht + ht;
-  }
-
-  private addGear(
-    doc: jsPDF,
-    gear: Cp2020PlayerGearList,
-    left: number,
-    line: number
-  ): number {
-    const ht = 6;
-    const index = Math.ceil(gear.items.length / 2);
-    const colOne = gear.items.slice(0, index);
-    const colTwo = gear.items.slice(index, index * 2);
-    let sectLength = colOne.length * ht + ht + 8;
-    if (line + sectLength > this._pageHeight) {
-      doc.addPage();
-      line = this._top;
-    }
-
-    doc.setFillColor('black');
-    doc.rect(left, line, 200, 7, 'DF');
-    doc.setTextColor('white');
-    doc.setFont(this._font, 'bold');
-    doc.text('GEAR', left + 2, line + 5);
-    doc.setTextColor('black');
-    doc.setFont(this._font, 'normal');
-    line += 7;
-    doc.setFontSize(9);
-    this.printGearColumn(doc, colOne, left, line);
-    this.printGearColumn(doc, colTwo, this._midPage, line);
-    doc.setFontSize(this._fontSize);
-    line += ht * colOne.length;
-    return line;
-  }
-
-  private printGearColumn(
-    doc: jsPDF,
-    gear: Array<Cp2020PlayerGear>,
-    left: number,
-    line: number
-  ) {
-    const ht = 6;
-    // header
-    doc.rect(left, line, 80, ht, 'S');
-    doc.rect(left + 80, line, 10, ht, 'S');
-    doc.rect(left + 90, line, 10, ht, 'S');
-    doc.text('type', left + 2, line + 4);
-    doc.text('Cost', left + 81, line + 4);
-    doc.text('Wt', left + 91, line + 4);
-    line += ht;
-    gear.forEach((g) => {
-      doc.rect(left, line, 80, ht, 'S');
-      doc.rect(left + 80, line, 10, ht, 'S');
-      doc.rect(left + 90, line, 10, ht, 'S');
-      doc.text(g.gear, left + 1, line + 4);
-      const cost: string = g.cost ? g.cost.toString() : '';
-      const wt: string = g.weight ? g.weight.toString() : '';
-      doc.text(cost, left + 81, line + 4);
-      doc.text(wt, left + 91, line + 4);
-      line += ht;
-    });
-    doc.setFontSize(this._fontSize);
   }
 
   private addVehicles(

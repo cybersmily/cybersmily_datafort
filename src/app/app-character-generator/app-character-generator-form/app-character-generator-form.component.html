@@ -194,11 +194,11 @@
         *ngIf="charGenSettings.sectionSettings.showGear"
       >
         <div class="col">
-          <cs-app-character-gear
+          <cs-cp2020-gear-list
             [gear]="character.gear"
             (changeGear)="changeGear($event)"
             [isCollapsed]="charGenSettings.isCollapsed"
-          ></cs-app-character-gear>
+          ></cs-cp2020-gear-list>
         </div>
       </div>
       <div

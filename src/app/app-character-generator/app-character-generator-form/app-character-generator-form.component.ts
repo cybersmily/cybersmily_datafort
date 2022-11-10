@@ -1,3 +1,4 @@
+import { Cp2020GearPdfService } from './../../shared/cp2020/cp2020-gear/services/cp2020-gear-pdf/cp2020-gear-pdf.service';
 import { Cp2020WeaponSectionPdfService } from './../../shared/cp2020/cp2020weapons/services/cp2020-weapon-section-pdf/cp2020-weapon-section-pdf.service';
 import { Cp2020ContactSectionPdfService } from './../../shared/cp2020/cp2020-contacts/services/cp2020-contact-section-pdf/cp2020-contact-section-pdf.service';
 import { debounce, debounceTime, map } from 'rxjs/operators';
@@ -106,6 +107,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     private modalService: BsModalService,
     private armorPDFService: Cp2020ArmorPDFSectionService,
     private weaponPDFService: Cp2020WeaponSectionPdfService,
+    private gearPdfService: Cp2020GearPdfService,
     private deckmanagerPDFService: Cp2020DeckmanagerPdfSectionService,
     private contactPDFService: Cp2020ContactSectionPdfService,
     private seo: SeoService
@@ -239,6 +241,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     const characterToPDF = new Cp2020characterToPDF(
       this.armorPDFService,
       this.weaponPDFService,
+      this.gearPdfService,
       this.deckmanagerPDFService,
       this.contactPDFService
     );

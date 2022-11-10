@@ -1,0 +1,36 @@
+.chargen-gear-table {
+  width: 100%;
+}
+
+.chargen-gear-table tr:first-child {
+  font-weight: bold;
+}
+
+.chargen-gear-table tr td {
+  border: 1px solid black;
+}
+
+.chargen-gear-table tr td:nth-child(2),
+.chargen-gear-table tr td:nth-child(3) {
+  width: 60px;
+}
+
+.chargen-gear-table tr td input[type=number] {
+  width: 59px;
+}
+
+.chargen-gear-table tr td input[type=text] {
+  width: 100%;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.chargen-gear-table input::-webkit-outer-spin-button,
+.chargen-gear-table input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.chargen-gear-table input[type=number] {
+  -moz-appearance: textfield;
+}
