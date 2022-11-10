@@ -1,4 +1,6 @@
+import { get } from 'lodash';
 import { ArmorRandomGenSettingsService } from './../services/armor-random-gen-settings/armor-random-gen-settings.service';
+import { ArmorDataListService } from './../services/armor-data-list/armor-data-list.service';
 import { ArmorGeneratorService } from './../services/armor-generator/armor-generator.service';
 import {
   ArmorCalculatorService,
@@ -57,6 +59,8 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
   settings = new CP2020ArmorRandomSettings();
   isOverrideSP = false;
 
+  armorDataList = new Array<Cp2020ArmorPiece>();
+
   // piece of clothes
   @Input()
   armor = new Cp2020ArmorPiece();
@@ -114,6 +118,7 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
   constructor(
     private dice: DiceService,
     private armorDataAttributesService: ArmorDataAttributesService,
+    private armorDataListService: ArmorDataListService,
     private armorCalculatorService: ArmorCalculatorService,
     private armorGeneratorService: ArmorGeneratorService,
     private randomSettings: ArmorRandomGenSettingsService,
@@ -129,6 +134,10 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
     });
     this.randomSettings.settings.subscribe((settings) => {
       this.settings = settings;
+    });
+
+    this.armorDataListService.getData().subscribe((data) => {
+      this.armorDataList = data;
     });
   }
 
@@ -265,6 +274,16 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
   closeModal() {
     if (this.modalRef) {
       this.modalRef.hide();
+    }
+  }
+
+  setDetails(): void {
+    console.log(this.currArmor.name);
+    const index = this.armorDataList.findIndex(
+      (armor) => armor.name === this.currArmor.name
+    );
+    if (index > -1) {
+      this.currArmor = new Cp2020ArmorPiece(this.armorDataList[index]);
     }
   }
 

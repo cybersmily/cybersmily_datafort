@@ -7,6 +7,11 @@
       type="text"
       placeholder="Enter name..."
       [(ngModel)]="currArmor.name"
+      [typeahead]="armorDataList"
+      typeaheadOptionField="name"
+      (change)="setDetails()"
+      (typeaheadOnBlur)="setDetails()"
+      (typeaheadOnSelect)="setDetails()"
     />
   </div>
   <div class="col-6 col-md-3 order-2 order-md-3">
@@ -55,7 +60,7 @@
     <input
       *ngIf="!currArmor?.isCalculatedCost"
       type="number"
-      class="csd-number"
+      class="csd-number w-50"
       [(ngModel)]="currArmor.cost"
     />
     <span class="csd-number" *ngIf="currArmor?.isCalculatedCost">{{
