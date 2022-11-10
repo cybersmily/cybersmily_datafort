@@ -1,5 +1,7 @@
+import { DataWeapon } from './../models/data-weapon';
 import { Cp2020WeaponMagazine } from './../models/cp-2020-weapon-magazine';
 import { CpPlayerWeaponOption } from './../models/cp-player-weapon-option';
+import { WeaponDataService } from './../services';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import {
   faSave,
@@ -42,6 +44,8 @@ export class Cp2020weaponEditorComponent implements OnInit, AfterViewInit {
     class: 'modal-right  modal-lg',
   };
 
+  weaponDataList = new Array<DataWeapon>();
+
   @Input()
   weapon: CpPlayerWeapon = new CpPlayerWeapon();
 
@@ -51,10 +55,16 @@ export class Cp2020weaponEditorComponent implements OnInit, AfterViewInit {
   @ViewChild('newWeaponNameElem', { static: false })
   newWpnElem: ElementRef;
 
-  constructor(private modalService: BsModalService) {}
+  constructor(
+    private modalService: BsModalService,
+    private weaponData: WeaponDataService
+  ) {}
 
   ngOnInit(): void {
     this.newWeapon = new CpPlayerWeapon(this.weapon);
+    this.weaponData.WeaponList.subscribe((data) => {
+      this.weaponDataList = data;
+    });
   }
 
   ngAfterViewInit(): void {
@@ -82,5 +92,14 @@ export class Cp2020weaponEditorComponent implements OnInit, AfterViewInit {
 
   closeModal() {
     this.modalRef.hide();
+  }
+
+  setDetails(): void {
+    const index = this.weaponDataList.findIndex(
+      (wpn) => wpn.name === this.newWeapon.name
+    );
+    if (index > -1) {
+      this.newWeapon = new CpPlayerWeapon(this.weaponDataList[index]);
+    }
   }
 }
