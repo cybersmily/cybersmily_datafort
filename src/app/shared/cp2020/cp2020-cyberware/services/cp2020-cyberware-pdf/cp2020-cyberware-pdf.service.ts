@@ -96,7 +96,7 @@ export class Cp2020CyberwarePdfService {
     left: number
   ): number {
     const cyberOne: Array<string> = doc.splitTextToSize(
-      cyber[indexOne].toString(),
+      cyber[indexOne]?.toString(),
       78
     );
     const cyberTwo: Array<string> = doc.splitTextToSize(
@@ -117,8 +117,8 @@ export class Cp2020CyberwarePdfService {
     this.addCyberCell(
       doc,
       cyberOne,
-      cyber[indexOne]?.totalHL.toString() ?? '',
-      cyber[indexOne]?.totalCost.toString() ?? '',
+      cyber[indexOne]?.totalHL?.toString() ?? '',
+      cyber[indexOne]?.totalCost?.toString() ?? '',
       cellHt,
       line,
       left
@@ -127,8 +127,8 @@ export class Cp2020CyberwarePdfService {
       this.addCyberCell(
         doc,
         cyberTwo ?? [],
-        cyber[indexTwo]?.totalHL.toString() ?? '',
-        cyber[indexTwo]?.totalCost.toString() ?? '',
+        cyber[indexTwo]?.totalHL?.toString() ?? '',
+        cyber[indexTwo]?.totalCost?.toString() ?? '',
         cellHt,
         line,
         PdfPageSettings.MIDPAGE
@@ -188,12 +188,12 @@ export class Cp2020CyberwarePdfService {
     );
     doc.text('Total HL and Cost', left + 2, line + 4);
     doc.text(
-      cyber.totalHL ? cyber.totalHL.toString() : '',
+      cyber.totalHL ? cyber?.totalHL?.toString() : '',
       PdfPageSettings.MIDPAGE + 81,
       line + 4
     );
     doc.text(
-      cyber.totalCost ? cyber.totalCost.toLocaleString('en') : '',
+      cyber.totalCost ? cyber?.totalCost?.toLocaleString('en') : '',
       PdfPageSettings.MIDPAGE + 91,
       line + 4
     );
