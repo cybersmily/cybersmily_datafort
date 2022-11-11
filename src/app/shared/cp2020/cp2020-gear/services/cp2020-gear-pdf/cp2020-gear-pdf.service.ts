@@ -27,6 +27,10 @@ export class Cp2020GearPdfService {
     line: number,
     ht: number
   ): number {
+    if (PdfPageSettings.LINEHEIGHT * 3 + line > PdfPageSettings.PAGE_HEIGHT) {
+      doc.addPage();
+      line = PdfPageSettings.MARGIN_TOP;
+    }
     doc.setFillColor('black');
     doc.rect(left, line, 200, 7, 'DF');
     doc.setTextColor('white');
