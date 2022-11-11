@@ -61,7 +61,6 @@ export class Cp2020GearListComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.gearDataService.gearList.subscribe((data) => {
-      console.log(data);
       this.gearDataList = [...data];
     });
   }
@@ -95,6 +94,7 @@ export class Cp2020GearListComponent implements OnInit, AfterViewInit {
   }
 
   removeGearRow(index: number, column: number) {
+    console.log(index, column);
     let count = 0;
     if (column === 2) {
       count = Math.ceil(this.gear.items.length / 2);
@@ -110,6 +110,7 @@ export class Cp2020GearListComponent implements OnInit, AfterViewInit {
   }
 
   setDetails(event: TypeaheadMatch, index: number, column: number): void {
+    console.log(index, column);
     let count = 0;
     if (column === 2) {
       count = Math.ceil(this.gear.items.length / 2);

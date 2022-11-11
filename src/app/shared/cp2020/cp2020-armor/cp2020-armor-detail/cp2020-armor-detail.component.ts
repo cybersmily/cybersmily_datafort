@@ -278,7 +278,6 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
   }
 
   setDetails(): void {
-    console.log(this.currArmor.name);
     const index = this.armorDataList.findIndex(
       (armor) => armor.name === this.currArmor.name
     );

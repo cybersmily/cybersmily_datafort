@@ -20,11 +20,11 @@
     <div class="row g-0">
       <ng-container
         [ngTemplateOutlet]="gearColumn"
-        [ngTemplateOutletContext]="{ column: firstColumn }"
+        [ngTemplateOutletContext]="{ columnGearList: firstColumn, column: 1 }"
       ></ng-container>
       <ng-container
         [ngTemplateOutlet]="gearColumn"
-        [ngTemplateOutletContext]="{ column: secondColumn }"
+        [ngTemplateOutletContext]="{ columnGearList: secondColumn, column: 2 }"
       ></ng-container>
     </div>
     <div class="row g-0">
@@ -46,7 +46,11 @@
   </div>
 </div>
 
-<ng-template #gearColumn let-column="column">
+<ng-template
+  #gearColumn
+  let-columnGearList="columnGearList"
+  let-column="column"
+>
   <div class="col-12 col-lg-6">
     <div class="row g-0">
       <div class="d-none d-lg-block col border border-dark">Type</div>
@@ -57,23 +61,23 @@
         Wt (kg)
       </div>
     </div>
-    <div class="row g-0" *ngFor="let row of column; let i = index">
+    <div class="row g-0" *ngFor="let row of columnGearList; let i = index">
       <div class="col border border-dark pe-0 ps-0">
+        {{ i }}
         <input
           #gearNameElem
           [(ngModel)]="row.gear"
           [typeahead]="gearDataList"
           typeaheadOptionField="name"
-          (change)="setDetails($event, i, 2)"
-          (typeaheadOnBlur)="setDetails($event, i, 2)"
-          (typeaheadOnSelect)="setDetails($event, i, 2)"
+          (typeaheadOnBlur)="setDetails($event, i, column)"
+          (typeaheadOnSelect)="setDetails($event, i, column)"
           min="0"
           type="text"
           class="w-90"
         />
         <button
           class="csd-icon-btn csd-btn float-end pe-1"
-          (click)="removeGearRow(i, 2)"
+          (click)="removeGearRow(i, column)"
         >
           <fa-icon [icon]="faTrash"></fa-icon>
         </button>
