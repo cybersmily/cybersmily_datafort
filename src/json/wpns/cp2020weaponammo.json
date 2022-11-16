@@ -83,6 +83,7 @@
     {"type": "14mm"             , "perBox"  :                                 1  , "cost": 5  ,"source": {"book":"BH" ,"page": 39 }},
     {"type": "14.5mm"           , "perBox"  :                                 100, "cost": 40 ,"source": {"book":"BH" ,"page": 38 }},
     {"type": "15mm bmg"         , "perBox"  :                                 100, "cost": 40 ,"source": {"book":"SW" ,"page": 34 }},
+    {"type": "15mm bmg"         , "subtype":"AP","perBox"  :                  200, "cost": 40 ,"source": {"book":"SW" ,"page": 34 }},
     {"type": "15mmkurz"         , "perBox"  :                                 100, "cost": 40 ,"source": {"book":"BH" ,"page": 37 }},
     {"type": "18mm gyrojet"     , "perBox"  :                                 50 , "cost": 400,"source": {"book":"BH" ,"page": 30 }},
     {"type": "18mm gyrojet heat", "perBox"  :                                 1  , "cost": 125,"source": {"book":"BH" ,"page": 30 }},
