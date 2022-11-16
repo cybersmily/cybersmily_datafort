@@ -69,7 +69,6 @@
           [(ngModel)]="row.gear"
           [typeahead]="gearDataList"
           typeaheadOptionField="name"
-          (typeaheadOnBlur)="setDetails($event, i, column)"
           (typeaheadOnSelect)="setDetails($event, i, column)"
           min="0"
           type="text"

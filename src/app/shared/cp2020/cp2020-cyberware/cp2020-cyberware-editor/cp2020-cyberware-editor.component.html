@@ -9,8 +9,6 @@
         placeholder="Enter name of cyberware"
         [typeahead]="cyberwareList"
         typeaheadOptionField="name"
-        (change)="setDetails()"
-        (typeaheadOnBlur)="setDetails()"
         (typeaheadOnSelect)="setDetails()"
         tabindex="0"
       />

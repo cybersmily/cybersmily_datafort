@@ -9,8 +9,6 @@
       [(ngModel)]="currArmor.name"
       [typeahead]="armorDataList"
       typeaheadOptionField="name"
-      (change)="setDetails()"
-      (typeaheadOnBlur)="setDetails()"
       (typeaheadOnSelect)="setDetails()"
     />
   </div>
