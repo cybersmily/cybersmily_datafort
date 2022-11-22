@@ -152,6 +152,7 @@ export class Cp2020GearPdfService {
     doc.rect(left + 90, line, 10, cellHt, 'S');
     gearName.forEach((name) => {
       doc.text(name, left + 1, line + 4);
+      cellHt += line;
     });
     doc.text(cost, left + 81, line + 4);
     doc.text(wt, left + 91, line + 4);
