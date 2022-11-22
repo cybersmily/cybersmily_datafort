@@ -201,7 +201,8 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
   update() {
     this.currArmor.style = this.selectedStyle ?? { name: '', mod: 1 };
     this.currArmor.quality = this.selectedQuality ?? { name: '', mod: 1 };
-    this.currArmor.clothes.wt = this.selectedWeight ?? '';
+    this.currArmor.clothes.wt =
+      this.selectedWeight || this.currArmor.clothes.wt;
     if (this.currArmor?.isCalculatedCost) {
       this.currArmor.cost = this.armorCalculatorService.calculateCost(
         this.currArmor,

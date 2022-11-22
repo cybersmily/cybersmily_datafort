@@ -3,7 +3,7 @@
   {"name":""                  ,"cost":0   ,"wt":""    ,"type": 99,"loc":""                               ,"leather":1   },
 	{"name":"Body Armor (Full)" ,"cost":150 ,"wt":"hvy" ,"type": 6 ,"loc":"head|torso|rarm|larm|rleg|lleg","leather":1.5  },
 	{"name":"Bodysuit (Light)"  ,"cost":150 ,"wt":"lt"  ,"type": 6 ,"loc":"head|torso|rarm|larm|rleg|lleg","leather":1.5  },
-	{"name":"Bodysuit (Medium)" ,"cost":150 ,"wt":"lt"  ,"type": 6 ,"loc":"head|torso|rarm|larm|rleg|lleg","leather":1.5  },
+	{"name":"Bodysuit (Medium)" ,"cost":150 ,"wt":"med" ,"type": 6 ,"loc":"head|torso|rarm|larm|rleg|lleg","leather":1.5  },
 	{"name":"Jumpsuit"          ,"cost":50  ,"wt":"lt"  ,"type": 6 ,"loc":"torso|rarm|larm|rleg|lleg"                     },
 	{"name":"Dress"             ,"cost":50  ,"wt":"lt"  ,"type": 6 ,"loc":"torso|rarm|larm|rleg|lleg"                     },
 	{"name":"Sweater"           ,"cost":20  ,"wt":"lt"  ,"type": 2 ,"loc":"torso|rarm|larm"                               },
