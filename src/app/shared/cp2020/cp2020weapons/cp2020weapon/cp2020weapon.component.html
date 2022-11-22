@@ -1,71 +1,143 @@
 <div class="row wpn-stats g-0">
-  <div class="col-3 col-lg-2 ps-1">
-    <button #weaponNameElem class="csd-btn" (click)="openModal(editWeaponModal, 'weaponName')" tabindex="0">
-      {{weapon.count && weapon.count > 1 ? weapon.count + ' ': ''}}{{weapon.name}}
+  <div class="col-12 col-md-3 col-lg-2 ps-1">
+    <button
+      #weaponNameElem
+      class="csd-btn"
+      (click)="openModal(editWeaponModal, 'weaponName')"
+      tabindex="0"
+    >
+      {{ weapon.count && weapon.count > 1 ? weapon.count + " " : ""
+      }}{{ weapon.name }}
     </button>
-    <fa-icon [icon]="faTrash" (click)="delete()" class="csd-btn csd-icon-btn" title="Delete weapon"></fa-icon>
-    <fa-icon [icon]="faPen" (click)="openModal(editWeaponModal)" class="me-2 csd-btn csd-icon-btn" title="Edit weapon">
+    <fa-icon
+      [icon]="faTrash"
+      (click)="delete()"
+      class="csd-btn csd-icon-btn"
+      title="Delete weapon"
+    ></fa-icon>
+    <fa-icon
+      [icon]="faPen"
+      (click)="openModal(editWeaponModal)"
+      class="me-2 csd-btn csd-icon-btn"
+      title="Edit weapon"
+    >
     </fa-icon>
-
   </div>
-  <div class="col-1 text-center">{{weapon.type}}</div>
-  <div class="col-1 text-center">{{weapon.wa}}
-    <fa-icon *ngIf="weapon.name && weapon.name !==''" [icon]="faDice" class="csd-dice" class="csd-dice"
-      [popover]="fireWeaponModal" popoverTitle="TO HIT RESULTS" [outsideClick]="true"
-      containerClass="csd-rounded csd-popover"></fa-icon>
+  <div class="col-1 text-center d-md-none"></div>
+  <div class="col-2 col-md-1 text-center">{{ weapon.type }}</div>
+  <div class="col-1 text-center">
+    {{ weapon.wa }}
+    <fa-icon
+      *ngIf="weapon.name && weapon.name !== ''"
+      [icon]="faDice"
+      class="csd-dice"
+      class="csd-dice"
+      [popover]="fireWeaponModal"
+      popoverTitle="TO HIT RESULTS"
+      [outsideClick]="true"
+      containerClass="csd-rounded csd-popover"
+    ></fa-icon>
   </div>
-  <div class="col-1 text-center">{{weapon.conc}}</div>
-  <div class="col-1 text-center">{{weapon.avail}} </div>
-  <div class="col-2 col-lg-1 text-center">{{weapon.damage}}
-    <fa-icon *ngIf="weapon.damage && weapon.damage !== ''" [icon]="faDice" class="csd-dice" (click)="rollDamage()"
-      [popover]="damageModal" popoverTitle="DAMAGE RESULTS" [outsideClick]="true"
-      containerClass="csd-rounded csd-popover"></fa-icon>
-      <ng-container *ngIf="weapon.ammo && weapon.ammo !== ''">
-      <br>
-      {{weapon.ammo}}
+  <div class="col-1 text-center d-none d-md-inline-block">
+    {{ weapon.conc }}
+  </div>
+  <div class="col-1 text-center d-none d-md-inline-block">
+    {{ weapon.avail }}
+  </div>
+  <div class="col-3 col-md-2 col-lg-1 text-center">
+    {{ weapon.damage }}
+    <fa-icon
+      *ngIf="weapon.damage && weapon.damage !== ''"
+      [icon]="faDice"
+      class="csd-dice"
+      (click)="rollDamage()"
+      [popover]="damageModal"
+      popoverTitle="DAMAGE RESULTS"
+      [outsideClick]="true"
+      containerClass="csd-rounded csd-popover"
+    ></fa-icon>
+    <ng-container *ngIf="weapon.ammo && weapon.ammo !== ''">
+      <br />
+      {{ weapon.ammo }}
     </ng-container>
   </div>
-  <div class="col-1 text-center">{{weapon.shots}}</div>
-  <div class="col-1 text-center">{{weapon.rof}}</div>
-  <div class="col-1 text-center wpn-rel">{{weapon.rel}}
-    <fa-icon *ngIf="weapon.rel && weapon.rel !== ''" [icon]="faDice" class="csd-dice" (click)="rollReliability()"
-      opoverTitle="Reliability Results" [popover]="reliabilityResults" containerClass="csd-rounded csd-popover"
-      [outsideClick]="true"></fa-icon>
+  <div class="col-2 col-md-1 text-center">{{ weapon.shots }}</div>
+  <div class="col-2 col-md-1 text-center">{{ weapon.rof }}</div>
+  <div class="col-1 text-center wpn-rel">
+    {{ weapon.rel }}
+    <fa-icon
+      *ngIf="weapon.rel && weapon.rel !== ''"
+      [icon]="faDice"
+      class="csd-dice csd-icon"
+      (click)="rollReliability()"
+      opoverTitle="Reliability Results"
+      [popover]="reliabilityResults"
+      containerClass="csd-rounded csd-popover"
+      [outsideClick]="true"
+    ></fa-icon>
   </div>
-  <div class="col-1 d-none d-lg-inline-block text-center">{{weapon.range}} m</div>
-  <div class="col-1 d-none d-lg-inline-block text-center">{{weapon.cost}} eb</div>
+  <div class="col-1 d-none d-lg-inline-block text-center">
+    {{ weapon.range }} m
+  </div>
+  <div class="col-1 d-none d-lg-inline-block text-center">
+    {{ weapon.cost }} eb
+  </div>
 </div>
-<div class="row wpn-notes g-0" *ngIf="weapon.magazines">
-  <div class="col-1"></div>
-  <div class="col-3">
-    magazines ({{weapon.magazines.length}}):
+<div class="row wpn-notes g-0 pb-2" *ngIf="weapon.magazines">
+  <div class="col-1 d-none d-md-inline-block"></div>
+  <div class="col-4 col-md-3">
+    magazines ({{ weapon.magazines.length }}):
     <select [(ngModel)]="weapon.currMagIndex" tabindex="-1">
-      <option *ngFor="let mag of weapon.magazines;let i = index" [value]="i">{{mag.used}}/{{mag.capacity}} {{mag.ammo}} {{mag.subtype}}</option>
+      <option *ngFor="let mag of weapon.magazines; let i = index" [value]="i">
+        {{ mag.used }}/{{ mag.capacity }} {{ mag.ammo }} {{ mag.subtype }}
+      </option>
     </select>
   </div>
   <div class="col-8">
-    <span class="wpn-shot csd-btn" *ngFor="let shot of currMagazineShots;let i = index"
-      (click)="weapon.expendShot(i)" title="{{i + 1}}">{{ shot ? 'x' : ''}}</span>
+    <span
+      class="wpn-shot csd-btn"
+      *ngFor="let shot of currMagazineShots; let i = index"
+      (click)="weapon.expendShot(i)"
+      title="{{ i + 1 }}"
+      >{{ shot ? "x" : "" }}</span
+    >
     &nbsp;&nbsp;
-    <fa-icon *ngIf="weapon.isEmpty" [icon]="faRedo" class="csd-btn" (click)="reload()" title="Reload"></fa-icon>
+    <fa-icon
+      *ngIf="weapon.isEmpty"
+      [icon]="faRedo"
+      class="csd-btn csd-icon-btn"
+      (click)="reload()"
+      title="Reload"
+    ></fa-icon>
   </div>
 </div>
-<div class="row wpn-notes g-0" *ngIf="weapon.options">
-  <div class="col-1"></div>
-  <div class="col-11">Options ({{weapon.options.length}}): {{options}}</div>
+<div class="row wpn-notes g-0 pb-2" *ngIf="weapon.options">
+  <div class="col-1 d-none d-md-inline-block"></div>
+  <div class="col-11">Options ({{ weapon.options.length }}): {{ options }}</div>
 </div>
-<div class="row wpn-notes g-0">
-  <div class="col-1"></div>
-  <div class="col-11">Notes: {{weapon.thrown ? 'Thrown weapon. ' : '' }}{{weapon.notes}}</div>
+<div class="row wpn-notes g-0 pb-2" *ngIf="weapon.notes">
+  <div class="col-1 d-none d-md-inline-block"></div>
+  <div class="col-11">
+    Notes: {{ weapon.thrown ? "Thrown weapon. " : "" }}{{ weapon.notes }}
+  </div>
 </div>
 
 <ng-template #editWeaponModal>
   <div class="modal-header">
     <h4 class="modal-title float-start">Edit Weapon</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()" tabindex="0"></button>
+    <button
+      type="button"
+      class="btn-close float-end"
+      aria-label="Close"
+      (click)="closeModal()"
+      tabindex="0"
+    ></button>
   </div>
   <div class="modal-body">
-    <cs-cp2020weapon-editor [weapon]="weapon" (updateWeapon)="update($event)"></cs-cp2020weapon-editor>
+    <cs-cp2020weapon-editor
+      [weapon]="weapon"
+      (updateWeapon)="update($event)"
+    ></cs-cp2020weapon-editor>
   </div>
 </ng-template>
 
@@ -73,22 +145,25 @@
   <div class="row">
     <div class="col" *ngIf="!weapon.isEmpty; else weaponReload">
       <span *ngIf="skill.length > 1">
-        Skill: <select [(ngModel)]="selectedSkill" tabindex="0">
-          <option *ngFor="let sk of skill" [ngValue]="sk">{{sk.name}}</option>
+        Skill:
+        <select [(ngModel)]="selectedSkill" tabindex="0">
+          <option *ngFor="let sk of skill" [ngValue]="sk">{{ sk.name }}</option>
         </select>
       </span>
-      <br>
-      {{weapon.toHitCalulation(Ref, selectedSkill.value).results}} +
-      <fa-icon [icon]="faDice" class="csd-dice csd-btn" (click)="rollToHit()"></fa-icon>&nbsp;
-      <br>
-      {{toHitOutcome}}
-      <br>
-
+      <br />
+      {{ weapon.toHitCalulation(Ref, selectedSkill.value).results }} +
+      <fa-icon
+        [icon]="faDice"
+        class="csd-dice csd-btn"
+        (click)="rollToHit()"
+      ></fa-icon
+      >&nbsp;
+      <br />
+      {{ toHitOutcome }}
+      <br />
     </div>
     <ng-template #weaponReload>
-      <div class="col">
-        Weapon needs to be reloaded!
-      </div>
+      <div class="col">Weapon needs to be reloaded!</div>
     </ng-template>
   </div>
 </ng-template>
