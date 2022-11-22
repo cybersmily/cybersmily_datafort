@@ -92,11 +92,11 @@ export class Cp2020GearPdfService {
     // determine how tall the cell is and apply new page if needed.
     const gearOneName: Array<string> = doc.splitTextToSize(
       gear.items[indexOne].gear ?? '',
-      80
+      78
     );
     const gearTwoName: Array<string> = doc.splitTextToSize(
       gear.items[indexTwo]?.gear ?? '',
-      80
+      78
     );
 
     let cellHt = gearOneName.length * ht;
@@ -152,7 +152,7 @@ export class Cp2020GearPdfService {
     doc.rect(left + 90, line, 10, cellHt, 'S');
     gearName.forEach((name) => {
       doc.text(name, left + 1, line + 4);
-      cellHt += line;
+      line += PdfPageSettings.LINEHEIGHT;
     });
     doc.text(cost, left + 81, line + 4);
     doc.text(wt, left + 91, line + 4);
