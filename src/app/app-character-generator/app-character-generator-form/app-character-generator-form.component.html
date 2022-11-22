@@ -282,14 +282,14 @@
             class="csd-icon-btn csd-icon-xl ms-2"
           ></fa-icon>
         </h4>
-      </div>
-      <div [collapse]="isNotesCollapsed">
-        <textarea
-          [(ngModel)]="notes"
-          class="chargen-notes"
-          (change)="updateNotes()"
-          (keyup)="updateNotes()"
-        ></textarea>
+        <div [collapse]="isNotesCollapsed">
+          <textarea
+            [(ngModel)]="notes"
+            class="chargen-notes"
+            (change)="updateNotes()"
+            (keyup)="updateNotes()"
+          ></textarea>
+        </div>
       </div>
     </div>
   </div>
