@@ -63,7 +63,6 @@
     </div>
     <div class="row g-0" *ngFor="let row of columnGearList; let i = index">
       <div class="col border border-dark pe-0 ps-0">
-        {{ i }}
         <input
           #gearNameElem
           [(ngModel)]="row.gear"
