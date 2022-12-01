@@ -47,11 +47,15 @@
   <div
     *ngFor="
       let entry of dataList
-        | filterby: searchFilter
-        | sourcebookFilter: sourceFilter
-        | orderby: sortOrder
+        | filterby : searchFilter
+        | sourcebookFilter : sourceFilter
+        | orderby : sortOrder
     "
-    class="border-bottom border-dark row"
+    [ngClass]="{
+      'border-bottom border-dark row': true,
+      'row-selectable': selectable
+    }"
+    (click)="rowClick(entry)"
   >
     <ng-container *ngFor="let col of columnsParameters">
       <div

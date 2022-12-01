@@ -1,6 +1,6 @@
 import { SearchFilters } from './../../../models/search-filters';
 import { faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { DataListColumnParameters } from '../models/data-list-parameters';
 import { get } from 'lodash';
 
@@ -21,6 +21,12 @@ export class DataListComponent implements OnInit {
 
   @Input()
   columnsParameters: Array<DataListColumnParameters> = [];
+
+  @Input()
+  selectable: boolean = false;
+
+  @Output()
+  selectRow: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {}
 
@@ -85,5 +91,9 @@ export class DataListComponent implements OnInit {
     // force the pipe to re-evaluate
     const arr = this.sortOrder.filter((a) => a.prop);
     this.sortOrder = arr;
+  }
+
+  rowClick(selection: any): void {
+    this.selectRow.emit(selection);
   }
 }
