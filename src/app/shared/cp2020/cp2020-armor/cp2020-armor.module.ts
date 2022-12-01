@@ -1,10 +1,12 @@
+import { DataListModule } from './../../modules/data-list/data-list.module';
 import { Cp2020DamageCalculatorService } from './services/cp2020-damage-calculator/cp2020-damage-calculator.service';
 import {
   ClothingListPdfService,
   ArmorRandomGenSettingsService,
   ArmorListService,
   ArmorDataAttributesService,
-  ArmorGeneratorService } from './services';
+  ArmorGeneratorService,
+} from './services';
 import { PipesModule } from './../../pipes/pipes.module';
 import { ArmorCalculatorService } from './services/armor-calculator/armor-calculator.service';
 import { ArmorDataListService } from './services/armor-data-list/armor-data-list.service';
@@ -21,8 +23,6 @@ import { ArmorSettingsComponent } from './armor-settings/armor-settings.componen
 import { Cp2020OpponentArmorListComponent } from './cp2020-opponent-armor-list/cp2020-opponent-armor-list.component';
 import { Cp2020ArmorSuiteGeneratorComponent } from './cp2020-armor-suite-generator/cp2020-armor-suite-generator.component';
 
-
-
 @NgModule({
   declarations: [
     Cp2020ArmorTableComponent,
@@ -32,13 +32,9 @@ import { Cp2020ArmorSuiteGeneratorComponent } from './cp2020-armor-suite-generat
     ArmorSettingsComponent,
     Cp2020SourceArmorListComponent,
     Cp2020OpponentArmorListComponent,
-    Cp2020ArmorSuiteGeneratorComponent
+    Cp2020ArmorSuiteGeneratorComponent,
   ],
-  imports: [
-    CommonModule,
-    CommonUiModule,
-    PipesModule
-  ],
+  imports: [CommonModule, CommonUiModule, PipesModule, DataListModule],
   providers: [
     DiceService,
     ArmorDataListService,
@@ -48,7 +44,7 @@ import { Cp2020ArmorSuiteGeneratorComponent } from './cp2020-armor-suite-generat
     ArmorListService,
     ArmorRandomGenSettingsService,
     ClothingListPdfService,
-    Cp2020DamageCalculatorService
+    Cp2020DamageCalculatorService,
   ],
   exports: [
     Cp2020ArmorTableComponent,
@@ -57,7 +53,7 @@ import { Cp2020ArmorSuiteGeneratorComponent } from './cp2020-armor-suite-generat
     Cp2020ArmorDetailComponent,
     ArmorSettingsComponent,
     Cp2020SourceArmorListComponent,
-    Cp2020OpponentArmorListComponent
-  ]
+    Cp2020OpponentArmorListComponent,
+  ],
 })
-export class Cp2020ArmorModule { }
+export class Cp2020ArmorModule {}

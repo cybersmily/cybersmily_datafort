@@ -1,17 +1,6 @@
-<div class="row fw-bold">
-  <div class="col">Name</div>
-  <div class="col-1 text-center">SP</div>
-  <div class="col-1 text-center">EV</div>
-  <div class="col-1">Cost</div>
-  <div class="col-3">Source</div>
-</div>
-<hr style="margin-bottom: 0px;margin-top: 0px;">
-<div *ngFor="let armor of armorList; let i = index" class="row small csd-armor-row" (click)="select(i)" >
-  <div class="col">{{armor.name}} ({{armor.isHard ? 'hard' : 'soft'}} {{getLocations(armor)}})</div>
-  <div class="col-1 text-center">{{armor.baseSP}}</div>
-  <div class="col-1 text-center">{{armor.ev}}</div>
-  <div class="col-1">{{armor.cost | number}}eb</div>
-  <div class="col-3">{{armor.source?.book | sourcebook}} pg.{{armor.source?.page}}</div>
-</div>
-<br>
-<br>
+<cs-data-list
+  [dataList]="armorList$ | async"
+  [columnsParameters]="columns"
+  [selectable]="true"
+  (selectRow)="select($event)"
+></cs-data-list>
