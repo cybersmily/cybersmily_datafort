@@ -1,3 +1,4 @@
+import { RandomWeaponGeneratorService } from './../services/random-weapon-generator/random-weapon-generator.service';
 import { Cp2020PlayerSkill } from './../../cp2020-skills/models/cp2020-player-skill';
 import { CpWeaponListParam } from './../models/cp-weapon-list-param';
 import { DataWeapon } from './../models/data-weapon';
@@ -89,7 +90,8 @@ export class Cp2020weapontableComponent implements OnInit {
   isCollapsed = false;
 
   @Output()
-  changeWeapons: EventEmitter<CpPlayerWeaponList> = new EventEmitter<CpPlayerWeaponList>();
+  changeWeapons: EventEmitter<CpPlayerWeaponList> =
+    new EventEmitter<CpPlayerWeaponList>();
 
   @ViewChild('newWeaponElem', { static: false })
   newWeaponButton: ElementRef;
@@ -103,7 +105,8 @@ export class Cp2020weapontableComponent implements OnInit {
   constructor(
     private modalService: BsModalService,
     private diceService: DiceService,
-    private weaponData: WeaponDataService
+    private weaponData: WeaponDataService,
+    private randomWeaponService: RandomWeaponGeneratorService
   ) {}
 
   ngOnInit(): void {
@@ -119,6 +122,7 @@ export class Cp2020weapontableComponent implements OnInit {
   updateWeapon(data: { index: number; weapon: CpPlayerWeapon }) {
     this.weapons.updateWeapon(data.index, data.weapon);
     this.changeWeapons.emit(this.weapons);
+    this.closeModal();
   }
 
   deleteWeapon(index: number) {
@@ -129,6 +133,7 @@ export class Cp2020weapontableComponent implements OnInit {
   addWeapon(wpn: CpPlayerWeapon) {
     this.weapons.addWeapon(wpn);
     this.changeWeapons.emit(this.weapons);
+    this.closeModal();
   }
 
   addWeaponList(wpnList: Array<CpPlayerWeapon>) {
@@ -137,9 +142,9 @@ export class Cp2020weapontableComponent implements OnInit {
   }
 
   randomGenerateWeapon() {
-    this.weaponData
-      .generateWeapons(1, this.diceService, this.wpnParam)
-      .subscribe((data: Array<DataWeapon>) => {
+    this.randomWeaponService
+      .generateList(this.wpnParam, 1)
+      .subscribe((data: Array<CpPlayerWeapon>) => {
         data.forEach((wpn) => {
           this.weapons.addDataWeapon(wpn);
         });

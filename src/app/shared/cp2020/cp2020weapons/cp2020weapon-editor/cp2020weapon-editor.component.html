@@ -1,164 +1,211 @@
-<div class="row">
-  <div class="col-2">Name:</div>
-  <div class="col-9 wpn-name">
-    <input
-      #newWeaponNameElem
-      [(ngModel)]="newWeapon.name"
-      type="text"
-      tabindex="0"
-      [typeahead]="weaponDataList"
-      typeaheadOptionField="name"
-      (typeaheadOnSelect)="setDetails()"
-    />
+<div>
+  <div class="row">
+    <div class="col-2">Name:</div>
+    <div class="col-6 wpn-name">
+      <input
+        #newWeaponNameElem
+        [(ngModel)]="newWeapon.name"
+        class="w-100"
+        type="text"
+        tabindex="0"
+        [typeahead]="weaponDataList"
+        typeaheadOptionField="name"
+        (typeaheadOnSelect)="setDetails()"
+      />
+    </div>
+    <div class="col-4">
+      <button
+        title="Select weapon from source material"
+        class="csd-btn csd-icon-btn ms-3 float-end"
+        (click)="showModal(weaponSourceList)"
+      >
+        <fa-icon [icon]="faSearch"></fa-icon>
+      </button>
+      <button
+        title="Randomly generate weapon"
+        class="csd-btn csd-icon-btn ms-3 float-end"
+        (click)="generate()"
+        tabindex="-1"
+      >
+        <fa-icon [icon]="faDice"></fa-icon>
+      </button>
+      <button
+        title="Reset the form"
+        class="csd-btn csd-icon-btn ms-3 float-end"
+        (click)="refresh()"
+      >
+        <fa-icon [icon]="faRedo"></fa-icon>
+      </button>
+      <button
+        [ngClass]="{
+          'float-end btn-lg csd-btn csd-icon-btn': true,
+          disabled: newWeapon.name === ''
+        }"
+        title="Save weapon"
+        (click)="update()"
+        tabindex="0"
+      >
+        <fa-icon [icon]="faSave"></fa-icon>
+      </button>
+    </div>
   </div>
-  <div class="col-1 wpn-save">
-    <button
-      [ngClass]="{
-        'float-end btn btn-lg csd-btn csd-icon-btn': true,
-        disabled: newWeapon.name === ''
-      }"
-      title="Save weapon"
-      (click)="update()"
-      tabindex="0"
-    >
-      <fa-icon [icon]="faSave"></fa-icon>
-    </button>
+  <div class="row">
+    <div class="col-6 col-lg-3">
+      Type:
+      <select [(ngModel)]="newWeapon.type" class="float-end" tabindex="0">
+        <option [ngValue]="undefined"></option>
+        <option *ngFor="let wpnType of weaponTypes" [ngValue]="wpnType.code">
+          {{ wpnType.code }}
+        </option>
+      </select>
+    </div>
+    <div class="col-6 col-lg-3">
+      WA:
+      <input
+        [(ngModel)]="newWeapon.wa"
+        type="number"
+        class="text-uppercase text-center wpn-narrow float-end"
+        tabindex="0"
+      />
+    </div>
+    <div class="col-6 col-lg-3">
+      Concealment:
+      <select [(ngModel)]="newWeapon.conc" class="float-end" tabindex="0">
+        <option [ngValue]="undefined"></option>
+        <option *ngFor="let conc of concealments" [ngValue]="conc.code">
+          {{ conc.code }}
+        </option>
+      </select>
+    </div>
+    <div class="col-6 col-lg-3">
+      Availability:
+      <select [(ngModel)]="newWeapon.avail" class="float-end" tabindex="0">
+        <option [ngValue]="undefined"></option>
+        <option *ngFor="let avail of availabilities" [ngValue]="avail.code">
+          {{ avail.code }}
+        </option>
+      </select>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-6 col-lg-3">
-    Type:
-    <select [(ngModel)]="newWeapon.type" class="float-end" tabindex="0">
-      <option [ngValue]="undefined"></option>
-      <option *ngFor="let wpnType of weaponTypes" [ngValue]="wpnType.code">
-        {{ wpnType.code }}
-      </option>
-    </select>
+  <div class="row">
+    <div class="col-6 col-lg-3">
+      Damage:
+      <input
+        [(ngModel)]="newWeapon.damage"
+        type="text"
+        class="text-uppercase wpn-dmg float-end"
+        placeholder="ex. 2d6+3"
+        tabindex="0"
+      />
+    </div>
+    <div class="col-6 col-lg-3">
+      Ammo:
+      <input
+        [(ngModel)]="newWeapon.ammo"
+        type="text"
+        class="text-uppercase wpn-dmg float-end"
+        placeholder="ex. 9mm"
+        tabindex="0"
+      />
+    </div>
+    <div class="col-6 col-lg-3">
+      Cased:
+      <input
+        [(ngModel)]="newWeapon.cased"
+        type="checkbox"
+        class="text-uppercase wpn-col"
+        tabindex="0"
+      />
+    </div>
+    <div class="col-6 col-lg-3">
+      #Shots:
+      <input
+        [(ngModel)]="newWeapon.shots"
+        type="number"
+        class="text-uppercase wpn-col float-end"
+        tabindex="0"
+      />
+    </div>
   </div>
-  <div class="col-6 col-lg-3">
-    WA:
-    <input
-      [(ngModel)]="newWeapon.wa"
-      type="number"
-      class="text-uppercase text-center wpn-narrow float-end"
-      tabindex="0"
-    />
-  </div>
-  <div class="col-6 col-lg-3">
-    Concealment:
-    <select [(ngModel)]="newWeapon.conc" class="float-end" tabindex="0">
-      <option [ngValue]="undefined"></option>
-      <option *ngFor="let conc of concealments" [ngValue]="conc.code">
-        {{ conc.code }}
-      </option>
-    </select>
-  </div>
-  <div class="col-6 col-lg-3">
-    Availability:
-    <select [(ngModel)]="newWeapon.avail" class="float-end" tabindex="0">
-      <option [ngValue]="undefined"></option>
-      <option *ngFor="let avail of availabilities" [ngValue]="avail.code">
-        {{ avail.code }}
-      </option>
-    </select>
-  </div>
-</div>
-<div class="row">
-  <div class="col-6 col-lg-3">
-    Damage:
-    <input
-      [(ngModel)]="newWeapon.damage"
-      type="text"
-      class="text-uppercase wpn-dmg float-end"
-      placeholder="ex. 2d6+3"
-      tabindex="0"
-    />
-  </div>
-  <div class="col-6 col-lg-3">
-    Ammo:
-    <input
-      [(ngModel)]="newWeapon.ammo"
-      type="text"
-      class="text-uppercase wpn-dmg float-end"
-      placeholder="ex. 9mm"
-      tabindex="0"
-    />
-  </div>
-  <div class="col-6 col-lg-3">
-    Cased:
-    <input
-      [(ngModel)]="newWeapon.cased"
-      type="checkbox"
-      class="text-uppercase wpn-col"
-      tabindex="0"
-    />
-  </div>
-  <div class="col-6 col-lg-3">
-    #Shots:
-    <input
-      [(ngModel)]="newWeapon.shots"
-      type="number"
-      class="text-uppercase wpn-col float-end"
-      tabindex="0"
-    />
-  </div>
-</div>
-<div class="row">
-  <div class="col-6 col-lg-3">
-    ROF:
-    <input
-      [(ngModel)]="newWeapon.rof"
-      type="number"
-      class="text-uppercase wpn-col float-end"
-      tabindex="0"
-    />
-  </div>
-  <div class="col-6 col-lg-3">
-    Reliability:
-    <select [(ngModel)]="newWeapon.rel" class="float-end" tabindex="0">
-      <option [ngValue]="undefined"></option>
-      <option *ngFor="let rel of reliabilites" [ngValue]="rel.code">
-        {{ rel.code }}
-      </option>
-    </select>
-  </div>
+  <div class="row">
+    <div class="col-6 col-lg-3">
+      ROF:
+      <input
+        [(ngModel)]="newWeapon.rof"
+        type="number"
+        class="text-uppercase wpn-col float-end"
+        tabindex="0"
+      />
+    </div>
+    <div class="col-6 col-lg-3">
+      Reliability:
+      <select [(ngModel)]="newWeapon.rel" class="float-end" tabindex="0">
+        <option [ngValue]="undefined"></option>
+        <option *ngFor="let rel of reliabilites" [ngValue]="rel.code">
+          {{ rel.code }}
+        </option>
+      </select>
+    </div>
 
-  <div class="col-6 col-lg-3">
-    Range(m):
-    <input
-      [(ngModel)]="newWeapon.range"
-      type="number"
-      class="text-uppercase wpn-col float-end"
-      tabindex="0"
-    />
+    <div class="col-6 col-lg-3">
+      Range(m):
+      <input
+        [(ngModel)]="newWeapon.range"
+        type="number"
+        class="text-uppercase wpn-col float-end"
+        tabindex="0"
+      />
+    </div>
+    <div class="col-6 col-lg-3">
+      Cost(eb):
+      <input
+        [(ngModel)]="newWeapon.cost"
+        type="number"
+        class="text-uppercase wpn-col float-end"
+        tabindex="0"
+      />
+    </div>
+    <div></div>
   </div>
-  <div class="col-6 col-lg-3">
-    Cost(eb):
-    <input
-      [(ngModel)]="newWeapon.cost"
-      type="number"
-      class="text-uppercase wpn-col float-end"
-      tabindex="0"
-    />
+  <cs-cp2020weapon-options
+    [weapon]="newWeapon"
+    (updateOptions)="updateOptions($event)"
+  ></cs-cp2020weapon-options>
+  <cs-cp2020magazines
+    [weapon]="newWeapon"
+    (updateMagazines)="updateMagazines($event)"
+  ></cs-cp2020magazines>
+  <div class="row csd-rounded">
+    <div class="col-2 col-lg-1">Notes:</div>
+    <div class="col-10 col-lg-11">
+      <textarea
+        [(ngModel)]="newWeapon.notes"
+        type="text"
+        class="wpn-notes"
+        tabindex="0"
+      ></textarea>
+    </div>
   </div>
-  <div></div>
 </div>
-<cs-cp2020weapon-options
-  [weapon]="newWeapon"
-  (updateOptions)="updateOptions($event)"
-></cs-cp2020weapon-options>
-<cs-cp2020magazines
-  [weapon]="newWeapon"
-  (updateMagazines)="updateMagazines($event)"
-></cs-cp2020magazines>
-<div class="row csd-rounded">
-  <div class="col-2 col-lg-1">Notes:</div>
-  <div class="col-10 col-lg-11">
-    <textarea
-      [(ngModel)]="newWeapon.notes"
-      type="text"
-      class="wpn-notes"
+
+<ng-template #weaponSourceList>
+  <div class="modal-header">
+    <h4 class="modal-title float-start">Weapons List</h4>
+    <button
+      type="button"
+      class="btn-close float-end"
+      aria-label="Close"
+      (click)="closeModal()"
       tabindex="0"
-    ></textarea>
+      (keyup.enter)="closeModal()"
+    ></button>
   </div>
-</div>
+  <div class="modal-body">
+    <cs-data-list
+      [dataList]="weaponDataList"
+      [columnsParameters]="columns"
+      [selectable]="true"
+      (selectRow)="selectWeapon($event)"
+    ></cs-data-list>
+  </div>
+</ng-template>

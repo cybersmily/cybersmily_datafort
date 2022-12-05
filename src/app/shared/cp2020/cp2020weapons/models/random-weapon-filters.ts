@@ -6,5 +6,4 @@ export interface RandomWeaponFilters {
   ammo?: Array<string>;
   conc?: Array<string>;
   avail?: Array<string>;
-
 }

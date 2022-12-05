@@ -66,8 +66,9 @@ body .modal .modal-dialog.modal-right.modal-lg {
   width: 80%;
 }
 
-.modal .modal-dialog.modal-left.modal-xl,
-.modal .modal-dialog.modal-right.modal-xl {
+.modal .modal-dialog.modal-xl,
+.modal .modal-dialog.modal-xl {
+  max-width: 95%;
   width: 95%;
 }
 

@@ -130,12 +130,13 @@ export class Cp2020weaponComponent implements OnInit {
   }
 
   closeModal() {
-    this.modalRef.hide();
+    this.modalRef?.hide();
   }
 
   update(wpn: CpPlayerWeapon) {
     this.weapon = wpn;
     this.updateWeapon.emit({ index: this.index, weapon: this.weapon });
+    this.closeModal();
   }
 
   delete() {

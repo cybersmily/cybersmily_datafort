@@ -132,27 +132,22 @@
 </ng-container>
 
 <ng-template #newWeaponModal>
-  <div class="modal-body">
+  <div class="modal-header">
+    <h4 class="modal-title float-start">New Weapon</h4>
     <button
       type="button"
       class="btn-close float-end"
       aria-label="Close"
       (click)="closeModal()"
+      tabindex="0"
       (keyup.enter)="closeModal()"
     ></button>
-    <tabset>
-      <tab heading="New Weapon" id="tab1" tabindex="0">
-        <cs-cp2020weapon-editor
-          [weapon]="newWeapon"
-          (updateWeapon)="addWeapon($event)"
-        ></cs-cp2020weapon-editor>
-      </tab>
-      <tab *ngIf="showSelector" heading="Search Weapons" id="tab2" tabindex="0">
-        <cs-cp2020weapon-selector
-          (addWeapons)="addWeaponList($event)"
-        ></cs-cp2020weapon-selector>
-      </tab>
-    </tabset>
+  </div>
+  <div class="modal-body">
+    <cs-cp2020weapon-editor
+      [weapon]="newWeapon"
+      (updateWeapon)="addWeapon($event)"
+    ></cs-cp2020weapon-editor>
   </div>
 </ng-template>
 

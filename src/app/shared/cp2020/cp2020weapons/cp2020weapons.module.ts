@@ -1,3 +1,4 @@
+import { DataListModule } from './../../modules/data-list/data-list.module';
 import { DataService } from './../../services/file-services/dataservice/data.service';
 import { RandomWeaponGeneratorService } from './services/random-weapon-generator/random-weapon-generator.service';
 import { WeaponcardcolumnComponent } from './weaponcardcolumn/weaponcardcolumn.component';
@@ -18,8 +19,6 @@ import { Cp2020ammoComponent } from './cp2020ammo/cp2020ammo.component';
 import { Cp2020weaponOptionsComponent } from './cp2020weapon-options/cp2020weapon-options.component';
 import { Cp2020magazinesComponent } from './cp2020magazines/cp2020magazines.component';
 
-
-
 @NgModule({
   declarations: [
     Cp2020weapontableComponent,
@@ -32,18 +31,14 @@ import { Cp2020magazinesComponent } from './cp2020magazines/cp2020magazines.comp
     IUCombatActionsComponent,
     Cp2020ammoComponent,
     Cp2020weaponOptionsComponent,
-    Cp2020magazinesComponent
+    Cp2020magazinesComponent,
   ],
-  imports: [
-    CommonModule,
-    CommonUiModule,
-    PipesModule
-  ],
+  imports: [CommonModule, CommonUiModule, PipesModule, DataListModule],
   providers: [
     DiceService,
     MartialArtsDataService,
     RandomWeaponGeneratorService,
-    DataService
+    DataService,
   ],
   exports: [
     Cp2020weapontableComponent,
@@ -52,7 +47,7 @@ import { Cp2020magazinesComponent } from './cp2020magazines/cp2020magazines.comp
     WeaponcardComponent,
     WeaponcardcolumnComponent,
     IUCombatActionsComponent,
-    Cp2020weaponOptionsComponent
-  ]
+    Cp2020weaponOptionsComponent,
+  ],
 })
-export class Cp2020weaponsModule { }
+export class Cp2020weaponsModule {}
