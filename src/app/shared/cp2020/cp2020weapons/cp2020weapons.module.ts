@@ -18,6 +18,7 @@ import { IUCombatActionsComponent } from './i-u-combat-actions/i-u-combat-action
 import { Cp2020ammoComponent } from './cp2020ammo/cp2020ammo.component';
 import { Cp2020weaponOptionsComponent } from './cp2020weapon-options/cp2020weapon-options.component';
 import { Cp2020magazinesComponent } from './cp2020magazines/cp2020magazines.component';
+import { Cp2020weaponSettingsComponent } from './cp2020weapon-settings/cp2020weapon-settings.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { Cp2020magazinesComponent } from './cp2020magazines/cp2020magazines.comp
     Cp2020ammoComponent,
     Cp2020weaponOptionsComponent,
     Cp2020magazinesComponent,
+    Cp2020weaponSettingsComponent,
   ],
   imports: [CommonModule, CommonUiModule, PipesModule, DataListModule],
   providers: [
@@ -48,6 +50,7 @@ import { Cp2020magazinesComponent } from './cp2020magazines/cp2020magazines.comp
     WeaponcardcolumnComponent,
     IUCombatActionsComponent,
     Cp2020weaponOptionsComponent,
+    Cp2020weaponSettingsComponent,
   ],
 })
 export class Cp2020weaponsModule {}

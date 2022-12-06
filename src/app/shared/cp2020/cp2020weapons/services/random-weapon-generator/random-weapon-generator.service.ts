@@ -1,12 +1,12 @@
+import { Cp2020RandomWeaponSettingsService } from './../cp2020-random-weapon-settings/cp2020-random-weapon-settings.service';
 import { DataWeapon } from './../../models/data-weapon';
-import { map } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 import { WeaponDataService } from './../weapon-data.service';
 import { RandomWeaponFilters } from './../../models/random-weapon-filters';
 import { Observable } from 'rxjs';
 import { CpPlayerWeapon } from './../../models/cp-player-weapon';
 import { DiceService } from './../../../../services/dice/dice.service';
 import { Injectable } from '@angular/core';
-import { listenToTriggers } from 'ngx-bootstrap/utils';
 
 @Injectable({
   providedIn: 'root',
@@ -14,17 +14,25 @@ import { listenToTriggers } from 'ngx-bootstrap/utils';
 export class RandomWeaponGeneratorService {
   constructor(
     private wpnDataService: WeaponDataService,
-    private dice: DiceService
+    private dice: DiceService,
+    private weaponSettings: Cp2020RandomWeaponSettingsService
   ) {}
 
-  generate(filters: RandomWeaponFilters): Observable<CpPlayerWeapon> {
-    return this.wpnDataService.WeaponList.pipe(
-      map((weaponList) => {
-        const list = this.filterList(filters, new Array(...weaponList));
-        const roll = this.dice.generateNumber(0, list.length - 1);
-        const wpn = new CpPlayerWeapon(list[roll]);
-        return wpn;
-      })
+  generate(): Observable<CpPlayerWeapon> {
+    return this.weaponSettings.settings.pipe(
+      mergeMap((filters) =>
+        this.wpnDataService.WeaponList.pipe(
+          map((weaponList) => {
+            console.log('weaponlist', weaponList);
+            console.log('filters: ', filters);
+            const list = this.filterList(filters, new Array(...weaponList));
+            const roll = this.dice.generateNumber(0, list.length - 1);
+            const wpn = new CpPlayerWeapon(list[roll]);
+            console.log('list', list);
+            return wpn;
+          })
+        )
+      )
     );
   }
 
@@ -34,7 +42,10 @@ export class RandomWeaponGeneratorService {
   ): Observable<Array<CpPlayerWeapon>> {
     return this.wpnDataService.WeaponList.pipe(
       map((weaponList) => {
+        console.log('weaponlist', weaponList);
+        console.log('filters: ', filters);
         const list = this.filterList(filters, new Array(...weaponList));
+        console.log('list', list);
         const result = new Array<CpPlayerWeapon>();
         for (let i = 0; i < count; i++) {
           const roll = this.dice.generateNumber(0, list.length - 1);
@@ -50,11 +61,13 @@ export class RandomWeaponGeneratorService {
     list: Array<DataWeapon>
   ): Array<DataWeapon> {
     if (filters.category) {
+      console.log('filter on category');
       list = list.filter((wpn) => filters.category.includes(wpn?.category));
     }
     if (filters.subcategory) {
-      list = list.filter((wpn) =>
-        filters.subcategory.includes(wpn?.subcategory)
+      list = list.filter(
+        (wpn) =>
+          wpn?.subcategory && filters.subcategory.includes(wpn?.subcategory)
       );
     }
     if (filters.ammo) {
@@ -70,6 +83,7 @@ export class RandomWeaponGeneratorService {
       list = list.filter((wpn) => filters.conc.includes(wpn.conc));
     }
     if (filters.type) {
+      console.log('filter on type');
       list = list.filter((wpn) => filters.type.includes(wpn.type));
     }
     return list;

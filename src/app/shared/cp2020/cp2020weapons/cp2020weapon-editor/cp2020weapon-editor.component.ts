@@ -266,7 +266,7 @@ export class Cp2020weaponEditorComponent implements OnInit, AfterViewInit {
   }
 
   generate(): void {
-    this.randomWeaponService.generate({}).subscribe((weapon) => {
+    this.randomWeaponService.generate().subscribe((weapon) => {
       this.newWeapon = new CpPlayerWeapon(weapon);
     });
   }

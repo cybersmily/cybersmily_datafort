@@ -1,3 +1,4 @@
+import { Cp2020RandomWeaponSettingsService } from './../services/cp2020-random-weapon-settings/cp2020-random-weapon-settings.service';
 import { RandomWeaponGeneratorService } from './../services/random-weapon-generator/random-weapon-generator.service';
 import { Cp2020PlayerSkill } from './../../cp2020-skills/models/cp2020-player-skill';
 import { CpWeaponListParam } from './../models/cp-weapon-list-param';
@@ -106,15 +107,16 @@ export class Cp2020weapontableComponent implements OnInit {
     private modalService: BsModalService,
     private diceService: DiceService,
     private weaponData: WeaponDataService,
-    private randomWeaponService: RandomWeaponGeneratorService
+    private randomWeaponService: RandomWeaponGeneratorService,
+    private randomWeaponSettings: Cp2020RandomWeaponSettingsService
   ) {}
 
   ngOnInit(): void {
     this.wpnParam = {
-      type: ['PISTOLS', 'SMG', 'RIFLES', 'MELEE', 'SHOTGUNS'],
-      subtype: ['LIGHT', 'MEDIUM', 'HEAVY', 'ASSAULT'],
+      type: ['P', 'SMG', 'RIF', 'MEL', 'SHT'],
       availability: ['E', 'C'],
     };
+    this.randomWeaponSettings.setSettings(this.wpnParam);
     this.isIUCollapsed = this.isCollapsed;
     this.isWeaponsCollapsed = this.isCollapsed;
   }
@@ -172,58 +174,5 @@ export class Cp2020weapontableComponent implements OnInit {
   updateAmmo(ammo: Array<Cp2020PlayerAmmo>) {
     this.weapons.ammo = new Array<Cp2020PlayerAmmo>(...ammo);
     this.changeWeapons.emit(this.weapons);
-  }
-
-  paramChecked(value: Array<string>, item: string): boolean {
-    return (
-      value &&
-      value.some((t) => {
-        return t === item;
-      })
-    );
-  }
-
-  addParam($event, type: string, value: string) {
-    if (type === 'category') {
-      if (this.wpnParam.type) {
-        if ($event.target.checked) {
-          this.wpnParam.type.push(value);
-        } else {
-          const i = this.wpnParam.type.findIndex((t) => t === value);
-          this.wpnParam.type.splice(i, 1);
-        }
-      } else {
-        this.wpnParam['type'] = new Array<string>();
-        this.wpnParam.type.push(value);
-      }
-    }
-    if (type === 'subcategory') {
-      if (this.wpnParam.subtype) {
-        if ($event.target.checked) {
-          this.wpnParam.subtype.push(value);
-        } else {
-          const i = this.wpnParam.subtype.findIndex((t) => t === value);
-          this.wpnParam.subtype.splice(i, 1);
-        }
-      } else {
-        this.wpnParam['subtype'] = new Array<string>();
-        this.wpnParam.subtype.push(value);
-      }
-    }
-    if (type === 'avail') {
-      if (this.wpnParam.availability) {
-        if ($event.target.checked) {
-          this.wpnParam.availability.push(value);
-        } else {
-          const i = this.wpnParam.availability.findIndex((t) => t === value);
-          this.wpnParam.availability.splice(i, 1);
-        }
-      } else {
-        this.wpnParam['availability'] = new Array<string>();
-        this.wpnParam.availability.push(value);
-      }
-    }
-    if (type === 'exclude') {
-    }
   }
 }
