@@ -531,15 +531,23 @@ export class Cp2020characterToPDF {
   private addSkills(
     doc: jsPDF,
     sa: Cp2020PlayerSkill,
-    skills: Cp2020PlayerSkills,
+    currSkills: Cp2020PlayerSkills,
     stats: Cp2020StatBlock,
     left: number,
     line: number
   ): number {
-    line = this.printSkillSectionTitle(doc, line, left, skills.ip.toString());
-    if (skills.showWithValues) {
-      skills.skills = skills.skills.filter((sk) => sk.value > 0);
-    }
+    line = this.printSkillSectionTitle(
+      doc,
+      line,
+      left,
+      currSkills.ip.toString()
+    );
+    const skills = new Cp2020PlayerSkills();
+    skills.importSkills(
+      currSkills.showWithValues
+        ? (skills.skills = currSkills.skills.filter((sk) => sk.value > 0))
+        : currSkills.skills
+    );
     const colWidth = 50;
     let col = left;
     line += 4;
