@@ -1,6 +1,13 @@
 import { faRedo } from '@fortawesome/free-solid-svg-icons';
 import { KeyValue } from '@angular/common';
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  Output,
+  EventEmitter,
+  OnChanges,
+} from '@angular/core';
 import { Cp2020PlayerContact } from '../../models';
 
 @Component({
@@ -8,7 +15,7 @@ import { Cp2020PlayerContact } from '../../models';
   templateUrl: './cp2020-other-contacts.component.html',
   styleUrls: ['./cp2020-other-contacts.component.css'],
 })
-export class Cp2020OtherContactsComponent implements OnInit {
+export class Cp2020OtherContactsComponent implements OnInit, OnChanges {
   faRedo = faRedo;
 
   @Input()
@@ -36,6 +43,12 @@ export class Cp2020OtherContactsComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+    this.currContacts =
+      this.contacts?.map((contact) => new Cp2020PlayerContact(contact)) ??
+      new Array<Cp2020PlayerContact>();
+  }
+
+  ngOnChanges(): void {
     this.currContacts =
       this.contacts?.map((contact) => new Cp2020PlayerContact(contact)) ??
       new Array<Cp2020PlayerContact>();
