@@ -119,7 +119,10 @@
     </div>
     <div class="col">
       Manuever:
-      <span *ngIf="!isEditable">{{ currVehicle.manuever }} mph</span>
+      <span *ngIf="!isEditable"
+        >{{ currVehicle.manuever > 0 ? "+" : ""
+        }}{{ currVehicle.manuever }}</span
+      >
       <span *ngIf="isEditable">
         <input
           type="number"
