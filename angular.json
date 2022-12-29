@@ -23,11 +23,9 @@
               "src/json",
               "src/img",
               "src/html",
-              "src/google4cc4a3c6e6b2ea38.html",
               "src/.htaccess",
               "src/BingSiteAuth.xml",
-              "src/sitemap.xml",
-              "src/web.config"
+              "src/sitemap.xml"
             ],
             "styles": [
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
@@ -61,6 +59,14 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ]
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": false,
+              "namedChunks": true,
+              "extractLicenses": false,
+              "vendorChunk": true,
+              "buildOptimizer": false
             }
           }
         },
@@ -72,8 +78,12 @@
           "configurations": {
             "production": {
               "browserTarget": "homepage:build:production"
+            },
+            "development": {
+              "browserTarget": "homepage:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
