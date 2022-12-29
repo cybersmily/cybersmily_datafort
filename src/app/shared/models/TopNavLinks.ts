@@ -405,10 +405,17 @@ export class TopNavLinks {
       description: 'Under DLow you will find resources/files you can download.',
       links: [
         {
-          title: 'CP 2020 PC Sheet',
+          title: 'CP2020 PC Sheet',
           link: 'assets/PCsheet2.pdf',
           desc: 'My take on the Cyberpunk 2020 character sheet.',
           download: 'PCsheet2.pdf',
+          target: 'self',
+        },
+        {
+          title: 'CP2020 Referee Screens',
+          link: 'assets/CP2020_RefereeScreen.docx',
+          desc: 'My take on the Cyberpunk 2020 referee screens/cheatsheets.',
+          download: 'CP2020_RefereeScreen.docx',
           target: 'self',
         },
         {
