@@ -1,8 +1,17 @@
 ﻿{
   "news": [
+    {"date": "2022-12",
+      "entries": [
+        "<strong>12-28</strong> - Not much done other than a few bug fixes and some udpates to the data sheets.",
+        "&nbsp;* Changing lookup lists in the Cyberpunk 2020 character generator.",
+        "&nbsp;* Add a Cyberpunk 2020 Referee screens/cheat sheets.",
+        "Till next time gatos.",
+        "CYBER :D"
+      ]
+    },
     {"date": "2022-11",
       "entries": [
-        "<strong>11-XX</strong> - A few things have been added:",
+        "<strong>11-21</strong> - A few things have been added:",
         "&nbsp;* Add haggling calculator to the Character Generator for Cyberpunk 2020 under the Lifestyle Section of the sheet. This will use rules from Wildside supplement.",
         "&nbsp;* A bunch of other updates to the Character Generator, such as type ahead look up on several input fields, fly out menus instead of pop up dialogs, in settings add/remove sections on the character print out, and more.",
 

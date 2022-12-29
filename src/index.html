@@ -1,355 +1,403 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>
-      Cybersmily's Datafort (fansite for Cyberpunk 2020 and CyberPunk Red)
-    </title>
-    <base href="/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Cybersmily's Datafort is a fansite for R.Talsorian Cyberpunk 2020 and Cyberpunk Red game. Contains unofficial rules, gear, npcs, and apps. Last update 2021-04-10"
-    />
-    <meta
-      name="keywords"
-      content="cyberpunk,cyberpunk 2020,cybersmily,datafort,r. talsorian games,cyberpunk red"
-    />
-    <meta name="author" content="The Cybersmily" />
-    <meta name="robots" content="index, follow" />
-    <meta
-      name="og:title"
-      property="og:title"
-      content="Cybersmily's Datafort (fansite for Cyberpunk 2020 and Cyberpunk Red)"
-    />
-    <meta
-      name="og:description"
-      property="og:description"
-      content="Cybersmily's Datafort is a fansite for R.Talsorian Cyberpunk 2020 and Cyberpunk Red. Contains unofficial rules, gear, npcs, and apps"
-    />
-    <meta
-      name="og:type"
-      property="og:type"
-      content="https://cybersmily.net:website"
-    />
-    <meta name="google" content="nositelinkssearchbox" />
-    <link rel="canonical" href="https://cybersmily.net/" />
-  </head>
 
-  <body>
-    <style>
-      .hidden-for-ie {
-        display: none;
-      }
-    </style>
-    <app-root>
-      <div class="csdHeader">
-        <div class="container">
-          <div>
-            <div style="display: block; height: 20px; width: 20px"></div>
-            <div class="row">
-              <div class="col-2">
-                <div
-                  id="image-holder"
-                  class="bg-dark csd-rounded"
-                  style="text-align: center"
-                >
-                  <img
-                    alt="Cybersmily's Datafort for Cyberpunk 2020 by R. Talsorian"
-                    src="/img/cs100.png"
-                  />
-                </div>
-              </div>
-              <div class="col-10 csdHeaderTitle">
-                <div class="row">
-                  <div class="col-sm-10 offset-2">
-                    <h1>Cybersmily's Datafort</h1>
-                  </div>
-                </div>
-                <div class="row sub-ttl">
-                  <div class="col-sm-7 offset-5">
-                    <h6>Fansite for R. Talsorian's Cyberpunk 2020</h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="csd-main-content-ie" class="hidden-for-ie">
-        <div class="container">
-          <h2 class="text-center">Welcome to Cybersmily's Datafort!</h2>
-          <h4 style="color: red">
-            This site uses HTML5 and isn't supported in older browsers! Please
-            change to a modern browser like Chrome, Firefox, or Edge.
-          </h4>
-          <div>
-            This site was created back in the late 90's as an unofficial fan
-            site dedicated to the R. Talsorian's tabletop RPG Cyberpunk 2020 and
-            Cyberpunk Red. Here you will find articles, web page apps, and other
-            unofficial resources for CyberPunk 2020 and Cyberpunk Red.
-          </div>
-          <br />
+<head>
+  <meta charset="utf-8" />
+  <title>
+    Cybersmily's Datafort (fansite for Cyberpunk 2020 and CyberPunk Red)
+  </title>
+  <base href="/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Cybersmily's Datafort is a fansite for R.Talsorian Cyberpunk 2020 and Cyberpunk Red game. Contains unofficial rules, gear, npcs, and apps. Last update 2021-04-10" />
+  <meta name="keywords" content="cyberpunk,cyberpunk 2020,cybersmily,datafort,r. talsorian games,cyberpunk red" />
+  <meta name="author" content="The Cybersmily" />
+  <meta name="robots" content="index, follow" />
+  <meta name="og:title" property="og:title"
+    content="Cybersmily's Datafort (fansite for Cyberpunk 2020 and Cyberpunk Red)" />
+  <meta name="og:description" property="og:description"
+    content="Cybersmily's Datafort is a fansite for R.Talsorian Cyberpunk 2020 and Cyberpunk Red. Contains unofficial rules, gear, npcs, and apps" />
+  <meta name="og:type" property="og:type" content="https://cybersmily.net:website" />
+  <meta name="google" content="nositelinkssearchbox" />
+  <link rel="canonical" href="https://cybersmily.net/" />
+</head>
+
+<body>
+  <style>
+    .hidden-for-ie {
+      display: none;
+    }
+  </style>
+  <app-root>
+    <div class="csdHeader">
+      <div class="container">
+        <div>
+          <div style="display: block; height: 20px; width: 20px"></div>
           <div class="row">
-            <div class="col-2"></div>
-            <div class="col-8">
-              <h4 class="text-center">Recent Updates</h4>
-              <div>
-                <h5>2022-09</h5>
-             <p><strong>09-25</strong> - Some bug fixes to end the month off:</p>
-        <p>&nbsp;* Renaming option of blank Language, Exper, Martial Art skill failing.</p>
-        <p>&nbsp;* Net Arch for CP Red not loading saved json files.</p>
-        <p>&nbsp;* Generator for Maximum Metal not calculating Stealth Armor and Damage Control spaces/cost correctly.</p>
-        <p>&nbsp;* Removed auto sorting of siblings in the Charcter Generator for Cyberpunk 2020.</p>
-        <p>&nbsp;* Fixed IU RT calculation on the Character Generator for Cyberpunk 2020.</p>
-         <p><strong>09-17</strong> - Another release this month with the following:</p>
-        <p>&nbsp;* New Contacts section to the Character Generator for Cyberpunk 2020. This includes the Big League and Hot Stuff areas if you have Streetdeal skill and a place to put generic contacts to the sheet.</p>
-        <p>&nbsp;* Bug fix on Combat Tracker for Cyberpunk 2020. Issues with Armor. Now you can override the set limites on SP as well as edit armor in the tracker instead having to delete the piece and recreate.</p>
-        <p>&nbsp;* Bug fix on Data List. Numbers weren't filtering properly. Also renamed More Guns to Edge of Sword Conversion. I also fixed some filtering problems there as well.</p>
-        <p>That's it for this relase. Right now been fleshing out a highrider campaign for 2020. If you like to see my work head over to <a href='https://www.worldanvil.com/w/cybersmily-s-cyberpunk-2020-world-cybersmily'>my World Anvil site</a>. It contains some things from my previous campaing in Night City as well.</p>
-        <p><strong>09-04</strong> - More goodness to the site. Worked on a few things so far:</p>
-        <p>&nbsp;* ACPA has custom weapon/component option to add to locations on the ACPA.</p>
-        <p>&nbsp;* ACPA fixed a bug when removing components/weapons from a location.</p>
-        <p>&nbsp;* ACPA fixed a bug with notes not being retained after typing.</p>
-        <p>&nbsp;* ACPA has STR 18 chassis to choose. This is NOT cannon, but was requested.</p>
-        <p>&nbsp;* ACPA now can create WADs (Working Assistant Droi...*Disney edit* Drones) for you robot/drone lovers. This was a major overhaul of the ACPA code base. But I got it working.</p>
-        <p>&nbsp;* ACPA Generator you can load stock designs using the Search button. These includes most of the designs from the various sourcebooks.</p>
-        <p>Again, coming join my Discord server. I welcome feedback and chat on Cyberpunk related topics. The link is in the menu above.</p>
-        <p>Tales from the Forlorn Dopes pod/vod cast is going on. Wisdom 000 and I over on <a href='https://www.twitch.tv/cybernationuncensored'>Cybernation Uncensored twitch</a> channel every 1st and 3rd Wednesday of the month. We start around 19:00 EST/18:00 CST/16:00 PST/00:00 GMT (which actually Thursday for those across the pond). We ramble on about Cyberpunk 2020, Cyberpunk Red, Cyberpunk 2077 and other Cyberpunk genre media like movies, TV servies, comics, anime, etc. Come join us. You can see old episodes on <a href=\"https://www.youtube.com/c/CybernationUncensored\">Cybernation Uncensored's Youtube Channel</a>.</p>
-        <p>Till next time gatos.</p>
-        <p>CYBER :D</p>
-        </div>
-              <div>
-                <h5>2022-08</h5>
-                  <p><strong>08-28</strong> - A couple of fixes made to the site this time.</p>
-                  <p>&nbsp;* Fixed a bug with random armor not setting all the locations properly on the combat tracker and character generator for Cyberpunk 2020</p>
-                  <p>&nbsp;* Add program details to the Datafort Designer for Cyberpunk 2020 so that you don't need to fill them out after you randomly generate a fort.</p>
-                  <p>&nbsp;* Add Drag/Drop funcationality to the Datafort Designer, so now you can drag the icons around and place them where you need to. There are still some glitches with it, but I would say it falls within the 90/10 rule of functionality.</p>
-
-        <p><strong>08-17</strong> - Not much going on with the site. Been concentrating on creating a Deep Space campaign centered around the O'Neil Two reovlt during the 4th Corporate war. That is an on going process as I flesh out the fluff in space.</p>
-        <p>Here's a list of things I've done to the site so far this month:</p>
-        <p>&nbsp;* Fixed a nasty bug in the NET Architect Generator for Cyberpunk Red. Switching a node type was deleting the parent nodes.</p>
-        <p>&nbsp;* Fixed issues with editing and adding skills in Character Generator for Cyberpunk 2020. Should be a bit better on creating new skills. </p>
-        <p>&nbsp;* Add a new blueprint for a biotech research facility I used in my last campaign. Could still use some work, but quite detailed for a referee's needs.</p>
-        <p>&nbsp;* Add a revision of the orbital map from Deep Space pg 7. Had some feedback on making a bit more accurate.</p>
-        <p>&nbsp;* Also I wrote a short story about one of my characters/NPCs, A Night to Remember. You can download under DLow section and take a read. Hope you enjoy it. Special thanks to my wife, the super editor.</p>
-        <p>Coming join my Discord server. I welcome feedback and chat on Cyberpunk related topics. Please join. The link is in the menu.</p>
-        <p>Also  check out The Tales from the Forlorn Dopes over on <a href='https://www.twitch.tv/cybernationuncensored'>Cybernation Uncensored twitch</a>. The schedule of every 1st and 3rd Wednesday of the month at 19:00 EST/18:00 CST/16:00 PST/00:00 GMT (which actually Thursday for those across the pond). Wisdom 000 from <a href='http://datafortess2020.com'>Datafortress 2020</a> and myself ramble on about Cyberpunk 2020, Cyberpunk Red, Cyberpunk 2077 and other Cyberpunk genre media like movies, TV servies, comics, anime, etc. Please check us out. You can see old episodes on <a href=\"https://www.youtube.com/c/CybernationUncensored\">Cybernation Uncensored's Youtube Channel</a>. Really would appreacite likes and comments to the vids so both Wisdom 000 and I know we have at least some fans out there :)</p>
-        <p>See ya next month for more cyber goodness.</p>
-        <p>CYBER :D</p>
-                <h5>2022-07</h5>
-                <p>
-                  <strong>07-24</strong> - More new things and fixes added to
-                  the site:
-                </p>
-                <p>
-                  &nbsp;* Gang Generator for Cyberpunk 2020/Cyberpunk Red. This
-                  utility will create gangs using Ocelot's gang generation
-                  system from back in the day. A shout out to Ocelot for
-                  allowing me to get this built. The utlity will also generate a
-                  gang name as well. You can save the results as a PDF as well.
-                </p>
-                <p>
-                  &nbsp;* Character Generator Cyberpunk 2020 add the
-                  <a
-                    href="https://cybersmily.net/mods/nr"
-                    alt="Cybersmily Datfort modified netrunning rules on this site."
-                    >Quick Netrunner Rules</a
-                  >
-                  Program Modifier caculation if you use those rules.
-                </p>
-                <p>
-                  &nbsp;* Character Generator Cyberpunk 2020 fixed a bug with
-                  Cyberdeck in which you couldn't update the deck stats.
-                </p>
-                <p>
-                  &nbsp;* Character Generator Cyberpunk 2020 fixed a bug where
-                  apply damage to a cyberlimb location wasn't marking off sdp
-                  but wounds.
-                </p>
-                <p>
-                  &nbsp;* Character Generator Cyberpunk 2020 fixed a bug with
-                  LifeStyle groceries not being cached and getting lost.
-                </p>
-                <p>
-                  &nbsp;* Character Generator Cyberpunk 2020 added the
-                  functionality to add more utilities to housing.
-                </p>
-                <p>
-                  &nbsp;* Character Generator Cyberpunk 2020 cleaned up
-                  lifestyle housing and added functionality to set custom
-                  rent/mortgage cost.
-                </p>
-                <p>
-                  Progress is still being made on the Character Generator for
-                  Cyberpunk Red.
-                </p>
-                <p>
-                  I am getting great feedback from eveyone on the Cybersmily's
-                  Datafort Discord. I appreciate those of you providing me with
-                  bugs and ideas for the site. Please join by clicking the
-                  Discord icon in the menu bar.
-                </p>
-                <p>
-                  "Please check out The Tales from the Forlorn Dopes over on
-                  <a href="https://www.twitch.tv/cybernationuncensored"
-                    >Cybernation Uncensored twitch</a
-                  >. The schedule of every 1st and 3rd Wednesday of the month at
-                  19:00 EST/18:00 CST/16:00 PST/00:00 GMT(which actually
-                  Thursday for those across the pond). Wisdom000 from
-                  <a href="http://datafortess2020.com">Datafortress 2020</a> and
-                  myself ramble on about Cyberpunk 2020, Red, and other
-                  Cyberpunk genre media. Please check us out. You can see old
-                  episodes on Cybernation Uncensored's Youtube Channel
-                </p>
-                <p>Till next time.</p>
-                <p>CYBER :D</p>
-                <p>
-                  <strong>07-17</strong> - The updates keep coming. This month
-                  we have bug fixes and some new stuff
-                </p>
-                <p>
-                  &nbsp;* Master Vehicle List is now live. This contains all the
-                  RTG vehicles that are cannon with Cyberpunk 2020. Some of the
-                  attributes are blank as per the source. I am still debating on
-                  whether to keep them that way or update them to be more inline
-                  with Max Metal stats. Thanks to Ikarius over on
-                  <a href="https://discord.gg/Jhy9Txx5hP">Discord</a> for
-                  helping with this.
-                </p>
-                <p>
-                  &nbsp;* Character Generator Roles sections has been reworked,
-                  specifically on the skills. I remove the hard limit of
-                  selectable skills, change it to free for text box but will a
-                  hint displaying the skill that should be there as well as a
-                  type ahead search for adding skills.
-                </p>
-                <p>
-                  &nbsp;* Speaking of skills, the list has been update to be
-                  more inline with some other sources and removed redundancies.
-                  Thanks to Tekquest for assisting in the clean up.
-                </p>
-                <p>
-                  &nbsp;* Character Generator for Cyberpunk 2020 also has
-                  improved the notes section. There were issues with performance
-                  when typing in that section, hopefully you will see some
-                  improvements there.
-                </p>
-                <p>
-                  &nbsp;* Updated some of the Max Metal metadata in the Max
-                  Metal Calculator. Added Cyberwalk type and updated some of the
-                  source pages on equipment.
-                </p>
-                <p>
-                  &nbsp;* Fixed a bug in the ACPA Generator for the PDF where
-                  internal slots were duplicated to the external ones.
-                </p>
-                <p>&nbsp;* Added a few new Peeps that were NPCs in my game.</p>
-                <p>
-                  I am still working on the Character Generator for Cyberpunk
-                  Red. I am making progress, slow, but some. It will be coming
-                  and just takes time to get things the way I want them. I am
-                  enjoying all the feedback I am getting on the Cybersmily's
-                  Datafort Discord. There has been some great things coming from
-                  the community. It is helping me and this site a lot to hear it
-                  all. If you are interested, please click the Discord icon in
-                  the menu bar.
-                </p>
-                <p>
-                  Please check out The Tales from the Forlorn Dopes over on
-                  <a href="https://www.twitch.tv/cybernationuncensored"
-                    >Cybernation Uncensored twitch</a
-                  >. The schedule of every 1st and 3rd Wednesday of the month at
-                  19:00 EST/18:00 CST/16:00 PST/00:00 GMT(which actually
-                  Thursday for those across the pond). Wisdom000 from
-                  <a href="http://datafortess2020.com">Datafortress 2020</a> and
-                  myself ramble on about Cyberpunk 2020, Red, and other
-                  Cyberpunk genre media. Please check us out. You can see old
-                  episodes on Cybernation Uncensored's Youtube Channel
-                </p>
-                <p>Till next time.</p>
-                <p>CYBER :D</p>
+            <div class="col-2">
+              <div id="image-holder" class="bg-dark csd-rounded" style="text-align: center">
+                <img alt="Cybersmily's Datafort for Cyberpunk 2020 by R. Talsorian" src="/img/cs100.png" />
+              </div>
+            </div>
+            <div class="col-10 csdHeaderTitle">
+              <div class="row">
+                <div class="col-sm-10 offset-2">
+                  <h1>Cybersmily's Datafort</h1>
+                </div>
+              </div>
+              <div class="row sub-ttl">
+                <div class="col-sm-7 offset-5">
+                  <h6>Fansite for R. Talsorian's Cyberpunk 2020</h6>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div
-          class="csd-disclaimer csd-rounded container"
-          style="display: block"
-        >
-          <h6>DISCLAIMER</h6>
-          <div>
-            Cyberpunk:2020 is a Registered Trademark of R.Talsorian Corporation.
-            Original Cyberpunk:2020 material Copyright 1994 through 2019 by
-            R.Talsorian Corporation. All Rights Reserved. Used without
-            permission. Any use of R.Talsorian Corporation's copyrighted
-            material or trademarks on this site should not be viewed as a
-            challenge to those copyrights or trademarks. If requested by RTG,
-            all or some of the material will be removed from this site as soon
-            as I receive that request. Again this is not a challenge to any
-            trademark or copyright, just trying to give the games I love some
-            free publicity.
-          </div>
-          <div>
-            Proteus is a Registered Trademark of Wizards of the Coast. Licensed
-            by R. Talsorian Corporation. All Rights Reserved. All material
-            concerning Proteus is used without permission and should not be
-            viewed as a challenge to that trademark or any copyright. If
-            requested by WotC or RTG, all or some of the material will be
-            removed from this site as soon as I receive that request. Again this
-            is not a challenge to any trademark or copyright, just trying to
-            give the games I love some free publicity. All Proteus images
-            pictures are copyrighted by Wizard of the Coast; this is not a
-            challenge to their copyright and/or trademark. All Rights Reserved.
-            I am using them without permission, and would love to have it. If
-            requested by WotC, all or some of the pictures will be removed from
-            this site as soon as I receive that request.
-          </div>
-          <div>
-            Night's Edge is a Registered Trademark of Ianus Games. All Rights
-            Reserved. All material concerning Night's Edge is used without
-            permission and should not be viewed as a challenge to that trademark
-            or any copyrights. If requested by Ianus Games, all or some of the
-            material will be removed from this site as soon as I receive that
-            request. Again this is not a challenge to any trademark or
-            copyright, just trying to give the games I love some free publicity.
-          </div>
-          <div>
-            Most images have been made by me (with the help of my brother). Any
-            photos (or images that look like photos) will be taken down if the
-            proper person (the one whose photo it is) contacts me. I don't have
-            their permission and would love to have it if they want to give it
-            out.
-          </div>
-          <div>
-            Any items that aren't copyrighted by the aforementioned companies
-            are mine. Some of these ideas might be similar to others. I will bow
-            to their claims as long as there is no harassment involved. I'm
-            sorry that my telepathic abilities have not yet been mastered and I
-            do not wish to be blamed for stealing another's ideas.
-          </div>
-          <div>
-            Cybersmily Datafort has been around since 1994 through present day.
-            Though updates are far between, the site is still in use.
+      </div>
+    </div>
+    <div id="csd-main-content-ie" class="hidden-for-ie">
+      <div class="container">
+        <h2 class="text-center">Welcome to Cybersmily's Datafort!</h2>
+        <h4 style="color: red">
+          This site uses HTML5 and isn't supported in older browsers! Please
+          change to a modern browser like Chrome, Firefox, or Edge.
+        </h4>
+        <div>
+          This site was created back in the late 90's as an unofficial fan
+          site dedicated to the R. Talsorian's tabletop RPG Cyberpunk 2020 and
+          Cyberpunk Red. Here you will find articles, web page apps, and other
+          unofficial resources for CyberPunk 2020 and Cyberpunk Red.
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-2"></div>
+          <div class="col-8">
+            <h4 class="text-center">Recent Updates</h4>
+
+            <div>
+              <h5>2022-12</h5>
+              <p><strong>12-28</strong> - Not much done other than a few bug fixes and some udpates to the data sheets.
+              </p>
+              <p>&nbsp;* Changing lookup lists in the Cyberpunk 2020 character generator.</p>
+              <p>&nbsp;* Add a Cyberpunk 2020 Referee screens/cheat sheets.</p>
+              <p>Till next time gatos.</p>
+              <p>CYBER :D</p>
+            </div>
+            <div>
+              <h5>2022-11</h5>
+              <p><strong>11-21</strong> - A few things have been added:</p>
+              <p>&nbsp;* Add haggling calculator to the Character Generator for Cyberpunk 2020 under the Lifestyle
+                Section of the sheet. This will use rules from Wildside supplement.</p>
+              <p>&nbsp;* A bunch of other updates to the Character Generator, such as type ahead look up on several
+                input fields, fly out menus instead of pop up dialogs, in settings add/remove sections on the character
+                print out, and more.</p>
+              <p>Till next time gatos.</p>
+              <p>CYBER :D</p>
+            </div>
+            <div>
+              <h5>2022-10</h5>
+              <p><strong>10-10</strong> - bug fixes and enhancements to the character generator for 2020:</p>
+              <p>&nbsp;* Add check box to show just the skills with points in them.</p>
+              <p>&nbsp;* Armor section allows to either calculate the EV/Cost/Weight of a piece or allow the player to
+                customize the values.</p>
+              <p>&nbsp;* Bug fix on armor section too, the EV will not count different pieces of armor on different
+                limbs as a different layer for EV. So if you have a left arm piece with SP 20 and a right arm with SP
+                12, the EV won't see them as differnt layers for stacking purposes.</p>
+              <p>Again, plugging Wisdom000 and my VOD cast: Tales from the Forlorn Dopes. Check it out live every
+                1st/3rd Wednesday of the month on <a href='https://www.twitch.tv/cybernationuncensored'>Cybernation
+                  Uncensored twitch</a> at 7PM EST/12AM GMT/4PM PST or watch them on <a
+                  href=\"https://www.youtube.com/c/CybernationUncensored'>Cybernation Uncensored's Youtube Channel</a>.
+              </p>
+              <p>Till next time gatos.</p>
+              <p>CYBER :D</p>
+            </div>
+            <div>
+              <h5>2022-09</h5>
+              <p><strong>09-25</strong> - Some bug fixes to end the month off:</p>
+              <p>&nbsp;* Renaming option of blank Language, Exper, Martial Art skill failing.</p>
+              <p>&nbsp;* Net Arch for CP Red not loading saved json files.</p>
+              <p>&nbsp;* Generator for Maximum Metal not calculating Stealth Armor and Damage Control spaces/cost
+                correctly.</p>
+              <p>&nbsp;* Removed auto sorting of siblings in the Charcter Generator for Cyberpunk 2020.</p>
+              <p>&nbsp;* Fixed IU RT calculation on the Character Generator for Cyberpunk 2020.</p>
+              <p><strong>09-17</strong> - Another release this month with the following:</p>
+              <p>&nbsp;* New Contacts section to the Character Generator for Cyberpunk 2020. This includes the Big
+                League and Hot Stuff areas if you have Streetdeal skill and a place to put generic contacts to the
+                sheet.</p>
+              <p>&nbsp;* Bug fix on Combat Tracker for Cyberpunk 2020. Issues with Armor. Now you can override the set
+                limites on SP as well as edit armor in the tracker instead having to delete the piece and recreate.</p>
+              <p>&nbsp;* Bug fix on Data List. Numbers weren't filtering properly. Also renamed More Guns to Edge of
+                Sword Conversion. I also fixed some filtering problems there as well.</p>
+              <p>That's it for this relase. Right now been fleshing out a highrider campaign for 2020. If you like to
+                see my work head over to <a
+                  href='https://www.worldanvil.com/w/cybersmily-s-cyberpunk-2020-world-cybersmily'>my World Anvil
+                  site</a>. It contains some things from my previous campaing in Night City as well.</p>
+              <p><strong>09-04</strong> - More goodness to the site. Worked on a few things so far:</p>
+              <p>&nbsp;* ACPA has custom weapon/component option to add to locations on the ACPA.</p>
+              <p>&nbsp;* ACPA fixed a bug when removing components/weapons from a location.</p>
+              <p>&nbsp;* ACPA fixed a bug with notes not being retained after typing.</p>
+              <p>&nbsp;* ACPA has STR 18 chassis to choose. This is NOT cannon, but was requested.</p>
+              <p>&nbsp;* ACPA now can create WADs (Working Assistant Droi...*Disney edit* Drones) for you robot/drone
+                lovers. This was a major overhaul of the ACPA code base. But I got it working.</p>
+              <p>&nbsp;* ACPA Generator you can load stock designs using the Search button. These includes most of the
+                designs from the various sourcebooks.</p>
+              <p>Again, coming join my Discord server. I welcome feedback and chat on Cyberpunk related topics. The link
+                is in the menu above.</p>
+              <p>Tales from the Forlorn Dopes pod/vod cast is going on. Wisdom 000 and I over on <a
+                  href='https://www.twitch.tv/cybernationuncensored'>Cybernation Uncensored twitch</a> channel every 1st
+                and 3rd Wednesday of the month. We start around 19:00 EST/18:00 CST/16:00 PST/00:00 GMT (which actually
+                Thursday for those across the pond). We ramble on about Cyberpunk 2020, Cyberpunk Red, Cyberpunk 2077
+                and other Cyberpunk genre media like movies, TV servies, comics, anime, etc. Come join us. You can see
+                old episodes on <a href=\"https://www.youtube.com/c/CybernationUncensored\">Cybernation Uncensored's
+                  Youtube Channel</a>.</p>
+              <p>Till next time gatos.</p>
+              <p>CYBER :D</p>
+            </div>
+            <div>
+              <h5>2022-08</h5>
+              <p><strong>08-28</strong> - A couple of fixes made to the site this time.</p>
+              <p>&nbsp;* Fixed a bug with random armor not setting all the locations properly on the combat tracker and
+                character generator for Cyberpunk 2020</p>
+              <p>&nbsp;* Add program details to the Datafort Designer for Cyberpunk 2020 so that you don't need to fill
+                them out after you randomly generate a fort.</p>
+              <p>&nbsp;* Add Drag/Drop funcationality to the Datafort Designer, so now you can drag the icons around and
+                place them where you need to. There are still some glitches with it, but I would say it falls within the
+                90/10 rule of functionality.</p>
+
+              <p><strong>08-17</strong> - Not much going on with the site. Been concentrating on creating a Deep Space
+                campaign centered around the O'Neil Two reovlt during the 4th Corporate war. That is an on going process
+                as I flesh out the fluff in space.</p>
+              <p>Here's a list of things I've done to the site so far this month:</p>
+              <p>&nbsp;* Fixed a nasty bug in the NET Architect Generator for Cyberpunk Red. Switching a node type was
+                deleting the parent nodes.</p>
+              <p>&nbsp;* Fixed issues with editing and adding skills in Character Generator for Cyberpunk 2020. Should
+                be a bit better on creating new skills. </p>
+              <p>&nbsp;* Add a new blueprint for a biotech research facility I used in my last campaign. Could still use
+                some work, but quite detailed for a referee's needs.</p>
+              <p>&nbsp;* Add a revision of the orbital map from Deep Space pg 7. Had some feedback on making a bit more
+                accurate.</p>
+              <p>&nbsp;* Also I wrote a short story about one of my characters/NPCs, A Night to Remember. You can
+                download under DLow section and take a read. Hope you enjoy it. Special thanks to my wife, the super
+                editor.</p>
+              <p>Coming join my Discord server. I welcome feedback and chat on Cyberpunk related topics. Please join.
+                The link is in the menu.</p>
+              <p>Also check out The Tales from the Forlorn Dopes over on <a
+                  href='https://www.twitch.tv/cybernationuncensored'>Cybernation Uncensored twitch</a>. The schedule of
+                every 1st and 3rd Wednesday of the month at 19:00 EST/18:00 CST/16:00 PST/00:00 GMT (which actually
+                Thursday for those across the pond). Wisdom 000 from <a href='http://datafortess2020.com'>Datafortress
+                  2020</a> and myself ramble on about Cyberpunk 2020, Cyberpunk Red, Cyberpunk 2077 and other Cyberpunk
+                genre media like movies, TV servies, comics, anime, etc. Please check us out. You can see old episodes
+                on <a href=\"https://www.youtube.com/c/CybernationUncensored\">Cybernation Uncensored's Youtube
+                  Channel</a>. Really would appreacite likes and comments to the vids so both Wisdom 000 and I know we
+                have at least some fans out there :)</p>
+              <p>See ya next month for more cyber goodness.</p>
+              <p>CYBER :D</p>
+              <h5>2022-07</h5>
+              <p>
+                <strong>07-24</strong> - More new things and fixes added to
+                the site:
+              </p>
+              <p>
+                &nbsp;* Gang Generator for Cyberpunk 2020/Cyberpunk Red. This
+                utility will create gangs using Ocelot's gang generation
+                system from back in the day. A shout out to Ocelot for
+                allowing me to get this built. The utlity will also generate a
+                gang name as well. You can save the results as a PDF as well.
+              </p>
+              <p>
+                &nbsp;* Character Generator Cyberpunk 2020 add the
+                <a href="https://cybersmily.net/mods/nr"
+                  alt="Cybersmily Datfort modified netrunning rules on this site.">Quick Netrunner Rules</a>
+                Program Modifier caculation if you use those rules.
+              </p>
+              <p>
+                &nbsp;* Character Generator Cyberpunk 2020 fixed a bug with
+                Cyberdeck in which you couldn't update the deck stats.
+              </p>
+              <p>
+                &nbsp;* Character Generator Cyberpunk 2020 fixed a bug where
+                apply damage to a cyberlimb location wasn't marking off sdp
+                but wounds.
+              </p>
+              <p>
+                &nbsp;* Character Generator Cyberpunk 2020 fixed a bug with
+                LifeStyle groceries not being cached and getting lost.
+              </p>
+              <p>
+                &nbsp;* Character Generator Cyberpunk 2020 added the
+                functionality to add more utilities to housing.
+              </p>
+              <p>
+                &nbsp;* Character Generator Cyberpunk 2020 cleaned up
+                lifestyle housing and added functionality to set custom
+                rent/mortgage cost.
+              </p>
+              <p>
+                Progress is still being made on the Character Generator for
+                Cyberpunk Red.
+              </p>
+              <p>
+                I am getting great feedback from eveyone on the Cybersmily's
+                Datafort Discord. I appreciate those of you providing me with
+                bugs and ideas for the site. Please join by clicking the
+                Discord icon in the menu bar.
+              </p>
+              <p>
+                "Please check out The Tales from the Forlorn Dopes over on
+                <a href="https://www.twitch.tv/cybernationuncensored">Cybernation Uncensored twitch</a>. The schedule of
+                every 1st and 3rd Wednesday of the month at
+                19:00 EST/18:00 CST/16:00 PST/00:00 GMT(which actually
+                Thursday for those across the pond). Wisdom000 from
+                <a href="http://datafortess2020.com">Datafortress 2020</a> and
+                myself ramble on about Cyberpunk 2020, Red, and other
+                Cyberpunk genre media. Please check us out. You can see old
+                episodes on Cybernation Uncensored's Youtube Channel
+              </p>
+              <p>Till next time.</p>
+              <p>CYBER :D</p>
+              <p>
+                <strong>07-17</strong> - The updates keep coming. This month
+                we have bug fixes and some new stuff
+              </p>
+              <p>
+                &nbsp;* Master Vehicle List is now live. This contains all the
+                RTG vehicles that are cannon with Cyberpunk 2020. Some of the
+                attributes are blank as per the source. I am still debating on
+                whether to keep them that way or update them to be more inline
+                with Max Metal stats. Thanks to Ikarius over on
+                <a href="https://discord.gg/Jhy9Txx5hP">Discord</a> for
+                helping with this.
+              </p>
+              <p>
+                &nbsp;* Character Generator Roles sections has been reworked,
+                specifically on the skills. I remove the hard limit of
+                selectable skills, change it to free for text box but will a
+                hint displaying the skill that should be there as well as a
+                type ahead search for adding skills.
+              </p>
+              <p>
+                &nbsp;* Speaking of skills, the list has been update to be
+                more inline with some other sources and removed redundancies.
+                Thanks to Tekquest for assisting in the clean up.
+              </p>
+              <p>
+                &nbsp;* Character Generator for Cyberpunk 2020 also has
+                improved the notes section. There were issues with performance
+                when typing in that section, hopefully you will see some
+                improvements there.
+              </p>
+              <p>
+                &nbsp;* Updated some of the Max Metal metadata in the Max
+                Metal Calculator. Added Cyberwalk type and updated some of the
+                source pages on equipment.
+              </p>
+              <p>
+                &nbsp;* Fixed a bug in the ACPA Generator for the PDF where
+                internal slots were duplicated to the external ones.
+              </p>
+              <p>&nbsp;* Added a few new Peeps that were NPCs in my game.</p>
+              <p>
+                I am still working on the Character Generator for Cyberpunk
+                Red. I am making progress, slow, but some. It will be coming
+                and just takes time to get things the way I want them. I am
+                enjoying all the feedback I am getting on the Cybersmily's
+                Datafort Discord. There has been some great things coming from
+                the community. It is helping me and this site a lot to hear it
+                all. If you are interested, please click the Discord icon in
+                the menu bar.
+              </p>
+              <p>
+                Please check out The Tales from the Forlorn Dopes over on
+                <a href="https://www.twitch.tv/cybernationuncensored">Cybernation Uncensored twitch</a>. The schedule of
+                every 1st and 3rd Wednesday of the month at
+                19:00 EST/18:00 CST/16:00 PST/00:00 GMT(which actually
+                Thursday for those across the pond). Wisdom000 from
+                <a href="http://datafortess2020.com">Datafortress 2020</a> and
+                myself ramble on about Cyberpunk 2020, Red, and other
+                Cyberpunk genre media. Please check us out. You can see old
+                episodes on Cybernation Uncensored's Youtube Channel
+              </p>
+              <p>Till next time.</p>
+              <p>CYBER :D</p>
+            </div>
           </div>
         </div>
       </div>
-      <script type="text/javascript">
-        var ua = window.navigator.userAgent;
-        var msie = ua.indexOf("MSIE");
-        if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
-          // IE is being used and needs to tell user to use a modern browser like Edge, Chrome, of Firefox.
-          console.error(
-            "<p>This browser is IE and is incompatible with the site. Please upgrade to a modern browser.<p>"
-          );
-          var element = document.getElementById("csd-main-content-ie");
-          element.className = element.className.replace(/\bhidden-for-ie\b/g);
-        }
-      </script>
-    </app-root>
-    <br />
-  </body>
+      <div class="csd-disclaimer csd-rounded container" style="display: block">
+        <h6>DISCLAIMER</h6>
+        <div>
+          Cyberpunk:2020 is a Registered Trademark of R.Talsorian Corporation.
+          Original Cyberpunk:2020 material Copyright 1994 through 2019 by
+          R.Talsorian Corporation. All Rights Reserved. Used without
+          permission. Any use of R.Talsorian Corporation's copyrighted
+          material or trademarks on this site should not be viewed as a
+          challenge to those copyrights or trademarks. If requested by RTG,
+          all or some of the material will be removed from this site as soon
+          as I receive that request. Again this is not a challenge to any
+          trademark or copyright, just trying to give the games I love some
+          free publicity.
+        </div>
+        <div>
+          Proteus is a Registered Trademark of Wizards of the Coast. Licensed
+          by R. Talsorian Corporation. All Rights Reserved. All material
+          concerning Proteus is used without permission and should not be
+          viewed as a challenge to that trademark or any copyright. If
+          requested by WotC or RTG, all or some of the material will be
+          removed from this site as soon as I receive that request. Again this
+          is not a challenge to any trademark or copyright, just trying to
+          give the games I love some free publicity. All Proteus images
+          pictures are copyrighted by Wizard of the Coast; this is not a
+          challenge to their copyright and/or trademark. All Rights Reserved.
+          I am using them without permission, and would love to have it. If
+          requested by WotC, all or some of the pictures will be removed from
+          this site as soon as I receive that request.
+        </div>
+        <div>
+          Night's Edge is a Registered Trademark of Ianus Games. All Rights
+          Reserved. All material concerning Night's Edge is used without
+          permission and should not be viewed as a challenge to that trademark
+          or any copyrights. If requested by Ianus Games, all or some of the
+          material will be removed from this site as soon as I receive that
+          request. Again this is not a challenge to any trademark or
+          copyright, just trying to give the games I love some free publicity.
+        </div>
+        <div>
+          Most images have been made by me (with the help of my brother). Any
+          photos (or images that look like photos) will be taken down if the
+          proper person (the one whose photo it is) contacts me. I don't have
+          their permission and would love to have it if they want to give it
+          out.
+        </div>
+        <div>
+          Any items that aren't copyrighted by the aforementioned companies
+          are mine. Some of these ideas might be similar to others. I will bow
+          to their claims as long as there is no harassment involved. I'm
+          sorry that my telepathic abilities have not yet been mastered and I
+          do not wish to be blamed for stealing another's ideas.
+        </div>
+        <div>
+          Cybersmily Datafort has been around since 1994 through present day.
+          Though updates are far between, the site is still in use.
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var ua = window.navigator.userAgent;
+      var msie = ua.indexOf("MSIE");
+      if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+        // IE is being used and needs to tell user to use a modern browser like Edge, Chrome, of Firefox.
+        console.error(
+          "<p>This browser is IE and is incompatible with the site. Please upgrade to a modern browser.<p>"
+        );
+        var element = document.getElementById("csd-main-content-ie");
+        element.className = element.className.replace(/\bhidden-for-ie\b/g);
+      }
+    </script>
+  </app-root>
+  <br />
+</body>
+
 </html>
