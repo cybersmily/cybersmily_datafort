@@ -24,8 +24,8 @@
     </div>
     <div *ngFor="let loc of locations" dndDropzone (dndDrop)="onDrop($event, loc)">
       <div class="chargen-label row g-0">
-        <div class="col-10 border border-dark" (click)="toggleLocation(loc)">
-          Location: {{ loc }}
+        <div class="col-10 border border-dark text-uppercase" (click)="toggleLocation(loc)">
+          {{ loc }}
           <button title="toggle list" class="csd-icon-btn csd-btn ms-2">
             <fa-icon [icon]="expandLocation.includes(loc) ? faChevronDown : faChevronRight"></fa-icon>
           </button>

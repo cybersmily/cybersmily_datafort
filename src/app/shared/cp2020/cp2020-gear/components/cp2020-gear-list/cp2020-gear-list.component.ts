@@ -54,7 +54,7 @@ export class Cp2020GearListComponent implements OnInit, OnChanges, AfterViewInit
 
   get isAddableLocation(): boolean {
     return !(
-      this.newLocation !== '' && !this.locations.includes(this.newLocation)
+      this.newLocation !== '' && !this.locations.includes(this.newLocation.toLowerCase())
     );
   }
 
@@ -103,7 +103,7 @@ export class Cp2020GearListComponent implements OnInit, OnChanges, AfterViewInit
   }
 
   getLocationGear(location: string): Array<Cp2020PlayerGear> {
-    return this.gear.items.filter((gear) => gear.location === location);
+    return this.gear.items.filter((gear) => gear.location === location.toLowerCase());
   }
 
   getFirstColumn(gearList: Array<Cp2020PlayerGear>): Array<Cp2020PlayerGear> {
@@ -122,18 +122,19 @@ export class Cp2020GearListComponent implements OnInit, OnChanges, AfterViewInit
   }
 
   addLocation(): void {
-    this.gear.locations.push(this.newLocation);
-    this.expandLocation.push(this.newLocation);
+    this.gear.locations.push(this.newLocation.toLowerCase());
+    this.expandLocation.push(this.newLocation.toLowerCase());
     this.newLocation = '';
     this.onGearChange();
   }
 
   removeLocation(location: string): void {
-    const index = this.gear.locations.findIndex((loc) => loc === location);
+    const locat = location.toLowerCase();
+    const index = this.gear.locations.findIndex((loc) => loc === locat);
     if (index > -1) {
-      this.gear.locations.splice(index);
+      this.gear.locations.splice(index,1);
       this.gear.items = this.gear.items.map((gear) => {
-        if (gear.location === location) {
+        if (gear.location === locat) {
           gear.location = '';
         }
         return gear;
