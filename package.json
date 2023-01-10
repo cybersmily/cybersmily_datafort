@@ -36,7 +36,6 @@
     "@ngrx/store": "^14.2.0",
     "@ngrx/store-devtools": "^14.2.0",
     "@types/bootstrap": "^5.1.0",
-    "angular2-draggable": "^2.3.2",
     "bootstrap": "^5.2.0",
     "canvg": "^4.0.0",
     "core-js": "^2.5.7",
