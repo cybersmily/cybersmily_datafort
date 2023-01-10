@@ -94,12 +94,7 @@ export class Cp2020CharacterGeneratorService {
       });
     }
 
-    this._currCharacter.gear.items = value?.gear?.items ?? new Array<any>();
-    this._currCharacter.gear.locations = value?.gear?.locations ?? [
-      'person',
-      'vehicle',
-      'home',
-    ];
+    this._currCharacter.gear = new Cp2020PlayerGearList(value.gear);
     this._currCharacter.vehicles =
       value?.vehicles?.map((veh) => new Cp2020Vehicle(veh)) ??
       new Array<Cp2020Vehicle>();

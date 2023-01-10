@@ -1,0 +1,6 @@
+<cs-data-list
+  [dataList]="armorList$ | async"
+  [columnsParameters]="columns"
+  [selectable]="true"
+  (selectRow)="select($event)"
+></cs-data-list>

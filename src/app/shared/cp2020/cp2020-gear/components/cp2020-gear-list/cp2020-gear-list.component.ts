@@ -1,3 +1,4 @@
+import { DndDropEvent } from 'ngx-drag-drop';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 import { Cp2020GearDataService } from './../../services/cp2020-gear-data/cp2020-gear-data.service';
 import {
@@ -9,6 +10,7 @@ import {
 import {
   Component,
   OnInit,
+  OnChanges,
   Input,
   Output,
   EventEmitter,
@@ -29,7 +31,7 @@ import {
   templateUrl: './cp2020-gear-list.component.html',
   styleUrls: ['./cp2020-gear-list.component.css'],
 })
-export class Cp2020GearListComponent implements OnInit, AfterViewInit {
+export class Cp2020GearListComponent implements OnInit, OnChanges, AfterViewInit {
   faPlus = faPlus;
   faTrash = faTrash;
   faChevronDown = faChevronDown;
@@ -37,13 +39,30 @@ export class Cp2020GearListComponent implements OnInit, AfterViewInit {
   index = 0;
 
   gearDataList = new Array<Cp2020Gear>();
+  newLocation = '';
+  expandLocation = new Array<string>();
 
   get collapseChevron(): any {
     return this.isCollapsed ? this.faChevronRight : this.faChevronDown;
   }
 
+  get locations(): Array<string> {
+    return this.gear?.locations && this.gear.locations.length > 0
+      ? this.gear.locations
+      : [];
+  }
+
+  get isAddableLocation(): boolean {
+    return !(
+      this.newLocation !== '' && !this.locations.includes(this.newLocation)
+    );
+  }
+
+
   @Input()
-  gear = new Cp2020PlayerGearList(25);
+  gear = new Cp2020PlayerGearList(2);
+
+  currGear = new Cp2020PlayerGearList(2);
 
   @Input()
   isCollapsed = false;
@@ -57,13 +76,19 @@ export class Cp2020GearListComponent implements OnInit, AfterViewInit {
   @ViewChildren('gearNameElem')
   gearNameElemList: QueryList<ElementRef>;
 
-  constructor(private gearDataService: Cp2020GearDataService) {}
+  constructor(private gearDataService: Cp2020GearDataService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.gearDataService.gearList.subscribe((data) => {
       this.gearDataList = [...data];
     });
+    this.currGear = new Cp2020PlayerGearList(this.gear);
+    if (!this.isCollapsed) {
+      this.expandLocation = [...this.currGear.locations];
+    }
   }
+
+  ngOnChanges(): void { }
 
   ngAfterViewInit(): void {
     if (this.gearNameElemList.length > 0 && this.index > -1) {
@@ -73,49 +98,91 @@ export class Cp2020GearListComponent implements OnInit, AfterViewInit {
     }
   }
 
-  onGearChange() {
+  onGearChange(): void {
     this.changeGear.emit(this.gear);
   }
 
-  get firstColumn(): Array<Cp2020PlayerGear> {
-    const count = Math.ceil(this.gear.items.length / 2);
-    return this.gear.items.slice(0, count);
+  getLocationGear(location: string): Array<Cp2020PlayerGear> {
+    return this.gear.items.filter((gear) => gear.location === location);
   }
 
-  get secondColumn(): Array<Cp2020PlayerGear> {
-    const count = Math.ceil(this.gear.items.length / 2);
-    return this.gear.items.slice(count);
+  getFirstColumn(gearList: Array<Cp2020PlayerGear>): Array<Cp2020PlayerGear> {
+    const count = Math.ceil(gearList.length / 2);
+    return gearList.slice(0, count);
   }
 
-  addGearRow() {
-    this.gear.items.push(new Cp2020PlayerGear());
+  getSecondColumn(gearList: Array<Cp2020PlayerGear>): Array<Cp2020PlayerGear> {
+    const count = Math.ceil(gearList.length / 2);
+    return gearList.slice(count);
+  }
+
+  addGearRow(location?: string): void {
+    this.gear.items.push(new Cp2020PlayerGear({ location: location }));
     this.onGearChange();
-    this.gearNameElemList.last.nativeElement.focus();
   }
 
-  removeGearRow(index: number, column: number) {
-    console.log(index, column);
-    let count = 0;
-    if (column === 2) {
-      count = Math.ceil(this.gear.items.length / 2);
-    }
-    this.gear.items.splice(index + count, 1);
-    this.index = index - 1;
+  addLocation(): void {
+    this.gear.locations.push(this.newLocation);
+    this.expandLocation.push(this.newLocation);
+    this.newLocation = '';
     this.onGearChange();
-    if (this.gearNameElemList.length > 0 && this.index > -1) {
-      this.gearNameElemList.toArray()[this.index].nativeElement.focus();
-    } else {
-      this.gearTitleHeader.nativeElement.focus();
+  }
+
+  removeLocation(location: string): void {
+    const index = this.gear.locations.findIndex((loc) => loc === location);
+    if (index > -1) {
+      this.gear.locations.splice(index);
+      this.gear.items = this.gear.items.map((gear) => {
+        if (gear.location === location) {
+          gear.location = '';
+        }
+        return gear;
+      });
+      this.onGearChange();
     }
+  }
+
+  removeGearRow(id: any): void {
+    const index = this.gear.items.findIndex(
+      (gear) => gear.id === id
+    );
+    if (index > -1) {
+      this.gear.items.splice(index, 1);
+    }
+    this.onGearChange();
   }
 
   setDetails(event: TypeaheadMatch, index: number, column: number): void {
-    console.log(index, column);
     let count = 0;
     if (column === 2) {
       count = Math.ceil(this.gear.items.length / 2);
     }
     this.gear.items[index + count] = new Cp2020PlayerGear(event.item);
     this.onGearChange();
+  }
+
+  onDrop(event: DndDropEvent, location: string): void {
+    if (event.data.type === 'gear') {
+      const index = this.gear.items.findIndex(
+        (gear) => gear.id === event.data.gear.id
+      );
+      if (index > -1) {
+        this.gear.items[index].location = location;
+        this.onGearChange();
+      }
+    }
+  }
+
+  isLocationExpanded(loc: string): boolean {
+    return this.expandLocation.includes(loc);
+  }
+
+  toggleLocation(loc: string): void {
+    const index = this.expandLocation.indexOf(loc);
+    if (index > -1) {
+      this.expandLocation.splice(index, 1);
+    } else {
+      this.expandLocation.push(loc);
+    }
   }
 }

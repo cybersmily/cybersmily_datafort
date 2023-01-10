@@ -1,0 +1,7 @@
+.cs-cp2020-gear-row fa-icon {
+  display: none;
+}
+
+.cs-cp2020-gear-row:hover fa-icon {
+  display: inline-block;
+}
