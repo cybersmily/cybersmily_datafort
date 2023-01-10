@@ -43,11 +43,11 @@ export class Cp2020PlayerCharacter {
     this.secondaryRoles = new Array<Cp2020PlayerRole>();
     this.stats = new Cp2020StatBlock(isIU);
     this.armor = new Cp2020ArmorBlock();
-    this.cyberware = new Cp2020PlayerCyberList(4);
-    this.gear = new Cp2020PlayerGearList(24);
+    this.cyberware = new Cp2020PlayerCyberList(2);
+    this.gear = new Cp2020PlayerGearList(2);
     this.vehicles = new Array<Cp2020Vehicle>();
     this.cyberdeckPrograms = new Cp2020CyberdeckManager();
-    this.weapons = new CpPlayerWeaponList(3);
+    this.weapons = new CpPlayerWeaponList(2);
     this.skills = new Cp2020PlayerSkills();
     this.lifepath = new LifePathResults();
     this.lifeStyle = {
