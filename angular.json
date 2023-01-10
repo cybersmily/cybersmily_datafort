@@ -17,16 +17,6 @@
             "main": "src/home.ts",
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
-            "assets": [
-              "src/assets",
-              "src/favicon.ico",
-              "src/json",
-              "src/img",
-              "src/html",
-              "src/.htaccess",
-              "src/BingSiteAuth.xml",
-              "src/sitemap.xml"
-            ],
             "styles": [
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
@@ -45,6 +35,16 @@
                   "maximumWarning": "6kb"
                 }
               ],
+              "assets": [
+                "src/assets",
+                "src/favicon.ico",
+                "src/json",
+                "src/img",
+                "src/html",
+                "src/.htaccess",
+                "src/BingSiteAuth.xml",
+                "src/sitemap.xml"
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -61,8 +61,33 @@
               ]
             },
             "development": {
+              "assets": [
+                "src/assets",
+                "src/favicon.ico",
+                "src/json",
+                "src/img",
+                "src/html",
+                "src/.htaccess",
+                "src/BingSiteAuth.xml",
+                "src/sitemap.xml"
+              ],
               "optimization": false,
               "sourceMap": false,
+              "namedChunks": true,
+              "extractLicenses": false,
+              "vendorChunk": true,
+              "buildOptimizer": false
+            },
+            "debug": {
+              "assets": [
+                {
+                  "glob": "**/*",
+                  "input": "src/json",
+                  "output": "/json"
+                }
+              ],
+              "optimization": false,
+              "sourceMap": true,
               "namedChunks": true,
               "extractLicenses": false,
               "vendorChunk": true,
