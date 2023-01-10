@@ -239,7 +239,6 @@ export class CmbtTrckThreatLevelService {
       default:
         return of(opp);
     }
-    console.log(filter);
     this.wpnRandomSettings.setSettings(filter);
     return this.wpnGeneratorService.generate().pipe(
       map((wpn) => {
