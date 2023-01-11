@@ -2,12 +2,15 @@ import { Cp2020PlayerCyber } from './cp2020-player-cyber';
 
 export class Cp2020PlayerCyberList {
     items: Array<Cp2020PlayerCyber>;
+    locations: Array<string>;
 
-    constructor(length?: number) {
-      if (length && length > 0) {
+    constructor(param?: any) {
+      if(typeof param === 'number') {
         this.items = Array.from({length: length}, () => (new Cp2020PlayerCyber()));
+        this.locations = new Array<string>();
       } else {
-        this.items = new Array<Cp2020PlayerCyber>();
+        this.items = param?.map(cyber => new Cp2020PlayerCyber(cyber)) ?? new Array<Cp2020PlayerCyber>();
+        this.locations = param?.locations ?? new Array<string>();
       }
     }
 

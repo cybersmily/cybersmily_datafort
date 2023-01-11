@@ -51,6 +51,7 @@ export class Cp2020CyberwareTableComponent implements OnInit {
 
   @Input()
   cyberList: Cp2020PlayerCyberList = new Cp2020PlayerCyberList();
+  currCyberList: Cp2020PlayerCyberList = new Cp2020PlayerCyberList();
 
   @Input()
   showDice = true;
@@ -81,9 +82,13 @@ export class Cp2020CyberwareTableComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  initialize(): void {
+    this.currCyberList =  new Cp2020PlayerCyberList(this.cyberList);
+  }
+
   updateList() {
     this.sortList();
-    this.changeList.emit(this.cyberList);
+    this.changeList.emit(this.currCyberList);
   }
 
   deleteFromModal(index: number) {
@@ -93,9 +98,9 @@ export class Cp2020CyberwareTableComponent implements OnInit {
 
   delete(index: number, isSecondColumn?: boolean) {
     if (isSecondColumn) {
-      index = index + Math.ceil(this.cyberList.items.length / 2);
+      index = index + Math.ceil(this.currCyberList.items.length / 2);
     }
-    this.cyberList.items.splice(index, 1);
+    this.currCyberList.items.splice(index, 1);
     this.updateList();
     if (this.cyberNameElemList.length > index) {
       this.cyberNameElemList?.toArray()[index]?.nativeElement.focus();
@@ -104,7 +109,7 @@ export class Cp2020CyberwareTableComponent implements OnInit {
   }
 
   update(data: { index: number; cyber: Cp2020PlayerCyber }) {
-    this.cyberList.items[data.index] = data.cyber;
+    this.currCyberList.items[data.index] = data.cyber;
     this.updateList();
     this.closeModal();
   }
@@ -115,40 +120,40 @@ export class Cp2020CyberwareTableComponent implements OnInit {
     isSecondColumn?: boolean
   ) {
     if (isSecondColumn) {
-      index = index + Math.ceil(this.cyberList.items.length / 2);
+      index = index + Math.ceil(this.currCyberList.items.length / 2);
     }
     this.selectedIndex = index;
-    this.selectedCyberware = this.cyberList.items[index];
+    this.selectedCyberware = this.currCyberList.items[index];
     this.openModal(template);
   }
 
   getColumn(isTwoColumn: boolean): Array<Cp2020PlayerCyber> {
     if (isTwoColumn) {
-      return this.cyberList.items.slice(
+      return this.currCyberList.items.slice(
         0,
-        Math.ceil(this.cyberList.items.length / 2)
+        Math.ceil(this.currCyberList.items.length / 2)
       );
     }
-    return this.cyberList.items;
+    return this.currCyberList.items;
   }
 
   getColumnTwo(): Array<Cp2020PlayerCyber> {
-    return this.cyberList.items.slice(
-      Math.ceil(this.cyberList.items.length / 2)
+    return this.currCyberList.items.slice(
+      Math.ceil(this.currCyberList.items.length / 2)
     );
   }
 
   add(cyberArray: Array<Cp2020PlayerCyber>) {
     // remove blank entries
-    if (this.cyberList.items.some((c) => c.name === '')) {
+    if (this.currCyberList.items.some((c) => c.name === '')) {
       for (let i = 0; i < cyberArray.length; i++) {
-        const index = this.cyberList.items.findIndex((c) => c.name === '');
+        const index = this.currCyberList.items.findIndex((c) => c.name === '');
         if (index > -1) {
-          this.cyberList.items.splice(index, 1);
+          this.currCyberList.items.splice(index, 1);
         }
       }
     }
-    this.cyberList.items = this.cyberList.items.concat(cyberArray);
+    this.currCyberList.items = this.currCyberList.items.concat(cyberArray);
     this.updateList();
   }
 
@@ -160,15 +165,18 @@ export class Cp2020CyberwareTableComponent implements OnInit {
     });
   }
 
+  addLocation(): void {
+  }
+
   sortList() {
     // very weird behavior when an entry is blank. so did the below to have all the
     // ones with a name to be at top and the other on the bottom.
-    const namedCyber = this.cyberList.items.filter((c) => c.name !== '');
-    const blankCyber = this.cyberList.items.filter((c) => c.name === '');
+    const namedCyber = this.currCyberList.items.filter((c) => c.name !== '');
+    const blankCyber = this.currCyberList.items.filter((c) => c.name === '');
     namedCyber.sort((a, b) => {
       return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
     });
-    this.cyberList.items = namedCyber.concat(blankCyber);
+    this.currCyberList.items = namedCyber.concat(blankCyber);
   }
 
   openModal(template: TemplateRef<any>, returnFocus?: string) {
