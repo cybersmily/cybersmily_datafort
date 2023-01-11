@@ -159,8 +159,9 @@ export class Cp2020CyberwareTableComponent implements OnInit {
 
   generateCyberware() {
     this.cyberData.cp2020CyberwareList.subscribe((list) => {
-      this.cyberGenerator.generateCyberList(1, list).subscribe((data) => {
-        this.add(data);
+      this.cyberGenerator.generateCyberList(1, list, this.currCyberList.items).subscribe((data) => {
+        this.currCyberList.items = [...data];
+        this.updateList();
       });
     });
   }

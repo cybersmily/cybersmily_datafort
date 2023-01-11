@@ -45,7 +45,7 @@ export class Cp2020PlayerCyber extends DataCyberware {
   }
 
   getOptionNotesAsString(separator: string): string {
-    return this.options.map(opt => `${opt.name} - ${opt.notes}` ).join(`${separator}`);
+    return this.options?.map(opt => `${opt.name} - ${opt.notes}` ).join(`${separator}`) ?? '';
   }
 
   toString(): string {
