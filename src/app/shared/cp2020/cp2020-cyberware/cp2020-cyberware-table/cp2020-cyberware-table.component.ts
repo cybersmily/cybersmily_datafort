@@ -85,6 +85,10 @@ export class Cp2020CyberwareTableComponent implements OnInit {
     this.initialize();
   }
 
+  ngOnChanges(): void {
+    this.initialize();
+  }
+
   initialize(): void {
     this.currCyberList =  new Cp2020PlayerCyberList(this.cyberList);
   }
