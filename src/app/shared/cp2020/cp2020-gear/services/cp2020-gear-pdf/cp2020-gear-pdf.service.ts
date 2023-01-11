@@ -8,7 +8,9 @@ import { Injectable } from '@angular/core';
 })
 export class Cp2020GearPdfService {
   private _ht = 6;
-  constructor() {}
+  private _font = 'Arial';
+  constructor() {
+  }
 
   addGearSection(
     doc: jsPDF,
@@ -17,7 +19,27 @@ export class Cp2020GearPdfService {
     line: number,
     ht: number
   ): number {
+    this._font = this.getFont(doc.getFontList());
     return this.addGear(doc, gear, left, line, ht);
+  }
+
+  private getFont(fonts: any): string {
+    if (fonts['Arial']) {
+      return 'Arial';
+    }
+    if (fonts['Helvetica']) {
+      return 'Helvetica';
+    }
+    if (fonts['Verdana']) {
+      return 'Verdana';
+    }
+    if (fonts['sans-serif']) {
+      return 'sans-serif';
+    }
+    if (fonts['times']) {
+      return 'times';
+    }
+    return 'courier';
   }
 
   private addGear(
@@ -31,26 +53,46 @@ export class Cp2020GearPdfService {
       doc.addPage();
       line = PdfPageSettings.MARGIN_TOP;
     }
-    doc.setFillColor('black');
-    doc.rect(left, line, 200, 7, 'DF');
-    doc.setTextColor('white');
-    doc.setFont(PdfPageSettings.DEFAULT_FONT, 'bold');
-    doc.text('GEAR', left + 2, line + 5);
-    doc.setTextColor('black');
-    doc.setFont(PdfPageSettings.DEFAULT_FONT, 'normal');
-    line += 7;
-    doc.setFontSize(9);
-    this.addRowHeader(doc, left, line, ht);
-    line += ht;
 
-    const count = Math.ceil(gear.items.length / 2);
-    for (let i = 0; i < count; i++) {
-      line = this.addGearRow(doc, gear, i, i + count, left, line, ht);
-    }
+    line = this.addSectionHeader(doc, left, line, ht);
+
+    doc.setFontSize(9);
+    line = this.addLocationSection(doc, gear, '', left, line, ht);
+    gear.locations.forEach(location => {
+      line = this.addLocationSection(doc, gear, location, left, line, ht);
+    })
 
     doc.setFontSize(PdfPageSettings.FONT_SIZE);
     line += ht;
     return line;
+  }
+
+  private addSectionHeader( doc: jsPDF,
+    left: number,
+    line: number,
+    ht: number): number {
+    doc.setFillColor('black');
+    doc.rect(left, line, 200, ht, 'DF');
+    doc.setTextColor('white');
+    doc.setFont(this._font, 'bold');
+    doc.text('GEAR', left + 2, line + 5);
+    doc.setTextColor('black');
+    doc.setFont(this._font, 'normal');
+    line += ht;
+    return line;
+  }
+
+  private addLocationHeader( location: string, doc: jsPDF,
+    left: number,
+    line: number, ht: number): number {
+    doc.setTextColor('black');
+    doc.setFont(this._font, 'bold');
+    doc.rect(left, line, 200, ht, 'S');
+    doc.text(location.toUpperCase(), left + 4, line + 4);
+    doc.setFont(this._font, 'normal');
+    line += ht;
+    return line;
+
   }
 
   private addRowHeader(
@@ -60,8 +102,7 @@ export class Cp2020GearPdfService {
     ht: number
   ): number {
     this.addColumnHeader(doc, left, line, ht);
-    line = this.addColumnHeader(doc, PdfPageSettings.MIDPAGE, line, ht);
-    return line;
+    return this.addColumnHeader(doc, PdfPageSettings.MIDPAGE, line, ht);
   }
 
   private addColumnHeader(
@@ -80,9 +121,29 @@ export class Cp2020GearPdfService {
     return line + ht;
   }
 
-  addGearRow(
+  addLocationSection(
     doc: jsPDF,
     gear: Cp2020PlayerGearList,
+    location: string,
+    left: number,
+    line: number,
+    ht: number): number {
+    if(location && location !== '') {
+      line = this.addLocationHeader(location, doc, left, line, ht);
+    }
+    line = this.addRowHeader(doc, left, line, ht);
+    const items = gear.items.filter(item => item.location.toLowerCase() === location.toLowerCase());
+
+    const count = Math.ceil(items.length / 2);
+    for (let i = 0; i < count; i++) {
+      line = this.addGearRow(doc, items, i, i + count, left, line, ht);
+    }
+    return line;
+  }
+
+  addGearRow(
+    doc: jsPDF,
+    items: Array<Cp2020PlayerGear>,
     indexOne: number,
     indexTwo: number,
     left: number,
@@ -91,11 +152,11 @@ export class Cp2020GearPdfService {
   ): number {
     // determine how tall the cell is and apply new page if needed.
     const gearOneName: Array<string> = doc.splitTextToSize(
-      gear.items[indexOne].gear ?? '',
+      items[indexOne].gear ?? '',
       78
     );
     const gearTwoName: Array<string> = doc.splitTextToSize(
-      gear.items[indexTwo]?.gear ?? '',
+      items[indexTwo]?.gear ?? '',
       78
     );
 
@@ -108,8 +169,8 @@ export class Cp2020GearPdfService {
       line = this.addRowHeader(doc, left, PdfPageSettings.MARGIN_TOP, ht);
     }
 
-    let gearCost = gear.items[indexOne]?.cost?.toString() ?? '';
-    let gearWt = gear.items[indexOne]?.weight?.toString() ?? '';
+    let gearCost = items[indexOne]?.cost?.toString() ?? '';
+    let gearWt = items[indexOne]?.weight?.toString() ?? '';
     const cellOne = this.addGearCell(
       doc,
       gearOneName,
@@ -121,8 +182,8 @@ export class Cp2020GearPdfService {
       ht
     );
 
-    gearCost = gear.items[indexTwo]?.cost?.toString() ?? '';
-    gearWt = gear.items[indexTwo]?.weight?.toString() ?? '';
+    gearCost = items[indexTwo]?.cost?.toString() ?? '';
+    gearWt = items[indexTwo]?.weight?.toString() ?? '';
 
     this.addGearCell(
       doc,
@@ -150,9 +211,10 @@ export class Cp2020GearPdfService {
     doc.rect(left, line, 80, cellHt, 'S');
     doc.rect(left + 80, line, 10, cellHt, 'S');
     doc.rect(left + 90, line, 10, cellHt, 'S');
+    let txtLine = line;
     gearName.forEach((name) => {
-      doc.text(name, left + 1, line + 4);
-      line += PdfPageSettings.LINEHEIGHT;
+      doc.text(name, left + 1, txtLine + 4);
+      txtLine += PdfPageSettings.LINEHEIGHT;
     });
     doc.text(cost, left + 81, line + 4);
     doc.text(wt, left + 91, line + 4);
