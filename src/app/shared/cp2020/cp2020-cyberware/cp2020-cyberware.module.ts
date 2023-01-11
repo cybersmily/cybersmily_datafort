@@ -1,3 +1,4 @@
+import { DataListModule } from './../../modules/data-list/data-list.module';
 import { Cp2020CyberwarePdfService } from './services/cp2020-cyberware-pdf/cp2020-cyberware-pdf.service';
 import { CyberwareCardComponent } from './cyberware-card/cyberware-card.component';
 import { CyberwareCardColumnComponent } from './cyberware-card-column/cyberware-card-column.component';
@@ -21,7 +22,7 @@ import { Cp2020CyberwareSettingsComponent } from './cp2020-cyberware-settings/cp
     Cp2020CyberwareEditorComponent,
     Cp2020CyberwareSettingsComponent,
   ],
-  imports: [CommonModule, CommonUiModule, PipesModule],
+  imports: [CommonModule, CommonUiModule, PipesModule, DataListModule],
   providers: [
     CyberDataService,
     DiceService,

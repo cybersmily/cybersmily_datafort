@@ -43,12 +43,13 @@ export class Cp2020CyberwareTableComponent implements OnInit {
   modalRef: BsModalRef;
   modalConfig = {
     keyboard: true,
-    class: 'modal-lg modal-right',
+    class: 'modal-lg modal-right  modal-dialog-scrollable',
   };
 
   selectedCyberware: Cp2020PlayerCyber = new Cp2020PlayerCyber();
   selectedIndex: number;
   canRollMore = true;
+  isShopping = false;
 
   @Input()
   cyberList: Cp2020PlayerCyberList = new Cp2020PlayerCyberList();
@@ -150,17 +151,8 @@ export class Cp2020CyberwareTableComponent implements OnInit {
     );
   }
 
-  add(cyberArray: Array<Cp2020PlayerCyber>) {
-    // remove blank entries
-    if (this.currCyberList.items.some((c) => c.name === '')) {
-      for (let i = 0; i < cyberArray.length; i++) {
-        const index = this.currCyberList.items.findIndex((c) => c.name === '');
-        if (index > -1) {
-          this.currCyberList.items.splice(index, 1);
-        }
-      }
-    }
-    this.currCyberList.items = this.currCyberList.items.concat(cyberArray);
+  add(cyber: Cp2020PlayerCyber) {
+    this.currCyberList.items.push(cyber);
     this.updateList();
   }
 
@@ -188,10 +180,12 @@ export class Cp2020CyberwareTableComponent implements OnInit {
     this.currCyberList.items = namedCyber.concat(blankCyber);
   }
 
-  openModal(template: TemplateRef<any>, returnFocus?: string) {
+  openModal(template: TemplateRef<any>, returnFocus?: string, isShopping?: boolean) {
     this.modalRef = this.modalService.show(template, this.modalConfig);
+    this.isShopping = isShopping;
     if (returnFocus) {
       this.modalRef.onHidden.subscribe(() => {
+        this.isShopping = false;
         switch (returnFocus) {
           case 'edit':
             break;
@@ -204,6 +198,7 @@ export class Cp2020CyberwareTableComponent implements OnInit {
   }
 
   closeModal() {
+    this.isShopping = false;
     this.modalRef.hide();
   }
 }

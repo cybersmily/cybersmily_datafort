@@ -33,12 +33,13 @@
       </div>
     </div>
     <div class="row g-0">
-      <div class="col-12 col-lg-6">
+      <div [ngClass]="{'col-12 col-lg-6':!isShopping, 'col-7': isShopping}">
         <ng-container [ngTemplateOutlet]="cyberColumn"
           [ngTemplateOutletContext]="{ cyberList: getColumn(showTwoColumns) }">
         </ng-container>
       </div>
-      <div class="col" *ngIf="showTwoColumns">
+
+      <div  [ngClass]="{'col-12 col-lg-6':!isShopping, 'col-7': isShopping}" *ngIf="showTwoColumns">
         <ng-container [ngTemplateOutlet]="cyberColumn" [ngTemplateOutletContext]="{
             cyberList: getColumnTwo(),
             isSecondColumn: true
@@ -49,7 +50,7 @@
 
     <div class="row csd-cyber-row g-0">
       <div class="col">
-        <button #newCyberElem class="csd-btn text-center csd-icon-btn w-100" (click)="openModal(cyberSelect, 'new')">
+        <button #newCyberElem class="csd-btn text-center csd-icon-btn w-100" (click)="openModal(cyberSelect, 'new', true)">
           <fa-icon [icon]="faPlus"></fa-icon>
         </button>
       </div>
@@ -99,13 +100,13 @@
 </ng-template>
 
 <ng-template #cyberSelect>
-  <div class="cyber-selector-modal">
+  <div class="cyber-selector-modal modal-dialog-scrollable">
     <div class="modal-header">
       <h4 class="modal-title float-start">Add Cyberware</h4>
       <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()"></button>
     </div>
-    <div class="modal-body">
-      <cs-cp2020-cyberware-selector (addCyberware)="add($event)"></cs-cp2020-cyberware-selector>
+    <div class="modal-body" >
+        <cs-cp2020-cyberware-selector (addCyberware)="add($event)"></cs-cp2020-cyberware-selector>
     </div>
   </div>
 </ng-template>
