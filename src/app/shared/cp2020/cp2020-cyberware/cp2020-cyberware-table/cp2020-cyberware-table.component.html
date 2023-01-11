@@ -6,9 +6,11 @@
         CYBERNETICS
         <fa-icon [icon]="collapseChevron" class="csd-icon-btn csd-icon-xl ms-2"></fa-icon>
       </h4>
-      <fa-icon *ngIf="!isCollapsed" [icon]="faDice" class="csd-dice csd-btn" title="Generate random cyberware"
-        (click)="generateCyberware()">
-      </fa-icon>
+      <button *ngIf="!isCollapsed" [disabled]="!canRollMore" class="csd-dice csd-btn"
+      [title]="canRollMore ? 'Generate random cyberware' : 'No available or have everthing from the random list'"
+      (click)="generateCyberware()">
+        <fa-icon [icon]="faDice"></fa-icon>
+      </button>
     </div>
   </div>
   <div [collapse]="isCollapsed">

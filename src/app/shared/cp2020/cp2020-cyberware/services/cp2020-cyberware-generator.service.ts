@@ -24,7 +24,7 @@ export class Cp2020CyberwareGeneratorService {
     numberOfCyber: number,
     cyberList: Array<Cp2020PlayerCyber>,
     ignoreList?: Array<Cp2020PlayerCyber>
-  ): Observable<Array<Cp2020PlayerCyber>> {
+  ): Observable<{results: Array<Cp2020PlayerCyber>, noMore: boolean}> {
     return this.data
       .GetJson(JsonDataFiles.CP2020_CYBERWARE_RANDOM_ENTRIES_JSON)
       .pipe(
@@ -35,7 +35,6 @@ export class Cp2020CyberwareGeneratorService {
               data = data.filter(entry => entry.name !== cyber.name);
             })
           }
-          console.log('data', data);
 
           const list = this.generateResults(
             numberOfCyber,
@@ -43,7 +42,7 @@ export class Cp2020CyberwareGeneratorService {
             cyberList,
             ignoreList ?? new Array<Cp2020PlayerCyber>()
           );
-          return list.sort((a, b) => a.name.localeCompare(b.name));
+          return {results: list.sort((a, b) => a.name.localeCompare(b.name)), noMore: data.length < 1};
         })
       );
   }
@@ -64,7 +63,6 @@ export class Cp2020CyberwareGeneratorService {
     cyberList: Array<Cp2020PlayerCyber>,
     results: Array<Cp2020PlayerCyber>
   ): Array<Cp2020PlayerCyber> {
-    console.log('count', count);
     // check to see if no more are needed or the available choices are used up
     if (count < 1 || choices.length < 1) {
       return results;
@@ -73,10 +71,8 @@ export class Cp2020CyberwareGeneratorService {
     // randomly generate the piece of cyberware
     let roll = this.dice.generateNumber(0, choices.length - 1);
     const result = choices[roll];
-    console.log('result', result);
     // if random cyber is already part of the list, reroll for it.
     if (results.some((cyber) => cyber.name === result.name)) {
-      console.log('has it already');
       return this.generateResults(count, choices, cyberList, results);
     }
 
@@ -89,13 +85,11 @@ export class Cp2020CyberwareGeneratorService {
     )[0];
     // if the piece wasn't found in the master data list, reroll
     if (!cyber) {
-      console.log('not in datalist');
       return this.generateResults(count, choices, cyberList, results);
     }
 
     // randomly generate options for the cyberware if needed
     if (result.options) {
-      console.log('generating options');
       const optionList = cyberList.filter(
         (c) =>
           c.type === cyber.type &&
@@ -107,7 +101,6 @@ export class Cp2020CyberwareGeneratorService {
           1,
           cyber.numOptions > 0 ? cyber.numOptions : 3
         );
-        console.log('optionList', numOfOptions, optionList);
         cyber.options = this.generateResults(
           numOfOptions,
           optionList.map((opt) => ({ name: opt.name, options: false })),
@@ -117,7 +110,6 @@ export class Cp2020CyberwareGeneratorService {
       }
     }
 
-    console.log('adding', cyber);
     results.push(cyber);
     count -= 1;
     // lower the count and roll again

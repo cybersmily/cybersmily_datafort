@@ -48,6 +48,7 @@ export class Cp2020CyberwareTableComponent implements OnInit {
 
   selectedCyberware: Cp2020PlayerCyber = new Cp2020PlayerCyber();
   selectedIndex: number;
+  canRollMore = true;
 
   @Input()
   cyberList: Cp2020PlayerCyberList = new Cp2020PlayerCyberList();
@@ -160,7 +161,8 @@ export class Cp2020CyberwareTableComponent implements OnInit {
   generateCyberware() {
     this.cyberData.cp2020CyberwareList.subscribe((list) => {
       this.cyberGenerator.generateCyberList(1, list, this.currCyberList.items).subscribe((data) => {
-        this.currCyberList.items = [...data];
+        this.currCyberList.items = [...data.results];
+        this.canRollMore = !data.noMore;
         this.updateList();
       });
     });
