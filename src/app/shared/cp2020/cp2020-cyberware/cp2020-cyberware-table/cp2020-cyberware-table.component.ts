@@ -81,7 +81,9 @@ export class Cp2020CyberwareTableComponent implements OnInit {
     private cyberData: CyberDataService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.initialize();
+  }
 
   initialize(): void {
     this.currCyberList =  new Cp2020PlayerCyberList(this.cyberList);

@@ -9,7 +9,7 @@ export class Cp2020PlayerCyberList {
         this.items = Array.from({length: length}, () => (new Cp2020PlayerCyber()));
         this.locations = new Array<string>();
       } else {
-        this.items = param?.map(cyber => new Cp2020PlayerCyber(cyber)) ?? new Array<Cp2020PlayerCyber>();
+        this.items = param?.items?.map(cyber => new Cp2020PlayerCyber(cyber)) ?? new Array<Cp2020PlayerCyber>();
         this.locations = param?.locations ?? new Array<string>();
       }
     }

@@ -22,10 +22,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Cp2020PlayerRole } from '../../cp2020/cp2020-role/models/cp2020-player-role';
 import { Cp2020PlayerCharacter } from '../../models/cp2020character';
 import { Injectable } from '@angular/core';
-import {
-  Cp2020PlayerCyber,
-  Cp2020PlayerCyberList,
-} from '../../cp2020/cp2020-cyberware/models';
+import { Cp2020PlayerCyberList } from '../../cp2020/cp2020-cyberware/models';
 import { Cp2020Lifestyle } from '../../cp2020/cp2020-lifestyle/models';
 import { Cp2020PlayerContacts } from '../../cp2020/cp2020-contacts/models/cp2020-player-contacts';
 
@@ -87,12 +84,7 @@ export class Cp2020CharacterGeneratorService {
       );
     }
 
-    if (value.cyberware) {
-      this._currCharacter.cyberware.items = new Array<Cp2020PlayerCyber>();
-      value.cyberware.items.forEach((c) => {
-        this._currCharacter.cyberware.items.push(new Cp2020PlayerCyber(c));
-      });
-    }
+    this._currCharacter.cyberware = new Cp2020PlayerCyberList(value.cyberware);
 
     this._currCharacter.gear = new Cp2020PlayerGearList(value.gear);
     this._currCharacter.vehicles =
