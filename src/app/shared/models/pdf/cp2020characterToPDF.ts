@@ -360,7 +360,7 @@ export class Cp2020characterToPDF {
     doc.setTextColor('black');
     doc.setFillColor('white');
     doc.setFont(this._font, 'normal');
-    doc.text(stats.BasePoints.toString(), this._left + 23, line + 5);
+    doc.text(stats.BasePoints?.toString() ?? '', this._left + 23, line + 5);
 
     doc.setFillColor('black');
     doc.rect(this._left + 40, line, 15, this._lineheight, 'DF');
@@ -371,7 +371,7 @@ export class Cp2020characterToPDF {
     doc.setTextColor('black');
     doc.setFillColor('white');
     doc.setFont(this._font, 'normal');
-    doc.text(rep.toString(), this._left + 60, line + 5);
+    doc.text(rep?.toString() ?? '', this._left + 60, line + 5);
 
     doc.setFillColor('black');
     doc.rect(this._left + 70, line, 15, this._lineheight, 'DF');
@@ -385,7 +385,7 @@ export class Cp2020characterToPDF {
     let init: number = stats.REF.Adjusted;
     init += combatSense || 0;
     init += stats.initiativeModifiers.reduce((a, b) => a + b.mod, 0);
-    doc.text(init.toString(), this._left + 90, line + 5);
+    doc.text(init?.toString() ?? '', this._left + 90, line + 5);
 
     line = line + 12;
     doc.setTextColor('black');
@@ -404,7 +404,7 @@ export class Cp2020characterToPDF {
     doc.text(
       `Run [ ${stats.Run}m ]   Leap [ ${stats.Leap}m ]  Lift [ ${
         stats.Lift
-      }kg ] Hum. [ ${stats.CurrentHumanity.toString()} ]`,
+      }kg ] Hum. [ ${stats.CurrentHumanity?.toString()} ]`,
       this._left,
       line
     );
