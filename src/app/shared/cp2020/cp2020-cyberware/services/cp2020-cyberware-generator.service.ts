@@ -84,7 +84,7 @@ export class Cp2020CyberwareGeneratorService {
 
     // find the piece of cyber from the master data list
     const cyber: Cp2020PlayerCyber = cyberList.filter(
-      (c) => c.name.toLowerCase() === result.name.toLowerCase().replace('right ', '').replace('left ','')
+      (c) => c.name.toLowerCase() === result.name.toLowerCase().replace(', right', '').replace(', left','')
     )[0];
     // if the piece wasn't found in the master data list, reroll
     if (!cyber) {
