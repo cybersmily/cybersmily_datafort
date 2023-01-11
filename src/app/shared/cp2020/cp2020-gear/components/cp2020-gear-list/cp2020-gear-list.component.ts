@@ -47,8 +47,8 @@ export class Cp2020GearListComponent implements OnInit, OnChanges, AfterViewInit
   }
 
   get locations(): Array<string> {
-    return this.gear?.locations && this.gear.locations.length > 0
-      ? this.gear.locations
+    return this.currGear?.locations && this.currGear.locations.length > 0
+      ? this.currGear.locations
       : [];
   }
 
@@ -99,11 +99,11 @@ export class Cp2020GearListComponent implements OnInit, OnChanges, AfterViewInit
   }
 
   onGearChange(): void {
-    this.changeGear.emit(this.gear);
+    this.changeGear.emit(this.currGear);
   }
 
   getLocationGear(location: string): Array<Cp2020PlayerGear> {
-    return this.gear.items.filter((gear) => gear.location === location.toLowerCase());
+    return this.currGear.items.filter((gear) => gear.location === location.toLowerCase());
   }
 
   getFirstColumn(gearList: Array<Cp2020PlayerGear>): Array<Cp2020PlayerGear> {
@@ -117,23 +117,31 @@ export class Cp2020GearListComponent implements OnInit, OnChanges, AfterViewInit
   }
 
   addGearRow(location?: string): void {
-    this.gear.items.push(new Cp2020PlayerGear({ location: location }));
+    this.currGear.items.push(new Cp2020PlayerGear({ location: location }));
     this.onGearChange();
   }
 
   addLocation(): void {
-    this.gear.locations.push(this.newLocation.toLowerCase());
+    this.currGear.locations.push(this.newLocation.toLowerCase());
     this.expandLocation.push(this.newLocation.toLowerCase());
     this.newLocation = '';
     this.onGearChange();
   }
 
+  updateGear(item: Cp2020PlayerGear): void {
+    const index =  this.currGear.items.findIndex(itm => itm.id === item.id);
+    if(index > -1) {
+      this.currGear.items[index] = item;
+      this.onGearChange();
+    }
+  }
+
   removeLocation(location: string): void {
     const locat = location.toLowerCase();
-    const index = this.gear.locations.findIndex((loc) => loc === locat);
+    const index = this.currGear.locations.findIndex((loc) => loc === locat);
     if (index > -1) {
-      this.gear.locations.splice(index,1);
-      this.gear.items = this.gear.items.map((gear) => {
+      this.currGear.locations.splice(index,1);
+      this.currGear.items = this.currGear.items.map((gear) => {
         if (gear.location === locat) {
           gear.location = '';
         }
@@ -144,11 +152,11 @@ export class Cp2020GearListComponent implements OnInit, OnChanges, AfterViewInit
   }
 
   removeGearRow(id: any): void {
-    const index = this.gear.items.findIndex(
+    const index = this.currGear.items.findIndex(
       (gear) => gear.id === id
     );
     if (index > -1) {
-      this.gear.items.splice(index, 1);
+      this.currGear.items.splice(index, 1);
     }
     this.onGearChange();
   }
@@ -156,19 +164,19 @@ export class Cp2020GearListComponent implements OnInit, OnChanges, AfterViewInit
   setDetails(event: TypeaheadMatch, index: number, column: number): void {
     let count = 0;
     if (column === 2) {
-      count = Math.ceil(this.gear.items.length / 2);
+      count = Math.ceil(this.currGear.items.length / 2);
     }
-    this.gear.items[index + count] = new Cp2020PlayerGear(event.item);
+    this.currGear.items[index + count] = new Cp2020PlayerGear(event.item);
     this.onGearChange();
   }
 
   onDrop(event: DndDropEvent, location: string): void {
     if (event.data.type === 'gear') {
-      const index = this.gear.items.findIndex(
+      const index = this.currGear.items.findIndex(
         (gear) => gear.id === event.data.gear.id
       );
       if (index > -1) {
-        this.gear.items[index].location = location;
+        this.currGear.items[index].location = location;
         this.onGearChange();
       }
     }

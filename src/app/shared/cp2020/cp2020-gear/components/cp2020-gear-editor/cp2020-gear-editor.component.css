@@ -1,7 +1,7 @@
-.cs-cp2020-gear-row fa-icon {
+.cs-cp2020-gear-row .cp-gear-display fa-icon {
   display: none;
 }
 
-.cs-cp2020-gear-row:hover fa-icon {
+.cs-cp2020-gear-row:hover .cp-gear-display fa-icon {
   display: inline-block;
 }

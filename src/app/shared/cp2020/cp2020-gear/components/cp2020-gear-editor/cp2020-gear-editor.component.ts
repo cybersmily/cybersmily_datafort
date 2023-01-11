@@ -62,6 +62,18 @@ export class Cp2020GearEditorComponent implements OnInit, OnChanges {
     this.delete.emit(this.currGear.id);
   }
 
+  saveGear(): void {
+    this.onGearChange();
+    this.isEditMode = false;
+  }
+
+  selectGear(): void {
+    const item = this.gearDataList.find( itm => itm.name === this.currGear.gear);
+    this.currGear = new Cp2020PlayerGear(item);
+    this.onGearChange();
+  }
+
+
   showModal(template: TemplateRef<any>): void {
     this.modalRef = this.modalService.show(template, this.config);
   }

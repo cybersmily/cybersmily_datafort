@@ -46,10 +46,10 @@
     <div class="row g-0">
       <div class="col-8 border border-dark">Total Cost and Weight</div>
       <div class="col-2 border border-dark text-end">
-        {{ gear.totalCost | number }}eb
+        {{ currGear.totalCost | number }}eb
       </div>
       <div class="col-2 border border-dark text-end">
-        {{ gear.totalWeight | number }}kg
+        {{ currGear.totalWeight | number }}kg
       </div>
     </div>
   </div>
@@ -88,6 +88,6 @@
       </div>
     </div>
     <cs-cp2020-gear-editor *ngFor="let row of columnGearList; let i = index" [gear]="row"
-      (delete)="removeGearRow($event)"></cs-cp2020-gear-editor>
+      (delete)="removeGearRow($event)" (update)="updateGear($event)"></cs-cp2020-gear-editor>
   </div>
 </ng-template>
