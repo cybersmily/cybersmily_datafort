@@ -2,14 +2,14 @@
 <div class="row g-0" *ngIf="isEditMode; else displayMode ">
   <div class="col-8 border border-dark pe-0 ps-0">
     <input #gearNameElem title="gear name" [(ngModel)]="currGear.gear" [typeahead]="gearDataList"
-      typeaheadOptionField="name" (typeaheadOnSelect)="selectGear()" min="0" type="text" class="w-85" />
-    <button title="remove gear" class="csd-icon-btn csd-btn float-end pe-1" (click)="removeGear()">
+      typeaheadOptionField="name" (typeaheadOnSelect)="selectGear()" min="0" type="text" class="w-80" />
+    <button title="remove gear" class="csd-icon-btn csd-btn csd-icon-sm float-end pe-1" (click)="removeGear()">
       <fa-icon [icon]="faTrash"></fa-icon>
     </button>
-    <button title="save gear" class="csd-icon-btn csd-btn float-end me-2" (click)="saveGear()">
+    <button title="save gear" class="csd-icon-btn csd-btn csd-icon-sm float-end me-2" (click)="saveGear()">
       <fa-icon [icon]="faSave"></fa-icon>
     </button>
-    <button title="search for gear" class="csd-icon-btn csd-btn float-end me-2" (click)="showModal(gearSourceList)" >
+    <button title="search for gear" class="csd-icon-btn csd-btn csd-icon-sm float-end me-2" (click)="showModal(gearSourceList)" >
       <fa-icon [icon]="faSearch"></fa-icon>
     </button>
   </div>
@@ -24,7 +24,7 @@
 <ng-template #displayMode>
   <div class="row g-0 cp-gear-display" [dndDraggable]="{gear: currGear, type: 'gear', effectAllowed: 'all', disable: false, handle: true}">
     <div class="col-8 border border-dark pe-0 ps-0">
-      {{currGear.gear}}
+      <div  (click)="isEditMode = true" class="d-inline-block w-85 cursor-pointer">{{currGear.gear}}</div>
       <button title="remove gear" class="csd-icon-btn csd-btn float-end pe-1" (click)="removeGear()">
         <fa-icon [icon]="faTrash"></fa-icon>
       </button>

@@ -49,6 +49,7 @@ export class Cp2020GearEditorComponent implements OnInit, OnChanges {
 
   initialise(): void {
     this.currGear = new Cp2020PlayerGear(this.gear);
+    this.isEditMode = this.currGear.gear === '';
     this.gearDataService.gearList.subscribe((data) => {
       this.gearDataList = [...data];
     });
