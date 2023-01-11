@@ -32,7 +32,7 @@ export class Cp2020CyberwareGeneratorService {
           // clear out random entry from provide list
           if(ignoreList) {
             ignoreList.forEach(cyber => {
-              data = data.filter(entry => entry.name !== cyber.name);
+              data = data.filter(entry => !entry.name.startsWith(cyber.name.replace(/\s+[I]*$/g,'')));
             })
           }
 
@@ -71,22 +71,28 @@ export class Cp2020CyberwareGeneratorService {
     // randomly generate the piece of cyberware
     let roll = this.dice.generateNumber(0, choices.length - 1);
     const result = choices[roll];
+    console.log('choices', choices);
     // if random cyber is already part of the list, reroll for it.
-    if (results.some((cyber) => cyber.name === result.name)) {
+    if (results.some((cyber) => cyber.name.startsWith( result.name.replace(/\s[I]+$/g,'')))) {
       return this.generateResults(count, choices, cyberList, results);
     }
 
     // remove the random cyber from the choice of options
-    choices = choices.filter((opt) => opt.name !== result.name);
+    choices = choices.filter((opt) => {
+      return !opt.name.startsWith( result.name.replace(/\s+[I]*$/g,''))
+    });
 
     // find the piece of cyber from the master data list
     const cyber: Cp2020PlayerCyber = cyberList.filter(
-      (c) => c.name.toLowerCase() === result.name.toLowerCase()
+      (c) => c.name.toLowerCase() === result.name.toLowerCase().replace('right ', '').replace('left ','')
     )[0];
     // if the piece wasn't found in the master data list, reroll
     if (!cyber) {
       return this.generateResults(count, choices, cyberList, results);
     }
+
+    // add back missing right/left
+    cyber.name = result.name;
 
     // randomly generate options for the cyberware if needed
     if (result.options) {
