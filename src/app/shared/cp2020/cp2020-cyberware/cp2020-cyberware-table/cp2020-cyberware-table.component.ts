@@ -120,21 +120,15 @@ export class Cp2020CyberwareTableComponent implements OnInit {
     this.changeList.emit(this.currCyberList);
   }
 
-  deleteFromModal(index: number) {
-    this.delete(index);
+  deleteFromModal(id: string) {
+    this.delete(id);
     this.modalRef.hide();
   }
 
-  delete(index: number, isSecondColumn?: boolean) {
-    if (isSecondColumn) {
-      index = index + Math.ceil(this.currCyberList.items.length / 2);
-    }
+  delete(id: string) {
+    const index = this.currCyberList.items.findIndex(cyber => cyber.id === id);
     this.currCyberList.items.splice(index, 1);
     this.updateList();
-    if (this.cyberNameElemList.length > index) {
-      this.cyberNameElemList?.toArray()[index]?.nativeElement.focus();
-    } else {
-    }
   }
 
   update(data: { index: number; cyber: Cp2020PlayerCyber }) {
@@ -144,14 +138,10 @@ export class Cp2020CyberwareTableComponent implements OnInit {
   }
 
   editCyberware(
-    index: number,
-    template: TemplateRef<any>,
-    isSecondColumn?: boolean
+    cyber: Cp2020PlayerCyber,
+    template: TemplateRef<any>
   ) {
-    if (isSecondColumn) {
-      index = index + Math.ceil(this.currCyberList.items.length / 2);
-    }
-    this.selectedIndex = index;
+     const index = this.currCyberList.items.findIndex(itm => itm.id === cyber.id);
     this.selectedCyberware = this.currCyberList.items[index];
     this.openModal(template);
   }

@@ -160,8 +160,7 @@
       <ng-container
         [ngTemplateOutlet]="cyberColumn"
         [ngTemplateOutletContext]="{
-          cyberList: getColumnTwo(cyberList),
-          isSecondColumn: true
+          cyberList: getColumnTwo(cyberList)
         }"
       >
       </ng-container>
@@ -172,10 +171,9 @@
 <ng-template
   #cyberColumn
   let-cyberList="cyberList"
-  let-isSecondColumn="isSecondColumn"
 >
   <div
-    *ngFor="let cyber of cyberList; let i = index"
+    *ngFor="let cyber of cyberList"
     [dndDraggable]="{
       cyber: cyber,
       type: 'cyber',
@@ -194,7 +192,7 @@
         <button
           #cyberNameElem
           class="csd-btn text-start w-100 cs-cyberware-name text-truncate"
-          (click)="editCyberware(i, cyberEdit, isSecondColumn)"
+          (click)="editCyberware(cyber, cyberEdit, isSecondColumn)"
           tabindex="0"
         >
           {{ cyber.name }}
@@ -206,7 +204,7 @@
       <div class="col-1 no-left-border">
         <button
           class="float-end csd-btn small me-1 csd-icon-btn"
-          (click)="delete(i, isSecondColumn)"
+          (click)="delete(cyber.id)"
           title="Delete Cyberware"
           tabindex="0"
         >

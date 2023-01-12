@@ -57,7 +57,7 @@ export class Cp2020CyberwareEditorComponent implements OnInit, AfterViewInit {
     new EventEmitter<{ index: number; cyber: Cp2020PlayerCyber }>();
 
   @Output()
-  deleteCyberware: EventEmitter<number> = new EventEmitter<number>();
+  deleteCyberware: EventEmitter<string> = new EventEmitter<string>();
 
   @ViewChild('editCyberNameElem', { static: false })
   cyberNameTitleElem: ElementRef;
@@ -197,7 +197,7 @@ export class Cp2020CyberwareEditorComponent implements OnInit, AfterViewInit {
   }
 
   delete() {
-    this.deleteCyberware.emit(this.index);
+    this.deleteCyberware.emit(this.newCyberware.id);
   }
 
   setDetails(): void {

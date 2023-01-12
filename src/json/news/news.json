@@ -4,7 +4,9 @@
       "entries": [
         "<strong>01-28</strong> - Another update to the site:",
         "&nbsp;* Character generator for Cyberpunk 2020 now as location sections for cyberware and gear. You can now organization both sections with locations or however else you want to use that field for.",
+        "&nbsp;* Location sections coming with drag/drop between the locations to help move them about. ",
         "&nbsp;* Character generator for Cyberpunk 2020 cyberware lookup has changed to be more inline with the datalist selectors.",
+        "&nbsp;* Character generator for Cyberpunk 2020 cyberware fixed the generator to avoid duplicates.",
         "&nbsp;* Add a Cyberpunk 2020 Referee screens/cheat sheets.",
         "Till next time gatos.",
         "CYBER :D"
