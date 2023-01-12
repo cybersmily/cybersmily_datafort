@@ -1,4 +1,6 @@
-import { DataService } from '../../../services/file-services';
+import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
+import { Observable } from 'rxjs';
+import { Cp2020CyberdecksDataService } from './../services';
 import { CyberdeckChassis } from '../models';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { NrDeckDataService } from '../../../services/netrun/nr-deck-data.service';
@@ -22,7 +24,7 @@ export class Cp2020CyberdeckFormComponent implements OnInit, OnChanges {
   selectedChassis: CyberdeckChassis;
 
   deckData: CyberdeckData = { chassis: [], options: new Array<CyberdeckOption>()};
-  deckListData: Array<Cp2020Cyberdeck> = new Array<Cp2020Cyberdeck>();
+  deckListData$: Observable<Array<Cp2020Cyberdeck>> = new Observable<Array<Cp2020Cyberdeck>>();
 
   @Output()
   update: EventEmitter<Cp2020Cyberdeck> = new EventEmitter<Cp2020Cyberdeck>();
@@ -44,10 +46,11 @@ export class Cp2020CyberdeckFormComponent implements OnInit, OnChanges {
 
   constructor(private deckDataService: NrDeckDataService,
     private modalService: BsModalService,
-    private dataService: DataService) { }
+    private cyberdecksDataService: Cp2020CyberdecksDataService) { }
 
   ngOnInit(): void {
     this.currDeck = new Cp2020Cyberdeck(this.deck);
+    this.deckListData$ = this.cyberdecksDataService.cyberdeckList;
     this.deckDataService.getDeckData()
     .subscribe( data => {
       this.deckData = data;
@@ -107,5 +110,14 @@ export class Cp2020CyberdeckFormComponent implements OnInit, OnChanges {
     this.currDeck = cyberdeck;
     this.updateDeck();
     this.modalRef.hide();
+  }
+
+  selectDeck(event: TypeaheadMatch): void {
+    const chassis = event.item.type;
+    this.currDeck = new Cp2020Cyberdeck(event.item);
+    console.log(chassis);
+    console.log(this.deckData)
+
+    this.updateDeck();
   }
 }

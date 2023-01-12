@@ -1,6 +1,6 @@
 <div>
   <h4>Cyberdeck</h4>
-  <div class="row">
+  <div *ngIf="deckListData$ | async as deckListData" class="row">
     <div class="col">
       <input
         #cyberdeckNameElem
@@ -9,6 +9,9 @@
         placeholder="Enter name of the deck..."
         title="Name of the cyberdeck"
         class="csd-deck-name"
+        [typeahead]="deckListData"
+        typeaheadOptionField="name"
+        (typeaheadOnSelect)="selectDeck($event)"
       />
       <button
         class="csd-btn csd-icon-btn ms-2"

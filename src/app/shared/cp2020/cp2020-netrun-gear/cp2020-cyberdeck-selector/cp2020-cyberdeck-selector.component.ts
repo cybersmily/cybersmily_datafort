@@ -1,3 +1,4 @@
+import { Cp2020CyberdecksDataService } from './../services';
 import { DataService, JsonDataFiles } from './../../../services/file-services';
 import { Cp2020Cyberdeck } from './../models/cp2020-cyberdeck';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
@@ -13,11 +14,10 @@ export class Cp2020CyberdeckSelectorComponent implements OnInit {
 
   deckListData: Array<Cp2020Cyberdeck> = new Array<Cp2020Cyberdeck>();
 
-  constructor(private dataService: DataService) {}
+  constructor(private cyberdeckDataService: Cp2020CyberdecksDataService) {}
 
   ngOnInit(): void {
-    this.dataService
-      .GetJson<any>(JsonDataFiles.CP2020_CYBERDECK_LIST_JSON)
+    this.cyberdeckDataService.cyberdeckList
       .subscribe((data) => {
         this.deckListData = data.map((deck) => new Cp2020Cyberdeck(deck));
       });

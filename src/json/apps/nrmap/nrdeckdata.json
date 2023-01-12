@@ -6,7 +6,7 @@
     { "name": "Cellular"              , "cost": 4000, "description": "25% loses connection when in motion."                 },
     { "name": "Cyberlimb (standard)"  , "cost": 3000, "description": "Hardline connection to access Net"                    },
     { "name": "Cyberlimb (cellular)"  , "cost": 5000, "description": "As cellular"                                          },
-    { "name": "Comabt Assault"        , "cost": 3000, "description": "SP20"                                                 },
+    { "name": "Combat Assault"        , "cost": 3000, "description": "SP20"                                                 },
     { "name": "Sealed Combat Assault" , "cost": 6000, "description": "SP20. Can be used underwater. Has FlipSwitch built-in"}
   ],
   "options": [
