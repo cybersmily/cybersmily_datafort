@@ -71,7 +71,6 @@ export class Cp2020CyberwareGeneratorService {
     // randomly generate the piece of cyberware
     let roll = this.dice.generateNumber(0, choices.length - 1);
     const result = choices[roll];
-    console.log('choices', choices);
     // if random cyber is already part of the list, reroll for it.
     if (results.some((cyber) => cyber.name.startsWith( result.name.replace(/\s[I]+$/g,'')))) {
       return this.generateResults(count, choices, cyberList, results);

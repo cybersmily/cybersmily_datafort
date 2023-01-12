@@ -1,3 +1,5 @@
+import { DndDropEvent } from 'ngx-drag-drop';
+import { FileLoaderService } from './../../../services/file-services/file-loader/file-loader.service';
 import { CyberDataService } from './../services';
 import { Cp2020CyberwareGeneratorService } from './../services/cp2020-cyberware-generator.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
@@ -50,6 +52,9 @@ export class Cp2020CyberwareTableComponent implements OnInit {
   selectedIndex: number;
   canRollMore = true;
   isShopping = false;
+  newLocation = '';
+  selectLocation = '';
+  expandLocation = new Array<string>();
 
   @Input()
   cyberList: Cp2020PlayerCyberList = new Cp2020PlayerCyberList();
@@ -76,6 +81,18 @@ export class Cp2020CyberwareTableComponent implements OnInit {
   @ViewChildren('cyberNameElem')
   cyberNameElemList: QueryList<ElementRef>;
 
+  get isAddableLocation(): boolean {
+    return !(
+      this.newLocation !== '' && !this.locations.includes(this.newLocation.toLowerCase())
+    );
+  }
+
+  get locations(): Array<string> {
+    return this.currCyberList?.locations && this.currCyberList.locations.length > 0
+      ? this.currCyberList.locations
+      : [];
+  }
+
   constructor(
     private modalService: BsModalService,
     private cyberGenerator: Cp2020CyberwareGeneratorService,
@@ -92,6 +109,10 @@ export class Cp2020CyberwareTableComponent implements OnInit {
 
   initialize(): void {
     this.currCyberList =  new Cp2020PlayerCyberList(this.cyberList);
+  }
+
+  getCyberList(location: string): Array<Cp2020PlayerCyber> {
+    return this.currCyberList.items.filter(cyber => cyber?.location === location);
   }
 
   updateList() {
@@ -135,23 +156,24 @@ export class Cp2020CyberwareTableComponent implements OnInit {
     this.openModal(template);
   }
 
-  getColumn(isTwoColumn: boolean): Array<Cp2020PlayerCyber> {
+  getColumn(list: Array<Cp2020PlayerCyber>, isTwoColumn: boolean): Array<Cp2020PlayerCyber> {
     if (isTwoColumn) {
-      return this.currCyberList.items.slice(
+      return list.slice(
         0,
-        Math.ceil(this.currCyberList.items.length / 2)
+        Math.ceil(list.length / 2)
       );
     }
-    return this.currCyberList.items;
+    return list;
   }
 
-  getColumnTwo(): Array<Cp2020PlayerCyber> {
-    return this.currCyberList.items.slice(
-      Math.ceil(this.currCyberList.items.length / 2)
+  getColumnTwo(list: Array<Cp2020PlayerCyber>): Array<Cp2020PlayerCyber> {
+    return list.slice(
+      Math.ceil(list.length / 2)
     );
   }
 
   add(cyber: Cp2020PlayerCyber) {
+    cyber.location = this.selectLocation;
     this.currCyberList.items.push(cyber);
     this.updateList();
   }
@@ -167,6 +189,38 @@ export class Cp2020CyberwareTableComponent implements OnInit {
   }
 
   addLocation(): void {
+    this.currCyberList.locations.push(this.newLocation.toLowerCase());
+    this.expandLocation.push(this.newLocation.toLowerCase());
+    this.newLocation = '';
+    this.updateList();
+  }
+
+  removeLocation(location: string): void {
+    const locat = location.toLowerCase();
+    const index = this.currCyberList.locations.findIndex((loc) => loc === locat);
+    if (index > -1) {
+      this.currCyberList.locations.splice(index,1);
+      this.currCyberList.items = this.currCyberList.items.map((gear) => {
+        if (gear.location === locat) {
+          gear.location = '';
+        }
+        return gear;
+      });
+      this.updateList();
+    }
+  }
+
+  isLocationExpanded(loc: string): boolean {
+    return this.expandLocation.includes(loc);
+  }
+
+  toggleLocation(loc: string): void {
+    const index = this.expandLocation.indexOf(loc);
+    if (index > -1) {
+      this.expandLocation.splice(index, 1);
+    } else {
+      this.expandLocation.push(loc);
+    }
   }
 
   sortList() {
@@ -180,12 +234,14 @@ export class Cp2020CyberwareTableComponent implements OnInit {
     this.currCyberList.items = namedCyber.concat(blankCyber);
   }
 
-  openModal(template: TemplateRef<any>, returnFocus?: string, isShopping?: boolean) {
+  openModal(template: TemplateRef<any>, returnFocus?: string, isShopping?: boolean, location?: string) {
     this.modalRef = this.modalService.show(template, this.modalConfig);
     this.isShopping = isShopping;
+    this.selectLocation = location;
     if (returnFocus) {
       this.modalRef.onHidden.subscribe(() => {
         this.isShopping = false;
+        this.selectLocation = '';
         switch (returnFocus) {
           case 'edit':
             break;
@@ -200,5 +256,18 @@ export class Cp2020CyberwareTableComponent implements OnInit {
   closeModal() {
     this.isShopping = false;
     this.modalRef.hide();
+  }
+
+
+  onDrop(event: DndDropEvent, location: string): void {
+    if (event.data.type === 'cyber') {
+      const index = this.currCyberList.items.findIndex(
+        (cyber) => cyber.id === event.data.cyber.id
+      );
+      if (index > -1) {
+        this.currCyberList.items[index].location = location;
+        this.updateList();
+      }
+    }
   }
 }
