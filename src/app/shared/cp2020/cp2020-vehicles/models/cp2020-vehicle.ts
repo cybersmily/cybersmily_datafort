@@ -1,7 +1,7 @@
 import { Cp2020VehiclesModule } from './../cp2020-vehicles.module';
 import { VehicleBase } from './vehicle-base';
 import { VehicleWeapon, Cp2020VehicleWeapon } from './../../cp2020weapons/models/vehicle-weapon';
-import { VehicleOption } from './vehicle-option';
+import { VehicleOption, Cp2020VehicleOption } from './vehicle-option';
 
 
 export class Cp2020Vehicle implements VehicleBase {
@@ -28,7 +28,7 @@ export class Cp2020Vehicle implements VehicleBase {
     this.type = param?.type ?? '';
     this.sdp = param?.sdp ?? 0;
     this.sp = param?.sp ?? 0;
-    this.speed = param?.speed ?? 0;
+    this.speed = param?.topspeed ?? param?.speed ?? 0;
     this.accelerate = param?.accelerate ?? 0;
     this.decelerate = param?.decelerate ?? 0;
     this.range = param?.range ?? 0;
@@ -37,19 +37,29 @@ export class Cp2020Vehicle implements VehicleBase {
     this.cargo = param?.cargo ?? '';
     this.manuever = param?.manuever ?? 0;
     this.weapons = new Array<VehicleWeapon>();
-    if(param && Array.isArray(param.weapons)) {
+    if(Array.isArray(param?.weapons)) {
       param.weapons.forEach(wpn => {
         this.weapons.push(wpn);
       });
     }
+    if(typeof param?.weapons === 'string') {
+      param.weapons?.split(',')?.forEach(wpn => {
+        this.weapons.push(new Cp2020VehicleWeapon({name: wpn}));
+      })
+    }
     this.description = param?.description ?? '';
     this.offRoad = param?.offRoad ?? false;
     this.cost = param?.cost ?? 0;
-    this.options = Array<VehicleOption>();
+    this.options = Array<Cp2020VehicleOption>();
     if(param && Array.isArray(param.options)) {
       param.options.forEach( opt => {
         this.options.push(opt);
       });
+    }
+    if(typeof param?.options === 'string') {
+      param.options?.split(',')?.forEach(opt => {
+        this.options.push(new Cp2020VehicleOption({name: opt}));
+      })
     }
 
   }

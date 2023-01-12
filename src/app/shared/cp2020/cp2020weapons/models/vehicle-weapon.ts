@@ -37,14 +37,14 @@ export class Cp2020VehicleWeapon implements VehicleWeapon{
   cost: number;
   source: SourceBook;
 
-  constructor() {
-    this.name = '';
-    this.type = '';
-    this.wpntype = '';
-    this.wa = '';
-    this.con = '';
-    this.avail = '';
-    this.ammo ={
+  constructor(param?: any) {
+    this.name = param?.name ?? '';
+    this.type = param?.type ?? '';
+    this.wpntype = param?.wpntype ?? '';
+    this.wa = param?.wa ?? '';
+    this.con = param?.con ?? '';
+    this.avail = param?.avail ?? '';
+    this.ammo = param?.ammo ?? {
       name: '',
       damage: '',
       pen: '',
@@ -52,13 +52,13 @@ export class Cp2020VehicleWeapon implements VehicleWeapon{
       costPerLoad: 0,
       spacePerLoad: 0
     };
-    this.shots = '';
-    this.rof = '';
-    this.rel = '';
-    this.range = 0;
-    this.notes = '';
-    this.spaces = 0;
-    this.cost = 0;
-    this.source = {book: '', page: 0};
+    this.shots = param?.shots ?? '';
+    this.rof = param?.rof ?? '';
+    this.rel = param?.rel ?? '';
+    this.range = param?.range ?? 0;
+    this.notes = param?.notes ?? '';
+    this.spaces = param?.spaces ?? 0;
+    this.cost = param?.cost ?? 0;
+    this.source = param?.source ?? {book: '', page: 0};
   }
 }

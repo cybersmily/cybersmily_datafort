@@ -1,3 +1,7 @@
+import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
+import { VehicleData } from './../models/vehicle-data';
+import { Observable } from 'rxjs';
+import { CP2020VehicleDataService } from './../services/cp2020-vehicle-data.service';
 import { Cp2020VehicleWeapon } from './../../cp2020weapons/models';
 import { Cp2020Vehicle, Cp2020VehicleTypes } from './../models';
 import {
@@ -45,6 +49,8 @@ export class Cp2020VehicleDetailsComponent implements OnInit, OnChanges {
   vehicleNameInput: ElementRef;
 
   currVehicle: Cp2020Vehicle = new Cp2020Vehicle();
+
+  vehicleList$: Observable<Array<VehicleData>>;
   isEditable: boolean = false;
 
   get types(): Array<string> {
@@ -55,9 +61,10 @@ export class Cp2020VehicleDetailsComponent implements OnInit, OnChanges {
     return Math.ceil(this.currVehicle.sdp / 2);
   }
 
-  constructor() {}
+  constructor(private vehicleDataListService: CP2020VehicleDataService) {}
 
   ngOnInit(): void {
+    this.vehicleList$ = this.vehicleDataListService.vehicleList;
     this.currVehicle = new Cp2020Vehicle(this.vehicle);
   }
 
@@ -71,6 +78,10 @@ export class Cp2020VehicleDetailsComponent implements OnInit, OnChanges {
 
   deleteVehicle() {
     this.delete.emit(this.index);
+  }
+
+  selectVehicle(event: TypeaheadMatch): void {
+    this.currVehicle = new Cp2020Vehicle(event.item);
   }
 
   save() {

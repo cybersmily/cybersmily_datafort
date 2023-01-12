@@ -9,7 +9,7 @@
   </div>
   <div [collapse]="isCollapsed">
     <div class="row g-0">
-      <div class="col-12 col-lg-6" *ngFor="let vehicle of currVehicles;let i = index">
+      <div class="col-12 border border-dark" *ngFor="let vehicle of currVehicles;let i = index">
         <cs-cp2020-vehicle-details
         [vehicle]="vehicle"
         [index]="i"
