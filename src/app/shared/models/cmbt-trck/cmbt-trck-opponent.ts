@@ -29,7 +29,7 @@ export class CmbtTrckOpponent {
     } else {
       this.id = param?.id ?? uuidv4();
     }
-    this.initRoll = 0;
+    this.initRoll = param?.initRoll ?? 0;
     this.initDie = new Array<number>();
     this.stats = new Cp2020StatBlock();
     if (param?.stats) {
