@@ -2,3 +2,4 @@ export * from './cp2020-deckmanager-pdf-section/cp2020-deckmanager-pdf-section.s
 export * from './cp2020-program-data/cp2020-program-data.service';
 export * from './quick-nr-calculator/quick-nr-calculator.service';
 export * from './cp2020-cyberdecks-data/cp2020-cyberdecks-data.service';
+export * from './cp2020-programs-data/cp2020-programs-data.service';

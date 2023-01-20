@@ -1,17 +1,20 @@
 <div class="csd-rounded csd-program-box">
-  <div class="row">
+  <div class="row" *ngIf="programList$ | async as programListData">
     <div class="col-12 col-md-2 col-lg-1">
       Name:
     </div>
     <div class="col-8 col-md-7 col-lg-9">
-      <input #programNameElem type="text" [(ngModel)]="program.name" placeholder="Enter name of program..." class="csd-program-name"
-        title="Name of the program" (change)="updated()">
-      <button class="csd-btn csd-icon-btn float-end" title="Lookup a program from source" (click)="showOptions(programSelections)">
+      <input #programNameElem type="text" [(ngModel)]="program.name" placeholder="Enter name of program..." class="w-75"
+        title="Name of the program" (change)="updated()"
+        [typeahead]="programListData"
+        typeaheadOptionField="name"
+        (typeaheadOnSelect)="selectProgram($event)">
+      <button class="csd-btn csd-icon-btn ms-2" title="Lookup a program from source" (click)="showOptions(programSelections)">
         <fa-icon [icon]="faSearch"></fa-icon>
       </button>
+      <span *ngIf="!isSaved" class="csd-program-unsaved ms-1">** UNSAVED **</span>
     </div>
     <div class="col-4 col-md-3 col-lg-2">
-      <span *ngIf="!isSaved" class="csd-program-unsaved">** UNSAVED **</span>
       <span class="float-end ps-2">
         <button class="csd-btn csd-icon-btn csd-icon-xl" (click)="save()" title="Add program to list.">
           <fa-icon [icon]="faSave"></fa-icon>
@@ -76,6 +79,8 @@
     </div>
   </div>
 </div>
+
+
 <ng-template #programOptions>
   <div class="modal-header">
     <h4 class="modal-title float-start">Program Options</h4>

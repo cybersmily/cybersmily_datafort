@@ -75,7 +75,7 @@
       />
     </div>
     <div class="col-3">
-      MU: {{ deck.totalMU }}
+      MU: {{ currDeck.totalMU }}
       <input
         type="checkbox"
         [(ngModel)]="currDeck.doubleMu"
@@ -113,6 +113,38 @@
   </div>
   <div class="row">
     <div class="col-1"></div>
+    <div class="col-2">Programs:</div>
+    <div class="col-8 border border-dark rounded"
+          dndDropzone (dndDrop)="onDrop($event)">
+
+      <div class="row">
+        <div class="col-6 text-small">Name</div>
+        <div class="col-2 text-center text-small py-0">STR</div>
+        <div [ngClass]="{'col-2 text-center text-small py-0': true, 'text-danger fw-bold csd-important': overDeckMU}">MU ({{currDeck.usedMu}}/{{currDeck.totalMU}})</div>
+        <div class="col-2 text-center text-small py-0">Active</div>
+      </div>
+          <div *ngIf="currDeck.programs?.length &lt; 1" class="fst-italic">
+            Drag and drop programs from the program list here...
+          </div>
+      <div class="fst-italic" dndPlaceholderRef>
+        Drop programs here...
+      </div>
+      <div class="row" *ngFor="let prog of currDeck.programs; let i = index" [title]="prog.type + ' - ' + prog.description">
+        <div class="col-6">{{prog.name}}
+          <button class="csd-btn csd-icon-btn csd-icon-sm float-end" (click)="removeProgram(i)">
+            <fa-icon [icon]="faTrash"></fa-icon>
+          </button>
+        </div>
+        <div class="col-2 text-center">{{prog.strength > 0 ? '+': ''}}{{prog.strength}}</div>
+        <div [ngClass]="{'col-2 text-center': true, 'text-danger fw-bold csd-important': overDeckMU}">{{prog.mu}}</div>
+        <div class="col-2 text-center">
+          <input type="checkbox" [(ngModel)]="prog.loaded">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
     <div class="col">
       <div>Description:</div>
       <textarea
@@ -123,6 +155,8 @@
     </div>
   </div>
 </div>
+
+
 <ng-template #deckOptions>
   <div class="modal-header">
     <h4 class="modal-title float-start">Deck Options</h4>

@@ -277,6 +277,13 @@ SELECT option.font-italic {
   padding-right: 5px;
 }
 
+.csd-important:before,.csd-important:after  {
+  content: '*';
+  color: red;
+  padding-right: 2px;
+  padding-left: 2px;
+}
+
 .csd-disabled {
   color: #BBB !important;
   cursor: no-drop !important;

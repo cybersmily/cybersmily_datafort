@@ -1,7 +1,8 @@
-import { JsonDataFiles, DataService } from '../../../services/file-services';
+import { Cp2020ProgramsDataService } from './../services';
+import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { faPlus, faSave, faSearch } from '@fortawesome/free-solid-svg-icons';
-import { forkJoin } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import { NrProgramOptionsService } from '../../../services/netrun/nr-program-options.service';
 import {
   Component,
@@ -27,7 +28,7 @@ export class Cp2020ProgramNewComponent implements OnInit, AfterViewInit {
   faSearch = faSearch;
   classes: Array<ProgramOption> = new Array<ProgramOption>();
   options: Array<ProgramOption> = new Array<ProgramOption>();
-  programList: Array<any> = new Array<any>(); // TODO: FIX THIS!!
+  programList$: Observable<Array<Cp2020Program>>;
   modalRef: BsModalRef;
   modalConfig: {
     keyboard: true;
@@ -49,24 +50,21 @@ export class Cp2020ProgramNewComponent implements OnInit, AfterViewInit {
   constructor(
     private programData: NrProgramOptionsService,
     private modalService: BsModalService,
-    private dataService: DataService
+    private programListData: Cp2020ProgramsDataService
   ) {}
 
   ngOnInit(): void {
+    this.programList$ = this.programListData.programList;
     const classesData = this.programData.classes;
     const optionData = this.programData.options;
-    const progList = this.dataService.GetJson<Array<any>>(
-      JsonDataFiles.CP2020_PROGRAM_LIST_JSON
-    );
-    forkJoin([classesData, optionData, progList]).subscribe((data) => {
+    forkJoin([classesData, optionData]).subscribe((data) => {
       this.classes = data[0];
       this.options = data[1];
-      this.programList = data[2];
     });
   }
 
   ngAfterViewInit(): void {
-    this.programNameInput.nativeElement.focus();
+    this.programNameInput?.nativeElement.focus();
   }
 
   updated() {
@@ -116,7 +114,21 @@ export class Cp2020ProgramNewComponent implements OnInit, AfterViewInit {
     return a && b ? a.name === b.name : a === b;
   }
 
-  addProgram(prog: any) {
+  selectProgram(event: TypeaheadMatch): void {
+    this.program = new Cp2020Program(event.item);
+    const i = this.classes.findIndex(
+      (c) => c.name?.toLowerCase() === event?.item?.class?.name.toLowerCase()
+    );
+    if (i > -1) {
+      this.program.class = this.classes[i];
+    } else {
+      this.program.class = { name: event?.item?.class, description: '', diff: 10 };
+    }
+    this.program.options = this.getOptions(event?.item?.options);
+
+  }
+
+  addProgram(prog: any):void  {
     this.program = new Cp2020Program();
     this.program.name = prog.name;
     this.program.description = prog.description;
@@ -129,14 +141,24 @@ export class Cp2020ProgramNewComponent implements OnInit, AfterViewInit {
     } else {
       this.program.class = { name: prog.class, description: '', diff: 10 };
     }
-    if (Array.isArray(prog.options)) {
-      prog.options.forEach((opt) => {
+    this.program.options = this.getOptions(prog.options);
+    this.program.bookCost = prog.cost;
+    this.program.bookMu = prog.mu;
+    if (this.modalRef) {
+      this.modalRef.hide();
+    }
+  }
+
+  getOptions(options: Array<string>): Array<ProgramOption> {
+    const newOptions = new Array<ProgramOption>();
+    if (Array.isArray(options)) {
+      options.forEach((opt) => {
         const index = this.options.findIndex(
           (o) => o.name.toLocaleLowerCase() === opt.toLocaleLowerCase()
         );
         if (index > -1) {
           const option = this.options[index];
-          this.program.options.push({
+          newOptions.push({
             name: option.name,
             description: option.description,
             diff: option.diff,
@@ -144,10 +166,6 @@ export class Cp2020ProgramNewComponent implements OnInit, AfterViewInit {
         }
       });
     }
-    this.program.bookCost = prog.cost;
-    this.program.bookMu = prog.mu;
-    if (this.modalRef) {
-      this.modalRef.hide();
-    }
+    return newOptions;
   }
 }

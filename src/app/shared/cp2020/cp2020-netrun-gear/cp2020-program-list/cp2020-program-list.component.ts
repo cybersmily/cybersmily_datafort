@@ -1,3 +1,5 @@
+import { DND_TYPE_CP2020_PROGRAM } from './../../../models/constants';
+import { DndDropEvent, EffectAllowed } from 'ngx-drag-drop';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Cp2020ProgramList } from '../models';
 import {
@@ -14,7 +16,6 @@ import {
   Input,
   Output,
   EventEmitter,
-  OnChanges,
   TemplateRef,
   ViewChildren,
   QueryList,
@@ -38,12 +39,13 @@ export class Cp2020ProgramListComponent implements OnInit {
   modalRef: BsModalRef;
   config = {
     keyboard: true,
-    class: 'modal-dialog-centered modal-lg',
+    class: 'modal-lg modal-right',
   };
 
   program: Cp2020Program = new Cp2020Program();
 
   modalTitle = 'New';
+  dndType = DND_TYPE_CP2020_PROGRAM;
 
   @Input()
   programList: Cp2020ProgramList = new Cp2020ProgramList();
@@ -105,5 +107,10 @@ export class Cp2020ProgramListComponent implements OnInit {
     this.programList.updateProgram(prog);
     this.modalRef?.hide();
     this.updateList.emit(this.programList);
+  }
+
+  onDrop(event: DndDropEvent): void {
+    if(event.data.type === DND_TYPE_CP2020_PROGRAM) {
+    }
   }
 }

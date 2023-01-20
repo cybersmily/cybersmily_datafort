@@ -23,7 +23,7 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,
     CommonUiModule,
-    PipesModule
+    PipesModule,
   ],
   providers: [
     DataService,

@@ -1,10 +1,12 @@
+import { DND_TYPE_CP2020_PROGRAM } from './../../../models/constants';
+import { DndDropEvent } from 'ngx-drag-drop';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 import { Observable } from 'rxjs';
 import { Cp2020CyberdecksDataService } from './../services';
-import { CyberdeckChassis } from '../models';
+import { Cp2020Program, CyberdeckChassis } from '../models';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { NrDeckDataService } from '../../../services/netrun/nr-deck-data.service';
-import { faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faSearch, faRedo, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020Cyberdeck, CyberdeckData, CyberdeckOption } from '../models';
 import { Component, OnInit, TemplateRef, EventEmitter, Output, Input, OnChanges, ViewChild, ElementRef, ViewChildren, QueryList } from '@angular/core';
 
@@ -16,12 +18,16 @@ import { Component, OnInit, TemplateRef, EventEmitter, Output, Input, OnChanges,
 export class Cp2020CyberdeckFormComponent implements OnInit, OnChanges {
   faPlus = faPlus;
   faSearch = faSearch;
+  faRedo = faRedo;
+  faTrash = faTrash;
+
   modalRef: BsModalRef;
 
   @Input()
   deck: Cp2020Cyberdeck = new Cp2020Cyberdeck();
 
   selectedChassis: CyberdeckChassis;
+  isDropDisabled: boolean  = false;
 
   deckData: CyberdeckData = { chassis: [], options: new Array<CyberdeckOption>()};
   deckListData$: Observable<Array<Cp2020Cyberdeck>> = new Observable<Array<Cp2020Cyberdeck>>();
@@ -43,6 +49,10 @@ export class Cp2020CyberdeckFormComponent implements OnInit, OnChanges {
     class: 'modal-dialog-centered modal-lg'
   };
   currDeck: Cp2020Cyberdeck = new Cp2020Cyberdeck();
+
+  get overDeckMU(): boolean {
+    return this.currDeck.usedMu > this.currDeck.totalMU;
+  }
 
   constructor(private deckDataService: NrDeckDataService,
     private modalService: BsModalService,
@@ -115,9 +125,24 @@ export class Cp2020CyberdeckFormComponent implements OnInit, OnChanges {
   selectDeck(event: TypeaheadMatch): void {
     const chassis = event.item.type;
     this.currDeck = new Cp2020Cyberdeck(event.item);
-    console.log(chassis);
-    console.log(this.deckData)
 
     this.updateDeck();
   }
+
+  removeProgram(index: number): void {
+    if(index > -1) {
+      this.currDeck.programs.splice(index, 1);
+      this.updateDeck();
+    }
+  }
+
+  onDrop(event:DndDropEvent): void {
+    if(event.data.type === DND_TYPE_CP2020_PROGRAM) {
+      const prog = event.data.program as Cp2020Program ;
+        this.currDeck.programs.push(new Cp2020Program(event.data.program));
+        this.updateDeck();
+    }
+  }
+
+
 }

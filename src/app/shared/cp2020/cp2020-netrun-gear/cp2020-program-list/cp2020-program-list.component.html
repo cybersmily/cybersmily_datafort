@@ -1,27 +1,27 @@
 <div>
   <h4>Program List
-    <span [ngClass]="{'csd-mu-breach':(programList.usedMU > maxMu)}">
-      ({{programList.usedMU}}/{{maxMu}} MU)
-    </span>
     <span class="float-end">{{programList.totalCost|number}}eb</span>
   </h4>
   <div class="row">
     <div class="col-3">CLASS</div>
     <div class="col-4">NAME</div>
-    <div class="col-2">LOADED</div>
     <div class="col-1 text-center">STR</div>
     <div class="col-1 text-center">MU</div>
     <div class="col-1"></div>
   </div>
   <hr style="margin: 0 auto;padding: 0 0;">
-  <ng-container *ngFor="let p of programList.programs; let i = index">
-    <div class="row">
-      <div class="col-3 mt-2 csd-prog-class-name" title="{{p.class.name + ': ' + p.class.description}}">{{p.class.name}}
+  <div *ngFor="let p of programList.programs; let i = index"
+  >
+    <div class="row mx-0"
+    [dndDraggable]="{program: p, type: dndType}"
+    [dndEffectAllowed]="'move'"
+    dndType="dndType"
+    title="{{p.class.name + ': ' + p.class.description}}"
+    >
+      <div class="col-3 mt-2 csd-prog-class-name text-capitalize">{{p.class.name}}
       </div>
-      <button #programNameElem class="col-4 csd-btn csd-prog-select" title="{{p.description}}"
+      <button #programNameElem class="col-4 csd-btn csd-prog-select"
         (click)="showSelect(i, selectedProgram)">{{p.name}}</button>
-      <div class="col-2 mt-1 text-center"><input type="checkbox" [checked]="p.loaded" (change)="load(i)"
-          title="Mark to load the program in the deck."></div>
       <div class="col-1 text-center">+{{p.strength}}</div>
       <div class="col-1 text-center">{{p.mu}}</div>
       <div class="col-1">
@@ -30,8 +30,7 @@
         </button>
       </div>
     </div>
-    <hr>
-  </ng-container>
+  </div>
   <div class="row">
     <div class="col csd-prog-lst-new">
       <button #newProgramElem class="csd-btn csd-icon-btn csd-icon-xl w-100" (click)="showNew(selectedProgram)">

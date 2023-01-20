@@ -1,3 +1,4 @@
+import { Cp2020Program } from './cp2020-program';
 import { SourceBook } from './../../../models/sourcebook';
 import { CyberdeckChassis } from './cyberdeck-chassis';
 import { Cyberdeck } from './cyberdeck';
@@ -12,7 +13,7 @@ export class Cp2020Cyberdeck implements Cyberdeck {
   private _mu: number = 10;
   doubleMu: boolean;
   options: Array<CyberdeckOption>;
-  programs: Array<Program>;
+  programs: Array<Cp2020Program>;
   description: string;
   codeGate: number;
   source?: SourceBook;
@@ -28,7 +29,10 @@ export class Cp2020Cyberdeck implements Cyberdeck {
     this._mu = isNaN(mu) ? 10 : mu;
     this.doubleMu = param?.doubleMu ?? false;
     this.options = param?.options ?? new Array<CyberdeckOption>();
-    this.programs = param?.programs ?? new Array<Program>();
+    this.programs =  new Array<Cp2020Program>();
+    if(Array.isArray(param?.programs)) {
+      this.programs = param.programs.map(prog => new Cp2020Program(prog));
+    }
     this.description = param?.description ?? '';
     this.source = param?.source ?? undefined;
     this.bookPrice = param?.bookPrice ?? 0;
