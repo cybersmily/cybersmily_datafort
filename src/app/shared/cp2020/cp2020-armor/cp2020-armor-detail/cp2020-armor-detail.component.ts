@@ -284,6 +284,7 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
     );
     if (index > -1) {
       this.currArmor = new Cp2020ArmorPiece(this.armorDataList[index]);
+      this.update();
     }
   }
 
