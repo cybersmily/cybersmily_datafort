@@ -2,12 +2,15 @@
   "news": [
     {"date": "2023-01",
       "entries": [
-        "<strong>01-15</strong> - Another update to the site:",
+        "<strong>01-21</strong> - Another update to the site:",
         "&nbsp;* Character generator for Cyberpunk 2020 now as location sections for cyberware and gear. You can now organization both sections with locations or however else you want to use that field for.",
         "&nbsp;* Location sections coming with drag/drop between the locations to help move them about. ",
         "&nbsp;* Cyberware lookup has changed on the character generator. It is to be more inline with the datalist selectors.",
         "&nbsp;* Fixed a bug with the random cyberware generator to avoid duplicates.",
+        "&nbsp;* Fixed a bug with the armor typeahead function not saving the piece of armor.",
         "&nbsp;* improved the vehicle section on the character generator as well with a typeahead lookup and some layout changes.",
+        "&nbsp;* improved the cyberdeck/program section on the character generator to have drag and drop programs into the cyberdeck. More work is needed on it.",
+        "&nbsp;* Fixed a bug with the combat tracker in which clicking on Is Stunned reset the initiative of the opponent.",
         "Till next time gatos.",
         "CYBER :D"
       ]
