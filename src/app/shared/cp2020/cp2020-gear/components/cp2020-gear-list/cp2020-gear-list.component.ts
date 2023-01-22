@@ -132,8 +132,11 @@ export class Cp2020GearListComponent implements OnInit, OnChanges, AfterViewInit
     const index =  this.currGear.items.findIndex(itm => itm.id === item.id);
     if(index > -1) {
       this.currGear.items[index] = item;
-      this.onGearChange();
+
+    } else {
+      this.currGear.items.push(new Cp2020PlayerGear(item));
     }
+    this.onGearChange();
   }
 
   removeLocation(location: string): void {

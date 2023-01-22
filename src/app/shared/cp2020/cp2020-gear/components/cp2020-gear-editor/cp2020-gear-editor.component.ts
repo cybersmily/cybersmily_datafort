@@ -1,7 +1,7 @@
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { faTrash, faPen, faSave, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020Gear } from './../../models/cp2020-gear';
-import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
+import { TypeaheadMatch, TypeaheadOptions } from 'ngx-bootstrap/typeahead';
 import { Cp2020PlayerGear } from './../../models/cp2020-player-gear';
 import { Component, Input, OnInit, OnChanges, Output, EventEmitter, TemplateRef } from '@angular/core';
 import { Cp2020GearDataService } from './../../services/cp2020-gear-data/cp2020-gear-data.service';
@@ -64,14 +64,14 @@ export class Cp2020GearEditorComponent implements OnInit, OnChanges {
   }
 
   saveGear(): void {
-    this.onGearChange();
     this.isEditMode = false;
+    this.onGearChange();
   }
 
   selectGear(): void {
     const item = this.gearDataList.find( itm => itm.name === this.currGear.gear);
     this.currGear = new Cp2020PlayerGear(item);
-    this.onGearChange();
+    this.currGear.id = this.gear.id;
   }
 
 
