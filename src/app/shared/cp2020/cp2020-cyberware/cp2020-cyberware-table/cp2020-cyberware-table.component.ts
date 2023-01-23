@@ -131,8 +131,9 @@ export class Cp2020CyberwareTableComponent implements OnInit {
     this.updateList();
   }
 
-  update(data: { index: number; cyber: Cp2020PlayerCyber }) {
-    this.currCyberList.items[data.index] = data.cyber;
+  update(cyber: Cp2020PlayerCyber ) {
+    const index = this.currCyberList.items.findIndex(cyb => cyb.id === cyber.id);
+    this.currCyberList.items[index] = cyber;
     this.updateList();
     this.closeModal();
   }
