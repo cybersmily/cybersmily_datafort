@@ -53,8 +53,8 @@ export class Cp2020CyberwareEditorComponent implements OnInit, AfterViewInit {
   index: number;
 
   @Output()
-  changeCybeware: EventEmitter<{ index: number; cyber: Cp2020PlayerCyber }> =
-    new EventEmitter<{ index: number; cyber: Cp2020PlayerCyber }>();
+  changeCybeware: EventEmitter< Cp2020PlayerCyber> =
+    new EventEmitter<Cp2020PlayerCyber>();
 
   @Output()
   deleteCyberware: EventEmitter<string> = new EventEmitter<string>();
@@ -89,7 +89,7 @@ export class Cp2020CyberwareEditorComponent implements OnInit, AfterViewInit {
   }
 
   update() {
-    this.changeCybeware.emit({ index: this.index, cyber: this.newCyberware });
+    this.changeCybeware.emit(this.newCyberware);
   }
 
   isOption(name: string): boolean {
