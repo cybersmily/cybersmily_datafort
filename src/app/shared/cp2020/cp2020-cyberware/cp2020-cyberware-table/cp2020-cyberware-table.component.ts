@@ -115,23 +115,23 @@ export class Cp2020CyberwareTableComponent implements OnInit {
     return this.currCyberList.items.filter(cyber => cyber?.location === location);
   }
 
-  updateList() {
+  updateList(): void {
     this.sortList();
     this.changeList.emit(this.currCyberList);
   }
 
-  deleteFromModal(id: string) {
+  deleteFromModal(id: string): void {
     this.delete(id);
     this.modalRef.hide();
   }
 
-  delete(id: string) {
+  delete(id: string): void {
     const index = this.currCyberList.items.findIndex(cyber => cyber.id === id);
     this.currCyberList.items.splice(index, 1);
     this.updateList();
   }
 
-  update(cyber: Cp2020PlayerCyber ) {
+  update(cyber: Cp2020PlayerCyber ): void {
     const index = this.currCyberList.items.findIndex(cyb => cyb.id === cyber.id);
     this.currCyberList.items[index] = cyber;
     this.updateList();
@@ -141,7 +141,7 @@ export class Cp2020CyberwareTableComponent implements OnInit {
   editCyberware(
     cyber: Cp2020PlayerCyber,
     template: TemplateRef<any>
-  ) {
+  ): void {
      const index = this.currCyberList.items.findIndex(itm => itm.id === cyber.id);
     this.selectedCyberware = this.currCyberList.items[index];
     this.openModal(template);
@@ -163,13 +163,13 @@ export class Cp2020CyberwareTableComponent implements OnInit {
     );
   }
 
-  add(cyber: Cp2020PlayerCyber) {
+  add(cyber: Cp2020PlayerCyber): void {
     cyber.location = this.selectLocation;
     this.currCyberList.items.push(cyber);
     this.updateList();
   }
 
-  generateCyberware() {
+  generateCyberware(): void {
     this.cyberData.cp2020CyberwareList.subscribe((list) => {
       this.cyberGenerator.generateCyberList(1, list, this.currCyberList.items).subscribe((data) => {
         this.currCyberList.items = [...data.results];
@@ -214,7 +214,7 @@ export class Cp2020CyberwareTableComponent implements OnInit {
     }
   }
 
-  sortList() {
+  sortList(): void {
     // very weird behavior when an entry is blank. so did the below to have all the
     // ones with a name to be at top and the other on the bottom.
     const namedCyber = this.currCyberList.items.filter((c) => c.name !== '');
@@ -225,7 +225,7 @@ export class Cp2020CyberwareTableComponent implements OnInit {
     this.currCyberList.items = namedCyber.concat(blankCyber);
   }
 
-  openModal(template: TemplateRef<any>, returnFocus?: string, isShopping?: boolean, location?: string) {
+  openModal(template: TemplateRef<any>, returnFocus?: string, isShopping?: boolean, location?: string): void {
     this.modalRef = this.modalService.show(template, this.modalConfig);
     this.isShopping = isShopping;
     this.selectLocation = location;
@@ -244,7 +244,7 @@ export class Cp2020CyberwareTableComponent implements OnInit {
     }
   }
 
-  closeModal() {
+  closeModal(): void {
     this.isShopping = false;
     this.modalRef.hide();
   }
