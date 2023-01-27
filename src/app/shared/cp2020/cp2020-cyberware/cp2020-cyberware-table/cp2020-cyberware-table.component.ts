@@ -1,3 +1,4 @@
+import { take } from 'rxjs';
 import { DndDropEvent } from 'ngx-drag-drop';
 import { FileLoaderService } from './../../../services/file-services/file-loader/file-loader.service';
 import { CyberDataService } from './../services';
@@ -109,6 +110,11 @@ export class Cp2020CyberwareTableComponent implements OnInit {
 
   initialize(): void {
     this.currCyberList =  new Cp2020PlayerCyberList(this.cyberList);
+    this.cyberData.cp2020CyberwareList.pipe(take(1)).subscribe((list) => {
+      this.cyberGenerator.generateCyberList(0, list, this.currCyberList.items).subscribe((data) => {
+        this.canRollMore = !data.noMore;
+      });
+    });
   }
 
   getCyberList(location: string): Array<Cp2020PlayerCyber> {
