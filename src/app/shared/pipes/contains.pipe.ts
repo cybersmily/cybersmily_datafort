@@ -8,6 +8,7 @@ export class ContainsPipe implements PipeTransform {
     if (
       !property ||
       property === '' ||
+      !Array.isArray(array) ||
       value === null ||
       value === undefined ||
       value === ''
