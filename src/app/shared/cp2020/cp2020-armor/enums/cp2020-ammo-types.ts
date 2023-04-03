@@ -13,5 +13,6 @@ export enum Cp2020AmmoTypes {
   BROADHEAD,
   SPINNERHEAD,
   IGNORE_ARMOR,
-  HEP
+  HEP,
+  HEAVY_FLECHETTE_ROUND
 }
