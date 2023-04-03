@@ -103,7 +103,7 @@
 
     </button>
   </div>
-  <div class="modal-body">
+  <div class="modal-body" *ngIf="programList$ | async as programListData">
     <div class="row">
       <div class="col">Class</div>
       <div class="col">Name</div>
@@ -118,21 +118,21 @@
       <div class="col-1"></div>
       <div class="col-2"></div>
     </div>
-    <div *ngFor="let prog of programList|contains:'name':searchTerm; let i = index" class="row csd-prog-selection" title="{{prog.desc}}" (click)="addProgram(prog)">
-      <div class="col">
-        {{prog.class}}
+    <div *ngFor="let prog of programListData|contains:'name':searchTerm; let i = index" class="row csd-prog-selection" title="{{prog.desc}}" (click)="addProgram(prog)">
+      <div class="col text-capitalize">
+        {{prog.class?.name}}
       </div>
       <div class="col">
         {{prog.name}}
       </div>
       <div class="col-1">
-        {{prog.str}}
+        {{prog._str}}
       </div>
       <div class="col-1">
-        {{prog.mu}}
+        {{prog.bookMu}}
       </div>
       <div class="col-2">
-        {{prog.cost|number}}eb
+        {{prog.bookCost|number}}eb
       </div>
     </div>
   </div>

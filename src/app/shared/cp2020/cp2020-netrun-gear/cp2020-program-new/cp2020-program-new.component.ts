@@ -129,18 +129,9 @@ export class Cp2020ProgramNewComponent implements OnInit, AfterViewInit {
   }
 
   addProgram(prog: any):void  {
-    this.program = new Cp2020Program();
+    this.program = new Cp2020Program(prog);
     this.program.name = prog.name;
     this.program.description = prog.description;
-    this.program.strength = prog.str;
-    const i = this.classes.findIndex(
-      (c) => c.name.toLocaleLowerCase() === prog.class.toLocaleLowerCase()
-    );
-    if (i > -1) {
-      this.program.class = this.classes[i];
-    } else {
-      this.program.class = { name: prog.class, description: '', diff: 10 };
-    }
     this.program.options = this.getOptions(prog.options);
     this.program.bookCost = prog.cost;
     this.program.bookMu = prog.mu;

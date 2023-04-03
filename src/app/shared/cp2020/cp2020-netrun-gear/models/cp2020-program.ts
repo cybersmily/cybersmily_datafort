@@ -27,15 +27,9 @@ export class Cp2020Program implements Program {
     }
     this.options = param?.options ?? new Array<ProgramOption>();
     this.loaded = param?.loaded ?? false;
-    this._str = param
-      ? param._str
-        ? param._str
-        : param.str
-        ? param.str
-        : 0
-      : 0;
-    this.bookMu = param?.mu ?? undefined;
-    this.bookCost = param?.cost ?? undefined;
+    this._str = param?._str ?? param?.str ?? 0;
+    this.bookMu = param?.bookMu ?? param?.mu ?? undefined;
+    this.bookCost = param?.bookCost ?? param?.cost ?? undefined;
   }
 
   get strength(): number {
