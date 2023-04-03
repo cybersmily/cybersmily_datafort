@@ -103,6 +103,7 @@ export class Cp2020weapontableComponent implements OnInit {
     );
   }
 
+
   constructor(
     private modalService: BsModalService,
     private diceService: DiceService,
@@ -168,7 +169,7 @@ export class Cp2020weapontableComponent implements OnInit {
   }
 
   closeModal() {
-    this.modalRef.hide();
+    this.modalRef?.hide();
   }
 
   updateAmmo(ammo: Array<Cp2020PlayerAmmo>) {

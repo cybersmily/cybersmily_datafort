@@ -77,6 +77,10 @@ export class Cp2020ArmorSectionComponent implements OnInit {
     return this.armorBlock.armorPieces.slice(len);
   }
 
+  get totalCost(): number {
+    return this.armorBlock?.armorPieces?.reduce((total, armor) => total + armor.cost,0);
+  }
+
   @Input()
   isCollapsed = false;
 
@@ -104,6 +108,7 @@ export class Cp2020ArmorSectionComponent implements OnInit {
     this.randomSettingsService.settings.subscribe((settings) => {
       this.settings = settings;
     });
+
     this.armorAttributeService.getData().subscribe((list) => {
       this.armorAttributes = list;
     });

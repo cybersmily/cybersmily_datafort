@@ -92,6 +92,10 @@ export class Cp2020ammoComponent implements OnInit {
     return this.ammoList.slice(Math.ceil(this.ammoList.length / 2));
   }
 
+  get totalCost(): number {
+    return this.ammoList.reduce((total, ammo) => total + ammo.cost, 0 );
+  }
+
   get roundsPerBox(): number {
     if (this.selectedAmmoIndex < 0) {
       return 0;
