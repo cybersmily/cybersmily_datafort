@@ -84,7 +84,7 @@ export class Cp2020CyberwareSelectorComponent implements OnInit {
   }
 
 select(cyberware:DataCyberware ): void {
-  this.addCyberware.emit(new Cp2020PlayerCyber(cyberware));
+  this.addCyberware.emit(new Cp2020PlayerCyber(cyberware, true));
 }
 
 }

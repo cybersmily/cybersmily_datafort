@@ -167,7 +167,7 @@
       ></textarea>
     </div>
   </div>
-  <div class="row" *ngIf="optionList.length > 0; else elseOptions">
+  <div class="row" *ngIf="optionList?.length > 0; else elseOptions">
     <div class="col">
       <div class="row">
         <div class="col-5">
@@ -190,7 +190,7 @@
         <div class="col-7">
           Current Options
           <span *ngIf="newCyberware.numOptions && newCyberware.numOptions > 0"
-            >({{ newCyberware.options.length }}/{{
+            >({{ newCyberware.options?.length }}/{{
               newCyberware.numOptions
             }})</span
           >

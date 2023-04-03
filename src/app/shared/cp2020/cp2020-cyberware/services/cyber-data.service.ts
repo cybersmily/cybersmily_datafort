@@ -42,7 +42,10 @@ export class CyberDataService {
     .pipe(
       map( (data: Array<Cp2020PlayerCyber>) => {
         return data
-        .map(cyber => new Cp2020PlayerCyber(cyber));
+        .map(cyber => {
+          const cyb = new Cp2020PlayerCyber(cyber);
+          return cyb;
+        });
       })
     );
   }

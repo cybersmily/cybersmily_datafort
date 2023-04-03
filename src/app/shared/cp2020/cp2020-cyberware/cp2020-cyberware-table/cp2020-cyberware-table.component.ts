@@ -148,6 +148,8 @@ export class Cp2020CyberwareTableComponent implements OnInit {
     cyber: Cp2020PlayerCyber,
     template: TemplateRef<any>
   ): void {
+    console.log(this.currCyberList);
+    console.log(cyber);
      const index = this.currCyberList.items.findIndex(itm => itm.id === cyber.id);
     this.selectedCyberware = this.currCyberList.items[index];
     this.openModal(template);

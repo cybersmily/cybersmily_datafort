@@ -8,9 +8,9 @@ export class Cp2020PlayerCyber extends DataCyberware {
   location?: string;
   options?: Array<Cp2020PlayerCyber>;
 
-  constructor(params?:any) {
+  constructor(params?:any, setNewId?: boolean) {
     super(params);
-    this.id = params?.id ?? uuidv4();
+    this.id = setNewId ? uuidv4() : params?.id ?? uuidv4();
     this.location = params?.location ?? '';
     this.options = (params && params.options) ? params.options : undefined;
     this.hl = (params && params.hl) ? params.hl : 0;
