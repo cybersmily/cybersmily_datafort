@@ -89,13 +89,16 @@
         { "name":"San Antonio","region": "Olympia", "security": 3, "trace": 2, "controlby": "Republic of Texas/ Bronleigh Develop." },
         { "name":"Denver","region": "Olympia", "security": 2, "trace": 1, "controlby": "Netwatch/ US Govt./ Orbital Air", "world": true, "map": "cty/oly/nr_denver.json" },
         { "name":"Salt Lake City","region": "Olympia", "security": 2, "trace": 1, "controlby": "Netwatch/ US Govt./ Militech", "world": true },
+
         { "name":"Crystal Palace","region": "Orbitsville", "security": 3, "trace": 1, "controlby": "ESA/ Interpol/ Orbital Air", "map": "cty/orb/nr_crystalpalace.json" },
         { "name":"O'Neil One","region": "Orbitsville", "security": 3, "trace": 1, "controlby": "Highriders/ Orbital Air", "map": "cty/orb/nr_oneilcity.json" },
-        { "name":"O'Neil Two","region": "Orbitsville", "security": 3, "trace": 1, "controlby": "Highriders/ Orbital Air", "map": "cty/orb/nr_oneilcity.json" },
+        { "name":"O'Neil Two (Galileo)","region": "Orbitsville", "security": 3, "trace": 1, "controlby": "Highriders/ Orbital Air", "map": "cty/orb/nr_oneil2.json" },
         { "name":"O'Neil Three (Paradise)","region": "Orbitsville", "security": 4, "trace": 1, "controlby": "ESA/ Interpol", "map": "cty/orb/nr_oneilcity.json" },
         { "name":"Tycho","region": "Orbitsville", "security": 3, "trace": 1, "controlby": "ESA/ Interpol", "map": "cty/orb/nr_tycho.json" },
+        { "name":"Copernicus","region": "Orbitsville", "security": 3, "trace": 1, "controlby": "ESA/ Interpol", "map": "cty/orb/nr_tycho.json" },
         { "name":"L-2","region": "Orbitsville", "security": 3, "trace": 1, "controlby": "ESA/ Interpol" },
         { "name":"WorldSat Network (GEO)","region": "Orbitsville", "security": 3, "trace": 2, "controlby": "WorldSat", "world": true },
+
         { "name":"Anchorage","region": "Pacifica", "security": 2, "trace": 3, "controlby": "Netwatch/ US Govt./ Petrochem" },
         { "name":"Antarctic Relay","region": "Pacifica", "security": 0, "trace": 4, "controlby": "Netwatch/ EEC" },
         { "name":"Brisbane","region": "Pacifica", "security": 2, "trace": 2, "controlby": "Netwatch/ Aust. Govt." },
