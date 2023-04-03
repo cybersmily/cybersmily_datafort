@@ -88,7 +88,8 @@ export class Cp2020GearListComponent implements OnInit, OnChanges, AfterViewInit
     }
   }
 
-  ngOnChanges(): void { }
+  ngOnChanges(): void {
+    this.currGear = new Cp2020PlayerGearList(this.gear); }
 
   ngAfterViewInit(): void {
     if (this.gearNameElemList.length > 0 && this.index > -1) {
