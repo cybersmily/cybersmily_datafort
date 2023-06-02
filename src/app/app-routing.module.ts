@@ -222,7 +222,7 @@ export const mainRoutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(mainRoutes, { relativeLinkResolution: 'legacy' }),
+    RouterModule.forRoot(mainRoutes, {}),
   ],
   exports: [RouterModule],
 })
