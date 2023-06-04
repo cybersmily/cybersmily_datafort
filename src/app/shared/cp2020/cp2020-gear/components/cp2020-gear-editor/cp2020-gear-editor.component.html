@@ -1,7 +1,7 @@
 <div class="cs-cp2020-gear-row">
 <div class="row g-0" *ngIf="isEditMode; else displayMode ">
   <div class="col-8 border border-dark pe-0 ps-0">
-    <input #gearNameElem title="gear name" [(ngModel)]="currGear.gear" [typeahead]="gearDataList"
+    <input #gearNameElem title="gear name" [(ngModel)]="currGear.gear" [typeahead]="gearDataList" placeholder="Enter gear..."
       typeaheadOptionField="name" (typeaheadOnSelect)="selectGear()" min="0" type="text" class="w-80" />
     <button title="remove gear" class="csd-icon-btn csd-btn csd-icon-sm float-end pe-1" (click)="removeGear()">
       <fa-icon [icon]="faTrash"></fa-icon>
@@ -17,19 +17,18 @@
     <input title="gear cost" [(ngModel)]="currGear.cost" class="text-end w-100" min="0" type="number" step="0.01" />
   </div>
   <div class="col-2 border border-dark pe-0 ps-0">
-    <input title="gear weight" [(ngModel)]="currGear.weight" class="text-center no-spinners w-100" min="0" type="number"
+    <input title="gear weight" [(ngModel)]="currGear.weight" class="text-center no-spinners w-100" placeholder="" min="0" type="number"
       step="0.01" />
   </div>
 </div>
 <ng-template #displayMode>
   <div class="row g-0 cp-gear-display" [dndDraggable]="{gear: currGear, type: 'gear', effectAllowed: 'all', disable: false, handle: true}">
     <div class="col-8 border border-dark pe-0 ps-0">
-      <div  (click)="isEditMode = true" class="d-inline-block w-85 cursor-pointer">{{currGear.gear}}</div>
+      <button title="edit gear" class="csd-btn d-inline-block w-85 cursor-pointer text-start" (click)="isEditMode = true">
+        {{currGear.gear}}
+      </button>
       <button title="remove gear" class="csd-icon-btn csd-btn float-end pe-1" (click)="removeGear()">
         <fa-icon [icon]="faTrash"></fa-icon>
-      </button>
-      <button title="edit gear" class="csd-icon-btn csd-btn float-end me-2" (click)="isEditMode = true">
-        <fa-icon [icon]="faPen"></fa-icon>
       </button>
     </div>
     <div class="col-2 border border-dark pe-3 ps-0 text-end">
@@ -53,7 +52,7 @@
     ></button>
   </div>
   <div class="modal-body">
-    <cs-cp2020-source-gear-list
+    <cs-cp2020-source-gear-list (selectedGear)="selectGear($event)"
     ></cs-cp2020-source-gear-list>
     <br />
     <br />
