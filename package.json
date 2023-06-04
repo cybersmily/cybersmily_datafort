@@ -46,7 +46,7 @@
     "ngx-bootstrap": "^10.2.0",
     "ngx-color": "^9.0.0",
     "ngx-drag-drop": "^16.0.0",
-    "ngx-image-compress": "^13.1.13",
+    "ngx-image-compress": "^15.1.5",
     "ngx-masonry": "^14.0.1",
     "ngx-ui-loader": "^13.0.0",
     "npm": "^8.12.2",
