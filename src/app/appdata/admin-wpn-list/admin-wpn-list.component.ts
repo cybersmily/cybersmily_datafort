@@ -137,7 +137,7 @@ export class AdminWpnListComponent implements OnInit {
         type: '',
         skill: '',
         damage: wpn.damage,
-        quality: wpn.wa > 0 ? 'Excellent' : (wpn.rel === 'UR' ? 'Poor' : 'Standard'),
+        quality: (Number(wpn.wa) > 0) ? 'Excellent' : (wpn.rel === 'UR' ? 'Poor' : 'Standard'),
         concealability: true,
         hands: 1,
         rof: 1,

@@ -109,7 +109,7 @@ export class WeaponDataService {
       weapon.bod = weapon.bod > 0 ? weapon.bod : undefined;
       weapon.ap = weapon.ap !== '' ? weapon.ap : undefined;
       weapon.burst =
-        weapon.burst > 0 || weapon.burst !== '' ? weapon.burst : undefined;
+        Number(weapon.burst) > 0 || weapon.burst !== '' ? weapon.burst : undefined;
       weapon.shots = weapon.shots > 0 ? weapon.shots : 0;
       weapon.rof = weapon.rof > 0 ? weapon.rof : 0;
       weapon.range = weapon.range > 0 ? weapon.range : 0;
@@ -146,7 +146,7 @@ export class WeaponDataService {
     if (i > -1) {
       weapon.bod = weapon.bod > 0 ? weapon.bod : undefined;
       weapon.burst =
-        weapon.burst > 0 || weapon.burst !== '' ? weapon.burst : undefined;
+        Number(weapon.burst) > 0 || weapon.burst !== '' ? weapon.burst : undefined;
       weapon.shots = weapon.shots > 0 ? weapon.shots : 0;
       weapon.ap = weapon.ap !== '' ? weapon.ap : undefined;
       weapon.rof = weapon.rof > 0 ? weapon.rof : 0;

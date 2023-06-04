@@ -123,7 +123,7 @@ export class Cp2020DatafortToolbarComponent implements OnInit {
 
   selectTool(icon: NrNodeType) {
     if (icon === this.datafortBuilderService.selectedTool) {
-      this.datafortBuilderService.selectedTool = -1;
+      this.datafortBuilderService.selectedTool = null;
     } else {
       this.datafortBuilderService.selectedTool = icon;
     }
