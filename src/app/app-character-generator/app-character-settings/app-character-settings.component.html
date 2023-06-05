@@ -166,7 +166,7 @@
     </div>
     <div class="row">
       <div class="col-1"></div>
-      <div class="col">
+      <div class="col-5">
         Role Points:
         <input
           type="number"
@@ -176,17 +176,27 @@
           tabindex="0"
         />
       </div>
+      <div class="col-5">
+        <input
+          type="checkbox"
+          (change)="saveSettings()"
+          [(ngModel)]="
+            currSettings.skillSettings.showOnlySkillsWithRanks
+          "
+          tabindex="0"
+        /> Show only skills with ranks
+      </div>
     </div>
     <div class="row">
       <div class="col-1"></div>
-      <div class="col">
-        Secondary Skills Points use REF + INT
+      <div class="col-5">
         <input
           type="checkbox"
           [(ngModel)]="currSettings.skillSettings.useStatsForSecondary"
           (change)="saveSettings()"
           tabindex="0"
         />
+        Secondary Skills Points use REF + INT
         <div *ngIf="!currSettings.skillSettings.useStatsForSecondary">
           Available Secondary SKills Points:
           <input

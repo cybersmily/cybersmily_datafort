@@ -63,15 +63,15 @@ export class Cp2020SkillListFullComponent implements OnInit, OnChanges {
   constructor() {}
 
   ngOnInit() {
-    this.currentSkills = new Cp2020PlayerSkills();
-    this.skillSettings.ref = this.stats.REF.Base;
-    this.skillSettings.int = this.stats.INT.Base;
-    this.currentSettings = new Cp2020SkillListSettings(this.skillSettings);
-    this.currentSkills.import(this.skills);
-    this.skillValueFilter = this.currentSkills.showWithValues ? 'value' : null;
+    this.init();
   }
 
   ngOnChanges() {
+    this.init();
+  }
+
+
+  init(): void {
     this.currentSkills = new Cp2020PlayerSkills();
     this.skillSettings.ref = this.stats.REF.Base;
     this.skillSettings.int = this.stats.INT.Base;

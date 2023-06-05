@@ -549,6 +549,7 @@ SELECT.csd-plain-input:hover,
 SELECT.csd-plain-input:focus,
 INPUT.csd-plain-input:focus {
   outline: none;
+  background-color: #CCC;
   border-bottom: 1px #666 solid;
 }
 
