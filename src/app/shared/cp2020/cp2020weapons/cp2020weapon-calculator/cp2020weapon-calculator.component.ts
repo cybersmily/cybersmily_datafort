@@ -257,7 +257,7 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
       new Cp2020PlayerSkill({ name: 'not trained', stat: 'ref', value: 0 }),
     ];
     if (this.selectedWeapon) {
-      skills = this.skills.getSkillForWeaponType(this.selectedWeapon.type);
+      skills = this.skills.getSkillForWeaponType(this.selectedWeapon.type, this.selectedWeapon?.thrown);
     }
     return skills;
   }

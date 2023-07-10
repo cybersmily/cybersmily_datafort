@@ -146,7 +146,7 @@ export class Cp2020PlayerSkills {
     return this.NonRoleSkills.reduce((a, b) => a + b.value, 0);
   }
 
-  getSkillForWeaponType(type: string): Array<Cp2020PlayerSkill> {
+  getSkillForWeaponType(type: string, isThrown?: boolean): Array<Cp2020PlayerSkill> {
     if (!type) {
       return [];
     }
@@ -162,6 +162,9 @@ export class Cp2020PlayerSkills {
       case 'smg':
         list = this.REF.filter(
           (s) =>
+            s.name.toLowerCase().startsWith('smg') ||
+            s?.option?.toLowerCase() === 'smg' ||
+            s.name.toLowerCase().startsWith('sub machinegun') ||
             s.name.toLowerCase().startsWith('submachinegun') ||
             s?.option?.toLowerCase() === 'sub machinegun'
         );
@@ -183,10 +186,12 @@ export class Cp2020PlayerSkills {
       case 'hvy':
         list = this.REF.filter(
           (s) =>
-            s.name.toLowerCase().startsWith('heavy weapons') ||
+            s.name.toLowerCase().startsWith('heavy weapon') ||
             s?.option?.toLowerCase() === 'heavy weapons' ||
-            s.name.toLowerCase().startsWith('athletics') ||
-            s?.option?.toLowerCase() === 'athletics'
+            (isThrown &&
+              (s.name.toLowerCase().startsWith('athletics')
+              || s?.option?.toLowerCase() === 'athletics')
+            )
         );
         break;
       default:
