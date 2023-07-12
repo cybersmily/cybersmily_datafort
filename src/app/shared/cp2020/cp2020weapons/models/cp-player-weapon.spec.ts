@@ -76,7 +76,7 @@ describe('CpPlayerWeapon', () => {
       spyOn(dice, 'generateNumber').and.returnValue(1);
       expect(testWeapon.rollLocation(dice)).toEqual('Head');
     });
-    it('should roll toros', () => {
+    it('should roll torso', () => {
       spyOn(dice, 'generateNumber').and.returnValue(3);
       expect(testWeapon.rollLocation(dice)).toEqual('Torso');
     });

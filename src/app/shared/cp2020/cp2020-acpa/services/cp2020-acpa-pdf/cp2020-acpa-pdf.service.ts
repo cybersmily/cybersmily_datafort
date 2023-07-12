@@ -225,7 +225,7 @@ export class Cp2020ACPAPdfService {
     left += width;
     line = this.addLocationSection(
       doc,
-      'TOROS (9-0)',
+      'TORSO (9-0)',
       start,
       left,
       width,
