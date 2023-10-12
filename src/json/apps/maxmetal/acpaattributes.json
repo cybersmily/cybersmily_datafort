@@ -22,7 +22,7 @@
     {"name":"Magnum"     ,"manufacturer":"Militech"                   ,"str":45, "toughness":-11 , "damageMod":"2D10"   , "lift":2250 , "carry":675, "weight":222, "cost": 75250 ,"spaces":{"head": 3, "torso": 5, "arms": 4, "legs": 4},"sdp":{"head":11 , "torso":33 , "arms":22 , "legs":22 } },
     {"name":"Hombre"     ,"manufacturer":"Arasaka"                    ,"str":45, "toughness":-11 , "damageMod":"2D10"   , "lift":2250 , "carry":675, "weight":222, "cost": 75250 ,"spaces":{"head": 3, "torso": 5, "arms": 4, "legs": 4},"sdp":{"head":11 , "torso":33 , "arms":22 , "legs":22 } },
     {"name":"Demigod"    ,"manufacturer":"IEC"                        ,"str":50, "toughness":-12 , "damageMod":"2D10+5" , "lift":2500 , "carry":750, "weight":242, "cost": 85230 ,"spaces":{"head": 3, "torso": 5, "arms": 4, "legs": 4},"sdp":{"head":12 , "torso":37 , "arms":25 , "legs":25 } },
-    {"name":"Mikaei"     ,"manufacturer":"Russian Arms"               ,"str":50, "toughness":-12 , "damageMod":"2D10+5" , "lift":2500 , "carry":750, "weight":363, "cost": 76707 ,"spaces":{"head": 3, "torso": 5, "arms": 4, "legs": 4},"sdp":{"head":12 , "torso":37 , "arms":25 , "legs":25 } },
+    {"name":"Mikael"     ,"manufacturer":"Russian Arms"               ,"str":50, "toughness":-12 , "damageMod":"2D10+5" , "lift":2500 , "carry":750, "weight":363, "cost": 76707 ,"spaces":{"head": 3, "torso": 5, "arms": 4, "legs": 4},"sdp":{"head":12 , "torso":37 , "arms":25 , "legs":25 } },
     {"name":"Shogun"     ,"manufacturer":"Araska"                     ,"str":52, "toughness":-12 , "damageMod":"2D10+5" , "lift":2600 , "carry":780, "weight":250, "cost": 89230 ,"spaces":{"head": 3, "torso": 5, "arms": 4, "legs": 4},"sdp":{"head":13 , "torso":39 , "arms":26 , "legs":26 } }
   ],
   "armor":[
