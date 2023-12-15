@@ -8,6 +8,7 @@ import { NrNodeIcons } from '../../enums/nr-node-icons';
 import { Coord } from '../../../../models/coord';
 import { Cp2020NrDatafort } from '../../models/cp2020-nr-datafort';
 import { Injectable } from '@angular/core';
+import { EncodeForXmlPipe } from '../../../../pipes/encode-for-xml.pipe';
 
 @Injectable({
   providedIn: 'root',
@@ -273,7 +274,7 @@ export class Cp2020DatafortSvgBuilderService {
       line += lineSize;
     }
 
-    let svg = `<svg id="datafort-cp2020" width="${width}" height="${line}" viewBox="'0 0 ${width} ${line}" enable-background="new 0 0 ${width} ${line}" xmlns="http://www.w3.org/2000/svg">
+    let svg = `<svg id="datafort-cp2020" width="${width + 10}" height="${line + 10}" viewBox="'5 5 ${width} ${line}" enable-background="new 0 0 ${width + 10} ${line + 10}" xmlns="http://www.w3.org/2000/svg" style="padding:5px 5px;">
                 <rect x="0" y="0" fill="white" width="${width}" height="${line}"/>
                 ${contents}
               </svg>`;
@@ -302,8 +303,10 @@ export class Cp2020DatafortSvgBuilderService {
     anchor: string,
     text: string
   ): string {
+    let encoder = new EncodeForXmlPipe();
+    let output = encoder.transform(text);
     return ` <text x="${x}" y="${y}" style="font-size: ${fontSize}px;" fill="${fill}" dominant-baseline="${baseline}"
-    text-anchor="${anchor}">${text}</text>`;
+    text-anchor="${anchor}">${output}</text>`;
   }
 
   private getRemoteIcon(type: NrNodeType): string {
