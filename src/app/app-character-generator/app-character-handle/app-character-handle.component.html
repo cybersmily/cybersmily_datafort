@@ -1,8 +1,10 @@
 <div class="row">
-  <div class="col">
+  <div class="col-12">
     <div class="chargen-label d-inline-block">HANDLE</div>
-    <input [(ngModel)]="handle" type="text" class="d-inline-block chargen-input chargen-handle-input"
-      (change)="onHandleChange()" tabindex="0">
-    <fa-icon [icon]="faDice" class="csd-icon-btn csd-btn ms-2" (click)="rollName()"></fa-icon>
+    <div class="m-0 d-inline-block w-75">
+      <input [(ngModel)]="handle" type="text" class="d-inline-block chargen-input chargen-handle-input csd-plain-input w-90 mb-0"
+        (change)="onHandleChange()" tabindex="0">
+      <fa-icon [icon]="faDice" class="csd-icon-btn csd-btn float-end me-1" (click)="rollName()"></fa-icon>
+    </div>
   </div>
 </div>

@@ -411,7 +411,8 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
     this.rangeBracket =  this.selectedWeaponRanges.rangeBracket(this.rangeToTarget).bracket;
   }
 
-  changeSkill() {
+  changeSkill($event): void {
+    console.log($event.target.value);
     if (this.handle !== '') {
       this.opponents[this.handle]['skill'] = this.selectedSkill;
     }

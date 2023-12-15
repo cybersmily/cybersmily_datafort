@@ -457,7 +457,7 @@ export class MaxMetalVehicle {
   toString(): string {
     let output = '\r\n' + this.name + '\r\n';
     output += '\r\n' + this.description;
-    output += '\r\n   TOP SPEED: ' + this.speed.curr.toLocaleString() + ' MPH';
+    output += '\r\n   TOP SPEED: ' + (this.speed.curr * this.speed.spMod).toLocaleString() + ' MPH';
     output +=
       '\r\n     ACC/DEC: ' +
       this.speed.accelerate.curr +

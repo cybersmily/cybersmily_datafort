@@ -56,7 +56,7 @@
         <div class="col-1 d-none d-md-inline-block"></div>
         <div class="col-12 col-md-7 cmbt-section">
           <span *ngIf="filteredSkills.length > 1; else elseSkill">
-            <select [(ngModel)]="selectedSkill" (change)="changeSkill()">
+            <select [(ngModel)]="selectedSkill" (change)="changeSkill($event)">
               <option *ngFor="let sk of filteredSkills" [ngValue]="sk">
                 {{ sk.name }}{{ sk.option ? ": " + sk.option : "" }}
               </option>

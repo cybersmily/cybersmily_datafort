@@ -33,7 +33,7 @@ export class MaxMetalVehSpeed implements MaxMetalVehStat {
   }
 
   get base(): number {
-    return this._base * this.spMod;
+    return this._base;
   }
 
   get spMod(): number {
