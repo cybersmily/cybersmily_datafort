@@ -159,7 +159,7 @@
   ],
   "demons": [
     { "name": "Imp", "rez": 15, "interface": 3, "netActions": 2, "combatNumber": 14,"cost": 1000, "icon": "Orange ball with horns", "description": ""},
-    { "name": "Efreet", "rez": 25, "interface": 4, "netActions": 3, "combatNumber": 14,"cost": 0, "icon": "Elegantly dress, strong, tall black man", "description": ""},
+    { "name": "Efreet", "rez": 25, "interface": 4, "netActions": 3, "combatNumber": 14,"cost": 5000, "icon": "Elegantly dress, strong, tall black man", "description": ""},
     { "name": "Balron", "rez": 30, "interface": 7, "netActions": 4, "combatNumber": 14,"cost": 10000, "icon": "huge armored humanoid with hissing tentacles", "description": ""}
   ],
   "demonCharts":[

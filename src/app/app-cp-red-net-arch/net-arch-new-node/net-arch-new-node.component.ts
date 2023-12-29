@@ -3,6 +3,7 @@ import { faFile, faSave, faSkullCrossbones, faCogs, faLock, faPlus, faTrash } fr
 import { CPRedIconTypeSettings, CPRedNetArchNode, NetArchProgram } from './../models';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ColorEvent } from 'ngx-color';
+import { CPRedDemon } from '../models/c-p-red-demon';
 
 @Component({
   selector: 'cs-net-arch-new-node',
@@ -19,7 +20,9 @@ export class NetArchNewNodeComponent implements OnInit {
   faTrash = faTrash;
 
   programList: Array<NetArchProgram> = new Array<NetArchProgram>();
+  demonList: Array<CPRedDemon> = new Array<CPRedDemon>();
   selectedProgram: NetArchProgram;
+  selectedDemon : CPRedDemon;
   selectedColor: string;
   selectedNode: CPRedNetArchNode = new CPRedNetArchNode();
 
@@ -42,6 +45,10 @@ export class NetArchNewNodeComponent implements OnInit {
     this.chartService.programs.subscribe(data => {
       this.programList = data.sort( (a, b) => a.name.localeCompare(b.name));
     });
+    this.chartService.demons.subscribe(data => {
+      this.demonList = data.sort( (a, b) => a.name.localeCompare(b.name));
+    });
+
     this.selectedNode = new CPRedNetArchNode(this.node);
   }
 
@@ -112,11 +119,18 @@ export class NetArchNewNodeComponent implements OnInit {
 
   changeType(e) {
     this.selectedNode.type = e.target.value
-    if(this.selectedNode.type !== 'program')  {
+    if(this.selectedNode.type == 'program')  {
+      this.selectedNode.programs = new Array<NetArchProgram>();
+      this.selectedNode.demons = undefined;
+
+    } else if(this.selectedNode.type == 'controller'){
+      this.selectedNode.demons = new Array<CPRedDemon>();
+      this.selectedNode.programs = undefined;
+    } else  {
       this.selectedNode.dv = this.defaultDV;
       this.selectedNode.programs = undefined;
-    } else {
-      this.selectedNode.programs = new Array<NetArchProgram>();
+      this.selectedNode.demons = undefined;
+      
     }
     this.update();
   }
@@ -159,12 +173,33 @@ export class NetArchNewNodeComponent implements OnInit {
         this.update();
       }
     }
+  }
+
+  addSelectedDemon() {
+    if (this.selectedNode.type === 'controller') {
+      if (!this.selectedNode.demons) {
+        this.selectedNode["demons"] = new Array<CPRedDemon>();
+      }
+      if (this.selectedNode.demons.length < 3) {
+        this.selectedNode.demons.push( JSON.parse(JSON.stringify(this.selectedDemon)));
+        if (this.selectedNode.name === '') {
+          this.selectedNode.name = this.selectedDemon.name;
+        }
+        this.update();
+      }
+    }
 
   }
 
   removeProgram(index: number) {
     if(this.selectedNode.programs) {
       this.selectedNode.programs.splice(index, 1);
+    }
+  }
+
+  removeDemon(index: number) {
+    if(this.selectedNode.demons) {
+      this.selectedNode.demons.splice(index, 1);
     }
   }
 
