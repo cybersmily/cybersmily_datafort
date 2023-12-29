@@ -37,18 +37,18 @@
             <span class="float-end">{{prog.source}}</span>
           </div>
         </div>
-        <div *ngIf="node.demons.length > 0" class="row">
+        <div *ngIf="node.demon" class="row">
           <div class="col-1"></div>
-          <div class="col">Demons</div>
+          <div class="col">Demon</div>
         </div>
-        <div class="row" *ngFor="let prog of node.demons">
+        <div class="row" *ngIf="node.demon">
           <div class="col-2"></div>
           <div class="col-6">
-            {{prog.name}} (<i>icon: {{prog.icon}}</i>)
+            {{node.demon.name}} (<i>icon: {{node.demon.icon}}</i>)
           </div>
           <div class="col-4 font-italic">
-            ({{prog.cost}}eb <span *ngIf="node.demons.length > 1">x{{node.programs.length}}</span>)
-            <span class="float-end">{{prog.source}}</span>
+            ({{node.demon.cost}}eb)
+            <span class="float-end">{{node.demon.source}}</span>
           </div>
         </div>
         <br>

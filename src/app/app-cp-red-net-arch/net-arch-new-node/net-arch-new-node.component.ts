@@ -115,21 +115,24 @@ export class NetArchNewNodeComponent implements OnInit {
         this.selectedNode.cost = 10000;
       }
     }
+
+    if(this.selectedNode.type == 'controller' && this.selectedNode.demon) {
+      this.selectedNode.cost += this.selectedNode.demon.cost;
+    }
   }
 
   changeType(e) {
     this.selectedNode.type = e.target.value
     if(this.selectedNode.type == 'program')  {
       this.selectedNode.programs = new Array<NetArchProgram>();
-      this.selectedNode.demons = undefined;
+      this.selectedNode.demon = null;
 
     } else if(this.selectedNode.type == 'controller'){
-      this.selectedNode.demons = new Array<CPRedDemon>();
       this.selectedNode.programs = undefined;
     } else  {
       this.selectedNode.dv = this.defaultDV;
       this.selectedNode.programs = undefined;
-      this.selectedNode.demons = undefined;
+      this.selectedNode.demon = null;
       
     }
     this.update();
@@ -177,16 +180,13 @@ export class NetArchNewNodeComponent implements OnInit {
 
   addSelectedDemon() {
     if (this.selectedNode.type === 'controller') {
-      if (!this.selectedNode.demons) {
-        this.selectedNode["demons"] = new Array<CPRedDemon>();
-      }
-      if (this.selectedNode.demons.length < 3) {
-        this.selectedNode.demons.push( JSON.parse(JSON.stringify(this.selectedDemon)));
+      if (!this.selectedNode.demon) {
+        this.selectedNode["demon"] = JSON.parse(JSON.stringify(this.selectedDemon))
         if (this.selectedNode.name === '') {
           this.selectedNode.name = this.selectedDemon.name;
         }
-        this.update();
       }
+      this.update();
     }
 
   }
@@ -197,10 +197,8 @@ export class NetArchNewNodeComponent implements OnInit {
     }
   }
 
-  removeDemon(index: number) {
-    if(this.selectedNode.demons) {
-      this.selectedNode.demons.splice(index, 1);
-    }
+  removeDemon() {
+    this.selectedNode.demon = null;
   }
 
   addPrograms(count: number): boolean {

@@ -68,18 +68,18 @@
   <div *ngIf="selectedNode.type === 'controller'" class="row">
     <div class="col">
       <div class="row">
-        <div class="col">Demons:</div>
+        <div class="col">Demon:</div>
       </div>
-      <div *ngFor="let prog of selectedNode.demons; let i = index" class="row">
+      <div class="row" *ngIf="selectedNode.demon">
         <div class="col-1"></div>
         <div class="col-8">
-          {{prog.name}}
-          <fa-icon [icon]="faTrash" class="csd-icon-btn ms-3 csd-btn" title="Remove Demon" (click)="removeDemon(i)"></fa-icon>
+          {{selectedNode.demon.name}}
+          <fa-icon [icon]="faTrash" class="csd-icon-btn ms-3 csd-btn" title="Remove Demon" (click)="removeDemon()"></fa-icon>
 
         </div>
-        <div class="col">{{prog.cost}}eb<span *ngIf="selectedNode.demons.length > 1"> x {{selectedNode.demons.length}}</span> </div>
+        <div class="col">{{selectedNode.demon.cost}}eb</div>
       </div>
-      <div *ngIf="selectedNode.demons && addPrograms(selectedNode.demons.length)" class="row">
+      <div *ngIf="!selectedNode.demon" class="row">
         <div class="col">
           <fa-icon [icon]="faPlus" class="csd-icon-btn csd-btn csd-icon-xl btn me-2" title="add demon to node"
             (click)="addSelectedDemon()"></fa-icon>
