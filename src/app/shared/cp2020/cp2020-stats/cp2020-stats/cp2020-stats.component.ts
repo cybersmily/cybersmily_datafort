@@ -24,10 +24,11 @@ export class Cp2020StatsComponent implements OnInit {
   };
 
   rolls: Array<number> = new Array<number>();
-  newInitModifier: StatModifier = {name: '', mod: 0};
+  newInitModifier: StatModifier = { name: '', mod: 0 };
   initiativeRoll: DiceRolls = new DiceRolls();
   showInitiativeRoll = false;
   useRolls: boolean = true;
+  statNames = ['INT', 'REF', 'BODY', 'COOL', 'TECH', 'EMP', 'ATTR', 'MA', 'LUCK'];
 
   @Input()
   stats = new Cp2020StatBlock();
@@ -47,7 +48,7 @@ export class Cp2020StatsComponent implements OnInit {
   @Output()
   changeStats = new EventEmitter<Cp2020StatBlock>();
 
-  @ViewChild('initRollElem', {static: false})
+  @ViewChild('initRollElem', { static: false })
   initRollElem: ElementRef;
 
   get isOver(): boolean {
@@ -58,7 +59,7 @@ export class Cp2020StatsComponent implements OnInit {
     let total = this.stats.REF.Adjusted;
     total += this.combatSense;
     total += this.initiativeSkill > 0 ? this.initiativeSkill : 0;
-    total += this.stats.initiativeModifiers.reduce( (a, b) => a + b.mod, 0);
+    total += this.stats.initiativeModifiers.reduce((a, b) => a + b.mod, 0);
     return total;
   }
 
@@ -89,50 +90,50 @@ export class Cp2020StatsComponent implements OnInit {
   }
 
   rollStats() {
-    const statNames = ['INT', 'REF', 'BODY', 'COOL', 'TECH', 'EMP', 'ATTR', 'MA', 'LUCK'];
     if (this.rolls.length > 0) {
-      const stats = [...this.rolls];
-      // randomly assign to each stat
-      statNames.forEach( s => {
-        this.stats[s].Base = stats.splice(this.dice.generateNumber(0, stats.length - 1), 1)[0];
-      });
+      this.assignToStats(this.statNames, [...this.rolls]);
     } else if (this.stats.BasePoints > 0) {
-      // distribute base points among stats
-      let stats = this.stats.BasePoints - 27;
-      // initialize all stats at a base of 3
-      statNames.forEach( s => {
-        this.stats[s].Base = 3;
-      });
-      let index = 0;
-      do {
-        const max = (stats > 7) ? 7 : stats;
-        // check if it is the first time.
-        if (this.stats[statNames[index]].Base > 3 ) {
-          const roll = this.dice.generateNumber(0, max);
-          stats -= roll;
-          this.stats[statNames[index]].Base += roll;
-        } else {
-          const delta = 10 - this.stats[statNames[index]].Base;
-          const roll = this.dice.generateNumber(1, max);
-          stats -= roll;
-          this.stats[statNames[index]].Base += roll;
+      let points = this.stats.BasePoints - 27;
+      const randStats = Array(this.statNames.length).map(s => 3);
+      // fill the stat array with points
+      for (let i = 0; i < randStats.length; i++) {
+        let statRoll = this.dice.generateNumber(0, 7);
+        randStats[i] += statRoll;
+        points -= statRoll;
+      }
+      // clean up the points if they exceed the bast points
+      while (points !== 0) {
+        const diff = randStats.reduce((a, b) => a + b, 0) - this.stats.BasePoints;
+        // add/subtract until the points equal out
+        for (let i = 0; i < diff; i++) {
+          // randomly choose a stat to modify
+          const index = this.dice.generateNumber(0, 9);
+          if (randStats[index] < 10 && randStats[index] > 3) {
+            randStats[index] += (diff > 0) ? 1 : -1;
+            points -= 1;
+          }
         }
-        index = (index < statNames.length - 1) ? (index + 1) : 0;
-      } while (stats > 0);
+      }
+      this.assignToStats(this.statNames, randStats);
     } else {
-      // roll each stat separately
-      statNames.forEach( s => {
-        this.stats[s].Base = this.dice.generateNumber(3, 10);
-      });
+      const randStats = [...Array(this.statNames.length)].map(_ => this.dice.generateNumber(3, 10));
+      this.assignToStats(this.statNames, randStats);
     }
     this.onStatsChange();
   }
 
-  rollInitiative(){
+  private assignToStats(characterStats: Array<string>, statsRolls: Array<number>): void {
+    // randomly assign to each stat
+    characterStats.forEach(s => {
+      this.stats[s].Base = statsRolls.splice(this.dice.generateNumber(0, statsRolls.length - 1), 1)[0];
+    });
+  }
+
+  rollInitiative() {
     this.initiativeRoll = this.dice.rollCP2020D10();
   }
 
-  onStatChange(param: {statName: string, stat: Cp2020Stat}) {
+  onStatChange(param: { statName: string, stat: Cp2020Stat }) {
     this.stats[param?.statName] = param?.stat;
     this.onStatsChange();
   }
@@ -152,8 +153,8 @@ export class Cp2020StatsComponent implements OnInit {
       this.rollInitiative();
     }
     this.modalRef = this.modalService.show(template, this.modalConfig);
-    this.modalRef.onHidden.subscribe(()=> {
-      switch(returnFocus) {
+    this.modalRef.onHidden.subscribe(() => {
+      switch (returnFocus) {
         case 'initElem':
           this.initRollElem.nativeElement.focus();
           break;
