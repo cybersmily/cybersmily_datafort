@@ -103,7 +103,6 @@ export class Cp2020StatsComponent implements OnInit {
       }
       // clean up the points if they exceed the bast points
       let diff = randStats.reduce((a, b) => a + b, 0) - this.stats.BasePoints;
-      let ctr = 0;
       while (diff !== 0) {
           // randomly choose a stat to modify
           const index = this.dice.generateNumber(0, 9);

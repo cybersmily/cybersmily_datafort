@@ -265,7 +265,6 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
   get totalDiff(): number {
     let total = 0;
     total = this.selectedWeaponRanges.rangeBracket(this.rangeToTarget).diff;
-    total += this.aimedTurns;
     total += this.fireModeModifier;
     total += this.targetSize;
     total += this.targetActionModifier;
