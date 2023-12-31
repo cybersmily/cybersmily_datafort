@@ -75,7 +75,7 @@ export class Cp2020StatBlock implements Cp2020Stats {
   private importStat(value): Cp2020Stat {
     const stat = new Cp2020Stat();
     stat.Base = value?._value ?? 0;
-    stat.modifiers = value?.modifiers ?? new Array<StatModifier>();
+    stat.modifiers = value?.modifiers.map(mod => {return {name: mod.name, mod: mod.mod};}) ?? new Array<StatModifier>();
     stat.Multiplier = value?._multiplier ?? 1;
     stat.WoundModifier = value?._woundMod ?? 0;
     return stat;
