@@ -94,7 +94,7 @@ export class Cp2020StatsComponent implements OnInit {
       this.assignToStats(this.statNames, [...this.rolls]);
     } else if (this.stats.BasePoints > 0) {
       let points = this.stats.BasePoints - 27;
-      const randStats = Array(this.statNames.length).map(s => 3);
+      const randStats = Array(this.statNames.length).fill(3);
       // fill the stat array with points
       for (let i = 0; i < randStats.length; i++) {
         let statRoll = this.dice.generateNumber(0, 7);
@@ -102,18 +102,21 @@ export class Cp2020StatsComponent implements OnInit {
         points -= statRoll;
       }
       // clean up the points if they exceed the bast points
-      while (points !== 0) {
-        const diff = randStats.reduce((a, b) => a + b, 0) - this.stats.BasePoints;
-        // add/subtract until the points equal out
-        for (let i = 0; i < diff; i++) {
+      let diff = randStats.reduce((a, b) => a + b, 0) - this.stats.BasePoints;
+      let ctr = 0;
+      while (diff !== 0) {
           // randomly choose a stat to modify
           const index = this.dice.generateNumber(0, 9);
           if (randStats[index] < 10 && randStats[index] > 3) {
-            randStats[index] += (diff > 0) ? 1 : -1;
-            points -= 1;
+            randStats[index] += (diff > 0) ? -1 : 1;
+            diff += (diff > 0) ? -1 : 1;
+          } else if(randStats[index] <= 3) {
+            // to prevent a possible infinite loop if the stats only contains 3s and 10s
+            randStats[index] += 1;
+            diff += 1;
           }
-        }
       }
+      // set the stats
       this.assignToStats(this.statNames, randStats);
     } else {
       const randStats = [...Array(this.statNames.length)].map(_ => this.dice.generateNumber(3, 10));
