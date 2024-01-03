@@ -130,6 +130,8 @@
                 [active]="initiativeIndex === i"
                 (selectIndex)="selectOpponent($event)"
                 (selectInitiative)="selectInitiative($event)"
+                (delete)="removeOpponent($event)"
+                (copy)="copyOpponent($event)"
                 >
               </cs-cmbt-trck-opponent-row>
             <div class="row">
@@ -170,70 +172,6 @@
     </div>
   </div>
 </div>
-<ng-template
-  #opponentRow
-  let-opp="opp"
-  let-index="index"
-  let-showTools="showTools"
->
-  <div
-    [ngClass]="{
-      'row border border-dark cbttrk-init bg-white': true,
-      'cbttrk-selected': selectedIndex !== index
-    }"
-  >
-    <div class="col-1 g-0 pt-2">
-      <input
-        type="radio"
-        [checked]="initiativeIndex === index"
-        (change)="selectInitiative(index)"
-        title="Check if oppenent has current initiative."
-      />
-    </div>
-    <div class="col-3 g-0" [title]="showInitiativeTooltip(opp)">
-      <input
-        [(ngModel)]="opp.initRoll"
-        type="number"
-        (change)="changeInitiative()"
-        class="csd-hide-spinner text-center ms-1"
-      />
-      <fa-icon
-        [icon]="faDice"
-        class="csd-btn csd-dice ms-1"
-        title="Roll initiative for this opponent"
-        (click)="rollInitiative(opp?.id)"
-      ></fa-icon>
-    </div>
-    <div
-      [ngClass]="{
-        'col-7 cbttrk-opp-name csd-btn text-truncate': true,
-        'fs-bold ': selectedOpponent?.id === opp.id
-      }"
-      (click)="selectOpponent(index)"
-      title="Click to show opponent..."
-    >
-      <span>{{ opp?.name }}</span>
-      <br />
-      <span class="cbtrck-opp-init-mods"
-        >[REF: {{ opp?.stats.REF.Adjusted }}]</span
-      >
-    </div>
-    <div *ngIf="showTools" class="col-1">
-      <fa-icon
-        [icon]="faCopy"
-        class="float-end csd-btn opp-delete csd-icon-btn"
-        (click)="copyOpponent(index)"
-        title="Copy opponent"
-      ></fa-icon>
-      <fa-icon
-        [icon]="faTrash"
-        class="float-end csd-btn opp-delete csd-icon-btn"
-        (click)="removeOpponent(index)"
-        title="Delete opponent"
-      ></fa-icon>
-    </div>
-    </div>
-</ng-template>
 
 <ng-template #resetModal>
   <div class="modal-header">

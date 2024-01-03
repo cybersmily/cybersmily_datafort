@@ -123,6 +123,9 @@ export class CmbtTrckFormComponent implements OnInit {
     const opp = this.opponents[index];
     const newOpp = new CmbtTrckOpponent(opp);
     newOpp.name =  `${opp.name}_${this.opponents.length + 1}`;
+    newOpp.stats.Damage = 0;
+    newOpp.stats.isStunned = false;
+    newOpp.stats.deathState = 0;
     this.opponentService.addOpponent(newOpp, true);
   }
 
@@ -181,38 +184,6 @@ export class CmbtTrckFormComponent implements OnInit {
 
   changeOpponent(value: CmbtTrckOpponent) {
     this.opponentService.changeOpponent(value);
-  }
-
-  getWoundLevel(opp): string {
-    if (opp?.stats?.WoundLevel > 0)  {
-      return Cp2020_WOUND_LEVELS[opp.stats.WoundLevel] + ' wound';
-    }
-    return '';
-  }
-
-  getWoundIcon(opp): any {
-    if (opp?.stats?.WoundLevel < 0)  {
-      return undefined;
-    }
-    switch(opp.stats.WoundLevel) {
-      case Cp2020_WOUND_LEVELS.LIGHT:
-        return this.faFirstAid;
-      case Cp2020_WOUND_LEVELS.SERIOUS:
-        return this.faHeart;
-      case Cp2020_WOUND_LEVELS.CRITICAL:
-        return this.faHeartBroken;
-      case Cp2020_WOUND_LEVELS.MORTAL_0:
-      case Cp2020_WOUND_LEVELS.MORTAL_1:
-      case Cp2020_WOUND_LEVELS.MORTAL_2:
-      case Cp2020_WOUND_LEVELS.MORTAL_3:
-      case Cp2020_WOUND_LEVELS.MORTAL_4:
-      case Cp2020_WOUND_LEVELS.MORTAL_5:
-      case Cp2020_WOUND_LEVELS.MORTAL_6:
-        return this.faHeartbeat;
-    }
-
-    return Cp2020_WOUND_LEVELS[opp.stats.WoundLevel] + ' wound';
-    return '';
   }
 
   clear() {

@@ -38,6 +38,11 @@ export class CmbtTrckOpponentRowComponent implements OnInit {
   @Output()
   selectInitiative:  EventEmitter<number> = new EventEmitter<number>();
 
+  @Output()
+  copy:  EventEmitter<number> = new EventEmitter<number>();
+
+  @Output()
+  delete:  EventEmitter<number> = new EventEmitter<number>();
 
   constructor(private opponentService: OpponentTrackerService, private woundService: CmbtTrckWoundDisplayService) {}
 
@@ -85,6 +90,14 @@ export class CmbtTrckOpponentRowComponent implements OnInit {
 
     getWoundIcon(opp:CmbtTrckOpponent): Array<any> {
       return this.woundService.getWoundIcon(opp);
+    }
+
+    copyOpponent() {
+      this.copy.emit(this.index);
+    }
+
+    removeOpponent() {
+      this.delete.emit(this.index);
     }
 
 }

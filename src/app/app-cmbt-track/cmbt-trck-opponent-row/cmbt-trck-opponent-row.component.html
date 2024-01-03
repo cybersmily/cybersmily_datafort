@@ -34,9 +34,9 @@
         <span>{{ opponent?.name }}</span>
       </div>
       <div *ngIf="showTools" class="col-1">
-        <fa-icon [icon]="faCopy" class="float-end csd-btn opp-delete csd-icon-btn" (click)="copyOpponent(index)"
+        <fa-icon [icon]="faCopy" class="float-end csd-btn opp-delete csd-icon-btn" (click)="copyOpponent()"
           title="Copy opponent"></fa-icon>
-        <fa-icon [icon]="faTrash" class="float-end csd-btn opp-delete csd-icon-btn" (click)="removeOpponent(index)"
+        <fa-icon [icon]="faTrash" class="float-end csd-btn opp-delete csd-icon-btn" (click)="removeOpponent()"
           title="Delete opponent"></fa-icon>
       </div>
     </div>
