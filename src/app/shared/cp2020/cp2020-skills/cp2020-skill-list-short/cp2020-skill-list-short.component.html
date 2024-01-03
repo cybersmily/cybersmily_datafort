@@ -1,4 +1,4 @@
-<div class="ps-3 pe-3">
+<div>
   <div class='row chargen-label'>
     <div class='col-12 g-0'>
       <h4 class="csd-btn d-inline-block" (click)="isCollapsed = !isCollapsed">
@@ -16,13 +16,16 @@
   </div>
   <div [collapse]="isCollapsed" class="row border border-dark">
     <div class="col-12">
-      <div class="row opp-sa mt-1">
-        <div class="col-3">
+      <div class="row opp-sa mt-1 border-bottom">
+        <div class="col-12 col-md-3">
           <h6 >SPECIAL ABILITY: </h6>
         </div>
-        <div class="col-9">
-          <cs-cp2020-skill *ngFor="let spclAbility of characterSpAbilites" [skill]="spclAbility" [stat]="characterStats[spclAbility.stat]" [showIP]="false" [showStat]="true" (changeSkill)="changeSpecialAbility($event)" (delete)="deleteSA($event)" ></cs-cp2020-skill>
+        <div class="col-12 col-md-9">
+          <cs-cp2020-skill *ngFor="let spclAbility of characterSpAbilites" [skill]="spclAbility" [stat]="characterStats[spclAbility.stat]" [showIP]="false" [showStat]="false" (changeSkill)="changeSpecialAbility($event)" (delete)="deleteSA($event)" ></cs-cp2020-skill>
           </div>
+      </div>
+      <div class="row d-md-none">
+        <h6>SKILLS:</h6>
       </div>
       <div class="row mt-1">
         <div class="col-12 col-md-6">

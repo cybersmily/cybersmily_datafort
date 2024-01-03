@@ -26,7 +26,7 @@ export class Cp2020SkillListShortComponent implements OnInit, OnChanges {
   };
 
   @Input()
-  isCollapsed = false;
+  isCollapsed = true;
 
   @Input()
   characterSpAbilites: Array<Cp2020PlayerSkill> = new Array<Cp2020PlayerSkill>();

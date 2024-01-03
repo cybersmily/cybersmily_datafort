@@ -35,6 +35,18 @@ h6 {
   width: 70%;
 }
 
+.w-45 {
+  width: 45%;
+}
+
+.w-30 {
+  width: 30%;
+}
+
+.w-10 {
+  width: 10%;
+}
+
 .text-small {
   font-size: small;
 }
