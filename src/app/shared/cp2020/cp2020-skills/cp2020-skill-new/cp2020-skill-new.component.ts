@@ -1,7 +1,9 @@
 import { faSave } from '@fortawesome/free-solid-svg-icons';
-import { MartialBonuses } from './../models';
+import { DataSkill, MartialBonuses } from './../models';
 import { Cp2020PlayerSkill } from './../models';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { SkillListService } from '../services';
+import { Observable, map } from 'rxjs';
 
 @Component({
   selector: 'cs-cp2020-skill-new',
@@ -21,6 +23,8 @@ export class Cp2020SkillNewComponent implements OnInit {
   updateSkill: EventEmitter<Cp2020PlayerSkill> = new EventEmitter<Cp2020PlayerSkill>();
 
   currSkill: Cp2020PlayerSkill;
+  skills$: Observable<Array<DataSkill>>;
+  skillName?: string;
 
   isMA: boolean = false;
 
@@ -37,7 +41,7 @@ export class Cp2020SkillNewComponent implements OnInit {
     }
   }
 
-  constructor() {}
+  constructor(private skillListService: SkillListService) {}
 
   ngOnInit(): void {
     this.currSkill = new Cp2020PlayerSkill(this.skill);
@@ -50,7 +54,17 @@ export class Cp2020SkillNewComponent implements OnInit {
     if (this.stat.toLowerCase() === 'other') {
       this.currSkill.name = 'Other';
     }
+    this.skills$ = this.skillListService.Skills.pipe(
+      map(skills => {
+        return skills.filter(sk => {
+          const query = new RegExp(this.skillName, 'i');
+          return query.test(sk.name);
+          }
+        );
+      })
+    );
   }
+
 
   update() {
     this.updateSkill.emit(this.currSkill);
@@ -62,5 +76,10 @@ export class Cp2020SkillNewComponent implements OnInit {
     } else {
       this.currSkill.maBonuses = new MartialBonuses();
     }
+  }
+
+  typeaheadOnSelect($event) {
+    this.currSkill = new Cp2020PlayerSkill($event.item);
+    this.skillName = this.currSkill.name;
   }
 }

@@ -43,6 +43,7 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
   roles: Array<Cp2020Role> = new Array<Cp2020Role>();
   skills: Array<DataSkill> = new Array<DataSkill>();
 
+
   constructor(private data: DataService,
     private roleService: Cp2020RolesDataService,
     private skillListService: SkillListService,
@@ -132,6 +133,17 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
       a.isSkinWeave = c.name.toLowerCase().includes('skinweave');
       this.currOpponent.armor.addPiece(a);
     });
+    this.updateOpponent();
+  }
+
+  changeSkills(skills: Array<Cp2020PlayerSkill>) {
+    this.currOpponent.skills = skills.map(sk => new Cp2020PlayerSkill(sk));
+    this.updateOpponent();
+  }
+
+  changeSpecialAbility(skills: Array<Cp2020PlayerSkill>) {
+    console.log(skills);
+    this.currOpponent.sa = new Cp2020PlayerSkill(skills[0]);
     this.updateOpponent();
   }
 

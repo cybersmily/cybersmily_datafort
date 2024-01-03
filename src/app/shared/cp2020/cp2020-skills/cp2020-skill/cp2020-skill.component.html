@@ -29,6 +29,10 @@
       <span *ngIf="currSkill?.ipMod > 1" class="skill-name">
         ({{ currSkill.ipMod }})</span
       >
+
+      <span *ngIf="showStat">
+        [{{currSkill.stat}}]
+      </span>
     </button>
     <span [ngClass]="{ 'd-none': sa, 'float-end': true }" title="Skill + Stat">
       [{{ currSkill.value + (stat ? stat.Adjusted : 0) }}]
@@ -50,6 +54,7 @@
         }"
         tabindex="0" />
       <input
+        *ngIf="showIP"
         [(ngModel)]="currSkill.ip"
         (change)="onChangeSkill()"
         min="0"

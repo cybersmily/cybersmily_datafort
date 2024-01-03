@@ -113,8 +113,7 @@
   </div>
   <div class='row mt-1'>
     <div class='col-12'>
-      <cs-cmbt-trk-skills [opponent]="currOpponent" [isCollapsed]="true" (updateOpponent)="changeOpponent($event)">
-      </cs-cmbt-trk-skills>
+      <cs-cp2020-skill-list-short [characterSkills]="currOpponent.skills" [characterSpAbilites]="[currOpponent.sa]" [characterStats]="currOpponent.stats" (updateSkills)="changeSkills($event)"  (updateSpecialAbilities)="changeSpecialAbility($event)"></cs-cp2020-skill-list-short>
     </div>
   </div>
   <div class='row mt-1'>

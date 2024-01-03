@@ -50,6 +50,12 @@ export class Cp2020SkillComponent implements OnInit, OnChanges {
   @Input()
   sa = false;
 
+  @Input()
+  showIP = true;
+
+  @Input()
+  showStat = false;
+
   @Output()
   changeSkill = new EventEmitter<Cp2020SkillUpdate>();
 

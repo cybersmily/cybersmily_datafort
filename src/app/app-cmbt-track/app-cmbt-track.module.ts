@@ -19,17 +19,16 @@ import { CommonModule } from '@angular/common';
 import { AppCmbtTrackRoutingModule } from './app-cmbt-track-routing.module';
 import { CmbtTrckFormComponent } from './cmbt-trck-form/cmbt-trck-form.component';
 import { CmbtTrckOpponentCardComponent } from './cmbt-trck-opponent-card/cmbt-trck-opponent-card.component';
-import { CmbtTrkSkillsComponent } from './cmbt-trk-skills/cmbt-trk-skills.component';
 import { CmbtTrkCyberComponent } from './cmbt-trk-cyber/cmbt-trk-cyber.component';
 import { CmbtTrckMainComponent } from './cmbt-trck-main/cmbt-trck-main.component';
 import { CmbtTrckInstructionsComponent } from './cmbt-trck-instructions/cmbt-trck-instructions.component';
 import { CmbtTrckGearComponent } from './cmbt-trck-gear/cmbt-trck-gear.component';
+import { Cp2020SkillsModule } from '../shared/cp2020/cp2020-skills/cp2020-skills.module';
 
 @NgModule({
   declarations: [
     CmbtTrckFormComponent,
     CmbtTrckOpponentCardComponent,
-    CmbtTrkSkillsComponent,
     CmbtTrkCyberComponent,
     CmbtTrckMainComponent,
     CmbtTrckInstructionsComponent,
@@ -44,6 +43,7 @@ import { CmbtTrckGearComponent } from './cmbt-trck-gear/cmbt-trck-gear.component
     Cp2020StatsModule,
     Cp2020WoundsModule,
     Cp2020ArmorModule,
+    Cp2020SkillsModule,
     Cp2020CyberwareModule
   ],
   providers: [

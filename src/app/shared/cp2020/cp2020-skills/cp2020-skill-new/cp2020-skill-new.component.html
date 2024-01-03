@@ -2,11 +2,14 @@
   <div class="col-3">Name:</div>
   <div class="col">
     <input
-      type="text"
-      [(ngModel)]="currSkill.name"
+      [(ngModel)]="skillName"
+      [typeahead]="skills$"
+      [typeaheadAsync]="true"
+      (typeaheadOnSelect)="typeaheadOnSelect($event)"
+      [typeaheadItemTemplate]="customItemTemplate"
       placeholder="skill name..."
       tabindex="0"
-      [typeahead]="skillParents"
+      type="text"
     />
     <fa-icon
       [icon]="faSave"
@@ -32,14 +35,14 @@
   <div class="col">
     <select [(ngModel)]="currSkill.stat" tabindex="0">
       <option value=""></option>
-      <option value="attr">ATTR</option>
-      <option value="body">BODY</option>
-      <option value="cool">COOL/WILL</option>
-      <option value="emp">EMPATHY</option>
-      <option value="int">INT</option>
-      <option value="ref">REFLEX</option>
-      <option value="tech">TECH</option>
-      <option value="other">Other</option>
+      <option value="ATTR">ATTR</option>
+      <option value="BODY">BODY</option>
+      <option value="COOL">COOL/WILL</option>
+      <option value="EMP">EMPATHY</option>
+      <option value="INT">INT</option>
+      <option value="REF">REFLEX</option>
+      <option value="TECH">TECH</option>
+      <option value="OTHER">Other</option>
     </select>
   </div>
 </div>
@@ -221,3 +224,7 @@
     </div>
   </div>
 </div>
+
+<ng-template #customItemTemplate let-model="item" let-index="index">
+  {{model.name}} {{model?.option}}
+</ng-template>

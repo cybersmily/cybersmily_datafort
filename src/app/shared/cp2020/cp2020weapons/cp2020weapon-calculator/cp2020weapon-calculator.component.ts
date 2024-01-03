@@ -411,7 +411,6 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
   }
 
   changeSkill($event): void {
-    console.log($event.target.value);
     if (this.handle !== '') {
       this.opponents[this.handle]['skill'] = this.selectedSkill;
     }
