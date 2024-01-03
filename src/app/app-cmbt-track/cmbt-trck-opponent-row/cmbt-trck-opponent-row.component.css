@@ -1,0 +1,48 @@
+
+.opp-conditions {
+  color: red;
+  font-size: 12px;
+}
+
+.cbttrk-init {
+  padding: 0px 0px;
+  vertical-align: middle;
+}
+
+.cbtrck-opp-init-mods {
+  font-size: 12px;
+}
+
+.cbttrk-init input {
+  width: 25px;
+  margin-top: 4px;
+}
+
+.cbttrk-selected {
+background-color: #999 !important;
+font-weight: bold;
+}
+
+.cbttrk-selected input {
+background-color: #BBB;
+font-weight: bold;
+border-color: #777;
+border-width: 1px;
+border-style: solid;
+}
+
+.cbttrk-opp-name {
+margin-top: 4px;
+}
+
+.opp-delete {
+display:none;
+}
+
+.opp-init {
+display: none;
+}
+
+.cbttrk-init:hover .opp-init, .cbttrk-init:hover .opp-delete {
+display: inline-block;
+}

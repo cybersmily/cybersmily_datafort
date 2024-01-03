@@ -5,7 +5,9 @@ import { CharacterImporterService } from './../../shared/services/charimporter/c
 import { FileLoaderService, SaveFileService } from './../../shared/services/file-services';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { CmbtTrckOppSelection, CmbtTrckOpponent } from '../../shared/models/cmbt-trck';
-import { faDice, faPlus, faTrash, faSave, faUpload, faRedo, faFileImport, faFile, faQuestionCircle, faCopy, faChevronDown, faChevronUp, faMinus } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faPlus, faTrash, faSave, faUpload, faRedo, faFileImport,
+  faFile, faQuestionCircle, faCopy, faChevronDown, faChevronUp, faMinus,
+  faEyeSlash, faHeartBroken, faHeart, faHeartbeat, faFirstAid, faSkullCrossbones } from '@fortawesome/free-solid-svg-icons';
 import { OpponentTrackerService } from './../services/opponent-tracker.service';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 
@@ -27,6 +29,12 @@ export class CmbtTrckFormComponent implements OnInit {
   faCopy = faCopy;
   faChevronDown = faChevronDown;
   faChevronUp = faChevronUp;
+  faEyeSlash = faEyeSlash;
+  faHeartBroken = faHeartBroken;
+  faHeart = faHeart;
+  faHeartbeat = faHeartbeat;
+  faFirstAid = faFirstAid;
+  faSkullCrossbones = faSkullCrossbones;
 
 
   modalRef: BsModalRef;
@@ -182,6 +190,31 @@ export class CmbtTrckFormComponent implements OnInit {
     return '';
   }
 
+  getWoundIcon(opp): any {
+    if (opp?.stats?.WoundLevel < 0)  {
+      return undefined;
+    }
+    switch(opp.stats.WoundLevel) {
+      case Cp2020_WOUND_LEVELS.LIGHT:
+        return this.faFirstAid;
+      case Cp2020_WOUND_LEVELS.SERIOUS:
+        return this.faHeart;
+      case Cp2020_WOUND_LEVELS.CRITICAL:
+        return this.faHeartBroken;
+      case Cp2020_WOUND_LEVELS.MORTAL_0:
+      case Cp2020_WOUND_LEVELS.MORTAL_1:
+      case Cp2020_WOUND_LEVELS.MORTAL_2:
+      case Cp2020_WOUND_LEVELS.MORTAL_3:
+      case Cp2020_WOUND_LEVELS.MORTAL_4:
+      case Cp2020_WOUND_LEVELS.MORTAL_5:
+      case Cp2020_WOUND_LEVELS.MORTAL_6:
+        return this.faHeartbeat;
+    }
+
+    return Cp2020_WOUND_LEVELS[opp.stats.WoundLevel] + ' wound';
+    return '';
+  }
+
   clear() {
     if (confirm('This will clear all the combatant data and start a new. Are you sure you want to wipe out everything?')) {
       this.opponentService.clear();
@@ -224,16 +257,7 @@ export class CmbtTrckFormComponent implements OnInit {
     }
   }
 
-  showInitiativeMods(oppStats: Cp2020StatBlock, combatSense: number): string {
-    let results = '';
-    results = oppStats.initiativeModifiers.map( mod => `,${mod.name}: ${mod.mod > 0 ? '+' + mod.mod : mod.mod}`).join('');
-    const cmbtSense = (combatSense > 0) ? `, Combat Sensse: +${combatSense}`  : '';
-    results = `[REF: ${oppStats.REF.Adjusted}${cmbtSense}${results}]`;
-    return results;
-  }
 
-  showInitiativeTooltip(opp: CmbtTrckOpponent): string {
-    return `Initiative Roll(s): (${opp.initDie.join(' + ')}) + ${this.showInitiativeMods(opp.stats, opp.combatSense)}`;
-  }
+
 
 }

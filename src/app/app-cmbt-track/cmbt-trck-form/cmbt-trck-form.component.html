@@ -1,9 +1,10 @@
 <div>
-  <div class="row">
+  <div class="row mb-2">
     <div class="col-12">
       <fa-icon
         [icon]="faSave"
-        class="float-start btn-lg csd-btn csd-icon-btn me-3"
+        class="float-start csd-btn csd-icon-btn me-3"
+        size="xl"
         (click)="save()"
         title="Save to a json file. This is needed to reload the data."
       ></fa-icon>
@@ -22,6 +23,7 @@
         <fa-icon
           [icon]="faUpload"
           title="load a combat tracker json file"
+          size="xl"
           class="csd-icon-btn"
         ></fa-icon>
       </label>
@@ -41,12 +43,14 @@
           [icon]="faFileImport"
           title="Import a Cybersmily CP2020 JSON file as an opponent"
           class="csd-icon-btn"
+          size="xl"
         ></fa-icon>
       </label>
       <fa-icon
         [icon]="faHelp"
         class="float-start btn-lg csd-btn csd-icon-btn me-3"
         (click)="openModal(instructionModal)"
+        size="xl"
         title="Show instructions."
       ></fa-icon>
       &nbsp;
@@ -56,6 +60,7 @@
         class="float-end btn-lg csd-btn csd-icon-btn"
         (click)="openModal(resetModal)"
         title="Reset tracker. Removing all the combatants."
+        size="xl"
       ></fa-icon>
     </div>
   </div>
@@ -71,44 +76,30 @@
                 [icon]="faDice"
                 (click)="rollInitiative()"
                 title="Roll all initiatives"
-                class="csd-btn csd-dice h4 align-middle mt-3 mt-lg-auto"
+                class="csd-btn csd-dice h4 align-middle mt-1 mt-lg-auto"
               ></fa-icon>
             </div>
             <div class="col-1 ps-1 g-0 pt-3 text-center">
               <fa-icon
                 [icon]="faChevronUp"
                 title="Previous opponent"
-                class="csd-btn csd-icon-btn csd-icon-lg m-0"
+                class="csd-btn csd-icon-btn m-0 w-100"
+                size="xl"
                 (click)="cycle(false)"
               ></fa-icon>
             </div>
             <div class="col-6 text-center">
-              <div>CURRENT INITITATIVE</div>
-              <div class="text-black bg-white w-100 ps-1">
-                <span class="float-start">{{
-                  currentInitiativeOpp?.initRoll
-                }}</span
-                >{{ currentInitiativeOpp?.name }}
-                <div class="pt-1 pb-1 mt-0 mb-0 small">
-                  <span *ngIf="currentInitiativeOpp?.stats.isStunned"
-                    >*Stunned</span
-                  >
-                  <span *ngIf="getWoundLevel(currentInitiativeOpp) !== ''"
-                    >*{{ getWoundLevel(currentInitiativeOpp) }}</span
-                  >
-                  <span
-                    *ngIf="currentInitiativeOpp?.stats.deathState &gt; 0 && currentInitiativeOpp?.stats.deathState &lt; 10"
-                    >*DEATH STATE:
-                    {{ currentInitiativeOpp?.stats.deathState }}</span
-                  >
-                </div>
+              <div>INITITATIVE: {{ currentInitiativeOpp?.initRoll }}</div>
+              <div class="text-black bg-white w-100 ps-1 text-truncate">
+                {{ currentInitiativeOpp?.name }}
               </div>
             </div>
             <div class="col-1 ps-1 g-0 pt-3 text-center">
               <fa-icon
                 [icon]="faChevronDown"
                 title="Next opponent"
-                class="csd-btn csd-icon-btn csd-icon-lg m-0"
+                class="csd-btn csd-icon-btn m-0"
+                size="xl"
                 (click)="cycle(true)"
               ></fa-icon>
             </div>
@@ -130,17 +121,17 @@
               ></fa-icon>
             </div>
           </div>
-          <div *ngIf="showList">
-            <ng-container
-              *ngFor="let opp of opponents; index as i"
-              [ngTemplateOutlet]="opponentRow"
-              [ngTemplateOutletContext]="{
-                opp: opp,
-                index: i,
-                showTools: true
-              }"
-            >
-            </ng-container>
+          <div *ngIf="showList" class="px-0 mx-0">
+            <cs-cmbt-trck-opponent-row *ngFor="let opp of opponents; index as i"
+                [opponent]="opp"
+                [index]="i"
+                [showTools]="true"
+                [selected]="selectedIndex !== i"
+                [active]="initiativeIndex === i"
+                (selectIndex)="selectOpponent($event)"
+                (selectInitiative)="selectInitiative($event)"
+                >
+              </cs-cmbt-trck-opponent-row>
             <div class="row">
               <div
                 class="col-12 border border-dark btn csd-btn"
@@ -215,7 +206,7 @@
     </div>
     <div
       [ngClass]="{
-        'col-7 cbttrk-opp-name csd-btn': true,
+        'col-7 cbttrk-opp-name csd-btn text-truncate': true,
         'fs-bold ': selectedOpponent?.id === opp.id
       }"
       (click)="selectOpponent(index)"
@@ -241,20 +232,7 @@
         title="Delete opponent"
       ></fa-icon>
     </div>
-    <div class="col-12 opp-conditions">
-      <span *ngIf="opp?.stats.deathState &gt; 9" class="fw-bold m-e-2"
-        >** DEAD **</span
-      >
-      <span *ngIf="opp?.stats.isStunned" class="m-e-2">*Stunned</span>
-      <span *ngIf="getWoundLevel(opp) !== ''" class="m-e-2"
-        >*{{ getWoundLevel(opp) }}</span
-      >
-      <span
-        *ngIf="opp?.stats.deathState &gt; 0 && opp?.stats.deathState &lt; 10"
-        >*DEATH STATE: {{ opp?.stats.deathState }}</span
-      >
     </div>
-  </div>
 </ng-template>
 
 <ng-template #resetModal>
