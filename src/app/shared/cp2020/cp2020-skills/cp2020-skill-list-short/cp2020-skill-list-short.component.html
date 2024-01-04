@@ -11,6 +11,10 @@
         <fa-icon [icon]="dice"
           title="Randomly set all the skill levels to 1-10.{{(characterSkills.length &lt; 1)?' Need to add some skills first.':''}}">
         </fa-icon>
+        </span>
+        <span class="csd-btn ms-2 d-inline-block h4" *ngIf="!isCollapsed" (click)="addSKill(newSkillModal)">
+
+        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn me-1 ms-1" title="Add a new special ability or skill to the list"></fa-icon>
       </span>
     </div>
   </div>
@@ -36,7 +40,7 @@
         </div>
       </div>
       <div class="row pb-2">
-        <div class="col-12 g-0 csd-btn" (click)="addSKill(newSkillModal)">
+        <div class="col-12 g-0 csd-btn">
           <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn me-1 ms-1"></fa-icon>
           Add new Skill
         </div>
