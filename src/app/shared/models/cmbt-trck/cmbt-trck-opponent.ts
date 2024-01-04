@@ -18,6 +18,7 @@ export class CmbtTrckOpponent {
   cyberware: Array<OppCyberware>;
   private _skills: Array<Cp2020PlayerSkill>;
   weapons: Array<CpPlayerWeapon>;
+  selectedWeapon?: CpPlayerWeapon;
   gear: Array<string>;
   modifiers: Cp2020CombatModifiers;
 
@@ -75,6 +76,7 @@ export class CmbtTrckOpponent {
     this.skills = this._skills;
     this.cyberware = template.cyberware;
     this.weapons = new Array<CpPlayerWeapon>();
+    this.selectedWeapon = template?.selectedWeapon;
     template.weapons.forEach((w) => this.weapons.push(new CpPlayerWeapon(w)));
     this.gear = template.gear;
   }

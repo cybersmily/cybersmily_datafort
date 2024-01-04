@@ -19,5 +19,6 @@ export interface CmbtTrckOppTemplate {
     skills: Array<Cp2020PlayerSkill>;
     cyberware: Array<OppCyberware>;
     weapons: Array<CpPlayerWeapon>;
+    selectedWeapon?:CpPlayerWeapon;
     gear: Array<string>;
 }
