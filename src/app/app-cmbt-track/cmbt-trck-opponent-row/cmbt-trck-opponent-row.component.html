@@ -8,21 +8,23 @@
         <input type="radio" [checked]="active" (change)="setInitiative(index)"
           title="Check if oppenent has current initiative." />
       </div>
-      <div class="col-3 g-0" [title]="showInitiativeTooltip(opponent)">
-        <span *ngIf="opponent?.stats.deathState &gt; 9 || opponent?.stats.Damage &gt; 39; else checkStun">
-          <fa-icon [icon]="faSkullCrossbones" title="DEAD" class="mt-2 csd-icon-btn" size="2xl"></fa-icon>
-        </span>
+      <div class="col-3 g-0 text-center" [title]="showInitiativeTooltip(opponent)">
+        <div *ngIf="opponent?.stats.deathState &gt; 9 || opponent?.stats.Damage &gt; 39; else checkStun"  class="mt-2">
+          <fa-icon [icon]="faSkullCrossbones" title="DEAD" class="csd-icon-btn" size="2xl"></fa-icon>
+        </div>
         <ng-template #checkStun>
           <ng-container
             *ngIf="opponent?.stats.isStunned || opponent?.stats.deathState > 0; then stunCondition else initSection"></ng-container>
           <ng-template #stunCondition>
+            <div class="mt-2">
             <fa-icon *ngIf="opponent?.stats.isStunned || opponent?.stats.deathState > 0" [icon]="faEyeSlash"
-              title="Stunned" class="mt-2 csd-icon-btn" size="2xl"></fa-icon>
+              title="Stunned" class="csd-icon-btn" size="2xl"></fa-icon>
+            </div>
           </ng-template>
           <ng-template #initSection>
             <input [(ngModel)]="opponent.initRoll" type="number" (change)="changeInitiative()"
-              class="csd-hide-spinner text-center ms-1" />
-            <fa-icon [icon]="faDice" class="csd-btn csd-dice ms-2 " title="Roll initiative for this opponent"
+              class="csd-hide-spinner text-center ms-1 w-50 mt-2" />
+            <fa-icon [icon]="faDice" class="csd-btn csd-dice ms-2 mt-2" title="Roll initiative for this opponent"
               (click)="rollInitiative(opponent?.id)" size="xl"></fa-icon>
           </ng-template>
         </ng-template>
