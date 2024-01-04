@@ -84,8 +84,13 @@ export class Cp2020SkillListShortComponent implements OnInit, OnChanges {
   }
 
   addNewSkill(skill: Cp2020PlayerSkill) {
-    this.currentSkills.push(new Cp2020PlayerSkill(skill));
-    this.updateSkills.emit(this.currentSkills);
+    if(skill?.isSA) {
+      this.currentSpecialAbilities.push(new Cp2020PlayerSkill(skill));
+      this.updateSpecialAbilities.emit(this.currentSpecialAbilities);
+    } else {
+      this.currentSkills.push(new Cp2020PlayerSkill(skill));
+      this.updateSkills.emit(this.currentSkills);
+    }
     this.modalRef.hide();
   }
 
@@ -98,7 +103,6 @@ export class Cp2020SkillListShortComponent implements OnInit, OnChanges {
   }
 
   changeSpecialAbility(skill: Cp2020SkillUpdate) {
-    console.log('currentSA', this.currentSpecialAbilities)
     const index = this.currentSpecialAbilities.findIndex(sk => sk.name === skill.current.name);
     if( index >= 0) {
       this.currentSpecialAbilities[index] = new Cp2020PlayerSkill(skill.update);

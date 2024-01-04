@@ -91,7 +91,7 @@ export class Cp2020SkillComponent implements OnInit, OnChanges {
     this.currSkill = new Cp2020PlayerSkill(skillUpdate.update);
   }
 
-  onClick(template: TemplateRef<any>) {
+  onClick( template: TemplateRef<any>) {
     let roll = 0;
     this.rollMessage = '';
     this.dieRoll = 0;

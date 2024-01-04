@@ -15,14 +15,14 @@
       class="m-0 w-95 text-end"
     ></fa-icon>
  </div>
-  <div class="col-6 col-md-7 text-start pe-1">
+  <div class="col-6 col-md-7 text-start pe-1"
+  (click)="showModal(skillDetails, 'skillName')">
     <button
       #skillNameElem
       [ngClass]="{
         'w-100 m-0 p-0 rounded skill-name csd-btn text-start': true,
         'sa-name': sa
       }"
-      (click)="showModal(skillDetails, 'skillName')"
       tabindex="0"
     >
       {{ currSkill.name }}

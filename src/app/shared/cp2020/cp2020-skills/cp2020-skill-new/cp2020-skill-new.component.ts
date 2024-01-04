@@ -67,6 +67,7 @@ export class Cp2020SkillNewComponent implements OnInit {
 
 
   update() {
+    this.currSkill.name = this.skillName;
     this.updateSkill.emit(this.currSkill);
   }
 

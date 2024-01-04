@@ -142,8 +142,7 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
   }
 
   changeSpecialAbility(skills: Array<Cp2020PlayerSkill>) {
-    console.log(skills);
-    this.currOpponent.sa = new Cp2020PlayerSkill(skills[0]);
+    this.currOpponent.sa = skills.map(sk => new Cp2020PlayerSkill(sk));
     this.updateOpponent();
   }
 
@@ -154,7 +153,7 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
 
   changeRole() {
     this.currOpponent.role = this.selectedRole.name;
-    this.currOpponent.sa = new Cp2020PlayerSkill(this.selectedRole.specialability);
+    this.currOpponent.sa = [new Cp2020PlayerSkill(this.selectedRole.specialability)];
     this.selectedRole.skills.forEach( sk => {
       if (typeof sk === 'string') {
         // resolve ampersand in JSON file.
