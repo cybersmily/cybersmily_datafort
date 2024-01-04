@@ -237,11 +237,14 @@
         </div>
         <div class="col-3 text-end">{{ fireModeModifier }}</div>
       </div>
-      <div class="row">
+      <div class="row" (click)="collapseTargetMods = !collapseTargetMods">
         <div class="col-1 d-none d-md-inline-block"></div>
-        <div class="col">Target Modifiers:</div>
+        <div class="col">Target Modifiers:
+          <fa-icon [icon]="collapseTargetMods ? faChevronDown : faChevronRight" class="csd-icon-btn"></fa-icon></div>
         <div class="col-3 text-end">{{ targetActionModifier }}</div>
       </div>
+      <div class="row" [collapse]="!collapseTargetMods">
+        <div class="col-12">
       <div class="row cmbt-modifiers">
         <div class="col-2"></div>
         <div class="col-5">
@@ -266,7 +269,7 @@
       </div>
       <div class="row cmbt-modifiers">
         <div class="col-2"></div>
-        <div class="col-5">
+        <div class="col-10 col-md-5">
           <input
             id="turnToFaceTarget"
             type="checkbox"
@@ -274,7 +277,8 @@
           />&nbsp;
           <label for="turnToFaceTarget">Turn To Face (+2) </label>
         </div>
-        <div class="col-5">
+        <div class="col-2 d-md-none"></div>
+        <div class="col-10 col-md-5">
           <input
             id="targetSilhoutted"
             type="checkbox"
@@ -283,7 +287,7 @@
           <label for="targetSilhoutted">Silhoutted (-2) </label>
         </div>
         <div class="col-2"></div>
-        <div class="col-5" *ngIf="!isRanged">
+        <div class="col-10 col-md-5" *ngIf="!isRanged">
           <input
             id="targetdodge"
             type="checkbox"
@@ -291,129 +295,141 @@
           />&nbsp;
           <label for="targetdodge">Dodging (+2) </label>
         </div>
-      </div>
-      <div class="row">
+      </div></div>
+    </div>
+      <div class="row" (click)="collapseAttackerMods = !collapseAttackerMods">
         <div class="col-1 d-none d-md-inline-block"></div>
-        <div class="col">Attacker Modifiers:</div>
-        <div class="col-3 text-end">{{ attackerActionModifier }}</div>
+        <div class="col">Attacker Modifiers:
+          <fa-icon [icon]="collapseAttackerMods ? faChevronDown : faChevronRight" class="csd-icon-btn"></fa-icon>
+        </div>
+        <div class="col-1 text-end"> {{ attackerActionModifier }}</div>
       </div>
-      <div class="row cmbt-modifiers" *ngIf="isRanged">
-        <div class="col-2"></div>
-        <div class="col">
-          Aimed (turns):&nbsp;
-          <select [(ngModel)]="aimedTurns">
-            <option [ngValue]="0">0</option>
-            <option [ngValue]="-1">1</option>
-            <option [ngValue]="-2">2</option>
-            <option [ngValue]="-3">3</option>
-          </select>
-        </div>
-      </div>
-      <div class="row cmbt-modifiers">
-        <div class="col-2"></div>
-        <div class="col-5">
-          <input id="fastDraw" type="checkbox" [(ngModel)]="fastDraw" />&nbsp;
-          <label for="fastDraw">Fast draw/Snapshot (+3)</label>
-        </div>
-        <div class="col-5">
-          <input id="ambush" type="checkbox" [(ngModel)]="ambush" />&nbsp;
-          <label for="ambush">Ambush (-5) </label>
-        </div>
-      </div>
-      <div class="row cmbt-modifiers">
-        <div class="col-2"></div>
-        <div class="col-5">
-          <input id="aimedBody" type="checkbox" [(ngModel)]="aimedBody" />&nbsp;
-          <label for="aimedBody">Aimed shot at body location (+4)</label>
-        </div>
-        <div class="col-5" *ngIf="isRanged">
-          <input id="ricochet" type="checkbox" [(ngModel)]="ricochet" />&nbsp;
-          <label for="ricochet">Ricochet/Indirect fire (+5) </label>
-        </div>
-      </div>
-      <div class="row cmbt-modifiers">
-        <div class="col-2"></div>
-        <div class="col-5">
-          <input id="blind" type="checkbox" [(ngModel)]="blind" />&nbsp;
-          <label for="blind">Blinded by dust/light (+3)</label>
-        </div>
-        <div class="col-5">
-          <input
-            id="twoWeapons"
-            type="checkbox"
-            [(ngModel)]="twoWeapons"
-          />&nbsp;
-          <label for="twoWeapons">Using two weaons (+3) </label>
-        </div>
-      </div>
-      <div class="row cmbt-modifiers" *ngIf="isRanged">
-        <div class="col-2"></div>
-        <div class="col-5">
-          <input id="running" type="checkbox" [(ngModel)]="running" />&nbsp;
-          <label for="running">Firing while running (+3)</label>
-        </div>
-        <div class="col-5">
-          <input
-            id="fireFromHip"
-            type="checkbox"
-            [(ngModel)]="fireFromHip"
-          />&nbsp;
-          <label for="fireFromHip">Firing shouler arm from the hip (+2) </label>
-        </div>
-      </div>
-      <div class="row" *ngIf="isRanged">
-        <div class="col-1"></div>
-        <div class="col">Sights/Smartweapon:</div>
-        <div class="col-3 text-end">{{ sightSmartModifier }}</div>
-      </div>
-      <div class="row cmbt-modifiers" *ngIf="isRanged">
-        <div class="col-2"></div>
-        <div class="col-5">
-          <input
-            id="smartWeapon"
-            type="checkbox"
-            [(ngModel)]="smartWeapon"
-          />&nbsp; <label for="smartWeapon">Smartweapon/goggles (-2) </label>
-        </div>
-        <div class="col-5">
-          <input
-            id="laserSight"
-            type="checkbox"
-            [(ngModel)]="laserSight"
-          />&nbsp;
-          <label for="laserSight">Laser Sight (-1) </label>
-        </div>
-      </div>
-      <div class="row cmbt-modifiers" *ngIf="isRanged">
-        <div class="col-2"></div>
-        <div class="col-5">
-          <input id="teleSight" type="checkbox" [(ngModel)]="teleSight" />&nbsp;
-          <label for="teleSight"
-            >Telescopic Scope ({{
-              selectedWeaponBracket?.bracket === "Medium"
-                ? -1
-                : selectedWeaponBracket?.bracket === "Extreme"
-                ? -2
-                : 0
-            }})
-          </label>
-        </div>
-        <div class="col-5">
-          <input
-            id="targetScope"
-            *ngIf="smartWeapon"
-            type="checkbox"
-            [(ngModel)]="targetScope"
-          />&nbsp;
-          <label for="targetScope" *ngIf="smartWeapon"
-            >Targeting Scope (-1)
-          </label>
+      <div class="row" [collapse]="!collapseAttackerMods">
+        <div class="col-12">
+          <div class="row cmbt-modifiers" *ngIf="isRanged">
+            <div class="col-2"></div>
+            <div class="col">
+              Aimed (turns):&nbsp;
+              <select [(ngModel)]="aimedTurns">
+                <option [ngValue]="0">0</option>
+                <option [ngValue]="-1">1</option>
+                <option [ngValue]="-2">2</option>
+                <option [ngValue]="-3">3</option>
+              </select>
+            </div>
+          </div>
+          <div class="row cmbt-modifiers">
+            <div class="col-2"></div>
+            <div class="col-10 col-md-5">
+              <input id="fastDraw" type="checkbox" [(ngModel)]="fastDraw" />&nbsp;
+              <label for="fastDraw">Fast draw/Snapshot (+3)</label>
+            </div>
+            <div class="col-2 d-md-none"></div>
+            <div class="col-10 col-md-5">
+              <input id="ambush" type="checkbox" [(ngModel)]="ambush" />&nbsp;
+              <label for="ambush">Ambush (-5) </label>
+            </div>
+          </div>
+          <div class="row cmbt-modifiers">
+            <div class="col-2"></div>
+            <div class="col-10 col-md-5">
+              <input id="aimedBody" type="checkbox" [(ngModel)]="aimedBody" />&nbsp;
+              <label for="aimedBody">Aimed shot at body location (+4)</label>
+            </div>
+            <div class="col-2 d-md-none"></div>
+            <div class="col-10 col-md-5" *ngIf="isRanged">
+              <input id="ricochet" type="checkbox" [(ngModel)]="ricochet" />&nbsp;
+              <label for="ricochet">Ricochet/Indirect fire (+5) </label>
+            </div>
+          </div>
+          <div class="row cmbt-modifiers">
+            <div class="col-2"></div>
+            <div class="col-10 col-md-5">
+              <input id="blind" type="checkbox" [(ngModel)]="blind" />&nbsp;
+              <label for="blind">Blinded by dust/light (+3)</label>
+            </div>
+            <div class="col-2 d-md-none"></div>
+            <div class="col-10 col-md-5">
+              <input
+                id="twoWeapons"
+                type="checkbox"
+                [(ngModel)]="twoWeapons"
+              />&nbsp;
+              <label for="twoWeapons">Using two weapons (+3) </label>
+            </div>
+          </div>
+          <div class="row cmbt-modifiers" *ngIf="isRanged">
+            <div class="col-2"></div>
+            <div class="col-10 col-md-5">
+              <input id="running" type="checkbox" [(ngModel)]="running" />&nbsp;
+              <label for="running">Firing while running (+3)</label>
+            </div>
+            <div class="col-2 d-md-none"></div>
+            <div class="col-10 col-md-5">
+              <input
+                id="fireFromHip"
+                type="checkbox"
+                [(ngModel)]="fireFromHip"
+              />&nbsp;
+              <label for="fireFromHip">Firing shouler arm from the hip (+2) </label>
+            </div>
+          </div>
+          <div class="row" *ngIf="isRanged">
+            <div class="col-1"></div>
+            <div class="col">Sights/Smartweapon:</div>
+            <div class="col-3 text-end">{{ sightSmartModifier }}</div>
+          </div>
+          <div class="row cmbt-modifiers" *ngIf="isRanged">
+            <div class="col-2"></div>
+            <div class="col-10 col-md-5">
+              <input
+                id="smartWeapon"
+                type="checkbox"
+                [(ngModel)]="smartWeapon"
+              />&nbsp; <label for="smartWeapon">Smartweapon/goggles (-2) </label>
+            </div>
+            <div class="col-2 d-md-none"></div>
+            <div class="col-10 col-md-5">
+              <input
+                id="laserSight"
+                type="checkbox"
+                [(ngModel)]="laserSight"
+              />&nbsp;
+              <label for="laserSight">Laser Sight (-1) </label>
+            </div>
+          </div>
+          <div class="row cmbt-modifiers" *ngIf="isRanged">
+            <div class="col-2"></div>
+            <div class="col-10 col-md-5">
+              <input id="teleSight" type="checkbox" [(ngModel)]="teleSight" />&nbsp;
+              <label for="teleSight"
+                >Telescopic Scope ({{
+                  selectedWeaponBracket?.bracket === "Medium"
+                    ? -1
+                    : selectedWeaponBracket?.bracket === "Extreme"
+                    ? -2
+                    : 0
+                }})
+              </label>
+            </div>
+            <div class="col-2 d-md-none"></div>
+            <div class="col-10 col-md5">
+              <input
+                id="targetScope"
+                *ngIf="smartWeapon"
+                type="checkbox"
+                [(ngModel)]="targetScope"
+              />&nbsp;
+              <label for="targetScope" *ngIf="smartWeapon"
+                >Targeting Scope (-1)
+              </label>
+            </div>
+          </div>
+
         </div>
       </div>
       <div class="row">
-        <div class="col-1"></div>
-        <div class="col">Other Modifiers</div>
-        <div class="col-2 text-end cmbt-other">
+        <div class="col">Other Modifiers:
           <input type="number" [(ngModel)]="otherToHitModifiers" />
         </div>
       </div>

@@ -24,6 +24,9 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
   faChevronDown = faChevronDown;
   faChevronRight = faChevronRight;
 
+  collapseAttackerMods = false;
+  collapseTargetMods = false;
+
 
   @Input()
   weaponList: CpPlayerWeaponList = new CpPlayerWeaponList();
