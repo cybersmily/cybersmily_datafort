@@ -13,8 +13,8 @@ import { SkillListService } from './../../shared/cp2020/cp2020-skills/services';
 import { DataService } from './../../shared/services/file-services';
 import { Cp2020RolesDataService } from './../../shared/cp2020/cp2020-role/services/cp2020-roles-data.service';
 import { forkJoin } from 'rxjs';
-import { faDice, faTrash, faRedo } from '@fortawesome/free-solid-svg-icons';
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { faDice, faTrash, faRedo, faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'cs-cmbt-trck-opponent-card',
@@ -25,6 +25,9 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
   dice = faDice;
   faTrash = faTrash;
   faRedo = faRedo;
+  faChevronRight = faChevronRight;
+  faChevronDown = faChevronDown;
+
 
   currThreatLevel: CmbtTrckOppThreatCode = new CmbtTrckOppThreatCode();
 
@@ -42,6 +45,7 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
   selectedRole: Cp2020Role = null;
   roles: Array<Cp2020Role> = new Array<Cp2020Role>();
   skills: Array<DataSkill> = new Array<DataSkill>();
+  isStatsCollapsed = true;
 
 
   constructor(private data: DataService,
