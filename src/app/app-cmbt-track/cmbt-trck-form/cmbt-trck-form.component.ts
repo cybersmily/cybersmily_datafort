@@ -9,7 +9,7 @@ import { faDice, faPlus, faTrash, faSave, faUpload, faRedo, faFileImport,
   faFile, faQuestionCircle, faCopy, faChevronDown, faChevronUp, faMinus,
   faEyeSlash, faHeartBroken, faHeart, faHeartbeat, faFirstAid, faSkullCrossbones } from '@fortawesome/free-solid-svg-icons';
 import { OpponentTrackerService } from './../services/opponent-tracker.service';
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, HostListener, OnInit, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'cs-cmbt-trck-form',
@@ -56,9 +56,20 @@ export class CmbtTrckFormComponent implements OnInit {
 
   selectedIndex = 0;
   turn = 1;
+  useModal = false;
 
   initiativeIndex = 0;
   currentInitiativeOpp = new CmbtTrckOpponent();
+
+  @HostListener("window:resize", [])
+  checkToUseModal() {
+    if (window.innerWidth < 992) {
+      this.useModal = true;
+    } else {
+      this.useModal = false;
+    }
+  }
+
 
   constructor(private opponentService: OpponentTrackerService,
     private saveFileService: SaveFileService,
@@ -81,6 +92,11 @@ export class CmbtTrckFormComponent implements OnInit {
         this.currentInitiativeOpp = this.opponents[this.initiativeIndex];
       }
     });
+    if (window.innerWidth < 992) {
+      this.useModal = true;
+    } else {
+      this.useModal = false;
+    }
   }
 
   openModal(template: TemplateRef<any>) {
@@ -138,10 +154,18 @@ export class CmbtTrckFormComponent implements OnInit {
     this.opponentService.sortInitiative();
   }
 
-  selectOpponent(index: number) {
+  selectOpponent(index: number, template?: TemplateRef<any>) {
     this.selectedIndex = index;
     this.selectedOpponent = null;
     this.selectedOpponent = this.opponents[index];
+    console.log('useModal', this.useModal, 'template', template);
+    if(this.useModal && template) {
+      const sidePanelConfig = {
+        class: 'modal-right modal-xl',
+        animated: true,
+      };
+      this.modalRef = this.modalService.show(template, sidePanelConfig);
+    }
   }
 
   selectInitiative(index: number) {

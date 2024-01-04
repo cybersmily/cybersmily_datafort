@@ -8,10 +8,10 @@
     </div>
   </div>
   <div class='row'>
-    <div class='col-1'>
+    <div class='col-2 col-md-1'>
       ROLE:
     </div>
-    <div class='col-11 col-lg-6 col-xl-5'>
+    <div class='col-10 col-md-11 col-lg-6 col-xl-5'>
       <select *ngIf="currOpponent.role === ''; else hasRole" [(ngModel)]="selectedRole" (change)="changeRole()"
         title="Choose a role of the opponent. The role skills will be added to the oppoent." class="w-100">
         <option *ngIf="!selectedTemplate" [ngValue]="null" selected>Choose a role</option>
