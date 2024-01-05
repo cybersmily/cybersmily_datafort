@@ -158,7 +158,6 @@ export class CmbtTrckFormComponent implements OnInit {
     this.selectedIndex = index;
     this.selectedOpponent = null;
     this.selectedOpponent = this.opponents[index];
-    console.log('useModal', this.useModal, 'template', template);
     if(this.useModal && template) {
       const sidePanelConfig = {
         class: 'modal-right modal-xl',

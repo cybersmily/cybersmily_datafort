@@ -110,6 +110,7 @@ export class Cp2020CharacterGeneratorService {
     if (value.skills) {
       this._currCharacter.skills = undefined;
       this._currCharacter.skills = new Cp2020PlayerSkills();
+      this._currCharacter.skills.showWithValues = value.skills?.showWithValues ?? false;
       if (value.skills.skills) {
         this._currCharacter.skills.importSkills(value.skills.skills);
       } else {
@@ -144,7 +145,8 @@ export class Cp2020CharacterGeneratorService {
       this._currCharacter.skills.calculateTotals();
       this._currCharacter.skills.ip = value.skills.ip;
       this._currCharacter.skills.rep = value.skills.rep;
-      this._currCharacter.skills.showWithValues = value.skills.showWithValues;
+
+      this._currCharacter.skills.showWithValues = value?.skills?.showWithValues;
     }
     // update contacts
     this._currCharacter.contacts = new Cp2020PlayerContacts(value?.contacts);
@@ -244,6 +246,7 @@ export class Cp2020CharacterGeneratorService {
     // remove the options
     this._currCharacter.skills = new Cp2020PlayerSkills();
     this._currCharacter.skills.import(value);
+    this._currCharacter.skills.showWithValues = value.showWithValues;
     this.updateCharacter();
   }
 

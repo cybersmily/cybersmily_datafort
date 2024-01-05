@@ -131,7 +131,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
         this.initiative = this.getInitiative(data);
         this.combatSense = this.getCombatSense(data);
         this.notes = data.notes;
-        data.skills.showWithValues = this.charGenSettings.skillSettings.showOnlySkillsWithRanks;
+        data.skills.showWithValues = data.skills.showWithValues || this.charGenSettings.skillSettings.showOnlySkillsWithRanks;
         return data;
       })
     );
