@@ -86,7 +86,7 @@
   </div>
   <div class="row">
     <div class="col-1"></div>
-    <div class="col">
+    <div class="col-3">
       Options:
       <button
         #addOptionElem
@@ -97,6 +97,8 @@
         <fa-icon [icon]="faPlus"></fa-icon>
       </button>
     </div>
+    <div class="col-4">Ports: {{ currDeck.currInputs }}/{{ currDeck.maxInputs }}</div>
+    <div class="col-4">Output Ports: {{ currDeck.maxOutputs }}</div>
   </div>
   <div class="row">
     <div class="col-2"></div>

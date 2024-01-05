@@ -65,11 +65,14 @@ export class Cp2020CyberdeckFormComponent implements OnInit, OnChanges {
     .subscribe( data => {
       this.deckData = data;
       if (this.deck.options.length > 0){
-        this.deck.options.forEach( opt => {
-          const i = this.deckData.options.findIndex( o => o.name === opt.name);
-          if ( i > -1) {
-            this.deckData.options[i].count = opt.count;
+        this.deck.options = this.deck.options.map( opt => {
+          const index = this.deckData.options.findIndex( o => o.name === opt.name);
+          if ( index > -1) {
+            this.deckData.options[index].count = opt.count;
+            opt.slot = this.deckData.options[index].slot;
+            opt.slotType = this.deckData.options[index].slotType;
           }
+          return opt;
         });
       }
       this.selectedChassis = this.deck.type;
@@ -104,6 +107,16 @@ export class Cp2020CyberdeckFormComponent implements OnInit, OnChanges {
   }
 
   updateDeck() {
+    // backward compatible
+    this.currDeck.options = this.currDeck.options.map( opt => {
+      const index = this.deckData.options.findIndex( o => o.name === opt.name);
+      if ( index > -1) {
+        opt.slot = this.deckData.options[index].slot;
+        opt.slotType = this.deckData.options[index].slotType;
+      }
+      return opt;
+    });
+
     this.update.emit(this.currDeck);
   }
 
