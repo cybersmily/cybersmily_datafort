@@ -24,6 +24,12 @@
       }"
       tabindex="0"
     >
+    <span [ngClass]="{
+      'float-end': true,
+      'd-none': sa
+    }"  title="Skill + Stat">
+    [{{ currSkill.value + (stat ? stat.Adjusted : 0) }}]
+    </span>
       {{ currSkill.name }}
       <span *ngIf="currSkill.option">: {{ currSkill.option }}</span>
       <span *ngIf="currSkill.option === ''">: {{ currSkill.option }}</span>
@@ -33,13 +39,6 @@
 
       <span *ngIf="showStat">
         [{{currSkill.stat}}]
-      </span>
-      <span [ngClass]="{
-        'float-end': true,
-        'd-none': sa
-      }"  title="Skill + Stat">
-      [{{ currSkill.value + (stat ? stat.Adjusted : 0) }}]
-
       </span>
     </button>
   </div>
