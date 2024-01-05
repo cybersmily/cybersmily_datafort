@@ -99,7 +99,7 @@ input.chargen-skill-input[type=number] {
 }
 
 .chargen-skill:hover .ng-fa-icon {
-  display: inline-block;
+  display: inline-block !important;
 }
 
 span.sa-name {

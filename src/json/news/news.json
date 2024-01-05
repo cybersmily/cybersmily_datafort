@@ -8,6 +8,7 @@
     "I update the top navigator to tighten it up a bit for better accesibility on mobdile devices. ",
     "Speaking of mobile devices, I specifically tried to make the experience better on them; Less scrolling, flyout combatant details, better layout of the fields in the details.",
     "Those Cyberpunk 2020 netrunners I have include the ports and output ports numbers to each of the decks. So now you can keep track of how many options you should be limited to. There is also some small styling changes",
+    "Character generator also had some bug fixes. Filtering on skills with just values now works. Fixed an issuw with gear input boxes.",
     "Till next time gatos.",
     "CYBER :D"]
   },

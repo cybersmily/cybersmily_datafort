@@ -13,34 +13,10 @@
   <div class="col">
     <div class="row g-0">
       <div
-        class="col-12 col-md-6 col-lg-4 order-1 ps-1 pe-1 border-lg border-dark"
+        class="col-12 column-count px-2 border-lg border-dark"
       >
         <cs-cp2020-skill
-          *ngFor="let skill of getColumnOne()"
-          [skill]="skill"
-          (changeSkill)="onChangeSkill($event)"
-          [stat]="stat"
-          [sa]="spclAbility"
-          (delete)="deleteCurrentSkill($event)"
-        ></cs-cp2020-skill>
-      </div>
-      <div
-        class="col-12 col-md-6 order-2 order-md-3 order-lg-2 col-lg-4 ps-1 pe-1 border-lg border-dark"
-      >
-        <cs-cp2020-skill
-          *ngFor="let skill of getColumnTwo()"
-          [skill]="skill"
-          (changeSkill)="onChangeSkill($event)"
-          [stat]="stat"
-          [sa]="spclAbility"
-          (delete)="deleteCurrentSkill($event)"
-        ></cs-cp2020-skill>
-      </div>
-      <div
-        class="col-12 col-md-6 col-lg-4 order-3 order-md-2 order-lg-3 ps-1 pe-1 border-lg border-dark"
-      >
-        <cs-cp2020-skill
-          *ngFor="let skill of getColumnThree()"
+          *ngFor="let skill of currSkills"
           [skill]="skill"
           (changeSkill)="onChangeSkill($event)"
           [stat]="stat"

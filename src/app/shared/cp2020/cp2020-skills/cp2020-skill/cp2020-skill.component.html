@@ -1,21 +1,20 @@
 <div
   [ngClass]="{
-    'my-0 article row py-0 pe-5' : true,
+    'g-0 article row chargen-skill' : true,
     'chargen-skill-is-role': currSkill.isRoleSkill,
     'chargen-skill-is-secodary ': currSkill.isSecondarySkill,
-    'chargen-role-choice': currSkill.roleChoice,
-    'chargen-skill': true
+    'chargen-role-choice': currSkill.roleChoice
   }"
 >
- <div class="col-1 px-2 text-end">
+ <div class="col-1 text-end">
   <fa-icon
       [icon]="faDice"
       title="Click to Roll"
       (click)="onClick(chargenSkillRoll)"
-      class="m-0 w-95 text-end"
+      class="m-0 w-95 text-end d-md-none"
     ></fa-icon>
  </div>
-  <div class="col-6 col-md-7 text-start pe-1"
+  <div class="col-7 col-lg-8 text-start"
   (click)="showModal(skillDetails, 'skillName')">
     <button
       #skillNameElem
@@ -35,15 +34,16 @@
       <span *ngIf="showStat">
         [{{currSkill.stat}}]
       </span>
+      <span [ngClass]="{
+        'float-end': true,
+        'd-none': sa
+      }"  title="Skill + Stat">
+      [{{ currSkill.value + (stat ? stat.Adjusted : 0) }}]
+
+      </span>
     </button>
   </div>
-  <div [ngClass]="{
-    'col-1': true,
-    'd-none': sa
-  }"  title="Skill + Stat">
-    [{{ currSkill.value + (stat ? stat.Adjusted : 0) }}]
-  </div>
-  <div class="col-4 col-md-3 ps-2 pe-0">
+  <div class="col-4 col-lg-3">
       <input
         [(ngModel)]="currSkill.value"
         (change)="onChangeSkill()"
@@ -52,9 +52,7 @@
         type="number"
         title="Skill Value"
         [ngClass]="{
-          'm-0': true,
-          'w-30': true,
-          'chargen-skill-input': true,
+          'm-0 p-0 w-30 chargen-skill-input': true,
           'chargen-skill-has-value': currSkill.value > 0
         }"
         tabindex="0" />

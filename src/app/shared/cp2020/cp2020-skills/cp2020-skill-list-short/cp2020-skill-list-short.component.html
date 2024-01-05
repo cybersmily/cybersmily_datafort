@@ -32,11 +32,8 @@
         <h6>SKILLS:</h6>
       </div>
       <div class="row mt-1">
-        <div class="col-12 col-md-6">
+        <div class="col-12 column-count">
           <cs-cp2020-skill *ngFor="let skill of columnOneSkills" [skill]="skill" [stat]="characterStats[skill.stat]" [showIP]="false" [showStat]="true" (changeSkill)="changeSkill($event)" (delete)="deleteSkill($event)" ></cs-cp2020-skill>
-        </div>
-        <div class="col-12 col-md-6">
-          <cs-cp2020-skill *ngFor="let skill of columnTwoSkills" [skill]="skill" [stat]="characterStats[skill.stat]" [showIP]="false" [showStat]="true" (changeSkill)="changeSkill($event)" (delete)="deleteSkill($event)" ></cs-cp2020-skill>
         </div>
       </div>
       <div class="row pb-2">
