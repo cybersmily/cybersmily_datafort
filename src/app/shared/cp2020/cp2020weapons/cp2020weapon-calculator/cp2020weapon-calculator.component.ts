@@ -4,7 +4,7 @@ import { MartialArtsDataService } from './../../cp2020-skills/services';
 import { DiceRolls } from './../../../models/dice-rolls';
 import { DiceService } from './../../../services/dice/dice.service';
 import { CpPlayerWeaponList, CpPlayerWeapon, CombatRange } from './../models';
-import { faDice, faRedo, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faRedo, faChevronDown, faChevronRight, faTimes} from '@fortawesome/free-solid-svg-icons';
 import {
   Component,
   OnInit,
@@ -23,6 +23,7 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
   faRedo = faRedo;
   faChevronDown = faChevronDown;
   faChevronRight = faChevronRight;
+  faTimes = faTimes;
 
   collapseAttackerMods = false;
   collapseTargetMods = false;
@@ -417,6 +418,11 @@ export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
     if (this.handle !== '') {
       this.opponents[this.handle]['skill'] = this.selectedSkill;
     }
+  }
+
+  deselectWeapon(): void {
+    this.selectedWeapon = undefined;
+    this.selectedSkill = new Cp2020PlayerSkill();
   }
 
   setRange($event) {

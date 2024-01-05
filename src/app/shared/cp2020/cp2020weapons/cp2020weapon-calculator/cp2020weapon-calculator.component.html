@@ -20,24 +20,34 @@
     [ngClass]="{ row: true, 'border border-dark': showHeader }"
   >
     <div class="col-12">
-      Choose Weapon:&nbsp;
-      <select
-        [(ngModel)]="selectedWeapon"
-        class="w-100"
-        (change)="changeWeapon()"
-      >
-        <option [ngValue]="undefined"></option>
-        <option *ngFor="let wpn of filteredList" [ngValue]="wpn">
-          {{ wpn.name }}
-        </option>
-        <option *ngFor="let att of physicalAttacks" [ngValue]="att">
-          {{ att.name }}
-        </option>
-      </select>
-      &nbsp;&nbsp;
-      <span class="cmbt-modifiers">
-        {{ selectedWeapon ? selectedWeapon.showStats() : "" }}
-      </span>
+      <div *ngIf="selectedWeapon; else selectWeaponInput" class="row">
+        <div class="col-12">
+          {{selectedWeapon.name}} <fa-icon [icon]="faTimes" class="csd-icon-btn csd-btn" size="xl" tabindex="0" (click)="deselectWeapon()"></fa-icon><br>
+          <span class="cmbt-modifiers">
+            {{ selectedWeapon ? selectedWeapon.showStats() : "" }}
+          </span>
+        </div>
+      </div>
+      <ng-template #selectWeaponInput>
+        <div class="row">
+          <div class="col-12">
+            Choose Weapon:&nbsp;
+            <select
+              [(ngModel)]="selectedWeapon"
+              class="w-100"
+              (change)="changeWeapon()"
+            >
+              <option [ngValue]="undefined" disabled></option>
+              <option *ngFor="let wpn of filteredList" [ngValue]="wpn">
+                {{ wpn.name }}
+              </option>
+              <option *ngFor="let att of physicalAttacks" [ngValue]="att">
+                {{ att.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </ng-template>
     </div>
   </div>
   <div
