@@ -170,7 +170,7 @@
     ></button>
   </div>
   <div class="modal-body">
-    <div class="opt-columns">
+    <div class="column-count">
       <div
         *ngFor="let opt of deckData.options; let i = index"
         title="{{ opt.description }} ~ {{ opt.source.book | sourcebook }} pg. {{
@@ -187,8 +187,7 @@
         />
         {{ opt.name }} ({{
           opt.cost.toString().includes("*") ? opt.cost : (opt.cost | number)
-        }}
-        eb)
+        }}eb{{opt?.slot ? " " + opt.slot + " slot" : ""}})
       </div>
     </div>
   </div>

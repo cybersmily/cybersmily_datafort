@@ -46,7 +46,7 @@ export class Cp2020CyberdeckFormComponent implements OnInit, OnChanges {
 
   config = {
     keyboard: true,
-    class: 'modal-dialog-centered modal-lg'
+    class: 'modal-dialog-centered modal-xl'
   };
   currDeck: Cp2020Cyberdeck = new Cp2020Cyberdeck();
 
