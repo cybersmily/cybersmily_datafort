@@ -107,16 +107,6 @@ export class Cp2020GearListComponent implements OnInit, OnChanges, AfterViewInit
     return this.currGear.items.filter((gear) => gear.location === location.toLowerCase());
   }
 
-  getFirstColumn(gearList: Array<Cp2020PlayerGear>): Array<Cp2020PlayerGear> {
-    const count = Math.ceil(gearList.length / 2);
-    return gearList.slice(0, count);
-  }
-
-  getSecondColumn(gearList: Array<Cp2020PlayerGear>): Array<Cp2020PlayerGear> {
-    const count = Math.ceil(gearList.length / 2);
-    return gearList.slice(count);
-  }
-
   addGearRow(location?: string): void {
     this.currGear.items.push(new Cp2020PlayerGear({ location: location }));
     this.onGearChange();
@@ -130,6 +120,8 @@ export class Cp2020GearListComponent implements OnInit, OnChanges, AfterViewInit
   }
 
   updateGear(item: Cp2020PlayerGear): void {
+    console.log('item', item)
+    console.log('items', this.currGear.items)
     const index =  this.currGear.items.findIndex(itm => itm.id === item.id);
     if(index > -1) {
       this.currGear.items[index] = item;
