@@ -264,7 +264,7 @@ export class Cp2020characterToPDF {
   }
 
   private addHandle(doc: jsPDF, handle: string, line: number): number {
-    let rw = 22;
+    let rw = 25;
     doc.rect(this._left, line, rw, this._lineheight, 'DF');
     doc.setTextColor('white');
     doc.setFont(this._font, 'bold');
@@ -279,7 +279,7 @@ export class Cp2020characterToPDF {
 
   private addRole(doc: jsPDF, role: string, line: number): number {
     doc.setFillColor('black');
-    let rw = 18;
+    let rw = 20;
     doc.rect(this._left, line, rw, this._lineheight, 'DF');
     doc.setTextColor('white');
     doc.setFont(this._font, 'bold');
@@ -287,23 +287,23 @@ export class Cp2020characterToPDF {
     rw = this._left + rw;
     doc.rect(rw, line, 75, this._lineheight, 'S');
     doc.setTextColor('black');
-    doc.setFontSize(this._fontSize - 4);
+    doc.setFontSize(this._fontSize - 2);
     doc.setFont(this._font, 'normal');
 
     doc.text(role, rw + 1, line + 5);
     doc.setFontSize(this._fontSize);
-    return line + 8;
+    return line + 7;
   }
 
   private addSecondaryRole(doc: jsPDF, roles: string, line: number): number {
-    let rw = 20;
+    let rw = 22;
     // determine if all roles will fit
     let txt = new Array<string>();
     txt = doc.splitTextToSize(roles, 74);
     let txtHt = txt.length * this._lineheight;
     txtHt = txtHt < 1 ? this._lineheight : txtHt;
     rw = this._left + rw;
-    doc.rect(this._left, line - 1, 93, txtHt, 'S');
+    doc.rect(this._left, line, 95, txtHt, 'S');
     doc.setTextColor('black');
     doc.setFont(this._font, 'bold');
     doc.setFontSize(this._fontSize - 3);
@@ -513,13 +513,15 @@ export class Cp2020characterToPDF {
     left: number,
     width: number
   ) {
-    doc.setFontSize(7);
-    doc.text(level, left, line);
+    doc.setFontSize(6);
+    const center = left +  (width/2);
+    doc.text(level, center, line, { align: "center"});
     line = line + 1;
-    doc.rect(left, line, 2, 2, 'S');
-    doc.rect(left + 2, line, 2, 2, 'S');
-    doc.rect(left + 4, line, 2, 2, 'S');
-    doc.rect(left + 6, line, 2, 2, 'S');
+    doc.setFontSize(7);
+    doc.rect(center - 4, line, 2, 2, 'S');
+    doc.rect(center - 2, line, 2, 2, 'S');
+    doc.rect(center, line, 2, 2, 'S');
+    doc.rect(center + 2, line, 2, 2, 'S');
     line = line + 2.4;
     doc.rect(left, line, width, 4, 'DF');
     doc.setTextColor('white');
@@ -642,7 +644,7 @@ export class Cp2020characterToPDF {
     );
 
     line = this.printSkills(doc, skills.Other, 'OTHER', 0, line, col);
-    line += 6;
+    line += 5;
     return line;
   }
 
@@ -664,7 +666,7 @@ export class Cp2020characterToPDF {
     doc.setFont(this._font, 'normal');
     doc.setFontSize(6);
     doc.text(
-      'Skills show level| level + stat in box []. X next to box is chipped',
+      'Skills show level| level + stat in box []. © next to box is chipped',
       left + 38,
       line + 3
     );
@@ -713,11 +715,10 @@ export class Cp2020characterToPDF {
         s.isSA && s.stat !== '' ? '(' + s.stat + ')' : ''
       }`;
       doc.text(
-        `[${s.value}|${s.value + (stat ?? 0)}] ${s.chipped ? 'X' : ''}`,
+        `[${s.value}|${s.value + (stat ?? 0)}]${s.chipped ? '©' : ''} ${name}`,
         col + 2,
         line
       );
-      doc.text(name, col + 9, line);
       line += 4;
     });
   }
