@@ -13,20 +13,18 @@ export class Cp2020SkillSectionPdService {
 
   addCharacterSheetSkillsSection(
     doc: jsPDF,
-    sa: Cp2020PlayerSkill,
     currSkills: Cp2020PlayerSkills,
     stats: Cp2020StatBlock,
     left: number,
     line: number,
     lineheight: number
   ): number {
-    return this.addSkills(doc, sa, currSkills, stats, left, line, lineheight);
+    return this.addSkills(doc, currSkills, stats, left, line, lineheight);
   }
 
 
   private addSkills(
     doc: jsPDF,
-    sa: Cp2020PlayerSkill,
     currSkills: Cp2020PlayerSkills,
     stats: Cp2020StatBlock,
     left: number,

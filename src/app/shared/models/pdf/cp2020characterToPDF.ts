@@ -10,10 +10,6 @@ import { Cp2020Identity } from './../../cp2020/cp2020-lifestyle/models/cp2020-id
 import { CpHousing } from '../../cp2020/cp2020-lifestyle/models/cp-housing';
 import { Cp2020Lifestyle } from './../../cp2020/cp2020-lifestyle/models/cp2020-lifestyle';
 import { Cp2020ArmorBlock } from './../../cp2020/cp2020-armor/models/cp2020-armor-block';
-import {
-  Cp2020PlayerSkills,
-  Cp2020PlayerSkill,
-} from './../../cp2020/cp2020-skills/models';
 import { LifePathResults } from './../../cp2020/cp2020-lifepath/models';
 import { Cp2020StatBlock } from '../../cp2020/cp2020-stats/models/cp2020-stat-block';
 import { Cp2020PlayerCharacter } from '../cp2020character/cp2020-player-character';
@@ -22,6 +18,7 @@ import { jsPDF } from 'jspdf';
 import { LifepathEvent } from '../../cp2020/cp2020-lifepath/models';
 import { Cp2020Vehicle } from '../../cp2020/cp2020-vehicles/models';
 import { Cp2020SkillSectionPdService } from '../../cp2020/cp2020-skills/services/cp2020-skill-section-pdf/cp2020-skill-section-pd.service';
+import { Cp2020StatsSectionPdfService } from '../../cp2020/cp2020-stats/services/cp2020-stats-section-pdf/cp2020-stats-section-pdf.service';
 
 export class Cp2020characterToPDF {
   private _character: Cp2020PlayerCharacter;
@@ -35,8 +32,9 @@ export class Cp2020characterToPDF {
   private _font = 'Arial';
 
   constructor(
-    private armorPdfService: Cp2020ArmorPDFSectionService,
+    private statsPdfService: Cp2020StatsSectionPdfService,
     private skillPdfService: Cp2020SkillSectionPdService,
+    private armorPdfService: Cp2020ArmorPDFSectionService,
     private weaponPdfService: Cp2020WeaponSectionPdfService,
     private gearPdfService: Cp2020GearPdfService,
     private cyberPdfService: Cp2020CyberwarePdfService,
@@ -123,12 +121,14 @@ export class Cp2020characterToPDF {
         : 0;
 
     // STATS
-    line = this.addStats(
+    line = this.statsPdfService.addStatsSection(
       doc,
       this._character.stats,
       this._character.skills.rep,
+      combatSense,
       line,
-      combatSense
+      this._left,
+      this._lineheight
     );
 
     // Armor
@@ -142,9 +142,8 @@ export class Cp2020characterToPDF {
       line
     );
     if (!settings || settings.sectionSettings.showSkills) {
-      this.skillPdfService.addCharacterSheetSkillsSection(
+      line = this.skillPdfService.addCharacterSheetSkillsSection(
         doc,
-        this._character.role.specialAbility,
         this._character.skills,
         this._character.stats,
         this._left,
@@ -346,72 +345,6 @@ export class Cp2020characterToPDF {
     doc.setFontSize(this._fontSize);
   }
 
-  private addStats(
-    doc: jsPDF,
-    stats: Cp2020StatBlock,
-    rep: number,
-    line: number,
-    combatSense: number
-  ): number {
-    doc.setFillColor('black');
-    doc.rect(this._left, line, 20, this._lineheight, 'DF');
-    doc.setTextColor('white');
-    doc.setFont(this._font, 'bold');
-    doc.text('STATS', this._left + 3, line + 5);
-    doc.rect(this._left + 20, line, 15, this._lineheight, 'S');
-    doc.setTextColor('black');
-    doc.setFillColor('white');
-    doc.setFont(this._font, 'normal');
-    doc.text(stats.BasePoints?.toString() ?? '', this._left + 23, line + 5);
-
-    doc.setFillColor('black');
-    doc.rect(this._left + 40, line, 15, this._lineheight, 'DF');
-    doc.setTextColor('white');
-    doc.setFont(this._font, 'bold');
-    doc.text('REP', this._left + 43, line + 5);
-    doc.rect(this._left + 55, line, 10, this._lineheight, 'S');
-    doc.setTextColor('black');
-    doc.setFillColor('white');
-    doc.setFont(this._font, 'normal');
-    doc.text(rep?.toString() ?? '', this._left + 60, line + 5);
-
-    doc.setFillColor('black');
-    doc.rect(this._left + 70, line, 15, this._lineheight, 'DF');
-    doc.setTextColor('white');
-    doc.setFont(this._font, 'bold');
-    doc.text('INIT', this._left + 73, line + 5);
-    doc.rect(this._left + 85, line, 10, this._lineheight, 'S');
-    doc.setTextColor('black');
-    doc.setFillColor('white');
-    doc.setFont(this._font, 'normal');
-    let init: number = stats.REF.Adjusted;
-    init += combatSense || 0;
-    init += stats.initiativeModifiers.reduce((a, b) => a + b.mod, 0);
-    doc.text(init?.toString() ?? '', this._left + 90, line + 5);
-
-    line = line + 12;
-    doc.setTextColor('black');
-    doc.text(
-      `INT [ ${stats.INT.Adjusted} ]   REF [ ${stats.REF.Adjusted} ]   TECH [ ${stats.TECH.Adjusted}]   COOL [ ${stats.COOL.Adjusted} ]`,
-      this._left,
-      line
-    );
-    line = line + 5.5;
-    doc.text(
-      `ATTR [ ${stats.ATTR.Adjusted} ]   LUCK [ ${stats.LUCK.Adjusted} ]   MA [ ${stats.MA.Adjusted} ]  BODY [ ${stats.BODY.Adjusted} ] EMP [ ${stats.EMP.Adjusted} ]`,
-      this._left,
-      line
-    );
-    line = line + 5.5;
-    doc.text(
-      `Run [ ${stats.Run}m ]   Leap [ ${stats.Leap}m ]  Lift [ ${
-        stats.Lift
-      }kg ] Hum. [ ${stats.CurrentHumanity?.toString()} ]`,
-      this._left,
-      line
-    );
-    return line + 2.5;
-  }
 
   private addArmorBlock(
     doc: jsPDF,
