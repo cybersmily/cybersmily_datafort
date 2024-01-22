@@ -28,6 +28,7 @@ import {
   faChevronRight,
   faChevronDown,
   faCog,
+  faIdBadge
 } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerSkills } from './../../shared/cp2020/cp2020-skills/models/cp2020-player-skills';
 import { LifePathResults } from './../../shared/cp2020/cp2020-lifepath/models';
@@ -47,6 +48,8 @@ import { Cp2020characterToPDF } from './../../shared/models/pdf/cp2020characterT
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Cp2020Lifestyle } from './../../shared/cp2020/cp2020-lifestyle/models';
 import { Cp2020Vehicle } from './../../shared/cp2020/cp2020-vehicles/models';
+import { Cp2020StatsSectionPdfService } from './../../shared/cp2020/cp2020-stats/services/cp2020-stats-section-pdf/cp2020-stats-section-pdf.service';
+import { Cp2020SkillSectionPdService } from './../../shared/cp2020/cp2020-skills/services/cp2020-skill-section-pdf/cp2020-skill-section-pd.service';
 
 @Component({
   selector: 'cs-app-character-generator-form',
@@ -63,6 +66,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   faChevronRight = faChevronRight;
   faChevronDown = faChevronDown;
   faCog = faCog;
+  faIdBadge = faIdBadge;
 
   isCollapsed = false;
   get collapseChevron(): any {
@@ -106,6 +110,8 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     private sourceService: SourcesDataService,
     private fileLoader: FileLoaderService,
     private modalService: BsModalService,
+    private statPDFService: Cp2020StatsSectionPdfService,
+    private skillPDFService: Cp2020SkillSectionPdService,
     private armorPDFService: Cp2020ArmorPDFSectionService,
     private weaponPDFService: Cp2020WeaponSectionPdfService,
     private gearPdfService: Cp2020GearPdfService,
@@ -242,6 +248,8 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
 
   createPDF() {
     const characterToPDF = new Cp2020characterToPDF(
+      this.statPDFService,
+      this.skillPDFService,
       this.armorPDFService,
       this.weaponPDFService,
       this.gearPdfService,
