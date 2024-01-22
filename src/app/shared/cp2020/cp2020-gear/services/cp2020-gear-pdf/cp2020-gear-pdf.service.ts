@@ -1,4 +1,4 @@
-import { PdfPageSettings } from './../../../../enums/pdf-page-settings';
+import { PdfPageSettings, PdfLineHeight, PdfFontSize } from './../../../../enums/pdf-page-settings';
 import { Cp2020PlayerGearList, Cp2020PlayerGear } from './../../models';
 import { jsPDF } from 'jspdf';
 import { Injectable } from '@angular/core';
@@ -49,7 +49,7 @@ export class Cp2020GearPdfService {
     line: number,
     ht: number
   ): number {
-    if (PdfPageSettings.LINEHEIGHT * 3 + line > PdfPageSettings.PAGE_HEIGHT) {
+    if (PdfLineHeight.DEFAULT * 3 + line > PdfPageSettings.PAGE_HEIGHT) {
       doc.addPage();
       line = PdfPageSettings.MARGIN_TOP;
     }
@@ -62,7 +62,7 @@ export class Cp2020GearPdfService {
       line = this.addLocationSection(doc, gear, location, left, line, ht);
     })
 
-    doc.setFontSize(PdfPageSettings.FONT_SIZE);
+    doc.setFontSize(PdfFontSize.DEFAULT);
     line += ht;
     return line;
   }
@@ -214,7 +214,7 @@ export class Cp2020GearPdfService {
     let txtLine = line;
     gearName.forEach((name) => {
       doc.text(name, left + 1, txtLine + 4);
-      txtLine += PdfPageSettings.LINEHEIGHT;
+      txtLine += PdfLineHeight.DEFAULT;
     });
     doc.text(cost, left + 81, line + 4);
     doc.text(wt, left + 91, line + 4);

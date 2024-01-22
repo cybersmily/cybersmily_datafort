@@ -1,5 +1,5 @@
 import { PdfGeneratorService } from './../../../../services/pdf-services/pdf-generator.service';
-import { PdfPageSettings } from './../../../../enums/pdf-page-settings';
+import { PdfPageSettings, PdfLineHeight, PdfFontSize } from './../../../../enums/pdf-page-settings';
 import { Cp2020PlayerCyberList, Cp2020PlayerCyber } from './../../models';
 import { jsPDF } from 'jspdf';
 import { Injectable } from '@angular/core';
@@ -18,9 +18,9 @@ export class Cp2020CyberwarePdfService {
     ht: number
   ): number {
     // add spacer
-    line += PdfPageSettings.LINEHEIGHT;
+    line += PdfLineHeight.DEFAULT;
 
-    if (line + PdfPageSettings.LINEHEIGHT * 4 > PdfPageSettings.PAGE_HEIGHT) {
+    if (line + PdfLineHeight.DEFAULT * 4 > PdfPageSettings.PAGE_HEIGHT) {
       doc.addPage();
       line = PdfPageSettings.MARGIN_TOP;
     }
@@ -63,14 +63,14 @@ export class Cp2020CyberwarePdfService {
   }
 
   private addCyberHeaderRow(doc: jsPDF, left: number, line: number): number {
-    this.addCyberHeaderCells(doc, left, line, PdfPageSettings.LINEHEIGHT);
+    this.addCyberHeaderCells(doc, left, line, PdfLineHeight.DEFAULT);
     this.addCyberHeaderCells(
       doc,
       PdfPageSettings.MIDPAGE,
       line,
-      PdfPageSettings.LINEHEIGHT
+      PdfLineHeight.DEFAULT
     );
-    return line + PdfPageSettings.LINEHEIGHT;
+    return line + PdfLineHeight.DEFAULT;
   }
 
   private addCyberHeaderCells(
@@ -103,11 +103,11 @@ export class Cp2020CyberwarePdfService {
       cyber[indexTwo]?.toString() ?? '',
       78
     );
-    let cellHt = cyberOne.length * PdfPageSettings.LINEHEIGHT;
+    let cellHt = cyberOne.length * PdfLineHeight.DEFAULT;
     cellHt =
-      cellHt > cyberTwo.length * PdfPageSettings.LINEHEIGHT
+      cellHt > cyberTwo.length * PdfLineHeight.DEFAULT
         ? cellHt
-        : cyberTwo.length * PdfPageSettings.LINEHEIGHT;
+        : cyberTwo.length * PdfLineHeight.DEFAULT;
 
     if (line + cellHt > PdfPageSettings.PAGE_HEIGHT) {
       doc.addPage();
@@ -150,7 +150,7 @@ export class Cp2020CyberwarePdfService {
     const rectLine = line;
     cyber.forEach((txt) => {
       doc.text(txt ?? '', left + 2, line + 4);
-      line += PdfPageSettings.LINEHEIGHT;
+      line += PdfLineHeight.DEFAULT;
     });
     doc.rect(left, rectLine, 80, cellHt, 'S');
     doc.rect(left + 80, rectLine, 10, cellHt, 'S');
@@ -169,21 +169,21 @@ export class Cp2020CyberwarePdfService {
       left,
       line,
       PdfPageSettings.MIDPAGE + 75,
-      PdfPageSettings.LINEHEIGHT,
+      PdfLineHeight.DEFAULT,
       'S'
     );
     doc.rect(
       PdfPageSettings.MIDPAGE + 80,
       line,
       10,
-      PdfPageSettings.LINEHEIGHT,
+      PdfLineHeight.DEFAULT,
       'S'
     );
     doc.rect(
       PdfPageSettings.MIDPAGE + 90,
       line,
       10,
-      PdfPageSettings.LINEHEIGHT,
+      PdfLineHeight.DEFAULT,
       'S'
     );
     doc.text('Total HL and Cost', left + 2, line + 4);
@@ -197,6 +197,6 @@ export class Cp2020CyberwarePdfService {
       PdfPageSettings.MIDPAGE + 91,
       line + 4
     );
-    return line + PdfPageSettings.LINEHEIGHT + PdfPageSettings.LINEHEIGHT;
+    return line + PdfLineHeight.DEFAULT + PdfLineHeight.DEFAULT;
   }
 }

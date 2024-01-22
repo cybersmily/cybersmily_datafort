@@ -1,4 +1,4 @@
-import { PdfPageSettings, PdfPageOrientation } from './../../../../enums';
+import { PdfPageSettings, PdfPageOrientation, PdfLineHeight, PdfFontSize } from './../../../../enums';
 import { jsPDF } from 'jspdf';
 import { Cp2020ArmorPiece } from './../../models';
 import { PdfGeneratorService } from './../../../../services/pdf-services/pdf-generator.service';
@@ -31,9 +31,9 @@ export class ClothingListPdfService {
 
   private createTitle(line: number): number {
     this._doc.setFont(PdfPageSettings.DEFAULT_FONT, 'bold');
-    this._doc.setFontSize(PdfPageSettings.FONT_SIZE_LG);
+    this._doc.setFontSize(PdfFontSize.LG);
     this._doc.text(this._title, PdfPageSettings.MIDPAGE, line, {align: 'center'});
-    this._doc.setFontSize(PdfPageSettings.FONT_SIZE);
+    this._doc.setFontSize(PdfFontSize.DEFAULT);
     this._doc.setFont(PdfPageSettings.DEFAULT_FONT, 'normal');
     line += 11;
     return line;
@@ -57,17 +57,17 @@ export class ClothingListPdfService {
     this._doc.text(text, PdfPageSettings.MARGIN_LEFT, line, {align: 'left'});
     this._doc.text(`${armor.cost.toLocaleString()}eb`, PdfPageSettings.MARGIN_RIGHT, line, {align: 'right'});
     if(armor.options.length > 0) {
-      line += PdfPageSettings.LINEHEIGHT_SM;
-      this._doc.setFontSize(PdfPageSettings.FONT_SIZE_SM);
+      line += PdfLineHeight.SM;
+      this._doc.setFontSize(PdfFontSize.SM);
       const options = armor.options.map(opt => opt.name).join(', ');
       this._doc.text(`options: ${options}`, PdfPageSettings.MARGIN_LEFT + 10, line, {align: 'left'});
-      this._doc.setFontSize(PdfPageSettings.FONT_SIZE);
+      this._doc.setFontSize(PdfFontSize.DEFAULT);
     }
     if ((line + 10 ) > +PdfPageSettings.PAGE_HEIGHT) {
       this._doc.addPage();
       line = PdfPageSettings.MARGIN_TOP;
     } else {
-      line += PdfPageSettings.LINEHEIGHT;
+      line += PdfLineHeight.DEFAULT;
     }
 
     return line;
@@ -75,7 +75,7 @@ export class ClothingListPdfService {
 
   private createFooterRow(line: number, clothingList: Array<Cp2020ArmorPiece>): number {
     this._doc.line(PdfPageSettings.MIDPAGE, line, PdfPageSettings.MARGIN_RIGHT, line);
-    line += PdfPageSettings.LINEHEIGHT;
+    line += PdfLineHeight.DEFAULT;
     const cost = clothingList.reduce((a,b) => a + b.cost, 0);
     const text = `Total Cost: ${cost.toLocaleString()}eb`;
     this._doc.text(text, PdfPageSettings.MARGIN_RIGHT, line, {align: 'right'});

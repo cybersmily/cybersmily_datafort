@@ -1,4 +1,4 @@
-import { PdfPageSettings } from './../../../../enums/pdf-page-settings';
+import { PdfPageSettings, PdfLineHeight, PdfFontSize } from './../../../../enums/pdf-page-settings';
 import { jsPDF } from 'jspdf';
 import { CpGang } from './../../models/cp-gang';
 import { Injectable } from '@angular/core';
@@ -14,7 +14,7 @@ export class GangPdfService {
     let line = PdfPageSettings.MARGIN_TOP.valueOf();
     gangs.forEach((gang) => {
       line = this.addGangEntry(gang, pdf, line);
-      return line + PdfPageSettings.LINEHEIGHT.valueOf();
+      return line + PdfLineHeight.DEFAULT.valueOf();
     });
     pdf.save('Cyberpunk_Gang_List');
   }
@@ -27,16 +27,16 @@ export class GangPdfService {
       line
     );
     pdf.setFont(undefined, 'normal');
-    line += PdfPageSettings.LINEHEIGHT.valueOf();
+    line += PdfLineHeight.DEFAULT.valueOf();
 
     const text = `A ${gang.member} ${gang.type}. The gang has been around for ${gang.age} with the average member's age being ${gang.memberAge}. The gang controls ${gang.turf} with ${gang.expansion}.`;
     const paragraph = pdf.splitTextToSize(text, 200);
 
     paragraph.forEach((textLine) => {
       pdf.text(textLine, PdfPageSettings.MARGIN_LEFT.valueOf(), line);
-      line += PdfPageSettings.LINEHEIGHT.valueOf();
+      line += PdfLineHeight.DEFAULT.valueOf();
     });
 
-    return line + PdfPageSettings.LINEHEIGHT.valueOf();
+    return line + PdfLineHeight.DEFAULT.valueOf();
   }
 }

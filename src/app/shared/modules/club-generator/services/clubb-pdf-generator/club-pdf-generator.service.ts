@@ -1,5 +1,5 @@
 import { PdfGeneratorService } from './../../../../services/pdf-services/pdf-generator.service';
-import { PdfPageSettings } from './../../../../enums/pdf-page-settings';
+import { PdfPageSettings, PdfLineHeight, PdfFontSize } from './../../../../enums/pdf-page-settings';
 import { PdfPageOrientation } from './../../../../enums/pdf-page-orientation';
 import { jsPDF } from 'jspdf';
 import { Injectable } from '@angular/core';
@@ -23,7 +23,7 @@ export class ClubPdfGeneratorService {
   createTitle(pdfDoc: jsPDF): number {
     let line = PdfPageSettings.MARGIN_TOP + 10;
     pdfDoc.setFont(PdfPageSettings.DEFAULT_FONT, 'bold');
-    pdfDoc.setFontSize(PdfPageSettings.FONT_SIZE_XL);
+    pdfDoc.setFontSize(PdfFontSize.XL);
     pdfDoc.text(
       'CLUBS FOR CYBERPUNK 2020 OR CYBERPUNK RED',
       PdfPageSettings.MIDPAGE,
@@ -32,8 +32,8 @@ export class ClubPdfGeneratorService {
         align: 'center',
       }
     );
-    pdfDoc.setFontSize(PdfPageSettings.FONT_SIZE);
-    return line + PdfPageSettings.LINEHEIGHT_XL;
+    pdfDoc.setFontSize(PdfFontSize.DEFAULT);
+    return line + PdfLineHeight.XL;
   }
 
   addClubs(pdfDoc: jsPDF, clubs: Club[], line: number): number {
@@ -49,14 +49,14 @@ export class ClubPdfGeneratorService {
       PdfPageSettings.PAGE_WIDTH - 25
     );
     const tempLine =
-      summary.length * PdfPageSettings.LINEHEIGHT +
-      PdfPageSettings.LINEHEIGHT_XL;
+      summary.length * PdfLineHeight.DEFAULT +
+      PdfLineHeight.XL;
     if (line + tempLine > PdfPageSettings.PAGE_HEIGHT) {
       pdfDoc.addPage();
       line = PdfPageSettings.MARGIN_TOP + 5;
     }
     pdfDoc.setFont(PdfPageSettings.DEFAULT_FONT, 'bold');
-    pdfDoc.setFontSize(PdfPageSettings.FONT_SIZE_LG);
+    pdfDoc.setFontSize(PdfFontSize.LG);
     pdfDoc.text(
       club.name.toUpperCase(),
       PdfPageSettings.MARGIN_LEFT + 5,
@@ -65,17 +65,17 @@ export class ClubPdfGeneratorService {
         align: 'left',
       }
     );
-    pdfDoc.setFontSize(PdfPageSettings.FONT_SIZE);
+    pdfDoc.setFontSize(PdfFontSize.DEFAULT);
     pdfDoc.setFont(PdfPageSettings.DEFAULT_FONT, 'normal');
-    line += PdfPageSettings.LINEHEIGHT_LG;
+    line += PdfLineHeight.LG;
     summary.forEach((txt) => {
       pdfDoc.text(txt, PdfPageSettings.MARGIN_LEFT + 10, line, {
         align: 'left',
       });
 
-      line += PdfPageSettings.LINEHEIGHT;
+      line += PdfLineHeight.DEFAULT;
     });
-    line += PdfPageSettings.LINEHEIGHT_LG;
+    line += PdfLineHeight.LG;
     return line;
   }
 }

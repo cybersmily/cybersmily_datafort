@@ -1,7 +1,7 @@
 import { Cp2020CyberwarePdfService } from './../../cp2020/cp2020-cyberware/services/cp2020-cyberware-pdf/cp2020-cyberware-pdf.service';
 import { Cp2020GearPdfService } from './../../cp2020/cp2020-gear/services/cp2020-gear-pdf/cp2020-gear-pdf.service';
 import { Cp2020WeaponSectionPdfService } from './../../cp2020/cp2020weapons/services/cp2020-weapon-section-pdf/cp2020-weapon-section-pdf.service';
-import { PdfPageSettings } from './../../enums/pdf-page-settings';
+import { PdfPageSettings, PdfLineHeight, PdfFontSize } from './../../enums/pdf-page-settings';
 import { Cp2020CharGenSettings } from './../../cp2020/models/cp2020-char-gen-settings';
 import { Cp2020ContactSectionPdfService } from './../../cp2020/cp2020-contacts/services/cp2020-contact-section-pdf/cp2020-contact-section-pdf.service';
 import { Cp2020DeckmanagerPdfSectionService } from './../../cp2020/cp2020-netrun-gear/services/cp2020-deckmanager-pdf-section/cp2020-deckmanager-pdf-section.service';
@@ -182,7 +182,7 @@ export class Cp2020characterToPDF {
         this._character.cyberware,
         this._left,
         line,
-        PdfPageSettings.LINEHEIGHT
+        PdfLineHeight.DEFAULT
       );
     }
     if (!settings || settings.sectionSettings.showGear) {
@@ -191,7 +191,7 @@ export class Cp2020characterToPDF {
         this._character.gear,
         this._left,
         line,
-        PdfPageSettings.LINEHEIGHT
+        PdfLineHeight.DEFAULT
       );
     }
     if (!settings || settings.sectionSettings.showCyberdeck) {

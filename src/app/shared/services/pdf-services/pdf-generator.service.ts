@@ -1,5 +1,5 @@
 import { PdfPageOrientation } from './../../enums/pdf-page-orientation';
-import { PdfPageSettings } from './../../enums/pdf-page-settings';
+import { PdfPageSettings, PdfLineHeight, PdfFontSize } from './../../enums/pdf-page-settings';
 import { jsPDF } from 'jspdf';
 import { Injectable } from '@angular/core';
 
@@ -24,7 +24,7 @@ export class PdfGeneratorService {
     // verify that Arial is a font.
      const font = this.getFont(doc.getFontList());
     doc.setFont(font);
-    doc.setFontSize(PdfPageSettings.FONT_SIZE);
+    doc.setFontSize(PdfFontSize.DEFAULT);
     return doc;
   }
 
