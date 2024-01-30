@@ -126,8 +126,10 @@ export class Cp2020SkillListShortComponent implements OnInit, OnChanges {
       for(let i = 0; i < this.currentSkills.length; i++) {
         this.currentSkills[i].value = this.diceRoll.generateNumber(1,10);
       }
+      for(let i = 0; i < this.currentSpecialAbilities.length; i++){
+        this.currentSpecialAbilities[i].value = this.diceRoll.generateNumber(1,10);
+      }
       this.updateSkills.emit(this.currentSkills);
-
     }
   }
 
