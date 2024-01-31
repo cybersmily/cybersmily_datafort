@@ -215,31 +215,31 @@ export class CmbtTrckThreatLevelService {
       case 1:
         filter.category = ['EXOTICS', 'RIFLES'];
         filter.subcategory = ['', 'BOWS', 'CROSSBOWS', 'ASSAULT'];
-        filter.avail = ['E', 'C', 'P'];
+        filter.availability = ['E', 'C', 'P'];
         // assault/exotic
         break;
       case 2:
         // automatic wapons, smgs
         filter.category = ['SMG', 'SHOTGUNS'];
         filter.subcategory = ['HEAVY', 'LIGHT', 'MEDIUM', 'AUTO'];
-        filter.avail = ['E', 'C', 'P'];
+        filter.availability = ['E', 'C', 'P'];
         break;
       case 3:
         // large hanguns, shotguns
         filter.category = ['PISTOLS', 'SHOTGUNS', 'RIFLES'];
         filter.subcategory = ['HEAVY', 'LIGHT', 'OTHER', ''];
-        filter.avail = ['E', 'C'];
+        filter.availability = ['E', 'C'];
         break;
       case 4:
         // melee and small hanguns
         filter.category = ['PISTOLS', 'MELEE'];
         filter.subcategory = ['MEDIUM', 'LIGHT', ''];
-        filter.avail = ['E', 'C'];
+        filter.availability = ['E', 'C'];
         break;
       default:
         return of(opp);
     }
-    this.wpnRandomSettings.setSettings(filter);
+    this.wpnRandomSettings.setFilters(filter);
     return this.wpnGeneratorService.generate().pipe(
       map((wpn) => {
         opp.weapons.push(wpn);

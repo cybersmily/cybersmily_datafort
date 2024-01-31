@@ -16,14 +16,14 @@ export class RandomWeaponGeneratorService {
     private wpnDataService: WeaponDataService,
     private dice: DiceService,
     private weaponSettings: Cp2020RandomWeaponSettingsService
-  ) {}
+  ) { }
 
   generate(): Observable<CpPlayerWeapon> {
     return this.weaponSettings.settings.pipe(
-      mergeMap((filters) =>
+      mergeMap((settings) =>
         this.wpnDataService.WeaponList.pipe(
           map((weaponList) => {
-            const list = this.filterList(filters, new Array(...weaponList));
+            const list = this.filterList(settings.filters, new Array(...weaponList));
             const roll = this.dice.generateNumber(0, list.length - 1);
             const wpn = new CpPlayerWeapon(list[roll]);
             return wpn;
@@ -41,11 +41,14 @@ export class RandomWeaponGeneratorService {
       map((weaponList) => {
         const list = this.filterList(filters, new Array(...weaponList));
         const result = new Array<CpPlayerWeapon>();
-        for (let i = 0; i < count; i++) {
-          const roll = this.dice.generateNumber(0, list.length - 1);
-          result.push(new CpPlayerWeapon(list[roll]));
+        if (list.length > 0) {
+          for (let i = 0; i < count; i++) {
+            const roll = this.dice.generateNumber(0, list.length - 1);
+            result.push(new CpPlayerWeapon(list[roll]));
+          }
         }
         return result;
+
       })
     );
   }
@@ -69,8 +72,8 @@ export class RandomWeaponGeneratorService {
     if (filters.cost) {
       list = list.filter((wpn) => wpn?.cost <= filters.cost);
     }
-    if (filters.avail) {
-      list = list.filter((wpn) => filters.avail.includes(wpn.avail));
+    if (filters.availability) {
+      list = list.filter((wpn) => filters.availability.includes(wpn.avail));
     }
     if (filters.conc) {
       list = list.filter((wpn) => filters.conc.includes(wpn.conc));
