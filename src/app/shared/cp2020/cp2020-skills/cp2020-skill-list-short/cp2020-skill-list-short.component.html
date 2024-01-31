@@ -33,11 +33,11 @@
       </div>
       <div class="row mt-1">
         <div class="col-12 column-count">
-          <cs-cp2020-skill *ngFor="let skill of columnOneSkills" [skill]="skill" [stat]="characterStats[skill.stat]" [showIP]="false" [showStat]="true" (changeSkill)="changeSkill($event)" (delete)="deleteSkill($event)" ></cs-cp2020-skill>
+          <cs-cp2020-skill *ngFor="let skill of this.currentSkills" [skill]="skill" [stat]="characterStats[skill.stat]" [showIP]="false" [showStat]="true" (changeSkill)="changeSkill($event)" (delete)="deleteSkill($event)" ></cs-cp2020-skill>
         </div>
       </div>
       <div class="row pb-2">
-        <div class="col-12 g-0 csd-btn">
+        <div class="col-12 g-0 csd-btn" (click)="addSKill(newSkillModal)">
           <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn me-1 ms-1"></fa-icon>
           Add new Skill
         </div>

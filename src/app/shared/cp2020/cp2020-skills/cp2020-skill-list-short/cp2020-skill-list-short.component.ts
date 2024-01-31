@@ -52,14 +52,6 @@ export class Cp2020SkillListShortComponent implements OnInit, OnChanges {
   skills: Array<DataSkill> = new Array<DataSkill>();
   skillResults = '';
 
-  get columnOneSkills(): Array<Cp2020PlayerSkill> {
-    return this.currentSkills.slice(0, Math.ceil(this.currentSkills.length/2))
-  }
-
-  get columnTwoSkills(): Array<Cp2020PlayerSkill> {
-    return this.currentSkills.slice(Math.ceil(this.currentSkills.length/2))
-  }
-
   constructor(private diceRoll: DiceService, private skillList: SkillListService, private modalService: BsModalService) { }
 
   ngOnInit() {
@@ -130,6 +122,7 @@ export class Cp2020SkillListShortComponent implements OnInit, OnChanges {
         this.currentSpecialAbilities[i].value = this.diceRoll.generateNumber(1,10);
       }
       this.updateSkills.emit(this.currentSkills);
+      this.updateSpecialAbilities.emit(this.currentSpecialAbilities);
     }
   }
 
