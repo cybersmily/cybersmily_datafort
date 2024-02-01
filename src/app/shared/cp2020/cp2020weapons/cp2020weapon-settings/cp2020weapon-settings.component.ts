@@ -132,6 +132,7 @@ export class Cp2020weaponSettingsComponent implements OnInit {
       this.removeParam(type, value);
     }
     this.updateSettings();
+    $event.stopPropagation();
   }
 
   addParam(type: string, value: string) {

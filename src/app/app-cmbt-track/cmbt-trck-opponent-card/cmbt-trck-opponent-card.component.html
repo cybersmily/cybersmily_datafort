@@ -42,32 +42,32 @@
       Or Threat Code:
     </div>
     <div class="col-9 col-md-10">
-      <select class="btn-sm threat-code-select" [(ngModel)]="currThreatLevel.skill">
+      <select class="btn-sm threat-code-select" [(ngModel)]="currThreatLevel.skill" tooltip="Skill level of the opponent">
         <option *ngIf="!selectedTemplate" [ngValue]="''" selected>-</option>
-        <option [ngValue]="'E'">E</option>
-        <option [ngValue]="'D'">D</option>
-        <option [ngValue]="'C'">C</option>
-        <option [ngValue]="'B'">B</option>
-        <option [ngValue]="'A'">A</option>
+        <option [ngValue]="'E'" title="Novice">E</option>
+        <option [ngValue]="'D'" title="Average">D</option>
+        <option [ngValue]="'C'" title="Above Average">C</option>
+        <option [ngValue]="'B'" title="Experienced">B</option>
+        <option [ngValue]="'A'" title="Veteran">A</option>
       </select>
-      <select class="btn-sm threat-code-select" [(ngModel)]="currThreatLevel.weapon">
+      <select class="btn-sm threat-code-select" [(ngModel)]="currThreatLevel.weapon" tooltip="Weapon available for the opponent">
         <option *ngIf="!selectedTemplate" [ngValue]="0" selected>-</option>
-        <option [ngValue]="5">5</option>
-        <option [ngValue]="4">4</option>
-        <option [ngValue]="3">3</option>
-        <option [ngValue]="2">2</option>
-        <option [ngValue]="1">1</option>
+        <option [ngValue]="5" title="Bare hands/improvised weapons">5</option>
+        <option [ngValue]="4" title="Melee/Small Pistols">4</option>
+        <option [ngValue]="3" title="Large handgun/bolt-action rifle">3</option>
+        <option [ngValue]="2" title="Automatic weapons">2</option>
+        <option [ngValue]="1" title="Assault weapons/exotics">1</option>
       </select>
-      <select class="btn-sm threat-code-select" [(ngModel)]="currThreatLevel.armor">
+      <select class="btn-sm threat-code-select" [(ngModel)]="currThreatLevel.armor" tooltip="Armor available for the opponent">
         <option *ngIf="!selectedTemplate" [ngValue]="''" selected>-</option>
-        <option [ngValue]="'E'">E</option>
-        <option [ngValue]="'D'">D</option>
-        <option [ngValue]="'C'">C</option>
-        <option [ngValue]="'B'">B</option>
-        <option [ngValue]="'A'">A</option>
+        <option [ngValue]="'E'" title="Normal clothing">E</option>
+        <option [ngValue]="'D'" title="Leather to kevlar vest">D</option>
+        <option [ngValue]="'C'" title="Light to heavy armor">C</option>
+        <option [ngValue]="'B'" title="Door gunner/Metal Gear">B</option>
+        <option [ngValue]="'A'" title="PA Armor">A</option>
       </select>
-      <input type="checkbox" class="ms-2" [disabled]="!enableThreatCode"
-        (change)="setOpponentThreatLevelAttributes($event)" title="Check to apply the thread code to the opponent."> apply
+      <button class="ms-2 csd-btn" [disabled]="!enableThreatCode"
+      (click)="setOpponentThreatLevelAttributes()" title="Check to apply the thread code to the opponent.">apply</button>
     </div>
   </div>
   <div class='row chargen-label'>

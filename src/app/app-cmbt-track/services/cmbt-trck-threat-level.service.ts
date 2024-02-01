@@ -1,6 +1,6 @@
 import { Cp2020RandomWeaponSettingsService } from './../../shared/cp2020/cp2020weapons/services/cp2020-random-weapon-settings/cp2020-random-weapon-settings.service';
-import { RandomWeaponFilters } from './../../shared/cp2020/cp2020weapons/models/random-weapon-filters';
-import { map } from 'rxjs/operators';
+import { RandomWeaponFilters, RandomWeaponSettings } from './../../shared/cp2020/cp2020weapons/models/random-weapon-filters';
+import { map, take } from 'rxjs/operators';
 import { RandomWeaponGeneratorService } from './../../shared/cp2020/cp2020weapons/services/random-weapon-generator/random-weapon-generator.service';
 import { Observable, of } from 'rxjs';
 import { DiceService } from './../../shared/services/dice/dice.service';
@@ -239,8 +239,9 @@ export class CmbtTrckThreatLevelService {
       default:
         return of(opp);
     }
-    this.wpnRandomSettings.setFilters(filter);
+    this.wpnRandomSettings.setSettings({count: 1, filters: filter});
     return this.wpnGeneratorService.generate().pipe(
+      take(1),
       map((wpn) => {
         opp.weapons.push(wpn);
         return opp;

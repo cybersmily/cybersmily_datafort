@@ -3,7 +3,7 @@ import { DataWeapon } from './../../models/data-weapon';
 import { map, mergeMap } from 'rxjs/operators';
 import { WeaponDataService } from './../weapon-data.service';
 import { RandomWeaponFilters } from './../../models/random-weapon-filters';
-import { Observable } from 'rxjs';
+import { Observable, take } from 'rxjs';
 import { CpPlayerWeapon } from './../../models/cp-player-weapon';
 import { DiceService } from './../../../../services/dice/dice.service';
 import { Injectable } from '@angular/core';
@@ -63,7 +63,7 @@ export class RandomWeaponGeneratorService {
     if (filters.subcategory) {
       list = list.filter(
         (wpn) =>
-          wpn?.subcategory && filters.subcategory.includes(wpn?.subcategory)
+          wpn?.subcategory && (filters.subcategory.includes(wpn?.subcategory) || filters.subcategory.includes(''))
       );
     }
     if (filters.ammo) {

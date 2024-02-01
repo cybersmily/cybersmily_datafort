@@ -173,15 +173,12 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
     this.updateOpponent();
   }
 
-  setOpponentThreatLevelAttributes($event) {
-    if($event.target.checked) {
+  setOpponentThreatLevelAttributes() {
       this.threatCodeService
       .generate(this.currThreatLevel)
       .subscribe( opp => {
         this.currOpponent = new CmbtTrckOpponent(opp);
       });
-    }
-
   }
 
   clear() {
