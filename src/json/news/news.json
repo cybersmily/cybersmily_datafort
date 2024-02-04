@@ -1,5 +1,20 @@
 ﻿{
   "news": [
+    {"date": "2024-01",
+    "entries": [
+    "<strong>01-31</strong> - Fixed some bugs with the combat tracker for weapons and skills. Added an option in the random weapon generator to set the quantity to generate. Options should be sticky now.",
+    "Till next time gatos.",
+    "CYBER :D",
+    "<strong>01-05</strong> - It has been awhile. Real life and my TTRPG has distracted me quite a bit. I'm running 2 games and playing in 2. I think I overburdened myself. But on to this update. I fixed a few bugs throughout the site none more than the ones on the 2020 Combat Tracker. ",
+    "I have spent a bit of time refactoring/restyling the combat tracker to help improve it for your Cyberpunk 2020 games. ",
+    "I have include icons instead of text for a combatant's wounds and status (stunned or dead). I like it better than the plan text. ",
+    "I update the top navigator to tighten it up a bit for better accesibility on mobdile devices. ",
+    "Speaking of mobile devices, I specifically tried to make the experience better on them; Less scrolling, flyout combatant details, better layout of the fields in the details.",
+    "Those Cyberpunk 2020 netrunners I have include the ports and output ports numbers to each of the decks. So now you can keep track of how many options you should be limited to. There is also some small styling changes",
+    "Character generator also had some bug fixes. Filtering on skills with just values now works. Fixed an issuw with gear input boxes.",
+    "Till next time gatos.",
+    "CYBER :D"]
+  },
     {"date": "2023-07",
       "entries": [
         "<strong>07-10</strong> - Quick update. I know it has been awhile since my last one and this isn't anything ground breaking. Just doing some small bug fixes to the character generator this time.",

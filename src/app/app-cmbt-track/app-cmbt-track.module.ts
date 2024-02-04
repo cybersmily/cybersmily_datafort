@@ -19,21 +19,23 @@ import { CommonModule } from '@angular/common';
 import { AppCmbtTrackRoutingModule } from './app-cmbt-track-routing.module';
 import { CmbtTrckFormComponent } from './cmbt-trck-form/cmbt-trck-form.component';
 import { CmbtTrckOpponentCardComponent } from './cmbt-trck-opponent-card/cmbt-trck-opponent-card.component';
-import { CmbtTrkSkillsComponent } from './cmbt-trk-skills/cmbt-trk-skills.component';
 import { CmbtTrkCyberComponent } from './cmbt-trk-cyber/cmbt-trk-cyber.component';
 import { CmbtTrckMainComponent } from './cmbt-trck-main/cmbt-trck-main.component';
 import { CmbtTrckInstructionsComponent } from './cmbt-trck-instructions/cmbt-trck-instructions.component';
 import { CmbtTrckGearComponent } from './cmbt-trck-gear/cmbt-trck-gear.component';
+import { Cp2020SkillsModule } from '../shared/cp2020/cp2020-skills/cp2020-skills.module';
+import { CmbtTrckOpponentRowComponent } from './cmbt-trck-opponent-row/cmbt-trck-opponent-row.component';
+import { CmbtTrckWoundDisplayService } from './services/cmbt-trck-wound-display.service';
 
 @NgModule({
   declarations: [
     CmbtTrckFormComponent,
     CmbtTrckOpponentCardComponent,
-    CmbtTrkSkillsComponent,
     CmbtTrkCyberComponent,
     CmbtTrckMainComponent,
     CmbtTrckInstructionsComponent,
-    CmbtTrckGearComponent
+    CmbtTrckGearComponent,
+    CmbtTrckOpponentRowComponent
   ],
   imports: [
     CommonUiModule,
@@ -44,6 +46,7 @@ import { CmbtTrckGearComponent } from './cmbt-trck-gear/cmbt-trck-gear.component
     Cp2020StatsModule,
     Cp2020WoundsModule,
     Cp2020ArmorModule,
+    Cp2020SkillsModule,
     Cp2020CyberwareModule
   ],
   providers: [
@@ -53,7 +56,8 @@ import { CmbtTrckGearComponent } from './cmbt-trck-gear/cmbt-trck-gear.component
     CombatTrackerService,
     SkillListService,
     Cp2020RolesDataService,
-    CmbtTrckThreatLevelService
+    CmbtTrckThreatLevelService,
+    CmbtTrckWoundDisplayService
   ]
 })
 export class AppCmbtTrackModule { }

@@ -1,7 +1,7 @@
 import { Cp2020CyberwarePdfService } from './../../cp2020/cp2020-cyberware/services/cp2020-cyberware-pdf/cp2020-cyberware-pdf.service';
 import { Cp2020GearPdfService } from './../../cp2020/cp2020-gear/services/cp2020-gear-pdf/cp2020-gear-pdf.service';
 import { Cp2020WeaponSectionPdfService } from './../../cp2020/cp2020weapons/services/cp2020-weapon-section-pdf/cp2020-weapon-section-pdf.service';
-import { PdfPageSettings } from './../../enums/pdf-page-settings';
+import { PdfPageSettings, PdfLineHeight, PdfFontSize } from './../../enums/pdf-page-settings';
 import { Cp2020CharGenSettings } from './../../cp2020/models/cp2020-char-gen-settings';
 import { Cp2020ContactSectionPdfService } from './../../cp2020/cp2020-contacts/services/cp2020-contact-section-pdf/cp2020-contact-section-pdf.service';
 import { Cp2020DeckmanagerPdfSectionService } from './../../cp2020/cp2020-netrun-gear/services/cp2020-deckmanager-pdf-section/cp2020-deckmanager-pdf-section.service';
@@ -9,13 +9,7 @@ import { Cp2020ArmorPDFSectionService } from './../../cp2020/cp2020-armor/servic
 import { Cp2020Identity } from './../../cp2020/cp2020-lifestyle/models/cp2020-identity';
 import { CpHousing } from '../../cp2020/cp2020-lifestyle/models/cp-housing';
 import { Cp2020Lifestyle } from './../../cp2020/cp2020-lifestyle/models/cp2020-lifestyle';
-import { Cp2020PlayerCyber } from './../../cp2020/cp2020-cyberware/models/cp2020-player-cyber';
 import { Cp2020ArmorBlock } from './../../cp2020/cp2020-armor/models/cp2020-armor-block';
-import { Cp2020PlayerCyberList } from './../../cp2020/cp2020-cyberware/models';
-import {
-  Cp2020PlayerSkills,
-  Cp2020PlayerSkill,
-} from './../../cp2020/cp2020-skills/models';
 import { LifePathResults } from './../../cp2020/cp2020-lifepath/models';
 import { Cp2020StatBlock } from '../../cp2020/cp2020-stats/models/cp2020-stat-block';
 import { Cp2020PlayerCharacter } from '../cp2020character/cp2020-player-character';
@@ -23,6 +17,8 @@ import { Cp2020PlayerCharacter } from '../cp2020character/cp2020-player-characte
 import { jsPDF } from 'jspdf';
 import { LifepathEvent } from '../../cp2020/cp2020-lifepath/models';
 import { Cp2020Vehicle } from '../../cp2020/cp2020-vehicles/models';
+import { Cp2020SkillSectionPdService } from '../../cp2020/cp2020-skills/services/cp2020-skill-section-pdf/cp2020-skill-section-pd.service';
+import { Cp2020StatsSectionPdfService } from '../../cp2020/cp2020-stats/services/cp2020-stats-section-pdf/cp2020-stats-section-pdf.service';
 
 export class Cp2020characterToPDF {
   private _character: Cp2020PlayerCharacter;
@@ -36,6 +32,8 @@ export class Cp2020characterToPDF {
   private _font = 'Arial';
 
   constructor(
+    private statsPdfService: Cp2020StatsSectionPdfService,
+    private skillPdfService: Cp2020SkillSectionPdService,
     private armorPdfService: Cp2020ArmorPDFSectionService,
     private weaponPdfService: Cp2020WeaponSectionPdfService,
     private gearPdfService: Cp2020GearPdfService,
@@ -123,12 +121,14 @@ export class Cp2020characterToPDF {
         : 0;
 
     // STATS
-    line = this.addStats(
+    line = this.statsPdfService.addStatsSection(
       doc,
       this._character.stats,
       this._character.skills.rep,
+      combatSense,
       line,
-      combatSense
+      this._left,
+      this._lineheight
     );
 
     // Armor
@@ -142,13 +142,13 @@ export class Cp2020characterToPDF {
       line
     );
     if (!settings || settings.sectionSettings.showSkills) {
-      line = this.addSkills(
+      line = this.skillPdfService.addCharacterSheetSkillsSection(
         doc,
-        this._character.role.specialAbility,
         this._character.skills,
         this._character.stats,
         this._left,
-        line
+        line,
+        this._lineheight
       );
     }
     return line;
@@ -182,7 +182,7 @@ export class Cp2020characterToPDF {
         this._character.cyberware,
         this._left,
         line,
-        PdfPageSettings.LINEHEIGHT
+        PdfLineHeight.DEFAULT
       );
     }
     if (!settings || settings.sectionSettings.showGear) {
@@ -191,7 +191,7 @@ export class Cp2020characterToPDF {
         this._character.gear,
         this._left,
         line,
-        PdfPageSettings.LINEHEIGHT
+        PdfLineHeight.DEFAULT
       );
     }
     if (!settings || settings.sectionSettings.showCyberdeck) {
@@ -256,15 +256,16 @@ export class Cp2020characterToPDF {
       this._character.notes,
       190
     );
+    let lineHeight = Math.floor(this._fontSize/2);
     let line = this._top + 13;
     notes.forEach((n) => {
       doc.text(n.trim(), this._left + 2, line);
-      line += 7;
+      line += lineHeight;
     });
   }
 
   private addHandle(doc: jsPDF, handle: string, line: number): number {
-    let rw = 22;
+    let rw = 25;
     doc.rect(this._left, line, rw, this._lineheight, 'DF');
     doc.setTextColor('white');
     doc.setFont(this._font, 'bold');
@@ -279,7 +280,7 @@ export class Cp2020characterToPDF {
 
   private addRole(doc: jsPDF, role: string, line: number): number {
     doc.setFillColor('black');
-    let rw = 18;
+    let rw = 20;
     doc.rect(this._left, line, rw, this._lineheight, 'DF');
     doc.setTextColor('white');
     doc.setFont(this._font, 'bold');
@@ -287,23 +288,23 @@ export class Cp2020characterToPDF {
     rw = this._left + rw;
     doc.rect(rw, line, 75, this._lineheight, 'S');
     doc.setTextColor('black');
-    doc.setFontSize(this._fontSize - 4);
+    doc.setFontSize(this._fontSize - 2);
     doc.setFont(this._font, 'normal');
 
     doc.text(role, rw + 1, line + 5);
     doc.setFontSize(this._fontSize);
-    return line + 8;
+    return line + 7;
   }
 
   private addSecondaryRole(doc: jsPDF, roles: string, line: number): number {
-    let rw = 20;
+    let rw = 22;
     // determine if all roles will fit
     let txt = new Array<string>();
     txt = doc.splitTextToSize(roles, 74);
     let txtHt = txt.length * this._lineheight;
     txtHt = txtHt < 1 ? this._lineheight : txtHt;
     rw = this._left + rw;
-    doc.rect(this._left, line - 1, 93, txtHt, 'S');
+    doc.rect(this._left, line, 95, txtHt, 'S');
     doc.setTextColor('black');
     doc.setFont(this._font, 'bold');
     doc.setFontSize(this._fontSize - 3);
@@ -344,72 +345,6 @@ export class Cp2020characterToPDF {
     doc.setFontSize(this._fontSize);
   }
 
-  private addStats(
-    doc: jsPDF,
-    stats: Cp2020StatBlock,
-    rep: number,
-    line: number,
-    combatSense: number
-  ): number {
-    doc.setFillColor('black');
-    doc.rect(this._left, line, 20, this._lineheight, 'DF');
-    doc.setTextColor('white');
-    doc.setFont(this._font, 'bold');
-    doc.text('STATS', this._left + 3, line + 5);
-    doc.rect(this._left + 20, line, 15, this._lineheight, 'S');
-    doc.setTextColor('black');
-    doc.setFillColor('white');
-    doc.setFont(this._font, 'normal');
-    doc.text(stats.BasePoints?.toString() ?? '', this._left + 23, line + 5);
-
-    doc.setFillColor('black');
-    doc.rect(this._left + 40, line, 15, this._lineheight, 'DF');
-    doc.setTextColor('white');
-    doc.setFont(this._font, 'bold');
-    doc.text('REP', this._left + 43, line + 5);
-    doc.rect(this._left + 55, line, 10, this._lineheight, 'S');
-    doc.setTextColor('black');
-    doc.setFillColor('white');
-    doc.setFont(this._font, 'normal');
-    doc.text(rep?.toString() ?? '', this._left + 60, line + 5);
-
-    doc.setFillColor('black');
-    doc.rect(this._left + 70, line, 15, this._lineheight, 'DF');
-    doc.setTextColor('white');
-    doc.setFont(this._font, 'bold');
-    doc.text('INIT', this._left + 73, line + 5);
-    doc.rect(this._left + 85, line, 10, this._lineheight, 'S');
-    doc.setTextColor('black');
-    doc.setFillColor('white');
-    doc.setFont(this._font, 'normal');
-    let init: number = stats.REF.Adjusted;
-    init += combatSense || 0;
-    init += stats.initiativeModifiers.reduce((a, b) => a + b.mod, 0);
-    doc.text(init?.toString() ?? '', this._left + 90, line + 5);
-
-    line = line + 12;
-    doc.setTextColor('black');
-    doc.text(
-      `INT [ ${stats.INT.Adjusted} ]   REF [ ${stats.REF.Adjusted} ]   TECH [ ${stats.TECH.Adjusted}]   COOL [ ${stats.COOL.Adjusted} ]`,
-      this._left,
-      line
-    );
-    line = line + 5.5;
-    doc.text(
-      `ATTR [ ${stats.ATTR.Adjusted} ]   LUCK [ ${stats.LUCK.Adjusted} ]   MA [ ${stats.MA.Adjusted} ]  BODY [ ${stats.BODY.Adjusted} ] EMP [ ${stats.EMP.Adjusted} ]`,
-      this._left,
-      line
-    );
-    line = line + 5.5;
-    doc.text(
-      `Run [ ${stats.Run}m ]   Leap [ ${stats.Leap}m ]  Lift [ ${
-        stats.Lift
-      }kg ] Hum. [ ${stats.CurrentHumanity?.toString()} ]`,
-      this._left,
-      line
-    );
-    return line + 2.5;
-  }
 
   private addArmorBlock(
     doc: jsPDF,
@@ -513,213 +448,21 @@ export class Cp2020characterToPDF {
     left: number,
     width: number
   ) {
-    doc.setFontSize(7);
-    doc.text(level, left, line);
+    doc.setFontSize(6);
+    const center = left +  (width/2);
+    doc.text(level, center, line, { align: "center"});
     line = line + 1;
-    doc.rect(left, line, 2, 2, 'S');
-    doc.rect(left + 2, line, 2, 2, 'S');
-    doc.rect(left + 4, line, 2, 2, 'S');
-    doc.rect(left + 6, line, 2, 2, 'S');
+    doc.setFontSize(7);
+    doc.rect(center - 4, line, 2, 2, 'S');
+    doc.rect(center - 2, line, 2, 2, 'S');
+    doc.rect(center, line, 2, 2, 'S');
+    doc.rect(center + 2, line, 2, 2, 'S');
     line = line + 2.4;
     doc.rect(left, line, width, 4, 'DF');
     doc.setTextColor('white');
     doc.text(`Stun=${stun}`, left + 1, line + 2.5);
     doc.setTextColor('black');
     doc.setFontSize(this._fontSize);
-  }
-
-  private addSkills(
-    doc: jsPDF,
-    sa: Cp2020PlayerSkill,
-    currSkills: Cp2020PlayerSkills,
-    stats: Cp2020StatBlock,
-    left: number,
-    line: number
-  ): number {
-    line = this.printSkillSectionTitle(
-      doc,
-      line,
-      left,
-      currSkills.ip.toString()
-    );
-    const skills = new Cp2020PlayerSkills();
-    skills.importSkills(
-      currSkills.showWithValues
-        ? (skills.skills = currSkills.skills.filter((sk) => sk.value > 0))
-        : currSkills.skills
-    );
-    const colWidth = 50;
-    let col = left;
-    line += 4;
-
-    // SPECIAL ABILITIES SKILLS
-    line = this.printSkills(
-      doc,
-      skills.specialAbilites,
-      'SPECIAL ABILITY',
-      undefined,
-      line,
-      col
-    );
-
-    // ATTR SKILLS
-    line = this.printSkills(
-      doc,
-      skills.ATTR,
-      'ATTR',
-      stats.ATTR.Adjusted,
-      line,
-      col
-    );
-    // BODY SKILLS
-    line = this.printSkills(
-      doc,
-      skills.BODY,
-      'BODY',
-      stats.BODY.Adjusted,
-      line,
-      col
-    );
-    // COOL SKILLS
-    line = this.printSkills(
-      doc,
-      skills.COOL,
-      'COOL/WILL',
-      stats.COOL.Adjusted,
-      line,
-      col
-    );
-    // EMPATHY SKILLS
-    line = this.printSkills(
-      doc,
-      skills.EMP,
-      'EMPATHY',
-      stats.EMP.Adjusted,
-      line,
-      col
-    );
-    // INT SKILLS
-    line = this.printSkills(
-      doc,
-      skills.INT.slice(0, 92),
-      'INT',
-      stats.INT.Adjusted,
-      line,
-      col
-    );
-    if (skills.skills.length > 180 || skills.INT.length > 92) {
-      doc.addPage();
-      line = this._top + 10;
-      line = this.printSkillSectionTitle(doc, line, left, skills.ip.toString());
-      line += 4;
-      line = this.printSkills(
-        doc,
-        skills.INT.slice(92),
-        'INT (continued)',
-        stats.INT.Adjusted,
-        line,
-        col
-      );
-    }
-    // REF SKILLS
-    line = this.printSkills(
-      doc,
-      skills.REF,
-      'REF',
-      stats.REF.Adjusted,
-      line,
-      col
-    );
-
-    // TECH SKILLS
-    line = this.printSkills(
-      doc,
-      skills.TECH,
-      'TECH',
-      stats.TECH.Adjusted,
-      line,
-      col
-    );
-
-    line = this.printSkills(doc, skills.Other, 'OTHER', 0, line, col);
-    line += 6;
-    return line;
-  }
-
-  private printSkillSectionTitle(
-    doc: jsPDF,
-    line: number,
-    left: number,
-    ip: string
-  ): number {
-    doc.setFillColor('black');
-    doc.rect(this._left, line, 22, this._lineheight, 'DF');
-    doc.setTextColor('white');
-    doc.setFont(this._font, 'bold');
-    doc.text('SKILLS', left + 3, line + 5);
-    doc.setTextColor('black');
-    doc.rect(this._left + 20, line, 15, this._lineheight, 'S');
-    doc.text('IP:', left + 23, line + 5);
-    doc.text(ip, left + 28, line + 5);
-    doc.setFont(this._font, 'normal');
-    doc.setFontSize(6);
-    doc.text(
-      'Skills show level| level + stat in box []. X next to box is chipped',
-      left + 38,
-      line + 3
-    );
-    line += 7;
-    return line;
-  }
-
-  private printSkills(
-    doc: jsPDF,
-    skills: Array<Cp2020PlayerSkill>,
-    statName: string,
-    stat: number,
-    line: number,
-    col: number
-  ): number {
-    doc.setFont(this._font, 'bold');
-    doc.setFontSize(8);
-    doc.text(`${statName} (${stat ?? 'NA'})`, col + 1, line);
-    doc.setFont(this._font, 'normal');
-    let currline = line + 4;
-    doc.setFontSize(8);
-    let index = Math.ceil(skills.length / 4);
-    const colWidth = 53;
-    const colOne = skills.slice(0, index);
-    const colTwo = skills.slice(index, index * 2);
-    const colThree = skills.slice(index * 2, index * 3);
-    const colFour = skills.slice(index * 3);
-    this.printSkillColumn(doc, colOne, stat, currline, col);
-    this.printSkillColumn(doc, colTwo, stat, currline, colWidth);
-    this.printSkillColumn(doc, colThree, stat, currline, colWidth * 2);
-    this.printSkillColumn(doc, colFour, stat, currline, colWidth * 3);
-    //this.printSkillColumn(doc, colFive, stat, currline, colWidth * 4);
-    doc.rect(this._left, line - 3, 200, colOne.length * 4 + 4, 'S');
-    return currline + colOne.length * 4;
-  }
-
-  private printSkillColumn(
-    doc: jsPDF,
-    skills: Array<Cp2020PlayerSkill>,
-    stat: number,
-    line: number,
-    col: number
-  ) {
-    skills.forEach((s) => {
-      const name = `${s.name}${s.option ? ` - ${s.option}` : ''}${
-        s.isSA && s.stat !== '' ? '(' + s.stat + ')' : ''
-      }`;
-      doc.text(
-        `[${s.value}|${s.value + (stat ?? 0)}] ${s.chipped ? 'X' : ''}`,
-        col + 2,
-        line
-      );
-      doc.text(name, col + 9, line);
-      line += 4;
-    });
   }
 
   private addVehicles(

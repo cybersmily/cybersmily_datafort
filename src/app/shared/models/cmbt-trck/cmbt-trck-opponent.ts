@@ -14,10 +14,11 @@ export class CmbtTrckOpponent {
   initDie: Array<number>;
   stats: Cp2020StatBlock;
   armor: Cp2020ArmorBlock;
-  sa: Cp2020PlayerSkill;
+  sa: Array<Cp2020PlayerSkill>;
   cyberware: Array<OppCyberware>;
   private _skills: Array<Cp2020PlayerSkill>;
   weapons: Array<CpPlayerWeapon>;
+  selectedWeapon?: CpPlayerWeapon;
   gear: Array<string>;
   modifiers: Cp2020CombatModifiers;
 
@@ -38,7 +39,11 @@ export class CmbtTrckOpponent {
     this.armor = new Cp2020ArmorBlock(param?.armor);
     this.stats.REF.ev = this.armor.ev;
     this.cyberware = param?.cyberware?.map(cyber => new OppCyberware(cyber)) ?? new Array<OppCyberware>();
-    this.sa = param?.sa ?? new Cp2020PlayerSkill();
+    if(Array.isArray(param?.sa)) {
+      this.sa = param.sa;
+    } else {
+      this.sa = [param?.sa ?? new Cp2020PlayerSkill()];
+    }
     this._skills = param?._skills?.map(skill => new Cp2020PlayerSkill(skill)) ?? new Array<Cp2020PlayerSkill>();
     this.weapons = param?.weapons?.map(wpn => new CpPlayerWeapon(wpn)) ?? new Array<CpPlayerWeapon>();
     this.modifiers = new Cp2020CombatModifiers();
@@ -64,23 +69,25 @@ export class CmbtTrckOpponent {
     this.stats.MA.Base = template.ma;
     // import armor
     this.armor = new Cp2020ArmorBlock(template.armor);
-    this.sa = new Cp2020PlayerSkill(template.sa);
+    if(Array.isArray(template.sa)) {
+      this.sa = template.sa?.map(sk=> new Cp2020PlayerSkill(sk)) ?? Array<Cp2020PlayerSkill>();
+    } else {
+      this.sa = [new Cp2020PlayerSkill(template.sa)];
+    }
+
     template.skills.forEach((sk) => {
       this._skills.push(new Cp2020PlayerSkill(sk));
     });
     this.skills = this._skills;
     this.cyberware = template.cyberware;
     this.weapons = new Array<CpPlayerWeapon>();
+    this.selectedWeapon = template?.selectedWeapon;
     template.weapons.forEach((w) => this.weapons.push(new CpPlayerWeapon(w)));
     this.gear = template.gear;
   }
 
   get combatSense(): number {
-    return this.sa &&
-      this.sa.name &&
-      this.sa.name.toLowerCase() === 'combat sense'
-      ? this.sa.value
-      : 0;
+    return this.sa.find(sk => sk.name.toLowerCase() === 'combat sense')?.value ?? 0;
   }
 
   get skills(): Array<Cp2020PlayerSkill> {

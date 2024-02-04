@@ -1,4 +1,4 @@
-import { PdfPageSettings } from './../../../../enums/pdf-page-settings';
+import { PdfPageSettings, PdfLineHeight, PdfFontSize } from './../../../../enums/pdf-page-settings';
 import { jsPDF } from 'jspdf';
 import { Injectable } from '@angular/core';
 import {

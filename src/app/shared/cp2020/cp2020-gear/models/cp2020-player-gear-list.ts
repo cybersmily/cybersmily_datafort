@@ -6,7 +6,7 @@ export class Cp2020PlayerGearList {
 
   constructor(param?: any) {
     if (typeof param === 'number') {
-      this.items = new Array<Cp2020PlayerGear>(param).fill(new Cp2020PlayerGear());
+      this.items = new Array<Cp2020PlayerGear>(param).map(g => new Cp2020PlayerGear());
       this.locations = new Array<string>();
     } else {
       this.items = param?.items.map(item => new Cp2020PlayerGear(item)) ?? new Array<Cp2020PlayerGear>(2);

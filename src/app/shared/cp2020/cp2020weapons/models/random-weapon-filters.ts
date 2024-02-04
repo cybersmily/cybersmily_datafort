@@ -1,3 +1,7 @@
+export interface RandomWeaponSettings {
+  count: number;
+  filters: RandomWeaponFilters;
+}
 export interface RandomWeaponFilters {
   type?: Array<string>;
   category?: Array<string>;
@@ -5,5 +9,5 @@ export interface RandomWeaponFilters {
   cost?: number;
   ammo?: Array<string>;
   conc?: Array<string>;
-  avail?: Array<string>;
+  availability?: Array<string>;
 }

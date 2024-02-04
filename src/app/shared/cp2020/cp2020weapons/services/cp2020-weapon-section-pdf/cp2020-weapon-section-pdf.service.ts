@@ -1,4 +1,4 @@
-import { PdfPageSettings } from './../../../../enums/pdf-page-settings';
+import { PdfPageSettings, PdfLineHeight, PdfFontSize } from './../../../../enums/pdf-page-settings';
 import { CpPlayerWeaponList, CpPlayerWeapon } from './../../models';
 import { jsPDF } from 'jspdf';
 import { Injectable } from '@angular/core';
@@ -41,7 +41,7 @@ export class Cp2020WeaponSectionPdfService {
     weapons.items.forEach((w) => {
       line = this.addWeaponRow(doc, w, ht, left, line);
     });
-    doc.setFontSize(PdfPageSettings.FONT_SIZE);
+    doc.setFontSize(PdfFontSize.DEFAULT);
     return line + 6;
   }
 
@@ -122,12 +122,12 @@ export class Cp2020WeaponSectionPdfService {
       weapon?.name ?? '',
       28
     );
-    const wpnHt = weaponName.length * PdfPageSettings.LINEHEIGHT_SM;
+    const wpnHt = weaponName.length * PdfLineHeight.SM;
     doc.rect(left, line, 30, wpnHt, 'S');
     let nameLine = line + 3.5;
     weaponName.forEach((name) => {
       doc.text(name, left + 1, nameLine);
-      nameLine += PdfPageSettings.LINEHEIGHT_SM;
+      nameLine += PdfLineHeight.SM;
     });
 
     left += 30;
@@ -181,14 +181,14 @@ export class Cp2020WeaponSectionPdfService {
     }
     let noteHeight = 0;
     if (weapon.options && weapon.options.length > 0) {
-      let noteLine = line + shotsHt + PdfPageSettings.LINEHEIGHT - 2;
+      let noteLine = line + shotsHt + PdfLineHeight.DEFAULT - 2;
       let left = PdfPageSettings.MARGIN_LEFT + 5;
       const opts = weapon.options.map((o) => `${o.count} ${o.name}`).join(', ');
       const optText = doc.splitTextToSize(`Options: ${opts}`, 90);
       optText.forEach((txt) => {
-        noteHeight += PdfPageSettings.LINEHEIGHT;
+        noteHeight += PdfLineHeight.DEFAULT;
         doc.text(txt, left, noteLine);
-        noteLine += PdfPageSettings.LINEHEIGHT - 2;
+        noteLine += PdfLineHeight.DEFAULT - 2;
       });
       doc.rect(
         PdfPageSettings.MARGIN_LEFT,
@@ -223,7 +223,7 @@ export class Cp2020WeaponSectionPdfService {
 
   private calculateWeaponRowHeight(doc: jsPDF, weapon: CpPlayerWeapon): number {
     let ht =
-      doc.splitTextToSize(weapon.name, 28).length * PdfPageSettings.LINEHEIGHT;
+      doc.splitTextToSize(weapon.name, 28).length * PdfLineHeight.DEFAULT;
     if (weapon.shots && weapon.shots > 1) {
       ht += Math.ceil(weapon.shots / 30) * 7;
     }

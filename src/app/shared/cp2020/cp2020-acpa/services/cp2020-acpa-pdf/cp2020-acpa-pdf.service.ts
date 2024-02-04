@@ -1,7 +1,7 @@
 import { Cp2020ACPAWeapon } from './../../models/cp2020-acpa-weapon';
 import { Cp2020ACPAComponent } from './../../models/cp2020-acpa-component';
 import { Cp2020ACPALocation } from './../../models/cp2020-acpa-location';
-import { PdfPageSettings } from './../../../../enums/pdf-page-settings';
+import { PdfLineHeight, PdfPageSettings } from './../../../../enums/pdf-page-settings';
 import { jsPDF } from 'jspdf';
 import { PdfGeneratorService } from './../../../../services/pdf-services/pdf-generator.service';
 import { Cp2020ACPA } from './../../models/cp2020-acpa';
@@ -60,7 +60,7 @@ export class Cp2020ACPAPdfService {
     doc.setTextColor('black');
     doc.setFont(PdfPageSettings.DEFAULT_FONT, 'normal');
     doc.setFontSize(9);
-    return line + PdfPageSettings.LINEHEIGHT;
+    return line + PdfLineHeight.DEFAULT;
   }
 
   private addDetailsSection(
@@ -76,7 +76,7 @@ export class Cp2020ACPAPdfService {
       PdfPageSettings.MIDPAGE,
       line + 5
     );
-    line += PdfPageSettings.LINEHEIGHT_SM;
+    line += PdfLineHeight.SM;
     doc.text(
       `TOTAL WEIGHT: ${acpa.totalWeight.toLocaleString()}kg`,
       left,
@@ -87,7 +87,7 @@ export class Cp2020ACPAPdfService {
       PdfPageSettings.MIDPAGE,
       line + 5
     );
-    line += PdfPageSettings.LINEHEIGHT_SM;
+    line += PdfLineHeight.SM;
     doc.text(
       `CHASSIS TYPE: ${acpa.chassis.name.toUpperCase()} STR ${
         acpa.chassis.str
@@ -100,14 +100,14 @@ export class Cp2020ACPAPdfService {
       PdfPageSettings.MIDPAGE,
       line + 5
     );
-    line += PdfPageSettings.LINEHEIGHT_SM;
+    line += PdfLineHeight.SM;
     doc.text(`ARMOR: SP ${acpa.armor.sp}`, left, line + 5);
     doc.text(
       `CHASSIS CAPACITY/LIFT: ${acpa.chassis.carry.toLocaleString()}kg/${acpa.chassis.lift.toLocaleString()}kg`,
       PdfPageSettings.MIDPAGE,
       line + 5
     );
-    line += PdfPageSettings.LINEHEIGHT_SM;
+    line += PdfLineHeight.SM;
     doc.text(
       `SIB/DFB: ${acpa.sib > 0 ? '+' : ''}${acpa.sib}/${
         acpa.sib > 0 ? '+' : ''
@@ -128,7 +128,7 @@ export class Cp2020ACPAPdfService {
         line + 5
       );
     }
-    line += PdfPageSettings.LINEHEIGHT_SM;
+    line += PdfLineHeight.SM;
     doc.text(
       `PUNCH:${acpa.punch}    KICK:${acpa.kick}    CRUSH:${acpa.crush}`,
       left,
@@ -139,7 +139,7 @@ export class Cp2020ACPAPdfService {
       PdfPageSettings.MIDPAGE,
       line + 5
     );
-    line += PdfPageSettings.LINEHEIGHT_SM;
+    line += PdfLineHeight.SM;
     doc.text(
       `REALITY INTERFACE: ${acpa.realityInterface.name.toUpperCase()}`,
       left,
@@ -150,7 +150,7 @@ export class Cp2020ACPAPdfService {
       PdfPageSettings.MIDPAGE,
       line + 5
     );
-    line += PdfPageSettings.LINEHEIGHT_SM + 3;
+    line += PdfLineHeight.SM + 3;
 
     doc.rect(
       PdfPageSettings.MARGIN_LEFT,
@@ -284,18 +284,18 @@ export class Cp2020ACPAPdfService {
     let leftMargin = left + width - 2;
     const center = left + Math.floor(width / 2);
     doc.text(`${title}`, center, line + 5, { align: 'center' });
-    doc.rect(left - 1, line, width, PdfPageSettings.LINEHEIGHT, 'S');
+    doc.rect(left - 1, line, width, PdfLineHeight.DEFAULT, 'S');
 
-    line += PdfPageSettings.LINEHEIGHT_XS;
+    line += PdfLineHeight.XS;
     doc.setFont(PdfPageSettings.DEFAULT_FONT, 'bold');
     doc.text(`SP ${location.sp}`, left, line + 5);
     doc.text(`SDP ${location.sdp}`, center, line + 5);
-    line += PdfPageSettings.LINEHEIGHT_XS;
+    line += PdfLineHeight.XS;
     doc.setFontSize(7);
     doc.text(`INTERNAL`, left, line + 5);
     doc.text(`SDP`, leftMargin, line + 5, { align: 'right' });
     doc.setFont(PdfPageSettings.DEFAULT_FONT, 'normal');
-    line += PdfPageSettings.LINEHEIGHT_XS;
+    line += PdfLineHeight.XS;
     location.internalComponents.forEach((item, i) => {
       let lead = i % 4 === 0 ? `${Math.floor(i / 4) + 1} ` : '   ';
       let name = item?.name.startsWith('(')
@@ -303,15 +303,15 @@ export class Cp2020ACPAPdfService {
         : item?.name ?? '';
       doc.text(`${lead}${name}`, left, line + 5);
       doc.text(`${item?.sdp ?? '-'}`, leftMargin, line + 5, { align: 'right' });
-      line += PdfPageSettings.LINEHEIGHT_XXS;
+      line += PdfLineHeight.XXS;
     });
     doc.setFont(PdfPageSettings.DEFAULT_FONT, 'bold');
-    line += PdfPageSettings.LINEHEIGHT_XS;
+    line += PdfLineHeight.XS;
     /* External location items */
     doc.text(`EXTERNAL`, left, line + 5);
     doc.text(`SP/SDP`, leftMargin, line + 5, { align: 'right' });
     doc.setFont(PdfPageSettings.DEFAULT_FONT, 'normal');
-    line += PdfPageSettings.LINEHEIGHT_XXS;
+    line += PdfLineHeight.XXS;
     location.externalComponents.forEach((item, i) => {
       let lead = i % 4 === 0 ? `${Math.floor(i / 4) + 1} ` : '   ';
       let name = item?.name.startsWith('(')
@@ -321,11 +321,11 @@ export class Cp2020ACPAPdfService {
       doc.text(`${item?.sp ?? '-'}/${item?.sdp ?? '-'}`, leftMargin, line + 5, {
         align: 'right',
       });
-      line += PdfPageSettings.LINEHEIGHT_XXS;
+      line += PdfLineHeight.XXS;
     });
     doc.setFontSize(9);
 
-    return line + PdfPageSettings.LINEHEIGHT;
+    return line + PdfLineHeight.DEFAULT;
   }
 
   private addCarriedSection(
@@ -353,7 +353,7 @@ export class Cp2020ACPAPdfService {
     doc.rect(PdfPageSettings.MARGIN_LEFT, start, 100, line - start, 'S');
     doc.rect(PdfPageSettings.MARGIN_LEFT, start, 200, line - start, 'S');
 
-    return line + PdfPageSettings.LINEHEIGHT;
+    return line + PdfLineHeight.DEFAULT;
   }
 
   private addCarriedColumn(
@@ -364,10 +364,10 @@ export class Cp2020ACPAPdfService {
     components: Array<Cp2020ACPAComponent | Cp2020ACPAWeapon>
   ): number {
     const start = line;
-    line += PdfPageSettings.LINEHEIGHT_SM;
+    line += PdfLineHeight.SM;
     doc.text(`ITEM`, left + 1, line);
     doc.text(`SP/SDP/WT`, right, line, { align: 'right' });
-    line += PdfPageSettings.LINEHEIGHT_XXS;
+    line += PdfLineHeight.XXS;
     doc.rect(left, start, right - left + 10, line - start, 'S');
     components.forEach((item) => {
       doc.text(`${item.name}`, left + 1, line + 5);
@@ -379,22 +379,22 @@ export class Cp2020ACPAPdfService {
         line + 5,
         { align: 'right' }
       );
-      line += PdfPageSettings.LINEHEIGHT_SM;
+      line += PdfLineHeight.SM;
     });
-    line += PdfPageSettings.LINEHEIGHT_XXS;
+    line += PdfLineHeight.XXS;
     return line;
   }
 
   private addNoteSection(doc: jsPDF, acpa: Cp2020ACPA, line: number): number {
     const start = line;
-    line += PdfPageSettings.LINEHEIGHT_SM;
+    line += PdfLineHeight.SM;
     const notes = doc.splitTextToSize(acpa.notes, 195);
     notes.forEach((note) => {
       doc.text(`${note}`, PdfPageSettings.MARGIN_LEFT + 2, line);
-      line += PdfPageSettings.LINEHEIGHT_SM;
+      line += PdfLineHeight.SM;
     });
     doc.rect(PdfPageSettings.MARGIN_LEFT, start, 200, line - start, 'S');
 
-    return line + PdfPageSettings.LINEHEIGHT;
+    return line + PdfLineHeight.DEFAULT;
   }
 }

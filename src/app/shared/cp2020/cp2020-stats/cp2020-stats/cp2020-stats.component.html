@@ -9,21 +9,21 @@
       <input type="checkbox" class="ms-1" [(ngModel)]="useRolls" (change)="clearRolls()">Use Dice:
       <span *ngIf="useRolls">
       <fa-icon [icon]="faDice" class="chargen-point-dice ms-1 me-1" (click)="rollCharacterPoints()"
-        title="Roll for character points. Rolls 9d10, rerolling 1s."></fa-icon>rolls: [{{rolls}}]</span>
+        title="Roll for character points. Rolls 9d10, rerolling 1s and 2s."></fa-icon>rolls: [{{rolls}}]</span>
     </span>
   </div>
 </div>
 <div class="chargen-section row">
   <div class="col">
     <div class="chargen-label chargen-stats">STATS
-      <fa-icon class="csd-dice ms-2" [icon]="faDice" (click)="rollStats()"></fa-icon>
+      <fa-icon class="csd-dice ms-2" [icon]="faDice" (click)="rollStats()" title="Random assign points/rolls to stats."></fa-icon>
     </div>
   </div>
   <div *ngIf="showRollInitiative" class="col">
     <span class=" chargen-label">
       Initiative
       <button *ngIf="showRollInitiative" class="csd-dice ms-1 hidden-print"
-      (click)="openModal(initiative, true, 'initElem')" tabindex="-1">
+      (click)="openModal(initiative, true, 'initElem')" tabindex="-1" title="Roll initiative">
         <fa-icon [icon]="faDice"></fa-icon>
       </button>
     </span>

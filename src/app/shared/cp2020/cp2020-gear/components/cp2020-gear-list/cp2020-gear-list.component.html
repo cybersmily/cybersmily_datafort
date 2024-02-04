@@ -8,11 +8,11 @@
       </h4>
     </div>
     <div [ngClass]="{'col-8 col-md-6 col-lg-4 col-xl-3':true,'d-none':isCollapsed}"
-    [tooltip]="'Add a location to help organize the character\'s gear. Locations can be things like On Person, Apartment, Car, Dufffle Bag, etc...'" >
+      [tooltip]="'Add a location to help organize the character\'s gear. Locations can be things like On Person, Apartment, Car, Dufffle Bag, etc...'">
       <button *ngIf="!isAddableLocation" class="csd-icon-btn csd-btn ms-1 me-2" (click)="addLocation()">
         <fa-icon [icon]="faPlus"></fa-icon>
       </button>
-      <input [(ngModel)]="newLocation" type="text" placeholder="add location section..." class="w-85"/>
+      <input [(ngModel)]="newLocation" type="text" placeholder="add location section..." class="w-85" />
     </div>
   </div>
   <div [collapse]="isCollapsed">
@@ -37,7 +37,7 @@
         </div>
       </div>
       <div [collapse]="!isLocationExpanded(loc)">
-      <ng-container [ngTemplateOutlet]="locationSection" [ngTemplateOutletContext]="{
+        <ng-container [ngTemplateOutlet]="locationSection" [ngTemplateOutletContext]="{
           gearList: getLocationGear(loc),
           location: loc
         }"></ng-container>
@@ -55,17 +55,48 @@
   </div>
 </div>
 <ng-template #locationSection let-gearList="gearList" let-location="location">
-  <div class="row g-0">
-    <ng-container [ngTemplateOutlet]="gearColumn" [ngTemplateOutletContext]="{
-        columnGearList: getFirstColumn(gearList),
-        column: 1,
-        location: location
-      }"></ng-container>
-    <ng-container [ngTemplateOutlet]="gearColumn" [ngTemplateOutletContext]="{
-        columnGearList: getSecondColumn(gearList),
-        column: 2,
-        location: location
-      }"></ng-container>
+  <div class="row border">
+    <div class="col-12">
+      <div class="column-count">
+        <div class="row w-100 g-0">
+          <div class="col-8 border border-dark">Type</div>
+          <div class="col-2 border border-dark text-center">
+            Cost
+          </div>
+          <div class="col-2 border border-dark text-center small">
+            Wt
+          </div>
+        </div>
+        <div class="d-none d-md-block w-100">
+          <div class="row  w-100 g-0">
+            <div class="col-8 border border-dark">Type</div>
+            <div class="col-2 border border-dark text-center">
+              Cost
+            </div>
+            <div class="col-2 border border-dark text-center small">
+              Wt
+            </div>
+          </div>
+        </div>
+        <div class="d-none d-xl-block w-100">
+          <div class="row w-100 g-0">
+            <div class="col-8 border border-dark">Type</div>
+            <div class="col-2 border border-dark text-center">
+              Cost
+            </div>
+            <div class="col-2 border border-dark text-center small">
+              Wt
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row g-0 border border-dark">
+    <div class="col-12 column-count g-0">
+      <cs-cp2020-gear-editor *ngFor="let row of currGear.items; let i = index" [gear]="row"
+        (delete)="removeGearRow($event)" (update)="updateGear($event)"></cs-cp2020-gear-editor>
+    </div>
   </div>
   <div class="row g-0">
     <div class="col border border-dark text-center">
@@ -73,21 +104,5 @@
         <fa-icon [icon]="faPlus"></fa-icon>
       </button>
     </div>
-  </div>
-</ng-template>
-
-<ng-template #gearColumn let-columnGearList="columnGearList" let-location="location" let-column="column">
-  <div class="col-12 col-lg-6">
-    <div class="row g-0">
-      <div class="d-none d-lg-block col-8 border border-dark">Type</div>
-      <div class="d-none d-lg-block col-2 border border-dark text-center">
-        Cost
-      </div>
-      <div class="d-none d-lg-block col-2 border border-dark text-center">
-        Wt (kg)
-      </div>
-    </div>
-    <cs-cp2020-gear-editor *ngFor="let row of columnGearList; let i = index" [gear]="row"
-      (delete)="removeGearRow($event)" (update)="updateGear($event)"></cs-cp2020-gear-editor>
   </div>
 </ng-template>

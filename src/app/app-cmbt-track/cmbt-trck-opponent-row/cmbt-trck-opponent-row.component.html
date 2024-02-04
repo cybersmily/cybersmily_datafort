@@ -1,0 +1,60 @@
+<div [ngClass]="{
+      'row border border-dark cbttrk-init bg-white': true,
+      'cbttrk-selected': selected
+    }">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-1 g-0 pt-2">
+        <input type="radio" [checked]="active" (change)="setInitiative(index)"
+          title="Check if oppenent has current initiative." />
+      </div>
+      <div class="col-3 g-0 text-center" [title]="showInitiativeTooltip(opponent)">
+        <div *ngIf="opponent?.stats.deathState &gt; 9 || opponent?.stats.Damage &gt; 39; else checkStun"  class="mt-2">
+          <fa-icon [icon]="faSkullCrossbones" title="DEAD" class="csd-icon-btn" size="2xl"></fa-icon>
+        </div>
+        <ng-template #checkStun>
+          <ng-container
+            *ngIf="opponent?.stats.isStunned || opponent?.stats.deathState > 0; then stunCondition else initSection"></ng-container>
+          <ng-template #stunCondition>
+            <div class="mt-2">
+            <fa-icon *ngIf="opponent?.stats.isStunned || opponent?.stats.deathState > 0" [icon]="faEyeSlash"
+              title="Stunned" class="csd-icon-btn" size="2xl"></fa-icon>
+            </div>
+          </ng-template>
+          <ng-template #initSection>
+            <input [(ngModel)]="opponent.initRoll" type="number" (change)="changeInitiative()"
+              class="csd-hide-spinner text-center ms-1 w-50 mt-2" />
+            <fa-icon [icon]="faDice" class="csd-btn csd-dice ms-2 mt-2" title="Roll initiative for this opponent"
+              (click)="rollInitiative(opponent?.id)" size="xl"></fa-icon>
+          </ng-template>
+        </ng-template>
+
+      </div>
+      <div [ngClass]="{
+        'col-7 cbttrk-opp-name csd-btn': true,
+        'fs-bold ': selected
+      }" (click)="selectOpponent(index)" title="Click to show opponent...">
+        <div class="row">
+          <div class="col-12  text-truncate">{{ opponent?.name }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 opp-conditions">
+            <span *ngIf="getWoundLevel(opponent) !== ''; else emptyRow">
+              <fa-icon *ngFor="let icon of getWoundIcon(opponent)" [icon]="icon" [title]="getWoundLevel(opponent)"
+                class="me-1" size="lg"></fa-icon>
+            </span>
+            <ng-template #emptyRow>&nbsp;</ng-template>
+          </div>
+        </div>
+
+      </div>
+      <div *ngIf="showTools" class="col-1">
+        <fa-icon [icon]="faCopy" class="float-end csd-btn opp-delete csd-icon-btn" (click)="copyOpponent()"
+          title="Copy opponent"></fa-icon>
+        <fa-icon [icon]="faTrash" class="float-end csd-btn opp-delete csd-icon-btn" (click)="removeOpponent()"
+          title="Delete opponent"></fa-icon>
+      </div>
+    </div>
+  </div>
+</div>

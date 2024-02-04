@@ -1,6 +1,6 @@
 import { Cp2020RandomWeaponSettingsService } from './../../shared/cp2020/cp2020weapons/services/cp2020-random-weapon-settings/cp2020-random-weapon-settings.service';
-import { RandomWeaponFilters } from './../../shared/cp2020/cp2020weapons/models/random-weapon-filters';
-import { map } from 'rxjs/operators';
+import { RandomWeaponFilters, RandomWeaponSettings } from './../../shared/cp2020/cp2020weapons/models/random-weapon-filters';
+import { map, take } from 'rxjs/operators';
 import { RandomWeaponGeneratorService } from './../../shared/cp2020/cp2020weapons/services/random-weapon-generator/random-weapon-generator.service';
 import { Observable, of } from 'rxjs';
 import { DiceService } from './../../shared/services/dice/dice.service';
@@ -215,32 +215,33 @@ export class CmbtTrckThreatLevelService {
       case 1:
         filter.category = ['EXOTICS', 'RIFLES'];
         filter.subcategory = ['', 'BOWS', 'CROSSBOWS', 'ASSAULT'];
-        filter.avail = ['E', 'C', 'P'];
+        filter.availability = ['E', 'C', 'P'];
         // assault/exotic
         break;
       case 2:
         // automatic wapons, smgs
         filter.category = ['SMG', 'SHOTGUNS'];
         filter.subcategory = ['HEAVY', 'LIGHT', 'MEDIUM', 'AUTO'];
-        filter.avail = ['E', 'C', 'P'];
+        filter.availability = ['E', 'C', 'P'];
         break;
       case 3:
         // large hanguns, shotguns
         filter.category = ['PISTOLS', 'SHOTGUNS', 'RIFLES'];
         filter.subcategory = ['HEAVY', 'LIGHT', 'OTHER', ''];
-        filter.avail = ['E', 'C'];
+        filter.availability = ['E', 'C'];
         break;
       case 4:
         // melee and small hanguns
         filter.category = ['PISTOLS', 'MELEE'];
         filter.subcategory = ['MEDIUM', 'LIGHT', ''];
-        filter.avail = ['E', 'C'];
+        filter.availability = ['E', 'C'];
         break;
       default:
         return of(opp);
     }
-    this.wpnRandomSettings.setSettings(filter);
+    this.wpnRandomSettings.setSettings({count: 1, filters: filter});
     return this.wpnGeneratorService.generate().pipe(
+      take(1),
       map((wpn) => {
         opp.weapons.push(wpn);
         return opp;

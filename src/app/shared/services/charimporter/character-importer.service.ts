@@ -15,11 +15,12 @@ export class CharacterImporterService {
     const opp = new CmbtTrckOpponent();
     opp.name = character.handle;
     opp.role = character.role.name;
-    opp.sa = character.role.specialAbility;
     opp.stats = character.stats;
     if (character.skills.skills) {
-      opp.skills = character.skills.skills.filter(s => s.name && s.name !== '' && s.value > 0);
+      opp.sa = character.skills.skills.filter(s => s?.isSA && s.value > 0 );
+      opp.skills = character.skills.skills.filter(s => s.name && s.name !== '' && s.value > 0 && !s?.isSA);
     } else {
+      opp.sa = character.skills.specialAbilites;
       opp.skills = opp.skills.concat(character.skills.ATTR.filter(s => s.name && s.name !== '' && s.value > 0));
       opp.skills = opp.skills.concat(character.skills.BODY.filter(s => s.name && s.name !== '' && s.value > 0));
       opp.skills = opp.skills.concat(character.skills.COOL.filter(s => s.name && s.name !== '' && s.value > 0));
@@ -45,7 +46,6 @@ export class CharacterImporterService {
     const char = new Cp2020PlayerCharacter();
     char.handle = opp.name;
     char.role.name = opp.role;
-    char.role.specialAbility = opp.sa;
     return char;
   }
 }

@@ -1,294 +1,100 @@
 <div>
-  <div class="row">
+  <div class="row mb-2">
     <div class="col-12">
-      <fa-icon
-        [icon]="faSave"
-        class="float-start btn-lg csd-btn csd-icon-btn me-3"
-        (click)="save()"
-        title="Save to a json file. This is needed to reload the data."
-      ></fa-icon>
-      <input
-        type="file"
-        id="loadFile"
-        title="load a combat tracker json file"
-        name="Load"
-        class="me-2 d-none"
-        (change)="load($event)"
-        #inputFile
-        (click)="inputFile.value = null"
-        accept="text/plain;text/json"
-      />
+      <fa-icon [icon]="faSave" class="float-start csd-btn csd-icon-btn me-3" size="xl" (click)="save()"
+        title="Save to a json file. This is needed to reload the data."></fa-icon>
+      <input type="file" id="loadFile" title="load a combat tracker json file" name="Load" class="me-2 d-none"
+        (change)="load($event)" #inputFile (click)="inputFile.value = null" accept="text/plain;text/json" />
       <label for="loadFile" class="float-start btn-lg csd-btn me-3">
-        <fa-icon
-          [icon]="faUpload"
-          title="load a combat tracker json file"
-          class="csd-icon-btn"
-        ></fa-icon>
+        <fa-icon [icon]="faUpload" title="load a combat tracker json file" size="xl" class="csd-icon-btn"></fa-icon>
       </label>
-      <input
-        type="file"
-        id="importFile"
-        title="Import a Cybersmily CP2020 JSON file as an opponent"
-        name="Import"
-        class="d-none"
-        (change)="import($event)"
-        #inputFile
-        (click)="inputFile.value = null"
-        accept="text/plain;text/json"
-      />
+      <input type="file" id="importFile" title="Import a Cybersmily CP2020 JSON file as an opponent" name="Import"
+        class="d-none" (change)="import($event)" #inputFile (click)="inputFile.value = null"
+        accept="text/plain;text/json" />
       <label for="importFile" class="float-start btn-lg csd-btn me-3">
-        <fa-icon
-          [icon]="faFileImport"
-          title="Import a Cybersmily CP2020 JSON file as an opponent"
-          class="csd-icon-btn"
-        ></fa-icon>
+        <fa-icon [icon]="faFileImport" title="Import a Cybersmily CP2020 JSON file as an opponent" class="csd-icon-btn"
+          size="xl"></fa-icon>
       </label>
-      <fa-icon
-        [icon]="faHelp"
-        class="float-start btn-lg csd-btn csd-icon-btn me-3"
-        (click)="openModal(instructionModal)"
-        title="Show instructions."
-      ></fa-icon>
+      <fa-icon [icon]="faHelp" class="float-start btn-lg csd-btn csd-icon-btn me-3"
+        (click)="openModal(instructionModal)" size="xl" title="Show instructions."></fa-icon>
       &nbsp;
 
-      <fa-icon
-        [icon]="faRedo"
-        class="float-end btn-lg csd-btn csd-icon-btn"
-        (click)="openModal(resetModal)"
-        title="Reset tracker. Removing all the combatants."
-      ></fa-icon>
+      <fa-icon [icon]="faRedo" class="float-end btn-lg csd-btn csd-icon-btn" (click)="openModal(resetModal)"
+        title="Reset tracker. Removing all the combatants." size="xl"></fa-icon>
     </div>
   </div>
   <div class="row">
     <div class="col-12">
       <div class="row">
-        <div class="col-12 col-lg-4">
+        <div class="col-12 col-md-4">
           <div class="row chargen-label">
-            <div class="col-2 g-0 align-middle">
-              Init.
-              <br />
-              <fa-icon
-                [icon]="faDice"
-                (click)="rollInitiative()"
-                title="Roll all initiatives"
-                class="csd-btn csd-dice h4 align-middle mt-3 mt-lg-auto"
-              ></fa-icon>
+            <div class="col-2 ps-1 g-0 pt-3 text-center" (click)="cycle(false)">
+              <fa-icon [icon]="faChevronUp" title="Previous opponent" class="csd-btn csd-icon-btn m-0 w-100"
+                size="2xl"></fa-icon>
             </div>
-            <div class="col-1 ps-1 g-0 pt-3 text-center">
-              <fa-icon
-                [icon]="faChevronUp"
-                title="Previous opponent"
-                class="csd-btn csd-icon-btn csd-icon-lg m-0"
-                (click)="cycle(false)"
-              ></fa-icon>
-            </div>
-            <div class="col-6 text-center">
-              <div>CURRENT INITITATIVE</div>
-              <div class="text-black bg-white w-100 ps-1">
-                <span class="float-start">{{
-                  currentInitiativeOpp?.initRoll
-                }}</span
-                >{{ currentInitiativeOpp?.name }}
-                <div class="pt-1 pb-1 mt-0 mb-0 small">
-                  <span *ngIf="currentInitiativeOpp?.stats.isStunned"
-                    >*Stunned</span
-                  >
-                  <span *ngIf="getWoundLevel(currentInitiativeOpp) !== ''"
-                    >*{{ getWoundLevel(currentInitiativeOpp) }}</span
-                  >
-                  <span
-                    *ngIf="currentInitiativeOpp?.stats.deathState &gt; 0 && currentInitiativeOpp?.stats.deathState &lt; 10"
-                    >*DEATH STATE:
-                    {{ currentInitiativeOpp?.stats.deathState }}</span
-                  >
-                </div>
+            <div class="col-8 text-center">
+              <div>INIT.: {{ currentInitiativeOpp?.initRoll }}
+                <fa-icon [icon]="faDice" (click)="rollInitiative()" title="Roll all initiatives"
+                  class="csd-btn csd-dice h4 align-middle mt-1 mt-lg-auto"></fa-icon>
+              </div>
+              <div class="w-100">
+                <fa-icon [icon]="faMinus" class="csd-icon-btn csd-icon-lg me-2 csd-btn"
+                  (click)="cycleTurn(false)"></fa-icon>
+                <h6 class="small d-inline-block me-2">TURN: {{ turn }}</h6>
+                <fa-icon [icon]="faPlus" class="csd-icon-btn csd-icon-lg ms-2 csd-btn"
+                  (click)="cycleTurn(true)"></fa-icon>
               </div>
             </div>
-            <div class="col-1 ps-1 g-0 pt-3 text-center">
-              <fa-icon
-                [icon]="faChevronDown"
-                title="Next opponent"
-                class="csd-btn csd-icon-btn csd-icon-lg m-0"
-                (click)="cycle(true)"
-              ></fa-icon>
-            </div>
-            <div class="col-2 text-end g-0">
-              <h6 class="small d-inline-block me-2">TURN</h6>
-              <br />
-              <fa-icon
-                [icon]="faMinus"
-                class="csd-icon-btn csd-icon-lgme-1 csd-btn"
-                (click)="cycleTurn(false)"
-              ></fa-icon>
-              <h4 class="d-inline-block text-center" style="width: 20px">
-                {{ turn }}
-              </h4>
-              <fa-icon
-                [icon]="faPlus"
-                class="csd-icon-btn csd-icon-lg ms-1 csd-btn"
-                (click)="cycleTurn(true)"
-              ></fa-icon>
+            <div class="col-2 ps-1 g-0 pt-3 text-center">
+              <fa-icon [icon]="faChevronDown" title="Next opponent" class="csd-btn csd-icon-btn m-0" size="2xl"
+                (click)="cycle(true)"></fa-icon>
             </div>
           </div>
-          <div *ngIf="showList">
-            <ng-container
-              *ngFor="let opp of opponents; index as i"
-              [ngTemplateOutlet]="opponentRow"
-              [ngTemplateOutletContext]="{
-                opp: opp,
-                index: i,
-                showTools: true
-              }"
-            >
-            </ng-container>
+          <div *ngIf="showList" class="px-0 mx-0">
+            <cs-cmbt-trck-opponent-row *ngFor="let opp of opponents; index as i" [opponent]="opp" [index]="i"
+              [showTools]="true" [selected]="selectedIndex !== i" [active]="initiativeIndex === i"
+              (selectIndex)="selectOpponent($event, opponentDetailsModal)" (selectInitiative)="selectInitiative($event)"
+              (delete)="removeOpponent($event)" (copy)="copyOpponent($event)">
+            </cs-cmbt-trck-opponent-row>
             <div class="row">
-              <div
-                class="col-12 border border-dark btn csd-btn"
-                (click)="addOpponent()"
-                title="Add another opponent"
-              >
-                <fa-icon
-                  [icon]="faPlus"
-                  class="csd-icon-btn csd-icon-xl"
-                ></fa-icon>
+              <div class="col-12 border border-dark btn csd-btn" (click)="addOpponent()" title="Add another opponent">
+                <fa-icon [icon]="faPlus" class="csd-icon-btn csd-icon-xl"></fa-icon>
               </div>
-            </div>
-          </div>
-          <div class="row p-0">
-            <div
-              class="col-12 bg-black btn csd-btn m-0 p-0"
-              (click)="showList = !showList"
-              title="Toggle initiative list"
-            >
-              <fa-icon
-                [icon]="showList ? faChevronUp : faChevronDown"
-                title="Toogle List"
-                class="csd-btn csd-icon-btn csd-icon-xl"
-              ></fa-icon>
             </div>
           </div>
         </div>
-        <div class="col-12 col-lg-8 border border-dark">
-          <cs-cmbt-trck-opponent-card
-            [opponent]="selectedOpponent"
-            [index]="selectedIndex"
-          >
+        <div class="col-12 col-md-8 d-none d-md-block border border-dark">
+          <cs-cmbt-trck-opponent-card [opponent]="selectedOpponent" [index]="selectedIndex">
           </cs-cmbt-trck-opponent-card>
         </div>
       </div>
     </div>
   </div>
 </div>
-<ng-template
-  #opponentRow
-  let-opp="opp"
-  let-index="index"
-  let-showTools="showTools"
->
-  <div
-    [ngClass]="{
-      'row border border-dark cbttrk-init bg-white': true,
-      'cbttrk-selected': selectedIndex !== index
-    }"
-  >
-    <div class="col-1 g-0 pt-2">
-      <input
-        type="radio"
-        [checked]="initiativeIndex === index"
-        (change)="selectInitiative(index)"
-        title="Check if oppenent has current initiative."
-      />
-    </div>
-    <div class="col-3 g-0" [title]="showInitiativeTooltip(opp)">
-      <input
-        [(ngModel)]="opp.initRoll"
-        type="number"
-        (change)="changeInitiative()"
-        class="csd-hide-spinner text-center ms-1"
-      />
-      <fa-icon
-        [icon]="faDice"
-        class="csd-btn csd-dice ms-1"
-        title="Roll initiative for this opponent"
-        (click)="rollInitiative(opp?.id)"
-      ></fa-icon>
-    </div>
-    <div
-      [ngClass]="{
-        'col-7 cbttrk-opp-name csd-btn': true,
-        'fs-bold ': selectedOpponent?.id === opp.id
-      }"
-      (click)="selectOpponent(index)"
-      title="Click to show opponent..."
-    >
-      <span>{{ opp?.name }}</span>
-      <br />
-      <span class="cbtrck-opp-init-mods"
-        >[REF: {{ opp?.stats.REF.Adjusted }}]</span
-      >
-    </div>
-    <div *ngIf="showTools" class="col-1">
-      <fa-icon
-        [icon]="faCopy"
-        class="float-end csd-btn opp-delete csd-icon-btn"
-        (click)="copyOpponent(index)"
-        title="Copy opponent"
-      ></fa-icon>
-      <fa-icon
-        [icon]="faTrash"
-        class="float-end csd-btn opp-delete csd-icon-btn"
-        (click)="removeOpponent(index)"
-        title="Delete opponent"
-      ></fa-icon>
-    </div>
-    <div class="col-12 opp-conditions">
-      <span *ngIf="opp?.stats.deathState &gt; 9" class="fw-bold m-e-2"
-        >** DEAD **</span
-      >
-      <span *ngIf="opp?.stats.isStunned" class="m-e-2">*Stunned</span>
-      <span *ngIf="getWoundLevel(opp) !== ''" class="m-e-2"
-        >*{{ getWoundLevel(opp) }}</span
-      >
-      <span
-        *ngIf="opp?.stats.deathState &gt; 0 && opp?.stats.deathState &lt; 10"
-        >*DEATH STATE: {{ opp?.stats.deathState }}</span
-      >
-    </div>
-  </div>
+
+<ng-template #opponentDetailsModal>
+  <div class="p-3">
+  <cs-cmbt-trck-opponent-card [opponent]="selectedOpponent" [index]="selectedIndex">
+  </cs-cmbt-trck-opponent-card>
+</div>
 </ng-template>
 
 <ng-template #resetModal>
   <div class="modal-header">
     <h4>RESET COMBAT TRACKER</h4>
-    <button
-      type="button"
-      class="btn-close float-end"
-      aria-label="Close"
-      (click)="modalRef.hide()"
-    ></button>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()"></button>
   </div>
   <div class="modal-body">
     Are you sure you want to clear all the data and reset the trackers?<br />
     <br /><br />
-    <span class="btn btn-secondary btn-sm csd-rounded" (click)="clear()"
-      >Wipe it all out</span
-    >&nbsp;&nbsp;
-    <span
-      class="btn btn-secondary btn-sm csd-rounded float-end"
-      (click)="modalRef.hide()"
-      >Cancel</span
-    >
+    <span class="btn btn-secondary btn-sm csd-rounded" (click)="clear()">Wipe it all out</span>&nbsp;&nbsp;
+    <span class="btn btn-secondary btn-sm csd-rounded float-end" (click)="modalRef.hide()">Cancel</span>
   </div>
 </ng-template>
 <ng-template #instructionModal>
   <div class="modal-header">
     <h4>COMBAT TRACKER INSTRUCTIONS</h4>
-    <button
-      type="button"
-      class="btn-close float-end"
-      aria-label="Close"
-      (click)="modalRef.hide()"
-    ></button>
+    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()"></button>
   </div>
   <div class="modal-body">
     <cs-cmbt-trck-instructions></cs-cmbt-trck-instructions>

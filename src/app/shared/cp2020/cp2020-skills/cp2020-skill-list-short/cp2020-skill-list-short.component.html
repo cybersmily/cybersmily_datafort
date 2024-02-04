@@ -1,27 +1,65 @@
-<div class="chargen-section">
-  <div class="cp2020-label row g-0">
-    <div class="col">
-      <h4 class="d-inline-block">SKILLS</h4>
-      <span class="float-end">
-        General IP: <input [(ngModel)]="skills.ip" type="number" class="chargen-general-ip-input" (change)="onChangeSkill()" />
+<div>
+  <div class='row chargen-label'>
+    <div class='col-12 g-0'>
+      <h4 class="csd-btn d-inline-block" (click)="isCollapsed = !isCollapsed">
+        SKILLS
+        <fa-icon [icon]="isCollapsed ? faChevronRight : faChevronDown" class="csd-btn csd-icon-btn ms-1"
+          title="Toggle section">
+        </fa-icon>
+      </h4>
+      <span class="csd-btn csd-dice ms-2 d-inline-block h4" *ngIf="!isCollapsed" (click)="generateSkillLevels()">
+        <fa-icon [icon]="dice"
+          title="Randomly set all the skill levels to 1-10.{{(characterSkills.length &lt; 1)?' Need to add some skills first.':''}}">
+        </fa-icon>
+        </span>
+        <span class="csd-btn ms-2 d-inline-block h4" *ngIf="!isCollapsed" (click)="addSKill(newSkillModal)">
+
+        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn me-1 ms-1" title="Add a new special ability or skill to the list"></fa-icon>
       </span>
     </div>
   </div>
-
-<ng-template #SkillSection let-title="title" let-stat="stat" let-skills="skills" let-spclAbility="spclAbility">
-  <div class="row g-0 border border-dark mt-1 mb-1">
+  <div [collapse]="isCollapsed" class="row border border-dark">
     <div class="col-12">
-      <div class="chargen-skill-stat">{{title}}</div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4 order-1 ps-1 pe-1 border-lg border-dark">
-      <cs-cp2020-skill *ngFor="let skill of getColumnOne(skills)" [skill]="skill" (changeSkill)="onChangeSkill($event)" [stat]="stat" [sa]="spclAbility"></cs-cp2020-skill>
-    </div>
-    <div class="col-12 col-md-6 order-md-3 order-lg-2 col-lg-4 ps-1 pe-1 border-lg border-dark">
-      <cs-cp2020-skill *ngFor="let skill of getColumnTwo(skills)" [skill]="skill" (changeSkill)="onChangeSkill($event)" [stat]="stat" [sa]="spclAbility" ></cs-cp2020-skill>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4  order-md-2 order-lg-3 ps-1 pe-1 border-lg border-dark">
-      <cs-cp2020-skill *ngFor="let skill of getColumnThree(skills)" [skill]="skill" (changeSkill)="onChangeSkill($event)" [stat]="stat" [sa]="spclAbility" ></cs-cp2020-skill>
+      <div class="row opp-sa mt-1 border-bottom">
+        <div class="col-12 col-md-3">
+          <h6 >SPECIAL ABILITY: </h6>
+        </div>
+        <div class="col-12 col-md-9">
+          <cs-cp2020-skill *ngFor="let spclAbility of characterSpAbilites" [skill]="spclAbility" [stat]="characterStats[spclAbility.stat]" [showIP]="false" [showStat]="false" (changeSkill)="changeSpecialAbility($event)" (delete)="deleteSA($event)" ></cs-cp2020-skill>
+          </div>
+      </div>
+      <div class="row d-md-none">
+        <h6>SKILLS:</h6>
+      </div>
+      <div class="row mt-1">
+        <div class="col-12 column-count">
+          <cs-cp2020-skill *ngFor="let skill of this.currentSkills" [skill]="skill" [stat]="characterStats[skill.stat]" [showIP]="false" [showStat]="true" (changeSkill)="changeSkill($event)" (delete)="deleteSkill($event)" ></cs-cp2020-skill>
+        </div>
+      </div>
+      <div class="row pb-2">
+        <div class="col-12 g-0 csd-btn" (click)="addSKill(newSkillModal)">
+          <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn me-1 ms-1"></fa-icon>
+          Add new Skill
+        </div>
+      </div>
     </div>
   </div>
-</ng-template>
+</div>
 
+<ng-template #newSkillModal>
+
+  <div class="modal-header">
+    <h4>ADD SKILL</h4>
+    <button
+      type="button"
+      class="btn-close float-end"
+      aria-label="Close"
+      (click)="closeModal()"
+      (keyup.enter)="closeModal()"
+      tabindex="0"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <cs-cp2020-skill-new (updateSkill)="addNewSkill($event)"></cs-cp2020-skill-new>
+  </div>
+</ng-template>

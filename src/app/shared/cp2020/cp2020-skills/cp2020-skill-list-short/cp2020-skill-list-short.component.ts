@@ -1,68 +1,141 @@
-import { Cp2020SkillUpdate } from './../models/cp2020-skill-update';
-import { faDice } from '@fortawesome/free-solid-svg-icons';
-import { Cp2020PlayerSkill, Cp2020PlayerSkills } from './../models';
-import { Cp2020PlayerRole } from '../../cp2020-role/models/cp2020-player-role';
-import { Cp2020StatBlock } from '../../cp2020-stats/models/cp2020-stat-block';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { faDice, faChevronDown, faTrash, faPlus, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { Cp2020PlayerSkill,DataSkill, FumbleChart } from './../models';
+import { Component, OnInit, OnChanges, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
+import { DiceService } from '../../../services/dice/dice.service';
+import { SkillListService } from '../services';
+import { Cp2020StatBlock } from '../../cp2020-stats/models';
+import { Cp2020SkillUpdate } from '../models/cp2020-skill-update';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'cs-cp2020-skill-list-short',
   templateUrl: './cp2020-skill-list-short.component.html',
   styleUrls: ['./cp2020-skill-list-short.component.css'],
 })
-export class Cp2020SkillListShortComponent implements OnInit {
-  faDice = faDice;
+export class Cp2020SkillListShortComponent implements OnInit, OnChanges {
+  faChevronDown = faChevronDown;
+  faChevronRight = faChevronRight;
+
+  dice = faDice;
+  faTrash = faTrash;
+  faPlus = faPlus;
+  modalRef: BsModalRef;
+  config = {
+    keyboard: true,
+    class: 'modal-dialog-centered modal-lg',
+  };
 
   @Input()
-  role = new Cp2020PlayerRole();
+  isCollapsed = true;
 
   @Input()
-  stats = new Cp2020StatBlock();
+  characterSpAbilites: Array<Cp2020PlayerSkill> = new Array<Cp2020PlayerSkill>();
+  currentSpecialAbilities: Array<Cp2020PlayerSkill> = new Array<Cp2020PlayerSkill>();
 
   @Input()
-  skills = new Cp2020PlayerSkills();
+  characterSkills: Array<Cp2020PlayerSkill> = new Array<Cp2020PlayerSkill>();
+  currentSkills: Array<Cp2020PlayerSkill> = new Array<Cp2020PlayerSkill>();
+
+  @Input()
+  characterStats: Cp2020StatBlock = new Cp2020StatBlock();
+
 
   @Output()
-  changeSpecialAblity = new EventEmitter<Cp2020PlayerRole>();
+  updateSkills = new EventEmitter<Array<Cp2020PlayerSkill>>();
 
   @Output()
-  changeSKills = new EventEmitter<Cp2020PlayerSkills>();
+  updateSpecialAbilities = new EventEmitter<Array<Cp2020PlayerSkill>>();
 
-  skillTotals = { role: {}, other: {} };
+  newSkill: Cp2020PlayerSkill = new Cp2020PlayerSkill();
 
-  showAll: boolean = false;
+  specialAbilites: Array<DataSkill> = new Array<DataSkill>();
+  skills: Array<DataSkill> = new Array<DataSkill>();
+  skillResults = '';
 
-  SkillList: Cp2020PlayerSkills = new Cp2020PlayerSkills();
+  constructor(private diceRoll: DiceService, private skillList: SkillListService, private modalService: BsModalService) { }
 
-  constructor() {}
-
-  ngOnInit() {}
-
-  onChangeSkill(skillUpdate?: Cp2020SkillUpdate) {
-    if (skillUpdate) {
-      this.skills.editSkill(skillUpdate);
+  ngOnInit() {
+    this.currentSkills = this.characterSkills.map(sk => new Cp2020PlayerSkill(sk));
+    this.currentSpecialAbilities = this.characterSpAbilites.map(sk => new Cp2020PlayerSkill(sk));
+    if (this.skills.length < 1) {
+      this.skillList.Skills.subscribe( list => {
+        this.skills = list.filter( sk => !sk.sa);
+        this.specialAbilites = list.filter( sk => sk.sa);
+      });
     }
-    this.changeSKills.emit(this.skills);
   }
 
-  onChangeSpecialAbility() {
-    this.changeSpecialAblity.emit(this.role);
+  ngOnChanges() {
+    this.currentSkills = this.characterSkills.map(sk => new Cp2020PlayerSkill(sk));
+    this.currentSpecialAbilities = this.characterSpAbilites.map(sk => new Cp2020PlayerSkill(sk));
+    this.newSkill = new Cp2020PlayerSkill();
   }
 
-  getColumnOne(skills: Array<Cp2020PlayerSkill>): Array<Cp2020PlayerSkill> {
-    const multi = skills.length % 3 === 0 ? 0.33 : 0.34;
-    return skills.slice(0, Math.ceil(skills.length * multi));
+  addSKill(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, this.config);
   }
 
-  getColumnTwo(skills: Array<Cp2020PlayerSkill>): Array<Cp2020PlayerSkill> {
-    const multi = skills.length % 3 === 0 ? 0.33 : 0.34;
-    const start = Math.ceil(skills.length * multi);
-    const end = Math.ceil(skills.length * 0.33);
-    return skills.slice(start, start + end);
+  addNewSkill(skill: Cp2020PlayerSkill) {
+    if(skill?.isSA) {
+      this.currentSpecialAbilities.push(new Cp2020PlayerSkill(skill));
+      this.updateSpecialAbilities.emit(this.currentSpecialAbilities);
+    } else {
+      this.currentSkills.push(new Cp2020PlayerSkill(skill));
+      this.updateSkills.emit(this.currentSkills);
+    }
+    this.modalRef.hide();
   }
 
-  getColumnThree(skills: Array<Cp2020PlayerSkill>): Array<Cp2020PlayerSkill> {
-    const multi = skills.length % 3 === 0 ? 0.66 : 0.67;
-    return skills.slice(Math.ceil(skills.length * multi));
+  changeSkill(skill: Cp2020SkillUpdate) {
+    const index = this.currentSkills.findIndex(sk => sk.name === skill.current.name);
+    if( index >= 0) {
+      this.currentSkills[index] = new Cp2020PlayerSkill(skill.update);
+    }
+    this.updateSkills.emit(this.currentSkills);
   }
+
+  changeSpecialAbility(skill: Cp2020SkillUpdate) {
+    const index = this.currentSpecialAbilities.findIndex(sk => sk.name === skill.current.name);
+    if( index >= 0) {
+      this.currentSpecialAbilities[index] = new Cp2020PlayerSkill(skill.update);
+    }
+    this.updateSpecialAbilities.emit(this.currentSpecialAbilities);
+  }
+
+
+  changeSA() {
+  }
+
+
+  getStatValue(stat: string): number {
+    return this.characterStats[stat?.toUpperCase()]?.Adjusted ?? 0;
+  }
+
+  generateSkillLevels() {
+    if (this.currentSkills.length < 1) {
+      alert('Need to add skills. This button will fill them in with random values.');
+    } else {
+      for(let i = 0; i < this.currentSkills.length; i++) {
+        this.currentSkills[i].value = this.diceRoll.generateNumber(1,10);
+      }
+      for(let i = 0; i < this.currentSpecialAbilities.length; i++){
+        this.currentSpecialAbilities[i].value = this.diceRoll.generateNumber(1,10);
+      }
+      this.updateSkills.emit(this.currentSkills);
+      this.updateSpecialAbilities.emit(this.currentSpecialAbilities);
+    }
+  }
+
+  closeModal() {
+    this.modalRef.hide();
+  }
+
+  deleteSA(skill: Cp2020PlayerSkill) {
+    this.updateSpecialAbilities.emit(this.currentSpecialAbilities.filter(sk => {return sk.name !== skill.name}));
+  }
+
+  deleteSkill(skill: Cp2020PlayerSkill) {
+    this.updateSkills.emit(this.currentSkills.filter(sk => {return sk.name !== skill.name}));
+  }
+
 }
