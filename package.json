@@ -43,7 +43,7 @@
     "jasmine-marbles": "^0.9.0",
     "jspdf": "^2.5.1",
     "masonry-layout": "^4.2.2",
-    "ngx-bootstrap": "^11.0.2",
+    "ngx-bootstrap": "^10.2.0",
     "ngx-color": "^9.0.0",
     "ngx-drag-drop": "^16.0.0",
     "ngx-image-compress": "^15.1.5",
@@ -55,7 +55,6 @@
     "svg2pdf.js": "^2.2.0",
     "tslib": "^2.0.0",
     "uuid": "^8.3.2",
-    "webpack": "^5.83.1",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {

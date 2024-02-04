@@ -47,7 +47,7 @@
               ],
               "optimization": true,
               "outputHashing": "all",
-              "sourceMap": true,
+              "sourceMap": false,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -102,7 +102,7 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "homepage:build:development"
+              "browserTarget": "homepage:build:production"
             },
             "development": {
               "browserTarget": "homepage:build:development"
@@ -162,8 +162,5 @@
     "@schematics/angular:directive": {
       "prefix": "cs"
     }
-  },
-  "cli": {
-    "analytics": false
   }
 }
