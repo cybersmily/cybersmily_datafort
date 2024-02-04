@@ -1,17 +1,17 @@
-<div class="ps-3 pe-3">
+<div>
   <div class='row chargen-label'>
     <div class='col-12 g-0'>
       <h4 class="csd-btn"
       (click)="isCollapsed = !isCollapsed">CYBERWARE
         <fa-icon [icon]="isCollapsed ? faChevronRight : faChevronDown" class="csd-btn csd-dice ms-2" title="Toggle section"></fa-icon>
-        <fa-icon *ngIf="!isCollapsed" [icon]="faDice" class="csd-btn csd-dice ms-2" (click)="generate()" title="Roll for cyberware"></fa-icon>
+        <fa-icon *ngIf="!isCollapsed" [icon]="faDice" class="csd-btn csd-dice ms-2" (click)="generate($event)" title="Roll for cyberware"></fa-icon>
       </h4>
     </div>
   </div>
   <div [collapse]="isCollapsed" class="row border border-dark" id="oppCyberSection">
     <div class="col-12">
       <div class='row pb-2'>
-        <div *ngFor="let cyber of cyberware; let i = index" class='col-4 opp-cyber' title="{{cyber.notes}}">
+        <div *ngFor="let cyber of cyberware; let i = index" class='col-12 col-md-6 col-lg-4 opp-cyber' title="{{cyber.notes}}">
           {{cyber.name}} <span *ngIf="cyber.options && cyber.options !== ''">[{{cyber.options}}]</span>
           <fa-icon [icon]="faTrash" class="csd-btn cyber-delete csd-icon-btn" (click)="delete(i)"></fa-icon>
         </div>

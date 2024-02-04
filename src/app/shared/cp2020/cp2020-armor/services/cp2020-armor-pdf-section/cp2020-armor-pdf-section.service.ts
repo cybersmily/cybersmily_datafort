@@ -1,4 +1,4 @@
-import { PdfPageSettings } from './../../../../enums/pdf-page-settings';
+import { PdfPageSettings, PdfLineHeight, PdfFontSize } from './../../../../enums/pdf-page-settings';
 import { Cp2020ArmorBlock } from './../../models/cp2020-armor-block';
 import { jsPDF } from 'jspdf';
 import { Injectable } from '@angular/core';

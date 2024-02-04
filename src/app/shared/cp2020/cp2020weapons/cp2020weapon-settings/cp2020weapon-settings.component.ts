@@ -1,6 +1,7 @@
 import { Cp2020RandomWeaponSettingsService } from './../services/cp2020-random-weapon-settings/cp2020-random-weapon-settings.service';
-import { RandomWeaponFilters } from './../models/random-weapon-filters';
+import { RandomWeaponFilters,RandomWeaponSettings  } from './../models/random-weapon-filters';
 import { Component, OnInit } from '@angular/core';
+import { select } from '@ngrx/store';
 
 @Component({
   selector: 'cs-cp2020weapon-settings',
@@ -8,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cp2020weapon-settings.component.css'],
 })
 export class Cp2020weaponSettingsComponent implements OnInit {
-  constructor(private weaponSettings: Cp2020RandomWeaponSettingsService) {}
+  constructor(private weaponSettings: Cp2020RandomWeaponSettingsService) { }
 
-  wpnParam: RandomWeaponFilters = {};
+  wpnSettings: RandomWeaponSettings = {
+    count: 0,
+    filters: {}
+  };
 
   sections: Array<any> = [
     {
@@ -61,55 +65,87 @@ export class Cp2020weaponSettingsComponent implements OnInit {
       ],
     },
     {
-      name: 'Weapon Type',
+      name: 'Type',
       options: [
-        { prop: 'subcategory', name: 'P', value: 'P' },
-        { prop: 'subcategory', name: 'SMG', value: 'SMG' },
-        { prop: 'subcategory', name: 'RIF', value: 'RIF' },
-        { prop: 'subcategory', name: 'SHT', value: 'SHT' },
-        { prop: 'subcategory', name: 'MEL', value: 'MEL' },
-        { prop: 'subcategory', name: 'HVY', value: 'HVY' },
-        { prop: 'subcategory', name: 'EX', value: 'EX' },
+        { prop: 'type', name: 'P', value: 'P' },
+        { prop: 'type', name: 'SMG', value: 'SMG' },
+        { prop: 'type', name: 'RIF', value: 'RIF' },
+        { prop: 'type', name: 'SHT', value: 'SHT' },
+        { prop: 'type', name: 'MEL', value: 'MEL' },
+        { prop: 'type', name: 'HVY', value: 'HVY' },
+        { prop: 'type', name: 'EX', value: 'EX' },
       ],
     },
     {
       name: 'Availability',
       options: [
-        { prop: 'avail', name: 'EXCELLENT', value: 'E' },
-        { prop: 'avail', name: 'COMMON', value: 'C' },
-        { prop: 'avail', name: 'POOR', value: 'P' },
-        { prop: 'avail', name: 'RARE', value: 'R' },
+        { prop: 'availability', name: 'EXCELLENT', value: 'E' },
+        { prop: 'availability', name: 'COMMON', value: 'C' },
+        { prop: 'availability', name: 'POOR', value: 'P' },
+        { prop: 'availability', name: 'RARE', value: 'R' },
       ],
     },
   ];
 
   ngOnInit(): void {
     this.weaponSettings.settings.subscribe((settings) => {
-      this.wpnParam = settings;
+      this.wpnSettings = settings;
     });
   }
 
-  paramChecked(value: Array<string>, item: string): boolean {
+  paramChecked(prop: string, item: string): boolean {
     return (
-      value &&
-      value.some((t) => {
-        return t === item;
-      })
+      this.wpnSettings.filters[prop] &&
+      this.wpnSettings.filters[prop].includes(item)
     );
   }
 
-  addParam($event, type: string, value: string) {
-    if (this.wpnParam[type]) {
-      if ($event.target.checked) {
-        this.wpnParam[type].push(value);
-      } else {
-        const i = this.wpnParam[type].findIndex((t) => t === value);
-        this.wpnParam[type].splice(i, 1);
-      }
+  updateSettings() {
+    this.weaponSettings.setSettings(this.wpnSettings);
+  }
+
+  toggleAll($event, section: string) {
+    const selected = this.sections.find(sect => sect.name === section);
+    if ($event.target.checked) {
+      selected?.options.forEach(opt => {
+        this.addParam(opt.prop, opt.value)
+      });
+
     } else {
-      this.wpnParam[type] = new Array<string>();
-      this.wpnParam[type].push(value);
+      selected?.options.forEach(opt => {
+        this.removeParam(opt.prop, opt.value);
+      });
     }
-    this.weaponSettings.setSettings(this.wpnParam);
+    this.updateSettings();
+  }
+
+  allChecked(section: string): boolean {
+    const selected = this.sections.find(sect => sect.name === section)?.options.length;
+    const params = this.wpnSettings.filters[section.toLowerCase()]?.length;
+    return params > 0 && selected === params;
+  }
+
+  toggleParam($event, type: string, value: string) {
+    if ($event.target.checked) {
+      this.addParam(type, value);
+    } else {
+      this.removeParam(type, value);
+    }
+    this.updateSettings();
+    $event.stopPropagation();
+  }
+
+  addParam(type: string, value: string) {
+    if (!this.wpnSettings.filters[type]) {
+      this.wpnSettings.filters[type] = new Array<string>();
+    }
+    if(!this.wpnSettings.filters[type].includes(value)) {
+      this.wpnSettings.filters[type].push(value);
+    }
+  }
+
+  removeParam(type: string, value): void {
+    const i = this.wpnSettings.filters[type].findIndex((t) => t === value);
+    this.wpnSettings.filters[type].splice(i, 1);
   }
 }

@@ -8,10 +8,10 @@
     </div>
   </div>
   <div class='row'>
-    <div class='col-1'>
+    <div class='col-2 col-md-1'>
       ROLE:
     </div>
-    <div class='col-11 col-lg-6 col-xl-5'>
+    <div class='col-10 col-md-11 col-lg-6 col-xl-5'>
       <select *ngIf="currOpponent.role === ''; else hasRole" [(ngModel)]="selectedRole" (change)="changeRole()"
         title="Choose a role of the opponent. The role skills will be added to the oppoent." class="w-100">
         <option *ngIf="!selectedTemplate" [ngValue]="null" selected>Choose a role</option>
@@ -42,90 +42,102 @@
       Or Threat Code:
     </div>
     <div class="col-9 col-md-10">
-      <select class="btn-sm threat-code-select" [(ngModel)]="currThreatLevel.skill" >
+      <select class="btn-sm threat-code-select" [(ngModel)]="currThreatLevel.skill" tooltip="Skill level of the opponent">
         <option *ngIf="!selectedTemplate" [ngValue]="''" selected>-</option>
-        <option [ngValue]="'E'">E</option>
-        <option [ngValue]="'D'">D</option>
-        <option [ngValue]="'C'">C</option>
-        <option [ngValue]="'B'">B</option>
-        <option [ngValue]="'A'">A</option>
+        <option [ngValue]="'E'" title="Novice">E</option>
+        <option [ngValue]="'D'" title="Average">D</option>
+        <option [ngValue]="'C'" title="Above Average">C</option>
+        <option [ngValue]="'B'" title="Experienced">B</option>
+        <option [ngValue]="'A'" title="Veteran">A</option>
       </select>
-      <select class="btn-sm threat-code-select" [(ngModel)]="currThreatLevel.weapon">
+      <select class="btn-sm threat-code-select" [(ngModel)]="currThreatLevel.weapon" tooltip="Weapon available for the opponent">
         <option *ngIf="!selectedTemplate" [ngValue]="0" selected>-</option>
-        <option [ngValue]="5" >5</option>
-        <option [ngValue]="4" >4</option>
-        <option [ngValue]="3" >3</option>
-        <option [ngValue]="2" >2</option>
-        <option [ngValue]="1" >1</option>
+        <option [ngValue]="5" title="Bare hands/improvised weapons">5</option>
+        <option [ngValue]="4" title="Melee/Small Pistols">4</option>
+        <option [ngValue]="3" title="Large handgun/bolt-action rifle">3</option>
+        <option [ngValue]="2" title="Automatic weapons">2</option>
+        <option [ngValue]="1" title="Assault weapons/exotics">1</option>
       </select>
-      <select class="btn-sm threat-code-select" [(ngModel)]="currThreatLevel.armor">
+      <select class="btn-sm threat-code-select" [(ngModel)]="currThreatLevel.armor" tooltip="Armor available for the opponent">
         <option *ngIf="!selectedTemplate" [ngValue]="''" selected>-</option>
-        <option [ngValue]="'E'">E</option>
-        <option [ngValue]="'D'">D</option>
-        <option [ngValue]="'C'">C</option>
-        <option [ngValue]="'B'">B</option>
-        <option [ngValue]="'A'">A</option>
+        <option [ngValue]="'E'" title="Normal clothing">E</option>
+        <option [ngValue]="'D'" title="Leather to kevlar vest">D</option>
+        <option [ngValue]="'C'" title="Light to heavy armor">C</option>
+        <option [ngValue]="'B'" title="Door gunner/Metal Gear">B</option>
+        <option [ngValue]="'A'" title="PA Armor">A</option>
       </select>
-      <input type="checkbox" class="ms-2" [disabled]="!enableThreatCode" (change)="setOpponentThreatLevelAttributes($event)"
-      title="Check to apply the thread code to the opponent."> apply
-    </div>
-    </div>
-  <div class='row'>
-    <div class='col-12'>
-      <cs-cp2020-stats [stats]="currOpponent.stats" [showCharacterPoints]="false" [showRollInitiative]="false"
-        (changeStats)="onStatBlockChange($event)"></cs-cp2020-stats>
+      <button class="ms-2 csd-btn" [disabled]="!enableThreatCode"
+      (click)="setOpponentThreatLevelAttributes()" title="Check to apply the thread code to the opponent.">apply</button>
     </div>
   </div>
-  <div class='row'>
-    <div class='col-12'>
-      <cs-cp2020-save-wounds [stats]="currOpponent.stats" (changeStats)="onStatBlockChange($event)">
-      </cs-cp2020-save-wounds>
+  <div class='row chargen-label'>
+    <div class='col-12 g-0'>
+      <h4 class="csd-btn" (click)="isStatsCollapsed = !isStatsCollapsed">STATS/WOUNDS/SP
+        <fa-icon [icon]="isStatsCollapsed ? faChevronRight : faChevronDown" class="csd-btn csd-dice ms-2"
+          title="Toggle section"></fa-icon>
+      </h4>
     </div>
   </div>
-  <div class='row'>
-    <div class='col-12'>
-      <cs-cp2020-armor-table [armor]="currOpponent.armor" (changeArmor)="changeArmor($event)"
-        (damageCharacter)="woundOpponent($event)"></cs-cp2020-armor-table>
+  <div [collapse]="isStatsCollapsed" class="row border border-dark" id="oppCyberSection">
+
+    <div class='row'>
+      <div class='col-12'>
+        <cs-cp2020-stats [stats]="currOpponent.stats" [showCharacterPoints]="false" [showRollInitiative]="false"
+          (changeStats)="onStatBlockChange($event)"></cs-cp2020-stats>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-12'>
+        <cs-cp2020-save-wounds [stats]="currOpponent.stats" (changeStats)="onStatBlockChange($event)">
+        </cs-cp2020-save-wounds>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-12'>
+        <cs-cp2020-armor-table [armor]="currOpponent.armor" (changeArmor)="changeArmor($event)"
+          (damageCharacter)="woundOpponent($event)"></cs-cp2020-armor-table>
+      </div>
     </div>
   </div>
-  <div class='row'>
-    <div class='col-12'>
-      <cs-cp2020weapon-calculator [weaponList]="currOpponent.getWeaponsAsList()"
-        [skills]="currOpponent.getSkillAsList()" [body]="currOpponent.stats.BODY.Adjusted"
-        [ref]="currOpponent.stats.REF.Adjusted" [bodyDamageMod]="currOpponent.stats.BodyDmgMod"
-        [handle]="currOpponent.name" [showHeader]="true" [isCollapsed]="true">
-      </cs-cp2020weapon-calculator>
-    </div>
+<div class='row mt-1'>
+  <div class='col-12'>
+    <cs-cp2020weapon-calculator [weaponList]="currOpponent.getWeaponsAsList()" [skills]="currOpponent.getSkillAsList()"
+      [body]="currOpponent.stats.BODY.Adjusted" [ref]="currOpponent.stats.REF.Adjusted"
+      [bodyDamageMod]="currOpponent.stats.BodyDmgMod" [handle]="currOpponent.name" [showHeader]="true"
+      [isCollapsed]="true">
+    </cs-cp2020weapon-calculator>
   </div>
-  <div class='row'>
-    <div class='col-12'>
-      <cs-cp2020weapontable [weapons]="currOpponent.getWeaponsAsList()" [stats]="currOpponent.stats"
-        [skills]="currOpponent.getSkillAsList()" [showRandomGenerator]="true" [showSelector]="true"
-        [showCalculator]="false" (changeWeapons)="changeWeapons($event)" [isCollapsed]="true">
-      </cs-cp2020weapontable>
-    </div>
+</div>
+<div class='row'>
+  <div class='col-12 p-0'>
+    <cs-cp2020weapontable [weapons]="currOpponent.getWeaponsAsList()" [stats]="currOpponent.stats"
+      [skills]="currOpponent.getSkillAsList()" [showRandomGenerator]="true" [showSelector]="true"
+      [showCalculator]="false" (changeWeapons)="changeWeapons($event)" [isCollapsed]="true">
+    </cs-cp2020weapontable>
   </div>
-  <div class='row'>
-    <div class='col-12'>
-      <cs-cp2020-opponent-armor-list [armorBlock]="currOpponent.armor" (updateArmor)="changeArmor($event)">
-      </cs-cp2020-opponent-armor-list>
-    </div>
+</div>
+<div class='row'>
+  <div class='col-12'>
+    <cs-cp2020-opponent-armor-list [armorBlock]="currOpponent.armor" (updateArmor)="changeArmor($event)">
+    </cs-cp2020-opponent-armor-list>
   </div>
-  <div class='row mt-1'>
-    <div class='col-12'>
-      <cs-cmbt-trk-skills [opponent]="currOpponent" [isCollapsed]="true" (updateOpponent)="changeOpponent($event)">
-      </cs-cmbt-trk-skills>
-    </div>
+</div>
+<div class='row mt-1'>
+  <div class='col-12'>
+    <cs-cp2020-skill-list-short [characterSkills]="currOpponent.skills" [characterSpAbilites]="currOpponent.sa"
+      [characterStats]="currOpponent.stats" (updateSkills)="changeSkills($event)"
+      (updateSpecialAbilities)="changeSpecialAbility($event)"></cs-cp2020-skill-list-short>
   </div>
-  <div class='row mt-1'>
-    <div class='col-12'>
-      <cs-cmbt-trk-cyber [isCollapsed]="true" [cyberware]="currOpponent.cyberware" (newCyberware)="changeCyber($event)">
-      </cs-cmbt-trk-cyber>
-    </div>
+</div>
+<div class='row mt-1'>
+  <div class='col-12'>
+    <cs-cmbt-trk-cyber [isCollapsed]="true" [cyberware]="currOpponent.cyberware" (newCyberware)="changeCyber($event)">
+    </cs-cmbt-trk-cyber>
   </div>
-  <div class='row mt-1 mb-4'>
-    <div class='col-12'>
-      <cs-cmbt-trck-gear [gear]="currOpponent.gear" (newGear)="changeGear($event)"></cs-cmbt-trck-gear>
-    </div>
+</div>
+<div class='row mt-1 mb-4'>
+  <div class='col-12'>
+    <cs-cmbt-trck-gear [gear]="currOpponent.gear" (newGear)="changeGear($event)"></cs-cmbt-trck-gear>
   </div>
+</div>
 </div>

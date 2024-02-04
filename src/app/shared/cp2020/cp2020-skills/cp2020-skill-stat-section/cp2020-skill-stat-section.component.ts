@@ -95,18 +95,6 @@ export class Cp2020SkillStatSectionComponent implements OnInit, OnChanges {
     );
   }
 
-  getColumnOne(): Array<Cp2020PlayerSkill> {
-    return this.currSkills.slice(0, this.columnLength);
-  }
-
-  getColumnTwo(): Array<Cp2020PlayerSkill> {
-    return this.currSkills.slice(this.columnLength, this.columnLength * 2);
-  }
-
-  getColumnThree(): Array<Cp2020PlayerSkill> {
-    return this.currSkills.slice(this.columnLength * 2);
-  }
-
   onChangeSkill(skillUpdate: Cp2020SkillUpdate) {
     this.changeSkill.emit(skillUpdate);
   }

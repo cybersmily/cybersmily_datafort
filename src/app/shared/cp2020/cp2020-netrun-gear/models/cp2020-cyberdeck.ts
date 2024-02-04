@@ -42,6 +42,23 @@ export class Cp2020Cyberdeck implements Cyberdeck {
     return this.type.name;
   }
 
+  get maxInputs(): number {
+    return this.type?.inputs ?? 6;
+  }
+
+  get maxOutputs(): number {
+    return this.type?.outputs ?? 6;
+  }
+
+  get currInputs(): number {
+    return this.options.reduce( (a, b) => {
+      if(b.slot && b?.slotType === 'input') {
+        return a += b?.slot;
+      }
+      return a;
+    }, 0);
+  }
+
   get totalMU(): number {
     let mu = this._mu;
     mu += this.doubleMu ? 10 : 0;

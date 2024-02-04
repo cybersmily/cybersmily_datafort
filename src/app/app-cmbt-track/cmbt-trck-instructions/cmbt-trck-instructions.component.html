@@ -11,31 +11,58 @@
         <br>
         <div class="row">
           <div class="col-12">
-            <b><fa-icon [icon]="faSave" class="btn-lg"></fa-icon> SAVE</b> -
-            You will notice that the data is "sticky" from session to session. The data is store in the browser local storage.
-            But that doesn't mean it  is "saved". If you clear your local storage for the browser then this data will also be losted forever.
-            This button will save the Tracker data as a JSON file to your local system.
-            Just a bit of warning. If you mess with the contents you can corrupt the file unless you know how to work with JSON.
-            Even then, you might not want to tinker with it too much.
+            <h5 (click)="isTopMenuCollapsed = !isTopMenuCollapsed" [attr.aria-expanded]="!isTopMenuCollapsed"
+              aria-controls="collapseTopMenu">
+              <fa-icon [icon]="(isTopMenuCollapsed)?faAngleDoubleRight:faAngleDoubleDown" class="csd-dice"
+                title="Collapse instructions section"></fa-icon>&nbsp;
+              Top Menu Bar
+            </h5>
           </div>
         </div>
-        <div class="row">
+        <div class="row" id="collapseTopMenu" [collapse]="isTopMenuCollapsed">
           <div class="col-12">
-            <b><fa-icon [icon]="faUpload" class="btn-lg"></fa-icon> LOAD</b> - This will load the JSON file saved. You can try to upload other json files, but good chance they won't work.
+            <div class="row">
+
+              <div class="col-12">
+                <b><fa-icon [icon]="faSave" class="csd-icon-btn"></fa-icon> SAVE</b> -
+                You will notice that the data is "sticky" from session to session. The data is store in the browser
+                local
+                storage.
+                But that doesn't mean it is "saved". If you clear your local storage for the browser then this data will
+                also be losted forever.
+                This button will save the Tracker data as a JSON file to your local system.
+                Just a bit of warning. If you mess with the contents you can corrupt the file unless you know how to
+                work
+                with JSON.
+                Even then, you might not want to tinker with it too much.
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <b><fa-icon [icon]="faUpload" class="csd-icon-btn"></fa-icon> LOAD</b> - This will load the JSON file
+                saved. You
+                can try to upload other json files, but good chance they won't work.
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <b><fa-icon [icon]="faFileImport" class="csd-icon-btn"></fa-icon> IMPORT</b> - This will import the JSON
+                file of a
+                Cyberpunk2020 Character sheet from this site. Make sure the json file you select is a character sheet,
+                else
+                it won't work.
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <b><fa-icon [icon]="faRedo" class="csd-icon-btn"></fa-icon> RESET</b> - This will clear all the data
+                from the
+                tracker.
+                If you haven't saved important work, it will delete and will be lost.
+              </div>
+            </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-12">
-            <b><fa-icon [icon]="faFileImport" class="btn-lg"></fa-icon> IMPORT</b> - This will import the JSON file of a Cyberpunk2020 Character sheet from this site. Make sure the json file  you select is a character sheet, else it won't work.
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-          <b><fa-icon [icon]="faRedo" class="btn-lg"></fa-icon> RESET</b> - This will clear all the data from the tracker.
-          If you haven't saved important work, it will delete and will be lost.
-          </div>
-        </div>
-        <br>
         <div class="row">
           <div class="col-12">
             <h5 (click)="isLeftCollapsed = !isLeftCollapsed" [attr.aria-expanded]="!isLeftCollapsed"
@@ -46,17 +73,46 @@
             </h5>
             <div id="collapseLeftPanel" [collapse]="isLeftCollapsed">
               <p>
-                The section on the left tracks the initiative order or the combatants.
-                You can click on the dice icon to roll all the comabatant's initiatives.
-                This will generate an initiative roll and add in all their REF and Combat Sense.
+                The section on the left tracks the initiative order and combatants list.
               </p>
-              <p>Turn helps to keep track of the turn of combat.</p>
-              <p>
-                Each combatant row has the initiative box which can be manually set.
-                NOTE: Manually setting initiative will not add REF or Combat Sense to it. You will need to add them up
-                before
-                entering it.
+              <p>The top part of this section tracks the current initiatvie and turns. In this area you have:</p>
+              <ul>
+                <li>Init. click on the <fa-icon [icon]="faDice" class=" csd-icon-btn"></fa-icon> to roll initiative for all combatants. This will add in any modifiers for each of the combatants.</li>
+                <li><fa-icon [icon]="faChevronUp" class=" csd-icon-btn"></fa-icon> will move the initiative to the preivous one in the order</li>
+                <li>Current Initiative number with the combatant who is active for this initiative.</li>
+                <li><fa-icon [icon]="faChevronDown" class=" csd-icon-btn"></fa-icon> advances to the next initiative in the order.</li>
+                <li>Current Turn. This will increment when the initiatve order flips from the last one in the order to the first one. You can manual increment the Turn with the +/- icons.</li>
+              </ul>
+              <p>Next area is the list of the combatants, sorted in the initiative order. Each combatant row comprises of:
               </p>
+              <ul>
+                <li>Initiative selector (<input type="radio" [checked]="true" /> click to set the current initiative).
+                </li>
+                <li>Iniative value (this can be set manually as needed).</li>
+                <li>Initiative dice (<fa-icon [icon]="faDice" class=" csd-icon-btn"></fa-icon> - rolls that combatant's
+                  intiative with all
+                  modifiers).</li>
+                <li>OR current condition of the combatant (<fa-icon [icon]="faEyeSlash" class=" csd-icon-btn"></fa-icon>
+                  - Stunned/
+                  <fa-icon [icon]="faSkullCrossbones" class=" csd-icon-btn"></fa-icon> - Dead). If a condition is
+                  affecting the combatant, then the initiative will be hidden by the icon. To remove the condition either set Death State to below 10 or uncheck the Is Stunned on the combatants details.
+                </li>
+                <li>Combatant's Name (truncated if too long) with current wounds/wound level below.
+                  <ul>
+                    <li><fa-icon [icon]="faTint" class="csd-icon-btn"></fa-icon> - Light wound</li>
+                    <li><fa-icon [icon]="faHeart" class="csd-icon-btn"></fa-icon> - Serious wound </li>
+                    <li><fa-icon [icon]="faHeartBroken" class=" csd-icon-btn"></fa-icon> - Critical Wound </li>
+                    <li><fa-icon [icon]="faHeartbeat" class=" csd-icon-btn"></fa-icon> x N - Mortal Wound </li>
+                    <li><fa-icon [icon]="faSkull" class=" csd-icon-btn"></fa-icon> x N - Death State </li>
+                  </ul>
+                  Click on the Combatant's name will display that combatants in the detail panel on the right/bottom of
+                  the page.
+                </li>
+                <li>Delete <fa-icon [icon]="faTrash" class=" csd-icon-btn"></fa-icon> or Copy<fa-icon [icon]="faCopy"
+                    class="csd-icon-btn"></fa-icon> buttons. Delete will remove the combatant from the tracker. The Copy
+                  will make a new
+                  copy of the combatant.</li>
+              </ul>
               <p>
                 Changing the initatiive value will resort the order automatically. Hovering over the initiative value,
                 you
@@ -64,17 +120,9 @@
                 Click on the dice icon. This will add the REF stat and Combat Sesnse to the roll.
               </p>
               <p>
-                Each combatant will display their name, their REF stat, and any conditions they current have (wound
-                level
-                and
-                if they are stunned).
+                You can click on the <fa-icon [icon]="faPlus" class=" csd-icon-btn"></fa-icon> button at the bottom of
+                the list add new blank combatant to the list.
               </p>
-              <p>
-                You can add new oppenents with the button on the bottom of the list.
-              </p>
-              <p>Rest button will clear all the data in the list.
-                This will start from a clean point with 3 test opponent.
-                The data is not recoverable if you do this.</p>
             </div>
           </div>
           <div class="col-12">
@@ -100,15 +148,19 @@
                   title="Collapse instructions section"></fa-icon>&nbsp;WOUNDS
               </h6>
               <div id="collapseWounds" [collapse]="isWoundsCollapsed">
-              <p>
-                The Wounds section is where to make save, keep track of the wounds, and show other effects for the combatant.
-              </p>
-              <p>
-                Hovering over the Stun/Death Save will show the dice icon. Click on these icon will prompt for a modifier to the roll and then roll it.
-                If the stun save fails, the STUNNED checkbox will be marked. This will also show in the Left Panel for that combatant.
-                The Death State indicator will show up if the combatant has failed their Death Save. Remember to advance the death state each turn.
-                This too will show up on the combatant in the Left Panel.
-              </p>
+                <p>
+                  The Wounds section is where to make save, keep track of the wounds, and show other effects for the
+                  combatant.
+                </p>
+                <p>
+                  Hovering over the Stun/Death Save will show the dice icon. Click on these icon will prompt for a
+                  modifier to the roll and then roll it.
+                  If the stun save fails, the STUNNED checkbox will be marked. This will also show in the Left Panel for
+                  that combatant.
+                  The Death State indicator will show up if the combatant has failed their Death Save. Remember to
+                  advance the death state each turn.
+                  This too will show up on the combatant in the Left Panel.
+                </p>
               </div>
               <h6 (click)="isArmorCollapsed = !isArmorCollapsed" [attr.aria-expanded]="!isArmorCollapsed"
                 aria-controls="collapseArmor">
@@ -116,9 +168,10 @@
                   title="Collapse instructions section"></fa-icon>&nbsp;ARMOR
               </h6>
               <div id="collapseArmor" [collapse]="isArmorCollapsed">
-              <p>
-                Armor section is to fill in the SP for the location. This is tracking and updated manuallly. Future update will address this in the coming months.
-              </p>
+                <p>
+                  Armor section is to fill in the SP for the location. This is tracking and updated manuallly. Future
+                  update will address this in the coming months.
+                </p>
               </div>
               <h6 (click)="isModifiedCollapsed = !isModifiedCollapsed" [attr.aria-expanded]="!isModifiedCollapsed"
                 aria-controls="collapseMods">
@@ -126,21 +179,27 @@
                   title="Collapse instructions section"></fa-icon>&nbsp;COMBAT MODIFIERS
               </h6>
               <div id="collapseMods" [collapse]="isModifiedCollapsed">
-                <p>This is where the sausage is made. This section will contain all the weapons the combatant has and list out the modifiers for combat.</p>
+                <p>This is where the sausage is made. This section will contain all the weapons the combatant has and
+                  list out the modifiers for combat.</p>
                 <p>
                   In the weapon section, all the weapons added to the combatant from the WEAPONS tab will display here.
-                  It will also display the total modifier to the d10 for rolling against the DIFF, whichis set by the Range to Target.
+                  It will also display the total modifier to the d10 for rolling against the DIFF, whichis set by the
+                  Range to Target.
                   Click on the dice icon will generate a roll and show the results vs the DIFF.
                   You shoud set the Range to Target and check off all applicable modifiers before rolling.
                 </p>
                 <p>
-                  The next line in the weapon show the stats of the weapon: type, weapon accuracy, damage, shots (used/capacity), rate of fire, reliability, and range.
+                  The next line in the weapon show the stats of the weapon: type, weapon accuracy, damage, shots
+                  (used/capacity), rate of fire, reliability, and range.
                   Click on the dice icon next to damage will roll the damage and show the individual dice.
-                  Shots you can keep track of how many shots the weapon has fired. Once the shots fired equals to the capacity, the weapon will be locked until the reload is clicked.
-                  The reliabilit dice is similiar. If a Reliabilty check is required, and the weapon jams, then it will lock the weapon and show how many turns it will take to unjam it.
+                  Shots you can keep track of how many shots the weapon has fired. Once the shots fired equals to the
+                  capacity, the weapon will be locked until the reload is clicked.
+                  The reliabilit dice is similiar. If a Reliabilty check is required, and the weapon jams, then it will
+                  lock the weapon and show how many turns it will take to unjam it.
                 </p>
                 <p>
-                  After the weapon is where tracking of the modifiers to hit are done. Enter a range and then check off all the modifiers that apply.
+                  After the weapon is where tracking of the modifiers to hit are done. Enter a range and then check off
+                  all the modifiers that apply.
                   This will update the skill roll above as well as the DIFF when the range changes.
                 </p>
               </div>
@@ -155,7 +214,8 @@
                 The second box on the stat is for any modifications to the stat due to situation, cyberware, drug
                 effects,
                 etc.This box is updated manually.
-                There is a dice icon next to each stat. Clicking on it you will be prompt to roll a stat roll (stat + 1d10) or a save (1d10 less than or equal to stat).
+                There is a dice icon next to each stat. Clicking on it you will be prompt to roll a stat roll (stat +
+                1d10) or a save (1d10 less than or equal to stat).
                 Stat rolls are of skills not listed in the Skills section.
               </p>
               <h6 (click)="isSkillCollapsed = !isSkillCollapsed" [attr.aria-expanded]="!isSkillCollapsed"

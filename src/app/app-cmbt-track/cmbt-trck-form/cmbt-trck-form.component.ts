@@ -5,9 +5,11 @@ import { CharacterImporterService } from './../../shared/services/charimporter/c
 import { FileLoaderService, SaveFileService } from './../../shared/services/file-services';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { CmbtTrckOppSelection, CmbtTrckOpponent } from '../../shared/models/cmbt-trck';
-import { faDice, faPlus, faTrash, faSave, faUpload, faRedo, faFileImport, faFile, faQuestionCircle, faCopy, faChevronDown, faChevronUp, faMinus } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faPlus, faTrash, faSave, faUpload, faRedo, faFileImport,
+  faFile, faQuestionCircle, faCopy, faChevronDown, faChevronUp, faMinus,
+  faEyeSlash, faHeartBroken, faHeart, faHeartbeat, faFirstAid, faSkullCrossbones } from '@fortawesome/free-solid-svg-icons';
 import { OpponentTrackerService } from './../services/opponent-tracker.service';
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, HostListener, OnInit, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'cs-cmbt-trck-form',
@@ -27,6 +29,12 @@ export class CmbtTrckFormComponent implements OnInit {
   faCopy = faCopy;
   faChevronDown = faChevronDown;
   faChevronUp = faChevronUp;
+  faEyeSlash = faEyeSlash;
+  faHeartBroken = faHeartBroken;
+  faHeart = faHeart;
+  faHeartbeat = faHeartbeat;
+  faFirstAid = faFirstAid;
+  faSkullCrossbones = faSkullCrossbones;
 
 
   modalRef: BsModalRef;
@@ -48,9 +56,20 @@ export class CmbtTrckFormComponent implements OnInit {
 
   selectedIndex = 0;
   turn = 1;
+  useModal = false;
 
   initiativeIndex = 0;
   currentInitiativeOpp = new CmbtTrckOpponent();
+
+  @HostListener("window:resize", [])
+  checkToUseModal() {
+    if (window.innerWidth < 992) {
+      this.useModal = true;
+    } else {
+      this.useModal = false;
+    }
+  }
+
 
   constructor(private opponentService: OpponentTrackerService,
     private saveFileService: SaveFileService,
@@ -73,6 +92,11 @@ export class CmbtTrckFormComponent implements OnInit {
         this.currentInitiativeOpp = this.opponents[this.initiativeIndex];
       }
     });
+    if (window.innerWidth < 992) {
+      this.useModal = true;
+    } else {
+      this.useModal = false;
+    }
   }
 
   openModal(template: TemplateRef<any>) {
@@ -115,6 +139,9 @@ export class CmbtTrckFormComponent implements OnInit {
     const opp = this.opponents[index];
     const newOpp = new CmbtTrckOpponent(opp);
     newOpp.name =  `${opp.name}_${this.opponents.length + 1}`;
+    newOpp.stats.Damage = 0;
+    newOpp.stats.isStunned = false;
+    newOpp.stats.deathState = 0;
     this.opponentService.addOpponent(newOpp, true);
   }
 
@@ -127,10 +154,17 @@ export class CmbtTrckFormComponent implements OnInit {
     this.opponentService.sortInitiative();
   }
 
-  selectOpponent(index: number) {
+  selectOpponent(index: number, template?: TemplateRef<any>) {
     this.selectedIndex = index;
     this.selectedOpponent = null;
     this.selectedOpponent = this.opponents[index];
+    if(this.useModal && template) {
+      const sidePanelConfig = {
+        class: 'modal-right modal-xl',
+        animated: true,
+      };
+      this.modalRef = this.modalService.show(template, sidePanelConfig);
+    }
   }
 
   selectInitiative(index: number) {
@@ -175,13 +209,6 @@ export class CmbtTrckFormComponent implements OnInit {
     this.opponentService.changeOpponent(value);
   }
 
-  getWoundLevel(opp): string {
-    if (opp?.stats?.WoundLevel > 0)  {
-      return Cp2020_WOUND_LEVELS[opp.stats.WoundLevel] + ' wound';
-    }
-    return '';
-  }
-
   clear() {
     if (confirm('This will clear all the combatant data and start a new. Are you sure you want to wipe out everything?')) {
       this.opponentService.clear();
@@ -224,16 +251,7 @@ export class CmbtTrckFormComponent implements OnInit {
     }
   }
 
-  showInitiativeMods(oppStats: Cp2020StatBlock, combatSense: number): string {
-    let results = '';
-    results = oppStats.initiativeModifiers.map( mod => `,${mod.name}: ${mod.mod > 0 ? '+' + mod.mod : mod.mod}`).join('');
-    const cmbtSense = (combatSense > 0) ? `, Combat Sensse: +${combatSense}`  : '';
-    results = `[REF: ${oppStats.REF.Adjusted}${cmbtSense}${results}]`;
-    return results;
-  }
 
-  showInitiativeTooltip(opp: CmbtTrckOpponent): string {
-    return `Initiative Roll(s): (${opp.initDie.join(' + ')}) + ${this.showInitiativeMods(opp.stats, opp.combatSense)}`;
-  }
+
 
 }

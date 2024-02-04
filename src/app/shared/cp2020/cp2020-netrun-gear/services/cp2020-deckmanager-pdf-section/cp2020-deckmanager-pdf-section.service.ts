@@ -1,6 +1,6 @@
 import { Cp2020Program } from './../../models/cp2020-program';
 import { Cp2020CyberdeckManager, Cp2020Cyberdeck, Cp2020ProgramList } from './../../models';
-import { PdfPageSettings } from './../../../../enums/pdf-page-settings';
+import { PdfPageSettings, PdfLineHeight, PdfFontSize } from './../../../../enums/pdf-page-settings';
 import { jsPDF } from 'jspdf';
 import { Injectable } from '@angular/core';
 

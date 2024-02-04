@@ -45,7 +45,7 @@ export class CmbtTrkCyberComponent implements OnInit {
     this.newCyberware.emit(this.cyberware);
   }
 
-  generate() {
+  generate(event) {
     this.oppCharts.generateCyberware(3)
     .subscribe( item => {
       item.forEach( cyber => {
@@ -69,6 +69,7 @@ export class CmbtTrkCyberComponent implements OnInit {
       });
       this.newCyberware.emit(this.cyberware);
     });
+    event.stopPropagation();
   }
 
 }

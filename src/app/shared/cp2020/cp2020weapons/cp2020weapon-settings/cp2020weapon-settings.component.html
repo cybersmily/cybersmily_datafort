@@ -5,47 +5,46 @@
     </div>
   </div>
   <div class="row">
+    <div class="col-4">
+      Number of weapons:
+    </div>
+    <div class="col-1">
+      <input class="text-center" type="number" [(ngModel)]="wpnSettings.count" (change)="updateSettings()">
+    </div>
+  </div>
+  <div class="row">
     <div class="col">
       Uunselecting all the below will make all weapons available.
     </div>
   </div>
-  <ng-container
-    *ngFor="let section of sections"
-    [ngTemplateOutlet]="propertySections"
-    [ngTemplateOutletContext]="{
+  <ng-container *ngFor="let section of sections" [ngTemplateOutlet]="propertySections" [ngTemplateOutletContext]="{
       section: section
-    }"
-  ></ng-container>
+    }"></ng-container>
 </div>
 
 <ng-template #propertySections let-section="section">
-  <div class="row">
+  <div class="row mb-3">
     <div class="col-1"></div>
     <div class="col-3">{{ section.name }}:</div>
-    <div class="col">
-      <ng-container
-        *ngFor="let opt of section.options"
-        [ngTemplateOutlet]="filterParam"
-        [ngTemplateOutletContext]="{
+    <div class="col column-count-2 ">
+      <div class="small">
+        <input type="checkbox" [checked]="allChecked(section.name)" (change)="toggleAll($event, section.name)"
+          tabindex="0" />
+        - {{allChecked(section.name) ? 'Deselect All' : 'Select All'}}
+      </div>
+      <ng-container *ngFor="let opt of section.options" [ngTemplateOutlet]="filterParam" [ngTemplateOutletContext]="{
           prop: opt.prop,
           name: opt.name,
           value: opt.value
-        }"
-      ></ng-container>
+        }"></ng-container>
     </div>
   </div>
 </ng-template>
 
 <ng-template #filterParam let-prop="prop" let-name="name" let-value="value">
-  <div class="row">
-    <div class="col">
-      <input
-        type="checkbox"
-        [checked]="paramChecked(wpnParam[prop], value)"
-        (change)="addParam($event, prop, value)"
-        tabindex="0"
-      />
-      - {{ name }}
-    </div>
+  <div class="small">
+    <input type="checkbox" [checked]="paramChecked(prop, value)" (change)="toggleParam($event, prop, value)"
+      tabindex="0" />
+    - {{ name }}
   </div>
 </ng-template>

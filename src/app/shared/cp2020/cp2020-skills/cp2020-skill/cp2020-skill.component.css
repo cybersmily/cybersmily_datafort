@@ -3,7 +3,6 @@
 }
 
 .chargen-skill-input {
-  width: 28px;
   font-size: 0.9em;
   text-align: center;
   padding-top: 0px;
@@ -87,13 +86,12 @@ input.chargen-skill-input[type=number] {
 }
 
 .chargen-skill:hover {
-  background-color: #BBB;
+  background-color: rgba(187, 187, 187, 0.7);
   cursor: default;
 }
 
 
 .chargen-skill .ng-fa-icon {
-  display: none;
   cursor: pointer;
   margin-right:3px;
   color: red;
@@ -101,7 +99,7 @@ input.chargen-skill-input[type=number] {
 }
 
 .chargen-skill:hover .ng-fa-icon {
-  display: inline-block;
+  display: inline-block !important;
 }
 
 span.sa-name {

@@ -2,10 +2,7 @@ import { Cp2020RandomWeaponSettingsService } from './../services/cp2020-random-w
 import { RandomWeaponGeneratorService } from './../services/random-weapon-generator/random-weapon-generator.service';
 import { Cp2020PlayerSkill } from './../../cp2020-skills/models/cp2020-player-skill';
 import { CpWeaponListParam } from './../models/cp-weapon-list-param';
-import { DataWeapon } from './../models/data-weapon';
 import { Cp2020StatBlock } from './../../cp2020-stats/models/cp2020-stat-block';
-import { WeaponDataService } from './../services';
-import { DiceService } from './../../../services/dice/dice.service';
 import {
   CpPlayerWeaponList,
   CpPlayerWeapon,
@@ -32,6 +29,7 @@ import {
   ViewChild,
   ElementRef,
 } from '@angular/core';
+import { RandomWeaponSettings } from '../models/random-weapon-filters';
 
 @Component({
   selector: 'cs-cp2020weapontable',
@@ -61,7 +59,7 @@ export class Cp2020weapontableComponent implements OnInit {
   };
   newWeapon: CpPlayerWeapon = new CpPlayerWeapon();
 
-  wpnParam: CpWeaponListParam = {};
+  wpnFilterSettings: RandomWeaponSettings;
 
   @Input()
   weapons: CpPlayerWeaponList = new CpPlayerWeaponList();
@@ -106,18 +104,14 @@ export class Cp2020weapontableComponent implements OnInit {
 
   constructor(
     private modalService: BsModalService,
-    private diceService: DiceService,
-    private weaponData: WeaponDataService,
     private randomWeaponService: RandomWeaponGeneratorService,
     private randomWeaponSettings: Cp2020RandomWeaponSettingsService
   ) {}
 
   ngOnInit(): void {
-    this.wpnParam = {
-      type: ['P', 'SMG', 'RIF', 'MEL', 'SHT'],
-      availability: ['E', 'C'],
-    };
-    this.randomWeaponSettings.setSettings(this.wpnParam);
+    this.randomWeaponSettings.settings.subscribe(settings => {
+      this.wpnFilterSettings = settings;
+    });
     this.isIUCollapsed = this.isCollapsed;
     this.isWeaponsCollapsed = this.isCollapsed;
   }
@@ -146,8 +140,12 @@ export class Cp2020weapontableComponent implements OnInit {
 
   randomGenerateWeapon() {
     this.randomWeaponService
-      .generateList(this.wpnParam, 1)
+      .generateList(this.wpnFilterSettings.filters, this.wpnFilterSettings.count)
       .subscribe((data: Array<CpPlayerWeapon>) => {
+        if(data.length < 1 ) {
+          alert('Filter options in settings produced 0 results in the random table. Please select more options in settings Digit.');
+          return;
+        }
         data.forEach((wpn) => {
           this.weapons.addDataWeapon(wpn);
         });
