@@ -3,6 +3,7 @@ import { DiceService } from './../../shared/services/dice/dice.service';
 import { CmbtTrckOpponent } from '../../shared/models/cmbt-trck/cmbt-trck-opponent';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { LocalStorageManagerService } from './../../shared/services/local-storage-manager/local-storage-manager.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,32 +18,36 @@ export class OpponentTrackerService {
   private _selected = new BehaviorSubject<CmbtTrckOpponent>(new CmbtTrckOpponent());
   selected = this._selected.asObservable();
 
-  constructor(private diceService: DiceService) {
+  constructor(private diceService: DiceService, private localStorageService: LocalStorageManagerService) {
     const opps = this.cache;
-    if (opps.length < 1) {
+    if (!opps && opps.length < 1) {
       this._opponents.next(this.loadtestdata());
+      this.cache = this._opponents.getValue();
     } else {
       this._opponents.next(opps);
     }
-   }
+  }
 
-   get cache(): Array<CmbtTrckOpponent> {
-     const opponents = new Array<CmbtTrckOpponent>();
-    if (window.localStorage && window.localStorage.getItem(this._STORAGE_KEY)) {
-      const stored = JSON.parse(window.localStorage.getItem(this._STORAGE_KEY));
-      stored.forEach( opp => {
-        const opponent = new CmbtTrckOpponent(opp);
-        opponents.push( opponent);
-      });
-    }
+  get cache(): Array<CmbtTrckOpponent> {
+    const opponents = new Array<CmbtTrckOpponent>();
+      try {
+        const stored = this.localStorageService.retrive<Array<CmbtTrckOpponent>>(this._STORAGE_KEY);
+        if(stored) {
+        stored.forEach(opp => {
+          const opponent = new CmbtTrckOpponent(opp);
+          opponents.push(opponent);
+        });
+      }
+      } catch (err) {
+        console.error('failed to load Combat tracker Opponents from LocalStorage', err)
+        window.localStorage.removeItem(this._STORAGE_KEY);
+      }
     return opponents;
-   }
+  }
 
-   set cache(opps: Array<CmbtTrckOpponent>) {
-    if (window.localStorage) {
-      window.localStorage.setItem(this._STORAGE_KEY, JSON.stringify(this._opponents.getValue()));
-    }
-   }
+  set cache(opps: Array<CmbtTrckOpponent>) {
+    this.localStorageService.store<Array<CmbtTrckOpponent>>(this._STORAGE_KEY, opps);
+  }
 
 
   /**
@@ -59,7 +64,7 @@ export class OpponentTrackerService {
       });
     } else {
       const index = this._opponents.getValue().findIndex(o => o.id === id);
-      if (index > -1 ) {
+      if (index > -1) {
         opps[index].calculateInitiative(this.getDieRoll());
       }
     }
@@ -94,7 +99,7 @@ export class OpponentTrackerService {
       opps.push(newOpp);
     } else {
       const name = this.checkName('Opp1');
-      opps.push(new CmbtTrckOpponent({name: name}));
+      opps.push(new CmbtTrckOpponent({ name: name }));
     }
     this._opponents.next(opps);
     this.cache = opps;
@@ -112,12 +117,12 @@ export class OpponentTrackerService {
     this.cache = opps;
   }
 
-  changeOpponent( opp: CmbtTrckOpponent) {
-    opp.weapons = opp.weapons.sort( (a, b) => (b.name.toLowerCase() < a.name.toLowerCase()) ? 1 : -1);
-    opp.cyberware = opp.cyberware.sort( (a, b) => (b.name.toLowerCase() < a.name.toLowerCase()) ? 1 : -1);
-    opp.gear = opp.gear.sort( (a, b) => (b.toLowerCase() < a.toLowerCase()) ? 1 : -1);
+  changeOpponent(opp: CmbtTrckOpponent) {
+    opp.weapons = opp.weapons.sort((a, b) => (b.name.toLowerCase() < a.name.toLowerCase()) ? 1 : -1);
+    opp.cyberware = opp.cyberware.sort((a, b) => (b.name.toLowerCase() < a.name.toLowerCase()) ? 1 : -1);
+    opp.gear = opp.gear.sort((a, b) => (b.toLowerCase() < a.toLowerCase()) ? 1 : -1);
     const opps = this._opponents.getValue();
-    const index = opps.findIndex( o => o.id === opp.id);
+    const index = opps.findIndex(o => o.id === opp.id);
     opps[index] = new CmbtTrckOpponent(opp);
 
     this._opponents.next(opps);
@@ -125,7 +130,7 @@ export class OpponentTrackerService {
   }
 
   woundOpponent(opp: CmbtTrckOpponent, value: number) {
-    if(value > 0 ) {
+    if (value > 0) {
       const damage = value + opp.stats.BTM;
       opp.stats.Damage += damage > 0 ? damage : 1;
       this.changeOpponent(opp);
@@ -135,10 +140,10 @@ export class OpponentTrackerService {
   private checkName(name: string, index?: number): string {
     let newName = name;
     let attempts = 5;
-    while (this.hasName(newName, index) && attempts > 0)  {
+    while (this.hasName(newName, index) && attempts > 0) {
       // get the numbr from the name
       const num = new RegExp(/.*[0-9]+$/).test(newName);
-      if ( num ) {
+      if (num) {
         const oldNum = newName.match(/[0-9]+$/g).map(Number)[0];
         const newNum = oldNum + 1;
         newName = newName.replace('' + oldNum, '' + newNum);
@@ -150,8 +155,8 @@ export class OpponentTrackerService {
     return newName;
   }
 
-  private hasName( name: string, index?: number ): boolean {
-    return this._opponents.getValue().filter((o, i) => o.name.toLowerCase() === name.toLowerCase() && ( i !== index)).length > 0 ;
+  private hasName(name: string, index?: number): boolean {
+    return this._opponents.getValue().filter((o, i) => o.name.toLowerCase() === name.toLowerCase() && (i !== index)).length > 0;
   }
 
 
@@ -161,10 +166,11 @@ export class OpponentTrackerService {
    * @memberof CmbtTrckFormComponent
    */
   sortInitiative(opps?: Array<CmbtTrckOpponent>) {
-    if (opps?.length < 1) {
+    console.log(this._opponents?.getValue());
+    if (!Array.isArray(opps)) {
       opps = this._opponents.getValue();
     }
-    opps = opps.sort( (a, b) => {
+    opps = opps?.sort((a, b) => {
       if (a.initRoll === b.initRoll) {
         return b.stats.REF.Adjusted - a.stats.REF.Adjusted;
       }
@@ -186,9 +192,9 @@ export class OpponentTrackerService {
 
   importArray(list: Array<CmbtTrckOpponent>) {
     const opps = [...this._opponents.getValue()];
-    list.forEach( opp => {
+    list.forEach(opp => {
       const opponent = new CmbtTrckOpponent(opp, true);
-      opps.push( opponent);
+      opps.push(opponent);
     });
     this._opponents.next(opps);
     this.cache = opps;
@@ -196,7 +202,7 @@ export class OpponentTrackerService {
 
   clear() {
     this._opponents.next(this.loadtestdata());
-    localStorage.removeItem(this._STORAGE_KEY);
+    this.cache = this._opponents.getValue();
   }
 
 }
