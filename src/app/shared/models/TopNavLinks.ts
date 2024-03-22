@@ -557,9 +557,21 @@ export class TopNavLinks {
           target: '_blank',
         },
         {
+          title: 'DarlingCreepshow Cyberpunk 2020: Land of the Free',
+          link: 'https://www.youtube.com/playlist?list=PLki4FUuyJ74W9B6dQW_jtex3a5KsxEyIY',
+          desc: 'Cyberpunk 2020 Liveplay of the biggest published campaign.',
+          target: '_blank',
+        },
+        {
           title: 'The Dark Future',
           link: 'https://www.youtube.com/channel/UCdppRwWMT7V7hfqI4ZncZBg',
           desc: '',
+          target: '_blank',
+        },
+        {
+          title: 'Dice TTRPG',
+          link: 'https://www.youtube.com/@DiceTTRPG',
+          desc: 'Cyberpunk Red and 2077 knowledge nuggets.',
           target: '_blank',
         },
         {
@@ -581,9 +593,21 @@ export class TopNavLinks {
           target: '_blank',
         },
         {
+          title: 'Infinite Sided Dice',
+          link: 'https://www.youtube.com/@infinitesideddice/featured',
+          desc: 'Live play and advice on Cyberpunk Red.',
+          target: '_blank',
+        },
+        {
           title: 'JonJon theWise',
           link: 'https://www.youtube.com/channel/UCTZML8xYXTyuEaCb9ette6Q',
           desc: 'Great discussion and explanation as well as live play.',
+          target: '_blank',
+        },
+        {
+          title: 'Layedbackgamers',
+          link: 'https://www.youtube.com/@LayedBackGamers/',
+          desc: 'Lore Galore. Mostly concentration on CP 2077',
           target: '_blank',
         },
         {
@@ -593,9 +617,27 @@ export class TopNavLinks {
           target: '_blank',
         },
         {
+          title: 'Miss Magitek',
+          link: 'https://www.youtube.com/@MissMagitek/',
+          desc: 'Liveplay and reviews of Cyberpunk Red and 2077',
+          target: '_blank',
+        },
+        {
           title: 'Mr Welch',
           link: 'https://www.youtube.com/channel/UC3NteHN3fWXXMaLXjMMHRkA',
           desc: 'Reviews of Cyberpunk supplements',
+          target: '_blank',
+        },
+        {
+          title: 'No Latency',
+          link: 'https://www.youtube.com/channel/UC3NteHN3fWXXMaLXjMMHRkA',
+          desc: 'Live play, interviews, advice on Cyberpunk Red',
+          target: '_blank',
+        },
+        {
+          title: 'Playstation Access',
+          link: 'https://www.youtube.com/playlist?list=PLLUkxbIkknLuQJJRwEbV5z2WFt6hs9Rxy',
+          desc: 'Live play for Cyberpunk 2020.',
           target: '_blank',
         },
         {
