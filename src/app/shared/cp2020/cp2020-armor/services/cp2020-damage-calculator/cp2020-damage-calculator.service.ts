@@ -67,6 +67,7 @@ export class Cp2020DamageCalculatorService {
         break;
       case Cp2020AmmoTypes.HEAVY_FLECHETTE_ROUND:
         result = damage - Math.ceil(sp/4);
+        break;
       default:
         result = damage - sp;
     }
