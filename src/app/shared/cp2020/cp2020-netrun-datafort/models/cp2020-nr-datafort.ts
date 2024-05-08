@@ -61,19 +61,14 @@ export class Cp2020NrDatafort implements NrDatafort {
         param?.muNodes?.map((n) => {
           return { x: n.x, y: n.y };
         }) ?? new Array<Coord>();
-      this.mu =
-        param?.mu?.map((mu) => {
-          return { key: mu.key, value: mu.value };
-        }) ?? new Array<KeyValue<string, number>>(this.cpu * 4);
-      // limit the number of items based on the size of either skill array
-      for (let i = 0; i < this.mu.length; i++) {
-        const mu = {
-          key: param.mu[i]?.key ?? '',
-          value: param.mu[i]?.value ?? 0,
-        };
-        this.mu[i] = mu;
-      }
 
+      // fill the memory slots
+      this.mu = Array<KeyValue<string, number>>(this.cpu * 4).fill({key: '', value: 0});
+      param?.mu?.forEach((mu, index) => {
+        if(index < this.mu.length) {
+          this.mu[index] =  { key: mu.key, value: mu.value };
+        }
+      });
       // every 2 CPU, the datafort gets 5 skills.
       this.skills =
         param?.skills?.map((sk) => {
