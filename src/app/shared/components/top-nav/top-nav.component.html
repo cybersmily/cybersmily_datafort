@@ -49,7 +49,7 @@
                   [attr.download]="lk.download ? lk.download : undefined"
                   [attr.title]="lk.desc"
                   (click)="isCollapsed = !isCollapsed"
-                  ><span class="rounded p-0">{{ lk.title }}</span></a
+                  >{{ lk.title }}</a
                 >
                 <a
                   *ngIf="isExternal(lk.link)"
@@ -58,7 +58,7 @@
                   [target]="'_blank'"
                   [attr.title]="lk.desc"
                   (click)="isCollapsed = !isCollapsed"
-                  ><span class="rounded p-o">{{ lk.title }}</span></a
+                  >{{ lk.title }}</a
                 >
               </div>
             </div>
