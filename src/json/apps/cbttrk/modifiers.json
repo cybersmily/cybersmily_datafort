@@ -1,40 +1,187 @@
 {
-    "CP2020": {
-    "target":[
-    {"name": "Target immobile"            , "mod":  4, "selected": false},
-    {"name": "Target dodging (melee only)", "mod": -2, "selected": false},
-    {"name": "Moving Target REF > 10"     , "mod":  0, "selected": false},
-    {"name": "Moving Target REF > 12"     , "mod":  0, "selected": false},
-    {"name": "Moving Target REF > 14"     , "mod":  0, "selected": false}
-],
-"attacker": [
-    {"name": "Fast draw/snapshot"                   , "mod": -3, "selected": false},
-    {"name": "Ambush"                               , "mod":  5, "selected": false},
-    {"name": "Aimed shot at body location"          , "mod": -4, "selected": false},
-    {"name": "Ricochet or indirect fire"            , "mod": -5, "selected": false},
-    {"name": "Blinded by light or dust"             , "mod": -3, "selected": false},
-    {"name": "Target silhoutted"                    , "mod":  2, "selected": false},
-    {"name": "Turning to face target"               , "mod": -2, "selected": false},
-    {"name": "Using two weapons"                    , "mod": -3, "selected": false},
-    {"name": "Firing whilte running"                , "mod": -3, "selected": false},
-    {"name": "Firing shoulder arm from hip"         , "mod": -2, "selected": false},
-    {"name": "Turret mounted weapon"                , "mod":  2, "selected": false},
-    {"name": "Vehicle mounted, no turret"           , "mod": -4, "selected": false},
-    {"name": "Large target"                         , "mod":  4, "selected": false},
-    {"name": "Small target"                         , "mod": -4, "selected": false},
-    {"name": "Tiny target"                          , "mod": -6, "selected": false},
-    {"name": "Aiming, 1 turn"                       , "mod":  1, "selected": false},
-    {"name": "Aiming, 2 turn"                       , "mod":  2, "selected": false},
-    {"name": "Aiming, 3 turn"                       , "mod":  3, "selected": false},
-    {"name": "Laser sight"                          , "mod":  1, "selected": false},
-    {"name": "Telescopic sight, extreme range"      , "mod":  2, "selected": false},
-    {"name": "Telescopic sight, long range"         , "mod":  1, "selected": false},
-    {"name": "Targeting scope"                      , "mod":  1, "selected": false},
-    {"name": "Smartgun"                             , "mod":  2, "selected": false},
-    {"name": "Smartgoggles"                         , "mod":  2, "selected": false},
-    {"name": "Three Round Burst (Close/Medium only)", "mod":  3, "selected": false},
-    {"name": "Full Auto, Close"                     , "mod":  1, "selected": false},
-    {"name": "Full Auto, all other"                 , "mod":  0, "selected": false}
-]
-}
+  "CP2020": {
+    "target": [
+      {
+        "name": "Target immobile",
+        "mod": 4,
+        "selected": false
+      },
+      {
+        "name": "Target dodging (melee only)",
+        "mod": -2,
+        "selected": false
+      },
+      {
+        "name": "Moving Target REF > 10",
+        "mod": 0,
+        "selected": false
+      },
+      {
+        "name": "Moving Target REF > 12",
+        "mod": 0,
+        "selected": false
+      },
+      {
+        "name": "Moving Target REF > 14",
+        "mod": 0,
+        "selected": false
+      }
+    ],
+    "attacker": [
+      {
+        "name": "Fast draw/snapshot",
+        "mod": -3,
+        "selected": false
+      },
+      {
+        "name": "Ambush",
+        "mod": 5,
+        "selected": false
+      },
+      {
+        "name": "Aimed shot at body location",
+        "mod": -4,
+        "selected": false
+      },
+      {
+        "name": "Ricochet or indirect fire",
+        "mod": -5,
+        "selected": false
+      },
+      {
+        "name": "Blinded by light or dust",
+        "mod": -3,
+        "selected": false
+      },
+      {
+        "name": "Target silhoutted",
+        "mod": 2,
+        "selected": false
+      },
+      {
+        "name": "Turning to face target",
+        "mod": -2,
+        "selected": false
+      },
+      {
+        "name": "Using two weapons",
+        "mod": -3,
+        "selected": false
+      },
+      {
+        "name": "Firing whilte running",
+        "mod": -3,
+        "selected": false
+      },
+      {
+        "name": "Firing shoulder arm from hip",
+        "mod": -2,
+        "selected": false
+      },
+      {
+        "name": "Turret mounted weapon",
+        "mod": 2,
+        "selected": false
+      },
+      {
+        "name": "Vehicle mounted, no turret",
+        "mod": -4,
+        "selected": false
+      },
+      {
+        "name": "Large target",
+        "mod": 4,
+        "selected": false
+      },
+      {
+        "name": "Small target",
+        "mod": -4,
+        "selected": false
+      },
+      {
+        "name": "Tiny target",
+        "mod": -6,
+        "selected": false
+      },
+      {
+        "name": "Aiming, 1 turn",
+        "mod": 1,
+        "selected": false
+      },
+      {
+        "name": "Aiming, 2 turn",
+        "mod": 2,
+        "selected": false
+      },
+      {
+        "name": "Aiming, 3 turn",
+        "mod": 3,
+        "selected": false
+      },
+      {
+        "name": "Laser sight",
+        "mod": 1,
+        "selected": false
+      },
+      {
+        "name": "Telescopic sight, extreme range",
+        "mod": 2,
+        "selected": false
+      },
+      {
+        "name": "Telescopic sight, long range",
+        "mod": 1,
+        "selected": false
+      },
+      {
+        "name": "Targeting scope",
+        "mod": 1,
+        "selected": false
+      },
+      {
+        "name": "Smartgun",
+        "mod": 2,
+        "selected": false
+      },
+      {
+        "name": "Smartgoggles",
+        "mod": 2,
+        "selected": false
+      },
+      {
+        "name": "Three Round Burst (Close/Medium only)",
+        "mod": 3,
+        "selected": false
+      },
+      {
+        "name": "Full Auto, Close",
+        "mod": 1,
+        "selected": false
+      },
+      {
+        "name": "Full Auto, all other",
+        "mod": 0,
+        "selected": false
+      }
+    ],
+    "structureCover": [
+      {"name": "Sheetrock Wall"         , "sp": 5 },
+      {"name": "Stone Wall"             , "sp": 30},
+      {"name": "Tree, Phone Pole"       , "sp": 30},
+      {"name": "Brick Wall"             , "sp": 25},
+      {"name": "Concrete Block Wall"    , "sp": 10},
+      {"name": "Wood Door"              , "sp": 5 },
+      {"name": "Heavy Wood Door"        , "sp": 15},
+      {"name": "Steel Door"             , "sp": 20},
+      {"name": "Concrete Utility Pole"  , "sp": 35},
+      {"name": "Data Term"              , "sp": 25},
+      {"name": "Car Body, Door"         , "sp": 10},
+      {"name": "Armored Car Body"       , "sp": 40},
+      {"name": "AV-4 Body"              , "sp": 40},
+      {"name": "Engine Block"           , "sp": 35},
+      {"name": "Mailbox"                , "sp": 25},
+      {"name": "Hydrant"                , "sp": 35},
+      {"name": "Curb"                   , "sp": 25}
+    ]
+  }
 }
