@@ -53,7 +53,6 @@ export class CmbtTrckOpponentRowComponent implements OnInit {
 
   changeInitiative() {
     this.opponentService.sortInitiative();
-    console.log('init updated.')
   }
 
 

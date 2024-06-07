@@ -166,7 +166,6 @@ export class OpponentTrackerService {
    * @memberof CmbtTrckFormComponent
    */
   sortInitiative(opps?: Array<CmbtTrckOpponent>) {
-    console.log(this._opponents?.getValue());
     if (!Array.isArray(opps)) {
       opps = this._opponents.getValue();
     }

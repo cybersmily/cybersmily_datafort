@@ -1,9 +1,8 @@
-import { Cp2020ProgramsDataService } from './../services';
+import { Cp2020ProgramDataService } from './../services/cp2020-program-data/cp2020-program-data.service';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { faPlus, faSave, faSearch } from '@fortawesome/free-solid-svg-icons';
-import { forkJoin, Observable } from 'rxjs';
-import { NrProgramOptionsService } from '../../../services/netrun/nr-program-options.service';
+import { Observable } from 'rxjs';
 import {
   Component,
   OnInit,
@@ -15,7 +14,7 @@ import {
   ViewChild,
   ElementRef,
 } from '@angular/core';
-import { ProgramOption, Cp2020Program } from '../models';
+import { ProgramOption, Cp2020Program, Program } from '../models';
 
 @Component({
   selector: 'cs-program-new',
@@ -26,7 +25,7 @@ export class Cp2020ProgramNewComponent implements OnInit, AfterViewInit {
   faPlus = faPlus;
   faSave = faSave;
   faSearch = faSearch;
-  classes: Array<ProgramOption> = new Array<ProgramOption>();
+  programClasses$: Observable<Array<ProgramOption>>;
   options: Array<ProgramOption> = new Array<ProgramOption>();
   programList$: Observable<Array<Cp2020Program>>;
   modalRef: BsModalRef;
@@ -48,18 +47,15 @@ export class Cp2020ProgramNewComponent implements OnInit, AfterViewInit {
   programNameInput: ElementRef;
 
   constructor(
-    private programData: NrProgramOptionsService,
-    private modalService: BsModalService,
-    private programListData: Cp2020ProgramsDataService
+    private programData: Cp2020ProgramDataService,
+    private modalService: BsModalService
   ) {}
 
   ngOnInit(): void {
-    this.programList$ = this.programListData.programList;
-    const classesData = this.programData.classes;
-    const optionData = this.programData.options;
-    forkJoin([classesData, optionData]).subscribe((data) => {
-      this.classes = data[0];
-      this.options = data[1];
+    this.programList$ = this.programData.cp2020Programs;
+    this.programClasses$ = this.programData.cp2020ProgramClasses;
+    this.programData.cp2020ProgramOptions.subscribe(data => {
+      this.options = data;
     });
   }
 
@@ -116,16 +112,6 @@ export class Cp2020ProgramNewComponent implements OnInit, AfterViewInit {
 
   selectProgram(event: TypeaheadMatch): void {
     this.program = new Cp2020Program(event.item);
-    const i = this.classes.findIndex(
-      (c) => c.name?.toLowerCase() === event?.item?.class?.name.toLowerCase()
-    );
-    if (i > -1) {
-      this.program.class = this.classes[i];
-    } else {
-      this.program.class = { name: event?.item?.class, description: '', diff: 10 };
-    }
-    this.program.options = this.getOptions(event?.item?.options);
-
   }
 
   addProgram(prog: any):void  {

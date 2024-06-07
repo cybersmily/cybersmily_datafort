@@ -1,84 +1,57 @@
-import { ProgramData } from './../../models/program-data';
 import {
   DataService,
   JsonDataFiles,
 } from './../../../../services/file-services';
-import { Cp2020Program, Program, ProgramOption } from './../../models';
-import { BehaviorSubject, Observable, of, map } from 'rxjs';
+import { Cp2020Program, Cp2020ProgramData, ProgramOption, ProgramData } from './../../models';
+import { Observable, of, map, BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Cp2020ProgramDataService {
-  private _classes: Array<ProgramOption>;
-  private _options: Array<ProgramOption>;
-  private _programs: Array<Cp2020Program>;
+  private _programData: BehaviorSubject< Cp2020ProgramData> = new BehaviorSubject<Cp2020ProgramData>(null);
 
-  constructor(private dataService: DataService) {}
+  private _programs: BehaviorSubject<Array<Cp2020Program>> = new BehaviorSubject<Array<Cp2020Program>>([]);
+  cp2020Programs:  Observable<Array<Cp2020Program>> = this._programs.asObservable();
 
-  get cp2020Programs(): Observable<Array<Cp2020Program>> {
-    if (!this._programs) {
-      return this._setData().pipe(
-        map((data) => {
-          return this._programs;
-        })
-      );
-    }
-    return of(this._programs);
+  private _classes: BehaviorSubject<Array<ProgramOption>> = new BehaviorSubject<Array<ProgramOption>>([]);
+  cp2020ProgramClasses: Observable<Array<ProgramOption>> = this._classes.asObservable();
+
+  private _options: BehaviorSubject<Array<ProgramOption>> = new BehaviorSubject<Array<ProgramOption>>([]);
+  cp2020ProgramOptions: Observable<Array<ProgramOption>> = this._options.asObservable();
+
+  constructor(private dataService: DataService) {
+    this._setData();
   }
 
-  get cp2020ProgramOptions(): Observable<Array<ProgramOption>> {
-    if (this._options === null) {
-      return this._setData().pipe(
-        map((data) => {
-          return this._options;
-        })
-      );
-    }
-    return of(this._options);
-  }
 
-  get cp2020ProgramClasses(): Observable<Array<ProgramOption>> {
-    if (this._classes === null) {
-      return this._setData().pipe(
-        map((data) => {
-          return this._classes;
-        })
-      );
-    }
-    return of(this._classes);
-  }
-
-  private _setData(): Observable<ProgramData> {
-    return this.dataService
-      .GetJson<ProgramData>(JsonDataFiles.CP2020_PROGRAM_DATA_JSON)
-      .pipe(
-        map((data) => {
-          this._classes = data.classes;
-          this._options = data.options;
-          this._programs = this._createProgramList(
-            data.programs,
-            this._classes
-          );
-          return data;
-        })
-      );
+  private _setData(): void {
+    this.dataService
+      .GetJson<Cp2020ProgramData>(JsonDataFiles.CP2020_PROGRAM_DATA_JSON)
+      .subscribe((data) => {
+          data.programs = this._createProgramList(
+            data);
+          this._programData.next(data);
+          this._programs.next(data.programs);
+          this._classes.next(data.classes);
+          this._options.next(data.options);
+        });
   }
 
   private _createProgramList(
-    programs: Array<Program>,
-    classes: Array<ProgramOption>
+    programData: ProgramData
   ): Array<Cp2020Program> {
-    return programs.map((prog: any) => {
+    return programData.programs.map((prog: any) => {
       const cls = {
-        ...classes.find(
+        ...programData.classes.find(
           (c) => c.name.toLowerCase() === prog.class?.toLowerCase()
         ),
       };
       const opts = prog.options?.map((opt: string) =>
-        this._options.find((o) => o.name.toLowerCase() === opt.toLowerCase())
+        programData.options.find((o) => o.name.toLowerCase() === opt.toLowerCase())
       );
+
       const program = new Cp2020Program(prog);
       program.class = cls;
       program.options = [...opts];
