@@ -157,7 +157,8 @@
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "cs",
-      "style": "css"
+      "style": "css",
+      "standalone": false
     },
     "@schematics/angular:directive": {
       "prefix": "cs"
