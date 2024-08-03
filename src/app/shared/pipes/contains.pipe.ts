@@ -18,6 +18,9 @@ export class ContainsPipe implements PipeTransform {
     const result = array.filter((obj) => {
       switch (typeof obj[property]) {
         case 'string':
+          if(Array.isArray(value)) {
+            return value.map((val:string) => val?.toLowerCase()).includes(obj[property].toLowerCase()) ||value.map((val:string) => val?.toLowerCase()).includes('');
+          }
           return obj[property].toLowerCase().includes(value.toLowerCase());
         case 'number':
           return obj[property] === value;
