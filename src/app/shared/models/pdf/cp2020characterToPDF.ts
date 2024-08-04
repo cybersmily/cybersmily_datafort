@@ -59,7 +59,7 @@ export class Cp2020characterToPDF {
       this.createLifepathPage(doc);
     }
     if (!settings || settings.sectionSettings.showLifestyle) {
-      this.createLifeStylePage(doc);
+      this.createLifeStylePage(doc, settings.sectionSettings.showContacts);
     }
     if (!settings || settings.sectionSettings.showNotes) {
       this.createNotesPage(doc);
@@ -226,7 +226,7 @@ export class Cp2020characterToPDF {
     this.addLifePath(doc, this._character.lifepath, this._left, this._top + 10);
   }
 
-  createLifeStylePage(doc: jsPDF): void {
+  createLifeStylePage(doc: jsPDF, showContacts: boolean): void {
     doc.addPage();
     doc.setFillColor('black');
     doc.rect(this._left, this._top, 200, 7, 'DF');
@@ -239,7 +239,9 @@ export class Cp2020characterToPDF {
       this._left,
       this._top + 10
     );
-    this.contactPdfService.generatePDF(doc, this._character.contacts, line);
+    if(showContacts) {
+      this.contactPdfService.generatePDF(doc, this._character.contacts, line);
+    }
   }
 
   createNotesPage(doc: jsPDF): void {
