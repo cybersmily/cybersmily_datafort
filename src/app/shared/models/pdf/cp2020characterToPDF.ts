@@ -20,6 +20,7 @@ import { Cp2020Vehicle } from '../../cp2020/cp2020-vehicles/models';
 import { Cp2020SkillSectionPdService } from '../../cp2020/cp2020-skills/services/cp2020-skill-section-pdf/cp2020-skill-section-pd.service';
 import { Cp2020StatsSectionPdfService } from '../../cp2020/cp2020-stats/services/cp2020-stats-section-pdf/cp2020-stats-section-pdf.service';
 import { Cp2020Housing } from '../../cp2020/cp2020-lifestyle/models/cp2020-housing';
+import { min } from 'rxjs';
 
 export class Cp2020characterToPDF {
   private _character: Cp2020PlayerCharacter;
@@ -480,13 +481,10 @@ export class Cp2020characterToPDF {
     doc.setTextColor('black');
     doc.setFont(this._font, 'normal');
 
-    let newLine = line;
     vehicles.forEach((veh, i) => {
-      line = i % 2 === 1 ? newLine : line;
-      left = i % 2 === 1 ? this._left : left + 100;
-      line = this.addVehicleDetail(doc, veh, left, line);
-      line += 10;
+      line =  this.addVehicleDetail(doc, veh, left, line);
     });
+    line += 10;
   }
 
   private addVehicleDetail(
@@ -495,11 +493,32 @@ export class Cp2020characterToPDF {
     left: number,
     line: number
   ): number {
-    const height = line;
+    let height = line;
     line += 4;
     const ht = 5;
     const colOneLeft = left + 3;
     const colTwoLeft = left + 50;
+
+    // get the height of the description
+    const desc:Array<string> = doc.splitTextToSize(
+      `Description: ${vehicle.description}`,
+      95
+    );
+    const descHt =  (desc.length * 3.5);
+
+    // get the minimum height
+    let minHt = (ht * 20);
+    minHt = descHt > minHt ? descHt : minHt;
+
+    // check if this requires a new page
+    if (line + minHt > this._pageHeight) {
+      doc.addPage();
+      line = this._top + 4;
+      height = this._top;
+    }
+
+
+    // write to doc
     doc.setFont(this._font, 'bold');
     doc.setFontSize(this._fontSize);
     doc.text(vehicle.name, left + 1, line);
@@ -541,14 +560,13 @@ export class Cp2020characterToPDF {
       doc.text(txt, colOneLeft, line);
       line += ht;
     });
-    const desc = doc.splitTextToSize(
-      `Description: ${vehicle.description}`,
-      100
-    );
-    doc.text(desc, colOneLeft, line);
-    line += ht;
 
-    doc.rect(left, height, 100, line - height, 'S');
+    // add description
+    doc.text(desc, 100, height + 4);
+    const newLine = height + descHt;
+    line = (newLine > line )? newLine : line;
+
+    doc.rect(left, height, 200, line - height, 'S');
 
     return line;
   }
