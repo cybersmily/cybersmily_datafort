@@ -118,6 +118,10 @@ export class Cp2020ArmorBlock implements ArmorBlock {
     return this.armorPieces.filter((piece) => piece.baseSP < 1);
   }
 
+  get totalCost(): number {
+    return this.armorPieces.reduce((a,b) => a + b.cost,0);
+  }
+
   addPiece(layer: Cp2020ArmorPiece) {
     if (layer.isActive && this.armorPieces.length > 2) {
       layer.isActive = false;

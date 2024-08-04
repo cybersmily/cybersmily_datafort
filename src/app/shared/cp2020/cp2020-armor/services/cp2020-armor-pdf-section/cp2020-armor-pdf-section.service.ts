@@ -23,7 +23,9 @@ export class Cp2020ArmorPDFSectionService {
     line = this.addArmorRowHeader(doc, 5, line);
     // create armor row
     line = this.addArmor(doc, armorBlock, 5, this._left, line);
+
     // create row footer
+    line = this.addSectionFooter(doc, line, armorBlock.totalCost);
     return line;
   }
 
@@ -44,6 +46,12 @@ export class Cp2020ArmorPDFSectionService {
     doc.setFont(this._font, 'normal');
     doc.setFontSize(7);
     return line + 7;
+  }
+
+  private addSectionFooter(doc: jsPDF, line: number, cost: number): number {
+    doc.rect(this._left, line, 200, 7, 'S');
+    doc.text(`Total Cost: ${cost.toLocaleString()}eb`, 198, line + 5, {align: 'right'});
+    return line + 8;
   }
 
   private addArmorRowHeader(doc: jsPDF, ht: number, line: number): number {
