@@ -163,6 +163,7 @@ export class Cp2020characterToPDF {
       line = this.weaponPdfService.addWeaponSection(
         doc,
         this._character.weapons,
+        this._font,
         this._left,
         line
       );

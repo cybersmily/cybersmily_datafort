@@ -7,16 +7,21 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class Cp2020WeaponSectionPdfService {
+  private _font = PdfPageSettings.DEFAULT_FONT.toString();
+
   constructor() {}
 
   addWeaponSection(
     doc: jsPDF,
     weapons: CpPlayerWeaponList,
+    font: string,
     left: number,
     line: number
   ): number {
+    this._font = font;
     return this.addWeapons(doc, weapons, left, line);
   }
+
 
   private addWeapons(
     doc: jsPDF,
@@ -24,13 +29,14 @@ export class Cp2020WeaponSectionPdfService {
     left: number,
     line: number
   ): number {
+    // added section header
     doc.setFillColor('black');
     doc.rect(left, line, 200, 7, 'DF');
     doc.setTextColor('white');
-    doc.setFont(PdfPageSettings.DEFAULT_FONT, 'bold');
+    doc.setFont(this._font, 'bold');
     doc.text('WEAPONS', left + 2, line + 5);
     doc.setTextColor('black');
-    doc.setFont(PdfPageSettings.DEFAULT_FONT, 'normal');
+    doc.setFont(this._font, 'normal');
     doc.setFontSize(7);
     const ht = 5;
     const leftMargin = left;
@@ -38,9 +44,13 @@ export class Cp2020WeaponSectionPdfService {
 
     line = this.addWeaponColumnHeaders(doc, ht, left, line);
 
+    // add each weapon to the list.
     weapons.items.forEach((w) => {
       line = this.addWeaponRow(doc, w, ht, left, line);
     });
+    // add total cost
+    doc.rect(left, line, 200, 7, 'S');
+    doc.text(`TOTAL COST: ${weapons.totalCost.toLocaleString()}eb`, 199, line + 5,{align: 'right'});
     doc.setFontSize(PdfFontSize.DEFAULT);
     return line + 6;
   }
@@ -51,7 +61,7 @@ export class Cp2020WeaponSectionPdfService {
     left: number,
     line: number
   ): number {
-    doc.setFont(PdfPageSettings.DEFAULT_FONT, 'bold');
+    doc.setFont(this._font, 'bold');
     // header
     doc.rect(left, line, 30, ht, 'S');
     doc.text('Name', left + 1, line + 4);
@@ -91,7 +101,7 @@ export class Cp2020WeaponSectionPdfService {
 
     doc.rect(PdfPageSettings.MIDPAGE, line, 100, ht, 'S');
     doc.text('Notes', PdfPageSettings.MIDPAGE + 3, line + 4);
-    doc.setFont(PdfPageSettings.DEFAULT_FONT, 'normal');
+    doc.setFont(this._font, 'normal');
     left += 7;
 
     line += ht;
