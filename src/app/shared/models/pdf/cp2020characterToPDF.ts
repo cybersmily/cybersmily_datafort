@@ -19,6 +19,7 @@ import { LifepathEvent } from '../../cp2020/cp2020-lifepath/models';
 import { Cp2020Vehicle } from '../../cp2020/cp2020-vehicles/models';
 import { Cp2020SkillSectionPdService } from '../../cp2020/cp2020-skills/services/cp2020-skill-section-pdf/cp2020-skill-section-pd.service';
 import { Cp2020StatsSectionPdfService } from '../../cp2020/cp2020-stats/services/cp2020-stats-section-pdf/cp2020-stats-section-pdf.service';
+import { Cp2020Housing } from '../../cp2020/cp2020-lifestyle/models/cp2020-housing';
 
 export class Cp2020characterToPDF {
   private _character: Cp2020PlayerCharacter;
@@ -864,7 +865,7 @@ export class Cp2020characterToPDF {
 
   private addHousing(
     doc: jsPDF,
-    lifestyle: Cp2020Lifestyle,
+    lifestyleObj: Cp2020Lifestyle,
     left: number,
     line: number,
     ht: number,
@@ -872,15 +873,16 @@ export class Cp2020characterToPDF {
   ): number {
     const startLine = line;
     doc.rect(left, line, 20, recth, 'FD');
+    let housing = lifestyleObj.housing.map( housing => new Cp2020Housing(housing));
 
     doc.setTextColor('white');
     doc.text('Housing', left + 2, line + 4);
     doc.setTextColor('black');
-    let totalMonthlyCost = lifestyle.housing.reduce(
-      (a, b) => a + b.cost * b.qualityMod * b.rooms,
+    let totalMonthlyCost = housing.reduce(
+      (a, b) => a + b.totalCost,
       0
     );
-    lifestyle.housing.forEach((housing) => {
+    housing.forEach((housing) => {
       totalMonthlyCost += housing.utilities.reduce(
         (a, b) => a + b.cost * b.count,
         0
@@ -895,7 +897,7 @@ export class Cp2020characterToPDF {
 
     // add each housing
     let housingRect = recth;
-    lifestyle.housing.forEach((housing) => {
+    housing.forEach((housing) => {
       const result = this.printHousing(doc, housing, left + 2, line);
       line = result.line;
       housingRect += result.recth;
@@ -908,15 +910,13 @@ export class Cp2020characterToPDF {
 
   private printHousing(
     doc: jsPDF,
-    housing: CpHousing,
+    housing: Cp2020Housing,
     left: number,
     line: number
   ): { line: number; recth: number } {
     const ht = 6;
     let recth = ht;
     const type = housing.cost === 200 ? 'Apt./Condo' : 'House';
-    let cost = housing.utilities.reduce((a, b) => a + b.cost * b.count, 0);
-    cost += housing.rooms * housing.cost * housing.qualityMod;
     let zone = '';
     switch (housing.qualityMod) {
       case 2:
@@ -932,7 +932,7 @@ export class Cp2020characterToPDF {
         zone = 'Combat';
     }
     doc.text(
-      `${housing.name} - ${housing.rooms} room ${type} in ${zone} Zone - ${cost}eb/month`,
+      `${housing.name} - ${housing.rooms} room ${type} in ${zone} Zone - ${housing.totalCost}eb/month`,
       left,
       line
     );
