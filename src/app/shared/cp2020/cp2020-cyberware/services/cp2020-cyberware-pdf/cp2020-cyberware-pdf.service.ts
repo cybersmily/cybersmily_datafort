@@ -1,4 +1,3 @@
-import { PdfGeneratorService } from './../../../../services/pdf-services/pdf-generator.service';
 import { PdfPageSettings, PdfLineHeight, PdfFontSize } from './../../../../enums/pdf-page-settings';
 import { Cp2020PlayerCyberList, Cp2020PlayerCyber } from './../../models';
 import { jsPDF } from 'jspdf';
@@ -8,15 +7,19 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class Cp2020CyberwarePdfService {
+  private _font = PdfPageSettings.DEFAULT_FONT.toString();
+
   constructor() {}
 
   addCyberwareSection(
     doc: jsPDF,
     cyberware: Cp2020PlayerCyberList,
+    font: string,
     left: number,
     line: number,
     ht: number
   ): number {
+    this._font = font;
     // add spacer
     line += PdfLineHeight.DEFAULT;
 
@@ -50,15 +53,16 @@ export class Cp2020CyberwarePdfService {
     left: number,
     line: number
   ): number {
+    doc.setFontSize(11);
     doc.setFillColor('black');
     doc.rect(left, line, 200, 7, 'DF');
     doc.setTextColor('white');
-    doc.setFont(PdfPageSettings.DEFAULT_FONT, 'bold');
+    doc.setFont(this._font, 'bold');
     doc.text('CYBERNETICS', left + 2, line + 5);
     doc.setTextColor('black');
-    doc.setFont(PdfPageSettings.DEFAULT_FONT, 'normal');
+    doc.setFont(this._font, 'normal');
     line += 7;
-    doc.setFontSize(8);
+    doc.setFontSize(7);
     return line;
   }
 

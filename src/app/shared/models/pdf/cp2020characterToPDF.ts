@@ -181,6 +181,7 @@ export class Cp2020characterToPDF {
       line = this.cyberPdfService.addCyberwareSection(
         doc,
         this._character.cyberware,
+        this._font,
         this._left,
         line,
         PdfLineHeight.DEFAULT

@@ -34,6 +34,7 @@ export class Cp2020WeaponSectionPdfService {
     doc.rect(left, line, 200, 7, 'DF');
     doc.setTextColor('white');
     doc.setFont(this._font, 'bold');
+    doc.setFontSize(11);
     doc.text('WEAPONS', left + 2, line + 5);
     doc.setTextColor('black');
     doc.setFont(this._font, 'normal');
