@@ -191,6 +191,7 @@ export class Cp2020characterToPDF {
       line = this.gearPdfService.addGearSection(
         doc,
         this._character.gear,
+        this._font,
         this._left,
         line,
         PdfLineHeight.DEFAULT

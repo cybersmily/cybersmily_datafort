@@ -1,4 +1,8 @@
-import { PdfPageSettings, PdfLineHeight, PdfFontSize } from './../../../../enums/pdf-page-settings';
+import {
+  PdfPageSettings,
+  PdfLineHeight,
+  PdfFontSize,
+} from './../../../../enums/pdf-page-settings';
 import { Cp2020PlayerGearList, Cp2020PlayerGear } from './../../models';
 import { jsPDF } from 'jspdf';
 import { Injectable } from '@angular/core';
@@ -8,38 +12,19 @@ import { Injectable } from '@angular/core';
 })
 export class Cp2020GearPdfService {
   private _ht = 6;
-  private _font = 'Arial';
-  constructor() {
-  }
+  private _font = PdfPageSettings.DEFAULT_FONT.toString();
+  constructor() {}
 
   addGearSection(
     doc: jsPDF,
     gear: Cp2020PlayerGearList,
+    font: string,
     left: number,
     line: number,
     ht: number
   ): number {
-    this._font = this.getFont(doc.getFontList());
+    this._font = font;
     return this.addGear(doc, gear, left, line, ht);
-  }
-
-  private getFont(fonts: any): string {
-    if (fonts['Arial']) {
-      return 'Arial';
-    }
-    if (fonts['Helvetica']) {
-      return 'Helvetica';
-    }
-    if (fonts['Verdana']) {
-      return 'Verdana';
-    }
-    if (fonts['sans-serif']) {
-      return 'sans-serif';
-    }
-    if (fonts['times']) {
-      return 'times';
-    }
-    return 'courier';
   }
 
   private addGear(
@@ -58,19 +43,50 @@ export class Cp2020GearPdfService {
 
     doc.setFontSize(9);
     line = this.addLocationSection(doc, gear, '', left, line, ht);
-    gear.locations.forEach(location => {
+    gear.locations.forEach((location) => {
       line = this.addLocationSection(doc, gear, location, left, line, ht);
-    })
+    });
 
+    line = this.addSectionFooter(
+      doc,
+      left,
+      line,
+      ht,
+      gear.totalCost,
+      gear.totalWeight
+    );
     doc.setFontSize(PdfFontSize.DEFAULT);
     line += ht;
     return line;
   }
 
-  private addSectionHeader( doc: jsPDF,
+  private addSectionFooter(
+    doc: jsPDF,
     left: number,
     line: number,
-    ht: number): number {
+    ht: number,
+    cost: number,
+    weight: number
+  ): number {
+    doc.setTextColor('black');
+    doc.rect(left, line, 200, ht, 'S');
+    doc.text(
+      `Total Cost: ${cost.toLocaleString()} eb - Total Wt: ${weight.toLocaleString()} kg`,
+      198,
+      line + 5,
+      {align: 'right'}
+    );
+    line += ht;
+    return line;
+  }
+
+  private addSectionHeader(
+    doc: jsPDF,
+    left: number,
+    line: number,
+    ht: number
+  ): number {
+    doc.setFontSize(11);
     doc.setFillColor('black');
     doc.rect(left, line, 200, ht, 'DF');
     doc.setTextColor('white');
@@ -78,13 +94,18 @@ export class Cp2020GearPdfService {
     doc.text('GEAR', left + 2, line + 5);
     doc.setTextColor('black');
     doc.setFont(this._font, 'normal');
+    doc.setFontSize(7);
     line += ht;
     return line;
   }
 
-  private addLocationHeader( location: string, doc: jsPDF,
+  private addLocationHeader(
+    location: string,
+    doc: jsPDF,
     left: number,
-    line: number, ht: number): number {
+    line: number,
+    ht: number
+  ): number {
     doc.setTextColor('black');
     doc.setFont(this._font, 'bold');
     doc.rect(left, line, 200, ht, 'S');
@@ -92,7 +113,6 @@ export class Cp2020GearPdfService {
     doc.setFont(this._font, 'normal');
     line += ht;
     return line;
-
   }
 
   private addRowHeader(
@@ -127,12 +147,15 @@ export class Cp2020GearPdfService {
     location: string,
     left: number,
     line: number,
-    ht: number): number {
-    if(location && location !== '') {
+    ht: number
+  ): number {
+    if (location && location !== '') {
       line = this.addLocationHeader(location, doc, left, line, ht);
     }
     line = this.addRowHeader(doc, left, line, ht);
-    const items = gear.items.filter(item => item.location.toLowerCase() === location.toLowerCase());
+    const items = gear.items.filter(
+      (item) => item.location.toLowerCase() === location.toLowerCase()
+    );
 
     const count = Math.ceil(items.length / 2);
     for (let i = 0; i < count; i++) {
