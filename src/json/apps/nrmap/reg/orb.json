@@ -12,14 +12,14 @@
     "ly": 10,
     "img": "img/apps/regionmaps/Orbitsville.png",
     "dforts":[
-      { "img": "stat", "top": 5, "left": 5, "align": "r", "row": 5, "column": 7, "name": "ESA Testbed Site [L-2]" },
-      { "img": "stat", "top": 5, "left": 5, "align": "r", "row": 7, "column":18, "name": "O'Neil Three (Paradise) [L-4]" },
-      { "img": "lunar","top": 5, "left": 0, "align": "r", "row": 8, "column": 8, "name": "Tycho" },
       { "img": "stat", "top": 5, "left": 5, "align": "r", "row":10, "column":10, "name": "Crystal Palace [L-1]" },
+      { "img": "stat", "top": 5, "left": 5, "align": "r", "row": 6, "column": 6, "name": "ESA Testbed Site [L-2]" },
+      { "img": "stat", "top": 5, "left": 5, "align": "r", "row":19, "column":18, "name": "O'Neil Two (Galileo) [L-3]" },
+      { "img": "stat", "top": 0, "left": 0, "align": "r", "row":14, "column":6,  "name": "O'Neil Three (Paradise) [L-4]" },
+      { "img": "stat", "top": 0, "left": 0, "align": "r", "row":6,  "column": 15,"name": "O'Neil One [L-5]" },
+      { "img": "lunar","top": 5, "left": 0, "align": "r", "row": 8, "column": 8, "name": "Tycho" },
       { "img": "geo",  "top": 5, "left": 5, "align": "r", "row":11, "column":14, "name": "WorldSat Network (GEO)" },
       { "img": "geo",  "top": 5, "left":10, "align": "r", "row":13, "column":11, "name": "WorldSat Network (GEO)" },
-      { "img": "geo",  "top": 0, "left": 5, "align": "r", "row":15, "column":14, "name": "WorldSat Network (GEO)" },
-      { "img": "stat", "top": 5, "left": 0, "align": "r", "row":14, "column": 6, "name": "O'Neil One [L-5]" },
-      { "img": "stat", "top": 0, "left": 0, "align": "r", "row":19, "column":18, "name": "O'Neil Two (Galileo) [L-3]" }
+      { "img": "geo",  "top": 0, "left": 5, "align": "r", "row":15, "column":14, "name": "WorldSat Network (GEO)" }
     ]
 }
