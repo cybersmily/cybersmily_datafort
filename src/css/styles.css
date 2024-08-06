@@ -47,6 +47,7 @@ h6 {
   width: 10%;
 }
 
+
 .text-small {
   font-size: small;
 }
@@ -157,7 +158,7 @@ BUTTON {
   display: inline-block;
 }
 
-.csd-icon-btn:disabled, .csd-dice:disabled {
+.csd-icon-btn:disabled, .csd-dice:disabled, .csd-btn:disabled {
   color: #DDD;
 }
 
@@ -208,7 +209,7 @@ BUTTON {
 }
 
 
-.csd-btn:focus, .csd-btn:hover {
+.csd-btn:focus, .csd-btn:hover, .csd-btn-pressed {
   background-color: #BBB;
   border: 1px #333 solid;
   -webkit-border-top-left-radius: 0.2em !important;
@@ -434,6 +435,10 @@ input[type="search"]::-webkit-search-cancel-button {
   column-gap: 0%;
 }
 
+.csd-img-icon {
+  width: 25px;
+}
+
 @media (min-width: 34em) {
   .card-columns {
       -webkit-column-count: 1;
@@ -444,6 +449,10 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 @media (min-width: 48em) {
+
+  .csd-img-icon {
+      width: 30px;
+  }
   .column-count {
     columns: 2;
   }
@@ -630,4 +639,14 @@ a:active {
 div svg circle.neticon:hover {
   fill: red !important;
   background-color: red;
+}
+
+.chosen-button {
+  background-color: #BBB;
+  border: 1px #333 solid;
+}
+
+.cz-gear-card {
+  height: 144px;
+  width: 207px;
 }
