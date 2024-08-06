@@ -1,5 +1,13 @@
 ﻿{
   "news": [
+    {"date": "2024-08",
+    "entries": [
+    "<strong>08-10</strong> - Fixed several bugs with the Cyberpunk 2020 character generator PDF export, weapon data, NR Map (specifically orbitville map), bug with the datafort creator.",
+    "The update to the site has been awhile. I am working on a couple of things for the site, new apps. Just need to finish them up.",
+    "Till next time gatos.",
+    "CYBER :D"
+  ]
+  },
     {"date": "2024-01",
     "entries": [
     "<strong>01-31</strong> - Fixed some bugs with the combat tracker for weapons and skills. Added an option in the random weapon generator to set the quantity to generate. Options should be sticky now.",
