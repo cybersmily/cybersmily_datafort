@@ -2,11 +2,41 @@
 
   <div class="row">
     <div class="col-2">Sample: </div>
-    <div class="col-3"><input type="number" [(ngModel)]="sample" (change)="update()"></div>
+    <div class="col-3"><input type="number" [(ngModel)]="sample" ></div>
     <div class="col-1"></div>
   </div>
+
+  <div class="row">
+    <div class="col-2">dice: </div>
+    <div class="col-4">
+      <input type="number" [(ngModel)]="diceUsed" >
+      <select [(ngModel)]="diceType">
+        <option value="2">d2</option>
+        <option value="3">d3</option>
+        <option value="4">d4</option>
+        <option value="6">d6</option>
+        <option value="8">d8</option>
+        <option value="10">d10</option>
+        <option value="12">d12</option>
+        <option value="20">d20</option>
+      </select>
+    </div>
+    <div class="col-1"></div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <button class="csd-btn border border-secondary" (click)="update()">ROLL DICE</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-1">Roll</div>
+    <div class="col-2">Die rolls</div>
+    <div class="col-2">Doubles</div>
+    <div class="col-2">Triple</div>
+    <div class="col-3">Quadruple</div>
+  </div>
   <div *ngFor="let i of rolls;let index = index" class="row">
-    <div class="col-1">{{index + 2}}</div>
+    <div class="col-1">{{index + 1}}</div>
     <div class="col-1">{{i}}</div>
     <div class="col-1">{{((i/ sample) * 100) | number}}%</div>
     <div class="col-1">{{doubles[index]}}</div>
