@@ -50,6 +50,7 @@ import { Cp2020Lifestyle } from './../../shared/cp2020/cp2020-lifestyle/models';
 import { Cp2020Vehicle } from './../../shared/cp2020/cp2020-vehicles/models';
 import { Cp2020StatsSectionPdfService } from './../../shared/cp2020/cp2020-stats/services/cp2020-stats-section-pdf/cp2020-stats-section-pdf.service';
 import { Cp2020SkillSectionPdService } from './../../shared/cp2020/cp2020-skills/services/cp2020-skill-section-pdf/cp2020-skill-section-pd.service';
+import { Cp2020CharacterToFandDPDF } from './../../shared/models/pdf/cp2020-character-to-fand-d-pdf';
 
 @Component({
   selector: 'cs-app-character-generator-form',
@@ -262,6 +263,14 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
       .subscribe((character) =>
         characterToPDF.generatePdf(character, this.charGenSettings)
       );
+  }
+
+  createFastDirtyPDF(): void {
+    this.character$.pipe(first())
+    .subscribe( (character) => {
+      const FandDPDF = new Cp2020CharacterToFandDPDF();
+      FandDPDF.generateFastAndDirtyPlayerCharacerPdf(character);
+    });
   }
 
   /**

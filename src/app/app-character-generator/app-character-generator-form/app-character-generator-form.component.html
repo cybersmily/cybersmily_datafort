@@ -57,7 +57,15 @@
         tabindex="0"
         title="Export as a PDF file"
       ></fa-icon>
-<!--
+<!--      <fa-icon
+        [icon]="faFilePdf"
+        class="csd-chargen-btn csd-btn me-2"
+        (click)="createFastDirtyPDF()"
+        (keyup.enter)="createFastDirtyPDF()"
+        tabindex="0"
+        title="Export as Fast & Dirty PDF"
+      ></fa-icon>
+
       <fa-icon
         [icon]="faIdBadge"
         class="csd-chargen-btn csd-btn me-2"

@@ -15,6 +15,15 @@
         <fa-icon [icon]="faFileImport" title="Import a Cybersmily CP2020 JSON file as an opponent" class="csd-icon-btn"
           size="xl"></fa-icon>
       </label>
+      <fa-icon
+        [icon]="faFilePdf"
+        size="xl"
+        class="ccsd-btn csd-icon-btn me-2"
+        (click)="createFastDirtyPDF()"
+        (keyup.enter)="createFastDirtyPDF()"
+        tabindex="0"
+        title="Export as Fast & Dirty PDF"
+      ></fa-icon>
       <fa-icon [icon]="faHelp" class="float-start btn-lg csd-btn csd-icon-btn me-3"
         (click)="openModal(instructionModal)" size="xl" title="Show instructions."></fa-icon>
       &nbsp;

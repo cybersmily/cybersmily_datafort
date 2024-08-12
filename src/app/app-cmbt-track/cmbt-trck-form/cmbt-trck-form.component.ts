@@ -1,15 +1,14 @@
 import { Cp2020PlayerCharacter } from './../../shared/models/cp2020character/cp2020-player-character';
-import { Cp2020_WOUND_LEVELS } from './../../shared/cp2020/cp2020-stats/models/cp2020-wound-levels.enum';
-import { Cp2020StatBlock } from '../../shared/cp2020/cp2020-stats/models/cp2020-stat-block';
 import { CharacterImporterService } from './../../shared/services/charimporter/character-importer.service';
 import { FileLoaderService, SaveFileService } from './../../shared/services/file-services';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { CmbtTrckOppSelection, CmbtTrckOpponent } from '../../shared/models/cmbt-trck';
+import {  CmbtTrckOpponent } from '../../shared/models/cmbt-trck';
 import { faDice, faPlus, faTrash, faSave, faUpload, faRedo, faFileImport,
-  faFile, faQuestionCircle, faCopy, faChevronDown, faChevronUp, faMinus,
+  faFilePdf, faQuestionCircle, faCopy, faChevronDown, faChevronUp, faMinus,
   faEyeSlash, faHeartBroken, faHeart, faHeartbeat, faFirstAid, faSkullCrossbones } from '@fortawesome/free-solid-svg-icons';
 import { OpponentTrackerService } from './../services/opponent-tracker.service';
 import { Component, HostListener, OnInit, TemplateRef } from '@angular/core';
+import { Cp2020CharacterToFandDPDF } from './../../shared/models/pdf/cp2020-character-to-fand-d-pdf';
 
 @Component({
   selector: 'cs-cmbt-trck-form',
@@ -35,6 +34,7 @@ export class CmbtTrckFormComponent implements OnInit {
   faHeartbeat = faHeartbeat;
   faFirstAid = faFirstAid;
   faSkullCrossbones = faSkullCrossbones;
+  faFilePdf = faFilePdf;
 
 
   modalRef: BsModalRef;
@@ -249,6 +249,11 @@ export class CmbtTrckFormComponent implements OnInit {
       });
 
     }
+  }
+
+  createFastDirtyPDF(): void {
+    const FandDPDF = new Cp2020CharacterToFandDPDF();
+    FandDPDF.generateFastAndDirtyCombatTrackerOppPdf(this.opponents);
   }
 
 
