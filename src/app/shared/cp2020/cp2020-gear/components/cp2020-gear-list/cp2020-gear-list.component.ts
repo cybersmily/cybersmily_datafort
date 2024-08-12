@@ -94,8 +94,6 @@ export class Cp2020GearListComponent implements OnInit, OnChanges, AfterViewInit
   ngAfterViewInit(): void {
     if (this.gearNameElemList.length > 0 && this.index > -1) {
       this.gearNameElemList.toArray()[this.index].nativeElement.focus();
-    } else {
-      this.gearTitleHeader.nativeElement.focus();
     }
   }
 
