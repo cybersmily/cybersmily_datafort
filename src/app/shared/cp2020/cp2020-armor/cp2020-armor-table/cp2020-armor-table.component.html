@@ -18,7 +18,7 @@
         class="chargen-armor-cell csd-btn"
         [popover]="armorDamage"
         [outsideClick]="true"
-        (click)="selectedLocation = 'head'"
+        (click)="selectedLocation = 'head';useCover = false;"
       >
         {{ armor.headSP }}
       </td>
@@ -26,7 +26,7 @@
         class="chargen-armor-cell csd-btn"
         [popover]="armorDamage"
         [outsideClick]="true"
-        (click)="selectedLocation = 'torso'"
+        (click)="selectedLocation = 'torso';useCover = false;"
       >
         {{ armor.torsoSP }}
       </td>
@@ -34,7 +34,7 @@
         class="chargen-armor-cell csd-btn"
         [popover]="armorDamage"
         [outsideClick]="true"
-        (click)="selectedLocation = 'rarm'"
+        (click)="selectedLocation = 'rarm';useCover = false;"
       >
         {{ armor.rArmSP }}
       </td>
@@ -42,7 +42,7 @@
         class="chargen-armor-cell csd-btn"
         [popover]="armorDamage"
         [outsideClick]="true"
-        (click)="selectedLocation = 'larm'"
+        (click)="selectedLocation = 'larm';useCover = false;"
       >
         {{ armor.lArmSP }}
       </td>
@@ -50,7 +50,7 @@
         class="chargen-armor-cell csd-btn"
         [popover]="armorDamage"
         [outsideClick]="true"
-        (click)="selectedLocation = 'rleg'"
+        (click)="selectedLocation = 'rleg';useCover = false;"
       >
         {{ armor.rLegSP }}
       </td>
@@ -58,9 +58,63 @@
         class="chargen-armor-cell csd-btn"
         [popover]="armorDamage"
         [outsideClick]="true"
-        (click)="selectedLocation = 'lleg'"
+        (click)="selectedLocation = 'lleg';useCover = false;"
       >
         {{ armor.lLegSP }}
+      </td>
+      <td class="chargen-armor-cell">+{{ armor.ev }}</td>
+    </tr>
+
+    <tr>
+      <td class="chargen-label chargen-armor-label">Cover SP <input [(ngModel)]="coverSP" type="number" class="w-50"></td>
+      <td class="chargen-armor-space"></td>
+      <td
+        class="chargen-armor-cell csd-btn"
+        [popover]="armorDamage"
+        [outsideClick]="true"
+        (click)="selectedLocation = 'head';useCover = true;"
+      >
+        {{ calculateCover('head') }}
+      </td>
+      <td
+        class="chargen-armor-cell csd-btn"
+        [popover]="armorDamage"
+        [outsideClick]="true"
+        (click)="selectedLocation = 'torso';useCover = true;"
+      >
+        {{ calculateCover('torso') }}
+      </td>
+      <td
+        class="chargen-armor-cell csd-btn"
+        [popover]="armorDamage"
+        [outsideClick]="true"
+        (click)="selectedLocation = 'rarm';useCover = true;"
+      >
+        {{calculateCover('rarm') }}
+      </td>
+      <td
+        class="chargen-armor-cell csd-btn"
+        [popover]="armorDamage"
+        [outsideClick]="true"
+        (click)="selectedLocation = 'larm';useCover = true;"
+      >
+        {{ calculateCover('larm') }}
+      </td>
+      <td
+        class="chargen-armor-cell csd-btn"
+        [popover]="armorDamage"
+        [outsideClick]="true"
+        (click)="selectedLocation = 'rleg';useCover = true;"
+      >
+        {{ calculateCover('rleg') }}
+      </td>
+      <td
+        class="chargen-armor-cell csd-btn"
+        [popover]="armorDamage"
+        [outsideClick]="true"
+        (click)="selectedLocation = 'lleg';useCover = true;"
+      >
+        {{ calculateCover('lleg') }}
       </td>
       <td class="chargen-armor-cell">+{{ armor.ev }}</td>
     </tr>
@@ -184,6 +238,7 @@
   </table>
 </div>
 
+<!-- ------ Damage MODAL ------  -->
 <ng-template #armorDamage>
   <div class="row armor-dmg text-center">
     <div class="col">
@@ -234,6 +289,7 @@
   </div>
 </ng-template>
 
+<!-- ------ SDP MODAL ------  -->
 <ng-template #sdpModal>
   <div class="modal-header">
     <h4 id="armor-modal-name" class="modal-title float-start">SDP Manager</h4>

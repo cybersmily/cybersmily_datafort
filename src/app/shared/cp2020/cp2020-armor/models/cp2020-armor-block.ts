@@ -27,6 +27,7 @@ export class Cp2020ArmorBlock implements ArmorBlock {
   armorPieces: Array<Cp2020ArmorPiece>;
   sdp: Cp2020SDPBlock;
   isLayerEVCalcEnabled: boolean = true;
+  coverSP: number = 0;
 
   constructor(param?: any) {
     this.armorPieces =
@@ -63,6 +64,7 @@ export class Cp2020ArmorBlock implements ArmorBlock {
     }
     this.isLayerEVCalcEnabled = param?.isLayerEVCalcEnabled ?? true;
     this.sdp = new Cp2020SDPBlock(param?.sdp);
+    this.coverSP = param?.coverSP ?? 0;
   }
 
   /**

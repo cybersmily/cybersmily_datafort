@@ -1,9 +1,11 @@
 import { Cp2020DamageCalculatorService } from './../services/cp2020-damage-calculator/cp2020-damage-calculator.service';
 import { Cp2020AmmoTypes } from './../enums/cp2020-ammo-types';
 import { Cp2020SDP } from '../models/cp2020-sdp';
-import { DiceService } from './../../../services/dice/dice.service';
-import { ArmorDataListService } from '../services/armor-data-list/armor-data-list.service';
-import { Cp2020ArmorPiece, Cp2020ArmorBlock } from './../models';
+import {
+  Cp2020ArmorPiece,
+  Cp2020ArmorBlock,
+  ProportionalSpTable,
+} from './../models';
 import {
   faShieldAlt,
   faPlus,
@@ -15,8 +17,10 @@ import {
   Component,
   EventEmitter,
   Input,
+  OnChanges,
   OnInit,
   Output,
+  SimpleChanges,
   TemplateRef,
 } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -26,7 +30,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
   templateUrl: './cp2020-armor-table.component.html',
   styleUrls: ['./cp2020-armor-table.component.css'],
 })
-export class Cp2020ArmorTableComponent implements OnInit {
+export class Cp2020ArmorTableComponent implements OnInit, OnChanges {
   faShieldAlt = faShieldAlt;
   faPlus = faPlus;
   faTrash = faTrash;
@@ -58,6 +62,7 @@ export class Cp2020ArmorTableComponent implements OnInit {
   spDamage = 1;
   damage = 0;
   damageType = Cp2020AmmoTypes.NORMAL_ROUND;
+  useCover = false;
 
   destroyedPopover = 'Damage to make the limb destroyed.';
   impairedPopover = 'Damage to make the limb impaired.';
@@ -81,16 +86,43 @@ export class Cp2020ArmorTableComponent implements OnInit {
     return '';
   }
 
+  get coverSP(): number {
+    return this?.armor?.coverSP ?? 0;
+  }
+
+  set coverSP(value: number) {
+    this.armor.coverSP = value;
+    this.onChangeArmor();
+  }
+
   constructor(
     private modalService: BsModalService,
     private damageCalculatorService: Cp2020DamageCalculatorService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+  }
+
+  calculateCover(location: string): number {
+    if (!location) {
+      return this.armor.coverSP;
+    }
+    if (this.armor.coverSP < 1) {
+      return this.armor.getTotalSP(location);
+    }
+    return ProportionalSpTable.calculateNewSP(
+      this.armor.getTotalSP(location),
+      this.armor.coverSP
+    );
+  }
 
   onChangeArmor() {
     this.changeArmor.emit(this.armor);
   }
+
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, this.modalConfig);
@@ -122,6 +154,9 @@ export class Cp2020ArmorTableComponent implements OnInit {
       default:
         sp = this.armor.torsoSP;
     }
+    if (this.useCover) {
+      sp = ProportionalSpTable.calculateNewSP(sp, this.armor.coverSP);
+    }
     const dmg = this.damageCalculatorService.getWounds(
       this.damage,
       this.damageType,
@@ -131,6 +166,9 @@ export class Cp2020ArmorTableComponent implements OnInit {
     );
     if (dmg > 0) {
       this.armor.damageSP(this.selectedLocation, this.spDamage);
+      if (this.useCover) {
+        this.armor.coverSP -= this.spDamage;
+      }
     }
     if (
       this.armor.sdp[this.selectedLocation]?.damaged > 0 ||
@@ -148,6 +186,7 @@ export class Cp2020ArmorTableComponent implements OnInit {
 
   damageSP() {
     this.armor.damageSP(this.selectedLocation, this.spDamage);
+    this.armor.coverSP -= this.spDamage;
     this.onChangeArmor();
   }
 

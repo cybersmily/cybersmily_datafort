@@ -22,6 +22,8 @@ import { Cp2020ArmorDetailComponent } from './cp2020-armor-detail/cp2020-armor-d
 import { ArmorSettingsComponent } from './armor-settings/armor-settings.component';
 import { Cp2020OpponentArmorListComponent } from './cp2020-opponent-armor-list/cp2020-opponent-armor-list.component';
 import { Cp2020ArmorSuiteGeneratorComponent } from './cp2020-armor-suite-generator/cp2020-armor-suite-generator.component';
+import { Cp2020CoverSectionComponent } from './cp2020-cover-section/cp2020-cover-section.component';
+import { CombatTrackerService } from './../../../app-cmbt-track/services/combat-tracker.service';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { Cp2020ArmorSuiteGeneratorComponent } from './cp2020-armor-suite-generat
     Cp2020SourceArmorListComponent,
     Cp2020OpponentArmorListComponent,
     Cp2020ArmorSuiteGeneratorComponent,
+    Cp2020CoverSectionComponent,
   ],
   imports: [CommonModule, CommonUiModule, PipesModule, DataListModule],
   providers: [
@@ -45,6 +48,7 @@ import { Cp2020ArmorSuiteGeneratorComponent } from './cp2020-armor-suite-generat
     ArmorRandomGenSettingsService,
     ClothingListPdfService,
     Cp2020DamageCalculatorService,
+    CombatTrackerService,
   ],
   exports: [
     Cp2020ArmorTableComponent,
@@ -54,6 +58,7 @@ import { Cp2020ArmorSuiteGeneratorComponent } from './cp2020-armor-suite-generat
     ArmorSettingsComponent,
     Cp2020SourceArmorListComponent,
     Cp2020OpponentArmorListComponent,
+    Cp2020CoverSectionComponent,
   ],
 })
 export class Cp2020ArmorModule {}
