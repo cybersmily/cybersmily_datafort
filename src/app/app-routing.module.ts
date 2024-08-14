@@ -44,6 +44,13 @@ export const mainRoutes: Routes = [
       ),
   },
   {
+    path: 'apps/crcz',
+    loadChildren: () =>
+      import('./app-cp-combat-zone/app-cp-combat-zone.module').then(
+        (m) => m.AppCpCombatZoneModule
+      ),
+  },
+  {
     path: 'apps/fashcalc',
     loadChildren: () =>
       import('./app-fashion-generator/app-fashion-generator.module').then(

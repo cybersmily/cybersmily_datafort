@@ -109,4 +109,9 @@ export class JsonDataFiles {
   public static CPRED_WEAHTER_CHART_JSON = `/json/apps/weather/cp-weather.json`;
 
   public static CP2077_TRACKER_DATA_JSON = `/json/apps/cp2077tracker.json`;
+
+  public static COMBATZONE_UNIT_LIST_JSON = `/json/apps/cr_combatzone/crcz_units.json`;
+  public static COMBATZONE_GEAR_LIST_JSON = `/json/apps/cr_combatzone/crcz_gear.json`;
+  public static COMBATZONE_PROGRAMS_LIST_JSON = `/json/apps/cr_combatzone/crcz_programs.json`;
+  public static COMBATZONE_OBJECTIVES_LIST_JSON = `/json/apps/cr_combatzone/crcz_objectives.json`;
 }
