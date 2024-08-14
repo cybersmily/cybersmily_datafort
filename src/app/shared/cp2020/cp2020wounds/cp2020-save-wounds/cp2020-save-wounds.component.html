@@ -33,7 +33,7 @@
     </div>
   </div>
   <div class="col-12 col-md-8">
-    <table class="w-100">
+    <table class="w-100 text-center">
       <tr>
         <td class="chargen-wound-cell">
           <cs-cp2020-wound-level [title]="'LIGHT'" [stunSaveMod]="0" [damage]="getDamage(0)"
@@ -82,7 +82,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-4">
+  <div class="col-6">
     <div class="chargen-damaged me-3">
       Is Stunned:
       <input type="checkbox" [(ngModel)]="isStunned" (change)="update()" tabindex="-1" />
@@ -93,13 +93,18 @@
     </div>
     <div *ngIf="isDead" class="small chargen-damaged">*** DEAD ***</div>
   </div>
-  <div class="col-4 small">
-    <input type="checkbox" [(ngModel)]="ignoreWounds" (change)="updateIgnoreWounds()" tabindex="-1" />
-    Ignore Stat Mods
-  </div>
-  <div class="col-4 small">
-    <input type="checkbox" [(ngModel)]="ignoreSaves" (change)="updateIgnoreWounds()" tabindex="-1" />
-    Ignore Save Mods
+  <div class="col-6">
+    <div class="row">
+      <div class="col-12 col-md-6 text-small">
+        <input type="checkbox" [(ngModel)]="ignoreWounds" (change)="updateIgnoreWounds()" tabindex="-1" />
+        Ignore Stat Mods
+      </div>
+      <div class="col-12 col-md-6 text-small">
+        <input type="checkbox" [(ngModel)]="ignoreSaves" (change)="updateIgnoreWounds()" tabindex="-1" />
+        Ignore Save Mods
+      </div>
+
+    </div>
   </div>
 </div>
 <ng-template #chargenStunSaveRoll>

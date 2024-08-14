@@ -1,10 +1,10 @@
 <div class="container">
-  <div class="hidden-print">
+  <div class="hidden-print d-none d-md-block">
     <h3>Character Generator for Cyberpunk 2020</h3>
   </div>
   <hr color="#999999" class="w-100 pt-0 pb-0 mt-0 mb-0" />
   <div class="row hidden-print">
-    <div class="col-6">
+    <div class="col-7 align-top">
       <button
         #charGenInstructions
         title="Instructions"
@@ -23,8 +23,11 @@
         (keyup.enter)="resetCharacter()"
         tabindex="0"
       ></fa-icon>
+      <div class="d-inline-block d-md-none text-small fw-bold float-end text-center">
+      2020 CHARACTER<br>GENERATOR
+      </div>
     </div>
-    <div class="col-6 text-end">
+    <div class="col-5 text-end">
       <fa-icon
         [icon]="faSave"
         title="Save the character to a file"
@@ -89,7 +92,7 @@
   </div>
   <hr color="#999999" class="w-100 pt-0 pb-0 mt-0" />
   <div *ngIf="character$ | async as character" class="row" #pdfCP2020Character>
-    <div class="col">
+    <div class="col-12">
       <div class="row">
         <div class="col-sm-12 col-lg-6">
           <cs-app-character-handle
