@@ -1,0 +1,87 @@
+<div *ngIf="dataList$ | async as unitList" class="row">
+  <div class="col-12">
+    <cs-cr-cz-faction-selector [selectedFaction]="filterFaction"
+      (selected)="setFaction($event)"></cs-cr-cz-faction-selector>
+    <div class="row">
+      <div class="col-12 col-md-6"><input [(ngModel)]="searchName" type="text" class="no-style w-100"
+          placeholder="Enter name..."></div>
+      <div class="col-12 col-md-6"><input [(ngModel)]="searchKeywords" type="text" class="no-style w-100"
+          placeholder="Enter keyword..."></div>
+    </div>
+    <div *ngFor="let unit of unitList
+    |contains:'name': searchName
+    |contains:'faction':[filterFaction, 'universal']
+    |contains:'keywords':searchKeywords" class="row py-2 border-bottom border-secondary">
+      <div class="col-12">
+        <ng-container [ngTemplateOutlet]="unitRow"
+          [ngTemplateOutletContext]="{name: unit.name, faction: unit.faction, keywords: unit.keywords,  ranks: unit.ranks, cost: unit.ebCost}"></ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #unitRow let-name="name" let-faction="faction" let-keywords="keywords" let-ranks="ranks" let-cost="cost">
+
+  <div *ngFor="let unit of ranks;index as i" class="row mt-1">
+    <div class="col-1 text-center px-0">
+      <button class="border border-secondary text-center rounded csd-btn p-2" (click)="add(faction, name, i)">
+        <fa-icon [icon]="faPlus" size="xl"></fa-icon>
+      </button>
+    </div>
+    <div [ngClass]="{'col-5 col-md text-capitalize rounded': true, 'bg-secondary': hasUnit(name, unit?.streetcred)}">
+      <img class="csd-img-icon me-1" src="img/cz/icon_{{faction.replace(' ','_')}}.png"
+        [title]="faction.replace(' ','_').toUpperCase()">
+      <img class="csd-img-icon me-1" [tooltip]="FullImage" container="body" containerClass="w-100"
+        src="img/cz/units/{{name?.replaceAll(' ', '_')}}_{{unit.streetcred}}.jpg">
+      <ng-template #FullImage>
+        <img class="w-100"
+          src="img/cz/units/{{name?.replaceAll(' ', '_')}}_{{unit.streetcred}}.jpg">
+      </ng-template>
+      <h5 class="d-inline-block">{{name}}</h5>
+      <fa-icon *ngIf="unit.streetcred > 1" [icon]="faStar" class="text-small mt-3" style="margin-right:-3px;"></fa-icon>
+      <fa-icon *ngIf="unit.streetcred > 0" [icon]="faStar" class="mt-0 align-top"></fa-icon>
+      <div class="ms-2 text-capitalize text-small fst-italic d-inline-block">
+        {{keywords?.join(", ")}}
+      </div>
+    </div>
+    <div class="col-2 col-md-1 text-capitalize text-small">
+      {{cost}}eb
+    </div>
+    <div class="col-4 col-md-5">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <span *ngIf="unit.move > 0" title="Reflex/Move Action">
+            <img style="width: 20px;" src="img/cz/move.png" alt="Reflex/Move Action">
+            {{unit.move}}
+          </span>
+          <span *ngIf="unit.melee > 0" title="Melee Action">
+            <img style="width: 20px;" src="img/cz/melee.png" alt="Melee Action">
+            {{unit.melee}}
+          </span>
+          <span *ngIf="unit.ranged > 0" title="Ranged Attack Action">
+            <img style="width: 20px;" src="img/cz/ranged_attack.png" alt="Ranged Attack Action">
+            {{unit.ranged}}
+          </span>
+          <span *ngIf="unit.tech > 0" title="Basic Tech Action">
+            <img style="width: 20px;" src="img/cz/basic_tech.png" alt="Basic Tech Action">
+            {{unit.tech}}
+          </span>
+          <span *ngIf="unit.med > 0" title="Basic Med Action">
+            <img style="width: 20px;" src="img/cz/basic_med.png" alt="Basic Med Action">
+            {{unit.med}}
+          </span>
+          <span *ngIf="unit.influence > 0" title="Basic Influence Action">
+            <img style="width: 20px;" src="img/cz/basic_influence.png" alt="Basic Influence Action">
+            {{unit.influence}}
+          </span>
+        </div>
+        <div class="col-12 col-md-6">
+
+          <span *ngFor="let action of unit.actions">
+            <img style="width: 20px;" src="img/cz/{{action}}_active.png" alt="">
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

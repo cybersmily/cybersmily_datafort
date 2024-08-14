@@ -1,0 +1,191 @@
+<div *ngIf="squad$ | async as squad" class="border-bottom border-secondary" class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-2 col-md-1 p-0">
+          <img *ngIf="squad.faction !== ''" class="w-100" style="max-width: 70px;"
+            src="img/cz/icon_{{squad.faction?.replace(' ','_')}}.png">
+        </div>
+        <div class="col-10 col-md-11 text-capitalize">
+          <div class="row">
+            <div class="col-11">
+              <h3 class="d-inline-block">{{squad.name}}</h3>
+              <button class="csd-btn p-2 ms-3" (click)="removeSquad(squadIndex)" title="Delete Team">
+                <fa-icon [icon]="faTrash" size="xl" class="csd-btn"></fa-icon>
+              </button>
+            </div>
+            <div class="col-1 text-start px-0">
+              <button class="csd-btn p-1" title="Print Team as PDF" (click)="createPDF()">
+                <fa-icon [icon]="faFilePdf" size="xl"></fa-icon>
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 text-small">
+              {{squad.totalCost || 0}}eb - {{squad.totalStreetcred || 0}}<fa-icon [icon]="faStar"></fa-icon> | {{squad.totalGonks}} Gonks/{{squad.totalInfluence}} Influcence</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3 text-small p-0">
+          <button class="csd-btn w-100 p-1 text-small border border-secondary rounded" (click)="inspireTeam()"
+            title="Inspire your team">
+            <fa-icon [icon]="faRedo"></fa-icon> Inspire<br>Team
+          </button>
+        </div>
+        <div class="col-9">
+          <button class="csd-btn p-1 me-1" *ngFor="let i of luck.constructor(squad.luck); let num = index"
+            title="Use luck" (click)="updateLuck(-1)">
+            <img src="img/cz/luck_icon.png" class="csd-img-icon">
+          </button>
+
+          <button class="csd-btn p-1" title="Add luck" (click)="updateLuck(1)">
+            <fa-icon [icon]="faPlus"></fa-icon>
+          </button>
+        </div>
+
+      </div>
+      <div class="row mt-1">
+        <div class="col-12 px-0 mx-0">
+          <tabset type="pills">
+            <tab customClass="customClass">
+              <ng-template tabHeading>
+                <div class="text-small text-uppercase">
+                Members ({{squad?.units.length}})
+              </div>
+              </ng-template>
+              <div class="row">
+                <div class="col-12">
+                  <button class="text-center w-100 csd-btn ms-2 p-1" (click)="showModal(unitListings, squad?.faction)">
+                    <fa-icon [icon]="faPlus" size="xl"></fa-icon> New Member
+                  </button>
+                </div>
+              </div>
+              <div *ngFor="let unit of squad?.units | orderby: [{prop: 'name',desc: false}]; index as unitIndex"
+                class="row mt-1 py-1 csd-btn">
+                <div class="col-1 text-capitalize ps-0 text-end">
+                  <img *ngIf="unit.isDead; else unitLives" class="csd-img-icon me-1" src="img/cz/death_icon.png">
+                  <ng-template #unitLives>
+                    <img class="csd-img-icon me-1"
+                      src="img/cz/units/{{unit.name?.replaceAll(' ', '_')}}_{{unit.streetcred}}.jpg">
+                  </ng-template>
+                </div>
+                <div class="col-7 text-capitalize" (click)="showUnitModal(unitForm, unit.name, unitIndex)">
+                  <div class="row">
+                    <div class="col-12 col-md-6 px-0">
+                      {{unit?.name}}
+                      <fa-icon *ngIf="unit.streetcred > 1" [icon]="faStar" class="text-small mt-3"
+                        style="margin-right:-3px;"></fa-icon>
+                      <fa-icon *ngIf="unit.streetcred > 0" [icon]="faStar" class="align-top"></fa-icon>
+                      <div class="ms-2 text-capitalize text-small fst-italic d-inline-block float-end">
+                        {{unit?.keywords?.join(", ")}}
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6 px-0">
+                      <img *ngIf="unit.isDead; else unitAlive" class="csd-img-icon" src="img/cz/death_icon.png">
+                      <ng-template #unitAlive>
+                        <img *ngFor="let action of unit?.actionTokens" class="csd-img-icon"
+                          src="img/cz/{{action.isRed ? 'r' : action.type}}_{{action?.isUsed ? 'deactive': 'active'}}.png">
+                      </ng-template>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-2 col-md-1 px-1" (click)="showUnitModal(unitForm, unit.name, unitIndex)">
+                  <img *ngIf="unit.isVulnerable" class="float-start w-45" src="img/cz/vulnerable.png" title="is Vulnerable!">
+                  <img *ngIf="unit.isHacked" class="float-end w-45" src="img/cz/hacked.png" title="Hacked!">
+                </div>
+                <div class="col-1 text-small px-0" (click)="showUnitModal(unitForm, unit.name, unitIndex)">
+                  {{unit.totalCost}}eb
+                </div>
+                <div class="col-1">
+                  <button class="csd-btn p-1" (click)="removeUnit( unitIndex)">
+                    <fa-icon [icon]="faTrash"></fa-icon>
+                  </button>
+                </div>
+
+                <ng-template #FullImage>
+                  <img class="w-100"
+                    src="img/cz/factions/{{unit.faction.replace(' ','_')}}/units/{{unit.name?.replaceAll(' ', '_')}}_{{unit.streetcred}}.jpg">
+                </ng-template>
+              </div>
+            </tab>
+            <tab customClass="customClass">
+              <ng-template tabHeading>
+                <div class="text-small text-uppercase">
+                Objectives ({{squad?.objectives.length}})
+              </div>
+              </ng-template>
+              <div class="row">
+                <div class="col-12 text-center">
+                  <button class="text-center csd-btn ms-2 p-1" (click)="showModal(objectiveListings, squad?.faction)">
+                    <fa-icon [icon]="faPlus" size="xl"></fa-icon> New Objective
+                  </button>
+                </div>
+              </div>
+              <div *ngFor="let obj of squad?.objectives; index as index" class="text-capitalize text-small">
+                {{obj.name}}
+                <fa-icon *ngIf="obj.streetcred > 1" [icon]="faStar" size="xs" class="mb-0 pb-0 align-bottom"
+                  style="margin-right:-3px;"></fa-icon>
+                <fa-icon *ngIf="obj.streetcred > 0" [icon]="faStar" class="align-top mt-0 pt-0"></fa-icon>
+              </div>
+            </tab>
+          </tabset>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <ng-template #unitForm>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left text-capitalize">
+        <button type="button" class="csd-btn p-1" (click)="navigateMembers(-1, squad.units.length)">
+          <fa-icon [icon]="faChevronLeft"></fa-icon>
+        </button>
+        Character
+        <button type="button" class="csd-btn p-1" (click)="navigateMembers(1, squad.units.length)">
+          <fa-icon [icon]="faChevronRight"></fa-icon>
+        </button>
+        <button class="csd-btn p-2 text-small border border-secondary rounded ms-3" (click)="inspireTeam()"
+        title="Inspire your team">
+        <fa-icon [icon]="faRedo"></fa-icon> Inspire Team
+      </button>
+      </h4>
+      <button type="button" class="btn-close close float-end" aria-label="Close" (click)="modalRef?.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <cs-cr-cz-unit-form [squadIndex]="squadIndex" [unitIndex]=" selectedUnitIndex$ | async"
+        [totalStreetcred]="squad.totalStreetcred"></cs-cr-cz-unit-form>
+    </div>
+  </ng-template>
+
+
+
+  <ng-template #unitListings>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Unit Listing</h4>
+      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <cs-cr-cz-unit-list [squadIndex]="squadIndex" [faction]="faction"></cs-cr-cz-unit-list>
+    </div>
+  </ng-template>
+
+
+  <ng-template #objectiveListings>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Objective Listing</h4>
+      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <cs-cr-cz-objective-list [squadIndex]="squadIndex" [filterFaction]="faction"></cs-cr-cz-objective-list>
+    </div>
+  </ng-template>
+
+</div>

@@ -1,0 +1,30 @@
+::ng-deep .customClass {
+  margin-top: 5px;
+}
+
+::ng-deep .customClass > a {
+  background-color:#888 !important;
+  border: black 1px solid !important;
+  outline: 1 !important;
+  color: black !important;
+  margin-right: 5px !important;
+}
+
+::ng-deep .customClass > a:hover {
+  background-color:silver !important;
+  color: black !important;
+  font-weight: bold !important;
+  font-size: larger  !important;
+}
+
+
+::ng-deep .customClass > a.active {
+  background-color:white !important;
+  color: black !important;
+  font-weight: bold !important;
+  font-size: larger  !important;
+}
+
+::ng-deep .customClass > a > button{
+  display: none;
+}

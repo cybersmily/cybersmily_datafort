@@ -1,0 +1,106 @@
+<div class="row">
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="row">
+      <div class="col-2 px-0 text-center">
+        <img *ngFor="let action of unit?.actionTokens;index as actionIndex" class="w-90 csd-btn"
+          src="img/cz/{{action.isRed ? 'r' : action.type}}_{{action?.isUsed ? 'deactive': 'active'}}.png"
+          (click)="toggleToken(actionIndex)">
+        <br>
+        <img class="w-90 csd-btn mt-3" src="img/cz/hacked_{{unit.isHacked ? 'dis' : 'en'}}able.png" title="hacked"
+          (click)="toggleHacked()">
+        <br>
+        <img class="w-90 csd-btn mt-3" src="img/cz/{{unit.isVulnerable ? 'vulnerable': 'active'}}.png"
+          [title]="unit.isVulnerable ? 'Remove vulnerable': 'Add vulnerable'" (click)="toggleVulnerable()">
+      </div>
+
+      <div class="col-8">
+        <img *ngIf="!unit.isDead; else unitDead" class="w-100 rounded"
+          src="img/cz/units/{{unit?.name?.replaceAll(' ', '_')}}_{{unit.streetcred}}.jpg">
+        <ng-template #unitDead>
+          <img src="img/cz/death_icon.png" class="w-100" title="Dead">
+        </ng-template>
+      </div>
+      <div class="col-2 px-0 text-center">
+        <img *ngFor="let action of unit?.actionTokens;index as actionIndex" class="w-90 csd-btn"
+          src="img/cz/{{action?.isRed ? 'heal_icon' : 'wound_icon'}}.png"
+          [title]="action?.isRed ? 'Heal this action': 'Take a wound on this action'"
+          (click)="toggleWound(actionIndex)">
+        <img *ngIf="unit.isRedLined || unit.isGonk" src="img/cz/{{unit.isDead ? 'resurrect' : 'death'}}_icon.png"
+          class="w-90 csd-btn" title="Kill this unit" (click)="toggleKill()">
+      </div>
+
+    </div>
+  </div>
+  <div class="col-12 col-md-6 col-lg-4">
+    <tabset *ngIf="!unit.isGonk" type="pills">
+      <tab customClass="customClass">
+        <ng-template tabHeading>GEAR</ng-template>
+        <button class="csd-btn text-center p-0 w-100 border border-secondary rounded" (click)="showModal(gearList)">
+          <fa-icon [icon]="faPlus"></fa-icon>
+        </button>
+        <div *ngFor="let gear of unit?.gearCards;index as gearIndex"
+          [ngClass]="{'float-start d-inline-block me-3 my-2 p-1 rounded  position-relative align-top':true}">
+          <cs-cr-cz-gear-card [gear]="gear" [unitFaction]="unit.faction" [gearIndex]="gearIndex" [totalStreetcred]="totalStreetcred" (remove)="removeGear($event)"></cs-cr-cz-gear-card>
+        </div>
+      </tab>
+      <tab customClass="customClass">
+        <ng-template tabHeading>HACKS</ng-template>
+        <button class="csd-btn text-center p-0 w-100 border border-secondary rounded" (click)="showModal(programList)">
+          <fa-icon [icon]="faPlus"></fa-icon>
+        </button>
+        <div class="row" *ngFor="let program of unit?.programs;index as programIndex">
+          <div class="col-9 col-md-10 text-capitalize">{{program.name}} ({{program.rarity}}-rarity)</div>
+          <div class="col-2 col-md-1">{{program.ebCost}}eb</div>
+          <div class="col-1">
+            <button class="csd-btn border border-secondary p-1 align-top rounded" (click)="removeProgram(programIndex)">
+            <fa-icon [icon]="faTrash"></fa-icon>
+            </button>
+          </div>
+        </div>
+      </tab>
+      <tab customClass="customClass">
+        <ng-template tabHeading>LOOT</ng-template>
+        <button class="csd-btn text-center p-0 w-100 border border-secondary rounded" (click)="showModal(lootList)">
+          <fa-icon [icon]="faPlus"></fa-icon>
+        </button>
+      </tab>
+    </tabset>
+  </div>
+</div>
+
+<ng-template #gearList>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Gear Listing</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <cs-cr-cz-gear-list [filterFaction]="unit.faction" [unitFaction]="unit.faction" [totalStreetcred]="totalStreetcred" (addGear)="addGeaItem($event)"></cs-cr-cz-gear-list>
+  </div>
+</ng-template>
+
+
+<ng-template #programList>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Program Listing</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <cs-cr-cz-program-list [filterFaction]="unit.faction" (add)="addProgram($event)"></cs-cr-cz-program-list>
+  </div>
+</ng-template>
+
+<ng-template #lootList>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Loot Listing</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+  </div>
+
+</ng-template>
