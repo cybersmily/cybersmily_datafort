@@ -11,7 +11,7 @@ import { KeyValue } from '@angular/common';
 @Component({
   selector: 'cs-cr-cz-unit-list',
   templateUrl: './cr-cz-unit-list.component.html',
-  styleUrl: './cr-cz-unit-list.component.css'
+  styleUrls: ['./cr-cz-unit-list.component.css']
 })
 export class CrCzUnitListComponent {
 

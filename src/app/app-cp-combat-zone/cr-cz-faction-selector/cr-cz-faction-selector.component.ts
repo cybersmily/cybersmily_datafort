@@ -4,7 +4,7 @@ import { CRCZ_FACTIONS } from '../models/cr-cz-types';
 @Component({
   selector: 'cs-cr-cz-faction-selector',
   templateUrl: './cr-cz-faction-selector.component.html',
-  styleUrl: './cr-cz-faction-selector.component.css'
+  styleUrls: ['./cr-cz-faction-selector.component.css']
 })
 export class CrCzFactionSelectorComponent implements OnInit {
 

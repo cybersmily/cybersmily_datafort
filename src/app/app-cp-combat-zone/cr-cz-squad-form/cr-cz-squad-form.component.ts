@@ -1,17 +1,15 @@
 import { faTrash, faStar, faPlus, faRedo, faFilePdf, faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { Component, Input, OnChanges, OnInit, Output, SimpleChanges, TemplateRef, EventEmitter } from '@angular/core';
-import { CrCzSquad, iCrCzSquad } from '../models/cr-cz-squad';
+import { iCrCzSquad } from '../models/cr-cz-squad';
 import { BehaviorSubject, Observable, take } from 'rxjs';
 import { CrCzArmyBuilderService } from '../services/cr-cz-army-builder/cr-cz-army-builder.service';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
-import { CrCzUnit } from '../models/cr-cz-unit-card';
-import { KeyValue } from '@angular/common';
 import { CrCzArmyPdfService } from '../services/cr-cz-army-pdf/cr-cz-army-pdf.service';
 
 @Component({
   selector: 'cs-cr-cz-squad-form',
   templateUrl: './cr-cz-squad-form.component.html',
-  styleUrl: './cr-cz-squad-form.component.css'
+  styleUrls: ['./cr-cz-squad-form.component.css']
 })
 export class CrCzSquadFormComponent implements OnInit, OnChanges {
 

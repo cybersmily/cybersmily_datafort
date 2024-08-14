@@ -17,7 +17,7 @@ import { iCrCzNrProgramCard } from '../models/cr-cz-nr-program-card';
 @Component({
   selector: 'cs-cr-cz-unit-form',
   templateUrl: './cr-cz-unit-form.component.html',
-  styleUrl: './cr-cz-unit-form.component.css',
+  styleUrls: ['./cr-cz-unit-form.component.css'],
 })
 export class CrCzUnitFormComponent implements OnInit, OnChanges {
   faTimes = faTimes;

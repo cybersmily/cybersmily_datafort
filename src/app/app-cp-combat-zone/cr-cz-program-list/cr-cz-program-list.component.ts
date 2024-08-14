@@ -7,7 +7,7 @@ import { iCrCzNrProgramCard } from '../models/cr-cz-nr-program-card';
 @Component({
   selector: 'cs-cr-cz-program-list',
   templateUrl: './cr-cz-program-list.component.html',
-  styleUrl: './cr-cz-program-list.component.css'
+  styleUrls: ['./cr-cz-program-list.component.css']
 })
 export class CrCzProgramListComponent {
   faStar = faStar;

@@ -5,7 +5,7 @@ import { iCrCzGearItemCard } from '../models/cr-cz-gear-item-card';
 @Component({
   selector: 'cs-cr-cz-gear-card',
   templateUrl: './cr-cz-gear-card.component.html',
-  styleUrl: './cr-cz-gear-card.component.css'
+  styleUrls: ['./cr-cz-gear-card.component.css']
 })
 export class CrCzGearCardComponent {
   faStar = faStar;

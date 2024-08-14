@@ -8,7 +8,7 @@ import { CrCzObjectiveDataService } from '../services/cr-cz-objective-data/cr-cz
 @Component({
   selector: 'cs-cr-cz-objective-list',
   templateUrl: './cr-cz-objective-list.component.html',
-  styleUrl: './cr-cz-objective-list.component.css'
+  styleUrls: ['./cr-cz-objective-list.component.css']
 })
 export class CrCzObjectiveListComponent {
   faStar = faStar;

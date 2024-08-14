@@ -10,7 +10,7 @@ import { error } from 'protractor';
 @Component({
   selector: 'cs-cr-cz-army-list',
   templateUrl: './cr-cz-army-list.component.html',
-  styleUrl: './cr-cz-army-list.component.css'
+  styleUrls: ['./cr-cz-army-list.component.css']
 })
 export class CrCzArmyListComponent implements OnInit {
   faStar = faStar;

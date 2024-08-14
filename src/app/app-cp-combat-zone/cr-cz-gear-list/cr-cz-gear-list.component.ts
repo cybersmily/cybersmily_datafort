@@ -7,7 +7,7 @@ import { iCrCzGearItemCard } from '../models/cr-cz-gear-item-card';
 @Component({
   selector: 'cs-cr-cz-gear-list',
   templateUrl: './cr-cz-gear-list.component.html',
-  styleUrl: './cr-cz-gear-list.component.css'
+  styleUrls: ['./cr-cz-gear-list.component.css']
 })
 export class CrCzGearListComponent implements OnInit {
   faStar = faStar;
