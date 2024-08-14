@@ -8,7 +8,7 @@ import {
 } from './../services';
 
 import { DiceService } from './../../../services/dice/dice.service';
-import { faDice, faRedo, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faDice, faRedo, faSearch, faSave } from '@fortawesome/free-solid-svg-icons';
 
 import {
   Component,
@@ -41,6 +41,7 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
   faDice = faDice;
   faRedo = faRedo;
   faSearch = faSearch;
+  faSave = faSave;
 
   modalRef: BsModalRef;
   config = {

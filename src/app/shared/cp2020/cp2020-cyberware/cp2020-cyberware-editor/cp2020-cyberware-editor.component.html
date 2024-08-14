@@ -1,9 +1,9 @@
 <div>
   <div class="row">
-    <div class="col-6">
+    <div class="col-8 px-0">
       <input
         #editCyberNameElem
-        class="cyber-edit-box"
+        class="cyber-edit-box w-100"
         type="text"
         [(ngModel)]="newCyberware.name"
         placeholder="Enter name of cyberware"
@@ -14,10 +14,6 @@
       />
     </div>
     <div class="col-4">
-      Total Cost:
-      {{ newCyberware.totalCost | number }}eb
-    </div>
-    <div class="col">
       <button
         class="ms-1 csd-btn csd-icon-btn csd-icon-xl"
         (click)="update()"
@@ -26,7 +22,7 @@
         <fa-icon [icon]="faSave"></fa-icon>
       </button>
       <button
-        class="csd-btn csd-icon-btn csd-icon-xl ms-3"
+        class="csd-btn csd-icon-btn csd-icon-xl ms-1"
         (click)="delete()"
         tabindex="0"
       >
@@ -34,9 +30,14 @@
       </button>
     </div>
   </div>
+  <div class="row">
+    <div class="col-12 text-small">
+  Total Cost: {{ newCyberware.totalCost | number }}eb
+    </div>
+  </div>
   <div class="row small">
-    <div class="col-1">Code:</div>
-    <div class="col-4">
+    <div class="col-4 col-md-1">Code:</div>
+    <div class="col-8 col-md-4">
       <input
         type="text"
         [(ngModel)]="newCyberware.abbrev"
@@ -44,8 +45,8 @@
         tabindex="0"
       />
     </div>
-    <div class="col-2">Surgery:</div>
-    <div class="col-4">
+    <div class="col-4 col-md-2">Surgery:</div>
+    <div class="col-8 col-md-4">
       <select [(ngModel)]="newCyberware.surgery" tabindex="0">
         <option
           *ngFor="let surg of surgeries"
@@ -62,8 +63,8 @@
     </div>
   </div>
   <div class="row small">
-    <div class="col-1">Type:</div>
-    <div class="col-4">
+    <div class="col-4 col-md-1">Type:</div>
+    <div class="col-8 col-md-4">
       <select
         [(ngModel)]="newCyberware.type"
         (change)="changeType()"
@@ -89,8 +90,8 @@
         <option [ngValue]="'NEURALWARE'">Neuralware</option>
       </select>
     </div>
-    <div class="col-2">Humanity Cost:</div>
-    <div class="col-4">
+    <div class="col-4 col-md-2">Humanity Cost:</div>
+    <div class="col-8 col-md-4">
       <input
         type="text"
         [(ngModel)]="newCyberware.hc"
@@ -101,8 +102,8 @@
     </div>
   </div>
   <div class="row small">
-    <div class="col-1">Subtype:</div>
-    <div class="col-4">
+    <div class="col-4 col-md-1">Subtype:</div>
+    <div class="col-8 col-md-4">
       <input
         type="text"
         [(ngModel)]="newCyberware.subtype"
@@ -110,8 +111,8 @@
         tabindex="0"
       />
     </div>
-    <div class="col-2">Humanity Loss:</div>
-    <div class="col-4 cyber-option-hl">
+    <div class="col-4 col-md-2">Humanity Loss:</div>
+    <div class="col-8 col-md-4 cyber-option-hl">
       <input
         type="number"
         [(ngModel)]="newCyberware.hl"
@@ -132,21 +133,21 @@
     </div>
   </div>
   <div class="row small">
-    <div class="col-1">Cost:</div>
-    <div class="col-4">
+    <div class="col-4 col-md-1">Cost:</div>
+    <div class="col-8 col-md-4">
       <input
         type="number"
         [(ngModel)]="newCyberware.cost"
-        class="text-end"
+        class="text-end w-90"
         tabindex="0"
       />eb
     </div>
-    <div class="col-2">Total H.L:</div>
-    <div class="col-4">{{ newCyberware.totalHL }}</div>
+    <div class="col-4 col-md-2">Total H.L:</div>
+    <div class="col-8 col-md-4">{{ newCyberware.totalHL }}</div>
   </div>
   <div class="row small cyber-option-hl">
-    <div class="col-1">#Options:</div>
-    <div class="col-4">
+    <div class="col-4 col-md-1">#Options:</div>
+    <div class="col-8 col-md-4">
       <input
         type="number"
         [(ngModel)]="newCyberware.numOptions"

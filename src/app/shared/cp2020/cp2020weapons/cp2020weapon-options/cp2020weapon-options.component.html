@@ -3,43 +3,39 @@
     <div class="col">Options ({{weapon.options?weapon.options.length:0}})</div>
   </div>
   <div class="row">
-    <div class="col-1"></div>
+    <div class="col-1 d-none d-inline-block"></div>
     <div class="col">
       <div class="row">
         <div class="col">
-          <div class="row">
+          <div class="row text-small">
             <div class="col-1">
               #
             </div>
-            <div class="col">
+            <div class="col-4 col-md-9">
               Name
             </div>
-            <div class="col-3">
+            <div class="col-6 col-md-3">
               Cost ({{totalOptionCosts | number}}eb)
             </div>
           </div>
-          <ng-container *ngFor="let opt of options;let i = index">
-            <div class="row">
-              <div class="col-2">
-                <input type="number" min="0" class="w-100 text-end" [(ngModel)]="opt.count" title="Count of this option"
-                  (change)="update()">
-              </div>
-              <div class="col">
-                {{opt.name}}
-                <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn ms-1" title="Delete option" (click)="delete(i)">
-                </fa-icon>
-              </div>
-              <div class="col-3">
-                {{opt.totalCost * opt.count}}eb
-              </div>
+          <div *ngFor="let opt of options;let i = index" class="row">
+            <div class="col-2">
+              <input type="number" min="0" class="w-100 text-end p-0" [(ngModel)]="opt.count"
+                title="Count of this option" (change)="update()">
             </div>
-            <div class="row">
-              <div class="col">
-                {{opt.notes}} <span class="float-end small">{{opt.source.book | sourcebook}}
-                  pg.{{opt.source.page}}</span>
-              </div>
+            <div class="col-9 col-md-7">
+              {{opt.name}}
+              <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn ms-1" title="Delete option" (click)="delete(i)">
+              </fa-icon>
             </div>
-          </ng-container>
+            <div class="col-3">
+              {{opt.totalCost * opt.count}}eb
+            </div>
+            <div class="col-9 col-md-12">
+              {{opt.notes}} <span class="float-end small">{{opt.source.book | sourcebook}}
+                pg.{{opt.source.page}}</span>
+            </div>
+          </div>
           <div class="row">
             <div class="col text-center">
               <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-xl" (click)="openModal(optionModal)">
@@ -77,24 +73,27 @@
     <div class="row small">
       <div class="col-1"></div>
       <div class="col-10">
-        <fa-icon [icon]="faSearch" class="csd-icon-btn csd-icon-sm d-inline-block ms-1 mt-1" style="position:absolute;z-index:100"></fa-icon>
-        <input type="search" class="w-100 ps-4 d-inline-block" placeholder="Search for skill..." [(ngModel)]="searchFilter">
+        <fa-icon [icon]="faSearch" class="csd-icon-btn csd-icon-sm d-inline-block ms-1 mt-1"
+          style="position:absolute;z-index:100"></fa-icon>
+        <input type="search" class="w-100 ps-4 d-inline-block" placeholder="Search for skill..."
+          [(ngModel)]="searchFilter">
       </div>
       <div class="col-1"></div>
     </div>
     <div style="height:500px;max-height:500px;overflow-y: scroll;overflow-x:hidden">
-    <div class="row small csd-btn" *ngFor="let opt of optionList | contains:'name':searchFilter;let i = index" [title]="opt.notes" (click)="add(opt.name)">
-      <div class="col border-bottom border-dark">
-        <fa-icon [icon]="faPlus" class="csd-icon-btn"></fa-icon>
-        {{opt.type}}
-      </div>
-      <div class="col border-bottom border-dark">
-        {{opt.name}}
-      </div>
-      <div class="col-2 border-bottom border-dark">
-        {{getOptionCost(opt)|number}}eb
+      <div class="row small csd-btn" *ngFor="let opt of optionList | contains:'name':searchFilter;let i = index"
+        [title]="opt.notes" (click)="add(opt.name)">
+        <div class="col border-bottom border-dark">
+          <fa-icon [icon]="faPlus" class="csd-icon-btn"></fa-icon>
+          {{opt.type}}
+        </div>
+        <div class="col border-bottom border-dark">
+          {{opt.name}}
+        </div>
+        <div class="col-2 border-bottom border-dark">
+          {{getOptionCost(opt)|number}}eb
+        </div>
       </div>
     </div>
   </div>
-</div>
 </ng-template>

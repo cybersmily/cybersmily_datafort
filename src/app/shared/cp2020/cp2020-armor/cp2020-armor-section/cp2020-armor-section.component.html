@@ -3,7 +3,7 @@
     <div class="col">
       <h4
         #armorTitleElem
-        class="d-inline-block csd-btn me-4"
+        class="d-inline-block csd-btn me-3"
         (click)="isCollapsed = !isCollapsed"
         (key.enter)="isCollapsed = !isCollapsed"
         tabindex="0"
@@ -17,7 +17,7 @@
       <button
         *ngIf="!isCollapsed"
         title="Randomly generate items..."
-        class="csd-btn csd-icon-btn csd-icon-lg ms-2"
+        class="csd-btn csd-icon-btn csd-icon-lg ms-1"
         (click)="showModal(numberOfArmorToRoll)"
         tabindex="-1"
       >
@@ -25,7 +25,7 @@
       </button>
       <button
         *ngIf="!isCollapsed"
-        class="csd-btn csd-icon-btn csd-icon-lg ms-2"
+        class="csd-btn csd-icon-btn csd-icon-lg ms-1"
         tabindex="-1"
         title="Change random parameter settings for create a piece of armor"
         (click)="showModal(settingsModal)"
@@ -288,14 +288,6 @@
 <ng-template #armorDetailModal>
   <div class="modal-header">
     <h4>ARMOR/CLOTHING DETAILS</h4>
-    <button
-      class="csd-btn csd-icon-btn csd-icon-xl ms-4"
-      title="Save to list..."
-      (click)="saveArmor()"
-      tabindex="0"
-    >
-      <fa-icon [icon]="faSave"></fa-icon>
-    </button>
     <button
       type="button"
       class="btn-close float-end"

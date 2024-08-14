@@ -3,33 +3,31 @@
     <div class="col">Magazines ({{weapon.magazines.length}}):
     </div>
   </div>
-  <div class="row">
-    <div class="col-1"></div>
-    <div class="col-1"></div>
-    <div class="col">Ammo</div>
-    <div class="col">Spent/Capacity</div>
-    <div class="col"></div>
+  <div class="row text-small">
+    <div class="col-2"></div>
+    <div class="col-5">Ammo</div>
+    <div class="col-5 text-truncate">Spent/Capacity</div>
   </div>
   <div class="row" *ngFor="let mag of weapon.magazines;let i = index">
     <div class="col-1"></div>
     <div class="col-1">Mag{{i+1}}</div>
-    <div class="col">{{mag.ammo}} {{mag.subtype}}
+    <div class="col-6">{{mag.ammo}} {{mag.subtype}}
       <fa-icon *ngIf="weapon.magazines.length > 1" [icon]="faTrash" class="csd-btn csd-icon-btn ms-1"
         title="Delete magazine" (click)="delteMagazine(i)"></fa-icon>
     </div>
-    <div class="col">{{mag.used}}/{{mag.capacity}}<span *ngIf="mag.multiplier > 1">(x{{mag.multiplier}})</span></div>
-    <div class="col"><span *ngIf="mag.capacity > weapon.shots * 2" class="small"> Conc. reduced 1 level; -1(P,SMG)/-2(RIF,SHG) Snapshot</span></div>
+    <div class="col-2">{{mag.used}}/{{mag.capacity}}<span *ngIf="mag.multiplier > 1">(x{{mag.multiplier}})</span></div>
+    <div class="col-2"><span *ngIf="mag.capacity > weapon.shots * 2" class="small"> Conc. reduced 1 level; -1(P,SMG)/-2(RIF,SHG) Snapshot</span></div>
   </div>
   <br>
   <div class="row">
     <div class="col-1">
       <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn me-1" title="Add magazine" (click)="addMagazine()">
       </fa-icon></div>
-    <div class="col-5">
-      <input type="text" [(ngModel)]="newMagSubtype" placeholder="Enter ammo type">
+    <div class="col-4 px-1">
+      <input type="text" class="w-100" [(ngModel)]="newMagSubtype" placeholder="Enter ammo type">
     </div>
-    <div class="col-2">
-      <select [(ngModel)]="newMagMultiplier" (change)="changeMultiply()" title="Multiplier of shots of weapon.">
+    <div class="col-2 px-0">
+      <select  class="w-100" [(ngModel)]="newMagMultiplier" (change)="changeMultiply()" title="Multiplier of shots of weapon.">
         <option value="1">x1</option>
         <option value="2">x2</option>
         <option value="3">x3</option>
@@ -37,9 +35,9 @@
         <option value="5">x5</option>
       </select>
     </div>
-    <div class="col-2">
-      <input type="number" min="0" class="csd-number" [(ngModel)]="newMagCapacity" title="Set the capaicty manually." (change)="changeCapacity()">
+    <div class="col-2 px-1">
+      <input type="number" min="0" class="w-100" [(ngModel)]="newMagCapacity" title="Set the capaicty manually." (change)="changeCapacity()">
     </div>
-    <div class="col-2">{{newMagCost|number}}eb</div>
+    <div class="col-2 px-0 text-small">{{newMagCost|number}}eb</div>
   </div>
 </div>

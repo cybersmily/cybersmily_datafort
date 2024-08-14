@@ -1,6 +1,6 @@
 <div class="chargen-section">
   <div class="cp2020-label row g-0">
-    <div class="col-4">
+    <div class="col-12 col-md-4">
       <h4
         class="d-inline-block csd-btn"
         (click)="isCollapsed = !isCollapsed"
@@ -14,7 +14,7 @@
         ></fa-icon>
       </h4>
     </div>
-    <div *ngIf="!isCollapsed" class="col-4 small fw-normal">
+    <div *ngIf="!isCollapsed" class="col-8 col-md-4 small fw-normal">
       <fa-icon
         [icon]="faSearch"
         class="csd-icon-btn csd-icon-sm d-inline-block ms-1 mt-1"
@@ -55,7 +55,7 @@
     </div>
   </div>
   <div [collapse]="isCollapsed">
-    <div class="row border border-dark g-0">
+    <div class="row border border-dark g-0 d-none d-md-block">
       <div class="col-12 small chargen-skills-instructions">
         <span
           [ngClass]="{'text-danger': currentSkills.RoleTotal &gt; currentSettings.roleSkillPoints}"

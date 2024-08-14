@@ -1,5 +1,5 @@
 <div class="chargen-section">
-  <table class="mb-2">
+  <table class="mb-2 w-100">
     <tr>
       <td class="chargen-label chargen-armor-label">Location</td>
       <td class="chargen-armor-space"></td>
@@ -139,7 +139,7 @@
           min="0"
           (change)="onChangeArmor()"
           [max]="armor.sdp.head.destroyed"
-          class="csd-number csd-btn no-spinners {{
+          class="w-100 csd-btn no-spinners {{
             getSDPStyle(armor.sdp.head)
           }}"
           title="Max {{ armor.sdp.head.destroyed }}"
@@ -156,7 +156,7 @@
           type="number"
           min="0"
           [max]="armor.sdp.torso.destroyed"
-          class="csd-number csd-btn no-spinners {{
+          class="w-100 csd-btn no-spinners {{
             getSDPStyle(armor.sdp.torso)
           }}"
           title="Max {{ armor.sdp.torso.destroyed }}"
@@ -173,7 +173,7 @@
           type="number"
           min="0"
           [max]="armor.sdp.rarm.destroyed"
-          class="csd-number csd-btn no-spinners {{
+          class="w-100 csd-btn no-spinners {{
             getSDPStyle(armor.sdp.rarm)
           }}"
           title="Max {{ armor.sdp.rarm.destroyed }}"
@@ -190,7 +190,7 @@
           type="number"
           min="0"
           [max]="armor.sdp.larm.destroyed"
-          class="csd-number csd-btn no-spinners {{
+          class="w-100 csd-btn no-spinners {{
             getSDPStyle(armor.sdp.larm)
           }}"
           title="Max {{ armor.sdp.larm.destroyed }}"
@@ -207,7 +207,7 @@
           type="number"
           min="0"
           [max]="armor.sdp.rleg.destroyed"
-          class="csd-number csd-btn no-spinners {{
+          class="w-100 csd-btn no-spinners {{
             getSDPStyle(armor.sdp.rleg)
           }}"
           title="Max {{ armor.sdp.rleg.destroyed }}"
@@ -224,7 +224,7 @@
           type="number"
           min="0"
           [max]="armor.sdp.lleg.destroyed"
-          class="csd-number csd-btn no-spinners {{
+          class="w-100 csd-btn no-spinners {{
             getSDPStyle(armor.sdp.lleg)
           }}"
           title="Max {{ armor.sdp.lleg.destroyed }}"
@@ -240,12 +240,12 @@
 
 <!-- ------ Damage MODAL ------  -->
 <ng-template #armorDamage>
-  <div class="row armor-dmg text-center">
+  <div class="row armor-dmg">
     <div class="col">
       Damage: <input [(ngModel)]="damage" type="number" value="1" min="0" />
     </div>
   </div>
-  <div class="row armor-dmg text-center">
+  <div class="row armor-dmg">
     <div class="col">
       Ammo Type:
       <select [(ngModel)]="damageType">
@@ -272,12 +272,12 @@
       </select>
     </div>
   </div>
-  <div class="row armor-dmg text-center">
+  <div class="row armor-dmg">
     <div class="col">
       SP Damage: <input [(ngModel)]="spDamage" type="number" value="1" />
     </div>
   </div>
-  <div class="row armor-dmg text-center">
+  <div class="row armor-dmg">
     <div class="col">
       <button
         class="btn btn-sm btn-secondary csd-rounded"

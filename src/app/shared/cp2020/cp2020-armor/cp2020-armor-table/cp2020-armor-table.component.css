@@ -1,5 +1,4 @@
 .chargen-armor-cell input {
-  width: 55px;
   height:45px;
   text-align: center;
 }
@@ -34,7 +33,7 @@
   text-align: center;
   font-size: 14px;
   height: 45px;
-  width: 60px;
+  text-overflow: ellipsis;
 }
 
 .modal-body {

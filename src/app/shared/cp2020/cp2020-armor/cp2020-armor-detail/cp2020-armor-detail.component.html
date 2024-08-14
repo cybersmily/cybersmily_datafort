@@ -15,15 +15,23 @@
   </div>
   <div class="col-6 col-md-3 order-2 order-md-3">
     <button
-      title="Select armor from source material"
+      title="Randomly generate clothing"
       class="csd-btn csd-icon-btn ms-1 float-end"
+      (click)="update()"
+      tabindex="-1"
+    >
+      <fa-icon [icon]="faSave"></fa-icon>
+    </button>
+    <button
+      title="Select armor from source material"
+      class="csd-btn csd-icon-btn ms-2 float-end"
       (click)="showModal(armorSourceList)"
     >
       <fa-icon [icon]="faSearch"></fa-icon>
     </button>
     <button
       title="Randomly generate clothing"
-      class="csd-btn csd-icon-btn ms-1 float-end"
+      class="csd-btn csd-icon-btn ms-2 float-end"
       (click)="generate()"
       tabindex="-1"
     >
@@ -31,7 +39,7 @@
     </button>
     <button
       title="Reset the form"
-      class="csd-btn csd-icon-btn ms-1 float-end"
+      class="csd-btn csd-icon-btn ms-2 float-end"
       (click)="refresh()"
     >
       <fa-icon [icon]="faRedo"></fa-icon>
