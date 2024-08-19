@@ -86,7 +86,7 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
       if (this.currArmor.isCalculatedCost) {
         this.currArmor.ev = value?.ev[this.currArmor.clothes.wt] ?? 0;
       }
-      this.update();
+      //this.update();
     }
   }
 
@@ -165,7 +165,7 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
       this.currArmor.baseSP,
       this.currArmor.clothes.loc
     );
-    this.update();
+    //this.update();
   }
 
   changeOption(event, option: ArmorOption) {
@@ -177,13 +177,13 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
     } else if (event.target.checked) {
       this.currArmor.options.push(option);
     }
-    this.update();
+    //this.update();
   }
 
   refresh() {
     this.currArmor = new Cp2020ArmorPiece();
     this.setSelected();
-    this.update();
+    //this.update();
   }
 
   generate() {
@@ -196,7 +196,7 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
     this.spValues = this.armorAttributes.armorChart.filter(
       (sp) => sp.mod[this.currArmor.clothes.wt] !== undefined
     );
-    this.update();
+    //this.update();
   }
 
   update() {
@@ -237,7 +237,7 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
       this.checkLocation('larm');
       this.checkLocation('rleg');
       this.checkLocation('lleg');
-      this.update();
+      //this.update();
     }
   }
 
@@ -256,7 +256,7 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
       this.currArmor.baseSP,
       this.currArmor.clothes.loc
     );
-    this.update();
+    //this.update();
   }
 
   addSourceArmor(armor: Cp2020ArmorPiece) {
@@ -285,7 +285,7 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
     );
     if (index > -1) {
       this.currArmor = new Cp2020ArmorPiece(this.armorDataList[index]);
-      this.update();
+      //this.update();
     }
   }
 

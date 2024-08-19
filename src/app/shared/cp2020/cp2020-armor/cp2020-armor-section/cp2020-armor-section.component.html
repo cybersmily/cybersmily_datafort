@@ -59,15 +59,15 @@
 <ng-template #armorList let-armorList="armorList">
   <div class="row bg-black fw-bold text-white g-0">
     <div class="col border border-dark ps-1">ACTIVE ARMOR</div>
-    <div class="col-1 text-center border border-dark small">SP</div>
-    <div class="col-1 text-center border border-dark small">HEAD</div>
-    <div class="col-1 text-center border border-dark small">TORSO</div>
-    <div class="col-1 text-center border border-dark small">RARM</div>
-    <div class="col-1 text-center border border-dark small">LARM</div>
-    <div class="col-1 text-center border border-dark small">RLEG</div>
-    <div class="col-1 text-center border border-dark small">LLEG</div>
-    <div class="col-1 text-center border border-dark small">EV</div>
-    <div class="col-1 text-center border border-dark small"></div>
+    <div class="col-1 text-center border border-dark text-small">SP</div>
+    <div class="col-1 text-center border border-dark text-small">H</div>
+    <div class="col-1 text-center border border-dark text-small">T</div>
+    <div class="col-1 text-center border border-dark text-small">RA</div>
+    <div class="col-1 text-center border border-dark text-small">LA</div>
+    <div class="col-1 text-center border border-dark text-small">RL</div>
+    <div class="col-1 text-center border border-dark text-small">LL</div>
+    <div class="col-1 text-center border border-dark text-small">EV</div>
+    <div class="col-1 text-center border border-dark text-small"></div>
   </div>
   <div *ngIf="armorList.length &lt; 1" class="row small g-0">
     <div class="col border border-dark">&nbsp;</div>
@@ -82,15 +82,14 @@
     <div class="col-1 text-center border border-dark"></div>
   </div>
   <div *ngFor="let armor of armorList; let i = index" class="row small g-0">
-    <div class="col border border-dark ps-1">
-      {{ armor.name }}
+    <div class="col border border-dark ps-1 text-truncate p-2 p-md-0">
       <fa-icon
         [icon]="faWrench"
-        class="csd-btn csd-icon-btn float-end"
+        class="csd-btn csd-icon-btn me-1"
         title="Repair all locations"
         (click)="repair(armor)"
       ></fa-icon>
-    </div>
+      {{ armor.name }}</div>
     <div class="col-1 text-center border border-dark">{{ armor.baseSP }}</div>
     <div
       [ngClass]="{
@@ -147,11 +146,12 @@
       {{ armor.locations?.lleg ?? "" }}
     </div>
     <div class="col-1 text-center border border-dark">{{ armor.ev }}</div>
-    <div class="col-1 text-center border border-dark">
+    <div class="col-1 text-center border border-dark text-small">
       {{ armor.isHard ? "Hard" : "Soft" }}
     </div>
   </div>
 </ng-template>
+
 <ng-template #clothingList>
   <div class="row bg-black fw-bold text-white g-0">
     <div class="col ps-1">ARMOR/CLOTHING LIST</div>
@@ -246,7 +246,7 @@
       />
       <button
         #armorNameElem
-        class="csd-btn text-start csd-armor-title"
+        class="csd-btn text-start csd-armor-title py-2 py-md-0"
         (click)="selectIndex(index, armorDetailModal)"
         tabindex="0"
         [title]="armor.name"

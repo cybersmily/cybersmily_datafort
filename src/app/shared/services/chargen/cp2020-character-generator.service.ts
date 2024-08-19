@@ -45,6 +45,7 @@ export class Cp2020CharacterGeneratorService {
   }
 
   changeCharacter(value: any) {
+
     this._currCharacter = new Cp2020PlayerCharacter(value?.isIU);
     this._currCharacter.handle = value?.handle ?? '';
     this._currCharacter.image = value?.image ?? '';

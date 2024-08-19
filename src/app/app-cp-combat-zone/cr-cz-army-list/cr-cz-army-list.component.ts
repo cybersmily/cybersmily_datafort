@@ -91,7 +91,7 @@ export class CrCzArmyListComponent implements OnInit {
             });
           } catch(err) {
             alert( 'Error while reading the file. The content was corrupted. \n' + err.message);
-            console.log(err);
+            console.debug(err);
           }
         } else {
           alert( 'Error while reading the file. The content was corrupted.');

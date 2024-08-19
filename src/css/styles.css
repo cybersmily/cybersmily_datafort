@@ -650,3 +650,24 @@ div svg circle.neticon:hover {
   height: 144px;
   width: 207px;
 }
+
+.wpn-shot {
+  cursor: pointer;
+  border: 1px solid black;
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  padding: 0px 0px;
+  line-height: 8px;
+  text-align: center;
+  vertical-align: top;
+  margin-top: 3px;
+  margin-right: 3px;
+}
+
+
+.chargen-notes {
+  width: 100%;
+  min-height: 500px;
+  height: 1200px;
+}

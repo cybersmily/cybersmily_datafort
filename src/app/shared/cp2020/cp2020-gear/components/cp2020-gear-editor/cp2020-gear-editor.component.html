@@ -24,7 +24,7 @@
 <ng-template #displayMode>
   <div class="row g-0 cp-gear-display" [dndDraggable]="{gear: currGear, type: 'gear', effectAllowed: 'all', disable: false, handle: true}">
     <div class="col-8 border border-dark pe-0 ps-0">
-      <button title="edit gear" class="csd-btn d-inline-block w-85 cursor-pointer text-start" (click)="isEditMode = true">
+      <button title="edit gear" class="csd-btn d-inline-block w-85 cursor-pointer text-start p-2 p-md-0" (click)="isEditMode = true">
         {{currGear.gear}}
       </button>
       <button title="remove gear" class="csd-icon-btn csd-btn float-end pe-1" (click)="removeGear()">

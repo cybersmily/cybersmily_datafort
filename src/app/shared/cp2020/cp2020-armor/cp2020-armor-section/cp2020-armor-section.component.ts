@@ -147,7 +147,6 @@ export class Cp2020ArmorSectionComponent implements OnInit {
       this.armorBlock.addPiece(this.selectedArmor);
     }
     this.update();
-    this.closeArmorDetailModal();
   }
 
   deleteArmor(index: number) {
@@ -176,6 +175,7 @@ export class Cp2020ArmorSectionComponent implements OnInit {
     // test the param to make sure it is armor and not a change event
     if (armor.clothes && armor.quality) {
       this.selectedArmor = new Cp2020ArmorPiece(armor);
+      this.saveArmor();
     }
   }
 

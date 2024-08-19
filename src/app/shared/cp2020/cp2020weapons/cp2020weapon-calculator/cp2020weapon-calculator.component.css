@@ -15,15 +15,3 @@
   padding-bottom: 3px;
 }
 
-.wpn-shot {
-  cursor: pointer;
-  border: 1px solid black;
-  display: inline-block;
-  height: 12px;
-  width: 12px;
-  padding: 0px 0px;
-  line-height: 8px;
-  text-align: center;
-  vertical-align: top;
-  margin-top: 3px;
-}

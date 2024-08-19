@@ -2,7 +2,7 @@
   <div class="col-12 col-md-3 col-lg-2 ps-1">
     <button
       #weaponNameElem
-      class="csd-btn"
+      class="csd-btn p-2"
       (click)="openModal(editWeaponModal, 'weaponName')"
       tabindex="0"
     >
@@ -85,7 +85,7 @@
 </div>
 <div class="row wpn-notes g-0 pb-2" *ngIf="weapon.magazines">
   <div class="col-1 d-none d-md-inline-block"></div>
-  <div class="col-4 col-md-3">
+  <div class="col-12 col-md-3">
     magazines ({{ weapon.magazines.length }}):
     <select [(ngModel)]="weapon.currMagIndex" tabindex="-1">
       <option *ngFor="let mag of weapon.magazines; let i = index" [value]="i">
@@ -93,7 +93,7 @@
       </option>
     </select>
   </div>
-  <div class="col-8">
+  <div class="col-12 col-md-8">
     <span
       class="wpn-shot csd-btn"
       *ngFor="let shot of currMagazineShots; let i = index"
@@ -101,12 +101,12 @@
       title="{{ i + 1 }}"
       >{{ shot ? "x" : "" }}</span
     >
-    &nbsp;&nbsp;
     <fa-icon
       *ngIf="weapon.isEmpty"
       [icon]="faRedo"
-      class="csd-btn csd-icon-btn"
+      class="csd-btn csd-icon-btn ms-2"
       (click)="reload()"
+
       title="Reload"
     ></fa-icon>
   </div>

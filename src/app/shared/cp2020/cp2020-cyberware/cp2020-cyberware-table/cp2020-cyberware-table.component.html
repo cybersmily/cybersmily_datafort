@@ -131,7 +131,7 @@
       <div class="col-8 col-md-9 cyber-name no-right-border" title="{{ cyber.notes }}&#013;options:&#013; {{
           cyber.getOptionNotesAsString('&#013; ')
         }}">
-        <button #cyberNameElem class="csd-btn text-start w-100 cs-cyberware-name text-truncate"
+        <button #cyberNameElem class="csd-btn text-start w-100 cs-cyberware-name text-truncate p-2 p-md-0"
           (click)="editCyberware(cyber, cyberEdit, isSecondColumn)" tabindex="0">
           {{ cyber.name }}
           <span *ngIf="cyber?.options?.length > 0" class="text-small">[{{ cyber.getOptionListAsString() }}]</span>

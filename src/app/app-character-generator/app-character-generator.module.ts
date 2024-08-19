@@ -32,6 +32,8 @@ import { AppCharacterHandleComponent } from './app-character-handle/app-characte
 import { AppCharacterImageComponent } from './app-character-image/app-character-image.component';
 import { AppCharacterInstructionComponent } from './app-character-instruction/app-character-instruction.component';
 import { AppCharacterSettingsComponent } from './app-character-settings/app-character-settings.component';
+import { AppCharacterGeneratorMobileLayoutComponent } from './app-character-generator-mobile-layout/app-character-generator-mobile-layout.component';
+import { AppCharacterGeneratorFullLayoutComponent } from './app-character-generator-full-layout/app-character-generator-full-layout.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { AppCharacterSettingsComponent } from './app-character-settings/app-char
     AppCharacterImageComponent,
     AppCharacterInstructionComponent,
     AppCharacterSettingsComponent,
+    AppCharacterGeneratorMobileLayoutComponent,
+    AppCharacterGeneratorFullLayoutComponent,
   ],
   imports: [
     CommonModule,
