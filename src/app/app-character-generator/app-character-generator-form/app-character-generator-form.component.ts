@@ -50,7 +50,6 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   faCog = faCog;
   faIdBadge = faIdBadge;
 
-  character$: Observable<Cp2020PlayerCharacter>;
   sources = new Array<TitleValue>();
   charGenSettings: Cp2020CharGenSettings = new Cp2020CharGenSettings();
   charGenSettingsKey: string = 'CP2020_CharGenSettings';
@@ -117,13 +116,14 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
    * @memberof AppCharacterGeneratorFormComponent
    */
   saveCharacter() {
-    this.character$
+    this.characterService.character
       .pipe(first())
-      .subscribe((character) =>
+      .subscribe((character) => {
+        console.log('save', character);
         this.saveFileService.SaveAsFile(
           'CP2020_' + character.handle.replace(' ', '_'),
           JSON.stringify(character)
-        )
+        )}
       );
   }
 
@@ -138,7 +138,7 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
       this.deckmanagerPDFService,
       this.contactPDFService
     );
-    this.character$
+    this.characterService.character
       .pipe(first())
       .subscribe((character) =>
         characterToPDF.generatePdf(character, this.charGenSettings)
@@ -146,7 +146,8 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   }
 
   createFastDirtyPDF(): void {
-    this.character$.pipe(first())
+    this.characterService.character
+    .pipe(first())
     .subscribe( (character) => {
       const FandDPDF = new Cp2020CharacterToFandDPDF();
       FandDPDF.generateFastAndDirtyPlayerCharacerPdf(character);
