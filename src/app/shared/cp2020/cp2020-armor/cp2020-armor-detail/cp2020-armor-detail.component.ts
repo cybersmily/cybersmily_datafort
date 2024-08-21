@@ -113,7 +113,7 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
       value,
       this.currArmor.clothes.loc
     );
-    this.update();
+    //this.update();
   }
 
   constructor(
@@ -263,7 +263,7 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
     this.currArmor = new Cp2020ArmorPiece(armor);
     this.closeModal();
     this.setSelected();
-    this.updateArmor.emit(this.currArmor);
+    //this.updateArmor.emit(this.currArmor);
   }
 
   showModal(template: TemplateRef<any>, returnFocus?: string) {
