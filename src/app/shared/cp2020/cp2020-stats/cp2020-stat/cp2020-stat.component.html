@@ -1,7 +1,7 @@
 <button #cp2020StatElem title="{{statName}}: {{stat.toString()}}"
   (click)="openModal(statModifiers)"
   tabindex="0"
-  [ngClass]="{'d-inline-block me-2': true, 'text-danger': isWounded, 'csd-btn': true, 'stat-values':true, 'rounded':true}">
+  [ngClass]="{'d-inline-block me-1 px-1 csd-btn stat-values rounded': true, 'text-danger': isWounded}">
 {{statName}} <span class="d-inline-block">[{{stat.Base}}/{{stat.Adjusted}}]</span>
 </button>
 
