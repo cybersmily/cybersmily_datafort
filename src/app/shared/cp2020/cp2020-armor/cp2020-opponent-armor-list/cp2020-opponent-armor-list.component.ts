@@ -148,6 +148,7 @@ export class Cp2020OpponentArmorListComponent implements OnInit, OnChanges {
 
   updateSelectedArmor(armor: Cp2020ArmorPiece) {
     this.selectedArmor = new Cp2020ArmorPiece(armor);
+    this.saveNewArmor();
   }
 
   saveNewArmor() {
