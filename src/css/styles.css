@@ -120,7 +120,7 @@ INPUT.csd-number-sm {
 BUTTON {
 	background: none;
 	color: inherit;
-	border: none;
+	border: none !important;
 	padding: 0;
 	font: inherit;
 	cursor: pointer;
@@ -162,41 +162,12 @@ BUTTON {
   color: #DDD;
 }
 
-.csd-icon-xl {
-  font-size: x-large !important;
-}
-
-.csd-icon-lg {
-  font-size: large !important;
-}
-
-.csd-icon-xxl {
-  font-size: xx-large !important;
-}
-
-.csd-icon-sm {
-  font-size: small !important;
-}
-
-.csd-icon-xs {
-  font-size: x-small !important;
-}
-
-.csd-icon-xxs {
-  font-size: xx-small !important;
-}
-
 .cs-color-swatch {
   display: inline-block;
   height: 16px;
   width: 50px;
   cursor: pointer;
   border: 1px solid #333;
-}
-
-
-.csd-icon-xxl {
-  font-size: xx-large;
 }
 
 .csd-select-choose {
