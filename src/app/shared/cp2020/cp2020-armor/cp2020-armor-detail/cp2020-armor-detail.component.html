@@ -57,9 +57,10 @@
         type="checkbox"
         name="calc-cost"
         [(ngModel)]="currArmor.isCalculatedCost"
+        (change)="calculateCostWtEV()"
         title="Calculate the cost of the piece of clothing."
       />
-      <label for="calc-cost" class="ps-2"> Calculated Cost, Weight, EV</label>
+      <label for="calc-cost" class="ps-2"> Calculated Cost and EV</label>
     </span>
   </div>
 </div>

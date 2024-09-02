@@ -119,7 +119,6 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     this.characterService.character
       .pipe(first())
       .subscribe((character) => {
-        console.log('save', character);
         this.saveFileService.SaveAsFile(
           'CP2020_' + character.handle.replace(' ', '_'),
           JSON.stringify(character)

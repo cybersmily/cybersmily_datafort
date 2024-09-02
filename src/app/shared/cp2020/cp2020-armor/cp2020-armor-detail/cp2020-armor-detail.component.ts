@@ -83,9 +83,7 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
         value?.sp,
         this.currArmor.clothes.loc
       );
-      if (this.currArmor.isCalculatedCost) {
-        this.currArmor.ev = value?.ev[this.currArmor.clothes.wt] ?? 0;
-      }
+      this.calculateEV(value);
       //this.update();
     }
   }
@@ -150,11 +148,37 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
     return this.currArmor.options.some((opt) => opt.name === optionName);
   }
 
-  changeClothing() {
-    this.currArmor.clothes = this.selectedClothing;
+  calculateCostWtEV(): void {
+    // calculate Cost
+    this.calcultateCost();
+    this.calculateEV(this.selectedSP);
+    this.calculateWeight();
+  }
+
+  calcultateCost(): void {
+    if (this.currArmor?.isCalculatedCost) {
+      this.currArmor.cost = this.armorCalculatorService.calculateCost(
+        this.currArmor,
+        this.armorAttributes.armorChart
+      );
+    }
+  }
+
+  calculateEV(value: ArmorSpChartEntry): void {
+    if (this.currArmor.isCalculatedCost) {
+      this.currArmor.ev = value?.ev[this.currArmor.clothes.wt] ?? 0;
+    }
+  }
+
+  calculateWeight(): void {
     if (this.currArmor.isCalculatedCost) {
       this.selectedWeight = this.currArmor.clothes?.wt ?? '';
     }
+  }
+
+  changeClothing() {
+    this.currArmor.clothes = this.selectedClothing;
+    this.calculateCostWtEV();
     this.spValues = this.armorAttributes.armorChart.filter(
       (sp) => sp.mod[this.currArmor.clothes.wt] !== undefined
     );
@@ -204,12 +228,7 @@ export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
     this.currArmor.quality = this.selectedQuality ?? { name: '', mod: 1 };
     this.currArmor.clothes.wt =
       this.selectedWeight || this.currArmor.clothes.wt;
-    if (this.currArmor?.isCalculatedCost) {
-      this.currArmor.cost = this.armorCalculatorService.calculateCost(
-        this.currArmor,
-        this.armorAttributes.armorChart
-      );
-    }
+    this.calcultateCost();
     this.updateArmor.emit(this.currArmor);
   }
 
