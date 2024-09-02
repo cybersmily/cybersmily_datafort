@@ -1,11 +1,9 @@
 import { Cp2020HagglingService } from './../services/cp2020-haggling/cp2020-haggling.service';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
 import { Cp2020CharacterGeneratorService } from './../../../services/chargen/cp2020-character-generator.service';
-import { DiceService } from './../../../services/dice/dice.service';
 import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit } from '@angular/core';
 import { Cp2020PlayerSkill } from '../../cp2020-skills/models';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'cs-cp2020-haggle',
@@ -73,6 +71,6 @@ export class Cp2020HaggleComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    this.subscription?.unscribe();
+    this.subscription?.unsubscribe();
   }
 }
