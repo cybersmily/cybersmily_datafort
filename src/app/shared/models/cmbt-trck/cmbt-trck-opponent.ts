@@ -5,6 +5,7 @@ import { Cp2020ArmorBlock } from './../../cp2020/cp2020-armor/models';
 import { CpPlayerWeapon, CpPlayerWeaponList, Cp2020CombatModifiers } from './../../cp2020/cp2020weapons/models';
 import { CmbtTrckOppTemplate } from './cmbt-trck-opp-template';
 import { v4 as uuidv4 } from 'uuid';
+import { CmbtTrckOppThreatCode } from './cmbt-trck-opp-threat-code';
 
 export class CmbtTrckOpponent {
   name: string;
@@ -21,6 +22,7 @@ export class CmbtTrckOpponent {
   selectedWeapon?: CpPlayerWeapon;
   gear: Array<string>;
   modifiers: Cp2020CombatModifiers;
+  threatCode: CmbtTrckOppThreatCode;
 
   constructor(param?, newId?: boolean) {
     this.name = param?.name ?? '';
@@ -52,6 +54,7 @@ export class CmbtTrckOpponent {
       this.modifiers.attacker = param.modifiers.attacker;
     }
     this.gear = param?.gear?.map(g => g) ?? new Array<string>();
+    this.threatCode = param?.threatCode ?? {skill: '', weapon: 0, armor: ''}
   }
 
   importTemplate(template: CmbtTrckOppTemplate) {

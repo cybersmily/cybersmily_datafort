@@ -12,7 +12,7 @@ import { DataSkill, Cp2020PlayerSkill } from './../../shared/cp2020/cp2020-skill
 import { SkillListService } from './../../shared/cp2020/cp2020-skills/services';
 import { DataService } from './../../shared/services/file-services';
 import { Cp2020RolesDataService } from './../../shared/cp2020/cp2020-role/services/cp2020-roles-data.service';
-import { forkJoin } from 'rxjs';
+import { forkJoin, take } from 'rxjs';
 import { faDice, faTrash, faRedo, faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
@@ -62,6 +62,7 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
     const skillList = this.skillListService.Skills;
     const opponents = this.opponentService.opponents;
     this.currOpponent = new CmbtTrckOpponent(this.opponent);
+    this.currThreatLevel = this.currOpponent?.threatCode ?? new CmbtTrckOppThreatCode();
     forkJoin([
       templates
       , rolesList
@@ -84,6 +85,7 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
     this.selectedTemplate = null;
     this.selectedRole = null;
     this.currOpponent = new CmbtTrckOpponent(this.opponent);
+    this.currThreatLevel = this.currOpponent?.threatCode ?? new CmbtTrckOppThreatCode();
   }
 
   onStatBlockChange(value: Cp2020StatBlock) {
@@ -174,10 +176,17 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
   }
 
   setOpponentThreatLevelAttributes() {
+    const name = this.currOpponent.name ?? '';
+    const id = this.currOpponent.id;
       this.threatCodeService
       .generate(this.currThreatLevel)
+      .pipe(take(1))
       .subscribe( opp => {
+        opp.name = name;
+        opp.id = id;
         this.currOpponent = new CmbtTrckOpponent(opp);
+        console.log(this.currOpponent);
+        this.updateOpponent();
       });
   }
 

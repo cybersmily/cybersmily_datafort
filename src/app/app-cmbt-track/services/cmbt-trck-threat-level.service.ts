@@ -9,6 +9,7 @@ import { CmbtTrckOpponent } from './../../shared/models/cmbt-trck/cmbt-trck-oppo
 import { Injectable } from '@angular/core';
 import { Cp2020ArmorPiece } from './../../shared/cp2020/cp2020-armor/models';
 import { Cp2020PlayerSkill } from './../../shared/cp2020/cp2020-skills/models';
+import { CmbtTrckOppThreatCode } from './../../shared/models/cmbt-trck';
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +25,7 @@ export class CmbtTrckThreatLevelService {
     let opp = new CmbtTrckOpponent();
     // sent stats. All Threat levels have a REF of 8
     opp = this.setStats(opp);
+    opp.threatCode = opp?.threatCode ?? new CmbtTrckOppThreatCode();
     // set combat skills based on Threat Level skill selected
     opp = this.setSkills(opp, threatCode.skill);
     // set armor based on threate level amor selected
@@ -103,6 +105,7 @@ export class CmbtTrckThreatLevelService {
     opp.addSkill(
       new Cp2020PlayerSkill({ name: 'Archery', stat: 'REF', value: skillLevel })
     );
+    opp.threatCode.skill = threatCodeSkill;
     return opp;
   }
 
@@ -203,6 +206,7 @@ export class CmbtTrckThreatLevelService {
         );
         break;
     }
+    opp.threatCode.armor = threatCodeArmor;
     return opp;
   }
 
@@ -210,6 +214,7 @@ export class CmbtTrckThreatLevelService {
     opp: CmbtTrckOpponent,
     threatCodeWeapon: number
   ): Observable<CmbtTrckOpponent> {
+    opp.threatCode.weapon = threatCodeWeapon;
     const filter: RandomWeaponFilters = {};
     switch (threatCodeWeapon) {
       case 1:

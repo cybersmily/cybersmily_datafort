@@ -38,10 +38,10 @@
     </div>
   </div>
   <div class="row pt-1">
-    <div class="col-3 col-md-2">
+    <div class="col-4 col-md-2 pe-0 text-small">
       Or Threat Code:
     </div>
-    <div class="col-9 col-md-10">
+    <div class="col-8 col-md-10 ps-0">
       <select class="btn-sm threat-code-select" [(ngModel)]="currThreatLevel.skill" tooltip="Skill level of the opponent">
         <option *ngIf="!selectedTemplate" [ngValue]="''" selected>-</option>
         <option [ngValue]="'E'" title="Novice">E</option>
@@ -66,7 +66,7 @@
         <option [ngValue]="'B'" title="Door gunner/Metal Gear">B</option>
         <option [ngValue]="'A'" title="PA Armor">A</option>
       </select>
-      <button class="ms-2 csd-btn" [disabled]="!enableThreatCode"
+      <button class="ms-2 csd-btn p-1 rounded text-uppercase text-small" [disabled]="!enableThreatCode"
       (click)="setOpponentThreatLevelAttributes()" title="Check to apply the thread code to the opponent.">apply</button>
     </div>
   </div>
