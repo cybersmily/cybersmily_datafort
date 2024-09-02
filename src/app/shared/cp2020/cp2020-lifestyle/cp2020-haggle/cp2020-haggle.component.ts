@@ -73,6 +73,6 @@ export class Cp2020HaggleComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    this.subscription.unscribe();
+    this.subscription?.unscribe();
   }
 }
