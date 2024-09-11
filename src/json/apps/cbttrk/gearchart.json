@@ -94,12 +94,12 @@
       5
     ],
     "values":[
-    {"name":"Heavy Leather", "armor":{"head":0,"torso":4,"arms":4,"legs":0,"ev": 0}},
+    {"name":"Heavy Leather", "armor":{"head":0,"torso":4,"rarm":4,"larm":4,"rleg":0,"lleg":0,"ev": 0}},
     {"name":"Armor vest", "armor":{"head":0,"torso":10,"arms":0,"legs":0, "ev": 0}},
-    {"name":"Light Armor Jacket", "armor":{"head":0,"torso":14,"arms":14,"legs":0, "ev": 0}},
-    {"name":"Med. Armor Jacket", "armor":{"head":0,"torso":18,"arms":18,"legs":0, "ev": 1}},
-    {"name":"Hvy. Armor Jacket", "armor":{"head":0,"torso":20,"arms":20,"legs":0, "ev": 2}},
-    {"name":"MetalGear", "armor":{"head":25,"torso":25,"arms":25,"legs":25, "ev": 2, "isHard": true}}
+    {"name":"Light Armor Jacket", "armor":{"head":0,"torso":14,"rarm":14,"larm":14,"rleg":0,"lleg":0, "ev": 0}},
+    {"name":"Med. Armor Jacket", "armor":{"head":0,"torso":18,"rarm":18,"larm":18,"rleg":0,"lleg":0, "ev": 1}},
+    {"name":"Hvy. Armor Jacket", "armor":{"head":0,"torso":20,"rarm":20,"larm":20,"rleg":0,"lleg":0, "ev": 2}},
+    {"name":"MetalGear", "armor":{"head":25,"torso":25,"rarm":25,"larm":25,"rleg":25,"lleg":25, "ev": 2, "isHard": true}}
   ]},
   "cyberware":{
     "chart":[

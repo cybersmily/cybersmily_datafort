@@ -121,7 +121,7 @@ export class CmbtTrckThreatLevelService {
             name: 'power-assisted armor',
             baseSP: 30,
             ev: 2,
-            locations: { head: 30, torso: 30, arms: 30, legs: 30 },
+            locations: { head: 30, torso: 30, rarm: 30, larm: 30, rleg: 30, lleg: 30 },
           })
         );
         break;
@@ -144,7 +144,7 @@ export class CmbtTrckThreatLevelService {
                 name: 'Metal Gear',
                 baseSP: 25,
                 ev: 2,
-                locations: { head: 25, torso: 25, arms: 25, legs: 25 },
+                locations: { head: 25, torso: 25, rarm: 25, larm: 25, rleg: 25, lleg: 25 },
               })
             );
         }
@@ -158,7 +158,7 @@ export class CmbtTrckThreatLevelService {
                 name: 'heavy armor jacket',
                 baseSP: 20,
                 ev: 2,
-                locations: { torso: 20, arms: 20 },
+                locations: { torso: 20, rarm: 20, larm: 20 },
               })
             );
             break;
@@ -168,7 +168,7 @@ export class CmbtTrckThreatLevelService {
                 name: 'me armor jacket',
                 baseSP: 18,
                 ev: 1,
-                locations: { torso: 18, arms: 18 },
+                locations: { torso: 18, rarm: 18, larm: 18 },
               })
             );
             break;
@@ -177,7 +177,7 @@ export class CmbtTrckThreatLevelService {
               new Cp2020ArmorPiece({
                 name: 'light armor jacket',
                 baseSP: 14,
-                locations: { torso: 14, arms: 14 },
+                locations: { torso: 14, rarm: 14, larm: 14 },
               })
             );
         }
@@ -185,7 +185,7 @@ export class CmbtTrckThreatLevelService {
           new Cp2020ArmorPiece({
             name: 'armor pants',
             baseSP: 12,
-            locations: { legs: 6 },
+            locations: { rleg: 6, lleg: 6 },
           })
         );
         break;
@@ -201,7 +201,7 @@ export class CmbtTrckThreatLevelService {
           new Cp2020ArmorPiece({
             name: 'leather pants',
             baseSP: 4,
-            locations: { legs: 6 },
+            locations: { rleg: 6, lleg: 6 },
           })
         );
         break;
