@@ -43,7 +43,8 @@
                 "src/html",
                 "src/.htaccess",
                 "src/BingSiteAuth.xml",
-                "src/sitemap.xml"
+                "src/sitemap.xml",
+                "src/web.config"
               ],
               "optimization": true,
               "outputHashing": "all",
