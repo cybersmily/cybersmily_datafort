@@ -44,9 +44,9 @@
   "cyberware": [
   ],
   "weapons": [
-    {"name": "Med Pistol", "type": "P", "wa": "1", "conc":"J","damage":"2d6+3", "shots":"10", "rof": "2", "rel": "ST", "range": 50, "notes":""},
-    {"name": "Med SMG", "type": "SMG", "wa": "0", "conc":"J","damage":"2d6+1", "shots":"30", "rof": "20", "rel": "ST", "range": 200, "notes":""},
-    {"name": "Taser", "type": "MEL", "wa": "0", "conc":"P","damage":"Stun-2", "shots":"10", "rof": "1", "rel": "ST", "range": 1, "notes":""}
+    {"name": "Med Pistol", "type": "P", "wa": 1, "conc":"J","damage":"2d6+3", "shots":10, "rof": 2, "rel": "ST", "range": 50, "notes":""},
+    {"name": "Med SMG", "type": "SMG", "wa": 0, "conc":"J","damage":"2d6+1", "shots":30, "rof": 20, "rel": "ST", "range": 200, "notes":""},
+    {"name": "Taser", "type": "MEL", "wa": 0, "conc":"P","damage":"Stun-2", "shots":10, "rof": 1, "rel": "ST", "range": 1, "notes":""}
   ],
   "gear": [
     "Security Uniform, cuffs/stripe bindings, radio, mirror shades, datapad"

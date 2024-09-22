@@ -59,9 +59,9 @@
     {"name":"Neural Processor", "options":"Speedware +2, Smargun Link"}
   ],
   "weapons": [
-    {"name": "Monoknife", "type": "MEL", "wa": "1", "conc":"P","damage":"2D6", "shots":"-", "rof": "-", "rel": "ST", "range": 0, "notes":"1/3 AP vs Soft armor;2/3 AP vs Hard Armor"},
-    {"name": "Heavy Pistol", "type": "P", "wa": "0", "conc":"J","damage":"4D6", "shots":"8", "rof": "1", "rel": "ST", "range": 50, "notes":""},
-    {"name": "Assault Rifle", "type": "RIF", "wa": "1", "conc":"N","damage":"5D6", "shots":"35", "rof": "30", "rel": "ST", "range": 400, "notes":""}
+    {"name": "Monoknife",     "type": "MEL", "wa": 1, "conc":"P","damage":"2D6", "shots":0, "rof": 1, "rel": "ST", "range": 0, "notes":"1/3 AP vs Soft armor;2/3 AP vs Hard Armor"},
+    {"name": "Smart Heavy Pistol",  "type": "P",   "wa": 2, "conc":"J","damage":"4D6", "shots":8, "rof": 1, "rel": "ST", "range": 50, "notes":""},
+    {"name": "Assault Rifle", "type": "RIF", "wa": 1, "conc":"N","damage":"5D6", "shots":35, "rof": 30, "rel": "ST", "range": 400, "notes":""}
   ],
   "gear": [
     ""

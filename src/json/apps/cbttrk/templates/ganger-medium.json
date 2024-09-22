@@ -59,10 +59,10 @@
     {"name":"Neural Processor", "options":"Speedware +2"}
   ],
   "weapons": [
-    {"name": "Knife", "type": "MEL", "wa": "0", "conc":"P","damage":"1D6", "shots":"-", "rof": "-", "rel": "ST", "range": 0, "notes":"1/2 AP vs Soft armor"},
-    {"name": "Medium Pistol", "type": "P", "wa": "0", "conc":"J","damage":"2D6+1", "shots":"10", "rof": "2", "rel": "ST", "range": 50, "notes":""},
-    {"name": "Light SMG", "type": "SMG", "wa": "1", "conc":"J","damage":"2D6+1", "shots":"35", "rof": "25", "rel": "ST", "range": 150, "notes":""},
-    {"name": "Shotgun", "type": "SHT", "wa": "-2", "conc":"N","damage":"4D6", "shots":"8", "rof": "2", "rel": "ST", "range": 50, "notes":""}
+    {"name": "Knife", "type": "MEL", "wa": 0, "conc":"P","damage":"1D6",  "rel": "ST", "range": 0, "notes":"1/2 AP vs Soft armor"},
+    {"name": "Medium Pistol", "type": "P", "wa": 0, "conc":"J","damage":"2D6+1", "shots":"10", "rof": 2, "rel": "ST", "range": 50, "notes":""},
+    {"name": "Light SMG", "type": "SMG", "wa": 1, "conc":"J","damage":"2D6+1", "shots":35, "rof": 25, "rel": "ST", "range": 150, "notes":""},
+    {"name": "Shotgun", "type": "SHT", "wa": -2, "conc":"N","damage":"4D6", "shots":8, "rof": 2, "rel": "ST", "range": 50, "notes":""}
   ],
   "gear": [
     ""

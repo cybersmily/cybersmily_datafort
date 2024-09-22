@@ -174,5 +174,86 @@
     {"name": "Nerualware", "optLimit": 6, "otions":["smartgun","smartgun","smartgun","tactile boost","skill chip","skill chip","skill chip","Vehicle Link"]},
     {"name": "Body Plating - Cowl", "armor": {"head":25,"torso":0,"arms":0,"legs":0}},
     {"name": "Body Plating - Torso", "armor": {"head":0,"torso":25,"arms":0,"legs":0}}
-  ]}
+  ]},
+  "gear": {
+    "chart": [
+      0, 0, 0, 0, 0,
+      1, 1, 1, 1, 1,
+      2, 2, 2, 2, 2,
+      3, 3, 3, 3, 3,
+      4, 4, 4, 4, 4,
+      5, 5, 5, 5, 5,
+      6, 6, 6, 6,
+      7, 7, 7, 7,
+      8, 8, 8, 8,
+      9, 9, 9, 9,
+      10,10,10,
+      11,11,11,
+      12,12,12,
+      13,13,13,
+      14,14,14,
+      15,15,
+      16,16,
+      17,17,
+      18,18,
+      19,19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29
+    ],
+    "values": [
+      {"name": "Cell Phone", "notes": ""},
+      {"name": "Cred Chip", "notes": ""},
+      {"name": "Image Wallet", "notes": ""},
+      {"name": "Drugs",  "optLimit": 6, "options": [
+        "Smash","Smash","Smash","Smash",
+        "Stim","Stim","Stim","Stim",
+        "Synth Coke","Synth Coke","Synth Coke","Synth Coke",
+        "Black Lace","Black Lace","Black Lace",
+        "Blue Glass","Blue Glass","Blue Glass",
+        "'Dorph'","'Dorph'","'Dorph'",
+        "Berserker", "Boost", "Char", "Happy Kill",
+        "Mr Ex",  "Paracaine", "Prime", "Sedative", "Speeheal", "Spotlight",
+        "Surge", "Syncomp 15", "Timewarp", "Trauma I", "Twitch", "Whitelace"
+        ]},
+      {"name": "Pocket Computer", "notes": ""},
+
+      {"name": "Passcard", "notes": ""},
+      {"name": "Data chip", "notes": ""},
+      {"name": "Packet of Kibble", "notes": ""},
+      {"name": "Breath Mask", "notes": ""},
+      {"name": "Airhypo", "notes": ""},
+
+      {"name": "Cab Hailer", "notes": ""},
+      {"name": "Newsviewer", "notes": ""},
+      {"name": "E-book", "notes": ""},
+      {"name": "Smart Goggles", "optLimit": 4, "options": [ "IR", "Lowlight", "Camera", "Dartgun", "Antidazzle", "Targeting Scope"], "notes": ""},
+      {"name": "Smart Mirrorshades", "optLimit": 2, "options": [ "IR", "Lowlight", "Camera", "Dartgun", "Antidazzle", "Targeting Scope"], "notes": ""},
+      {"name": "Battlegloves","optLimit": 3, "options": [ "Hydraulic Rams", "Thickened Myomer", "Reinforced Joints", "EMP Shielding", "Armored", "Armored"], "notes": ""},
+
+      {"name": "Pocket TV", "notes": ""},
+      {"name": "DDI Prayer Ware", "notes": ""},
+      {"name": "Digital Camera", "notes": ""},
+      {"name": "First Aid Kit", "notes": ""},
+      {"name": "Drug Analyzer", "notes": ""},
+
+      {"name": "CodeDecryptor", "notes": ""},
+      {"name": "VocDecryptor", "notes": ""},
+      {"name": "Security Scanner", "notes": ""},
+      {"name": "Poison Sniffer", "notes": ""},
+      {"name": "Jammer", "notes": ""},
+
+      {"name": "Stripwire Binders", "notes": ""},
+      {"name": "Tracking Device w/ tracer buttons", "notes": ""},
+      {"name": "PlasKuffs", "notes": ""},
+      {"name": "Hybrid Wearable Computer", "notes": ""}
+    ]
+  }
 }

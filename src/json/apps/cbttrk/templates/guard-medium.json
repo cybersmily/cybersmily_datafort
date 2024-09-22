@@ -55,12 +55,12 @@
     {"name":"Elect Security", "stat": "TECH", "value": 4}
   ],
   "cyberware": [
-    {"name":"Neural Processor", "options":"Chip socket, Smartgun, interface plugs, Kerenzikov +1"}
+    {"name":"Neural Processor", "options":"Chip socket, Smartgun Link, interface plugs, Kerenzikov +1"}
   ],
   "weapons": [
-    {"name": "Smart Hvy Pistol", "type": "P", "wa": "0", "conc":"J","damage":"4d6", "shots":"10", "rof": "1", "rel": "ST", "range": 50, "notes":""},
-    {"name": "Smart Hvy SMG", "type": "SMG", "wa": "0", "conc":"L","damage":"3d6", "shots":"30", "rof": "20", "rel": "ST", "range": 200, "notes":""},
-    {"name": "Taser", "type": "MEL", "wa": "0", "conc":"P","damage":"Stun-2", "shots":"10", "rof": "1", "rel": "ST", "range": 1, "notes":""}
+    {"name": "Smart Hvy Pistol", "type": "P", "wa": 2, "conc":"J","damage":"4d6", "shots":10, "rof": 1, "rel": "ST", "range": 50, "notes":""},
+    {"name": "Smart Hvy SMG", "type": "SMG", "wa": 2, "conc":"L","damage":"3d6", "shots":30, "rof": 20, "rel": "ST", "range": 200, "notes":""},
+    {"name": "Taser", "type": "MEL", "wa": 0, "conc":"P","damage":"Stun-2", "shots":10, "rof": 1, "rel": "ST", "range": 1, "notes":""}
   ],
   "gear": [
     "Security Uniform, cuffs/stripe bindings, radio, smart mirrorshades w/ antidazzler and thermo, datapad"

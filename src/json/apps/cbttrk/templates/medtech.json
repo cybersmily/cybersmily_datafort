@@ -43,8 +43,6 @@
     {"name":"", "options":""}
   ],
   "weapons": [
-    {"name": "", "type": "", "wa": "", "conc":"","damage":"", "shots":"", "rof": "", "rel": "", "range": 50, "notes":""},
-    {"name": "", "type": "", "wa": "", "conc":"","damage":"", "shots":"", "rof": "", "rel": "", "range": 50, "notes":""}
   ],
   "gear": [
     ""

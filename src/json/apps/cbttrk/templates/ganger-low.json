@@ -40,8 +40,8 @@
   "cyberware": [
   ],
   "weapons": [
-    {"name": "Knife", "type": "MEL", "wa": "0", "conc":"P","damage":"1D6", "shots":"-", "rof": "-", "rel": "ST", "range": 0, "notes":"1/2 AP vs Soft armor"},
-    {"name": "Axe", "type": "MEL", "wa": "-1", "conc":"N","damage":"2D6+3", "shots":"-", "rof": "-", "rel": "ST", "range": 0, "notes":""}
+    {"name": "Knife", "type": "MEL", "wa": 0, "conc":"P","damage":"1D6", "shots":1, "rof": 1, "rel": "ST", "range": 0, "notes":"1/2 AP vs Soft armor"},
+    {"name": "Axe", "type": "MEL", "wa": -1, "conc":"N","damage":"2D6+3", "shots":1, "rof": 1, "rel": "ST", "range": 0, "notes":""}
   ],
   "gear": [
     ""
