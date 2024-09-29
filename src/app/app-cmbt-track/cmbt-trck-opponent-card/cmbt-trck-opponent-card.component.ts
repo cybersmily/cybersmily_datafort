@@ -191,8 +191,9 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
   }
 
   clear() {
-    this.currOpponent = new CmbtTrckOpponent();
-    this.opponent = new CmbtTrckOpponent();
+    this.currOpponent = new CmbtTrckOpponent({id: this.opponent.id, name: this.opponent.name});
+    this.currThreatLevel = new CmbtTrckOppThreatCode();
+    this.opponent = new CmbtTrckOpponent(this.currOpponent);
     this.updateOpponent();
   }
 

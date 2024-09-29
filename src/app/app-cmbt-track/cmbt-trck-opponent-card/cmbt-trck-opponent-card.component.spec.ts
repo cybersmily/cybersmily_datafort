@@ -20,7 +20,6 @@ import { CmbtTrckGearComponent } from './../cmbt-trck-gear/cmbt-trck-gear.compon
 import { HttpClientModule } from '@angular/common/http';
 import { PipesModule } from './../../shared/pipes/pipes.module';
 import { CmbtTrkCyberComponent } from './../cmbt-trk-cyber/cmbt-trk-cyber.component';
-import { CmbtTrkSkillsComponent } from './../cmbt-trk-skills/cmbt-trk-skills.component';
 import { DataService } from './../../shared/services/file-services';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
@@ -79,7 +78,6 @@ describe('CmbtTrckOpponentCardComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         CmbtTrckOpponentCardComponent,
-        CmbtTrkSkillsComponent,
         CmbtTrkCyberComponent,
         CmbtTrckGearComponent,
       ],
@@ -103,7 +101,7 @@ describe('CmbtTrckOpponentCardComponent', () => {
     const opp = new CmbtTrckOpponent();
     opp.name = 'Test Opponent';
     opp.role = roles[0].name;
-    opp.sa = new Cp2020PlayerSkill(roles[0].specialability);
+    opp.sa = [new Cp2020PlayerSkill(roles[0].specialability)];
     opp.skills = roles[0].skills;
     component.opponent = opp;
     component.index = 0;
@@ -164,7 +162,7 @@ describe('CmbtTrckOpponentCardComponent', () => {
       const opp = new CmbtTrckOpponent();
       opp.name = 'New Opponent';
       opp.role = roles[0].name;
-      opp.sa = new Cp2020PlayerSkill(roles[0].specialability);
+      opp.sa = [new Cp2020PlayerSkill(roles[0].specialability)];
       opp.skills = roles[0].skills;
       component.changeOpponent(opp);
       fixture.autoDetectChanges();
