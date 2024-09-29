@@ -1,3 +1,4 @@
+import { TitleValue } from './../../shared/models/title-value';
 import { Cp2020CharGenSettings } from './../../shared/cp2020/models/cp2020-char-gen-settings';
 import {
   Component,
@@ -20,7 +21,7 @@ export class AppCharacterSettingsComponent implements OnInit, AfterViewInit {
   settings: Cp2020CharGenSettings = new Cp2020CharGenSettings();
 
   @Input()
-  sources: Array<any> = new Array<any>();
+  sources = new Array<TitleValue>();
 
   @ViewChild('iuSetting')
   iuSettingElem: ElementRef;

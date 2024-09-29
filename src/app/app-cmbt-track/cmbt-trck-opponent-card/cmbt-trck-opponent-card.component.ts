@@ -185,7 +185,6 @@ export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
         opp.name = name;
         opp.id = id;
         this.currOpponent = new CmbtTrckOpponent(opp);
-        console.log(this.currOpponent);
         this.updateOpponent();
       });
   }

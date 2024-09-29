@@ -35,6 +35,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Cp2020StatsSectionPdfService } from './../../shared/cp2020/cp2020-stats/services/cp2020-stats-section-pdf/cp2020-stats-section-pdf.service';
 import { Cp2020SkillSectionPdService } from './../../shared/cp2020/cp2020-skills/services/cp2020-skill-section-pdf/cp2020-skill-section-pd.service';
 import { Cp2020CharacterToFandDPDF } from './../../shared/models/pdf/cp2020-character-to-fand-d-pdf';
+import { SourcesDataService } from './../../shared/cp2020/cp2020-lifepath/services';
 
 @Component({
   selector: 'cs-app-character-generator-form',
@@ -91,7 +92,8 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     private cyberPdfService: Cp2020CyberwarePdfService,
     private deckmanagerPDFService: Cp2020DeckmanagerPdfSectionService,
     private contactPDFService: Cp2020ContactSectionPdfService,
-    private seo: SeoService
+    private seo: SeoService,
+    private sourceService: SourcesDataService
   ) {}
 
   ngOnInit() {
@@ -172,6 +174,9 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     );
     this.charGenSettings = new Cp2020CharGenSettings(JSON.parse(settings));
     this.setSkillSettingStats();
+    this.sourceService.getSources().subscribe((sources) => {
+      this.sources = sources;
+    });
   }
 
   saveSettings(settings: Cp2020CharGenSettings) {
