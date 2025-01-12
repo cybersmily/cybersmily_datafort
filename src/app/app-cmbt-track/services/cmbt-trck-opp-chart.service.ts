@@ -77,6 +77,10 @@ export class CmbtTrckOppChartService {
     return result;
   }
 
+  generateGear(count: number): Observable<Array<string>> {
+    return of([]);
+  }
+
   generateCyberware(count: number): Observable<Array<OppCyberware>> {
     if (this._curCharts) {
       return of(this.getCyberware(count));

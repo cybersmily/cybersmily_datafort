@@ -1,18 +1,42 @@
-<div *ngIf="builder$ | async as czArmy" style="min-height: 400px;">
+<div *ngIf="builder$ | async as czArmy" style="min-height: 400px">
   <div class="row">
     <div class="col-9 p-1">
       <div class="btn-group w-90 d-inline-block" dropdown>
-        <button id="button-basic" dropdownToggle type="button"
-          class="w-100 csd-btn p-1 dropdown-toggle border border-secondary text-start rounded" aria-controls="dropdown-basic" (click)="showAdd = false">
-          <img *ngIf="selectedSquadFaction !== ''" class="csd-img-icon"
-            src="img/cz/icon_{{selectedSquadFaction?.replace(' ','_')}}.png">
-          {{selectedSquadName}} <div class="caret float-end d-inline-block"></div>
+        <button
+          id="button-basic"
+          dropdownToggle
+          type="button"
+          class="w-100 csd-btn p-1 dropdown-toggle border border-secondary text-start rounded"
+          aria-controls="dropdown-basic"
+          (click)="showAdd = false"
+        >
+          <img
+            *ngIf="selectedSquadFaction !== ''"
+            class="csd-img-icon"
+            src="img/cz/icon_{{ selectedSquadFaction?.replace(' ', '_') }}.png"
+          />
+          {{ selectedSquadName }}
+          <div class="caret float-end d-inline-block"></div>
         </button>
-        <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu w-100" role="menu" aria-labelledby="button-basic">
-          <li role="menuitem" class="csd-btn text-capitalize" *ngFor="let squad of czArmy; index as squadIndex"
-            (click)="selectSquad(squad.faction, squad.name, squadIndex)">
-            <img *ngIf="squad.faction !== ''" class="csd-img-icon"
-              src="img/cz/icon_{{squad.faction.replace(' ','_')}}.png"> {{squad.name}}
+        <ul
+          id="dropdown-basic"
+          *dropdownMenu
+          class="dropdown-menu w-100"
+          role="menu"
+          aria-labelledby="button-basic"
+        >
+          <li
+            role="menuitem"
+            class="csd-btn text-capitalize"
+            *ngFor="let squad of czArmy; index as squadIndex"
+            (click)="selectSquad(squad.faction, squad.name, squadIndex)"
+          >
+            <img
+              *ngIf="squad.faction !== ''"
+              class="csd-img-icon"
+              src="img/cz/icon_{{ squad.faction.replace(' ', '_') }}.png"
+            />
+            {{ squad.name }}
           </li>
         </ul>
       </div>
@@ -23,43 +47,93 @@
       </button>
     </div>
     <div class="col-1 pt-1 px-0 text-center">
-      <button class="ftw-bold csd-btn text-center p-1" [disabled]="!(czArmy.length > 0)" (click)="saveArmy()">
+      <button
+        class="ftw-bold csd-btn text-center p-1"
+        [disabled]="!(czArmy.length > 0)"
+        (click)="saveArmy()"
+      >
         <fa-icon [icon]="faSave" size="xl"></fa-icon>
       </button>
     </div>
     <div class="col-1 pt-1 px-0 text-center">
-      <input type="file" id="loadFile" title="Load a CR: Combat Zone Teams json file" name="Load" class="me-2 d-none"
-        (change)="loadArmy($event)" #inputFile (click)="inputFile.value = null" accept="text/plain;text/json" />
+      <input
+        type="file"
+        id="loadFile"
+        title="Load a CR: Combat Zone Teams json file"
+        name="Load"
+        class="me-2 d-none"
+        (change)="loadArmy($event)"
+        #inputFile
+        (click)="inputFile.value = null"
+        accept="text/plain;text/json"
+      />
       <label for="loadFile" class="float-start btn-lg csd-btn me-3">
-        <fa-icon [icon]="faUpload" title="Load a CR: Combat Zone Teams json file" size="xl" ></fa-icon>
+        <fa-icon
+          [icon]="faUpload"
+          title="Load a CR: Combat Zone Teams json file"
+          size="xl"
+        ></fa-icon>
       </label>
     </div>
   </div>
   <div *ngIf="showAdd" class="border border-secondary p-1 rounded">
-  <div class="row">
-    <div class="col-12 py-0">
-      <input [(ngModel)]="newSquadName" type="text" class="w-100 p-1" placeholder="Enter new army name...">
-    </div>
-  </div>
-  <div  class="row mt-2">
-    <div class="col-12">
-      <cs-cr-cz-faction-selector [selectedFaction]="newSquadFaction" [hiddenFactions]="['', 'universal']"
-        (selected)="selectFaction($event)"></cs-cr-cz-faction-selector>
-    </div>
-  </div>
-  <div class="row mt-2">
-    <div class="col-12 text-center">
-      <button [ngClass]="{'csd-btn rounded border border-secondary p-2': true, 'csd-disabled': newSquadFaction === '' || newSquadName == ''}" [disabled]="newSquadFaction === '' || newSquadName == ''" (click)="addSquad(czArmy.length)"
-      tabindex="0">
-      ADD TEAM
+    <div class="row">
+      <div class="col-11 ps-0">
+        <span *ngIf=" newSquadName === '' || newSquadName == null" class="csd-required w-10"> </span>
+        <input
+          class="w-70 p-1 d-inline-block"
+          [(ngModel)]="newSquadName"
+          type="text"
+          title="Enter team name to create"
+          required
+          placeholder="Enter new army name..."
+        />
+      </div>
+      <div class="col-1 pe-4">
+      <button class="float-end d-inline-block w-10" title="Close New Team form" (click)="showAdd = false">
+        <fa-icon [icon]="faTimes" size="xl"></fa-icon>
       </button>
     </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-12">
+        Choose a Faction:
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-12">
+        <cs-cr-cz-faction-selector
+          [selectedFaction]="newSquadFaction"
+          [hiddenFactions]="['', 'universal']"
+          (selected)="selectFaction($event)"
+        ></cs-cr-cz-faction-selector>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-12 text-center">
+        <button
+          [ngClass]="{
+            'csd-btn rounded border border-secondary p-2': true,
+            'csd-disabled': newSquadFaction === '' || newSquadName == ''
+          }"
+          [title]="newSquadFaction === '' || newSquadName == '' ?  'Enter team name before adding team.' : 'Click to add team to army list.' "
+          [disabled]="newSquadFaction === '' || newSquadName == ''"
+          (click)="addSquad(czArmy.length)"
+          tabindex="0"
+        >
+          ADD TEAM
+        </button>
+      </div>
+    </div>
   </div>
-</div>
-  <div class="row">
+  <div *ngIf="!showAdd" class="row">
     <div class="col-12">
-      <cs-cr-cz-squad-form *ngIf="selectedSquadIndex > -1" [squadIndex]="selectedSquadIndex"
-        (delete)="removeSquad($event)"></cs-cr-cz-squad-form>
+      <cs-cr-cz-squad-form
+        *ngIf="selectedSquadIndex > -1"
+        [squadIndex]="selectedSquadIndex"
+        (delete)="removeSquad($event)"
+      ></cs-cr-cz-squad-form>
     </div>
   </div>
 </div>

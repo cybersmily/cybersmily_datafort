@@ -3,10 +3,13 @@ import {  crCzActionType, crCzFaction } from "./cr-cz-types";
 export interface iCrCzGearItemCard {
   name: string;
   faction: crCzFaction;
-  streetcred: number;
-  ebCost: number;
+  cred: number;
+  eb: number;
   rarity: number;
   action: crCzActionType;
+  ranges: string;
+  damage: boolean;
+  armor: number;
   keywords: Array<string>;
   attributes: Array<string>;
 }

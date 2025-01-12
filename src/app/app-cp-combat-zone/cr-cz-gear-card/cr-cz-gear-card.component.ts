@@ -41,4 +41,11 @@ export class CrCzGearCardComponent {
     this.add.emit(this.gear);
   }
 
+  getAttributeWidth(hasAction: boolean, hasArmor: boolean): string {
+    let length = 260;
+    length -= (hasAction ? 30 : 0);
+    length -= (hasArmor ? 30 : 0);
+    return length + 'px';
+  }
+
 }

@@ -1,12 +1,13 @@
 import { PdfPageOrientation } from "./pdf-page-orientation";
 
 export enum PdfPageSettings {
-  MARGIN_LEFT = 5,
-  MARGIN_TOP = 10,
-  MARGIN_RIGHT = 205,
+  MARGIN_LEFT = 6.5, // ~1/4 in.
+  MARGIN_TOP = 12.7, // 1/2 in.
+  MARGIN_RIGHT = 203.5,
   MIDPAGE = 105,
-  PAGE_HEIGHT = 280,
-  PAGE_WIDTH = 210,
+  MIDPAGE_LANDSCAPE = 148,
+  PAGE_HEIGHT = 297, // mm for A4 default
+  PAGE_WIDTH = 210, // mm for A4 default
   DEFAULT_FONT = 'Arial',
   DEFAULT_ORIENTATION = PdfPageOrientation.PORTRAIT,
   DEFAULT_FORMAT = 'a4',

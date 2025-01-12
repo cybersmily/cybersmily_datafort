@@ -9,7 +9,7 @@
         <img class="w-90 csd-btn mt-3" src="img/cz/hacked_{{unit.isHacked ? 'dis' : 'en'}}able.png" title="hacked"
           (click)="toggleHacked()">
         <br>
-        <img class="w-90 csd-btn mt-3" src="img/cz/{{unit.isVulnerable ? 'vulnerable': 'active'}}.png"
+        <img class="w-90 csd-btn mt-3" src="img/cz/status_{{unit.isVulnerable ? 'vulnerable': 'active'}}.png"
           [title]="unit.isVulnerable ? 'Remove vulnerable': 'Add vulnerable'" (click)="toggleVulnerable()">
       </div>
 

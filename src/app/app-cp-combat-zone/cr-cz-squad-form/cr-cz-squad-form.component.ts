@@ -13,7 +13,7 @@ import { CrCzArmyPdfService } from '../services/cr-cz-army-pdf/cr-cz-army-pdf.se
 })
 export class CrCzSquadFormComponent implements OnInit, OnChanges {
 
-  squad$: Observable<iCrCzSquad>;
+ // squad$: Observable<iCrCzSquad>;
   faTrash = faTrash;
   faStar = faStar;
   faPlus = faPlus;
@@ -43,15 +43,23 @@ export class CrCzSquadFormComponent implements OnInit, OnChanges {
   @Output()
   delete: EventEmitter<number> = new EventEmitter<number>();
 
+  public get squad$(): Observable<iCrCzSquad> {
+    return this.combatzoneArmyBuilder.getSquad(this.squadIndex);
+  }
+
 
   constructor(private combatzoneArmyBuilder: CrCzArmyBuilderService, private modalService: BsModalService, private pdfService: CrCzArmyPdfService) {}
 
   ngOnInit(): void {
-    this.squad$ = this.combatzoneArmyBuilder.getSquad(this.squadIndex);
+    this.updateSquad();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.squad$ = this.combatzoneArmyBuilder.getSquad(this.squadIndex);
+    this.updateSquad();
+  }
+
+  updateSquad(): void {
+  //  this.squad$ = this.combatzoneArmyBuilder.getSquad(this.squadIndex);
   }
 
   showModal(template: TemplateRef<any>, faction: string) {
@@ -79,16 +87,23 @@ export class CrCzSquadFormComponent implements OnInit, OnChanges {
 
   removeUnit(unitIndex: number): void {
     this.combatzoneArmyBuilder.removeUnit(this.squadIndex, unitIndex);
+    this.updateSquad();
   }
 
   updateLuck(amount: number): void {
     this.combatzoneArmyBuilder.updateSquadLuck(this.squadIndex, amount);
+    this.updateSquad();
   }
 
   navigateMembers(nav: number, length: number): void {
     let index = this._selectedUnitIndex.getValue() + nav;
     index = (index >= length) ? 0 : (index < 0) ? length : index;
     this._selectedUnitIndex.next(index);
+  }
+
+  togglePayVeteran(): void {
+    this.combatzoneArmyBuilder.updateSquadVeteranCost(this.squadIndex);
+    this.updateSquad();
   }
 
   createPDF() {

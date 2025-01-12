@@ -4,7 +4,6 @@ import { jsPDF } from 'jspdf';
 import { PdfPageOrientation } from './../../../shared/enums';
 import {
   PdfPageSettings,
-  PdfLineHeight,
   PdfFontSize,
 } from './../../../shared/enums/pdf-page-settings';
 import { iCrCzUnitCard } from '../../models/cr-cz-unit-card';
@@ -48,25 +47,26 @@ export class CrCzArmyPdfService {
     this._doc.setFont(font);
     this._doc.setFontSize(PdfFontSize.DEFAULT);
     let line: number = PdfPageSettings.MARGIN_TOP;
+    let left: number = PdfPageSettings.MARGIN_LEFT + 1;
     // set the squad name
     line = this.createTitle(
       line,
-      PdfPageSettings.MIDPAGE,
+      PdfPageSettings.MIDPAGE_LANDSCAPE,
       `TEAM NAME: ${squad.name?.toUpperCase()}`
     );
     line = this.createTitle(
       line,
-      PdfPageSettings.MIDPAGE,
+      PdfPageSettings.MIDPAGE_LANDSCAPE,
       squad.faction?.toUpperCase()
     );
     const mercs = squad.units.filter(
       (unit) => unit.faction !== squad.faction && unit.isMerc
     );
     const gearCount = squad.units.reduce((a, b) => a + b.gearCards.length, 0);
-    const leaders = squad.units.filter( unit => unit.isLeader);
+    const leaders = squad.units.filter((unit) => unit.isLeader);
     line = this.createSummaryRow(
       line,
-      PdfPageSettings.MARGIN_LEFT,
+      left,
       squad.totalCost,
       squad.totalStreetcred,
       squad.totalInfluence,
@@ -78,21 +78,41 @@ export class CrCzArmyPdfService {
     );
     // list the units and their gear/programs
     line += 5;
-    let secondColLine = this.createTitle(line, 220, 'ACHEIVED OBJECTIVES');
-    squad.objectives.forEach((objective) => {
-      secondColLine = this.createObjectivetRow(secondColLine, 180, objective);
+    let pageTop = line;
+    line = this.createTeamMemberHeader(line, left);
+    squad.units.forEach((unit) => {
+      // check to see if a new page is required.
+      if (this.getLineHeightOfUnit(unit) + line > PdfPageSettings.PAGE_WIDTH) {
+        left =
+          left === PdfPageSettings.MARGIN_LEFT
+            ? PdfPageSettings.MIDPAGE_LANDSCAPE
+            : PdfPageSettings.MARGIN_LEFT;
+        line = pageTop;
+        line = this.createTeamMemberHeader(line, left);
+      }
+
+      line = this.createUnitRow(line, left, unit, squad.faction);
     });
 
-    line = this.createTitle(line, 80, 'TEAM MEMBERS');
-    line = this.createUnitHeader(line, PdfPageSettings.MARGIN_LEFT);
-    squad.units.forEach((unit) => {
-      line = this.createUnitRow(
-        line,
-        PdfPageSettings.MARGIN_LEFT,
-        unit,
-        squad.faction
-      );
+    line += 3;
+    const objectivesHeight = 7 + (squad.objectives?.length * 4);
+
+    if (line + objectivesHeight > PdfPageSettings.PAGE_WIDTH) {
+      if (left === PdfPageSettings.MARGIN_LEFT ) {
+        left = PdfPageSettings.MIDPAGE_LANDSCAPE;
+        line = pageTop;
+      } else {
+        this._doc.addPage();
+        left = PdfPageSettings.MARGIN_LEFT;
+        line = PdfPageSettings.MARGIN_TOP;
+      }
+    }
+
+    line = this.createTitle(line, left + 35, 'ACHEIVED OBJECTIVES');
+    squad.objectives.forEach((objective) => {
+      line = this.createObjectivetRow(line, left, objective);
     });
+
     // list objectives
     line += 5;
     this._doc.save(fileName);
@@ -121,18 +141,17 @@ export class CrCzArmyPdfService {
     totalUnits: number
   ): number {
     this._doc.setFontSize(PdfFontSize.DEFAULT);
-    this._doc.text(`Total Units: ${totalUnits}`, leftMargin, line);
-    this._doc.text(`Total EB: ${totalEb}`, leftMargin + 35, line);
-    this._doc.text(
-      `Total Streetcred: ${totalStreetcred}`,
-      leftMargin + 60,
-      line
-    );
-    this._doc.text(`Total Influence: ${totalInfluence}`, +100, line);
-    this._doc.text(`Total Gonks: ${totalGonks}`, +135, line);
-    this._doc.text(`Total Leaders: ${totalLeaders}`, +163, line);
-    this._doc.text(`Total Mercs: ${totalMercs}`, +193, line);
-    this._doc.text(`# Gear: ${totalGear}`, leftMargin + 215, line);
+    let output = `Total Units: ${totalUnits}`;
+    output += ` - Total EB: ${totalEb}`;
+    output += ` - Total Streetcred: ${totalStreetcred}`;
+    output += ` - Total Influence: ${totalInfluence}`;
+    output += ` - Total Gonks: ${totalGonks}`;
+    output += ` - Total Leaders: ${totalLeaders}`;
+    output += ` - Total Mercs: ${totalMercs}`;
+    output += ` - # Gear: ${totalGear}`;
+    this._doc.text(output, PdfPageSettings.MIDPAGE_LANDSCAPE, line, {
+      align: 'center',
+    });
     this._doc.setFontSize(PdfFontSize.DEFAULT);
     this._doc.setFont(PdfPageSettings.DEFAULT_FONT, 'normal');
     line += 4;
@@ -143,14 +162,32 @@ export class CrCzArmyPdfService {
     this._doc.setFontSize(PdfFontSize.SM);
     this._doc.setFont(PdfPageSettings.DEFAULT_FONT, 'italic');
     this._doc.text('Name', leftMargin, line);
-    this._doc.text(`SC`, leftMargin + 92, line), {align: 'center'};
-    this._doc.text(`EB`, leftMargin + 103, line, {align: 'center'});
+    this._doc.text(`SC`, leftMargin + 92, line), { align: 'center' };
+    this._doc.text(`EB`, leftMargin + 103, line, { align: 'center' });
     this._doc.text('Keywords', leftMargin + 110, line);
     this._doc.setFont(PdfPageSettings.DEFAULT_FONT, 'normal');
     this._doc.setFontSize(PdfFontSize.DEFAULT);
     line += 4;
     return line;
+  }
 
+  private getLineHeightOfUnit(unit: iCrCzUnitCard): number {
+    let height = 12;
+    if (unit?.gearCards?.length > 0) {
+      height += unit.gearCards.length * 5;
+    }
+
+    if (unit.programs?.length > 0) {
+      height += unit.programs.length * 5;
+    }
+    return height;
+  }
+
+  private createTeamMemberHeader(line: number, left: number): number {
+    line = this.createTitle(line, left + 35,  'TEAM MEMBERS');
+    line += 2;
+    line = this.createUnitHeader(line, left);
+    return line;
   }
 
   private createUnitRow(
@@ -172,7 +209,9 @@ export class CrCzArmyPdfService {
       this._doc.setFontSize(PdfFontSize.DEFAULT);
     }
     this._doc.text(`${unit.streetcred}SC`, leftMargin + 90, line);
-    this._doc.text(`${unit.ebCost.toString()}eb`, leftMargin + 107, line, {align: 'right'});
+    this._doc.text(`${unit.ebCost.toString()}eb`, leftMargin + 107, line, {
+      align: 'right',
+    });
     this._doc.text(unit.keywords.join(', '), leftMargin + 110, line);
     line += 4;
     this._doc.setFontSize(PdfFontSize.SM);
@@ -180,8 +219,10 @@ export class CrCzArmyPdfService {
       this._doc.text('Gear', leftMargin + 3, line);
       unit.gearCards.forEach((gear) => {
         this._doc.text(gear.name?.toUpperCase(), leftMargin + 12, line);
-        this._doc.text(`${gear?.streetcred}SC`, leftMargin + 90, line);
-        this._doc.text(`+${gear.ebCost}eb`, leftMargin + 107, line, {align: 'right'});
+        this._doc.text(`${gear?.cred}SC`, leftMargin + 90, line);
+        this._doc.text(`+${gear.eb}eb`, leftMargin + 107, line, {
+          align: 'right',
+        });
         this._doc.text(`${gear.rarity} rarity`, leftMargin + 110, line);
         line += 3;
       });
@@ -190,20 +231,24 @@ export class CrCzArmyPdfService {
     if (unit.programs.length > 0) {
       this._doc.text('Hacks', leftMargin + 3, line);
       unit.programs.forEach((prog) => {
-        this._doc.text(prog.name?.toUpperCase(), leftMargin + 12, line);
-        this._doc.text(`${prog?.streetcred}SC`, leftMargin + 90, line);
-        this._doc.text(`+${prog.ebCost}eb`, leftMargin + 107, line, {align: 'right'});
+        this._doc.text(prog?.name?.toUpperCase(), leftMargin + 12, line);
+        this._doc.text(`${prog?.streetcred ?? '-'}SC`, leftMargin + 90, line);
+        this._doc.text(`+${prog.ebCost}eb`, leftMargin + 107, line, {
+          align: 'right',
+        });
         this._doc.text(`${prog.rarity} rarity`, leftMargin + 110, line);
         line += 3;
       });
       line += 1;
     }
-    this._doc.text(`Total Cost: `, leftMargin + 90, line, {align: 'right'});
-    this._doc.text(`${unit.totalCost}eb`, leftMargin + 107, line, {align: 'right'});
+    this._doc.text(`Total Cost: `, leftMargin + 90, line, { align: 'right' });
+    this._doc.text(`${unit.totalCost}eb`, leftMargin + 107, line, {
+      align: 'right',
+    });
     line += 1;
     this._doc.setLineWidth(0.5);
     this._doc.setDrawColor('#AAAAAA');
-    this._doc.line(leftMargin, line, leftMargin + 160,  line );
+    this._doc.line(leftMargin, line, leftMargin + 135, line);
     this._doc.setDrawColor('black');
     this._doc.setFontSize(PdfFontSize.DEFAULT);
     this._doc.setFont(PdfPageSettings.DEFAULT_FONT, 'normal');

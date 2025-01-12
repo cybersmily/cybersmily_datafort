@@ -618,8 +618,8 @@ div svg circle.neticon:hover {
 }
 
 .cz-gear-card {
-  height: 144px;
-  width: 207px;
+  height: 100%;
+  width: 100%;
 }
 
 .wpn-shot {

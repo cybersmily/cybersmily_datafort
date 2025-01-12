@@ -1,5 +1,7 @@
 import { faPlus, faDice, faTrash, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { CmbtTrckOppChartService } from './../services/cmbt-trck-opp-chart.service';
+import { OppCyberware } from './../../shared/cp2020/cp2020-cyberware/models';
 
 @Component({
   selector: 'cs-cmbt-trck-gear',
@@ -24,7 +26,7 @@ export class CmbtTrckGearComponent implements OnInit {
 
   addedGear = '';
 
-  constructor() { }
+  constructor(private oppCharts: CmbtTrckOppChartService) { }
 
   ngOnInit() {
   }
@@ -39,5 +41,14 @@ export class CmbtTrckGearComponent implements OnInit {
   delete(index: number) {
     this.gear.splice(index, 1);
     this.newGear.emit(this.gear);
+  }
+
+  generate(event) {
+    this.oppCharts.generateCyberware(3)
+    .subscribe( item => {
+      //this.gear.push(item);
+      this.newGear.emit(this.gear);
+    });
+    event.stopPropagation();
   }
 }

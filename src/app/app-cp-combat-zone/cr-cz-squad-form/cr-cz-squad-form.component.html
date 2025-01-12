@@ -22,7 +22,13 @@
           </div>
           <div class="row">
             <div class="col-12 text-small">
-              {{squad.totalCost || 0}}eb - {{squad.totalStreetcred || 0}}<fa-icon [icon]="faStar"></fa-icon> | {{squad.totalGonks}} Gonks/{{squad.totalInfluence}} Influcence</div>
+              {{squad.totalCost || 0}}eb - {{squad.totalStreetcred || 0}}<fa-icon [icon]="faStar"></fa-icon> |
+              {{squad.totalGonks}} Gonks/{{squad.totalInfluence}} Influcence</div>
+          </div>
+          <div class="row">
+            <div class="col-12 text-small">
+              Pay for Veteran/Elites <input type="checkbox" [checked]="squad.payVeterans" (change)="togglePayVeteran()">
+            </div>
           </div>
         </div>
       </div>
@@ -51,8 +57,8 @@
             <tab customClass="customClass">
               <ng-template tabHeading>
                 <div class="text-small text-uppercase">
-                Members ({{squad?.units.length}})
-              </div>
+                  Members ({{squad?.units.length}})
+                </div>
               </ng-template>
               <div class="row">
                 <div class="col-12">
@@ -91,7 +97,8 @@
                   </div>
                 </div>
                 <div class="col-2 col-md-1 px-1" (click)="showUnitModal(unitForm, unit.name, unitIndex)">
-                  <img *ngIf="unit.isVulnerable" class="float-start w-45" src="img/cz/status_vulnerable.png" title="is Vulnerable!">
+                  <img *ngIf="unit.isVulnerable" class="float-start w-45" src="img/cz/status_vulnerable.png"
+                    title="is Vulnerable!">
                   <img *ngIf="unit.isHacked" class="float-end w-45" src="img/cz/status_hacked.png" title="Hacked!">
                 </div>
                 <div class="col-1 text-small px-0" (click)="showUnitModal(unitForm, unit.name, unitIndex)">
@@ -112,8 +119,8 @@
             <tab customClass="customClass">
               <ng-template tabHeading>
                 <div class="text-small text-uppercase">
-                Objectives ({{squad?.objectives.length}})
-              </div>
+                  Objectives ({{squad?.objectives.length}})
+                </div>
               </ng-template>
               <div class="row">
                 <div class="col-12 text-center">
@@ -147,9 +154,9 @@
           <fa-icon [icon]="faChevronRight"></fa-icon>
         </button>
         <button class="csd-btn p-2 text-small border border-secondary rounded ms-3" (click)="inspireTeam()"
-        title="Inspire your team">
-        <fa-icon [icon]="faRedo"></fa-icon> Inspire Team
-      </button>
+          title="Inspire your team">
+          <fa-icon [icon]="faRedo"></fa-icon> Inspire Team
+        </button>
       </h4>
       <button type="button" class="btn-close close float-end" aria-label="Close" (click)="modalRef?.hide()">
         <span aria-hidden="true" class="visually-hidden">&times;</span>

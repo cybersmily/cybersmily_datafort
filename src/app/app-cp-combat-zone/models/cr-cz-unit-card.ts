@@ -96,7 +96,8 @@ export class CrCzUnit implements iCrCzUnitCard {
   loot: Array<iCrCzLootCard>;
 
   get totalCost(): number {
-    return this.ebCost + this.gearCards.reduce((a,b) => a + b.ebCost,0);
+    const total = this.ebCost + this.gearCards.reduce((a,b) => a + b.eb,0);
+    return total;
   }
 
   get isRedLined(): boolean {

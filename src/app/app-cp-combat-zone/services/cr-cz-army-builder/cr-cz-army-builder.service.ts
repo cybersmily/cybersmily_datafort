@@ -6,7 +6,7 @@ import { iCrCzGearItemCard } from '../../models/cr-cz-gear-item-card';
 import { iCrCzNrProgramCard } from '../../models/cr-cz-nr-program-card';
 import { iCrCzLootCard } from '../../models/cr-cz-loot-card';
 import { LocalStorageManagerService } from './../../../shared/services/local-storage-manager/local-storage-manager.service';
-import { CRCZ_LOCAL_STORAGE_KEY, crCzObjectiveRewardType } from '../../models/cr-cz-types';
+import { CRCZ_LOCAL_STORAGE_KEY } from '../../models/cr-cz-types';
 import { iCrCzObjectiveCard } from '../../models/cr-cz-objective-card';
 
 @Injectable({
@@ -25,7 +25,7 @@ export class CrCzArmyBuilderService {
    }
 
    private saveArmy(army: Array<iCrCzSquad>): void {
-    this._army.next(army);
+    this._army.next(army.map(squad => new CrCzSquad(squad)));
     this.localStorage.store<Array<iCrCzSquad>>(CRCZ_LOCAL_STORAGE_KEY,army);
    }
 
@@ -79,6 +79,15 @@ export class CrCzArmyBuilderService {
   updateSquadLuck(squadIndex: number, amount: number): void {
     let army = [...this._army.getValue()];
     army[squadIndex].luck += amount;
+    this.saveArmy(army);
+  }
+
+  updateSquadVeteranCost(squadIndex: number): void {
+    let army = [...this._army.getValue()];
+    console.log('squad', army[squadIndex]);
+    console.log('payVeterans', army[squadIndex]?.payVeterans);
+    army[squadIndex].payVeterans = !army[squadIndex].payVeterans;
+    console.log('payVeterans', army[squadIndex]?.payVeterans);
     this.saveArmy(army);
   }
 

@@ -1,42 +1,44 @@
 <div class="d-inline-block float-start m-1">
-  <div class="d-inline-block position-relative">
+  <div class="d-inline-block position-relative" style="height: 145px; width: 280px">
     <!--
     <img class="cz-gear-card d-inline-block rounded align-top"
       src="img/cz/gear/{{gear.name?.replaceAll(' ', '_')}}.jpg">
       -->
     <img class="cz-gear-card d-inline-block rounded align-top" src="img/cz/gear/blank_card.jpg">
     <img
-      [ngClass]="{'csd-img-icon rounded position-absolute bottom-0 mb-2':true, 'bg-danger border border-secondary': gear.faction !== 'universal' && gear?.faction != unitFaction}"
-      style="right: 12px" src="img/cz/icon_{{gear.faction.replace(' ','_')}}.png">
+      [ngClass]="{'csd-img-icon rounded position-absolute top-0 mt-0 mb-0':true, 'bg-danger border border-secondary': gear.faction !== 'universal' && gear?.faction != unitFaction}"
+      style="left: 0px" src="img/cz/icon_{{gear.faction.replace(' ','_')}}.png">
 
-    <!--
-    <div class="d-inline-block position-absolute bottom-0 ms-2 mb-1 text-white"
-      style="left:0;background-color: #2e2f31;">
-      {{gear.rarity}} rarity</div>
-    <div class="d-inline-block position-absolute top-0 mt-3 text-white py-0 px-1 text-small"
-      style="right:9px;background-color: #7531a2;line-height: 18px;">{{gear.ebCost}} EB</div>
-    <div class="d-inline-block position-absolute top-0 mt-3 text-white py-0 px-1 text-small fw-bold"
-      style="right:47px;background-color: #282b30;line-height: 16px;opacity: 0.8;">{{gear.streetcred}}</div>
-      -->
 
     <div [ngClass]="{'d-inline-block position-absolute ms-3 mt-2 text-capitalize text-white':true, ' text-small': gear.name.length <= 25, ' text-xsmall': gear.name.length > 25,}"
-    style="left:0;width: 120px;line-height: 15px;top:6px">{{gear.name}}</div>
-    <div class="d-inline-block position-absolute top-0 ms-3 mt-5 text-capitalize text-white text-small"
+    style="left:20px;width: 120px;line-height: 15px;top:6px">{{gear.name}}</div>
+    <div class="d-inline-block position-absolute top-0 ms-3 mt-5 pt-1 text-capitalize text-white text-small"
     style="left:0;width: 120px;line-height: 16px;">
     {{gear.keywords.join(", ")}}</div>
-    <div class="d-inline-block position-absolute bottom-0 ms-2 mb-1 text-white"
+    <div class="d-inline-block position-absolute bottom-0 ms-2 mb-1 text-white text-small"
       style="left:0;">
       {{gear.rarity}} rarity</div>
     <div class="d-inline-block position-absolute top-0 mt-3 text-white py-0 px-1 text-small"
-      style="right:8px;line-height: 18px;">{{gear.ebCost}} EB</div>
+      style="right:8px;line-height: 18px;">{{gear.eb}} EB</div>
     <div class="d-inline-block position-absolute top-0 mt-3 text-white py-0 px-1 text-small fw-bold"
-      style="right:53px;line-height: 16px;">{{gear.streetcred}}</div>
-    <img *ngIf="gear.action"  class="position-absolute top-50 csd-img-icon" style="left: 13px;" src="img/cz/{{gear.action}}.png"  >
+      style="right:78px;line-height: 16px;">{{gear.cred}}</div>
+    <img *ngIf="gear.action"  class="position-absolute top-50 csd-img-icon" style="left: 5px;" src="img/cz/action_{{gear.action}}.png"  >
+    <img *ngIf="gear.ranges?.length > 0" class="position-absolute top-50 w-70" style="left: 35px;height:10px;" src="img/cz/range_base.png">
+    <img *ngIf="gear.ranges?.includes('r')" class="position-absolute top-50 w-70" style="left: 35px;height:10px;" src="img/cz/range_red.png">
+    <img *ngIf="gear.ranges?.includes('y')" class="position-absolute top-50 w-70" style="left: 35px;height:10px;" src="img/cz/range_yellow.png">
+    <img *ngIf="gear.ranges?.includes('g')" class="position-absolute top-50 w-70" style="left: 35px;height:10px;" src="img/cz/range_green.png">
+    <img *ngIf="gear.ranges?.includes('l')" class="position-absolute top-50 w-70" style="left: 35px;height:10px;" src="img/cz/range_long.png">
+    <div class="d-inline-block position-absolute text-white py-0 px-1 text-xsmall text-start"
+      [ngStyle]="{'top':(gear.ranges?.length > 0 ? '85px' : '70px'),'left':(gear.action ? 35 : 5) + 'px', 'line-height': '11px', 'width': getAttributeWidth(gear.action != '', gear.armor > 0)}">
+      <img *ngIf="gear.damage" class="float-start" style="height:11px;" src="img/cz/lethal_icon.png">
+      {{gear.attributes.join(', ')}}
+    </div>
+    <div *ngIf="gear.armor > 0" class="d-inline-block position-absolute top-50 text-white py-1 px-1 text-small text-center fw-bold"
+    style="background-image: url('img/cz/shield_icon.png');background-size: contain; height:33px; right: 8px; width:30px !important; ">
+      {{gear.armor}}
+    </div>
 
-    <div class="d-inline-block position-absolute top-50 text-white py-0 px-1 text-small text-start"
-      [ngStyle]="{'left':(gear.action ? 40 : 28) + 'px', 'line-height': '16px', 'width': '130px'}">{{gear.attributes.join(', ')}}</div>
-
-    <div *ngIf="gear?.streetcred > totalStreetcred || (gear.faction !== 'universal' && gear?.faction != unitFaction)"
+    <div *ngIf="gear?.cred > totalStreetcred || (gear.faction !== 'universal' && gear?.faction != unitFaction)"
       class="text-small text-center w-100 text-danger position-absolute bottom-0 bg-warning border border-danger opacity-75 rounded">
       {{ gear?.streetcred > totalStreetcred ? "** EXCEEDS TEAM STREETCRED **" : ""
       }}

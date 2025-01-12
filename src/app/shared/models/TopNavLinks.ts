@@ -344,6 +344,11 @@ export class TopNavLinks {
         'Under Apps you will find web page based application/utilities for Cyberpunk.',
       links: [
         {
+          title: 'Army Generator',
+          link: 'apps/crcz',
+          desc: 'Cyberpunk Red Combatzone Army Builder',
+        },
+        {
           title: 'Bodegas Generator',
           link: 'apps/nightmarket',
           desc: 'Bodegas generator for Cyberpunk Red.',

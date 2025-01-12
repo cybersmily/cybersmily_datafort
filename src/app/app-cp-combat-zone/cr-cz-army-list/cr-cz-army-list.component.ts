@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CrCzArmyBuilderService } from '../services/cr-cz-army-builder/cr-cz-army-builder.service';
 import { Observable, take } from 'rxjs';
 import { CrCzSquad, iCrCzSquad } from '../models/cr-cz-squad';
-import { faPlus, faStar, faTrash, faSave, faUpload } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faStar, faTrash, faSave, faUpload, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FileLoaderService, SaveFileService } from './../../shared/services/file-services';
 import { error } from 'protractor';
 
@@ -18,6 +18,7 @@ export class CrCzArmyListComponent implements OnInit {
   faTrash = faTrash;
   faSave = faSave;
   faUpload = faUpload;
+  faTimes = faTimes;
 
   newSquadFaction: string = '';
   newSquadName: string = '';

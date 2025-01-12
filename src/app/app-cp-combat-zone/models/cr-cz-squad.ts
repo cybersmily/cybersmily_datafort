@@ -9,6 +9,7 @@ export interface iCrCzSquad {
   objectives: Array<iCrCzObjectiveCard>;
 
   totalCost: number;
+  payVeterans: boolean;
   totalInfluence: number;
   totalStreetcred: number;
   totalGonks: number;
@@ -21,12 +22,18 @@ export class CrCzSquad implements iCrCzSquad {
   luck: number;
   faction: string;
   objectives: Array<iCrCzObjectiveCard>;
+  payVeterans: boolean;
 
    get totalCost(): number {
+    console.log(this.units);
     if(this.units.length < 1) {
       return 0;
     }
-    return this.units.reduce((a,b) => a + b.totalCost, 0);
+    let cost = this.units.reduce((a,b) => a + b.totalCost, 0);
+    if(this.payVeterans) {
+      cost += this.units.reduce((a,b) => a + (b.streetcred *  5) , 0);
+    }
+    return cost;
    }
   get totalInfluence(): number{
     if(this.units.length < 1) {
@@ -53,6 +60,7 @@ export class CrCzSquad implements iCrCzSquad {
     this.units = param?.units.map(unit => new CrCzUnit(unit)) || new Array<iCrCzUnitCard>();
     this.faction = param?.faction || 'arasaka';
     this.luck = param?.luck || 3;
+    this.payVeterans = param?.payVeterans || false;
     this.objectives = param?.objectives || new Array<iCrCzObjectiveCard>();
   }
 

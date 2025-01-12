@@ -1,11 +1,11 @@
 <div class="row">
   <div *ngFor="let faction of factionList" class="col-2 col-md-1">
-    <button [ngClass]="{'p-1 csd-btn rounded text-center':true, 'chosen-button': faction === selectedFaction}" [title]="faction.replace('_',' ').toUpperCase()" (click)="selectFaction(faction)">
+    <button [ngClass]="{'p-1 csd-btn rounded text-center':true, 'chosen-button': faction === selectedFaction}" [title]="'click to choose ' + faction.replace('_',' ').toUpperCase() + ' faction'" (click)="selectFaction(faction)">
       <div *ngIf="!faction || faction == ''; else elseFaction" class="d-inline-block w-100 text-center text-small">
         All
       </div>
       <ng-template #elseFaction>
-        <img [ngClass]="{'csd-img-icon d-inline-block': true, 'csd-btn-pressed': faction === selectFaction}"
+        <img [ngClass]="{'csd-img-icon d-inline-block': true, 'csd-btn-pressed': faction === selectFaction}" alt="{{faction.replace('_',' ')}} faction"
           src="img/cz/icon_{{faction.replace(' ','_')}}.png">
       </ng-template>
     </button>
