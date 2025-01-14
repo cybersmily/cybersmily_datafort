@@ -12,4 +12,5 @@ export interface iCrCzGearItemCard {
   armor: number;
   keywords: Array<string>;
   attributes: Array<string>;
+  flipped?: boolean;
 }

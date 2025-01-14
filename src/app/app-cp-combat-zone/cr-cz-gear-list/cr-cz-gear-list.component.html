@@ -1,10 +1,20 @@
 <cs-cr-cz-faction-selector [selectedFaction]="filterFaction"
   (selected)="setFaction($event)"></cs-cr-cz-faction-selector>
+  <div>
+    <input type="text" placeholder="Search by name" [(ngModel)]="filterName">
+  </div>
 <div *ngIf="dataList$ | async as gearList" class="row">
   <div class="col-12">
     <div class="row">
       <div class="col-12 text-center px-0">
-        <cs-cr-cz-gear-card *ngFor="let gear of gearList |contains:'faction':[filterFaction, 'universal']" [gear]="gear" [unitFaction]="unitFaction" [totalStreetcred]="totalStreetcred" (add)="buyGear($event)"></cs-cr-cz-gear-card>
+        <cs-cr-cz-gear-card *ngFor="let gear of gearList |contains:'faction':[filterFaction, 'universal'] | contains:'name':filterName"
+          [gear]="gear"
+          [unitFaction]="unitFaction"
+          [totalStreetcred]="totalStreetcred"
+          [count]="getCount(gear.name)"
+          [hasGear]="characterHasGear(gear.name)"
+          (add)="buyGear($event)">
+        </cs-cr-cz-gear-card>
       </div>
     </div>
   </div>

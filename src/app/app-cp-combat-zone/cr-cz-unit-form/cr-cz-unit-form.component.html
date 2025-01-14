@@ -39,8 +39,8 @@
           <fa-icon [icon]="faPlus"></fa-icon>
         </button>
         <div *ngFor="let gear of unit?.gearCards;index as gearIndex"
-          [ngClass]="{'float-start d-inline-block me-3 my-2 p-1 rounded  position-relative align-top':true}">
-          <cs-cr-cz-gear-card [gear]="gear" [unitFaction]="unit.faction" [gearIndex]="gearIndex" [totalStreetcred]="totalStreetcred" (remove)="removeGear($event)"></cs-cr-cz-gear-card>
+          [ngClass]="{'float-start d-inline-block me-3 my-0 p-0 rounded position-relative align-top':true}">
+          <cs-cr-cz-gear-card [gear]="gear" [unitFaction]="unit.faction" [gearIndex]="gearIndex" [totalStreetcred]="totalStreetcred" [count]="getSquadGearCount(gear.name)" (remove)="removeGear($event)"></cs-cr-cz-gear-card>
         </div>
       </tab>
       <tab customClass="customClass">
@@ -76,7 +76,14 @@
     </button>
   </div>
   <div class="modal-body">
-    <cs-cr-cz-gear-list [filterFaction]="unit.faction" [unitFaction]="unit.faction" [totalStreetcred]="totalStreetcred" (addGear)="addGeaItem($event)"></cs-cr-cz-gear-list>
+    <cs-cr-cz-gear-list
+      [filterFaction]="unit.faction"
+      [unitFaction]="unit.faction"
+      [totalStreetcred]="totalStreetcred"
+      [existingGear]="unitGearList"
+      [characterGear]="characterGearList"
+      (addGear)="addGeaItem($event)">
+    </cs-cr-cz-gear-list>
   </div>
 </ng-template>
 

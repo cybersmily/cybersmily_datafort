@@ -25,7 +25,6 @@ export class CrCzSquad implements iCrCzSquad {
   payVeterans: boolean;
 
    get totalCost(): number {
-    console.log(this.units);
     if(this.units.length < 1) {
       return 0;
     }
@@ -45,7 +44,11 @@ export class CrCzSquad implements iCrCzSquad {
     if(this.units.length < 1) {
       return 0;
     }
-    return this.units.reduce((a,b) => a + b.streetcred, 0) + this.objectives.reduce((a,b) => a + b.streetcred,0);
+    const unitCred = this.units.reduce((a,b) => a + b.streetcred, 0);
+    const objectiveCred = this.objectives.reduce((a,b) => a + b.streetcred,0);
+
+    console.log('totalStreetcred', unitCred);
+    return unitCred + objectiveCred ;
   }
 
   get totalGonks(): number {

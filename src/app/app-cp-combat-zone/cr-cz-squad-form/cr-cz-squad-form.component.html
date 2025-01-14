@@ -109,7 +109,6 @@
                     <fa-icon [icon]="faTrash"></fa-icon>
                   </button>
                 </div>
-
                 <ng-template #FullImage>
                   <img class="w-100"
                     src="img/cz/factions/{{unit.faction.replace(' ','_')}}/units/{{unit.name?.replaceAll(' ', '_')}}_{{unit.streetcred}}.jpg">
@@ -157,6 +156,13 @@
           title="Inspire your team">
           <fa-icon [icon]="faRedo"></fa-icon> Inspire Team
         </button>
+          <button class="csd-btn p-1 me-1" *ngFor="let i of luck.constructor(squad.luck); let num = index"
+            title="Use luck" (click)="updateLuck(-1)">
+            <img src="img/cz/luck_icon.png" class="csd-img-icon">
+          </button>
+          <button class="csd-btn p-1" title="Add luck" (click)="updateLuck(1)">
+            <fa-icon [icon]="faPlus"></fa-icon>
+          </button>
       </h4>
       <button type="button" class="btn-close close float-end" aria-label="Close" (click)="modalRef?.hide()">
         <span aria-hidden="true" class="visually-hidden">&times;</span>

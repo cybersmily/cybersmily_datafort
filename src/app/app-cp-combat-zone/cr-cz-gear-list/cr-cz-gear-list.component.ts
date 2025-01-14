@@ -14,6 +14,7 @@ export class CrCzGearListComponent implements OnInit {
   faPlus = faPlus;
 
   dataList$: Observable<Array<iCrCzGearItemCard>>;
+  filterName: string = '';
 
   @Input()
   filterFaction: string = '';
@@ -24,16 +25,35 @@ export class CrCzGearListComponent implements OnInit {
   @Input()
   totalStreetcred: number = 0;
 
+  @Input()
+  existingGear: Array<string> = [];
+
+  @Input()
+  characterGear: Array<string> = [];
+
   @Output()
   addGear: EventEmitter<iCrCzGearItemCard> = new EventEmitter<iCrCzGearItemCard>();
 
   constructor(private gearDataService: CrCzGearDataService){}
 
   ngOnInit(): void {
+    console.log('totalStreetcred - Gearlist', this.totalStreetcred);
     this.dataList$ = this.gearDataService.gearList;
   }
   setFaction($event): void {
     this.filterFaction = $event;
+  }
+
+  getCount(title: string): number {
+    return this.existingGear.filter(name => name === title).length;
+  }
+
+  characterHasGear(title: string): boolean {
+    return this.characterGear?.includes(title);
+  }
+
+  checkRarity(title: string, rarity: number): boolean {
+    return this.getCount(title) > rarity;
   }
 
   buyGear(gear: iCrCzGearItemCard) {

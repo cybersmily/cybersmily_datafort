@@ -84,10 +84,7 @@ export class CrCzArmyBuilderService {
 
   updateSquadVeteranCost(squadIndex: number): void {
     let army = [...this._army.getValue()];
-    console.log('squad', army[squadIndex]);
-    console.log('payVeterans', army[squadIndex]?.payVeterans);
     army[squadIndex].payVeterans = !army[squadIndex].payVeterans;
-    console.log('payVeterans', army[squadIndex]?.payVeterans);
     this.saveArmy(army);
   }
 
@@ -133,6 +130,28 @@ export class CrCzArmyBuilderService {
   hasUnit(squadIndex: number, unitName: string, unitStreetcred: number ): boolean {
     let army = this._army.getValue();
     return army[squadIndex]?.units.some((unit: CrCzUnit) => (unit?.name === unitName && unit?.streetcred == unitStreetcred) );
+  }
+
+  countOfUnit(squadIndex: number, unitName: string, unitStreetcred: number): number {
+    let army = this._army.getValue();
+    return army[squadIndex]?.units.filter((unit: CrCzUnit) => (unit?.name === unitName && unit?.streetcred == unitStreetcred) ).length;
+  }
+
+  getSquadGearList(squadIndex: number): Observable<Array<string>> {
+    return this.army.pipe(
+      map( army => {
+        let list = new Array<string>();
+        army[squadIndex].units.forEach(
+         unit => {
+          const unitGear = unit.gearCards.map(gear => gear.name);
+          if(unitGear.length > 0){
+            list.push(...unitGear);
+          }
+         }
+        );
+        return list;
+    })
+    );
   }
 
   removeUnit(armyIndex: number, unitIndex: number):void {

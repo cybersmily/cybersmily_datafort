@@ -47,6 +47,10 @@ export class CrCzUnitListComponent {
     return this.armyBuilder.hasUnit(this.squadIndex, name, streetcred);
   }
 
+  countOfUnit(name: string, streetcred:number): number {
+    return this.armyBuilder.countOfUnit(this.squadIndex, name, streetcred);
+  }
+
   setFaction(faction: string): void {
     this.filterFaction = faction;
   }

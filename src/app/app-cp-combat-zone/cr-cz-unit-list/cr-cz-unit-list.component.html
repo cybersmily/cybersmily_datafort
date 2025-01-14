@@ -37,7 +37,7 @@
         <img class="w-100"
           src="img/cz/units/{{name?.replaceAll(' ', '_')}}_{{unit.streetcred}}.jpg">
       </ng-template>
-      <h5 class="d-inline-block">{{name}}</h5>
+      <h5 class="d-inline-block">{{countOfUnit(name, unit.streetcred) + ' ' }}{{name}}</h5>
       <fa-icon *ngIf="unit.streetcred > 1" [icon]="faStar" class="text-small mt-3" style="margin-right:-3px;"></fa-icon>
       <fa-icon *ngIf="unit.streetcred > 0" [icon]="faStar" class="mt-0 align-top"></fa-icon>
       <div class="ms-2 text-capitalize text-small fst-italic d-inline-block">

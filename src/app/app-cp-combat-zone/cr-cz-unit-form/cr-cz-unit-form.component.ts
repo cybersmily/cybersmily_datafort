@@ -32,10 +32,11 @@ export class CrCzUnitFormComponent implements OnInit, OnChanges {
   squadIndex: number;
 
   @Input()
-  totalStreetcred: number = 0;
+  totalStreetcred: number;
 
   unit$: Observable<CrCzUnit>;
   unit: CrCzUnit;
+  unitGearList: Array<string> = new Array<string>();
 
   modalRef: BsModalRef;
   modalConfig: ModalOptions = {
@@ -49,18 +50,28 @@ export class CrCzUnitFormComponent implements OnInit, OnChanges {
   ) {}
 
   ngOnInit(): void {
+    this.setSubscriptions();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.setSubscriptions();
+  }
+
+  private setSubscriptions(): void {
+    console.log('totalStreetcred - Unit', this.totalStreetcred);
     this.combatzoneArmyBuilder
-      .getUnit(this.squadIndex, this.unitIndex)
-      .subscribe((unit) => {
-        this.unit = new CrCzUnit(unit);
+    .getUnit(this.squadIndex, this.unitIndex)
+    .subscribe((unit) => {
+      this.unit = new CrCzUnit(unit);
+    });
+    this.combatzoneArmyBuilder.getSquadGearList(this.squadIndex).subscribe(
+      list => {
+        this.unitGearList = [...list];
       });
   }
-  ngOnChanges(changes: SimpleChanges): void {
-    this.combatzoneArmyBuilder
-      .getUnit(this.squadIndex, this.unitIndex)
-      .subscribe((unit) => {
-        this.unit = new CrCzUnit(unit);
-      });
+
+  get characterGearList(): Array<string> {
+    return this.unit.gearCards.map(gear => gear.name);
   }
 
   toggleToken(actionIndex: number): void {
@@ -116,6 +127,7 @@ export class CrCzUnitFormComponent implements OnInit, OnChanges {
 
   addGeaItem(gear: iCrCzGearItemCard): void {
     if (gear) {
+      this.modalRef.hide();
       this.unit.gearCards.push(gear);
       this.combatzoneArmyBuilder.updateUnit(
         this.squadIndex,
@@ -134,6 +146,10 @@ export class CrCzUnitFormComponent implements OnInit, OnChanges {
         this.unit
       );
     }
+  }
+
+  getSquadGearCount(title: string): number {
+    return this.unitGearList.filter(name => name === title).length;
   }
 
 

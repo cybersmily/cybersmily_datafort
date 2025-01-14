@@ -97,7 +97,7 @@ export class CrCzSquadFormComponent implements OnInit, OnChanges {
 
   navigateMembers(nav: number, length: number): void {
     let index = this._selectedUnitIndex.getValue() + nav;
-    index = (index >= length) ? 0 : (index < 0) ? length : index;
+    index = (index >= length) ? 0 : (index < 0) ? length - 1 : index;
     this._selectedUnitIndex.next(index);
   }
 
