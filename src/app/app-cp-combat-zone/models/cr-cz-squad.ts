@@ -47,7 +47,6 @@ export class CrCzSquad implements iCrCzSquad {
     const unitCred = this.units.reduce((a,b) => a + b.streetcred, 0);
     const objectiveCred = this.objectives.reduce((a,b) => a + b.streetcred,0);
 
-    console.log('totalStreetcred', unitCred);
     return unitCred + objectiveCred ;
   }
 

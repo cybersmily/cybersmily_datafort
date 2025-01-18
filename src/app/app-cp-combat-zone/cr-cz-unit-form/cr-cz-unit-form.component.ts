@@ -58,7 +58,6 @@ export class CrCzUnitFormComponent implements OnInit, OnChanges {
   }
 
   private setSubscriptions(): void {
-    console.log('totalStreetcred - Unit', this.totalStreetcred);
     this.combatzoneArmyBuilder
     .getUnit(this.squadIndex, this.unitIndex)
     .subscribe((unit) => {
@@ -72,6 +71,10 @@ export class CrCzUnitFormComponent implements OnInit, OnChanges {
 
   get characterGearList(): Array<string> {
     return this.unit.gearCards.map(gear => gear.name);
+  }
+
+  get hasBulky(): boolean {
+    return this.unit.gearCards.some((gear:iCrCzGearItemCard) => gear?.keywords?.includes('Bulky'));
   }
 
   toggleToken(actionIndex: number): void {

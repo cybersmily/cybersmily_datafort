@@ -36,6 +36,10 @@ export class CrCzUnitListComponent {
     this.filterFaction = this.faction;
   }
 
+  get hasLeader(): boolean {
+    return this.armyBuilder.hasLeader(this.squadIndex);
+  }
+
   add(faction: string, name: string, rank: number) {
     this.dataList$.pipe(take(1)).subscribe( (data:any) => {
       let found = data.find(unit => unit.faction === faction && unit.name === name);
@@ -46,6 +50,11 @@ export class CrCzUnitListComponent {
   hasUnit(name: string, streetcred: number): boolean {
     return this.armyBuilder.hasUnit(this.squadIndex, name, streetcred);
   }
+
+  isLeader(keywords:Array<string>): boolean {
+    return keywords?.includes('leader');
+  }
+
 
   countOfUnit(name: string, streetcred:number): number {
     return this.armyBuilder.countOfUnit(this.squadIndex, name, streetcred);

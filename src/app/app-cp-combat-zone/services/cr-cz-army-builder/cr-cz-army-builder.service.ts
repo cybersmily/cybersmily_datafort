@@ -132,6 +132,16 @@ export class CrCzArmyBuilderService {
     return army[squadIndex]?.units.some((unit: CrCzUnit) => (unit?.name === unitName && unit?.streetcred == unitStreetcred) );
   }
 
+  hasLeader(squadIndex: number): boolean {
+    let army = this._army.getValue();
+    return army[squadIndex]?.units.some((unit: CrCzUnit) => unit?.keywords.includes('leader'));
+  }
+
+  leaderCount(squadIndex: number): number {
+    let army = this._army.getValue();
+    return army[squadIndex]?.units.filter((unit: CrCzUnit) => unit?.keywords.includes('leader')).length;
+  }
+
   countOfUnit(squadIndex: number, unitName: string, unitStreetcred: number): number {
     let army = this._army.getValue();
     return army[squadIndex]?.units.filter((unit: CrCzUnit) => (unit?.name === unitName && unit?.streetcred == unitStreetcred) ).length;

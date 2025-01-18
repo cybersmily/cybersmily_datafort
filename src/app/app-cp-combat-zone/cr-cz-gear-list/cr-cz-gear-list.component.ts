@@ -37,7 +37,6 @@ export class CrCzGearListComponent implements OnInit {
   constructor(private gearDataService: CrCzGearDataService){}
 
   ngOnInit(): void {
-    console.log('totalStreetcred - Gearlist', this.totalStreetcred);
     this.dataList$ = this.gearDataService.gearList;
   }
   setFaction($event): void {

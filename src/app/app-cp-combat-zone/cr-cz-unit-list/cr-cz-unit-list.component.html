@@ -24,11 +24,11 @@
 
   <div *ngFor="let unit of ranks;index as i" class="row mt-1">
     <div class="col-1 text-center px-0">
-      <button class="border border-secondary text-center rounded csd-btn p-2" (click)="add(faction, name, i)">
+      <button class="border border-secondary text-center rounded csd-btn p-2" (click)="add(faction, name, i)" [disabled]="hasLeader && isLeader(keywords)">
         <fa-icon [icon]="faPlus" size="xl"></fa-icon>
       </button>
     </div>
-    <div [ngClass]="{'col-5 col-md text-capitalize rounded': true, 'bg-secondary': hasUnit(name, unit?.streetcred)}">
+    <div [ngClass]="{'col-5 col-md text-capitalize rounded': true, 'bg-warning': hasUnit(name, unit?.streetcred), 'text-secondary': hasLeader && isLeader(keywords)}">
       <img class="csd-img-icon me-1" src="img/cz/icon_{{faction.replace(' ','_')}}.png"
         [title]="faction.replace(' ','_').toUpperCase()">
       <img class="csd-img-icon me-1" [tooltip]="FullImage" container="body" containerClass="w-100"
@@ -37,7 +37,7 @@
         <img class="w-100"
           src="img/cz/units/{{name?.replaceAll(' ', '_')}}_{{unit.streetcred}}.jpg">
       </ng-template>
-      <h5 class="d-inline-block">{{countOfUnit(name, unit.streetcred) + ' ' }}{{name}}</h5>
+      <h5 class="d-inline-block">{{countOfUnit(name, unit.streetcred) + ' ' }}{{name}} {{isLeader(keywords)}}</h5>
       <fa-icon *ngIf="unit.streetcred > 1" [icon]="faStar" class="text-small mt-3" style="margin-right:-3px;"></fa-icon>
       <fa-icon *ngIf="unit.streetcred > 0" [icon]="faStar" class="mt-0 align-top"></fa-icon>
       <div class="ms-2 text-capitalize text-small fst-italic d-inline-block">

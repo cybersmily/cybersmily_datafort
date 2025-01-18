@@ -28,6 +28,9 @@ export class CrCzGearCardComponent implements OnInit {
   count: number = 0;
 
   @Input()
+  hasBulky: boolean = false;
+
+  @Input()
   hasGear: boolean;
 
   @Output()
