@@ -1,5 +1,12 @@
 ﻿{
   "news": [
+    {"date": "2025-04",
+    "entries": [
+      "<strong>04-13</strong> - Updated the Cyberpunk Red: Combat Zone army builder. Add the Edgerunner expansion to it and add the Wild Things, Piranha, and 6th Street gangs to the list.",
+      "I also remove the Objective cards and Loot card sections for now as both need a bit of work. I plan on doing some redesign to the army builder as I want to have a better UI/UX to it.",
+      "CYBER :D"
+  ]
+  },
     {"date": "2024-08",
     "entries": [
       "<strong>08-14</strong> - Fixed a bunch of mobile layout issues on the Cyberpunk 2020 character generator. Should look better on the screen. Still needs work for the mobile experience.",
