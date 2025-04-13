@@ -1,4 +1,4 @@
-import { CrCzUnit, iCrCzUnitCardData, iCrCzUnitCard } from './../../models/cr-cz-unit-card';
+import { CrCzUnit, iCrCzUnitCardData, iCrCzUnitCard, CreateCombatZoneUnitFromObject } from './../../models/cr-cz-unit-card';
 import { Injectable } from '@angular/core';
 import { CrCzSquad, iCrCzSquad } from '../../models/cr-cz-squad';
 import { BehaviorSubject, Observable, take, map, of } from 'rxjs';
@@ -19,8 +19,9 @@ export class CrCzArmyBuilderService {
   constructor(private localStorage: LocalStorageManagerService) {
     if(this.localStorage.hasKey(CRCZ_LOCAL_STORAGE_KEY)) {
       let army = this.localStorage.retrive<Array<iCrCzSquad>>(CRCZ_LOCAL_STORAGE_KEY);
-
+      console.log('army', army);
       this._army.next(army.map(squad => new CrCzSquad(squad)));
+      console.log('next', this._army.getValue());
     }
    }
 
@@ -97,12 +98,8 @@ export class CrCzArmyBuilderService {
     let army = [...this._army.getValue()];
     let newUnit: CrCzUnit = new CrCzUnit();
     newUnit.name = unit.name;
-    newUnit.ebCost = unit.ebCost;
-    newUnit.faction = unit.faction;
-    newUnit.streetcred = rank;
-    newUnit.isLeader = unit.isLeader;
-    newUnit.isMerc = unit.isMerc;
-    newUnit.isGonk = unit.isGonk;
+    newUnit.eb = unit.eb;
+    newUnit.cred = rank;
     newUnit.keywords = [...unit.keywords];
 
     newUnit.armor = unit.ranks[rank].armor;
@@ -129,22 +126,22 @@ export class CrCzArmyBuilderService {
 
   hasUnit(squadIndex: number, unitName: string, unitStreetcred: number ): boolean {
     let army = this._army.getValue();
-    return army[squadIndex]?.units.some((unit: CrCzUnit) => (unit?.name === unitName && unit?.streetcred == unitStreetcred) );
+    return army[squadIndex]?.units.some((unit: iCrCzUnitCard) => (unit?.name === unitName && unit?.cred == unitStreetcred) );
   }
 
   hasLeader(squadIndex: number): boolean {
     let army = this._army.getValue();
-    return army[squadIndex]?.units.some((unit: CrCzUnit) => unit?.keywords.includes('leader'));
+    return army[squadIndex]?.units.some((unit: iCrCzUnitCard) => unit?.keywords.includes('leader'));
   }
 
   leaderCount(squadIndex: number): number {
     let army = this._army.getValue();
-    return army[squadIndex]?.units.filter((unit: CrCzUnit) => unit?.keywords.includes('leader')).length;
+    return army[squadIndex]?.units.filter((unit: iCrCzUnitCard) => unit?.keywords.includes('leader')).length;
   }
 
   countOfUnit(squadIndex: number, unitName: string, unitStreetcred: number): number {
     let army = this._army.getValue();
-    return army[squadIndex]?.units.filter((unit: CrCzUnit) => (unit?.name === unitName && unit?.streetcred == unitStreetcred) ).length;
+    return army[squadIndex]?.units.filter((unit: CrCzUnit) => (unit?.name === unitName && unit?.cred == unitStreetcred) ).length;
   }
 
   getSquadGearList(squadIndex: number): Observable<Array<string>> {
@@ -170,9 +167,9 @@ export class CrCzArmyBuilderService {
     this.saveArmy(army);
   }
 
-  updateUnit(squadIndex: number, unitIndex: number, unit: CrCzUnit): void {
+  updateUnit(squadIndex: number, unitIndex: number, unit: iCrCzUnitCard): void {
     let army = this._army.getValue();
-    army[squadIndex].units[unitIndex] = new CrCzUnit(unit);
+    army[squadIndex].units[unitIndex] = CreateCombatZoneUnitFromObject(unit);
     this.saveArmy(army);
   }
 }

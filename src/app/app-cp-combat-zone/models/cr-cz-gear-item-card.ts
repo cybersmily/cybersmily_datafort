@@ -1,8 +1,8 @@
-import {  crCzActionType, crCzFaction } from "./cr-cz-types";
+import {  crCzActionType } from "./cr-cz-types";
 
 export interface iCrCzGearItemCard {
   name: string;
-  faction: crCzFaction;
+  faction: string;
   cred: number;
   eb: number;
   rarity: number;

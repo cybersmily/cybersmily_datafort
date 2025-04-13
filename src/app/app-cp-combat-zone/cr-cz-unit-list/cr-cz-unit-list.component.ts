@@ -20,6 +20,7 @@ export class CrCzUnitListComponent {
   searchName: string = '';
   filterFaction: string = '';
   searchKeywords: string = '';
+  searchFilter: Array<string>;
 
   dataList$: Observable<Array<iCrCzUnitCardData>>;
 
@@ -40,9 +41,9 @@ export class CrCzUnitListComponent {
     return this.armyBuilder.hasLeader(this.squadIndex);
   }
 
-  add(faction: string, name: string, rank: number) {
+  add(name: string, rank: number) {
     this.dataList$.pipe(take(1)).subscribe( (data:any) => {
-      let found = data.find(unit => unit.faction === faction && unit.name === name);
+      let found = data.find(unit => unit.name === name);
       this.armyBuilder.addUnit(this.squadIndex, found, rank);
     });
   }
@@ -60,8 +61,20 @@ export class CrCzUnitListComponent {
     return this.armyBuilder.countOfUnit(this.squadIndex, name, streetcred);
   }
 
+  setFilter():void {
+    if(this.filterFaction === '' && this.searchKeywords === '') {
+      this.searchFilter = null;
+    }
+    this.searchFilter = [];
+    if(this.filterFaction !== '') {
+      console.log('got here');
+      this.searchFilter.push(this.filterFaction);
+    }
+  }
+
   setFaction(faction: string): void {
     this.filterFaction = faction;
+    this.setFilter();
   }
 
 }

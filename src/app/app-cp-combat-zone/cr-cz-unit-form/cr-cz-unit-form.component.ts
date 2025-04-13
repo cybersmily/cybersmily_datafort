@@ -7,7 +7,7 @@ import {
   SimpleChanges,
   TemplateRef,
 } from '@angular/core';
-import { CrCzUnit } from '../models/cr-cz-unit-card';
+import { iCrCzUnitCard, CreateCombatZoneUnitFromObject } from '../models/cr-cz-unit-card';
 import { CrCzArmyBuilderService } from '../services/cr-cz-army-builder/cr-cz-army-builder.service';
 import { Observable } from 'rxjs';
 import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
@@ -34,8 +34,8 @@ export class CrCzUnitFormComponent implements OnInit, OnChanges {
   @Input()
   totalStreetcred: number;
 
-  unit$: Observable<CrCzUnit>;
-  unit: CrCzUnit;
+  unit$: Observable<iCrCzUnitCard>;
+  unit: iCrCzUnitCard;
   unitGearList: Array<string> = new Array<string>();
 
   modalRef: BsModalRef;
@@ -61,7 +61,7 @@ export class CrCzUnitFormComponent implements OnInit, OnChanges {
     this.combatzoneArmyBuilder
     .getUnit(this.squadIndex, this.unitIndex)
     .subscribe((unit) => {
-      this.unit = new CrCzUnit(unit);
+      this.unit = CreateCombatZoneUnitFromObject(unit);
     });
     this.combatzoneArmyBuilder.getSquadGearList(this.squadIndex).subscribe(
       list => {
@@ -88,7 +88,7 @@ export class CrCzUnitFormComponent implements OnInit, OnChanges {
   }
 
   toggleHacked(): void {
-    this.unit.isHacked = !this.unit.isHacked;
+    // this.unit.isHacked = !this.unit.isHacked;
     this.combatzoneArmyBuilder.updateUnit(
       this.squadIndex,
       this.unitIndex,

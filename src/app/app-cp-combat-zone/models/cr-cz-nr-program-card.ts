@@ -1,13 +1,13 @@
-import { crCzActionColor, crCzFaction } from "./cr-cz-types";
+import { crCzActionColor } from "./cr-cz-types";
 
 export interface iCrCzNrProgramCard {
   name: string;
-  factions: crCzFaction;
+  factions: string;
   action: crCzActionColor;
   inspiredRefresh: boolean;
   vulnerable: boolean;
-  streetcred: number;
-  ebCost: number;
+  cred: number;
+  eb: number;
   rarity: number;
 
   flavor: string;

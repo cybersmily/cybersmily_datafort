@@ -60,7 +60,7 @@ export class CrCzArmyPdfService {
       squad.faction?.toUpperCase()
     );
     const mercs = squad.units.filter(
-      (unit) => unit.faction !== squad.faction && unit.isMerc
+      (unit) => !unit.keywords.includes(squad.faction) && unit.isMerc
     );
     const gearCount = squad.units.reduce((a, b) => a + b.gearCards.length, 0);
     const leaders = squad.units.filter((unit) => unit.isLeader);
@@ -199,17 +199,17 @@ export class CrCzArmyPdfService {
     this._doc.setFontSize(PdfFontSize.DEFAULT);
     let unitName = unit.name?.toUpperCase();
     this._doc.text(unitName, leftMargin, line);
-    if (unit.faction !== squadFaction) {
+    if (!unit.keywords.includes(squadFaction)) {
       this._doc.setFontSize(PdfFontSize.XS);
       this._doc.text(
-        `** [MERC - ${unit.faction?.toUpperCase()}] **`,
+        `** [MERC - ${squadFaction.toUpperCase()}] **`,
         leftMargin + 5,
         line + 3
       );
       this._doc.setFontSize(PdfFontSize.DEFAULT);
     }
-    this._doc.text(`${unit.streetcred}SC`, leftMargin + 90, line);
-    this._doc.text(`${unit.ebCost.toString()}eb`, leftMargin + 107, line, {
+    this._doc.text(`${unit.cred}SC`, leftMargin + 90, line);
+    this._doc.text(`${unit.eb.toString()}eb`, leftMargin + 107, line, {
       align: 'right',
     });
     this._doc.text(unit.keywords.join(', '), leftMargin + 110, line);
@@ -232,8 +232,8 @@ export class CrCzArmyPdfService {
       this._doc.text('Hacks', leftMargin + 3, line);
       unit.programs.forEach((prog) => {
         this._doc.text(prog?.name?.toUpperCase(), leftMargin + 12, line);
-        this._doc.text(`${prog?.streetcred ?? '-'}SC`, leftMargin + 90, line);
-        this._doc.text(`+${prog.ebCost}eb`, leftMargin + 107, line, {
+        this._doc.text(`${prog?.cred ?? '-'}SC`, leftMargin + 90, line);
+        this._doc.text(`+${prog.eb}eb`, leftMargin + 107, line, {
           align: 'right',
         });
         this._doc.text(`${prog.rarity} rarity`, leftMargin + 110, line);

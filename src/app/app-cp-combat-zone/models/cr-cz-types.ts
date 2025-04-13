@@ -1,15 +1,4 @@
-export type crCzFaction =
-  | 'arasaka'
-  | 'bozo'
-  | 'danger gal'
-  | 'edgerunner'
-  | 'generation red'
-  | 'lawman'
-  | 'maelstrom'
-  | 'tiger claw'
-  | 'zoner'
-  | 'universal'
-  | '';
+
 export type crCzObjectiveRewardType =
   | 'cybergear'
   | 'ongoing'
@@ -40,6 +29,7 @@ export const CRCZ_LOCAL_STORAGE_KEY: string = 'cs-cr-cz-army-data';
 
 export const CRCZ_FACTIONS: Array<string> = [
   '',
+  '6th street',
   'arasaka',
   'bozo',
   'danger gal',
@@ -47,8 +37,10 @@ export const CRCZ_FACTIONS: Array<string> = [
   'generation red',
   'lawman',
   'maelstrom',
+  'piranha',
   'trauma team',
   'tyger claw',
+  'wild thing',
   'zoner',
   'universal',
 ];

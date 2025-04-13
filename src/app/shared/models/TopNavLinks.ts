@@ -344,11 +344,6 @@ export class TopNavLinks {
         'Under Apps you will find web page based application/utilities for Cyberpunk.',
       links: [
         {
-          title: 'Army Generator',
-          link: 'apps/crcz',
-          desc: 'Cyberpunk Red Combatzone Army Builder',
-        },
-        {
           title: 'Bodegas Generator',
           link: 'apps/nightmarket',
           desc: 'Bodegas generator for Cyberpunk Red.',
@@ -404,6 +399,17 @@ export class TopNavLinks {
           desc: 'Weather generator for Cyberpunk Red/2020.',
         },
       ],
+    });
+    this.menuItems.push({
+      groupTitle: 'Apps-Cbt Zone',
+      description:
+        'Under Apps you will find web page based application/utilities for Cyberpunk Red: Combat Zone.',
+      links: [
+        {
+          title: 'Comnbat Zone Army Generator',
+          link: 'apps/crcz',
+          desc: 'Cyberpunk Red Combat Zone Army Builder',
+        }]
     });
     this.menuItems.push({
       groupTitle: 'DLow',

@@ -1,5 +1,5 @@
 import { iCrCzObjectiveCard } from "./cr-cz-objective-card";
-import { iCrCzUnitCard, CrCzUnit } from "./cr-cz-unit-card";
+import { iCrCzUnitCard, CrCzUnit, CreateCombatZoneUnitFromObject } from "./cr-cz-unit-card";
 
 export interface iCrCzSquad {
   name: string;
@@ -30,7 +30,7 @@ export class CrCzSquad implements iCrCzSquad {
     }
     let cost = this.units.reduce((a,b) => a + b.totalCost, 0);
     if(this.payVeterans) {
-      cost += this.units.reduce((a,b) => a + (b.streetcred *  5) , 0);
+      cost += this.units.reduce((a,b) => a + (b.cred *  5) , 0);
     }
     return cost;
    }
@@ -44,7 +44,7 @@ export class CrCzSquad implements iCrCzSquad {
     if(this.units.length < 1) {
       return 0;
     }
-    const unitCred = this.units.reduce((a,b) => a + b.streetcred, 0);
+    const unitCred = this.units.reduce((a,b) => a + b.cred, 0);
     const objectiveCred = this.objectives.reduce((a,b) => a + b.streetcred,0);
 
     return unitCred + objectiveCred ;
@@ -59,8 +59,8 @@ export class CrCzSquad implements iCrCzSquad {
 
   constructor(param?: iCrCzSquad) {
     this.name = param?.name || "new squad";
-    this.units = param?.units.map(unit => new CrCzUnit(unit)) || new Array<iCrCzUnitCard>();
-    this.faction = param?.faction || 'arasaka';
+    this.units = param?.units.map(unit => CreateCombatZoneUnitFromObject(unit)) || new Array<iCrCzUnitCard>();
+    this.faction = param?.faction || '';
     this.luck = param?.luck || 3;
     this.payVeterans = param?.payVeterans || false;
     this.objectives = param?.objectives || new Array<iCrCzObjectiveCard>();

@@ -2,23 +2,16 @@ import { iCrCzActionToken } from "./cr-cz-action-token";
 import { iCrCzGearItemCard } from "./cr-cz-gear-item-card";
 import { iCrCzLootCard } from "./cr-cz-loot-card";
 import { iCrCzNrProgramCard } from "./cr-cz-nr-program-card";
-import { crCzFaction} from "./cr-cz-types";
 
 export interface iCrCzUnitCardData {
   name: string;
-  faction: crCzFaction;
-  ebCost: number;
-  isLeader: boolean;
-  isMerc: boolean;
-  isGonk: boolean;
+  eb: number;
   keywords: Array<string>;
-
   ranks: Array<iCrCzUnitCardRank>;
-
 }
 
 export interface iCrCzUnitCardRank {
-  streetcred: number;
+  cred: number;
   armor: number;
   melee: number;
   move: number;
@@ -34,9 +27,8 @@ export interface iCrCzUnitCardRank {
 export interface iCrCzUnitCard {
   name: string;
   image: string;
-  faction: crCzFaction;
-  streetcred: number;
-  ebCost: number;
+  cred: number;
+  eb: number;
   armor: number;
   melee: number;
   move: number;
@@ -44,32 +36,36 @@ export interface iCrCzUnitCard {
   med: number;
   tech: number;
   influence: number;
-  isLeader: boolean;
-  isMerc: boolean;
-  isGonk: boolean;
   keywords: Array<string>;
   specialRules: string;
   unitGear: string;
   actions: Array<string>;
-
-  totalCost: number;
-
-  isHacked: boolean;
+  hacks: number;
   isVulnerable: boolean;
   isDead: boolean;
   actionTokens: Array<iCrCzActionToken>;
   gearCards: Array<iCrCzGearItemCard>;
   programs: Array<iCrCzNrProgramCard>;
   loot: Array<iCrCzLootCard>;
+
+  get totalCost(): number;
+  get isLeader(): boolean;
+  get isMerc(): boolean;
+  get isSpecialist(): boolean;
+  get isNetrunner(): boolean;
+  get isWheelman(): boolean;
+  get isGonk(): boolean;
+  get isHacked(): boolean;
+  get isRedLined(): boolean;
+
 }
 
 
 export class CrCzUnit implements iCrCzUnitCard {
   name: string;
   image: string;
-  faction: crCzFaction;
-  streetcred: number;
-  ebCost: number;
+  cred: number;
+  eb: number;
   armor: number;
   melee: number;
   move: number;
@@ -77,16 +73,13 @@ export class CrCzUnit implements iCrCzUnitCard {
   med: number;
   tech: number;
   influence: number;
-  isLeader: boolean;
-  isMerc: boolean;
-  isGonk: boolean;
   keywords: Array<string>;
   specialRules: string;
   unitGear: string;
 
   actions: Array<string>;
 
-  isHacked: boolean;
+  hacks: number;
   isVulnerable: boolean;
   isDead: boolean;
 
@@ -96,7 +89,9 @@ export class CrCzUnit implements iCrCzUnitCard {
   loot: Array<iCrCzLootCard>;
 
   get totalCost(): number {
-    const total = this.ebCost + this.gearCards.reduce((a,b) => a + b.eb,0);
+    let total = this.eb;
+    total += this.gearCards.reduce((a,b) => a + b.eb, 0);
+    total += this.programs.reduce((a,b) => a + b.eb, 0);
     return total;
   }
 
@@ -104,36 +99,69 @@ export class CrCzUnit implements iCrCzUnitCard {
     return this.actionTokens.every( action => action.isRed);
   }
 
-  constructor(param?: iCrCzUnitCard) {
-    this.name = param?.name || '';
-    this.image = param?.image || '';
-    this.faction = param?.faction || '';
-    this.streetcred = param?.streetcred || 0;
-    this.ebCost = param?.ebCost || 0;
-    this.armor = param?.armor || 0;
-    this.melee = param?.melee || 0;
-    this.move = param?.move || 0;
-    this.ranged = param?.ranged || 0;
-    this.med = param?.med || 0;
-    this.tech = param?.tech || 0;
-    this.influence = param?.influence || 0;
-    this.isLeader = param?.isLeader || false;
-    this.isMerc = param?.isMerc || false;
-    this.isGonk = param?.isGonk || false;
-    this.keywords = param?.keywords ? [...param.keywords] : [];
-    this.specialRules = param?.specialRules || '';
-    this.unitGear = param?.unitGear || '';
-
-    this.isHacked = param?.isHacked || false;
-    this.isVulnerable = param?.isVulnerable || false;
-    this.isDead = param?.isDead || false;
-
-    this.actions = param?.actions ? [...param.actions] : [];
-    this.actionTokens = param?.actionTokens ? [...param?.actionTokens] : [];
-    this.gearCards = param?.gearCards ? param.gearCards.map(gear => gear) : [];
-    this.programs = param?.programs ? param.programs.map(program => program) : [];
-    this.loot = param?.loot ? param.loot.map(loot => loot) : [];
-
+  get isHacked(): boolean {
+    return this.hacks > 0;
   }
 
+  get isLeader(): boolean {
+    return this.keywords.includes('leader');
+  }
+
+  get isMerc(): boolean {
+    return this.keywords.includes('merc');
+  }
+
+  get isGonk(): boolean {
+    return this.keywords.includes('gonk');
+  }
+
+  get isSpecialist(): boolean {
+    return this.keywords.includes('specialist');
+  }
+
+  get isNetrunner(): boolean {
+    let result = this.keywords.includes('netrunner');
+    result = result || (this.gearCards.filter( gear => gear.keywords.includes('Netrunner')).length > 0);
+    return result;
+  }
+
+  get isWheelman(): boolean {
+    return this.keywords.includes('wheelman');
+  }
+
+
 }
+
+export const CreateCombatZoneUnitFromObject = (param:any) :iCrCzUnitCard => {
+  const unit: CrCzUnit = new CrCzUnit();
+  unit.name = param?.name || '';
+  unit.image = param?.image || '';
+  // backward compatible
+  unit.cred = param?.cred || param?.streetCred || param?.streetcred || 0;
+  // backward compatible
+  unit.eb = param?.eb || param?.ebCost || 0;
+  unit.armor = param?.armor || 0;
+  unit.melee = param?.melee || 0;
+  unit.move = param?.move || 0;
+  unit.ranged = param?.ranged || 0;
+  unit.med = param?.med || 0;
+  unit.tech = param?.tech || 0;
+  unit.influence = param?.influence || 0;
+  unit.keywords = param?.keywords ? [...param.keywords] : [];
+  // backward compatible
+  if(param?.faction && !unit.keywords.includes(param.faction)) {
+    unit.keywords.unshift(param.faction);
+  }
+  unit.specialRules = param?.specialRules || '';
+  unit.unitGear = param?.unitGear || '';
+  unit.actions = param?.actions ? [...param.actions] : [];
+  unit.hacks = param?.hacks || 0;
+  unit.isVulnerable = param?.isVulnerable || false;
+  unit.isDead = param?.isDead || false;
+  unit.actionTokens = param?.actionTokens.map(action => ({type: action.type, isUsed: action.isUsed, isRed: action.isRed})) || [];
+  unit.gearCards = param?.gearCards ? [...param.gearCards] : [];
+  unit.programs = param?.programs ? [...param.programs] : [];
+  unit.loot = param?.loot ? [...param.loot] : [];
+
+  return  unit;
+};

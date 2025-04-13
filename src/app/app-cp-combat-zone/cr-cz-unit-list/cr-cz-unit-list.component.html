@@ -10,41 +10,38 @@
     </div>
     <div *ngFor="let unit of unitList
     |contains:'name': searchName
-    |contains:'faction':[filterFaction, 'universal']
-    |contains:'keywords':searchKeywords" class="row py-2 border-bottom border-secondary">
+    |contains:'keywords':searchFilter" class="row py-2 border-bottom border-secondary">
       <div class="col-12">
         <ng-container [ngTemplateOutlet]="unitRow"
-          [ngTemplateOutletContext]="{name: unit.name, faction: unit.faction, keywords: unit.keywords,  ranks: unit.ranks, cost: unit.ebCost}"></ng-container>
+          [ngTemplateOutletContext]="{name: unit.name, keywords: unit.keywords,  ranks: unit.ranks, cost: unit.eb}"></ng-container>
       </div>
     </div>
   </div>
 </div>
 
-<ng-template #unitRow let-name="name" let-faction="faction" let-keywords="keywords" let-ranks="ranks" let-cost="cost">
+<ng-template #unitRow let-name="name" let-keywords="keywords" let-ranks="ranks" let-cost="cost">
 
   <div *ngFor="let unit of ranks;index as i" class="row mt-1">
     <div class="col-1 text-center px-0">
-      <button class="border border-secondary text-center rounded csd-btn p-2" (click)="add(faction, name, i)" [disabled]="hasLeader && isLeader(keywords)">
+      <button title="Add character to squad." class="border border-secondary text-center rounded csd-btn p-2" (click)="add(name, i)" [disabled]="hasLeader && isLeader(keywords)">
         <fa-icon [icon]="faPlus" size="xl"></fa-icon>
       </button>
     </div>
-    <div [ngClass]="{'col-5 col-md text-capitalize rounded': true, 'bg-warning': hasUnit(name, unit?.streetcred), 'text-secondary': hasLeader && isLeader(keywords)}">
-      <img class="csd-img-icon me-1" src="img/cz/icon_{{faction.replace(' ','_')}}.png"
-        [title]="faction.replace(' ','_').toUpperCase()">
-      <img class="csd-img-icon me-1" [tooltip]="FullImage" container="body" containerClass="w-100"
-        src="img/cz/units/{{name?.replaceAll(' ', '_')}}_{{unit.streetcred}}.jpg">
+    <div [ngClass]="{'col-5 col-md text-capitalize rounded': true, 'bg-warning': hasUnit(name, unit?.cred), 'text-secondary': hasLeader && isLeader(keywords)}">
+      <img alt="Unit card for {{name}}" class="csd-img-icon me-1" [tooltip]="FullImage" container="body" containerClass="w-100"
+        src="img/cz/units/{{name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
       <ng-template #FullImage>
-        <img class="w-100"
-          src="img/cz/units/{{name?.replaceAll(' ', '_')}}_{{unit.streetcred}}.jpg">
+        <img class="w-100" alt="Unit card for {{name}}"
+          src="img/cz/units/{{name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
       </ng-template>
-      <h5 class="d-inline-block">{{countOfUnit(name, unit.streetcred) + ' ' }}{{name}} {{isLeader(keywords)}}</h5>
-      <fa-icon *ngIf="unit.streetcred > 1" [icon]="faStar" class="text-small mt-3" style="margin-right:-3px;"></fa-icon>
-      <fa-icon *ngIf="unit.streetcred > 0" [icon]="faStar" class="mt-0 align-top"></fa-icon>
+      <h5 class="d-inline-block">{{countOfUnit(name, unit.cred) + ' ' }}{{name}}</h5>
+      <fa-icon *ngIf="unit.cred > 1" [icon]="faStar" class="text-small mt-3" style="margin-right:-3px;"></fa-icon>
+      <fa-icon *ngIf="unit.cred > 0" [icon]="faStar" class="mt-0 align-top"></fa-icon>
       <div class="ms-2 text-capitalize text-small fst-italic d-inline-block">
         {{keywords?.join(", ")}}
       </div>
     </div>
-    <div class="col-2 col-md-1 text-capitalize text-small">
+    <div class="col-2 col-md-1 text-small">
       {{cost}}eb
     </div>
     <div class="col-4 col-md-5">
@@ -78,7 +75,7 @@
         <div class="col-12 col-md-6">
 
           <span *ngFor="let action of unit.actions">
-            <img style="width: 20px;" src="img/cz/{{action}}_active.png" alt="">
+            <img style="width: 20px;" src="img/cz/{{action.trim()}}_active.png" alt="">
           </span>
         </div>
       </div>
