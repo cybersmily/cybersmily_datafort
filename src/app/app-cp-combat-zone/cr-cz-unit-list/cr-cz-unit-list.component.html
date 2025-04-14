@@ -10,7 +10,8 @@
     </div>
     <div *ngFor="let unit of unitList
     |contains:'name': searchName
-    |contains:'keywords':searchFilter" class="row py-2 border-bottom border-secondary">
+    |contains: 'keywords': filterFaction
+    |contains:'keywords':searchKeywords" class="row py-2 border-bottom border-secondary">
       <div class="col-12">
         <ng-container [ngTemplateOutlet]="unitRow"
           [ngTemplateOutletContext]="{name: unit.name, keywords: unit.keywords,  ranks: unit.ranks, cost: unit.eb}"></ng-container>
@@ -23,11 +24,11 @@
 
   <div *ngFor="let unit of ranks;index as i" class="row mt-1">
     <div class="col-1 text-center px-0">
-      <button title="Add character to squad." class="border border-secondary text-center rounded csd-btn p-2" (click)="add(name, i)" [disabled]="hasLeader && isLeader(keywords)">
+      <button title="Add character to squad." class="border border-secondary text-center rounded csd-btn p-2" (click)="add(name, i)" [disabled]="(hasLeader && isLeader(keywords)) || (hasSpecialist(name))">
         <fa-icon [icon]="faPlus" size="xl"></fa-icon>
       </button>
     </div>
-    <div [ngClass]="{'col-5 col-md text-capitalize rounded': true, 'bg-warning': hasUnit(name, unit?.cred), 'text-secondary': hasLeader && isLeader(keywords)}">
+    <div [ngClass]="{'col-5 col-md text-capitalize rounded': true, 'bg-warning': hasUnit(name, unit?.cred), 'text-secondary': (hasLeader && isLeader(keywords)) || (hasSpecialist(name))}">
       <img alt="Unit card for {{name}}" class="csd-img-icon me-1" [tooltip]="FullImage" container="body" containerClass="w-100"
         src="img/cz/units/{{name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
       <ng-template #FullImage>

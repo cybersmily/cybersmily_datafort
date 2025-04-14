@@ -129,6 +129,15 @@ export class CrCzArmyBuilderService {
     return army[squadIndex]?.units.some((unit: iCrCzUnitCard) => (unit?.name === unitName && unit?.cred == unitStreetcred) );
   }
 
+  hasSpecialist(squadIndex: number, unitName: string): boolean {
+
+    if(unitName.includes('david')) {
+      console.log('army builder has Sepcialist', unitName);
+    }
+    let army = this._army.getValue();
+    return army[squadIndex]?.units.some((unit: iCrCzUnitCard) => (unit?.name === unitName && unit?.keywords.includes('specialist')) );
+  }
+
   hasLeader(squadIndex: number): boolean {
     let army = this._army.getValue();
     return army[squadIndex]?.units.some((unit: iCrCzUnitCard) => unit?.keywords.includes('leader'));

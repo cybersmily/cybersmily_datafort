@@ -48,6 +48,13 @@ export class CrCzUnitListComponent {
     });
   }
 
+  hasSpecialist(name: string): boolean {
+    if(name.includes('david')) {
+      console.log('has Sepcialist', name);
+    }
+    return this.armyBuilder.hasSpecialist(this.squadIndex, name);
+  }
+
   hasUnit(name: string, streetcred: number): boolean {
     return this.armyBuilder.hasUnit(this.squadIndex, name, streetcred);
   }
@@ -61,20 +68,8 @@ export class CrCzUnitListComponent {
     return this.armyBuilder.countOfUnit(this.squadIndex, name, streetcred);
   }
 
-  setFilter():void {
-    if(this.filterFaction === '' && this.searchKeywords === '') {
-      this.searchFilter = null;
-    }
-    this.searchFilter = [];
-    if(this.filterFaction !== '') {
-      console.log('got here');
-      this.searchFilter.push(this.filterFaction);
-    }
-  }
-
   setFaction(faction: string): void {
     this.filterFaction = faction;
-    this.setFilter();
   }
 
 }
