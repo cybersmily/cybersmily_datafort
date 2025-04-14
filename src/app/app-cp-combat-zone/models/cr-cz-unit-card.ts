@@ -58,6 +58,9 @@ export interface iCrCzUnitCard {
   get isHacked(): boolean;
   get isRedLined(): boolean;
 
+  get gearList(): string;
+  get programList(): string;
+
 }
 
 
@@ -129,6 +132,21 @@ export class CrCzUnit implements iCrCzUnitCard {
     return this.keywords.includes('wheelman');
   }
 
+  get gearList(): string {
+    if(this.gearCards.length < 1) {
+      return '';
+    } else {
+      return this.gearCards.map(gear => gear.name).join(', ');
+    }
+  }
+
+  get programList(): string {
+    if(this.programs.length < 1) {
+      return '';
+    } else {
+      return this.programs.map(program => program.name).join(', ');
+    }
+  }
 
 }
 

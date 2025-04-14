@@ -95,11 +95,15 @@
                       </ng-template>
                     </div>
                   </div>
+                  <div class="row text-small" *ngIf="unit.gearCards.length > 0">
+                    <div class="col-6">Gear: {{unit.gearList}}</div>
+                    <div class="col-6">Programs: {{unit.programList}}</div>
+                  </div>
                 </div>
                 <div class="col-2 col-md-1 px-1" (click)="showUnitModal(unitForm, unit.name, unitIndex)">
-                  <img *ngIf="unit.isVulnerable" class="float-start w-45" src="img/cz/status_vulnerable.png"
+                  <img *ngIf="unit.isVulnerable" class="float-start w-20" src="img/cz/status_vulnerable.png"
                     title="is Vulnerable!">
-                  <img *ngIf="unit.isHacked" class="float-end w-45" src="img/cz/status_hacked.png" title="Hacked!">
+                  <img *ngIf="unit.isHacked" class="float-end w-20" src="img/cz/status_hacked.png" title="Hacked!">
                 </div>
                 <div class="col-1 text-small px-0" (click)="showUnitModal(unitForm, unit.name, unitIndex)">
                   {{unit.totalCost}}eb
