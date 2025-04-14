@@ -3,12 +3,12 @@
   <div class="col-12">
     <div *ngFor="let program of programList |contains:'faction':[filterFaction, 'universal']" class="row mt-1">
       <div class="col-1 text-end px-0">
-        <button class="border border-secondary text-center rounded csd-btn p-2 mt-5" (click)="buy(program)">
+        <button title="Add program to inventory." class="border border-secondary text-center rounded csd-btn p-2 mt-5" (click)="buy(program)">
           <fa-icon [icon]="faPlus" size="xl"></fa-icon>
         </button>
       </div>
       <div class="col-3 col-md-1 text-end">
-        <img class="csd-img-icon" src="img/cz/icon_{{program.faction.replace(' ','_')}}.png">
+        <img alt="Faction icon" class="csd-img-icon" src="img/cz/icon_{{program.faction.replace(' ','_')}}.png">
         <br>
         {{program.ebCost}}eb
         <br>
@@ -17,12 +17,12 @@
       {{program.rarity}} rarity
     </div>
       <div class="col-4 col-md-2">
-          <img class="w-100"
-            src="img/cz/programs/{{program.faction?.replaceAll(' ', '_')}}_{{program.name?.replaceAll(' ', '_')}}_l.jpg">
+          <img alt="{{program.name}} program card loaded side" class="w-100"
+            src="img/cz/programs/{{program.name?.replaceAll(' ', '_')}}_l.jpg">
       </div>
       <div class="col-4 col-md-2">
-          <img class="w-100"
-            src="img/cz/programs/{{program.faction?.replaceAll(' ', '_')}}_{{program.name?.replaceAll(' ', '_')}}_r.jpg">
+          <img class="w-100" alt="{{program.name}} program card running side"
+            src="img/cz/programs/{{program.name?.replaceAll(' ', '_')}}_r.jpg">
       </div>
     </div>
   </div>
