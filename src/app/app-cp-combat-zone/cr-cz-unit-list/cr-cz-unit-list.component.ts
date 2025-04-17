@@ -49,9 +49,6 @@ export class CrCzUnitListComponent {
   }
 
   hasSpecialist(name: string): boolean {
-    if(name.includes('david')) {
-      console.log('has Sepcialist', name);
-    }
     return this.armyBuilder.hasSpecialist(this.squadIndex, name);
   }
 

@@ -24,7 +24,7 @@
 
   <div *ngFor="let unit of ranks;index as i" class="row mt-1">
     <div class="col-1 text-center px-0">
-      <button title="Add character to squad." class="border border-secondary text-center rounded csd-btn p-2" (click)="add(name, i)" [disabled]="(hasLeader && isLeader(keywords)) || (hasSpecialist(name))">
+      <button title="Add character to squad." class="border border-secondary text-center rounded csd-btn p-2" (click)="add(name, unit.cred)" [disabled]="(hasLeader && isLeader(keywords)) || (hasSpecialist(name))">
         <fa-icon [icon]="faPlus" size="xl"></fa-icon>
       </button>
     </div>
