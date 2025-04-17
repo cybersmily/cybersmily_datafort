@@ -2,6 +2,7 @@
   "news": [
     {"date": "2025-04",
     "entries": [
+      "<strong>04-17</strong> - Fixed some styling issues and bugs in teh Cyberpunk Red: Combat Zone army builder, specifically around Specialist keywords, Adam Smasher, and styled the programs & gear sections.",
       "<strong>04-13</strong> - Updated the Cyberpunk Red: Combat Zone army builder. Add the Edgerunner expansion to it and add the Wild Things, Piranha, and 6th Street gangs to the list.",
       "I also remove the Objective cards and Loot card sections for now as both need a bit of work. I plan on doing some redesign to the army builder as I want to have a better UI/UX to it.",
       "CYBER :D"
