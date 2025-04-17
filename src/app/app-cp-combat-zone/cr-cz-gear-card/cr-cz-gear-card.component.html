@@ -1,5 +1,5 @@
 <div [ngClass]="{'d-inline-block float-start m-1 p-1 rounded':true, 'bg-secondary': hasGear} ">
-  <div [ngClass]="{'d-inline-block position-relative csd-btn': true, 'rotate-180': gear.flipped}" style="height: 145px; width: 280px;"
+  <div [ngClass]="{'d-inline-block position-relative csd-btn': true, 'rotate-180': gear.flipped}" style="height: 180px; width: 280px;"
     (click)="addGear()"
   >
     <img [ngClass]="{'cz-gear-card d-inline-block rounded align-top':true}" src="img/cz/gear/blank_card.jpg">
@@ -7,28 +7,24 @@
       (click)="removeGear()">
       <fa-icon [icon]="faTrash" size="xl"></fa-icon>
     </button>
-    <img
-      [ngClass]="{'csd-img-icon rounded position-absolute top-0 mt-0 mb-0':true, 'bg-danger border border-secondary': gear.faction !== 'universal' && gear?.faction != unitFaction}"
-      style="left: 0px" src="img/cz/icon_{{gear.faction.replace(' ','_')}}.png">
     <div *ngIf="hasGear" class="d-inline-block position-absolute fw-bold outline-black-bold text-white text-small"
-    style="top:-8px;left: 0; right: 0; margin-inline: auto; width: fit-content;">
+    style="top:-4px;left: 0; right: 0; margin-inline: auto; width: fit-content;">
       * Equipped *
     </div>
     <div
-      [ngClass]="{'d-inline-block position-absolute ms-3 mt-2 text-capitalize':true, 'text-white': isValid,'text-danger': !isValid, ' text-small': gear.name.length <= 25, ' text-xsmall': gear.name.length > 25,}"
-      style="left:20px;width: 120px;line-height: 15px;top:6px"
+      [ngClass]="{'d-inline-block position-absolute text-capitalize text-center cr-cz-gear-name mt-2':true, 'text-white': isValid,'text-danger': !isValid,}"
       title="Squad already has {{count}} of this gear. {{(rarityValid ? ' THIS EXCEEDS RARITY FOR THE CURRENT SQUAD!! ' : '')}}{{ credValid ? 'THIS EXCEEDS STREET CRED FOR THE CURRENT SQUAD!!':''}}">
       {{gear.name}}</div>
-    <div class="d-inline-block position-absolute top-0 ms-2 mt-5 text-capitalize text-white text-small"
-      style="left:0;width: 120px;line-height: 16px;">
+    <div class="d-inline-block position-absolute top-0 ms-2 mt-5 pt-3 text-capitalize text-white text-small"
+      style="left:0;width: 180px;line-height: 16px;">
       {{gear.keywords.join(", ")}}</div>
-    <div class="d-inline-block position-absolute top-0 mt-5 py-0 px-1 text-small {{ !rarityValid ? 'text-danger':'text-white'}}"
+    <div class="d-inline-block position-absolute top-0 mt-5 pt-3 py-0 px-1 text-small {{ !rarityValid ? 'text-danger':'text-white'}}"
       style="right:33px;line-height: 18px;" title="Squad has {{count}} of this gear. {{ !rarityValid ? 'Count exceeds the rarity of this item.': ''}}">
       {{count}}/{{gear.rarity}}<span *ngIf="!rarityValid">**</span> rarity
     </div>
-    <div class="d-inline-block position-absolute top-0 mt-3 text-white py-0 px-1 text-small"
+    <div class="d-inline-block position-absolute top-0 mt-4 text-white py-0 px-1 text-small"
       style="right:8px;line-height: 18px;">{{gear.eb}} EB</div>
-    <div class="d-inline-block position-absolute top-0 mt-3 py-0 px-1 text-small fw-bold {{ !credValid ? 'text-danger':'text-white'}}"
+    <div class="d-inline-block position-absolute top-0 mt-4 py-0 px-1 text-small fw-bold {{ !credValid ? 'text-danger':'text-white'}}"
       style="left:185px;line-height: 16px;" title="Gear exceeds Street Cred limit.">
       {{gear.cred}} ({{totalStreetcred}})<span *ngIf="!credValid">**</span>
     </div>
@@ -45,7 +41,7 @@
     <img *ngIf="gear.ranges?.includes('l')" class="position-absolute top-50 w-70" style="left: 35px;height:10px;"
       src="img/cz/range_long.png">
     <div class="d-inline-block position-absolute text-white py-0 px-1 text-xsmall text-start"
-      [ngStyle]="{'top':(gear.ranges?.length > 0 ? '85px' : '70px'),'left':(gear.action ? 35 : 5) + 'px', 'line-height': '11px', 'width': getAttributeWidth(gear.action != '', gear.armor > 0)}">
+      [ngStyle]="{'top':(gear.ranges?.length > 0 ? '105px' : '90px'),'left':(gear.action ? 35 : 5) + 'px', 'line-height': '11px', 'width': getAttributeWidth(gear.action != '', gear.armor > 0)}">
       <img *ngIf="gear.damage" class="float-start" style="height:11px;" src="img/cz/lethal_icon.png">
       {{gear.attributes.join(', ')}}
     </div>
@@ -54,5 +50,12 @@
       style="background-image: url('img/cz/shield_icon.png');background-size: contain; height:33px; right: 8px; width:30px !important; ">
       {{gear.armor}}
     </div>
+    <img
+      [ngClass]="{'rounded position-absolute bottom-0 right-0 mt-5 mb-0':true, 'bg-danger border border-secondary': gear.faction !== 'universal' && gear?.faction != unitFaction}"
+      style="margin-left: -45px; opacity: 0.4; width:45px;"
+       src="img/cz/icon_{{gear.faction.replace(' ','_')}}.png"
+       alt="{{gear.faction.replace(' ','_')}} faction"
+       title="{{gear.faction.replace(' ','_')}} faction gear"
+       >
   </div>
 </div>

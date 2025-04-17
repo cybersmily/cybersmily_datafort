@@ -8,7 +8,7 @@
         </button>
       </div>
       <div class="col-3 col-md-1 text-end">
-        <img alt="Faction icon" class="csd-img-icon" src="img/cz/icon_{{program.faction.replace(' ','_')}}.png">
+        <img alt="Faction icon" class="csd-img-icon" src="img/cz/icon_{{program?.faction.replace(' ','_')}}.png">
         <br>
         {{program.ebCost}}eb
         <br>
@@ -20,7 +20,7 @@
           <img alt="{{program.name}} program card loaded side" class="w-100"
             src="img/cz/programs/{{program.name?.replaceAll(' ', '_')}}_l.jpg">
       </div>
-      <div class="col-4 col-md-2">
+      <div class="col-4 col-md-2 position-relative">
           <img class="w-100" alt="{{program.name}} program card running side"
             src="img/cz/programs/{{program.name?.replaceAll(' ', '_')}}_r.jpg">
       </div>
