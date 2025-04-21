@@ -59,7 +59,9 @@ export interface iCrCzUnitCard {
   get isRedLined(): boolean;
 
   get gearList(): string;
+  get gearTotalCost(): number;
   get programList(): string;
+  get programTotalCost(): number;
 
 }
 
@@ -93,8 +95,8 @@ export class CrCzUnit implements iCrCzUnitCard {
 
   get totalCost(): number {
     let total = this.eb;
-    total += this.gearCards.reduce((a,b) => a + b.eb, 0);
-    total += this.programs.reduce((a,b) => a + b.eb, 0);
+    total += this.gearTotalCost;
+    total += this.programTotalCost;
     return total;
   }
 
@@ -139,6 +141,9 @@ export class CrCzUnit implements iCrCzUnitCard {
       return this.gearCards.map(gear => gear.name).join(', ');
     }
   }
+  get gearTotalCost(): number {
+    return this.gearCards.reduce((a,b) => a + b.eb, 0);
+  }
 
   get programList(): string {
     if(this.programs.length < 1) {
@@ -146,6 +151,10 @@ export class CrCzUnit implements iCrCzUnitCard {
     } else {
       return this.programs.map(program => program.name).join(', ');
     }
+  }
+
+  get programTotalCost(): number {
+    return this.programs.reduce((a,b) => a + b.eb, 0);
   }
 
 }
