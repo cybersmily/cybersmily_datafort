@@ -213,12 +213,12 @@ export class CrCzArmyPdfService {
       align: 'right',
     });
     this._doc.text(unit.keywords.join(', '), leftMargin + 110, line);
-    line += 4;
+    line += 8;
     this._doc.setFontSize(PdfFontSize.SM);
     if (unit.gearCards.length > 0) {
       this._doc.text('Gear', leftMargin + 3, line);
       unit.gearCards.forEach((gear) => {
-        this._doc.text(gear.name?.toUpperCase(), leftMargin + 12, line);
+        this._doc.text(gear.name?.toUpperCase(), leftMargin + 16, line);
         this._doc.text(`${gear?.cred}SC`, leftMargin + 90, line);
         this._doc.text(`+${gear.eb}eb`, leftMargin + 107, line, {
           align: 'right',
@@ -229,9 +229,9 @@ export class CrCzArmyPdfService {
       line += 1;
     }
     if (unit.programs.length > 0) {
-      this._doc.text('Hacks', leftMargin + 3, line);
+      this._doc.text('Programs', leftMargin + 3, line);
       unit.programs.forEach((prog) => {
-        this._doc.text(prog?.name?.toUpperCase(), leftMargin + 12, line);
+        this._doc.text(prog?.name?.toUpperCase(), leftMargin + 16, line);
         this._doc.text(`${prog?.cred ?? '-'}SC`, leftMargin + 90, line);
         this._doc.text(`+${prog.eb}eb`, leftMargin + 107, line, {
           align: 'right',
