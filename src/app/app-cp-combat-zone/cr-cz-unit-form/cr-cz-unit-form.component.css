@@ -28,3 +28,21 @@
 ::ng-deep .customClass > a > button{
   display: none;
 }
+
+.otherTokens {
+  height: 80px;
+}
+
+.hackValue {
+  position:absolute;
+  left: 33%;
+  margin-top: 14px;
+  font-size: 30px;
+  color:red;
+  font-weight: bold;
+  padding: 3px;
+  text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
+
+}
+
+

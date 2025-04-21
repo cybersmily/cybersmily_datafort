@@ -2,14 +2,11 @@
   <div class="col-12 col-md-6 col-lg-4">
     <div class="row">
       <div class="col-2 px-0 text-center">
-        <img alt="Action token {{action.type}}" *ngFor="let action of unit?.actionTokens;index as actionIndex" class="w-90 csd-btn"
+        <img alt="Action token {{action.type}}" *ngFor="let action of unit?.actionTokens;index as actionIndex" class="w-100 csd-btn"
           src="img/cz/{{action.isRed ? 'r' : action.type}}_{{action?.isUsed ? 'deactive': 'active'}}.png"
           (click)="toggleToken(actionIndex)">
         <br>
-        <img class="w-90 csd-btn mt-3" src="img/cz/hacked_{{unit.isHacked ? 'dis' : 'en'}}able.png" title="hacked"
-          (click)="toggleHacked()">
-        <br>
-        <img alt="Vulnerable Icon" class="w-90 csd-btn mt-3" src="img/cz/status_{{unit.isVulnerable ? 'vulnerable': 'active'}}.png"
+        <img alt="Vulnerable Icon" class="csd-btn mt-3 w-80" src="img/cz/status_{{unit.isVulnerable ? 'vulnerable': 'active'}}.png"
           [title]="unit.isVulnerable ? 'Remove vulnerable': 'Add vulnerable'" (click)="toggleVulnerable()">
       </div>
 
@@ -31,6 +28,22 @@
           class="w-90 csd-btn" title="Kill this unit" (click)="toggleKill()">
       </div>
 
+    </div>
+    <div class="row mt-1">
+      <div class="col-2"></div>
+      <div class="col-8">
+        <button class="csd-btn me-3 float-start otherTokens px-3 text-xlarge" (click)="toggleHacked(1)" title="Add Hack token.">
+          <fa-icon [icon]="faPlus"/>
+        </button>
+        <div class="d-inline-block me-3 float-start position-relative text-center">
+          <img class="otherTokens" src="img/cz/hacked_{{unit.isHacked ? 'dis' : 'en'}}able.png" title="hacked">
+          <span class="hackValue">{{unit.hacks}}</span>
+        </div>
+          <button class="csd-btn me-3 float-start otherTokens px-3 text-xlarge" title="Remove Hack token."(click)="toggleHacked(-1)">
+            <fa-icon [icon]="faMinus"/>
+          </button>
+      </div>
+      <div class="col-2"></div>
     </div>
   </div>
   <div class="col-12 col-md-6 col-lg-4">

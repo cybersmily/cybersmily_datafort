@@ -1,4 +1,4 @@
-import { faTimes, faPlus, faTrash, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faPlus, faTrash, faStar, faMinus } from '@fortawesome/free-solid-svg-icons';
 import {
   Component,
   Input,
@@ -22,6 +22,7 @@ import { iCrCzNrProgramCard } from '../models/cr-cz-nr-program-card';
 export class CrCzUnitFormComponent implements OnInit, OnChanges {
   faTimes = faTimes;
   faPlus = faPlus;
+  faMinus = faMinus;
   faTrash = faTrash;
   faStar = faStar;
 
@@ -87,8 +88,9 @@ export class CrCzUnitFormComponent implements OnInit, OnChanges {
     );
   }
 
-  toggleHacked(): void {
-    // this.unit.isHacked = !this.unit.isHacked;
+  toggleHacked(value: number): void {
+    this.unit.hacks += value;
+    this.unit.hacks = (this.unit.hacks < 0) ? 0 : this.unit.hacks;
     this.combatzoneArmyBuilder.updateUnit(
       this.squadIndex,
       this.unitIndex,
