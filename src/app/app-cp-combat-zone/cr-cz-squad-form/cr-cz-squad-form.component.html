@@ -67,7 +67,7 @@
                   </button>
                 </div>
               </div>
-              <div *ngFor="let unit of squad?.units | orderby: [{prop: 'name',desc: false}]; index as unitIndex"
+              <div *ngFor="let unit of squad?.units | orderby: [{prop: 'isGonk', desc: false},{prop: 'isLeader', desc: true},{prop: 'name',desc: false}]; index as unitIndex"
                 class="row mt-1 py-1 csd-btn">
                 <div class="col-1 text-capitalize ps-0 text-end">
                   <img alt="Death icon" *ngIf="unit.isDead; else unitLives" class="csd-img-icon me-1" src="img/cz/death_icon.png">
