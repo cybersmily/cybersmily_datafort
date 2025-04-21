@@ -22,7 +22,7 @@ export class CrCzGearCardComponent implements OnInit {
   totalStreetcred: number = 0;
 
   @Input()
-  unitFaction: string = '';
+  unitKeywords: Array<string> = [];
 
   @Input()
   count: number = 0;

@@ -20,7 +20,7 @@ export class CrCzGearListComponent implements OnInit {
   filterFaction: string = '';
 
   @Input()
-  unitFaction: string = '';
+  unitKeywords: Array<string> = [];
 
   @Input()
   totalStreetcred: number = 0;

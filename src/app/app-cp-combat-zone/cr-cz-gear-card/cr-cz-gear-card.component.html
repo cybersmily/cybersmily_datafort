@@ -51,11 +51,12 @@
       {{gear.armor}}
     </div>
     <img
-      [ngClass]="{'rounded position-absolute bottom-0 right-0 mt-5 mb-0':true, 'bg-danger border border-secondary': gear.faction !== 'universal' && gear?.faction != unitFaction}"
+      [ngClass]="{'rounded position-absolute bottom-0 right-0 mt-5 mb-0':true, 'bg-danger border border-secondary': gear.faction !== 'universal' && !unitKeywords?.includes(gear.faction)}"
       style="margin-left: -45px; opacity: 0.4; width:45px;"
        src="img/cz/icon_{{gear.faction.replace(' ','_')}}.png"
        alt="{{gear.faction.replace(' ','_')}} faction"
        title="{{gear.faction.replace(' ','_')}} faction gear"
        >
   </div>
+
 </div>

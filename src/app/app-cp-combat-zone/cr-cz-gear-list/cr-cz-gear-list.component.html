@@ -9,7 +9,7 @@
       <div class="col-12 text-center px-0">
         <cs-cr-cz-gear-card *ngFor="let gear of gearList |contains:'faction':[filterFaction, 'universal'] | contains:'name':filterName"
           [gear]="gear"
-          [unitFaction]="unitFaction"
+          [unitKeywords]="unitKeywords"
           [totalStreetcred]="totalStreetcred"
           [count]="getCount(gear.name)"
           [hasGear]="characterHasGear(gear.name)"
