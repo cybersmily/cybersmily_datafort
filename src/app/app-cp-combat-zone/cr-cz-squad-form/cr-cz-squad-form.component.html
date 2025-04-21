@@ -76,9 +76,9 @@
                       src="img/cz/units/{{unit.name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
                   </ng-template>
                 </div>
-                <div class="col-7 text-capitalize" (click)="showUnitModal(unitForm, unit.name, unitIndex)">
+                <div class="col-8 text-capitalize" (click)="showUnitModal(unitForm, unit.name, unitIndex)">
                   <div class="row">
-                    <div class="col-12 col-md-6 px-0">
+                    <div class="col-12 col-md-8 px-0">
                       {{unit?.name}}
                       <fa-icon *ngIf="unit.cred > 1" [icon]="faStar" class="text-small mt-3"
                         style="margin-right:-3px;"></fa-icon>
@@ -87,7 +87,7 @@
                         {{unit?.keywords?.join(", ")}}
                       </div>
                     </div>
-                    <div class="col-12 col-md-6 px-0">
+                    <div class="col-12 col-md-4 px-0">
                       <img alt="Death icon" *ngIf="unit.isDead; else unitAlive" class="csd-img-icon" src="img/cz/death_icon.png">
                       <ng-template #unitAlive>
                         <img alt="Action icon {{action.type}}" *ngFor="let action of unit?.actionTokens" class="csd-img-icon"
@@ -96,17 +96,19 @@
                     </div>
                   </div>
                   <div class="row text-small" *ngIf="unit.gearCards.length > 0">
-                    <div class="col-6">Gear: {{unit.gearList}}</div>
-                    <div class="col-6">Programs: {{unit.programList}}</div>
+                    <div class="col-12">Gear: {{unit.gearList}}</div>
+                  </div>
+                  <div class="row text-small" *ngIf="unit.programs?.length > 0">
+                    <div class="col-12">Programs: {{unit.programList}}</div>
                   </div>
                 </div>
-                <div class="col-2 col-md-1 px-1" (click)="showUnitModal(unitForm, unit.name, unitIndex)">
-                  <img *ngIf="unit.isVulnerable" class="float-start w-20" src="img/cz/status_vulnerable.png"
+                <div class="col-1 px-1" (click)="showUnitModal(unitForm, unit.name, unitIndex)">
+                  <img *ngIf="unit.isVulnerable" class="float-end otherToken" src="img/cz/status_vulnerable.png"
                     title="is Vulnerable!">
-                  <img *ngIf="unit.isHacked" class="float-end w-20" src="img/cz/status_hacked.png" title="Hacked!">
+                  <img *ngIf="unit.isHacked" class="float-end otherToken me-1" src="img/cz/status_hacked.png" title="Hacked!">
                 </div>
                 <div class="col-1 text-small px-0" (click)="showUnitModal(unitForm, unit.name, unitIndex)">
-                  {{unit.totalCost}}eb
+                  {{unit.totalCost + ( squad.payVeterans ? (unit.cred * 5) : 0)}}eb
                 </div>
                 <div class="col-1">
                   <button title="Click to remove unit." class="csd-btn p-1" (click)="removeUnit( unitIndex)">

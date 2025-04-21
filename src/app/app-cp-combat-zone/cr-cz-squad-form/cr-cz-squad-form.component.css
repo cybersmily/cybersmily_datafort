@@ -28,3 +28,7 @@
 ::ng-deep .customClass > a > button{
   display: none;
 }
+
+.otherToken {
+  width: max( 20%, 20px);
+}
