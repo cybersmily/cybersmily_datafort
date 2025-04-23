@@ -18,6 +18,7 @@ import { iCrCzNrProgramCard } from '../models/cr-cz-nr-program-card';
   selector: 'cs-cr-cz-unit-form',
   templateUrl: './cr-cz-unit-form.component.html',
   styleUrls: ['./cr-cz-unit-form.component.css'],
+  standalone: false
 })
 export class CrCzUnitFormComponent implements OnInit, OnChanges {
   faTimes = faTimes;
@@ -180,5 +181,25 @@ export class CrCzUnitFormComponent implements OnInit, OnChanges {
     }
   }
 
+  updateNotes(): void {
+    console.log('updateNotes', this.unit);
+    this.combatzoneArmyBuilder.updateUnit(
+      this.squadIndex,
+      this.unitIndex,
+      this.unit
+    );
+  }
+
   addLoot(loot: any): void {}
+
+  addAction(action: string): void {
+    this.unit.actionTokens.push({type: action, isUsed: false, isRed: action === 'r', isExtra: true });
+    this.combatzoneArmyBuilder.updateUnit(
+      this.squadIndex,
+      this.unitIndex,
+      this.unit
+    );
+  }
+
+  removeAction(index: number): void {}
 }

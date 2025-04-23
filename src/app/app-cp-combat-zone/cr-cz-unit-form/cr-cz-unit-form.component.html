@@ -7,17 +7,58 @@
           src="img/cz/{{action.isRed ? 'r' : action.type}}_{{action?.isUsed ? 'deactive': 'active'}}.png"
           (click)="toggleToken(actionIndex)">
         <br>
+        <div dropdown class="btn-group">
+          <button id="btn-action-token" dropdownToggle type="button"
+            class="csd-btn float-end otherTokens px-3 text-xlarge w-90 dropdown-toggle" title="Add Action token."
+            aria-controls="dropdown-action-tokens">
+            <fa-icon [icon]="faPlus" />
+          </button>
+          <ul class="dropdown-menu ms-3" style="width:100px !important;left:20px;" id="dropdown-action-tokens"
+            *dropdownMenu role="menu" aria-labelledby="btn-action-token">
+            <li role="menuitem"><img alt="Action token Red" class="w-50 csd-btn" src="img/cz/r_active.png"
+                (click)="addAction('r')"></li>
+            <li role="menuitem"><img alt="Action token Red" class="w-50 csd-btn" src="img/cz/y_active.png"
+                (click)="addAction('y')"></li>
+            <li role="menuitem"><img alt="Action token Red" class="w-50 csd-btn" src="img/cz/g_active.png"
+                (click)="addAction('g')"></li>
+          </ul>
+        </div>
+        <br>
         <img alt="Vulnerable Icon" class="csd-btn mt-3 w-80"
           src="img/cz/status_{{unit.isVulnerable ? 'vulnerable': 'active'}}.png"
           [title]="unit.isVulnerable ? 'Remove vulnerable': 'Add vulnerable'" (click)="toggleVulnerable()">
       </div>
 
       <div class="col-8">
-        <img alt="Unit card for {{unit?.name}}" *ngIf="!unit.isDead; else unitDead" class="w-100 rounded"
-          src="img/cz/units/{{unit?.name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
-        <ng-template #unitDead>
-          <img src="img/cz/death_icon.png" class="w-100" title="Dead">
-        </ng-template>
+        <div class="row">
+          <div class="col-12">
+            <img alt="Unit card for {{unit?.name}}" *ngIf="!unit.isDead; else unitDead" class="w-100 rounded"
+              src="img/cz/units/{{unit?.name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
+            <ng-template #unitDead>
+              <img src="img/cz/death_icon.png" class="w-100" title="Dead">
+            </ng-template>
+          </div>
+        </div>
+        <div class="row mt-1">
+          <div class="col-4">
+            <button class="csd-btn float-end otherTokens px-3 text-xlarge" (click)="toggleHacked(1)"
+              title="Add Hack token.">
+              <fa-icon [icon]="faPlus" />
+            </button>
+          </div>
+          <div class="col-4">
+            <div class="d-inline-block position-relative text-center hackToken w-100">
+              <img class="otherTokens" src="img/cz/hacked_{{unit.isHacked ? 'dis' : 'en'}}able.png" title="hacked">
+              <span class="hackValue">{{unit.hacks}}</span>
+            </div>
+          </div>
+          <div class="col-4">
+            <button class="csd-btn float-start otherTokens px-3 text-xlarge" title="Remove Hack token."
+              (click)="toggleHacked(-1)">
+              <fa-icon [icon]="faMinus" />
+            </button>
+          </div>
+        </div>
       </div>
       <div class="col-2 px-0 text-center">
         <ng-container *ngIf="!unit.isGonk">
@@ -31,26 +72,7 @@
       </div>
 
     </div>
-    <div class="row mt-1">
-      <div class="col-4">
-        <button class="csd-btn float-end otherTokens px-3 text-xlarge" (click)="toggleHacked(1)"
-          title="Add Hack token.">
-          <fa-icon [icon]="faPlus" />
-        </button>
-      </div>
-      <div class="col-4">
-        <div class="d-inline-block position-relative text-center hackToken w-100">
-          <img class="otherTokens" src="img/cz/hacked_{{unit.isHacked ? 'dis' : 'en'}}able.png" title="hacked">
-          <span class="hackValue">{{unit.hacks}}</span>
-        </div>
-      </div>
-      <div class="col-4">
-        <button class="csd-btn float-start otherTokens px-3 text-xlarge" title="Remove Hack token."
-          (click)="toggleHacked(-1)">
-          <fa-icon [icon]="faMinus" />
-        </button>
-      </div>
-    </div>
+
   </div>
   <div class="col-12 col-md-6 col-lg-4">
     <tabset *ngIf="!unit.isGonk" type="pills">
@@ -92,6 +114,12 @@
               <fa-icon [icon]="faTrash"></fa-icon>
             </button>
           </div>
+        </div>
+      </tab>
+      <tab customClass="customClass">
+        <ng-template tabHeading>NOTES</ng-template>
+        <div>
+          <textarea [(ngModel)]="unit.notes" class="w-100" rows="25" (change)="updateNotes()" (keyup)="updateNotes()"></textarea>
         </div>
       </tab>
     </tabset>

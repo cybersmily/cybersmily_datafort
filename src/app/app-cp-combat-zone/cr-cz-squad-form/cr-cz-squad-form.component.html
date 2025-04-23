@@ -141,6 +141,18 @@
                 <fa-icon *ngIf="obj.cred > 0" [icon]="faStar" class="align-top mt-0 pt-0"></fa-icon>
               </div>
             </tab>
+            <tab customClass="customClass">
+              <ng-template tabHeading>
+                <div class="text-small text-uppercase">
+                  NOTES
+                </div>
+              </ng-template>
+              <div class="row">
+                <div class="col-12 text-center">
+                  <textarea class="w-100" rows="15" (keyup)="updateSquadNotes()" [(ngModel)]="squadNotes" ></textarea>
+                </div>
+              </div>
+            </tab>
           </tabset>
         </div>
       </div>
