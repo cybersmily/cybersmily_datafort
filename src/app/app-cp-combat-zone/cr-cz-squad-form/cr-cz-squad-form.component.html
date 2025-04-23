@@ -67,7 +67,7 @@
                   </button>
                 </div>
               </div>
-              <div *ngFor="let unit of squad?.units | orderby: [{prop: 'isGonk', desc: false},{prop: 'isLeader', desc: true},{prop: 'name',desc: false}]; index as unitIndex"
+              <div *ngFor="let unit of squad?.units  | orderby: [{prop: 'isLeader', desc: true},{prop: 'isGonk', desc: false},{prop: 'name',desc: false}]; index as unitIndex"
                 class="row mt-1 py-1 csd-btn">
                 <div class="col-1 text-capitalize ps-0 text-end">
                   <img alt="Death icon" *ngIf="unit.isDead; else unitLives" class="csd-img-icon me-1" src="img/cz/death_icon.png">
@@ -79,7 +79,7 @@
                 <div class="col-8 text-capitalize" (click)="showUnitModal(unitForm, unit.name, unitIndex)">
                   <div class="row">
                     <div class="col-12 col-md-8 px-0">
-                      {{unit?.name}}
+                      {{unit?.name}} {{unit.isLeader}}
                       <fa-icon *ngIf="unit.cred > 1" [icon]="faStar" class="text-small mt-3"
                         style="margin-right:-3px;"></fa-icon>
                       <fa-icon *ngIf="unit.cred > 0" [icon]="faStar" class="align-top"></fa-icon>

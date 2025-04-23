@@ -111,7 +111,8 @@ export class CrCzUnit implements iCrCzUnitCard {
   }
 
   get isLeader(): boolean {
-    return this.keywords.includes('leader');
+    let regex = /.*leader.*/g;
+    return this.keywords.some(keyword => regex.test(keyword));
   }
 
   get isMerc(): boolean {

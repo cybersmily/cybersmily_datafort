@@ -45,7 +45,7 @@ export class CrCzSquadFormComponent implements OnInit, OnChanges {
 
   public get squad$(): Observable<iCrCzSquad> {
     return this.combatzoneArmyBuilder
-    .getSquad(this.squadIndex);
+    .getSquad(this.squadIndex)
   }
 
   ngOnInit(): void {
@@ -111,7 +111,6 @@ export class CrCzSquadFormComponent implements OnInit, OnChanges {
   }
 
   updateSquadNotes(): void {
-    console.log('squadNotes', this.squadNotes);
     this.combatzoneArmyBuilder.updateSquadNotes(this.squadIndex, this.squadNotes);
   }
 }
