@@ -114,9 +114,7 @@ export class CrCzArmyBuilderService {
     newUnit.name = unit.name;
     newUnit.eb = unit.eb;
     newUnit.cred = streetCred;
-    console.log('streetCred', streetCred);
     const chosenRank = unit.ranks.filter((rank) => rank.cred === streetCred)[0];
-    console.log('chosenRank',chosenRank);
     if (chosenRank) {
       newUnit.keywords = [...unit.keywords];
 
@@ -213,6 +211,15 @@ export class CrCzArmyBuilderService {
   updateUnit(squadIndex: number, unitIndex: number, unit: iCrCzUnitCard): void {
     let army = this._army.getValue();
     army[squadIndex].units[unitIndex] = CreateCombatZoneUnitFromObject(unit);
+    this.saveArmy(army);
+  }
+
+  updateSquadNotes(squadIndex: number, notes: string): void {
+    let army = this._army.getValue();
+    army[squadIndex].notes = notes;
+    console.log('notes', notes);
+    console.log('squadIndex', squadIndex);
+    console.log('army', army);
     this.saveArmy(army);
   }
 }

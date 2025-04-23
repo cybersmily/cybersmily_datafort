@@ -7,6 +7,7 @@ export interface iCrCzSquad {
   faction: string;
   luck: number;
   objectives: Array<iCrCzObjectiveCard>;
+  notes?: string;
 
   totalCost: number;
   payVeterans: boolean;
@@ -23,6 +24,7 @@ export class CrCzSquad implements iCrCzSquad {
   faction: string;
   objectives: Array<iCrCzObjectiveCard>;
   payVeterans: boolean;
+  notes?: string;
 
    get totalCost(): number {
     if(this.units.length < 1) {
@@ -64,6 +66,8 @@ export class CrCzSquad implements iCrCzSquad {
     this.luck = param?.luck || 3;
     this.payVeterans = param?.payVeterans || false;
     this.objectives = param?.objectives || new Array<iCrCzObjectiveCard>();
+    console.log('const', param);
+    this.notes = param?.notes || '';
   }
 
 }

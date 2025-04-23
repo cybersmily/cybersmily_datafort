@@ -4,4 +4,5 @@ export interface iCrCzActionToken {
   type: string;
   isUsed: boolean;
   isRed: boolean;
+  isExtra?: boolean;
 }
