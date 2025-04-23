@@ -66,7 +66,6 @@ export class CrCzSquad implements iCrCzSquad {
     this.luck = param?.luck || 3;
     this.payVeterans = param?.payVeterans || false;
     this.objectives = param?.objectives || new Array<iCrCzObjectiveCard>();
-    console.log('const', param);
     this.notes = param?.notes || '';
   }
 

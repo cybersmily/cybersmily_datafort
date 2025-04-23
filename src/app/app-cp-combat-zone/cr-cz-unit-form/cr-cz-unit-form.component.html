@@ -24,9 +24,10 @@
           </ul>
         </div>
         <br>
-        <img alt="Vulnerable Icon" class="csd-btn mt-3 w-80"
-          src="img/cz/status_{{unit.isVulnerable ? 'vulnerable': 'active'}}.png"
-          [title]="unit.isVulnerable ? 'Remove vulnerable': 'Add vulnerable'" (click)="toggleVulnerable()">
+        <button *ngIf="hasExtraActions" type="button"
+            class="csd-btn otherTokens px-3 text-xlarge w-90" title="Remove the lastAction token." (click)=" removeAction()">
+            <fa-icon [icon]="faMinus" />
+          </button>
       </div>
 
       <div class="col-8">
@@ -40,22 +41,24 @@
           </div>
         </div>
         <div class="row mt-1">
-          <div class="col-4">
-            <button class="csd-btn float-end otherTokens px-3 text-xlarge" (click)="toggleHacked(1)"
+          <div class="col-8 p-0 text-center border border-secondary rounded">
+            <button class="csd-btn float-start otherTokens px-3 text-xlarge" (click)="toggleHacked(1)"
               title="Add Hack token.">
               <fa-icon [icon]="faPlus" />
             </button>
-          </div>
-          <div class="col-4">
-            <div class="d-inline-block position-relative text-center hackToken w-100">
+            <div class="d-inline-block position-relative text-center hackToken">
               <img class="otherTokens" src="img/cz/hacked_{{unit.isHacked ? 'dis' : 'en'}}able.png" title="hacked">
               <span class="hackValue">{{unit.hacks}}</span>
             </div>
-          </div>
-          <div class="col-4">
-            <button class="csd-btn float-start otherTokens px-3 text-xlarge" title="Remove Hack token."
+            <button class="csd-btn float-end otherTokens px-3 text-xlarge" title="Remove Hack token."
               (click)="toggleHacked(-1)">
               <fa-icon [icon]="faMinus" />
+            </button>
+          </div>
+          <div class="col-4 text-center p-0">
+            <button type="button" [title]="unit.isVulnerable ? 'Remove vulnerable': 'Add vulnerable'" class="csd-btn w-100" (click)="toggleVulnerable()">
+            <img [alt]="unit.isVulnerable ? 'Vulnerable': 'Active'" class="otherTokens" src="img/cz/status_{{unit.isVulnerable ? 'vulnerable': 'active'}}.png"
+              [title]="unit.isVulnerable ? 'Remove vulnerable': 'Add vulnerable'">
             </button>
           </div>
         </div>

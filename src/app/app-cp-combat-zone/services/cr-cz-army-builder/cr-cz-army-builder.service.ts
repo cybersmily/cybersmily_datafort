@@ -217,9 +217,6 @@ export class CrCzArmyBuilderService {
   updateSquadNotes(squadIndex: number, notes: string): void {
     let army = this._army.getValue();
     army[squadIndex].notes = notes;
-    console.log('notes', notes);
-    console.log('squadIndex', squadIndex);
-    console.log('army', army);
     this.saveArmy(army);
   }
 }

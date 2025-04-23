@@ -1,4 +1,10 @@
-import { faTimes, faPlus, faTrash, faStar, faMinus } from '@fortawesome/free-solid-svg-icons';
+import {
+  faTimes,
+  faPlus,
+  faTrash,
+  faStar,
+  faMinus,
+} from '@fortawesome/free-solid-svg-icons';
 import {
   Component,
   Input,
@@ -7,7 +13,10 @@ import {
   SimpleChanges,
   TemplateRef,
 } from '@angular/core';
-import { iCrCzUnitCard, CreateCombatZoneUnitFromObject } from '../models/cr-cz-unit-card';
+import {
+  iCrCzUnitCard,
+  CreateCombatZoneUnitFromObject,
+} from '../models/cr-cz-unit-card';
 import { CrCzArmyBuilderService } from '../services/cr-cz-army-builder/cr-cz-army-builder.service';
 import { Observable } from 'rxjs';
 import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
@@ -18,7 +27,7 @@ import { iCrCzNrProgramCard } from '../models/cr-cz-nr-program-card';
   selector: 'cs-cr-cz-unit-form',
   templateUrl: './cr-cz-unit-form.component.html',
   styleUrls: ['./cr-cz-unit-form.component.css'],
-  standalone: false
+  standalone: false,
 })
 export class CrCzUnitFormComponent implements OnInit, OnChanges {
   faTimes = faTimes;
@@ -61,22 +70,29 @@ export class CrCzUnitFormComponent implements OnInit, OnChanges {
 
   private setSubscriptions(): void {
     this.combatzoneArmyBuilder
-    .getUnit(this.squadIndex, this.unitIndex)
-    .subscribe((unit) => {
-      this.unit = CreateCombatZoneUnitFromObject(unit);
-    });
-    this.combatzoneArmyBuilder.getSquadGearList(this.squadIndex).subscribe(
-      list => {
+      .getUnit(this.squadIndex, this.unitIndex)
+      .subscribe((unit) => {
+        this.unit = CreateCombatZoneUnitFromObject(unit);
+      });
+    this.combatzoneArmyBuilder
+      .getSquadGearList(this.squadIndex)
+      .subscribe((list) => {
         this.unitGearList = [...list];
       });
   }
 
   get characterGearList(): Array<string> {
-    return this.unit.gearCards.map(gear => gear.name);
+    return this.unit.gearCards.map((gear) => gear.name);
   }
 
   get hasBulky(): boolean {
-    return this.unit.gearCards.some((gear:iCrCzGearItemCard) => gear?.keywords?.includes('Bulky'));
+    return this.unit.gearCards.some((gear: iCrCzGearItemCard) =>
+      gear?.keywords?.includes('Bulky')
+    );
+  }
+
+  get hasExtraActions(): boolean {
+    return this.unit.actionTokens.some(action => action.isExtra);
   }
 
   toggleToken(actionIndex: number): void {
@@ -91,7 +107,7 @@ export class CrCzUnitFormComponent implements OnInit, OnChanges {
 
   toggleHacked(value: number): void {
     this.unit.hacks += value;
-    this.unit.hacks = (this.unit.hacks < 0) ? 0 : this.unit.hacks;
+    this.unit.hacks = this.unit.hacks < 0 ? 0 : this.unit.hacks;
     this.combatzoneArmyBuilder.updateUnit(
       this.squadIndex,
       this.unitIndex,
@@ -144,7 +160,7 @@ export class CrCzUnitFormComponent implements OnInit, OnChanges {
   }
 
   removeGear(gearIndex: number): void {
-    if(gearIndex > -1 && gearIndex < this.unit.gearCards.length) {
+    if (gearIndex > -1 && gearIndex < this.unit.gearCards.length) {
       this.unit.gearCards.splice(gearIndex, 1);
       this.combatzoneArmyBuilder.updateUnit(
         this.squadIndex,
@@ -155,9 +171,8 @@ export class CrCzUnitFormComponent implements OnInit, OnChanges {
   }
 
   getSquadGearCount(title: string): number {
-    return this.unitGearList.filter(name => name === title).length;
+    return this.unitGearList.filter((name) => name === title).length;
   }
-
 
   addProgram(program: iCrCzNrProgramCard): void {
     if (program) {
@@ -171,7 +186,7 @@ export class CrCzUnitFormComponent implements OnInit, OnChanges {
   }
 
   removeProgram(programIndex: number): void {
-    if(programIndex > -1 && programIndex < this.unit.programs.length) {
+    if (programIndex > -1 && programIndex < this.unit.programs.length) {
       this.unit.programs.splice(programIndex, 1);
       this.combatzoneArmyBuilder.updateUnit(
         this.squadIndex,
@@ -182,7 +197,6 @@ export class CrCzUnitFormComponent implements OnInit, OnChanges {
   }
 
   updateNotes(): void {
-    console.log('updateNotes', this.unit);
     this.combatzoneArmyBuilder.updateUnit(
       this.squadIndex,
       this.unitIndex,
@@ -193,7 +207,12 @@ export class CrCzUnitFormComponent implements OnInit, OnChanges {
   addLoot(loot: any): void {}
 
   addAction(action: string): void {
-    this.unit.actionTokens.push({type: action, isUsed: false, isRed: action === 'r', isExtra: true });
+    this.unit.actionTokens.push({
+      type: action,
+      isUsed: false,
+      isRed: action === 'r',
+      isExtra: true,
+    });
     this.combatzoneArmyBuilder.updateUnit(
       this.squadIndex,
       this.unitIndex,
@@ -201,5 +220,18 @@ export class CrCzUnitFormComponent implements OnInit, OnChanges {
     );
   }
 
-  removeAction(index: number): void {}
+  removeAction(): void {
+    const lastIndex = this.unit.actionTokens.length - 1;
+    console.log('lastIndex', lastIndex);
+    console.log('action', this.unit.actionTokens[lastIndex]);
+    if (this.unit.actionTokens[lastIndex].isExtra) {
+      this.unit.actionTokens.pop();
+
+      this.combatzoneArmyBuilder.updateUnit(
+        this.squadIndex,
+        this.unitIndex,
+        this.unit
+      );
+    }
+  }
 }
