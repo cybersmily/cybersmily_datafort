@@ -15,10 +15,12 @@ import { HasValuePipe } from './has-value.pipe';
 import { OrderByPropsPipe } from './order-by-props.pipe';
 import { GreaterThanPipe } from './greater-than.pipe';
 import { EncodeForXmlPipe } from './encode-for-xml.pipe';
+import { FilterWithArrayPipe } from './filter-with-array.pipe';
 
 @NgModule({
   declarations: [
     FilterPipe,
+    FilterWithArrayPipe,
     SourcebookPipe,
     SourcebookFilterPipe,
     ParsePipe,
@@ -38,6 +40,7 @@ import { EncodeForXmlPipe } from './encode-for-xml.pipe';
   exports: [
     FilterPipe,
     FilterbyPipe,
+    FilterWithArrayPipe,
     SourcebookPipe,
     SourcebookFilterPipe,
     ParsePipe,
