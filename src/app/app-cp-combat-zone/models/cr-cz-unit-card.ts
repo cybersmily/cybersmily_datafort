@@ -14,7 +14,7 @@ export interface iCrCzUnitCardRank {
   cred: number;
   armor: number;
   melee: number;
-  move: number;
+  reflex: number;
   ranged: number;
   med: number;
   tech: number;
@@ -31,7 +31,7 @@ export interface iCrCzUnitCard {
   eb: number;
   armor: number;
   melee: number;
-  move: number;
+  reflex: number;
   ranged: number;
   med: number;
   tech: number;
@@ -74,7 +74,7 @@ export class CrCzUnit implements iCrCzUnitCard {
   eb: number;
   armor: number;
   melee: number;
-  move: number;
+  reflex: number;
   ranged: number;
   med: number;
   tech: number;
@@ -172,7 +172,7 @@ export const CreateCombatZoneUnitFromObject = (param:any) :iCrCzUnitCard => {
   unit.eb = param?.eb || param?.ebCost || 0;
   unit.armor = param?.armor || 0;
   unit.melee = param?.melee || 0;
-  unit.move = param?.move || 0;
+  unit.reflex = param?.move || param?.reflex || 0;
   unit.ranged = param?.ranged || 0;
   unit.med = param?.med || 0;
   unit.tech = param?.tech || 0;

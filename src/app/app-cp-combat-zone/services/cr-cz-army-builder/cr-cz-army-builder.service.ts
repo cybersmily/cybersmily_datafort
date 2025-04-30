@@ -121,7 +121,7 @@ export class CrCzArmyBuilderService {
       newUnit.armor = chosenRank.armor;
       newUnit.melee = chosenRank.melee;
       newUnit.ranged = chosenRank.ranged;
-      newUnit.move = chosenRank.move;
+      newUnit.reflex = chosenRank.reflex;
       newUnit.tech = chosenRank.tech;
       newUnit.med = chosenRank.med;
       newUnit.influence = chosenRank.influence;
