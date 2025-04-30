@@ -14,9 +14,11 @@ export class CrCzGearListComponent implements OnInit {
   faPlus = faPlus;
 
   dataList$: Observable<Array<iCrCzGearItemCard>>;
+  nameList$: Observable<Array<string>>;
   filterName: string = '';
   fitlerKeyword: string = '';
-  filterCred: Array<number> = [0,1,2,3,4,5,6];
+  filterCred: Array<number> = [10];
+  filterEB: number;
 
   @Input()
   filterFaction: string = '';
@@ -40,7 +42,13 @@ export class CrCzGearListComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataList$ = this.gearDataService.gearList;
+    for( let i = 0; i < (this.totalStreetcred + 1); i++) {
+      this.filterCred.push(i);
+    }
+
   }
+
+
   setFaction($event): void {
     this.filterFaction = $event;
   }
@@ -62,7 +70,6 @@ export class CrCzGearListComponent implements OnInit {
   }
 
   toggleCredFilter(value: number): void {
-    console.log('toggleCredFilter', this.filterCred)
     if(!this.filterCred.includes(value)) {
       this.filterCred.push(value);
     } else {

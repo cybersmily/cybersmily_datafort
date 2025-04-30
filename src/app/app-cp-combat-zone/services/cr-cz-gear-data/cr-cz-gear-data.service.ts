@@ -23,4 +23,17 @@ export class CrCzGearDataService {
         }));
     }
   }
+
+  get gearNameList(): Observable<Array<string>> {
+    if(this._gearList) {
+      return of(this._gearList.map(gear => gear.name));
+    } else {
+      return this.dataService
+        .GetJson(JsonDataFiles.COMBATZONE_GEAR_LIST_JSON)
+        .pipe( map( (data: any) => {
+          this._gearList = [...data.gear];
+          return this._gearList.map(gear => gear.name);
+        }));
+    }
+  }
 }

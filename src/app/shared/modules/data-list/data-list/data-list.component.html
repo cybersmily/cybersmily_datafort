@@ -6,7 +6,7 @@
       class="p-0 p-md-1 p-lg-2"
     >
       {{ col.header }}
-      <button *ngIf="col.sort" class="csd-btn ms-1" (click)="toggleSort(col)">
+      <button title="Click to toggleSort" *ngIf="col.sort" class="csd-btn ms-1" (click)="toggleSort(col)">
         <fa-icon [icon]="isSorted(col) ? faSortUp : faSortDown"></fa-icon>
       </button>
     </div>
@@ -17,7 +17,7 @@
       [ngClass]="col.class"
       class="p-0 p-md-1 p-lg-2"
     >
-      <select
+      <select title="Choose a selection"
         *ngIf="col?.filters === 'filter' && col.filterValues?.length > 0"
         (change)="refreshFilter()"
         [(ngModel)]="searchFilter[col.property].value"
@@ -28,14 +28,14 @@
           {{ entry.value }}
         </option>
       </select>
-      <input
+      <input title="Search for..."
         *ngIf="col?.filters === 'contains'"
         [type]="col.inputType"
         [(ngModel)]="searchFilter[col.property].value"
         (keyup)="refreshFilter()"
         class="w-100"
       />
-      <input
+      <input title="Search sourcebook..."
         *ngIf="col?.filters === 'sourcebook'"
         type="text"
         [(ngModel)]="sourceFilter"
