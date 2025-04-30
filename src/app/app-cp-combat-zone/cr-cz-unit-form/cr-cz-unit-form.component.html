@@ -78,9 +78,9 @@
 
   </div>
   <div class="col-12 col-md-6 col-lg-4">
-    <tabset *ngIf="!unit.isGonk" type="pills">
-      <tab customClass="customClass">
-        <ng-template tabHeading>GEAR [{{unit.gearTotalCost}}eb]</ng-template>
+    <tabset *ngIf="!unit.isGonk" type="pills" class="w-100">
+      <tab class="text-center" customClass="customClass">
+        <ng-template tabHeading class="text-center">GEAR<div class="w-100 text-center text-xsmall">{{unit.gearTotalCost}}eb</div></ng-template>
         <button title="Show gear list" class="csd-btn text-center p-0 w-100 border border-secondary rounded"
           (click)="showModal(gearList)">
           <fa-icon [icon]="faPlus"></fa-icon>
@@ -93,7 +93,7 @@
         </div>
       </tab>
       <tab customClass="customClass" *ngIf="unit?.isNetrunner">
-        <ng-template tabHeading>PROGRAMS [{{unit.programTotalCost}}eb]</ng-template>
+        <ng-template tabHeading>PROGRAMS<div class="w-100 text-center text-xsmall">{{unit.programTotalCost}}eb</div></ng-template>
         <button title="Show program list." class="csd-btn text-center p-0 w-100 border border-secondary rounded"
           (click)="showModal(programList)">
           <fa-icon [icon]="faPlus"></fa-icon>
