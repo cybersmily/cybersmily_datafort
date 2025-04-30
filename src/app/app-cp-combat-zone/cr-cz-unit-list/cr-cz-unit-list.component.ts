@@ -21,6 +21,7 @@ export class CrCzUnitListComponent {
   filterFaction: string = '';
   searchKeywords: string = '';
   searchFilter: Array<string>;
+  showSelected: boolean = false;
 
   dataList$: Observable<Array<iCrCzUnitCardData>>;
 
