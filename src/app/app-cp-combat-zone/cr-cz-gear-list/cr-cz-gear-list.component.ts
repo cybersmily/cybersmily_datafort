@@ -15,6 +15,8 @@ export class CrCzGearListComponent implements OnInit {
 
   dataList$: Observable<Array<iCrCzGearItemCard>>;
   filterName: string = '';
+  fitlerKeyword: string = '';
+  filterCred: Array<number> = [0,1,2,3,4,5,6];
 
   @Input()
   filterFaction: string = '';
@@ -57,5 +59,17 @@ export class CrCzGearListComponent implements OnInit {
 
   buyGear(gear: iCrCzGearItemCard) {
     this.addGear.emit(gear);
+  }
+
+  toggleCredFilter(value: number): void {
+    console.log('toggleCredFilter', this.filterCred)
+    if(!this.filterCred.includes(value)) {
+      this.filterCred.push(value);
+    } else {
+      const index = this.filterCred.indexOf(value);
+      this.filterCred.splice(index, 1);
+    }
+    // need to trigger the filter pipe by recreating the array.
+    this.filterCred = [...this.filterCred];
   }
 }

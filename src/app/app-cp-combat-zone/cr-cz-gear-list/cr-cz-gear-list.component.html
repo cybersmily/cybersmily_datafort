@@ -1,19 +1,40 @@
 <cs-cr-cz-faction-selector [selectedFaction]="filterFaction"
   (selected)="setFaction($event)"></cs-cr-cz-faction-selector>
-  <div>
-    <input type="text" placeholder="Search by name" [(ngModel)]="filterName">
+<div class="row">
+  <div class="col-12 col-md-4">
+    <input type="text" class="w-100" placeholder="Search by name" [(ngModel)]="filterName">
   </div>
+  <div class="col-12 col-md-4">
+    <input type="text" class="w-100" placeholder="Search by keyword" [(ngModel)]="fitlerKeyword">
+  </div>
+  <div class="col-12 col-md-4">
+    Cred:
+    <div class="btn-group">
+      <label class="btn btn-secondary" [class.active]="filterCred?.includes(0)" btnCheckbox tabindex="0"
+        (click)="toggleCredFilter(0)" role="button">0</label>
+      <label class="btn btn-secondary" [class.active]="filterCred?.includes(1)" btnCheckbox tabindex="0"
+        (click)="toggleCredFilter(1)" role="button">1</label>
+      <label class="btn btn-secondary" [class.active]="filterCred?.includes(2)" btnCheckbox tabindex="0"
+        (click)="toggleCredFilter(2)" role="button">2</label>
+      <label class="btn btn-secondary" [class.active]="filterCred?.includes(3)" btnCheckbox tabindex="0"
+        (click)="toggleCredFilter(3)" role="button">3</label>
+      <label class="btn btn-secondary" [class.active]="filterCred?.includes(4)" btnCheckbox tabindex="0"
+        (click)="toggleCredFilter(4)" role="button">4</label>
+      <label class="btn btn-secondary" [class.active]="filterCred?.includes(5)" btnCheckbox tabindex="0"
+        (click)="toggleCredFilter(5)" role="button">5</label>
+      <label class="btn btn-secondary" [class.active]="filterCred?.includes(6)" btnCheckbox tabindex="0"
+        (click)="toggleCredFilter(6)" role="button">6</label>
+    </div>
+  </div>
+</div>
 <div *ngIf="dataList$ | async as gearList" class="row">
   <div class="col-12">
     <div class="row">
       <div class="col-12 text-center px-0">
-        <cs-cr-cz-gear-card *ngFor="let gear of gearList |contains:'faction':[filterFaction, 'universal'] | contains:'name':filterName"
-          [gear]="gear"
-          [unitKeywords]="unitKeywords"
-          [totalStreetcred]="totalStreetcred"
-          [count]="getCount(gear.name)"
-          [hasGear]="characterHasGear(gear.name)"
-          (add)="buyGear($event)">
+        <cs-cr-cz-gear-card
+          *ngFor="let gear of gearList |contains:'faction':[filterFaction, 'universal'] | contains:'name':filterName | contains:'keywords':fitlerKeyword | filterWithArray:'cred':filterCred"
+          [gear]="gear" [unitKeywords]="unitKeywords" [totalStreetcred]="totalStreetcred" [count]="getCount(gear.name)"
+          [hasGear]="characterHasGear(gear.name)" (add)="buyGear($event)">
         </cs-cr-cz-gear-card>
       </div>
     </div>
