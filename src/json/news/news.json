@@ -1,5 +1,16 @@
 ﻿{
   "news": [
+    {"date": "2025-05",
+    "entries": [
+      "<strong>05-04</strong> - Some more fixes and enhancemnts to the Combat Zone Army builder:",
+      " - Fixed some typos and other minor display issues.",
+      " - Change MOVE to REFLEX skill.",
+      " - Change the layout for the faction selector.",
+      " - Added keyword searchon Gear list.",
+      " - Added street cred filter on Gear list.",
+      "CYBER :D"
+  ]
+  },
     {"date": "2025-04",
     "entries": [
       "<strong>04-25</strong> - A lot of fixes and enhancemnts to the Combat Zone Army builder:",
