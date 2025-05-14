@@ -3,7 +3,9 @@ import { CrCzUnitDataService } from '../services/cr-cz-unit-data/cr-cz-unit-data
 import { take, Observable } from 'rxjs';
 import { iCrCzUnitCardData } from '../models/cr-cz-unit-card';
 import {faPlus,
-  faStar
+  faStar,
+  faUsers,
+  faUsersSlash
 } from '@fortawesome/free-solid-svg-icons';
 import { CrCzArmyBuilderService } from '../services/cr-cz-army-builder/cr-cz-army-builder.service';
 import { KeyValue } from '@angular/common';
@@ -17,11 +19,16 @@ export class CrCzUnitListComponent {
 
   faStar = faStar;
   faPlus = faPlus;
+  faUsers = faUsers;
+  faUsersSlash = faUsersSlash;
+
+
   searchName: string = '';
   filterFaction: string = '';
   searchKeywords: string = '';
   searchFilter: Array<string>;
   streetCredFilter: Array<number> = [0,1,2,10];
+  skillFilter: Array<string> = [];
   showSelected: boolean = true;
 
   dataList$: Observable<Array<iCrCzUnitCardData>>;
@@ -80,13 +87,16 @@ export class CrCzUnitListComponent {
     }
   }
 
-  showBorder(unit:iCrCzUnitCardData): boolean {
-    if(this.streetCredFilter.length < 2) {
+  showUnit(unit:iCrCzUnitCardData): boolean {
+    if(this.streetCredFilter.length < 2 || this.skillFilter.length > 3) {
       return false;
     }
     let show = false;
     this.streetCredFilter.filter(cred => cred !== 10).forEach( cred => {
       show = show || unit.ranks.some(rank => rank.cred === cred);
+    });
+    this.skillFilter.forEach( skill => {
+      show = show && unit.ranks.some( rank => rank[skill] > 0);
     });
     return show;
   }
@@ -99,6 +109,14 @@ export class CrCzUnitListComponent {
     message += (this.hasLeader && this.isLeader(unitKeywords)) ? 'The team already has a leader' : '';
     message += (this.hasSpecialist(unitName)) ? 'The team already has this specialist' : '';
     return message;
+  }
+
+  toggleSkill(skill:string): void {
+    if(this.skillFilter.includes(skill)) {
+      this.skillFilter.splice(this.skillFilter.indexOf(skill), 1);
+    } else {
+      this.skillFilter.push(skill);
+    }
   }
 
 }
