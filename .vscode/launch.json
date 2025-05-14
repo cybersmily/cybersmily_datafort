@@ -5,63 +5,22 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch Edge",
-      "request": "launch",
-      "type": "msedge",
-      "url": "http://localhost:4200",
-      "webRoot": "${workspaceFolder}"
-    },
-    {
       "type": "chrome",
       "request": "launch",
       "name": "Launch Chrome against localhost",
+      "sourceMaps": true,
       "url": "http://localhost:4200",
       "webRoot": "${workspaceFolder}"
     },
-    {
-      "type": "pwa-msedge",
-      "name": "Launch Microsoft Edge",
-      "request": "launch",
-      "runtimeArgs": ["--remote-debugging-port=9222"],
-      "url": "http://localhost:4200", // Provide your project's url to finish configuring
-      "presentation": {
-        "hidden": true
-      }
-    },
-    {
-      "type": "pwa-msedge",
-      "name": "Launch Microsoft Edge in headless mode",
-      "request": "launch",
-      "runtimeArgs": ["--headless", "--remote-debugging-port=9222"],
-      "url": "http://localhost:4200",
-      "presentation": {
-        "hidden": true
-      }
-    },
-    {
-      "type": "vscode-edge-devtools.debug",
-      "name": "Open Edge DevTools",
-      "request": "attach",
-      "url": "http://localhost:4200",
-      "presentation": {
-        "hidden": true
-      }
-    }
+        {
+            "name": "Attach to Chrome, with sourcemaps",
+            "type": "chrome",
+            "request": "attach",
+            "port": 9222,
+            "sourceMaps": true,
+            "webRoot": "${workspaceRoot}"
+        }
   ],
   "compounds": [
-    {
-      "name": "Launch Edge Headless and attach DevTools",
-      "configurations": [
-        "Launch Microsoft Edge in headless mode",
-        "Open Edge DevTools"
-      ]
-    },
-    {
-      "name": "Launch Edge and attach DevTools",
-      "configurations": [
-        "Launch Microsoft Edge",
-        "Open Edge DevTools"
-      ]
-    }
   ]
 }

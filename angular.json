@@ -73,7 +73,7 @@
                 "src/sitemap.xml"
               ],
               "optimization": false,
-              "sourceMap": false,
+              "sourceMap": true,
               "namedChunks": true,
               "extractLicenses": false,
               "vendorChunk": true,
@@ -99,22 +99,25 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "homepage:build"
+            "buildTarget": "homepage:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "homepage:build:production"
+              "buildTarget": "homepage:build:production"
             },
             "development": {
-              "browserTarget": "homepage:build:development"
+              "buildTarget": "homepage:build:development"
+            },
+            "debug": {
+              "buildTarget": "homepage:build:debug"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "debug"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "homepage:build"
+            "buildTarget": "homepage:build"
           }
         },
         "test": {
