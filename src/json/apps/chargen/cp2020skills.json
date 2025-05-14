@@ -212,5 +212,6 @@
 {"name":"Sub Tactics"                                                  , "ipmod":1,"stat":"INT" ,"source": {"book":"SF"     ,"page":25 },"sa":true,"description":"" },
 {"name":"Thief"                                                        , "ipmod":1,"stat":"INT" ,"source": {"book":"I1.1"   ,"page":20 },"sa":true,"description":"" },
 {"name":"Underwater Combat"                                            , "ipmod":1,"stat":""    ,"source": {"book":"I1.1"   ,"page":40 },"sa":true,"description":"" },
-{"name":"Workgang"                                                     , "ipmod":1,"stat":"INT" ,"source": {"book":"DS"     ,"page":75 },"sa":true,"description":"" }
+{"name":"Workgang"                                                     , "ipmod":1,"stat":"INT" ,"source": {"book":"DS"     ,"page":75 },"sa":true,"description":"" },
+{"name":"Kith"                                                         , "ipmod":2,"stat":"COOL","source": {"book":"NEO"    ,"page":37 },"sa":true,"description":"" }
 ]
