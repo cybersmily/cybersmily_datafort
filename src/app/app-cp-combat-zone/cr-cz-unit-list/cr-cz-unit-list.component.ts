@@ -21,7 +21,8 @@ export class CrCzUnitListComponent {
   filterFaction: string = '';
   searchKeywords: string = '';
   searchFilter: Array<string>;
-  showSelected: boolean = false;
+  streetCredFilter: Array<number> = [0,1,2,10];
+  showSelected: boolean = true;
 
   dataList$: Observable<Array<iCrCzUnitCardData>>;
 
@@ -68,6 +69,36 @@ export class CrCzUnitListComponent {
 
   setFaction(faction: string): void {
     this.filterFaction = faction;
+  }
+
+  toggleCredFilter(value: number): void {
+    if(!this.streetCredFilter.includes(value)) {
+      this.streetCredFilter.push(value);
+    } else {
+      const index = this.streetCredFilter.indexOf(value);
+      this.streetCredFilter.splice(index, 1);
+    }
+  }
+
+  showBorder(unit:iCrCzUnitCardData): boolean {
+    if(this.streetCredFilter.length < 2) {
+      return false;
+    }
+    let show = false;
+    this.streetCredFilter.filter(cred => cred !== 10).forEach( cred => {
+      show = show || unit.ranks.some(rank => rank.cred === cred);
+    });
+    return show;
+  }
+
+  disabledMessage(unitKeywords: Array<string>, unitName: string): string {
+    if(!this.hasLeader && !this.isLeader(unitKeywords) && !this.hasSpecialist(unitName) ) {
+      return '';
+    }
+    let message = '';
+    message += (this.hasLeader && this.isLeader(unitKeywords)) ? 'The team already has a leader' : '';
+    message += (this.hasSpecialist(unitName)) ? 'The team already has this specialist' : '';
+    return message;
   }
 
 }

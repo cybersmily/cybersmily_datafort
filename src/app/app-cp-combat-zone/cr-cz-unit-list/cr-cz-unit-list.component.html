@@ -5,89 +5,112 @@
         <cs-cr-cz-faction-selector [selectedFaction]="filterFaction"
           (selected)="setFaction($event)"></cs-cr-cz-faction-selector>
       </div>
-      <div class="col-6 col-md-2">
-        <button class="btn csd-btn" title="{showSelected ? 'Hide' : 'Show'} already selected" (click)="showSelected = !showSelected">{{showSelected ? 'Hide' : 'Show'}}  Selected</button>
+      <div class="col-6 col-md-1">
+        <button class="btn csd-btn" title="{showSelected ? 'Hide' : 'Show'} already selected"
+          (click)="showSelected = !showSelected">{{showSelected ? 'Hide' : 'Show'}}<br>Selected</button>
       </div>
       <div class="col-6 col-md-5"><input [(ngModel)]="searchName" type="text" class="no-style w-100"
           placeholder="Search on card name..."></div>
       <div class="col-6 col-md-3"><input [(ngModel)]="searchKeywords" type="text" class="no-style w-100"
           placeholder="Search for keyword..."></div>
-    </div>
-    <div *ngFor="let unit of unitList
-    |contains:'name': searchName
-    |contains: 'keywords': filterFaction
-    |contains:'keywords':searchKeywords" class="row py-2 border-bottom border-secondary">
-      <div class="col-12">
-        <ng-container [ngTemplateOutlet]="unitRow"
-          [ngTemplateOutletContext]="{name: unit.name, keywords: unit.keywords,  ranks: unit.ranks, cost: unit.eb}"></ng-container>
+      <div class="col-6 col-md-2">
+        <div class="btn-group">
+          <label [ngClass]="{'btn btn-secondary':true,'fw-bold text-large': streetCredFilter?.includes(0)}"
+            [class.active]="streetCredFilter?.includes(0)" btnCheckbox tabindex="0" (click)="toggleCredFilter(0)"
+            role="button">0<fa-icon [icon]="faStar"></fa-icon></label>
+          <label [ngClass]="{'btn btn-secondary':true,'fw-bold text-large': streetCredFilter?.includes(1)}"
+            [class.active]="streetCredFilter?.includes(1)" btnCheckbox tabindex="0" (click)="toggleCredFilter(1)"
+            role="button">1<fa-icon [icon]="faStar"></fa-icon></label>
+          <label [ngClass]="{'btn btn-secondary':true,'fw-bold text-large': streetCredFilter?.includes(2)}"
+            [class.active]="streetCredFilter?.includes(2)" btnCheckbox tabindex="0" (click)="toggleCredFilter(2)"
+            role="button">2<fa-icon [icon]="faStar"></fa-icon></label>
+        </div>
       </div>
     </div>
+    <ng-container *ngFor="let unit of unitList
+    |contains:'name': searchName
+    |contains: 'keywords': filterFaction
+    |contains:'keywords':searchKeywords
+    ">
+      <div *ngIf="showBorder(unit)" [ngClass]="{'row py-2 border-bottom border-secondary': true}">
+        <div class="col-12">
+          <ng-container [ngTemplateOutlet]="unitRow"
+            [ngTemplateOutletContext]="{name: unit.name, keywords: unit.keywords,  ranks: unit.ranks, cost: unit.eb}"></ng-container>
+        </div>
+      </div>
+    </ng-container>
   </div>
 </div>
 
 <ng-template #unitRow let-name="name" let-keywords="keywords" let-ranks="ranks" let-cost="cost">
   <ng-container *ngFor="let unit of ranks;index as i">
-  <div [ngClass]="{ 'row mt-1': true, 'd-none': !showSelected && hasUnit(name, unit?.cred)}">
-    <div class="col-1 text-center px-0">
-      <button title="Add character to squad." class="border border-secondary text-center rounded csd-btn p-2"
-        (click)="add(name, unit.cred)" [disabled]="(hasLeader && isLeader(keywords)) || (hasSpecialist(name))">
-        <fa-icon [icon]="faPlus" size="xl"></fa-icon>
-      </button>
-    </div>
-    <div
-      [ngClass]="{'col-5 col-md text-capitalize rounded': true, 'bg-warning': hasUnit(name, unit?.cred), 'text-secondary': (hasLeader && isLeader(keywords)) || (hasSpecialist(name))}">
-      <img alt="Unit card for {{name}}" class="csd-img-icon me-1" [tooltip]="FullImage" container="body"
-        containerClass="w-100" src="img/cz/units/{{name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
-      <ng-template #FullImage>
-        <img class="w-100" alt="Unit card for {{name}}"
-          src="img/cz/units/{{name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
-      </ng-template>
-      <h5 class="d-inline-block">{{countOfUnit(name, unit.cred) + ' ' }}{{name}}</h5>
-      <fa-icon *ngIf="unit.cred > 1" [icon]="faStar" class="text-small mt-3" style="margin-right:-3px;"></fa-icon>
-      <fa-icon *ngIf="unit.cred > 0" [icon]="faStar" class="mt-0 align-top"></fa-icon>
-      <div class="ms-2 text-capitalize text-small fst-italic d-inline-block">
-        {{keywords?.join(", ")}}
+    <div *ngIf="streetCredFilter.includes(unit?.cred)"
+      [ngClass]="{ 'row mt-1': true, 'd-none': (!showSelected && hasUnit(name, unit?.cred)) }"
+      [title]="disabledMessage(keywords, name)"
+      >
+      <div *ngIf="disabledMessage(keywords, name)" class="col-12 text-small ps-5">
+        {{disabledMessage(keywords, name)}}
       </div>
-    </div>
-    <div class="col-2 col-md-1 text-small">
-      {{cost}}eb
-    </div>
-    <div class="col-4 col-md-5">
-      <div class="row">
-        <div class="col-12 col-md-6">
-          <span *ngIf="unit.reflex > 0" title="Reflex/Move Action">
-            <img class="action-icon" src="img/cz/action_reflex.png" alt="Reflex/Move Action">
-            {{unit.reflex}}
-          </span>
-          <span *ngIf="unit.melee > 0" title="Melee Action">
-            <img class="action-icon" src="img/cz/action_melee.png" alt="Melee Action">
-            {{unit.melee}}
-          </span>
-          <span *ngIf="unit.ranged > 0" title="Ranged Attack Action">
-            <img class="action-icon" src="img/cz/action_ranged.png" alt="Ranged Attack Action">
-            {{unit.ranged}}
-          </span>
-          <span *ngIf="unit.tech > 0" title="Basic Tech Action">
-            <img class="action-icon" src="img/cz/action_tech.png" alt="Basic Tech Action">
-            {{unit.tech}}
-          </span>
-          <span *ngIf="unit.med > 0" title="Basic Med Action">
-            <img class="action-icon" src="img/cz/action_med.png" alt="Basic Med Action">
-            {{unit.med}}
-          </span>
-          <span *ngIf="unit.influence > 0" title="Basic Influence Action">
-            <img class="action-icon" src="img/cz/action_influence.png" alt="Basic Influence Action">
-            {{unit.influence}}
-          </span>
+      <div class="col-1 text-center px-0">
+        <button title="Add character to squad." class="border border-secondary text-center rounded csd-btn p-2"
+          (click)="add(name, unit.cred)" [disabled]="(hasLeader && isLeader(keywords)) || (hasSpecialist(name))">
+          <fa-icon [icon]="faPlus" size="xl"></fa-icon>
+        </button>
+      </div>
+      <div
+        [ngClass]="{'col-5 col-md text-capitalize rounded': true, 'bg-warning': hasUnit(name, unit?.cred), 'text-secondary': (hasLeader && isLeader(keywords)) || (hasSpecialist(name))}">
+        <img alt="Unit card for {{name}}" class="csd-img-icon me-1" [tooltip]="FullImage" container="body"
+          containerClass="w-100" src="img/cz/units/{{name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
+        <ng-template #FullImage>
+          <img class="w-100" alt="Unit card for {{name}}"
+            src="img/cz/units/{{name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
+        </ng-template>
+        <h5 class="d-inline-block">{{countOfUnit(name, unit.cred) + ' ' }} x {{name}}</h5>
+        <fa-icon *ngIf="unit.cred > 1" [icon]="faStar" class="text-small mt-3" style="margin-right:-3px;"></fa-icon>
+        <fa-icon *ngIf="unit.cred > 0" [icon]="faStar" class="mt-0 align-top"></fa-icon>
+        <div class="ms-2 text-capitalize text-small fst-italic d-inline-block">
+          {{keywords?.join(", ")}}
         </div>
-        <div class="col-12 col-md-6">
+      </div>
+      <div class="col-2 col-md-1 text-small">
+        {{cost}}eb
+      </div>
+      <div class="col-4 col-md-5">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <span *ngIf="unit.reflex > 0" title="Reflex/Move Action">
+              <img class="action-icon" src="img/cz/action_reflex.png" alt="Reflex/Move Action">
+              {{unit.reflex}}
+            </span>
+            <span *ngIf="unit.melee > 0" title="Melee Action">
+              <img class="action-icon" src="img/cz/action_melee.png" alt="Melee Action">
+              {{unit.melee}}
+            </span>
+            <span *ngIf="unit.ranged > 0" title="Ranged Attack Action">
+              <img class="action-icon" src="img/cz/action_ranged.png" alt="Ranged Attack Action">
+              {{unit.ranged}}
+            </span>
+            <span *ngIf="unit.tech > 0" title="Basic Tech Action">
+              <img class="action-icon" src="img/cz/action_tech.png" alt="Basic Tech Action">
+              {{unit.tech}}
+            </span>
+            <span *ngIf="unit.med > 0" title="Basic Med Action">
+              <img class="action-icon" src="img/cz/action_med.png" alt="Basic Med Action">
+              {{unit.med}}
+            </span>
+            <span *ngIf="unit.influence > 0" title="Basic Influence Action">
+              <img class="action-icon" src="img/cz/action_influence.png" alt="Basic Influence Action">
+              {{unit.influence}}
+            </span>
+          </div>
+          <div class="col-12 col-md-6">
 
-          <span *ngFor="let action of unit.actions">
-            <img style="width: 20px;" src="img/cz/{{action.trim()}}_active.png" alt="">
-          </span>
+            <span *ngFor="let action of unit.actions">
+              <img style="width: 20px;" src="img/cz/{{action.trim()}}_active.png" alt="">
+            </span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</ng-container>
+  </ng-container>
 </ng-template>
