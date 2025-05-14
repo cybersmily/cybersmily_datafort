@@ -42,7 +42,7 @@
         </div>
         <div class="row mt-1">
           <div class="col-8 p-0 text-center border border-secondary rounded">
-            <button class="csd-btn float-start otherTokens px-3 text-xlarge" (click)="toggleHacked(1)"
+            <button class="csd-btn float-start otherTokens px-2 text-xlarge" (click)="toggleHacked(1)"
               title="Add Hack token.">
               <fa-icon [icon]="faPlus" />
             </button>
@@ -50,7 +50,7 @@
               <img class="otherTokens" src="img/cz/hacked_{{unit.isHacked ? 'dis' : 'en'}}able.png" title="hacked">
               <span class="hackValue">{{unit.hacks}}</span>
             </div>
-            <button class="csd-btn float-end otherTokens px-3 text-xlarge" title="Remove Hack token."
+            <button class="csd-btn float-end otherTokens px-2 text-xlarge" title="Remove Hack token."
               (click)="toggleHacked(-1)">
               <fa-icon [icon]="faMinus" />
             </button>
@@ -78,9 +78,12 @@
 
   </div>
   <div class="col-12 col-md-6 col-lg-4">
-    <tabset *ngIf="!unit.isGonk" type="pills" class="w-100">
+    <tabset *ngIf="!unit.isGonk" type="pills" [justified]="true">
       <tab class="text-center" customClass="customClass">
-        <ng-template tabHeading class="text-center">GEAR<div class="w-100 text-center text-xsmall">{{unit.gearTotalCost}}eb</div></ng-template>
+        <ng-template tabHeading class="text-center">
+          <fa-icon [icon]="faToolbox" title="Gear Tab" size="xl"/>
+          <span class="text-xsmall">{{unit.gearTotalCost}}eb</span>
+        </ng-template>
         <button title="Show gear list" class="csd-btn text-center p-0 w-100 border border-secondary rounded"
           (click)="showModal(gearList)">
           <fa-icon [icon]="faPlus"></fa-icon>
@@ -93,7 +96,10 @@
         </div>
       </tab>
       <tab customClass="customClass" *ngIf="unit?.isNetrunner">
-        <ng-template tabHeading>PROGRAMS<div class="w-100 text-center text-xsmall">{{unit.programTotalCost}}eb</div></ng-template>
+        <ng-template tabHeading>
+          <fa-icon [icon]="faLaptopCode" title="Programs Tab" size="xl"/>
+          <span class="text-xsmall">{{unit.programTotalCost}}eb</span>
+        </ng-template>
         <button title="Show program list." class="csd-btn text-center p-0 w-100 border border-secondary rounded"
           (click)="showModal(programList)">
           <fa-icon [icon]="faPlus"></fa-icon>
@@ -120,9 +126,11 @@
         </div>
       </tab>
       <tab customClass="customClass">
-        <ng-template tabHeading>NOTES</ng-template>
+        <ng-template tabHeading>
+          <fa-icon [icon]="faFileLines" title="Notes Tab" size="xl"/>
+        </ng-template>
         <div>
-          <textarea [(ngModel)]="unit.notes" class="w-100" rows="25" (change)="updateNotes()" (keyup)="updateNotes()"></textarea>
+          <textarea title="Notes" [(ngModel)]="unit.notes" class="w-100" rows="25" (change)="updateNotes()" (keyup)="updateNotes()"></textarea>
         </div>
       </tab>
     </tabset>

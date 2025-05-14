@@ -4,6 +4,9 @@ import {
   faTrash,
   faStar,
   faMinus,
+  faToolbox,
+  faFileLines,
+  faLaptopCode,
 } from '@fortawesome/free-solid-svg-icons';
 import {
   Component,
@@ -35,6 +38,10 @@ export class CrCzUnitFormComponent implements OnInit, OnChanges {
   faMinus = faMinus;
   faTrash = faTrash;
   faStar = faStar;
+  faToolbox = faToolbox;
+  faFileLines = faFileLines;
+  faLaptopCode = faLaptopCode;
+
 
   @Input()
   unitIndex: number;
