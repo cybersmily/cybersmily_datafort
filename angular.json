@@ -85,7 +85,14 @@
                   "glob": "**/*",
                   "input": "src/json",
                   "output": "/json"
+                },
+                {
+                  "glob": "**/*",
+                  "input": "src/img",
+                  "output": "/img",
+                  "ignore": ["**/*.xcf","**/*.scss","**/*.map","**/*.sprite"]
                 }
+
               ],
               "optimization": false,
               "sourceMap": true,
