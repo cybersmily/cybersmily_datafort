@@ -222,8 +222,6 @@ export class CrCzUnitFormComponent implements OnInit, OnChanges {
 
   removeAction(): void {
     const lastIndex = this.unit.actionTokens.length - 1;
-    console.log('lastIndex', lastIndex);
-    console.log('action', this.unit.actionTokens[lastIndex]);
     if (this.unit.actionTokens[lastIndex].isExtra) {
       this.unit.actionTokens.pop();
 
