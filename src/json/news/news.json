@@ -2,6 +2,13 @@
   "news": [
     {"date": "2025-05",
     "entries": [
+      "<strong>05-14</strong> - More fixes and enhancemnts to the Combat Zone Army builder:",
+      " - Fixed typos and other issues for mobile.",
+      " - Change tabs to be icons for a better layout on several sections.",
+      " - Fixed layout for mobile for character view. ",
+      " - Add Street cred fitlers, show unit already selected, skill filters on the unit list.",
+      " - Add filter eb filter on gear selection list. ",
+      " - Mobile layout has a better layout to help improve experience using on a phone",
       "<strong>05-04</strong> - Some more fixes and enhancemnts to the Combat Zone Army builder:",
       " - Fixed some typos and other minor display issues.",
       " - Change MOVE to REFLEX skill.",
