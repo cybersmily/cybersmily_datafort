@@ -56,8 +56,8 @@
             </button>
           </div>
           <div class="col-4 text-center p-0">
-            <button type="button" [title]="unit.isVulnerable ? 'Remove vulnerable': 'Add vulnerable'" class="csd-btn w-100" (click)="toggleVulnerable()">
-            <img [alt]="unit.isVulnerable ? 'Vulnerable': 'Active'" class="otherTokens" src="img/cz/status_{{unit.isVulnerable ? 'vulnerable': 'active'}}.png"
+            <button type="button" title="{{unit.isVulnerable ? 'Remove vulnerable': 'Add vulnerable'}}" class="csd-btn w-100" (click)="toggleVulnerable()">
+            <img alt="{{unit.isVulnerable ? 'Vulnerable': 'Active'}}" class="otherTokens" src="img/cz/status_{{unit.isVulnerable ? 'vulnerable': 'active'}}.png"
               [title]="unit.isVulnerable ? 'Remove vulnerable': 'Add vulnerable'">
             </button>
           </div>
