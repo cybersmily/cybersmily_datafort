@@ -3,8 +3,8 @@
     <div class="col-12">
       <div class="row">
         <div class="col-2 col-md-1 p-0">
-          <img alt="icon of squad faction for {{squad.faction}}" *ngIf="squad.faction !== ''" class="w-100" style="max-width: 70px;"
-            src="img/cz/icon_{{squad.faction?.replace(' ','_')}}.png">
+          <img alt="icon of squad faction for {{squad.faction}}" *ngIf="squad.faction !== ''" class="w-100"
+            style="max-width: 70px;" src="img/cz/icon_{{squad.faction?.replace(' ','_')}}.png">
         </div>
         <div class="col-10 col-md-11 text-capitalize">
           <div class="row">
@@ -21,25 +21,26 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-12 text-small">
+            <div class="col-12 col-md-6 text-small">
               {{squad.totalCost || 0}}eb - {{squad.totalStreetcred || 0}}<fa-icon [icon]="faStar"></fa-icon> |
               {{squad.totalGonks}} Gonks/{{squad.totalInfluence}} Influcence</div>
           </div>
           <div class="row">
-            <div class="col-12 text-small">
-              Pay for Veteran/Elites <input title="Check box if the squad will pay additional eb for veterans/elites." type="checkbox" [checked]="squad.payVeterans" (change)="togglePayVeteran()">
+            <div class="col-12 col-md-6 text-small">
+              Pay for Veteran/Elites <input title="Check box if the squad will pay additional eb for veterans/elites."
+                type="checkbox" [checked]="squad.payVeterans" (change)="togglePayVeteran()">
             </div>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-3 text-small p-0">
+        <div class="col-3 col-md-2 col-lg-1 text-small p-0">
           <button class="csd-btn w-100 p-1 text-small border border-secondary rounded" (click)="inspireTeam()"
             title="Inspire your team">
-            <fa-icon [icon]="faRedo"></fa-icon> Inspire<br>Team
+            <fa-icon [icon]="faRedo"></fa-icon> Inspire
           </button>
         </div>
-        <div class="col-9">
+        <div class="col-9 col-md-10 col-lg-11">
           <button class="csd-btn p-1 me-1" *ngFor="let i of luck.constructor(squad.luck); let num = index"
             title="Use luck" (click)="updateLuck(-1)">
             <img alt="Luck icon" src="img/cz/luck_icon.png" class="csd-img-icon">
@@ -52,88 +53,25 @@
 
       </div>
       <div class="row mt-1">
-        <div class="col-12 px-0 mx-0">
-          <tabset type="pills">
-            <tab customClass="customClass">
+        <div class="col-11 px-0 mx-0">
+          <tabset type="pills" [justified]="true">
+            <tab customClass="customClass" (selectTab)="setTab($event, 'team')">
               <ng-template tabHeading>
-                <div class="text-small text-uppercase">
-                  Members ({{squad?.units.length}})
+                <div class="text-small text-uppercase d-inline-block" title="Team Members">
+                  <fa-icon [icon]="faUsersLine" size="xl"></fa-icon> {{squad?.units.length}}
                 </div>
               </ng-template>
-              <div class="row">
-                <div class="col-12">
-                  <button class="text-center w-100 csd-btn ms-2 p-1" (click)="showModal(unitListings, squad?.faction)">
-                    <fa-icon [icon]="faPlus" size="xl"></fa-icon> New Member
-                  </button>
-                </div>
-              </div>
-              <div *ngFor="let unit of squad?.units  | orderby: [{prop: 'isLeader', desc: true},{prop: 'isGonk', desc: false},{prop: 'name',desc: false}]; index as unitIndex"
-                class="row mt-1 py-1 csd-btn">
-                <div class="col-1 text-capitalize ps-0 text-end">
-                  <img alt="Death icon" *ngIf="unit.isDead; else unitLives" class="csd-img-icon me-1" src="img/cz/death_icon.png">
-                  <ng-template #unitLives>
-                    <img alt="Unit card for {{unit.name}}" class="csd-img-icon me-1"
-                      src="img/cz/units/{{unit.name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
-                  </ng-template>
-                </div>
-                <div class="col-8 text-capitalize" (click)="showUnitModal(unitForm, unit.name, unitIndex)">
-                  <div class="row">
-                    <div class="col-12 col-md-8 px-0">
-                      {{unit?.name}}
-                      <fa-icon *ngIf="unit.cred > 1" [icon]="faStar" class="text-small mt-3"
-                        style="margin-right:-3px;"></fa-icon>
-                      <fa-icon *ngIf="unit.cred > 0" [icon]="faStar" class="align-top"></fa-icon>
-                      <div class="ms-2 text-capitalize text-small fst-italic d-inline-block float-end">
-                        {{unit?.keywords?.join(", ")}}
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-4 px-0">
-                      <img alt="Death icon" *ngIf="unit.isDead; else unitAlive" class="csd-img-icon" src="img/cz/death_icon.png">
-                      <ng-template #unitAlive>
-                        <img alt="Action icon {{action.type}}" *ngFor="let action of unit?.actionTokens" class="csd-img-icon"
-                          src="img/cz/{{action.isRed ? 'r' : action.type}}_{{action?.isUsed ? 'deactive': 'active'}}.png">
-                      </ng-template>
-                    </div>
-                  </div>
-                  <div class="row text-small" *ngIf="unit.gearCards.length > 0">
-                    <div class="col-12">Gear: {{unit.gearList}}</div>
-                  </div>
-                  <div class="row text-small" *ngIf="unit.programs?.length > 0">
-                    <div class="col-12">Programs: {{unit.programList}}</div>
-                  </div>
-                </div>
-                <div class="col-1 px-1" (click)="showUnitModal(unitForm, unit.name, unitIndex)">
-                  <img *ngIf="unit.isVulnerable" class="float-end otherToken" src="img/cz/status_vulnerable.png"
-                    title="is Vulnerable!">
-                  <img *ngIf="unit.isHacked" class="float-end otherToken me-1" src="img/cz/status_hacked.png" title="Hacked!">
-                </div>
-                <div class="col-1 text-small px-0" (click)="showUnitModal(unitForm, unit.name, unitIndex)">
-                  {{unit.totalCost + ( squad.payVeterans ? (unit.cred * 5) : 0)}}eb
-                </div>
-                <div class="col-1">
-                  <button title="Click to remove unit." class="csd-btn p-1" (click)="removeUnit( unitIndex)">
-                    <fa-icon [icon]="faTrash"></fa-icon>
-                  </button>
-                </div>
-                <ng-template #FullImage>
-                  <img class="w-100" alt="Unit card for {{unit.name}}"
-                    src="img/cz/factions/{{unit.faction.replace(' ','_')}}/units/{{unit.name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
-                </ng-template>
-              </div>
+              <ng-container
+                *ngFor="let unit of squad?.units  | orderby: [{prop: 'isLeader', desc: true},{prop: 'isGonk', desc: false},{prop: 'name',desc: false}]; index as unitIndex"
+                [ngTemplateOutlet]="unitRow"
+                [ngTemplateOutletContext]="{unit: unit, unitIndex: unitIndex}"></ng-container>
             </tab>
-            <tab customClass="customClass">
+            <tab customClass="customClass" (selectTab)="setTab($event, 'objectives')">
               <ng-template tabHeading>
-                <div class="text-small text-uppercase">
-                  Objectives ({{squad?.objectives.length}})
+                <div class="text-small text-uppercase" title="Objectives">
+                  <fa-icon [icon]="faBullseye" size="xl" /> ({{squad?.objectives.length}})
                 </div>
               </ng-template>
-              <div class="row">
-                <div class="col-12 text-center">
-                  <button class="text-center csd-btn ms-2 p-1" (click)="showModal(objectiveListings, squad?.faction)">
-                    <fa-icon [icon]="faPlus" size="xl"></fa-icon> New Objective
-                  </button>
-                </div>
-              </div>
               <div *ngFor="let obj of squad?.objectives; index as index" class="text-capitalize text-small">
                 {{obj.name}}
                 <fa-icon *ngIf="obj.cred > 1" [icon]="faStar" size="xs" class="mb-0 pb-0 align-bottom"
@@ -141,48 +79,117 @@
                 <fa-icon *ngIf="obj.cred > 0" [icon]="faStar" class="align-top mt-0 pt-0"></fa-icon>
               </div>
             </tab>
-            <tab customClass="customClass">
+            <tab customClass="customClass" (selectTab)="setTab($event, 'notes')">
               <ng-template tabHeading>
-                <div class="text-small text-uppercase">
-                  NOTES
+                <div class="text-small text-uppercase" title="Notes">
+                  <fa-icon [icon]="faFileLines" size="xl"></fa-icon>
                 </div>
               </ng-template>
               <div class="row">
                 <div class="col-12 text-center">
-                  <textarea class="w-100" rows="15" (keyup)="updateSquadNotes()" [(ngModel)]="squadNotes" ></textarea>
+                  <textarea title="Notes" placeholder="Enter notes..." class="w-100" rows="15"
+                    (keyup)="updateSquadNotes()" [(ngModel)]="squadNotes"></textarea>
                 </div>
               </div>
             </tab>
           </tabset>
         </div>
+        <div class="col-1 pt-1">
+          <button *ngIf="selectedTab === 'team'" title="Add Team Member"
+            class="float=end d-inline-block csd-btn p-2 border border-secondary rounded"
+            (click)="showModal(unitListings, squad?.faction)">
+            <fa-icon [icon]="faUserPlus"></fa-icon>
+          </button>
+          <button *ngIf="selectedTab === 'objectives'" title="Add Objective"
+            class="float=end d-inline-block csd-btn p-2 border border-secondary rounded"
+            (click)="showModal(objectiveListings, squad?.faction)">
+            <fa-icon [icon]="faBullseye"></fa-icon>
+            <fa-icon [icon]="faPlus" size="xs"></fa-icon>
+          </button>
+        </div>
       </div>
     </div>
   </div>
 
+  <ng-template #unitRow let-unit="unit" let-unitIndex="unitIndex">
+    <div class="row mt-1 py-1 csd-btn">
+      <div class="col-1 text-capitalize ps-0 text-end">
+        <img alt="Death icon" *ngIf="unit.isDead; else unitLives" class="csd-img-icon me-1" src="img/cz/death_icon.png">
+        <ng-template #unitLives>
+          <img alt="Unit card for {{unit.name}}" class="csd-img-icon me-1"
+            src="img/cz/units/{{unit.name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
+        </ng-template>
+      </div>
+      <div class="col-9 text-capitalize" (click)="showUnitModal(unitForm, unit.name, unitIndex)">
+        <div class="row">
+          <div class="col-12 col-md-8 px-0">
+            {{unit?.name}}
+            <fa-icon *ngIf="unit.cred > 1" [icon]="faStar" class="text-small mt-3" style="margin-right:-3px;"></fa-icon>
+            <fa-icon *ngIf="unit.cred > 0" [icon]="faStar" class="align-top"></fa-icon>
+            <div class="ms-2 text-capitalize text-small fst-italic d-inline-block float-end">
+              {{unit?.keywords?.join(", ")}}
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <img alt="Death icon" *ngIf="unit.isDead; else unitAlive" class="csd-img-icon" src="img/cz/death_icon.png">
+            <ng-template #unitAlive>
+              <img alt="Action icon {{action.type}}" *ngFor="let action of unit?.actionTokens" class="csd-img-icon"
+                src="img/cz/{{action.isRed ? 'r' : action.type}}_{{action?.isUsed ? 'deactive': 'active'}}.png">
+              <img *ngIf="unit.isVulnerable" class="float-end csd-img-icon" src="img/cz/status_vulnerable.png"
+                title="is Vulnerable!">
+              <img *ngIf="unit.isHacked" class="float-end me-1 csd-img-icon" src="img/cz/status_hacked.png"
+                title="Hacked!">
+            </ng-template>
+          </div>
+        </div>
+        <div class="row text-small" *ngIf="unit.gearCards.length > 0">
+          <div class="col-12">Gear: {{unit.gearList}}</div>
+        </div>
+        <div class="row text-small" *ngIf="unit.programs?.length > 0">
+          <div class="col-12">Programs: {{unit.programList}}</div>
+        </div>
+      </div>
+      <div class="col-1 text-small px-0" (click)="showUnitModal(unitForm, unit.name, unitIndex)">
+        {{unit.totalCost + ( squad.payVeterans ? (unit.cred * 5) : 0)}}eb
+      </div>
+      <div class="col-1">
+        <button title="Click to remove unit." class="csd-btn p-1" (click)="removeUnit( unitIndex)">
+          <fa-icon [icon]="faTrash"></fa-icon>
+        </button>
+      </div>
+      <ng-template #FullImage>
+        <img class="w-100" alt="Unit card for {{unit.name}}"
+          src="img/cz/factions/{{unit.faction.replace(' ','_')}}/units/{{unit.name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
+      </ng-template>
+    </div>
+  </ng-template>
 
   <ng-template #unitForm>
     <div class="modal-header">
       <h4 class="modal-title pull-left text-capitalize">
-        <button title="Navigate to the next character." type="button" class="csd-btn p-1" (click)="navigateMembers(-1, squad.units.length)">
+        <button title="Navigate to the next character." type="button" class="csd-btn p-1"
+          (click)="navigateMembers(-1, squad.units.length)">
           <fa-icon [icon]="faChevronLeft"></fa-icon>
         </button>
         Character
-        <button title="Navigate to the previous character." type="button" class="csd-btn p-1" (click)="navigateMembers(1, squad.units.length)">
+        <button title="Navigate to the previous character." type="button" class="csd-btn p-1"
+          (click)="navigateMembers(1, squad.units.length)">
           <fa-icon [icon]="faChevronRight"></fa-icon>
         </button>
         <button class="csd-btn p-2 text-small border border-secondary rounded ms-3" (click)="inspireTeam()"
           title="Inspire your team">
           <fa-icon [icon]="faRedo"></fa-icon> Inspire Team
         </button>
-          <button class="csd-btn p-1 me-1" *ngFor="let i of luck.constructor(squad.luck); let num = index"
-            title="Use luck" (click)="updateLuck(-1)">
-            <img alt="Luck icon" src="img/cz/luck_icon.png" class="csd-img-icon">
-          </button>
-          <button class="csd-btn p-1" title="Add luck" (click)="updateLuck(1)">
-            <fa-icon [icon]="faPlus"></fa-icon>
-          </button>
+        <button class="csd-btn p-1 me-1" *ngFor="let i of luck.constructor(squad.luck); let num = index"
+          title="Use luck" (click)="updateLuck(-1)">
+          <img alt="Luck icon" src="img/cz/luck_icon.png" class="csd-img-icon">
+        </button>
+        <button class="csd-btn p-1" title="Add luck" (click)="updateLuck(1)">
+          <fa-icon [icon]="faPlus"></fa-icon>
+        </button>
       </h4>
-      <button title="Close" type="button" class="btn-close close float-end" aria-label="Close" (click)="modalRef?.hide()">
+      <button title="Close" type="button" class="btn-close close float-end" aria-label="Close"
+        (click)="modalRef?.hide()">
         <span aria-hidden="true" class="visually-hidden">&times;</span>
       </button>
     </div>
@@ -197,7 +204,8 @@
   <ng-template #unitListings>
     <div class="modal-header">
       <h4 class="modal-title pull-left">Unit Listing</h4>
-      <button title="Close" type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <button title="Close" type="button" class="btn-close close pull-right" aria-label="Close"
+        (click)="modalRef?.hide()">
         <span aria-hidden="true" class="visually-hidden">&times;</span>
       </button>
     </div>
@@ -210,7 +218,8 @@
   <ng-template #objectiveListings>
     <div class="modal-header">
       <h4 class="modal-title pull-left">Objective Listing</h4>
-      <button title="Close" type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <button title="Close" type="button" class="btn-close close pull-right" aria-label="Close"
+        (click)="modalRef?.hide()">
         <span aria-hidden="true" class="visually-hidden">&times;</span>
       </button>
     </div>

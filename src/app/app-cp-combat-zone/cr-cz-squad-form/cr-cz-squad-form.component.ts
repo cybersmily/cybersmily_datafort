@@ -1,10 +1,11 @@
-import { faTrash, faStar, faPlus, faRedo, faFilePdf, faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faStar, faPlus, faRedo, faFilePdf, faChevronRight, faChevronLeft, faBullseye, faUsersLine, faComment, faFileLines, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { Component, Input, OnChanges, OnInit, Output, SimpleChanges, TemplateRef, EventEmitter } from '@angular/core';
 import { iCrCzSquad } from '../models/cr-cz-squad';
 import { BehaviorSubject, map, Observable, take } from 'rxjs';
 import { CrCzArmyBuilderService } from '../services/cr-cz-army-builder/cr-cz-army-builder.service';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { CrCzArmyPdfService } from '../services/cr-cz-army-pdf/cr-cz-army-pdf.service';
+import { TabDirective } from 'ngx-bootstrap/tabs';
 
 @Component({
   selector: 'cs-cr-cz-squad-form',
@@ -20,8 +21,14 @@ export class CrCzSquadFormComponent implements OnInit, OnChanges {
   faFilePdf = faFilePdf;
   faChevronRight = faChevronRight;
   faChevronLeft = faChevronLeft;
+  faBullseye = faBullseye;
+  faUsersLine = faUsersLine;
+  faFileLines = faFileLines;
+  faUserPlus = faUserPlus;
+
 
   faction = '';
+  selectedTab = "team";
 
   luck: Array<number> = [];
   private _selectedUnitIndex: BehaviorSubject<number> = new BehaviorSubject<number>(0);
@@ -112,5 +119,9 @@ export class CrCzSquadFormComponent implements OnInit, OnChanges {
 
   updateSquadNotes(): void {
     this.combatzoneArmyBuilder.updateSquadNotes(this.squadIndex, this.squadNotes);
+  }
+
+  setTab(data: TabDirective,name: string): void {
+    this.selectedTab = name;
   }
 }
