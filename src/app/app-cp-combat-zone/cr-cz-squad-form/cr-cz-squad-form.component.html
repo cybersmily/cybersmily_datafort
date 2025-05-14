@@ -120,7 +120,7 @@
             src="img/cz/units/{{unit.name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
         </ng-template>
       </div>
-      <div class="col-9 text-capitalize" (click)="showUnitModal(unitForm, unit.name, unitIndex)">
+      <div class="col-8 col-md-9 text-capitalize" (click)="showUnitModal(unitForm, unit.name, unitIndex)">
         <div class="row">
           <div class="col-12 col-md-8 px-0">
             {{unit?.name}}
@@ -152,9 +152,9 @@
       <div class="col-1 text-small px-0" (click)="showUnitModal(unitForm, unit.name, unitIndex)">
         {{unit.totalCost + ( squad.payVeterans ? (unit.cred * 5) : 0)}}eb
       </div>
-      <div class="col-1">
+      <div class="col-2 col-md-1">
         <button title="Click to remove unit." class="csd-btn p-1" (click)="removeUnit( unitIndex)">
-          <fa-icon [icon]="faTrash"></fa-icon>
+          <fa-icon [icon]="faTrash" size="xl"></fa-icon>
         </button>
       </div>
       <ng-template #FullImage>
