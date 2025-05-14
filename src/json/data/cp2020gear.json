@@ -152,6 +152,14 @@
 		"source":{"book": "SF", "page": 29}
 	},
 	{
+		"category": "MEDICAL",
+		"name": "Archaesthetic",
+		"notes": "+1 Diagnose rolls, + 1Medtech",
+		"cost": 1000,
+		"wt": 0,
+		"source":{"book": "Chr3", "page": 6}
+	},
+	{
 		"category": "TOOLS",
 		"name": "Arc Furnace",
 		"notes": "consumes 300eb of power in a day",
