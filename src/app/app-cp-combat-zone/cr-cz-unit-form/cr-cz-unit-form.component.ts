@@ -52,6 +52,9 @@ export class CrCzUnitFormComponent implements OnInit, OnChanges {
   @Input()
   totalStreetcred: number;
 
+  @Input()
+  teamFaction: string;
+
   unit$: Observable<iCrCzUnitCard>;
   unit: iCrCzUnitCard;
   unitGearList: Array<string> = new Array<string>();

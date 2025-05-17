@@ -102,7 +102,7 @@
         </button>
         <div *ngFor="let gear of unit?.gearCards;index as gearIndex"
           [ngClass]="{'float-start d-inline-block me-3 my-0 p-0 rounded position-relative align-top':true}">
-          <cs-cr-cz-gear-card [gear]="gear" [unitKeywords]="unit?.keywords" [gearIndex]="gearIndex"
+          <cs-cr-cz-gear-card [gear]="gear" [teamFaction]="teamFaction" [unitKeywords]="unit?.keywords" [gearIndex]="gearIndex"
             [totalStreetcred]="totalStreetcred" [count]="getSquadGearCount(gear.name)"
             (remove)="removeGear($event)"></cs-cr-cz-gear-card>
         </div>
@@ -157,7 +157,7 @@
     </button>
   </div>
   <div class="modal-body">
-    <cs-cr-cz-gear-list [filterFaction]="unit.keywords[0]" [unitKeywords]="unit.keywords"
+    <cs-cr-cz-gear-list [filterFaction]="teamFaction" [teamFaction]="teamFaction" [unitKeywords]="unit.keywords"
       [totalStreetcred]="totalStreetcred" [existingGear]="unitGearList" [characterGear]="characterGearList"
       (addGear)="addGeaItem($event)">
     </cs-cr-cz-gear-list>
@@ -173,6 +173,6 @@
     </button>
   </div>
   <div class="modal-body">
-    <cs-cr-cz-program-list [filterFaction]="unit.faction" (add)="addProgram($event)"></cs-cr-cz-program-list>
+    <cs-cr-cz-program-list [filterFaction]="teamFaction" (add)="addProgram($event)"></cs-cr-cz-program-list>
   </div>
 </ng-template>

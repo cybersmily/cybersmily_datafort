@@ -75,10 +75,10 @@ export class CrCzSquadFormComponent implements OnInit, OnChanges {
     this.modalRef = this.modalService.show(template, this.modalConfig);
   }
 
-  showUnitModal(template: TemplateRef<any>, unitName:string, unitIndex:number): void {
+  showUnitModal(template: TemplateRef<any>, unitName:string, unitIndex:number, faction: string): void {
     this._selectedUnitIndex.next(unitIndex);
     this.selectedUnitName = unitName;
-    this.modalRef = this.modalService.show(template, this.modalConfig);
+    this.showModal(template, faction);
   }
 
   closeModal() {

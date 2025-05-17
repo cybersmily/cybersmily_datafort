@@ -35,7 +35,7 @@
       <div class="col-12 text-center px-0">
         <cs-cr-cz-gear-card
           *ngFor="let gear of gearList |contains:'faction':[filterFaction, 'universal'] | contains:'name':filterName | contains:'keywords':fitlerKeyword | filter:'eb':filterEB | filterWithArray:'cred':filterCred"
-          [gear]="gear" [unitKeywords]="unitKeywords" [totalStreetcred]="totalStreetcred" [count]="getCount(gear.name)"
+          [gear]="gear" [teamFaction]="teamFaction" [unitKeywords]="unitKeywords" [totalStreetcred]="totalStreetcred" [count]="getCount(gear.name)"
           [hasGear]="characterHasGear(gear.name)" (add)="buyGear($event)">
         </cs-cr-cz-gear-card>
       </div>

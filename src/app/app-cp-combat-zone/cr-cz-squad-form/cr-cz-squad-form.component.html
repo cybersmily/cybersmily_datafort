@@ -64,7 +64,7 @@
               <ng-container
                 *ngFor="let unit of squad?.units  | orderby: [{prop: 'isLeader', desc: true},{prop: 'isGonk', desc: false},{prop: 'name',desc: false}]; index as unitIndex"
                 [ngTemplateOutlet]="unitRow"
-                [ngTemplateOutletContext]="{unit: unit, unitIndex: unitIndex}"></ng-container>
+                [ngTemplateOutletContext]="{unit: unit, unitIndex: unitIndex, teamFaction: squad?.faction}"></ng-container>
             </tab>
             <tab customClass="customClass" (selectTab)="setTab($event, 'objectives')">
               <ng-template tabHeading>
@@ -111,7 +111,7 @@
     </div>
   </div>
 
-  <ng-template #unitRow let-unit="unit" let-unitIndex="unitIndex">
+  <ng-template #unitRow let-unit="unit" let-unitIndex="unitIndex" let-teamFaction="teamFaction">
     <div class="row mt-1 py-1 csd-btn">
       <div class="col-1 text-capitalize ps-0 text-end">
         <img alt="Death icon" *ngIf="unit.isDead; else unitLives" class="csd-img-icon me-1" src="img/cz/death_icon.png">
@@ -120,7 +120,7 @@
             src="img/cz/units/{{unit.name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
         </ng-template>
       </div>
-      <div class="col-8 col-md-9 text-capitalize" (click)="showUnitModal(unitForm, unit.name, unitIndex)">
+      <div class="col-8 col-md-9 text-capitalize" (click)="showUnitModal(unitForm, unit.name, unitIndex, teamFaction)">
         <div class="row">
           <div class="col-12 col-md-8 px-0">
             {{unit?.name}}
@@ -198,7 +198,7 @@
         </button>
       </div>
       <cs-cr-cz-unit-form [squadIndex]="squadIndex" [unitIndex]=" selectedUnitIndex$ | async"
-        [totalStreetcred]="squad.totalStreetcred"></cs-cr-cz-unit-form>
+        [totalStreetcred]="squad.totalStreetcred" [teamFaction]="faction"></cs-cr-cz-unit-form>
     </div>
   </ng-template>
 

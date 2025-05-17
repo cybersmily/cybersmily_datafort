@@ -24,6 +24,9 @@ export class CrCzGearListComponent implements OnInit {
   filterFaction: string = '';
 
   @Input()
+  teamFaction: string;
+
+  @Input()
   unitKeywords: Array<string> = [];
 
   @Input()

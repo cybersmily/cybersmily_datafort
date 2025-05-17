@@ -25,6 +25,9 @@ export class CrCzGearCardComponent implements OnInit {
   unitKeywords: Array<string> = [];
 
   @Input()
+  teamFaction: string;
+
+  @Input()
   count: number = 0;
 
   @Input()
