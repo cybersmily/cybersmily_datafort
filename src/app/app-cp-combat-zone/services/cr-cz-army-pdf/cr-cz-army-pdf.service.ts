@@ -264,7 +264,7 @@ export class CrCzArmyPdfService {
     this._doc.setFontSize(PdfFontSize.DEFAULT);
     this._doc.text(objective.name?.toUpperCase(), leftMargin, line);
     this._doc.text(objective.rewardType, leftMargin + 65, line);
-    this._doc.text(`${objective.streetcred}SC`, leftMargin + 90, line);
+    this._doc.text(`${objective.cred}SC`, leftMargin + 90, line);
     this._doc.setFontSize(PdfFontSize.DEFAULT);
     this._doc.setFont(PdfPageSettings.DEFAULT_FONT, 'normal');
     line += 5;

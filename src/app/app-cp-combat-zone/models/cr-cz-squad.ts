@@ -1,4 +1,4 @@
-import { iCrCzObjectiveCard } from "./cr-cz-objective-card";
+import { CreateCombatZoneObjective, iCrCzObjectiveCard } from "./cr-cz-objective-card";
 import { iCrCzUnitCard, CrCzUnit, CreateCombatZoneUnitFromObject } from "./cr-cz-unit-card";
 
 export interface iCrCzSquad {
@@ -47,7 +47,7 @@ export class CrCzSquad implements iCrCzSquad {
       return 0;
     }
     const unitCred = this.units.reduce((a,b) => a + b.cred, 0);
-    const objectiveCred = this.objectives.reduce((a,b) => a + b.streetcred,0);
+    const objectiveCred = this.objectives.reduce((a,b) => a + b.cred,0);
 
     return unitCred + objectiveCred ;
   }
@@ -58,16 +58,17 @@ export class CrCzSquad implements iCrCzSquad {
     }
     return this.units.filter(unit => unit.isGonk).length;
   }
+}
 
-  constructor(param?: iCrCzSquad) {
-    this.name = param?.name || "new squad";
-    this.units = param?.units.map(unit => CreateCombatZoneUnitFromObject(unit)) || new Array<iCrCzUnitCard>();
-    this.faction = param?.faction || '';
-    this.luck = param?.luck || 3;
-    this.payVeterans = param?.payVeterans || false;
-    this.objectives = param?.objectives || new Array<iCrCzObjectiveCard>();
-    this.notes = param?.notes || '';
-  }
-
+export function CreateCombatZoneTeam(param?: iCrCzSquad): CrCzSquad {
+  const team = new CrCzSquad();
+  team.name = param?.name || "new squad";
+  team.units = param?.units.map(unit => CreateCombatZoneUnitFromObject(unit)) || new Array<iCrCzUnitCard>();
+  team.faction = param?.faction || '';
+  team.luck = param?.luck || 3;
+  team.payVeterans = param?.payVeterans || false;
+  team.objectives = param?.objectives?.map(obj => CreateCombatZoneObjective(obj)) || new Array<iCrCzObjectiveCard>();
+  team.notes = param?.notes || '';
+  return team;
 }
 

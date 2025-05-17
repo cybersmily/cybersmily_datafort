@@ -5,7 +5,7 @@ import {
   CreateCombatZoneUnitFromObject,
 } from './../../models/cr-cz-unit-card';
 import { Injectable } from '@angular/core';
-import { CrCzSquad, iCrCzSquad } from '../../models/cr-cz-squad';
+import { CrCzSquad, CreateCombatZoneTeam, iCrCzSquad } from '../../models/cr-cz-squad';
 import { BehaviorSubject, Observable, take, map, of } from 'rxjs';
 import { iCrCzGearItemCard } from '../../models/cr-cz-gear-item-card';
 import { iCrCzNrProgramCard } from '../../models/cr-cz-nr-program-card';
@@ -28,12 +28,12 @@ export class CrCzArmyBuilderService {
       let army = this.localStorage.retrive<Array<iCrCzSquad>>(
         CRCZ_LOCAL_STORAGE_KEY
       );
-      this._army.next(army.map((squad) => new CrCzSquad(squad)));
+      this._army.next(army.map((squad) => CreateCombatZoneTeam(squad)));
     }
   }
 
   private saveArmy(army: Array<iCrCzSquad>): void {
-    this._army.next(army.map((squad) => new CrCzSquad(squad)));
+    this._army.next(army.map((squad) => CreateCombatZoneTeam(squad)));
     this.localStorage.store<Array<iCrCzSquad>>(CRCZ_LOCAL_STORAGE_KEY, army);
   }
 
@@ -51,7 +51,7 @@ export class CrCzArmyBuilderService {
 
   addSquad(squad: iCrCzSquad): void {
     let army = [...this._army.getValue()];
-    army.push(new CrCzSquad(squad));
+    army.push( CreateCombatZoneTeam(squad));
     this.saveArmy(army);
   }
 
