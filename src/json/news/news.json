@@ -2,6 +2,12 @@
   "news": [
     {"date": "2025-05",
     "entries": [
+      "<strong>05-17</strong> - Combat Zone Army builder updates:",
+      " - Fixed data with updates for Police Sniper, Officer, and some gear.",
+      " - Added wild things, Piranha, and 6th Street objective cards.",
+      " - Add iconic Leader gear cards. There is no automatic filter for them. they will need to be manually chosen properly.",
+      " - Add Luck tokens to individual Characters instead of the shared Team's pool of Luck.",
+      " - Fixed gear list not defaulting to the Team's faction but the Characters.",
       "<strong>05-14</strong> - More fixes and enhancemnts to the Combat Zone Army builder:",
       " - Fixed typos and other issues for mobile.",
       " - Change tabs to be icons for a better layout on several sections.",
