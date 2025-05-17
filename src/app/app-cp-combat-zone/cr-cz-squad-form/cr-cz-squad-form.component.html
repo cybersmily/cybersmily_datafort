@@ -135,6 +135,7 @@
             <ng-template #unitAlive>
               <img alt="Action icon {{action.type}}" *ngFor="let action of unit?.actionTokens" class="csd-img-icon"
                 src="img/cz/{{action.isRed ? 'r' : action.type}}_{{action?.isUsed ? 'deactive': 'active'}}.png">
+              <img *ngFor="let token of [].constructor(unit.luck)" alt="Luck icon" src="img/cz/luck_icon.png" class="csd-img-icon">
               <img *ngIf="unit.isVulnerable" class="float-end csd-img-icon" src="img/cz/status_vulnerable.png"
                 title="is Vulnerable!">
               <img *ngIf="unit.isHacked" class="float-end me-1 csd-img-icon" src="img/cz/status_hacked.png"

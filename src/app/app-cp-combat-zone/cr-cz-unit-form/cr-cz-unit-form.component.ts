@@ -55,6 +55,7 @@ export class CrCzUnitFormComponent implements OnInit, OnChanges {
   unit$: Observable<iCrCzUnitCard>;
   unit: iCrCzUnitCard;
   unitGearList: Array<string> = new Array<string>();
+  luck: Array<number> = [];
 
   modalRef: BsModalRef;
   modalConfig: ModalOptions = {
@@ -143,6 +144,16 @@ export class CrCzUnitFormComponent implements OnInit, OnChanges {
 
   toggleKill(): void {
     this.unit.isDead = !this.unit.isDead;
+    this.combatzoneArmyBuilder.updateUnit(
+      this.squadIndex,
+      this.unitIndex,
+      this.unit
+    );
+  }
+
+  updateLuck(amount: number): void {
+    this.unit.luck += amount;
+
     this.combatzoneArmyBuilder.updateUnit(
       this.squadIndex,
       this.unitIndex,

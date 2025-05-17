@@ -48,6 +48,7 @@ export interface iCrCzUnitCard {
   programs: Array<iCrCzNrProgramCard>;
   loot: Array<iCrCzLootCard>;
   notes?: string;
+  luck?: number;
 
   get totalCost(): number;
   get isLeader(): boolean;
@@ -94,6 +95,7 @@ export class CrCzUnit implements iCrCzUnitCard {
   programs: Array<iCrCzNrProgramCard>;
   loot: Array<iCrCzLootCard>;
   notes?: string;
+  luck?: number;
 
   get totalCost(): number {
     let total = this.eb;
@@ -193,6 +195,7 @@ export const CreateCombatZoneUnitFromObject = (param:any) :iCrCzUnitCard => {
   unit.programs = param?.programs ? [...param.programs] : [];
   unit.loot = param?.loot ? [...param.loot] : [];
   unit.notes = param?.notes || '';
+  unit.luck = param?.luck || 0;
 
   return  unit;
 };
