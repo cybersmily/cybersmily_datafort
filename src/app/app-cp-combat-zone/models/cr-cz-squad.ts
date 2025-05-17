@@ -63,7 +63,7 @@ export class CrCzSquad implements iCrCzSquad {
 export function CreateCombatZoneTeam(param?: iCrCzSquad): CrCzSquad {
   const team = new CrCzSquad();
   team.name = param?.name || "new squad";
-  team.units = param?.units.map(unit => CreateCombatZoneUnitFromObject(unit)) || new Array<iCrCzUnitCard>();
+  team.units = param?.units?.map(unit => CreateCombatZoneUnitFromObject(unit)) || new Array<iCrCzUnitCard>();
   team.faction = param?.faction || '';
   team.luck = param?.luck || 3;
   team.payVeterans = param?.payVeterans || false;
