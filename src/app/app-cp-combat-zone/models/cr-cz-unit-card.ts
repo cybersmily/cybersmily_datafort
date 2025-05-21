@@ -22,6 +22,7 @@ export interface iCrCzUnitCardRank {
   actions: Array<string>;
   specialRules: string;
   unitGear: string;
+  keywords?: Array<string>;
 }
 
 export interface iCrCzUnitCard {

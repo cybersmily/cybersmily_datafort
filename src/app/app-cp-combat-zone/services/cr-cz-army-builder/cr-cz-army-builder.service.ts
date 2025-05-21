@@ -117,6 +117,9 @@ export class CrCzArmyBuilderService {
     const chosenRank = unit.ranks.filter((rank) => rank.cred === streetCred)[0];
     if (chosenRank) {
       newUnit.keywords = [...unit.keywords];
+      if(chosenRank?.keywords){
+        newUnit.keywords.push(...chosenRank.keywords);
+      }
 
       newUnit.armor = chosenRank.armor;
       newUnit.melee = chosenRank.melee;
