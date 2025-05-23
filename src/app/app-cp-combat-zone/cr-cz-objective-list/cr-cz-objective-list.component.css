@@ -1,0 +1,26 @@
+.crcz-objective-header {
+  display: block;
+  height: 75px;
+  min-height: 75px;
+   width: 250px;
+  background-repeat: no-repeat;
+  -webkit-background-size: 250px auto;
+  -moz-background-size: 250px auto;
+  -o-background-size: 250px auto;
+  background-size: 250px auto;
+}
+
+.crcz-objective-card {
+  max-width: 300px;
+  min-width: 300px;
+  width: 300px;
+  z-index: 0;
+}
+
+.crcz-has-objective {
+  border: 3px solid red;
+}
+.crcz-objective-button-group {
+  width: 45px;
+  vertical-align: top;
+}

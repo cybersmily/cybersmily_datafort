@@ -6,6 +6,7 @@ import { CrCzArmyBuilderService } from '../services/cr-cz-army-builder/cr-cz-arm
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { CrCzArmyPdfService } from '../services/cr-cz-army-pdf/cr-cz-army-pdf.service';
 import { TabDirective } from 'ngx-bootstrap/tabs';
+import { iCrCzObjectiveCard } from '../models/cr-cz-objective-card';
 
 @Component({
   selector: 'cs-cr-cz-squad-form',
@@ -36,6 +37,7 @@ export class CrCzSquadFormComponent implements OnInit, OnChanges {
   selectedUnitIndex$: Observable<number> = this._selectedUnitIndex.asObservable();
   selectedUnitName: string = '';
   squadTotalStreetcred: number = 0;
+  selectedObjectives: Array<iCrCzObjectiveCard>;
   squadNotes: string = '';
 
   modalRef: BsModalRef;
@@ -73,6 +75,11 @@ export class CrCzSquadFormComponent implements OnInit, OnChanges {
   showModal(template: TemplateRef<any>, faction: string) {
     this.faction = faction;
     this.modalRef = this.modalService.show(template, this.modalConfig);
+  }
+
+  showObjectiveModal(template: TemplateRef<any>, objectives:Array<iCrCzObjectiveCard>, faction: string): void {
+    this.selectedObjectives = objectives;
+    this.showModal(template, faction);
   }
 
   showUnitModal(template: TemplateRef<any>, unitName:string, unitIndex:number, faction: string): void {

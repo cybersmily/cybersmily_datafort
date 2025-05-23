@@ -102,7 +102,7 @@
           </button>
           <button *ngIf="selectedTab === 'objectives'" title="Add Objective"
             class="float=end d-inline-block csd-btn p-2 border border-secondary rounded"
-            (click)="showModal(objectiveListings, squad?.faction)">
+            (click)="showObjectiveModal(objectiveListings, squad?.objectives, squad?.faction)">
             <fa-icon [icon]="faBullseye"></fa-icon>
             <fa-icon [icon]="faPlus" size="xs"></fa-icon>
           </button>
@@ -227,7 +227,7 @@
       </button>
     </div>
     <div class="modal-body">
-      <cs-cr-cz-objective-list [squadIndex]="squadIndex" [filterFaction]="faction"></cs-cr-cz-objective-list>
+      <cs-cr-cz-objective-list [squadIndex]="squadIndex" [filterFaction]="faction" [ownedObjectives]="selectedObjectives"></cs-cr-cz-objective-list>
     </div>
   </ng-template>
 

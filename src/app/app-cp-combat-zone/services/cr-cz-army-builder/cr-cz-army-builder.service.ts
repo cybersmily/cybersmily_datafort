@@ -67,9 +67,10 @@ export class CrCzArmyBuilderService {
     this.saveArmy(army);
   }
 
-  removeObjective(squadIndex: number): void {
+  removeObjective(squadIndex: number, objective: iCrCzObjectiveCard): void {
     let army = [...this._army.getValue()];
-    army[squadIndex].objectives.splice(squadIndex, 1);
+    let objectiveIndex = army[squadIndex].objectives.findIndex(obj => obj.name === objective.name);
+    army[squadIndex].objectives.splice(objectiveIndex, 1);
     this.saveArmy(army);
   }
 
