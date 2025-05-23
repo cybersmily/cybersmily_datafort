@@ -23,7 +23,7 @@
           <div class="row">
             <div class="col-12 col-md-6 text-small">
               {{squad.totalCost || 0}}eb - {{squad.totalStreetcred || 0}}<fa-icon [icon]="faStar"></fa-icon> |
-              {{squad.totalGonks}} Gonks/{{squad.totalInfluence}} Influcence</div>
+              {{squad.totalInfluence}} Influcence/{{squad.totalGonks}} Gonks/{{squad.totalMercs}}[2] Mercs</div>
           </div>
           <div class="row">
             <div class="col-12 col-md-6 text-small">
@@ -112,7 +112,7 @@
   </div>
 
   <ng-template #unitRow let-unit="unit" let-unitIndex="unitIndex" let-teamFaction="teamFaction">
-    <div class="row mt-1 py-1 csd-btn">
+    <div [ngClass]="{'row mt-1 py-1 csd-btn':true,'wrong-faction rounded': (!unit.keywords.includes(teamFaction) && !unit.keywords.includes('merc'))}">
       <div class="col-1 text-capitalize ps-0 text-end">
         <img alt="Death icon" *ngIf="unit.isDead; else unitLives" class="csd-img-icon me-1" src="img/cz/death_icon.png">
         <ng-template #unitLives>
@@ -158,6 +158,9 @@
           <fa-icon [icon]="faTrash" size="xl"></fa-icon>
         </button>
       </div>
+    <div *ngIf="(!unit.keywords.includes(teamFaction) && !unit.keywords.includes('merc'))" class="col-12 text-small text-danger">
+      !! This Character is not the same faction as the team nor a merc !!
+    </div>
       <ng-template #FullImage>
         <img class="w-100" alt="Unit card for {{unit.name}}"
           src="img/cz/factions/{{unit.faction.replace(' ','_')}}/units/{{unit.name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">

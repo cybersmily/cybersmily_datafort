@@ -14,6 +14,7 @@ export interface iCrCzSquad {
   totalInfluence: number;
   totalStreetcred: number;
   totalGonks: number;
+  totalMercs?: number;
 }
 
 
@@ -57,6 +58,13 @@ export class CrCzSquad implements iCrCzSquad {
       return 0;
     }
     return this.units.filter(unit => unit.isGonk).length;
+  }
+
+  get totalMercs(): number {
+    if(this.units.length < 1) {
+      return 0;
+    }
+    return this.units.filter(unit => (!unit.keywords.includes(this.faction) && unit.keywords.includes('merc'))).length;
   }
 }
 
