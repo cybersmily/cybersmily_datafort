@@ -23,7 +23,11 @@
           <div class="row">
             <div class="col-12 col-md-6 text-small">
               {{squad.totalCost || 0}}eb - {{squad.totalStreetcred || 0}}<fa-icon [icon]="faStar"></fa-icon> |
-              {{squad.totalInfluence}} Influcence/{{squad.totalGonks}} Gonks/{{squad.totalMercs}}[2] Mercs</div>
+              {{squad.totalInfluence}} Influcence/
+              <span [ngClass]="{'text-danger csd-highlight': (squad.totalGonks > squad.totalInfluence)}"
+                [title]="(squad.totalGonks > squad.totalInfluence) && 'Total gonks exceeds the Team\'s total Influence'">{{squad.totalGonks}} Gonks</span>/
+              <span [ngClass]="{'text-danger csd-highlight': (squad.totalMercs > 2)}"
+                [title]="(squad.totalMercs > 2) && 'Total mercs of a different faction exceeds the limit of 2'">{{squad.totalMercs}}[2] Mercs</span></div>
           </div>
           <div class="row">
             <div class="col-12 col-md-6 text-small">
