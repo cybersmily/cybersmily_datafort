@@ -80,14 +80,26 @@
                 </div>
               </ng-template>
               <accordion>
+                <accordion-group>
+                  <button
+                    class="btn csd-btn btn-block justify-content-between d-flex w-100 shadow-none text-capitalize fw-bold"
+                    accordion-heading type="button" title="Toggle acheived objectives">ACHEIVED
+                    OBJECTIVES({{squad?.objectives?.length}})</button>
+                  <div class="row">
+                    <ng-container
+                      *ngFor="let obj of squad?.objectives  | orderby: [{prop: 'name', desc: false}]; index as objectiveIndex"
+                      [ngTemplateOutlet]="objectiveCardRow"
+                      [ngTemplateOutletContext]="{objective: obj, squadIndex: squadIndex}"></ng-container>
+                  </div>
+                </accordion-group>
                 <accordion-group *ngIf="squad.scenarioObjectives" (isOpenChange)="randomObjectiveIsOpen($event)">
                   <div class="row" accordion-heading>
-                    <div class="col-12">
+                    <div class="col-12 p-0">
                       <button
                         class="btn csd-btn text-capitalize fw-bold"
                         type="button" title="List of scenario objectives">SCENARIO OBJECTIVES
                         ({{squad?.scenarioObjectives?.length}})</button>
-                      <button *ngIf="showGenerateRandomObjective" class="float-end" title="Generate scenario objectives"
+                      <button *ngIf="showGenerateRandomObjective" class="float-end m-0 p-0" title="Generate scenario objectives"
                         (click)="generateRandomObjectives($event, squad)">
                         <fa-icon [icon]="faDice"size="xl"></fa-icon>
                       </button>
@@ -101,18 +113,6 @@
                         [ngTemplateOutletContext]="{objective: objective, squadIndex: squadIndex}">
                       </ng-container>
                     </div>
-                  </div>
-                </accordion-group>
-                <accordion-group>
-                  <button
-                    class="btn csd-btn btn-block justify-content-between d-flex w-100 shadow-none text-capitalize fw-bold"
-                    accordion-heading type="button" title="Toggle acheived objectives">ACHEIVED
-                    OBJECTIVES({{squad?.objectives?.length}})</button>
-                  <div class="row">
-                    <ng-container
-                      *ngFor="let obj of squad?.objectives  | orderby: [{prop: 'name', desc: false}]; index as objectiveIndex"
-                      [ngTemplateOutlet]="objectiveCardRow"
-                      [ngTemplateOutletContext]="{objective: obj, squadIndex: squadIndex}"></ng-container>
                   </div>
                 </accordion-group>
               </accordion>
