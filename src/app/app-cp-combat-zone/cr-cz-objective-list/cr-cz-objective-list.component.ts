@@ -43,7 +43,7 @@ export class CrCzObjectiveListComponent {
   }
 
   addObjective(objective:iCrCzObjectiveCard):void  {
-    this.combatzoneBuilder.addObjective(this.squadIndex, objective);
+    this.combatzoneBuilder.addScenarioObjective(this.squadIndex, objective);
   }
 
   removeObjective(objective:iCrCzObjectiveCard): void {

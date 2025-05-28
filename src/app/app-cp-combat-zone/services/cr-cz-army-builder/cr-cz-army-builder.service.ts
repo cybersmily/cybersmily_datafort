@@ -61,9 +61,11 @@ export class CrCzArmyBuilderService {
     this.saveArmy(army);
   }
 
-  addObjective(squadIndex: number, objective: iCrCzObjectiveCard): void {
+  addScenarioObjective(squadIndex: number, objective: iCrCzObjectiveCard): void {
     let army = [...this._army.getValue()];
     army[squadIndex].objectives.push(objective);
+    const index = army[squadIndex].scenarioObjectives.findIndex(obj => obj.name === objective.name);
+    army[squadIndex].scenarioObjectives.splice(index, 1);
     this.saveArmy(army);
   }
 
@@ -71,6 +73,12 @@ export class CrCzArmyBuilderService {
     let army = [...this._army.getValue()];
     let objectiveIndex = army[squadIndex].objectives.findIndex(obj => obj.name === objective.name);
     army[squadIndex].objectives.splice(objectiveIndex, 1);
+    this.saveArmy(army);
+  }
+
+  updateScenarioObjectives(squadIndex: number, objectives: Array<iCrCzObjectiveCard>): void {
+    let army = [...this._army.getValue()];
+    army[squadIndex].scenarioObjectives = [...objectives];
     this.saveArmy(army);
   }
 

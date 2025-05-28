@@ -25,9 +25,12 @@
               {{squad.totalCost || 0}}eb - {{squad.totalStreetcred || 0}}<fa-icon [icon]="faStar"></fa-icon> |
               {{squad.totalInfluence}} Influcence/
               <span [ngClass]="{'text-danger csd-highlight': (squad.totalGonks > squad.totalInfluence)}"
-                [title]="(squad.totalGonks > squad.totalInfluence) && 'Total gonks exceeds the Team\'s total Influence'">{{squad.totalGonks}} Gonks</span>/
+                [title]="(squad.totalGonks > squad.totalInfluence) && 'Total gonks exceeds the Team\'s total Influence'">{{squad.totalGonks}}
+                Gonks</span>/
               <span [ngClass]="{'text-danger csd-highlight': (squad.totalMercs > 2)}"
-                [title]="(squad.totalMercs > 2) && 'Total mercs of a different faction exceeds the limit of 2'">{{squad.totalMercs}}[2] Mercs</span></div>
+                [title]="(squad.totalMercs > 2) && 'Total mercs of a different faction exceeds the limit of 2'">{{squad.totalMercs}}[2]
+                Mercs</span>
+            </div>
           </div>
           <div class="row">
             <div class="col-12 col-md-6 text-small">
@@ -76,12 +79,43 @@
                   <fa-icon [icon]="faBullseye" size="xl" /> ({{squad?.objectives.length}})
                 </div>
               </ng-template>
-              <div *ngFor="let obj of squad?.objectives; index as index" class="text-capitalize text-small">
-                {{obj.name}}
-                <fa-icon *ngIf="obj.cred > 1" [icon]="faStar" size="xs" class="mb-0 pb-0 align-bottom"
-                  style="margin-right:-3px;"></fa-icon>
-                <fa-icon *ngIf="obj.cred > 0" [icon]="faStar" class="align-top mt-0 pt-0"></fa-icon>
-              </div>
+              <accordion>
+                <accordion-group *ngIf="squad.scenarioObjectives" (isOpenChange)="randomObjectiveIsOpen($event)">
+                  <div class="row" accordion-heading>
+                    <div class="col-12">
+                      <button
+                        class="btn csd-btn text-capitalize fw-bold"
+                        type="button" title="List of scenario objectives">SCENARIO OBJECTIVES
+                        ({{squad?.scenarioObjectives?.length}})</button>
+                      <button *ngIf="showGenerateRandomObjective" class="float-end" title="Generate scenario objectives"
+                        (click)="generateRandomObjectives($event, squad)">
+                        <fa-icon [icon]="faDice"size="xl"></fa-icon>
+                      </button>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="row">
+                      <ng-container
+                        *ngFor="let objective of squad.scenarioObjectives  | orderby: [{prop: 'name', desc: false}]"
+                        [ngTemplateOutlet]="randomObjectiveCardRow"
+                        [ngTemplateOutletContext]="{objective: objective, squadIndex: squadIndex}">
+                      </ng-container>
+                    </div>
+                  </div>
+                </accordion-group>
+                <accordion-group>
+                  <button
+                    class="btn csd-btn btn-block justify-content-between d-flex w-100 shadow-none text-capitalize fw-bold"
+                    accordion-heading type="button" title="Toggle acheived objectives">ACHEIVED
+                    OBJECTIVES({{squad?.objectives?.length}})</button>
+                  <div class="row">
+                    <ng-container
+                      *ngFor="let obj of squad?.objectives  | orderby: [{prop: 'name', desc: false}]; index as objectiveIndex"
+                      [ngTemplateOutlet]="objectiveCardRow"
+                      [ngTemplateOutletContext]="{objective: obj, squadIndex: squadIndex}"></ng-container>
+                  </div>
+                </accordion-group>
+              </accordion>
             </tab>
             <tab customClass="customClass" (selectTab)="setTab($event, 'notes')">
               <ng-template tabHeading>
@@ -116,7 +150,8 @@
   </div>
 
   <ng-template #unitRow let-unit="unit" let-unitIndex="unitIndex" let-teamFaction="teamFaction">
-    <div [ngClass]="{'row mt-1 py-1 csd-btn':true,'wrong-faction rounded': (!unit.keywords.includes(teamFaction) && !unit.keywords.includes('merc'))}">
+    <div
+      [ngClass]="{'row mt-1 py-1 csd-btn':true,'wrong-faction rounded': (!unit.keywords.includes(teamFaction) && !unit.keywords.includes('merc'))}">
       <div class="col-1 text-capitalize ps-0 text-end">
         <img alt="Death icon" *ngIf="unit.isDead; else unitLives" class="csd-img-icon me-1" src="img/cz/death_icon.png">
         <ng-template #unitLives>
@@ -139,7 +174,8 @@
             <ng-template #unitAlive>
               <img alt="Action icon {{action.type}}" *ngFor="let action of unit?.actionTokens" class="csd-img-icon"
                 src="img/cz/{{action.isRed ? 'r' : action.type}}_{{action?.isUsed ? 'deactive': 'active'}}.png">
-              <img *ngFor="let token of [].constructor(unit.luck)" alt="Luck icon" src="img/cz/luck_icon.png" class="csd-img-icon">
+              <img *ngFor="let token of [].constructor(unit.luck)" alt="Luck icon" src="img/cz/luck_icon.png"
+                class="csd-img-icon">
               <img *ngIf="unit.isVulnerable" class="float-end csd-img-icon" src="img/cz/status_vulnerable.png"
                 title="is Vulnerable!">
               <img *ngIf="unit.isHacked" class="float-end me-1 csd-img-icon" src="img/cz/status_hacked.png"
@@ -162,9 +198,10 @@
           <fa-icon [icon]="faTrash" size="xl"></fa-icon>
         </button>
       </div>
-    <div *ngIf="(!unit.keywords.includes(teamFaction) && !unit.keywords.includes('merc'))" class="col-12 text-small text-danger">
-      !! This Character is not the same faction as the team nor a merc !!
-    </div>
+      <div *ngIf="(!unit.keywords.includes(teamFaction) && !unit.keywords.includes('merc'))"
+        class="col-12 text-small text-danger">
+        !! This Character is not the same faction as the team nor a merc !!
+      </div>
       <ng-template #FullImage>
         <img class="w-100" alt="Unit card for {{unit.name}}"
           src="img/cz/factions/{{unit.faction.replace(' ','_')}}/units/{{unit.name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
@@ -209,8 +246,6 @@
     </div>
   </ng-template>
 
-
-
   <ng-template #unitListings>
     <div class="modal-header">
       <h4 class="modal-title pull-left">Unit Listing</h4>
@@ -224,6 +259,29 @@
     </div>
   </ng-template>
 
+  <ng-template #randomObjectiveCardRow let-objective="objective" let-squadIndex="squadIndex">
+    <div class="col-10 col-md-5 col-lg-2 p-0 mx-0 mb-2 text-center">
+      <img class="w-90" alt="Objective card"
+        src="img/cz/objectives/{{objective?.faction?.replaceAll(' ', '_')}}_{{objective?.name?.replaceAll(' ', '_').replaceAll('.', '').replaceAll('\'','%27')}}.png" />
+    </div>
+    <div class="col-2 col-md-1 p-0 mx-0 mb-2">
+      <button class="btn csd-btn" title="Add objective" (click)="addObjective(squadIndex, objective)">
+        <fa-icon [icon]="faPlus" size="xl"></fa-icon>
+      </button>
+    </div>
+  </ng-template>
+
+  <ng-template #objectiveCardRow let-objective="objective" let-squadIndex="squadIndex">
+    <div class="col-10 col-md-5 col-lg-2 p-0 mx-0 mb-2 text-center">
+      <img class="w-90" alt="Objective card"
+        src="img/cz/objectives/{{objective?.faction?.replaceAll(' ', '_')}}_{{objective?.name?.replaceAll(' ', '_').replaceAll('.', '').replaceAll('\'','%27')}}.png" />
+    </div>
+    <div class="col-2 col-md-1 p-0 mx-0 mb-2">
+      <button class="btn csd-btn" title="Remove objective" (click)="removeObjective(squadIndex, objective)">
+        <fa-icon [icon]="faTrash" size="xl"></fa-icon>
+      </button>
+    </div>
+  </ng-template>
 
   <ng-template #objectiveListings>
     <div class="modal-header">
@@ -234,7 +292,8 @@
       </button>
     </div>
     <div class="modal-body">
-      <cs-cr-cz-objective-list [squadIndex]="squadIndex" [filterFaction]="faction" [ownedObjectives]="selectedObjectives"></cs-cr-cz-objective-list>
+      <cs-cr-cz-objective-list [squadIndex]="squadIndex" [filterFaction]="faction"
+        [ownedObjectives]="selectedObjectives"></cs-cr-cz-objective-list>
     </div>
   </ng-template>
 

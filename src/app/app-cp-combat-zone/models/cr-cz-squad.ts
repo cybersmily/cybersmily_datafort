@@ -7,6 +7,7 @@ export interface iCrCzSquad {
   faction: string;
   luck: number;
   objectives: Array<iCrCzObjectiveCard>;
+  scenarioObjectives: Array<iCrCzObjectiveCard>;
   notes?: string;
 
   totalCost: number;
@@ -24,6 +25,7 @@ export class CrCzSquad implements iCrCzSquad {
   luck: number;
   faction: string;
   objectives: Array<iCrCzObjectiveCard>;
+  scenarioObjectives: Array<iCrCzObjectiveCard>;
   payVeterans: boolean;
   notes?: string;
 
@@ -66,6 +68,8 @@ export class CrCzSquad implements iCrCzSquad {
     }
     return this.units.filter(unit => (!unit.keywords.includes(this.faction) && unit.keywords.includes('merc'))).length;
   }
+
+
 }
 
 export function CreateCombatZoneTeam(param?: iCrCzSquad): CrCzSquad {
@@ -76,6 +80,7 @@ export function CreateCombatZoneTeam(param?: iCrCzSquad): CrCzSquad {
   team.luck = param?.luck || 3;
   team.payVeterans = param?.payVeterans || false;
   team.objectives = param?.objectives?.map(obj => CreateCombatZoneObjective(obj)) || new Array<iCrCzObjectiveCard>();
+  team.scenarioObjectives = param?.scenarioObjectives?.map(obj => CreateCombatZoneObjective(obj)) || new Array<iCrCzObjectiveCard>();
   team.notes = param?.notes || '';
   return team;
 }

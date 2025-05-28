@@ -1,4 +1,4 @@
-import { faTrash, faStar, faPlus, faRedo, faFilePdf, faChevronRight, faChevronLeft, faBullseye, faUsersLine, faComment, faFileLines, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faStar, faPlus, faRedo, faFilePdf, faChevronRight, faChevronLeft, faBullseye, faUsersLine, faComment, faFileLines, faUserPlus, faDice } from '@fortawesome/free-solid-svg-icons';
 import { Component, Input, OnChanges, OnInit, Output, SimpleChanges, TemplateRef, EventEmitter } from '@angular/core';
 import { iCrCzSquad } from '../models/cr-cz-squad';
 import { BehaviorSubject, map, Observable, take } from 'rxjs';
@@ -7,6 +7,8 @@ import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { CrCzArmyPdfService } from '../services/cr-cz-army-pdf/cr-cz-army-pdf.service';
 import { TabDirective } from 'ngx-bootstrap/tabs';
 import { iCrCzObjectiveCard } from '../models/cr-cz-objective-card';
+import { CrCzObjectiveDataService } from '../services/cr-cz-objective-data/cr-cz-objective-data.service';
+import { CrCzScenarioObjectivesGeneratorService } from '../services/cr-cz-scenario-objectives-generator/cr-cz-scenario-objectives-generator.service';
 
 @Component({
   selector: 'cs-cr-cz-squad-form',
@@ -26,7 +28,7 @@ export class CrCzSquadFormComponent implements OnInit, OnChanges {
   faUsersLine = faUsersLine;
   faFileLines = faFileLines;
   faUserPlus = faUserPlus;
-
+  faDice = faDice;
 
   faction = '';
   selectedTab = "team";
@@ -39,6 +41,7 @@ export class CrCzSquadFormComponent implements OnInit, OnChanges {
   squadTotalStreetcred: number = 0;
   selectedObjectives: Array<iCrCzObjectiveCard>;
   squadNotes: string = '';
+  showGenerateRandomObjective: boolean = false;
 
   modalRef: BsModalRef;
   modalConfig: ModalOptions = {
@@ -57,10 +60,16 @@ export class CrCzSquadFormComponent implements OnInit, OnChanges {
     .getSquad(this.squadIndex)
   }
 
+  constructor(private combatzoneArmyBuilder: CrCzArmyBuilderService,
+    private modalService: BsModalService,
+    private pdfService: CrCzArmyPdfService,
+    private scenarioObjectiveService: CrCzScenarioObjectivesGeneratorService
+  ) {}
+
   ngOnInit(): void {
     this.squad$.subscribe(squad => {
       this.squadNotes = squad.notes;
-    })
+    });
   }
 
   ngOnChanges(): void {
@@ -70,7 +79,16 @@ export class CrCzSquadFormComponent implements OnInit, OnChanges {
   }
 
 
-  constructor(private combatzoneArmyBuilder: CrCzArmyBuilderService, private modalService: BsModalService, private pdfService: CrCzArmyPdfService) {}
+  generateRandomObjectives($event: MouseEvent, squad: iCrCzSquad): boolean {
+    this.scenarioObjectiveService
+    .getRandomObjectives(3, squad.faction, squad.objectives.map(obj => obj.name))
+    .pipe(take(1))
+    .subscribe(objectives => {
+      this.combatzoneArmyBuilder.updateScenarioObjectives(this.squadIndex, objectives);
+    });
+    $event.stopPropagation();
+    return false;
+  }
 
   showModal(template: TemplateRef<any>, faction: string) {
     this.faction = faction;
@@ -98,6 +116,18 @@ export class CrCzSquadFormComponent implements OnInit, OnChanges {
 
   removeSquad(): void {
     this.delete.emit(this.squadIndex);
+  }
+
+  addObjective(squadIndex: number, objective: iCrCzObjectiveCard): void {
+    this.combatzoneArmyBuilder.addScenarioObjective(squadIndex, objective);
+  }
+
+  randomObjectiveIsOpen($event: boolean): void {
+    this.showGenerateRandomObjective = $event;
+  }
+
+  removeObjective(squadIndex: number, objective: iCrCzObjectiveCard): void {
+    this.combatzoneArmyBuilder.removeObjective(squadIndex, objective);
   }
 
   removeUnit(unitIndex: number): void {
@@ -131,4 +161,6 @@ export class CrCzSquadFormComponent implements OnInit, OnChanges {
   setTab(data: TabDirective,name: string): void {
     this.selectedTab = name;
   }
+
 }
+
