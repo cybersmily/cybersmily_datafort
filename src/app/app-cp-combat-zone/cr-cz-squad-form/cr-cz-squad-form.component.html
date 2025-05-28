@@ -95,13 +95,12 @@
                 <accordion-group *ngIf="squad.scenarioObjectives" (isOpenChange)="randomObjectiveIsOpen($event)">
                   <div class="row" accordion-heading>
                     <div class="col-12 p-0">
-                      <button
-                        class="btn csd-btn text-capitalize fw-bold"
-                        type="button" title="List of scenario objectives">SCENARIO OBJECTIVES
+                      <button class="btn csd-btn text-capitalize fw-bold" type="button"
+                        title="List of scenario objectives">SCENARIO OBJECTIVES
                         ({{squad?.scenarioObjectives?.length}})</button>
-                      <button *ngIf="showGenerateRandomObjective" class="float-end m-0 p-0" title="Generate scenario objectives"
-                        (click)="generateRandomObjectives($event, squad)">
-                        <fa-icon [icon]="faDice"size="xl"></fa-icon>
+                      <button *ngIf="showGenerateRandomObjective" class="float-end m-0 p-0"
+                        title="Generate scenario objectives" (click)="generateRandomObjectives($event, squad)">
+                        <fa-icon [icon]="faDice" size="xl"></fa-icon>
                       </button>
                     </div>
                   </div>
