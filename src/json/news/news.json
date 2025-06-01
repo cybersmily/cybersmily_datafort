@@ -2,6 +2,13 @@
   "news": [
     {"date": "2025-05",
     "entries": [
+      "<strong>05-31</strong> - Combat Zone Army builder updates:",
+      " - Fixed some more data issues and the require functionality to handle it.",
+      " - Enhanced the Objective section with two sections: Acheived and Scenario. Acheived is to keep the card your team has completed and Scenario is to deal 3 cards for the current scenario.",
+      " - Enhanced the Objective card selector section. Just showing the titles of the card with the ability to expand them to read the full details.",
+      " - Added notification if the team exceeds Gonk limitations from Influence",
+      " - Added notification if a Character that is add is not of the same faction nor a merc for validation.",
+      " - Added a label for number of mercs in the team and if they exceed the 2 merc limit",
       "<strong>05-17</strong> - Combat Zone Army builder updates:",
       " - Fixed data with updates for Police Sniper, Officer, and some gear.",
       " - Added wild things, Piranha, and 6th Street objective cards.",
