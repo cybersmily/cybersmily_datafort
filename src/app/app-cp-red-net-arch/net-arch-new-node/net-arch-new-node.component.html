@@ -65,6 +65,31 @@
       </div>
     </div>
   </div>
+  <div *ngIf="selectedNode.type === 'controller'" class="row">
+    <div class="col">
+      <div class="row">
+        <div class="col">Demon:</div>
+      </div>
+      <div class="row" *ngIf="selectedNode.demon">
+        <div class="col-1"></div>
+        <div class="col-8">
+          {{selectedNode.demon.name}}
+          <fa-icon [icon]="faTrash" class="csd-icon-btn ms-3 csd-btn" title="Remove Demon" (click)="removeDemon()"></fa-icon>
+
+        </div>
+        <div class="col">{{selectedNode.demon.cost}}eb</div>
+      </div>
+      <div *ngIf="!selectedNode.demon" class="row">
+        <div class="col">
+          <fa-icon [icon]="faPlus" class="csd-icon-btn csd-btn csd-icon-xl btn me-2" title="add demon to node"
+            (click)="addSelectedDemon()"></fa-icon>
+          <select [(ngModel)]="selectedDemon">
+            <option *ngFor="let prog of demonList" [ngValue]="prog">{{prog.name}} ({{prog.cost}}eb)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <br>
 <div class="row">
