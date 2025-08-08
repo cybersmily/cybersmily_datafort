@@ -1,5 +1,5 @@
 [
-  {"key":"6SS","release":"6TH STREET STARTER"},
+{"key":"6SS","release":"6TH STREET STARTER"},
 {"key":"AB","release":"ANKLEBYTES"},
 {"key":"ARA","release":"ARASAKA STARTER"},
 {"key":"BEAT","release":"THE BEAT"},
@@ -14,6 +14,7 @@
 {"key":"CS1","release":"COLLECTOR’S SET"},
 {"key":"CS2","release":"EDGERUNNER COLLECTOR'S SET"},
 {"key":"CUB","release":"THE CUB HUNT"},
+{"key":"CZG","release":"COMBAT ZONE GRAF3"},
 {"key":"DGAL","release":"DANGER GALS STARTER"},
 {"key":"DIYW","release":"DUNCE IF YOU WANNA"},
 {"key":"DM1","release":"DAILY MINIS"},
@@ -28,9 +29,11 @@
 {"key":"FP","release":"FOOLPROOFED"},
 {"key":"GN","release":"GLITCHING NEWS"},
 {"key":"GRS","release":"GENRED STARTER"},
+{"key":"GRAB","release":"ANKLEBYTES"},
 {"key":"JOCK","release":"CHROME JOCKS"},
 {"key":"LA","release":"LAWMEN ARREST"},
 {"key":"LAW","release":"LAWMEN STARTER"},
+{"key":"MTCC","release":"COMMAND & CONTROL"},
 {"key":"LIC","release":"LEADER ICONIC CARDS"},
 {"key":"MAEL","release":"MAELSTROM STARTER"},
 {"key":"MEAT","release":"FILTHY MEATBAGS"},
@@ -52,5 +55,8 @@
 {"key":"VPS","release":"VALLEJO PAINT SET"},
 {"key":"WC","release":"WALL CRAWLERS"},
 {"key":"WTS","release":"WILD THINGS STARTER"},
-{"key":"ZONE","release":"ZONERS START"}
+{"key":"WTB","release":"WILD THINGS TRAINER BOTS"},
+{"key":"ZONE","release":"ZONERS START"},
+
+{"key":"","release":"UNKNOWN"}
 ]
