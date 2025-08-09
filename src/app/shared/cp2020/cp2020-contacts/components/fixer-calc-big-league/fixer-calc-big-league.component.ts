@@ -11,9 +11,10 @@ import { FixerBigLeagueService } from './../../services/fixer-big-league/fixer-b
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-fixer-calc-big-league',
-  templateUrl: './fixer-calc-big-league.component.html',
-  styleUrls: ['./fixer-calc-big-league.component.css'],
+    selector: 'cs-fixer-calc-big-league',
+    templateUrl: './fixer-calc-big-league.component.html',
+    styleUrls: ['./fixer-calc-big-league.component.css'],
+    standalone: false
 })
 export class FixerCalcBigLeagueComponent implements OnInit {
   faSave = faSave;

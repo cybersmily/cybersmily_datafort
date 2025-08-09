@@ -2,9 +2,10 @@ import { DiceService } from './../../shared/services/dice/dice.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-game2d10',
-  templateUrl: './game2d10.component.html',
-  styleUrls: ['./game2d10.component.css']
+    selector: 'cs-game2d10',
+    templateUrl: './game2d10.component.html',
+    styleUrls: ['./game2d10.component.css'],
+    standalone: false
 })
 export class Game2d10Component implements OnInit {
 

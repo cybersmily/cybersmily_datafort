@@ -7,9 +7,10 @@ import { CrCzObjectiveDataService } from '../services/cr-cz-objective-data/cr-cz
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
-  selector: 'cs-cr-cz-objective-list',
-  templateUrl: './cr-cz-objective-list.component.html',
-  styleUrls: ['./cr-cz-objective-list.component.css']
+    selector: 'cs-cr-cz-objective-list',
+    templateUrl: './cr-cz-objective-list.component.html',
+    styleUrls: ['./cr-cz-objective-list.component.css'],
+    standalone: false
 })
 export class CrCzObjectiveListComponent {
   faStar = faStar;

@@ -3,9 +3,10 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 @Component({
-  selector: 'cs-nrinstruct',
-  templateUrl: './nrinstruct.component.html',
-  styleUrls: ['./nrinstruct.component.css']
+    selector: 'cs-nrinstruct',
+    templateUrl: './nrinstruct.component.html',
+    styleUrls: ['./nrinstruct.component.css'],
+    standalone: false
 })
 export class NrinstructComponent implements OnInit {
   modalRef: BsModalRef;

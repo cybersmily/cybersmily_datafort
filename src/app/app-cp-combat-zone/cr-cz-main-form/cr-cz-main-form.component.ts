@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-cr-cz-main-form',
-  templateUrl: './cr-cz-main-form.component.html',
-  styleUrls: ['./cr-cz-main-form.component.css']
+    selector: 'cs-cr-cz-main-form',
+    templateUrl: './cr-cz-main-form.component.html',
+    styleUrls: ['./cr-cz-main-form.component.css'],
+    standalone: false
 })
 export class CrCzMainFormComponent implements OnInit {
   showUnitList: boolean = true;

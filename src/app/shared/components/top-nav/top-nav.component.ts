@@ -14,9 +14,10 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
-  selector: 'app-top-nav',
-  templateUrl: './top-nav.component.html',
-  styleUrls: ['./top-nav.component.css'],
+    selector: 'app-top-nav',
+    templateUrl: './top-nav.component.html',
+    styleUrls: ['./top-nav.component.css'],
+    standalone: false
 })
 export class TopNavComponent implements OnInit {
   faEnvelope = faEnvelope;

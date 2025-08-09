@@ -4,9 +4,10 @@ import { LifepathEventsList } from './../models';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-lifepath-events',
-  templateUrl: './lifepath-events.component.html',
-  styleUrls: ['./lifepath-events.component.css']
+    selector: 'cs-lifepath-events',
+    templateUrl: './lifepath-events.component.html',
+    styleUrls: ['./lifepath-events.component.css'],
+    standalone: false
 })
 export class LifepathEventsComponent implements OnInit {
   faDice = faDice;

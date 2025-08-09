@@ -13,9 +13,10 @@ import { faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-acpa-location-editor',
-  templateUrl: './cp2020-acpa-location-editor.component.html',
-  styleUrls: ['./cp2020-acpa-location-editor.component.css'],
+    selector: 'cs-cp2020-acpa-location-editor',
+    templateUrl: './cp2020-acpa-location-editor.component.html',
+    styleUrls: ['./cp2020-acpa-location-editor.component.css'],
+    standalone: false
 })
 export class Cp2020AcpaLocationEditorComponent implements OnInit {
   faTrash = faTrash;

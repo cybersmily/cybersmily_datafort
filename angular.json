@@ -9,12 +9,13 @@
       "projectType": "application",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "aot": true,
-            "outputPath": "dist",
+            "outputPath": {
+              "base": "dist"
+            },
             "index": "src/index.html",
-            "main": "src/home.ts",
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": ["zone.js"],
             "styles": [
@@ -25,7 +26,8 @@
               "src/css/bootstrap-overrides.css",
               "src/css/print-styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "browser": "src/home.ts"
           },
           "configurations": {
             "production": {
@@ -52,8 +54,6 @@
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -75,9 +75,7 @@
               "optimization": false,
               "sourceMap": true,
               "namedChunks": true,
-              "extractLicenses": false,
-              "vendorChunk": true,
-              "buildOptimizer": false
+              "extractLicenses": false
             },
             "debug": {
               "assets": [
@@ -97,9 +95,7 @@
               "optimization": false,
               "sourceMap": true,
               "namedChunks": true,
-              "extractLicenses": false,
-              "vendorChunk": true,
-              "buildOptimizer": false
+              "extractLicenses": false
             }
           }
         },

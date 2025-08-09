@@ -9,9 +9,10 @@ import { HotStuffArea } from './../../models';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-hot-stuff-contact',
-  templateUrl: './cp2020-hot-stuff-contact.component.html',
-  styleUrls: ['./cp2020-hot-stuff-contact.component.css'],
+    selector: 'cs-cp2020-hot-stuff-contact',
+    templateUrl: './cp2020-hot-stuff-contact.component.html',
+    styleUrls: ['./cp2020-hot-stuff-contact.component.css'],
+    standalone: false
 })
 export class Cp2020HotStuffContactComponent implements OnInit {
   faPen = faPen;

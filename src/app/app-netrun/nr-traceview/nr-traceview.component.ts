@@ -5,9 +5,10 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { NrTrackerService } from '../services';
 
 @Component({
-  selector: 'cs-nr-traceview',
-  templateUrl: './nr-traceview.component.html',
-  styleUrls: ['./nr-traceview.component.css']
+    selector: 'cs-nr-traceview',
+    templateUrl: './nr-traceview.component.html',
+    styleUrls: ['./nr-traceview.component.css'],
+    standalone: false
 })
 export class NrTraceviewComponent implements OnInit {
   modalRef: BsModalRef;

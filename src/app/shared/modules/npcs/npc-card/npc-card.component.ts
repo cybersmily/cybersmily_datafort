@@ -5,9 +5,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NpcCard } from '../../../models/character';
 
 @Component({
-  selector: 'cs-npc-card',
-  templateUrl: './npc-card.component.html',
-  styleUrls: ['./npc-card.component.css']
+    selector: 'cs-npc-card',
+    templateUrl: './npc-card.component.html',
+    styleUrls: ['./npc-card.component.css'],
+    standalone: false
 })
 export class NpcCardComponent implements OnInit {
 

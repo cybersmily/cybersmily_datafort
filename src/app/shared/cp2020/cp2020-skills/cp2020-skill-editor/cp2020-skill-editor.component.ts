@@ -18,9 +18,10 @@ import {
 import { MartialBonuses } from '../models';
 
 @Component({
-  selector: 'cs-cp2020-skill-editor',
-  templateUrl: './cp2020-skill-editor.component.html',
-  styleUrls: ['./cp2020-skill-editor.component.css'],
+    selector: 'cs-cp2020-skill-editor',
+    templateUrl: './cp2020-skill-editor.component.html',
+    styleUrls: ['./cp2020-skill-editor.component.css'],
+    standalone: false
 })
 export class Cp2020SkillEditorComponent implements OnInit, AfterViewInit {
   faPlus = faPlus;
@@ -45,7 +46,8 @@ export class Cp2020SkillEditorComponent implements OnInit, AfterViewInit {
   }
 
   get nextLevelIP(): number {
-    const base = 10 * this.currSkill.ipMod ?? 1;
+    const ipmode = isNaN(this.currSkill?.ipMod) ? this.currSkill.ipMod : 1;
+    const base = 10 * ipmode;
     if (this.currSkill.value < 1) {
       return base;
     }

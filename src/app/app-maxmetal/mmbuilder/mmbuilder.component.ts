@@ -7,9 +7,10 @@ import { MaxMetalWeapon } from '../../shared/cp2020/cp2020weapons/models/max-met
 import { Component, OnInit, Input, TemplateRef, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'cs-mmbuilder',
-  templateUrl: './mmbuilder.component.html',
-  styleUrls: ['./mmbuilder.component.css']
+    selector: 'cs-mmbuilder',
+    templateUrl: './mmbuilder.component.html',
+    styleUrls: ['./mmbuilder.component.css'],
+    standalone: false
 })
 export class MmbuilderComponent implements OnInit {
   modalRef: BsModalRef;

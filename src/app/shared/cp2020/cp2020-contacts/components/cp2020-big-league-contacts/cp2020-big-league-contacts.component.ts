@@ -5,9 +5,10 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { BigLeagueContact } from '../../models';
 
 @Component({
-  selector: 'cs-cp2020-big-league-contacts',
-  templateUrl: './cp2020-big-league-contacts.component.html',
-  styleUrls: ['./cp2020-big-league-contacts.component.css'],
+    selector: 'cs-cp2020-big-league-contacts',
+    templateUrl: './cp2020-big-league-contacts.component.html',
+    styleUrls: ['./cp2020-big-league-contacts.component.css'],
+    standalone: false
 })
 export class Cp2020BigLeagueContactsComponent implements OnInit {
   faDice = faDice;

@@ -3,9 +3,10 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgxImageCompressService } from 'ngx-image-compress';
 
 @Component({
-  selector: 'cs-image-holder',
-  templateUrl: './image-holder.component.html',
-  styleUrls: ['./image-holder.component.css'],
+    selector: 'cs-image-holder',
+    templateUrl: './image-holder.component.html',
+    styleUrls: ['./image-holder.component.css'],
+    standalone: false
 })
 export class ImageHolderComponent implements OnInit {
   faPlus = faPlus;

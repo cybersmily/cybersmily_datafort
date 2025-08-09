@@ -2,9 +2,10 @@ import { MaxMetalWeapon, MaxMetalWeaponList } from '../../shared/cp2020/cp2020we
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-mmweaponlist',
-  templateUrl: './mmweaponlist.component.html',
-  styleUrls: ['./mmweaponlist.component.css']
+    selector: 'cs-mmweaponlist',
+    templateUrl: './mmweaponlist.component.html',
+    styleUrls: ['./mmweaponlist.component.css'],
+    standalone: false
 })
 export class MmweaponlistComponent implements OnInit {
 

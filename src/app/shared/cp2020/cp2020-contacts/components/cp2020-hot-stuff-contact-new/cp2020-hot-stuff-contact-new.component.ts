@@ -8,9 +8,10 @@ import {
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-hot-stuff-contact-new',
-  templateUrl: './cp2020-hot-stuff-contact-new.component.html',
-  styleUrls: ['./cp2020-hot-stuff-contact-new.component.css'],
+    selector: 'cs-cp2020-hot-stuff-contact-new',
+    templateUrl: './cp2020-hot-stuff-contact-new.component.html',
+    styleUrls: ['./cp2020-hot-stuff-contact-new.component.css'],
+    standalone: false
 })
 export class Cp2020HotStuffContactNewComponent implements OnInit {
   faPlus = faPlus;

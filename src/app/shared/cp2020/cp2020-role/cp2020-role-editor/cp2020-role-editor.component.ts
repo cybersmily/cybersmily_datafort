@@ -27,9 +27,10 @@ import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 import { Data } from '@angular/router';
 
 @Component({
-  selector: 'cs-cp2020-role-editor',
-  templateUrl: './cp2020-role-editor.component.html',
-  styleUrls: ['./cp2020-role-editor.component.css'],
+    selector: 'cs-cp2020-role-editor',
+    templateUrl: './cp2020-role-editor.component.html',
+    styleUrls: ['./cp2020-role-editor.component.css'],
+    standalone: false
 })
 export class Cp2020RoleEditorComponent
   implements OnInit, OnChanges, AfterViewInit

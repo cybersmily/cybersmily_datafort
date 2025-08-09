@@ -5,9 +5,10 @@ import { Observable } from 'rxjs';
 import { iCrCzNrProgramCard } from '../models/cr-cz-nr-program-card';
 
 @Component({
-  selector: 'cs-cr-cz-program-list',
-  templateUrl: './cr-cz-program-list.component.html',
-  styleUrls: ['./cr-cz-program-list.component.css']
+    selector: 'cs-cr-cz-program-list',
+    templateUrl: './cr-cz-program-list.component.html',
+    styleUrls: ['./cr-cz-program-list.component.css'],
+    standalone: false
 })
 export class CrCzProgramListComponent {
   faStar = faStar;

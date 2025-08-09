@@ -26,9 +26,10 @@ import {
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
-  selector: 'cs-cp2020-armor-table',
-  templateUrl: './cp2020-armor-table.component.html',
-  styleUrls: ['./cp2020-armor-table.component.css'],
+    selector: 'cs-cp2020-armor-table',
+    templateUrl: './cp2020-armor-table.component.html',
+    styleUrls: ['./cp2020-armor-table.component.css'],
+    standalone: false
 })
 export class Cp2020ArmorTableComponent implements OnInit, OnChanges {
   faShieldAlt = faShieldAlt;

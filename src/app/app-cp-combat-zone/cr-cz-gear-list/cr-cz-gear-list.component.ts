@@ -5,9 +5,10 @@ import { Observable } from 'rxjs';
 import { iCrCzGearItemCard } from '../models/cr-cz-gear-item-card';
 
 @Component({
-  selector: 'cs-cr-cz-gear-list',
-  templateUrl: './cr-cz-gear-list.component.html',
-  styleUrls: ['./cr-cz-gear-list.component.css']
+    selector: 'cs-cr-cz-gear-list',
+    templateUrl: './cr-cz-gear-list.component.html',
+    styleUrls: ['./cr-cz-gear-list.component.css'],
+    standalone: false
 })
 export class CrCzGearListComponent implements OnInit {
   faStar = faStar;

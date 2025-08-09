@@ -3,9 +3,10 @@ import { Cp2020Stat, StatModifier } from './../models/cp2020-stat';
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-stat-editor',
-  templateUrl: './cp2020-stat-editor.component.html',
-  styleUrls: ['./cp2020-stat-editor.component.css']
+    selector: 'cs-cp2020-stat-editor',
+    templateUrl: './cp2020-stat-editor.component.html',
+    styleUrls: ['./cp2020-stat-editor.component.css'],
+    standalone: false
 })
 export class Cp2020StatEditorComponent implements OnInit, AfterViewInit {
   faPlus = faPlus;

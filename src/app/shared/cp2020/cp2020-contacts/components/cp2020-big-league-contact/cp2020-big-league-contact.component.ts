@@ -9,9 +9,10 @@ import {
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-big-league-contact',
-  templateUrl: './cp2020-big-league-contact.component.html',
-  styleUrls: ['./cp2020-big-league-contact.component.css'],
+    selector: 'cs-cp2020-big-league-contact',
+    templateUrl: './cp2020-big-league-contact.component.html',
+    styleUrls: ['./cp2020-big-league-contact.component.css'],
+    standalone: false
 })
 export class Cp2020BigLeagueContactComponent implements OnInit {
   faPen = faPen;

@@ -15,9 +15,10 @@ import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { NrDatafortRefData, Cp2020NrDatafort } from '../../models';
 
 @Component({
-  selector: 'cs-cp2020-datafort-editor',
-  templateUrl: './cp2020-datafort-editor.component.html',
-  styleUrls: ['./cp2020-datafort-editor.component.css'],
+    selector: 'cs-cp2020-datafort-editor',
+    templateUrl: './cp2020-datafort-editor.component.html',
+    styleUrls: ['./cp2020-datafort-editor.component.css'],
+    standalone: false
 })
 export class Cp2020DatafortEditorComponent implements OnInit {
   faChevronDown = faChevronDown;

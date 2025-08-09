@@ -11,9 +11,10 @@ import { CrCzArmyBuilderService } from '../services/cr-cz-army-builder/cr-cz-arm
 import { KeyValue } from '@angular/common';
 
 @Component({
-  selector: 'cs-cr-cz-unit-list',
-  templateUrl: './cr-cz-unit-list.component.html',
-  styleUrls: ['./cr-cz-unit-list.component.css']
+    selector: 'cs-cr-cz-unit-list',
+    templateUrl: './cr-cz-unit-list.component.html',
+    styleUrls: ['./cr-cz-unit-list.component.css'],
+    standalone: false
 })
 export class CrCzUnitListComponent {
 

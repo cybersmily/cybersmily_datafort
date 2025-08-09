@@ -32,9 +32,10 @@ import {
 import { RandomWeaponSettings } from '../models/random-weapon-filters';
 
 @Component({
-  selector: 'cs-cp2020weapontable',
-  templateUrl: './cp2020weapontable.component.html',
-  styleUrls: ['./cp2020weapontable.component.css'],
+    selector: 'cs-cp2020weapontable',
+    templateUrl: './cp2020weapontable.component.html',
+    styleUrls: ['./cp2020weapontable.component.css'],
+    standalone: false
 })
 export class Cp2020weapontableComponent implements OnInit {
   faDice = faDice;

@@ -10,9 +10,10 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { faFile, faSave, faFilePdf, faPlus, faRedo, faCog } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'cs-fashion-generator',
-  templateUrl: './fashion-generator.component.html',
-  styleUrls: ['./fashion-generator.component.css']
+    selector: 'cs-fashion-generator',
+    templateUrl: './fashion-generator.component.html',
+    styleUrls: ['./fashion-generator.component.css'],
+    standalone: false
 })
 export class FashionGeneratorComponent implements OnInit {
   faFile = faFile;

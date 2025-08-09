@@ -10,9 +10,10 @@ import { Component, OnInit } from '@angular/core';
 import { FixerCharts } from '../../shared/cp2020/cp2020-contacts/models';
 
 @Component({
-  selector: 'cs-fixer-calc-main',
-  templateUrl: './fixer-calc-main.component.html',
-  styleUrls: ['./fixer-calc-main.component.css'],
+    selector: 'cs-fixer-calc-main',
+    templateUrl: './fixer-calc-main.component.html',
+    styleUrls: ['./fixer-calc-main.component.css'],
+    standalone: false
 })
 export class FixerCalcMainComponent implements OnInit {
   private _streetdealKey: string = 'csd_fixer_streetdeal_key';

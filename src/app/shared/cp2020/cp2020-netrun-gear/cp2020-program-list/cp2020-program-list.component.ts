@@ -25,9 +25,10 @@ import {
 import { Cp2020Program } from '../models';
 
 @Component({
-  selector: 'cs-program-list',
-  templateUrl: './cp2020-program-list.component.html',
-  styleUrls: ['./cp2020-program-list.component.css'],
+    selector: 'cs-program-list',
+    templateUrl: './cp2020-program-list.component.html',
+    styleUrls: ['./cp2020-program-list.component.css'],
+    standalone: false
 })
 export class Cp2020ProgramListComponent implements OnInit {
   faTrash = faTrash;

@@ -18,9 +18,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-skill-list-full',
-  templateUrl: './cp2020-skill-list-full.component.html',
-  styleUrls: ['./cp2020-skill-list-full.component.css'],
+    selector: 'cs-cp2020-skill-list-full',
+    templateUrl: './cp2020-skill-list-full.component.html',
+    styleUrls: ['./cp2020-skill-list-full.component.css'],
+    standalone: false
 })
 export class Cp2020SkillListFullComponent implements OnInit, OnChanges {
   faDice = faDice;

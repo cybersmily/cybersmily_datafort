@@ -6,9 +6,10 @@ import { Observable } from 'rxjs';
 import { SeoService } from './../../shared/services/seo/seo.service';
 
 @Component({
-  selector: 'cs-vehicle-list',
-  templateUrl: './vehicle-list.component.html',
-  styleUrls: ['./vehicle-list.component.css'],
+    selector: 'cs-vehicle-list',
+    templateUrl: './vehicle-list.component.html',
+    styleUrls: ['./vehicle-list.component.css'],
+    standalone: false
 })
 export class VehicleListComponent implements OnInit {
   vehicleList$: Observable<Array<VehicleData>>;

@@ -6,9 +6,10 @@ import { Cp2020ACPAWeapon, Cp2020ACPAComponent } from '../../models';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-acpa-select-equipment',
-  templateUrl: './cp2020-acpa-select-equipment.component.html',
-  styleUrls: ['./cp2020-acpa-select-equipment.component.css'],
+    selector: 'cs-cp2020-acpa-select-equipment',
+    templateUrl: './cp2020-acpa-select-equipment.component.html',
+    styleUrls: ['./cp2020-acpa-select-equipment.component.css'],
+    standalone: false
 })
 export class Cp2020AcpaSelectEquipmentComponent implements OnInit {
   weaponCategories$: Observable<Array<string>>;

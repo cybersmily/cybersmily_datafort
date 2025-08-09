@@ -11,9 +11,10 @@ import {
 import { Cp2020PlayerContact } from '../../models';
 
 @Component({
-  selector: 'cs-cp2020-other-contacts',
-  templateUrl: './cp2020-other-contacts.component.html',
-  styleUrls: ['./cp2020-other-contacts.component.css'],
+    selector: 'cs-cp2020-other-contacts',
+    templateUrl: './cp2020-other-contacts.component.html',
+    styleUrls: ['./cp2020-other-contacts.component.css'],
+    standalone: false
 })
 export class Cp2020OtherContactsComponent implements OnInit, OnChanges {
   faRedo = faRedo;

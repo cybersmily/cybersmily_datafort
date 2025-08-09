@@ -5,9 +5,10 @@ import { DataService, JsonDataFiles } from './../../shared/services/file-service
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-shop-cyberware',
-  templateUrl: './shop-cyberware.component.html',
-  styleUrls: ['./shop-cyberware.component.css']
+    selector: 'cs-shop-cyberware',
+    templateUrl: './shop-cyberware.component.html',
+    styleUrls: ['./shop-cyberware.component.css'],
+    standalone: false
 })
 export class ShopCyberwareComponent implements OnInit {
   cyberwareList$: Observable<{

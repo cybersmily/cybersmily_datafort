@@ -4,9 +4,10 @@ import { faPlus, faTrash, faPen, faRedo, faEuroSign, faList, faCalculator, faDol
 import { Component, Input, OnInit, Output, TemplateRef, EventEmitter, OnChanges, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-lifestyle',
-  templateUrl: './cp2020-lifestyle.component.html',
-  styleUrls: ['./cp2020-lifestyle.component.css']
+    selector: 'cs-cp2020-lifestyle',
+    templateUrl: './cp2020-lifestyle.component.html',
+    styleUrls: ['./cp2020-lifestyle.component.css'],
+    standalone: false
 })
 export class Cp2020LifestyleComponent implements OnInit, OnChanges {
   faPlus = faPlus;

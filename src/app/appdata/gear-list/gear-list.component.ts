@@ -9,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'cs-gear-list',
-  templateUrl: './gear-list.component.html',
-  styleUrls: ['./gear-list.component.css'],
+    selector: 'cs-gear-list',
+    templateUrl: './gear-list.component.html',
+    styleUrls: ['./gear-list.component.css'],
+    standalone: false
 })
 export class GearListComponent implements OnInit {
   gearList$: Observable<Array<Cp2020Gear>>;

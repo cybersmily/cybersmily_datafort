@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'greaterThan',
+    name: 'greaterThan',
+    standalone: false
 })
 export class GreaterThanPipe implements PipeTransform {
   transform(value: Array<any>, property: string, num: number): Array<any> {

@@ -2,9 +2,10 @@ import { faDice, faSave, faUpload, faImage, faSkullCrossbones, faCogs, faLock, f
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-net-arch-instructions',
-  templateUrl: './net-arch-instructions.component.html',
-  styleUrls: ['./net-arch-instructions.component.css']
+    selector: 'cs-net-arch-instructions',
+    templateUrl: './net-arch-instructions.component.html',
+    styleUrls: ['./net-arch-instructions.component.css'],
+    standalone: false
 })
 export class NetArchInstructionsComponent implements OnInit {
   faDice = faDice;

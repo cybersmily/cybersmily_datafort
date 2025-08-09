@@ -14,9 +14,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020weapon-calculator',
-  templateUrl: './cp2020weapon-calculator.component.html',
-  styleUrls: ['./cp2020weapon-calculator.component.css'],
+    selector: 'cs-cp2020weapon-calculator',
+    templateUrl: './cp2020weapon-calculator.component.html',
+    styleUrls: ['./cp2020weapon-calculator.component.css'],
+    standalone: false
 })
 export class Cp2020weaponCalculatorComponent implements OnInit, OnChanges {
   faDice = faDice;

@@ -3,9 +3,10 @@ import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { iCrCzGearItemCard } from '../models/cr-cz-gear-item-card';
 
 @Component({
-  selector: 'cs-cr-cz-gear-card',
-  templateUrl: './cr-cz-gear-card.component.html',
-  styleUrls: ['./cr-cz-gear-card.component.css']
+    selector: 'cs-cr-cz-gear-card',
+    templateUrl: './cr-cz-gear-card.component.html',
+    styleUrls: ['./cr-cz-gear-card.component.css'],
+    standalone: false
 })
 export class CrCzGearCardComponent implements OnInit {
   faStar = faStar;

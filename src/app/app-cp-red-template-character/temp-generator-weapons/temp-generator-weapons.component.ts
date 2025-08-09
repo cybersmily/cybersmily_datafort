@@ -2,9 +2,10 @@ import { BaseWeapon } from '../../shared/cp2020/cp2020weapons/models';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'cs-temp-generator-weapons',
-  templateUrl: './temp-generator-weapons.component.html',
-  styleUrls: ['./temp-generator-weapons.component.css']
+    selector: 'cs-temp-generator-weapons',
+    templateUrl: './temp-generator-weapons.component.html',
+    styleUrls: ['./temp-generator-weapons.component.css'],
+    standalone: false
 })
 export class TempGeneratorWeaponsComponent implements OnInit {
 

@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'monthArray'
+    name: 'monthArray',
+    standalone: false
 })
 export class MonthArrayPipe implements PipeTransform {
 

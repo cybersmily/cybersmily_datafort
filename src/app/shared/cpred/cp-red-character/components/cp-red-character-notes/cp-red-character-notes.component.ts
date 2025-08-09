@@ -6,9 +6,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'cs-cp-red-character-notes',
-  templateUrl: './cp-red-character-notes.component.html',
-  styleUrls: ['./cp-red-character-notes.component.css'],
+    selector: 'cs-cp-red-character-notes',
+    templateUrl: './cp-red-character-notes.component.html',
+    styleUrls: ['./cp-red-character-notes.component.css'],
+    standalone: false
 })
 export class CpRedCharacterNotesComponent implements OnInit {
   faChevronDown = faChevronDown;

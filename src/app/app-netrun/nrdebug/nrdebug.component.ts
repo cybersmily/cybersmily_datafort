@@ -5,9 +5,10 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { NrMapPositionService, NrMapDataService } from '../services';
 
 @Component({
-  selector: 'cs-nrdebug',
-  templateUrl: './nrdebug.component.html',
-  styleUrls: ['./nrdebug.component.css']
+    selector: 'cs-nrdebug',
+    templateUrl: './nrdebug.component.html',
+    styleUrls: ['./nrdebug.component.css'],
+    standalone: false
 })
 export class NrdebugComponent implements OnInit, OnDestroy {
   @Input()

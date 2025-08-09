@@ -15,9 +15,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-vehicle-table',
-  templateUrl: './cp2020-vehicle-table.component.html',
-  styleUrls: ['./cp2020-vehicle-table.component.css'],
+    selector: 'cs-cp2020-vehicle-table',
+    templateUrl: './cp2020-vehicle-table.component.html',
+    styleUrls: ['./cp2020-vehicle-table.component.css'],
+    standalone: false
 })
 export class Cp2020VehicleTableComponent implements OnInit, OnChanges {
   faPlus = faPlus;

@@ -3,9 +3,10 @@ import { Component, Input, OnInit, Output, EventEmitter, OnChanges, AfterViewIni
 import { Cp2020Credchip } from '../models';
 
 @Component({
-  selector: 'cs-cp2020-credchip-list',
-  templateUrl: './cp2020-credchip-list.component.html',
-  styleUrls: ['./cp2020-credchip-list.component.css']
+    selector: 'cs-cp2020-credchip-list',
+    templateUrl: './cp2020-credchip-list.component.html',
+    styleUrls: ['./cp2020-credchip-list.component.css'],
+    standalone: false
 })
 export class Cp2020CredchipListComponent implements OnInit, OnChanges, AfterViewInit {
   faPlus = faPlus;

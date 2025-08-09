@@ -15,9 +15,10 @@ import {
 import { CpRedCharacterStat } from '../../../c-p-red-stats/models';
 
 @Component({
-  selector: 'cs-cp-red-skill',
-  templateUrl: './cp-red-skill.component.html',
-  styleUrls: ['./cp-red-skill.component.css'],
+    selector: 'cs-cp-red-skill',
+    templateUrl: './cp-red-skill.component.html',
+    styleUrls: ['./cp-red-skill.component.css'],
+    standalone: false
 })
 export class CpRedSkillComponent implements OnInit, OnChanges {
   faDice = faDice;

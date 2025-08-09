@@ -6,9 +6,10 @@ import { faAngleDoubleDown, faAngleDoubleRight } from '@fortawesome/free-solid-s
 
 
 @Component({
-  selector: 'csdata-weaponcardcolumn',
-  templateUrl: './weaponcardcolumn.component.html',
-  styleUrls: ['./weaponcardcolumn.component.css']
+    selector: 'csdata-weaponcardcolumn',
+    templateUrl: './weaponcardcolumn.component.html',
+    styleUrls: ['./weaponcardcolumn.component.css'],
+    standalone: false
 })
 export class WeaponcardcolumnComponent implements OnInit {
   faAngleDoubleDown = faAngleDoubleDown;

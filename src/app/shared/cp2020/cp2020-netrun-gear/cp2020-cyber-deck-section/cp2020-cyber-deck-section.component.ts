@@ -21,9 +21,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-cyber-deck-section',
-  templateUrl: './cp2020-cyber-deck-section.component.html',
-  styleUrls: ['./cp2020-cyber-deck-section.component.css'],
+    selector: 'cs-cp2020-cyber-deck-section',
+    templateUrl: './cp2020-cyber-deck-section.component.html',
+    styleUrls: ['./cp2020-cyber-deck-section.component.css'],
+    standalone: false
 })
 export class Cp2020CyberDeckSectionComponent implements OnInit, OnChanges {
   faChevronDown = faChevronDown;

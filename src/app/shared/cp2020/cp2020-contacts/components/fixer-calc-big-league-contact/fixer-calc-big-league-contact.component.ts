@@ -3,9 +3,10 @@ import { faPen, faTrash, faSave } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-fixer-calc-big-league-contact',
-  templateUrl: './fixer-calc-big-league-contact.component.html',
-  styleUrls: ['./fixer-calc-big-league-contact.component.css'],
+    selector: 'cs-fixer-calc-big-league-contact',
+    templateUrl: './fixer-calc-big-league-contact.component.html',
+    styleUrls: ['./fixer-calc-big-league-contact.component.css'],
+    standalone: false
 })
 export class FixerCalcBigLeagueContactComponent implements OnInit {
   faPen = faPen;

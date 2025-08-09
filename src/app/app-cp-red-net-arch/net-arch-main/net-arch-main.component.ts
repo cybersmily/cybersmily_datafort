@@ -12,9 +12,10 @@ import { Component, OnInit, TemplateRef, ViewChild, ElementRef } from '@angular/
 
 const SVG_ELEMENT_ID = '#cs-cpred-archdiagram';
 @Component({
-  selector: 'cs-net-arch-main',
-  templateUrl: './net-arch-main.component.html',
-  styleUrls: ['./net-arch-main.component.css']
+    selector: 'cs-net-arch-main',
+    templateUrl: './net-arch-main.component.html',
+    styleUrls: ['./net-arch-main.component.css'],
+    standalone: false
 })
 export class NetArchMainComponent implements OnInit {
 

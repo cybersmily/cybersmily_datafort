@@ -4,9 +4,10 @@ import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-initiative-editor',
-  templateUrl: './cp2020-initiative-editor.component.html',
-  styleUrls: ['./cp2020-initiative-editor.component.css']
+    selector: 'cs-cp2020-initiative-editor',
+    templateUrl: './cp2020-initiative-editor.component.html',
+    styleUrls: ['./cp2020-initiative-editor.component.css'],
+    standalone: false
 })
 export class Cp2020InitiativeEditorComponent implements OnInit, AfterViewInit {
   faPlus = faPlus;

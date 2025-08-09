@@ -5,9 +5,10 @@ import { CyberDataService } from './../services';
 import { Component, OnInit, Output, EventEmitter, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-cyberware-selector',
-  templateUrl: './cp2020-cyberware-selector.component.html',
-  styleUrls: ['./cp2020-cyberware-selector.component.css']
+    selector: 'cs-cp2020-cyberware-selector',
+    templateUrl: './cp2020-cyberware-selector.component.html',
+    styleUrls: ['./cp2020-cyberware-selector.component.css'],
+    standalone: false
 })
 export class Cp2020CyberwareSelectorComponent implements OnInit {
 

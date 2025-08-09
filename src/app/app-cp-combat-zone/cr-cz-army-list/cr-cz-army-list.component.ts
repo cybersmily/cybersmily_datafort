@@ -8,9 +8,10 @@ import { error } from 'protractor';
 
 
 @Component({
-  selector: 'cs-cr-cz-army-list',
-  templateUrl: './cr-cz-army-list.component.html',
-  styleUrls: ['./cr-cz-army-list.component.css']
+    selector: 'cs-cr-cz-army-list',
+    templateUrl: './cr-cz-army-list.component.html',
+    styleUrls: ['./cr-cz-army-list.component.css'],
+    standalone: false
 })
 export class CrCzArmyListComponent implements OnInit {
   faStar = faStar;

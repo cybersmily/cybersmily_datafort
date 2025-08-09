@@ -32,9 +32,10 @@ import { Cp2020Lifestyle } from './../../shared/cp2020/cp2020-lifestyle/models';
 import { Cp2020Vehicle } from './../../shared/cp2020/cp2020-vehicles/models';
 
 @Component({
-  selector: 'cs-app-character-generator-mobile-layout',
-  templateUrl: './app-character-generator-mobile-layout.component.html',
-  styleUrls: ['./app-character-generator-mobile-layout.component.css']
+    selector: 'cs-app-character-generator-mobile-layout',
+    templateUrl: './app-character-generator-mobile-layout.component.html',
+    styleUrls: ['./app-character-generator-mobile-layout.component.css'],
+    standalone: false
 })
 export class AppCharacterGeneratorMobileLayoutComponent {
 

@@ -5,9 +5,10 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Component, OnInit, TemplateRef, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-save-wounds',
-  templateUrl: './cp2020-save-wounds.component.html',
-  styleUrls: ['./cp2020-save-wounds.component.css']
+    selector: 'cs-cp2020-save-wounds',
+    templateUrl: './cp2020-save-wounds.component.html',
+    styleUrls: ['./cp2020-save-wounds.component.css'],
+    standalone: false
 })
 export class Cp2020SaveWoundsComponent implements OnInit {
 
@@ -48,11 +49,11 @@ export class Cp2020SaveWoundsComponent implements OnInit {
 
 
   get isLightWound(): boolean {
-    return (this.stats?.Damage > 4) ?? false;
+    return (this.stats?.Damage > 4);
   }
 
   get isMortalWound(): boolean {
-    return (this.stats?.Damage > 12) ?? false;
+    return (this.stats?.Damage > 12);
   }
 
   get isStunned(): boolean {
@@ -81,10 +82,10 @@ export class Cp2020SaveWoundsComponent implements OnInit {
   }
 
   get isDying(): boolean {
-    return (this.stats?.deathState > 0) ?? false;
+    return (this.stats?.deathState > 0);
   }
   get isDead(): boolean {
-    return (this.stats?.deathState > 9) ?? false;
+    return (this.stats?.deathState > 9);
   }
 
   get deathState(): number {

@@ -5,9 +5,10 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Clubber } from '../../models';
 
 @Component({
-  selector: 'cs-clubber-display',
-  templateUrl: './clubber-display.component.html',
-  styleUrls: ['./clubber-display.component.css'],
+    selector: 'cs-clubber-display',
+    templateUrl: './clubber-display.component.html',
+    styleUrls: ['./clubber-display.component.css'],
+    standalone: false
 })
 export class ClubberDisplayComponent implements OnInit {
   faDice = faDice;

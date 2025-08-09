@@ -6,9 +6,10 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { EffectAllowed } from 'ngx-drag-drop';
 
 @Component({
-  selector: 'cs-cp2020-datafort-toolbar',
-  templateUrl: './cp2020-datafort-toolbar.component.html',
-  styleUrls: ['./cp2020-datafort-toolbar.component.css'],
+    selector: 'cs-cp2020-datafort-toolbar',
+    templateUrl: './cp2020-datafort-toolbar.component.html',
+    styleUrls: ['./cp2020-datafort-toolbar.component.css'],
+    standalone: false
 })
 export class Cp2020DatafortToolbarComponent implements OnInit {
   NrNodeIcons = NrNodeIcons;

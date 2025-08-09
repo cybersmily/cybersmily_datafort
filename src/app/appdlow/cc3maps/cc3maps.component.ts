@@ -2,9 +2,10 @@ import { SeoService } from './../../shared/services/seo/seo.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-cc3maps',
-  templateUrl: './cc3maps.component.html',
-  styleUrls: ['./cc3maps.component.css']
+    selector: 'cs-cc3maps',
+    templateUrl: './cc3maps.component.html',
+    styleUrls: ['./cc3maps.component.css'],
+    standalone: false
 })
 export class Cc3mapsComponent implements OnInit {
 

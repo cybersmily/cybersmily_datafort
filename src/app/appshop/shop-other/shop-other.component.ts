@@ -4,9 +4,10 @@ import { SeoService } from './../../shared/services/seo/seo.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-shop-other',
-  templateUrl: './shop-other.component.html',
-  styleUrls: ['./shop-other.component.css']
+    selector: 'cs-shop-other',
+    templateUrl: './shop-other.component.html',
+    styleUrls: ['./shop-other.component.css'],
+    standalone: false
 })
 export class ShopOtherComponent implements OnInit {
   otherList$: Observable<{

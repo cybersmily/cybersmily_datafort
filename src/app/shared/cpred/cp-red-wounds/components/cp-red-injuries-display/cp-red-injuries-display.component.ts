@@ -7,9 +7,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CpRedCharacterCriticalInjury } from '../../models';
 
 @Component({
-  selector: 'cs-cp-red-injuries-display',
-  templateUrl: './cp-red-injuries-display.component.html',
-  styleUrls: ['./cp-red-injuries-display.component.css'],
+    selector: 'cs-cp-red-injuries-display',
+    templateUrl: './cp-red-injuries-display.component.html',
+    styleUrls: ['./cp-red-injuries-display.component.css'],
+    standalone: false
 })
 export class CpRedInjuriesDisplayComponent implements OnInit {
   faChevronDown = faChevronDown;

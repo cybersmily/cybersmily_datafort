@@ -10,9 +10,10 @@ import {
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-prot-sysops',
-  templateUrl: './prot-sysops.component.html',
-  styleUrls: ['./prot-sysops.component.css'],
+    selector: 'app-prot-sysops',
+    templateUrl: './prot-sysops.component.html',
+    styleUrls: ['./prot-sysops.component.css'],
+    standalone: false
 })
 export class ProtSysopsComponent implements OnInit {
   sysopsList$: Observable<Array<Sysop>>;

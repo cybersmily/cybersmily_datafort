@@ -7,9 +7,10 @@ import { DataService, SaveFileService, JsonDataFiles } from './../../shared/serv
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-app-headlines-form',
-  templateUrl: './app-headlines-form.component.html',
-  styleUrls: ['./app-headlines-form.component.css']
+    selector: 'cs-app-headlines-form',
+    templateUrl: './app-headlines-form.component.html',
+    styleUrls: ['./app-headlines-form.component.css'],
+    standalone: false
 })
 export class AppHeadlinesFormComponent implements OnInit {
   faDice = faDice;

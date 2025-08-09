@@ -4,9 +4,10 @@ import { Component, EventEmitter, Input, OnInit, Output, TemplateRef } from '@an
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
-  selector: 'cs-net-arch-node-svg',
-  templateUrl: './net-arch-node-svg.component.svg',
-  styleUrls: ['./net-arch-node-svg.component.css']
+    selector: 'cs-net-arch-node-svg',
+    templateUrl: './net-arch-node-svg.component.svg',
+    styleUrls: ['./net-arch-node-svg.component.css'],
+    standalone: false
 })
 export class NetArchNodeSvgComponent implements OnInit {
   faFile = faFile;

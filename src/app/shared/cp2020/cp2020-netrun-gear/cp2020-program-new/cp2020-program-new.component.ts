@@ -17,9 +17,10 @@ import {
 import { ProgramOption, Cp2020Program, Program } from '../models';
 
 @Component({
-  selector: 'cs-program-new',
-  templateUrl: './cp2020-program-new.component.html',
-  styleUrls: ['./cp2020-program-new.component.css'],
+    selector: 'cs-program-new',
+    templateUrl: './cp2020-program-new.component.html',
+    styleUrls: ['./cp2020-program-new.component.css'],
+    standalone: false
 })
 export class Cp2020ProgramNewComponent implements OnInit, AfterViewInit {
   faPlus = faPlus;

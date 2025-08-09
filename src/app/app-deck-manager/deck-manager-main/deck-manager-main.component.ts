@@ -9,9 +9,10 @@ import { faTrash, faFilePdf, faSave, faUndo, faUpload, faAngleDoubleDown,
   faAngleDoubleRight, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'cs-program-main',
-  templateUrl: './deck-manager-main.component.html',
-  styleUrls: ['./deck-manager-main.component.css']
+    selector: 'cs-program-main',
+    templateUrl: './deck-manager-main.component.html',
+    styleUrls: ['./deck-manager-main.component.css'],
+    standalone: false
 })
 export class DeckManagerMainComponent implements OnInit {
   faTrash = faTrash;

@@ -25,9 +25,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'cs-cp2020-lifepath-section',
-  templateUrl: './cp2020-lifepath-section.component.html',
-  styleUrls: ['./cp2020-lifepath-section.component.css'],
+    selector: 'cs-cp2020-lifepath-section',
+    templateUrl: './cp2020-lifepath-section.component.html',
+    styleUrls: ['./cp2020-lifepath-section.component.css'],
+    standalone: false
 })
 export class Cp2020LifepathSectionComponent implements OnInit {
   faMars = faMars;

@@ -8,9 +8,10 @@ import { DataService } from './../../shared/services/file-services/dataservice/d
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-cyberdeck-list',
-  templateUrl: './cyberdeck-list.component.html',
-  styleUrls: ['./cyberdeck-list.component.css'],
+    selector: 'cs-cyberdeck-list',
+    templateUrl: './cyberdeck-list.component.html',
+    styleUrls: ['./cyberdeck-list.component.css'],
+    standalone: false
 })
 export class CyberdeckListComponent implements OnInit {
   deckList$: Observable<Array<Cp2020Cyberdeck>>;

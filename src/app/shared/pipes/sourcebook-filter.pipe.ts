@@ -2,7 +2,8 @@ import { SourceBookLookup } from './../models/source-book-lookup';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'sourcebookFilter',
+    name: 'sourcebookFilter',
+    standalone: false
 })
 export class SourcebookFilterPipe implements PipeTransform {
   transform(value: any[], term: string): any[] {

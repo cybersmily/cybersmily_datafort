@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'contains',
+    name: 'contains',
+    standalone: false
 })
 export class ContainsPipe implements PipeTransform {
   transform(array: any[], property: string, value: any): any {

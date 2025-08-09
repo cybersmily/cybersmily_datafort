@@ -5,9 +5,10 @@ import {faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { MaxMetalOption } from '../../shared/cp2020/cp2020-vehicles/models';
 
 @Component({
-  selector: 'cs-mmaccessories',
-  templateUrl: './mmaccessories.component.html',
-  styleUrls: ['./mmaccessories.component.css']
+    selector: 'cs-mmaccessories',
+    templateUrl: './mmaccessories.component.html',
+    styleUrls: ['./mmaccessories.component.css'],
+    standalone: false
 })
 export class MmaccessoriesComponent implements OnInit {
   faChevronDown = faChevronDown;

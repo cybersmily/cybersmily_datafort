@@ -14,9 +14,10 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { CpRedCharacterSkill } from '../../models';
 
 @Component({
-  selector: 'cs-cp-red-skills',
-  templateUrl: './cp-red-skills.component.html',
-  styleUrls: ['./cp-red-skills.component.css'],
+    selector: 'cs-cp-red-skills',
+    templateUrl: './cp-red-skills.component.html',
+    styleUrls: ['./cp-red-skills.component.css'],
+    standalone: false
 })
 export class CpRedSkillsComponent implements OnInit {
   faSearch = faSearch;

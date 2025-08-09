@@ -9,9 +9,10 @@ import {
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-wpn-list',
-  templateUrl: './wpn-list.component.html',
-  styleUrls: ['./wpn-list.component.css'],
+    selector: 'cs-wpn-list',
+    templateUrl: './wpn-list.component.html',
+    styleUrls: ['./wpn-list.component.css'],
+    standalone: false
 })
 export class WpnListComponent implements OnInit {
   wpnList$: Observable<Array<DataWeapon>>;

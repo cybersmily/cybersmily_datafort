@@ -7,9 +7,10 @@ import { NightMarketListing, NightMarketCategory } from '../../shared/cpred/c-p-
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-night-market-form',
-  templateUrl: './night-market-form.component.html',
-  styleUrls: ['./night-market-form.component.css']
+    selector: 'cs-night-market-form',
+    templateUrl: './night-market-form.component.html',
+    styleUrls: ['./night-market-form.component.css'],
+    standalone: false
 })
 export class NightMarketFormComponent implements OnInit {
   faDice = faDice;

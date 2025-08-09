@@ -5,9 +5,10 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { NrMapDataService } from '../services';
 
 @Component({
-  selector: 'cs-nrnavigator',
-  templateUrl: './nrnavigator.component.html',
-  styleUrls: ['./nrnavigator.component.css']
+    selector: 'cs-nrnavigator',
+    templateUrl: './nrnavigator.component.html',
+    styleUrls: ['./nrnavigator.component.css'],
+    standalone: false
 })
 export class NrnavigatorComponent implements OnInit {
 
