@@ -25,7 +25,7 @@ describe('AppComponent', () => {
     }).compileComponents();
   }));
   beforeEach(() => {
-    router = TestBed.get(Router);
+    router = TestBed.inject(Router);
     app = new AppComponent(router);
   });
 

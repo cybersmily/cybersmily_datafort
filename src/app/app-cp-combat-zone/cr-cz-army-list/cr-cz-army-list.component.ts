@@ -4,7 +4,6 @@ import { Observable, take } from 'rxjs';
 import { CrCzSquad, iCrCzSquad } from '../models/cr-cz-squad';
 import { faPlus, faStar, faTrash, faSave, faUpload, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FileLoaderService, SaveFileService } from './../../shared/services/file-services';
-import { error } from 'protractor';
 
 
 @Component({

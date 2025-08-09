@@ -14,7 +14,7 @@ describe('CombatTrackerService', () => {
 });
 
   it('should be created', () => {
-    const service: CombatTrackerService = TestBed.get(CombatTrackerService);
+    const service: CombatTrackerService = TestBed.inject(CombatTrackerService);
     expect(service).toBeTruthy();
   });
 });

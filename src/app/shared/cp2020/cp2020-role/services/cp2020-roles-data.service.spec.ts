@@ -11,7 +11,7 @@ describe('Cp2020RolesDataService', () => {
 }));
 
   it('should be created', () => {
-    const service: Cp2020RolesDataService = TestBed.get(Cp2020RolesDataService);
+    const service: Cp2020RolesDataService = TestBed.inject(Cp2020RolesDataService);
     expect(service).toBeTruthy();
   });
 });

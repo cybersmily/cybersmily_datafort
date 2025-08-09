@@ -11,7 +11,7 @@ describe('MaxMetalDataService', () => {
 }));
 
   it('should be created', () => {
-    const service: MaxMetalDataService = TestBed.get(MaxMetalDataService);
+    const service: MaxMetalDataService = TestBed.inject(MaxMetalDataService);
     expect(service).toBeTruthy();
   });
 

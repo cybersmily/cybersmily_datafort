@@ -17,7 +17,7 @@ describe('LifePathGeneratorService', () => {
 }));
 
   it('should be created', () => {
-    const service: LifePathGeneratorService = TestBed.get(LifePathGeneratorService);
+    const service: LifePathGeneratorService = TestBed.inject(LifePathGeneratorService);
     expect(service).toBeTruthy();
   });
 

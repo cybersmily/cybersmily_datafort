@@ -16,7 +16,7 @@ describe('StyleGeneratorService', () => {
 }));
 
   it('should be created', () => {
-    const service: StyleGeneratorService = TestBed.get(StyleGeneratorService);
+    const service: StyleGeneratorService = TestBed.inject(StyleGeneratorService);
     expect(service).toBeTruthy();
   });
 

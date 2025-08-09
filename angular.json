@@ -165,10 +165,30 @@
     "@schematics/angular:component": {
       "prefix": "cs",
       "style": "css",
-      "standalone": false
+      "standalone": false,
+      "type": "component"
     },
     "@schematics/angular:directive": {
-      "prefix": "cs"
+      "prefix": "cs",
+      "type": "directive"
+    },
+    "@schematics/angular:service": {
+      "type": "service"
+    },
+    "@schematics/angular:guard": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:interceptor": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:module": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:pipe": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:resolver": {
+      "typeSeparator": "."
     }
   }
 }

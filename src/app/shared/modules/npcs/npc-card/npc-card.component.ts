@@ -1,6 +1,6 @@
 import { NpcProfileModalComponent } from './../npcProfileModal/npcprofilemodal.component';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 import { Component, OnInit, Input } from '@angular/core';
 import { NpcCard } from '../../../models/character';
 

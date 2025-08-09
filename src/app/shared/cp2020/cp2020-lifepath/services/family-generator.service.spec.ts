@@ -12,7 +12,7 @@ describe('FamilyGeneratorService', () => {
 }));
 
   it('should be created', () => {
-    const service: FamilyGeneratorService = TestBed.get(FamilyGeneratorService);
+    const service: FamilyGeneratorService = TestBed.inject(FamilyGeneratorService);
     expect(service).toBeTruthy();
   });
 

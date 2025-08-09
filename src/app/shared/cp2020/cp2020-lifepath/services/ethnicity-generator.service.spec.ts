@@ -13,7 +13,7 @@ describe('EthnicityGeneratorService', () => {
 }));
 
   it('should be created', () => {
-    const service: EthnicityGeneratorService = TestBed.get(EthnicityGeneratorService);
+    const service: EthnicityGeneratorService = TestBed.inject(EthnicityGeneratorService);
     expect(service).toBeTruthy();
   });
 

@@ -15,7 +15,7 @@ describe('LifeEventsGeneratorService', () => {
 
 
   it('should be created', () => {
-    const service: LifeEventsGeneratorService = TestBed.get(LifeEventsGeneratorService);
+    const service: LifeEventsGeneratorService = TestBed.inject(LifeEventsGeneratorService);
     expect(service).toBeTruthy();
   });
 

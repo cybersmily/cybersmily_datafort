@@ -11,7 +11,7 @@ describe('SourcesDataService', () => {
 }));
 
   it('should be created', () => {
-    const service: SourcesDataService = TestBed.get(SourcesDataService);
+    const service: SourcesDataService = TestBed.inject(SourcesDataService);
     expect(service).toBeTruthy();
   });
 });

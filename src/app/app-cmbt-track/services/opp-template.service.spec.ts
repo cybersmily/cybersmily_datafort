@@ -14,7 +14,7 @@ describe('OppTemplateService', () => {
 }));
 
   it('should be created', () => {
-    const service: OppTemplateService = TestBed.get(OppTemplateService);
+    const service: OppTemplateService = TestBed.inject(OppTemplateService);
     expect(service).toBeTruthy();
   });
 });

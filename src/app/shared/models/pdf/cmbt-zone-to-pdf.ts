@@ -3,7 +3,6 @@ import { jsPDF } from 'jspdf';
 import 'svg2pdf.js'
 import { Coord } from './../coord';
 import { CmbtZoneBlock } from '../cmbtzone/cmbt-zone-block';
-import { Canvg } from 'canvg';
 
 export class CmbtZoneToPDF {
   private _left = 5;

@@ -16,7 +16,7 @@ describe('MotivationGeneratorService', () => {
 }));
 
   it('should be created', () => {
-    const service: MotivationGeneratorService = TestBed.get(MotivationGeneratorService);
+    const service: MotivationGeneratorService = TestBed.inject(MotivationGeneratorService);
     expect(service).toBeTruthy();
   });
 

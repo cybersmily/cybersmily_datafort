@@ -9,7 +9,7 @@ describe('OpponentTrackerService', () => {
   }));
 
   it('should be created', () => {
-    const service: OpponentTrackerService = TestBed.get(OpponentTrackerService);
+    const service: OpponentTrackerService = TestBed.inject(OpponentTrackerService);
     expect(service).toBeTruthy();
   });
 });
