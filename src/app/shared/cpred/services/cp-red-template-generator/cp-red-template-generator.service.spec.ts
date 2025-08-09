@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { DataService } from '../../../services/file-services';
 import { DiceService } from '../../../services/dice/dice.service';
 import { TestBed, inject } from '@angular/core/testing';
@@ -9,9 +9,9 @@ describe('CpRedTemplateGeneratorService', () => {
   let service: CpRedTemplateGeneratorService;
 
   beforeEach(() => TestBed.configureTestingModule({
-    providers: [DiceService, DataService],
-    imports: [ HttpClientModule]
-  }));
+    imports: [],
+    providers: [DiceService, DataService, provideHttpClient(withInterceptorsFromDi())]
+}));
 
   beforeEach( inject([CpRedTemplateGeneratorService], (svc: CpRedTemplateGeneratorService) => {
     service = svc;

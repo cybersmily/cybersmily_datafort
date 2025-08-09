@@ -1,6 +1,6 @@
 import { Cp2020IuSkillConverterService } from './../../cp2020/services/cp2020-iu-skill-converter.service';
 import { DiceService } from './../dice/dice.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { DataService } from './../file-services';
 import { LifePathResults } from './../../cp2020/cp2020-lifepath/models';
 import {
@@ -16,6 +16,7 @@ import { Cp2020StatBlock } from '../../cp2020/cp2020-stats/models';
 import { Cp2020ArmorBlock } from '../../cp2020/cp2020-armor/models';
 import { Cp2020PlayerCyberList } from '../../cp2020/cp2020-cyberware/models';
 import { CpPlayerWeaponList } from '../../cp2020/cp2020weapons/models';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('Cp2020CharacterGeneratorService', () => {
 
@@ -26,15 +27,15 @@ describe('Cp2020CharacterGeneratorService', () => {
   let newCharacter = new Cp2020PlayerCharacter();
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-       imports: [
-         HttpClientTestingModule
-        ],
-       providers: [
-         DataService,
-         DiceService,
-         Cp2020IuSkillConverterService
-      ]
-    })
+    imports: [],
+    providers: [
+        DataService,
+        DiceService,
+        Cp2020IuSkillConverterService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
   }));
 

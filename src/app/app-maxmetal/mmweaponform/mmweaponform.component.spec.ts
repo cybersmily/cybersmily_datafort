@@ -1,7 +1,7 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { MaxmetalService } from './../../shared/cp2020/cp2020-vehicles/services';
 import { DataService } from './../../shared/services/file-services';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MmweaponformComponent } from './mmweaponform.component';
@@ -12,16 +12,14 @@ describe('MmmweaponformComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ MmweaponformComponent ],
-      imports: [
-        CommonUiModule,
-        HttpClientModule
-      ],
-      providers: [
+    declarations: [MmweaponformComponent],
+    imports: [CommonUiModule],
+    providers: [
         DataService,
-        MaxmetalService
-      ]
-    })
+        MaxmetalService,
+        provideHttpClient(withInterceptorsFromDi())
+    ]
+})
     .compileComponents();
   }));
 

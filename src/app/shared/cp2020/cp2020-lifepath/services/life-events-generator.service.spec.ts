@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { DataService } from './../../../services/file-services';
 import { DiceService } from './../../../services/dice/dice.service';
 import { TestBed, inject, waitForAsync } from '@angular/core/testing';
@@ -8,9 +8,9 @@ import { LifeEventsGeneratorService } from './life-events-generator.service';
 describe('LifeEventsGeneratorService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [DiceService, DataService],
-      imports: [HttpClientModule]
-    });
+    imports: [],
+    providers: [DiceService, DataService, provideHttpClient(withInterceptorsFromDi())]
+});
   });
 
 

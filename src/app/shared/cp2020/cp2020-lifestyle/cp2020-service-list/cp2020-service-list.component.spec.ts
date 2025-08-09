@@ -1,9 +1,10 @@
 import { DataService } from './../../../services/file-services';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Cp2020ServiceListComponent } from './cp2020-service-list.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('Cp2020ServiceListComponent', () => {
   let component: Cp2020ServiceListComponent;
@@ -11,15 +12,14 @@ describe('Cp2020ServiceListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Cp2020ServiceListComponent ],
-      imports: [
-        HttpClientTestingModule,
-        CommonUiModule
-      ],
-      providers: [
-        DataService
-      ]
-    })
+    declarations: [Cp2020ServiceListComponent],
+    imports: [CommonUiModule],
+    providers: [
+        DataService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
   });
 

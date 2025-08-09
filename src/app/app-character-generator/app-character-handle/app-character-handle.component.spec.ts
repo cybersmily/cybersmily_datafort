@@ -1,4 +1,4 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { DataService } from './../../shared/services/file-services';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AppCharacterHandleComponent } from './app-character-handle.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('AppCharacterHandleComponent', () => {
   let component: AppCharacterHandleComponent;
@@ -13,16 +14,15 @@ describe('AppCharacterHandleComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppCharacterHandleComponent ],
-      imports: [
-        CommonUiModule,
-      HttpClientTestingModule
-    ],
-      providers: [
+    declarations: [AppCharacterHandleComponent],
+    imports: [CommonUiModule],
+    providers: [
         DataService,
-        DiceService
-      ]
-    })
+        DiceService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
   }));
 

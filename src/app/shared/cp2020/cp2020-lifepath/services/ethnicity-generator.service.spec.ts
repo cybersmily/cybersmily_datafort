@@ -1,5 +1,5 @@
 import { DiceService } from '../../../services/dice/dice.service';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { DataService } from '../../../services/file-services';
 import { TestBed, inject, waitForAsync } from '@angular/core/testing';
 
@@ -8,9 +8,9 @@ import { ExpectedConditions } from 'protractor';
 
 describe('EthnicityGeneratorService', () => {
   beforeEach(() => TestBed.configureTestingModule({
-    providers: [DataService, DiceService],
-    imports: [HttpClientModule]
-  }));
+    imports: [],
+    providers: [DataService, DiceService, provideHttpClient(withInterceptorsFromDi())]
+}));
 
   it('should be created', () => {
     const service: EthnicityGeneratorService = TestBed.get(EthnicityGeneratorService);

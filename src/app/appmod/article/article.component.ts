@@ -55,7 +55,7 @@ export class ArticleComponent implements OnInit {
    * @memberof ArticleComponent
    */
   GetCurrentArticle(articles: any): void {
-    this.articleList = articles;
+    this.articleList = articles;    
     this.activatedRoute.url.subscribe(
       (url) => this.LoadHTMLFile(url[0].path),
       (error) =>

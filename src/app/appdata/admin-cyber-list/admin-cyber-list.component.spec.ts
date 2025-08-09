@@ -1,7 +1,7 @@
 import { CyberDataService } from './../../shared/cp2020/cp2020-cyberware/services/cyber-data.service';
 import { PipesModule } from './../../shared/pipes/pipes.module';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { DataService } from './../../shared/services/file-services';
 import { SaveFileService } from './../../shared/services/file-services';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
@@ -14,20 +14,18 @@ describe('AdminCyberListComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+    declarations: [
         AdminCyberListComponent
-      ],
-      imports: [
-        HttpClientModule,
-        CommonUiModule,
-        PipesModule
-      ],
-      providers: [
+    ],
+    imports: [CommonUiModule,
+        PipesModule],
+    providers: [
         SaveFileService,
         DataService,
-        CyberDataService
-      ]
-    })
+        CyberDataService,
+        provideHttpClient(withInterceptorsFromDi())
+    ]
+})
     .compileComponents();
   }));
 

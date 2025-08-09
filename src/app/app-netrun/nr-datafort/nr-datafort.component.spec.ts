@@ -4,9 +4,10 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NrDatafortComponent } from './nr-datafort.component';
 import { DataService } from './../../shared/services/file-services';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { NrTrackerService } from '../services';
 import { NRDataFort } from '../models';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('NrDatafortComponent', () => {
   let component: NrDatafortComponent;
@@ -17,17 +18,16 @@ describe('NrDatafortComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ NrDatafortComponent ],
-      imports: [
-        CommonUiModule,
-        HttpClientTestingModule,
-      ],
-      providers: [
+    declarations: [NrDatafortComponent],
+    imports: [CommonUiModule],
+    providers: [
         DataService,
         NrTrackerService,
-        DiceService
-      ]
-    })
+        DiceService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
   }));
 

@@ -1,9 +1,10 @@
 import { DiceService } from '../dice/dice.service';
 import { DataService } from './../file-services';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
 import { CmbtZoneBlockService } from './cmbt-zone-block.service';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('CmbtZoneBlockService', () => {
   let service: CmbtZoneBlockService;
@@ -12,14 +13,14 @@ describe('CmbtZoneBlockService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule
-      ],
-      providers: [
+    imports: [],
+    providers: [
         DataService,
-        DiceService
-      ]
-    });
+        DiceService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+});
     service = TestBed.inject(CmbtZoneBlockService);
     dice = TestBed.inject(DiceService);
     data = TestBed.inject(DataService);

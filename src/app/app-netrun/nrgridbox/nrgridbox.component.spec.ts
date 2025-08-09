@@ -1,10 +1,11 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { DataService } from './../../shared/services/file-services';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NrgridboxComponent } from './nrgridbox.component';
 import { NRMapCell } from '../models';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('NrgridboxComponent', () => {
   let component: NrgridboxComponent;
@@ -13,17 +14,16 @@ describe('NrgridboxComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+    declarations: [
         NrgridboxComponent
-      ],
-      imports: [
-        CommonUiModule,
-        HttpClientTestingModule
-      ],
-      providers: [
-        DataService
-      ]
-    })
+    ],
+    imports: [CommonUiModule],
+    providers: [
+        DataService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
   }));
 

@@ -1,6 +1,6 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { PipesModule } from './../../shared/pipes/pipes.module';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CyberDataService } from './../../shared/cp2020/cp2020-cyberware/services';
 import { DataService } from './../../shared/services/file-services';
@@ -14,17 +14,15 @@ describe('CyberListComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ CyberListComponent ],
-      imports: [
-        CommonUiModule,
-        HttpClientModule,
-        PipesModule
-      ],
-      providers: [
+    declarations: [CyberListComponent],
+    imports: [CommonUiModule,
+        PipesModule],
+    providers: [
         DataService,
-        CyberDataService
-      ]
-    })
+        CyberDataService,
+        provideHttpClient(withInterceptorsFromDi())
+    ]
+})
     .compileComponents();
   }));
 

@@ -1,7 +1,7 @@
 import { NRMap } from './../models/nr-map';
 import { of } from 'rxjs';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { HttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { DataService } from './../../shared/services/file-services';
 import { TestBed } from '@angular/core/testing';
 
@@ -16,13 +16,15 @@ describe('NrLoadMapsService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [
+    imports: [],
+    providers: [
         NrLoadMapsService,
         DataService,
-        HttpClient
-      ]
-    });
+        HttpClient,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+});
     dataService = TestBed.inject(DataService);
     service = TestBed.inject(NrLoadMapsService);
     testNRData = {

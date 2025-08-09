@@ -8,7 +8,7 @@ import { Cp2020weaponsModule } from './../../shared/cp2020/cp2020weapons/cp2020w
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { DiceService } from './../../shared/services/dice/dice.service';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { DataService } from './../../shared/services/file-services';
 import { AppCharacterImageComponent } from './../app-character-image/app-character-image.component';
 import { AppCharacterHandleComponent } from './../app-character-handle/app-character-handle.component';
@@ -23,29 +23,27 @@ describe('AppCharacterGeneratorFormComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+    declarations: [
         AppCharacterGeneratorFormComponent,
         AppCharacterHandleComponent,
         AppCharacterImageComponent,
         AppCharacterGearComponent
-      ],
-      imports: [
-        CommonUiModule,
-        HttpClientModule,
+    ],
+    imports: [CommonUiModule,
         BrowserAnimationsModule,
         Cp2020weaponsModule,
         Cp2020StatsModule,
         Cp2020WoundsModule,
         Cp2020CyberwareModule,
         Cp2020SkillsModule,
-        Cp2020ArmorModule
-      ],
-      providers: [
+        Cp2020ArmorModule],
+    providers: [
         DataService,
         DiceService,
-        SeoService
-      ]
-    })
+        SeoService,
+        provideHttpClient(withInterceptorsFromDi())
+    ]
+})
     .compileComponents();
   }));
 

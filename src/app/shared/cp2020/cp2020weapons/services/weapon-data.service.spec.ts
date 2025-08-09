@@ -1,9 +1,10 @@
 import { of } from 'rxjs';
 import { DataService, SaveFileService } from '../../../services/file-services';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { WeaponDataService } from './weapon-data.service';
 import { DataWeapon } from './../models';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('WeaponDataService', () => {
   let service: WeaponDataService;
@@ -13,14 +14,14 @@ describe('WeaponDataService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule
-      ],
-      providers: [
+    imports: [],
+    providers: [
         DataService,
-        SaveFileService
-      ]
-    });
+        SaveFileService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+});
     fileService = TestBed.inject(SaveFileService);
     dataService = TestBed.inject(DataService);
     service = new WeaponDataService(dataService, fileService);

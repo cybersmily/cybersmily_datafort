@@ -1,5 +1,5 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { DataService } from './../../shared/services/file-services';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
@@ -11,13 +11,10 @@ describe('MmoptionsformComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ MmoptionsformComponent ],
-      imports: [
-        CommonUiModule,
-        HttpClientModule
-      ],
-      providers: [DataService]
-    })
+    declarations: [MmoptionsformComponent],
+    imports: [CommonUiModule],
+    providers: [DataService, provideHttpClient(withInterceptorsFromDi())]
+})
     .compileComponents();
   }));
 

@@ -1,7 +1,7 @@
 import { DataCyberware } from './../models/data-cyberware';
 import { of } from 'rxjs';
 import { DataService } from './../../../services/file-services';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 
 import { CyberDataService } from './cyber-data.service';
@@ -12,14 +12,13 @@ describe('CyberDataService', () => {
   let cyberDataList: Array<DataCyberware>;
 
   beforeEach(() => TestBed.configureTestingModule({
-    imports: [
-      HttpClientModule
-    ],
+    imports: [],
     providers: [
-      DataService,
-      CyberDataService
+        DataService,
+        CyberDataService,
+        provideHttpClient(withInterceptorsFromDi())
     ]
-  }));
+}));
 
   beforeEach(() => {
     cyberDataList = new Array<DataCyberware>();
