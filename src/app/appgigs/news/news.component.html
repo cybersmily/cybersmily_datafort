@@ -3,29 +3,33 @@
     <div class="col">
       <button (click)="isOpen = !isOpen" class="btn btn-dark csd-rounded me-4">{{isOpen? 'Collapse': 'Expand'}}</button>
       Filter on Reporter:
-      <select [(ngModel)]="selectedReporter">
+      <select [(ngModel)]="selectedReporter" title="Choose a reporter">
         <option value=""></option>
-        <option *ngFor="let rptr of reporters" [value]="rptr">{{rptr}}</option>
+        @for(rptr of reporters; track $index) {
+        <option [value]="rptr">{{rptr}}</option>
+        }
       </select>
       <input type="text"[(ngModel)]="searchText" placeholder="search for term...">
-
     </div>
-
   </div>
   <accordion #accordion>
-    <accordion-group [isOpen]="isOpen" *ngFor="let report of newsItems$ | async; let i = index">
+    @for( report of (newsItems$ | async); track $index; let i = $index) {
+    <accordion-group [isOpen]="isOpen" >
       <div accordion-heading>
         <h3 style="display:inline-block">{{report.title}}</h3>
         <fa-icon [icon]="accordion.groups[i].isOpen?faAngleDoubleDown:faAngleDoubleRight" size="2x"></fa-icon>
       </div>
-      <div class="csd-box csd-rounded mb-1" *ngFor="let comment of getFilteredReports(report.reports);let in = index" style="position:relative">
-        <div [ngClass]="{'float-start': in%2 === 0, 'float-end': in%2 === 1,'pe-4': in%2 === 0, 'ps-4': in%2 === 1, 'text-center': true}">
+      @for(comment of getFilteredReports(report.reports);track $index; let i = $index) {
+      <div class="csd-box csd-rounded mb-1 position-relative align-top">
+        <div [ngClass]="{'float-start': (i%2 === 0), 'float-end': (i%2 === 1),'pe-4': i%2 === 0, 'ps-4': i%2 === 1,'d-inline-block align-top text-center': true}">
           <img src="/img/peeps/th/th_{{comment.img}}.png" alt="{{comment.reporter}}" class="rounded-circle" />
           <h5>{{comment.reporter}}</h5>
         </div>
-        <div style="display:block;min-height:150px;" [innerHTML]="comment.commentary"></div>
+        <div class="d-inline-block w-70" style="min-height:150px;" [innerHTML]="comment.commentary"></div>
       </div>
+    }
     </accordion-group>
+  }
     <br />
     <br />
   </accordion>

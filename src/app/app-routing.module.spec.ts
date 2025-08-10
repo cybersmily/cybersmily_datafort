@@ -23,7 +23,7 @@ import { DataService } from './shared/services/file-services';
 import { HomeComponent } from './apphome/home/home.component';
 import { AppComponent } from './app.component';
 import { Router, RouterModule } from '@angular/router';
-import { AppRoutingModule, mainRoutes } from './app-routing.module';
+import { AppRoutingModule, mainRoutes } from './datafort-routes';
 import { TestBed, fakeAsync, ComponentFixture, flush, flushMicrotasks } from '@angular/core/testing';
 import { Location } from '@angular/common';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';

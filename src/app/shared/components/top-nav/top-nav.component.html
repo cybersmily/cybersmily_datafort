@@ -1,107 +1,64 @@
 <div class="bg-dark px-5 py-0 csdHeader mb-2">
   <nav class="navbar navbar-expand-lg navbar-dark ms-2 py-0">
-    <a class="navbar-brand" href="#"
-      ><span><img class="w-75" src="/img/cs50.png" alt="Cybersmily" /></span
-    ></a>
-    <button
-      class="navbar-toggler d-lg-none"
-      type="button"
-      (click)="showModal(sideNavBar)"
-    >
+    <a class="navbar-brand" href="#"><span><img class="w-75" src="/img/cs50.png" alt="Cybersmily" /></span></a>
+    <button class="navbar-toggler d-lg-none" type="button" title="ToggelNavbar" (click)="showModal(sideNavBar)">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div
-      class="collapse navbar-collapse bg-dark"
-      id="navbarCybersmily2"
-      [collapse]="isCollapsed"
-    >
+    <div class="collapse navbar-collapse bg-dark" id="navbarCybersmily2" [collapse]="isCollapsed">
       <ul class="navbar-nav me-auto bg-dark">
-        <li
-          class="nav-item dropdown mega-dropdown"
-          dropdown
-          *ngFor="let lnk of topNavLinks.menuItems"
-        >
-          <a
-            class="nav-link dropdown-toggle text-uppsercase"
-            data-toggle=""
-            aria-haspopup="true"
-            aria-expand="false"
-            dropdownToggle
-            [attr.title]="lnk.description"
-          >
+        @for(lnk of topNavLinks.menuItems; track $index) {
+        <li class="nav-item dropdown mega-dropdown" dropdown >
+          <a rel="noopener" class="nav-link dropdown-toggle text-uppsercase" data-toggle="" aria-haspopup="true"
+            aria-expand="false" dropdownToggle [attr.title]="lnk.description">
             {{ lnk.groupTitle }}
           </a>
-          <div
-            class="dropdown-menu mega-menu z-depth-1 py-2 px-3 bg-dark text-light csd-rounded"
-            *dropdownMenu
-          >
+          <div class="dropdown-menu mega-menu z-depth-1 py-2 px-3 bg-dark text-light csd-rounded" *dropdownMenu>
             <div class="d-block mt-0 pt-0 font-italic small csd-submenu-title">
               {{ lnk.description }}
             </div>
             <div class="csd-link-menu pt-0 mt-0">
-              <div *ngFor="let lk of lnk.links" class="bg-dark p-0 my-0">
-                <a
-                  *ngIf="!isExternal(lk.link)"
-                  [routerLink]="lk.link"
-                  routerLinkActive="active"
+              @for(lk of lnk.links; track lk.title) {
+              <div class="bg-dark p-0 my-0">
+                @if(!isExternal(lk.link)){
+                <a [routerLink]="lk.link" routerLinkActive="active"
                   class="dropdown-item nav-link bg-dark rounded pt-1 pb-0 my-0"
-                  [target]="lk.target ? lk.target : undefined"
-                  [attr.download]="lk.download ? lk.download : undefined"
-                  [attr.title]="lk.desc"
-                  (click)="isCollapsed = !isCollapsed"
-                  >{{ lk.title }}</a
-                >
-                <a
-                  *ngIf="isExternal(lk.link)"
-                  [href]="lk.link"
-                  class="dropdown-item nav-link bg-dark pt-1 pb-0 my-0"
-                  [target]="'_blank'"
-                  [attr.title]="lk.desc"
-                  (click)="isCollapsed = !isCollapsed"
-                  >{{ lk.title }}</a
-                >
+                  [target]="lk.target ? lk.target : undefined" [attr.download]="lk.download ? lk.download : undefined"
+                  [attr.title]="lk.desc" (click)="isCollapsed = !isCollapsed">{{ lk.title }}</a>
+                } @else if(isExternal(lk.link)) {
+                <a [href]="lk.link" class="dropdown-item nav-link bg-dark pt-1 pb-0 my-0" [target]="'_blank'"
+                  [attr.title]="lk.desc" >{{ lk.title }}</a>
+                } @else {}
               </div>
+              }
             </div>
           </div>
         </li>
+      }
       </ul>
       <ul class="nav navbar-nav ms-auto">
         <li class="pt-2">
-          <a
-            href="https://github.com/cybersmily/cybersmily_datafort"
+          <a rel="noopener" href="https://github.com/cybersmily/cybersmily_datafort"
             title="GitHub Cybersmily Datafort Project - Log issues, request features, and learn more about the code!"
-            target="_blank"
-          >
+            target="_blank">
             <fa-icon [icon]="faGithub" inverse="true"></fa-icon>
           </a>
         </li>
         <li class="pt-2 px-2">
-          <a
-            href="https://discord.gg/Jhy9Txx5hP"
-            title="Cybersmily's Datafort Discord Server"
-            target="_blank"
-          >
+          <a rel="noopener" href="https://discord.gg/Jhy9Txx5hP" title="Cybersmily's Datafort Discord Server"
+            target="_blank">
             <fa-icon [icon]="faDiscord" inverse="true"></fa-icon>
           </a>
         </li>
 
         <li class="pt-2 px-2">
-          <a
-            href="https://www.reddit.com/r/cybersmilydatafort/"
-            title="Cybersmily's Datafort subreddit channel"
-            target="_blank"
-          >
+          <a rel="noopener" href="https://www.reddit.com/r/cybersmilydatafort/"
+            title="Cybersmily's Datafort subreddit channel" target="_blank">
             <fa-icon [icon]="faReddit" inverse="true"></fa-icon>
           </a>
         </li>
         <li>
-          <fa-icon
-            [icon]="faEnvelope"
-            inverse="true"
-            (click)="sendEmail()"
-            class="btn csd-btn"
-            title="Email Cybersmily"
-          >
+          <fa-icon [icon]="faEnvelope" inverse="true" (click)="sendEmail()" class="btn csd-btn"
+            title="Email Cybersmily">
           </fa-icon>
         </li>
       </ul>
@@ -111,92 +68,54 @@
 
 <ng-template #sideNavBar>
   <div class="bg-dark w-100 h-100" id="navbarCybersmily2sidebar">
-    <button
-      class="csd-btn float-end text-light p-3 rounded"
-      (click)="closeModal()"
-    >
+    <button title="Close" class="csd-btn float-end text-light p-3 rounded" (click)="closeModal()">
       <fa-icon class="text-light" [icon]="faTimes"></fa-icon>
     </button>
     <ul class="navbar-nav me-auto bg-dark px-2">
-      <li
-        class="nav-item dropdown mega-dropdown"
-        dropdown
-        *ngFor="let lnk of topNavLinks.menuItems"
-      >
-        <a
-          class="nav-link dropdown-toggle text-uppsercase"
-          data-toggle=""
-          aria-haspopup="true"
-          aria-expand="false"
-          dropdownToggle
-          [attr.title]="lnk.description"
-        >
+      @for(lnk of topNavLinks.menuItems; track topNavLinks.title) {
+      <li class="nav-item dropdown mega-dropdown" dropdown>
+        <a rel="noopener" class="nav-link dropdown-toggle text-uppsercase" data-toggle="" aria-haspopup="true"
+          aria-expand="false" dropdownToggle [attr.title]="lnk.description">
           {{ lnk.groupTitle }}
         </a>
-        <div
-          class="dropdown-menu mega-menu z-depth-1 ms-2 py-2 px-0 bg-dark text-light h-100"
-          *dropdownMenu
-        >
+        <div class="dropdown-menu mega-menu z-depth-1 ms-2 py-2 px-0 bg-dark text-light h-100" *dropdownMenu>
           <div class="d-block mt-0 pt-0 font-italic small csd-submenu-title">
             {{ lnk.description }}
           </div>
           <div class="csd-link-menu pt-0 mt-0 h-100">
-            <div *ngFor="let lk of lnk.links" class="bg-dark p-0 my-0">
-              <a
-                *ngIf="!isExternal(lk.link)"
-                [routerLink]="lk.link"
-                routerLinkActive="active"
+            @for(lk of lnk.links; track lnk.title) {
+            <div class="bg-dark p-0 my-0">
+              @if(!isExternal(lk.link)) {
+              <a rel="noopener" [routerLink]="[lk.link]" routerLinkActive="active"
                 class="dropdown-item nav-link bg-dark rounded pt-1 pb-0 my-0"
-                [target]="lk.target ? lk.target : undefined"
-                [attr.download]="lk.download ? lk.download : undefined"
-                [attr.title]="lk.desc"
-                (click)="closeModal()"
-                ><span class="rounded p-0">{{ lk.title }}</span></a
-              >
-              <a
-                *ngIf="isExternal(lk.link)"
-                [href]="lk.link"
-                class="dropdown-item nav-link bg-dark pt-1 pb-0 my-0"
-                [target]="'_blank'"
-                [attr.title]="lk.desc"
-                (click)="closeModal()"
-                ><span class="rounded p-0">{{ lk.title }}</span></a
-              >
+                [target]="lk.target ? lk.target : undefined" [attr.download]="lk.download ? lk.download : undefined"
+                [attr.title]="lk.desc" (click)="closeModal()"><span class="rounded p-0">{{ lk.title }}</span></a>
+              } @else if(isExternal(lk.link)) {
+              <a rel="noopener" [href]="lk.link" class="dropdown-item nav-link bg-dark pt-1 pb-0 my-0"
+                [target]="'_blank'" [attr.title]="lk.desc"><span class="rounded p-0">{{ lk.title
+                  }}</span></a>
+              } @else {}
             </div>
+            }
           </div>
         </div>
       </li>
+      }
       <li class="pt-2 ps-2">
-        <fa-icon
-          [icon]="faEnvelope"
-          inverse="true"
-          (click)="sendEmail()"
-          class="btn csd-btn me-4"
-          title="Email Cybersmily"
-        >
+        <fa-icon [icon]="faEnvelope" inverse="true" (click)="sendEmail()" class="btn csd-btn me-4"
+          title="Email Cybersmily">
         </fa-icon>
-        <a
-          href="https://github.com/cybersmily/cybersmily_datafort"
+        <a rel="noopener" href="https://github.com/cybersmily/cybersmily_datafort"
           title="GitHub Cybersmily Datafort Project - Log issues, request features, and learn more about the code!"
-          target="_blank"
-          class="me-4"
-        >
+          target="_blank" class="me-4">
           <fa-icon [icon]="faGithub" inverse="true"></fa-icon>
         </a>
-        <a
-          href="https://discord.gg/Jhy9Txx5hP"
-          title="Cybersmily's Datafort Discord Server"
-          target="_blank"
-          class="me-4"
-        >
+        <a rel="noopener" href="https://discord.gg/Jhy9Txx5hP" title="Cybersmily's Datafort Discord Server"
+          target="_blank" class="me-4">
           <fa-icon [icon]="faDiscord" inverse="true"></fa-icon>
         </a>
-        <a
-          href="https://www.reddit.com/r/cybersmilydatafort/"
-          title="Cybersmily's Datafort subreddit channel"
-          target="_blank"
-          class="me-4"
-        >
+        <a rel="noopener" href="https://www.reddit.com/r/cybersmilydatafort/"
+          title="Cybersmily's Datafort subreddit channel" target="_blank" class="me-4">
           <fa-icon [icon]="faReddit" inverse="true"></fa-icon>
         </a>
       </li>

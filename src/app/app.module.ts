@@ -2,7 +2,7 @@ import { CommonUiModule } from './shared/modules/common-ui/common-ui.module';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ApphomeModule } from './apphome/apphome.module';
 import { NpcProfileModalComponent } from './shared/modules/npcs/npcProfileModal/npcprofilemodal.component';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './datafort-routes';
 import { SharedModule, AppBootstrapModule } from './shared/modules';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -13,11 +13,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
-import { DatafortMenuBarComponent } from './shared/components/datafort-menu-bar/datafort-menu-bar.component';
 
 
-@NgModule({ declarations: [AppComponent, NpcProfileModalComponent, DatafortMenuBarComponent],
-    bootstrap: [AppComponent],
+@NgModule({ declarations: [ NpcProfileModalComponent],
     imports: [
       AppBootstrapModule,
         CommonUiModule,

@@ -86,6 +86,11 @@
                 },
                 {
                   "glob": "**/*",
+                  "input": "src/html",
+                  "output": "/html"
+                },
+                {
+                  "glob": "**/*",
                   "input": "src/img",
                   "output": "/img",
                   "ignore": ["**/*.xcf","**/*.scss","**/*.map","**/*.sprite"]
