@@ -130,9 +130,9 @@ export class Cp2020ProgramNewComponent implements OnInit, AfterViewInit {
   getOptions(options: Array<string>): Array<ProgramOption> {
     const newOptions = new Array<ProgramOption>();
     if (Array.isArray(options)) {
-      options.forEach((opt) => {
+      options.forEach((opt: any) => {
         const index = this.options.findIndex(
-          (o) => o.name.toLocaleLowerCase() === opt.toLocaleLowerCase()
+          (o) => o.name.toLowerCase() === opt?.name?.toLowerCase()
         );
         if (index > -1) {
           const option = this.options[index];
