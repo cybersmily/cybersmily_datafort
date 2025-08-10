@@ -10,8 +10,13 @@ import { SaveFileService, DataService } from './shared/services/file-services';
 import { PipesModule } from './shared/pipes/pipes.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { environment } from '../environments/environment';
-@NgModule({ declarations: [AppComponent, NpcProfileModalComponent],
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeuix/themes/aura';
+import { DatafortMenuBarComponent } from './shared/components/datafort-menu-bar/datafort-menu-bar.component';
+
+
+@NgModule({ declarations: [AppComponent, NpcProfileModalComponent, DatafortMenuBarComponent],
     bootstrap: [AppComponent],
     imports: [
       AppBootstrapModule,
@@ -24,5 +29,13 @@ import { environment } from '../environments/environment';
         BrowserAnimationsModule
       ],
         providers: [DataService,
-          SaveFileService, provideHttpClient(withInterceptorsFromDi())] })
+          SaveFileService, provideHttpClient(withInterceptorsFromDi()),
+          provideAnimationsAsync(),
+          providePrimeNG({
+            theme: {
+              preset: Aura
+            }
+          })
+
+        ] })
 export class AppModule {}
