@@ -1,7 +1,7 @@
 import { FixerBigLeagueGenerationService } from './../../services/fixer-big-league-generation/fixer-big-league-generation.service';
 import { DiceService } from './../../../../services/dice/dice.service';
 import { faDice, faRedo } from '@fortawesome/free-solid-svg-icons';
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, input, output } from '@angular/core';
 import { BigLeagueContact } from '../../models';
 
 @Component({
@@ -14,21 +14,15 @@ export class Cp2020BigLeagueContactsComponent implements OnInit {
   faDice = faDice;
   faRedo = faRedo;
 
-  @Input()
-  bigLeagueContacts: Array<BigLeagueContact> = new Array<BigLeagueContact>();
+  bigLeagueContacts = input<Array<BigLeagueContact>>(new Array<BigLeagueContact>());
+  skillLevel = input<number>(0);
 
-  @Input()
-  skillLevel: number = 0;
-
-  @Output()
-  updateContacts: EventEmitter<Array<BigLeagueContact>> = new EventEmitter<
-    Array<BigLeagueContact>
-  >();
+  updateContacts = output<Array<BigLeagueContact>>();
 
   currContacts: Array<BigLeagueContact> = new Array<BigLeagueContact>();
 
   get totalPoints(): number {
-    return this.skillLevel * this.skillLevel * 4; // streetdeal*2 squared
+    return this.skillLevel() * this.skillLevel() * 4; // streetdeal*2 squared
   }
 
   get spentPoints(): number {
@@ -40,7 +34,7 @@ export class Cp2020BigLeagueContactsComponent implements OnInit {
   }
 
   get canGenerateContacts(): boolean {
-    return this.skillLevel > 0;
+    return this.skillLevel() > 0;
   }
 
   constructor(
@@ -49,7 +43,7 @@ export class Cp2020BigLeagueContactsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.currContacts = this.bigLeagueContacts.map(
+    this.currContacts = this.bigLeagueContacts().map(
       (con) => new BigLeagueContact(con)
     );
   }

@@ -16,15 +16,14 @@ import { FixerCharts } from '../../shared/cp2020/cp2020-contacts/models';
     standalone: false
 })
 export class FixerCalcMainComponent implements OnInit {
+
   private _streetdealKey: string = 'csd_fixer_streetdeal_key';
   fixerCharts: FixerCharts;
   contactData$: Observable<{
     areaList: Array<string>;
     contactList: Array<string>;
-  }> = new Observable<{
-    areaList: Array<string>;
-    contactList: Array<string>;
-  }>();
+  }>;
+
   areaList: Array<string> = new Array<string>();
   contactList: Array<string> = new Array<string>();
   streetdeal: number = 0;
@@ -44,7 +43,7 @@ export class FixerCalcMainComponent implements OnInit {
     this.streetdeal =
       this.localStorageService.retrive<number>(this._streetdealKey) ?? 0;
 
-    this.contactData$ = this.dataService
+      this.contactData$ = this.dataService
       .GetJson(JsonDataFiles.CP2020_FIXER_CONTACTS_JSON)
       .pipe(
         take(1),

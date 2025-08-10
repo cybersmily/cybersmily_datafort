@@ -9,7 +9,7 @@
       >
         <fa-icon [icon]="faRedo"></fa-icon>
       </button>
-      Contact Points Used: {{ spentPoints }}/{{ totalPoints }}
+      Contact Points Used: {{ spentPoints }}/{{totalPoints}}
       <button
         class="csd-btn csd-icon-btn csd-icon-lg ms-2"
         title="Generate list of contacts"
@@ -30,7 +30,8 @@
       <div class="col-2 col-md-1 small ps-0">Cost</div>
     </div>
   </div>
-  <div *ngFor="let contact of currContacts; let i = index" class="row g-0">
+  @for (contact of currContacts; track $index; let i = $index) {
+  <div class="row g-0">
     <div class="col-12">
       <cs-cp2020-big-league-contact
         [contact]="contact"
@@ -40,13 +41,15 @@
       ></cs-cp2020-big-league-contact>
     </div>
   </div>
+}
+@if(availablePoints > 1){
   <div class="row g-0">
     <div class="col-12">
       <cs-cp2020-big-league-contact-new
-        *ngIf="availablePoints > 1"
         (save)="addContact($event)"
         [maxPoints]="availablePoints"
       ></cs-cp2020-big-league-contact-new>
     </div>
   </div>
+}
 </div>
