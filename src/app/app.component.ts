@@ -19,11 +19,4 @@ import { FormsModule } from '@angular/forms';
 })
 export class AppComponent {
   title = `Cybersmily's Datafort`;
-  constructor(private router: Router) {
-    this.router.events.subscribe(event => {
-     if (event instanceof NavigationEnd) {
-     }
-   });
-
-  }
 }

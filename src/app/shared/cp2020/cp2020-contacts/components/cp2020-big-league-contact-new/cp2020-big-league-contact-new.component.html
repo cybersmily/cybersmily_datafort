@@ -1,136 +1,96 @@
 <div class="border border-dark py-2 px-3">
-  <div *ngIf="!isAdding; else addBigLeagueContact">
-    <div
-      class="row csd-btn"
-      title="Add new Big League Contact"
-      tab-index="0"
-      (click)="isAdding = !isAdding"
-    >
-      <div class="col-12 text-center">
-        <fa-icon class="csd-icon-btn csd-icon-xl" [icon]="faPlus"></fa-icon>
-      </div>
+  @if(!isAdding) {
+  <div class="row csd-btn" title="Add new Big League Contact" tab-index="0" (click)="isAdding = !isAdding">
+    <div class="col-12 text-center">
+      <fa-icon class="csd-icon-btn csd-icon-xl" [icon]="faPlus"></fa-icon>
     </div>
   </div>
-  <ng-template #addBigLeagueContact>
-    <div class="row hidden-print small">
-      <div class="col-9 col-md-2">
-        <input
-          [(ngModel)]="contact.name"
-          placeholder="* Name..."
-          class="w-100 csd-required"
-        />
-      </div>
-      <div
-        [ngClass]="{
+  } @else {
+  <div class="row hidden-print small">
+    <div class="col-9 col-md-2">
+      <input [(ngModel)]="contact.name" placeholder="* Name..." class="w-100 csd-required" />
+    </div>
+    <div [ngClass]="{
           'col-1 small pe-3 order-md-last': true,
-          'csd-highlight': contact.cost > maxPoints
-        }"
-      >
-        {{ contact.cost }}pts
-      </div>
-      <div class="col-2 col-md-1 order-md-last text-end pt-0">
-        <button
-          (click)="addContact()"
-          title="Add contact"
-          class="csd-btn csd-icon-btn csd-icon-xl mt-0 me-3"
-          [disabled]="isDisabled"
-        >
-          <fa-icon [icon]="faSave"></fa-icon>
-        </button>
-        <button
-          (click)="isAdding = false"
-          title="Cancel"
-          class="csd-btn csd-icon-btn csd-icon-xl mt-0"
-        >
-          <fa-icon [icon]="faTimes"></fa-icon>
-        </button>
-      </div>
-      <div class="col-6 col-md-2 small ps-md-0 pt-1">
-        <span class="d-md-none me-1">Capability:</span>
-        <select
-          class="csd-required"
-          [(ngModel)]="capability"
-          title="Choose a capability for the contact"
-        >
-          <option *ngIf="!capability" [ngValue]="null">* capability...</option>
-          <option
-            *ngFor="let c of catagories.capabilities"
-            [ngValue]="c.name"
-            title="Skill check {{ c.effect }}"
-          >
-            {{ c.name }}({{ c.cost }}pts)
-          </option>
-        </select>
-      </div>
-      <div class="col-6 col-md-2 small ps-md-0 pt-1">
-        <span class="d-md-none me-1">Rep:</span>
-        <select
-          class="csd-required"
-          [(ngModel)]="reputation"
-          title="Choose a reputation for the contact"
-        >
-          <option *ngIf="!reputation" [ngValue]="null">* reputation...</option>
-          <option
-            *ngFor="let c of catagories.reputations"
-            [ngValue]="c.name"
-            title="{{ c.effect }}"
-          >
-            {{ c.name }}(x{{ c.multiplier }})
-          </option>
-        </select>
-      </div>
-      <div class="col-6 col-md-2 small ps-md-0 pt-1">
-        <span class="d-md-none">Avail.: </span>
-        <select
-          class="csd-required"
-          [(ngModel)]="availability"
-          title="Choose a availability for the contact"
-        >
-          <option *ngIf="!availability" [ngValue]="null">
-            * availability...
-          </option>
-          <option
-            *ngFor="let c of catagories.availabilities"
-            [ngValue]="c.name"
-            title="Availability test {{ c.effect }}"
-          >
-            {{ c.name }}(x{{ c.multiplier }})
-          </option>
-        </select>
-      </div>
-      <div class="col-6 col-md-2 small ps-md-0 pt-1">
-        <span class="d-md-none">Rel.: </span>
-        <select
-          class="csd-required"
-          [(ngModel)]="reliability"
-          title="Choose a reliability for the contact"
-        >
-          <option *ngIf="!reliability" [ngValue]="null">
-            * reliability...
-          </option>
-          <option
-            *ngFor="let c of catagories.reliabilities"
-            [ngValue]="c.name"
-            title="{{ c.effect }}"
-          >
-            {{ c.name }}(x{{ c.multiplier }})
-          </option>
-        </select>
-      </div>
+          'csd-highlight': contact.cost > maximumPoints
+        }">
+      {{ contact.cost }}pts
     </div>
-    <div class="row small" *ngIf="contact.cost > maxPoints">
-      <div class="col-10 offset-1">
-        <span class="csd-highlight">Exceeded available points.</span>
-      </div>
+    <div class="col-2 col-md-1 order-md-last text-end pt-0">
+      <button (click)="addContact()" title="Add contact" class="csd-btn csd-icon-btn csd-icon-xl mt-0 me-3"
+        [disabled]="isDisabled">
+        <fa-icon [icon]="faSave"></fa-icon>
+      </button>
+      <button (click)="isAdding = false" title="Cancel" class="csd-btn csd-icon-btn csd-icon-xl mt-0">
+        <fa-icon [icon]="faTimes"></fa-icon>
+      </button>
     </div>
-    <div class="row mt-2">
-      <div class="col-11 big-league-details">
-        <textarea
-          class="w-100"
-          [(ngModel)]="contact.details"
-          placeholder="Enter details about contact..."
-        ></textarea>
-      </div>
+    <div class="col-6 col-md-2 small ps-md-0 pt-1">
+      <span class="d-md-none me-1">Capability:</span>
+      <select class="csd-required" [(ngModel)]="contact.capability" title="Choose a capability for the contact">
+        @if(!contact.capability){
+          <option [ngValue]="null">* capability...</option>
+        }
+        @for(cap of catagories.capabilities;track $index) {
+        <ng-container [ngTemplateOutlet]="contactOption"
+          [ngTemplateOutletContext]="{category: cap, title: `Skill check ${cap.effect}` }"></ng-container>
+        }
+      </select>
     </div>
-  </ng-template>
+    <div class="col-6 col-md-2 small ps-md-0 pt-1">
+      <span class="d-md-none me-1">Rep:</span>
+      <select class="csd-required" [(ngModel)]="contact.reputation" title="Choose a reputation for the contact">
+        @if(!contact.reputation){
+        <option [ngValue]="null">* reputation...</option>
+        }
+        @for(rep of catagories.reputations;track $index) {
+        <ng-container [ngTemplateOutlet]="contactOption"
+          [ngTemplateOutletContext]="{category: rep, title: rep.effect}"></ng-container>
+        }
+      </select>
+    </div>
+    <div class="col-6 col-md-2 small ps-md-0 pt-1">
+      <span class="d-md-none">Avail.: </span>
+      <select class="csd-required" [(ngModel)]="contact.availability" title="Choose a availability for the contact">
+        @if(!contact.availability){
+        <option [ngValue]="null">* availability...</option>
+        }
+        @for(avail of catagories.availabilities;track $index) {
+        <ng-container [ngTemplateOutlet]="contactOption"
+          [ngTemplateOutletContext]="{category: avail, title: `Availability test ${avail.effect}` }"></ng-container>
+        }
+      </select>
+    </div>
+    <div class="col-6 col-md-2 small ps-md-0 pt-1">
+      <span class="d-md-none">Rel.: </span>
+      <select class="csd-required" [(ngModel)]="contact.reliability" title="Choose a reliability for the contact">
+        @if(!contact.reliability) {
+        <option *ngIf="" [ngValue]="null">* reliability...</option>
+        }
+        @for(rel of catagories.reliabilities;track $index) {
+        <ng-container [ngTemplateOutlet]="contactOption"
+          [ngTemplateOutletContext]="{category: rel, title: rel.effect }"></ng-container>
+        }
+      </select>
+    </div>
+  </div>
+  @if(contact.cost > maximumPoints) {
+  <div class="row small">
+    <div class="col-10 offset-1">
+      <span class="csd-highlight">Exceeded available points.</span>
+    </div>
+  </div>
+  }
+  <div class="row mt-2">
+    <div class="col-11 big-league-details">
+      <textarea class="w-100" [(ngModel)]="contact.details" placeholder="Enter details about contact..."></textarea>
+    </div>
+  </div>
+  }
 </div>
+
+<ng-template #contactOption let-category="category" let-title="title">
+  <option [ngValue]="category.name" title="{{ title }}">
+    {{ category.name }}(x{{ category.multiplier }})
+  </option>
+</ng-template>

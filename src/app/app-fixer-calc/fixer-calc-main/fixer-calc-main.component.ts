@@ -10,13 +10,12 @@ import { Component, OnInit } from '@angular/core';
 import { FixerCharts } from '../../shared/cp2020/cp2020-contacts/models';
 
 @Component({
-    selector: 'cs-fixer-calc-main',
-    templateUrl: './fixer-calc-main.component.html',
-    styleUrls: ['./fixer-calc-main.component.css'],
-    standalone: false
+  selector: 'cs-fixer-calc-main',
+  templateUrl: './fixer-calc-main.component.html',
+  styleUrls: ['./fixer-calc-main.component.css'],
+  standalone: false,
 })
 export class FixerCalcMainComponent implements OnInit {
-
   private _streetdealKey: string = 'csd_fixer_streetdeal_key';
   fixerCharts: FixerCharts;
   contactData$: Observable<{
@@ -43,7 +42,7 @@ export class FixerCalcMainComponent implements OnInit {
     this.streetdeal =
       this.localStorageService.retrive<number>(this._streetdealKey) ?? 0;
 
-      this.contactData$ = this.dataService
+    this.contactData$ = this.dataService
       .GetJson(JsonDataFiles.CP2020_FIXER_CONTACTS_JSON)
       .pipe(
         take(1),

@@ -2,11 +2,13 @@ import {
   ApplicationConfig,
   provideZoneChangeDetection,
   importProvidersFrom,
+  provideBrowserGlobalErrorListeners,
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
 import { cybersmilyPrimeNGPreset } from './shared/models/csPrimeNGPresets';
+import { SaveFileService } from './shared/services/file-services';
 import {
   provideHttpClient,
 } from '@angular/common/http';
@@ -17,13 +19,14 @@ import { mainRoutes } from './datafort-routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideBrowserGlobalErrorListeners(),
+    provideZoneChangeDetection({ eventCoalescing: true }),
     importProvidersFrom(
       FontAwesomeModule,
     ),
-    provideZoneChangeDetection({ eventCoalescing: true }),
+    SaveFileService,
     provideRouter(mainRoutes),
     provideHttpClient(),
-    provideAnimations(),
     provideAnimationsAsync(),
     providePrimeNG({
       theme: {

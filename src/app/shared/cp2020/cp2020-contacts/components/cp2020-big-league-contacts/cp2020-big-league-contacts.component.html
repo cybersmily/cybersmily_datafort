@@ -9,12 +9,12 @@
       >
         <fa-icon [icon]="faRedo"></fa-icon>
       </button>
-      Contact Points Used: {{ spentPoints }}/{{totalPoints}}
+      Contact Points Used: {{ spentPoints }}/{{ totalPoints  }}
       <button
         class="csd-btn csd-icon-btn csd-icon-lg ms-2"
         title="Generate list of contacts"
         (click)="generateContacts()"
-        [disabled]="!canGenerateContacts"
+        [disabled]="currSkillLevel <= 0"
       >
         <fa-icon [icon]="faDice"></fa-icon>
       </button>

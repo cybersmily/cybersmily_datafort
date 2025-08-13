@@ -5,7 +5,7 @@ import {
   faSave,
   faTimes,
 } from '@fortawesome/free-solid-svg-icons';
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, input, OnInit, output } from '@angular/core';
 
 @Component({
     selector: 'cs-cp2020-hot-stuff-contact-new',
@@ -13,7 +13,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
     styleUrls: ['./cp2020-hot-stuff-contact-new.component.css'],
     standalone: false
 })
-export class Cp2020HotStuffContactNewComponent implements OnInit {
+export class Cp2020HotStuffContactNewComponent {
   faPlus = faPlus;
   faDice = faDice;
   faSave = faSave;
@@ -23,28 +23,25 @@ export class Cp2020HotStuffContactNewComponent implements OnInit {
   isUnderPoints = false;
   canAdd = true;
 
-  @Input()
-  maxPoints: number;
-
-  @Output()
-  add: EventEmitter<HotStuffArea> = new EventEmitter<HotStuffArea>();
+  maxPoints = input<number>(0);
+  add = output<HotStuffArea>();
 
   newArea: HotStuffArea = new HotStuffArea();
 
   get maxRolls(): number {
-    if (this.maxPoints >= 4 && this.maxPoints < 8) {
+    if (this.maxPoints() >= 4 && this.maxPoints() < 8) {
       return 1;
     }
-    if (this.maxPoints >= 8 && this.maxPoints < 16) {
+    if (this.maxPoints() >= 8 && this.maxPoints() < 16) {
       return 2;
     }
-    if (this.maxPoints >= 16 && this.maxPoints < 32) {
+    if (this.maxPoints() >= 16 && this.maxPoints() < 32) {
       return 3;
     }
-    if (this.maxPoints >= 32 && this.maxPoints < 64) {
+    if (this.maxPoints() >= 32 && this.maxPoints() < 64) {
       return 4;
     }
-    if (this.maxPoints >= 64 && this.maxPoints < 101) {
+    if (this.maxPoints() >= 64 && this.maxPoints() < 101) {
       return 5;
     }
     return 0;
@@ -52,10 +49,10 @@ export class Cp2020HotStuffContactNewComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
-
   addArea(): void {
-    this.add.emit(new HotStuffArea(this.newArea));
+    const newItem = new HotStuffArea(this.newArea);
     this.newArea = new HotStuffArea();
+    this.add.emit(newItem);
+    console.log(this.newArea);
   }
 }

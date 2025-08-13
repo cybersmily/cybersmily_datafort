@@ -1,11 +1,10 @@
 import { BigLeagueCategories, BigLeagueContact } from './../../models';
 import {
   faPlus,
-  fas,
   faSave,
   faTimes,
 } from '@fortawesome/free-solid-svg-icons';
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, input, output } from '@angular/core';
 
 @Component({
     selector: 'cs-cp2020-big-league-contact-new',
@@ -14,89 +13,35 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
     standalone: false
 })
 export class Cp2020BigLeagueContactNewComponent implements OnInit {
+  maxPoints = input<number>(0);
+  save = output<BigLeagueContact>();
+
   faPlus = faPlus;
   faSave = faSave;
   faTimes = faTimes;
 
   catagories = new BigLeagueCategories();
   isAdding = false;
-
   contact: BigLeagueContact = new BigLeagueContact();
+  maximumPoints: number = 0;
+  isDisabled: boolean = false;
 
-  @Input()
-  maxPoints: number;
-
-  @Output()
-  save = new EventEmitter<BigLeagueContact>();
-
-  get isDisabled(): boolean {
-    return (
-      !this.contact.name ||
-      !this.reliability ||
-      !this.capability ||
-      !this.availability ||
-      !this.reputation ||
-      this.contact.cost > this.maxPoints
-    );
-  }
   constructor() {}
 
-  ngOnInit(): void {}
-
-  get capability(): string {
-    return this.contact && this.contact.capability
-      ? this.contact.capability.name
-      : '';
+  ngOnInit(): void {
+    this.isDisabled = this.setDisabled();
+    this.maximumPoints = this.maxPoints();
   }
 
-  set capability(value: string) {
-    if (value !== '') {
-      this.contact.capability = this.catagories.capabilities.find(
-        (c) => c.name === value
-      );
-    }
-  }
-
-  get reputation(): string {
-    return this.contact && this.contact.reputation
-      ? this.contact.reputation.name
-      : '';
-  }
-
-  set reputation(value: string) {
-    if (value !== '') {
-      this.contact.reputation = this.catagories.reputations.find(
-        (c) => c.name === value
-      );
-    }
-  }
-
-  get availability(): string {
-    return this.contact && this.contact.availability
-      ? this.contact.availability.name
-      : '';
-  }
-
-  set availability(value: string) {
-    if (value !== '') {
-      this.contact.availability = this.catagories.availabilities.find(
-        (c) => c.name === value
-      );
-    }
-  }
-
-  get reliability(): string {
-    return this.contact && this.contact.reliability
-      ? this.contact.reliability.name
-      : '';
-  }
-
-  set reliability(value: string) {
-    if (value !== '') {
-      this.contact.reliability = this.catagories.reliabilities.find(
-        (c) => c.name === value
-      );
-    }
+  setDisabled(): boolean {
+    return (
+      !this.contact.name ||
+      !this.contact.reliability ||
+      !this.contact.capability ||
+      !this.contact.availability ||
+      !this.contact.reputation ||
+      this.contact.cost > this.maxPoints()
+    );
   }
 
   addContact() {

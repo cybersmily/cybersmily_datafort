@@ -6,7 +6,7 @@ import {
   faChevronDown,
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, output, input } from '@angular/core';
 
 @Component({
     selector: 'cs-cp2020-big-league-contact',
@@ -15,6 +15,12 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
     standalone: false
 })
 export class Cp2020BigLeagueContactComponent implements OnInit {
+  contact = input(new BigLeagueContact());
+  index =  input(-1);
+
+  delete = output<number>();
+  edit =  output<{ index: number; contact: BigLeagueContact }>();
+
   faPen = faPen;
   faTrash = faTrash;
   faSave = faSave;
@@ -25,80 +31,12 @@ export class Cp2020BigLeagueContactComponent implements OnInit {
   isCollapse = true;
   catagories = new BigLeagueCategories();
 
-  @Input()
-  contact: BigLeagueContact = new BigLeagueContact();
-
-  @Input()
-  index = -1;
-
-  @Output()
-  delete = new EventEmitter<number>();
-
-  @Output()
-  edit = new EventEmitter<{ index: number; contact: BigLeagueContact }>();
-
   constructor() {}
 
   ngOnInit() {}
 
-  get capability(): string {
-    return this.contact && this.contact.capability
-      ? this.contact.capability.name
-      : '';
-  }
-
-  set capability(value: string) {
-    if (value !== '') {
-      this.contact.capability = this.catagories.capabilities.find(
-        (c) => c.name === value
-      );
-    }
-  }
-
-  get reputation(): string {
-    return this.contact && this.contact.reputation
-      ? this.contact.reputation.name
-      : '';
-  }
-
-  set reputation(value: string) {
-    if (value !== '') {
-      this.contact.reputation = this.catagories.reputations.find(
-        (c) => c.name === value
-      );
-    }
-  }
-
-  get availability(): string {
-    return this.contact && this.contact.availability
-      ? this.contact.availability.name
-      : '';
-  }
-
-  set availability(value: string) {
-    if (value !== '') {
-      this.contact.availability = this.catagories.availabilities.find(
-        (c) => c.name === value
-      );
-    }
-  }
-
-  get reliability(): string {
-    return this.contact && this.contact.reliability
-      ? this.contact.reliability.name
-      : '';
-  }
-
-  set reliability(value: string) {
-    if (value !== '') {
-      this.contact.reliability = this.catagories.reliabilities.find(
-        (c) => c.name === value
-      );
-    }
-  }
-
   deleteContact() {
-    this.delete.emit(this.index);
+    this.delete.emit(this.index());
   }
 
   editContact() {
@@ -107,6 +45,6 @@ export class Cp2020BigLeagueContactComponent implements OnInit {
 
   saveContact() {
     this.editMode = false;
-    this.edit.emit({ index: this.index, contact: this.contact });
+    this.edit.emit({ index: this.index(), contact: this.contact() });
   }
 }
