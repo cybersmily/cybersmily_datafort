@@ -200,7 +200,7 @@ export const CreateCombatZoneUnitFromObject = (param:any) :iCrCzUnitCard => {
   unit.loot = param?.loot ? [...param.loot] : [];
   unit.notes = param?.notes || '';
   unit.luck = param?.luck || 0;
-  unit.releases: param?.release || [];
+  unit.releases = param?.release || [];
 
   return  unit;
 };
