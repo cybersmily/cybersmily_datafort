@@ -1,6 +1,8 @@
-import { faStar, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faTrash, faPlus, faQuestionCircle, faBookBookmark, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { iCrCzGearItemCard } from '../models/cr-cz-gear-item-card';
+import { Observable } from 'rxjs';
+import { CrCzReleasesDataService } from '../services/cr-cz-releases-data/cr-cz-releases-data.service';
 
 @Component({
     selector: 'cs-cr-cz-gear-card',
@@ -12,6 +14,9 @@ export class CrCzGearCardComponent implements OnInit {
   faStar = faStar;
   faTrash = faTrash;
   faPlus = faPlus;
+  faQuestionCircle = faQuestionCircle;
+  faBookmark = faBookBookmark;
+  faCircleCheck = faCircleCheck;
 
   @Input()
   gear: iCrCzGearItemCard;
@@ -43,7 +48,13 @@ export class CrCzGearCardComponent implements OnInit {
   @Output()
   add: EventEmitter<iCrCzGearItemCard> = new EventEmitter<iCrCzGearItemCard>();
 
+  releases: Array<string>;
+  releaseList$: Observable<Array<string>>;
+
+  constructor(private releaseListService: CrCzReleasesDataService) {}
+
   ngOnInit(): void {
+    this.releaseList$ = this.releaseListService.GetFullReleaseNames(this.gear.release);
   }
 
   get rarityValid(): boolean {
