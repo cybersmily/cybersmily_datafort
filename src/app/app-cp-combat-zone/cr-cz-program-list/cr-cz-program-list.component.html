@@ -1,6 +1,6 @@
-<cs-cr-cz-faction-selector [selectedFaction]="filterFaction" [hiddenFactions]="['universal']" (selected)="setFaction($event)"></cs-cr-cz-faction-selector>
-<cs-cr-cz-source-selector (selectedSource)="releaseFilter($event)"></cs-cr-cz-source-selector>
 @if(dataList$ | async; as programList) {
+<cs-cr-cz-faction-selector [selectedFaction]="filterFaction" [hiddenFactions]="['universal']" (selected)="setFaction($event)"></cs-cr-cz-faction-selector>
+<cs-cr-cz-source-selector (selectedSource)="releaseFilter($event)" [filter]="programList | uniqueValues:'release'"></cs-cr-cz-source-selector>
 <div class="row">
   <div class="col-12">
     @for(program of programList |contains:'faction':[filterFaction, 'universal'] |contains:'release':filterReleases;track $index){
@@ -8,5 +8,7 @@
   }
   </div>
 </div>
+} @else {
+  <div>Could not load the program list.</div>
 }
 
