@@ -1,10 +1,12 @@
 import { CrCzArmyBuilderService } from './../services/cr-cz-army-builder/cr-cz-army-builder.service';
-import { faStar, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { Component, Input, TemplateRef } from '@angular/core';
+import { faStar, faPlus, faTrash, faBookBookmark } from '@fortawesome/free-solid-svg-icons';
+import { Component, input, TemplateRef } from '@angular/core';
 import { Observable } from 'rxjs';
 import { iCrCzObjectiveCard } from '../models/cr-cz-objective-card';
 import { CrCzObjectiveDataService } from '../services/cr-cz-objective-data/cr-cz-objective-data.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { CrCzReleasesDataService } from '../services/cr-cz-releases-data/cr-cz-releases-data.service';
+import { KeyValue } from '@angular/common';
 
 @Component({
     selector: 'cs-cr-cz-objective-list',
@@ -16,39 +18,40 @@ export class CrCzObjectiveListComponent {
   faStar = faStar;
   faPlus = faPlus;
   faTrash = faTrash;
+  faBookBookmark = faBookBookmark;
 
   dataList$: Observable<Array<iCrCzObjectiveCard>>;
+  releaseList$: Observable<Array<KeyValue<string,string>>>;
   selectedObjective: iCrCzObjectiveCard;
   modalRef: BsModalRef;
+  currSelectedFaction: string;
 
-  @Input()
-  filterFaction: string = '';
-
-  @Input()
-  squadIndex: number = -1;
-
-  @Input()
-  ownedObjectives: Array<iCrCzObjectiveCard> = [];
+  filterFaction = input<string>('');
+  squadIndex = input<number>(-1);
+  ownedObjectives = input<Array<iCrCzObjectiveCard>>([]);
 
   constructor(private CrCzProgramDataService: CrCzObjectiveDataService,
     private combatzoneBuilder: CrCzArmyBuilderService,
+    private releaseListDataService: CrCzReleasesDataService,
     private modalService: BsModalService
   ){}
 
   ngOnInit(): void {
     this.dataList$ = this.CrCzProgramDataService.objectiveList;
+    this.releaseList$ = this.releaseListDataService.releaseList;
+    this.currSelectedFaction = this.filterFaction();
   }
 
   setFaction($event): void {
-    this.filterFaction = $event;
+    this.currSelectedFaction = $event;
   }
 
   addObjective(objective:iCrCzObjectiveCard):void  {
-    this.combatzoneBuilder.addScenarioObjective(this.squadIndex, objective);
+    this.combatzoneBuilder.addScenarioObjective(this.squadIndex(), objective);
   }
 
   removeObjective(objective:iCrCzObjectiveCard): void {
-    this.combatzoneBuilder.removeObjective(this.squadIndex, objective);
+    this.combatzoneBuilder.removeObjective(this.squadIndex(), objective);
   }
 
 
@@ -65,7 +68,7 @@ export class CrCzObjectiveListComponent {
   }
 
   hasObjective(objective: iCrCzObjectiveCard): boolean {
-    return this.ownedObjectives.some(obj => obj.name === objective.name);
+    return this.ownedObjectives().some(obj => obj.name === objective.name);
   }
 
   getObjectiveCardImage(objective:iCrCzObjectiveCard): string {

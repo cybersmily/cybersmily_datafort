@@ -1,30 +1,44 @@
-<cs-cr-cz-faction-selector [selectedFaction]="filterFaction" [hiddenFactions]="['universal']"
+@if(dataList$ | async; as objectiveList){
+<cs-cr-cz-faction-selector [selectedFaction]="currSelectedFaction" [hiddenFactions]="['universal']"
   (selected)="setFaction($event)"></cs-cr-cz-faction-selector>
-<div *ngIf="dataList$ | async as objectiveList" class="row">
+<div class="row">
   <div class="col-12">
-    <div *ngFor="let objective of objectiveList |contains:'faction':[filterFaction, 'universal']"
-      class="d-inline-block me-1 crcz-objective-card">
+    @for (objective of objectiveList |contains:'faction':[currSelectedFaction, 'universal'];track $index) {
+    <div class="d-inline-block me-1 crcz-objective-card">
       <div
         [ngClass]="{'rounded d-inline-block crcz-objective-header csd-btn': true, 'crcz-has-objective': hasObjective(objective)}"
-        [ngStyle]="{ 'background-image': 'url(' +getObjectiveCardImage(objective)+')' }" (click)="toggleSelected(objectiveModal, objective)"></div>
+        [ngStyle]="{ 'background-image': 'url(' +getObjectiveCardImage(objective)+')' }"
+        (click)="toggleSelected(objectiveModal, objective)"></div>
       <div class="d-inline-block crcz-objective-button-group">
         <button title="Add {{objective.name}} objective to team."
           class="border border-secondary text-center rounded csd-btn p-1" (click)="addObjective(objective)">
           <fa-icon [icon]="faPlus" size="xl"></fa-icon>
         </button>
-        <button *ngIf="hasObjective(objective)"
-          title="Remove {{objective.name}} objective to team."
-          class="border border-secondary text-center rounded csd-btn p-1 mt-1"
-          (click)="removeObjective(objective)">
+        @if(releaseListDataService.GetFullReleaseNames(objective.release) | async; as releases) {
+        <ng-template #sourceBooks><b>{{ objective.name | titlecase }}</b> appears in product:<br>{{releases.join(',
+          ')}}</ng-template>
+        <button class="float-start border border-secondary text-danger p-1 rounded bg-light" title="Show releases."
+          [popover]="sourceBooks" placement="left" triggers="focus" containerClass="cr-cz-resources">
+          <fa-icon [icon]="faBookBookmark" size="xl"></fa-icon>
+        </button>
+        }
+        @if(hasObjective(objective)) {
+        <button title="Remove {{objective.name}} objective to team."
+          class="border border-secondary text-center rounded csd-btn p-1 mt-1" (click)="removeObjective(objective)">
           <fa-icon [icon]="faTrash" size="xl"></fa-icon>
         </button>
+        }
       </div>
     </div>
+    }
   </div>
 </div>
+} @else {
+<div>Objective list isn't loaded.</div>
+}
 
 <ng-template #objectiveModal>
-     <div class="modal-body" (click)="hideModal()">
-      <img class="w-100" alt="Objective card" [src]="getObjectiveCardImage(selectedObjective)"/>
-    </div>
+  <div class="modal-body" (click)="hideModal()">
+    <img class="w-100" alt="Objective card" [src]="getObjectiveCardImage(selectedObjective)" />
+  </div>
 </ng-template>
