@@ -8,11 +8,12 @@
       <div class="col-9 col-md-5">
         <input [(ngModel)]="searchName" type="text" class="no-style w-100" placeholder="Search on card name...">
         <input [(ngModel)]="searchKeywords" type="text" class="no-style w-100" placeholder="Search for keyword...">
+        <cs-cr-cz-source-selector [filter]="unitlist | uniqueValues:'release'" (selectedSource)="filterOnRelease($event)"></cs-cr-cz-source-selector>
       </div>
 
       <div class="col-3 col-md-1 pt-1">
         <button class="btn csd-btn border border-secondary"
-          title="{showSelected ? 'Hide' : 'Show'} already team members" (click)="showSelected = !showSelected">
+          title="{{showSelected ? 'Hide' : 'Show'}} already team members" (click)="showSelected = !showSelected">
           <fa-icon [icon]="showSelected ? faUsers : faUsersSlash" size="xl"></fa-icon>
         </button>
       </div>
@@ -69,6 +70,7 @@
     |contains:'name': searchName
     |contains: 'keywords': filterFaction
     |contains:'keywords':searchKeywords
+    |contains:'release':releaseFilter
     ">
       <div *ngIf="showUnit(unit)" [ngClass]="{'row py-2 border-bottom border-secondary': true}">
         <div class="col-12">

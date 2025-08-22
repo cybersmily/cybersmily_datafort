@@ -28,6 +28,7 @@ export class CrCzUnitListComponent {
   filterFaction: string = '';
   searchKeywords: string = '';
   searchFilter: Array<string>;
+  releaseFilter: Array<string>;
   streetCredFilter: Array<number> = [0,1,2,10];
   skillFilter: Array<string> = [];
   showSelected: boolean = true;
@@ -118,6 +119,10 @@ export class CrCzUnitListComponent {
     } else {
       this.skillFilter.push(skill);
     }
+  }
+
+  filterOnRelease(event: Array<string>): void {
+    this.releaseFilter = [...event];
   }
 
 }
