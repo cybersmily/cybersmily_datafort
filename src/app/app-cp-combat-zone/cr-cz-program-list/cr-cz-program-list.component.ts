@@ -15,6 +15,7 @@ export class CrCzProgramListComponent {
   faPlus = faPlus;
 
   dataList$: Observable<Array<iCrCzNrProgramCard>>;
+  filterReleases: Array<string> = [];
 
   @Input()
   filterFaction: string = '';
@@ -30,6 +31,11 @@ export class CrCzProgramListComponent {
 
   setFaction($event): void {
     this.filterFaction = $event;
+  }
+
+  releaseFilter($event): void {
+    console.log('event',$event);
+    this.filterReleases = $event;
   }
 
   buy(program: iCrCzNrProgramCard):void  {
