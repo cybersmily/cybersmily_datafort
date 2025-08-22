@@ -53,6 +53,5 @@ export class Cp2020HotStuffContactNewComponent {
     const newItem = new HotStuffArea(this.newArea);
     this.newArea = new HotStuffArea();
     this.add.emit(newItem);
-    console.log(this.newArea);
   }
 }

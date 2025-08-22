@@ -39,8 +39,6 @@ export class ContainsPipe implements PipeTransform {
           if (Array.isArray(obj[property])) {
             const ar = [].concat(...obj[property]);
             return ar.find((sk: string) => {
-              console.log('sk', sk);
-              console.log('value', value);
               if( Array.isArray(value)) {
                 return value.some( val => sk.includes(val));
               } else {
