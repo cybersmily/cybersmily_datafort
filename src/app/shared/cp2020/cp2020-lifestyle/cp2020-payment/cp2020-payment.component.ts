@@ -3,9 +3,10 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Cp2020Credchip } from '../models';
 
 @Component({
-  selector: 'cs-cp2020-payment',
-  templateUrl: './cp2020-payment.component.html',
-  styleUrls: ['./cp2020-payment.component.css']
+    selector: 'cs-cp2020-payment',
+    templateUrl: './cp2020-payment.component.html',
+    styleUrls: ['./cp2020-payment.component.css'],
+    standalone: false
 })
 export class Cp2020PaymentComponent implements OnInit {
 

@@ -18,14 +18,15 @@ import { CommonUiModule } from './shared/modules/common-ui/common-ui.module';
 import { AppCmbtTrackModule } from './app-cmbt-track/app-cmbt-track.module';
 import { DlowSectionModule } from './appdlow/dlowsection.module';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { DataService } from './shared/services/file-services';
 import { HomeComponent } from './apphome/home/home.component';
 import { AppComponent } from './app.component';
 import { Router, RouterModule } from '@angular/router';
-import { AppRoutingModule, mainRoutes } from './app-routing.module';
+import { AppRoutingModule, mainRoutes } from './datafort-routes';
 import { TestBed, fakeAsync, ComponentFixture, flush, flushMicrotasks } from '@angular/core/testing';
 import { Location } from '@angular/common';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 
 describe('AppRoutingModule', () => {
@@ -35,12 +36,11 @@ describe('AppRoutingModule', () => {
 
   beforeEach( () => {
     TestBed.configureTestingModule({
-      declarations: [
+    declarations: [
         AppComponent,
         HomeComponent
-      ],
-      imports: [
-        AppRoutingModule,
+    ],
+    imports: [AppRoutingModule,
         AppCharacterGeneratorModule,
         AppCmbtTrackModule,
         AppCpRedTemplateCharacterModule,
@@ -60,13 +60,13 @@ describe('AppRoutingModule', () => {
         ModSectionModule,
         PeepSectionModule,
         ShopSectionModule,
-        HttpClientTestingModule,
-        RouterTestingModule.withRoutes(mainRoutes)
-      ],
-      providers: [
-        DataService
-      ]
-    }).compileComponents();
+        RouterTestingModule.withRoutes(mainRoutes)],
+    providers: [
+        DataService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+}).compileComponents();
     router = TestBed.inject(Router);
     location = TestBed.inject(Location);
     fixture = TestBed.createComponent(AppComponent);

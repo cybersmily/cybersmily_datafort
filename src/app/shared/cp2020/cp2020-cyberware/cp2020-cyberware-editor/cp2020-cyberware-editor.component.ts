@@ -23,9 +23,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-cyberware-editor',
-  templateUrl: './cp2020-cyberware-editor.component.html',
-  styleUrls: ['./cp2020-cyberware-editor.component.css'],
+    selector: 'cs-cp2020-cyberware-editor',
+    templateUrl: './cp2020-cyberware-editor.component.html',
+    styleUrls: ['./cp2020-cyberware-editor.component.css'],
+    standalone: false
 })
 export class Cp2020CyberwareEditorComponent implements OnInit, AfterViewInit {
   faDice = faDice;

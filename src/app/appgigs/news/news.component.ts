@@ -15,9 +15,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'cs-news',
-  templateUrl: './news.component.html',
-  styleUrls: ['./news.component.css'],
+    selector: 'cs-news',
+    templateUrl: './news.component.html',
+    styleUrls: ['./news.component.css'],
+    standalone: false
 })
 export class NewsComponent implements OnInit {
   faAngleDoubleDown = faAngleDoubleDown;

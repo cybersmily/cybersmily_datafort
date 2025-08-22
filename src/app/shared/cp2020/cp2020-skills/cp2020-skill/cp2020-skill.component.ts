@@ -26,9 +26,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'cs-cp2020-skill',
-  templateUrl: './cp2020-skill.component.html',
-  styleUrls: ['./cp2020-skill.component.css'],
+    selector: 'cs-cp2020-skill',
+    templateUrl: './cp2020-skill.component.html',
+    styleUrls: ['./cp2020-skill.component.css'],
+    standalone: false
 })
 export class Cp2020SkillComponent implements OnInit, OnChanges {
   modalRef: BsModalRef;

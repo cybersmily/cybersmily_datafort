@@ -27,9 +27,10 @@ import {
 } from './../../models';
 
 @Component({
-  selector: 'cs-cp2020-gear-list',
-  templateUrl: './cp2020-gear-list.component.html',
-  styleUrls: ['./cp2020-gear-list.component.css'],
+    selector: 'cs-cp2020-gear-list',
+    templateUrl: './cp2020-gear-list.component.html',
+    styleUrls: ['./cp2020-gear-list.component.css'],
+    standalone: false
 })
 export class Cp2020GearListComponent implements OnInit, OnChanges, AfterViewInit {
   faPlus = faPlus;

@@ -3,7 +3,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { get } from 'lodash';
 
 @Pipe({
-  name: 'filterby',
+    name: 'filterby',
+    standalone: false
 })
 export class FilterbyPipe implements PipeTransform {
   /**

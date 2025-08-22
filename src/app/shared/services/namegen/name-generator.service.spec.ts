@@ -1,11 +1,11 @@
 import { of } from 'rxjs';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { DataService } from './../file-services';
 import { DiceService } from './../dice/dice.service';
 import { TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NameGeneratorService } from './name-generator.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('NameGeneratorService', async () => {
 
@@ -18,9 +18,9 @@ describe('NameGeneratorService', async () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [DiceService, DataService, HttpClient],
-      imports: [HttpClientTestingModule]
-    });
+    imports: [],
+    providers: [DiceService, DataService, HttpClient, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+});
     service = TestBed.inject(NameGeneratorService);
 
     http = jasmine.createSpyObj('HttpClient', ['get']);

@@ -6,9 +6,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'cs-cp-red-cyberware-display',
-  templateUrl: './cp-red-cyberware-display.component.html',
-  styleUrls: ['./cp-red-cyberware-display.component.css'],
+    selector: 'cs-cp-red-cyberware-display',
+    templateUrl: './cp-red-cyberware-display.component.html',
+    styleUrls: ['./cp-red-cyberware-display.component.css'],
+    standalone: false
 })
 export class CpRedCyberwareDisplayComponent implements OnInit {
   faChevronDown = faChevronDown;

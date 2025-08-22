@@ -14,9 +14,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-prot-prog',
-  templateUrl: './prot-prog.component.html',
-  styleUrls: ['./prot-prog.component.css'],
+    selector: 'app-prot-prog',
+    templateUrl: './prot-prog.component.html',
+    styleUrls: ['./prot-prog.component.css'],
+    standalone: false
 })
 export class ProtProgComponent implements OnInit {
   @ViewChild('accordion', { static: false }) accordion: AccordionComponent;

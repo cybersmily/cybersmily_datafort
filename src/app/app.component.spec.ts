@@ -1,5 +1,5 @@
 import { CommonUiModule } from './shared/modules/common-ui/common-ui.module';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './datafort-routes';
 import { SharedModule } from './shared/modules/shared.module';
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { AppComponent } from './app.component';
@@ -25,7 +25,7 @@ describe('AppComponent', () => {
     }).compileComponents();
   }));
   beforeEach(() => {
-    router = TestBed.get(Router);
+    router = TestBed.inject(Router);
     app = new AppComponent(router);
   });
 

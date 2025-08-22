@@ -6,9 +6,10 @@ import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp-red-skill-dice-roll',
-  templateUrl: './cp-red-skill-dice-roll.component.html',
-  styleUrls: ['./cp-red-skill-dice-roll.component.css'],
+    selector: 'cs-cp-red-skill-dice-roll',
+    templateUrl: './cp-red-skill-dice-roll.component.html',
+    styleUrls: ['./cp-red-skill-dice-roll.component.css'],
+    standalone: false
 })
 export class CpRedSkillDiceRollComponent implements OnInit {
   faDice = faDice;

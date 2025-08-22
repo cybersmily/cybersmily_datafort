@@ -9,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 import { Program } from '../../shared/cp2020/cp2020-netrun-gear/models';
 
 @Component({
-  selector: 'cs-program-list',
-  templateUrl: './program-list.component.html',
-  styleUrls: ['./program-list.component.css'],
+    selector: 'cs-program-list',
+    templateUrl: './program-list.component.html',
+    styleUrls: ['./program-list.component.css'],
+    standalone: false
 })
 export class ProgramListComponent implements OnInit {
   programList$: Observable<Array<Program>>;

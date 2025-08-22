@@ -4,9 +4,10 @@ import { Cp2020Cyberdeck } from './../models/cp2020-cyberdeck';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-cyberdeck-selector',
-  templateUrl: './cp2020-cyberdeck-selector.component.html',
-  styleUrls: ['./cp2020-cyberdeck-selector.component.css'],
+    selector: 'cs-cp2020-cyberdeck-selector',
+    templateUrl: './cp2020-cyberdeck-selector.component.html',
+    styleUrls: ['./cp2020-cyberdeck-selector.component.css'],
+    standalone: false
 })
 export class Cp2020CyberdeckSelectorComponent implements OnInit {
   @Output()

@@ -6,7 +6,7 @@ import { MmweaponlistComponent } from './../mmweaponlist/mmweaponlist.component'
 import { MmoptionsformComponent } from './../mmoptionsform/mmoptionsform.component';
 import { MmweaponformComponent } from './../mmweaponform/mmweaponform.component';
 import { MaxmetalService } from '../../shared/cp2020/cp2020-vehicles/services';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { MmmountComponent } from './../mmmount/mmmount.component';
 import { MmoptionComponent } from './../mmoption/mmoption.component';
 import { MminputComponent } from './../mminput/mminput.component';
@@ -18,6 +18,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MmgeneratorComponent } from './mmgenerator.component';
 import { MmweaponComponent } from '../mmweapon/mmweapon.component';
 import { DataService } from './../../shared/services/file-services';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('MmgeneratorComponent', () => {
   let component: MmgeneratorComponent;
@@ -25,7 +26,7 @@ describe('MmgeneratorComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+    declarations: [
         MmgeneratorComponent,
         MmbuilderComponent,
         MmaccessoriesComponent,
@@ -39,17 +40,16 @@ describe('MmgeneratorComponent', () => {
         MmweaponlistComponent,
         MmoptionslistComponent,
         LongpressDirective
-      ],
-      imports: [
-        CommonUiModule,
-        HttpClientTestingModule
-      ],
-      providers: [
+    ],
+    imports: [CommonUiModule],
+    providers: [
         DataService,
         MaxmetalService,
-        SeoService
-      ]
-    })
+        SeoService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
   }));
 

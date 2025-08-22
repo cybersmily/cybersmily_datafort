@@ -24,52 +24,49 @@
     </div>
     <div class="col-1"></div>
   </div>
-  <div *ngFor="let newItem of newItems" class="row">
+  @for(newItem of newItems; track $index) {
+  <div class="row">
     <div class="col-1 d-none d-md-inline-block"></div>
     <div class="col-2 col-md-1">
       <div class="h6">{{ newItem.date }}</div>
     </div>
     <div class="col-10 col-md-9">
       <div class="mb-2 small">
-        <p
-          class="my-0"
-          *ngFor="let entry of newItem.entries"
-          [innerHTML]="entry"
-        ></p>
+        @for(entry of newItem.entries; track $index) {
+        <p class="my-0" [innerHTML]="entry"></p>
+        }
       </div>
     </div>
     <div class="col-1 d-none d-md-inline-block"></div>
   </div>
-  <div *ngIf="showMoreItems">
-    <div *ngFor="let newItem of moreItems" class="row">
+  }
+  @if(showMoreItems){
+    @for(newItem of moreItems; track $index) {
+    <div class="row">
       <div class="col-1"></div>
       <div class="col-1">
         <div class="h6">{{ newItem.date }}</div>
       </div>
       <div class="col-9">
-        <p
-          class="ms-3 my-0"
-          *ngFor="let entry of newItem.entries"
-          [innerHTML]="entry"
-        ></p>
+        @for(entry of newItem.entries; track $index) {
+        <p class="ms-3 my-0" [innerHTML]="entry"></p>
+        }
       </div>
       <div class="col-1"></div>
     </div>
-  </div>
+  }
+  }
   <div class="row">
     <div class="col-1"></div>
     <div class="col-10">
-      <div
-        class="w-100 text-center font-weight-bold csd-btn text-danger"
-        (click)="showMoreItems = !showMoreItems"
-      >
-        <div *ngIf="showMoreItems">
+      <div class="w-100 text-center font-weight-bold csd-btn text-danger" (click)="showMoreItems = !showMoreItems">
+        @if(showMoreItems) {
           <fa-icon class="csd-icon-btn" [icon]="faChevronUp"></fa-icon>
-        </div>
+        }
         <h6>{{ showMoreItems ? "Show less" : "Show More" }}</h6>
-        <div *ngIf="!showMoreItems">
+        @if(!showMoreItems){
           <fa-icon class="csd-icon-btn" [icon]="faChevronDown"></fa-icon>
-        </div>
+        }
       </div>
     </div>
     <div class="col-1"></div>

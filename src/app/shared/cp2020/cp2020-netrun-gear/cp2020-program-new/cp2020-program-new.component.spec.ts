@@ -2,11 +2,12 @@ import { Cp2020Program, ProgramOption } from '../models';
 import { of } from 'rxjs';
 import { DataService } from '../../../services/file-services';
 import { NrProgramOptionsService } from '../../../services/netrun/nr-program-options.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { CommonUiModule } from '../../../modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { Cp2020ProgramNewComponent } from './cp2020-program-new.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('ProgramNewComponent', () => {
   let component: Cp2020ProgramNewComponent;
@@ -19,16 +20,15 @@ describe('ProgramNewComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [Cp2020ProgramNewComponent],
-      imports: [
-        CommonUiModule,
-        HttpClientTestingModule
-      ],
-      providers: [
+    declarations: [Cp2020ProgramNewComponent],
+    imports: [CommonUiModule],
+    providers: [
         NrProgramOptionsService,
-        DataService
-      ]
-    })
+        DataService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
       .compileComponents();
   }));
 

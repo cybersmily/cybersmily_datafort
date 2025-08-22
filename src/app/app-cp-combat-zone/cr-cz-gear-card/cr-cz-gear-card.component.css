@@ -1,6 +1,10 @@
 .cr-cz-gear-name {
-  left: 8px;
-  width: 150px;
+  left: 6px;
+  width: 170px;
   top:12px;
   line-height: 14px;
+}
+
+::ng-deep .cr-cz-resources, ::ng-deep .popover-content {
+  width: 250px !important;
 }

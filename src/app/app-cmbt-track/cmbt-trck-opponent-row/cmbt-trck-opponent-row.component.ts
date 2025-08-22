@@ -6,9 +6,10 @@ import { OpponentTrackerService } from '../services/opponent-tracker.service';
 import {CmbtTrckWoundDisplayService } from '../services/cmbt-trck-wound-display.service';
 
 @Component({
-  selector: 'cs-cmbt-trck-opponent-row',
-  templateUrl: './cmbt-trck-opponent-row.component.html',
-  styleUrls: ['./cmbt-trck-opponent-row.component.css']
+    selector: 'cs-cmbt-trck-opponent-row',
+    templateUrl: './cmbt-trck-opponent-row.component.html',
+    styleUrls: ['./cmbt-trck-opponent-row.component.css'],
+    standalone: false
 })
 export class CmbtTrckOpponentRowComponent implements OnInit {
   faDice = faDice;

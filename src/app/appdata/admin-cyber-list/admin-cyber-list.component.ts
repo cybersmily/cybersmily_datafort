@@ -4,9 +4,10 @@ import { faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-admin-cyber-list',
-  templateUrl: './admin-cyber-list.component.html',
-  styleUrls: ['./admin-cyber-list.component.css']
+    selector: 'cs-admin-cyber-list',
+    templateUrl: './admin-cyber-list.component.html',
+    styleUrls: ['./admin-cyber-list.component.css'],
+    standalone: false
 })
 export class AdminCyberListComponent implements OnInit {
   faTrash = faTrash;

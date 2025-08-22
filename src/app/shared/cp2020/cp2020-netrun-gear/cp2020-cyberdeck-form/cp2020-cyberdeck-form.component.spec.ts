@@ -1,10 +1,11 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { DataService } from '../../../services/file-services';
 import { NrDeckDataService } from '../../../services/netrun/nr-deck-data.service';
 import { CommonUiModule } from '../../../modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { Cp2020CyberdeckFormComponent } from './cp2020-cyberdeck-form.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('Cp2020CyberdeckFormComponent', () => {
   let component: Cp2020CyberdeckFormComponent;
@@ -12,16 +13,15 @@ describe('Cp2020CyberdeckFormComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ Cp2020CyberdeckFormComponent ],
-      imports: [
-        CommonUiModule,
-        HttpClientTestingModule
-      ],
-      providers: [
+    declarations: [Cp2020CyberdeckFormComponent],
+    imports: [CommonUiModule],
+    providers: [
         NrDeckDataService,
-        DataService
-      ]
-    })
+        DataService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
   }));
 

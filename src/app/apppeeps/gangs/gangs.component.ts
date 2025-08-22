@@ -5,9 +5,10 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { GangData } from './../../shared/models/gang/gang-data';
 
 @Component({
-  selector: 'cs-gangs',
-  templateUrl: './gangs.component.html',
-  styleUrls: ['./gangs.component.css']
+    selector: 'cs-gangs',
+    templateUrl: './gangs.component.html',
+    styleUrls: ['./gangs.component.css'],
+    standalone: false
 })
 export class GangsComponent implements OnInit {
 

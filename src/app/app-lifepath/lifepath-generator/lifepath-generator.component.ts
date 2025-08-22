@@ -16,9 +16,10 @@ import { DataService } from './../../shared/services/file-services';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-lifepath-generator',
-  templateUrl: './lifepath-generator.component.html',
-  styleUrls: ['./lifepath-generator.component.css'],
+    selector: 'cs-lifepath-generator',
+    templateUrl: './lifepath-generator.component.html',
+    styleUrls: ['./lifepath-generator.component.css'],
+    standalone: false
 })
 export class LifepathGeneratorComponent implements OnInit {
   faFile = faFile;

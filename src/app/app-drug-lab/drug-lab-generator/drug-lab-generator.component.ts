@@ -6,9 +6,10 @@ import { RxLabDataService } from './../../shared/services/rxlab/rx-lab-data.serv
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-drug-lab-generator',
-  templateUrl: './drug-lab-generator.component.html',
-  styleUrls: ['./drug-lab-generator.component.css']
+    selector: 'cs-drug-lab-generator',
+    templateUrl: './drug-lab-generator.component.html',
+    styleUrls: ['./drug-lab-generator.component.css'],
+    standalone: false
 })
 export class DrugLabGeneratorComponent implements OnInit {
   faPlus = faPlus;

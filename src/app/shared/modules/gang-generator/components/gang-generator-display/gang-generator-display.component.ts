@@ -6,9 +6,10 @@ import { Component, OnInit } from '@angular/core';
 import { CpGang } from '../../models';
 
 @Component({
-  selector: 'cs-gang-generator-display',
-  templateUrl: './gang-generator-display.component.html',
-  styleUrls: ['./gang-generator-display.component.css'],
+    selector: 'cs-gang-generator-display',
+    templateUrl: './gang-generator-display.component.html',
+    styleUrls: ['./gang-generator-display.component.css'],
+    standalone: false
 })
 export class GangGeneratorDisplayComponent implements OnInit {
   faDice = faDice;

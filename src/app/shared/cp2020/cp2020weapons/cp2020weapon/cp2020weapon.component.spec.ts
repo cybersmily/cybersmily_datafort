@@ -3,10 +3,11 @@ import { DataService } from './../../../services/file-services';
 import { Cp2020weaponEditorComponent } from './../cp2020weapon-editor/cp2020weapon-editor.component';
 import { WeaponDataService } from './../services/weapon-data.service';
 import { DiceService } from './../../../services/dice/dice.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { Cp2020weaponComponent } from './cp2020weapon.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('Cp2020weaponComponent', () => {
   let component: Cp2020weaponComponent;
@@ -14,10 +15,10 @@ describe('Cp2020weaponComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [Cp2020weaponComponent, Cp2020weaponEditorComponent],
-      imports: [HttpClientTestingModule, CommonUiModule],
-      providers: [DiceService, WeaponDataService, DataService]
-    })
+    declarations: [Cp2020weaponComponent, Cp2020weaponEditorComponent],
+    imports: [CommonUiModule],
+    providers: [DiceService, WeaponDataService, DataService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
   }));
 

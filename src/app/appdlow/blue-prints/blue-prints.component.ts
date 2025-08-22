@@ -3,9 +3,10 @@ import { JsonDataFiles, DataService } from './../../shared/services/file-service
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-blue-prints',
-  templateUrl: './blue-prints.component.html',
-  styleUrls: ['./blue-prints.component.css']
+    selector: 'cs-blue-prints',
+    templateUrl: './blue-prints.component.html',
+    styleUrls: ['./blue-prints.component.css'],
+    standalone: false
 })
 export class BluePrintsComponent implements OnInit {
   blueprints$: Observable<Array<any>>;

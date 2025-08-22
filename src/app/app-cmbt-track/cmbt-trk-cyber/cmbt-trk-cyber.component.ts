@@ -4,9 +4,10 @@ import { CmbtTrckOppChartService } from './../services/cmbt-trck-opp-chart.servi
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-cmbt-trk-cyber',
-  templateUrl: './cmbt-trk-cyber.component.html',
-  styleUrls: ['./cmbt-trk-cyber.component.css']
+    selector: 'cs-cmbt-trk-cyber',
+    templateUrl: './cmbt-trk-cyber.component.html',
+    styleUrls: ['./cmbt-trk-cyber.component.css'],
+    standalone: false
 })
 export class CmbtTrkCyberComponent implements OnInit {
   faDice = faDice;

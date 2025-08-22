@@ -1,5 +1,5 @@
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { DiceService } from './../../../services/dice/dice.service';
 import { DataService } from './../../../services/file-services';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
@@ -12,13 +12,10 @@ describe('LifepathEthnicityComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LifepathEthnicityComponent ],
-      imports: [
-        CommonUiModule,
-        HttpClientModule
-      ],
-      providers: [DataService, DiceService]
-    })
+    declarations: [LifepathEthnicityComponent],
+    imports: [CommonUiModule],
+    providers: [DataService, DiceService, provideHttpClient(withInterceptorsFromDi())]
+})
     .compileComponents();
   }));
 

@@ -1,11 +1,12 @@
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { DiceService } from './../../../services/dice/dice.service';
 import { DataService } from './../../../services/file-services';
 import { Cp2020RolesDataService } from './../services/cp2020-roles-data.service';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Cp2020RoleEditorComponent } from './cp2020-role-editor.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('Cp2020RoleEditorComponent', () => {
   let component: Cp2020RoleEditorComponent;
@@ -13,17 +14,16 @@ describe('Cp2020RoleEditorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Cp2020RoleEditorComponent ],
-      imports: [
-        HttpClientTestingModule,
-        CommonUiModule
-      ],
-      providers: [
+    declarations: [Cp2020RoleEditorComponent],
+    imports: [CommonUiModule],
+    providers: [
         Cp2020RolesDataService,
         DataService,
-        DiceService
-      ]
-    })
+        DiceService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
   });
 

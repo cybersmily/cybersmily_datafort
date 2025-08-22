@@ -2,12 +2,13 @@ import { Cp2020RandomCyberEntry } from './../models/cp2020-random-cyber-entry';
 import { of } from 'rxjs';
 import { Cp2020PlayerCyber } from './../models/cp2020-player-cyber';
 import { CyberDataService } from './cyber-data.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { DataService } from './../../../services/file-services';
 import { DiceService } from './../../../services/dice/dice.service';
 import { TestBed } from '@angular/core/testing';
 
 import { Cp2020CyberwareGeneratorService } from './cp2020-cyberware-generator.service';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('Cp2020CyberwareGeneratorService', () => {
   let service: Cp2020CyberwareGeneratorService;
@@ -18,15 +19,15 @@ describe('Cp2020CyberwareGeneratorService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule
-      ],
-      providers: [
+    imports: [],
+    providers: [
         DiceService,
         DataService,
-        CyberDataService
-      ]
-    });
+        CyberDataService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+});
     dice = TestBed.inject(DiceService);
     data = TestBed.inject(DataService);
     randomCyberwareList = new Array<Cp2020RandomCyberEntry>();

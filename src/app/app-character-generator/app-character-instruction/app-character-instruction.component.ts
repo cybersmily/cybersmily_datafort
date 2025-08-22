@@ -2,9 +2,10 @@ import { faDice, faSave, faUpload, faFilePdf, faUndo, faShieldAlt, faCog, faCros
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-app-character-instruction',
-  templateUrl: './app-character-instruction.component.html',
-  styleUrls: ['./app-character-instruction.component.css']
+    selector: 'cs-app-character-instruction',
+    templateUrl: './app-character-instruction.component.html',
+    styleUrls: ['./app-character-instruction.component.css'],
+    standalone: false
 })
 export class AppCharacterInstructionComponent implements OnInit {
   faDice = faDice;

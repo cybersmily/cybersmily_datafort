@@ -11,9 +11,10 @@ import { CrCzObjectiveDataService } from '../services/cr-cz-objective-data/cr-cz
 import { CrCzScenarioObjectivesGeneratorService } from '../services/cr-cz-scenario-objectives-generator/cr-cz-scenario-objectives-generator.service';
 
 @Component({
-  selector: 'cs-cr-cz-squad-form',
-  templateUrl: './cr-cz-squad-form.component.html',
-  styleUrls: ['./cr-cz-squad-form.component.css']
+    selector: 'cs-cr-cz-squad-form',
+    templateUrl: './cr-cz-squad-form.component.html',
+    styleUrls: ['./cr-cz-squad-form.component.css'],
+    standalone: false
 })
 export class CrCzSquadFormComponent implements OnInit, OnChanges {
 

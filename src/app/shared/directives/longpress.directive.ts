@@ -1,7 +1,8 @@
 import { Directive, EventEmitter, HostListener, HostBinding, Output, Input } from '@angular/core';
 
 @Directive({
-  selector: '[csLongpress]'
+    selector: '[csLongpress]',
+    standalone: false
 })
 export class LongpressDirective {
   pressing: boolean;

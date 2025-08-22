@@ -9,9 +9,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp-red-character-form',
-  templateUrl: './cp-red-character-form.component.html',
-  styleUrls: ['./cp-red-character-form.component.css'],
+    selector: 'cs-cp-red-character-form',
+    templateUrl: './cp-red-character-form.component.html',
+    styleUrls: ['./cp-red-character-form.component.css'],
+    standalone: false
 })
 export class CpRedCharacterFormComponent implements OnInit, OnChanges {
   currSheet: CPRedCharacterSheet = new CPRedCharacterSheet();

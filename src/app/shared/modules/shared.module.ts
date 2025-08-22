@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { DataService } from './../services/file-services';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FooterComponent, TopNavComponent } from './../components';
 
 @NgModule({
   imports: [
@@ -14,10 +13,8 @@ import { FooterComponent, TopNavComponent } from './../components';
     BrowserAnimationsModule
   ],
   exports: [
-    CommonModule,
-    FooterComponent,
-    TopNavComponent],
-  declarations: [FooterComponent, TopNavComponent],
+    CommonModule,],
+  declarations: [],
   providers: [ DataService]
 })
 export class SharedModule { }

@@ -1,6 +1,6 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { PipesModule } from './../../shared/pipes/pipes.module';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { DataService } from './../../shared/services/file-services';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
@@ -12,14 +12,11 @@ describe('SkillListComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ SkillListComponent ],
-      providers: [DataService],
-      imports: [
-        HttpClientModule,
-        CommonUiModule,
-        PipesModule
-      ]
-    })
+    declarations: [SkillListComponent],
+    imports: [CommonUiModule,
+        PipesModule],
+    providers: [DataService, provideHttpClient(withInterceptorsFromDi())]
+})
     .compileComponents();
   }));
 

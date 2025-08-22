@@ -4,9 +4,10 @@ import { LifepathChart, LifepathChartSelection } from '../models';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-lifepath-chart',
-  templateUrl: './lifepath-chart.component.html',
-  styleUrls: ['./lifepath-chart.component.css']
+    selector: 'cs-lifepath-chart',
+    templateUrl: './lifepath-chart.component.html',
+    styleUrls: ['./lifepath-chart.component.css'],
+    standalone: false
 })
 export class LifepathChartComponent implements OnInit {
   faDice = faDice;

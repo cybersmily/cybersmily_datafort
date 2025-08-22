@@ -2,9 +2,10 @@ import { CPRedLifepathJumpStart } from '../../shared/cpred/c-p-red-lifepath/mode
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 @Component({
-  selector: 'cs-temp-generator-lifepath',
-  templateUrl: './temp-generator-lifepath.component.html',
-  styleUrls: ['./temp-generator-lifepath.component.css']
+    selector: 'cs-temp-generator-lifepath',
+    templateUrl: './temp-generator-lifepath.component.html',
+    styleUrls: ['./temp-generator-lifepath.component.css'],
+    standalone: false
 })
 export class TempGeneratorLifepathComponent implements OnInit, OnChanges {
 

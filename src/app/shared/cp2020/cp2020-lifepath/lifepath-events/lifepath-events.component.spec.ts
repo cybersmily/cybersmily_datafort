@@ -1,5 +1,5 @@
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { DataService } from './../../../services/file-services';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
@@ -12,10 +12,10 @@ describe('LifepathEventsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LifepathEventsComponent ],
-      imports: [CommonUiModule, HttpClientModule],
-      providers: [DiceService, DataService]
-    })
+    declarations: [LifepathEventsComponent],
+    imports: [CommonUiModule],
+    providers: [DiceService, DataService, provideHttpClient(withInterceptorsFromDi())]
+})
     .compileComponents();
   }));
 

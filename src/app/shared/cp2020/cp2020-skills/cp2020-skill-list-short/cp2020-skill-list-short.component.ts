@@ -8,9 +8,10 @@ import { Cp2020SkillUpdate } from '../models/cp2020-skill-update';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
-  selector: 'cs-cp2020-skill-list-short',
-  templateUrl: './cp2020-skill-list-short.component.html',
-  styleUrls: ['./cp2020-skill-list-short.component.css'],
+    selector: 'cs-cp2020-skill-list-short',
+    templateUrl: './cp2020-skill-list-short.component.html',
+    styleUrls: ['./cp2020-skill-list-short.component.css'],
+    standalone: false
 })
 export class Cp2020SkillListShortComponent implements OnInit, OnChanges {
   faChevronDown = faChevronDown;

@@ -11,9 +11,10 @@ import { Cp2020Cyberdeck, CyberdeckData, CyberdeckOption } from '../models';
 import { Component, OnInit, TemplateRef, EventEmitter, Output, Input, OnChanges, ViewChild, ElementRef, ViewChildren, QueryList } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-cyberdeck-form',
-  templateUrl: './cp2020-cyberdeck-form.component.html',
-  styleUrls: ['./cp2020-cyberdeck-form.component.css']
+    selector: 'cs-cp2020-cyberdeck-form',
+    templateUrl: './cp2020-cyberdeck-form.component.html',
+    styleUrls: ['./cp2020-cyberdeck-form.component.css'],
+    standalone: false
 })
 export class Cp2020CyberdeckFormComponent implements OnInit, OnChanges {
   faPlus = faPlus;

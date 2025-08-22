@@ -14,9 +14,10 @@ import {
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-contacts-section',
-  templateUrl: './cp2020-contacts-section.component.html',
-  styleUrls: ['./cp2020-contacts-section.component.css'],
+    selector: 'cs-cp2020-contacts-section',
+    templateUrl: './cp2020-contacts-section.component.html',
+    styleUrls: ['./cp2020-contacts-section.component.css'],
+    standalone: false
 })
 export class Cp2020ContactsSectionComponent implements OnInit {
   faChevronDown = faChevronDown;

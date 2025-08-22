@@ -5,9 +5,10 @@ import { Component, Input, OnInit, Output, EventEmitter, TemplateRef, ViewChild,
 import { take, tap, timeout } from 'rxjs';
 
 @Component({
-  selector: 'cs-cp2020-stat',
-  templateUrl: './cp2020-stat.component.html',
-  styleUrls: ['./cp2020-stat.component.css']
+    selector: 'cs-cp2020-stat',
+    templateUrl: './cp2020-stat.component.html',
+    styleUrls: ['./cp2020-stat.component.css'],
+    standalone: false
 })
 export class Cp2020StatComponent implements OnInit {
   faPlus = faPlus;

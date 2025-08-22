@@ -1,0 +1,13 @@
+@if($releases | async | orderby:'value' | contains:'key':filter() ; as releases) {
+<div class="d-inline-block">
+  <p-multiselect [options]="releases" [(ngModel)]="selectedReleases" optionValue="key" optionLabel="value" display="chip"
+   placeholder="Select releases to filter on" class="w-100" (onChange)="releasesChange($event)" filterBy="value"
+   [resetFilterOnHide]="true">
+       <ng-template let-release #item>
+        <div class="flex items-center gap-2">
+            <div>{{ release.value }} [{{release.key}}]</div>
+        </div>
+    </ng-template>
+  </p-multiselect>
+</div>
+}

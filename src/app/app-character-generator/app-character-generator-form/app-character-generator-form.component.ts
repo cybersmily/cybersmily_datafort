@@ -38,9 +38,10 @@ import { Cp2020CharacterToFandDPDF } from './../../shared/models/pdf/cp2020-char
 import { SourcesDataService } from './../../shared/cp2020/cp2020-lifepath/services';
 
 @Component({
-  selector: 'cs-app-character-generator-form',
-  templateUrl: './app-character-generator-form.component.html',
-  styleUrls: ['./app-character-generator-form.component.css'],
+    selector: 'cs-app-character-generator-form',
+    templateUrl: './app-character-generator-form.component.html',
+    styleUrls: ['./app-character-generator-form.component.css'],
+    standalone: false
 })
 export class AppCharacterGeneratorFormComponent implements OnInit {
   faUpload = faUpload;

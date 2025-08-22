@@ -10,9 +10,10 @@ import {
 import { KeyValue } from '@angular/common';
 
 @Component({
-  selector: 'cs-admin-wpn-list',
-  templateUrl: './admin-wpn-list.component.html',
-  styleUrls: ['./admin-wpn-list.component.css']
+    selector: 'cs-admin-wpn-list',
+    templateUrl: './admin-wpn-list.component.html',
+    styleUrls: ['./admin-wpn-list.component.css'],
+    standalone: false
 })
 export class AdminWpnListComponent implements OnInit {
   faTrash = faTrash;

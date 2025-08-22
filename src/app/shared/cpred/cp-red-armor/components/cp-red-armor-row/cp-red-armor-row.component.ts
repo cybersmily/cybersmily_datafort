@@ -3,9 +3,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { faPen, faWrench, faMinus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'cs-cp-red-armor-row',
-  templateUrl: './cp-red-armor-row.component.html',
-  styleUrls: ['./cp-red-armor-row.component.css'],
+    selector: 'cs-cp-red-armor-row',
+    templateUrl: './cp-red-armor-row.component.html',
+    styleUrls: ['./cp-red-armor-row.component.css'],
+    standalone: false
 })
 export class CpRedArmorRowComponent implements OnInit {
   faPen = faPen;

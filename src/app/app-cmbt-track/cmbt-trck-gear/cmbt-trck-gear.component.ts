@@ -4,9 +4,10 @@ import { CmbtTrckOppChartService } from './../services/cmbt-trck-opp-chart.servi
 import { OppCyberware } from './../../shared/cp2020/cp2020-cyberware/models';
 
 @Component({
-  selector: 'cs-cmbt-trck-gear',
-  templateUrl: './cmbt-trck-gear.component.html',
-  styleUrls: ['./cmbt-trck-gear.component.css']
+    selector: 'cs-cmbt-trck-gear',
+    templateUrl: './cmbt-trck-gear.component.html',
+    styleUrls: ['./cmbt-trck-gear.component.css'],
+    standalone: false
 })
 export class CmbtTrckGearComponent implements OnInit {
   faDice = faDice;

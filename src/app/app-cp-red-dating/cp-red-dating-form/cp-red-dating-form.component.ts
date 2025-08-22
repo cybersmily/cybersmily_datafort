@@ -10,16 +10,17 @@ import { Component, OnInit } from '@angular/core';
 import { CpRedLifepathCoreRoleChartEntry } from './../../shared/cpred/c-p-red-lifepath/models';
 
 @Component({
-  selector: 'cs-cp-red-dating-form',
-  templateUrl: './cp-red-dating-form.component.html',
-  styleUrls: ['./cp-red-dating-form.component.css']
+    selector: 'cs-cp-red-dating-form',
+    templateUrl: './cp-red-dating-form.component.html',
+    styleUrls: ['./cp-red-dating-form.component.css'],
+    standalone: false
 })
 export class CpRedDatingFormComponent implements OnInit {
   faDice = faDice;
 
   redDate$: Observable<CpRedDate>;
   isGhosted(outcome: string): boolean {
-    return outcome === 'You were ghosted.' ?? false;
+    return (outcome === 'You were ghosted.');
   }
 
   constructor(

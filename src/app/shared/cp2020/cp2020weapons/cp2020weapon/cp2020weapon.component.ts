@@ -20,9 +20,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020weapon',
-  templateUrl: './cp2020weapon.component.html',
-  styleUrls: ['./cp2020weapon.component.css'],
+    selector: 'cs-cp2020weapon',
+    templateUrl: './cp2020weapon.component.html',
+    styleUrls: ['./cp2020weapon.component.css'],
+    standalone: false
 })
 export class Cp2020weaponComponent implements OnInit {
   faPen = faPen;

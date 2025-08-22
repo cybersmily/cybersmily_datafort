@@ -4,9 +4,10 @@ import { Cp2020ACPAWeapon } from './../../models/cp2020-acpa-weapon';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-acpa-weapon-editor',
-  templateUrl: './cp2020-acpa-weapon-editor.component.html',
-  styleUrls: ['./cp2020-acpa-weapon-editor.component.css'],
+    selector: 'cs-cp2020-acpa-weapon-editor',
+    templateUrl: './cp2020-acpa-weapon-editor.component.html',
+    styleUrls: ['./cp2020-acpa-weapon-editor.component.css'],
+    standalone: false
 })
 export class Cp2020AcpaWeaponEditorComponent implements OnInit {
   faSave = faSave;

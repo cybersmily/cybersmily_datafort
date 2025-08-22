@@ -33,9 +33,10 @@ import { Cp2020Vehicle } from './../../shared/cp2020/cp2020-vehicles/models';
 
 
 @Component({
-  selector: 'cs-app-character-generator-full-layout',
-  templateUrl: './app-character-generator-full-layout.component.html',
-  styleUrls: ['./app-character-generator-full-layout.component.css']
+    selector: 'cs-app-character-generator-full-layout',
+    templateUrl: './app-character-generator-full-layout.component.html',
+    styleUrls: ['./app-character-generator-full-layout.component.css'],
+    standalone: false
 })
 export class AppCharacterGeneratorFullLayoutComponent {
 

@@ -5,9 +5,10 @@ import { DiceService } from './../../../services/dice/dice.service';
 import { Component, OnInit, Input, Output, TemplateRef, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-rep-section',
-  templateUrl: './cp2020-rep-section.component.html',
-  styleUrls: ['./cp2020-rep-section.component.css']
+    selector: 'cs-cp2020-rep-section',
+    templateUrl: './cp2020-rep-section.component.html',
+    styleUrls: ['./cp2020-rep-section.component.css'],
+    standalone: false
 })
 export class Cp2020RepSectionComponent implements OnInit {
   faDice = faDice;

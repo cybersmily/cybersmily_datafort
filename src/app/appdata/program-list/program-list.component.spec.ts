@@ -1,9 +1,10 @@
 import { PipesModule } from './../../shared/pipes/pipes.module';
 import { DataService } from './../../shared/services/file-services/dataservice/data.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProgramListComponent } from './program-list.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('ProgramListComponent', () => {
   let component: ProgramListComponent;
@@ -11,13 +12,10 @@ describe('ProgramListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProgramListComponent ],
-      imports: [
-        HttpClientTestingModule,
-        PipesModule
-      ],
-      providers: [DataService]
-    })
+    declarations: [ProgramListComponent],
+    imports: [PipesModule],
+    providers: [DataService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
   });
 

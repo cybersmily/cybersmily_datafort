@@ -2,9 +2,10 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { CRCZ_FACTIONS } from '../models/cr-cz-types';
 
 @Component({
-  selector: 'cs-cr-cz-faction-selector',
-  templateUrl: './cr-cz-faction-selector.component.html',
-  styleUrls: ['./cr-cz-faction-selector.component.css']
+    selector: 'cs-cr-cz-faction-selector',
+    templateUrl: './cr-cz-faction-selector.component.html',
+    styleUrls: ['./cr-cz-faction-selector.component.css'],
+    standalone: false
 })
 export class CrCzFactionSelectorComponent implements OnInit {
 

@@ -17,9 +17,10 @@ import { faDice, faTrash, faRedo, faChevronRight, faChevronDown } from '@fortawe
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 @Component({
-  selector: 'cs-cmbt-trck-opponent-card',
-  templateUrl: './cmbt-trck-opponent-card.component.html',
-  styleUrls: ['./cmbt-trck-opponent-card.component.css']
+    selector: 'cs-cmbt-trck-opponent-card',
+    templateUrl: './cmbt-trck-opponent-card.component.html',
+    styleUrls: ['./cmbt-trck-opponent-card.component.css'],
+    standalone: false
 })
 export class CmbtTrckOpponentCardComponent implements OnInit, OnChanges {
   dice = faDice;

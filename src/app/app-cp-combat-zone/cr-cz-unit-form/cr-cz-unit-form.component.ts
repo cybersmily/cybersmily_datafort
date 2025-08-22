@@ -206,7 +206,8 @@ export class CrCzUnitFormComponent implements OnInit, OnChanges {
     }
   }
 
-  removeProgram(programIndex: number): void {
+  removeProgram(program: iCrCzNrProgramCard): void {
+    const programIndex = this.unit.programs.findIndex(prog => prog.name === program.name);
     if (programIndex > -1 && programIndex < this.unit.programs.length) {
       this.unit.programs.splice(programIndex, 1);
       this.combatzoneArmyBuilder.updateUnit(

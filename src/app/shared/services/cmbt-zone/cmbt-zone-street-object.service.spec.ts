@@ -1,10 +1,11 @@
 import { of } from 'rxjs';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { DataService } from './../file-services';
 import { DiceService } from '../dice/dice.service';
 import { TestBed } from '@angular/core/testing';
 
 import { CmbtZoneStreetObjectService } from './cmbt-zone-street-object.service';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('CmbtZoneStreetObjectService', () => {
   let service: CmbtZoneStreetObjectService;
@@ -14,14 +15,14 @@ describe('CmbtZoneStreetObjectService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule
-      ],
-      providers: [
+    imports: [],
+    providers: [
         DiceService,
-        DataService
-      ]
-    });
+        DataService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+});
     service = TestBed.inject(CmbtZoneStreetObjectService);
     dice = TestBed.inject(DiceService);
     data = TestBed.inject(DataService);

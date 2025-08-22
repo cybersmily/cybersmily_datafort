@@ -65,6 +65,12 @@ h6 {
 .text-xxsmall {
   font-size: xx-small;
 }
+.text-3xsmall {
+  font-size: 0.5em;
+}
+.text-tiny {
+  font-size: 0.4em;
+}
 
 .text-large {
   font-size: large;
@@ -650,6 +656,11 @@ div svg circle.neticon:hover {
 .outline-white {
   text-shadow:  -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
+
+.outline-white-bold {
+  text-shadow:  -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff;
+}
+
 
 .outline-black {
   text-shadow:  -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;

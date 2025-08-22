@@ -116,26 +116,9 @@
           (click)="showModal(programList)">
           <fa-icon [icon]="faPlus"></fa-icon>
         </button>
-        <div class="row" *ngFor="let program of unit?.programs;index as programIndex">
-          <div class="col-11 text-capitalize">
-            <div class="row">
-              <div class="col-6">
-                <img alt="{{program.name}} load card" class="w-100 p-0"
-                  src="img/cz/programs/{{program.name.replace(' ', '_')}}_l.jpg">
-              </div>
-              <div class="col-6">
-                <img alt="{{program.name}} load card" class="w-100 p-0"
-                  src="img/cz/programs/{{program.name.replace(' ', '_')}}_r.jpg">
-              </div>
-            </div>
-          </div>
-          <div class="col-1">
-            <button title="Remove program." class="csd-btn border border-secondary p-1 align-top rounded"
-              (click)="removeProgram(programIndex)">
-              <fa-icon [icon]="faTrash"></fa-icon>
-            </button>
-          </div>
-        </div>
+        @for(program of unit.programs;track $index; let programIndex = $index){
+          <cs-cr-cz-program-card [crczProgram]="program" [showBothSides]="false" (selectProgram)="removeProgram($event)"></cs-cr-cz-program-card>
+        }
       </tab>
       <tab customClass="customClass">
         <ng-template tabHeading>

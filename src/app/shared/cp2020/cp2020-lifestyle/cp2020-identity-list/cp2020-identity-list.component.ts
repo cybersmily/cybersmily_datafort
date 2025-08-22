@@ -3,9 +3,10 @@ import { Component, Input, OnInit, Output, EventEmitter, OnChanges } from '@angu
 import { Cp2020Identity } from '../models/cp2020-identity';
 
 @Component({
-  selector: 'cs-cp2020-identity-list',
-  templateUrl: './cp2020-identity-list.component.html',
-  styleUrls: ['./cp2020-identity-list.component.css']
+    selector: 'cs-cp2020-identity-list',
+    templateUrl: './cp2020-identity-list.component.html',
+    styleUrls: ['./cp2020-identity-list.component.css'],
+    standalone: false
 })
 export class Cp2020IdentityListComponent implements OnInit, OnChanges {
   faPlus = faPlus;

@@ -3,9 +3,10 @@ import { faAngleDoubleRight, faAngleDoubleDown } from '@fortawesome/free-solid-s
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-cmbt-trck-main',
-  templateUrl: './cmbt-trck-main.component.html',
-  styleUrls: ['./cmbt-trck-main.component.css']
+    selector: 'cs-cmbt-trck-main',
+    templateUrl: './cmbt-trck-main.component.html',
+    styleUrls: ['./cmbt-trck-main.component.css'],
+    standalone: false
 })
 export class CmbtTrckMainComponent implements OnInit {
   isCollapsed = true;

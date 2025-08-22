@@ -10,9 +10,10 @@ import {
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-role-list',
-  templateUrl: './role-list.component.html',
-  styleUrls: ['./role-list.component.css'],
+    selector: 'cs-role-list',
+    templateUrl: './role-list.component.html',
+    styleUrls: ['./role-list.component.css'],
+    standalone: false
 })
 export class RoleListComponent implements OnInit {
   roleList$: Observable<Array<Cp2020Role>>;

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { News } from './../../../models/articles';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class DataService {
   constructor(private http: HttpClient) {}
 

@@ -8,7 +8,7 @@ import { CmbtTrckInstructionsComponent } from './../cmbt-trck-instructions/cmbt-
 import { CmbtTrckFormComponent } from './../cmbt-trck-form/cmbt-trck-form.component';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { CmbtTrckGearComponent } from './../cmbt-trck-gear/cmbt-trck-gear.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { DataService } from './../../shared/services/file-services';
 import { PipesModule } from './../../shared/pipes/pipes.module';
 import { CmbtTrkCyberComponent } from './../cmbt-trk-cyber/cmbt-trk-cyber.component';
@@ -25,17 +25,7 @@ describe('CmbtTrckMainComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [
-        CommonUiModule,
-        PipesModule,
-        HttpClientModule,
-        Cp2020weaponsModule,
-        Cp2020StatsModule,
-        Cp2020WoundsModule,
-        Cp2020ArmorModule,
-        BrowserAnimationsModule
-      ],
-      declarations: [
+    declarations: [
         CmbtTrckMainComponent,
         CmbtTrckFormComponent,
         CmbtTrckOpponentCardComponent,
@@ -43,13 +33,21 @@ describe('CmbtTrckMainComponent', () => {
         CmbtTrkCyberComponent,
         CmbtTrckGearComponent,
         CmbtTrckInstructionsComponent
-      ],
-      providers: [
+    ],
+    imports: [CommonUiModule,
+        PipesModule,
+        Cp2020weaponsModule,
+        Cp2020StatsModule,
+        Cp2020WoundsModule,
+        Cp2020ArmorModule,
+        BrowserAnimationsModule],
+    providers: [
         DiceService,
         DataService,
-        SeoService
-      ]
-    })
+        SeoService,
+        provideHttpClient(withInterceptorsFromDi())
+    ]
+})
     .compileComponents();
   }));
 

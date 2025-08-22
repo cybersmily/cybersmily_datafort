@@ -3,9 +3,10 @@ import { Cp2020Drug, CpDrug, Cp2020DrugList } from './../../shared/models/drug';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-drug-lab-main',
-  templateUrl: './drug-lab-main.component.html',
-  styleUrls: ['./drug-lab-main.component.css']
+    selector: 'cs-drug-lab-main',
+    templateUrl: './drug-lab-main.component.html',
+    styleUrls: ['./drug-lab-main.component.css'],
+    standalone: false
 })
 export class DrugLabMainComponent implements OnInit {
 

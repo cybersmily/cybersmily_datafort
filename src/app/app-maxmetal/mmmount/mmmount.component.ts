@@ -3,9 +3,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import {faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'cs-mmmount',
-  templateUrl: './mmmount.component.html',
-  styleUrls: ['./mmmount.component.css']
+    selector: 'cs-mmmount',
+    templateUrl: './mmmount.component.html',
+    styleUrls: ['./mmmount.component.css'],
+    standalone: false
 })
 export class MmmountComponent implements OnInit {
   faChevronDown = faChevronDown;

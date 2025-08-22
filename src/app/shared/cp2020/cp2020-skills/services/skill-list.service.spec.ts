@@ -1,5 +1,5 @@
 import { DataSkill } from './../models';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { DataService } from './../../../services/file-services';
 import { TestBed } from '@angular/core/testing';
 
@@ -12,9 +12,9 @@ describe('SkillListService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule],
-      providers: [DataService],
-    });
+    imports: [],
+    providers: [DataService, provideHttpClient(withInterceptorsFromDi())]
+});
     dataService = TestBed.inject(DataService);
     service = new SkillListService(dataService);
     testSkillList = new Array<DataSkill>();

@@ -5,9 +5,10 @@ import { Component, OnInit, Input, HostBinding} from '@angular/core';
 import { NrMapPositionService, NrMapGridService } from '../services';
 
 @Component({
-  selector: 'cs-nrgridbox',
-  templateUrl: './nrgridbox.component.html',
-  styleUrls: ['./nrgridbox.component.css']
+    selector: 'cs-nrgridbox',
+    templateUrl: './nrgridbox.component.html',
+    styleUrls: ['./nrgridbox.component.css'],
+    standalone: false
 })
 export class NrgridboxComponent implements OnInit {
 

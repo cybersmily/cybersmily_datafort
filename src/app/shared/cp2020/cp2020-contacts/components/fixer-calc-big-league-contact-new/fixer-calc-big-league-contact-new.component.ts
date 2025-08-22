@@ -16,9 +16,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'cs-fixer-calc-big-league-contact-new',
-  templateUrl: './fixer-calc-big-league-contact-new.component.html',
-  styleUrls: ['./fixer-calc-big-league-contact-new.component.css'],
+    selector: 'cs-fixer-calc-big-league-contact-new',
+    templateUrl: './fixer-calc-big-league-contact-new.component.html',
+    styleUrls: ['./fixer-calc-big-league-contact-new.component.css'],
+    standalone: false
 })
 export class FixerCalcBigLeagueContactNewComponent implements OnInit {
   faPlus = faPlus;

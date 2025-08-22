@@ -17,7 +17,7 @@ describe('SanitizeHtmlPipe', () => {
   }));
 
   it('create an instance', () => {
-    const pipe = new SanitizeHtmlPipe(TestBed.get(DomSanitizer));
+    const pipe = new SanitizeHtmlPipe(TestBed.inject(DomSanitizer));
     expect(pipe).toBeTruthy();
   });
 });

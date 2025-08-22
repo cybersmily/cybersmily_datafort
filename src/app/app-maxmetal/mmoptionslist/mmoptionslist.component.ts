@@ -2,9 +2,10 @@ import { MaxMetalVehicle, MaxMetalOption, MaxMetalVehOptList } from './../../sha
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-mmoptionslist',
-  templateUrl: './mmoptionslist.component.html',
-  styleUrls: ['./mmoptionslist.component.css']
+    selector: 'cs-mmoptionslist',
+    templateUrl: './mmoptionslist.component.html',
+    styleUrls: ['./mmoptionslist.component.css'],
+    standalone: false
 })
 export class MmoptionslistComponent implements OnInit {
 

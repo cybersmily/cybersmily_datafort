@@ -3,9 +3,10 @@ import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { Cp2020PlayerSkill } from '../../cp2020-skills/models';
 
 @Component({
-  selector: 'cs-i-u-combat-actions',
-  templateUrl: './i-u-combat-actions.component.html',
-  styleUrls: ['./i-u-combat-actions.component.css'],
+    selector: 'cs-i-u-combat-actions',
+    templateUrl: './i-u-combat-actions.component.html',
+    styleUrls: ['./i-u-combat-actions.component.css'],
+    standalone: false
 })
 export class IUCombatActionsComponent implements OnInit, OnChanges {
   @Input()

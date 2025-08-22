@@ -2,9 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NpcCard } from '../../../models/character';
 
 @Component({
-  selector: 'cs-npc-card-column',
-  templateUrl: './npc-card-column.component.html',
-  styleUrls: ['./npc-card-column.component.css']
+    selector: 'cs-npc-card-column',
+    templateUrl: './npc-card-column.component.html',
+    styleUrls: ['./npc-card-column.component.css'],
+    standalone: false
 })
 export class NpcCardColumnComponent implements OnInit {
 

@@ -15,6 +15,8 @@ import { CrCzFactionSelectorComponent } from './cr-cz-faction-selector/cr-cz-fac
 import { CrCzSquadFormComponent } from './cr-cz-squad-form/cr-cz-squad-form.component';
 import { CrCzObjectiveListComponent } from './cr-cz-objective-list/cr-cz-objective-list.component';
 import { CrCzGearCardComponent } from './cr-cz-gear-card/cr-cz-gear-card.component';
+import { CrCzProgramCardComponent } from './cr-cz-program-card/cr-cz-program-card.component';
+import { CrCzSourceSelectorComponent } from './cr-cz-source-selector/cr-cz-source-selector.component';
 
 
 @NgModule({
@@ -28,13 +30,15 @@ import { CrCzGearCardComponent } from './cr-cz-gear-card/cr-cz-gear-card.compone
     CrCzFactionSelectorComponent,
     CrCzSquadFormComponent,
     CrCzObjectiveListComponent,
-    CrCzGearCardComponent
+    CrCzGearCardComponent,
+    CrCzProgramCardComponent
   ],
   imports: [
     CommonModule,
     CommonUiModule,
     AppCpCombatZoneRoutingModule,
-    PipesModule
+    PipesModule,
+    CrCzSourceSelectorComponent
 ],
   providers: [
     DataService

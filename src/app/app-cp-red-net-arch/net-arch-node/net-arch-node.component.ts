@@ -5,9 +5,10 @@ import { Component, Input, OnInit, Output, EventEmitter, TemplateRef, OnChanges 
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
-  selector: 'cs-net-arch-node',
-  templateUrl: './net-arch-node.component.html',
-  styleUrls: ['./net-arch-node.component.css']
+    selector: 'cs-net-arch-node',
+    templateUrl: './net-arch-node.component.html',
+    styleUrls: ['./net-arch-node.component.css'],
+    standalone: false
 })
 export class NetArchNodeComponent implements OnInit {
 

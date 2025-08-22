@@ -6,9 +6,10 @@ import { faAngleDoubleRight, faAngleDoubleDown, faDice,
   faSkullCrossbones, faEyeSlash, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'cs-cmbt-trck-instructions',
-  templateUrl: './cmbt-trck-instructions.component.html',
-  styleUrls: ['./cmbt-trck-instructions.component.css']
+    selector: 'cs-cmbt-trck-instructions',
+    templateUrl: './cmbt-trck-instructions.component.html',
+    styleUrls: ['./cmbt-trck-instructions.component.css'],
+    standalone: false
 })
 export class CmbtTrckInstructionsComponent implements OnInit {
   isCollapsed = true;

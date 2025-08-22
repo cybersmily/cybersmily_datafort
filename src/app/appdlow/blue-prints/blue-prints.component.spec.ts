@@ -1,9 +1,10 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { DataService } from './../../shared/services/file-services';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { BluePrintsComponent } from './blue-prints.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('BluePrintsComponent', () => {
   let component: BluePrintsComponent;
@@ -11,15 +12,14 @@ describe('BluePrintsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ BluePrintsComponent ],
-      imports: [
-        CommonUiModule,
-        HttpClientTestingModule
-      ],
-      providers: [
-        DataService
-      ]
-    })
+    declarations: [BluePrintsComponent],
+    imports: [CommonUiModule],
+    providers: [
+        DataService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
   }));
 

@@ -87,6 +87,7 @@ export class CrCzArmyPdfService {
           left === PdfPageSettings.MARGIN_LEFT
             ? PdfPageSettings.MIDPAGE_LANDSCAPE
             : PdfPageSettings.MARGIN_LEFT;
+        this._doc.addPage();
         line = pageTop;
         line = this.createTeamMemberHeader(line, left);
       }

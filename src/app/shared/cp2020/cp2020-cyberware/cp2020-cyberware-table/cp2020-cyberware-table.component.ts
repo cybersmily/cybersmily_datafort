@@ -27,9 +27,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-cyberware-table',
-  templateUrl: './cp2020-cyberware-table.component.html',
-  styleUrls: ['./cp2020-cyberware-table.component.css'],
+    selector: 'cs-cp2020-cyberware-table',
+    templateUrl: './cp2020-cyberware-table.component.html',
+    styleUrls: ['./cp2020-cyberware-table.component.css'],
+    standalone: false
 })
 export class Cp2020CyberwareTableComponent implements OnInit {
   faDice = faDice;

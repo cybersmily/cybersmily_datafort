@@ -8,9 +8,10 @@ import { faDice, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit, Input, Output, EventEmitter, TemplateRef, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-stats',
-  templateUrl: './cp2020-stats.component.html',
-  styleUrls: ['./cp2020-stats.component.css']
+    selector: 'cs-cp2020-stats',
+    templateUrl: './cp2020-stats.component.html',
+    styleUrls: ['./cp2020-stats.component.css'],
+    standalone: false
 })
 export class Cp2020StatsComponent implements OnInit {
   faDice = faDice;

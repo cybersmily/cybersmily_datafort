@@ -19,7 +19,7 @@ describe('FixerHotStuffService', () => {
   });
 
   it('should be created', () => {
-    const service: FixerHotStuffService = TestBed.get(FixerHotStuffService);
+    const service: FixerHotStuffService = TestBed.inject(FixerHotStuffService);
     expect(service).toBeTruthy();
   });
 

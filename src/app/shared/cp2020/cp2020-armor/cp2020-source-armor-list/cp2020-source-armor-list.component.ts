@@ -5,9 +5,10 @@ import { Cp2020ArmorPiece } from './../models/cp2020-armor-piece';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-source-armor-list',
-  templateUrl: './cp2020-source-armor-list.component.html',
-  styleUrls: ['./cp2020-source-armor-list.component.css'],
+    selector: 'cs-cp2020-source-armor-list',
+    templateUrl: './cp2020-source-armor-list.component.html',
+    styleUrls: ['./cp2020-source-armor-list.component.css'],
+    standalone: false
 })
 export class Cp2020SourceArmorListComponent implements OnInit {
   columns: Array<DataListColumnParameters> = [

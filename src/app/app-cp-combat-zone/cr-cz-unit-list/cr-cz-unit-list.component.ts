@@ -2,18 +2,20 @@ import { Component, Input } from '@angular/core';
 import { CrCzUnitDataService } from '../services/cr-cz-unit-data/cr-cz-unit-data.service';
 import { take, Observable } from 'rxjs';
 import { iCrCzUnitCardData } from '../models/cr-cz-unit-card';
-import {faPlus,
+import {faBookBookmark, faPlus,
   faStar,
   faUsers,
   faUsersSlash
 } from '@fortawesome/free-solid-svg-icons';
 import { CrCzArmyBuilderService } from '../services/cr-cz-army-builder/cr-cz-army-builder.service';
 import { KeyValue } from '@angular/common';
+import { CrCzReleasesDataService } from '../services/cr-cz-releases-data/cr-cz-releases-data.service';
 
 @Component({
-  selector: 'cs-cr-cz-unit-list',
-  templateUrl: './cr-cz-unit-list.component.html',
-  styleUrls: ['./cr-cz-unit-list.component.css']
+    selector: 'cs-cr-cz-unit-list',
+    templateUrl: './cr-cz-unit-list.component.html',
+    styleUrls: ['./cr-cz-unit-list.component.css'],
+    standalone: false
 })
 export class CrCzUnitListComponent {
 
@@ -21,17 +23,20 @@ export class CrCzUnitListComponent {
   faPlus = faPlus;
   faUsers = faUsers;
   faUsersSlash = faUsersSlash;
+  faBookBookmark = faBookBookmark;
 
 
   searchName: string = '';
   filterFaction: string = '';
   searchKeywords: string = '';
   searchFilter: Array<string>;
+  releaseFilter: Array<string>;
   streetCredFilter: Array<number> = [0,1,2,10];
   skillFilter: Array<string> = [];
   showSelected: boolean = true;
 
   dataList$: Observable<Array<iCrCzUnitCardData>>;
+  releaseList$: Observable<Array<string>>;
 
   @Input()
   faction: string = '';
@@ -39,7 +44,7 @@ export class CrCzUnitListComponent {
   @Input()
   squadIndex: number = 0;
 
-  constructor(private unitDataService: CrCzUnitDataService, private armyBuilder: CrCzArmyBuilderService){}
+  constructor(private unitDataService: CrCzUnitDataService, private armyBuilder: CrCzArmyBuilderService, private releaseListService: CrCzReleasesDataService){}
 
   ngOnInit() {
     this.dataList$ = this.unitDataService.unitList;
@@ -117,6 +122,10 @@ export class CrCzUnitListComponent {
     } else {
       this.skillFilter.push(skill);
     }
+  }
+
+  filterOnRelease(event: Array<string>): void {
+    this.releaseFilter = [...event];
   }
 
 }

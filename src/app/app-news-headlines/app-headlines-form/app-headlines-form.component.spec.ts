@@ -1,6 +1,6 @@
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { DataService } from './../../shared/services/file-services';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppHeadlinesFormComponent } from './app-headlines-form.component';
@@ -11,15 +11,14 @@ describe('CpHeadlinesFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AppHeadlinesFormComponent ],
-      imports: [
-        HttpClientModule
-      ],
-      providers: [
+    declarations: [AppHeadlinesFormComponent],
+    imports: [],
+    providers: [
         DataService,
-        DiceService
-      ]
-    })
+        DiceService,
+        provideHttpClient(withInterceptorsFromDi())
+    ]
+})
     .compileComponents();
   });
 

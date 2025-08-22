@@ -7,9 +7,10 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { faRedo, faDice } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'cs-cp2020-hot-stuff-contacts',
-  templateUrl: './cp2020-hot-stuff-contacts.component.html',
-  styleUrls: ['./cp2020-hot-stuff-contacts.component.css'],
+    selector: 'cs-cp2020-hot-stuff-contacts',
+    templateUrl: './cp2020-hot-stuff-contacts.component.html',
+    styleUrls: ['./cp2020-hot-stuff-contacts.component.css'],
+    standalone: false
 })
 export class Cp2020HotStuffContactsComponent implements OnInit {
   faRedo = faRedo;

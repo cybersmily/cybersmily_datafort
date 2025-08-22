@@ -3,9 +3,10 @@ import { HotStuffArea } from './../../models';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-fixer-calc-hot-stuff-area',
-  templateUrl: './fixer-calc-hot-stuff-area.component.html',
-  styleUrls: ['./fixer-calc-hot-stuff-area.component.css'],
+    selector: 'cs-fixer-calc-hot-stuff-area',
+    templateUrl: './fixer-calc-hot-stuff-area.component.html',
+    styleUrls: ['./fixer-calc-hot-stuff-area.component.css'],
+    standalone: false
 })
 export class FixerCalcHotStuffAreaComponent implements OnInit {
   faPen = faPen;

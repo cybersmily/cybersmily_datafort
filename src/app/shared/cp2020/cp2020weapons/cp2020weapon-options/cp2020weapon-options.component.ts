@@ -13,9 +13,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020weapon-options',
-  templateUrl: './cp2020weapon-options.component.html',
-  styleUrls: ['./cp2020weapon-options.component.css'],
+    selector: 'cs-cp2020weapon-options',
+    templateUrl: './cp2020weapon-options.component.html',
+    styleUrls: ['./cp2020weapon-options.component.css'],
+    standalone: false
 })
 export class Cp2020weaponOptionsComponent implements OnInit, OnChanges {
   faTrash = faTrash;
