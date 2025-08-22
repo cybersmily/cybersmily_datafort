@@ -1,5 +1,5 @@
 import { faStar, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, input, output } from '@angular/core';
 import { CrCzGearDataService } from '../services/cr-cz-gear-data/cr-cz-gear-data.service';
 import { Observable } from 'rxjs';
 import { iCrCzGearItemCard } from '../models/cr-cz-gear-item-card';
@@ -20,33 +20,22 @@ export class CrCzGearListComponent implements OnInit {
   fitlerKeyword: string = '';
   filterCred: Array<number> = [10];
   filterEB: number;
+  filterReleases: Array<string>;
 
-  @Input()
-  filterFaction: string = '';
+  filterFaction= input<string>('');
+  teamFaction = input<string>('');
+  unitKeywords = input<Array<string>>([]);
+  totalStreetcred = input<number>(0);
+  existingGear = input<Array<string>>([]);
+  characterGear = input<Array<string>>([]);
 
-  @Input()
-  teamFaction: string;
-
-  @Input()
-  unitKeywords: Array<string> = [];
-
-  @Input()
-  totalStreetcred: number = 0;
-
-  @Input()
-  existingGear: Array<string> = [];
-
-  @Input()
-  characterGear: Array<string> = [];
-
-  @Output()
-  addGear: EventEmitter<iCrCzGearItemCard> = new EventEmitter<iCrCzGearItemCard>();
+  addGear = output<iCrCzGearItemCard>();
 
   constructor(private gearDataService: CrCzGearDataService){}
 
   ngOnInit(): void {
     this.dataList$ = this.gearDataService.gearList;
-    for( let i = 0; i < (this.totalStreetcred + 1); i++) {
+    for( let i = 0; i < (this.totalStreetcred() + 1); i++) {
       this.filterCred.push(i);
     }
 
@@ -58,11 +47,11 @@ export class CrCzGearListComponent implements OnInit {
   }
 
   getCount(title: string): number {
-    return this.existingGear.filter(name => name === title).length;
+    return this.existingGear().filter(name => name === title).length;
   }
 
   characterHasGear(title: string): boolean {
-    return this.characterGear?.includes(title);
+    return this.characterGear()?.includes(title);
   }
 
   checkRarity(title: string, rarity: number): boolean {
@@ -82,5 +71,10 @@ export class CrCzGearListComponent implements OnInit {
     }
     // need to trigger the filter pipe by recreating the array.
     this.filterCred = [...this.filterCred];
+  }
+
+  filterOnRelease(event: Array<string>): void {
+    this.filterReleases = [...event];
+
   }
 }

@@ -34,7 +34,6 @@ export class CrCzProgramListComponent {
   }
 
   releaseFilter($event): void {
-    console.log('event',$event);
     this.filterReleases = $event;
   }
 
