@@ -16,6 +16,7 @@ import { OrderByPropsPipe } from './order-by-props.pipe';
 import { GreaterThanPipe } from './greater-than.pipe';
 import { EncodeForXmlPipe } from './encode-for-xml.pipe';
 import { FilterWithArrayPipe } from './filter-with-array.pipe';
+import { UniqueValuesPipe } from './unique-values.pipe';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { FilterWithArrayPipe } from './filter-with-array.pipe';
     OrderByPropsPipe,
     GreaterThanPipe,
     EncodeForXmlPipe,
+    UniqueValuesPipe,
   ],
   imports: [CommonModule],
   exports: [
@@ -53,6 +55,7 @@ import { FilterWithArrayPipe } from './filter-with-array.pipe';
     HasValuePipe,
     OrderByPropsPipe,
     GreaterThanPipe,
+    UniqueValuesPipe,
   ],
 })
 export class PipesModule {}
