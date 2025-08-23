@@ -1,9 +1,9 @@
 @if(dataList$ | async; as programList) {
-<cs-cr-cz-faction-selector [selectedFaction]="filterFaction" [hiddenFactions]="['universal']" (selected)="setFaction($event)"></cs-cr-cz-faction-selector>
+<cs-cr-cz-faction-selector [selectedFaction]="currentFilterFaction" [hiddenFactions]="['universal']" (selected)="setFaction($event)"></cs-cr-cz-faction-selector>
 <cs-cr-cz-source-selector (selectedSource)="releaseFilter($event)" [filter]="programList | uniqueValues:'release'"></cs-cr-cz-source-selector>
 <div class="row">
   <div class="col-12">
-    @for(program of programList |contains:'faction':[filterFaction, 'universal'] |contains:'release':filterReleases;track $index){
+    @for(program of programList |contains:'faction':[currentFilterFaction, 'universal'] |contains:'release':filterReleases;track $index){
       <cs-cr-cz-program-card [crczProgram]="program" (selectProgram)="buy($event)"></cs-cr-cz-program-card>
   }
   </div>

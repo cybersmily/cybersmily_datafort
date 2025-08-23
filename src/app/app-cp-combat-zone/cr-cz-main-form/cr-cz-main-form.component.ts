@@ -6,15 +6,10 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./cr-cz-main-form.component.css'],
     standalone: false
 })
-export class CrCzMainFormComponent implements OnInit {
+export class CrCzMainFormComponent {
   showUnitList: boolean = true;
   showGearList: boolean = false;
   showProgramsList: boolean = false;
-
-  constructor() {}
-
-  ngOnInit(): void {
-  }
 
   toggle(tab: string): void {
     this.showUnitList = (tab === "units");

@@ -1,5 +1,5 @@
 import { faStar, faTrash, faPlus, faQuestionCircle, faBookBookmark, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
-import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
+import { Component, input, Input, OnInit, output } from '@angular/core';
 import { iCrCzGearItemCard } from '../models/cr-cz-gear-item-card';
 import { Observable } from 'rxjs';
 import { CrCzReleasesDataService } from '../services/cr-cz-releases-data/cr-cz-releases-data.service';
@@ -18,35 +18,17 @@ export class CrCzGearCardComponent implements OnInit {
   faBookmark = faBookBookmark;
   faCircleCheck = faCircleCheck;
 
-  @Input()
-  gear: iCrCzGearItemCard;
+  gear = input<iCrCzGearItemCard>();
+  unitKeywords = input<Array<string>>([]);
+  teamFaction = input<string>();
+  gearIndex = input<number>(-1);
+  totalStreetcred = input<number>(0);
+  count = input<number>(0);
+  hasBulky = input<boolean>();
+  hasGear = input<boolean>();
 
-  @Input()
-  gearIndex: number = -1;
-
-  @Input()
-  totalStreetcred: number = 0;
-
-  @Input()
-  unitKeywords: Array<string> = [];
-
-  @Input()
-  teamFaction: string;
-
-  @Input()
-  count: number = 0;
-
-  @Input()
-  hasBulky: boolean = false;
-
-  @Input()
-  hasGear: boolean;
-
-  @Output()
-  remove: EventEmitter<number> = new EventEmitter<number>();
-
-  @Output()
-  add: EventEmitter<iCrCzGearItemCard> = new EventEmitter<iCrCzGearItemCard>();
+  remove = output<number>();
+  add = output<iCrCzGearItemCard>();
 
   releases: Array<string>;
   releaseList$: Observable<Array<string>>;
@@ -54,15 +36,15 @@ export class CrCzGearCardComponent implements OnInit {
   constructor(private releaseListService: CrCzReleasesDataService) {}
 
   ngOnInit(): void {
-    this.releaseList$ = this.releaseListService.GetFullReleaseNames(this.gear.release);
+    this.releaseList$ = this.releaseListService.GetFullReleaseNames(this.gear().release);
   }
 
   get rarityValid(): boolean {
-    return this.count <= this.gear.rarity;
+    return this.count() <= this.gear().rarity;
   }
 
   get credValid(): boolean {
-    return this.gear.cred <= this.totalStreetcred ;
+    return this.gear().cred <= this.totalStreetcred() ;
   }
 
   get isValid(): boolean {
@@ -70,14 +52,14 @@ export class CrCzGearCardComponent implements OnInit {
   }
 
   removeGear(): void {
-    if(this.gearIndex > -1) {
-      this.remove.emit(this.gearIndex);
+    if(this.gearIndex() > -1) {
+      this.remove.emit(this.gearIndex());
     }
   }
 
   addGear(): void {
-    if(this.gearIndex < 0) {
-      this.add.emit(this.gear);
+    if(this.gearIndex() < 0) {
+      this.add.emit(this.gear());
     } else {
       this.toggleCard();
     }
@@ -91,7 +73,7 @@ export class CrCzGearCardComponent implements OnInit {
   }
 
   toggleCard(): void {
-    this.gear.flipped = !this.gear.flipped;
+    this.gear().flipped = !this.gear().flipped;
   }
 
 }

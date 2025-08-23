@@ -1,7 +1,7 @@
 <div class="d-inline-block position-relative me-3" [ngStyle]="programCardStyle">
   @if(showBothSides() || !crczProgram().isRunning) {
   <div class="d-inline-block float-start position-relative my-1" [ngStyle]="programCardSideStyle.dimensions">
-    <img class="d-inline-block position-absolute top-0 left-0 w-100 rounded"
+    <img class="d-inline-block position-absolute top-0 left-0 w-100 rounded" alt="image of blank card for loading the program."
       src="/img/cz/blank_program_l_{{crczProgram().action}}.png" />
     <div class="d-inline-block position-absolute text-white fw-bold" [ngStyle]="programCardSideStyle.creds">
       {{crczProgram().cred}}</div>
@@ -20,7 +20,7 @@
   }
   @if(showBothSides() || crczProgram().isRunning) {
   <div class="d-inline-block float-start position-relative my-1" [ngStyle]="programCardSideStyle.dimensions">
-    <img class="d-inline-block position-absolute top-0 left-0 w-100 rounded" src="/img/cz/blank_program_r.png" />
+    <img class="d-inline-block position-absolute top-0 left-0 w-100 rounded" alt="blank program card design" src="/img/cz/blank_program_r.png" />
     <div class="d-inline-block position-absolute text-white fw-bold" [ngStyle]="programCardSideStyle.creds">
       {{crczProgram().cred}}</div>
     <div class="d-inline-block position-absolute text-white text-small" [ngStyle]="programCardSideStyle.title">
@@ -41,7 +41,7 @@
   <div [ngClass]="{'float-end d-inline-block position-relative': true}" [ngStyle]="programMenuStyle">
     @if(!showBothSides()) {
     <button class="float-start border border-secondary text-danger p-1 rounded bg-light"
-    [title]="(crczProgram().isRunning ? 'Refresh Program' : 'Run Program' )" (click)="toggleRunningStatus(!crczProgram().isRunning)">
+    title="{{(crczProgram().isRunning ? 'Refresh Program' : 'Run Program' )}}" (click)="toggleRunningStatus(!crczProgram().isRunning)">
       <fa-icon [icon]="(crczProgram().isRunning ? faRedo : faPlay)" size="xl"></fa-icon>
     </button>
     }

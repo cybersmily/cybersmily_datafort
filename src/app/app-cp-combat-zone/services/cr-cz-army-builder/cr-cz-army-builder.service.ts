@@ -1,11 +1,10 @@
 import {
-  CrCzUnit,
-  iCrCzUnitCardData,
-  iCrCzUnitCard,
-  CreateCombatZoneUnitFromObject,
-} from './../../models/cr-cz-unit-card';
+  CrCzCharacter,
+  iCrCzCharacterCardData,
+  iCrCzCharacterCard,
+} from '../../models/cr-cz-character-card';
 import { Injectable } from '@angular/core';
-import { CrCzSquad, CreateCombatZoneTeam, iCrCzSquad } from '../../models/cr-cz-squad';
+import { iCrCzSquad } from '../../models/cr-cz-squad';
 import { BehaviorSubject, Observable, take, map, of } from 'rxjs';
 import { iCrCzGearItemCard } from '../../models/cr-cz-gear-item-card';
 import { iCrCzNrProgramCard } from '../../models/cr-cz-nr-program-card';
@@ -13,6 +12,8 @@ import { iCrCzLootCard } from '../../models/cr-cz-loot-card';
 import { LocalStorageManagerService } from './../../../shared/services/local-storage-manager/local-storage-manager.service';
 import { CRCZ_LOCAL_STORAGE_KEY } from '../../models/cr-cz-types';
 import { iCrCzObjectiveCard } from '../../models/cr-cz-objective-card';
+import { CreateCombatZoneCharacterFromObject } from '../../functions/create-combat-zone-character-from-object';
+import { CreateCombatZoneTeam } from '../../functions/create-combat-zone-team';
 
 @Injectable({
   providedIn: 'root',
@@ -106,7 +107,7 @@ export class CrCzArmyBuilderService {
     this.saveArmy(army);
   }
 
-  getUnit(squadIndex: number, unitIndex: number): Observable<iCrCzUnitCard> {
+  getUnit(squadIndex: number, unitIndex: number): Observable<iCrCzCharacterCard> {
     return this.army.pipe(
       take(1),
       map((army) => army[squadIndex].units[unitIndex])
@@ -115,11 +116,11 @@ export class CrCzArmyBuilderService {
 
   addUnit(
     armyIndex: number,
-    unit: iCrCzUnitCardData,
+    unit: iCrCzCharacterCardData,
     streetCred: number
   ): void {
     let army = [...this._army.getValue()];
-    let newUnit: CrCzUnit = new CrCzUnit();
+    let newUnit: CrCzCharacter = new CrCzCharacter();
     newUnit.name = unit.name;
     newUnit.eb = unit.eb;
     newUnit.cred = streetCred;
@@ -160,7 +161,7 @@ export class CrCzArmyBuilderService {
   ): boolean {
     let army = this._army.getValue();
     return army[squadIndex]?.units.some(
-      (unit: iCrCzUnitCard) =>
+      (unit: iCrCzCharacterCard) =>
         unit?.name === unitName && unit?.cred == unitStreetcred
     );
   }
@@ -168,21 +169,21 @@ export class CrCzArmyBuilderService {
   hasSpecialist(squadIndex: number, unitName: string): boolean {
     let army = this._army.getValue();
     return army[squadIndex]?.units.some(
-      (unit: iCrCzUnitCard) =>
+      (unit: iCrCzCharacterCard) =>
         unit?.name === unitName && unit?.keywords.includes('specialist')
     );
   }
 
   hasLeader(squadIndex: number): boolean {
     let army = this._army.getValue();
-    return army[squadIndex]?.units.some((unit: iCrCzUnitCard) =>
+    return army[squadIndex]?.units.some((unit: iCrCzCharacterCard) =>
       unit?.keywords.includes('leader')
     );
   }
 
   leaderCount(squadIndex: number): number {
     let army = this._army.getValue();
-    return army[squadIndex]?.units.filter((unit: iCrCzUnitCard) =>
+    return army[squadIndex]?.units.filter((unit: iCrCzCharacterCard) =>
       unit?.keywords.includes('leader')
     ).length;
   }
@@ -194,7 +195,7 @@ export class CrCzArmyBuilderService {
   ): number {
     let army = this._army.getValue();
     return army[squadIndex]?.units.filter(
-      (unit: CrCzUnit) =>
+      (unit: CrCzCharacter) =>
         unit?.name === unitName && unit?.cred == unitStreetcred
     ).length;
   }
@@ -220,9 +221,9 @@ export class CrCzArmyBuilderService {
     this.saveArmy(army);
   }
 
-  updateUnit(squadIndex: number, unitIndex: number, unit: iCrCzUnitCard): void {
+  updateUnit(squadIndex: number, unitIndex: number, unit: iCrCzCharacterCard): void {
     let army = this._army.getValue();
-    army[squadIndex].units[unitIndex] = CreateCombatZoneUnitFromObject(unit);
+    army[squadIndex].units[unitIndex] = CreateCombatZoneCharacterFromObject(unit);
     this.saveArmy(army);
   }
 

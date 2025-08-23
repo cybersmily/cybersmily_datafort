@@ -5,8 +5,8 @@ import { AppCpCombatZoneRoutingModule } from './app-cp-combat-zone-routing.modul
 import { CommonUiModule } from '../shared/modules/common-ui/common-ui.module';
 import { DataService } from '../shared/services/file-services';
 import { CrCzMainFormComponent } from './cr-cz-main-form/cr-cz-main-form.component';
-import { CrCzUnitFormComponent } from "./cr-cz-unit-form/cr-cz-unit-form.component";
-import { CrCzUnitListComponent } from "./cr-cz-unit-list/cr-cz-unit-list.component";
+import { CrCzCharacterFormComponent } from "./cr-cz-character-form/cr-cz-character-form.component";
+import { CrCzCharacterListComponent } from "./cr-cz-character-list/cr-cz-character-list.component";
 import { CrCzProgramListComponent } from './cr-cz-program-list/cr-cz-program-list.component';
 import { CrCzGearListComponent } from "./cr-cz-gear-list/cr-cz-gear-list.component";
 import { PipesModule } from '../shared/pipes/pipes.module';
@@ -22,8 +22,8 @@ import { CrCzSourceSelectorComponent } from './cr-cz-source-selector/cr-cz-sourc
 @NgModule({
   declarations: [
     CrCzMainFormComponent,
-    CrCzUnitListComponent,
-    CrCzUnitFormComponent,
+    CrCzCharacterListComponent,
+    CrCzCharacterFormComponent,
     CrCzProgramListComponent,
     CrCzGearListComponent,
     CrCzArmyListComponent,

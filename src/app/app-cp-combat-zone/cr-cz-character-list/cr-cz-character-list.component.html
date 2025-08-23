@@ -88,113 +88,115 @@
 </div>
 }
 <ng-template #unitRow let-name="name" let-keywords="keywords" let-release="release" let-ranks="ranks" let-cost="cost">
-  <ng-container *ngFor="let unit of ranks;index as i">
-    @if(streetCredFilter.includes(unit?.cred)) {
+  @for(unit of ranks; track $index; let i = $index) {
+  @if(streetCredFilter.includes(unit?.cred)) {
+  <div
+    [ngClass]="{ 'row mt-2': true, 'bg-warning': hasUnit(name, unit?.cred),'d-none': (!showSelected && hasUnit(name, unit?.cred)) }"
+    [title]="disabledMessage(keywords, name)">
+    @if(disabledMessage(keywords, name)) {
+    <div class="col-12 text-small ps-5">
+      {{disabledMessage(keywords, name)}}
+    </div>
+    }
+    <div class="col-2 col-md-1 text-center px-0">
+      <button title="Add character to squad." class="border border-secondary text-center rounded csd-btn p-2"
+        (click)="add(name, unit.cred)" [disabled]="(hasLeader && isLeader(keywords)) || (hasSpecialist(name))">
+        <fa-icon [icon]="faPlus" size="xl"></fa-icon>
+      </button>
+      <div>{{countOfUnit(name, unit.cred) + ' ' }}</div>
+    </div>
     <div
-      [ngClass]="{ 'row mt-2': true, 'bg-warning': hasUnit(name, unit?.cred),'d-none': (!showSelected && hasUnit(name, unit?.cred)) }"
-      [title]="disabledMessage(keywords, name)">
-      @if(disabledMessage(keywords, name)) {
-      <div class="col-12 text-small ps-5">
-        {{disabledMessage(keywords, name)}}
-      </div>
-      }
-      <div class="col-2 col-md-1 text-center px-0">
-        <button title="Add character to squad." class="border border-secondary text-center rounded csd-btn p-2"
-          (click)="add(name, unit.cred)" [disabled]="(hasLeader && isLeader(keywords)) || (hasSpecialist(name))">
-          <fa-icon [icon]="faPlus" size="xl"></fa-icon>
-        </button>
-        <div>{{countOfUnit(name, unit.cred) + ' ' }}</div>
-      </div>
-      <div
-        [ngClass]="{'col-10 col-md-4 col-lg-3 text-capitalize rounded': true, 'text-secondary': (hasLeader && isLeader(keywords)) || (hasSpecialist(name))}">
-        <div class="row">
-          <div class="col-2 col-lg-1 px-0">
-            <button title ="Unit card for {{name}}" class="csd-img-icon w-100 csd-btn" [popover]="FullImage" triggers="focus" containerClass="w-100">
-              <img alt="Unit card for {{name}}" class="csd-img-icon w-100 csd-btn" src="img/cz/units/{{name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
-              </button>
-            <ng-template #FullImage>
-              <img class="w-100" alt="Unit card for {{name}}"
-                src="img/cz/units/{{name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
-            </ng-template>
-          </div>
-          <div class="col-10 col-lg-11 px-0">
-            <h5 class="d-inline-block mb-0 pb-0">{{name}}
-              @if(unit.cred > 1) {
-                <fa-icon [icon]="faStar" class="elite-icon text-small"></fa-icon>
-              }
-              @if(unit.cred > 0) {
-                <fa-icon [icon]="faStar" class="mt-0 ms-0 ps-0 align-top"></fa-icon>
-              }
-              @if(releaseListService.GetFullReleaseNames(release) | async; as releases) {
-              <button class="csd-btn csd-icon-btn" title="Show releases" [popover]="sourceBooks" triggers="focus">
-                <fa-icon [icon]="faBookBookmark" class="mt-3"></fa-icon>
-              </button>
-              <ng-template #sourceBooks><b>{{ name | titlecase }}</b> appears in these
-                product:<br>{{releases.join(',
-                ')}}</ng-template>
-              }
-            </h5>
-            <div class="ms-2 mt-0 pt-0 text-capitalize text-small fst-italic">
-              {{keywords?.join(", ")}}
-            </div>
-          </div>
+      [ngClass]="{'col-10 col-md-4 col-lg-3 text-capitalize rounded': true, 'text-secondary': (hasLeader && isLeader(keywords)) || (hasSpecialist(name))}">
+      <div class="row">
+        <div class="col-2 col-lg-1 px-0">
+          <button title="Unit card for {{name}}" class="csd-img-icon w-100 csd-btn" [popover]="FullImage"
+            triggers="focus" containerClass="w-100">
+            <img alt="Unit card for {{name}}" class="csd-img-icon w-100 csd-btn"
+              src="img/cz/units/{{name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
+          </button>
+          <ng-template #FullImage>
+            <img class="w-100" alt="Unit card for {{name}}"
+              src="img/cz/units/{{name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
+          </ng-template>
         </div>
-      </div>
-      <div class="col-2 d-md-none">
-      </div>
-      <div class="col-2 col-md-1 text-small">
-        {{cost}}eb
-      </div>
-      <div class="col-8 col-md-5 col-lg-6">
-        <div class="row">
-          <div class="col-6 p-0 m-0">
-            @if(unit.reflex > 0){
-            <span title="Reflex/Move Action">
-              <img class="action-icon" src="img/cz/action_reflex.png" alt="Reflex/Move Action">
-              {{unit.reflex}}
-            </span>
+        <div class="col-10 col-lg-11 px-0">
+          <h5 class="d-inline-block mb-0 pb-0">{{name}}
+            @if(unit.cred > 1) {
+            <fa-icon [icon]="faStar" class="elite-icon text-small"></fa-icon>
             }
-            @if(unit.melee > 0){
-            <span title="Melee Action">
-              <img class="action-icon" src="img/cz/action_melee.png" alt="Melee Action">
-              {{unit.melee}}
-            </span>
+            @if(unit.cred > 0) {
+            <fa-icon [icon]="faStar" class="mt-0 ms-0 ps-0 align-top"></fa-icon>
             }
-            @if(unit.ranged > 0){
-            <span title="Ranged Attack Action">
-              <img class="action-icon" src="img/cz/action_ranged.png" alt="Ranged Attack Action">
-              {{unit.ranged}}
-            </span>
+            @if(releaseListService.GetFullReleaseNames(release) | async; as releases) {
+            <button class="csd-btn csd-icon-btn" title="Show releases" [popover]="sourceBooks" triggers="focus">
+              <fa-icon [icon]="faBookBookmark" class="mt-3"></fa-icon>
+            </button>
+            <ng-template #sourceBooks><b>{{ name | titlecase }}</b> appears in these
+              product:<br>{{releases.join(',
+              ')}}</ng-template>
             }
-            @if(unit.tech > 0){
-            <span title="Basic Tech Action">
-              <img class="action-icon" src="img/cz/action_tech.png" alt="Basic Tech Action">
-              {{unit.tech}}
-            </span>
-            }
-            @if(unit.med > 0){
-            <span title="Basic Med Action">
-              <img class="action-icon" src="img/cz/action_med.png" alt="Basic Med Action">
-              {{unit.med}}
-            </span>
-            }
-            @if(unit.influence > 0){
-            <span title="Basic Influence Action">
-              <img class="action-icon" src="img/cz/action_influence.png" alt="Basic Influence Action">
-              {{unit.influence}}
-            </span>
-            }
-          </div>
-          <div class="col-6 p-0 m-0 ps-1">
-            @for(action of unit.actions; track $index) {
-            <span>
-              <img style="width: 20px;" src="img/cz/{{action.trim()}}_active.png" alt="">
-            </span>
-            }
+          </h5>
+          <div class="ms-2 mt-0 pt-0 text-capitalize text-small fst-italic">
+            {{keywords?.join(", ")}}
           </div>
         </div>
       </div>
     </div>
-    }
-  </ng-container>
+    <div class="col-2 d-md-none">
+    </div>
+    <div class="col-2 col-md-1 text-small">
+      {{cost}}eb
+    </div>
+    <div class="col-8 col-md-5 col-lg-6">
+      <div class="row">
+        <div class="col-6 p-0 m-0">
+          @if(unit.reflex > 0){
+          <span title="Reflex/Move Action">
+            <img class="action-icon" src="img/cz/action_reflex.png" alt="Reflex/Move Action">
+            {{unit.reflex}}
+          </span>
+          }
+          @if(unit.melee > 0){
+          <span title="Melee Action">
+            <img class="action-icon" src="img/cz/action_melee.png" alt="Melee Action">
+            {{unit.melee}}
+          </span>
+          }
+          @if(unit.ranged > 0){
+          <span title="Ranged Attack Action">
+            <img class="action-icon" src="img/cz/action_ranged.png" alt="Ranged Attack Action">
+            {{unit.ranged}}
+          </span>
+          }
+          @if(unit.tech > 0){
+          <span title="Basic Tech Action">
+            <img class="action-icon" src="img/cz/action_tech.png" alt="Basic Tech Action">
+            {{unit.tech}}
+          </span>
+          }
+          @if(unit.med > 0){
+          <span title="Basic Med Action">
+            <img class="action-icon" src="img/cz/action_med.png" alt="Basic Med Action">
+            {{unit.med}}
+          </span>
+          }
+          @if(unit.influence > 0){
+          <span title="Basic Influence Action">
+            <img class="action-icon" src="img/cz/action_influence.png" alt="Basic Influence Action">
+            {{unit.influence}}
+          </span>
+          }
+        </div>
+        <div class="col-6 p-0 m-0 ps-1">
+          @for(action of unit.actions; track $index) {
+          <span>
+            <img class="action-icon" src="img/cz/{{action.trim()}}_active.png" alt="image of active action.">
+          </span>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+  }
+  }
 </ng-template>

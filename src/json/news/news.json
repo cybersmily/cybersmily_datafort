@@ -1,5 +1,14 @@
 ﻿{
-  "news": [
+  "news": [{"date": "2025-08",
+    "entries": [
+      "<strong>08-22</strong> - Combat Zone Army builder updates:",
+      " - Add book icon to display the product a card was published in. This should help with finding what expansion you need.",
+      " - Data updates with the reference data.",
+      " - Fixed a few minor bugs.",
+      " - Upgraded the version the website is using. Slowing refactoring areas in the site.",
+      "CYBER :D"
+  ]
+  },
     {"date": "2025-05",
     "entries": [
       "<strong>05-31</strong> - Combat Zone Army builder updates:",

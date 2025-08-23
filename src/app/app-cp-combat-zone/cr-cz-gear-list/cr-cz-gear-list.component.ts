@@ -21,6 +21,7 @@ export class CrCzGearListComponent implements OnInit {
   filterCred: Array<number> = [10];
   filterEB: number;
   filterReleases: Array<string>;
+  currentFilterFaction: string;
 
   filterFaction= input<string>('');
   teamFaction = input<string>('');
@@ -34,6 +35,7 @@ export class CrCzGearListComponent implements OnInit {
   constructor(private gearDataService: CrCzGearDataService){}
 
   ngOnInit(): void {
+    this.currentFilterFaction = this.filterFaction();
     this.dataList$ = this.gearDataService.gearList;
     for( let i = 0; i < (this.totalStreetcred() + 1); i++) {
       this.filterCred.push(i);
@@ -43,7 +45,7 @@ export class CrCzGearListComponent implements OnInit {
 
 
   setFaction($event): void {
-    this.filterFaction = $event;
+    this.currentFilterFaction = $event;
   }
 
   getCount(title: string): number {

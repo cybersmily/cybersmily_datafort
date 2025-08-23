@@ -2,10 +2,11 @@
   <div class="col-12 col-md-6 col-lg-4">
     <div class="row">
       <div class="col-2 px-0 text-center">
-        <img alt="Action token {{action.type}}" *ngFor="let action of unit?.actionTokens;index as actionIndex"
-          class="w-100 csd-btn"
+        @for(action of unit?.actionTokens;track $index;let actionIndex = $index ) {
+        <img alt="Action token {{action.type}}" class="w-100 csd-btn"
           src="img/cz/{{action.isRed ? 'r' : action.type}}_{{action?.isUsed ? 'deactive': 'active'}}.png"
           (click)="toggleToken(actionIndex)">
+        }
         <br>
         <div dropdown class="btn-group">
           <button id="btn-action-token" dropdownToggle type="button"
@@ -13,43 +14,46 @@
             aria-controls="dropdown-action-tokens">
             <fa-icon [icon]="faPlus" />
           </button>
-          <ul class="dropdown-menu ms-3" style="width:100px !important;left:20px;" id="dropdown-action-tokens"
-            *dropdownMenu role="menu" aria-labelledby="btn-action-token">
+          <ul class="dropdown-menu ms-3 action-selection-list " id="dropdown-action-tokens" *dropdownMenu role="menu"
+            aria-labelledby="btn-action-token">
             <li role="menuitem"><img alt="Action token Red" class="w-50 csd-btn" src="img/cz/r_active.png"
                 (click)="addAction('r')"></li>
-            <li role="menuitem"><img alt="Action token Red" class="w-50 csd-btn" src="img/cz/y_active.png"
+            <li role="menuitem"><img alt="Action token Yellow" class="w-50 csd-btn" src="img/cz/y_active.png"
                 (click)="addAction('y')"></li>
-            <li role="menuitem"><img alt="Action token Red" class="w-50 csd-btn" src="img/cz/g_active.png"
+            <li role="menuitem"><img alt="Action token Green" class="w-50 csd-btn" src="img/cz/g_active.png"
                 (click)="addAction('g')"></li>
           </ul>
         </div>
         <br>
-        <button *ngIf="hasExtraActions" type="button"
-            class="csd-btn otherTokens px-3 text-xlarge w-90" title="Remove the lastAction token." (click)=" removeAction()">
-            <fa-icon [icon]="faMinus" />
-          </button>
+        @if(hasExtraActions) {
+        <button type="button" class="csd-btn otherTokens px-3 text-xlarge w-90" title="Remove the lastAction token."
+          (click)=" removeAction()">
+          <fa-icon [icon]="faMinus" />
+        </button>
+        }
       </div>
 
       <div class="col-8">
         <div class="row">
           <div class="col-12">
-            <img alt="Unit card for {{unit?.name}}" *ngIf="!unit.isDead; else unitDead" class="w-100 rounded"
+            @if(!unit.isDead) {
+            <img alt="Unit card for {{unit?.name}}" class="w-100 rounded"
               src="img/cz/units/{{unit?.name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
-            <ng-template #unitDead>
-              <img src="img/cz/death_icon.png" class="w-100" title="Dead">
-            </ng-template>
+            } @else {
+            <img src="img/cz/death_icon.png" class="w-100" title="Dead">
+            }
           </div>
         </div>
         <div class="row">
           <div class="col-12">
-          <button class="csd-btn p-1 me-1" *ngFor="let i of luck.constructor(unit.luck); let num = index"
-            title="Use luck" (click)="updateLuck(-1)">
-            <img alt="Luck icon" src="img/cz/luck_icon.png" class="csd-img-icon">
-          </button>
-
-          <button class="csd-btn p-1" title="Add luck" (click)="updateLuck(1)">
-            <fa-icon [icon]="faPlus"></fa-icon>
-          </button>
+            @for(i of luck.constructor(unit.luck); track $index; let num = $index) {
+            <button class="csd-btn p-1 me-1" title="Use luck" (click)="updateLuck(-1)">
+              <img alt="Luck icon" src="img/cz/luck_icon.png" class="csd-img-icon">
+            </button>
+            }
+            <button class="csd-btn p-1" title="Add luck" (click)="updateLuck(1)">
+              <fa-icon [icon]="faPlus"></fa-icon>
+            </button>
           </div>
         </div>
         <div class="row mt-1">
@@ -68,48 +72,56 @@
             </button>
           </div>
           <div class="col-4 text-center p-0">
-            <button type="button" title="{{unit.isVulnerable ? 'Remove vulnerable': 'Add vulnerable'}}" class="csd-btn w-100" (click)="toggleVulnerable()">
-            <img alt="{{unit.isVulnerable ? 'Vulnerable': 'Active'}}" class="otherTokens" src="img/cz/status_{{unit.isVulnerable ? 'vulnerable': 'active'}}.png"
-              [title]="unit.isVulnerable ? 'Remove vulnerable': 'Add vulnerable'">
+            <button type="button" title="{{unit.isVulnerable ? 'Remove vulnerable': 'Add vulnerable'}}"
+              class="csd-btn w-100" (click)="toggleVulnerable()">
+              <img alt="{{unit.isVulnerable ? 'Vulnerable': 'Active'}}" class="otherTokens"
+                src="img/cz/status_{{unit.isVulnerable ? 'vulnerable': 'active'}}.png"
+                [title]="unit.isVulnerable ? 'Remove vulnerable': 'Add vulnerable'">
             </button>
           </div>
         </div>
       </div>
       <div class="col-2 px-0 text-center">
-        <ng-container *ngIf="!unit.isGonk">
-          <img alt="Action token" *ngFor="let action of unit?.actionTokens;index as actionIndex" class="w-90 csd-btn"
-            src="img/cz/{{action?.isRed ? 'heal_icon' : 'wound_icon'}}.png"
-            [title]="action?.isRed ? 'Heal this action': 'Take a wound on this action'"
-            (click)="toggleWound(actionIndex)">
-        </ng-container>
-        <img *ngIf="unit.isRedLined || unit.isGonk" src="img/cz/{{unit.isDead ? 'resurrect' : 'death'}}_icon.png"
-          class="w-90 csd-btn" title="Kill this unit" (click)="toggleKill()">
+        @if(!unit.isGonk) {
+        @for(action of unit?.actionTokens;track $index; let actionIndex = $index) {
+        <img alt="Action token" class="w-90 csd-btn" src="img/cz/{{action?.isRed ? 'heal_icon' : 'wound_icon'}}.png"
+          [title]="action?.isRed ? 'Heal this action': 'Take a wound on this action'"
+          (click)="toggleWound(actionIndex)">
+        }
+        }
+        @if(unit.isRedLined || unit.isGonk) {
+        <img src="img/cz/{{unit.isDead ? 'resurrect' : 'death'}}_icon.png" class="w-90 csd-btn" title="Kill this unit"
+          (click)="toggleKill()">
+        }
       </div>
 
     </div>
 
   </div>
   <div class="col-12 col-md-6 col-lg-4">
-    <tabset *ngIf="!unit.isGonk" type="pills" [justified]="true">
+    @if(!unit.isGonk) {
+    <tabset type="pills" [justified]="true">
       <tab class="text-center" customClass="customClass">
         <ng-template tabHeading class="text-center">
-          <fa-icon [icon]="faToolbox" title="Gear Tab" size="xl"/>
+          <fa-icon [icon]="faToolbox" title="Gear Tab" size="xl" />
           <span class="text-xsmall">{{unit.gearTotalCost}}eb</span>
         </ng-template>
         <button title="Show gear list" class="csd-btn text-center p-0 w-100 border border-secondary rounded"
           (click)="showModal(gearList)">
           <fa-icon [icon]="faPlus"></fa-icon>
         </button>
-        <div *ngFor="let gear of unit?.gearCards;index as gearIndex"
-          [ngClass]="{'float-start d-inline-block me-3 my-0 p-0 rounded position-relative align-top':true}">
-          <cs-cr-cz-gear-card [gear]="gear" [teamFaction]="teamFaction" [unitKeywords]="unit?.keywords" [gearIndex]="gearIndex"
-            [totalStreetcred]="totalStreetcred" [count]="getSquadGearCount(gear.name)"
+        @for(gear of unit?.gearCards; track $index; let gearIndex = $index) {
+        <div [ngClass]="{'float-start d-inline-block me-3 my-0 p-0 rounded position-relative align-top':true}">
+          <cs-cr-cz-gear-card [gear]="gear" [teamFaction]="teamFaction()" [unitKeywords]="unit?.keywords"
+            [gearIndex]="gearIndex" [totalStreetcred]="totalStreetcred()" [count]="getSquadGearCount(gear.name)"
             (remove)="removeGear($event)"></cs-cr-cz-gear-card>
         </div>
+        }
       </tab>
-      <tab customClass="customClass" *ngIf="unit?.isNetrunner">
+      @if(unit?.isNetrunner) {
+      <tab customClass="customClass">
         <ng-template tabHeading>
-          <fa-icon [icon]="faLaptopCode" title="Programs Tab" size="xl"/>
+          <fa-icon [icon]="faLaptopCode" title="Programs Tab" size="xl" />
           <span class="text-xsmall">{{unit.programTotalCost}}eb</span>
         </ng-template>
         <button title="Show program list." class="csd-btn text-center p-0 w-100 border border-secondary rounded"
@@ -117,18 +129,22 @@
           <fa-icon [icon]="faPlus"></fa-icon>
         </button>
         @for(program of unit.programs;track $index; let programIndex = $index){
-          <cs-cr-cz-program-card [crczProgram]="program" [showBothSides]="false" (selectProgram)="removeProgram($event)"></cs-cr-cz-program-card>
+        <cs-cr-cz-program-card [crczProgram]="program" [showBothSides]="false"
+          (selectProgram)="removeProgram($event)"></cs-cr-cz-program-card>
         }
       </tab>
+      }
       <tab customClass="customClass">
         <ng-template tabHeading>
-          <fa-icon [icon]="faFileLines" title="Notes Tab" size="xl"/>
+          <fa-icon [icon]="faFileLines" title="Notes Tab" size="xl" />
         </ng-template>
         <div>
-          <textarea title="Notes" [(ngModel)]="unit.notes" class="w-100" rows="25" (change)="updateNotes()" (keyup)="updateNotes()"></textarea>
+          <textarea title="Notes" [(ngModel)]="unit.notes" class="w-100" rows="25" (change)="updateNotes()"
+            (keyup)="updateNotes()"></textarea>
         </div>
       </tab>
     </tabset>
+    }
   </div>
 </div>
 
@@ -140,8 +156,8 @@
     </button>
   </div>
   <div class="modal-body">
-    <cs-cr-cz-gear-list [filterFaction]="teamFaction" [teamFaction]="teamFaction" [unitKeywords]="unit.keywords"
-      [totalStreetcred]="totalStreetcred" [existingGear]="unitGearList" [characterGear]="characterGearList"
+    <cs-cr-cz-gear-list [filterFaction]="teamFaction()" [teamFaction]="teamFaction()" [unitKeywords]="unit.keywords"
+      [totalStreetcred]="totalStreetcred()" [existingGear]="unitGearList" [characterGear]="characterGearList"
       (addGear)="addGeaItem($event)">
     </cs-cr-cz-gear-list>
   </div>
@@ -156,6 +172,6 @@
     </button>
   </div>
   <div class="modal-body">
-    <cs-cr-cz-program-list [filterFaction]="teamFaction" (add)="addProgram($event)"></cs-cr-cz-program-list>
+    <cs-cr-cz-program-list [filterFaction]="teamFaction()" (add)="addProgram($event)"></cs-cr-cz-program-list>
   </div>
 </ng-template>
