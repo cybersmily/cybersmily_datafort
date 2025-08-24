@@ -12,9 +12,10 @@ import { faDice, faCog, faFilePdf, faSave, faRedo } from '@fortawesome/free-soli
 import { Component, OnInit, TemplateRef } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp-red-lifepath-main',
-  templateUrl: './cp-red-lifepath-main.component.html',
-  styleUrls: ['./cp-red-lifepath-main.component.css']
+    selector: 'cs-cp-red-lifepath-main',
+    templateUrl: './cp-red-lifepath-main.component.html',
+    styleUrls: ['./cp-red-lifepath-main.component.css'],
+    standalone: false
 })
 export class CpRedLifepathMainComponent implements OnInit {
   faDice = faDice;

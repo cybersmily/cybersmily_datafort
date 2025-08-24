@@ -4,9 +4,10 @@ import { DataService } from './../../shared/services/file-services';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-corporations',
-  templateUrl: './corporations.component.html',
-  styleUrls: ['./corporations.component.css'],
+    selector: 'cs-corporations',
+    templateUrl: './corporations.component.html',
+    styleUrls: ['./corporations.component.css'],
+    standalone: false
 })
 export class CorporationsComponent implements OnInit {
   coporations$: Observable<{ name: string; img: string; slogan: string }>;

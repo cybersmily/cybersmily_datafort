@@ -4,7 +4,8 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MmmountsComponent } from './mmmounts.component';
 import { MmmountComponent } from '../mmmount/mmmount.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('MmmountsComponent', () => {
   let component: MmmountsComponent;
@@ -14,18 +15,17 @@ describe('MmmountsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+    declarations: [
         MmmountsComponent,
         MmmountComponent
-      ],
-      imports: [
-        HttpClientTestingModule,
-        CommonUiModule
-      ],
-      providers: [
-        DataService
-      ]
-    })
+    ],
+    imports: [CommonUiModule],
+    providers: [
+        DataService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
   }));
 

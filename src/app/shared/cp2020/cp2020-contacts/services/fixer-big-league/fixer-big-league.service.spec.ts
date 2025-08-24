@@ -57,7 +57,7 @@ describe('FixerBigLeagueService', () => {
   });
 
   it('should be created', () => {
-    const service: FixerBigLeagueService = TestBed.get(FixerBigLeagueService);
+    const service: FixerBigLeagueService = TestBed.inject(FixerBigLeagueService);
     expect(service).toBeTruthy();
   });
 

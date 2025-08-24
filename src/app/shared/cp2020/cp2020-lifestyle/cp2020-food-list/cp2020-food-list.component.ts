@@ -16,9 +16,10 @@ import {
 import { Cp2020Food } from '../models';
 
 @Component({
-  selector: 'cs-cp2020-food-list',
-  templateUrl: './cp2020-food-list.component.html',
-  styleUrls: ['./cp2020-food-list.component.css'],
+    selector: 'cs-cp2020-food-list',
+    templateUrl: './cp2020-food-list.component.html',
+    styleUrls: ['./cp2020-food-list.component.css'],
+    standalone: false
 })
 export class Cp2020FoodListComponent implements OnInit, OnChanges {
   faTrash = faTrash;

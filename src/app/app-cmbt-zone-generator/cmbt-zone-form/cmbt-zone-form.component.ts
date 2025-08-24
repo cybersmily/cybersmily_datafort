@@ -2,9 +2,10 @@ import { SeoService } from './../../shared/services/seo/seo.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-cmbt-zone-form',
-  templateUrl: './cmbt-zone-form.component.html',
-  styleUrls: ['./cmbt-zone-form.component.css']
+    selector: 'cs-cmbt-zone-form',
+    templateUrl: './cmbt-zone-form.component.html',
+    styleUrls: ['./cmbt-zone-form.component.css'],
+    standalone: false
 })
 export class CmbtZoneFormComponent implements OnInit {
 

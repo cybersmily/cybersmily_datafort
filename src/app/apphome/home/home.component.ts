@@ -4,9 +4,10 @@ import { DataService } from '../../shared/services/file-services';
 import { NewsArticle } from '../../shared/models/articles';
 
 @Component({
-  selector: 'cs-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+    selector: 'cs-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.css'],
+    standalone: false
 })
 export class HomeComponent implements OnInit {
   newItems: NewsArticle[] = [];

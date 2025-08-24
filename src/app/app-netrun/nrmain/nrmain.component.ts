@@ -2,9 +2,10 @@ import { SeoService } from './../../shared/services/seo/seo.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-nrmain',
-  templateUrl: './nrmain.component.html',
-  styleUrls: ['./nrmain.component.css']
+    selector: 'cs-nrmain',
+    templateUrl: './nrmain.component.html',
+    styleUrls: ['./nrmain.component.css'],
+    standalone: false
 })
 export class NrmainComponent implements OnInit {
   constructor(private seo: SeoService) { }

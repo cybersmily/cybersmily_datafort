@@ -13,4 +13,5 @@ export interface iCrCzGearItemCard {
   keywords: Array<string>;
   attributes: Array<string>;
   flipped?: boolean;
+  release?: Array<string>;
 }

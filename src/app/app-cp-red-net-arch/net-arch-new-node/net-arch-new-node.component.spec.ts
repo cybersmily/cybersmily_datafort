@@ -1,5 +1,5 @@
 import { DataService } from './../../shared/services/file-services';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -11,15 +11,13 @@ describe('NetArchNewNodeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NetArchNewNodeComponent ],
-      imports: [
-        CommonUiModule,
-        HttpClientModule
-      ],
-      providers: [
-        DataService
-      ]
-    })
+    declarations: [NetArchNewNodeComponent],
+    imports: [CommonUiModule],
+    providers: [
+        DataService,
+        provideHttpClient(withInterceptorsFromDi())
+    ]
+})
     .compileComponents();
   });
 

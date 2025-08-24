@@ -114,4 +114,5 @@ export class JsonDataFiles {
   public static COMBATZONE_GEAR_LIST_JSON = `/json/apps/cr_combatzone/crcz_gear.json`;
   public static COMBATZONE_PROGRAMS_LIST_JSON = `/json/apps/cr_combatzone/crcz_programs.json`;
   public static COMBATZONE_OBJECTIVES_LIST_JSON = `/json/apps/cr_combatzone/crcz_objectives.json`;
+  public static COMBATZONE_RELEASES_LIST_JSON = `/json/apps/cr_combatzone/crcz_releases.json`;
 }

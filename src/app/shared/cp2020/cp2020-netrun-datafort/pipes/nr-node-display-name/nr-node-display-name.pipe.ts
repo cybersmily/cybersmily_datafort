@@ -2,7 +2,8 @@ import { NrNodeType } from './../../enums/nr-node-type';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'nrNodeDisplayName'
+    name: 'nrNodeDisplayName',
+    standalone: false
 })
 export class NrNodeDisplayNamePipe implements PipeTransform {
 

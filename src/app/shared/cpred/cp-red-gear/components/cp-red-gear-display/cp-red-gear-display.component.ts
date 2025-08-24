@@ -6,9 +6,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'cs-cp-red-gear-display',
-  templateUrl: './cp-red-gear-display.component.html',
-  styleUrls: ['./cp-red-gear-display.component.css'],
+    selector: 'cs-cp-red-gear-display',
+    templateUrl: './cp-red-gear-display.component.html',
+    styleUrls: ['./cp-red-gear-display.component.css'],
+    standalone: false
 })
 export class CpRedGearDisplayComponent implements OnInit {
   faChevronDown = faChevronDown;

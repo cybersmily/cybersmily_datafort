@@ -1,12 +1,15 @@
 
-<div class="row">
+
+@if(dataList$ | async; as gearList) {
+  <div class="row">
   <div class="col-3 col-md-1">
-    <cs-cr-cz-faction-selector [selectedFaction]="filterFaction"
+    <cs-cr-cz-faction-selector [selectedFaction]="currentFilterFaction"
   (selected)="setFaction($event)"></cs-cr-cz-faction-selector>
   </div>
   <div class="col-9 col-md-5">
     <input type="search" class="w-100" placeholder="Search by name/title of gear" [(ngModel)]="filterName">
     <input type="search" class="w-100" placeholder="Search by keyword of gear" [(ngModel)]="fitlerKeyword">
+    <cs-cr-cz-source-selector [filter]="gearList | uniqueValues:'release'" (selectedSource)="filterOnRelease($event)"></cs-cr-cz-source-selector>
   </div>
   <div class="col-12 col-md-4">
     Cred:
@@ -29,16 +32,26 @@
   </div>
   <div class="col-12 col-md-2">EB: <input [(ngModel)]="filterEB" title="Filter on EB cost value." type="number" class="w-30" min="0" max="100"></div>
 </div>
-<div *ngIf="dataList$ | async as gearList" class="row">
+<div class="row">
   <div class="col-12">
     <div class="row">
       <div class="col-12 text-center px-0">
-        <cs-cr-cz-gear-card
-          *ngFor="let gear of gearList |contains:'faction':[filterFaction, 'universal'] | contains:'name':filterName | contains:'keywords':fitlerKeyword | filter:'eb':filterEB | filterWithArray:'cred':filterCred"
-          [gear]="gear" [teamFaction]="teamFaction" [unitKeywords]="unitKeywords" [totalStreetcred]="totalStreetcred" [count]="getCount(gear.name)"
+        @for(gear of gearList |contains:'faction':[currentFilterFaction, 'universal']
+          | contains:'name':filterName
+          | contains:'keywords':fitlerKeyword
+          | filter:'eb':filterEB
+          | filterWithArray:'cred':filterCred
+          | contains: 'release':filterReleases
+          ;track $index) {
+        <cs-cr-cz-gear-card [gear]="gear" [teamFaction]="teamFaction()" [unitKeywords]="unitKeywords()"
+        [totalStreetcred]="totalStreetcred()" [count]="getCount(gear.name)"
           [hasGear]="characterHasGear(gear.name)" (add)="buyGear($event)">
         </cs-cr-cz-gear-card>
+        }
       </div>
     </div>
   </div>
 </div>
+} @else {
+  <div>Gear list is missing.</div>
+}

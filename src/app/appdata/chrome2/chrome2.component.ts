@@ -7,9 +7,10 @@ import { DataService } from './../../shared/services/file-services';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-chrome2',
-  templateUrl: './chrome2.component.html',
-  styleUrls: ['./chrome2.component.css'],
+    selector: 'app-chrome2',
+    templateUrl: './chrome2.component.html',
+    styleUrls: ['./chrome2.component.css'],
+    standalone: false
 })
 export class Chrome2Component implements OnInit {
   vehicleList$: Observable<Array<VehicleData>>;

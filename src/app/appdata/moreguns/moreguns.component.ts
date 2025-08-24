@@ -10,9 +10,10 @@ import { DataService } from './../../shared/services/file-services';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-moreguns',
-  templateUrl: './moreguns.component.html',
-  styleUrls: ['./moreguns.component.css'],
+    selector: 'app-moreguns',
+    templateUrl: './moreguns.component.html',
+    styleUrls: ['./moreguns.component.css'],
+    standalone: false
 })
 export class MoregunsComponent implements OnInit {
   wpnList$: Observable<Array<DataWeapon>>;

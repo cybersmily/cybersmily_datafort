@@ -5,9 +5,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ColorEvent } from 'ngx-color';
 
 @Component({
-  selector: 'cs-net-arch-new-node',
-  templateUrl: './net-arch-new-node.component.html',
-  styleUrls: ['./net-arch-new-node.component.css']
+    selector: 'cs-net-arch-new-node',
+    templateUrl: './net-arch-new-node.component.html',
+    styleUrls: ['./net-arch-new-node.component.css'],
+    standalone: false
 })
 export class NetArchNewNodeComponent implements OnInit {
   faSave = faSave;

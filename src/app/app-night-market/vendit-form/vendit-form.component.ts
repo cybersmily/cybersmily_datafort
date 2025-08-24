@@ -9,9 +9,10 @@ import { DataService } from './../../shared/services/file-services';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-vendit-form',
-  templateUrl: './vendit-form.component.html',
-  styleUrls: ['./vendit-form.component.css']
+    selector: 'cs-vendit-form',
+    templateUrl: './vendit-form.component.html',
+    styleUrls: ['./vendit-form.component.css'],
+    standalone: false
 })
 export class VenditFormComponent implements OnInit {
   faDice = faDice;

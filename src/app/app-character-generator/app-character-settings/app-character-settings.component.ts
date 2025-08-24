@@ -12,9 +12,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'cs-app-character-settings',
-  templateUrl: './app-character-settings.component.html',
-  styleUrls: ['./app-character-settings.component.css'],
+    selector: 'cs-app-character-settings',
+    templateUrl: './app-character-settings.component.html',
+    styleUrls: ['./app-character-settings.component.css'],
+    standalone: false
 })
 export class AppCharacterSettingsComponent implements OnInit, AfterViewInit {
   @Input()

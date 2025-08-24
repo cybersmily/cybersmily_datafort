@@ -6,7 +6,7 @@ import {
   PdfPageSettings,
   PdfFontSize,
 } from './../../../shared/enums/pdf-page-settings';
-import { iCrCzUnitCard } from '../../models/cr-cz-unit-card';
+import { iCrCzCharacterCard } from '../../models/cr-cz-character-card';
 import { iCrCzObjectiveCard } from '../../models/cr-cz-objective-card';
 
 @Injectable({
@@ -87,6 +87,7 @@ export class CrCzArmyPdfService {
           left === PdfPageSettings.MARGIN_LEFT
             ? PdfPageSettings.MIDPAGE_LANDSCAPE
             : PdfPageSettings.MARGIN_LEFT;
+        this._doc.addPage();
         line = pageTop;
         line = this.createTeamMemberHeader(line, left);
       }
@@ -171,7 +172,7 @@ export class CrCzArmyPdfService {
     return line;
   }
 
-  private getLineHeightOfUnit(unit: iCrCzUnitCard): number {
+  private getLineHeightOfUnit(unit: iCrCzCharacterCard): number {
     let height = 12;
     if (unit?.gearCards?.length > 0) {
       height += unit.gearCards.length * 5;
@@ -193,7 +194,7 @@ export class CrCzArmyPdfService {
   private createUnitRow(
     line: number,
     leftMargin: number,
-    unit: iCrCzUnitCard,
+    unit: iCrCzCharacterCard,
     squadFaction: string
   ): number {
     this._doc.setFontSize(PdfFontSize.DEFAULT);

@@ -9,9 +9,10 @@ import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
-  selector: 'cs-cp2020-acpa-carried-editor',
-  templateUrl: './cp2020-acpa-carried-editor.component.html',
-  styleUrls: ['./cp2020-acpa-carried-editor.component.css'],
+    selector: 'cs-cp2020-acpa-carried-editor',
+    templateUrl: './cp2020-acpa-carried-editor.component.html',
+    styleUrls: ['./cp2020-acpa-carried-editor.component.css'],
+    standalone: false
 })
 export class Cp2020AcpaCarriedEditorComponent implements OnInit {
   faPlus = faPlus;

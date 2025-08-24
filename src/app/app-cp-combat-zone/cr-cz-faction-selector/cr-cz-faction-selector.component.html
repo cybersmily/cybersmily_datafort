@@ -1,15 +1,16 @@
 <div class="btn-group border border-secondary " dropdown>
   <button id="button-basic" dropdownToggle type="button" class="csd-btn dropdown-toggle faction-btn"
-          aria-controls="dropdown-basic">
-     <img [ngClass]="{'csd-img-icon d-inline-block w-100': true}" alt="{{selectedFaction?.replace('_',' ')}} faction"
-      src="img/cz/icon_{{selectedFaction?.replace(' ','_')}}.png">
-     <span class="caret"></span>
+    aria-controls="dropdown-basic">
+    <img [ngClass]="{'csd-img-icon d-inline-block w-100': true}" alt="{{selectedFaction()?.replace('_',' ')}} faction"
+      src="img/cz/icon_{{selectedFaction()?.replace(' ','_')}}.png">
+    <span class="caret"></span>
   </button>
-  <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
-      role="menu" aria-labelledby="button-basic">
-    <li role="menuitem" tabindex="0" class="text-center csd-btn" *ngFor="let faction of factionList" (click)="selectFaction(faction)">
-      <img [ngClass]="{'csd-img-icon d-inline-block w-50': true, 'csd-btn-pressed': faction === selectFaction}" alt="{{faction?.replace('_',' ')}} faction"
-      src="img/cz/icon_{{faction?.replace(' ','_')}}.png">
+  <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+    @for(faction of factionList; track $index) {
+    <li role="menuitem" tabindex="0" class="text-center csd-btn" (click)="selectFaction(faction)">
+      <img [ngClass]="{'csd-img-icon d-inline-block w-50': true, 'csd-btn-pressed': faction === selectFaction}"
+        alt="{{faction?.replace('_',' ')}} faction" src="img/cz/icon_{{faction?.replace(' ','_')}}.png">
     </li>
+    }
   </ul>
 </div>

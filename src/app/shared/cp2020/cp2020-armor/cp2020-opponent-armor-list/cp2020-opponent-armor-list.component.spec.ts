@@ -1,4 +1,4 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { DataService } from './../../../services/file-services/dataservice/data.service';
 import { ArmorGeneratorService } from './../services/armor-generator/armor-generator.service';
 import { ArmorDataAttributesService } from './../services/armor-data-attributes/armor-data-attributes.service';
@@ -9,6 +9,7 @@ import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Cp2020OpponentArmorListComponent } from './cp2020-opponent-armor-list.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('Cp2020OpponenentListComponent', () => {
   let component: Cp2020OpponentArmorListComponent;
@@ -16,20 +17,19 @@ describe('Cp2020OpponenentListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Cp2020OpponentArmorListComponent ],
-      imports: [
-        CommonUiModule,
-        BrowserAnimationsModule,
-        HttpClientTestingModule
-      ],
-      providers: [
+    declarations: [Cp2020OpponentArmorListComponent],
+    imports: [CommonUiModule,
+        BrowserAnimationsModule],
+    providers: [
         DiceService,
         ArmorRandomGenSettingsService,
         ArmorDataAttributesService,
         ArmorGeneratorService,
-        DataService
-      ]
-    })
+        DataService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
   });
 

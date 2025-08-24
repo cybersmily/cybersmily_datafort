@@ -1,4 +1,4 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { DataService } from './../../shared/services/file-services';
 import { Cp2020CyberdeckFormComponent } from '../../shared/cp2020/cp2020-netrun-gear/cp2020-cyberdeck-form/cp2020-cyberdeck-form.component';
 import { Cp2020ProgramNewComponent } from '../../shared/cp2020/cp2020-netrun-gear/cp2020-program-new/cp2020-program-new.component';
@@ -8,6 +8,7 @@ import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.modul
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { DeckManagerMainComponent } from './deck-manager-main.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('DeckManagerMainComponent', () => {
   let component: DeckManagerMainComponent;
@@ -15,21 +16,20 @@ describe('DeckManagerMainComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+    declarations: [
         DeckManagerMainComponent,
         Cp2020ProgramListComponent,
         Cp2020ProgramNewComponent,
         Cp2020CyberdeckFormComponent
-      ],
-      imports: [
-        HttpClientTestingModule,
-        CommonUiModule,
-        BrowserAnimationsModule
-      ],
-      providers: [
-        DataService
-      ]
-    })
+    ],
+    imports: [CommonUiModule,
+        BrowserAnimationsModule],
+    providers: [
+        DataService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
   }));
 

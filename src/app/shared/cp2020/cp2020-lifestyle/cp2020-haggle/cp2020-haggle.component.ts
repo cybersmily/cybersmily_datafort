@@ -6,9 +6,10 @@ import { Cp2020PlayerSkill } from '../../cp2020-skills/models';
 import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'cs-cp2020-haggle',
-  templateUrl: './cp2020-haggle.component.html',
-  styleUrls: ['./cp2020-haggle.component.css'],
+    selector: 'cs-cp2020-haggle',
+    templateUrl: './cp2020-haggle.component.html',
+    styleUrls: ['./cp2020-haggle.component.css'],
+    standalone: false
 })
 export class Cp2020HaggleComponent implements OnInit {
   faDice = faDice;

@@ -11,9 +11,10 @@ import { Component, HostListener, OnInit, TemplateRef } from '@angular/core';
 import { Cp2020CharacterToFandDPDF } from './../../shared/models/pdf/cp2020-character-to-fand-d-pdf';
 
 @Component({
-  selector: 'cs-cmbt-trck-form',
-  templateUrl: './cmbt-trck-form.component.html',
-  styleUrls: ['./cmbt-trck-form.component.css']
+    selector: 'cs-cmbt-trck-form',
+    templateUrl: './cmbt-trck-form.component.html',
+    styleUrls: ['./cmbt-trck-form.component.css'],
+    standalone: false
 })
 export class CmbtTrckFormComponent implements OnInit {
   faDice = faDice;

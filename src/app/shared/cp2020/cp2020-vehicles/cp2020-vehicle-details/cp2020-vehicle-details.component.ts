@@ -23,9 +23,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-vehicle-details',
-  templateUrl: './cp2020-vehicle-details.component.html',
-  styleUrls: ['./cp2020-vehicle-details.component.css'],
+    selector: 'cs-cp2020-vehicle-details',
+    templateUrl: './cp2020-vehicle-details.component.html',
+    styleUrls: ['./cp2020-vehicle-details.component.css'],
+    standalone: false
 })
 export class Cp2020VehicleDetailsComponent implements OnInit, OnChanges {
   faPen = faPen;

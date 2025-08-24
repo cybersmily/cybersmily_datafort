@@ -2,9 +2,10 @@ import { KeyValue } from '@angular/common';
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 
 @Component({
-  selector: 'cs-csd-combo-box',
-  templateUrl: './csd-combo-box.component.html',
-  styleUrls: ['./csd-combo-box.component.css']
+    selector: 'cs-csd-combo-box',
+    templateUrl: './csd-combo-box.component.html',
+    styleUrls: ['./csd-combo-box.component.css'],
+    standalone: false
 })
 export class CsdComboBoxComponent implements OnInit, OnChanges {
   @Input() list: string[] = new Array<string>();

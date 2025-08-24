@@ -1,68 +1,70 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 import { CrCzUnitDataService } from '../services/cr-cz-unit-data/cr-cz-unit-data.service';
 import { take, Observable } from 'rxjs';
-import { iCrCzUnitCardData } from '../models/cr-cz-unit-card';
-import {faPlus,
+import { iCrCzCharacterCardData } from '../models/cr-cz-character-card';
+import {faBookBookmark, faPlus,
   faStar,
   faUsers,
   faUsersSlash
 } from '@fortawesome/free-solid-svg-icons';
 import { CrCzArmyBuilderService } from '../services/cr-cz-army-builder/cr-cz-army-builder.service';
 import { KeyValue } from '@angular/common';
+import { CrCzReleasesDataService } from '../services/cr-cz-releases-data/cr-cz-releases-data.service';
 
 @Component({
-  selector: 'cs-cr-cz-unit-list',
-  templateUrl: './cr-cz-unit-list.component.html',
-  styleUrls: ['./cr-cz-unit-list.component.css']
+    selector: 'cs-cr-cz-character-list',
+    templateUrl: './cr-cz-character-list.component.html',
+    styleUrls: ['./cr-cz-character-list.component.css'],
+    standalone: false
 })
-export class CrCzUnitListComponent {
+export class CrCzCharacterListComponent {
 
   faStar = faStar;
   faPlus = faPlus;
   faUsers = faUsers;
   faUsersSlash = faUsersSlash;
+  faBookBookmark = faBookBookmark;
 
+  faction = input<string>();
+  squadIndex = input<number>(0);
 
   searchName: string = '';
   filterFaction: string = '';
   searchKeywords: string = '';
   searchFilter: Array<string>;
+  releaseFilter: Array<string>;
   streetCredFilter: Array<number> = [0,1,2,10];
   skillFilter: Array<string> = [];
   showSelected: boolean = true;
 
-  dataList$: Observable<Array<iCrCzUnitCardData>>;
+  dataList$: Observable<Array<iCrCzCharacterCardData>>;
+  releaseList$: Observable<Array<string>>;
 
-  @Input()
-  faction: string = '';
 
-  @Input()
-  squadIndex: number = 0;
-
-  constructor(private unitDataService: CrCzUnitDataService, private armyBuilder: CrCzArmyBuilderService){}
+  constructor(private unitDataService: CrCzUnitDataService, private armyBuilder: CrCzArmyBuilderService, private releaseListService: CrCzReleasesDataService){}
 
   ngOnInit() {
     this.dataList$ = this.unitDataService.unitList;
-    this.filterFaction = this.faction;
+    this.filterFaction = this.faction();
   }
 
   get hasLeader(): boolean {
-    return this.armyBuilder.hasLeader(this.squadIndex);
+    return this.armyBuilder.hasLeader(this.squadIndex());
   }
 
   add(name: string, rank: number) {
     this.dataList$.pipe(take(1)).subscribe( (data:any) => {
       let found = data.find(unit => unit.name === name);
-      this.armyBuilder.addUnit(this.squadIndex, found, rank);
+      this.armyBuilder.addUnit(this.squadIndex(), found, rank);
     });
   }
 
   hasSpecialist(name: string): boolean {
-    return this.armyBuilder.hasSpecialist(this.squadIndex, name);
+    return this.armyBuilder.hasSpecialist(this.squadIndex(), name);
   }
 
   hasUnit(name: string, streetcred: number): boolean {
-    return this.armyBuilder.hasUnit(this.squadIndex, name, streetcred);
+    return this.armyBuilder.hasUnit(this.squadIndex(), name, streetcred);
   }
 
   isLeader(keywords:Array<string>): boolean {
@@ -71,7 +73,7 @@ export class CrCzUnitListComponent {
 
 
   countOfUnit(name: string, streetcred:number): number {
-    return this.armyBuilder.countOfUnit(this.squadIndex, name, streetcred);
+    return this.armyBuilder.countOfUnit(this.squadIndex(), name, streetcred);
   }
 
   setFaction(faction: string): void {
@@ -87,7 +89,7 @@ export class CrCzUnitListComponent {
     }
   }
 
-  showUnit(unit:iCrCzUnitCardData): boolean {
+  showUnit(unit:iCrCzCharacterCardData): boolean {
     if(this.streetCredFilter.length < 2 || this.skillFilter.length > 3) {
       return false;
     }
@@ -117,6 +119,10 @@ export class CrCzUnitListComponent {
     } else {
       this.skillFilter.push(skill);
     }
+  }
+
+  filterOnRelease(event: Array<string>): void {
+    this.releaseFilter = [...event];
   }
 
 }

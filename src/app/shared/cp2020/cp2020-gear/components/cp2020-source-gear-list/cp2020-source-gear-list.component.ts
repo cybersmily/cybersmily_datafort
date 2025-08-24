@@ -5,9 +5,10 @@ import { DataListColumnParameters } from './../../../../modules/data-list/models
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-source-gear-list',
-  templateUrl: './cp2020-source-gear-list.component.html',
-  styleUrls: ['./cp2020-source-gear-list.component.css']
+    selector: 'cs-cp2020-source-gear-list',
+    templateUrl: './cp2020-source-gear-list.component.html',
+    styleUrls: ['./cp2020-source-gear-list.component.css'],
+    standalone: false
 })
 export class Cp2020SourceGearListComponent implements OnInit {
 

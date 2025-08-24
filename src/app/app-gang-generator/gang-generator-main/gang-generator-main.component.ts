@@ -2,9 +2,10 @@ import { SeoService } from './../../shared/services/seo/seo.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-gang-generator-main',
-  templateUrl: './gang-generator-main.component.html',
-  styleUrls: ['./gang-generator-main.component.css'],
+    selector: 'cs-gang-generator-main',
+    templateUrl: './gang-generator-main.component.html',
+    styleUrls: ['./gang-generator-main.component.css'],
+    standalone: false
 })
 export class GangGeneratorMainComponent implements OnInit {
   constructor(private seo: SeoService) {}

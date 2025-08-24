@@ -29,9 +29,10 @@ import {
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
-  selector: 'cs-cp2020-opponent-armor-list',
-  templateUrl: './cp2020-opponent-armor-list.component.html',
-  styleUrls: ['./cp2020-opponent-armor-list.component.css'],
+    selector: 'cs-cp2020-opponent-armor-list',
+    templateUrl: './cp2020-opponent-armor-list.component.html',
+    styleUrls: ['./cp2020-opponent-armor-list.component.css'],
+    standalone: false
 })
 export class Cp2020OpponentArmorListComponent implements OnInit, OnChanges {
   faWrench = faWrench;

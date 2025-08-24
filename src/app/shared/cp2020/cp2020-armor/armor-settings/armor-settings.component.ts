@@ -4,9 +4,10 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { ArmorDataAttributesService } from '../services';
 
 @Component({
-  selector: 'cs-armor-settings',
-  templateUrl: './armor-settings.component.html',
-  styleUrls: ['./armor-settings.component.css']
+    selector: 'cs-armor-settings',
+    templateUrl: './armor-settings.component.html',
+    styleUrls: ['./armor-settings.component.css'],
+    standalone: false
 })
 export class ArmorSettingsComponent implements OnInit {
 

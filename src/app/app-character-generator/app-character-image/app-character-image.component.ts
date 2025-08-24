@@ -1,9 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-app-character-image',
-  templateUrl: './app-character-image.component.html',
-  styleUrls: ['./app-character-image.component.css']
+    selector: 'cs-app-character-image',
+    templateUrl: './app-character-image.component.html',
+    styleUrls: ['./app-character-image.component.css'],
+    standalone: false
 })
 export class AppCharacterImageComponent implements OnInit {
 

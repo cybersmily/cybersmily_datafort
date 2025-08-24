@@ -17,9 +17,10 @@ import {
 } from '@angular/core';
 import { Cp2020Ammo, Cp2020AmmoTypes } from '../models';
 @Component({
-  selector: 'cs-cp2020ammo',
-  templateUrl: './cp2020ammo.component.html',
-  styleUrls: ['./cp2020ammo.component.css'],
+    selector: 'cs-cp2020ammo',
+    templateUrl: './cp2020ammo.component.html',
+    styleUrls: ['./cp2020ammo.component.css'],
+    standalone: false
 })
 export class Cp2020ammoComponent implements OnInit {
   faPlus = faPlus;

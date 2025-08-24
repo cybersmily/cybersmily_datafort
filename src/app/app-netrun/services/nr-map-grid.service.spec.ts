@@ -1,8 +1,9 @@
 import { NRMap } from './../models/nr-map';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
 import { NrMapGridService } from './nr-map-grid.service';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('NrMapGridService', () => {
   let service: NrMapGridService;
@@ -10,9 +11,9 @@ describe('NrMapGridService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [NrMapGridService ]
-    });
+    imports: [],
+    providers: [NrMapGridService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+});
     service = new NrMapGridService();
     nrMap = new NRMap();
     nrMap.ny = 5; // rows

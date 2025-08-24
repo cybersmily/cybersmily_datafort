@@ -21,6 +21,7 @@ import { MmweaponformComponent } from './mmweaponform/mmweaponform.component';
 import { MmoptionsformComponent } from './mmoptionsform/mmoptionsform.component';
 import { MmoptionslistComponent } from './mmoptionslist/mmoptionslist.component';
 import { LongpressDirective } from '../shared/directives/longpress.directive';
+import { BsModalService } from 'ngx-bootstrap/modal';
 
 @NgModule({
   imports: [
@@ -49,7 +50,8 @@ import { LongpressDirective } from '../shared/directives/longpress.directive';
   ],
   providers: [
     MaxmetalService,
-    MaxMetalDataService
+    MaxMetalDataService,
+    BsModalService
   ]
 })
 export class AppMaxmetalModule { }

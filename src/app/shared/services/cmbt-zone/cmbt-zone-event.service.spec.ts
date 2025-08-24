@@ -1,23 +1,24 @@
 import { DataService } from './../file-services';
 import { DiceService } from './../dice/dice.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
 import { CmbtZoneEventService } from './cmbt-zone-event.service';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('CmbtZoneEventService', () => {
   let service: CmbtZoneEventService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule
-      ],
-      providers: [
+    imports: [],
+    providers: [
         DiceService,
-        DataService
-      ]
-    });
+        DataService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+});
     service = TestBed.inject(CmbtZoneEventService);
   });
 

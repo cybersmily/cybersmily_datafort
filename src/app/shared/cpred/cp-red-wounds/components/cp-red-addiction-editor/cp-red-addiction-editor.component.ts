@@ -9,9 +9,10 @@ import {
   faSave,
 } from '@fortawesome/free-solid-svg-icons';
 @Component({
-  selector: 'cs-cp-red-addiction-editor',
-  templateUrl: './cp-red-addiction-editor.component.html',
-  styleUrls: ['./cp-red-addiction-editor.component.css'],
+    selector: 'cs-cp-red-addiction-editor',
+    templateUrl: './cp-red-addiction-editor.component.html',
+    styleUrls: ['./cp-red-addiction-editor.component.css'],
+    standalone: false
 })
 export class CpRedAddictionEditorComponent implements OnInit {
   faPen = faPen;

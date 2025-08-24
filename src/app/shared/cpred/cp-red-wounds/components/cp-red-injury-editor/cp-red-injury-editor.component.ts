@@ -10,9 +10,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'cs-cp-red-injury-editor',
-  templateUrl: './cp-red-injury-editor.component.html',
-  styleUrls: ['./cp-red-injury-editor.component.css'],
+    selector: 'cs-cp-red-injury-editor',
+    templateUrl: './cp-red-injury-editor.component.html',
+    styleUrls: ['./cp-red-injury-editor.component.css'],
+    standalone: false
 })
 export class CpRedInjuryEditorComponent implements OnInit {
   faPen = faPen;

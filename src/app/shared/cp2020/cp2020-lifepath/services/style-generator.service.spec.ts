@@ -1,21 +1,22 @@
 import { DiceService } from './../../../services/dice/dice.service';
 import { DataService } from './../../../services/file-services';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { TestBed, inject, waitForAsync } from '@angular/core/testing';
 
 import { StyleGeneratorService } from './style-generator.service';
 
 describe('StyleGeneratorService', () => {
   beforeEach(() => TestBed.configureTestingModule({
-    imports: [HttpClientModule],
+    imports: [],
     providers: [
-      DataService,
-      DiceService
+        DataService,
+        DiceService,
+        provideHttpClient(withInterceptorsFromDi())
     ]
-  }));
+}));
 
   it('should be created', () => {
-    const service: StyleGeneratorService = TestBed.get(StyleGeneratorService);
+    const service: StyleGeneratorService = TestBed.inject(StyleGeneratorService);
     expect(service).toBeTruthy();
   });
 

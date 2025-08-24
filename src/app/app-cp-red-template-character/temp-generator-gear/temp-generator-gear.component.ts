@@ -1,9 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'cs-temp-generator-gear',
-  templateUrl: './temp-generator-gear.component.html',
-  styleUrls: ['./temp-generator-gear.component.css']
+    selector: 'cs-temp-generator-gear',
+    templateUrl: './temp-generator-gear.component.html',
+    styleUrls: ['./temp-generator-gear.component.css'],
+    standalone: false
 })
 export class TempGeneratorGearComponent implements OnInit {
 

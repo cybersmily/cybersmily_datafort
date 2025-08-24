@@ -6,9 +6,10 @@ import {
 import { Component, OnInit, HostListener } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp-red-roles-display',
-  templateUrl: './cp-red-roles-display.component.html',
-  styleUrls: ['./cp-red-roles-display.component.css'],
+    selector: 'cs-cp-red-roles-display',
+    templateUrl: './cp-red-roles-display.component.html',
+    styleUrls: ['./cp-red-roles-display.component.css'],
+    standalone: false
 })
 export class CpRedRolesDisplayComponent implements OnInit {
   faChevronDown = faChevronDown;

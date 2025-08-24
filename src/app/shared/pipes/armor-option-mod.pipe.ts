@@ -2,7 +2,8 @@ import { ArmorWeights } from './../cp2020/cp2020-armor/models';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'armorOptionMod'
+    name: 'armorOptionMod',
+    standalone: false
 })
 export class ArmorOptionModPipe implements PipeTransform {
 

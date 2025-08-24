@@ -4,9 +4,10 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Cp2020WeaponMagazine } from '../models/cp-2020-weapon-magazine';
 
 @Component({
-  selector: 'cs-cp2020magazines',
-  templateUrl: './cp2020magazines.component.html',
-  styleUrls: ['./cp2020magazines.component.css']
+    selector: 'cs-cp2020magazines',
+    templateUrl: './cp2020magazines.component.html',
+    styleUrls: ['./cp2020magazines.component.css'],
+    standalone: false
 })
 export class Cp2020magazinesComponent implements OnInit {
   faPlus = faPlus;

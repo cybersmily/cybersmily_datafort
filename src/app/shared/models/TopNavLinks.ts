@@ -434,7 +434,6 @@ export class TopNavLinks {
           link: 'assets/anighttoremember.pdf',
           desc: 'This is a short story about one of my characters/NPCs in the time of the Red.',
           download: 'anighttoremember.pdf',
-          target: 'self',
         },
         {
           title: 'CC3+ NC Maps',

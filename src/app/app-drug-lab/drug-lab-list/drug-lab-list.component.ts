@@ -5,9 +5,10 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef }
 import * as jsPDF from 'jspdf';
 
 @Component({
-  selector: 'cs-drug-lab-list',
-  templateUrl: './drug-lab-list.component.html',
-  styleUrls: ['./drug-lab-list.component.css']
+    selector: 'cs-drug-lab-list',
+    templateUrl: './drug-lab-list.component.html',
+    styleUrls: ['./drug-lab-list.component.css'],
+    standalone: false
 })
 export class DrugLabListComponent implements OnInit {
   faUndo = faUndo;

@@ -2,9 +2,10 @@ import { faPen, faSave, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp-red-role-display',
-  templateUrl: './cp-red-role-display.component.html',
-  styleUrls: ['./cp-red-role-display.component.css'],
+    selector: 'cs-cp-red-role-display',
+    templateUrl: './cp-red-role-display.component.html',
+    styleUrls: ['./cp-red-role-display.component.css'],
+    standalone: false
 })
 export class CpRedRoleDisplayComponent implements OnInit {
   faPen = faPen;

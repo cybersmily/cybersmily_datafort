@@ -9,6 +9,8 @@ export interface iCrCzNrProgramCard {
   cred: number;
   eb: number;
   rarity: number;
+  release?: Array<string>;
+  isRunning?: boolean;
 
   flavor: string;
   load: string;

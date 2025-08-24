@@ -25,9 +25,10 @@ import {
 import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp-red-character-main',
-  templateUrl: './cp-red-character-main.component.html',
-  styleUrls: ['./cp-red-character-main.component.css'],
+    selector: 'cs-cp-red-character-main',
+    templateUrl: './cp-red-character-main.component.html',
+    styleUrls: ['./cp-red-character-main.component.css'],
+    standalone: false
 })
 export class CpRedCharacterMainComponent implements OnInit, OnDestroy {
   faFile = faFile;

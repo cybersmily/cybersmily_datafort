@@ -8,9 +8,10 @@ import { ActivatedRoute } from '@angular/router';
 import { CSArticle } from '../../shared/models/articles/article';
 
 @Component({
-  selector: 'cs-article',
-  templateUrl: './article.component.html',
-  styleUrls: ['./article.component.css'],
+    selector: 'cs-article',
+    templateUrl: './article.component.html',
+    styleUrls: ['./article.component.css'],
+    standalone: false
 })
 export class ArticleComponent implements OnInit {
   articleList: any;
@@ -55,7 +56,7 @@ export class ArticleComponent implements OnInit {
    * @memberof ArticleComponent
    */
   GetCurrentArticle(articles: any): void {
-    this.articleList = articles;
+    this.articleList = articles;    
     this.activatedRoute.url.subscribe(
       (url) => this.LoadHTMLFile(url[0].path),
       (error) =>

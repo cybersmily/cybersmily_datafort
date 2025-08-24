@@ -4,9 +4,10 @@ import { LifepathFamily } from './../models';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-lifepath-family',
-  templateUrl: './lifepath-family.component.html',
-  styleUrls: ['./lifepath-family.component.css']
+    selector: 'cs-lifepath-family',
+    templateUrl: './lifepath-family.component.html',
+    styleUrls: ['./lifepath-family.component.css'],
+    standalone: false
 })
 export class LifepathFamilyComponent implements OnInit {
   faDice = faDice;

@@ -1,8 +1,9 @@
 import { DataService } from './../../shared/services/file-services';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NewsadminComponent } from './newsadmin.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('NewsadminComponent', () => {
   let component: NewsadminComponent;
@@ -10,14 +11,14 @@ describe('NewsadminComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewsadminComponent ],
-      imports: [
-        HttpClientTestingModule
-      ],
-      providers: [
-        DataService
-      ]
-    })
+    declarations: [NewsadminComponent],
+    imports: [],
+    providers: [
+        DataService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
   }));
 

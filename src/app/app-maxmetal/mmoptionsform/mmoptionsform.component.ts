@@ -6,9 +6,10 @@ import { MaxMetalDataService } from '../../shared/cp2020/cp2020-vehicles/service
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-mmoptionsform',
-  templateUrl: './mmoptionsform.component.html',
-  styleUrls: ['./mmoptionsform.component.css'],
+    selector: 'cs-mmoptionsform',
+    templateUrl: './mmoptionsform.component.html',
+    styleUrls: ['./mmoptionsform.component.css'],
+    standalone: false
 })
 export class MmoptionsformComponent implements OnInit {
   @Input()

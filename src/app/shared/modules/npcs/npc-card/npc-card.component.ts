@@ -1,13 +1,14 @@
 import { NpcProfileModalComponent } from './../npcProfileModal/npcprofilemodal.component';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 import { Component, OnInit, Input } from '@angular/core';
 import { NpcCard } from '../../../models/character';
 
 @Component({
-  selector: 'cs-npc-card',
-  templateUrl: './npc-card.component.html',
-  styleUrls: ['./npc-card.component.css']
+    selector: 'cs-npc-card',
+    templateUrl: './npc-card.component.html',
+    styleUrls: ['./npc-card.component.css'],
+    standalone: false
 })
 export class NpcCardComponent implements OnInit {
 

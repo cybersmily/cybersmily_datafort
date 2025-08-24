@@ -2,9 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { CpRedTemplateSkill } from './../../shared/cpred/models/cp-red-template-skill';
 
 @Component({
-  selector: 'cs-temp-generator-skills',
-  templateUrl: './temp-generator-skills.component.html',
-  styleUrls: ['./temp-generator-skills.component.css']
+    selector: 'cs-temp-generator-skills',
+    templateUrl: './temp-generator-skills.component.html',
+    styleUrls: ['./temp-generator-skills.component.css'],
+    standalone: false
 })
 export class TempGeneratorSkillsComponent implements OnInit {
   @Input()

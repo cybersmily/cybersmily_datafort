@@ -28,7 +28,7 @@ export class CmbtTrckOpponent {
     this.name = param?.name ?? '';
     this.role = param?.role ?? '';
     if (newId) {
-      this.id = uuidv4();
+      this.id = Number(uuidv4());
     } else {
       this.id = param?.id ?? uuidv4();
     }

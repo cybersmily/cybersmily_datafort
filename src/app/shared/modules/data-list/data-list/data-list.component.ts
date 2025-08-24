@@ -5,9 +5,10 @@ import { DataListColumnParameters } from '../models/data-list-parameters';
 import { get } from 'lodash';
 
 @Component({
-  selector: 'cs-data-list',
-  templateUrl: './data-list.component.html',
-  styleUrls: ['./data-list.component.css'],
+    selector: 'cs-data-list',
+    templateUrl: './data-list.component.html',
+    styleUrls: ['./data-list.component.css'],
+    standalone: false
 })
 export class DataListComponent implements OnInit {
   faSortUp = faSortUp;

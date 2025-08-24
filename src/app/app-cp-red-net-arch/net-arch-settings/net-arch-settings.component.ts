@@ -5,9 +5,10 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ColorEvent } from 'ngx-color';
 
 @Component({
-  selector: 'cs-net-arch-settings',
-  templateUrl: './net-arch-settings.component.html',
-  styleUrls: ['./net-arch-settings.component.css']
+    selector: 'cs-net-arch-settings',
+    templateUrl: './net-arch-settings.component.html',
+    styleUrls: ['./net-arch-settings.component.css'],
+    standalone: false
 })
 export class NetArchSettingsComponent implements OnInit {
   faRedo = faRedo;

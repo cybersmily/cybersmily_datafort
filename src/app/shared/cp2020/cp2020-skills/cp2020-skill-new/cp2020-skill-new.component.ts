@@ -6,9 +6,10 @@ import { SkillListService } from '../services';
 import { Observable, map } from 'rxjs';
 
 @Component({
-  selector: 'cs-cp2020-skill-new',
-  templateUrl: './cp2020-skill-new.component.html',
-  styleUrls: ['./cp2020-skill-new.component.css'],
+    selector: 'cs-cp2020-skill-new',
+    templateUrl: './cp2020-skill-new.component.html',
+    styleUrls: ['./cp2020-skill-new.component.css'],
+    standalone: false
 })
 export class Cp2020SkillNewComponent implements OnInit {
   faSave = faSave;

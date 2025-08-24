@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { map, Observable, of } from 'rxjs';
 import { DataService, JsonDataFiles } from '../../../shared/services/file-services';
-import { iCrCzUnitCard, iCrCzUnitCardData } from '../../models/cr-cz-unit-card';
+import { iCrCzCharacterCard, iCrCzCharacterCardData } from '../../models/cr-cz-character-card';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CrCzUnitDataService {
-  private _unitList: Array<iCrCzUnitCardData>;
+  private _unitList: Array<iCrCzCharacterCardData>;
 
   constructor(private dataService: DataService) { }
 
-  get unitList(): Observable<Array<iCrCzUnitCardData>> {
+  get unitList(): Observable<Array<iCrCzCharacterCardData>> {
     if(this._unitList) {
       return of(this._unitList);
     } else {

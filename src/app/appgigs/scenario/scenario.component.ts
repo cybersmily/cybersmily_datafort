@@ -5,9 +5,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'cs-scenario',
-  templateUrl: './scenario.component.html',
-  styleUrls: ['./scenario.component.css']
+    selector: 'cs-scenario',
+    templateUrl: './scenario.component.html',
+    styleUrls: ['./scenario.component.css'],
+    standalone: false
 })
 export class ScenarioComponent implements OnInit {
 

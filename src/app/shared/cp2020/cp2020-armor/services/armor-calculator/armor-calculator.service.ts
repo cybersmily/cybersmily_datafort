@@ -2,7 +2,6 @@ import { ArmorLocations } from '../../models/armor-locations';
 import { ArmorPiece } from '../../models/armor-piece';
 import { Injectable } from '@angular/core';
 import { ArmorSpChartEntry } from '../../models';
-import { Console } from 'console';
 
 @Injectable({
   providedIn: 'root'

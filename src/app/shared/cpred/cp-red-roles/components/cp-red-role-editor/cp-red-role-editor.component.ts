@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp-red-role-editor',
-  templateUrl: './cp-red-role-editor.component.html',
-  styleUrls: ['./cp-red-role-editor.component.css'],
+    selector: 'cs-cp-red-role-editor',
+    templateUrl: './cp-red-role-editor.component.html',
+    styleUrls: ['./cp-red-role-editor.component.css'],
+    standalone: false
 })
 export class CpRedRoleEditorComponent implements OnInit {
   @Input()

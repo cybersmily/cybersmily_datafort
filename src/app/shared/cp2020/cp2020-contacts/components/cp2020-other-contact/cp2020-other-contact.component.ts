@@ -10,9 +10,10 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { KeyValue } from '@angular/common';
 
 @Component({
-  selector: 'cs-cp2020-other-contact',
-  templateUrl: './cp2020-other-contact.component.html',
-  styleUrls: ['./cp2020-other-contact.component.css'],
+    selector: 'cs-cp2020-other-contact',
+    templateUrl: './cp2020-other-contact.component.html',
+    styleUrls: ['./cp2020-other-contact.component.css'],
+    standalone: false
 })
 export class Cp2020OtherContactComponent implements OnInit {
   faPen = faPen;

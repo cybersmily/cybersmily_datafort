@@ -12,9 +12,10 @@ import { FixerHotStuffService } from './../../services/fixer-hot-stuff/fixer-hot
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'cs-fixer-calc-hot-stuff',
-  templateUrl: './fixer-calc-hot-stuff.component.html',
-  styleUrls: ['./fixer-calc-hot-stuff.component.css'],
+    selector: 'cs-fixer-calc-hot-stuff',
+    templateUrl: './fixer-calc-hot-stuff.component.html',
+    styleUrls: ['./fixer-calc-hot-stuff.component.css'],
+    standalone: false
 })
 export class FixerCalcHotStuffComponent implements OnInit {
   faPlus = faPlus;

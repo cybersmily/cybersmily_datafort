@@ -19,9 +19,10 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
-  selector: 'cs-cp2020-acpa-form',
-  templateUrl: './cp2020-acpa-form.component.html',
-  styleUrls: ['./cp2020-acpa-form.component.css'],
+    selector: 'cs-cp2020-acpa-form',
+    templateUrl: './cp2020-acpa-form.component.html',
+    styleUrls: ['./cp2020-acpa-form.component.css'],
+    standalone: false
 })
 export class Cp2020AcpaFormComponent implements OnInit {
   faPlus = faPlus;

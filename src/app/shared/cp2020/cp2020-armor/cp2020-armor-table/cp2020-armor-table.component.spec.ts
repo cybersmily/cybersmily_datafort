@@ -2,7 +2,7 @@ import { DiceService } from './../../../services/dice/dice.service';
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { DataService } from './../../../services/file-services';
 import { ArmorDataListService } from '../services/armor-data-list/armor-data-list.service';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Cp2020ArmorTableComponent } from './cp2020-armor-table.component';
@@ -13,17 +13,15 @@ describe('Cp2020ArmorTableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Cp2020ArmorTableComponent ],
-      imports: [
-        HttpClientModule,
-        CommonUiModule
-      ],
-      providers: [
+    declarations: [Cp2020ArmorTableComponent],
+    imports: [CommonUiModule],
+    providers: [
         DataService,
         DiceService,
-        ArmorDataListService
-      ]
-    })
+        ArmorDataListService,
+        provideHttpClient(withInterceptorsFromDi())
+    ]
+})
     .compileComponents();
   });
 

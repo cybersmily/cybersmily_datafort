@@ -1,0 +1,202 @@
+@if(dataList$ | async; as unitList) {
+<div class="row">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-3 col-md-1">
+        <cs-cr-cz-faction-selector [selectedFaction]="filterFaction"
+          (selected)="setFaction($event)"></cs-cr-cz-faction-selector>
+      </div>
+      <div class="col-9 col-md-5">
+        <input [(ngModel)]="searchName" type="text" class="no-style w-100" placeholder="Search on card name...">
+        <input [(ngModel)]="searchKeywords" type="text" class="no-style w-100" placeholder="Search for keyword...">
+        <cs-cr-cz-source-selector [filter]="unitlist | uniqueValues:'release'"
+          (selectedSource)="filterOnRelease($event)"></cs-cr-cz-source-selector>
+      </div>
+
+      <div class="col-3 col-md-1 pt-1">
+        <button class="btn csd-btn border border-secondary"
+          title="{{showSelected ? 'Hide' : 'Show'}} already team members" (click)="showSelected = !showSelected">
+          <fa-icon [icon]="showSelected ? faUsers : faUsersSlash" size="xl"></fa-icon>
+        </button>
+      </div>
+      <div class="col-9 col-md-3">
+        Cred:
+        <div class="btn-group">
+          <label [ngClass]="{'btn rounded':true,'fw-bold text-large': streetCredFilter?.includes(0)}"
+            [class.active]="streetCredFilter?.includes(0)" btnCheckbox tabindex="0" (click)="toggleCredFilter(0)"
+            role="button">0<fa-icon [icon]="faStar"></fa-icon></label>
+          <label [ngClass]="{'btn rounded':true,'fw-bold text-large': streetCredFilter?.includes(1)}"
+            [class.active]="streetCredFilter?.includes(1)" btnCheckbox tabindex="0" (click)="toggleCredFilter(1)"
+            role="button">1<fa-icon [icon]="faStar"></fa-icon></label>
+          <label [ngClass]="{'btn rounded':true,'fw-bold text-large': streetCredFilter?.includes(2)}"
+            [class.active]="streetCredFilter?.includes(2)" btnCheckbox tabindex="0" (click)="toggleCredFilter(2)"
+            role="button">2<fa-icon [icon]="faStar"></fa-icon></label>
+        </div>
+      </div>
+      <div class="col-9 col-md-3">
+        <div class="btn-group">
+          <label [ngClass]="{'btn rounded':true,'fw-bold text-large': skillFilter?.includes('reflex')}"
+            [class.active]="skillFilter?.includes('reflex')" btnCheckbox tabindex="0" (click)="toggleSkill('reflex')"
+            role="button">
+            <img alt="Has Reflex skill" class="csd-img-icon" src="img/cz/action_reflex.png" />
+          </label>
+          <label [ngClass]="{'btn rounded':true,'fw-bold text-large': skillFilter?.includes('melee')}"
+            [class.active]="skillFilter?.includes('melee')" btnCheckbox tabindex="0" (click)="toggleSkill('melee')"
+            role="button">
+            <img alt="Has Melee skill" class="csd-img-icon" src="img/cz/action_melee.png" />
+          </label>
+          <label [ngClass]="{'btn rounded':true,'fw-bold text-large': skillFilter?.includes('ranged')}"
+            [class.active]="skillFilter?.includes('ranged')" btnCheckbox tabindex="0" (click)="toggleSkill('ranged')"
+            role="button">
+            <img alt="Has Ranged skill" class="csd-img-icon" src="img/cz/action_ranged.png" />
+          </label>
+          <label [ngClass]="{'btn rounded':true,'fw-bold text-large': skillFilter?.includes('med')}"
+            [class.active]="skillFilter?.includes('med')" btnCheckbox tabindex="0" (click)="toggleSkill('med')"
+            role="button">
+            <img alt="Has Med skill" class="csd-img-icon" src="img/cz/action_med.png" />
+          </label>
+          <label [ngClass]="{'btn rounded':true,'fw-bold text-large': skillFilter?.includes('tech')}"
+            [class.active]="skillFilter?.includes('tech')" btnCheckbox tabindex="0" (click)="toggleSkill('tech')"
+            role="button">
+            <img alt="Has Tech skill" class="csd-img-icon" src="img/cz/action_tech.png" />
+          </label>
+          <label [ngClass]="{'btn rounded':true,'fw-bold text-large': skillFilter?.includes('influence')}"
+            [class.active]="skillFilter?.includes('influence')" btnCheckbox tabindex="0"
+            (click)="toggleSkill('influence')" role="button">
+            <img alt="Has Influence skill" class="csd-img-icon" src="img/cz/action_influence.png" />
+          </label>
+        </div>
+      </div>
+    </div>
+    @for(unit of unitList
+    |contains:'name': searchName
+    |contains: 'keywords': filterFaction
+    |contains:'keywords':searchKeywords
+    |contains:'release':releaseFilter; track $index) {
+    <ng-container>
+      @if(showUnit(unit)) {
+      <div [ngClass]="{'row py-2 border-bottom border-secondary': true}">
+        <div class="col-12">
+          <ng-container [ngTemplateOutlet]="unitRow"
+            [ngTemplateOutletContext]="{name: unit.name, keywords: unit.keywords,  ranks: unit.ranks, cost: unit.eb, release: unit.release}"></ng-container>
+        </div>
+      </div>
+      }
+    </ng-container>
+    }
+  </div>
+</div>
+}
+<ng-template #unitRow let-name="name" let-keywords="keywords" let-release="release" let-ranks="ranks" let-cost="cost">
+  @for(unit of ranks; track $index; let i = $index) {
+  @if(streetCredFilter.includes(unit?.cred)) {
+  <div
+    [ngClass]="{ 'row mt-2': true, 'bg-warning': hasUnit(name, unit?.cred),'d-none': (!showSelected && hasUnit(name, unit?.cred)) }"
+    [title]="disabledMessage(keywords, name)">
+    @if(disabledMessage(keywords, name)) {
+    <div class="col-12 text-small ps-5">
+      {{disabledMessage(keywords, name)}}
+    </div>
+    }
+    <div class="col-2 col-md-1 text-center px-0">
+      <button title="Add character to squad." class="border border-secondary text-center rounded csd-btn p-2"
+        (click)="add(name, unit.cred)" [disabled]="(hasLeader && isLeader(keywords)) || (hasSpecialist(name))">
+        <fa-icon [icon]="faPlus" size="xl"></fa-icon>
+      </button>
+      <div>{{countOfUnit(name, unit.cred) + ' ' }}</div>
+    </div>
+    <div
+      [ngClass]="{'col-10 col-md-4 col-lg-3 text-capitalize rounded': true, 'text-secondary': (hasLeader && isLeader(keywords)) || (hasSpecialist(name))}">
+      <div class="row">
+        <div class="col-2 col-lg-1 px-0">
+          <button title="Unit card for {{name}}" class="csd-img-icon w-100 csd-btn" [popover]="FullImage"
+            triggers="focus" containerClass="w-100">
+            <img alt="Unit card for {{name}}" class="csd-img-icon w-100 csd-btn"
+              src="img/cz/units/{{name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
+          </button>
+          <ng-template #FullImage>
+            <img class="w-100" alt="Unit card for {{name}}"
+              src="img/cz/units/{{name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
+          </ng-template>
+        </div>
+        <div class="col-10 col-lg-11 px-0">
+          <h5 class="d-inline-block mb-0 pb-0">{{name}}
+            @if(unit.cred > 1) {
+            <fa-icon [icon]="faStar" class="elite-icon text-small"></fa-icon>
+            }
+            @if(unit.cred > 0) {
+            <fa-icon [icon]="faStar" class="mt-0 ms-0 ps-0 align-top"></fa-icon>
+            }
+            @if(releaseListService.GetFullReleaseNames(release) | async; as releases) {
+            <button class="csd-btn csd-icon-btn" title="Show releases" [popover]="sourceBooks" triggers="focus">
+              <fa-icon [icon]="faBookBookmark" class="mt-3"></fa-icon>
+            </button>
+            <ng-template #sourceBooks><b>{{ name | titlecase }}</b> appears in these
+              product:<br>{{releases.join(',
+              ')}}</ng-template>
+            }
+          </h5>
+          <div class="ms-2 mt-0 pt-0 text-capitalize text-small fst-italic">
+            {{keywords?.join(", ")}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-2 d-md-none">
+    </div>
+    <div class="col-2 col-md-1 text-small">
+      {{cost}}eb
+    </div>
+    <div class="col-8 col-md-5 col-lg-6">
+      <div class="row">
+        <div class="col-6 p-0 m-0">
+          @if(unit.reflex > 0){
+          <span title="Reflex/Move Action">
+            <img class="action-icon" src="img/cz/action_reflex.png" alt="Reflex/Move Action">
+            {{unit.reflex}}
+          </span>
+          }
+          @if(unit.melee > 0){
+          <span title="Melee Action">
+            <img class="action-icon" src="img/cz/action_melee.png" alt="Melee Action">
+            {{unit.melee}}
+          </span>
+          }
+          @if(unit.ranged > 0){
+          <span title="Ranged Attack Action">
+            <img class="action-icon" src="img/cz/action_ranged.png" alt="Ranged Attack Action">
+            {{unit.ranged}}
+          </span>
+          }
+          @if(unit.tech > 0){
+          <span title="Basic Tech Action">
+            <img class="action-icon" src="img/cz/action_tech.png" alt="Basic Tech Action">
+            {{unit.tech}}
+          </span>
+          }
+          @if(unit.med > 0){
+          <span title="Basic Med Action">
+            <img class="action-icon" src="img/cz/action_med.png" alt="Basic Med Action">
+            {{unit.med}}
+          </span>
+          }
+          @if(unit.influence > 0){
+          <span title="Basic Influence Action">
+            <img class="action-icon" src="img/cz/action_influence.png" alt="Basic Influence Action">
+            {{unit.influence}}
+          </span>
+          }
+        </div>
+        <div class="col-6 p-0 m-0 ps-1">
+          @for(action of unit.actions; track $index) {
+          <span>
+            <img class="action-icon" src="img/cz/{{action.trim()}}_active.png" alt="image of active action.">
+          </span>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+  }
+  }
+</ng-template>

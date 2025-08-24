@@ -2,9 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { CpRedCharacterSkill } from '../../models';
 
 @Component({
-  selector: 'cs-cp-red-skills-by-property',
-  templateUrl: './cp-red-skills-by-property.component.html',
-  styleUrls: ['./cp-red-skills-by-property.component.css'],
+    selector: 'cs-cp-red-skills-by-property',
+    templateUrl: './cp-red-skills-by-property.component.html',
+    styleUrls: ['./cp-red-skills-by-property.component.css'],
+    standalone: false
 })
 export class CpRedSkillsByPropertyComponent implements OnInit {
   @Input()

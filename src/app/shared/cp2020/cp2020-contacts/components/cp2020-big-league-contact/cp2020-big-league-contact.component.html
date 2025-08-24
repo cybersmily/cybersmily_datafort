@@ -1,4 +1,5 @@
-<div class="border border-dark px-3" *ngIf="!editMode; else inEditMode">
+@if(!editMode) {
+<div class="border border-dark px-3">
   <div class="row">
     <div class="col-12 col-md-4 ps-0">
       <span
@@ -35,14 +36,14 @@
         contact.capability ? contact.capability.effect : ''
       }}"
     >
-      {{ contact.capability ? contact.capability.name : "" }}
+      {{ contact?.capability?.name ?? "" }}
     </div>
     <div
       class="col-2 col-md-1 small ps-0"
       title="{{ contact.reputation ? contact.reputation.effect : '' }}"
     >
       <span class="d-md-none">Rep: </span>
-      {{ contact.reputation ? contact.reputation.name : "" }}
+      {{ contact?.reputation?.name ?? "" }}
     </div>
     <div
       class="col-3 col-md-2 small ps-0"
@@ -51,14 +52,14 @@
       }}"
     >
       <span class="d-md-none">Avail: </span>
-      {{ contact.availability ? contact.availability.name : "" }}
+      {{ contact?.availability?.name ?? "" }}
     </div>
     <div
       class="col-3 col-md-2 small ps-0"
       title="{{ contact.reliability ? contact.reliability.effect : '' }}"
     >
       <span class="d-md-none">Rel.: </span>
-      {{ contact.reliability ? contact.reliability.name : "" }}
+      {{ contact?.reliability?.name ?? "" }}
     </div>
     <div class="col-1 small ps-0">{{ contact.cost }}pts</div>
   </div>
@@ -69,7 +70,7 @@
     </div>
   </div>
 </div>
-<ng-template #inEditMode>
+} @else {
   <div class="row hidden-print small">
     <div class="col-12 col-md-4 ps-3">
       <button
@@ -79,62 +80,47 @@
       >
         <fa-icon [icon]="faSave"></fa-icon>
       </button>
-      <input [(ngModel)]="contact.name" class="w-80" />
+      <input title="Contact name." [(ngModel)]="contact.name" class="w-80" />
     </div>
     <div class="col-4 col-md-2 small ps-0 pt-2">
-      <select
-        [(ngModel)]="capability"
+      <select class="w-100"
+        [(ngModel)]="contact.capability"
         title="Choose a capability for the contact"
       >
-        <option
-          *ngFor="let c of catagories.capabilities"
-          [ngValue]="c.name"
-          title="Skill check {{ c.effect }}"
-        >
-          {{ c.name }}({{ c.cost }}pts)
-        </option>
+        @for(cap of catagories.capabilities;track $index) {
+        <ng-container [ngTemplateOutlet]="contactOption"
+          [ngTemplateOutletContext]="{category: cap, title: `Skill check ${cap.effect}` }"></ng-container>
+        }
       </select>
     </div>
     <div class="col-2 offset-2 offset-md-0 col-md-1 small ps-0 pt-2">
       <select
-        [(ngModel)]="reputation"
+        [(ngModel)]="contact.reputation"
         title="Choose a reputation for the contact"
       >
-        <option
-          *ngFor="let c of catagories.reputations"
-          [ngValue]="c.name"
-          title="{{ c.effect }}"
-        >
-          {{ c.name }}(x{{ c.multiplier }})
-        </option>
+      @for(rep of catagories.reputations;track $index) {
+        <ng-container [ngTemplateOutlet]="contactOption" [ngTemplateOutletContext]="{category: rep, title: rep.effect}"></ng-container>
+      }
       </select>
     </div>
     <div class="col-3 col-md-2 small ps-0 pt-2">
       <select
-        [(ngModel)]="availability"
+        [(ngModel)]="contact.availability"
         title="Choose a availability for the contact"
       >
-        <option
-          *ngFor="let c of catagories.availabilities"
-          [ngValue]="c.name"
-          title="Availability test {{ c.effect }}"
-        >
-          {{ c.name }}(x{{ c.multiplier }})
-        </option>
+      @for(avail of catagories.availabilities;track $index) {
+        <ng-container [ngTemplateOutlet]="contactOption" [ngTemplateOutletContext]="{category: avail, title: `Availability test ${avail.effect}` }"></ng-container>
+      }
       </select>
     </div>
     <div class="col-3 col-md-2 small ps-0 pt-2">
       <select
-        [(ngModel)]="reliability"
+        [(ngModel)]="contact.reliability"
         title="Choose a reliability for the contact"
       >
-        <option
-          *ngFor="let c of catagories.reliabilities"
-          [ngValue]="c.name"
-          title="{{ c.effect }}"
-        >
-          {{ c.name }}(x{{ c.multiplier }})
-        </option>
+      @for(rel of catagories.reliabilities;track $index) {
+        <ng-container [ngTemplateOutlet]="contactOption" [ngTemplateOutletContext]="{category: rel, title: rel.effect}"></ng-container>
+      }
       </select>
     </div>
     <div class="col-2 col-md-1 small ps-0 pt-2">{{ contact.cost }}pts</div>
@@ -149,4 +135,11 @@
       ></textarea>
     </div>
   </div>
+}
+
+
+<ng-template #contactOption let-category="category" let-title="title">
+        <option [ngValue]="category.name" title="{{ title }}" >
+          {{ category.name }}(x{{ category.multiplier }})
+        </option>
 </ng-template>

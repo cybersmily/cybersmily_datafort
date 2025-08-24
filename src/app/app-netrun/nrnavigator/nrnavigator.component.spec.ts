@@ -1,10 +1,11 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { FormsModule } from '@angular/forms';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NrnavigatorComponent } from './nrnavigator.component';
 import { DataService } from './../../shared/services/file-services';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('NrnavigatorComponent', () => {
   let component: NrnavigatorComponent;
@@ -12,17 +13,16 @@ describe('NrnavigatorComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+    declarations: [
         NrnavigatorComponent
-      ],
-      imports: [
-        CommonUiModule,
-        HttpClientTestingModule
-      ],
-      providers: [
-        DataService
-      ]
-    })
+    ],
+    imports: [CommonUiModule],
+    providers: [
+        DataService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
   }));
 

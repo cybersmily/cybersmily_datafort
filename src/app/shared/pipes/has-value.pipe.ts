@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'hasValue',
+    name: 'hasValue',
+    standalone: false
 })
 export class HasValuePipe implements PipeTransform {
   transform(value: Array<any>, property: string): Array<any> {

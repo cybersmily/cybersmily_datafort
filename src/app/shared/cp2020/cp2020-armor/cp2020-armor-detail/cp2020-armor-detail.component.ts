@@ -33,9 +33,10 @@ import {
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
-  selector: 'cs-cp2020-armor-detail',
-  templateUrl: './cp2020-armor-detail.component.html',
-  styleUrls: ['./cp2020-armor-detail.component.css'],
+    selector: 'cs-cp2020-armor-detail',
+    templateUrl: './cp2020-armor-detail.component.html',
+    styleUrls: ['./cp2020-armor-detail.component.css'],
+    standalone: false
 })
 export class Cp2020ArmorDetailComponent implements OnInit, AfterViewInit {
   faDice = faDice;

@@ -3,12 +3,13 @@ import { of } from 'rxjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { WeaponDataService } from './../../shared/cp2020/cp2020weapons/services';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AdminWpnListComponent } from './admin-wpn-list.component';
 import { DataService } from './../../shared/services/file-services';
 import { PipesModule } from './../../shared/pipes/pipes.module';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('AdminWpnListComponent', () => {
   let component: AdminWpnListComponent;
@@ -16,18 +17,17 @@ describe('AdminWpnListComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [AdminWpnListComponent],
-      imports: [
-        HttpClientTestingModule,
-        CommonUiModule,
+    declarations: [AdminWpnListComponent],
+    imports: [CommonUiModule,
         BrowserAnimationsModule,
-        PipesModule
-      ],
-      providers: [
+        PipesModule],
+    providers: [
         WeaponDataService,
-        DataService
-      ]
-    })
+        DataService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
       .compileComponents();
   }));
 

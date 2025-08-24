@@ -3,9 +3,10 @@ import { Cp2020ACPAComponent } from './../../models/cp2020-acpa-component';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-acpa-equipment-editor',
-  templateUrl: './cp2020-acpa-equipment-editor.component.html',
-  styleUrls: ['./cp2020-acpa-equipment-editor.component.css'],
+    selector: 'cs-cp2020-acpa-equipment-editor',
+    templateUrl: './cp2020-acpa-equipment-editor.component.html',
+    styleUrls: ['./cp2020-acpa-equipment-editor.component.css'],
+    standalone: false
 })
 export class Cp2020AcpaEquipmentEditorComponent implements OnInit {
   faSave = faSave;

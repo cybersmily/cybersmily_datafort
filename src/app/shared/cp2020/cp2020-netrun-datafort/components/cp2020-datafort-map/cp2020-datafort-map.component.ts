@@ -7,9 +7,10 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { DndDropEvent, DropEffect, EffectAllowed } from 'ngx-drag-drop';
 
 @Component({
-  selector: 'cs-cp2020-datafort-map',
-  templateUrl: './cp2020-datafort-map.component.html',
-  styleUrls: ['./cp2020-datafort-map.component.css'],
+    selector: 'cs-cp2020-datafort-map',
+    templateUrl: './cp2020-datafort-map.component.html',
+    styleUrls: ['./cp2020-datafort-map.component.css'],
+    standalone: false
 })
 export class Cp2020DatafortMapComponent implements OnInit {
   NrNodeIcons = NrNodeIcons;
