@@ -9,7 +9,7 @@
         @for(lnk of topNavLinks.menuItems; track $index) {
         <li class="nav-item dropdown mega-dropdown" dropdown >
           <a rel="noopener" class="nav-link dropdown-toggle text-uppsercase" data-toggle="" aria-haspopup="true"
-            aria-expand="false" dropdownToggle [attr.title]="lnk.description">
+            aria-expand="false" dropdownToggle [title]="lnk.description">
             {{ lnk.groupTitle }}
           </a>
           <div class="dropdown-menu mega-menu z-depth-1 py-2 px-3 bg-dark text-light csd-rounded" *dropdownMenu>
@@ -17,16 +17,16 @@
               {{ lnk.description }}
             </div>
             <div class="csd-link-menu pt-0 mt-0">
-              @for(lk of lnk.links; track lk.title) {
+              @for(lk of lnk.links; track $index) {
               <div class="bg-dark p-0 my-0">
                 @if(!isExternal(lk.link)){
                 <a [routerLink]="lk.link" routerLinkActive="active"
                   class="dropdown-item nav-link bg-dark rounded pt-1 pb-0 my-0"
                   [target]="lk.target ? lk.target : undefined" [attr.download]="lk.download ? lk.download : undefined"
-                  [attr.title]="lk.desc" (click)="isCollapsed = !isCollapsed">{{ lk.title }}</a>
+                  [title]="lk.desc" (click)="isCollapsed = !isCollapsed">{{ lk?.title }}</a>
                 } @else if(isExternal(lk.link)) {
                 <a [href]="lk.link" class="dropdown-item nav-link bg-dark pt-1 pb-0 my-0" [target]="'_blank'"
-                  [attr.title]="lk.desc" >{{ lk.title }}</a>
+                  [title]="lk.desc" >{{ lk?.title }}</a>
                 } @else {}
               </div>
               }
@@ -72,10 +72,10 @@
       <fa-icon class="text-light" [icon]="faTimes"></fa-icon>
     </button>
     <ul class="navbar-nav me-auto bg-dark px-2">
-      @for(lnk of topNavLinks.menuItems; track topNavLinks.title) {
+      @for(lnk of topNavLinks.menuItems; track $index) {
       <li class="nav-item dropdown mega-dropdown" dropdown>
         <a rel="noopener" class="nav-link dropdown-toggle text-uppsercase" data-toggle="" aria-haspopup="true"
-          aria-expand="false" dropdownToggle [attr.title]="lnk.description">
+          aria-expand="false" dropdownToggle [title]="lnk.description">
           {{ lnk.groupTitle }}
         </a>
         <div class="dropdown-menu mega-menu z-depth-1 ms-2 py-2 px-0 bg-dark text-light h-100" *dropdownMenu>
@@ -83,16 +83,16 @@
             {{ lnk.description }}
           </div>
           <div class="csd-link-menu pt-0 mt-0 h-100">
-            @for(lk of lnk.links; track lnk.title) {
+            @for(lk of lnk.links; track $index) {
             <div class="bg-dark p-0 my-0">
               @if(!isExternal(lk.link)) {
               <a rel="noopener" [routerLink]="[lk.link]" routerLinkActive="active"
                 class="dropdown-item nav-link bg-dark rounded pt-1 pb-0 my-0"
                 [target]="lk.target ? lk.target : undefined" [attr.download]="lk.download ? lk.download : undefined"
-                [attr.title]="lk.desc" (click)="closeModal()"><span class="rounded p-0">{{ lk.title }}</span></a>
+                [title]="lk.desc" (click)="closeModal()"><span class="rounded p-0">{{ lk?.title }}</span></a>
               } @else if(isExternal(lk.link)) {
               <a rel="noopener" [href]="lk.link" class="dropdown-item nav-link bg-dark pt-1 pb-0 my-0"
-                [target]="'_blank'" [attr.title]="lk.desc"><span class="rounded p-0">{{ lk.title
+                [target]="'_blank'" [title]="lk.desc"><span class="rounded p-0">{{ lk?.title
                   }}</span></a>
               } @else {}
             </div>

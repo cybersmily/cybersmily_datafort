@@ -14,13 +14,18 @@
         </button>
         <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu w-100" role="menu" aria-labelledby="button-basic">
           @for(squad of czArmy; track $index; let squadIndex = $index){
-          <li role="menuitem" class="csd-btn text-capitalize"
+          <li role="menuitem" [ngClass]="{'csd-btn text-capitalize':true}"
             (click)="selectSquad(squad.faction, squad.name, squadIndex)">
             @if(squad.faction !== '') {
             <img class="csd-img-icon" src="img/cz/icon_{{ squad.faction.replace(' ', '_') }}.png" />
             }
             {{ squad.name }}
           </li>
+          } @empty {
+          <li role="menuitem" class="csd-btn text-capitalize" (click)="showAdd = true">
+            + Create a new Team...
+          </li>
+
           }
         </ul>
       </div>
