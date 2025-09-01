@@ -18,6 +18,10 @@ import { Cp2020OtherContactComponent } from './components/cp2020-other-contact/c
 import { Cp2020BigLeagueContactNewComponent } from './components/cp2020-big-league-contact-new/cp2020-big-league-contact-new.component';
 import { Cp2020HotStuffContactNewComponent } from './components/cp2020-hot-stuff-contact-new/cp2020-hot-stuff-contact-new.component';
 import { Cp2020OtherContactNewComponent } from './components/cp2020-other-contact-new/cp2020-other-contact-new.component';
+import { Select } from 'primeng/select';
+import { FloatLabel } from 'primeng/floatlabel';
+import { InputTextModule } from 'primeng/inputtext';
+import { TextareaModule } from 'primeng/textarea';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,7 @@ import { Cp2020OtherContactNewComponent } from './components/cp2020-other-contac
     Cp2020OtherContactNewComponent,
   ],
   providers: [Cp2020ContactSectionPdfService],
-  imports: [CommonModule, CommonUiModule, PipesModule],
+  imports: [CommonModule, CommonUiModule, PipesModule,Select, FloatLabel, InputTextModule, TextareaModule],
   exports: [
     FixerCalcBigLeagueComponent,
     FixerCalcBigLeagueContactComponent,
