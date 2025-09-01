@@ -30,10 +30,14 @@ export class Cp2020BigLeagueContactComponent implements OnInit {
   editMode = false;
   isCollapse = true;
   catagories = new BigLeagueCategories();
+  currContact: BigLeagueContact = new BigLeagueContact();
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.currContact = new BigLeagueContact(this.contact());
+    console.log('contact', this.currContact);
+  }
 
   deleteContact() {
     this.delete.emit(this.index());
@@ -45,6 +49,6 @@ export class Cp2020BigLeagueContactComponent implements OnInit {
 
   saveContact() {
     this.editMode = false;
-    this.edit.emit({ index: this.index(), contact: this.contact() });
+    this.edit.emit({ index: this.index(), contact: this.currContact });
   }
 }

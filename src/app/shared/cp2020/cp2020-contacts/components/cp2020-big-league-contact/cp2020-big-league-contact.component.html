@@ -2,144 +2,132 @@
 <div class="border border-dark px-3">
   <div class="row">
     <div class="col-12 col-md-4 ps-0">
-      <span
-        (click)="isCollapse = !isCollapse"
-        [ngClass]="{ 'cursor-pointer': contact.details }"
-        title="Expand to show details"
-      >
-        <fa-icon
-          class="csd-icon-btn"
-          *ngIf="contact.details"
-          [icon]="isCollapse ? faChevronRight : faChevronDown"
-        ></fa-icon>
-        {{ contact.name || "contact" + index }}
+      <span (click)="isCollapse = !isCollapse" [ngClass]="{ 'cursor-pointer': currContact.details }"
+        title="Expand to show details">
+        @if(currContact.details) {
+        <fa-icon class="csd-icon-btn" [icon]="isCollapse ? faChevronRight : faChevronDown"></fa-icon>
+        }
+        {{ currContact.name || "contact_" + index() }}
       </span>
 
-      <button
-        (click)="deleteContact()"
-        title="Delete contact"
-        class="csd-icon-btn hidden-print csd-icon-sm csd-btn float-end"
-      >
+      <button (click)="deleteContact()" title="Delete contact"
+        class="csd-icon-btn hidden-print csd-icon-sm csd-btn float-end">
         <fa-icon [icon]="faTrash"></fa-icon>
       </button>
-      <button
-        (click)="editContact()"
-        title="Edit contact"
-        class="csd-icon-btn hidden-print csd-icon-sm csd-btn me-2 float-end"
-      >
+      <button (click)="editContact()" title="Edit contact"
+        class="csd-icon-btn hidden-print csd-icon-sm csd-btn me-2 float-end">
         <fa-icon [icon]="faPen"></fa-icon>
       </button>
     </div>
-    <div
-      class="col-3 col-md-2 small pe-0"
-      title="Skill check {{
-        contact.capability ? contact.capability.effect : ''
-      }}"
-    >
-      {{ contact?.capability?.name ?? "" }}
+    <div class="col-3 col-md-2 small pe-0" title="Skill check {{
+        currContact.capability ? currContact.capability.effect : ''
+      }}">
+      {{ currContact?.capability?.name ?? "" }}
     </div>
-    <div
-      class="col-2 col-md-1 small ps-0"
-      title="{{ contact.reputation ? contact.reputation.effect : '' }}"
-    >
+    <div class="col-2 col-md-1 small ps-0" title="{{ currContact.reputation ? currContact.reputation.effect : '' }}">
       <span class="d-md-none">Rep: </span>
-      {{ contact?.reputation?.name ?? "" }}
+      {{ currContact?.reputation?.name ?? "" }}
     </div>
-    <div
-      class="col-3 col-md-2 small ps-0"
-      title="Availablity Check {{
-        contact.availability ? contact.availability.effect : ''
-      }}"
-    >
+    <div class="col-3 col-md-2 small ps-0" title="Availablity Check {{
+        currContact.availability ? currContact.availability.effect : ''
+      }}">
       <span class="d-md-none">Avail: </span>
-      {{ contact?.availability?.name ?? "" }}
+      {{ currContact?.availability?.name ?? "" }}
     </div>
-    <div
-      class="col-3 col-md-2 small ps-0"
-      title="{{ contact.reliability ? contact.reliability.effect : '' }}"
-    >
+    <div class="col-3 col-md-2 small ps-0" title="{{ currContact.reliability ? currContact.reliability.effect : '' }}">
       <span class="d-md-none">Rel.: </span>
-      {{ contact?.reliability?.name ?? "" }}
+      {{ currContact?.reliability?.name ?? "" }}
     </div>
-    <div class="col-1 small ps-0">{{ contact.cost }}pts</div>
+    <div class="col-1 small ps-0">{{ currContact.cost }}pts</div>
   </div>
   <div class="row">
     <div class="col-1"></div>
     <div class="col-10 big-league-details" [collapse]="isCollapse">
-      Notes: {{ contact.details }}
+      Notes: {{ currContact.details }}
     </div>
   </div>
 </div>
 } @else {
-  <div class="row hidden-print small">
-    <div class="col-12 col-md-4 ps-3">
-      <button
-        (click)="saveContact()"
-        title="Save contact changes"
-        class="csd-btn csd-icon-btn csd-icon-xl pe-2"
-      >
-        <fa-icon [icon]="faSave"></fa-icon>
-      </button>
-      <input title="Contact name." [(ngModel)]="contact.name" class="w-80" />
-    </div>
-    <div class="col-4 col-md-2 small ps-0 pt-2">
-      <select class="w-100"
-        [(ngModel)]="contact.capability"
-        title="Choose a capability for the contact"
-      >
-        @for(cap of catagories.capabilities;track $index) {
-        <ng-container [ngTemplateOutlet]="contactOption"
-          [ngTemplateOutletContext]="{category: cap, title: `Skill check ${cap.effect}` }"></ng-container>
-        }
-      </select>
-    </div>
-    <div class="col-2 offset-2 offset-md-0 col-md-1 small ps-0 pt-2">
-      <select
-        [(ngModel)]="contact.reputation"
-        title="Choose a reputation for the contact"
-      >
-      @for(rep of catagories.reputations;track $index) {
-        <ng-container [ngTemplateOutlet]="contactOption" [ngTemplateOutletContext]="{category: rep, title: rep.effect}"></ng-container>
-      }
-      </select>
-    </div>
-    <div class="col-3 col-md-2 small ps-0 pt-2">
-      <select
-        [(ngModel)]="contact.availability"
-        title="Choose a availability for the contact"
-      >
-      @for(avail of catagories.availabilities;track $index) {
-        <ng-container [ngTemplateOutlet]="contactOption" [ngTemplateOutletContext]="{category: avail, title: `Availability test ${avail.effect}` }"></ng-container>
-      }
-      </select>
-    </div>
-    <div class="col-3 col-md-2 small ps-0 pt-2">
-      <select
-        [(ngModel)]="contact.reliability"
-        title="Choose a reliability for the contact"
-      >
-      @for(rel of catagories.reliabilities;track $index) {
-        <ng-container [ngTemplateOutlet]="contactOption" [ngTemplateOutletContext]="{category: rel, title: rel.effect}"></ng-container>
-      }
-      </select>
-    </div>
-    <div class="col-2 col-md-1 small ps-0 pt-2">{{ contact.cost }}pts</div>
+<div class="row hidden-print small">
+  <div class="col-12 col-md-4 ps-3">
+    <button (click)="saveContact()" title="Save contact changes" class="csd-btn csd-icon-btn csd-icon-xl w-10 pe-1 me-0">
+      <fa-icon [icon]="faSave"></fa-icon>
+    </button>
+    <p-floatlabel class="w-80 md:w-56 d-inline-block" variant="on">
+      <input pInputText type="text" class="w-80" pSize="small" title="Contact name." [(ngModel)]="currContact.name" />
+      <label for="on_label">Contact</label>
+    </p-floatlabel>
   </div>
-  <div class="row">
-    <div class="col-1"></div>
-    <div class="col-10 big-league-details">
-      <textarea
-        class="w-100"
-        [(ngModel)]="contact.details"
-        placeholder="Enter details about contact..."
-      ></textarea>
-    </div>
+  <div class="col-4 col-md-2 small ps-0 pt-2">
+    <p-floatlabel class="w-full md:w-56" variant="on">
+      <p-select class="w-100" [(ngModel)]="currContact.capability" [options]="catagories.capabilities"
+        optionLabel="name" size="small" placeholder="Choose..." title="Choose a capability for the contact">
+        <ng-template let-capability #item>
+          <div class="flex items-center gap-2">
+            <div>{{ capability.name }} ({{ capability.cost }}pts)</div>
+          </div>
+        </ng-template>
+      </p-select>
+      <label for="on_label">Capability</label>
+    </p-floatlabel>
   </div>
+  <div class="col-2 offset-2 offset-md-0 col-md-1 small ps-0 pt-2">
+    <p-floatlabel class="w-full md:w-56" variant="on">
+      <p-select class="w-100" [(ngModel)]="currContact.reputation" [options]="catagories.reputations" optionLabel="name"
+        size="small" placeholder="Choose..." title="Choose a reputation for the contact">
+        <ng-template let-reputation #item>
+          <div class="flex items-center gap-2">
+            <div>{{ reputation.name }} ({{ reputation.effect }})</div>
+          </div>
+        </ng-template>
+      </p-select>
+      <label for="on_label">Reputation</label>
+    </p-floatlabel>
+  </div>
+  <div class="col-3 col-md-2 small ps-0 pt-2">
+    <p-floatlabel class="w-full md:w-56" variant="on">
+      <p-select class="w-100" [(ngModel)]="currContact.availability" [options]="catagories.availabilities"
+        optionLabel="name" size="small" placeholder="Choose..." title="Choose a availability for the contact">
+        <ng-template let-availability #item>
+          <div class="flex items-center gap-2">
+            <div>{{availability.name}} (test {{ availability.effect }})</div>
+          </div>
+        </ng-template>
+      </p-select>
+      <label for="on_label">Availability</label>
+    </p-floatlabel>
+  </div>
+  <div class="col-3 col-md-2 small ps-0 pt-2">
+    <p-floatlabel class="w-full md:w-56" variant="on">
+      <p-select class="w-100" [(ngModel)]="currContact.reliability" [options]="catagories.reliabilities"
+        optionLabel="name" size="small" placeholder="Choose..." title="Choose a reliability for the contact">
+        <ng-template let-reliability #item>
+          <div class="flex items-center gap-2">
+            <div>{{reliability.name}} ({{ reliability.effect }})</div>
+          </div>
+        </ng-template>
+      </p-select>
+      <label for="on_label">Reliability</label>
+    </p-floatlabel>
+  </div>
+  <div class="col-2 col-md-1 small ps-0 pt-2">{{ currContact.cost }}pts</div>
+</div>
+<div class="row">
+  <div class="col-1">
+  </div>
+  <div class="col-10 big-league-details">
+    <p-floatlabel variant="on">
+      <textarea pTextarea class="w-100" [(ngModel)]="currContact.details"
+        placeholder="Enter details about contact..."></textarea>
+      <label for="on_label">Contact Details</label>
+    </p-floatlabel>
+  </div>
+</div>
 }
 
 
 <ng-template #contactOption let-category="category" let-title="title">
-        <option [ngValue]="category.name" title="{{ title }}" >
-          {{ category.name }}(x{{ category.multiplier }})
-        </option>
+  <option [ngValue]="category.name" title="{{ title }}">
+    {{ category.name }}(x{{ category.multiplier }})
+  </option>
 </ng-template>

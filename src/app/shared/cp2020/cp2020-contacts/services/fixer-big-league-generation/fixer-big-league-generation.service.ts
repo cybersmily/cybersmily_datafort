@@ -64,6 +64,7 @@ export class FixerBigLeagueGenerationService {
       categories.reputations[
         dice.generateNumber(0, categories.reputations.length - 1)
       ];
+    console.log('contact', contact);
     return contact;
   }
 }
