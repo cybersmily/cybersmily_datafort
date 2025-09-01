@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'contains',
+    name: 'contains',
+    standalone: false
 })
 export class ContainsPipe implements PipeTransform {
   transform(array: any[], property: string, value: any): any {
@@ -11,7 +12,9 @@ export class ContainsPipe implements PipeTransform {
       !Array.isArray(array) ||
       value === null ||
       value === undefined ||
-      value === ''
+      value === '' ||
+      value.length < 1
+
     ) {
       return array;
     }
@@ -36,7 +39,11 @@ export class ContainsPipe implements PipeTransform {
           if (Array.isArray(obj[property])) {
             const ar = [].concat(...obj[property]);
             return ar.find((sk: string) => {
-              return sk.toLowerCase().includes(value.toLowerCase());
+              if( Array.isArray(value)) {
+                return value.some( val => sk.includes(val));
+              } else {
+                return sk?.toLowerCase().includes(value?.toLowerCase());
+              }
             });
           }
           // assume this is an object

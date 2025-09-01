@@ -1,10 +1,11 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { DataService } from './../../shared/services/file-services';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { CorporationCardComponent } from './../corporation-card/corporation-card.component';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CorporationsComponent } from './corporations.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('CorporationsComponent', () => {
   let component: CorporationsComponent;
@@ -12,16 +13,13 @@ describe('CorporationsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+    declarations: [
         CorporationsComponent,
         CorporationCardComponent
-      ],
-      imports: [
-        CommonUiModule,
-        HttpClientTestingModule
-      ],
-      providers: [DataService]
-    })
+    ],
+    imports: [CommonUiModule],
+    providers: [DataService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
   }));
 

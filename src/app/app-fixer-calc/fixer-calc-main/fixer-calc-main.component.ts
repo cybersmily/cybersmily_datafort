@@ -13,6 +13,7 @@ import { FixerCharts } from '../../shared/cp2020/cp2020-contacts/models';
   selector: 'cs-fixer-calc-main',
   templateUrl: './fixer-calc-main.component.html',
   styleUrls: ['./fixer-calc-main.component.css'],
+  standalone: false,
 })
 export class FixerCalcMainComponent implements OnInit {
   private _streetdealKey: string = 'csd_fixer_streetdeal_key';
@@ -20,10 +21,8 @@ export class FixerCalcMainComponent implements OnInit {
   contactData$: Observable<{
     areaList: Array<string>;
     contactList: Array<string>;
-  }> = new Observable<{
-    areaList: Array<string>;
-    contactList: Array<string>;
-  }>();
+  }>;
+
   areaList: Array<string> = new Array<string>();
   contactList: Array<string> = new Array<string>();
   streetdeal: number = 0;

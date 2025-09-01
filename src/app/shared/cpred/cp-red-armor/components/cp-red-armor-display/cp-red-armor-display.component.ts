@@ -9,9 +9,10 @@ import {
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp-red-armor-display',
-  templateUrl: './cp-red-armor-display.component.html',
-  styleUrls: ['./cp-red-armor-display.component.css'],
+    selector: 'cs-cp-red-armor-display',
+    templateUrl: './cp-red-armor-display.component.html',
+    styleUrls: ['./cp-red-armor-display.component.css'],
+    standalone: false
 })
 export class CpRedArmorDisplayComponent implements OnInit {
   faChevronDown = faChevronDown;

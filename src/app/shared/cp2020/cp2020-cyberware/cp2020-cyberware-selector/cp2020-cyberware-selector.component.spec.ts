@@ -1,12 +1,13 @@
 import { CyberDataService } from './../services/cyber-data.service';
 import { DiceService } from './../../../services/dice/dice.service';
 import { PipesModule } from './../../../pipes/pipes.module';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { DataService } from './../../../services/file-services';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { Cp2020CyberwareSelectorComponent } from './cp2020-cyberware-selector.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('Cp2020CyberwareSelectorComponent', () => {
   let component: Cp2020CyberwareSelectorComponent;
@@ -15,20 +16,19 @@ describe('Cp2020CyberwareSelectorComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+    declarations: [
         Cp2020CyberwareSelectorComponent
-      ],
-      imports: [
-        CommonUiModule,
-        HttpClientTestingModule,
-        PipesModule
-      ],
-      providers: [
+    ],
+    imports: [CommonUiModule,
+        PipesModule],
+    providers: [
         DataService,
         DiceService,
-        CyberDataService
-      ]
-    })
+        CyberDataService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
   }));
 

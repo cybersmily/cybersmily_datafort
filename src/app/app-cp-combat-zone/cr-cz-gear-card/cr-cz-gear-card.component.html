@@ -1,63 +1,95 @@
-<div [ngClass]="{'d-inline-block float-start m-1 p-1 rounded':true, 'bg-secondary': hasGear} ">
-  <div [ngClass]="{'d-inline-block position-relative csd-btn': true, 'rotate-180': gear.flipped}" style="height: 180px; width: 280px;"
-    (click)="addGear()"
-  >
-    <img [ngClass]="{'cz-gear-card d-inline-block rounded align-top':true}" src="img/cz/gear/blank_card.jpg">
-    <button *ngIf="gearIndex > -1" class="position-absolute top-0 right-0 csd-btn border border-secondary text-danger p-1 rounded bg-light" title="Remove this gear from the character."
-      (click)="removeGear()">
+<div [ngClass]="{'d-inline-block float-start m-1 p-1 me-3 rounded cr-cz-gear-card-holder':true} ">
+  <div [ngClass]="{'float-end d-inline-block position-relative': true}" style="width:19px;">
+    @if(releaseList$ | async; as releases) {
+    <ng-template #sourceBooks><b>{{ gear().name | titlecase }}</b> appears in product:<br>{{releases.join(',
+      ')}}</ng-template>
+    <button class="position-absolute top-0 right-0 border border-secondary text-danger p-1 rounded bg-light"
+      title="Show releases." [popover]="sourceBooks" placement="left" containerClass="cr-cz-resources">
+      <fa-icon [icon]="faBookmark" size="xl"></fa-icon>
+    </button>
+    }
+
+    @if(gearIndex() > -1) {
+    <button class="position-absolute top-0 right-0 border border-secondary text-danger mt-5 p-1 rounded bg-light"
+      title="Remove this gear from the character." (click)="removeGear()">
       <fa-icon [icon]="faTrash" size="xl"></fa-icon>
     </button>
-    <div *ngIf="hasGear" class="d-inline-block position-absolute fw-bold outline-black-bold text-white text-small"
-    style="top:-4px;left: 0; right: 0; margin-inline: auto; width: fit-content;">
-      * Equipped *
-    </div>
-    <div
-      [ngClass]="{'d-inline-block position-absolute text-capitalize text-center cr-cz-gear-name mt-2':true, 'text-white': isValid,'text-danger': !isValid,}"
-      title="Squad already has {{count}} of this gear. {{(rarityValid ? ' THIS EXCEEDS RARITY FOR THE CURRENT SQUAD!! ' : '')}}{{ credValid ? 'THIS EXCEEDS STREET CRED FOR THE CURRENT SQUAD!!':''}}">
-      {{gear.name}}</div>
-    <div class="d-inline-block position-absolute top-0 ms-2 mt-5 pt-3 text-capitalize text-white text-small"
-      style="left:0;width: 180px;line-height: 16px;">
-      {{gear.keywords.join(", ")}}</div>
-    <div class="d-inline-block position-absolute top-0 mt-5 pt-3 py-0 px-1 text-small {{ !rarityValid ? 'text-danger':'text-white'}}"
-      style="right:33px;line-height: 18px;" title="Squad has {{count}} of this gear. {{ !rarityValid ? 'Count exceeds the rarity of this item.': ''}}">
-      {{count}}/{{gear.rarity}}<span *ngIf="!rarityValid">**</span> rarity
-    </div>
-    <div class="d-inline-block position-absolute top-0 mt-4 text-white py-0 px-1 text-small"
-      style="right:8px;line-height: 18px;">{{gear.eb}} EB</div>
-    <div class="d-inline-block position-absolute top-0 mt-4 py-0 px-1 text-small fw-bold {{ !credValid ? 'text-danger':'text-white'}}"
-      style="left:185px;line-height: 16px;" title="Gear exceeds Street Cred limit.">
-      {{gear.cred}} ({{totalStreetcred}})<span *ngIf="!credValid">**</span>
-    </div>
-    <img *ngIf="gear.action" class="position-absolute top-50 csd-img-icon" style="left: 5px;"
-      src="img/cz/action_{{gear.action}}.png">
-    <img *ngIf="gear.ranges?.length > 0" class="position-absolute top-50 w-70" style="left: 35px;height:10px;"
-      src="img/cz/range_base.png">
-    <img *ngIf="gear.ranges?.includes('r')" class="position-absolute top-50 w-70" style="left: 35px;height:10px;"
-      src="img/cz/range_red.png">
-    <img *ngIf="gear.ranges?.includes('y')" class="position-absolute top-50 w-70" style="left: 35px;height:10px;"
-      src="img/cz/range_yellow.png">
-    <img *ngIf="gear.ranges?.includes('g')" class="position-absolute top-50 w-70" style="left: 35px;height:10px;"
-      src="img/cz/range_green.png">
-    <img *ngIf="gear.ranges?.includes('l')" class="position-absolute top-50 w-70" style="left: 35px;height:10px;"
-      src="img/cz/range_long.png">
-    <div class="d-inline-block position-absolute text-white py-0 px-1 text-xsmall text-start"
-      [ngStyle]="{'top':(gear.ranges?.length > 0 ? '105px' : '90px'),'left':(gear.action ? 35 : 5) + 'px', 'line-height': '11px', 'width': getAttributeWidth(gear.action != '', gear.armor > 0)}">
-      <img *ngIf="gear.damage" class="float-start" style="height:11px;" src="img/cz/lethal_icon.png">
-      {{gear.attributes.join(', ')}}
-    </div>
-    <div *ngIf="gear.armor > 0"
-      class="d-inline-block position-absolute top-50 text-white py-1 px-1 text-small text-center fw-bold"
-      style="background-image: url('img/cz/shield_icon.png');background-size: contain; height:33px; right: 8px; width:30px !important; ">
-      {{gear.armor}}
-    </div>
+    } @else if(hasGear()) {
+    <button
+      class="position-absolute top-0 right-0 mt-5 p-1 rounded bg-light fw-bold text-success text-small top-0 rounded bg-white border border-success"
+      title="Item is already Equipped" (click)="removeGear()">
+      <fa-icon [icon]="faCircleCheck" size="2x"></fa-icon>
+    </button>
+    }
+  </div>
+  <div [ngClass]="{'d-inline-block position-relative csd-btn': true, 'rotate-180': gear().flipped}"
+    style="height: 180px; width: 260px;" (click)="addGear()">
+
+    <img [ngClass]="{'cz-gear-card d-inline-block rounded align-top':true}" src="img/cz/gear/blank_card.jpg">
 
     <img
-      [ngClass]="{'rounded position-absolute bottom-0 right-0 mt-5 mb-0':true, 'bg-danger border border-secondary': gear.faction !== 'universal' && gear.faction !== teamFaction}"
-      style="margin-left: -45px; opacity: 0.4; width:45px;"
-       src="img/cz/icon_{{gear.faction.replace(' ','_')}}.png"
-       alt="{{gear.faction.replace(' ','_')}} faction"
-       title="{{gear.faction.replace(' ','_')}} faction gear"
-       >
+      [ngClass]="{'rounded position-absolute bottom-0 right-0 mt-5 mb-0':true, 'bg-danger border border-secondary': gear().faction !== 'universal' && gear().faction !== teamFaction()}"
+      style="margin-left: -45px; opacity: 0.6; width:45px;" src="img/cz/icon_{{gear().faction.replace(' ','_')}}.png"
+      alt="{{gear().faction.replace(' ','_')}} faction" title="{{gear().faction.replace(' ','_')}} faction gear">
+
+
+    <div
+      [ngClass]="{'d-inline-block position-absolute text-capitalize text-center cr-cz-gear-name mt-2':true, 'text-white': isValid,'text-danger': !isValid,}"
+      title="Squad already has {{count()}} of this gear. {{(rarityValid ? ' THIS EXCEEDS RARITY FOR THE CURRENT SQUAD!! ' : '')}}{{ credValid ? 'THIS EXCEEDS STREET CRED FOR THE CURRENT SQUAD!!':''}}">
+      {{gear().name}}</div>
+    <div class="d-inline-block position-absolute top-0 ms-2 mt-5 pt-3 text-capitalize text-white text-small"
+      style="left:0;width: 210px;line-height: 16px;">
+      {{gear().keywords.join(", ")}}</div>
+    <div class="d-inline-block position-absolute text-small {{ !rarityValid ? 'text-danger':'text-white'}}"
+      style="left:8px;bottom: 10px;line-height: 18px;"
+      title="Squad has {{count()}} of this gear. {{ !rarityValid ? 'Count exceeds the rarity of this item.': ''}}">
+      {{count()}}/{{gear().rarity}}@if(!rarityValid){ **}<span class="ms-1 text-3xsmall">RARITY</span>
+    </div>
+    <div class="d-inline-block position-absolute top-0 mt-4 text-white py-0 px-1 text-small"
+      style="right:8px;line-height: 18px;">{{gear().eb}} EB</div>
+
+
+
+    <div
+      class="d-inline-block position-absolute top-0 m-0 mt-4 py-0 px-1 text-small fw-bold {{ !credValid ? 'text-danger':'text-white'}}"
+      style="left:170px;line-height: 16px;" title="Gear exceeds Street Cred limit.">
+      {{gear().cred}}[{{totalStreetcred()}}]
+      @if(!credValid){
+      <span>**</span>
+      }
+    </div>
+    @if(gear().action) {
+    <img class="position-absolute top-50 csd-img-icon" style="left: 5px;" src="img/cz/action_{{gear().action}}.png">
+    }
+    @if(gear().ranges?.length > 0) {
+    <img class="position-absolute top-50 w-70" style="left: 35px;height:10px;" src="img/cz/range_base.png">
+    }
+    @if(gear().ranges?.includes('r')) {
+    <img class="position-absolute top-50 w-70" style="left: 35px;height:10px;" src="img/cz/range_red.png">
+    }
+    @if(gear().ranges?.includes('y')) {
+    <img class="position-absolute top-50 w-70" style="left: 35px;height:10px;" src="img/cz/range_yellow.png">
+    }
+    @if(gear().ranges?.includes('g')) {
+    <img class="position-absolute top-50 w-70" style="left: 35px;height:10px;" src="img/cz/range_green.png">
+    }
+    @if(gear().ranges?.includes('l')) {
+    <img class="position-absolute top-50 w-70" style="left: 35px;height:10px;" src="img/cz/range_long.png">
+    }
+
+    <div class="d-inline-block position-absolute text-white py-0 px-1 text-xsmall text-start"
+      [ngStyle]="{'top':(gear().ranges?.length > 0 ? '105px' : '90px'),'left':(gear().action ? 35 : 5) + 'px', 'line-height': '11px', 'width': getAttributeWidth(gear().action != '', gear().armor > 0)}">
+      @if(gear().damage) {
+      <img class="float-start" style="height:11px;" src="img/cz/lethal_icon.png">
+      }
+      {{gear().attributes.join(', ')}}
+    </div>
+    @if(gear().armor > 0){
+    <div class="d-inline-block position-absolute top-50 text-white py-1 px-1 text-small text-center fw-bold"
+      style="background-image: url('img/cz/shield_icon.png');background-size: contain; height:33px; right: 8px; width:30px !important; ">
+      {{gear().armor}}
+    </div>
+    }
   </div>
 
 </div>

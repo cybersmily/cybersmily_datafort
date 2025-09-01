@@ -7,9 +7,10 @@ import { SeoService } from './../../shared/services/seo/seo.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-cyber-list',
-  templateUrl: './cyber-list.component.html',
-  styleUrls: ['./cyber-list.component.css'],
+    selector: 'cs-cyber-list',
+    templateUrl: './cyber-list.component.html',
+    styleUrls: ['./cyber-list.component.css'],
+    standalone: false
 })
 export class CyberListComponent implements OnInit {
   columns: Array<DataListColumnParameters> = [

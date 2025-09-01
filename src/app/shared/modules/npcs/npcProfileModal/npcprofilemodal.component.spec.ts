@@ -1,9 +1,10 @@
 import { CommonUiModule } from './../../common-ui/common-ui.module';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NpcProfileModalComponent } from './npcprofilemodal.component';
 import { DataService } from './../../../services/file-services';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('NpcProfileComponent', () => {
   let component: NpcProfileModalComponent;
@@ -11,17 +12,16 @@ describe('NpcProfileComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+    declarations: [
         NpcProfileModalComponent
-      ],
-      providers: [
-        DataService
-      ],
-      imports: [
-        CommonUiModule,
-        HttpClientTestingModule
-      ]
-    })
+    ],
+    imports: [CommonUiModule],
+    providers: [
+        DataService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
   }));
 

@@ -1,21 +1,24 @@
 import { DiceService } from './../../../services/dice/dice.service';
 import { DataService } from './../../../services/file-services/dataservice/data.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
 import { BodegasGeneratorService } from './bodegas-generator.service';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('BodegasGeneratorService', () => {
   let service: BodegasGeneratorService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [
+    imports: [],
+    providers: [
         DataService,
-        DiceService
-      ]
-    });
+        DiceService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+});
     service = TestBed.inject(BodegasGeneratorService);
   });
 

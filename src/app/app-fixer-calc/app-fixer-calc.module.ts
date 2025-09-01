@@ -16,6 +16,6 @@ import { FixerCalcMainComponent } from './fixer-calc-main/fixer-calc-main.compon
     AppFixerCalcRoutingModule,
     Cp2020ContactsModule,
   ],
-  providers: [SaveFileService, DiceService, DataService],
+  providers: [SaveFileService, DiceService],
 })
 export class AppFixerCalcModule {}

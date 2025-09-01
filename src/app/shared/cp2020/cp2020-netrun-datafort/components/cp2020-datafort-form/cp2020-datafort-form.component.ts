@@ -26,9 +26,10 @@ import { Component, OnInit } from '@angular/core';
 import { NrDatafortRefData } from '../../models/nr-datafort-ref-data';
 
 @Component({
-  selector: 'cs-cp2020-datafort-form',
-  templateUrl: './cp2020-datafort-form.component.html',
-  styleUrls: ['./cp2020-datafort-form.component.css'],
+    selector: 'cs-cp2020-datafort-form',
+    templateUrl: './cp2020-datafort-form.component.html',
+    styleUrls: ['./cp2020-datafort-form.component.css'],
+    standalone: false
 })
 export class Cp2020DatafortFormComponent implements OnInit {
   faRedo = faRedo;

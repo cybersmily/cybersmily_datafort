@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'cs-npcs',
-  templateUrl: './npcs.component.html',
-  styleUrls: ['./npcs.component.css'],
+    selector: 'cs-npcs',
+    templateUrl: './npcs.component.html',
+    styleUrls: ['./npcs.component.css'],
+    standalone: false
 })
 export class NpcsComponent implements OnInit {
   npcRoster$: Observable<Array<NpcCard>>;

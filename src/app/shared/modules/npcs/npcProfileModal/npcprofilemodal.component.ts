@@ -5,9 +5,10 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 import { NpcSkill, Skill } from '../../../cp2020/cp2020-skills/models';
 
 @Component({
-  selector: 'cs-npcprofile-modal',
-  templateUrl: './npcprofilemodal.component.html',
-  styleUrls: ['./npcprofilemodal.component.css'],
+    selector: 'cs-npcprofile-modal',
+    templateUrl: './npcprofilemodal.component.html',
+    styleUrls: ['./npcprofilemodal.component.css'],
+    standalone: false
 })
 export class NpcProfileModalComponent implements OnInit {
   npcFile: string;

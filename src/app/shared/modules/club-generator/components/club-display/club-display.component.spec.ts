@@ -2,10 +2,11 @@ import { DiceService } from './../../../../services/dice/dice.service';
 import { DataService } from './../../../../services/file-services/dataservice/data.service';
 import { ClubChartDataService } from './../../services/club-chart-data/club-chart-data.service';
 import { CommonUiModule } from './../../../common-ui/common-ui.module';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ClubDisplayComponent } from './club-display.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('ClubDisplayComponent', () => {
   let component: ClubDisplayComponent;
@@ -13,10 +14,10 @@ describe('ClubDisplayComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ClubDisplayComponent],
-      imports: [HttpClientTestingModule, CommonUiModule],
-      providers: [ClubChartDataService, DataService, DiceService],
-    }).compileComponents();
+    declarations: [ClubDisplayComponent],
+    imports: [CommonUiModule],
+    providers: [ClubChartDataService, DataService, DiceService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+}).compileComponents();
   });
 
   beforeEach(() => {

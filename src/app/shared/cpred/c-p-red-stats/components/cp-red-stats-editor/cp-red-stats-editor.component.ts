@@ -3,9 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, map } from 'rxjs';
 
 @Component({
-  selector: 'cs-cp-red-stats-editor',
-  templateUrl: './cp-red-stats-editor.component.html',
-  styleUrls: ['./cp-red-stats-editor.component.css'],
+    selector: 'cs-cp-red-stats-editor',
+    templateUrl: './cp-red-stats-editor.component.html',
+    styleUrls: ['./cp-red-stats-editor.component.css'],
+    standalone: false
 })
 export class CpRedStatsEditorComponent implements OnInit {
   constructor(private statManager: CpRedStatsManagerService) {}

@@ -7,9 +7,10 @@ import { faDice, faTrash, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-club-display',
-  templateUrl: './club-display.component.html',
-  styleUrls: ['./club-display.component.css'],
+    selector: 'cs-club-display',
+    templateUrl: './club-display.component.html',
+    styleUrls: ['./club-display.component.css'],
+    standalone: false
 })
 export class ClubDisplayComponent implements OnInit {
   faDice = faDice;

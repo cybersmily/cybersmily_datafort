@@ -6,11 +6,12 @@ import {
 import { of } from 'rxjs';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { DataService } from './../../shared/services/file-services';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NightMarketFormComponent } from './night-market-form.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('NightMarketFormComponent', () => {
   let component: NightMarketFormComponent;
@@ -21,10 +22,10 @@ describe('NightMarketFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [NightMarketFormComponent],
-      imports: [CommonUiModule, HttpClientTestingModule],
-      providers: [DataService, DiceService],
-    }).compileComponents();
+    declarations: [NightMarketFormComponent],
+    imports: [CommonUiModule],
+    providers: [DataService, DiceService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+}).compileComponents();
   });
 
   beforeEach(() => {

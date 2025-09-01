@@ -11,9 +11,10 @@ import { CpRedBaseCharacter } from '../../shared/cpred/models/cp-red-base-charac
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-temp-generator',
-  templateUrl: './temp-generator.component.html',
-  styleUrls: ['./temp-generator.component.css'],
+    selector: 'cs-temp-generator',
+    templateUrl: './temp-generator.component.html',
+    styleUrls: ['./temp-generator.component.css'],
+    standalone: false
 })
 export class TempGeneratorComponent implements OnInit {
   faDice = faDice;

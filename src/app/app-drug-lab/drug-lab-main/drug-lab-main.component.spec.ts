@@ -1,4 +1,4 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { DataService } from './../../shared/services/file-services';
 import { DrugLabListComponent } from './../drug-lab-list/drug-lab-list.component';
 import { DrugLabGeneratorComponent } from './../drug-lab-generator/drug-lab-generator.component';
@@ -7,6 +7,7 @@ import { SeoService } from './../../shared/services/seo/seo.service';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { DrugLabMainComponent } from './drug-lab-main.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('DrugLabMainComponent', () => {
   let component: DrugLabMainComponent;
@@ -14,20 +15,19 @@ describe('DrugLabMainComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+    declarations: [
         DrugLabMainComponent,
         DrugLabGeneratorComponent,
         DrugLabListComponent
-      ],
-      imports: [
-        CommonUiModule,
-        HttpClientTestingModule
-      ],
-      providers: [
+    ],
+    imports: [CommonUiModule],
+    providers: [
         DataService,
-        SeoService
-      ]
-    })
+        SeoService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
   }));
 

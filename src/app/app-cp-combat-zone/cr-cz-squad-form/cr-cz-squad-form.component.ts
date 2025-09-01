@@ -1,19 +1,19 @@
-import { faTrash, faStar, faPlus, faRedo, faFilePdf, faChevronRight, faChevronLeft, faBullseye, faUsersLine, faComment, faFileLines, faUserPlus, faDice } from '@fortawesome/free-solid-svg-icons';
-import { Component, Input, OnChanges, OnInit, Output, SimpleChanges, TemplateRef, EventEmitter } from '@angular/core';
+import { faTrash, faStar, faPlus, faRedo, faFilePdf, faChevronRight, faChevronLeft, faBullseye, faUsersLine, faFileLines, faUserPlus, faDice } from '@fortawesome/free-solid-svg-icons';
+import { Component, Input, OnChanges, OnInit, TemplateRef, input, output } from '@angular/core';
 import { iCrCzSquad } from '../models/cr-cz-squad';
-import { BehaviorSubject, map, Observable, take } from 'rxjs';
+import { BehaviorSubject, Observable, take } from 'rxjs';
 import { CrCzArmyBuilderService } from '../services/cr-cz-army-builder/cr-cz-army-builder.service';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { CrCzArmyPdfService } from '../services/cr-cz-army-pdf/cr-cz-army-pdf.service';
 import { TabDirective } from 'ngx-bootstrap/tabs';
 import { iCrCzObjectiveCard } from '../models/cr-cz-objective-card';
-import { CrCzObjectiveDataService } from '../services/cr-cz-objective-data/cr-cz-objective-data.service';
 import { CrCzScenarioObjectivesGeneratorService } from '../services/cr-cz-scenario-objectives-generator/cr-cz-scenario-objectives-generator.service';
 
 @Component({
-  selector: 'cs-cr-cz-squad-form',
-  templateUrl: './cr-cz-squad-form.component.html',
-  styleUrls: ['./cr-cz-squad-form.component.css']
+    selector: 'cs-cr-cz-squad-form',
+    templateUrl: './cr-cz-squad-form.component.html',
+    styleUrls: ['./cr-cz-squad-form.component.css'],
+    standalone: false
 })
 export class CrCzSquadFormComponent implements OnInit, OnChanges {
 
@@ -29,6 +29,9 @@ export class CrCzSquadFormComponent implements OnInit, OnChanges {
   faFileLines = faFileLines;
   faUserPlus = faUserPlus;
   faDice = faDice;
+
+  squadIndex = input<number>();
+  delete = output<number>();
 
   faction = '';
   selectedTab = "team";
@@ -49,15 +52,10 @@ export class CrCzSquadFormComponent implements OnInit, OnChanges {
     animated: true,
   };
 
-  @Input()
-  squadIndex: number;
-
-  @Output()
-  delete: EventEmitter<number> = new EventEmitter<number>();
 
   public get squad$(): Observable<iCrCzSquad> {
     return this.combatzoneArmyBuilder
-    .getSquad(this.squadIndex)
+    .getSquad(this.squadIndex())
   }
 
   constructor(private combatzoneArmyBuilder: CrCzArmyBuilderService,
@@ -84,7 +82,7 @@ export class CrCzSquadFormComponent implements OnInit, OnChanges {
     .getRandomObjectives(3, squad.faction, squad.objectives.map(obj => obj.name))
     .pipe(take(1))
     .subscribe(objectives => {
-      this.combatzoneArmyBuilder.updateScenarioObjectives(this.squadIndex, objectives);
+      this.combatzoneArmyBuilder.updateScenarioObjectives(this.squadIndex(), objectives);
     });
     $event.stopPropagation();
     return false;
@@ -111,11 +109,11 @@ export class CrCzSquadFormComponent implements OnInit, OnChanges {
   }
 
   inspireTeam() {
-    this.combatzoneArmyBuilder.inspireTeam(this.squadIndex);
+    this.combatzoneArmyBuilder.inspireTeam(this.squadIndex());
   }
 
   removeSquad(): void {
-    this.delete.emit(this.squadIndex);
+    this.delete.emit(this.squadIndex());
   }
 
   addObjective(squadIndex: number, objective: iCrCzObjectiveCard): void {
@@ -131,11 +129,11 @@ export class CrCzSquadFormComponent implements OnInit, OnChanges {
   }
 
   removeUnit(unitIndex: number): void {
-    this.combatzoneArmyBuilder.removeUnit(this.squadIndex, unitIndex);
+    this.combatzoneArmyBuilder.removeUnit(this.squadIndex(), unitIndex);
   }
 
   updateLuck(amount: number): void {
-    this.combatzoneArmyBuilder.updateSquadLuck(this.squadIndex, amount);
+    this.combatzoneArmyBuilder.updateSquadLuck(this.squadIndex(), amount);
   }
 
   navigateMembers(nav: number, length: number): void {
@@ -145,7 +143,7 @@ export class CrCzSquadFormComponent implements OnInit, OnChanges {
   }
 
   togglePayVeteran(): void {
-    this.combatzoneArmyBuilder.updateSquadVeteranCost(this.squadIndex);
+    this.combatzoneArmyBuilder.updateSquadVeteranCost(this.squadIndex());
   }
 
   createPDF() {
@@ -155,7 +153,7 @@ export class CrCzSquadFormComponent implements OnInit, OnChanges {
   }
 
   updateSquadNotes(): void {
-    this.combatzoneArmyBuilder.updateSquadNotes(this.squadIndex, this.squadNotes);
+    this.combatzoneArmyBuilder.updateSquadNotes(this.squadIndex(), this.squadNotes);
   }
 
   setTab(data: TabDirective,name: string): void {

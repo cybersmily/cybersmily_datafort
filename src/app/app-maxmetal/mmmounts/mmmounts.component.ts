@@ -6,9 +6,10 @@ import {
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-mmmounts',
-  templateUrl: './mmmounts.component.html',
-  styleUrls: ['./mmmounts.component.css'],
+    selector: 'cs-mmmounts',
+    templateUrl: './mmmounts.component.html',
+    styleUrls: ['./mmmounts.component.css'],
+    standalone: false
 })
 export class MmmountsComponent implements OnInit {
   mounts: MaxMetalWeaponMount[] = new Array<MaxMetalWeaponMount>();

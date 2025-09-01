@@ -5,9 +5,10 @@ import { Corporation, CorporationCard } from '../../shared/models/corporation';
 import { Component, OnInit, Input, TemplateRef } from '@angular/core';
 
 @Component({
-  selector: 'cs-corporation-card',
-  templateUrl: './corporation-card.component.html',
-  styleUrls: ['./corporation-card.component.css']
+    selector: 'cs-corporation-card',
+    templateUrl: './corporation-card.component.html',
+    styleUrls: ['./corporation-card.component.css'],
+    standalone: false
 })
 export class CorporationCardComponent implements OnInit {
 

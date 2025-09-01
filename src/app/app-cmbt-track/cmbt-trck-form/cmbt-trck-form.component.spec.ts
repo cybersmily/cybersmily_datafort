@@ -5,7 +5,7 @@ import { Cp2020StatsModule } from './../../shared/cp2020/cp2020-stats/cp2020-sta
 import { Cp2020weaponsModule } from './../../shared/cp2020/cp2020weapons/cp2020weapons.module';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { CmbtTrckGearComponent } from './../cmbt-trck-gear/cmbt-trck-gear.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { DataService } from './../../shared/services/file-services';
 import { PipesModule } from './../../shared/pipes/pipes.module';
 import { CmbtTrkCyberComponent } from './../cmbt-trk-cyber/cmbt-trk-cyber.component';
@@ -22,28 +22,26 @@ describe('CmbtTrckFormComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+    declarations: [
         CmbtTrckFormComponent,
         CmbtTrckOpponentCardComponent,
         CmbtTrkSkillsComponent,
         CmbtTrkCyberComponent,
         CmbtTrckGearComponent
-      ],
-      imports: [
-        CommonUiModule,
+    ],
+    imports: [CommonUiModule,
         PipesModule,
         BrowserAnimationsModule,
         Cp2020weaponsModule,
         Cp2020StatsModule,
         Cp2020WoundsModule,
-        Cp2020ArmorModule,
-        HttpClientModule
-      ],
-      providers: [
+        Cp2020ArmorModule],
+    providers: [
         DiceService,
-        DataService
-      ]
-    })
+        DataService,
+        provideHttpClient(withInterceptorsFromDi())
+    ]
+})
     .compileComponents();
   }));
 

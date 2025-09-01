@@ -4,9 +4,10 @@ import { EthnicityGeneratorService } from './../services';
 import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-lifepath-ethnicity',
-  templateUrl: './lifepath-ethnicity.component.html',
-  styleUrls: ['./lifepath-ethnicity.component.css']
+    selector: 'cs-lifepath-ethnicity',
+    templateUrl: './lifepath-ethnicity.component.html',
+    styleUrls: ['./lifepath-ethnicity.component.css'],
+    standalone: false
 })
 export class LifepathEthnicityComponent implements OnInit, OnChanges {
   faDice = faDice;

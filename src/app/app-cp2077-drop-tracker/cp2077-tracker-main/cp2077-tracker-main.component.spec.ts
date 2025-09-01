@@ -2,11 +2,12 @@ import { of } from 'rxjs';
 import { SaveFileService } from './../../shared/services/file-services';
 import { PipesModule } from './../../shared/pipes/pipes.module';
 import { DataService } from './../../shared/services/file-services';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Cp2077TrackerMainComponent } from './cp2077-tracker-main.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('Cp2077TrackerMainComponent', () => {
   let component: Cp2077TrackerMainComponent;
@@ -16,13 +17,11 @@ describe('Cp2077TrackerMainComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [Cp2077TrackerMainComponent],
-      imports: [CommonUiModule,
-        HttpClientTestingModule,
-        PipesModule
-      ],
-      providers: [DataService]
-    })
+    declarations: [Cp2077TrackerMainComponent],
+    imports: [CommonUiModule,
+        PipesModule],
+    providers: [DataService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
       .compileComponents();
   });
 

@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { DataService } from './../../shared/services/file-services';
 import { TestBed } from '@angular/core/testing';
 
@@ -10,13 +10,12 @@ describe('CPRedNetArchChartsService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientModule
-      ],
-      providers: [
-        DataService
-      ]
-    });
+    imports: [],
+    providers: [
+        DataService,
+        provideHttpClient(withInterceptorsFromDi())
+    ]
+});
     dataService = TestBed.inject(DataService);
     service = new CPRedNetArchChartsService(dataService);
 

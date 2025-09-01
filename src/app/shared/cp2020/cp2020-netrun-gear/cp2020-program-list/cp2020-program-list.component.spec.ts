@@ -1,10 +1,11 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { DataService } from '../../../services/file-services';
 import { Cp2020ProgramNewComponent } from '../cp2020-program-new/cp2020-program-new.component';
 import { CommonUiModule } from '../../../modules/common-ui/common-ui.module';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { Cp2020ProgramListComponent } from './cp2020-program-list.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('ProgramListComponent', () => {
   let component: Cp2020ProgramListComponent;
@@ -12,18 +13,17 @@ describe('ProgramListComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+    declarations: [
         Cp2020ProgramListComponent,
         Cp2020ProgramNewComponent
-      ],
-      providers: [
-        DataService
-      ],
-      imports: [
-        CommonUiModule,
-        HttpClientTestingModule
-      ]
-    })
+    ],
+    imports: [CommonUiModule],
+    providers: [
+        DataService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
   }));
 

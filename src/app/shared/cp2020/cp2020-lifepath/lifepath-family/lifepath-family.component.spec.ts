@@ -1,4 +1,4 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { FamilyGeneratorService } from './../services/family-generator.service';
 import { CommonUiModule } from './../../../modules/common-ui/common-ui.module';
 import { DataService } from './../../../services/file-services';
@@ -7,6 +7,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { LifepathFamilyComponent } from './lifepath-family.component';
 import { Siblings, LifepathFamily } from './../models';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('LifepathFamilyComponent', () => {
   let component: LifepathFamilyComponent;
@@ -15,17 +16,16 @@ describe('LifepathFamilyComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LifepathFamilyComponent ],
-      imports: [
-        CommonUiModule,
-        HttpClientTestingModule
-      ],
-      providers: [
+    declarations: [LifepathFamilyComponent],
+    imports: [CommonUiModule],
+    providers: [
         DiceService,
         DataService,
-        FamilyGeneratorService
-      ]
-    })
+        FamilyGeneratorService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
   }));
 

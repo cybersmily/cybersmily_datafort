@@ -4,9 +4,10 @@ import { Component, OnInit, Input, HostBinding} from '@angular/core';
 import { NrMapPositionService, NrMapGridService, NrMapDataService } from '../services';
 
 @Component({
-  selector: 'cs-nr-map-cell',
-  templateUrl: './nr-map-cell.component.html',
-  styleUrls: ['./nr-map-cell.component.css']
+    selector: 'cs-nr-map-cell',
+    templateUrl: './nr-map-cell.component.html',
+    styleUrls: ['./nr-map-cell.component.css'],
+    standalone: false
 })
 export class NrMapCellComponent implements OnInit {
 

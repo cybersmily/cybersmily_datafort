@@ -16,9 +16,10 @@ import {
 import { CpRedCharacterAddiction } from '../../models';
 
 @Component({
-  selector: 'cs-cp-red-addictions-display',
-  templateUrl: './cp-red-addictions-display.component.html',
-  styleUrls: ['./cp-red-addictions-display.component.css'],
+    selector: 'cs-cp-red-addictions-display',
+    templateUrl: './cp-red-addictions-display.component.html',
+    styleUrls: ['./cp-red-addictions-display.component.css'],
+    standalone: false
 })
 export class CpRedAddictionsDisplayComponent implements OnInit, OnChanges {
   faChevronRight = faChevronRight;

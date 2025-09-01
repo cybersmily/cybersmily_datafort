@@ -7,9 +7,10 @@ import { DataService } from './../../shared/services/file-services';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2077-tracker-main',
-  templateUrl: './cp2077-tracker-main.component.html',
-  styleUrls: ['./cp2077-tracker-main.component.css'],
+    selector: 'cs-cp2077-tracker-main',
+    templateUrl: './cp2077-tracker-main.component.html',
+    styleUrls: ['./cp2077-tracker-main.component.css'],
+    standalone: false
 })
 export class Cp2077TrackerMainComponent implements OnInit {
   faSave = faSave;

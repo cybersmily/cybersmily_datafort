@@ -5,9 +5,10 @@ import { Component, OnInit } from '@angular/core';
 import { BodegasItem } from '../../shared/cpred/c-p-red-economy/models';
 
 @Component({
-  selector: 'cs-bodegas-form',
-  templateUrl: './bodegas-form.component.html',
-  styleUrls: ['./bodegas-form.component.css']
+    selector: 'cs-bodegas-form',
+    templateUrl: './bodegas-form.component.html',
+    styleUrls: ['./bodegas-form.component.css'],
+    standalone: false
 })
 export class BodegasFormComponent implements OnInit {
   faDice = faDice;

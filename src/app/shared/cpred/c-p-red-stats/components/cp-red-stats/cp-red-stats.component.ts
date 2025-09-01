@@ -11,9 +11,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp-red-stats',
-  templateUrl: './cp-red-stats.component.html',
-  styleUrls: ['./cp-red-stats.component.css'],
+    selector: 'cs-cp-red-stats',
+    templateUrl: './cp-red-stats.component.html',
+    styleUrls: ['./cp-red-stats.component.css'],
+    standalone: false
 })
 export class CpRedStatsComponent implements OnInit {
   modalRef: BsModalRef;

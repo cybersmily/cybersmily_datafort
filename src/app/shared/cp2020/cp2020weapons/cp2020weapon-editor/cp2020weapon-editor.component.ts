@@ -28,9 +28,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020weapon-editor',
-  templateUrl: './cp2020weapon-editor.component.html',
-  styleUrls: ['./cp2020weapon-editor.component.css'],
+    selector: 'cs-cp2020weapon-editor',
+    templateUrl: './cp2020weapon-editor.component.html',
+    styleUrls: ['./cp2020weapon-editor.component.css'],
+    standalone: false
 })
 export class Cp2020weaponEditorComponent implements OnInit, AfterViewInit {
   faSave = faSave;

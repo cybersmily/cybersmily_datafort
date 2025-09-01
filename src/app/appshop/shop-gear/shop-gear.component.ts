@@ -5,9 +5,10 @@ import { Component, OnInit } from '@angular/core';
 import { Gear } from '../../shared/models/gear';
 
 @Component({
-  selector: 'cs-shop-gear',
-  templateUrl: './shop-gear.component.html',
-  styleUrls: ['./shop-gear.component.css']
+    selector: 'cs-shop-gear',
+    templateUrl: './shop-gear.component.html',
+    styleUrls: ['./shop-gear.component.css'],
+    standalone: false
 })
 export class ShopGearComponent implements OnInit {
   equipmentList$: Observable<{

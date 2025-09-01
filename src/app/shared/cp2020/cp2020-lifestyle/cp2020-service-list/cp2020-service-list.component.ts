@@ -23,9 +23,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-service-list',
-  templateUrl: './cp2020-service-list.component.html',
-  styleUrls: ['./cp2020-service-list.component.css'],
+    selector: 'cs-cp2020-service-list',
+    templateUrl: './cp2020-service-list.component.html',
+    styleUrls: ['./cp2020-service-list.component.css'],
+    standalone: false
 })
 export class Cp2020ServiceListComponent implements OnInit, OnChanges {
   faTrash = faTrash;

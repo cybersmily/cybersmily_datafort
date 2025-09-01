@@ -1,6 +1,6 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { DiceService } from './../../shared/services/dice/dice.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NrMapGridComponent } from './nr-map-grid.component';
@@ -9,6 +9,7 @@ import { NrMapCellComponent } from '../nr-map-cell/nr-map-cell.component';
 import { NrDatafortComponent } from '../nr-datafort/nr-datafort.component';
 import { DataService } from './../../shared/services/file-services';
 import { NrTrackerService } from '../services';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('NrMapGridComponent', () => {
   let component: NrMapGridComponent;
@@ -16,23 +17,22 @@ describe('NrMapGridComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+    declarations: [
         NrMapGridComponent,
         NrMapCellComponent,
         NrDatafortComponent
-      ],
-      imports: [
-        HttpClientTestingModule,
-        NgxUiLoaderModule,
-        CommonUiModule
-      ],
-      providers: [
+    ],
+    imports: [NgxUiLoaderModule,
+        CommonUiModule],
+    providers: [
         NgxUiLoaderService,
         DataService,
         NrTrackerService,
-        DiceService
-      ]
-    })
+        DiceService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
   }));
 

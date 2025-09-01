@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'weightName'
+    name: 'weightName',
+    standalone: false
 })
 export class WeightNamePipe implements PipeTransform {
 

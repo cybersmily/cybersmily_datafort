@@ -5,9 +5,10 @@ import { Component, OnInit } from '@angular/core';
 import { SPINNER, NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
-  selector: 'cs-nrmap',
-  templateUrl: './nrmap.component.html',
-  styleUrls: ['./nrmap.component.css']
+    selector: 'cs-nrmap',
+    templateUrl: './nrmap.component.html',
+    styleUrls: ['./nrmap.component.css'],
+    standalone: false
 })
 export class NrmapComponent implements OnInit {
   currMap: NRRegionMap;

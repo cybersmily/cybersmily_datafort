@@ -7,9 +7,10 @@ import { Component, Input, OnInit, OnChanges, Output, EventEmitter, TemplateRef 
 import { Cp2020GearDataService } from './../../services/cp2020-gear-data/cp2020-gear-data.service';
 
 @Component({
-  selector: 'cs-cp2020-gear-editor',
-  templateUrl: './cp2020-gear-editor.component.html',
-  styleUrls: ['./cp2020-gear-editor.component.css']
+    selector: 'cs-cp2020-gear-editor',
+    templateUrl: './cp2020-gear-editor.component.html',
+    styleUrls: ['./cp2020-gear-editor.component.css'],
+    standalone: false
 })
 export class Cp2020GearEditorComponent implements OnInit, OnChanges {
   faTrash = faTrash;

@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 import { VehicleType } from '../../shared/cp2020/cp2020-vehicles/models';
 
 @Component({
-  selector: 'cs-mmgenerator',
-  templateUrl: './mmgenerator.component.html',
-  styleUrls: ['./mmgenerator.component.css'],
+    selector: 'cs-mmgenerator',
+    templateUrl: './mmgenerator.component.html',
+    styleUrls: ['./mmgenerator.component.css'],
+    standalone: false
 })
 export class MmgeneratorComponent implements OnInit {
   vehicleTypes: Array<VehicleType>;

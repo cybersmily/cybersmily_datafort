@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'cpRedFloorCostCalc'
+    name: 'cpRedFloorCostCalc',
+    standalone: false
 })
 export class CPRedFloorCostCalcPipe implements PipeTransform {
 

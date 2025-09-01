@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp-red-weapon-editor',
-  templateUrl: './cp-red-weapon-editor.component.html',
-  styleUrls: ['./cp-red-weapon-editor.component.css']
+    selector: 'cs-cp-red-weapon-editor',
+    templateUrl: './cp-red-weapon-editor.component.html',
+    styleUrls: ['./cp-red-weapon-editor.component.css'],
+    standalone: false
 })
 export class CpRedWeaponEditorComponent implements OnInit {
 

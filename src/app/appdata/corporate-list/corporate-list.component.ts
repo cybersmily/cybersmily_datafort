@@ -6,9 +6,10 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'cs-corporate-list',
-  templateUrl: './corporate-list.component.html',
-  styleUrls: ['./corporate-list.component.css'],
+    selector: 'cs-corporate-list',
+    templateUrl: './corporate-list.component.html',
+    styleUrls: ['./corporate-list.component.css'],
+    standalone: false
 })
 export class CorporateListComponent implements OnInit {
   corporateList$: Observable<Array<CorporationData>>;

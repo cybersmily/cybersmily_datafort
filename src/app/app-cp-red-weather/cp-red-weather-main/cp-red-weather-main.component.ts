@@ -8,9 +8,10 @@ import { faDice, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp-red-weather-main',
-  templateUrl: './cp-red-weather-main.component.html',
-  styleUrls: ['./cp-red-weather-main.component.css']
+    selector: 'cs-cp-red-weather-main',
+    templateUrl: './cp-red-weather-main.component.html',
+    styleUrls: ['./cp-red-weather-main.component.css'],
+    standalone: false
 })
 export class CpRedWeatherMainComponent implements OnInit {
   faDice = faDice;

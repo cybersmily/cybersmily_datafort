@@ -12,9 +12,10 @@ import { Coord } from './../../app-netrun/models';
 import { CmbtZoneEvent } from './../../shared/models/cmbtzone/cmbt-zone-event';
 
 @Component({
-  selector: 'cs-cmbt-zone-map',
-  templateUrl: './cmbt-zone-map.component.html',
-  styleUrls: ['./cmbt-zone-map.component.css']
+    selector: 'cs-cmbt-zone-map',
+    templateUrl: './cmbt-zone-map.component.html',
+    styleUrls: ['./cmbt-zone-map.component.css'],
+    standalone: false
 })
 export class CmbtZoneMapComponent implements OnInit {
   faDice = faDice;

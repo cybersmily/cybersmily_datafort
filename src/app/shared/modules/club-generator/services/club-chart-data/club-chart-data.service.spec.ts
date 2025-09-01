@@ -1,6 +1,6 @@
 import { DataService } from './../../../../services/file-services/dataservice/data.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 
 import { ClubChartDataService } from './club-chart-data.service';
@@ -10,9 +10,9 @@ describe('ClubChartDataService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [DataService],
-    });
+    imports: [],
+    providers: [DataService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+});
     service = TestBed.inject(ClubChartDataService);
   });
 

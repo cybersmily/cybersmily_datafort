@@ -4,9 +4,10 @@ import { Component, Input, OnInit, Output, EventEmitter, ViewChildren, QueryList
 import { Cp2020Expense, Cp2020Payment } from '../models';
 
 @Component({
-  selector: 'cs-cp2020-expense-list',
-  templateUrl: './cp2020-expense-list.component.html',
-  styleUrls: ['./cp2020-expense-list.component.css']
+    selector: 'cs-cp2020-expense-list',
+    templateUrl: './cp2020-expense-list.component.html',
+    styleUrls: ['./cp2020-expense-list.component.css'],
+    standalone: false
 })
 export class Cp2020ExpenseListComponent implements OnInit, AfterViewInit {
   faEuroSign = faEuroSign;

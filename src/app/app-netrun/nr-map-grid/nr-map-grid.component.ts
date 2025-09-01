@@ -7,9 +7,10 @@ import { NRRegionMap, NRMapRow } from '../models';
 import { SPINNER, NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
-  selector: 'cs-nr-map-grid',
-  templateUrl: './nr-map-grid.component.html',
-  styleUrls: ['./nr-map-grid.component.css']
+    selector: 'cs-nr-map-grid',
+    templateUrl: './nr-map-grid.component.html',
+    styleUrls: ['./nr-map-grid.component.css'],
+    standalone: false
 })
 export class NrMapGridComponent implements OnInit {
   currMap: NRRegionMap;

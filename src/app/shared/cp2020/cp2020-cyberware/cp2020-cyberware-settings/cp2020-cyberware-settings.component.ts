@@ -2,9 +2,10 @@ import { Cp2020CyberwareGenSettings } from './../models/cp2020-cyberware-gen-set
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-cyberware-settings',
-  templateUrl: './cp2020-cyberware-settings.component.html',
-  styleUrls: ['./cp2020-cyberware-settings.component.css']
+    selector: 'cs-cp2020-cyberware-settings',
+    templateUrl: './cp2020-cyberware-settings.component.html',
+    styleUrls: ['./cp2020-cyberware-settings.component.css'],
+    standalone: false
 })
 export class Cp2020CyberwareSettingsComponent implements OnInit {
 

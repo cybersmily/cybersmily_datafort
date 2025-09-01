@@ -1,10 +1,11 @@
 import { CpRedLifepathCoreData } from './../models/cp-red-lifepath-core-data';
 import { CPRedLifepathJumpStartData } from './../models/cp-red-lifepath-js-data';
 import { DiceService } from './../../../services/dice/dice.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
 import { CPRedLifePathService } from './c-p-red-life-path.service';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('CPRedLifePathService', () => {
   let service: CPRedLifePathService;
@@ -13,13 +14,13 @@ describe('CPRedLifePathService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule
-      ],
-      providers: [
-        DiceService
-      ]
-    });
+    imports: [],
+    providers: [
+        DiceService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+});
     diceService = TestBed.inject(DiceService);
     service = new CPRedLifePathService(diceService);
     coreCharts = {

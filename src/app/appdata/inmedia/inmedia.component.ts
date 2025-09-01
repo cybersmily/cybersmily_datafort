@@ -4,9 +4,10 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from './../../shared/services/file-services';
 
 @Component({
-  selector: 'app-inmedia',
-  templateUrl: './inmedia.component.html',
-  styleUrls: ['./inmedia.component.css'],
+    selector: 'app-inmedia',
+    templateUrl: './inmedia.component.html',
+    styleUrls: ['./inmedia.component.css'],
+    standalone: false
 })
 export class InmediaComponent implements OnInit {
   constructor(private dataService: DataService, private seo: SeoService) {}

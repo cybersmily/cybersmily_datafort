@@ -1,0 +1,69 @@
+<div class="d-inline-block position-relative me-3" [ngStyle]="programCardStyle">
+  @if(showBothSides() || !crczProgram().isRunning) {
+  <div class="d-inline-block float-start position-relative my-1" [ngStyle]="programCardSideStyle.dimensions">
+    <img class="d-inline-block position-absolute top-0 left-0 w-100 rounded" alt="image of blank card for loading the program."
+      src="/img/cz/blank_program_l_{{crczProgram().action}}.png" />
+    <div class="d-inline-block position-absolute text-white fw-bold" [ngStyle]="programCardSideStyle.creds">
+      {{crczProgram().cred}}</div>
+    <div class="d-inline-block position-absolute text-white text-small" [ngStyle]="programCardSideStyle.title">{{crczProgram().name |
+      uppercase}}</div>
+    <div class="d-inline-block position-absolute text-white text-xsmall"
+       [ngStyle]="programCardLoadedStyles.loadDescription">{{crczProgram().load}}<br>Flip this card.</div>
+    <div class="d-inline-block position-absolute text-white fw-bold"
+      [ngStyle]="programCardLoadedStyles.ebCost">{{crczProgram().eb}}</div>
+    <div class="d-inline-block position-absolute text-white fw-bold text-3xsmall"
+      [ngStyle]="programCardLoadedStyles.eb">E<br>B</div>
+    <div class="d-inline-block position-absolute text-white fw-bold"
+      [ngStyle]="programCardLoadedStyles.rarity">
+      {{crczProgram().rarity}}<span class="text-3xsmall">RARITY</span></div>
+  </div>
+  }
+  @if(showBothSides() || crczProgram().isRunning) {
+  <div class="d-inline-block float-start position-relative my-1" [ngStyle]="programCardSideStyle.dimensions">
+    <img class="d-inline-block position-absolute top-0 left-0 w-100 rounded" alt="blank program card design" src="/img/cz/blank_program_r.png" />
+    <div class="d-inline-block position-absolute text-white fw-bold" [ngStyle]="programCardSideStyle.creds">
+      {{crczProgram().cred}}</div>
+    <div class="d-inline-block position-absolute text-white text-small" [ngStyle]="programCardSideStyle.title">
+      {{crczProgram().name | uppercase}}</div>
+
+    <div class="d-inline-block position-absolute text-white text-small"
+      [ngStyle]="programCardRunningStyles.programEffectTitle">Program Effect</div>
+    <div class="d-inline-block position-absolute text-white text-small"
+      [ngStyle]="programCardRunningStyles.programRefreshTitle">Program Refresh</div>
+    <div class="d-inline-block position-absolute text-3xsmall"
+      [ngStyle]="programCardRunningStyles.programEffect">
+      {{ (crczProgram().vulnerable ? 'Vulnerable. ' : '') + crczProgram().effect}}
+    </div>
+    <div class="d-inline-block position-absolute text-xsmall"
+      [ngStyle]="programCardRunningStyles.programRefresh"> {{crczProgram().refresh}}</div>
+  </div>
+  }
+  <div [ngClass]="{'float-end d-inline-block position-relative': true}" [ngStyle]="programMenuStyle">
+    @if(!showBothSides()) {
+    <button class="float-start border border-secondary text-danger p-1 rounded bg-light"
+    title="{{(crczProgram().isRunning ? 'Refresh Program' : 'Run Program' )}}" (click)="toggleRunningStatus(!crczProgram().isRunning)">
+      <fa-icon [icon]="(crczProgram().isRunning ? faRedo : faPlay)" size="xl"></fa-icon>
+    </button>
+    }
+    @if(releaseList$ | async; as releases) {
+    <ng-template #sourceBooks><b>{{ crczProgram().name | titlecase }}</b> appears in product:<br>{{releases.join(',
+      ')}}</ng-template>
+    <button class="float-start border border-secondary text-danger p-1 rounded bg-light" title="Show releases."
+      [popover]="sourceBooks" placement="left" containerClass="cr-cz-resources">
+      <fa-icon [icon]="faBookBookmark" size="xl"></fa-icon>
+    </button>
+    }
+    @if(true) {
+    <button class="float-start border border-secondary text-danger mt-1 p-1 rounded bg-light"
+      title="Remove this gear from the character." (click)="clickSelectProgram()">
+      <fa-icon [icon]="showBothSides() ? faPlus :faTrash" size="xl"></fa-icon>
+    </button>
+    } @else if(true) {
+    <button
+      class="float-start  mt-1 p-1 rounded bg-light fw-bold text-success text-small rounded bg-white border border-success"
+      title="Item is already Equipped"  (click)="clickSelectProgram()">
+      <fa-icon [icon]="faCircleCheck" size="2x"></fa-icon>
+    </button>
+    }
+  </div>
+</div>

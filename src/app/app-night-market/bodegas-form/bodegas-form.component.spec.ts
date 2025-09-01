@@ -1,10 +1,11 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { DataService } from './../../shared/services/file-services';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BodegasFormComponent } from './bodegas-form.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('BodegasFormComponent', () => {
   let component: BodegasFormComponent;
@@ -12,16 +13,15 @@ describe('BodegasFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BodegasFormComponent ],
-      providers: [
+    declarations: [BodegasFormComponent],
+    imports: [CommonUiModule],
+    providers: [
         DiceService,
-        DataService
-      ],
-      imports: [
-        CommonUiModule,
-        HttpClientTestingModule
-      ]
-    })
+        DataService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
   });
 

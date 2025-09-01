@@ -4,9 +4,10 @@ import { NameGeneratorService } from './../../shared/services/namegen/name-gener
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-app-character-handle',
-  templateUrl: './app-character-handle.component.html',
-  styleUrls: ['./app-character-handle.component.css']
+    selector: 'cs-app-character-handle',
+    templateUrl: './app-character-handle.component.html',
+    styleUrls: ['./app-character-handle.component.css'],
+    standalone: false
 })
 export class AppCharacterHandleComponent implements OnInit {
   faDice = faDice;

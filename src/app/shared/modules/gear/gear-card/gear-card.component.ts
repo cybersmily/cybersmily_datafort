@@ -2,9 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Gear } from '../../../models/gear';
 
 @Component({
-  selector: 'cs-gear-card',
-  templateUrl: './gear-card.component.html',
-  styleUrls: ['./gear-card.component.css']
+    selector: 'cs-gear-card',
+    templateUrl: './gear-card.component.html',
+    styleUrls: ['./gear-card.component.css'],
+    standalone: false
 })
 export class GearCardComponent implements OnInit {
 

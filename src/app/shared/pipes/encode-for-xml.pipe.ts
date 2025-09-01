@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'encodeForXml'
+    name: 'encodeForXml',
+    standalone: false
 })
 export class EncodeForXmlPipe implements PipeTransform {
 

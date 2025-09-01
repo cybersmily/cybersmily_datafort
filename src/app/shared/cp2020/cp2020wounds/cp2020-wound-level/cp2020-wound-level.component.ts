@@ -1,9 +1,10 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020-wound-level',
-  templateUrl: './cp2020-wound-level.component.html',
-  styleUrls: ['./cp2020-wound-level.component.css']
+    selector: 'cs-cp2020-wound-level',
+    templateUrl: './cp2020-wound-level.component.html',
+    styleUrls: ['./cp2020-wound-level.component.css'],
+    standalone: false
 })
 export class Cp2020WoundLevelComponent implements OnInit, OnChanges {
 

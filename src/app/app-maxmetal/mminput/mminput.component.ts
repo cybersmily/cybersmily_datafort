@@ -1,9 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-mminput',
-  templateUrl: './mminput.component.html',
-  styleUrls: ['./mminput.component.css']
+    selector: 'cs-mminput',
+    templateUrl: './mminput.component.html',
+    styleUrls: ['./mminput.component.css'],
+    standalone: false
 })
 export class MminputComponent implements OnInit {
 

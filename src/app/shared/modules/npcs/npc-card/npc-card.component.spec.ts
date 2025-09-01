@@ -1,9 +1,10 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { DataService } from './../../../services/file-services';
 import { CommonUiModule } from './../../common-ui/common-ui.module';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { NpcCardComponent } from './npc-card.component';
 import { NpcCard } from '../../../models/character';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('NpcCardComponent', () => {
   let component: NpcCardComponent;
@@ -16,17 +17,16 @@ describe('NpcCardComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+    declarations: [
         NpcCardComponent
-      ],
-      imports: [
-        CommonUiModule,
-        HttpClientTestingModule
-      ],
-      providers: [
-        DataService
-      ]
-    })
+    ],
+    imports: [CommonUiModule],
+    providers: [
+        DataService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
   }));
 

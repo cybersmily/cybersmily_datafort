@@ -5,9 +5,10 @@ import {
   faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 @Component({
-  selector: 'cs-cp-red-lifepath-display',
-  templateUrl: './cp-red-lifepath-display.component.html',
-  styleUrls: ['./cp-red-lifepath-display.component.css'],
+    selector: 'cs-cp-red-lifepath-display',
+    templateUrl: './cp-red-lifepath-display.component.html',
+    styleUrls: ['./cp-red-lifepath-display.component.css'],
+    standalone: false
 })
 export class CpRedLifepathDisplayComponent implements OnInit {
   faChevronDown = faChevronDown;

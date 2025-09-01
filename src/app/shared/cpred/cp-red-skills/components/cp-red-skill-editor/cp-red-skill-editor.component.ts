@@ -12,9 +12,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'cs-cp-red-skill-editor',
-  templateUrl: './cp-red-skill-editor.component.html',
-  styleUrls: ['./cp-red-skill-editor.component.css'],
+    selector: 'cs-cp-red-skill-editor',
+    templateUrl: './cp-red-skill-editor.component.html',
+    styleUrls: ['./cp-red-skill-editor.component.css'],
+    standalone: false
 })
 export class CpRedSkillEditorComponent implements OnInit {
   faCheckCircle = faCheckCircle;

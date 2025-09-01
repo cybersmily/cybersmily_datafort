@@ -2,9 +2,10 @@ import { SeoService } from './../../shared/services/seo/seo.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-economy-form',
-  templateUrl: './economy-form.component.html',
-  styleUrls: ['./economy-form.component.css']
+    selector: 'cs-economy-form',
+    templateUrl: './economy-form.component.html',
+    styleUrls: ['./economy-form.component.css'],
+    standalone: false
 })
 export class EconomyFormComponent implements OnInit {
 

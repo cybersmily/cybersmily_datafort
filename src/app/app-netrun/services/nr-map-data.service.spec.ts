@@ -2,11 +2,12 @@ import { NRRegionMap } from './../models/nr-region-map';
 import { of } from 'rxjs';
 import { NRMap } from './../models/nr-map';
 import { NrLoadMapsService } from './nr-load-maps.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { DataService } from './../../shared/services/file-services';
 import { TestBed } from '@angular/core/testing';
 
 import { NrMapDataService } from './nr-map-data.service';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('NrMapDataService', () => {
   let service: NrMapDataService;
@@ -18,9 +19,9 @@ describe('NrMapDataService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [DataService]
-    });
+    imports: [],
+    providers: [DataService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+});
     loadService = TestBed.inject(NrLoadMapsService);
     testNRData = {
       regions: [

@@ -10,9 +10,10 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Cp2020ArmorPiece, Cp2020ArmorAttributeLists, CP2020ArmorRandomSettings } from '../models';
 
 @Component({
-  selector: 'cs-cp2020-clothing-list',
-  templateUrl: './cp2020-clothing-list.component.html',
-  styleUrls: ['./cp2020-clothing-list.component.css']
+    selector: 'cs-cp2020-clothing-list',
+    templateUrl: './cp2020-clothing-list.component.html',
+    styleUrls: ['./cp2020-clothing-list.component.css'],
+    standalone: false
 })
 export class Cp2020ClothingListComponent implements OnInit {
   faFilePdf = faFilePdf;

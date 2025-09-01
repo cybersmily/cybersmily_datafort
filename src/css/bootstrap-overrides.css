@@ -68,3 +68,23 @@
 .rotate-180 {
   transform: rotate(180deg);
 }
+
+.border-2 {
+  border-width: 2px;
+}
+
+.border-3 {
+  border-width: 3px;
+}
+
+.border-4 {
+  border-width: 4px;
+}
+
+.border-5 {
+  border-width: 5px;
+}
+
+.border-10 {
+  border-width: 10px;
+}

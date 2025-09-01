@@ -3,9 +3,10 @@ import { MaxMetalDataService, MaxmetalService } from '../../shared/cp2020/cp2020
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-mmweaponform',
-  templateUrl: './mmweaponform.component.html',
-  styleUrls: ['./mmweaponform.component.css']
+    selector: 'cs-mmweaponform',
+    templateUrl: './mmweaponform.component.html',
+    styleUrls: ['./mmweaponform.component.css'],
+    standalone: false
 })
 export class MmweaponformComponent implements OnInit {
 

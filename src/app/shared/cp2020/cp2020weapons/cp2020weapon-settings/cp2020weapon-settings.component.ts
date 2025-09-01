@@ -1,12 +1,12 @@
 import { Cp2020RandomWeaponSettingsService } from './../services/cp2020-random-weapon-settings/cp2020-random-weapon-settings.service';
-import { RandomWeaponFilters,RandomWeaponSettings  } from './../models/random-weapon-filters';
+import { RandomWeaponSettings  } from './../models/random-weapon-filters';
 import { Component, OnInit } from '@angular/core';
-import { select } from '@ngrx/store';
 
 @Component({
-  selector: 'cs-cp2020weapon-settings',
-  templateUrl: './cp2020weapon-settings.component.html',
-  styleUrls: ['./cp2020weapon-settings.component.css'],
+    selector: 'cs-cp2020weapon-settings',
+    templateUrl: './cp2020weapon-settings.component.html',
+    styleUrls: ['./cp2020weapon-settings.component.css'],
+    standalone: false
 })
 export class Cp2020weaponSettingsComponent implements OnInit {
   constructor(private weaponSettings: Cp2020RandomWeaponSettingsService) { }

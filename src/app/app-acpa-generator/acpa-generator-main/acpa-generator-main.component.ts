@@ -8,9 +8,10 @@ import { faUpload, faFilePdf, faSave } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-acpa-generator-main',
-  templateUrl: './acpa-generator-main.component.html',
-  styleUrls: ['./acpa-generator-main.component.css']
+    selector: 'cs-acpa-generator-main',
+    templateUrl: './acpa-generator-main.component.html',
+    styleUrls: ['./acpa-generator-main.component.css'],
+    standalone: false
 })
 export class AcpaGeneratorMainComponent implements OnInit {
   faUpload = faUpload;

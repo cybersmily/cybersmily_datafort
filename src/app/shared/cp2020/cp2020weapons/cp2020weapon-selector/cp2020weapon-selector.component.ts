@@ -4,9 +4,10 @@ import { faPlus, faSave } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'cs-cp2020weapon-selector',
-  templateUrl: './cp2020weapon-selector.component.html',
-  styleUrls: ['./cp2020weapon-selector.component.css'],
+    selector: 'cs-cp2020weapon-selector',
+    templateUrl: './cp2020weapon-selector.component.html',
+    styleUrls: ['./cp2020weapon-selector.component.css'],
+    standalone: false
 })
 export class Cp2020weaponSelectorComponent implements OnInit {
   faPlus = faPlus;

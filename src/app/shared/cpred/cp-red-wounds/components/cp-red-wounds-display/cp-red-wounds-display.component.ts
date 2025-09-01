@@ -11,9 +11,10 @@ import {
 } from '../../models';
 
 @Component({
-  selector: 'cs-cp-red-wounds-display',
-  templateUrl: './cp-red-wounds-display.component.html',
-  styleUrls: ['./cp-red-wounds-display.component.css'],
+    selector: 'cs-cp-red-wounds-display',
+    templateUrl: './cp-red-wounds-display.component.html',
+    styleUrls: ['./cp-red-wounds-display.component.css'],
+    standalone: false
 })
 export class CpRedWoundsDisplayComponent implements OnInit {
   faDice = faDice;

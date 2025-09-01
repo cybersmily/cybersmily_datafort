@@ -37,7 +37,7 @@
       Class:
     </div>
     <div class="col-12 col-md-10 col-lg-11">
-      <select [(ngModel)]="program.class" [compareWith]="compare" (change)="updated()">
+      <select [(ngModel)]="program.class" [compareWith]="compare" (change)="updated()" title="Select a program class">
         <option [ngValue]="undefined"></option>
         <option *ngFor="let c of classes" [ngValue]="c" title="{{c.description}}">{{c.name}} ({{c.diff}})</option>
       </select>
@@ -48,7 +48,7 @@
       STR:
     </div>
     <div class="col-10 col-lg-11">
-      <input type="number" [(ngModel)]="program.strength" min="0" max="10" (change)="updated()">
+      <input type="number" [(ngModel)]="program.strength" min="0" max="10" (change)="updated()" title="Program strength">
       <div class="float-end p1-2 ms-2">
         DIFF: {{program.diff}}
       </div>
@@ -69,13 +69,13 @@
   <div class="row">
     <div class="col">
       <div>Description:</div>
-      <textarea [(ngModel)]="program.description" (change)="updated()"></textarea>
+      <textarea [(ngModel)]="program.description" (change)="updated()" title="Program description"></textarea>
     </div>
   </div>
   <div class="row">
     <div class="col">
       <div>Icon:</div>
-      <textarea [(ngModel)]="program.icon" (change)="updated()"></textarea>
+      <textarea [(ngModel)]="program.icon" (change)="updated()" title="Program Icon description"></textarea>
     </div>
   </div>
 </div>
@@ -91,7 +91,7 @@
   <div class="modal-body">
     <div class="row">
       <div *ngFor="let opt of options; let i = index" class="col-6" title="{{opt.description}}">
-        <input type="checkbox" [checked]="isChecked(opt.name)" (change)="checkOption(i)"> {{opt.name}} ({{opt.diff}})
+        <input type="checkbox" [checked]="isChecked(opt.name)" (change)="checkOption(i)" title="Is option selected?"> {{opt.name}} ({{opt.diff}})
       </div>
     </div>
   </div>
@@ -113,7 +113,7 @@
     </div>
     <div class="row">
       <div class="col"></div>
-      <div class="col"><input type="text" [(ngModel)]="searchTerm"></div>
+      <div class="col"><input type="text" [(ngModel)]="searchTerm" title="Enter a search term" placeholder="search term"></div>
       <div class="col-1"></div>
       <div class="col-1"></div>
       <div class="col-2"></div>

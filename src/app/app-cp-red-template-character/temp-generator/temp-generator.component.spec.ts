@@ -1,6 +1,6 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { SeoService } from './../../shared/services/seo/seo.service';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { DataService } from './../../shared/services/file-services';
 import { TempGeneratorWeaponsComponent } from './../temp-generator-weapons/temp-generator-weapons.component';
@@ -19,7 +19,7 @@ describe('TempGeneratorComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+    declarations: [
         TempGeneratorComponent,
         TempGeneratorSkillsComponent,
         TempGeneratorStatsComponent,
@@ -27,17 +27,15 @@ describe('TempGeneratorComponent', () => {
         TempGeneratorWeaponsComponent,
         TempGeneratorArmorComponent,
         TempGeneratorGearComponent
-      ],
-      imports: [
-        CommonUiModule,
-        HttpClientModule
-      ],
-      providers: [
+    ],
+    imports: [CommonUiModule],
+    providers: [
         DataService,
         DiceService,
-        SeoService
-      ]
-    })
+        SeoService,
+        provideHttpClient(withInterceptorsFromDi())
+    ]
+})
     .compileComponents();
   }));
 

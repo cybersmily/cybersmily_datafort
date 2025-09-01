@@ -1,9 +1,10 @@
 import { CommonUiModule } from './../../shared/modules/common-ui/common-ui.module';
 import { RxLabDataService } from './../../shared/services/rxlab/rx-lab-data.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { DrugLabGeneratorComponent } from './drug-lab-generator.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('DrugLabGeneratorComponent', () => {
   let component: DrugLabGeneratorComponent;
@@ -11,10 +12,10 @@ describe('DrugLabGeneratorComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ DrugLabGeneratorComponent ],
-      imports: [ HttpClientTestingModule, CommonUiModule],
-      providers: [ RxLabDataService]
-    })
+    declarations: [DrugLabGeneratorComponent],
+    imports: [CommonUiModule],
+    providers: [RxLabDataService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
   }));
 

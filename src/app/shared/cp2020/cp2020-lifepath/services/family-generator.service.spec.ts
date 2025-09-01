@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { DataService } from './../../../services/file-services';
 import { DiceService } from './../../../services/dice/dice.service';
 import { TestBed, inject, waitForAsync } from '@angular/core/testing';
@@ -7,12 +7,12 @@ import { FamilyGeneratorService } from './family-generator.service';
 
 describe('FamilyGeneratorService', () => {
   beforeEach(() => TestBed.configureTestingModule({
-    providers: [DiceService, DataService],
-    imports: [ HttpClientModule]
-  }));
+    imports: [],
+    providers: [DiceService, DataService, provideHttpClient(withInterceptorsFromDi())]
+}));
 
   it('should be created', () => {
-    const service: FamilyGeneratorService = TestBed.get(FamilyGeneratorService);
+    const service: FamilyGeneratorService = TestBed.inject(FamilyGeneratorService);
     expect(service).toBeTruthy();
   });
 

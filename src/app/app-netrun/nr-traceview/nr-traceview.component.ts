@@ -1,13 +1,14 @@
 import { NRTraceItem } from '../models';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 import { NrTrackerService } from '../services';
 
 @Component({
-  selector: 'cs-nr-traceview',
-  templateUrl: './nr-traceview.component.html',
-  styleUrls: ['./nr-traceview.component.css']
+    selector: 'cs-nr-traceview',
+    templateUrl: './nr-traceview.component.html',
+    styleUrls: ['./nr-traceview.component.css'],
+    standalone: false
 })
 export class NrTraceviewComponent implements OnInit {
   modalRef: BsModalRef;

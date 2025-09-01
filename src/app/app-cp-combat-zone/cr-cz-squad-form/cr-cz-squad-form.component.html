@@ -1,16 +1,19 @@
-<div *ngIf="squad$ | async as squad" class="border-bottom border-secondary" class="container">
+@if(squad$ | async; as squad) {
+<div class="border-bottom border-secondary" class="container">
   <div class="row">
     <div class="col-12">
       <div class="row">
         <div class="col-2 col-md-1 p-0">
-          <img alt="icon of squad faction for {{squad.faction}}" *ngIf="squad.faction !== ''" class="w-100"
-            style="max-width: 70px;" src="img/cz/icon_{{squad.faction?.replace(' ','_')}}.png">
+          @if(squad.faction !== '') {
+          <img alt="icon of squad faction for {{squad.faction}}" class="w-100" style="max-width: 70px;"
+            src="img/cz/icon_{{squad.faction?.replace(' ','_')}}.png">
+          }
         </div>
         <div class="col-10 col-md-11 text-capitalize">
           <div class="row">
             <div class="col-11">
               <h3 class="d-inline-block">{{squad.name}}</h3>
-              <button class="csd-btn p-2 ms-3" (click)="removeSquad(squadIndex)" title="Delete Team">
+              <button class="csd-btn p-2 ms-3" (click)="removeSquad(squadIndex())" title="Delete Team">
                 <fa-icon [icon]="faTrash" size="xl" class="csd-btn"></fa-icon>
               </button>
             </div>
@@ -48,11 +51,11 @@
           </button>
         </div>
         <div class="col-9 col-md-10 col-lg-11">
-          <button class="csd-btn p-1 me-1" *ngFor="let i of luck.constructor(squad.luck); let num = index"
-            title="Use luck" (click)="updateLuck(-1)">
+          @for(i of luck.constructor(squad.luck);track $index; let num = $index) {
+          <button class="csd-btn p-1 me-1" title="Use luck" (click)="updateLuck(-1)">
             <img alt="Luck icon" src="img/cz/luck_icon.png" class="csd-img-icon">
           </button>
-
+          }
           <button class="csd-btn p-1" title="Add luck" (click)="updateLuck(1)">
             <fa-icon [icon]="faPlus"></fa-icon>
           </button>
@@ -68,10 +71,11 @@
                   <fa-icon [icon]="faUsersLine" size="xl"></fa-icon> {{squad?.units.length}}
                 </div>
               </ng-template>
-              <ng-container
-                *ngFor="let unit of squad?.units  | orderby: [{prop: 'isLeader', desc: true},{prop: 'isGonk', desc: false},{prop: 'name',desc: false}]; index as unitIndex"
-                [ngTemplateOutlet]="unitRow"
+              @for(unit of squad?.units | orderby: [{prop: 'isLeader', desc: true},{prop: 'isGonk', desc: false},{prop:
+              'name',desc: false}]; track $index; let unitIndex = $index) {
+              <ng-container [ngTemplateOutlet]="unitRow"
                 [ngTemplateOutletContext]="{unit: unit, unitIndex: unitIndex, teamFaction: squad?.faction}"></ng-container>
+              }
             </tab>
             <tab customClass="customClass" (selectTab)="setTab($event, 'objectives')">
               <ng-template tabHeading>
@@ -80,41 +84,45 @@
                 </div>
               </ng-template>
               <accordion>
-                <accordion-group *ngIf="squad.scenarioObjectives" (isOpenChange)="randomObjectiveIsOpen($event)">
-                  <div class="row" accordion-heading>
-                    <div class="col-12">
-                      <button
-                        class="btn csd-btn text-capitalize fw-bold"
-                        type="button" title="List of scenario objectives">SCENARIO OBJECTIVES
-                        ({{squad?.scenarioObjectives?.length}})</button>
-                      <button *ngIf="showGenerateRandomObjective" class="float-end" title="Generate scenario objectives"
-                        (click)="generateRandomObjectives($event, squad)">
-                        <fa-icon [icon]="faDice"size="xl"></fa-icon>
-                      </button>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="row">
-                      <ng-container
-                        *ngFor="let objective of squad.scenarioObjectives  | orderby: [{prop: 'name', desc: false}]"
-                        [ngTemplateOutlet]="randomObjectiveCardRow"
-                        [ngTemplateOutletContext]="{objective: objective, squadIndex: squadIndex}">
-                      </ng-container>
-                    </div>
-                  </div>
-                </accordion-group>
                 <accordion-group>
                   <button
                     class="btn csd-btn btn-block justify-content-between d-flex w-100 shadow-none text-capitalize fw-bold"
                     accordion-heading type="button" title="Toggle acheived objectives">ACHEIVED
                     OBJECTIVES({{squad?.objectives?.length}})</button>
                   <div class="row">
-                    <ng-container
-                      *ngFor="let obj of squad?.objectives  | orderby: [{prop: 'name', desc: false}]; index as objectiveIndex"
-                      [ngTemplateOutlet]="objectiveCardRow"
-                      [ngTemplateOutletContext]="{objective: obj, squadIndex: squadIndex}"></ng-container>
+                    @for(obj of squad?.objectives | orderby: [{prop: 'name', desc: false}];track $index; let
+                    objectiveIndex = $index) {
+                    <ng-container [ngTemplateOutlet]="objectiveCardRow"
+                      [ngTemplateOutletContext]="{objective: obj, squadIndex: squadIndex()}"></ng-container>
+                    }
                   </div>
                 </accordion-group>
+                @if(squad.scenarioObjectives) {
+                <accordion-group (isOpenChange)="randomObjectiveIsOpen($event)">
+                  <div class="row" accordion-heading>
+                    <div class="col-12 p-0">
+                      <button class="btn csd-btn text-capitalize fw-bold" type="button"
+                        title="List of scenario objectives">SCENARIO OBJECTIVES
+                        ({{squad?.scenarioObjectives?.length}})</button>
+                      @if(showGenerateRandomObjective) {
+                      <button class="float-end m-0 p-0" title="Generate scenario objectives"
+                        (click)="generateRandomObjectives($event, squad)">
+                        <fa-icon [icon]="faDice" size="xl"></fa-icon>
+                      </button>
+                      }
+                    </div>
+                  </div>
+                  <div>
+                    <div class="row">
+                      @for(objective of squad.scenarioObjectives  | orderby: [{prop: 'name', desc: false}]; track $index) {
+                      <ng-container [ngTemplateOutlet]="randomObjectiveCardRow"
+                        [ngTemplateOutletContext]="{objective: objective, squadIndex: squadIndex()}">
+                      </ng-container>
+                    }
+                    </div>
+                  </div>
+                </accordion-group>
+                }
               </accordion>
             </tab>
             <tab customClass="customClass" (selectTab)="setTab($event, 'notes')">
@@ -133,17 +141,19 @@
           </tabset>
         </div>
         <div class="col-1 pt-1">
-          <button *ngIf="selectedTab === 'team'" title="Add Team Member"
-            class="float=end d-inline-block csd-btn p-2 border border-secondary rounded"
+          @if(selectedTab === 'team') {
+          <button title="Add Team Member" class="float=end d-inline-block csd-btn p-2 border border-secondary rounded"
             (click)="showModal(unitListings, squad?.faction)">
             <fa-icon [icon]="faUserPlus"></fa-icon>
           </button>
-          <button *ngIf="selectedTab === 'objectives'" title="Add Objective"
-            class="float=end d-inline-block csd-btn p-2 border border-secondary rounded"
+          }
+          @if(selectedTab === 'objectives') {
+          <button title="Add Objective" class="float=end d-inline-block csd-btn p-2 border border-secondary rounded"
             (click)="showObjectiveModal(objectiveListings, squad?.objectives, squad?.faction)">
             <fa-icon [icon]="faBullseye"></fa-icon>
             <fa-icon [icon]="faPlus" size="xs"></fa-icon>
           </button>
+          }
         </div>
       </div>
     </div>
@@ -153,42 +163,57 @@
     <div
       [ngClass]="{'row mt-1 py-1 csd-btn':true,'wrong-faction rounded': (!unit.keywords.includes(teamFaction) && !unit.keywords.includes('merc'))}">
       <div class="col-1 text-capitalize ps-0 text-end">
-        <img alt="Death icon" *ngIf="unit.isDead; else unitLives" class="csd-img-icon me-1" src="img/cz/death_icon.png">
-        <ng-template #unitLives>
-          <img alt="Unit card for {{unit.name}}" class="csd-img-icon me-1"
-            src="img/cz/units/{{unit.name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
-        </ng-template>
+        @if(unit.isDead) {
+        <img alt="Death icon" class="csd-img-icon me-1" src="img/cz/death_icon.png">
+        } @else {
+        <img alt="Unit card for {{unit.name}}" class="csd-img-icon me-1"
+          src="img/cz/units/{{unit.name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
+        }
       </div>
       <div class="col-8 col-md-9 text-capitalize" (click)="showUnitModal(unitForm, unit.name, unitIndex, teamFaction)">
         <div class="row">
           <div class="col-12 col-md-8 px-0">
             {{unit?.name}}
-            <fa-icon *ngIf="unit.cred > 1" [icon]="faStar" class="text-small mt-3" style="margin-right:-3px;"></fa-icon>
-            <fa-icon *ngIf="unit.cred > 0" [icon]="faStar" class="align-top"></fa-icon>
+            @if(unit.cred > 1) {
+            <fa-icon [icon]="faStar" class="text-small mt-3" style="margin-right:-3px;"></fa-icon>
+            }
+            @if(unit.cred > 0) {
+            <fa-icon [icon]="faStar" class="align-top"></fa-icon>
+            }
             <div class="ms-2 text-capitalize text-small fst-italic d-inline-block float-end">
               {{unit?.keywords?.join(", ")}}
             </div>
           </div>
           <div class="col-12 col-md-4">
-            <img alt="Death icon" *ngIf="unit.isDead; else unitAlive" class="csd-img-icon" src="img/cz/death_icon.png">
-            <ng-template #unitAlive>
-              <img alt="Action icon {{action.type}}" *ngFor="let action of unit?.actionTokens" class="csd-img-icon"
-                src="img/cz/{{action.isRed ? 'r' : action.type}}_{{action?.isUsed ? 'deactive': 'active'}}.png">
-              <img *ngFor="let token of [].constructor(unit.luck)" alt="Luck icon" src="img/cz/luck_icon.png"
-                class="csd-img-icon">
-              <img *ngIf="unit.isVulnerable" class="float-end csd-img-icon" src="img/cz/status_vulnerable.png"
-                title="is Vulnerable!">
-              <img *ngIf="unit.isHacked" class="float-end me-1 csd-img-icon" src="img/cz/status_hacked.png"
-                title="Hacked!">
-            </ng-template>
+            @if(unit.isDead) {
+            <img alt="Death icon" class="csd-img-icon" src="img/cz/death_icon.png">
+            } @else {
+            @for(action of unit?.actionTokens; track $index) {
+            <img alt="Action icon {{action.type}}" class="csd-img-icon"
+              src="img/cz/{{action.isRed ? 'r' : action.type}}_{{action?.isUsed ? 'deactive': 'active'}}.png">
+            }
+            @for(token of [].constructor(unit.luck); track $index) {
+            <img alt="Luck icon" src="img/cz/luck_icon.png" class="csd-img-icon">
+            }
+            @if(unit.isVulnerable) {
+            <img class="float-end csd-img-icon" src="img/cz/status_vulnerable.png" title="is Vulnerable!">
+            }
+            @if(unit.isHacked) {
+            <img class="float-end me-1 csd-img-icon" src="img/cz/status_hacked.png" title="Hacked!">
+            }
+            }
           </div>
         </div>
-        <div class="row text-small" *ngIf="unit.gearCards.length > 0">
+        @if(unit.gearCards.length > 0) {
+        <div class="row text-small">
           <div class="col-12">Gear: {{unit.gearList}}</div>
         </div>
-        <div class="row text-small" *ngIf="unit.programs?.length > 0">
+        }
+        @if(unit.programs?.length > 0) {
+        <div class="row text-small">
           <div class="col-12">Programs: {{unit.programList}}</div>
         </div>
+        }
       </div>
       <div class="col-1 text-small px-0" (click)="showUnitModal(unitForm, unit.name, unitIndex)">
         {{unit.totalCost + ( squad.payVeterans ? (unit.cred * 5) : 0)}}eb
@@ -198,10 +223,11 @@
           <fa-icon [icon]="faTrash" size="xl"></fa-icon>
         </button>
       </div>
-      <div *ngIf="(!unit.keywords.includes(teamFaction) && !unit.keywords.includes('merc'))"
-        class="col-12 text-small text-danger">
+      @if((!unit.keywords.includes(teamFaction) && !unit.keywords.includes('merc'))) {
+      <div class="col-12 text-small text-danger">
         !! This Character is not the same faction as the team nor a merc !!
       </div>
+      }
       <ng-template #FullImage>
         <img class="w-100" alt="Unit card for {{unit.name}}"
           src="img/cz/factions/{{unit.faction.replace(' ','_')}}/units/{{unit.name?.replaceAll(' ', '_')}}_{{unit.cred}}.jpg">
@@ -233,16 +259,17 @@
           title="Inspire your team">
           <fa-icon [icon]="faRedo" size="xl"></fa-icon> Inspire
         </button>
-        <button class="csd-btn p-1 me-1" *ngFor="let i of luck.constructor(squad.luck); let num = index"
-          title="Use luck" (click)="updateLuck(-1)">
+        @for(i of luck.constructor(squad.luck);track $index; let num = $index) {
+        <button class="csd-btn p-1 me-1" title="Use luck" (click)="updateLuck(-1)">
           <img alt="Luck icon" src="img/cz/luck_icon.png" class="csd-img-icon">
         </button>
+        }
         <button class="csd-btn p-1" title="Add luck" (click)="updateLuck(1)">
           <fa-icon [icon]="faPlus"></fa-icon>
         </button>
       </div>
-      <cs-cr-cz-unit-form [squadIndex]="squadIndex" [unitIndex]=" selectedUnitIndex$ | async"
-        [totalStreetcred]="squad.totalStreetcred" [teamFaction]="faction"></cs-cr-cz-unit-form>
+      <cs-cr-cz-character-form [squadIndex]="squadIndex()" [unitIndex]=" selectedUnitIndex$ | async"
+        [totalStreetcred]="squad.totalStreetcred" [teamFaction]="faction"></cs-cr-cz-character-form>
     </div>
   </ng-template>
 
@@ -255,7 +282,7 @@
       </button>
     </div>
     <div class="modal-body">
-      <cs-cr-cz-unit-list [squadIndex]="squadIndex" [faction]="faction"></cs-cr-cz-unit-list>
+      <cs-cr-cz-character-list [squadIndex]="squadIndex()" [faction]="faction"></cs-cr-cz-character-list>
     </div>
   </ng-template>
 
@@ -292,9 +319,10 @@
       </button>
     </div>
     <div class="modal-body">
-      <cs-cr-cz-objective-list [squadIndex]="squadIndex" [filterFaction]="faction"
+      <cs-cr-cz-objective-list [squadIndex]="squadIndex()" [filterFaction]="faction"
         [ownedObjectives]="selectedObjectives"></cs-cr-cz-objective-list>
     </div>
   </ng-template>
 
 </div>
+}

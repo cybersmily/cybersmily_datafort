@@ -1,7 +1,7 @@
 import { take, takeLast } from 'rxjs';
 import { DataService } from './../../shared/services/file-services';
 import { CPRedNetArchChartsService } from './c-p-red-net-arch-charts.service';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { DiceService } from './../../shared/services/dice/dice.service';
 import { TestBed } from '@angular/core/testing';
 
@@ -15,15 +15,14 @@ describe('CPRedNetArchService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientModule
-      ],
-      providers: [
+    imports: [],
+    providers: [
         DiceService,
         DataService,
-        CPRedNetArchChartsService
-      ]
-    });
+        CPRedNetArchChartsService,
+        provideHttpClient(withInterceptorsFromDi())
+    ]
+});
     dataService = TestBed.inject(DataService);
     chartService = new CPRedNetArchChartsService(dataService);
     dice = TestBed.inject(DiceService);

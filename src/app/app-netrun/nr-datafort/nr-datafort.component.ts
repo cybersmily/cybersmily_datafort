@@ -6,9 +6,10 @@ import { NRDataFort } from '../models';
 import { PopoverDirective } from 'ngx-bootstrap/popover';
 
 @Component({
-  selector: 'cs-nr-datafort',
-  templateUrl: './nr-datafort.component.html',
-  styleUrls: ['./nr-datafort.component.css']
+    selector: 'cs-nr-datafort',
+    templateUrl: './nr-datafort.component.html',
+    styleUrls: ['./nr-datafort.component.css'],
+    standalone: false
 })
 export class NrDatafortComponent implements OnInit {
   @Input()

@@ -12,11 +12,22 @@ import {
   faGithub,
   faReddit,
 } from '@fortawesome/free-brands-svg-icons';
+import { CommonUiModule } from '../../modules/common-ui/common-ui.module';
+import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-top-nav',
-  templateUrl: './top-nav.component.html',
-  styleUrls: ['./top-nav.component.css'],
+    selector: 'app-top-nav',
+    templateUrl: './top-nav.component.html',
+    styleUrls: ['./top-nav.component.css'],
+    imports: [
+      CommonUiModule,
+      FormsModule,
+      RouterLink,
+    ],
+    providers: [
+      BsModalService
+    ]
 })
 export class TopNavComponent implements OnInit {
   faEnvelope = faEnvelope;

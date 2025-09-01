@@ -7,9 +7,10 @@ import { faAngleDoubleDown, faAngleDoubleRight, faPlus, faTrash, faPen, faSave, 
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-newsadmin',
-  templateUrl: './newsadmin.component.html',
-  styleUrls: ['./newsadmin.component.css']
+    selector: 'cs-newsadmin',
+    templateUrl: './newsadmin.component.html',
+    styleUrls: ['./newsadmin.component.css'],
+    standalone: false
 })
 export class NewsadminComponent implements OnInit {
   faAngleDoubleDown = faAngleDoubleDown;
