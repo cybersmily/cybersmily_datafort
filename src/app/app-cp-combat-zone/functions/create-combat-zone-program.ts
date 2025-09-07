@@ -13,6 +13,7 @@ export function CreateCombatZoneProgram(param?): iCrCzNrProgramCard {
     rarity: param?.rarity || 0,
     release: (param?.release) ? [...param.release] : [],
     isRunning: false,
+    range: (param?.range) || '',
 
     flavor: param?.flavor || '',
     load: param?.load || '',

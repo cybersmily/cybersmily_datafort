@@ -17,6 +17,7 @@ import { CrCzObjectiveListComponent } from './cr-cz-objective-list/cr-cz-objecti
 import { CrCzGearCardComponent } from './cr-cz-gear-card/cr-cz-gear-card.component';
 import { CrCzProgramCardComponent } from './cr-cz-program-card/cr-cz-program-card.component';
 import { CrCzSourceSelectorComponent } from './cr-cz-source-selector/cr-cz-source-selector.component';
+import { CrCzRangeDisplayComponent } from './cr-cz-range-display/cr-cz-range-display.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { CrCzSourceSelectorComponent } from './cr-cz-source-selector/cr-cz-sourc
     CrCzSquadFormComponent,
     CrCzObjectiveListComponent,
     CrCzGearCardComponent,
-    CrCzProgramCardComponent
+    CrCzProgramCardComponent,
+    CrCzRangeDisplayComponent
   ],
   imports: [
     CommonModule,

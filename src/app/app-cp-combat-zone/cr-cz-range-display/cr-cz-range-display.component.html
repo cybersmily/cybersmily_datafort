@@ -1,0 +1,15 @@
+@if(ranges()?.length > 0) {
+    <img title="base range" [ngClass]="classes" [ngStyle]="styles" src="img/cz/range_base.png">
+    }
+    @if(ranges()?.includes('r')) {
+    <img title="red range" [ngClass]="classes" [ngStyle]="styles" src="img/cz/range_red.png">
+    }
+    @if(ranges()?.includes('y')) {
+    <img title="yellow range" [ngClass]="classes" [ngStyle]="styles" src="img/cz/range_yellow.png">
+    }
+    @if(ranges()?.includes('g')) {
+    <img title= "green range" [ngClass]="classes" [ngStyle]="styles" src="img/cz/range_green.png">
+    }
+    @if(ranges()?.includes('l')) {
+    <img title="long range" [ngClass]="classes" [ngStyle]="styles" src="img/cz/range_long.png">
+    }

@@ -75,7 +75,7 @@ export class CrCzProgramCardComponent implements OnInit {
     loadDescription: {
       width: '100px',
       left: '45px',
-      top: '60px',
+      top:  '60px',
       'line-height': '0.95em',
     },
     ebCost: {
@@ -126,6 +126,9 @@ export class CrCzProgramCardComponent implements OnInit {
     if(this.crczProgram().effect.length > 250) {
       this.programCardRunningStyles.programEffect['font-size'] = '0.4em';
     }
+    if(this.crczProgram()?.range) {
+      this.programCardLoadedStyles.loadDescription.top = '75px';
+    }
     this.programCardRunningStyles.programEffect.width ='126px'
   }
 
@@ -133,6 +136,9 @@ export class CrCzProgramCardComponent implements OnInit {
     this.programCardStyle.width = '340px';
     this.programCardStyle.transform ='scale(1.0)';
     this.programCardStyle.margin = '0px';
+    if(this.crczProgram()?.range) {
+      this.programCardLoadedStyles.loadDescription.top = '75px';
+    }
   }
 
   toggleRunningStatus(value: boolean): void {

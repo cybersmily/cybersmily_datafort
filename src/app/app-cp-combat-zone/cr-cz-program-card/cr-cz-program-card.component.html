@@ -7,6 +7,9 @@
       {{crczProgram().cred}}</div>
     <div class="d-inline-block position-absolute text-white text-small" [ngStyle]="programCardSideStyle.title">{{crczProgram().name |
       uppercase}}</div>
+    @if(crczProgram().range) {
+      <cs-cr-cz-range-display [ranges]="crczProgram().range" [classNames]="'position-absolute w-70'" [left]="'45px'" [top]="'60px'"></cs-cr-cz-range-display>
+    }
     <div class="d-inline-block position-absolute text-white text-xsmall"
        [ngStyle]="programCardLoadedStyles.loadDescription">{{crczProgram().load}}<br>Flip this card.</div>
     <div class="d-inline-block position-absolute text-white fw-bold"
@@ -26,9 +29,9 @@
     <div class="d-inline-block position-absolute text-white text-small" [ngStyle]="programCardSideStyle.title">
       {{crczProgram().name | uppercase}}</div>
 
-    <div class="d-inline-block position-absolute text-white text-small"
+    <div class="d-inline-block position-absolute text-white text-xsmall"
       [ngStyle]="programCardRunningStyles.programEffectTitle">Program Effect</div>
-    <div class="d-inline-block position-absolute text-white text-small"
+    <div class="d-inline-block position-absolute text-white text-xsmall"
       [ngStyle]="programCardRunningStyles.programRefreshTitle">Program Refresh</div>
     <div class="d-inline-block position-absolute text-3xsmall"
       [ngStyle]="programCardRunningStyles.programEffect">

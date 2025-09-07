@@ -11,6 +11,7 @@ export interface iCrCzNrProgramCard {
   rarity: number;
   release?: Array<string>;
   isRunning?: boolean;
+  range?: string;
 
   flavor: string;
   load: string;

@@ -59,23 +59,10 @@
       }
     </div>
     @if(gear().action) {
-    <img class="position-absolute top-50 csd-img-icon" style="left: 5px;" src="img/cz/action_{{gear().action}}.png">
+    <img title="Gear action" class="position-absolute top-50 csd-img-icon" style="left: 5px;" src="img/cz/action_{{gear().action}}.png">
     }
-    @if(gear().ranges?.length > 0) {
-    <img class="position-absolute top-50 w-70" style="left: 35px;height:10px;" src="img/cz/range_base.png">
-    }
-    @if(gear().ranges?.includes('r')) {
-    <img class="position-absolute top-50 w-70" style="left: 35px;height:10px;" src="img/cz/range_red.png">
-    }
-    @if(gear().ranges?.includes('y')) {
-    <img class="position-absolute top-50 w-70" style="left: 35px;height:10px;" src="img/cz/range_yellow.png">
-    }
-    @if(gear().ranges?.includes('g')) {
-    <img class="position-absolute top-50 w-70" style="left: 35px;height:10px;" src="img/cz/range_green.png">
-    }
-    @if(gear().ranges?.includes('l')) {
-    <img class="position-absolute top-50 w-70" style="left: 35px;height:10px;" src="img/cz/range_long.png">
-    }
+
+    <cs-cr-cz-range-display [ranges]="gear().ranges" [classNames]="'position-absolute w-70'" [left]="'35px'" [top]="'50%'"></cs-cr-cz-range-display>
 
     <div class="d-inline-block position-absolute text-white py-0 px-1 text-xsmall text-start"
       [ngStyle]="{'top':(gear().ranges?.length > 0 ? '105px' : '90px'),'left':(gear().action ? 35 : 5) + 'px', 'line-height': '11px', 'width': getAttributeWidth(gear().action != '', gear().armor > 0)}">
