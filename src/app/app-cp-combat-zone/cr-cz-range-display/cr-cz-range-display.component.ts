@@ -18,7 +18,6 @@ export class CrCzRangeDisplayComponent implements OnInit {
   ngOnInit(): void {
     this.classes = `${this.classNames() || ''}  cz-range`;
     this.styles = {'left': this.left(),'top':this.top()};
-    console.log('classes')
   }
 
 }
