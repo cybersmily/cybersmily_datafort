@@ -6,7 +6,7 @@ import {
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { HotStuffArea } from './../../models';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, output, input } from '@angular/core';
 
 @Component({
     selector: 'cs-cp2020-hot-stuff-contact',
@@ -21,27 +21,21 @@ export class Cp2020HotStuffContactComponent implements OnInit {
   faChevronDown = faChevronDown;
   faChevronRight = faChevronRight;
 
+  area = input<HotStuffArea>(new HotStuffArea());
+  index = input<number>(0);
+
+  delete = output<number>();
+  edit = output<{ area: HotStuffArea; index: number }>();
+
   editMode = false;
   isCollapse = true;
-
-  @Input()
-  area: HotStuffArea = new HotStuffArea();
-
-  @Input()
-  index = 0;
-
-  @Output()
-  delete = new EventEmitter<number>();
-
-  @Output()
-  edit = new EventEmitter<{ area: HotStuffArea; index: number }>();
 
   constructor() {}
 
   ngOnInit() {}
 
   onDelete() {
-    this.delete.emit(this.index);
+    this.delete.emit(this.index());
   }
 
   onEdit() {
@@ -50,6 +44,6 @@ export class Cp2020HotStuffContactComponent implements OnInit {
 
   onSave() {
     this.editMode = false;
-    this.edit.emit({ area: this.area, index: this.index });
+    this.edit.emit({ area: this.area(), index: this.index() });
   }
 }

@@ -1,80 +1,62 @@
 <div class="border border-dark">
   <div class="row">
-    <div class="col-8">
-      <span
-        *ngIf="!editMode"
-        (click)="isCollapse = !isCollapse"
-        [ngClass]="{ 'cursor-pointer': area.details }"
-        title="Expand to show details"
-      >
-        <fa-icon
-          class="csd-icon-btn"
-          *ngIf="area.details"
-          [icon]="isCollapse ? faChevronRight : faChevronDown"
-        ></fa-icon>
-        {{ area.area }}
+    <div class="col-8  ps-3">
+      @if(!editMode) {
+      <span (click)="isCollapse = !isCollapse" [ngClass]="{ 'ps-1': true, 'cursor-pointer': area().details }"
+        title="Expand to show details">
+        @if(area().details) {
+        <fa-icon class="csd-icon-btn" [icon]="isCollapse ? faChevronRight : faChevronDown"></fa-icon>
+        }
+        {{ area().area }}
       </span>
-      <input
-        *ngIf="editMode"
-        placeholder="Area/field..."
-        type="text"
-        [(ngModel)]="area.area"
-      />
-      <button
-        (click)="onDelete()"
-        title="Delete Area/field"
-        class="csd-btn csd-icon-btn hidden-print float-end"
-      >
-        <fa-icon [icon]="faTrash"></fa-icon>
+      } @else {
+      <p-floatlabel class="w-70 d-inline-block" variant="on">
+        <input pInputText type="text" class="w-100" pSize="small" title="Enter area/field of contact."
+          [(ngModel)]="area().area" />
+        <label for="on_label">Area/Field</label>
+      </p-floatlabel>
+      }
+      <button (click)="onDelete()" title="Delete Area/field" class="csd-btn csd-icon-btn hidden-print float-end">
+        <fa-icon [icon]="faTrash" ></fa-icon>
       </button>
-      <button
-        *ngIf="!editMode"
-        (click)="onEdit()"
-        class="csd-btn csd-icon-btn hidden-print me-2 float-end"
-        title="Edit Area/field"
-      >
-        <fa-icon [icon]="faPen"></fa-icon>
+      @if(!editMode) {
+      <button (click)="onEdit()" class="csd-btn csd-icon-btn hidden-print me-2 float-end" title="Edit Area/field">
+        <fa-icon [icon]="faPen" ></fa-icon>
       </button>
-      <button
-        *ngIf="editMode"
-        class="float-end"
-        (click)="onSave()"
-        title="Save changes to Area/field"
-        class="csd-btn csd-icon-btn csd-icon-lg hidden-print float-end me-2"
-      >
-        <fa-icon [icon]="faSave"></fa-icon>
+
+      } @else {
+      <button class="float-end" (click)="onSave()" title="Save changes to Area/field"
+        class="csd-btn csd-icon-btn csd-icon-lg hidden-print float-end me-2">
+        <fa-icon [icon]="faSave" size="xl"></fa-icon>
       </button>
+      }
     </div>
     <div class="col-2 text-center">
-      <span *ngIf="!editMode">{{ area.rolls }}</span>
-      <input
-        *ngIf="editMode"
-        class="text-center"
-        type="number"
-        min="0"
-        max="6"
-        [(ngModel)]="area.rolls"
-      />
+      @if(!editMode) {
+      <span>{{ area().rolls }} rolls</span>
+      } @else {
+      <p-floatlabel class="w-100 d-inline-block" variant="on">
+        <input pInputText type="number" min="0" max="6" class="w-100" pSize="small" title="Enter number of rolls for contact."
+          [(ngModel)]="area().rolls" />
+        <label for="on_label">Rolls</label>
+      </p-floatlabel>
+      }
     </div>
-    <div class="col-2 text-center">{{ area.points }}</div>
+    <div class="col-2 text-center">{{ area().points }}pts.</div>
   </div>
   <div class="row">
-    <div class="col-1"></div>
-    <div
-      *ngIf="!editMode; else editDetails"
-      class="col-10 area-details"
-      [collapse]="isCollapse"
-    >
-      {{ area.details }}
+    @if(!editMode) {
+    <div class="col-11 area-details ps-3" [collapse]="isCollapse">
+      {{ area().details }}
     </div>
-    <ng-template #editDetails>
-      <div class="col-10">
-        <textarea
-          class="w-100"
-          [(ngModel)]="area.details"
-          placeholder="Enter notes about this contact..."
-        ></textarea>
-      </div>
-    </ng-template>
+    } @else {
+    <div class="col-11 ps-3 mt-2">
+      <p-floatlabel variant="on">
+        <textarea pTextarea class="w-100" [(ngModel)]="area().details"
+          placeholder="Enter details about contact..."></textarea>
+        <label for="on_label">Details</label>
+      </p-floatlabel>
+    </div>
+    }
   </div>
 </div>
