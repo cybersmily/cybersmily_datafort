@@ -6,7 +6,7 @@ import {
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { Cp2020PlayerContact } from './../../models/cp2020-player-contact';
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, input, OnChanges, OnInit, output, SimpleChanges } from '@angular/core';
 import { KeyValue } from '@angular/common';
 
 @Component({
@@ -15,46 +15,39 @@ import { KeyValue } from '@angular/common';
     styleUrls: ['./cp2020-other-contact.component.css'],
     standalone: false
 })
-export class Cp2020OtherContactComponent implements OnInit {
+export class Cp2020OtherContactComponent implements OnInit, OnChanges {
   faPen = faPen;
   faTrash = faTrash;
   faSave = faSave;
   faChevronDown = faChevronDown;
   faChevronRight = faChevronRight;
 
+  contact = input<Cp2020PlayerContact>();
+  index = input<number>();
+  delete = output<number>();
+  edit = output<KeyValue<number, Cp2020PlayerContact>>();
+
   isCollapse = true;
   isEditMode = false;
-
-  @Input()
-  contact: Cp2020PlayerContact = new Cp2020PlayerContact();
   currContact: Cp2020PlayerContact = new Cp2020PlayerContact();
 
-  @Input()
-  index: number = -1;
-
-  @Output()
-  delete: EventEmitter<number> = new EventEmitter<number>();
-
-  @Output()
-  edit: EventEmitter<KeyValue<number, Cp2020PlayerContact>> = new EventEmitter<
-    KeyValue<number, Cp2020PlayerContact>
-  >();
-
-  constructor() {}
-
   ngOnInit(): void {
-    this.currContact = new Cp2020PlayerContact(this.contact);
+    this.currContact = new Cp2020PlayerContact(this.contact());
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.currContact = new Cp2020PlayerContact(this.contact());
   }
 
   deleteContact(): void {
-    this.delete.emit(this.index);
+    this.delete.emit(this.index());
   }
 
   saveContact(): void {
     this.isEditMode = false;
     this.isCollapse = true;
     this.edit.emit({
-      key: this.index,
+      key: this.index(),
       value: new Cp2020PlayerContact(this.currContact),
     });
   }

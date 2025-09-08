@@ -27,6 +27,7 @@ export class Cp2020OtherContactNewComponent implements OnInit {
 
   addContact(): void {
     this.add.emit(new Cp2020PlayerContact(this.currContact));
+    this.isEdit = false;
     this.currContact = new Cp2020PlayerContact();
   }
 }

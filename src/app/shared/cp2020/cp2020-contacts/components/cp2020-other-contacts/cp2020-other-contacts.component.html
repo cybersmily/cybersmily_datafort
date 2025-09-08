@@ -2,36 +2,18 @@
   <div class="row g-0">
     <div class="col-12">
       <div class="cp2020-label d-inline-block mt-0">GENERIC</div>
-      <button
-        class="csd-btn csd-icon-btn csd-icon-lg ms-2"
-        title="Reset the generic contacts list"
-        (click)="reset()"
-      >
-        <fa-icon [icon]="faRedo"></fa-icon>
+      <button class="csd-btn csd-icon-btn csd-icon-lg ms-2" tabindex="0" title="Reset the generic contacts list" (click)="reset()">
+        <fa-icon [icon]="faRedo" size="xl"></fa-icon>
       </button>
     </div>
   </div>
   <div class="row">
+      @for (contact of contacts(); track $index; let i = $index) {
     <div class="col-12 col-md-6">
-      <cs-cp2020-other-contact
-        *ngFor="let contact of columnOne; let i = index"
-        [contact]="contact"
-        [index]="i"
-        (delete)="delete($event)"
-        (edit)="edit($event)"
-      ></cs-cp2020-other-contact>
+      <cs-cp2020-other-contact [contact]="contact" [index]="i" (delete)="delete($event)"
+        (edit)="edit($event)"></cs-cp2020-other-contact>
     </div>
-    <div class="col-12 col-md-6">
-      <cs-cp2020-other-contact
-        *ngFor="let contact of columnTwo; let i = index"
-        [contact]="contact"
-        [index]="columnTwoIndex + i"
-        (delete)="delete($event)"
-        (edit)="edit($event)"
-      ></cs-cp2020-other-contact>
-    </div>
+      }
   </div>
-  <cs-cp2020-other-contact-new
-    (add)="add($event)"
-  ></cs-cp2020-other-contact-new>
+  <cs-cp2020-other-contact-new (add)="add($event)"></cs-cp2020-other-contact-new>
 </div>

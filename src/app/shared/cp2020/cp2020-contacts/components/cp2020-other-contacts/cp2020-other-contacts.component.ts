@@ -7,6 +7,8 @@ import {
   Output,
   EventEmitter,
   OnChanges,
+  input,
+  output,
 } from '@angular/core';
 import { Cp2020PlayerContact } from '../../models';
 
@@ -19,46 +21,35 @@ import { Cp2020PlayerContact } from '../../models';
 export class Cp2020OtherContactsComponent implements OnInit, OnChanges {
   faRedo = faRedo;
 
-  @Input()
-  contacts: Array<Cp2020PlayerContact> = new Array<Cp2020PlayerContact>();
+  contacts = input<Array<Cp2020PlayerContact>>();
+  updateContacts = output<Array<Cp2020PlayerContact>>();
 
   currContacts: Array<Cp2020PlayerContact> = new Array<Cp2020PlayerContact>();
-
-  @Output()
-  updateContacts: EventEmitter<Array<Cp2020PlayerContact>> = new EventEmitter<
-    Array<Cp2020PlayerContact>
-  >();
-
-  get columnOne(): Array<Cp2020PlayerContact> {
-    return this.currContacts.slice(0, this.columnTwoIndex);
-  }
-
-  get columnTwo(): Array<Cp2020PlayerContact> {
-    return this.currContacts.slice(this.columnTwoIndex);
-  }
-
-  get columnTwoIndex(): number {
-    return Math.ceil(this.currContacts.length / 2);
-  }
+  columnTwoIndex: number = -1;
 
   constructor() {}
 
   ngOnInit(): void {
-    this.currContacts =
-      this.contacts?.map((contact) => new Cp2020PlayerContact(contact)) ??
-      new Array<Cp2020PlayerContact>();
+    this.initialize();
   }
 
   ngOnChanges(): void {
+    this.initialize();
+  }
+
+  initialize(): void {
     this.currContacts =
-      this.contacts?.map((contact) => new Cp2020PlayerContact(contact)) ??
+      this.contacts()?.map((contact) => new Cp2020PlayerContact(contact)) ??
       new Array<Cp2020PlayerContact>();
+    this.columnTwoIndex = Math.ceil(this.currContacts.length / 2);
+
   }
 
   update(): void {
     this.updateContacts.emit(
       this.currContacts.map((contact) => new Cp2020PlayerContact(contact))
     );
+    this.initialize();
   }
 
   edit(contact: KeyValue<number, Cp2020PlayerContact>): void {

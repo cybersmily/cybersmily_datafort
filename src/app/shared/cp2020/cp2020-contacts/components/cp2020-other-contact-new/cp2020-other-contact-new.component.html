@@ -1,61 +1,43 @@
 <div class="py-1">
-  <div
-    class="row"
-    *ngIf="!isEdit; else addNewItem"
-    tab-index="0"
-    (click)="isEdit = !isEdit"
-    title="Add new contact"
-  >
+  @if(!isEdit) {
+  <div class="row" tab-index="0" (click)="isEdit = !isEdit" title="Add new contact" tabindex="0">
     <div class="col-12 text-center">
-      <fa-icon
-        class="csd-btn csd-icon-btn csd-icon-xl"
-        [icon]="faPlus"
-      ></fa-icon>
+      <button class="csd-btn csd-icon-btn csd-icon-xl" title="Add new contact">
+        <fa-icon  [icon]="faPlus" size="xl"></fa-icon>
+      </button>
     </div>
   </div>
-  <ng-template #addNewItem>
-    <div class="row">
-      <div class="col-11 col-md-4">
-        <input
-          [(ngModel)]="currContact.name"
-          class="w-90 ms-3"
-          type="text"
-          placeholder="* Name..."
-          title="Enter the name of the contact"
-        />
-        <input
-          [(ngModel)]="currContact.description"
-          class="w-90 ms-3"
-          type="text"
-          placeholder="Description..."
-          title="Enter the description of the contact"
-        />
-      </div>
-      <div class="col-1 order-2 order-md-last">
-        <button
-          class="csd-btn csd-icon-btn csd-icon-xl ms-1 me-3"
-          title="Add the contact to the list of generic contacts"
-          (click)="addContact()"
-          [disabled]="currContact.name === ''"
-        >
-          <fa-icon [icon]="faSave"></fa-icon>
-        </button>
-        <button
-          class="csd-btn csd-icon-btn csd-icon-xl ms-1 me-3"
-          title="Cancel"
-          (click)="isEdit = !isEdit"
-        >
-          <fa-icon [icon]="faTimes"></fa-icon>
-        </button>
-      </div>
-      <div class="col-11 col-md-7">
-        <textarea
-          [(ngModel)]="currContact.notes"
-          placeholder="Notes..."
-          class="w-100"
-          rows="3"
-        ></textarea>
-      </div>
+  } @else {
+  <div class="row">
+    <div class="col-11 col-md-4">
+      <p-floatlabel class="w-100" variant="on">
+        <input pInputText tabindex="0" type="text" class="w-100 ms-1" pSize="small" title="Enter the name of the contact."
+          [(ngModel)]="currContact.name" />
+        <label for="on_label">Name</label>
+      </p-floatlabel>
+      <p-floatlabel class="w-100" variant="on">
+        <input pInputText type="text" tabindex="0" class="w-100 ms-1" pSize="small"
+          title="Enter the name of the contact description." [(ngModel)]="currContact.description" />
+        <label for="on_label">Description</label>
+      </p-floatlabel>
     </div>
-  </ng-template>
+    <div class="col-1 order-2 order-md-last">
+      <button class="csd-btn csd-icon-btn csd-icon-xl ms-1 me-1" title="Add the contact to the list of generic contacts"
+        (click)="addContact()" [disabled]="currContact.name === ''" tabindex="0">
+        <fa-icon [icon]="faSave" size="xl"></fa-icon>
+      </button>
+      <button class="csd-btn csd-icon-btn csd-icon-xl ms-1 me-1" title="Cancel" (click)="isEdit = !isEdit" tabindex="0">
+        <fa-icon [icon]="faTimes" size="xl"></fa-icon>
+      </button>
+    </div>
+    <div class="col-11 col-md-7">
+      <p-floatlabel variant="on">
+        <textarea tabindex="0" pTextarea class="w-100" [(ngModel)]="currContact.notes" rows="3"
+          placeholder="Enter details about contact..."></textarea>
+        <label for="on_label">Notes</label>
+      </p-floatlabel>
+    </div>
+  </div>
+
+  }
 </div>
