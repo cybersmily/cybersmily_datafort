@@ -24,23 +24,21 @@ export class Cp2020BigLeagueContactNewComponent implements OnInit {
   isAdding = false;
   contact: BigLeagueContact = new BigLeagueContact();
   maximumPoints: number = 0;
-  isDisabled: boolean = false;
 
   constructor() {}
 
   ngOnInit(): void {
-    this.isDisabled = this.setDisabled();
     this.maximumPoints = this.maxPoints();
   }
 
-  setDisabled(): boolean {
+  isDisabled(): boolean {
     return (
       !this.contact.name ||
       !this.contact.reliability ||
       !this.contact.capability ||
       !this.contact.availability ||
       !this.contact.reputation ||
-      this.contact.cost > this.maxPoints()
+      this.contact.cost > this.maximumPoints
     );
   }
 

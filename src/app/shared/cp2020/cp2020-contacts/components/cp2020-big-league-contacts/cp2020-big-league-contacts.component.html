@@ -7,7 +7,7 @@
         title="Reset Streetdeal and clear all contacts"
         (click)="reset()"
       >
-        <fa-icon [icon]="faRedo"></fa-icon>
+        <fa-icon [icon]="faRedo" size="xl"></fa-icon>
       </button>
       Contact Points Used: {{ spentPoints }}/{{ totalPoints  }}
       <button
@@ -16,7 +16,7 @@
         (click)="generateContacts()"
         [disabled]="currSkillLevel <= 0"
       >
-        <fa-icon [icon]="faDice"></fa-icon>
+        <fa-icon [icon]="faDice" size="xl"></fa-icon>
       </button>
     </div>
   </div>

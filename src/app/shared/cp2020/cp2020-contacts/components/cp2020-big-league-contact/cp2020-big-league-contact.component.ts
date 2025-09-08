@@ -6,7 +6,7 @@ import {
   faChevronDown,
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
-import { Component, OnInit, output, input } from '@angular/core';
+import { Component, OnInit, output, input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
     selector: 'cs-cp2020-big-league-contact',
@@ -14,7 +14,7 @@ import { Component, OnInit, output, input } from '@angular/core';
     styleUrls: ['./cp2020-big-league-contact.component.css'],
     standalone: false
 })
-export class Cp2020BigLeagueContactComponent implements OnInit {
+export class Cp2020BigLeagueContactComponent implements OnInit, OnChanges {
   contact = input(new BigLeagueContact());
   index =  input(-1);
 
@@ -36,7 +36,9 @@ export class Cp2020BigLeagueContactComponent implements OnInit {
 
   ngOnInit() {
     this.currContact = new BigLeagueContact(this.contact());
-    console.log('contact', this.currContact);
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    this.currContact = new BigLeagueContact(this.contact());
   }
 
   deleteContact() {
