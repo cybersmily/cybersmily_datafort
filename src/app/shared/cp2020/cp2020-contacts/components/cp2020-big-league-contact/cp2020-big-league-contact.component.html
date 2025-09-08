@@ -7,7 +7,7 @@
         @if(currContact.details) {
         <fa-icon class="csd-icon-btn" [icon]="isCollapse ? faChevronRight : faChevronDown"></fa-icon>
         }
-        {{ currContact.name || "contact_" + index() }}
+        {{ currContact.name ||  index() + 1 }}
       </span>
 
       <button (click)="deleteContact()" title="Delete contact"

@@ -18,6 +18,12 @@
       >
         <fa-icon [icon]="faDice" size="xl"></fa-icon>
       </button>
+
+      @if(canPrint()) {
+      <button class="csd-btn csd-icon-btn csd-icon-lg ms-2 float-end" title="Print list of contacts" (click)="print()">
+        <fa-icon [icon]="faFile"></fa-icon>
+      </button>
+      }
     </div>
   </div>
   <div class="d-none d-md-block px-2">

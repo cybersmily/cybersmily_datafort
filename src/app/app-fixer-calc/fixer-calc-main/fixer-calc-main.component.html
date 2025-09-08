@@ -4,11 +4,8 @@
       <h2>Fixer Calculator</h2>
       <div>
         The Fixer Calculator is for Cyberpunk 2020 using the rules from
-        <a rel="noopener"
-          href="https://talsorianstore.com/collections/cyberpunk/products/wildside"
-          target="_blank"
-          >Wildside Sourcebook</a
-        >. Below are the two system from that book, Hot Stuff and Big League.
+        <a rel="noopener" href="https://talsorianstore.com/collections/cyberpunk/products/wildside"
+          target="_blank">Wildside Sourcebook</a>. Below are the two system from that book, Hot Stuff and Big League.
         Both systems are used to create contacts for your Cyberpunk 2020 fixer.
       </div>
     </div>
@@ -18,39 +15,25 @@
       <div class="row">
         <div class="col-12">
           STREETDEAL:
-          <input title="Enter Streetdeal rank"
-            [(ngModel)]="streetdeal"
-            type="number"
-            min="0"
-            max="10"
-            class="csd-number no-spinners mf-2 text-center"
-            (change)="changeStreetdeal()"
-            (keyup)="changeStreetdeal()"
-          />
-        </div>
-      </div>
-      <br />
-      @if(contactData$ | async; as contactData) {
-      <div class="row">
-        <div class="csd-rounded col-12">
-          <cs-fixer-calc-hot-stuff
-            [streetdeal]="streetdeal"
-            [fields]="contactData.areaList"
-          ></cs-fixer-calc-hot-stuff>
+          <input title="Enter Streetdeal rank" [(ngModel)]="streetdeal" type="number" min="0" max="10"
+            class="csd-number no-spinners mf-2 text-center" (change)="changeStreetdeal()"
+            (keyup)="changeStreetdeal()" />
         </div>
       </div>
       <br />
       <div class="row">
-        <div class="csd-rounded col-12">
-          <cs-fixer-calc-big-league
-            [streetdeal]="streetdeal"
-            [contactList]="contactData.contactList"
-          ></cs-fixer-calc-big-league>
+        <div class="col-12">
+          <cs-cp2020-hot-stuff-contacts [hotStuffContacts]="areaList" [skillLevel]="streetdeal" [canPrint]="true"
+            (updateContacts)="updateHotStuff($event)"></cs-cp2020-hot-stuff-contacts>
         </div>
       </div>
-    } @else {
-      <div> Loading contact data...</div>
-    }
+      <br />
+      <div class="row">
+        <div class="col-12">
+          <cs-cp2020-big-league-contacts [skillLevel]="streetdeal" [bigLeagueContacts]="null"
+            [canPrint]="true"></cs-cp2020-big-league-contacts>
+        </div>
+      </div>
     </div>
   </div>
 </div>

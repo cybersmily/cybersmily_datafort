@@ -1,11 +1,6 @@
 import { Cp2020ContactSectionPdfService } from './services/cp2020-contact-section-pdf/cp2020-contact-section-pdf.service';
 import { PipesModule } from './../../pipes/pipes.module';
 import { CommonUiModule } from './../../modules/common-ui/common-ui.module';
-import { FixerCalcHotStuffComponent } from './components/fixer-calc-hot-stuff/fixer-calc-hot-stuff.component';
-import { FixerCalcHotStuffAreaComponent } from './components/fixer-calc-hot-stuff-area/fixer-calc-hot-stuff-area.component';
-import { FixerCalcBigLeagueContactNewComponent } from './components/fixer-calc-big-league-contact-new/fixer-calc-big-league-contact-new.component';
-import { FixerCalcBigLeagueContactComponent } from './components/fixer-calc-big-league-contact/fixer-calc-big-league-contact.component';
-import { FixerCalcBigLeagueComponent } from './components/fixer-calc-big-league/fixer-calc-big-league.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Cp2020ContactsSectionComponent } from './components/cp2020-contacts-section/cp2020-contacts-section.component';
@@ -25,11 +20,6 @@ import { TextareaModule } from 'primeng/textarea';
 
 @NgModule({
   declarations: [
-    FixerCalcBigLeagueComponent,
-    FixerCalcBigLeagueContactComponent,
-    FixerCalcBigLeagueContactNewComponent,
-    FixerCalcHotStuffAreaComponent,
-    FixerCalcHotStuffComponent,
     Cp2020ContactsSectionComponent,
     Cp2020BigLeagueContactsComponent,
     Cp2020BigLeagueContactComponent,
@@ -44,11 +34,6 @@ import { TextareaModule } from 'primeng/textarea';
   providers: [Cp2020ContactSectionPdfService],
   imports: [CommonModule, CommonUiModule, PipesModule,Select, FloatLabel, InputTextModule, TextareaModule],
   exports: [
-    FixerCalcBigLeagueComponent,
-    FixerCalcBigLeagueContactComponent,
-    FixerCalcBigLeagueContactNewComponent,
-    FixerCalcHotStuffAreaComponent,
-    FixerCalcHotStuffComponent,
     Cp2020ContactsSectionComponent,
     Cp2020BigLeagueContactsComponent,
     Cp2020BigLeagueContactComponent,

@@ -1,10 +1,11 @@
 import { take } from 'rxjs';
+import { SaveFileService } from './../../../../services/file-services';
 import { Cp2020FixerContactDataService } from './../../services/cp2020-fixer-contact-data/cp2020-fixer-contact-data.service';
 import { DiceService } from './../../../../services/dice/dice.service';
 import { FixerHotStuffGenerationService } from './../../services/fixer-hot-stuff-generation/fixer-hot-stuff-generation.service';
 import { HotStuffArea } from './../../models';
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { faRedo, faDice } from '@fortawesome/free-solid-svg-icons';
+import { Component, input, OnInit, Output, EventEmitter, output } from '@angular/core';
+import { faRedo, faDice, faFile } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
     selector: 'cs-cp2020-hot-stuff-contacts',
@@ -15,29 +16,25 @@ import { faRedo, faDice } from '@fortawesome/free-solid-svg-icons';
 export class Cp2020HotStuffContactsComponent implements OnInit {
   faRedo = faRedo;
   faDice = faDice;
+  faFile = faFile;
 
-  @Input()
-  hotStuffContacts: Array<HotStuffArea> = new Array<HotStuffArea>();
+  hotStuffContacts = input<Array<HotStuffArea>>();
+  skillLevel = input<number>(0);
+  canPrint = input<boolean>(false);
+  updateContacts = output<Array<HotStuffArea>>();
 
   currHotStuffContacts: Array<HotStuffArea> = new Array<HotStuffArea>();
   fieldList: Array<string> = new Array<string>();
 
-  @Input()
-  skillLevel: number = 0;
-
-  @Output()
-  updateContacts: EventEmitter<Array<HotStuffArea>> = new EventEmitter<
-    Array<HotStuffArea>
-  >();
-
   constructor(
     private hotStuffGenerateService: FixerHotStuffGenerationService,
     private dice: DiceService,
+    private fileService: SaveFileService,
     private fixerDataService: Cp2020FixerContactDataService
   ) {}
 
   ngOnInit(): void {
-    this.currHotStuffContacts = this.hotStuffContacts.map(
+    this.currHotStuffContacts = this.hotStuffContacts().map(
       (contact) => new HotStuffArea(contact)
     );
     this.fixerDataService.areaLists
@@ -46,7 +43,7 @@ export class Cp2020HotStuffContactsComponent implements OnInit {
   }
 
   get totalPoints(): number {
-    return this.skillLevel * this.skillLevel;
+    return this.skillLevel() * this.skillLevel();
   }
 
   get spentPoints(): number {
@@ -66,7 +63,7 @@ export class Cp2020HotStuffContactsComponent implements OnInit {
   }
 
   generate(): void {
-    if (this.skillLevel > 0) {
+    if (this.skillLevel() > 0) {
       this.currHotStuffContacts = this.hotStuffGenerateService.randomlyGenerate(
         this.dice,
         this.fieldList,
@@ -98,5 +95,10 @@ export class Cp2020HotStuffContactsComponent implements OnInit {
   reset(): void {
     this.currHotStuffContacts = new Array<HotStuffArea>();
     this.update();
+  }
+
+  print(): void {
+    const printContacts = this.hotStuffContacts().map( contact => `${contact.area} - ${contact.rolls} rolls [${contact.points}pts]\nDetails: ${contact.details}`);
+    this.fileService.SaveAsFile('Hot Stuff Contacts', printContacts.join('\n\n'), 'txt');
   }
 }

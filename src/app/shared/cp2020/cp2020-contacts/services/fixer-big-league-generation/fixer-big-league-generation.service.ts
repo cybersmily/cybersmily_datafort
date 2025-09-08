@@ -46,8 +46,12 @@ export class FixerBigLeagueGenerationService {
   ): BigLeagueContact {
     const categories = new BigLeagueCategories();
     const contact = new BigLeagueContact();
+    if(contactTypes.length < 1) {
+      contact.name = 'contact';
+    } else {
     contact.name =
       contactTypes[dice.generateNumber(0, contactTypes.length - 1)];
+    }
     contact.capability =
       categories.capabilities[
         dice.generateNumber(0, categories.capabilities.length - 1)
