@@ -1,8 +1,7 @@
 import { LocalStorageManagerService } from './../../shared/services/local-storage-manager/local-storage-manager.service';
-import { Observable } from 'rxjs';
 import { SeoService } from './../../shared/services/seo/seo.service';
 import { Component, OnInit } from '@angular/core';
-import { FixerCharts, HotStuffArea } from '../../shared/cp2020/cp2020-contacts/models';
+import { HotStuffArea } from '../../shared/cp2020/cp2020-contacts/models';
 
 @Component({
   selector: 'cs-fixer-calc-main',

@@ -7,7 +7,7 @@
         <fa-icon [icon]="faRedo" size="xl"></fa-icon>
       </button>
       Contact Points Used: {{ spentPoints }}/{{ totalPoints }}
-      <button class="csd-btn csd-icon-btn csd-icon-lg ms-2" title="Generate list of contacts" (click)="generate()">
+      <button class="csd-btn csd-icon-btn csd-icon-lg ms-2" title="Generate list of contacts" (click)="generate()" [disabled]="skillLevel() <= 0">
         <fa-icon [icon]="faDice" size="xl"></fa-icon>
       </button>
       @if(canPrint()) {

@@ -2,7 +2,7 @@ import { SaveFileService } from './../../../../services/file-services/save-file/
 import { FixerBigLeagueGenerationService } from './../../services/fixer-big-league-generation/fixer-big-league-generation.service';
 import { DiceService } from './../../../../services/dice/dice.service';
 import { faDice, faRedo, faFile } from '@fortawesome/free-solid-svg-icons';
-import { Component, OnInit, input, output } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges, input, output } from '@angular/core';
 import { BigLeagueContact } from '../../models';
 
 @Component({
@@ -11,7 +11,7 @@ import { BigLeagueContact } from '../../models';
     styleUrls: ['./cp2020-big-league-contacts.component.css'],
     standalone: false
 })
-export class Cp2020BigLeagueContactsComponent implements OnInit {
+export class Cp2020BigLeagueContactsComponent implements OnInit, OnChanges {
   bigLeagueContacts = input<Array<BigLeagueContact>>(new Array<BigLeagueContact>());
   skillLevel = input<number>(0);
   canPrint = input<boolean>(false);
@@ -35,6 +35,14 @@ export class Cp2020BigLeagueContactsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.initialize();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.initialize();
+  }
+
+  initialize(): void {
     this.currContacts = this.bigLeagueContacts()?.map(
       (con) => new BigLeagueContact(con)
     ) || [];
