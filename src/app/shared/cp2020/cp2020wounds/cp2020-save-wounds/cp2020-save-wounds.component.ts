@@ -2,7 +2,7 @@ import { DiceService } from './../../../services/dice/dice.service';
 import { Cp2020StatBlock } from '../../cp2020-stats/models/cp2020-stat-block';
 import { faDice } from '@fortawesome/free-solid-svg-icons';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { Component, OnInit, TemplateRef, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, TemplateRef, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
     selector: 'cs-cp2020-save-wounds',
@@ -10,7 +10,7 @@ import { Component, OnInit, TemplateRef, Input, Output, EventEmitter } from '@an
     styleUrls: ['./cp2020-save-wounds.component.css'],
     standalone: false
 })
-export class Cp2020SaveWoundsComponent implements OnInit {
+export class Cp2020SaveWoundsComponent implements OnInit, OnChanges {
 
   faDice = faDice;
   modalRef: BsModalRef;
@@ -109,6 +109,8 @@ export class Cp2020SaveWoundsComponent implements OnInit {
   constructor(private modalService: BsModalService, private dice: DiceService) { }
 
   ngOnInit() {}
+
+  ngOnChanges(changes: SimpleChanges): void {}
 
   onChangeDamage(event: number) {
     if(this.stats) {

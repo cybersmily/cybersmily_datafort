@@ -31,7 +31,7 @@ export class Cp2020WoundLevelComponent implements OnInit, OnChanges {
     const dmg = (this.damage < 0 ) ? 0 : this.damage;
     if (dmg > 0 ) {
       this.wounds.fill(true, 0, dmg);
-      this.wounds.fill(false, dmg + 1);
+      this.wounds.fill(false, dmg);
     } else {
       this.wounds.fill(false, 0);
     }
