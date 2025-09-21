@@ -55,7 +55,7 @@ export class OpponentTrackerService {
    *
    * @memberof CmbtTrckFormComponent
    */
-  rollInitiative(id?: number) {
+  rollInitiative(id?: string) {
     const opps = this._opponents.getValue();
     if (id === undefined || id == null) {
       // roll initiative for all opponents.
@@ -82,7 +82,7 @@ export class OpponentTrackerService {
     return total;
   }
 
-  getOpponent(id: number): CmbtTrckOpponent {
+  getOpponent(id: string): CmbtTrckOpponent {
     return this._opponents.getValue().filter(o => o.id === id)[0];
   }
 
@@ -195,6 +195,7 @@ export class OpponentTrackerService {
       const opponent = new CmbtTrckOpponent(opp, true);
       opps.push(opponent);
     });
+    console.log(opps);
     this._opponents.next(opps);
     this.cache = opps;
   }

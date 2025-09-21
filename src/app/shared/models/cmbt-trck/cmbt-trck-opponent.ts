@@ -10,7 +10,7 @@ import { CmbtTrckOppThreatCode } from './cmbt-trck-opp-threat-code';
 export class CmbtTrckOpponent {
   name: string;
   role: string;
-  id: number;
+  id: string;
   initRoll: number;
   initDie: Array<number>;
   stats: Cp2020StatBlock;
@@ -28,7 +28,7 @@ export class CmbtTrckOpponent {
     this.name = param?.name ?? '';
     this.role = param?.role ?? '';
     if (newId) {
-      this.id = Number(uuidv4());
+      this.id = uuidv4();
     } else {
       this.id = param?.id ?? uuidv4();
     }

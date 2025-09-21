@@ -109,7 +109,7 @@ export class CmbtTrckFormComponent implements OnInit {
    *
    * @memberof CmbtTrckFormComponent
    */
-  rollInitiative(id?: number) {
+  rollInitiative(id?: string) {
     this.opponentService.rollInitiative(id);
   }
 
@@ -138,7 +138,7 @@ export class CmbtTrckFormComponent implements OnInit {
 
   copyOpponent(index: number) {
     const opp = this.opponents[index];
-    const newOpp = new CmbtTrckOpponent(opp);
+    const newOpp = new CmbtTrckOpponent(opp, true);
     newOpp.name =  `${opp.name}_${this.opponents.length + 1}`;
     newOpp.stats.Damage = 0;
     newOpp.stats.isStunned = false;

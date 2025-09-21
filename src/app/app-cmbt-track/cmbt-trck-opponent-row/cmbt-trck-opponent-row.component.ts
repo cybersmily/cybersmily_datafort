@@ -78,7 +78,7 @@ export class CmbtTrckOpponentRowComponent implements OnInit {
    *
    * @memberof CmbtTrckFormComponent
    */
-    rollInitiative(id?: number) {
+    rollInitiative(id?: string) {
       this.opponentService.rollInitiative(id);
     }
 
