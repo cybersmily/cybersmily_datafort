@@ -43,10 +43,16 @@
           | filterWithArray:'cred':filterCred
           | contains: 'release':filterReleases
           ;track $index) {
-        <cs-cr-cz-gear-card [gear]="gear" [teamFaction]="teamFaction()" [unitKeywords]="unitKeywords()"
-        [totalStreetcred]="totalStreetcred()" [count]="getCount(gear.name)"
-          [hasGear]="characterHasGear(gear.name)" (add)="buyGear($event)">
-        </cs-cr-cz-gear-card>
+            @if(gear?.keywords?.includes('FBC')) {
+            <cs-cr-cz-gear-fbc-card [gear]="gear" [teamFaction]="teamFaction()" [unitKeywords]="unitKeywords()"
+            [totalStreetcred]="totalStreetcred()" [count]="getCount(gear.name)"
+            [hasGear]="characterHasGear(gear.name)" (add)="buyGear($event)"></cs-cr-cz-gear-fbc-card>
+            } @else {
+          <cs-cr-cz-gear-card [gear]="gear" [teamFaction]="teamFaction()" [unitKeywords]="unitKeywords()"
+            [totalStreetcred]="totalStreetcred()" [count]="getCount(gear.name)"
+            [hasGear]="characterHasGear(gear.name)" (add)="buyGear($event)">
+          </cs-cr-cz-gear-card>
+        }
         }
       </div>
     </div>

@@ -112,9 +112,16 @@
         </button>
         @for(gear of unit?.gearCards; track $index; let gearIndex = $index) {
         <div [ngClass]="{'float-start d-inline-block me-3 my-0 p-0 rounded position-relative align-top':true}">
+          @if(gear?.keywords.includes('FBC')) {
+            <cs-cr-cz-gear-fbc-card [gear]="gear" [teamFaction]="teamFaction()" [unitKeywords]="unit?.keywords"
+            [gearIndex]="gearIndex" [totalStreetcred]="totalStreetcred()" [count]="getSquadGearCount(gear.name)"
+            (remove)="removeGear($event)"></cs-cr-cz-gear-fbc-card>
+
+          } @else {
           <cs-cr-cz-gear-card [gear]="gear" [teamFaction]="teamFaction()" [unitKeywords]="unit?.keywords"
             [gearIndex]="gearIndex" [totalStreetcred]="totalStreetcred()" [count]="getSquadGearCount(gear.name)"
             (remove)="removeGear($event)"></cs-cr-cz-gear-card>
+          }
         </div>
         }
       </tab>

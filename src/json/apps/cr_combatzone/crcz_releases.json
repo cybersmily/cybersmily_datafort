@@ -56,6 +56,15 @@
 {"key":"WTS","value":"WILD THINGS STARTER"},
 {"key":"WTB","value":"WILD THINGS TRAINER BOTS"},
 {"key":"ZONE","value":"ZONERS START"},
+{"key":"FBC1","value":"GOING METAL"},
+{"key":"DCS","value":"DAEMON CUSTOM SUPERBIKE"},
+{"key":"KSC","value":"KUNDALINI SHIVA CYBERCYCLE"},
+{"key":"MIC","value":"M-INDUSTRIES CYBERMOTO"},
+{"key":"WRB","value":"WARRIOR ROADBIKE"},
+{"key":"YK","value":"YAIBA KUSANAGI"},
+{"key":"ZC","value":"ZONDA CYBERCYCLE"},
+{"key":"MEC","value":"MAKIKAI EBI TOWN CAR"},
+{"key":"ZH","value":"ZETATECH HERAKLES"},
 
 {"key":"","value":"UNIVERSAL"}
 ]
