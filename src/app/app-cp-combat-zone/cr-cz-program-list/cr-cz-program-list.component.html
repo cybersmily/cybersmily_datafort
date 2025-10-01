@@ -4,7 +4,7 @@
 <div class="row">
   <div class="col-12">
     @for(program of programList |contains:'faction':[currentFilterFaction, 'universal'] |contains:'release':filterReleases;track $index){
-      <cs-cr-cz-program-card [crczProgram]="program" (selectProgram)="buy($event)"></cs-cr-cz-program-card>
+      <cs-cr-cz-program-card [crczProgram]="program" [teamFaction]="filterFaction()"  (selectProgram)="buy($event)"></cs-cr-cz-program-card>
   }
   </div>
 </div>

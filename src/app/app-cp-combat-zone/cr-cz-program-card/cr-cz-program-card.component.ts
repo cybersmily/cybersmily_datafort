@@ -1,4 +1,4 @@
-import { Component, input, model, OnInit, output } from '@angular/core';
+import { Component, input, model, OnChanges, OnInit, output, SimpleChanges } from '@angular/core';
 import { faTrash, faCircleCheck, faBookBookmark, faRedo, faPlay, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { iCrCzNrProgramCard } from '../models/cr-cz-nr-program-card';
 import { Observable } from 'rxjs';
@@ -10,7 +10,7 @@ import { CrCzReleasesDataService } from '../services/cr-cz-releases-data/cr-cz-r
   templateUrl: './cr-cz-program-card.component.html',
   styleUrl: './cr-cz-program-card.component.css'
 })
-export class CrCzProgramCardComponent implements OnInit {
+export class CrCzProgramCardComponent implements OnInit, OnChanges {
   faTrash = faTrash;
   faCircleCheck = faCircleCheck;
   faBookBookmark = faBookBookmark;
@@ -20,6 +20,7 @@ export class CrCzProgramCardComponent implements OnInit {
 
   showBothSides = input<boolean>(true);
   crczProgram = input<iCrCzNrProgramCard>(null);
+  teamFaction = input<string>('');
 
   selectProgram = output<iCrCzNrProgramCard>();
 
@@ -28,7 +29,9 @@ export class CrCzProgramCardComponent implements OnInit {
   programCardSideStyle = {
     dimensions: {
       width: '150px',
-      height: '220px'
+      height: '220px',
+    transform: 'scale(1.0)',
+    'transform-origin':'left top',
     },
     title: {
       width: '95px',
@@ -97,13 +100,14 @@ export class CrCzProgramCardComponent implements OnInit {
 
   programMenuStyle = {
     width: '40px',
-    height: '220px'
-  };
+    height: '220px',
+    'margin-left': '0px'
+    };
 
   programCardStyle = {
     width: '340px',
-    height: '220px',
-    transform: 'scale(1.0)',
+    height: '240px',
+    overflow: 'auto',
     margin: '0px'
   }
 
@@ -119,14 +123,24 @@ export class CrCzProgramCardComponent implements OnInit {
     }
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if(this.showBothSides()) {
+      this.setBothSidesLayout();
+    } else {
+      this.setSingleSideLayout();
+    }
+  }
+
   setSingleSideLayout(): void {
-    this.programCardStyle.width = '190px';
-    this.programCardStyle.transform ='scale(1.4)';
-    this.programCardStyle.margin = '50px';
+    this.programCardStyle.width = '250px';
+    this.programCardStyle.height = '336px';
+    this.programCardSideStyle.dimensions.transform ='scale(1.4)';
+    this.programMenuStyle['margin-left'] = '50px';
     if(this.crczProgram().effect.length > 250) {
       this.programCardRunningStyles.programEffect['font-size'] = '0.4em';
     }
     if(this.crczProgram()?.range) {
+
       this.programCardLoadedStyles.loadDescription.top = '75px';
     }
     this.programCardRunningStyles.programEffect.width ='126px'
@@ -134,7 +148,7 @@ export class CrCzProgramCardComponent implements OnInit {
 
   setBothSidesLayout(): void {
     this.programCardStyle.width = '340px';
-    this.programCardStyle.transform ='scale(1.0)';
+    this.programCardSideStyle.dimensions.transform ='scale(1.0)';
     this.programCardStyle.margin = '0px';
     if(this.crczProgram()?.range) {
       this.programCardLoadedStyles.loadDescription.top = '75px';

@@ -11,9 +11,20 @@
       <cs-cr-cz-range-display [ranges]="crczProgram().range" [classNames]="'position-absolute w-70'" [left]="'45px'" [top]="'60px'"></cs-cr-cz-range-display>
     }
     <div class="d-inline-block position-absolute text-white text-xsmall"
-       [ngStyle]="programCardLoadedStyles.loadDescription">{{crczProgram().load}}<br>Flip this card.</div>
+       [ngStyle]="programCardLoadedStyles.loadDescription">
+       @if(crczProgram().attack) {
+          <img title="lethal attack" class="float-start me-1" style="height:15px;" src="img/cz/lethal_icon.png">
+        }
+       {{crczProgram().load}}<br>Flip this card.
+    </div>
     <div class="d-inline-block position-absolute text-white fw-bold"
       [ngStyle]="programCardLoadedStyles.ebCost">{{crczProgram().eb}}</div>
+    @if(crczProgram()?.faction) {
+    <img
+      [ngClass]="{'rounded position-absolute bottom-0 mt-5 mb-0':true, 'bg-danger border border-secondary': crczProgram()?.faction !== 'universal' && crczProgram().faction !== teamFaction()}"
+      style="left:50%;margin-left:-10px;opacity: 0.6; width:35px;" src="img/cz/icon_{{crczProgram()?.faction?.replace(' ','_')}}.png"
+      alt="{{crczProgram()?.faction?.replace(' ','_')}} faction" title="{{crczProgram()?.faction?.replace(' ','_')}} faction program">
+    }
     <div class="d-inline-block position-absolute text-white fw-bold text-3xsmall"
       [ngStyle]="programCardLoadedStyles.eb">E<br>B</div>
     <div class="d-inline-block position-absolute text-white fw-bold"

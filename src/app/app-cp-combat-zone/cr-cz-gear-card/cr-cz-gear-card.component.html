@@ -67,7 +67,7 @@
     <div class="d-inline-block position-absolute text-white py-0 px-1 text-xsmall text-start"
       [ngStyle]="{'top':(gear().ranges?.length > 0 ? '105px' : '90px'),'left':(gear().action ? 35 : 5) + 'px', 'line-height': '11px', 'width': getAttributeWidth(gear().action != '', gear().armor > 0)}">
       @if(gear().damage) {
-      <img class="float-start" style="height:11px;" src="img/cz/lethal_icon.png">
+      <img title="lethal attack" class="float-start" style="height:11px;" src="img/cz/lethal_icon.png">
       }
       {{gear().attributes.join(', ')}}
     </div>
