@@ -187,4 +187,6 @@ export class Cp2020GearListComponent implements OnInit, OnChanges, AfterViewInit
       this.expandLocation.push(loc);
     }
   }
+
+
 }

@@ -94,7 +94,7 @@
   </div>
   <div class="row g-0 border border-dark">
     <div class="col-12 column-count g-0">
-      <cs-cp2020-gear-editor *ngFor="let row of currGear.items; let i = index" [gear]="row"
+      <cs-cp2020-gear-editor *ngFor="let row of getLocationGear(location); let i = index" [gear]="row"
         (delete)="removeGearRow($event)" (update)="updateGear($event)"></cs-cp2020-gear-editor>
     </div>
   </div>
