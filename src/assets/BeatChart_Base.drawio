@@ -1,0 +1,209 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.5 Chrome/138.0.7204.251 Electron/37.6.1 Safari/537.36" version="28.2.5">
+  <diagram name="Page-1" id="pD4jZFv-BZsXOyRytKc8">
+    <mxGraphModel dx="1426" dy="841" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-18" value="HOOKS" style="swimlane;startSize=0;" parent="1" vertex="1">
+          <mxGeometry x="20" y="10" width="820" height="100" as="geometry">
+            <mxRectangle x="100" y="10" width="80" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-11" value="Crisis" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-18" vertex="1">
+          <mxGeometry x="30" y="10" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-12" value="Discovery" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-18" vertex="1">
+          <mxGeometry x="120" y="10" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-13" value="False Accusation" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-18" vertex="1">
+          <mxGeometry x="210" y="10" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-15" value="Kidnapped" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-18" vertex="1">
+          <mxGeometry x="300" y="10" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-16" value="Murder" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-18" vertex="1">
+          <mxGeometry x="390" y="10" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-17" value="Revelation" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-18" vertex="1">
+          <mxGeometry x="480" y="10" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-22" value="Cordnet Blue" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-18" vertex="1">
+          <mxGeometry x="570" y="10" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-19" value="Developments" style="swimlane;startSize=0;" parent="1" vertex="1">
+          <mxGeometry x="20" y="300" width="820" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-8" value="Alliance" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="10" y="20" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-14" value="Back from the Dead" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="130" y="20" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-4" value="Betrayal" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="250" y="20" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-6" value="Clue" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="370" y="20" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-3" value="Foreshadowing" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="490" y="20" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-2" value="Framed!" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="610" y="20" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-5" value="Gain Mystery" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="730" y="20" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-1" value="Hazardous Quest" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="70" y="80" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-35" value="Hesitation" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="190" y="80" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-36" value="Lie Revealed" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="310" y="80" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-37" value="Mistaken Identity" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="430" y="80" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-38" value="Monologue" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="550" y="80" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-39" value="Not what it seems" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="670" y="80" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-40" value="Obsession" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="10" y="140" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-41" value="Personal Stake" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="130" y="140" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-42" value="Puzzle" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="250" y="140" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-43" value="Rescuers!" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="370" y="140" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-44" value="Retreat" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="490" y="140" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-45" value="Revealed Weakness" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="610" y="140" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-46" value="Revelation" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="730" y="140" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-47" value="Romance" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="70" y="200" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-48" value="Sabotage!" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="190" y="200" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-49" value="Second Chance" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="310" y="200" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-50" value="Secret Meeting" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="430" y="200" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-51" value="Strange Bedfellows" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="550" y="200" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-52" value="Turnabout!" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="670" y="200" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-53" value="Vengeance!" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="10" y="260" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-54" value="Warning" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="HLqi5b-laEJbrOeWPJf0-19" vertex="1">
+          <mxGeometry x="130" y="260" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-20" value="CLIFFHANGERS" style="swimlane;startSize=0;" parent="1" vertex="1">
+          <mxGeometry x="20" y="130" width="820" height="160" as="geometry">
+            <mxRectangle x="20" y="130" width="130" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-9" value="Ambush" style="rhombus;whiteSpace=wrap;html=1;" parent="HLqi5b-laEJbrOeWPJf0-20" vertex="1">
+          <mxGeometry x="20" y="20" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-23" value="Battle" style="rhombus;whiteSpace=wrap;html=1;" parent="HLqi5b-laEJbrOeWPJf0-20" vertex="1">
+          <mxGeometry x="70" y="70" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-24" value="Chase" style="rhombus;whiteSpace=wrap;html=1;" parent="HLqi5b-laEJbrOeWPJf0-20" vertex="1">
+          <mxGeometry x="120" y="20" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-25" value="Confrontation" style="rhombus;whiteSpace=wrap;html=1;" parent="HLqi5b-laEJbrOeWPJf0-20" vertex="1">
+          <mxGeometry x="170" y="70" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-26" value="Contest" style="rhombus;whiteSpace=wrap;html=1;" parent="HLqi5b-laEJbrOeWPJf0-20" vertex="1">
+          <mxGeometry x="220" y="20" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-27" value="Dogfight" style="rhombus;whiteSpace=wrap;html=1;" parent="HLqi5b-laEJbrOeWPJf0-20" vertex="1">
+          <mxGeometry x="270" y="70" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-28" value="Duel" style="rhombus;whiteSpace=wrap;html=1;" parent="HLqi5b-laEJbrOeWPJf0-20" vertex="1">
+          <mxGeometry x="320" y="20" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-29" value="Fist Fight" style="rhombus;whiteSpace=wrap;html=1;" parent="HLqi5b-laEJbrOeWPJf0-20" vertex="1">
+          <mxGeometry x="370" y="70" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-30" value="Monster" style="rhombus;whiteSpace=wrap;html=1;" parent="HLqi5b-laEJbrOeWPJf0-20" vertex="1">
+          <mxGeometry x="420" y="20" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-31" value="Obstacle" style="rhombus;whiteSpace=wrap;html=1;" parent="HLqi5b-laEJbrOeWPJf0-20" vertex="1">
+          <mxGeometry x="470" y="70" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-32" value="Pursuit" style="rhombus;whiteSpace=wrap;html=1;" parent="HLqi5b-laEJbrOeWPJf0-20" vertex="1">
+          <mxGeometry x="515" y="20" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-33" value="Race" style="rhombus;whiteSpace=wrap;html=1;" parent="HLqi5b-laEJbrOeWPJf0-20" vertex="1">
+          <mxGeometry x="565" y="70" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-34" value="Skirmish" style="rhombus;whiteSpace=wrap;html=1;" parent="HLqi5b-laEJbrOeWPJf0-20" vertex="1">
+          <mxGeometry x="615" y="20" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-21" value="CLIMAXES" style="swimlane;startSize=0;" parent="1" vertex="1">
+          <mxGeometry x="20" y="660" width="820" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-10" value="Final&lt;div&gt;Battle&lt;/div&gt;" style="triangle;whiteSpace=wrap;html=1;rotation=90;horizontal=0;verticalAlign=top;" parent="HLqi5b-laEJbrOeWPJf0-21" vertex="1">
+          <mxGeometry x="30" y="10" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-60" value="Final&lt;div&gt;Revelation&lt;/div&gt;" style="triangle;whiteSpace=wrap;html=1;rotation=90;horizontal=0;verticalAlign=top;" parent="HLqi5b-laEJbrOeWPJf0-21" vertex="1">
+          <mxGeometry x="120" y="10" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HLqi5b-laEJbrOeWPJf0-61" value="Final&lt;div&gt;Act&lt;/div&gt;" style="triangle;whiteSpace=wrap;html=1;rotation=90;horizontal=0;verticalAlign=top;" parent="HLqi5b-laEJbrOeWPJf0-21" vertex="1">
+          <mxGeometry x="210" y="10" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cj0Q1rJoIJ-XMV6g5W3n-5" value="RESOLUTIONS" style="swimlane;startSize=0;" vertex="1" parent="1">
+          <mxGeometry x="20" y="780" width="820" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="cj0Q1rJoIJ-XMV6g5W3n-9" value="Antagonist&lt;div&gt;Escapes&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="cj0Q1rJoIJ-XMV6g5W3n-5">
+          <mxGeometry x="11" y="20" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cj0Q1rJoIJ-XMV6g5W3n-10" value="Antagonist&lt;div&gt;Killed&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="cj0Q1rJoIJ-XMV6g5W3n-5">
+          <mxGeometry x="101" y="20" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cj0Q1rJoIJ-XMV6g5W3n-11" value="Antagonist&lt;div&gt;Toppled&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="cj0Q1rJoIJ-XMV6g5W3n-5">
+          <mxGeometry x="191" y="20" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cj0Q1rJoIJ-XMV6g5W3n-12" value="Edgerunners&lt;div&gt;Captured&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="cj0Q1rJoIJ-XMV6g5W3n-5">
+          <mxGeometry x="281" y="20" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cj0Q1rJoIJ-XMV6g5W3n-13" value="Edgerunners&lt;div&gt;Escape&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="cj0Q1rJoIJ-XMV6g5W3n-5">
+          <mxGeometry x="371" y="20" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cj0Q1rJoIJ-XMV6g5W3n-14" value="Ending&lt;div&gt;Cliffhanger&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="cj0Q1rJoIJ-XMV6g5W3n-5">
+          <mxGeometry x="461" y="20" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cj0Q1rJoIJ-XMV6g5W3n-15" value="Greater&lt;div&gt;Threat&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="cj0Q1rJoIJ-XMV6g5W3n-5">
+          <mxGeometry x="551" y="20" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cj0Q1rJoIJ-XMV6g5W3n-16" value="Happy&lt;div&gt;Ending&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="cj0Q1rJoIJ-XMV6g5W3n-5">
+          <mxGeometry x="641" y="20" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cj0Q1rJoIJ-XMV6g5W3n-17" value="Pyrrhic&lt;div&gt;Victory&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="cj0Q1rJoIJ-XMV6g5W3n-5">
+          <mxGeometry x="731" y="20" width="80" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
