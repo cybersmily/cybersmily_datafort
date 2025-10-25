@@ -1,5 +1,15 @@
 ﻿{
-  "news": [{"date": "2025-09",
+  "news": [
+    {"date": "2025-10",
+    "entries": [
+      "<strong>10-25</strong> - Working on an overall of the site to use the latest features of the framework I use for the site. Small updates and bug fixes will be done like this one.",
+      "Updates:",
+      " - Combat Zone Army Builder - fixed data issues and some icons.",
+      " - Cyberpunk 2020 Character Generator Gear Section - Fixed an issue with the location feature. Items shouldn't appear in all sections.",
+      "CYBER :D"
+  ]
+  },
+    {"date": "2025-09",
     "entries": [
       "<strong>09-08</strong> - I am in the midst of upgrading the codebase for my site. This will be a long process. I plan on updating different components in the site periodically. This means that some areas will look different, but these changes should not impact the core functionality. This is mostly cosmetic.",
       "If you see a bug, please go to my discord server and post them in the Datafort section. I will work on resolving them as they are posted.",
