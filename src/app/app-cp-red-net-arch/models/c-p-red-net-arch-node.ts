@@ -1,5 +1,6 @@
 import { NetArchProgram } from './net-arch-program';
 import { NetArchNode } from './net-arch-node';
+import { CPRedDemon } from './c-p-red-demon';
 
 export class CPRedNetArchNode implements NetArchNode {
   id: string = '';
@@ -13,6 +14,7 @@ export class CPRedNetArchNode implements NetArchNode {
   color: string = '';
   branch: Array<CPRedNetArchNode> = new Array<CPRedNetArchNode>();
   programs?: Array<NetArchProgram>;
+  demon: CPRedDemon;
 
   constructor(param?: any) {
     if (param) {
@@ -31,6 +33,7 @@ export class CPRedNetArchNode implements NetArchNode {
       if (param.programs) {
         this.programs = [...param.programs];
       }
+      this.demon = param.demon;
     }
   }
 
@@ -143,6 +146,7 @@ export class CPRedNetArchNode implements NetArchNode {
       this.bgColor = node.bgColor;
       this.color = node.color;
       this.programs = node.programs;
+      this.demon = node.demon;
     } else {
       if (this.branch.length > 0) {
         this.branch.forEach(n => n.update(node));
