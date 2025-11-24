@@ -46,7 +46,7 @@ export class Cp2020SkillEditorComponent implements OnInit, AfterViewInit {
   }
 
   get nextLevelIP(): number {
-    const ipmode = isNaN(this.currSkill?.ipMod) ? this.currSkill.ipMod : 1;
+    const ipmode = isNaN(this.currSkill?.ipMod) ? 1 : this.currSkill.ipMod;
     const base = 10 * ipmode;
     if (this.currSkill.value < 1) {
       return base;
