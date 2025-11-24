@@ -418,7 +418,7 @@
 		"category": "DRUGS",
 		"name": "Berserker",
 		"notes": "+2 BOD; +2 CL; +1 REF; 1d6+1 min",
-		"cost": 40,
+		"cost": 400,
 		"wt": 0,
 		"source":{"book": "Chr3", "page": 17}
 	},
@@ -458,7 +458,7 @@
 		"category": "DRUGS",
 		"name": "Black Lace",
 		"notes": "+3 Stun Save; +2 CL; 1d6+1 hour",
-		"cost": 65,
+		"cost": 650,
 		"wt": 0,
 		"source":{"book": "CP20", "page": 123}
 	},
@@ -514,7 +514,7 @@
 		"category": "DRUGS",
 		"name": "Blue Glass",
 		"notes": "+1 hallucinogen; 1d6+1 min",
-		"cost": 9,
+		"cost": 900,
 		"wt": 0,
 		"source":{"book": "CP20", "page": 123}
 	},
@@ -634,7 +634,7 @@
 		"category": "DRUGS",
 		"name": "Boost",
 		"notes": "+1 INT; 1d6+1 hour",
-		"cost": 6,
+		"cost": 600,
 		"wt": 0,
 		"source":{"book": "CP20", "page": 123}
 	},
@@ -938,7 +938,7 @@
 		"category": "DRUGS",
 		"name": "Char",
 		"notes": "+3 COOL; -3EMP; 1d10+1 min",
-		"cost": 5,
+		"cost": 500,
 		"wt": 0,
 		"source":{"book": "WS", "page": 81}
 	},
@@ -1706,7 +1706,7 @@
 		"category": "DRUGS",
 		"name": "Diamond 4",
 		"notes": "+2 heal; Antibiotic; Antidote",
-		"cost": 17,
+		"cost": 1725,
 		"wt": 0,
 		"source":{"book": "I1.3", "page": 12}
 	},
@@ -1922,7 +1922,7 @@
 		"category": "DRUGS",
 		"name": "'Dorph",
 		"notes": "+2 Stun Saves; 1d6+1 turns",
-		"cost": 25,
+		"cost": 250,
 		"wt": 0,
 		"source":{"book": "CP20", "page": 123}
 	},
@@ -2466,7 +2466,7 @@
 		"category": "DRUGS",
 		"name": "Foolkiller",
 		"notes": "+3 CL;A/N & End; pat; 1d10+1 min",
-		"cost": 20,
+		"cost": 2000,
 		"wt": 0,
 		"source":{"book": "I1.3", "page": 11}
 	},
@@ -2962,7 +2962,7 @@
 		"category": "DRUGS",
 		"name": "Happy Kill",
 		"notes": "+3 Endurance; Stun Save; 2d6 min",
-		"cost": 5,
+		"cost": 525,
 		"wt": 0,
 		"source":{"book": "CB2", "page": 26}
 	},
@@ -3610,7 +3610,7 @@
 		"category": "DRUGS",
 		"name": "Jazz",
 		"notes": "+2 REF & CL; 1d10+1turns; tablet",
-		"cost": 3,
+		"cost": 300,
 		"wt": 0,
 		"source":{"book": "I1.3", "page": 10}
 	},
@@ -3898,7 +3898,7 @@
 		"category": "DRUGS",
 		"name": "LeSade",
 		"notes": "+2 Aphro; Euph; Coagulant; 1d10+1min",
-		"cost": 6,
+		"cost": 600,
 		"wt": 0,
 		"source":{"book": "I1.3", "page": 12}
 	},
@@ -4074,7 +4074,7 @@
 		"category": "DRUGS",
 		"name": "Lucidrine Booster",
 		"notes": "+2 REF; +5 Initiative; 5 min",
-		"cost": 6,
+		"cost": 650,
 		"wt": 0,
 		"source":{"book": "BB", "page": 98}
 	},
@@ -4690,7 +4690,7 @@
 		"category": "DRUGS",
 		"name": "Mr. Ex",
 		"notes": "+1 Endurance;-1 CL; 1d10+1 day",
-		"cost": 6,
+		"cost": 675,
 		"wt": 0,
 		"source":{"book": "WS", "page": 81}
 	},
@@ -5042,7 +5042,7 @@
 		"category": "DRUGS",
 		"name": "Paracaine",
 		"notes": "+5 Stun Save; 30 min",
-		"cost": 100,
+		"cost": 1000,
 		"wt": 0,
 		"source":{"book": "CB3", "page": 32}
 	},
@@ -5618,7 +5618,7 @@
 		"category": "DRUGS",
 		"name": "Priapan Spray (5 use)",
 		"notes": "+1Stun; +2 Stabilise; 2 hr",
-		"cost": 30,
+		"cost": 10,
 		"wt": 0,
 		"source":{"book": "CB3", "page": 33}
 	},
@@ -5626,7 +5626,7 @@
 		"category": "DRUGS",
 		"name": "Prime",
 		"notes": "+2 CL; +3 A/N;+2 Stun; 1d6+1 hour",
-		"cost": 50,
+		"cost": 500,
 		"wt": 0,
 		"source":{"book": "Chr3", "page": 17}
 	},
@@ -5746,7 +5746,7 @@
 		"category": "DRUGS",
 		"name": "Rambo-7",
 		"notes": "+2 BOD; REF;A/N; Stun; 1d10+1min",
-		"cost": 8,
+		"cost": 800,
 		"wt": 0,
 		"source":{"book": "I1.3", "page": 11}
 	},
@@ -6138,7 +6138,7 @@
 		"category": "DRUGS",
 		"name": "Sedative",
 		"notes": "BOD 25 save or unconscious; 1d6+1 hr",
-		"cost": 4,
+		"cost": 40,
 		"wt": 0,
 		"source":{"book": "Chr3", "page": 17}
 	},
@@ -6194,7 +6194,7 @@
 		"category": "DRUGS",
 		"name": "Sixgun",
 		"notes": "+3 INT & A/N; nerve inject; 1d10+1 hr",
-		"cost": 21,
+		"cost": 2175,
 		"wt": 0,
 		"source":{"book": "I1.3", "page": 11}
 	},
@@ -6202,7 +6202,7 @@
 		"category": "DRUGS",
 		"name": "Skate",
 		"notes": "+1 Euph; Endurance; tablet; 1d10+1 hr",
-		"cost": 9,
+		"cost": 195,
 		"wt": 0,
 		"source":{"book": "I1.3", "page": 12}
 	},
@@ -6698,7 +6698,7 @@
 		"category": "DRUGS",
 		"name": "Smash",
 		"notes": "+1 euphoric;1d6+1 min; cost per 6pack",
-		"cost": 10,
+		"cost": 100,
 		"wt": 0,
 		"source":{"book": "CP20", "page": 123}
 	},
@@ -6890,7 +6890,7 @@
 		"category": "DRUGS",
 		"name": "Speedheal",
 		"notes": "+2 heal;-1d6/3 REF; 1d6+1 hour",
-		"cost": 165,
+		"cost": 1650,
 		"wt": 0,
 		"source":{"book": "CP20", "page": 122}
 	},
@@ -6930,7 +6930,7 @@
 		"category": "DRUGS",
 		"name": "Spotlight",
 		"notes": "+2 A/N;1d6/2 hour",
-		"cost": 4,
+		"cost": 425,
 		"wt": 0,
 		"source":{"book": "CB2", "page": 26}
 	},
@@ -7002,7 +7002,7 @@
 		"category": "DRUGS",
 		"name": "Stim",
 		"notes": "+3 Endurance;1d6+1 min",
-		"cost": 5,
+		"cost": 500,
 		"wt": 0,
 		"source":{"book": "CP20", "page": 122}
 	},
@@ -7010,7 +7010,7 @@
 		"category": "DRUGS",
 		"name": "Stim",
 		"notes": "negates wound penalties; 1d6+1 min",
-		"cost": 5,
+		"cost": 50,
 		"wt": 0,
 		"source":{"book": "Chr3", "page": 17}
 	},
@@ -7058,7 +7058,7 @@
 		"category": "DRUGS",
 		"name": "Surge",
 		"notes": "+1 Stun Save;1d6+1 hour",
-		"cost": 7,
+		"cost": 75,
 		"wt": 0,
 		"source":{"book": "Chr3", "page": 17}
 	},
@@ -7122,7 +7122,7 @@
 		"category": "DRUGS",
 		"name": "Syncomp 15",
 		"notes": "+3 antidote; -1 REF; 1d6+1 turns",
-		"cost": 15,
+		"cost": 650,
 		"wt": 0,
 		"source":{"book": "CP20", "page": 122}
 	},
@@ -7130,7 +7130,7 @@
 		"category": "DRUGS",
 		"name": "Synth Coke",
 		"notes": "+1 Endurance; 1d6+1 min",
-		"cost": 10,
+		"cost": 1000,
 		"wt": 0,
 		"source":{"book": "CP20", "page": 122}
 	},
@@ -7474,7 +7474,7 @@
 		"category": "DRUGS",
 		"name": "Thrill",
 		"notes": "+1 Euphoric; muscular inject; 1d10+1 turns",
-		"cost": 7,
+		"cost": 75,
 		"wt": 0,
 		"source":{"book": "I1.3", "page": 12}
 	},
@@ -7498,7 +7498,7 @@
 		"category": "DRUGS",
 		"name": "Timewarp",
 		"notes": "+3 Initiative;1d6+1 min",
-		"cost": 30,
+		"cost": 300,
 		"wt": 0,
 		"source":{"book": "Chr3", "page": 17}
 	},
@@ -7618,7 +7618,7 @@
 		"category": "DRUGS",
 		"name": "Trauma I",
 		"notes": "Death Saves 3pts easier; 1d6+1 turns",
-		"cost": 6,
+		"cost": 60,
 		"wt": 0,
 		"source":{"book": "Chr3", "page": 17}
 	},
@@ -7858,7 +7858,7 @@
 		"category": "DRUGS",
 		"name": "Twitch",
 		"notes": "+2 euphoric;-1 REF; 1d10+1 min",
-		"cost": 3,
+		"cost": 300,
 		"wt": 0,
 		"source":{"book": "WS", "page": 81}
 	},
