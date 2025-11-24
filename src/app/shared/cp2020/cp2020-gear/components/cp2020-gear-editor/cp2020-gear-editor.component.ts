@@ -28,6 +28,9 @@ export class Cp2020GearEditorComponent implements OnInit, OnChanges {
   @Input()
   gear: Cp2020PlayerGear = new Cp2020PlayerGear();
 
+  @Input()
+  location: string;
+
   @Output()
   delete: EventEmitter<any> = new EventEmitter<any>();
 
@@ -57,6 +60,9 @@ export class Cp2020GearEditorComponent implements OnInit, OnChanges {
   }
 
   onGearChange(): void {
+    if(this.location) {
+      this.currGear.location = this.location;
+    }
     this.update.emit(this.currGear);
   }
 
