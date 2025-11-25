@@ -189,9 +189,7 @@ export class LifeEventsGeneratorService {
     let s =
       'Romantic Involvement: ' +
       this.dice.rollOnChart(chart.RomanticInvolvement.Type, version);
-    if (version === 'ProtectServe') {
-      s += ' ' + this.dice.rollOnChart(chart.RomanticInvolvement.Type, version);
-    }
+
     if (s.indexOf('Tragic') < 0 && s.indexOf('Problem') < 0) {
       return s;
     }
