@@ -125,6 +125,11 @@ export class TopNavLinks {
           desc: 'Character generation system using points to distribute to attributes, skills, and gear for Cyberpunk 2020.',
         },
         {
+          title: 'Cop subroles',
+          link: 'mods/coproles',
+          desc: 'New Cop roles for Cyberpunk 2020.',
+        },
+        {
           title: 'Fumble',
           link: 'mods/fumble',
           desc: 'Optional rules for how to handle fumbles in Cyberpunk 2020.',
