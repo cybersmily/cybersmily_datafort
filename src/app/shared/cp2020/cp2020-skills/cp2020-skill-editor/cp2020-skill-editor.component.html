@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col">
+  <div class="col-12 col-md-8">
     Subskill:
     <input
       #subskillElem
@@ -11,7 +11,9 @@
       tabindex="0"
     />
   </div>
-  <div class="col-4">
+  <div class="col-12 col-md-4 text-small">
+    <div class="row">
+  <div class="col-6 col-md-12">
     <input
       [(ngModel)]="currSkill.chipped"
       (change)="onChangeSkill()"
@@ -21,13 +23,24 @@
       tabindex="0"
     />
     Chipped
+    </div>
+    <div class="col-6 col-md-12">
+    <input
+      type="checkbox"
+      [(ngModel)]="currSkill.isSA"
+      (change)="onChangeSkill()"
+      tabindex="0"
+    />
+    Special Ability
+    </div>
+    </div>
   </div>
 </div>
 <div class="row">
-  <div class="col">
+  <div class="col-6 col-md-8">
     STAT ({{ currSkill.stat.toUpperCase() }}): {{ stat.Adjusted }}
   </div>
-  <div class="col-4">
+  <div class="col-6 col-md-4">
     Value:
     <input
       [(ngModel)]="currSkill.value"
@@ -42,7 +55,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="col">
+  <div class="col-6 col-md-8">
     IP (x<input
       type="number"
       min="1"
@@ -60,17 +73,10 @@
       tabindex="0"
     />
   </div>
-  <div class="col-4">Next Level: {{ nextLevelIP }} ip</div>
+  <div class="col-6 col-md-4">Next Level: {{ nextLevelIP }} ip</div>
 </div>
 <div class="row">
-  <div class="col">
-    <input
-      type="checkbox"
-      [(ngModel)]="currSkill.isSA"
-      (change)="onChangeSkill()"
-      tabindex="0"
-    />
-    Special Ability
+  <div class="col-6">
   </div>
   <div class="col"></div>
   <div class="col">
@@ -241,13 +247,24 @@
     </div>
   </div>
 </div>
+<hr>
 <div class="row">
-  <div class="col">Modifiers:</div>
+  <div class="col-7">Modifiers: </div>
+  <div class="col-5">{{currSkill?.totalModifiers >= 0 ? '+' + currSkill.totalModifiers : currSkill.totalModifiers}} total</div>
 </div>
 <div class="row" *ngFor="let mod of currSkill.modifiers">
   <div class="col-1"></div>
   <div class="col-6">{{ mod.name }}</div>
-  <div class="col-5">: <span *ngIf="mod.mod > 0">+</span>{{ mod.mod }}</div>
+  <div class="col-2">: <span *ngIf="mod.mod > 0">+</span>{{ mod.mod }}</div>
+  <div class="col-3">
+    <button
+      class="csd-btn csd-icon-btn csd-icon-lg"
+      title="Remove modifier"
+      (click)="removeModifier(mod)"
+    >
+      <fa-icon [icon]="faTrash"></fa-icon>
+    </button>
+    </div>
 </div>
 <div class="row">
   <div class="col-1"></div>
@@ -276,5 +293,6 @@
     >
       <fa-icon [icon]="faPlus"></fa-icon>
     </button>
+
   </div>
 </div>

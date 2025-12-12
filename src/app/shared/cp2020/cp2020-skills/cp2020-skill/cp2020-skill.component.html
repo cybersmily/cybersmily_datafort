@@ -27,8 +27,8 @@
     <span [ngClass]="{
       'float-end': true,
       'd-none': sa
-    }"  title="Skill + Stat">
-    [{{ currSkill.value + (stat ? stat.Adjusted : 0) }}]
+    }"  title="Skill + Stat + Modifiers">
+    [{{ currSkill.value + (stat ? stat.Adjusted : 0) + (currSkill?.totalModifiers ?? 0) }}]
     </span>
       {{ currSkill.name }}
       <span *ngIf="currSkill.option">: {{ currSkill.option }}</span>

@@ -4,7 +4,7 @@ import {
   StatModifier,
 } from './../../cp2020-stats/models/cp2020-stat';
 import { Cp2020PlayerSkill } from './../models/cp2020-player-skill';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import {
   Component,
   Input,
@@ -24,7 +24,8 @@ import { MartialBonuses } from '../models';
     standalone: false
 })
 export class Cp2020SkillEditorComponent implements OnInit, AfterViewInit {
-  faPlus = faPlus;
+  faPlus = faPlus
+  faTrash = faTrash;
 
   @Input()
   skill: Cp2020PlayerSkill = new Cp2020PlayerSkill();
@@ -80,6 +81,12 @@ export class Cp2020SkillEditorComponent implements OnInit, AfterViewInit {
     });
     this.updateSkill.emit(new Cp2020SkillUpdate(this.skill, this.currSkill));
     this.newModifier = { name: '', mod: 0 };
+  }
+
+  removeModifier(modifier: StatModifier) {
+    const index = this.currSkill?.modifiers?.findIndex( mod => mod.name === modifier.name && mod.mod === modifier.mod);
+    this.currSkill?.modifiers?.splice(index, 1);
+    this.updateSkill.emit(new Cp2020SkillUpdate(this.skill, this.currSkill));
   }
 
   toggleMA() {
