@@ -80,7 +80,8 @@
   </div>
   <div class="col"></div>
   <div class="col">
-    <span *ngIf="currSkill.stat.toLowerCase() === 'ref'">
+    @if (currSkill.stat.toLowerCase() === 'ref') {
+    <span>
       <input
         type="checkbox"
         [value]="isMA"
@@ -89,9 +90,11 @@
       />
       Martial Art
     </span>
+    }
   </div>
 </div>
-<div *ngIf="isMA" class="row">
+@if(isMA) {
+<div  class="row">
   <div class="col">
     <div class="row">
       <div class="col">Strike</div>
@@ -247,12 +250,14 @@
     </div>
   </div>
 </div>
+}
 <hr>
 <div class="row">
   <div class="col-7">Modifiers: </div>
   <div class="col-5">{{currSkill?.totalModifiers >= 0 ? '+' + currSkill.totalModifiers : currSkill.totalModifiers}} total</div>
 </div>
-<div class="row" *ngFor="let mod of currSkill.modifiers">
+@for (mod of currSkill.modifiers; track $index) {
+<div class="row">
   <div class="col-1"></div>
   <div class="col-6">{{ mod.name }}</div>
   <div class="col-2">: <span *ngIf="mod.mod > 0">+</span>{{ mod.mod }}</div>
@@ -266,6 +271,7 @@
     </button>
     </div>
 </div>
+}
 <div class="row">
   <div class="col-1"></div>
   <div class="col-6">
@@ -289,6 +295,7 @@
     <button
       class="csd-btn csd-icon-btn csd-icon-lg ms-2"
       title="Add modifier"
+      [disabled]="!newModifier.name"
       (click)="addModifier()"
     >
       <fa-icon [icon]="faPlus"></fa-icon>
