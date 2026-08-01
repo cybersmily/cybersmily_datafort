@@ -37,6 +37,7 @@ export const CRCZ_FACTIONS: Array<string> = [
   'generation red',
   'lawman',
   'maelstrom',
+  'max-tac',
   'piranha',
   'trauma team',
   'tyger claw',
