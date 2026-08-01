@@ -7,12 +7,16 @@
     <input type="number" min="0" title="Number of Vendits to generate" [(ngModel)]="numOfVendits" class="csd-number">
   </div>
 </div>
-<div class="row" *ngFor="let item of vendits$ | async">
-  <div class="col-1"></div>
-  <div class="col">
-    <span *ngIf="item.count > 1">{{item.count}} x </span>
-    {{item.name}}
+@for (item of vendits$ | async; track item) {
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col">
+      @if (item.count > 1) {
+        <span>{{item.count}} x </span>
+      }
+      {{item.name}}
+    </div>
   </div>
-</div>
+}
 <br>
-<br>
+  <br>

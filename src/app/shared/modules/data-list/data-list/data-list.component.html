@@ -1,92 +1,106 @@
 <div>
   <div class="bg-secondary text-light text-uppercase row font-weight-bold">
-    <div
-      *ngFor="let col of columnsParameters"
-      [ngClass]="col.headerClass"
-      class="p-0 p-md-1 p-lg-2"
-    >
-      {{ col.header }}
-      <button title="Click to toggleSort" *ngIf="col.sort" class="csd-btn ms-1" (click)="toggleSort(col)">
-        <fa-icon [icon]="isSorted(col) ? faSortUp : faSortDown"></fa-icon>
-      </button>
-    </div>
+    @for (col of columnsParameters; track col) {
+      <div
+        [ngClass]="col.headerClass"
+        class="p-0 p-md-1 p-lg-2"
+        >
+        {{ col.header }}
+        @if (col.sort) {
+          <button title="Click to toggleSort" class="csd-btn ms-1" (click)="toggleSort(col)">
+            <fa-icon [icon]="isSorted(col) ? faSortUp : faSortDown"></fa-icon>
+          </button>
+        }
+      </div>
+    }
   </div>
   <div class="text-xsmall row">
-    <div
-      *ngFor="let col of columnsParameters"
-      [ngClass]="col.class"
-      class="p-0 p-md-1 p-lg-2"
-    >
-      <select title="Choose a selection"
-        *ngIf="col?.filters === 'filter' && col.filterValues?.length > 0"
-        (change)="refreshFilter()"
-        [(ngModel)]="searchFilter[col.property].value"
-        class="w-100"
-      >
-        <option [value]="''">All</option>
-        <option *ngFor="let entry of col.filterValues" [value]="entry.key">
-          {{ entry.value }}
-        </option>
-      </select>
-      <input title="Search for..."
-        *ngIf="col?.filters === 'contains'"
-        [type]="col.inputType"
-        [(ngModel)]="searchFilter[col.property].value"
-        (keyup)="refreshFilter()"
-        class="w-100"
-      />
-      <input title="Search sourcebook..."
-        *ngIf="col?.filters === 'sourcebook'"
-        type="text"
-        [(ngModel)]="sourceFilter"
-        (keyup)="refreshFilter()"
-        class="w-100"
-      />
-    </div>
+    @for (col of columnsParameters; track col) {
+      <div
+        [ngClass]="col.class"
+        class="p-0 p-md-1 p-lg-2"
+        >
+        @if (col?.filters === 'filter' && col.filterValues?.length > 0) {
+          <select title="Choose a selection"
+            (change)="refreshFilter()"
+            [(ngModel)]="searchFilter[col.property].value"
+            class="w-100"
+            >
+            <option [value]="''">All</option>
+            @for (entry of col.filterValues; track entry) {
+              <option [value]="entry.key">
+                {{ entry.value }}
+              </option>
+            }
+          </select>
+        }
+        @if (col?.filters === 'contains') {
+          <input title="Search for..."
+            [type]="col.inputType"
+            [(ngModel)]="searchFilter[col.property].value"
+            (keyup)="refreshFilter()"
+            class="w-100"
+            />
+        }
+        @if (col?.filters === 'sourcebook') {
+          <input title="Search sourcebook..."
+            type="text"
+            [(ngModel)]="sourceFilter"
+            (keyup)="refreshFilter()"
+            class="w-100"
+            />
+        }
+      </div>
+    }
   </div>
-  <div
-    *ngFor="
-      let entry of dataList
-        | filterby : searchFilter
-        | sourcebookFilter : sourceFilter
-        | orderby : sortOrder
-    "
+  @for (
+    entry of dataList
+    | filterby : searchFilter
+    | sourcebookFilter : sourceFilter
+    | orderby : sortOrder
+    ; track
+    entry) {
+    <div
     [ngClass]="{
       'border-bottom border-dark row': true,
       'row-selectable': selectable
     }"
-    (click)="rowClick(entry)"
-  >
-    <ng-container *ngFor="let col of columnsParameters">
-      <div
-        *ngIf="!col.isSourcebook; else sourcebook"
-        [ngClass]="col.class"
-        class="p-1 p-lg-2 letter-spacing-1"
+      (click)="rowClick(entry)"
       >
-        <div *ngIf="col.inputType !== 'array'; else entryList">
-          {{
-            col.inputType === "number"
-              ? (getValue(entry, col.property) | number)
-              : col.inputType === "checkbox"
-              ? getBoolean(entry, col.property)
-              : getValue(entry, col.property)
-          }}
-        </div>
-        <ng-template #entryList>
-          <ul>
-            <li *ngFor="let item of entry[col.property]">
-              {{ convertItem(item) }}
-            </li>
-          </ul>
-        </ng-template>
-      </div>
-      <ng-template #sourcebook>
-        <div [ngClass]="col.class" class="p-1 p-lg-2 letter-spacing-1">
-          {{ entry[col.property]?.book | sourcebook }} pg.{{
+      @for (col of columnsParameters; track col) {
+        @if (!col.isSourcebook) {
+          <div
+            [ngClass]="col.class"
+            class="p-1 p-lg-2 letter-spacing-1"
+            >
+            @if (col.inputType !== 'array') {
+              <div>
+                {{
+                col.inputType === "number"
+                ? (getValue(entry, col.property) | number)
+                : col.inputType === "checkbox"
+                ? getBoolean(entry, col.property)
+                : getValue(entry, col.property)
+                }}
+              </div>
+            } @else {
+              <ul>
+                @for (item of entry[col.property]; track item) {
+                  <li>
+                    {{ convertItem(item) }}
+                  </li>
+                }
+              </ul>
+            }
+          </div>
+        } @else {
+          <div [ngClass]="col.class" class="p-1 p-lg-2 letter-spacing-1">
+            {{ entry[col.property]?.book | sourcebook }} pg.{{
             entry[col.property]?.page
-          }}
-        </div>
-      </ng-template>
-    </ng-container>
-  </div>
+            }}
+          </div>
+        }
+      }
+    </div>
+  }
 </div>

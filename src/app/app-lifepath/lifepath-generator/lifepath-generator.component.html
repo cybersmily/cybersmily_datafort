@@ -6,62 +6,64 @@
       Most of the sourcebooks that contain some part of lifepath
       generation have been included.
       <br> Click on GENERATE to have randomly selected entries in that section.
-      <br> For life events, enter the number of events to generate in the box  and then click GENERATE.
-      If you enter a number less than 1 or a non-numerical value, then a value between 2-12 will be generated.
-    </div>
-  </div>
-  <div class="row">
-    <div class="col pt-3">
-      <h5 class="d-inline me-3">Select Source:</h5>
-      <span>
-        <select [(ngModel)]="selectedSource" style="width:250px;" >
-          <option *ngFor="let source of sourceList" [ngValue]="source.value">{{source.title}}</option>
-        </select>
-      </span>
-     </div>
-     <div class="col">
-      <fa-icon [icon]="faFile" title="Save as Text File" class="float-end csd-btn btn csd-icon-xl csd-icon-btn"
-      (click)="saveFile()"></fa-icon>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <cs-lifepath-ethnicity
-      [lifepathSource]="selectedSource"
-      (valueChange)="onEthnicityGeneration($event)"></cs-lifepath-ethnicity>
-    </div>
-  </div>
-<br>
-  <div class="row">
-    <div class="col-12 col-md-4">
-      <cs-lifepath-chart
-      [header]="'Appearance'"
-      [chartData]="appearanceList"
-      [lifepathSource]="selectedSource"
-      (valueChange)="onChartChange($event)"
-      ></cs-lifepath-chart>
-      <br/>
-      <cs-lifepath-family
-      [lifepathSource]="selectedSource"
-      (generateValue)="onFamilyGeneration($event)"
-      ></cs-lifepath-family>
-    </div>
-    <div class="col-12 col-md-8">
-        <cs-lifepath-chart
-        [header]="'Motivations'"
-        [chartData]="motivationList"
-        (valueChange)="onChartChange($event)"
-        [lifepathSource]="selectedSource"></cs-lifepath-chart>
-    </div>
-  </div>
-  <br>
-  <div class="row">
-    <div class="col-12">
-        <br/>
-        <cs-lifepath-events
-          (generateEvents)="onLifeEventGeneration($event)"
-          [lifepathSource]="selectedSource">
-        </cs-lifepath-events>
-    </div>
-  </div>
-</div>
+        <br> For life events, enter the number of events to generate in the box  and then click GENERATE.
+          If you enter a number less than 1 or a non-numerical value, then a value between 2-12 will be generated.
+        </div>
+      </div>
+      <div class="row">
+        <div class="col pt-3">
+          <h5 class="d-inline me-3">Select Source:</h5>
+          <span>
+            <select [(ngModel)]="selectedSource" style="width:250px;" >
+              @for (source of sourceList; track source) {
+                <option [ngValue]="source.value">{{source.title}}</option>
+              }
+            </select>
+          </span>
+        </div>
+        <div class="col">
+          <fa-icon [icon]="faFile" title="Save as Text File" class="float-end csd-btn btn csd-icon-xl csd-icon-btn"
+          (click)="saveFile()"></fa-icon>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <cs-lifepath-ethnicity
+            [lifepathSource]="selectedSource"
+          (valueChange)="onEthnicityGeneration($event)"></cs-lifepath-ethnicity>
+        </div>
+      </div>
+      <br>
+        <div class="row">
+          <div class="col-12 col-md-4">
+            <cs-lifepath-chart
+              [header]="'Appearance'"
+              [chartData]="appearanceList"
+              [lifepathSource]="selectedSource"
+              (valueChange)="onChartChange($event)"
+            ></cs-lifepath-chart>
+            <br/>
+            <cs-lifepath-family
+              [lifepathSource]="selectedSource"
+              (generateValue)="onFamilyGeneration($event)"
+            ></cs-lifepath-family>
+          </div>
+          <div class="col-12 col-md-8">
+            <cs-lifepath-chart
+              [header]="'Motivations'"
+              [chartData]="motivationList"
+              (valueChange)="onChartChange($event)"
+            [lifepathSource]="selectedSource"></cs-lifepath-chart>
+          </div>
+        </div>
+        <br>
+          <div class="row">
+            <div class="col-12">
+              <br/>
+              <cs-lifepath-events
+                (generateEvents)="onLifeEventGeneration($event)"
+                [lifepathSource]="selectedSource">
+              </cs-lifepath-events>
+            </div>
+          </div>
+        </div>

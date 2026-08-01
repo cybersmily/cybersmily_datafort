@@ -16,8 +16,10 @@
     Default Style:
     <select [(ngModel)]="currSettings.style" (change)="update()">
       <option value="">All</option>
-      <option *ngFor="let style of armorAttributes.styles" value="{{style.name}}">{{style.name}} (x{{style.mod}})
-      </option>
+      @for (style of armorAttributes.styles; track style) {
+        <option value="{{style.name}}">{{style.name}} (x{{style.mod}})
+        </option>
+      }
     </select>
   </div>
 </div>
@@ -27,8 +29,10 @@
     Default Qualtiy:
     <select [(ngModel)]="currSettings.quality" (change)="update()">
       <option value="">All</option>
-      <option *ngFor="let quality of armorAttributes.qualities" value="{{quality.name}}">{{quality.name}}
+      @for (quality of armorAttributes.qualities; track quality) {
+        <option value="{{quality.name}}">{{quality.name}}
         (x{{quality.mod}})</option>
+      }
     </select>
   </div>
 </div>
@@ -36,11 +40,11 @@
   <div class="col-1"></div>
   <div class="col-11">
     Should be Armor? <select [(ngModel)]="currSettings.armor" (change)="update()">
-      <option value=0>Armor Only</option>
-      <option value=1>Both</option>
-      <option value=2>Clothes Only</option>
-    </select>
-  </div>
+    <option value=0>Armor Only</option>
+    <option value=1>Both</option>
+    <option value=2>Clothes Only</option>
+  </select>
+</div>
 </div>
 <div class="row">
   <div class="col-1"></div>

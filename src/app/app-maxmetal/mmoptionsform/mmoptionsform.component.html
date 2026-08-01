@@ -6,13 +6,17 @@
       [(ngModel)]="selectedCategory"
       (change)="changeCategory()"
       class="form-control form-control-sm"
-    >
-      <option *ngIf="!selectedCategory" [ngValue]="null">
-        Choose Option Category
-      </option>
-      <option *ngFor="let category of options" [ngValue]="category">
-        {{ category.key }}
-      </option>
+      >
+      @if (!selectedCategory) {
+        <option [ngValue]="null">
+          Choose Option Category
+        </option>
+      }
+      @for (category of options; track category) {
+        <option [ngValue]="category">
+          {{ category.key }}
+        </option>
+      }
     </select>
   </div>
   <div>
@@ -21,29 +25,35 @@
       [(ngModel)]="selectedOption"
       (change)="changeOption()"
       class="form-control form-control-sm"
-    >
-      <option *ngIf="!selectedOption" [ngValue]="null">Choose Option</option>
-      <option *ngFor="let opt of Options" [ngValue]="opt">
-        {{ opt.name }}
-      </option>
+      >
+      @if (!selectedOption) {
+        <option [ngValue]="null">Choose Option</option>
+      }
+      @for (opt of Options; track opt) {
+        <option [ngValue]="opt">
+          {{ opt.name }}
+        </option>
+      }
     </select>
   </div>
-  <div *ngIf="selectedOption" id="cs-mm-opt-details">
-    <div class="row">
-      <div class="col-4">spaces: {{ currOptionSpaces | number: "1.0" }}</div>
-      <div class="col-4">cost: {{ currOptionCost | number: "1.00" }}eb.</div>
-      <div class="col-4">source: {{ currOption.source }}</div>
+  @if (selectedOption) {
+    <div id="cs-mm-opt-details">
+      <div class="row">
+        <div class="col-4">spaces: {{ currOptionSpaces | number: "1.0" }}</div>
+        <div class="col-4">cost: {{ currOptionCost | number: "1.00" }}eb.</div>
+        <div class="col-4">source: {{ currOption.source }}</div>
+      </div>
+      <div class="row">
+        <div class="col-12">NOTES: {{ currOption.notes }}</div>
+      </div>
     </div>
-    <div class="row">
-      <div class="col-12">NOTES: {{ currOption.notes }}</div>
-    </div>
-  </div>
+  }
   <div>
     <button
       class="btn btn-secondary btn-sm"
       (click)="addOpt()"
       [disabled]="addDisabled"
-    >
+      >
       ADD
     </button>
   </div>

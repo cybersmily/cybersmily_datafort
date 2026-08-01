@@ -3,12 +3,16 @@
   <fa-icon [icon]="faDice" class="csd-btn csd-icon-btn csd-icon-xl" (click)="generateRandom(lifepathSource)"></fa-icon>
 </div>
 <div class="csd-rounded csd-lifepath-sect">
-  <div *ngFor="let chart of chartData; let i = index;">
-    <div style="display:inline-block;">
-      <h6>{{chart.title}}: </h6>
-      <select [(ngModel)]="selectedValues[chart.title]" (change)="onSelected($event, chart.title)">
-        <option value="?" selected="selected"></option>
-        <option *ngFor="let opt of filterData(chart.options, lifepathSource)">{{opt}}</option>
-      </select>
+  @for (chart of chartData; track chart; let i = $index) {
+    <div>
+      <div style="display:inline-block;">
+        <h6>{{chart.title}}: </h6>
+        <select [(ngModel)]="selectedValues[chart.title]" (change)="onSelected($event, chart.title)">
+          <option value="?" selected="selected"></option>
+          @for (opt of filterData(chart.options, lifepathSource); track opt) {
+            <option>{{opt}}</option>
+          }
+        </select>
+      </div>
     </div>
-  </div>
+  }

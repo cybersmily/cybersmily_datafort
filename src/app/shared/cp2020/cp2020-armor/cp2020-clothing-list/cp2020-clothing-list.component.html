@@ -1,53 +1,59 @@
 
-      <div class="row">
-        <div class="col">
-          <h4 class="d-inline-block">Clothing List</h4>
-          <fa-icon [icon]="faFilePdf"
-            title="Save list as a PDF..."
-           class="csd-btn csd-icon-btn csd-icon-lg ms-2 float-end" (click)="savePdf()"></fa-icon>
-          <fa-icon [icon]="faRedo" class="csd-btn csd-icon-btn csd-icon-lg ms-2 float-end"
-            title="Reset the list"
-            (click)="clearArmorList()"></fa-icon>
-          <fa-icon [icon]="faDice"
-            title="Randomly generate items..."
-            class="csd-btn csd-icon-btn csd-icon-lg ms-2 float-end" (click)="showModal(numberOfArmorToRoll)"></fa-icon>
-        </div>
-      </div>
-      <div class="hdr-row row">
-      <div class="col cloth text-truncate">Clothing</div>
-      <div class="col-2 cloth-cost text-end">Cost</div>
+<div class="row">
+  <div class="col">
+    <h4 class="d-inline-block">Clothing List</h4>
+    <fa-icon [icon]="faFilePdf"
+      title="Save list as a PDF..."
+    class="csd-btn csd-icon-btn csd-icon-lg ms-2 float-end" (click)="savePdf()"></fa-icon>
+    <fa-icon [icon]="faRedo" class="csd-btn csd-icon-btn csd-icon-lg ms-2 float-end"
+      title="Reset the list"
+    (click)="clearArmorList()"></fa-icon>
+    <fa-icon [icon]="faDice"
+      title="Randomly generate items..."
+    class="csd-btn csd-icon-btn csd-icon-lg ms-2 float-end" (click)="showModal(numberOfArmorToRoll)"></fa-icon>
   </div>
-  <ng-container *ngFor="let armor of currList; let i = index">
+</div>
+<div class="hdr-row row">
+  <div class="col cloth text-truncate">Clothing</div>
+  <div class="col-2 cloth-cost text-end">Cost</div>
+</div>
+@for (armor of currList; track armor; let i = $index) {
   <div class="row">
-      <div class="col cloth-item text-truncate">{{armor.name}}</div>
-      <div class="col-3 text-end">
-        {{armor?.cost | number}}eb
-        <fa-icon [icon]="faTrash"
-          title="Delete item"
-          class="csd-btn csd-icon-btn"
-          (click)="delete(i)"
-        ></fa-icon>
-      </div>
+    <div class="col cloth-item text-truncate">{{armor.name}}</div>
+    <div class="col-3 text-end">
+      {{armor?.cost | number}}eb
+      <fa-icon [icon]="faTrash"
+        title="Delete item"
+        class="csd-btn csd-icon-btn"
+        (click)="delete(i)"
+      ></fa-icon>
+    </div>
   </div>
-  <div *ngIf="armor.quality?.effect" class="row small">
+  @if (armor.quality?.effect) {
+    <div class="row small">
       <div class="col-1"></div>
       <div class="col">*{{armor.quality?.effect}}</div>
-  </div>
-  <div *ngIf="armor.baseSP > 0" class="row small">
+    </div>
+  }
+  @if (armor.baseSP > 0) {
+    <div class="row small">
       <div class="col-1"></div>
       <div class="col-1 text-capitalize">{{armor.clothes?.wt}}</div>
       <div class="col">SP: {{armor.baseSP}} ({{armor.clothes?.loc}}) EV: {{armor.ev}}</div>
-  </div>
-  <div *ngIf="armor.options?.length > 0" class="row small">
+    </div>
+  }
+  @if (armor.options?.length > 0) {
+    <div class="row small">
       <div class="col-1"></div>
       <div class="col">Options: {{getOptionsString(armor)}}
       </div>
-  </div>
-  </ng-container>
-  <hr>
+    </div>
+  }
+}
+<hr>
   <div class="row">
-      <div class="col cloth-total">TOTAL:</div>
-      <div class="col text-end pe-5">{{totalCost | number}}eb</div>
+    <div class="col cloth-total">TOTAL:</div>
+    <div class="col text-end pe-5">{{totalCost | number}}eb</div>
   </div>
   <ng-template #numberOfArmorToRoll>
     <div class="modal-body">
@@ -55,15 +61,15 @@
         <span aria-hidden="true" class="visually-hidden">&times;</span>
       </button>
       <div class="text-center">
-      Number of pieced to create:
+        Number of pieced to create:
       </div>
       <div class="text-center">
-       <input type="number" min="1" class="csd-number" [(ngModel)]="numberOfPieces">
-      <fa-icon [icon]="faDice" title="Roll Random Armor"
-        class="csd-btn csd-icon-btn csd-icon-xl ms-2"
-        (click)="generate()"
-      ></fa-icon>
-    </div>
+        <input type="number" min="1" class="csd-number" [(ngModel)]="numberOfPieces">
+        <fa-icon [icon]="faDice" title="Roll Random Armor"
+          class="csd-btn csd-icon-btn csd-icon-xl ms-2"
+          (click)="generate()"
+        ></fa-icon>
+      </div>
     </div>
   </ng-template>
 

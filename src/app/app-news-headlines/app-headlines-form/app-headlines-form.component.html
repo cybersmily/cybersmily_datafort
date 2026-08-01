@@ -4,30 +4,32 @@
       <h2>News Headline Generator for Cyberpunk 2020/Red</h2>
       <div>This unofficial utility extends the charts from Night City sourcebook and Cyberpunk Red core book to create
         news headlines for your Cyberpunk game. Titles generated will need some more work (like add/reword it, choose a
-        specific corporation, person, nomad family, gang, etc.).</div>
+      specific corporation, person, nomad family, gang, etc.).</div>
       <div>
         <fa-icon [icon]="faDice" class="csd-btn csd-icon-xl csd-icon-btn" (click)="rollHeadlines()"
-          title="Generate a random headline"></fa-icon> - roll <input type="number" class="csd-number text-end" [(ngModel)]="numOfHeadlines" min="1"> generic headlines.
+        title="Generate a random headline"></fa-icon> - roll <input type="number" class="csd-number text-end" [(ngModel)]="numOfHeadlines" min="1"> generic headlines.
         <fa-icon [icon]="faRedo" class="csd-btn csd-icon-xl csd-icon-btn ms-2" (click)="clear()"
-            title="Reset headlines"></fa-icon>
+        title="Reset headlines"></fa-icon>
         <fa-icon [icon]="faFile" class="csd-btn csd-icon-xl csd-icon-btn float-end me-3" (click)="saveAsText()"
-          title="Save headlines as a text file"></fa-icon>
+        title="Save headlines as a text file"></fa-icon>
         <fa-icon [icon]="faFilePdf" class="csd-btn csd-icon-xl csd-icon-btn float-end me-3" (click)="saveAsPdf()"
-          title="Save headlines as a PDF file"></fa-icon>
+        title="Save headlines as a PDF file"></fa-icon>
       </div>
     </div>
   </div>
   <br>
-  <div class="row csd-rounded">
-    <div class="col">
-      <div *ngFor="let headline of headlines$ | async" class="row pt-2">
-        <div class="col">
-          <h4>{{headline}}</h4>
+    <div class="row csd-rounded">
+      <div class="col">
+        @for (headline of headlines$ | async; track headline) {
+          <div class="row pt-2">
+            <div class="col">
+              <h4>{{headline}}</h4>
+            </div>
+          </div>
+        }
+        <br>
+          <br>
+          </div>
         </div>
-      </div>
-      <br>
-      <br>
-    </div>
-  </div>
-  <br>
-</div>
+        <br>
+        </div>

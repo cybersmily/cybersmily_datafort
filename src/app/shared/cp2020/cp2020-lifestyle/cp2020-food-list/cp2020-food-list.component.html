@@ -6,49 +6,57 @@
         <span class="float-end d-inline-block">Total Cost: {{totalCost|number:'1.0-0'}}eb</span>
       </div>
     </div>
-    <ng-container *ngFor="let food of currFoodList; let i = index" [ngTemplateOutlet]="cpFood"
-      [ngTemplateOutletContext]="{food:food, index: i}">
-    </ng-container>
+    @for (food of currFoodList; track food; let i = $index) {
+      <ng-container [ngTemplateOutlet]="cpFood"
+        [ngTemplateOutletContext]="{food:food, index: i}">
+      </ng-container>
+    }
     <hr>
-    <div class="row mb-2">
-      <div class="col-2">
-        <button class="csd-icon-btn csd-btn ms-2" title="Add a new food entry" (click)="addSelectedFood()">
-          <fa-icon [icon]="faPlus"></fa-icon>
-        </button>
-        <input type="number" min="0" [(ngModel)]="selectedFood.count" class="w-50 float-end">
-      </div>
-      <div class="col-4">
-        <select [(ngModel)]="selectedType" (change)="changeFood()" class="w-100">
-          <option *ngFor="let type of groceries" [ngValue]="type">{{type.name}}</option>
-        </select>
-      </div>
-      <div class="col-3">
-        <select [(ngModel)]="selectedQuality" (change)="changeQuality()" class="w-100">
-          <option *ngFor="let quality of qualities" [ngValue]="quality">{{quality.name}} (x{{quality.mod}})</option>
-        </select>
-      </div>
-      <div class="col-3">
-        {{selectedFood.cost|number}}eb/{{selectedFood.unit}}
+      <div class="row mb-2">
+        <div class="col-2">
+          <button class="csd-icon-btn csd-btn ms-2" title="Add a new food entry" (click)="addSelectedFood()">
+            <fa-icon [icon]="faPlus"></fa-icon>
+          </button>
+          <input type="number" min="0" [(ngModel)]="selectedFood.count" class="w-50 float-end">
+        </div>
+        <div class="col-4">
+          <select [(ngModel)]="selectedType" (change)="changeFood()" class="w-100">
+            @for (type of groceries; track type) {
+              <option [ngValue]="type">{{type.name}}</option>
+            }
+          </select>
+        </div>
+        <div class="col-3">
+          <select [(ngModel)]="selectedQuality" (change)="changeQuality()" class="w-100">
+            @for (quality of qualities; track quality) {
+              <option [ngValue]="quality">{{quality.name}} (x{{quality.mod}})</option>
+            }
+          </select>
+        </div>
+        <div class="col-3">
+          {{selectedFood.cost|number}}eb/{{selectedFood.unit}}
+        </div>
       </div>
     </div>
-</div>
 
-<ng-template #cpFood let-food="food" let-index="index">
-  <div class="row ps-2 pe-1">
-    <div class="col-3">
-      <button class="csd-icon-btn csd-btn csd-icon-sm ms-1" title="Use 1 day of food" (click)="useFood(index)">
-        <fa-icon [icon]="faUtensils"></fa-icon>
-      </button>
-      {{food.count}} {{food.unit}}<span *ngIf="food.count > 1">s</span>
+    <ng-template #cpFood let-food="food" let-index="index">
+      <div class="row ps-2 pe-1">
+        <div class="col-3">
+          <button class="csd-icon-btn csd-btn csd-icon-sm ms-1" title="Use 1 day of food" (click)="useFood(index)">
+            <fa-icon [icon]="faUtensils"></fa-icon>
+          </button>
+          {{food.count}} {{food.unit}}@if (food.count > 1) {
+          <span>s</span>
+        }
+      </div>
+      <div class="col-6">
+        {{food.quality}} {{food.name}} ({{food.cost * food.qualityMod}}eb)
+      </div>
+      <div class="col-3 text-end">
+        {{(food.cost * (food.count/7) * food.qualityMod) | number:'1.0-0'}}eb
+        <button class="csd-icon-btn csd-btn" (click)="delete(index)" title="Delete food entry">
+          <fa-icon [icon]="faTrash"></fa-icon>
+        </button>
+      </div>
     </div>
-    <div class="col-6">
-      {{food.quality}} {{food.name}} ({{food.cost * food.qualityMod}}eb)
-    </div>
-    <div class="col-3 text-end">
-      {{(food.cost * (food.count/7) * food.qualityMod) | number:'1.0-0'}}eb
-      <button class="csd-icon-btn csd-btn" (click)="delete(index)" title="Delete food entry">
-        <fa-icon [icon]="faTrash"></fa-icon>
-      </button>
-    </div>
-  </div>
-</ng-template>
+  </ng-template>

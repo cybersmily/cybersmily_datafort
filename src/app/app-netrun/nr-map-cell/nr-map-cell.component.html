@@ -1,3 +1,5 @@
 <div [ngClass]="cellClasses" [ngStyle]="cellStyle" (click)="onClick($event)" (mouseover)="onOver($event)">
-  <cs-nr-datafort *ngFor="let df of dataForts" [dataFort]="df" [row]="row" [column]="column" ></cs-nr-datafort>
+  @for (df of dataForts; track df) {
+    <cs-nr-datafort [dataFort]="df" [row]="row" [column]="column" ></cs-nr-datafort>
+  }
 </div>

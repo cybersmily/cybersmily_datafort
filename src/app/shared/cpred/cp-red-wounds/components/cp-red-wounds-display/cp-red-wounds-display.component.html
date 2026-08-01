@@ -1,100 +1,104 @@
-<div *ngIf="wounds$ | async as wounds">
-  <div class="row">
-    <div class="col-12 px-0">
-      <h6 class="d-inline-block">HIT POINTS</h6>
-      <div
-        *ngIf="notWounded !== wounds.woundLevel"
+@if (wounds$ | async; as wounds) {
+  <div>
+    <div class="row">
+      <div class="col-12 px-0">
+        <h6 class="d-inline-block">HIT POINTS</h6>
+        @if (notWounded !== wounds.woundLevel) {
+          <div
         class="d-inline-block text-capitalize text-xsmall badge rounded-pill {{
           woundLevelClass(wounds.woundLevel)
         }}"
-      >
-        {{ wounds?.woundLevel }}
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-6 position-relative text-center">
-      <div class="csd-input-label ps-3">total</div>
-      <div class="mt-3">{{ wounds?.hitPoints.base }}</div>
-    </div>
-    <div class="col-6 position-relative text-center">
-      <div class="csd-input-label ps-3">current</div>
-      <input
-        type="number"
-        class="mt-3 w-80 text-center csd-plain-input csd-input-underline no-spinners"
-        [ngModel]="wounds.hitPoints.curr"
-        (change)="updateCurrHitPoints($event)"
-      />
-    </div>
-  </div>
-
-  <div class="row mt-2">
-    <div class="col-6">
-      <div class="row">
-        <div class="col-7 text-xsmall">Seriously Wounded</div>
-        <div class="col-5">{{ wounds.seriouslyWound }}</div>
-      </div>
-    </div>
-    <div class="col-6">
-      <div
-        [ngClass]="{ row: true, 'text-danger fw-bold': wounds.hitPoints.curr &lt; 1 }"
-      >
-        <div class="col-5 text-xsmall">
-          <span *ngIf="wounds.hitPoints.curr &lt; 1">**</span>Death Save
-        </div>
-        <div class="col-4 pe-0">
-          <div class="position-relative cpr-death-save" role="button">
-            <input
-              type="number"
-              class="w-80 text-center csd-plain-input csd-input-underline no-spinners"
-              [ngModel]="wounds.deathSave.curr"
-              (change)="updateCurrDeathSave($event)"
-            />
-            <button
-              *ngIf="wounds.hitPoints.curr &lt; 1"
-              class="csd-icon-btn csd-icon-sm d-none"
             >
-              <fa-icon [icon]="faDice"></fa-icon>
-            </button>
+            {{ wounds?.woundLevel }}
+          </div>
+        }
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 position-relative text-center">
+        <div class="csd-input-label ps-3">total</div>
+        <div class="mt-3">{{ wounds?.hitPoints.base }}</div>
+      </div>
+      <div class="col-6 position-relative text-center">
+        <div class="csd-input-label ps-3">current</div>
+        <input
+          type="number"
+          class="mt-3 w-80 text-center csd-plain-input csd-input-underline no-spinners"
+          [ngModel]="wounds.hitPoints.curr"
+          (change)="updateCurrHitPoints($event)"
+          />
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-6">
+          <div class="row">
+            <div class="col-7 text-xsmall">Seriously Wounded</div>
+            <div class="col-5">{{ wounds.seriouslyWound }}</div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="mt-2" role="button" (click)="showModal(woundsEditor)">
-      <div class="row">
-        <div class="col-12 small">
-          Cirtical Injuiries ({{ wounds.criticalInjuries.length }})
+        <div class="col-6">
+          <div
+            [ngClass]="{ row: true, 'text-danger fw-bold': wounds.hitPoints.curr &lt; 1 }"
+            >
+            <div class="col-5 text-xsmall">
+              @if (wounds.hitPoints.curr < 1) {
+                <span>**</span>
+                }Death Save
+              </div>
+              <div class="col-4 pe-0">
+                <div class="position-relative cpr-death-save" role="button">
+                  <input
+                    type="number"
+                    class="w-80 text-center csd-plain-input csd-input-underline no-spinners"
+                    [ngModel]="wounds.deathSave.curr"
+                    (change)="updateCurrDeathSave($event)"
+                    />
+                    @if (wounds.hitPoints.curr < 1) {
+                      <button
+                        class="csd-icon-btn csd-icon-sm d-none"
+                        >
+                        <fa-icon [icon]="faDice"></fa-icon>
+                      </button>
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-2" role="button" (click)="showModal(woundsEditor)">
+              <div class="row">
+                <div class="col-12 small">
+                  Cirtical Injuiries ({{ wounds.criticalInjuries.length }})
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-1"></div>
+                <div class="col-11 text-xsmall">
+                  {{ currentInjuries(wounds.criticalInjuries) }}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 small">
+                  Addictions ({{ wounds.addictions.length }})
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-1"></div>
+                <div class="col-11 text-xsmall">
+                  {{ currentAddictions(wounds.addictions) }}
+                </div>
+              </div>
+            </div>
+            <ng-template #woundsEditor>
+              <div class="container">
+                <h4>Wounds Editor</h4>
+                <cs-cp-red-injuries-display
+                  [criticalInjuries]="wounds.criticalInjuries"
+                ></cs-cp-red-injuries-display>
+                <cs-cp-red-addictions-display
+                  [addictions]="wounds.addictions"
+                ></cs-cp-red-addictions-display>
+              </div>
+            </ng-template>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-1"></div>
-        <div class="col-11 text-xsmall">
-          {{ currentInjuries(wounds.criticalInjuries) }}
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12 small">
-          Addictions ({{ wounds.addictions.length }})
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-1"></div>
-        <div class="col-11 text-xsmall">
-          {{ currentAddictions(wounds.addictions) }}
-        </div>
-      </div>
-    </div>
-
-    <ng-template #woundsEditor>
-      <div class="container">
-        <h4>Wounds Editor</h4>
-        <cs-cp-red-injuries-display
-          [criticalInjuries]="wounds.criticalInjuries"
-        ></cs-cp-red-injuries-display>
-        <cs-cp-red-addictions-display
-          [addictions]="wounds.addictions"
-        ></cs-cp-red-addictions-display>
-      </div>
-    </ng-template>
-  </div>
-</div>
+      }

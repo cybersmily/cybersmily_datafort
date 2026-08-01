@@ -1,41 +1,43 @@
 <div class="row">
   <div class="col-12 col-md-6 col-lg-4">
-    <ng-container
-      *ngFor="
-        let skill of skills?.slice(0, roundUp(skills.length, 0.334));
-        let i = index
-      "
-      [ngTemplateOutlet]="skillTemplate"
-      [ngTemplateOutletContext]="{ skill: skill, index: i }"
-    ></ng-container>
+    @for (
+      skill of skills?.slice(0, roundUp(skills.length, 0.334)); track
+      skill; let i = $index) {
+      <ng-container
+        [ngTemplateOutlet]="skillTemplate"
+        [ngTemplateOutletContext]="{ skill: skill, index: i }"
+      ></ng-container>
+    }
   </div>
   <div class="col-12 col-md-6 col-lg-4">
-    <ng-container
-      *ngFor="
-        let skill of skills?.slice(
-          roundUp(skills.length, 0.334),
-          roundUp(skills.length, 0.667)
-        );
-        let i = index
-      "
-      [ngTemplateOutlet]="skillTemplate"
-      [ngTemplateOutletContext]="{ skill: skill, index: i }"
-    ></ng-container>
+    @for (
+      skill of skills?.slice(
+      roundUp(skills.length, 0.334),
+      roundUp(skills.length, 0.667)
+      ); track
+      skill; let i = $index) {
+      <ng-container
+        [ngTemplateOutlet]="skillTemplate"
+        [ngTemplateOutletContext]="{ skill: skill, index: i }"
+      ></ng-container>
+    }
   </div>
   <div class="col-12 col-md-6 col-lg-4">
-    <ng-container
-      *ngFor="
-        let skill of skills?.slice(roundUp(skills.length, 0.667));
-        let i = index
-      "
-      [ngTemplateOutlet]="skillTemplate"
-      [ngTemplateOutletContext]="{ skill: skill, index: i }"
-    ></ng-container>
+    @for (
+      skill of skills?.slice(roundUp(skills.length, 0.667)); track
+      skill; let i = $index) {
+      <ng-container
+        [ngTemplateOutlet]="skillTemplate"
+        [ngTemplateOutletContext]="{ skill: skill, index: i }"
+      ></ng-container>
+    }
   </div>
 </div>
 <ng-template #skillTemplate let-skill="skill" let-index="index">
-  <div *ngIf="propChange(skill)">
-    <h6 class="text-uppercase">{{ prop }}</h6>
-  </div>
+  @if (propChange(skill)) {
+    <div>
+      <h6 class="text-uppercase">{{ prop }}</h6>
+    </div>
+  }
   <cs-cp-red-skill [skill]="skill" [index]="index"></cs-cp-red-skill>
 </ng-template>

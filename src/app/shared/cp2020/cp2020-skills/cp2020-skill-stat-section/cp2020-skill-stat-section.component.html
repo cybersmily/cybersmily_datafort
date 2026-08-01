@@ -3,7 +3,7 @@
     <div
       class="chargen-skill-stat csd-btn"
       (click)="isCollapsed = !isCollapsed"
-    >
+      >
       {{ title }}
       <fa-icon [icon]="collapseArrow" class="csd-icon-btn ms-2"></fa-icon>
     </div>
@@ -14,28 +14,31 @@
     <div class="row g-0">
       <div
         class="col-12 column-count px-2 border-lg border-dark"
-      >
-        <cs-cp2020-skill
-          *ngFor="let skill of currSkills"
-          [skill]="skill"
-          (changeSkill)="onChangeSkill($event)"
-          [stat]="stat"
-          [sa]="spclAbility"
-          (delete)="deleteCurrentSkill($event)"
-        ></cs-cp2020-skill>
-      </div>
-    </div>
-    <div *ngIf="showAddSkill" class="row">
-      <div class="col text-center">
-        <button
-          class="w-100 csd-btn csd-icon-btn"
-          title="Add a new skill"
-          (click)="showModal(newSkillTemplate)"
         >
-          <fa-icon [icon]="faPlus" class="csd-icon-sm"></fa-icon>
-        </button>
+        @for (skill of currSkills; track skill) {
+          <cs-cp2020-skill
+            [skill]="skill"
+            (changeSkill)="onChangeSkill($event)"
+            [stat]="stat"
+            [sa]="spclAbility"
+            (delete)="deleteCurrentSkill($event)"
+          ></cs-cp2020-skill>
+        }
       </div>
     </div>
+    @if (showAddSkill) {
+      <div class="row">
+        <div class="col text-center">
+          <button
+            class="w-100 csd-btn csd-icon-btn"
+            title="Add a new skill"
+            (click)="showModal(newSkillTemplate)"
+            >
+            <fa-icon [icon]="faPlus" class="csd-icon-sm"></fa-icon>
+          </button>
+        </div>
+      </div>
+    }
   </div>
 </div>
 

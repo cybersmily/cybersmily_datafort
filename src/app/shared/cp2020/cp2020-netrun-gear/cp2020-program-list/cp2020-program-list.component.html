@@ -10,27 +10,29 @@
     <div class="col-1"></div>
   </div>
   <hr style="margin: 0 auto;padding: 0 0;">
-  <div *ngFor="let p of programList.programs; let i = index"
-  >
-    <div class="row mx-0"
-    [dndDraggable]="{program: p, type: dndType}"
-    [dndEffectAllowed]="'move'"
-    dndType="dndType"
-    title="{{p.class.name + ': ' + p.class.description}}"
-    >
-      <div class="col-3 mt-2 csd-prog-class-name text-capitalize">{{p.class.name}}
-      </div>
-      <button #programNameElem class="col-4 csd-btn csd-prog-select"
+  @for (p of programList.programs; track p; let i = $index) {
+    <div
+      >
+      <div class="row mx-0"
+        [dndDraggable]="{program: p, type: dndType}"
+        [dndEffectAllowed]="'move'"
+        dndType="dndType"
+        title="{{p.class.name + ': ' + p.class.description}}"
+        >
+        <div class="col-3 mt-2 csd-prog-class-name text-capitalize">{{p.class.name}}
+        </div>
+        <button #programNameElem class="col-4 csd-btn csd-prog-select"
         (click)="showSelect(i, selectedProgram)">{{p.name}}</button>
-      <div class="col-1 text-center">+{{p.strength}}</div>
-      <div class="col-1 text-center">{{p.mu}}</div>
-      <div class="col-1">
-        <button class="csd-btn csd-icon-btn" (click)="delete(i)">
-          <fa-icon [icon]="faTrash"></fa-icon>
-        </button>
+        <div class="col-1 text-center">+{{p.strength}}</div>
+        <div class="col-1 text-center">{{p.mu}}</div>
+        <div class="col-1">
+          <button class="csd-btn csd-icon-btn" (click)="delete(i)">
+            <fa-icon [icon]="faTrash"></fa-icon>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
+  }
   <div class="row">
     <div class="col csd-prog-lst-new">
       <button #newProgramElem class="csd-btn csd-icon-btn csd-icon-xl w-100" (click)="showNew(selectedProgram)">

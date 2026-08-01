@@ -15,34 +15,36 @@
         [(ngModel)]="modifier"
         type="number"
         class="csd-plain-input no-spinners csd-input-underline w-100 text-center"
-      />
+        />
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-6">
-      <button
-        class="csd-btn csd-icon-btn csd-icon-lg float-end"
-        (click)="rollDice()"
-      >
-        <fa-icon [icon]="faDice"></fa-icon>
-      </button>
+    <div class="row">
+      <div class="col-6">
+        <button
+          class="csd-btn csd-icon-btn csd-icon-lg float-end"
+          (click)="rollDice()"
+          >
+          <fa-icon [icon]="faDice"></fa-icon>
+        </button>
+      </div>
+      <div class="col-6">{{ dieRoll.show() }}</div>
     </div>
-    <div class="col-6">{{ dieRoll.show() }}</div>
-  </div>
-  <hr />
-  <div class="row">
-    <div class="col-6 text-uppercase text-end">total:</div>
-    <div class="col-6">
-      <div *ngIf="dieRoll.rolls.length > 0">
-        {{ skill.level + stat.modified + modifier + dieRoll.total }}
-        {{
-          dieRoll.rolls[0] === 10
+    <hr />
+    <div class="row">
+      <div class="col-6 text-uppercase text-end">total:</div>
+      <div class="col-6">
+        @if (dieRoll.rolls.length > 0) {
+          <div>
+            {{ skill.level + stat.modified + modifier + dieRoll.total }}
+            {{
+            dieRoll.rolls[0] === 10
             ? " CRIT SUCCESS!"
             : dieRoll.rolls[0] === 1
             ? " FUMBLE!"
             : ""
-        }}
+            }}
+          </div>
+        }
       </div>
     </div>
   </div>
-</div>

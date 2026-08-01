@@ -13,26 +13,31 @@
       ></fa-icon>
     </div>
   </div>
-  <div class="row" *ngIf="!randomRollNoItems">
-    <div class="col-6 d-none d-md-block">
-    </div>
-    <div class="col-12 col-md-6">
-      <input type="number" min="1" max="10" title="Number of items to generate for each category" [(ngModel)]="numberOfItems"
-      style="width:60px" class="text-end ms-2" > number of items to generate
-
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-6" *ngFor="let cat of itemList$ | async">
-      <h4>{{cat.category}} ({{cat.items.length}})</h4>
-      <div *ngFor="let item of cat.items" class="row">
-        <div class="col" >
-          {{item}}
+  @if (!randomRollNoItems) {
+    <div class="row">
+      <div class="col-6 d-none d-md-block">
+      </div>
+      <div class="col-12 col-md-6">
+        <input type="number" min="1" max="10" title="Number of items to generate for each category" [(ngModel)]="numberOfItems"
+          style="width:60px" class="text-end ms-2" > number of items to generate
         </div>
       </div>
+    }
+
+    <div class="row">
+      @for (cat of itemList$ | async; track cat) {
+        <div class="col-6">
+          <h4>{{cat.category}} ({{cat.items.length}})</h4>
+          @for (item of cat.items; track item) {
+            <div class="row">
+              <div class="col" >
+                {{item}}
+              </div>
+            </div>
+          }
+        </div>
+      }
     </div>
-  </div>
-  <br>
-  <br>
-</div>
+    <br>
+      <br>
+      </div>

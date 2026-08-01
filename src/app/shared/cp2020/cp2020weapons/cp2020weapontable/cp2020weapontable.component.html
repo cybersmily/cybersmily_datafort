@@ -6,14 +6,14 @@
         (click)="isWeaponsCollapsed = !isWeaponsCollapsed"
         (keyup.enter)="isWeaponsCollapsed = !isWeaponsCollapsed"
         tabindex="0"
-      >
+        >
         WEAPONS
         <fa-icon
           [icon]="collapseChevron(isWeaponsCollapsed)"
           class="csd-icon-btn csd-icon-xl ms-1"
         ></fa-icon>
       </h4>
-      <ng-container *ngIf="!isWeaponsCollapsed">
+      @if (!isWeaponsCollapsed) {
         <fa-icon
           [ngClass]="{
             'csd-dice': true,
@@ -44,9 +44,9 @@
             'd-none': !showCalculator
           }"
           (click)="openModal(combatCalcModal)"
-        >
+          >
         </fa-icon>
-      </ng-container>
+      }
     </div>
   </div>
   <div [collapse]="isWeaponsCollapsed">
@@ -71,17 +71,18 @@
         Cost
       </div>
     </div>
-    <cs-cp2020weapon
-      *ngFor="let wpn of weapons.items; let i = index"
-      [index]="i"
-      [weapon]="wpn"
-      [Ref]="stats.REF.Adjusted"
-      [BodDamageMod]="stats.BodyDmgMod"
-      [skill]="skills.getSkillForWeaponType(wpn.type)"
-      (deleteWeapon)="deleteWeapon($event)"
-      (updateWeapon)="updateWeapon($event)"
-    >
-    </cs-cp2020weapon>
+    @for (wpn of weapons.items; track wpn; let i = $index) {
+      <cs-cp2020weapon
+        [index]="i"
+        [weapon]="wpn"
+        [Ref]="stats.REF.Adjusted"
+        [BodDamageMod]="stats.BodyDmgMod"
+        [skill]="skills.getSkillForWeaponType(wpn.type)"
+        (deleteWeapon)="deleteWeapon($event)"
+        (updateWeapon)="updateWeapon($event)"
+        >
+      </cs-cp2020weapon>
+    }
     <div class="row g-0">
       <div class="col-12 text-end border border-dark ps-0 pe-0">Total Cost: {{weapons.totalCost | number}}eb</div>
     </div>
@@ -93,27 +94,28 @@
           title="Add another weapon"
           (click)="openModal(newWeaponModal, 'newWeapon')"
           tabindex="0"
-        >
+          >
           <fa-icon class="csd-icon-btn" [icon]="faPlus"></fa-icon>
         </button>
       </div>
     </div>
-    <cs-cp2020ammo
-      *ngIf="showAmmo"
-      [ammoList]="weapons.ammo"
-      (updateAmmo)="updateAmmo($event)"
-    ></cs-cp2020ammo>
+    @if (showAmmo) {
+      <cs-cp2020ammo
+        [ammoList]="weapons.ammo"
+        (updateAmmo)="updateAmmo($event)"
+      ></cs-cp2020ammo>
+    }
   </div>
 </div>
 
-<ng-container *ngIf="showIU">
+@if (showIU) {
   <div class="cp2020-section border border-dark">
     <div class="cp2020-label row g-0">
       <div class="col">
         <h4
           class="d-inline-block csd-btn me-4 ms-0 ps-0"
           (click)="isIUCollapsed = !isIUCollapsed"
-        >
+          >
           IU COMBAT ACTIONS
           <fa-icon
             [icon]="collapseChevron(isIUCollapsed)"
@@ -132,7 +134,7 @@
       </div>
     </div>
   </div>
-</ng-container>
+}
 
 <ng-template #newWeaponModal>
   <div class="modal-header">
@@ -174,7 +176,7 @@
       [ref]="stats.REF.Adjusted"
       [bodyDamageMod]="stats.BodyDmgMod"
       [handle]="'character'"
-    >
+      >
     </cs-cp2020weapon-calculator>
   </div>
 </ng-template>

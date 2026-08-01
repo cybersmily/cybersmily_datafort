@@ -6,20 +6,21 @@
         (click)="isCollapsed = !isCollapsed"
         (keyup.enter)="isCollapsed = !isCollapsed"
         tabindex="0"
-      >
+        >
         CYBERDECKS AND PROGRAMS
         <fa-icon
           [icon]="collapseChevron"
           class="csd-icon-btn csd-icon-xl ms-2"
         ></fa-icon>
       </h4>
-      <div
-        *ngIf="!isCollapsed && showQNR"
-        class="d-inline-block float-end"
-        title="This is if you use Cybersmily's Quick Netrunning Rules in the Mod section of this site."
-      >
-        Quick NR PM: {{ qnrPM > 0 ? "+" + qnrPM : qnrPM }}
-      </div>
+      @if (!isCollapsed && showQNR) {
+        <div
+          class="d-inline-block float-end"
+          title="This is if you use Cybersmily's Quick Netrunning Rules in the Mod section of this site."
+          >
+          Quick NR PM: {{ qnrPM > 0 ? "+" + qnrPM : qnrPM }}
+        </div>
+      }
     </div>
   </div>
   <div class="row border border-dark g-0" [collapse]="isCollapsed">

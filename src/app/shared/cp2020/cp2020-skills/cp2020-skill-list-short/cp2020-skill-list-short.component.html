@@ -7,15 +7,18 @@
           title="Toggle section">
         </fa-icon>
       </h4>
-      <span class="csd-btn csd-dice ms-2 d-inline-block h4" *ngIf="!isCollapsed" (click)="generateSkillLevels()">
-        <fa-icon [icon]="dice"
-          title="Randomly set all the skill levels to 1-10.{{(characterSkills.length &lt; 1)?' Need to add some skills first.':''}}">
-        </fa-icon>
+      @if (!isCollapsed) {
+        <span class="csd-btn csd-dice ms-2 d-inline-block h4" (click)="generateSkillLevels()">
+          <fa-icon [icon]="dice"
+            title="Randomly set all the skill levels to 1-10.{{(characterSkills.length &lt; 1)?' Need to add some skills first.':''}}">
+          </fa-icon>
         </span>
-        <span class="csd-btn ms-2 d-inline-block h4" *ngIf="!isCollapsed" (click)="addSKill(newSkillModal)">
-
-        <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn me-1 ms-1" title="Add a new special ability or skill to the list"></fa-icon>
-      </span>
+      }
+      @if (!isCollapsed) {
+        <span class="csd-btn ms-2 d-inline-block h4" (click)="addSKill(newSkillModal)">
+          <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn me-1 ms-1" title="Add a new special ability or skill to the list"></fa-icon>
+        </span>
+      }
     </div>
   </div>
   <div [collapse]="isCollapsed" class="row border border-dark">
@@ -25,15 +28,19 @@
           <h6 >SPECIAL ABILITY: </h6>
         </div>
         <div class="col-12 col-md-9">
-          <cs-cp2020-skill *ngFor="let spclAbility of characterSpAbilites" [skill]="spclAbility" [stat]="characterStats[spclAbility.stat]" [showIP]="false" [showStat]="false" (changeSkill)="changeSpecialAbility($event)" (delete)="deleteSA($event)" ></cs-cp2020-skill>
-          </div>
+          @for (spclAbility of characterSpAbilites; track spclAbility) {
+            <cs-cp2020-skill [skill]="spclAbility" [stat]="characterStats[spclAbility.stat]" [showIP]="false" [showStat]="false" (changeSkill)="changeSpecialAbility($event)" (delete)="deleteSA($event)" ></cs-cp2020-skill>
+          }
+        </div>
       </div>
       <div class="row d-md-none">
         <h6>SKILLS:</h6>
       </div>
       <div class="row mt-1">
         <div class="col-12 column-count">
-          <cs-cp2020-skill *ngFor="let skill of this.currentSkills" [skill]="skill" [stat]="characterStats[skill.stat]" [showIP]="false" [showStat]="true" (changeSkill)="changeSkill($event)" (delete)="deleteSkill($event)" ></cs-cp2020-skill>
+          @for (skill of this.currentSkills; track skill) {
+            <cs-cp2020-skill [skill]="skill" [stat]="characterStats[skill.stat]" [showIP]="false" [showStat]="true" (changeSkill)="changeSkill($event)" (delete)="deleteSkill($event)" ></cs-cp2020-skill>
+          }
         </div>
       </div>
       <div class="row pb-2">

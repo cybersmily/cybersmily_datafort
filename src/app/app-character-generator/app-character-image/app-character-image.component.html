@@ -6,6 +6,8 @@
   </div>
   -->
   <div class="chargen-pc-pic csd-rounded">
-    <img *ngIf="hasImage" [src]="image" class="chargen-pc-img csd-rounded"/>
+    @if (hasImage) {
+      <img [src]="image" class="chargen-pc-img csd-rounded"/>
+    }
   </div>
 </div>

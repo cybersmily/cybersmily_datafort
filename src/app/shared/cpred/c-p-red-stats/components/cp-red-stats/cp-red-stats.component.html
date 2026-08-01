@@ -1,12 +1,15 @@
-<div
-  *ngIf="statNames | async as stats"
-  class="row cs-cpr-stats rounded"
-  (click)="showModal(statsEditor)"
->
-  <div *ngFor="let statName of stats" class="col-12 csd-btn">
-    <cs-cp-red-stat [statName]="statName"></cs-cp-red-stat>
+@if (statNames | async; as stats) {
+  <div
+    class="row cs-cpr-stats rounded"
+    (click)="showModal(statsEditor)"
+    >
+    @for (statName of stats; track statName) {
+      <div class="col-12 csd-btn">
+        <cs-cp-red-stat [statName]="statName"></cs-cp-red-stat>
+      </div>
+    }
   </div>
-</div>
+}
 
 <ng-template #statsEditor>
   <cs-cp-red-stats-editor [stats]="stats"></cs-cp-red-stats-editor>

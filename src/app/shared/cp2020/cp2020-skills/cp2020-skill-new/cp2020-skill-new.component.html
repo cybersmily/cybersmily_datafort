@@ -10,221 +10,225 @@
       placeholder="skill name..."
       tabindex="0"
       type="text"
-    />
-    <fa-icon
-      [icon]="faSave"
-      class="csd-btn csd-icon-btn csd-icon-xl float-end"
-      title="Save"
-      (click)="update()"
-    ></fa-icon>
-  </div>
-</div>
-<div class="row">
-  <div class="col-3">Subskill:</div>
-  <div class="col">
-    <input
-      type="text"
-      [(ngModel)]="currSkill.option"
-      placeholder="ex. akikido, English, etc..."
-      tabindex="0"
-    />
-  </div>
-</div>
-<div class="row">
-  <div class="col-3">Stat:</div>
-  <div class="col">
-    <select [(ngModel)]="currSkill.stat" tabindex="0">
-      <option value=""></option>
-      <option value="ATTR">ATTR</option>
-      <option value="BODY">BODY</option>
-      <option value="COOL">COOL/WILL</option>
-      <option value="EMP">EMPATHY</option>
-      <option value="INT">INT</option>
-      <option value="REF">REFLEX</option>
-      <option value="TECH">TECH</option>
-      <option value="OTHER">Other</option>
-    </select>
-  </div>
-</div>
-<div class="row">
-  <div class="col-3">IP Mod:</div>
-  <div class="col">
-    <input
-      type="number"
-      min="1"
-      [(ngModel)]="currSkill.ipMod"
-      class="csd-number"
-      tabindex="0"
-    />
-  </div>
-</div>
-<div class="row">
-  <div class="col">
-    <input type="checkbox" [(ngModel)]="currSkill.isSA" tabindex="0" /> Special
-    Ability
-  </div>
-</div>
-<div class="row">
-  <div class="col">
-    <input type="checkbox" [(ngModel)]="currSkill.isRoleSkill" tabindex="0" />
-    Role Skill
-  </div>
-</div>
-<div class="row" *ngIf="currSkill.stat === 'ref'">
-  <div class="col">
-    <input
-      type="checkbox"
-      [(ngModel)]="isMA"
-      (change)="toggleMA()"
-      tabindex="0"
-    />
-    Martial Art
-  </div>
-</div>
-<div *ngIf="isMA" class="row">
-  <div class="col">
-    <div class="row">
-      <div class="col">Strike</div>
-      <div class="col">Disarm</div>
-      <div class="col">Dodge</div>
-      <div class="col">Hold</div>
+      />
+      <fa-icon
+        [icon]="faSave"
+        class="csd-btn csd-icon-btn csd-icon-xl float-end"
+        title="Save"
+        (click)="update()"
+      ></fa-icon>
     </div>
-    <div class="row">
-      <div class="col">
-        <input
-          type="number"
-          class="csd-number text-end"
-          [(ngModel)]="currSkill.maBonuses.strike"
-          tabindex="0"
-        />
-      </div>
-      <div class="col">
-        <input
-          type="number"
-          class="csd-number text-end"
-          [(ngModel)]="currSkill.maBonuses.disarm"
-          tabindex="0"
-        />
-      </div>
-      <div class="col">
-        <input
-          type="number"
-          class="csd-number text-end"
-          [(ngModel)]="currSkill.maBonuses.dodge"
-          tabindex="0"
-        />
-      </div>
-      <div class="col">
-        <input
-          type="number"
-          class="csd-number text-end"
-          [(ngModel)]="currSkill.maBonuses.hold"
-          tabindex="0"
+  </div>
+  <div class="row">
+    <div class="col-3">Subskill:</div>
+    <div class="col">
+      <input
+        type="text"
+        [(ngModel)]="currSkill.option"
+        placeholder="ex. akikido, English, etc..."
+        tabindex="0"
         />
       </div>
     </div>
     <div class="row">
-      <div class="col">Punch</div>
-      <div class="col">Sweep</div>
-      <div class="col">Grapple</div>
-      <div class="col">Choke</div>
-    </div>
-    <div class="row">
+      <div class="col-3">Stat:</div>
       <div class="col">
-        <input
-          type="number"
-          class="csd-number text-end"
-          [(ngModel)]="currSkill.maBonuses.punch"
-          tabindex="0"
-        />
-      </div>
-      <div class="col">
-        <input
-          type="number"
-          class="csd-number text-end"
-          [(ngModel)]="currSkill.maBonuses.sweep"
-          tabindex="0"
-        />
-      </div>
-      <div class="col">
-        <input
-          type="number"
-          class="csd-number text-end"
-          [(ngModel)]="currSkill.maBonuses.grapple"
-          tabindex="0"
-        />
-      </div>
-      <div class="col">
-        <input
-          type="number"
-          class="csd-number text-end"
-          [(ngModel)]="currSkill.maBonuses.choke"
-          tabindex="0"
-        />
+        <select [(ngModel)]="currSkill.stat" tabindex="0">
+          <option value=""></option>
+          <option value="ATTR">ATTR</option>
+          <option value="BODY">BODY</option>
+          <option value="COOL">COOL/WILL</option>
+          <option value="EMP">EMPATHY</option>
+          <option value="INT">INT</option>
+          <option value="REF">REFLEX</option>
+          <option value="TECH">TECH</option>
+          <option value="OTHER">Other</option>
+        </select>
       </div>
     </div>
     <div class="row">
-      <div class="col">Kick</div>
-      <div class="col">Block</div>
-      <div class="col">Throw</div>
-      <div class="col">Escape</div>
-    </div>
-    <div class="row">
+      <div class="col-3">IP Mod:</div>
       <div class="col">
         <input
           type="number"
-          class="csd-number text-end"
-          [(ngModel)]="currSkill.maBonuses.kick"
+          min="1"
+          [(ngModel)]="currSkill.ipMod"
+          class="csd-number"
           tabindex="0"
-        />
+          />
+        </div>
       </div>
-      <div class="col">
-        <input
-          type="number"
-          class="csd-number text-end"
-          [(ngModel)]="currSkill.maBonuses.block"
-          tabindex="0"
-        />
+      <div class="row">
+        <div class="col">
+          <input type="checkbox" [(ngModel)]="currSkill.isSA" tabindex="0" /> Special
+          Ability
+        </div>
       </div>
-      <div class="col">
-        <input
-          type="number"
-          class="csd-number text-end"
-          [(ngModel)]="currSkill.maBonuses.throw"
-          tabindex="0"
-        />
+      <div class="row">
+        <div class="col">
+          <input type="checkbox" [(ngModel)]="currSkill.isRoleSkill" tabindex="0" />
+          Role Skill
+        </div>
       </div>
-      <div class="col">
-        <input
-          type="number"
-          class="csd-number text-end"
-          [(ngModel)]="currSkill.maBonuses.escape"
-          tabindex="0"
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">Ram</div>
-      <div class="col"></div>
-      <div class="col"></div>
-      <div class="col"></div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <input
-          type="number"
-          class="csd-number text-end"
-          [(ngModel)]="currSkill.maBonuses.ram"
-          tabindex="0"
-        />
-      </div>
-      <div class="col"></div>
-      <div class="col"></div>
-      <div class="col"></div>
-    </div>
-  </div>
-</div>
+      @if (currSkill.stat === 'ref') {
+        <div class="row">
+          <div class="col">
+            <input
+              type="checkbox"
+              [(ngModel)]="isMA"
+              (change)="toggleMA()"
+              tabindex="0"
+              />
+              Martial Art
+            </div>
+          </div>
+        }
+        @if (isMA) {
+          <div class="row">
+            <div class="col">
+              <div class="row">
+                <div class="col">Strike</div>
+                <div class="col">Disarm</div>
+                <div class="col">Dodge</div>
+                <div class="col">Hold</div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <input
+                    type="number"
+                    class="csd-number text-end"
+                    [(ngModel)]="currSkill.maBonuses.strike"
+                    tabindex="0"
+                    />
+                  </div>
+                  <div class="col">
+                    <input
+                      type="number"
+                      class="csd-number text-end"
+                      [(ngModel)]="currSkill.maBonuses.disarm"
+                      tabindex="0"
+                      />
+                    </div>
+                    <div class="col">
+                      <input
+                        type="number"
+                        class="csd-number text-end"
+                        [(ngModel)]="currSkill.maBonuses.dodge"
+                        tabindex="0"
+                        />
+                      </div>
+                      <div class="col">
+                        <input
+                          type="number"
+                          class="csd-number text-end"
+                          [(ngModel)]="currSkill.maBonuses.hold"
+                          tabindex="0"
+                          />
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">Punch</div>
+                        <div class="col">Sweep</div>
+                        <div class="col">Grapple</div>
+                        <div class="col">Choke</div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <input
+                            type="number"
+                            class="csd-number text-end"
+                            [(ngModel)]="currSkill.maBonuses.punch"
+                            tabindex="0"
+                            />
+                          </div>
+                          <div class="col">
+                            <input
+                              type="number"
+                              class="csd-number text-end"
+                              [(ngModel)]="currSkill.maBonuses.sweep"
+                              tabindex="0"
+                              />
+                            </div>
+                            <div class="col">
+                              <input
+                                type="number"
+                                class="csd-number text-end"
+                                [(ngModel)]="currSkill.maBonuses.grapple"
+                                tabindex="0"
+                                />
+                              </div>
+                              <div class="col">
+                                <input
+                                  type="number"
+                                  class="csd-number text-end"
+                                  [(ngModel)]="currSkill.maBonuses.choke"
+                                  tabindex="0"
+                                  />
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col">Kick</div>
+                                <div class="col">Block</div>
+                                <div class="col">Throw</div>
+                                <div class="col">Escape</div>
+                              </div>
+                              <div class="row">
+                                <div class="col">
+                                  <input
+                                    type="number"
+                                    class="csd-number text-end"
+                                    [(ngModel)]="currSkill.maBonuses.kick"
+                                    tabindex="0"
+                                    />
+                                  </div>
+                                  <div class="col">
+                                    <input
+                                      type="number"
+                                      class="csd-number text-end"
+                                      [(ngModel)]="currSkill.maBonuses.block"
+                                      tabindex="0"
+                                      />
+                                    </div>
+                                    <div class="col">
+                                      <input
+                                        type="number"
+                                        class="csd-number text-end"
+                                        [(ngModel)]="currSkill.maBonuses.throw"
+                                        tabindex="0"
+                                        />
+                                      </div>
+                                      <div class="col">
+                                        <input
+                                          type="number"
+                                          class="csd-number text-end"
+                                          [(ngModel)]="currSkill.maBonuses.escape"
+                                          tabindex="0"
+                                          />
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col">Ram</div>
+                                        <div class="col"></div>
+                                        <div class="col"></div>
+                                        <div class="col"></div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col">
+                                          <input
+                                            type="number"
+                                            class="csd-number text-end"
+                                            [(ngModel)]="currSkill.maBonuses.ram"
+                                            tabindex="0"
+                                            />
+                                          </div>
+                                          <div class="col"></div>
+                                          <div class="col"></div>
+                                          <div class="col"></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  }
 
-<ng-template #customItemTemplate let-model="item" let-index="index">
-  {{model.name}} {{model?.option}}
-</ng-template>
+                                  <ng-template #customItemTemplate let-model="item" let-index="index">
+                                    {{model.name}} {{model?.option}}
+                                  </ng-template>

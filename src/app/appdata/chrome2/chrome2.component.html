@@ -7,35 +7,43 @@
     If there is an error email me and I'll try to get a fix in.
   </div>
   <ngx-masonry>
-    <div ngxMasonryItem *ngFor="let veh of vehicleList$ | async" class="masonry-item">
-      <div class="card-block csd-box csd-rounded m-1">
-        <h4 class="card-title">{{veh.name}}</h4>
-        <div *ngIf="hasProp(veh,'description')" class="card-text">
-          {{veh.description}}
-        </div>
-        <div class="card-text row" *ngIf="!hasProp(veh,'description')">
-          <div class="col-5">
-            <div>Top Speed: {{veh.topspeed}}</div>
-            <div>Crew: {{veh.crew}}</div>
-            <div>Passengers: {{veh.passengers}}</div>
-            <div>Maneuver: {{veh.manuever}}</div>
-            <div>SP: {{veh.sp | number}}</div>
-            <div>Mass: {{veh.mass | number}} tons</div>
-          </div>
-          <div class="col-5">
-            <div>Acc/Dec: {{veh.accelerate}}/{{veh.decelerate}}</div>
-            <div>Range: {{veh.range | number}} mi.</div>
-            <div>Cargo: {{veh.cargo}}</div>
-            <div>SDP: {{veh.sdp}}</div>
-            <div>Type: {{veh.type}}</div>
-            <div>Cost: {{veh.cost | number}}</div>
-          </div>
-          <div class="col-12">Options: {{veh.options}}</div>
-        </div>
-        <div class="small">Source: <i>{{veh.source.book}}</i>
-          <span *ngIf="hasProp(veh.source,'page')"> pg(s): {{veh.source.page}}</span>
+    @for (veh of vehicleList$ | async; track veh) {
+      <div ngxMasonryItem class="masonry-item">
+        <div class="card-block csd-box csd-rounded m-1">
+          <h4 class="card-title">{{veh.name}}</h4>
+          @if (hasProp(veh,'description')) {
+            <div class="card-text">
+              {{veh.description}}
+            </div>
+          }
+          @if (!hasProp(veh,'description')) {
+            <div class="card-text row">
+              <div class="col-5">
+                <div>Top Speed: {{veh.topspeed}}</div>
+                <div>Crew: {{veh.crew}}</div>
+                <div>Passengers: {{veh.passengers}}</div>
+                <div>Maneuver: {{veh.manuever}}</div>
+                <div>SP: {{veh.sp | number}}</div>
+                <div>Mass: {{veh.mass | number}} tons</div>
+              </div>
+              <div class="col-5">
+                <div>Acc/Dec: {{veh.accelerate}}/{{veh.decelerate}}</div>
+                <div>Range: {{veh.range | number}} mi.</div>
+                <div>Cargo: {{veh.cargo}}</div>
+                <div>SDP: {{veh.sdp}}</div>
+                <div>Type: {{veh.type}}</div>
+                <div>Cost: {{veh.cost | number}}</div>
+              </div>
+              <div class="col-12">Options: {{veh.options}}</div>
+            </div>
+          }
+          <div class="small">Source: <i>{{veh.source.book}}</i>
+          @if (hasProp(veh.source,'page')) {
+            <span> pg(s): {{veh.source.page}}</span>
+          }
         </div>
       </div>
     </div>
-  </ngx-masonry>
+  }
+</ngx-masonry>
 </div>

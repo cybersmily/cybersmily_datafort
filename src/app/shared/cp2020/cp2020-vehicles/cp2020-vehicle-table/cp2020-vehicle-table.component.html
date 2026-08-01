@@ -9,14 +9,16 @@
   </div>
   <div [collapse]="isCollapsed">
     <div class="row g-0">
-      <div class="col-12 border border-dark" *ngFor="let vehicle of currVehicles;let i = index">
-        <cs-cp2020-vehicle-details
-        [vehicle]="vehicle"
-        [index]="i"
-        (update)="updateVehicle($event, i)"
-        (delete)="deleteVehicle($event)"
-        ></cs-cp2020-vehicle-details>
-      </div>
+      @for (vehicle of currVehicles; track vehicle; let i = $index) {
+        <div class="col-12 border border-dark">
+          <cs-cp2020-vehicle-details
+            [vehicle]="vehicle"
+            [index]="i"
+            (update)="updateVehicle($event, i)"
+            (delete)="deleteVehicle($event)"
+          ></cs-cp2020-vehicle-details>
+        </div>
+      }
     </div>
     <div class="row text-center">
       <div class="col">

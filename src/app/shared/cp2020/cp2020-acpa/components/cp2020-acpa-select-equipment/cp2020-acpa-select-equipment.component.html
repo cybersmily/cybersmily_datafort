@@ -9,104 +9,118 @@
         CUSTOM COMPONENT
       </option>
       <optgroup label="EQUIPEMENT">
-        <option
-          *ngFor="let category of componentCategories$ | async"
-          [ngValue]="{ type: 'component', category: category }"
-        >
-          {{ category }}
-        </option>
+        @for (category of componentCategories$ | async; track category) {
+          <option
+            [ngValue]="{ type: 'component', category: category }"
+            >
+            {{ category }}
+          </option>
+        }
       </optgroup>
       <optgroup label="WEAPONS">
-        <option
-          *ngFor="let category of weaponCategories$ | async"
-          [ngValue]="{ type: 'weapon', category: category }"
-        >
-          {{ category }}
-        </option>
+        @for (category of weaponCategories$ | async; track category) {
+          <option
+            [ngValue]="{ type: 'weapon', category: category }"
+            >
+            {{ category }}
+          </option>
+        }
       </optgroup>
     </select>
   </div>
 </div>
-<div
-  *ngIf="
-    selectedOption.type == 'component' && componentList$
-      | async as componentList
-  "
-  class="row"
->
-  <div class="col-12">
-    <div class="row">
-      <div class="col">NAME</div>
-      <div class="col-2">COST</div>
-      <div class="col-1 text-center">WT.</div>
-      <div class="col-1 text-center">SPC</div>
-      <div class="col-2 text-center">SP/SDP</div>
-    </div>
-    <div
-      *ngFor="
-        let comp of componentList | filter: 'category':selectedOption.category
-      "
-      class="row small csd-acpa-equip"
-      (click)="selectEquipment(comp)"
+@if (
+  selectedOption.type == 'component' && componentList$
+  | async; as componentList
+  ) {
+  <div
+    class="row"
     >
-      <div
-        class="col"
-        title="{{ comp.source?.book | sourcebook }} pg. {{ comp.source?.page }}"
-      >
-        {{ comp.name }}
+    <div class="col-12">
+      <div class="row">
+        <div class="col">NAME</div>
+        <div class="col-2">COST</div>
+        <div class="col-1 text-center">WT.</div>
+        <div class="col-1 text-center">SPC</div>
+        <div class="col-2 text-center">SP/SDP</div>
       </div>
-      <div class="col-2">{{ comp.cost | number }}eb</div>
-      <div class="col-1 text-center">{{ comp.weight | number }}kg</div>
-      <div class="col-1 text-center">
-        {{ comp.spaces / 4 }}
-      </div>
-      <div class="col-2 text-center">{{ comp.sp }}/{{ comp.sdp }}</div>
+      @for (
+        comp of componentList | filter: 'category':selectedOption.category
+        ; track
+        comp) {
+        <div
+          class="row small csd-acpa-equip"
+          (click)="selectEquipment(comp)"
+          >
+          <div
+            class="col"
+            title="{{ comp.source?.book | sourcebook }} pg. {{ comp.source?.page }}"
+            >
+            {{ comp.name }}
+          </div>
+          <div class="col-2">{{ comp.cost | number }}eb</div>
+          <div class="col-1 text-center">{{ comp.weight | number }}kg</div>
+          <div class="col-1 text-center">
+            {{ comp.spaces / 4 }}
+          </div>
+          <div class="col-2 text-center">{{ comp.sp }}/{{ comp.sdp }}</div>
+        </div>
+      }
     </div>
   </div>
-</div>
-<div
-  *ngIf="selectedOption.type == 'weapon' && weaponList$ | async as weaponList"
-  class="row small"
->
-  <div class="col-12">
-    <div
-      *ngFor="
-        let wpn of weaponList | filter: 'category':selectedOption.category
-      "
-      class="row csd-acpa-equip mb-1 mt-1"
-      title="{{ wpn?.source?.book | sourcebook }} pg.{{ wpn?.source?.page }}"
-      (click)="selectEquipment(wpn)"
+}
+@if (selectedOption.type == 'weapon' && weaponList$ | async; as weaponList) {
+  <div
+    class="row small"
     >
-      <div class="col-4">
-        {{ wpn.name }}
-      </div>
-      <div class="col-8">
-        {{ wpn.cost | number }}eb&nbsp;&nbsp;
-        {{ wpn.weight | number }}kg&nbsp;&nbsp; Spaces:
-        {{ wpn.spaces / 4 }}&nbsp;&nbsp; SP: {{ wpn.sp }}&nbsp;&nbsp;SDP:
-        {{ wpn.sdp }}
-      </div>
-      <div class="col-1"></div>
-      <div *ngIf="wpn.wa !== null && wpn.wa !== undefined" class="col-11">
-        WA: {{ wpn.wa }}&nbsp;&nbsp; DAMAGE: {{ wpn.damage }}&nbsp;&nbsp; PEN.:
-        {{ wpn?.pen }}&nbsp;&nbsp; SHOTS: {{ wpn?.shots
-        }}{{ wpn?.volley ? "x" + wpn.volley : "" }}&nbsp;&nbsp; ROF:{{ wpn?.rof
-        }}{{ wpn.category == "Scatter Packs" ? "D6" : "" }}&nbsp;&nbsp; RNG.:
-        {{ wpn?.range }}m
-      </div>
+    <div class="col-12">
+      @for (
+        wpn of weaponList | filter: 'category':selectedOption.category
+        ; track
+        wpn) {
+        <div
+          class="row csd-acpa-equip mb-1 mt-1"
+          title="{{ wpn?.source?.book | sourcebook }} pg.{{ wpn?.source?.page }}"
+          (click)="selectEquipment(wpn)"
+          >
+          <div class="col-4">
+            {{ wpn.name }}
+          </div>
+          <div class="col-8">
+            {{ wpn.cost | number }}eb&nbsp;&nbsp;
+            {{ wpn.weight | number }}kg&nbsp;&nbsp; Spaces:
+            {{ wpn.spaces / 4 }}&nbsp;&nbsp; SP: {{ wpn.sp }}&nbsp;&nbsp;SDP:
+            {{ wpn.sdp }}
+          </div>
+          <div class="col-1"></div>
+          @if (wpn.wa !== null && wpn.wa !== undefined) {
+            <div class="col-11">
+              WA: {{ wpn.wa }}&nbsp;&nbsp; DAMAGE: {{ wpn.damage }}&nbsp;&nbsp; PEN.:
+              {{ wpn?.pen }}&nbsp;&nbsp; SHOTS: {{ wpn?.shots
+              }}{{ wpn?.volley ? "x" + wpn.volley : "" }}&nbsp;&nbsp; ROF:{{ wpn?.rof
+              }}{{ wpn.category == "Scatter Packs" ? "D6" : "" }}&nbsp;&nbsp; RNG.:
+              {{ wpn?.range }}m
+            </div>
+          }
+        </div>
+      }
     </div>
   </div>
-</div>
-<div *ngIf="selectedOption.type == 'customWeapon'">
-  <cs-cp2020-acpa-weapon-editor
-    [enclosureType]="enclosureType"
-    (updateWeapon)="selectEquipment($event)"
-  ></cs-cp2020-acpa-weapon-editor>
-</div>
+}
+@if (selectedOption.type == 'customWeapon') {
+  <div>
+    <cs-cp2020-acpa-weapon-editor
+      [enclosureType]="enclosureType"
+      (updateWeapon)="selectEquipment($event)"
+    ></cs-cp2020-acpa-weapon-editor>
+  </div>
+}
 
-<div *ngIf="selectedOption.type == 'customComponent'">
-  <cs-cp2020-acpa-equipment-editor
-    [enclosureType]="enclosureType"
-    (updateEquipment)="selectEquipment($event)"
-  ></cs-cp2020-acpa-equipment-editor>
-</div>
+@if (selectedOption.type == 'customComponent') {
+  <div>
+    <cs-cp2020-acpa-equipment-editor
+      [enclosureType]="enclosureType"
+      (updateEquipment)="selectEquipment($event)"
+    ></cs-cp2020-acpa-equipment-editor>
+  </div>
+}

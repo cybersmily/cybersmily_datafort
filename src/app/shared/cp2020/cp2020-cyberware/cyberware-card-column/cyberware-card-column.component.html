@@ -1,3 +1,5 @@
 <ngx-masonry>
-  <cs-cyberware-card ngxMasonryItem class="masonry-item" [cyberware]="cyber" *ngFor="let cyber of cyberList"></cs-cyberware-card>
+  @for (cyber of cyberList; track cyber) {
+    <cs-cyberware-card ngxMasonryItem class="masonry-item" [cyberware]="cyber"></cs-cyberware-card>
+  }
 </ngx-masonry>

@@ -1,3 +1,5 @@
-    <ngx-masonry>
-      <cs-gear-card ngxMasonryItem [gear]="equip" *ngFor="let equip of gearList" class="masonry-item"></cs-gear-card>
-    </ngx-masonry>
+<ngx-masonry>
+  @for (equip of gearList; track equip) {
+    <cs-gear-card ngxMasonryItem [gear]="equip" class="masonry-item"></cs-gear-card>
+  }
+</ngx-masonry>

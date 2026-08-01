@@ -8,10 +8,10 @@
     </div>
   </div>
   <hr>
-  <div class="row hidden-print">
-    <div class="col-12 col-md-6">
-      To get started, roll the <fa-icon  class="csd-icon-btn " [icon]="faDice"></fa-icon> dice below or click the <fa-icon
-        [icon]="faQuestionCircle" class="csd-icon-btn "></fa-icon> to the right.
+    <div class="row hidden-print">
+      <div class="col-12 col-md-6">
+        To get started, roll the <fa-icon  class="csd-icon-btn " [icon]="faDice"></fa-icon> dice below or click the <fa-icon
+      [icon]="faQuestionCircle" class="csd-icon-btn "></fa-icon> to the right.
     </div>
     <div class="col-12 col-md-6">
       <button class="csd-icon-btn csd-menu-btn btn-lg csd-btn float-end" title="Save as a SVG image file" (click)="saveSVG()">
@@ -22,110 +22,118 @@
       </button>
       <input type="file" id="loadFile" title="load a Net Architect .json file" name="Load" Style="display: none"
         (change)="load($event)" #inputFile (click)="inputFile.value = null" accept=".json, .txt" />
-      <label for="loadFile" class="csd-icon-btn csd-menu-btn csd-btn btn-lg float-end">
-        <fa-icon [icon]="faUpload" title="load a Net Architect .json file"></fa-icon>
-      </label>
-      <button class="csd-icon-btn csd-menu-btn csd-btn btn-lg float-end" (click)="save()" title="Save Net Architect as json file">
-        <fa-icon [icon]="faSave"></fa-icon>
-      </button>
-      <button class="csd-icon-btn csd-menu-btn btn-lg csd-btn float-end" title="Node Type Settings" (click)="openModal(archSettingsEditor)">
-        <fa-icon [icon]="faCog"></fa-icon>
-      </button>
-      <button class="csd-icon-btn csd-menu-btn btn-lg csd-btn float-end" title="Show instructions." (click)="openModal(instructions)">
-        <fa-icon [icon]="faQuestionCircle"></fa-icon>
-      </button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col csd-rounded">
-      <div class="row hidden-print mt-3">
-        <div class="col-6">
-          <button class="csd-dice csd-menu-btn csd-btn csd-icon-xxl float-start me-2" (click)="generate()" title="Generate random Net Architect">
-          <fa-icon [icon]="faDice"></fa-icon>
-          </button>
-          <span>
-            <input type="checkbox" [(ngModel)]="archSettings.randomDifficulty">
-            <span [ngClass]="{'net-arch-disable':archSettings.randomDifficulty}">
-              - Difficulty:
-              <select [(ngModel)]="difficulty" [disabled]='archSettings.randomDifficulty'>
-                <option [ngValue]="0">{{getDifficulty(0)}}</option>
-                <option [ngValue]="1">{{getDifficulty(1)}}</option>
-                <option [ngValue]="2">{{getDifficulty(2)}}</option>
-                <option [ngValue]="3">{{getDifficulty(3)}}</option>
-              </select>
-            </span>
-            <br>
-            <input type="checkbox" [(ngModel)]="archSettings.randomFloors">
-            <span [ngClass]="{'net-arch-disable':archSettings.randomFloors}">
-              - Floors: <input type="number" min="3" max="18" [(ngModel)]="randomFloorNumber"
-                [disabled]="archSettings.randomFloors">
-            </span>
-          </span>
-        </div>
+        <label for="loadFile" class="csd-icon-btn csd-menu-btn csd-btn btn-lg float-end">
+          <fa-icon [icon]="faUpload" title="load a Net Architect .json file"></fa-icon>
+        </label>
+        <button class="csd-icon-btn csd-menu-btn csd-btn btn-lg float-end" (click)="save()" title="Save Net Architect as json file">
+          <fa-icon [icon]="faSave"></fa-icon>
+        </button>
+        <button class="csd-icon-btn csd-menu-btn btn-lg csd-btn float-end" title="Node Type Settings" (click)="openModal(archSettingsEditor)">
+          <fa-icon [icon]="faCog"></fa-icon>
+        </button>
+        <button class="csd-icon-btn csd-menu-btn btn-lg csd-btn float-end" title="Show instructions." (click)="openModal(instructions)">
+          <fa-icon [icon]="faQuestionCircle"></fa-icon>
+        </button>
       </div>
-      <br>
-      <div *ngIf="architecture$ | async as arch">
-        <div class="col">
-          <div class="row csd-rounded">
-            <div class="col-6">Difficulty: {{getDifficulty(netArchService.difficulty)}}</div>
-            <div class="col">Total Floors: {{arch.numberOfFloors}} <span class="cs-net-cost">({{arch.numberOfFloors | cpRedFloorCostCalc |number}}eb ea.)</span>
-            </div>
-            <div class="col">Total Cost: {{arch.totalCost + (arch.numberOfFloors * (arch.numberOfFloors  | cpRedFloorCostCalc)) | number}}eb</div>
-          </div>
-          <div class="row">
-            <div class="col csd-print csd-rounded" #diagramSVG>
-              <cs-net-arch-node-svg [node]="arch" [iconColors]="archSettings"
-                [defaultDV]="defaultDV" (updateNode)="updateArch($event)"></cs-net-arch-node-svg>
+    </div>
+    <div class="row">
+      <div class="col csd-rounded">
+        <div class="row hidden-print mt-3">
+          <div class="col-6">
+            <button class="csd-dice csd-menu-btn csd-btn csd-icon-xxl float-start me-2" (click)="generate()" title="Generate random Net Architect">
+              <fa-icon [icon]="faDice"></fa-icon>
+            </button>
+            <span>
+              <input type="checkbox" [(ngModel)]="archSettings.randomDifficulty">
+              <span [ngClass]="{'net-arch-disable':archSettings.randomDifficulty}">
+                - Difficulty:
+                <select [(ngModel)]="difficulty" [disabled]='archSettings.randomDifficulty'>
+                  <option [ngValue]="0">{{getDifficulty(0)}}</option>
+                  <option [ngValue]="1">{{getDifficulty(1)}}</option>
+                  <option [ngValue]="2">{{getDifficulty(2)}}</option>
+                  <option [ngValue]="3">{{getDifficulty(3)}}</option>
+                </select>
+              </span>
+              <br>
+                <input type="checkbox" [(ngModel)]="archSettings.randomFloors">
+                <span [ngClass]="{'net-arch-disable':archSettings.randomFloors}">
+                  - Floors: <input type="number" min="3" max="18" [(ngModel)]="randomFloorNumber"
+                  [disabled]="archSettings.randomFloors">
+                </span>
+              </span>
             </div>
           </div>
           <br>
-          <div class="row">
-            <div class="col csd-rounded">
-              <div class="row">
-                <div class="col csd-print csd-linebreak">
-                  <h5>KEY and DETAILS</h5>
+            @if (architecture$ | async; as arch) {
+              <div>
+                <div class="col">
+                  <div class="row csd-rounded">
+                    <div class="col-6">Difficulty: {{getDifficulty(netArchService.difficulty)}}</div>
+                    <div class="col">Total Floors: {{arch.numberOfFloors}} <span class="cs-net-cost">({{arch.numberOfFloors | cpRedFloorCostCalc |number}}eb ea.)</span>
+                  </div>
+                  <div class="col">Total Cost: {{arch.totalCost + (arch.numberOfFloors * (arch.numberOfFloors  | cpRedFloorCostCalc)) | number}}eb</div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col csd-print">
-                  <div *ngFor="let arr of architectArray$ | async;let i = index" class="row">
-                    <div class="col">
-                      <div *ngIf="arr && arr.length > 0" class="row">
-                        <div class="col fw-bold">
-                          LEVEL {{i + 1}}:
+                <div class="row">
+                  <div class="col csd-print csd-rounded" #diagramSVG>
+                    <cs-net-arch-node-svg [node]="arch" [iconColors]="archSettings"
+                    [defaultDV]="defaultDV" (updateNode)="updateArch($event)"></cs-net-arch-node-svg>
+                  </div>
+                </div>
+                <br>
+                  <div class="row">
+                    <div class="col csd-rounded">
+                      <div class="row">
+                        <div class="col csd-print csd-linebreak">
+                          <h5>KEY and DETAILS</h5>
                         </div>
                       </div>
-                      <cs-net-arch-node *ngFor="let node of arr" [node]="node" [iconSettings]="archSettings"
-                        (updateNode)="updateArch($event)" [defaultDV]="defaultDV"></cs-net-arch-node>
-                      <hr>
+                      <div class="row">
+                        <div class="col csd-print">
+                          @for (arr of architectArray$ | async; track arr; let i = $index) {
+                            <div class="row">
+                              <div class="col">
+                                @if (arr && arr.length > 0) {
+                                  <div class="row">
+                                    <div class="col fw-bold">
+                                      LEVEL {{i + 1}}:
+                                    </div>
+                                  </div>
+                                }
+                                @for (node of arr; track node) {
+                                  <cs-net-arch-node [node]="node" [iconSettings]="archSettings"
+                                  (updateNode)="updateArch($event)" [defaultDV]="defaultDV"></cs-net-arch-node>
+                                }
+                                <hr>
+                                </div>
+                              </div>
+                            }
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              }
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<ng-template #instructions>
-  <div class="modal-header">
-    <h4>NET ARCHITECT GENERATOR INSTRUCTIONS</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()"></button>
-  </div>
-  <div class="modal-body">
-    <cs-net-arch-instructions></cs-net-arch-instructions>
-  </div>
-</ng-template>
+        <ng-template #instructions>
+          <div class="modal-header">
+            <h4>NET ARCHITECT GENERATOR INSTRUCTIONS</h4>
+            <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()"></button>
+          </div>
+          <div class="modal-body">
+            <cs-net-arch-instructions></cs-net-arch-instructions>
+          </div>
+        </ng-template>
 
-<ng-template #archSettingsEditor>
-  <div class="modal-header">
-    <h4>NET ARCHITECT GENERATOR SETTINGS</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()"></button>
-  </div>
-  <div class="modal-body">
-    <cs-net-arch-settings [iconColors]="archSettings" (updateColors)="updateSettings($event)"></cs-net-arch-settings>
-  </div>
-</ng-template>
+        <ng-template #archSettingsEditor>
+          <div class="modal-header">
+            <h4>NET ARCHITECT GENERATOR SETTINGS</h4>
+            <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()"></button>
+          </div>
+          <div class="modal-body">
+            <cs-net-arch-settings [iconColors]="archSettings" (updateColors)="updateSettings($event)"></cs-net-arch-settings>
+          </div>
+        </ng-template>

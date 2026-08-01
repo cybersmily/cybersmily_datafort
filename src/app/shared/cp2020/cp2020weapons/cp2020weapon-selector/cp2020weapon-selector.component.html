@@ -3,9 +3,11 @@
   <div class="col-2">
     <select [(ngModel)]="searchCategory" class="wpn-cat-srch">
       <option [ngValue]="''">All</option>
-          <option *ngFor="let category of categories" [ngValue]="category">{{
-            category
-          }}</option>
+      @for (category of categories; track category) {
+        <option [ngValue]="category">{{
+          category
+        }}</option>
+      }
     </select>
   </div>
   <div class="col-9">
@@ -14,19 +16,19 @@
   </div>
 </div>
 <div class="cs-wpn-selector-list">
-<ng-container *ngFor="let wpn of wpnList | contains:'name':searchTerm | filter:'category':searchCategory">
-  <div class="row small" >
-    <div class="col-2 col-lg-1 small">
-      <input type="number" (change)="selected($event, wpn.name)" [value]="getCount(wpn.name)" min="0" class="wpn-count text-center"/>
-    </div>
-    <div class="col-2 small">{{wpn.category}} {{wpn.subcategory}}</div>
-    <div class="col-8 col-lg-9 small">
-      {{wpn.name}} ({{wpn.source.book | sourcebook}} {{wpn.source.page}}pg.)
-      <br>
-      <span class="wpn-details">
-        {{wpn.type}} {{wpn.wa}} {{wpn.conc}} {{wpn.avail}} {{wpn.damage}} {{wpn.shots}} {{wpn.rof}} {{wpn.rel}} {{wpn.range}}m {{wpn.cost}}eb
-      </span>
-    </div>
+  @for (wpn of wpnList | contains:'name':searchTerm | filter:'category':searchCategory; track wpn) {
+    <div class="row small" >
+      <div class="col-2 col-lg-1 small">
+        <input type="number" (change)="selected($event, wpn.name)" [value]="getCount(wpn.name)" min="0" class="wpn-count text-center"/>
+      </div>
+      <div class="col-2 small">{{wpn.category}} {{wpn.subcategory}}</div>
+      <div class="col-8 col-lg-9 small">
+        {{wpn.name}} ({{wpn.source.book | sourcebook}} {{wpn.source.page}}pg.)
+        <br>
+          <span class="wpn-details">
+            {{wpn.type}} {{wpn.wa}} {{wpn.conc}} {{wpn.avail}} {{wpn.damage}} {{wpn.shots}} {{wpn.rof}} {{wpn.rel}} {{wpn.range}}m {{wpn.cost}}eb
+          </span>
+        </div>
+      </div>
+    }
   </div>
-</ng-container>
-</div>

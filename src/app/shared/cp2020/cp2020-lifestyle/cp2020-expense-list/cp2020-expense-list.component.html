@@ -9,22 +9,24 @@
   </div>
 </div>
 <hr>
-<div class="row">
-  <div class="col-12 col-lg-6">
-    <ng-container [ngTemplateOutlet]="expenseColumn" [ngTemplateOutletContext]="{expenses:firstColumn}">
-    </ng-container>
-  </div>
-  <div class="col-12 col-lg-6">
-    <ng-container [ngTemplateOutlet]="expenseColumn" [ngTemplateOutletContext]="{expenses:secondColumn}">
-    </ng-container>
-  </div>
-</div>
-
-<ng-template #expenseColumn let-expenses="expenses">
-  <div class="row" *ngFor="let expense of expenses">
-    <div class="col-2">
-      <input #expenseCountElem style="width:60px" type="number" min="0" [(ngModel)]="expense.count" (change)="calculateCost()">
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <ng-container [ngTemplateOutlet]="expenseColumn" [ngTemplateOutletContext]="{expenses:firstColumn}">
+      </ng-container>
     </div>
-    <div class="col">{{expense.name}} ({{expense.cost}}eb/{{expense.unit}})</div>
+    <div class="col-12 col-lg-6">
+      <ng-container [ngTemplateOutlet]="expenseColumn" [ngTemplateOutletContext]="{expenses:secondColumn}">
+      </ng-container>
+    </div>
   </div>
-</ng-template>
+
+  <ng-template #expenseColumn let-expenses="expenses">
+    @for (expense of expenses; track expense) {
+      <div class="row">
+        <div class="col-2">
+          <input #expenseCountElem style="width:60px" type="number" min="0" [(ngModel)]="expense.count" (change)="calculateCost()">
+        </div>
+        <div class="col">{{expense.name}} ({{expense.cost}}eb/{{expense.unit}})</div>
+      </div>
+    }
+  </ng-template>

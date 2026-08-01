@@ -5,42 +5,46 @@
       type="number"
       class="csd-number ms-2 text-center"
       [(ngModel)]="count"
-    />
-    <button
-      class="csd-btn csd-icon-btn csd-icon-xl ms-4 p-1"
-      (click)="rollClubs()"
-    >
-      <fa-icon [icon]="faDice"></fa-icon>
-    </button>
+      />
+      <button
+        class="csd-btn csd-icon-btn csd-icon-xl ms-4 p-1"
+        (click)="rollClubs()"
+        >
+        <fa-icon [icon]="faDice"></fa-icon>
+      </button>
 
-    <button
-      class="csd-btn csd-icon-btn csd-icon-xl ms-4 p-1"
-      (click)="savePDF()"
-      [disabled]="isDisabled"
-    >
-      <fa-icon [icon]="faFilePdf"></fa-icon>
-    </button>
-  </div>
-</div>
-<br />
-<div *ngIf="clubs">
-  <div *ngFor="let club of clubs; let i = index" class="row mb-4">
-    <div class="col-12">
-      <div class="row">
-        <div class="col-12">
-          <h4 class="d-inline-block">{{ club.name }}</h4>
-          <button
-            class="csd-btn csd-icon-btn csd-icon-lg ms-4"
-            (click)="delete(i)"
-          >
-            <fa-icon [icon]="faTrash"></fa-icon>
-          </button>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">{{ club.summary }}</div>
-      </div>
+      <button
+        class="csd-btn csd-icon-btn csd-icon-xl ms-4 p-1"
+        (click)="savePDF()"
+        [disabled]="isDisabled"
+        >
+        <fa-icon [icon]="faFilePdf"></fa-icon>
+      </button>
     </div>
   </div>
-</div>
-<br />
+  <br />
+  @if (clubs) {
+    <div>
+      @for (club of clubs; track club; let i = $index) {
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="row">
+              <div class="col-12">
+                <h4 class="d-inline-block">{{ club.name }}</h4>
+                <button
+                  class="csd-btn csd-icon-btn csd-icon-lg ms-4"
+                  (click)="delete(i)"
+                  >
+                  <fa-icon [icon]="faTrash"></fa-icon>
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">{{ club.summary }}</div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  }
+  <br />

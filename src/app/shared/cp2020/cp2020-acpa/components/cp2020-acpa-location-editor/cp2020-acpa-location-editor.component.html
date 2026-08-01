@@ -1,50 +1,54 @@
-<div *ngIf="acpalocations$ | async as acpalocations">
-  <div class="row chargen-label">
-    <div class="col text-center fw-bold">S P A C E S</div>
-  </div>
-  <div class="row small">
-    <ng-container
-      [ngTemplateOutlet]="bodySection"
+@if (acpalocations$ | async; as acpalocations) {
+  <div>
+    <div class="row chargen-label">
+      <div class="col text-center fw-bold">S P A C E S</div>
+    </div>
+    <div class="row small">
+      <ng-container
+        [ngTemplateOutlet]="bodySection"
       [ngTemplateOutletContext]="{
         location: acpalocations.head,
         showDelete: false,
         showAdd: false
       }"
-    >
-    </ng-container>
-    <ng-container
-      [ngTemplateOutlet]="bodySection"
+        >
+      </ng-container>
+      <ng-container
+        [ngTemplateOutlet]="bodySection"
       [ngTemplateOutletContext]="{
         location: acpalocations.torso,
         showDelete: false,
         showAdd: false
       }"
-    >
-    </ng-container>
-    <ng-container
-      [ngTemplateOutlet]="bodySection"
+        >
+      </ng-container>
+      @for (location of acpalocations.arms; track location; let i = $index) {
+        <ng-container
+          [ngTemplateOutlet]="bodySection"
       [ngTemplateOutletContext]="{
         location: location,
         showDelete: i > 1,
         showAdd: i == acpalocations.arms.length - 1,
         index: i
       }"
-      *ngFor="let location of acpalocations.arms; let i = index"
-    >
-    </ng-container>
-    <ng-container
-      [ngTemplateOutlet]="bodySection"
+          >
+        </ng-container>
+      }
+      @for (location of acpalocations.legs; track location; let i = $index) {
+        <ng-container
+          [ngTemplateOutlet]="bodySection"
       [ngTemplateOutletContext]="{
         location: location,
         showDelete: i > 1,
         showAdd: i == acpalocations.legs.length - 1,
         index: i
       }"
-      *ngFor="let location of acpalocations.legs; let i = index"
-    >
-    </ng-container>
+          >
+        </ng-container>
+      }
+    </div>
   </div>
-</div>
+}
 
 <ng-template
   #bodySection
@@ -52,50 +56,52 @@
   let-showDelete="showDelete"
   let-showAdd="showAdd"
   let-index="index"
->
+  >
   <div class="col-12 col-md-6 border border-dark">
     <div class="row small">
       <div class="col border border-dark text-center text-capitalize">
         <h6 class="d-inline-block">{{ formatTitle(location?.name, index) }}</h6>
-        <button
-          *ngIf="showDelete && isWad"
-          class="ms-2 csd-btn csd-icon-btn csd-icon-lg"
-          (click)="removeLimb(location?.name, index)"
-        >
-          <fa-icon [icon]="faTrash"></fa-icon>
-        </button>
-        <button
-          *ngIf="showAdd && isWad"
-          class="ms-2 csd-btn csd-icon-btn csd-icon-lg"
-          (click)="addLimb(location?.name)"
-        >
-          <fa-icon [icon]="faPlus"></fa-icon>
-        </button>
+        @if (showDelete && isWad) {
+          <button
+            class="ms-2 csd-btn csd-icon-btn csd-icon-lg"
+            (click)="removeLimb(location?.name, index)"
+            >
+            <fa-icon [icon]="faTrash"></fa-icon>
+          </button>
+        }
+        @if (showAdd && isWad) {
+          <button
+            class="ms-2 csd-btn csd-icon-btn csd-icon-lg"
+            (click)="addLimb(location?.name)"
+            >
+            <fa-icon [icon]="faPlus"></fa-icon>
+          </button>
+        }
       </div>
     </div>
     <div class="row">
       <div class="col-2 fw-bold">SP</div>
       <div class="col-4">
         {{ location?.sp }}/<input
-          type="number"
-          class="csd-number"
-          min="0"
-          [max]="location?.sp"
-          [(ngModel)]="location.currSP"
-          title="Current {{ location?.name }} SP"
-          (change)="updateLocations()"
+        type="number"
+        class="csd-number"
+        min="0"
+        [max]="location?.sp"
+        [(ngModel)]="location.currSP"
+        title="Current {{ location?.name }} SP"
+        (change)="updateLocations()"
         />
       </div>
       <div class="col-2 fw-bold">SDP</div>
       <div class="col-4">
         {{ location?.sdp }}/<input
-          type="number"
-          class="csd-number"
-          min="0"
-          [max]="location?.sdp"
-          [(ngModel)]="location.currSDP"
-          title="Current {{ location?.name }} SDP"
-          (change)="updateLocations()"
+        type="number"
+        class="csd-number"
+        min="0"
+        [max]="location?.sdp"
+        [(ngModel)]="location.currSDP"
+        title="Current {{ location?.name }} SDP"
+        (change)="updateLocations()"
         />
       </div>
     </div>
@@ -138,15 +144,15 @@
   let-spaces="spaces"
   let-equipList="equipList"
   let-index="index"
->
+  >
   <div class="col">
     <div class="row fw-bold mt-2">
       <div class="col-9">
         {{ sectionTitle }} ({{ spacesUsed }}/{{ spaces }})
-        <fa-icon
-          *ngIf="spacesUsed &lt; spaces"
-          [icon]="faPlus"
-          class="csd-btn csd-icon-btn ms-2"
+        @if (spacesUsed < spaces) {
+          <fa-icon
+            [icon]="faPlus"
+            class="csd-btn csd-icon-btn ms-2"
           (click)="
             showEquipment(
               locationName,
@@ -156,19 +162,23 @@
               index
             )
           "
-        >
-        </fa-icon>
+            >
+          </fa-icon>
+        }
       </div>
       <div class="col-2 text-center">SDP</div>
     </div>
     <hr class="mt-1 mb-0" />
-    <ng-conainer *ngFor="let item of equipList; let i = index">
-      <div class="row">
-        <div class="col-1">
-          <span *ngIf="i % 4 == 0">{{ i / 4 + 1 }}</span>
-        </div>
-        <div class="col-8 pe-0 ps-0">
-          <span
+    @for (item of equipList; track item; let i = $index) {
+      <ng-conainer>
+        <div class="row">
+          <div class="col-1">
+            @if (i % 4 == 0) {
+              <span>{{ i / 4 + 1 }}</span>
+            }
+          </div>
+          <div class="col-8 pe-0 ps-0">
+            <span
             title="{{ item?.weight | number }}kg {{ item?.cost | number }}eb {{
               item?.source.book | sourcebook
             }} pg.{{ item?.source.page }}"
@@ -176,42 +186,46 @@
               'csd-collection': nameIsCollection(item?.name),
               small: true
             }"
-            >{{ item?.name }}</span
-          >
-          <fa-icon
-            *ngIf="item != null && item.category !== '' && item.name[0] !== '('"
-            [icon]="faTrash"
-            class="csd-btn csd-icon-btn float-end"
-            (click)="removeEquipment(locationName, enclosure, item, index)"
-          ></fa-icon>
-        </div>
-        <div class="col-2 text-center">
-          {{ item?.sdp }}
-        </div>
-      </div>
-      <hr *ngIf="i > 0 && i % 4 == 3" class="mt-1 mb-0" />
-    </ng-conainer>
-  </div>
-</ng-template>
+              >{{ item?.name }}</span
+              >
+              @if (item != null && item.category !== '' && item.name[0] !== '(') {
+                <fa-icon
+                  [icon]="faTrash"
+                  class="csd-btn csd-icon-btn float-end"
+                  (click)="removeEquipment(locationName, enclosure, item, index)"
+                ></fa-icon>
+              }
+            </div>
+            <div class="col-2 text-center">
+              {{ item?.sdp }}
+            </div>
+          </div>
+          @if (i > 0 && i % 4 == 3) {
+            <hr class="mt-1 mb-0" />
+          }
+        </ng-conainer>
+      }
+    </div>
+  </ng-template>
 
-<ng-template #addComponentModal>
-  <div class="modal-body">
-    <div class="row">
-      <div class="col">
-        <button
-          type="button"
-          class="btn-close float-end"
-          aria-label="Close"
-          (click)="modalRef.hide()"
-        ></button>
-        <cs-cp2020-acpa-select-equipment
-          [enclosureType]="selectedEnclosure"
-          [location]="selectedLocation"
-          [availableSpaces]="availableSpaces"
-          (chooseEquipment)="addEquipment($event)"
-        >
-        </cs-cp2020-acpa-select-equipment>
+  <ng-template #addComponentModal>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col">
+          <button
+            type="button"
+            class="btn-close float-end"
+            aria-label="Close"
+            (click)="modalRef.hide()"
+          ></button>
+          <cs-cp2020-acpa-select-equipment
+            [enclosureType]="selectedEnclosure"
+            [location]="selectedLocation"
+            [availableSpaces]="availableSpaces"
+            (chooseEquipment)="addEquipment($event)"
+            >
+          </cs-cp2020-acpa-select-equipment>
+        </div>
       </div>
     </div>
-  </div>
-</ng-template>
+  </ng-template>

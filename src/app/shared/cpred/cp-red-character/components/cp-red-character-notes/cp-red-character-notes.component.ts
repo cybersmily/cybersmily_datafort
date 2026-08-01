@@ -23,7 +23,7 @@ export class CpRedCharacterNotesComponent implements OnInit {
   ngOnInit(): void {}
 
   @HostListener('window:resize', ['$event'])
-  resizeWindow() {
+  resizeWindow(event: Event) {
     this.isCollapsed = window.innerWidth < 768;
   }
 }

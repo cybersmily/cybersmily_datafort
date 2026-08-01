@@ -1,3 +1,5 @@
 <div class="row  row-cols-auto">
-  <cs-npc-card  class="col" [npcCard]="npc" *ngFor="let npc of npcList"></cs-npc-card>
+  @for (npc of npcList; track npc) {
+    <cs-npc-card  class="col" [npcCard]="npc"></cs-npc-card>
+  }
 </div>

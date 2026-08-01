@@ -14,21 +14,24 @@
           href="http://rpg.drivethrustuff.com/product/589/Night-City"
           target="_blank"
           >Night City Sourcebook</a
-        >
-        choomba! It's a steal compared to what I paid for my copy back in the
-        day...
+          >
+          choomba! It's a steal compared to what I paid for my copy back in the
+          day...
+        </div>
       </div>
     </div>
+    @if (imageList$ | async; as images) {
+      <div class="row ms-1 me-1">
+        @for (image of images; track image) {
+          <div
+            class="col-6 col-md-4 col-lg-3 col-xl-2 csd-rounded text-center"
+            >
+            <h6>{{ image.title }}</h6>
+            <a href="{{ image.src }}" target="self" download
+              ><img src="{{ image.thumbnail }}" alt="{{ image.title }}" class="w-100"
+            /></a>
+          </div>
+        }
+      </div>
+    }
   </div>
-  <div *ngIf="imageList$ | async as images" class="row ms-1 me-1">
-    <div
-      *ngFor="let image of images"
-      class="col-6 col-md-4 col-lg-3 col-xl-2 csd-rounded text-center"
-    >
-      <h6>{{ image.title }}</h6>
-      <a href="{{ image.src }}" target="self" download
-        ><img src="{{ image.thumbnail }}" alt="{{ image.title }}" class="w-100"
-      /></a>
-    </div>
-  </div>
-</div>

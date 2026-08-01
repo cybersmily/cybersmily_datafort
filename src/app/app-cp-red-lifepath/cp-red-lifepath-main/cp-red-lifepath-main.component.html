@@ -16,115 +16,133 @@
         <option value="corebook">Core Rulebook</option>
         <option value="jumpstart">Jumpstart Kit</option>
       </select>
-      <ng-container *ngIf="selectedSystem == 'corebook'">
+      @if (selectedSystem == 'corebook') {
         <span class="ms-2">Role: </span>
         <select [(ngModel)]="selectedRole" (change)="changeRole()">
-          <option *ngFor="let role of roles" [value]="role">{{role}}</option>
+          @for (role of roles; track role) {
+            <option [value]="role">{{role}}</option>
+          }
         </select>
-      </ng-container>
+      }
       <div class="float-end">
         <fa-icon class="me-1 csd-btn csd-icon-btn csd-icon-xl" [icon]="faDice" title="Generate Lifepath"
-          (click)="generate()"></fa-icon>
+        (click)="generate()"></fa-icon>
         <fa-icon class="csd-btn csd-icon-btn csd-icon-xl me-1" [icon]="faCog" title="Change settings"
-          (click)="showModal(lifepathSettings)"></fa-icon>
+        (click)="showModal(lifepathSettings)"></fa-icon>
         <fa-icon class="csd-btn csd-icon-btn csd-icon-xl me-1" [icon]="faSave" title="Save to file"
-          (click)="saveFile()"></fa-icon>
+        (click)="saveFile()"></fa-icon>
         <fa-icon class="csd-btn csd-icon-btn csd-icon-xl me-1" [icon]="faFilePdf" title="Save as PDF"
-          (click)="saveAsPDF()"></fa-icon>
+        (click)="saveAsPDF()"></fa-icon>
       </div>
     </div>
   </div>
-  <div class="row" *ngIf="parameters.length > 0">
-    <div class="col">
-      <span *ngFor="let p of parameters">
-        {{p.display}}
-        <input class="ms-1 me-2" type="checkbox" [(ngModel)]="roleParam[p.name]" *ngIf="!p.options">
-        <select class="ms-1 me-2" *ngIf="p.options" [(ngModel)]="roleParam[p.name]">
-          <option *ngFor="let opt of p.options" [value]="opt">{{opt}}</option>
-        </select>
-      </span>
+  @if (parameters.length > 0) {
+    <div class="row">
+      <div class="col">
+        @for (p of parameters; track p) {
+          <span>
+            {{p.display}}
+            @if (!p.options) {
+              <input class="ms-1 me-2" type="checkbox" [(ngModel)]="roleParam[p.name]">
+            }
+            @if (p.options) {
+              <select class="ms-1 me-2" [(ngModel)]="roleParam[p.name]">
+                @for (opt of p.options; track opt) {
+                  <option [value]="opt">{{opt}}</option>
+                }
+              </select>
+            }
+          </span>
+        }
+      </div>
     </div>
-  </div>
-  <cs-cp-red-lifepath-core *ngIf="coreLifePath && selectedSystem == 'corebook'" [coreLifePath]="coreLifePath">
-  </cs-cp-red-lifepath-core>
-  <cs-cp-red-lifepath-jumpstart *ngIf="jumpstartLifepath && selectedSystem == 'jumpstart'"
+  }
+  @if (coreLifePath && selectedSystem == 'corebook') {
+    <cs-cp-red-lifepath-core [coreLifePath]="coreLifePath">
+    </cs-cp-red-lifepath-core>
+  }
+  @if (jumpstartLifepath && selectedSystem == 'jumpstart') {
+    <cs-cp-red-lifepath-jumpstart
     [lifepath]="jumpstartLifepath"></cs-cp-red-lifepath-jumpstart>
+  }
   <br>
-  <br>
-</div>
-<ng-template #lifepathSettings>
-  <div class="modal-content">
-    <div class="modal-header">
-      <h4 class="modal-title float-start">Lifepath Random Settings</h4>
-      <fa-icon [icon]="faRedo" class="ms-2 csd-btn csd-icon-btn csd-icon-xl" (click)="resetSettings()"></fa-icon>
-      <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
-
-      </button>
+    <br>
     </div>
-    <div class="modal-body">
+    <ng-template #lifepathSettings>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title float-start">Lifepath Random Settings</h4>
+          <fa-icon [icon]="faRedo" class="ms-2 csd-btn csd-icon-btn csd-icon-xl" (click)="resetSettings()"></fa-icon>
+          <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
 
-      <div class="row">
-        <div class="col">
-          Default System: <select [(ngModel)]="lifepathService.settings.defaultSystem" (change)="changeSettings()">
-            <option value="corebook">Core Rulebook</option>
-            <option value="jumpstart">Jumpstart Kit</option>
-          </select>
+          </button>
         </div>
-      </div>
+        <div class="modal-body">
 
-      <div class="row">
-        <div class="col">
-          Number of Friends:
-          <select class="float-end" [(ngModel)]="lifepathService.settings.friendsDice" (change)="changeSettings()">
-            <option value="1d10-7">1d10 - 7</option>
-            <option value="1d10-6">1d10 - 6</option>
-            <option value="1d6-3">1d6 - 3</option>
-            <option value="1d6-2">1d6 - 2</option>
-            <option value="1d4-1">1d4 - 1</option>
-            <option value="1d4">1d4</option>
-            <option value="1d3">1d3</option>
-            <option value="1d3+1">1d3 + 1</option>
-          </select>
+          <div class="row">
+            <div class="col">
+              Default System: <select [(ngModel)]="lifepathService.settings.defaultSystem" (change)="changeSettings()">
+              <option value="corebook">Core Rulebook</option>
+              <option value="jumpstart">Jumpstart Kit</option>
+            </select>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          Number of Enemies:
-          <select class="float-end" [(ngModel)]="lifepathService.settings.enemyDice" (change)="changeSettings()">
-            <option value="1d10-7">1d10 - 7</option>
-            <option value="1d10-6">1d10 - 6</option>
-            <option value="1d6-3">1d6 - 3</option>
-            <option value="1d6-2">1d6 - 2</option>
-            <option value="1d4-1">1d4 - 1</option>
-            <option value="1d4">1d4</option>
-            <option value="1d3">1d3</option>
-            <option value="1d3+1">1d3 + 1</option>
-          </select>
+
+        <div class="row">
+          <div class="col">
+            Number of Friends:
+            <select class="float-end" [(ngModel)]="lifepathService.settings.friendsDice" (change)="changeSettings()">
+              <option value="1d10-7">1d10 - 7</option>
+              <option value="1d10-6">1d10 - 6</option>
+              <option value="1d6-3">1d6 - 3</option>
+              <option value="1d6-2">1d6 - 2</option>
+              <option value="1d4-1">1d4 - 1</option>
+              <option value="1d4">1d4</option>
+              <option value="1d3">1d3</option>
+              <option value="1d3+1">1d3 + 1</option>
+            </select>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          Number of Romances:
-          <select class="float-end" [(ngModel)]="lifepathService.settings.loversDice" (change)="changeSettings()">
-            <option value="1d10-7">1d10 - 7</option>
-            <option value="1d10-6">1d10 - 6</option>
-            <option value="1d6-3">1d6 - 3</option>
-            <option value="1d6-2">1d6 - 2</option>
-            <option value="1d4-1">1d4 - 1</option>
-            <option value="1d4">1d4</option>
-            <option value="1d3">1d3</option>
-            <option value="1d3+1">1d3 + 1</option>
-          </select>
+        <div class="row">
+          <div class="col">
+            Number of Enemies:
+            <select class="float-end" [(ngModel)]="lifepathService.settings.enemyDice" (change)="changeSettings()">
+              <option value="1d10-7">1d10 - 7</option>
+              <option value="1d10-6">1d10 - 6</option>
+              <option value="1d6-3">1d6 - 3</option>
+              <option value="1d6-2">1d6 - 2</option>
+              <option value="1d4-1">1d4 - 1</option>
+              <option value="1d4">1d4</option>
+              <option value="1d3">1d3</option>
+              <option value="1d3+1">1d3 + 1</option>
+            </select>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          Default Role:
-          <select [(ngModel)]="lifepathService.settings.defaultRole" (change)="changeSettings()">
-            <option *ngFor="let role of roles" [value]="role">{{role}}</option>
-          </select>
+        <div class="row">
+          <div class="col">
+            Number of Romances:
+            <select class="float-end" [(ngModel)]="lifepathService.settings.loversDice" (change)="changeSettings()">
+              <option value="1d10-7">1d10 - 7</option>
+              <option value="1d10-6">1d10 - 6</option>
+              <option value="1d6-3">1d6 - 3</option>
+              <option value="1d6-2">1d6 - 2</option>
+              <option value="1d4-1">1d4 - 1</option>
+              <option value="1d4">1d4</option>
+              <option value="1d3">1d3</option>
+              <option value="1d3+1">1d3 + 1</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            Default Role:
+            <select [(ngModel)]="lifepathService.settings.defaultRole" (change)="changeSettings()">
+              @for (role of roles; track role) {
+                <option [value]="role">{{role}}</option>
+              }
+            </select>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</ng-template>
+  </ng-template>

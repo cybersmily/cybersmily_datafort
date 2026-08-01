@@ -1,232 +1,243 @@
-<div *ngIf="currACPA$ | async as currACPA">
-  <div class="row">
-    <div class="col chargen-label">
-      <h4 class="d-inline-block">POWERED ARMOR SPECIFICATIONS</h4>
-      <button
-        class="csd-btn csd-icon-btn csd-icon-lg ms-3"
-        title="Load a stock design from the sourcebooks."
-        (click)="showModal(acpaPicker)"
-      >
-        <fa-icon [icon]="faSearch"></fa-icon>
-      </button>
-      <fa-icon
-        [icon]="faRedo"
-        class="csd-btn csd-icon-btn csd-icon-lg ms-3"
-        title="Reset the form"
-        (click)="reset()"
-      >
-      </fa-icon>
+@if (currACPA$ | async; as currACPA) {
+  <div>
+    <div class="row">
+      <div class="col chargen-label">
+        <h4 class="d-inline-block">POWERED ARMOR SPECIFICATIONS</h4>
+        <button
+          class="csd-btn csd-icon-btn csd-icon-lg ms-3"
+          title="Load a stock design from the sourcebooks."
+          (click)="showModal(acpaPicker)"
+          >
+          <fa-icon [icon]="faSearch"></fa-icon>
+        </button>
+        <fa-icon
+          [icon]="faRedo"
+          class="csd-btn csd-icon-btn csd-icon-lg ms-3"
+          title="Reset the form"
+          (click)="reset()"
+          >
+        </fa-icon>
+      </div>
     </div>
-  </div>
-  <div class="row border border-dark">
-    <div class="col pt-2 pb-4">
-      <div class="row">
-        <div class="col-12 col-lg-6">
-          SUIT NAME:
-          <input
-            [(ngModel)]="selectedName"
-            type="text"
-            class="w-75"
-            (change)="updateName()"
-          />
-        </div>
-        <div class="col-12 col-lg-6">
-          MANUFACTURER:
-          <input
-            [(ngModel)]="selectedManufacturer"
-            type="text"
-            class="w-50"
-            (change)="updateManufacturer()"
-          />
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          TOTAL WEIGHT:
-          {{ currACPA.totalWeight * currACPA.weightModifier | number }}kg
-        </div>
-        <div class="col">
-          TOTAL COST:
-          {{ currACPA.totalCost * currACPA.costModifier | number }}eb
-        </div>
-      </div>
-      <div class="row">
-        <div
+    <div class="row border border-dark">
+      <div class="col pt-2 pb-4">
+        <div class="row">
+          <div class="col-12 col-lg-6">
+            SUIT NAME:
+            <input
+              [(ngModel)]="selectedName"
+              type="text"
+              class="w-75"
+              (change)="updateName()"
+              />
+            </div>
+            <div class="col-12 col-lg-6">
+              MANUFACTURER:
+              <input
+                [(ngModel)]="selectedManufacturer"
+                type="text"
+                class="w-50"
+                (change)="updateManufacturer()"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                TOTAL WEIGHT:
+                {{ currACPA.totalWeight * currACPA.weightModifier | number }}kg
+              </div>
+              <div class="col">
+                TOTAL COST:
+                {{ currACPA.totalCost * currACPA.costModifier | number }}eb
+              </div>
+            </div>
+            <div class="row">
+              <div
           [ngClass]="{
             col: true,
             'bg-warning pt-1 pb-1 rounded fw-bold': currACPA.chassis.str &lt; 10
           }"
-          class="col"
-        >
-          CHASSIS TYPE:
-          <select
-            class="csd-acpa-chassis-select"
-            [(ngModel)]="selectedChassis"
-            (change)="updateChassis()"
-          >
-            <option
-              class="w-100"
-              *ngFor="let chassis of attributeData.chassis"
-              [ngValue]="chassis"
-            >
-              STR {{ chassis.str }} - {{ chassis.name }}
-            </option>
-          </select>
-          <span
-            *ngIf="currACPA.chassis.str &lt; 10"
-            class="text-danger pe-1 ps-1 pt-1 pb-1"
-            >* Choose a chassis...</span
-          >
-        </div>
-        <div class="col">
-          CHASSIS WEIGHT: {{ currACPA?.chassis?.weight | number }}kg
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          ARMOR:
-          <select
-            [(ngModel)]="selectedArmor"
-            (change)="updateArmor()"
-            [disabled]="currACPA.chassis.str &lt; 10"
-          >
-            <option *ngFor="let armor of filteredArmor" [ngValue]="armor">
-              SP {{ armor.sp }}
-            </option>
-          </select>
-        </div>
-        <div class="col-12 col-md-6">
-          CHASSIS CAP./CARRY: {{ currACPA?.chassis?.lift | number }}kg/{{
-            currACPA?.chassis?.carry | number
-          }}kg
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12 col-md-6">
-          SIB/DFB: {{ currACPA.sib > 0 ? "+" : "" }}{{ currACPA.sib }}/{{
-            currACPA.dfb > 0 ? "+" : ""
-          }}{{ currACPA.dfb }}
-        </div>
-        <div class="col-4 col-md-2 pe-0">PUNCH: {{ currACPA.punch }}</div>
-        <div class="col-4 col-md-2 pe-0 ps-0 text-center">
-          KICK: {{ currACPA.kick }}
-        </div>
-        <div class="col-4 col-md-2 pe-0 ps-0 text-center">
-          CRUSH: {{ currACPA.crush }}
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <span *ngIf="!currACPA.isWad; else acpaMA">
-            TROOPER SIZE:
-            <input
-              type="number"
-              min="0"
-              class="csd-number"
-              [(ngModel)]="selectedTroopSize"
-              (change)="updateTroopSize()"
-              [disabled]="currACPA.chassis.str &lt; 10"
-            />
-            kg</span
-          >
-          <ng-template #acpaMA>
-            MA:
-            <input
-              type="number"
-              min="0"
-              max="10"
-              class="csd-number"
-              [(ngModel)]="currACPA.ma"
-              (change)="updateMA(currACPA.ma)"
-              [disabled]="currACPA.chassis.str &lt; 10"
-            />
-          </ng-template>
-          <input
-            type="checkbox"
-            class="ms-2"
-            [ngModel]="currACPA.isWad"
-            (change)="toggleWad()"
-            [disabled]="currACPA.chassis.str &lt; 10"
-          />
-          is WAD?
-        </div>
-        <div class="col">
-          TOUGHNESS MODIFIER: {{ currACPA?.chassis?.toughness }}
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12 col-md-6">
-          REALITY INTERFACE:
-          <select
-            [(ngModel)]="selectedInterface"
-            (change)="updateInterface()"
-            [disabled]="currACPA.chassis.str &lt; 10"
-          >
-            <option
-              *ngFor="let interface of attributeData.realityInterfaces"
-              [ngValue]="interface"
-            >
-              {{ interface.name }}
-            </option>
-          </select>
-        </div>
-        <div class="col-12 col-md-6">
-          REFLEX/CONTROL SYSTEM:
-          <select
-            [(ngModel)]="selectedControl"
-            (change)="updateControl()"
-            [disabled]="currACPA.chassis.str &lt; 10"
-          >
-            <option
-              *ngFor="let control of attributeData.controlSystems"
-              [ngValue]="control"
-            >
-              {{ control.name }}
-            </option>
-          </select>
-        </div>
-      </div>
-    </div>
-  </div>
-  <cs-cp2020-acpa-location-editor
-    [attributeData]="attributeData"
-    [isDisabled]="currACPA.chassis.str &lt; 10"
-  ></cs-cp2020-acpa-location-editor>
-  <cs-cp2020-acpa-carried-editor
-    [isDisabled]="currACPA.chassis.str &lt; 10"
-  ></cs-cp2020-acpa-carried-editor>
-  <div class="row chargen-label">
-    <div class="col text-center fw-bold">N O T E S</div>
-  </div>
-  <div class="row border border-dark">
-    <div class="col">
-      <textarea
-        [(ngModel)]="selectedNote"
-        class="w-100"
-        rows="10"
-        (change)="updateNote()"
-        (keyup)="updateNote()"
-      ></textarea>
-    </div>
-  </div>
-</div>
+                class="col"
+                >
+                CHASSIS TYPE:
+                <select
+                  class="csd-acpa-chassis-select"
+                  [(ngModel)]="selectedChassis"
+                  (change)="updateChassis()"
+                  >
+                  @for (chassis of attributeData.chassis; track chassis) {
+                    <option
+                      class="w-100"
+                      [ngValue]="chassis"
+                      >
+                      STR {{ chassis.str }} - {{ chassis.name }}
+                    </option>
+                  }
+                </select>
+                @if (currACPA.chassis.str < 10) {
+                  <span
+                    class="text-danger pe-1 ps-1 pt-1 pb-1"
+                    >* Choose a chassis...</span
+                    >
+                }
+              </div>
+              <div class="col">
+                CHASSIS WEIGHT: {{ currACPA?.chassis?.weight | number }}kg
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                ARMOR:
+                <select
+                  [(ngModel)]="selectedArmor"
+                  (change)="updateArmor()"
+                  [disabled]="currACPA.chassis.str &lt; 10"
+                  >
+                  @for (armor of filteredArmor; track armor) {
+                    <option [ngValue]="armor">
+                      SP {{ armor.sp }}
+                    </option>
+                  }
+                </select>
+              </div>
+              <div class="col-12 col-md-6">
+                CHASSIS CAP./CARRY: {{ currACPA?.chassis?.lift | number }}kg/{{
+                currACPA?.chassis?.carry | number
+                }}kg
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-6">
+                SIB/DFB: {{ currACPA.sib > 0 ? "+" : "" }}{{ currACPA.sib }}/{{
+                currACPA.dfb > 0 ? "+" : ""
+                }}{{ currACPA.dfb }}
+              </div>
+              <div class="col-4 col-md-2 pe-0">PUNCH: {{ currACPA.punch }}</div>
+              <div class="col-4 col-md-2 pe-0 ps-0 text-center">
+                KICK: {{ currACPA.kick }}
+              </div>
+              <div class="col-4 col-md-2 pe-0 ps-0 text-center">
+                CRUSH: {{ currACPA.crush }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                @if (!currACPA.isWad) {
+                  <span>
+                    TROOPER SIZE:
+                    <input
+                      type="number"
+                      min="0"
+                      class="csd-number"
+                      [(ngModel)]="selectedTroopSize"
+                      (change)="updateTroopSize()"
+                      [disabled]="currACPA.chassis.str &lt; 10"
+                      />
+                      kg</span
+                      >
+                  } @else {
+                    MA:
+                    <input
+                      type="number"
+                      min="0"
+                      max="10"
+                      class="csd-number"
+                      [(ngModel)]="currACPA.ma"
+                      (change)="updateMA(currACPA.ma)"
+                      [disabled]="currACPA.chassis.str &lt; 10"
+                      />
+                    }
+                    <input
+                      type="checkbox"
+                      class="ms-2"
+                      [ngModel]="currACPA.isWad"
+                      (change)="toggleWad()"
+                      [disabled]="currACPA.chassis.str &lt; 10"
+                      />
+                      is WAD?
+                    </div>
+                    <div class="col">
+                      TOUGHNESS MODIFIER: {{ currACPA?.chassis?.toughness }}
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-md-6">
+                      REALITY INTERFACE:
+                      <select
+                        [(ngModel)]="selectedInterface"
+                        (change)="updateInterface()"
+                        [disabled]="currACPA.chassis.str &lt; 10"
+                        >
+                        @for (interface of attributeData.realityInterfaces; track interface) {
+                          <option
+                            [ngValue]="interface"
+                            >
+                            {{ interface.name }}
+                          </option>
+                        }
+                      </select>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      REFLEX/CONTROL SYSTEM:
+                      <select
+                        [(ngModel)]="selectedControl"
+                        (change)="updateControl()"
+                        [disabled]="currACPA.chassis.str &lt; 10"
+                        >
+                        @for (control of attributeData.controlSystems; track control) {
+                          <option
+                            [ngValue]="control"
+                            >
+                            {{ control.name }}
+                          </option>
+                        }
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <cs-cp2020-acpa-location-editor
+                [attributeData]="attributeData"
+                [isDisabled]="currACPA.chassis.str &lt; 10"
+              ></cs-cp2020-acpa-location-editor>
+              <cs-cp2020-acpa-carried-editor
+                [isDisabled]="currACPA.chassis.str &lt; 10"
+              ></cs-cp2020-acpa-carried-editor>
+              <div class="row chargen-label">
+                <div class="col text-center fw-bold">N O T E S</div>
+              </div>
+              <div class="row border border-dark">
+                <div class="col">
+                  <textarea
+                    [(ngModel)]="selectedNote"
+                    class="w-100"
+                    rows="10"
+                    (change)="updateNote()"
+                    (keyup)="updateNote()"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+          }
 
-<ng-template #acpaPicker>
-  <div class="modal-body">
-    <div class="row">
-      <div class="col">
-        <button
-          type="button"
-          class="btn-close float-end"
-          aria-label="Close"
-          (click)="modalRef.hide()"
-        ></button>
-      </div>
-    </div>
-    <div *ngFor="let acpaDesign of attributeData.stockDesigns" class="row">
-      <div class="col csd-btn" (click)="loadJSONFile(acpaDesign.file)">
-        {{ acpaDesign.name }}
-      </div>
-    </div>
-  </div>
-</ng-template>
+          <ng-template #acpaPicker>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col">
+                  <button
+                    type="button"
+                    class="btn-close float-end"
+                    aria-label="Close"
+                    (click)="modalRef.hide()"
+                  ></button>
+                </div>
+              </div>
+              @for (acpaDesign of attributeData.stockDesigns; track acpaDesign) {
+                <div class="row">
+                  <div class="col csd-btn" (click)="loadJSONFile(acpaDesign.file)">
+                    {{ acpaDesign.name }}
+                  </div>
+                </div>
+              }
+            </div>
+          </ng-template>

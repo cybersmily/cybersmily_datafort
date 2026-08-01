@@ -7,7 +7,7 @@
         These charts are taken from R Talsorian's downloadable
         <a href="https://rtalsoriangames.com/wp-content/uploads/2022/02/RTG-CPR-DLC-DigitalDating.pdf"
           alt="RTG-CPR-DLC-DigitalDating.pdf">
-          Digital Dating in the Dark Future</a>.
+        Digital Dating in the Dark Future</a>.
       </p>
     </div>
   </div>
@@ -20,42 +20,47 @@
       - Roll for a date!
     </div>
   </div>
-  <div *ngIf="redDate$ | async as redDate" class="csd-rounded mt-2 p-2">
-    <div class="row">
-      <div class="col-12">
-        <h6 class="d-inline-block">Date Keywords:</h6> {{redDate.keywords.join(', ')}}
+  @if (redDate$ | async; as redDate) {
+    <div class="csd-rounded mt-2 p-2">
+      <div class="row">
+        <div class="col-12">
+          <h6 class="d-inline-block">Date Keywords:</h6> {{redDate.keywords.join(', ')}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <h6 class="d-inline-block">Location:</h6> {{redDate.location}}
+        </div>
+        <div class="col-12 col-md-6">
+          <h6 class="d-inline-block">Activity:</h6> {{redDate.activity}}
+        </div>
+      </div>
+      @if (!isGhosted(redDate.outcome)) {
+        <div class="row mt-2 mb-1">
+          <div class="col-12">
+            Overall the date was {{redDate.type}}.
+          </div>
+        </div>
+      }
+      @if (!isGhosted(redDate.outcome)) {
+        <div class="row">
+          <div class="col-12 col-md-4">
+            Starts off: {{redDate.beginning}}
+          </div>
+          <div class="col-12 col-md-4">
+            Then: {{redDate.middle}}
+          </div>
+          <div class="col-12 col-md-4">
+            At the end: {{redDate.end}}
+          </div>
+        </div>
+      }
+      <div class="row mt-2">
+        <div class="col-12">
+          <h6 class="d-inline-block">{{redDate.outcome}}</h6>
+        </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-12 col-md-6">
-        <h6 class="d-inline-block">Location:</h6> {{redDate.location}}
-      </div>
-      <div class="col-12 col-md-6">
-        <h6 class="d-inline-block">Activity:</h6> {{redDate.activity}}
-      </div>
-    </div>
-
-    <div *ngIf="!isGhosted(redDate.outcome)" class="row mt-2 mb-1">
-      <div class="col-12">
-        Overall the date was {{redDate.type}}.
-      </div>
-    </div>
-    <div *ngIf="!isGhosted(redDate.outcome)" class="row">
-      <div class="col-12 col-md-4">
-        Starts off: {{redDate.beginning}}
-      </div>
-      <div class="col-12 col-md-4">
-        Then: {{redDate.middle}}
-      </div>
-      <div class="col-12 col-md-4">
-        At the end: {{redDate.end}}
-      </div>
-    </div>
-    <div class="row mt-2">
-      <div class="col-12">
-        <h6 class="d-inline-block">{{redDate.outcome}}</h6>
-      </div>
-    </div>
-  </div>
+  }
 
 </div>

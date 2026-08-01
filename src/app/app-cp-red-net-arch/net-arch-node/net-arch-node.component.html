@@ -1,61 +1,73 @@
-<div *ngIf="node" class="row ms-1">
-  <div class="col">
-    <div class="row net-node-info">
-      <div class="col">
-        <div class="row">
-          <div class="col-8">
-            <span class="me-2 fw-bold">{{node.id}}:</span>
-            <div class="node-icon me-2" [style.background-color]="bgColor" [style.color]="color">
-              <fa-icon [icon]="getIcon(node.type)" class="me-1"></fa-icon>
+@if (node) {
+  <div class="row ms-1">
+    <div class="col">
+      <div class="row net-node-info">
+        <div class="col">
+          <div class="row">
+            <div class="col-8">
+              <span class="me-2 fw-bold">{{node.id}}:</span>
+              <div class="node-icon me-2" [style.background-color]="bgColor" [style.color]="color">
+                <fa-icon [icon]="getIcon(node.type)" class="me-1"></fa-icon>
+              </div>
+              <h5 class="text-capitalize" style="display:inline-block">{{node.name}}</h5>
+              @if (node.type !== 'program') {
+                <span>&nbsp;(DV{{node.dv}})</span>
+              }
+              <fa-icon [icon]="faPen" style="width: 15px; height: 15px;" class="csd-icon-btn ms-2 hidden-print csd-btn"
+              (click)="showModal(nodeSettings)"></fa-icon>
             </div>
-            <h5 class="text-capitalize" style="display:inline-block">{{node.name}}</h5>
-            <span *ngIf="node.type !== 'program'">&nbsp;(DV{{node.dv}})</span>
-            <fa-icon [icon]="faPen" style="width: 15px; height: 15px;" class="csd-icon-btn ms-2 hidden-print csd-btn"
-            (click)="showModal(nodeSettings)"></fa-icon>
+            <div class="col-3">
+              {{node.cost|number}}eb
+            </div>
+            <div class="col-1">
+            </div>
           </div>
-          <div class="col-3">
-            {{node.cost|number}}eb
+          <div class="row">
+            <div class="col-1"></div>
+            <div class="col">Description: <i>{{node.desc}}</i></div>
           </div>
-          <div class="col-1">
+          @if (node.programs) {
+            <div class="row">
+              <div class="col-1"></div>
+              <div class="col">Programs</div>
+            </div>
+          }
+          @for (prog of node.programs; track prog) {
+            <div class="row">
+              <div class="col-2"></div>
+              <div class="col-6">
+                {{prog.name}} (<i>icon: {{prog.icon}}</i>)
+              </div>
+              <div class="col-4 font-italic">
+                ({{prog.cost}}eb @if (node.programs.length > 1) {
+                <span>x{{node.programs.length}}</span>
+                })
+                <span class="float-end">{{prog.source}}</span>
+              </div>
+            </div>
+          }
+          <br>
+            <br>
+            </div>
           </div>
+          @if (isEdit) {
+            <div class="row csd-rounded">
+            </div>
+          }
         </div>
-        <div class="row">
-          <div class="col-1"></div>
-          <div class="col">Description: <i>{{node.desc}}</i></div>
-        </div>
-        <div *ngIf="node.programs" class="row">
-          <div class="col-1"></div>
-          <div class="col">Programs</div>
-        </div>
-        <div class="row" *ngFor="let prog of node.programs">
-          <div class="col-2"></div>
-          <div class="col-6">
-            {{prog.name}} (<i>icon: {{prog.icon}}</i>)
-          </div>
-          <div class="col-4 font-italic">
-            ({{prog.cost}}eb <span *ngIf="node.programs.length > 1">x{{node.programs.length}}</span>)
-            <span class="float-end">{{prog.source}}</span>
-          </div>
-        </div>
-        <br>
-        <br>
       </div>
-    </div>
-    <div class="row csd-rounded" *ngIf="isEdit">
-      </div>
-    </div>
-</div>
-<ng-template #nodeSettings>
-  <div class="modal-header">
-    <h4> FLOOR {{node.level}}.{{node.id}} SETTINGS</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
+    }
+    <ng-template #nodeSettings>
+      <div class="modal-header">
+        <h4> FLOOR {{node.level}}.{{node.id}} SETTINGS</h4>
+        <button type="button" class="btn-close float-end" aria-label="Close" (click)="modalRef.hide()">
 
-    </button>
-  </div>
-  <div class="modal-body">
-    <cs-net-arch-new-node [node]="node" [iconSettings]="iconSettings" [defaultDV]="defaultDV" (updateNode)="saveNode($event)" ></cs-net-arch-new-node>
-  </div>
-</ng-template>
-<ng-template #colorPicker>
-  <color-chrome [color]="selectedColor" (onChange)="changeColor($event)"></color-chrome>
-</ng-template>
+        </button>
+      </div>
+      <div class="modal-body">
+        <cs-net-arch-new-node [node]="node" [iconSettings]="iconSettings" [defaultDV]="defaultDV" (updateNode)="saveNode($event)" ></cs-net-arch-new-node>
+      </div>
+    </ng-template>
+    <ng-template #colorPicker>
+      <color-chrome [color]="selectedColor" (onChange)="changeColor($event)"></color-chrome>
+    </ng-template>

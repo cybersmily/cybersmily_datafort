@@ -20,17 +20,19 @@
     <h4>Customer 2</h4>
   </div>
 </div>
-<div class="row mb-4" *ngIf="bodegas$ | async as bodegas">
-  <div class="col-3 d-md-none text-small">Owner</div>
-  <div class="col-9 col-md-4">
-    {{ bodegas.owner }}
+@if (bodegas$ | async; as bodegas) {
+  <div class="row mb-4">
+    <div class="col-3 d-md-none text-small">Owner</div>
+    <div class="col-9 col-md-4">
+      {{ bodegas.owner }}
+    </div>
+    <div class="col-3 d-md-none text-small">Customer 1</div>
+    <div class="col-9 col-md-4">
+      {{ bodegas.customer1 }}
+    </div>
+    <div class="col-3 d-md-none text-small">Customer 2</div>
+    <div class="col-9 col-md-4">
+      {{ bodegas.customer2 }}
+    </div>
   </div>
-  <div class="col-3 d-md-none text-small">Customer 1</div>
-  <div class="col-9 col-md-4">
-    {{ bodegas.customer1 }}
-  </div>
-  <div class="col-3 d-md-none text-small">Customer 2</div>
-  <div class="col-9 col-md-4">
-    {{ bodegas.customer2 }}
-  </div>
-</div>
+}

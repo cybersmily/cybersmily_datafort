@@ -11,17 +11,19 @@
     <div class="col-12">
 
       <div class='row pb-2'>
-        <div *ngFor="let g of gear; let i = index" class='col-4 opp-gear'>
-          {{g}}
-          <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn csd-icon-sm" (click)="delete(i)"></fa-icon>
-        </div>
+        @for (g of gear; track g; let i = $index) {
+          <div class='col-4 opp-gear'>
+            {{g}}
+            <fa-icon [icon]="faTrash" class="csd-btn csd-icon-btn csd-icon-sm" (click)="delete(i)"></fa-icon>
+          </div>
+        }
       </div>
       <div class="row pb-2">
         <div class="col-1 text-end g-0">
           <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-lg me-1" (click)="add()" title="Add new gear item."></fa-icon>
         </div>
         <div class="col-11 opp-skill-new text-start ms-0 ps-0 pe-2">
-            <input type="text" [(ngModel)]="addedGear" class="w-100 me-3" placeholder="Enter gear..." />
+          <input type="text" [(ngModel)]="addedGear" class="w-100 me-3" placeholder="Enter gear..." />
         </div>
       </div>
     </div>

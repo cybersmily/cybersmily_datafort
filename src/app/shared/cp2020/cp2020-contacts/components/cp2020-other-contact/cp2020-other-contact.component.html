@@ -6,65 +6,69 @@
           'w-80 text-truncate d-inline-block text-start' : true,
           'cursor-pointer': currContact.notes
         }" title="Expand to show notes">
-        {{ currContact.name }}
-        @if(currContact.description && isCollapse) { - {{ currContact.description }}}
-        @if(currContact.notes) {
-        <fa-icon class="csd-icon-btn m-0 p-0"
-          [icon]="isCollapse ? faChevronRight : faChevronDown"></fa-icon>
-        }
-      </button>
-      } @else {
-      <p-floatlabel class="w-80 d-inline-block mt-2" variant="on">
-        <input pInputText tabindex="0" type="text" class="w-100 ms-1" pSize="small" title="Enter the name of the contact."
-          [(ngModel)]="currContact.name" />
-        <label for="on_label">Name</label>
-      </p-floatlabel>
-      }
-      <button tabindex="0" title="Delete contact" class="csd-btn csd-icon-btn hidden-print float-end" (click)="deleteContact()">
-        <fa-icon [icon]="faTrash"></fa-icon>
-      </button>
-      @if(!isEditMode) {
-      <button tabindex="0" class="csd-btn csd-icon-btn hidden-print me-2 float-end" title="Edit contact"
-        (click)="isEditMode = true; isCollapse = false">
-        <fa-icon [icon]="faPen"></fa-icon>
-      </button>
-      } @else {
-      <button tabindex="0" class="float-end" title="Save changes to contact" (click)="saveContact()"
-        class="csd-btn csd-icon-btn csd-icon-sm hidden-print float-end me-2">
-        <fa-icon [icon]="faSave" size="xl"></fa-icon>
-      </button>
-      }
-    </div>
-  </div>
-  <div class="row" [collapse]="isCollapse">
-    <div class="col-10">
-      @if(!isEditMode) {
-      <span >
-        Description: {{ currContact.description }}
-      </span>
-    } @else {
-      <p-floatlabel class="w-100 mt-2" variant="on">
-        <input pInputText type="text" tabindex="0" class="w-100 ms-1" pSize="small"
-          title="Enter the name of the contact description." [(ngModel)]="currContact.description" />
-        <label for="on_label">Description</label>
-      </p-floatlabel>
-    }
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-10" [collapse]="isCollapse">
+          {{ currContact.name }}
+          @if(currContact.description && isCollapse) { - {{ currContact.description }}}
+            @if(currContact.notes) {
+              <fa-icon class="csd-icon-btn m-0 p-0"
+              [icon]="isCollapse ? faChevronRight : faChevronDown"></fa-icon>
+            }
+          </button>
+        } @else {
+          <p-floatlabel class="w-80 d-inline-block mt-2" variant="on">
+            <input pInputText tabindex="0" type="text" class="w-100 ms-1" pSize="small" title="Enter the name of the contact."
+              [(ngModel)]="currContact.name" />
+              <label for="on_label">Name</label>
+            </p-floatlabel>
+          }
+          <button tabindex="0" title="Delete contact" class="csd-btn csd-icon-btn hidden-print float-end" (click)="deleteContact()">
+            <fa-icon [icon]="faTrash"></fa-icon>
+          </button>
+          @if(!isEditMode) {
+            <button tabindex="0" class="csd-btn csd-icon-btn hidden-print me-2 float-end" title="Edit contact"
+              (click)="isEditMode = true; isCollapse = false">
+              <fa-icon [icon]="faPen"></fa-icon>
+            </button>
+          } @else {
+            <button tabindex="0" class="float-end" title="Save changes to contact" (click)="saveContact()"
+              class="csd-btn csd-icon-btn csd-icon-sm hidden-print float-end me-2">
+              <fa-icon [icon]="faSave" size="xl"></fa-icon>
+            </button>
+          }
+        </div>
+      </div>
+      <div class="row" [collapse]="isCollapse">
+        <div class="col-10">
+          @if(!isEditMode) {
+            <span >
+              Description: {{ currContact.description }}
+            </span>
+          } @else {
+            <p-floatlabel class="w-100 mt-2" variant="on">
+              <input pInputText type="text" tabindex="0" class="w-100 ms-1" pSize="small"
+                title="Enter the name of the contact description." [(ngModel)]="currContact.description" />
+                <label for="on_label">Description</label>
+              </p-floatlabel>
+            }
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-10" [collapse]="isCollapse">
 
-      @if(!isEditMode) {
-      <span *ngIf="!isEditMode; else elseEditNotes">
-        Notes: {{ currContact.notes }}
-      </span>
-    } @else {
-      <p-floatlabel class="w-100 mt-2" variant="on">
-        <textarea tabindex="0" pTextarea class="w-100" [(ngModel)]="currContact.notes" rows="3"
-          placeholder="Enter details about contact..."></textarea>
-        <label for="on_label">Notes</label>
-      </p-floatlabel>
-    }
-    </div>
-  </div>
-</div>
+            @if(!isEditMode) {
+              @if (!isEditMode) {
+                <span>
+                  Notes: {{ currContact.notes }}
+                </span>
+              } @else {
+                <ng-template [ngTemplateOutlet]="elseEditNotes"></ng-template>
+              }
+            } @else {
+              <p-floatlabel class="w-100 mt-2" variant="on">
+                <textarea tabindex="0" pTextarea class="w-100" [(ngModel)]="currContact.notes" rows="3"
+                placeholder="Enter details about contact..."></textarea>
+                <label for="on_label">Notes</label>
+              </p-floatlabel>
+            }
+          </div>
+        </div>
+      </div>

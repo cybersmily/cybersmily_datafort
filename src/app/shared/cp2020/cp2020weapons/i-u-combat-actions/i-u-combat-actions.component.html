@@ -56,14 +56,18 @@
     </div>
     <div class="row">
       <div class="col-12 col-lg-6">
-        <ng-container  *ngFor="let skill of getColumn(1)"
-        [ngTemplateOutlet]="combatSkillRow"
-        [ngTemplateOutletContext]="{skill:skill}"></ng-container>
+        @for (skill of getColumn(1); track skill) {
+          <ng-container
+            [ngTemplateOutlet]="combatSkillRow"
+          [ngTemplateOutletContext]="{skill:skill}"></ng-container>
+        }
       </div>
       <div class="col-12 col-lg-6">
-        <ng-container  *ngFor="let skill of getColumn(2)"
-        [ngTemplateOutlet]="combatSkillRow"
-        [ngTemplateOutletContext]="{skill:skill}"></ng-container>
+        @for (skill of getColumn(2); track skill) {
+          <ng-container
+            [ngTemplateOutlet]="combatSkillRow"
+          [ngTemplateOutletContext]="{skill:skill}"></ng-container>
+        }
       </div>
     </div>
   </div>

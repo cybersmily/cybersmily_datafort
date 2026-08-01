@@ -6,7 +6,7 @@
         (click)="isCollapsed = !isCollapsed"
         (keyup.enter)="isCollapsed = !isCollapsed"
         tabindex="0"
-      >
+        >
         LIFESTYLE & EXPENSES
         <fa-icon
           [icon]="collapseChevron"
@@ -24,7 +24,7 @@
           class="csd-icon-btn csd-btn float-end csd-icon-xl me-3"
           title="Expense Calculator"
           (click)="showModal(expenseModal, 'expense')"
-        >
+          >
           <fa-icon [icon]="faCalculator"></fa-icon>
         </button>
       </div>
@@ -37,7 +37,7 @@
           class="csd-btn csd-icon-btn ms-1"
           title="Edit Credchips"
           (click)="showModal(credchipModal, 'credchip')"
-        >
+          >
           <fa-icon [icon]="faPen"></fa-icon>
         </button>
       </div>
@@ -49,156 +49,158 @@
           [(ngModel)]="currLifeStyle.cash"
           (change)="update()"
           (keyup)="update()"
-        />
+          />
+        </div>
+        <div class="col-5 col-lg-3">
+          Salary:
+          <input
+            class="lifestyle-eb-input"
+            type="number"
+            [(ngModel)]="currLifeStyle.salary"
+            />
+            <button
+              #addSalaryElem
+              class="csd-icon-btn csd-btn ms-1"
+              title="Add salary"
+              (click)="showModal(addSalary, 'salary')"
+              >
+              <fa-icon [icon]="faPlus"></fa-icon>
+            </button>
+          </div>
+          <div class="col-1"></div>
+          @if (currLifeStyle.debt > 0) {
+            <div class="col-12">
+              Debt: {{ currLifeStyle.debt | number }}eb
+              <button
+                #paymentElem
+                class="csd-btn csd-icon-btn csd-icon-xl ms-2"
+                title="Pay debt"
+                (click)="showModal(paymentModal, 'payment')"
+                >
+                <fa-icon [icon]="faEuroSign"></fa-icon>
+              </button>
+            </div>
+          }
+        </div>
+        <!-- HOUSING-->
+        <div class="row g-0">
+          <div class="col ms-0 ps-0 border border-dark">
+            <cs-cp2020-housing-list
+              [housingList]="currLifeStyle.housing"
+              (updateHousing)="updateHousing($event)"
+              (payHousing)="pay($event, paymentModal)"
+            ></cs-cp2020-housing-list>
+          </div>
+        </div>
+        <div class="row g-0">
+          <div class="col-12 col-lg-6 border border-dark">
+            <cs-cp2020-service-list
+              [servicesList]="currLifeStyle.services"
+              (updateServices)="updateServices($event)"
+              (pay)="pay($event, paymentModal)"
+            ></cs-cp2020-service-list>
+          </div>
+          <div class="col col-12 col-lg-6 border border-dark">
+            <cs-cp2020-food-list
+              [foodList]="currLifeStyle.food"
+              (updateFood)="updateFood($event)"
+              (pay)="pay($event, paymentModal)"
+            ></cs-cp2020-food-list>
+          </div>
+        </div>
+        <div class="row g-0">
+          <div class="col border border-dark">
+            <cs-cp2020-haggle></cs-cp2020-haggle>
+          </div>
+        </div>
+        <div class="row g-0">
+          <div class="col border border-dark">
+            <cs-cp2020-identity-list
+              [identityList]="currLifeStyle.identities"
+              (updateList)="updateIdentities($event)"
+              >
+            </cs-cp2020-identity-list>
+          </div>
+        </div>
       </div>
-      <div class="col-5 col-lg-3">
-        Salary:
-        <input
-          class="lifestyle-eb-input"
-          type="number"
-          [(ngModel)]="currLifeStyle.salary"
-        />
+    </div>
+
+    <ng-template #expenseModal>
+      <div class="modal-header">
+        <h4 id="armor-modal-name" class="modal-title float-start">
+          Expense Calculator
+        </h4>
         <button
-          #addSalaryElem
-          class="csd-icon-btn csd-btn ms-1"
-          title="Add salary"
-          (click)="showModal(addSalary, 'salary')"
-        >
-          <fa-icon [icon]="faPlus"></fa-icon>
-        </button>
+          type="button"
+          class="btn-close float-end"
+          aria-label="Close"
+          (click)="closeModal()"
+        ></button>
       </div>
-      <div class="col-1"></div>
-      <div *ngIf="currLifeStyle.debt > 0" class="col-12">
-        Debt: {{ currLifeStyle.debt | number }}eb
+      <div class="modal-body">
+        <cs-cp2020-expense-list
+          [cash]="currLifeStyle.cash"
+          [cred]="totalCred"
+          (payAmount)="pay($event, paymentModal)"
+          >
+        </cs-cp2020-expense-list>
+      </div>
+    </ng-template>
+
+    <ng-template #credchipModal>
+      <div class="modal-header">
+        <h4 id="armor-modal-name" class="modal-title float-start">Credchips</h4>
         <button
-          #paymentElem
-          class="csd-btn csd-icon-btn csd-icon-xl ms-2"
-          title="Pay debt"
-          (click)="showModal(paymentModal, 'payment')"
-        >
-          <fa-icon [icon]="faEuroSign"></fa-icon>
-        </button>
+          type="button"
+          class="btn-close float-end"
+          aria-label="Close"
+          (click)="closeModal()"
+        ></button>
       </div>
-    </div>
-    <!-- HOUSING-->
-    <div class="row g-0">
-      <div class="col ms-0 ps-0 border border-dark">
-        <cs-cp2020-housing-list
-          [housingList]="currLifeStyle.housing"
-          (updateHousing)="updateHousing($event)"
-          (payHousing)="pay($event, paymentModal)"
-        ></cs-cp2020-housing-list>
+      <div class="modal-body">
+        <cs-cp2020-credchip-list
+          [credchips]="currLifeStyle.credchips"
+          (updateCredchips)="updateCredchips($event)"
+          >
+        </cs-cp2020-credchip-list>
       </div>
-    </div>
-    <div class="row g-0">
-      <div class="col-12 col-lg-6 border border-dark">
-        <cs-cp2020-service-list
-          [servicesList]="currLifeStyle.services"
-          (updateServices)="updateServices($event)"
-          (pay)="pay($event, paymentModal)"
-        ></cs-cp2020-service-list>
-      </div>
-      <div class="col col-12 col-lg-6 border border-dark">
-        <cs-cp2020-food-list
-          [foodList]="currLifeStyle.food"
-          (updateFood)="updateFood($event)"
-          (pay)="pay($event, paymentModal)"
-        ></cs-cp2020-food-list>
-      </div>
-    </div>
-    <div class="row g-0">
-      <div class="col border border-dark">
-        <cs-cp2020-haggle></cs-cp2020-haggle>
-      </div>
-    </div>
-    <div class="row g-0">
-      <div class="col border border-dark">
-        <cs-cp2020-identity-list
-          [identityList]="currLifeStyle.identities"
-          (updateList)="updateIdentities($event)"
-        >
-        </cs-cp2020-identity-list>
-      </div>
-    </div>
-  </div>
-</div>
+    </ng-template>
 
-<ng-template #expenseModal>
-  <div class="modal-header">
-    <h4 id="armor-modal-name" class="modal-title float-start">
-      Expense Calculator
-    </h4>
-    <button
-      type="button"
-      class="btn-close float-end"
-      aria-label="Close"
-      (click)="closeModal()"
-    ></button>
-  </div>
-  <div class="modal-body">
-    <cs-cp2020-expense-list
-      [cash]="currLifeStyle.cash"
-      [cred]="totalCred"
-      (payAmount)="pay($event, paymentModal)"
-    >
-    </cs-cp2020-expense-list>
-  </div>
-</ng-template>
+    <ng-template #addSalary>
+      <div class="modal-header">
+        <h4 id="armor-modal-name" class="modal-title float-start">Add Salary</h4>
+        <button
+          type="button"
+          class="btn-close float-end"
+          aria-label="Close"
+          (click)="closeModal()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <cs-cp2020-credchip-list
+          [credchips]="currLifeStyle.credchips"
+          (updateCredchips)="updateCredchips($event)"
+          >
+        </cs-cp2020-credchip-list>
+      </div>
+    </ng-template>
 
-<ng-template #credchipModal>
-  <div class="modal-header">
-    <h4 id="armor-modal-name" class="modal-title float-start">Credchips</h4>
-    <button
-      type="button"
-      class="btn-close float-end"
-      aria-label="Close"
-      (click)="closeModal()"
-    ></button>
-  </div>
-  <div class="modal-body">
-    <cs-cp2020-credchip-list
-      [credchips]="currLifeStyle.credchips"
-      (updateCredchips)="updateCredchips($event)"
-    >
-    </cs-cp2020-credchip-list>
-  </div>
-</ng-template>
-
-<ng-template #addSalary>
-  <div class="modal-header">
-    <h4 id="armor-modal-name" class="modal-title float-start">Add Salary</h4>
-    <button
-      type="button"
-      class="btn-close float-end"
-      aria-label="Close"
-      (click)="closeModal()"
-    ></button>
-  </div>
-  <div class="modal-body">
-    <cs-cp2020-credchip-list
-      [credchips]="currLifeStyle.credchips"
-      (updateCredchips)="updateCredchips($event)"
-    >
-    </cs-cp2020-credchip-list>
-  </div>
-</ng-template>
-
-<ng-template #paymentModal>
-  <div class="modal-header">
-    <h4 id="armor-modal-name" class="modal-title float-start">Pay debts</h4>
-    <button
-      type="button"
-      class="btn-close float-end"
-      aria-label="Close"
-      (click)="closeModal()"
-    ></button>
-  </div>
-  <div class="modal-body">
-    <cs-cp2020-payment
-      [credchips]="currLifeStyle.credchips"
-      [cash]="currLifeStyle.cash"
-      [amountDue]="currLifeStyle.debt"
-      (updateAmounts)="updateAmounts($event)"
-    ></cs-cp2020-payment>
-  </div>
-</ng-template>
+    <ng-template #paymentModal>
+      <div class="modal-header">
+        <h4 id="armor-modal-name" class="modal-title float-start">Pay debts</h4>
+        <button
+          type="button"
+          class="btn-close float-end"
+          aria-label="Close"
+          (click)="closeModal()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <cs-cp2020-payment
+          [credchips]="currLifeStyle.credchips"
+          [cash]="currLifeStyle.cash"
+          [amountDue]="currLifeStyle.debt"
+          (updateAmounts)="updateAmounts($event)"
+        ></cs-cp2020-payment>
+      </div>
+    </ng-template>

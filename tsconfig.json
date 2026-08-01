@@ -9,16 +9,15 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "ES2022",
+    "noImplicitAny": false,
+    "strict": false,
     "typeRoots": [
       "node_modules/@types"
     ],
-    "lib": [
-      "es2017",
-      "dom",
-      "ES2021.String"
-    ],
     "module": "es2020",
-    "baseUrl": "./",
-    "useDefineForClassFields": false
+    "useDefineForClassFields": false,    
+    "paths": {
+      "@app/*":["./src/app/*"]
+    }
   }
 }

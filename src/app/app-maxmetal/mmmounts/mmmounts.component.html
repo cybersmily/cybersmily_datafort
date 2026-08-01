@@ -1,4 +1,6 @@
 <div>
   <h4>WEAPONS MOUNTS</h4>
-  <cs-mmmount *ngFor="let mount of mounts" [mount]="mount"></cs-mmmount>
+  @for (mount of mounts; track mount) {
+    <cs-mmmount [mount]="mount"></cs-mmmount>
+  }
 </div>

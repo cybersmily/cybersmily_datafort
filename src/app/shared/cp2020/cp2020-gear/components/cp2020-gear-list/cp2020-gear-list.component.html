@@ -9,9 +9,11 @@
     </div>
     <div [ngClass]="{'col-7 col-md-6 col-lg-4':true,'d-none':isCollapsed}"
       [tooltip]="'Add a location to help organize the character\'s gear. Locations can be things like On Person, Apartment, Car, Dufffle Bag, etc...'">
-      <button *ngIf="!isAddableLocation" class="csd-icon-btn csd-btn ms-1 me-2" (click)="addLocation()">
-        <fa-icon [icon]="faPlus"></fa-icon>
-      </button>
+      @if (!isAddableLocation) {
+        <button class="csd-icon-btn csd-btn ms-1 me-2" (click)="addLocation()">
+          <fa-icon [icon]="faPlus"></fa-icon>
+        </button>
+      }
       <input [(ngModel)]="newLocation" type="text" placeholder="add location section..." class="w-85" />
     </div>
   </div>
@@ -22,27 +24,29 @@
           location: ''
         }"></ng-container>
     </div>
-    <div *ngFor="let loc of locations" dndDropzone (dndDrop)="onDrop($event, loc)">
-      <div class="chargen-label row g-0">
-        <div class="col-10 border border-dark text-uppercase ps-4" (click)="toggleLocation(loc)">
-          {{ loc }}
-          <button title="toggle list" class="csd-icon-btn csd-btn ms-2">
-            <fa-icon [icon]="expandLocation.includes(loc) ? faChevronDown : faChevronRight"></fa-icon>
-          </button>
+    @for (loc of locations; track loc) {
+      <div dndDropzone (dndDrop)="onDrop($event, loc)">
+        <div class="chargen-label row g-0">
+          <div class="col-10 border border-dark text-uppercase ps-4" (click)="toggleLocation(loc)">
+            {{ loc }}
+            <button title="toggle list" class="csd-icon-btn csd-btn ms-2">
+              <fa-icon [icon]="expandLocation.includes(loc) ? faChevronDown : faChevronRight"></fa-icon>
+            </button>
+          </div>
+          <div class="col-2 border border-dark">
+            <button title="remove location" class="csd-icon-btn csd-btn float-end me-2" (click)="removeLocation(loc)">
+              <fa-icon [icon]="faTrash"></fa-icon>
+            </button>
+          </div>
         </div>
-        <div class="col-2 border border-dark">
-          <button title="remove location" class="csd-icon-btn csd-btn float-end me-2" (click)="removeLocation(loc)">
-            <fa-icon [icon]="faTrash"></fa-icon>
-          </button>
-        </div>
-      </div>
-      <div [collapse]="!isLocationExpanded(loc)">
+        <div [collapse]="!isLocationExpanded(loc)">
         <ng-container [ngTemplateOutlet]="locationSection" [ngTemplateOutletContext]="{
           gearList: getLocationGear(loc),
           location: loc
         }"></ng-container>
+        </div>
       </div>
-    </div>
+    }
     <div class="row g-0">
       <div class="col-8 border border-dark">Total Cost and Weight</div>
       <div class="col-2 border border-dark text-end">
@@ -94,8 +98,10 @@
   </div>
   <div class="row g-0 border border-dark">
     <div class="col-12 column-count g-0">
-      <cs-cp2020-gear-editor *ngFor="let row of getLocationGear(location); let i = index" [gear]="row" [location]="location"
+      @for (row of getLocationGear(location); track row; let i = $index) {
+        <cs-cp2020-gear-editor [gear]="row" [location]="location"
         (delete)="removeGearRow($event)" (update)="updateGear($event)"></cs-cp2020-gear-editor>
+      }
     </div>
   </div>
   <div class="row g-0">

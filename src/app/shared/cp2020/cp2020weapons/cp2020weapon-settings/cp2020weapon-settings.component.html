@@ -17,9 +17,11 @@
       Uunselecting all the below will make all weapons available.
     </div>
   </div>
-  <ng-container *ngFor="let section of sections" [ngTemplateOutlet]="propertySections" [ngTemplateOutletContext]="{
+  @for (section of sections; track section) {
+<ng-container [ngTemplateOutlet]="propertySections" [ngTemplateOutletContext]="{
       section: section
     }"></ng-container>
+  }
 </div>
 
 <ng-template #propertySections let-section="section">
@@ -32,11 +34,13 @@
           tabindex="0" />
         - {{allChecked(section.name) ? 'Deselect All' : 'Select All'}}
       </div>
-      <ng-container *ngFor="let opt of section.options" [ngTemplateOutlet]="filterParam" [ngTemplateOutletContext]="{
+      @for (opt of section.options; track opt) {
+<ng-container [ngTemplateOutlet]="filterParam" [ngTemplateOutletContext]="{
           prop: opt.prop,
           name: opt.name,
           value: opt.value
         }"></ng-container>
+      }
     </div>
   </div>
 </ng-template>

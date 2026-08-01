@@ -1,65 +1,75 @@
 <div class="chargen-section row">
-  <div *ngIf="showCharacterPoints" class="col-12 col-md-7">
-    <span class="chargen-label">CHARACTER POINTS</span>
-    <input [(ngModel)]="stats.BasePoints" (change)="onStatChange()" type="number" min="0" max="90"
-      class="chargen-input chargen-charpoint-input " />
-    <span *ngIf="stats.CurrentPoints !== 0"
-      [ngClass]="{'chargen-stats-over':isOver, 'chargen-stats-current':true, 'ms-2': true}">{{stats.CurrentPoints}}</span>
-  </div>
-  <div class="col-12 col-md-5 hidden-print text-small">
-    <input type="checkbox" class="ms-2" [(ngModel)]="useRolls" (change)="clearRolls()"> Use Dice:
-    <span *ngIf="useRolls">
-      <fa-icon [icon]="faDice" class="chargen-point-dice ms-1 me-1" (click)="rollCharacterPoints()"
-        title="Roll for character points. Rolls 9d10, rerolling 1s and 2s."></fa-icon>rolls: [{{rolls}}]
-    </span>
-  </div>
-</div>
-<div class="chargen-section row">
-  <div class="col-5 col-md-6">
-    <div class="chargen-label chargen-stats">STATS
-      <fa-icon class="csd-dice ms-2" [icon]="faDice" (click)="rollStats()"
-        title="Random assign points/rolls to stats."></fa-icon>
+  @if (showCharacterPoints) {
+    <div class="col-12 col-md-7">
+      <span class="chargen-label">CHARACTER POINTS</span>
+      <input [(ngModel)]="stats.BasePoints" (change)="onStatChange()" type="number" min="0" max="90"
+        class="chargen-input chargen-charpoint-input " />
+        @if (stats.CurrentPoints !== 0) {
+          <span
+          [ngClass]="{'chargen-stats-over':isOver, 'chargen-stats-current':true, 'ms-2': true}">{{stats.CurrentPoints}}</span>
+        }
+      </div>
+    }
+    <div class="col-12 col-md-5 hidden-print text-small">
+      <input type="checkbox" class="ms-2" [(ngModel)]="useRolls" (change)="clearRolls()"> Use Dice:
+      @if (useRolls) {
+        <span>
+          <fa-icon [icon]="faDice" class="chargen-point-dice ms-1 me-1" (click)="rollCharacterPoints()"
+          title="Roll for character points. Rolls 9d10, rerolling 1s and 2s."></fa-icon>rolls: [{{rolls}}]
+        </span>
+      }
     </div>
   </div>
-  <div *ngIf="showRollInitiative" class="col-7 col-md-6">
-    <span class=" chargen-label">
-      Initiative
-      <button *ngIf="showRollInitiative" class="csd-dice ms-1 hidden-print"
-        (click)="openModal(initiative, true, 'initElem')" tabindex="-1" title="Roll initiative">
-        <fa-icon [icon]="faDice"></fa-icon>
-      </button>
-    </span>
-    <button #initRollElem class="stats-initiative" (click)="openModal(initiative, false, 'initElem')" tabindex="0">
-      {{totalInitiative}}
-    </button>
+  <div class="chargen-section row">
+    <div class="col-5 col-md-6">
+      <div class="chargen-label chargen-stats">STATS
+        <fa-icon class="csd-dice ms-2" [icon]="faDice" (click)="rollStats()"
+        title="Random assign points/rolls to stats."></fa-icon>
+      </div>
+    </div>
+    @if (showRollInitiative) {
+      <div class="col-7 col-md-6">
+        <span class=" chargen-label">
+          Initiative
+          @if (showRollInitiative) {
+            <button class="csd-dice ms-1 hidden-print"
+              (click)="openModal(initiative, true, 'initElem')" tabindex="-1" title="Roll initiative">
+              <fa-icon [icon]="faDice"></fa-icon>
+            </button>
+          }
+        </span>
+        <button #initRollElem class="stats-initiative" (click)="openModal(initiative, false, 'initElem')" tabindex="0">
+          {{totalInitiative}}
+        </button>
+      </div>
+    }
   </div>
-</div>
-<div class="chargen-stat-section row">
-  <div class="col-12">
-    <cs-cp2020-stat [stat]="stats.INT" [statName]="'INT'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
-    <cs-cp2020-stat [stat]="stats.REF" [statName]="'REF'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
-    <cs-cp2020-stat [stat]="stats.TECH" [statName]="'TECH'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
-    <cs-cp2020-stat [stat]="stats.COOL" [statName]="'COOL'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
-    <cs-cp2020-stat [stat]="stats.ATTR" [statName]="'ATTR'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
-    <cs-cp2020-stat [stat]="stats.LUCK" [statName]="'LUCK'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
-    <cs-cp2020-stat [stat]="stats.MA" [statName]="'MA'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
-    <cs-cp2020-stat [stat]="stats.BODY" [statName]="'BODY'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
-    <cs-cp2020-stat [stat]="stats.EMP" [statName]="'EMP'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
-    <div class="d-inline-block text-small me-2">Run [{{stats.Run}}m]</div>
-    <div class="d-inline-block text-small me-2">Leap [{{stats.Leap}}m]</div>
-    <div class="d-inline-block text-small me-2">Lift[{{stats.Lift}}kg]</div>
-    <div class="d-inline-block text-small me-2">Humanity [{{stats.CurrentHumanity}}/{{stats.Humanity}}]</div>
+  <div class="chargen-stat-section row">
+    <div class="col-12">
+      <cs-cp2020-stat [stat]="stats.INT" [statName]="'INT'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+      <cs-cp2020-stat [stat]="stats.REF" [statName]="'REF'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+      <cs-cp2020-stat [stat]="stats.TECH" [statName]="'TECH'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+      <cs-cp2020-stat [stat]="stats.COOL" [statName]="'COOL'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+      <cs-cp2020-stat [stat]="stats.ATTR" [statName]="'ATTR'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+      <cs-cp2020-stat [stat]="stats.LUCK" [statName]="'LUCK'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+      <cs-cp2020-stat [stat]="stats.MA" [statName]="'MA'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+      <cs-cp2020-stat [stat]="stats.BODY" [statName]="'BODY'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+      <cs-cp2020-stat [stat]="stats.EMP" [statName]="'EMP'" (changeStat)="onStatChange($event)"></cs-cp2020-stat>
+      <div class="d-inline-block text-small me-2">Run [{{stats.Run}}m]</div>
+      <div class="d-inline-block text-small me-2">Leap [{{stats.Leap}}m]</div>
+      <div class="d-inline-block text-small me-2">Lift[{{stats.Lift}}kg]</div>
+      <div class="d-inline-block text-small me-2">Humanity [{{stats.CurrentHumanity}}/{{stats.Humanity}}]</div>
+    </div>
   </div>
-</div>
 
-<ng-template #initiative>
-  <div class="modal-header">
-    <h4 class="modal-title float-start">Initiative</h4>
-    <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()"></button>
-  </div>
-  <div class="modal-body">
-    <cs-cp2020-initiative-editor [REF]="stats.REF" [combatSense]="combatSense" [showInitiativeRoll]="showInitiativeRoll"
-      [initiativeModifiers]="stats.initiativeModifiers" [initiativeRoll]="initiativeRoll"
+  <ng-template #initiative>
+    <div class="modal-header">
+      <h4 class="modal-title float-start">Initiative</h4>
+      <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeModal()"></button>
+    </div>
+    <div class="modal-body">
+      <cs-cp2020-initiative-editor [REF]="stats.REF" [combatSense]="combatSense" [showInitiativeRoll]="showInitiativeRoll"
+        [initiativeModifiers]="stats.initiativeModifiers" [initiativeRoll]="initiativeRoll"
       (updateInitiativeModifers)="updateInitiativeModifiers($event)"></cs-cp2020-initiative-editor>
-  </div>
-</ng-template>
+    </div>
+  </ng-template>

@@ -1,368 +1,398 @@
 <div class="row">
   <div class="col-12">
     <button
-    title="Save clothing to sheet"
-    class="csd-btn csd-icon-btn ms-1 float-end p-1"
-    size="xl"
-    (click)="update()"
-    tabindex="-1"
-  >
-    <fa-icon [icon]="faSave"></fa-icon>
-  </button>
-  <button
-    title="Select armor from source material"
-    class="csd-btn csd-icon-btn ms-2 float-end p-1"
-    size="xl"
-    (click)="showModal(armorSourceList)"
-  >
-    <fa-icon [icon]="faSearch"></fa-icon>
-  </button>
-  <button
-    title="Randomly generate clothing"
-    class="csd-btn csd-icon-btn ms-2 float-end p-1"
-    size="xl"
-    (click)="generate()"
-    tabindex="-1"
-  >
-    <fa-icon [icon]="faDice"></fa-icon>
-  </button>
-  <button
-    title="Reset the form"
-    class="csd-btn csd-icon-btn ms-2 float-end p-1"
-    size="xl"
-    (click)="refresh()"
-  >
-    <fa-icon [icon]="faRedo"></fa-icon>
-  </button></div>
-</div>
-<div class="row">
-  <div class="col-4 col-md-2 col-lg-1">Name:</div>
-  <div class="col-8 col-md-10 col-lg-11">
-    <input
-      #armorNameElem
-      class="w-100"
-      type="text"
-      placeholder="Enter name..."
-      [(ngModel)]="currArmor.name"
-      [typeahead]="armorDataList"
-      typeaheadOptionField="name"
-      (typeaheadOnSelect)="setDetails()"
-    />
-  </div>
-</div>
-<div class="row">
-  <div class="col-12">
-    <span class="text-xsmall ms-2 align-middle">
-      <input
-        type="checkbox"
-        name="calc-cost"
-        [(ngModel)]="currArmor.isCalculatedCost"
-        (change)="calculateCostWtEV()"
-        title="Calculate the cost of the piece of clothing."
-      />
-      <label for="calc-cost" class="ps-2"> Calculated Cost and EV</label>
-    </span>
-  </div>
-</div>
-<div class="row">
-  <div class="col-6 col-md-4 order-1">
-    Cost:
-    <input
-      *ngIf="!currArmor?.isCalculatedCost"
-      type="number"
-      class="csd-number w-50"
-      [(ngModel)]="currArmor.cost"
-    />
-    <span class="csd-number" *ngIf="currArmor?.isCalculatedCost">{{
-      currArmor.cost | number
-    }}</span
-    >eb
-  </div>
-  <div class="col-12 col-md-5 text-capitalize order-3 order-md-2">
-    Weight:
-    <select
-      *ngIf="!currArmor?.isCalculatedCost"
-      [(ngModel)]="selectedWeight"
-    >
-      <option value=""></option>
-      <option value="lt">Light</option>
-      <option value="med">Medium</option>
-      <option value="hvy">Heavy</option>
-    </select>
-    <span *ngIf="currArmor?.isCalculatedCost" class="ps-2">{{
-      currWeight
-    }}</span>
-  </div>
-  <div class="col-6 col-md-3 order-2 order-md-3">
-    EV:
-    <input
-      *ngIf="!currArmor?.isCalculatedCost"
-      type="number"
-      class="csd-number"
-      [(ngModel)]="currArmor.ev"
-    />
-    <span *ngIf="currArmor?.isCalculatedCost" class="ps-2">{{
-      currArmor.ev
-    }}</span>
-  </div>
-</div>
-<div class="row mb-2">
-  <div class="col-12 col-md-3">Clothing Type:</div>
-  <div class="col-12 col-md-9">
-    <select
-      [(ngModel)]="selectedClothing"
-      (change)="changeClothing()"
-      class="w-100"
-    >
-      <option *ngFor="let type of armorAttributes.clothes" [ngValue]="type">
-        {{ type.name }} {{ type.loc ? "[" + type.loc + "]" : "" }}
-        {{ type.cost == 0 ? "" : type.cost + "eb" }}
-      </option>
-    </select>
-  </div>
-</div>
-<div class="row">
-  <div class="col-12 col-md-6">
-    Style:
-    <select [(ngModel)]="selectedStyle" >
-      <option *ngFor="let style of armorAttributes.styles" [ngValue]="style">
-        {{ style.name }} (x{{ style.mod }})
-      </option>
-    </select>
-  </div>
-  <div class="col-12 col-md-6">
-    Quality:
-    <select [(ngModel)]="selectedQuality" >
-      <option
-        *ngFor="let quality of armorAttributes.qualities"
-        [ngValue]="quality"
+      title="Save clothing to sheet"
+      class="csd-btn csd-icon-btn ms-1 float-end p-1"
+      size="xl"
+      (click)="update()"
+      tabindex="-1"
       >
-        {{ quality.name }} (x{{ quality.mod }})
-      </option>
-    </select>
-  </div>
-</div>
-<div *ngIf="currArmor.quality?.effect" class="row small">
-  <div class="col-1"></div>
-  <div class="col">*{{ currArmor.quality.effect }}</div>
-</div>
-<div class="row mb-2">
-  <div class="col-4 small g-0">
-    <input
-      type="checkbox"
-      [(ngModel)]="currArmor.isSkinWeave"
-      (change)="changeSkinweave()"
-    />
-    Skinweave
-  </div>
-  <div class="col-4 small g-0">
-    <input type="checkbox" [(ngModel)]="currArmor.isHard" />
-    Hard Armor
-  </div>
-  <div class="col-4 small g-0">
-    <span *ngIf="selectedClothing?.leather || currArmor.clothes.name === ''">
-      <input
-        type="checkbox"
-        [(ngModel)]="currArmor.isLeather"
-      />
-      Leather
-    </span>
-  </div>
-</div>
-<div class="row">
-  <div class="col-12 col-md-2">Locations:</div>
-  <div class="col offset-1 offset-md-0 small g-0">
-    Head
-    <input
-      type="checkbox"
-      (change)="checkLocation('head')"
-      [checked]="getLocation('head')"
-    />
-  </div>
-  <div class="col small g-0">
-    Torso
-    <input
-      type="checkbox"
-      (change)="checkLocation('torso')"
-      [checked]="getLocation('torso')"
-    />
-  </div>
-  <div class="col small text-center g-0">
-    Arms<br />R
-    <input
-      type="checkbox"
-      title="Right Arm"
-      (change)="checkLocation('rarm')"
-      [checked]="getLocation('rarm')"
-      class="pr-2"
-    />
-    L
-    <input
-      type="checkbox"
-      title="Left Arm"
-      (change)="checkLocation('larm')"
-      [checked]="getLocation('larm')"
-    />
-  </div>
-  <div class="col small text-center g-0">
-    Legs<br />R
-    <input
-      type="checkbox"
-      title="Right Leg"
-      (change)="checkLocation('rleg')"
-      [checked]="getLocation('rleg')"
-      class="pr-2"
-    />
-    L
-    <input
-      type="checkbox"
-      title="Left Leg"
-      (change)="checkLocation('lleg')"
-      [checked]="getLocation('lleg')"
-    />
-  </div>
-</div>
-<div class="row">
-  <div class="col-12 col-md-2 g-0">
-    SP:
-    <select *ngIf="!currArmor?.isSPOverride" [(ngModel)]="selectedSP">
-      <option *ngFor="let sp of spValues" [ngValue]="sp">{{ sp.sp }}</option>
-    </select>
-    <input
-      *ngIf="currArmor?.isSPOverride"
-      class="csd-number"
-      type="number"
-      [(ngModel)]="overriddenSP"
-    />
-  </div>
-  <div class="col-12 col-md-10">
-    <div class="row small pb-0 mb-0">
-      <div class="col g-0 h6 border border-dark text-center mb-0">
-        <small>HEAD</small>
-      </div>
-      <div class="col g-0 h6 border border-dark text-center mb-0">
-        <small>TORSO</small>
-      </div>
-      <div class="col g-0 h6 border border-dark text-center mb-0">
-        <small>R ARM</small>
-      </div>
-      <div class="col g-0 h6 border border-dark text-center mb-0">
-        <small>L ARM</small>
-      </div>
-      <div class="col g-0 h6 border border-dark text-center mb-0">
-        <small>R LEG</small>
-      </div>
-      <div class="col g-0 h6 border border-dark text-center mb-0">
-        <small>L LEG</small>
-      </div>
-    </div>
-
-    <div class="row pt-0 mt-0">
-      <div class="col g-0 text-center border border-dark mt-0 ps-0 pe-0">
-        <input
-          *ngIf="currArmor.locations?.head"
-          type="number"
-          [(ngModel)]="currArmor.locations.head"
-          min="0"
-          class="w-100 no-spinners text-center"
-        />
-      </div>
-      <div class="col g-0 text-center border border-dark ps-0 pe-0">
-        <input
-          *ngIf="currArmor.locations?.torso"
-          type="number"
-          [(ngModel)]="currArmor.locations.torso"
-          min="0"
-          class="w-100 no-spinners text-center"
-        />
-      </div>
-      <div class="col g-0 text-center border border-dark ps-0 pe-0">
-        <input
-          *ngIf="currArmor.locations?.rarm"
-          type="number"
-          [(ngModel)]="currArmor.locations.rarm"
-          min="0"
-          class="w-100 no-spinners text-center"
-        />
-      </div>
-      <div class="col g-0 text-center border border-dark ps-0 pe-0">
-        <input
-          *ngIf="currArmor.locations?.larm"
-          type="number"
-          [(ngModel)]="currArmor.locations.larm"
-          min="0"
-          class="w-100 no-spinners text-center"
-        />
-      </div>
-      <div class="col g-0 text-center border border-dark ps-0 pe-0">
-        <input
-          *ngIf="currArmor.locations?.rleg"
-          type="number"
-          [(ngModel)]="currArmor.locations.rleg"
-          min="0"
-          class="w-100 no-spinners text-center"
-        />
-      </div>
-      <div class="col g-0 text-center border border-dark ps-0 pe-0">
-        <input
-          *ngIf="currArmor.locations?.lleg"
-          type="number"
-          [(ngModel)]="currArmor.locations.lleg"
-          min="0"
-          class="w-100 no-spinners text-center"
-        />
-      </div>
-    </div>
-  </div>
-  <div class="row mb-2">
-    <div
-      class="col-12 small"
-      title="Override the dropdown selection to enter any value."
-    >
-      custom SP?
-      <input
-        type="checkbox"
-        [(ngModel)]="currArmor.isSPOverride"
-        title="Override the dropdown and enter a custom SP value."
-      />
-    </div>
+      <fa-icon [icon]="faSave"></fa-icon>
+    </button>
+    <button
+      title="Select armor from source material"
+      class="csd-btn csd-icon-btn ms-2 float-end p-1"
+      size="xl"
+      (click)="showModal(armorSourceList)"
+      >
+      <fa-icon [icon]="faSearch"></fa-icon>
+    </button>
+    <button
+      title="Randomly generate clothing"
+      class="csd-btn csd-icon-btn ms-2 float-end p-1"
+      size="xl"
+      (click)="generate()"
+      tabindex="-1"
+      >
+      <fa-icon [icon]="faDice"></fa-icon>
+    </button>
+    <button
+      title="Reset the form"
+      class="csd-btn csd-icon-btn ms-2 float-end p-1"
+      size="xl"
+      (click)="refresh()"
+      >
+      <fa-icon [icon]="faRedo"></fa-icon>
+    </button></div>
   </div>
   <div class="row">
-    <div class="col-12 col-md-2">Options:</div>
-    <div class="col-10">
-      <div class="row">
-        <div
-          class="col-12"
-          *ngFor="let opt of armorAttributes.options"
-          [title]="opt.effect"
-        >
-          <input
-            type="checkbox"
-            [checked]="getOptionValue(opt.name)"
-            (change)="changeOption($event, opt)"
-          />
-          {{ opt.name }} (x{{ opt.mod | armorOptionMod: currArmor.clothes.wt }})
-        </div>
+    <div class="col-4 col-md-2 col-lg-1">Name:</div>
+    <div class="col-8 col-md-10 col-lg-11">
+      <input
+        #armorNameElem
+        class="w-100"
+        type="text"
+        placeholder="Enter name..."
+        [(ngModel)]="currArmor.name"
+        [typeahead]="armorDataList"
+        typeaheadOptionField="name"
+        (typeaheadOnSelect)="setDetails()"
+        />
       </div>
     </div>
-  </div>
+    <div class="row">
+      <div class="col-12">
+        <span class="text-xsmall ms-2 align-middle">
+          <input
+            type="checkbox"
+            name="calc-cost"
+            [(ngModel)]="currArmor.isCalculatedCost"
+            (change)="calculateCostWtEV()"
+            title="Calculate the cost of the piece of clothing."
+            />
+            <label for="calc-cost" class="ps-2"> Calculated Cost and EV</label>
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 col-md-4 order-1">
+          Cost:
+          @if (!currArmor?.isCalculatedCost) {
+            <input
+              type="number"
+              class="csd-number w-50"
+              [(ngModel)]="currArmor.cost"
+              />
+          }
+          @if (currArmor?.isCalculatedCost) {
+            <span class="csd-number">{{
+              currArmor.cost | number
+              }}</span
+              >
+              }eb
+            </div>
+            <div class="col-12 col-md-5 text-capitalize order-3 order-md-2">
+              Weight:
+              @if (!currArmor?.isCalculatedCost) {
+                <select
+                  [(ngModel)]="selectedWeight"
+                  >
+                  <option value=""></option>
+                  <option value="lt">Light</option>
+                  <option value="med">Medium</option>
+                  <option value="hvy">Heavy</option>
+                </select>
+              }
+              @if (currArmor?.isCalculatedCost) {
+                <span class="ps-2">{{
+                  currWeight
+                }}</span>
+              }
+            </div>
+            <div class="col-6 col-md-3 order-2 order-md-3">
+              EV:
+              @if (!currArmor?.isCalculatedCost) {
+                <input
+                  type="number"
+                  class="csd-number"
+                  [(ngModel)]="currArmor.ev"
+                  />
+              }
+              @if (currArmor?.isCalculatedCost) {
+                <span class="ps-2">{{
+                  currArmor.ev
+                }}</span>
+              }
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-12 col-md-3">Clothing Type:</div>
+            <div class="col-12 col-md-9">
+              <select
+                [(ngModel)]="selectedClothing"
+                (change)="changeClothing()"
+                class="w-100"
+                >
+                @for (type of armorAttributes.clothes; track type) {
+                  <option [ngValue]="type">
+                    {{ type.name }} {{ type.loc ? "[" + type.loc + "]" : "" }}
+                    {{ type.cost == 0 ? "" : type.cost + "eb" }}
+                  </option>
+                }
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              Style:
+              <select [(ngModel)]="selectedStyle" >
+                @for (style of armorAttributes.styles; track style) {
+                  <option [ngValue]="style">
+                    {{ style.name }} (x{{ style.mod }})
+                  </option>
+                }
+              </select>
+            </div>
+            <div class="col-12 col-md-6">
+              Quality:
+              <select [(ngModel)]="selectedQuality" >
+                @for (quality of armorAttributes.qualities; track quality) {
+                  <option
+                    [ngValue]="quality"
+                    >
+                    {{ quality.name }} (x{{ quality.mod }})
+                  </option>
+                }
+              </select>
+            </div>
+          </div>
+          @if (currArmor.quality?.effect) {
+            <div class="row small">
+              <div class="col-1"></div>
+              <div class="col">*{{ currArmor.quality.effect }}</div>
+            </div>
+          }
+          <div class="row mb-2">
+            <div class="col-4 small g-0">
+              <input
+                type="checkbox"
+                [(ngModel)]="currArmor.isSkinWeave"
+                (change)="changeSkinweave()"
+                />
+                Skinweave
+              </div>
+              <div class="col-4 small g-0">
+                <input type="checkbox" [(ngModel)]="currArmor.isHard" />
+                Hard Armor
+              </div>
+              <div class="col-4 small g-0">
+                @if (selectedClothing?.leather || currArmor.clothes.name === '') {
+                  <span>
+                    <input
+                      type="checkbox"
+                      [(ngModel)]="currArmor.isLeather"
+                      />
+                      Leather
+                    </span>
+                  }
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-md-2">Locations:</div>
+                <div class="col offset-1 offset-md-0 small g-0">
+                  Head
+                  <input
+                    type="checkbox"
+                    (change)="checkLocation('head')"
+                    [checked]="getLocation('head')"
+                    />
+                  </div>
+                  <div class="col small g-0">
+                    Torso
+                    <input
+                      type="checkbox"
+                      (change)="checkLocation('torso')"
+                      [checked]="getLocation('torso')"
+                      />
+                    </div>
+                    <div class="col small text-center g-0">
+                      Arms<br />R
+                      <input
+                        type="checkbox"
+                        title="Right Arm"
+                        (change)="checkLocation('rarm')"
+                        [checked]="getLocation('rarm')"
+                        class="pr-2"
+                        />
+                        L
+                        <input
+                          type="checkbox"
+                          title="Left Arm"
+                          (change)="checkLocation('larm')"
+                          [checked]="getLocation('larm')"
+                          />
+                        </div>
+                        <div class="col small text-center g-0">
+                          Legs<br />R
+                          <input
+                            type="checkbox"
+                            title="Right Leg"
+                            (change)="checkLocation('rleg')"
+                            [checked]="getLocation('rleg')"
+                            class="pr-2"
+                            />
+                            L
+                            <input
+                              type="checkbox"
+                              title="Left Leg"
+                              (change)="checkLocation('lleg')"
+                              [checked]="getLocation('lleg')"
+                              />
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-12 col-md-2 g-0">
+                              SP:
+                              @if (!currArmor?.isSPOverride) {
+                                <select [(ngModel)]="selectedSP">
+                                  @for (sp of spValues; track sp) {
+                                    <option [ngValue]="sp">{{ sp.sp }}</option>
+                                  }
+                                </select>
+                              }
+                              @if (currArmor?.isSPOverride) {
+                                <input
+                                  class="csd-number"
+                                  type="number"
+                                  [(ngModel)]="overriddenSP"
+                                  />
+                              }
+                            </div>
+                            <div class="col-12 col-md-10">
+                              <div class="row small pb-0 mb-0">
+                                <div class="col g-0 h6 border border-dark text-center mb-0">
+                                  <small>HEAD</small>
+                                </div>
+                                <div class="col g-0 h6 border border-dark text-center mb-0">
+                                  <small>TORSO</small>
+                                </div>
+                                <div class="col g-0 h6 border border-dark text-center mb-0">
+                                  <small>R ARM</small>
+                                </div>
+                                <div class="col g-0 h6 border border-dark text-center mb-0">
+                                  <small>L ARM</small>
+                                </div>
+                                <div class="col g-0 h6 border border-dark text-center mb-0">
+                                  <small>R LEG</small>
+                                </div>
+                                <div class="col g-0 h6 border border-dark text-center mb-0">
+                                  <small>L LEG</small>
+                                </div>
+                              </div>
 
-  <ng-template #armorSourceList>
-    <div class="modal-header">
-      <h4 id="armor-modal-name" class="modal-title float-start">Armor List</h4>
-      <button
-        type="button"
-        class="btn-close float-end"
-        aria-label="Close"
-        (click)="closeModal()"
-      ></button>
-    </div>
-    <div class="modal-body">
-      <cs-cp2020-source-armor-list
-        (selectedArmor)="addSourceArmor($event)"
-      ></cs-cp2020-source-armor-list>
-      <br />
-      <br />
-    </div>
-  </ng-template>
-</div>
+                              <div class="row pt-0 mt-0">
+                                <div class="col g-0 text-center border border-dark mt-0 ps-0 pe-0">
+                                  @if (currArmor.locations?.head) {
+                                    <input
+                                      type="number"
+                                      [(ngModel)]="currArmor.locations.head"
+                                      min="0"
+                                      class="w-100 no-spinners text-center"
+                                      />
+                                  }
+                                </div>
+                                <div class="col g-0 text-center border border-dark ps-0 pe-0">
+                                  @if (currArmor.locations?.torso) {
+                                    <input
+                                      type="number"
+                                      [(ngModel)]="currArmor.locations.torso"
+                                      min="0"
+                                      class="w-100 no-spinners text-center"
+                                      />
+                                  }
+                                </div>
+                                <div class="col g-0 text-center border border-dark ps-0 pe-0">
+                                  @if (currArmor.locations?.rarm) {
+                                    <input
+                                      type="number"
+                                      [(ngModel)]="currArmor.locations.rarm"
+                                      min="0"
+                                      class="w-100 no-spinners text-center"
+                                      />
+                                  }
+                                </div>
+                                <div class="col g-0 text-center border border-dark ps-0 pe-0">
+                                  @if (currArmor.locations?.larm) {
+                                    <input
+                                      type="number"
+                                      [(ngModel)]="currArmor.locations.larm"
+                                      min="0"
+                                      class="w-100 no-spinners text-center"
+                                      />
+                                  }
+                                </div>
+                                <div class="col g-0 text-center border border-dark ps-0 pe-0">
+                                  @if (currArmor.locations?.rleg) {
+                                    <input
+                                      type="number"
+                                      [(ngModel)]="currArmor.locations.rleg"
+                                      min="0"
+                                      class="w-100 no-spinners text-center"
+                                      />
+                                  }
+                                </div>
+                                <div class="col g-0 text-center border border-dark ps-0 pe-0">
+                                  @if (currArmor.locations?.lleg) {
+                                    <input
+                                      type="number"
+                                      [(ngModel)]="currArmor.locations.lleg"
+                                      min="0"
+                                      class="w-100 no-spinners text-center"
+                                      />
+                                  }
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row mb-2">
+                              <div
+                                class="col-12 small"
+                                title="Override the dropdown selection to enter any value."
+                                >
+                                custom SP?
+                                <input
+                                  type="checkbox"
+                                  [(ngModel)]="currArmor.isSPOverride"
+                                  title="Override the dropdown and enter a custom SP value."
+                                  />
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-12 col-md-2">Options:</div>
+                                <div class="col-10">
+                                  <div class="row">
+                                    @for (opt of armorAttributes.options; track opt) {
+                                      <div
+                                        class="col-12"
+                                        [title]="opt.effect"
+                                        >
+                                        <input
+                                          type="checkbox"
+                                          [checked]="getOptionValue(opt.name)"
+                                          (change)="changeOption($event, opt)"
+                                          />
+                                          {{ opt.name }} (x{{ opt.mod | armorOptionMod: currArmor.clothes.wt }})
+                                        </div>
+                                      }
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <ng-template #armorSourceList>
+                                  <div class="modal-header">
+                                    <h4 id="armor-modal-name" class="modal-title float-start">Armor List</h4>
+                                    <button
+                                      type="button"
+                                      class="btn-close float-end"
+                                      aria-label="Close"
+                                      (click)="closeModal()"
+                                    ></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <cs-cp2020-source-armor-list
+                                      (selectedArmor)="addSourceArmor($event)"
+                                    ></cs-cp2020-source-armor-list>
+                                    <br />
+                                    <br />
+                                  </div>
+                                </ng-template>
+                              </div>

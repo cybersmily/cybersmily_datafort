@@ -11,291 +11,293 @@
       [(ngModel)]="currSettings.isCollapsed"
       (change)="saveSettings()"
       tabindex="0"
-    />
-    Collapse sections On Start
-  </div>
-  <div class="col-6">
-    <input
-      #iuSetting
-      type="checkbox"
-      [(ngModel)]="currSettings.isIU"
-      (change)="saveSettings()"
-      tabindex="0"
-    />
-    Use Interlock Unlimited
-  </div>
-</div>
-<div class="row">
-  <div class="col">
+      />
+      Collapse sections On Start
+    </div>
+    <div class="col-6">
+      <input
+        #iuSetting
+        type="checkbox"
+        [(ngModel)]="currSettings.isIU"
+        (change)="saveSettings()"
+        tabindex="0"
+        />
+        Use Interlock Unlimited
+      </div>
+    </div>
     <div class="row">
       <div class="col">
-        <h6>SECTIONS</h6>
-      </div>
-    </div>
-    <div class="row small">
-      <div class="col-1"></div>
-      <div class="col-5">
-        <input
-          type="checkbox"
-          class="ms-1"
-          [(ngModel)]="currSettings.sectionSettings.showSkills"
-          (change)="saveSettings()"
-          tabindex="0"
-        />
-        Show Skills
-      </div>
-      <div class="col-1"></div>
-      <div class="col-5">
-        <input
-          type="checkbox"
-          class="ms-1"
-          [(ngModel)]="currSettings.sectionSettings.showWeapons"
-          (change)="saveSettings()"
-          tabindex="0"
-        />
-        Show Weapons
-      </div>
-      <div class="col-1"></div>
-      <div class="col-5">
-        <input
-          type="checkbox"
-          class="ms-1"
-          [(ngModel)]="currSettings.sectionSettings.showArmor"
-          (change)="saveSettings()"
-          tabindex="0"
-        />
-        Show Armor
-      </div>
-      <div class="col-1"></div>
-      <div class="col-5">
-        <input
-          type="checkbox"
-          class="ms-1"
-          [(ngModel)]="currSettings.sectionSettings.showCybernetics"
-          (change)="saveSettings()"
-          tabindex="0"
-        />
-        Show Cybernetics
-      </div>
-      <div class="col-1"></div>
-      <div class="col-5">
-        <input
-          type="checkbox"
-          class="ms-1"
-          [(ngModel)]="currSettings.sectionSettings.showGear"
-          (change)="saveSettings()"
-          tabindex="0"
-        />
-        Show Gear
-      </div>
-      <div class="col-1"></div>
-      <div class="col-5">
-        <input
-          type="checkbox"
-          class="ms-1"
-          [(ngModel)]="currSettings.sectionSettings.showCyberdeck"
-          (change)="saveSettings()"
-          tabindex="0"
-        />
-        Show Cyberdeck
-      </div>
-      <div class="col-1"></div>
-      <div class="col-5">
-        <input
-          type="checkbox"
-          class="ms-1"
-          [(ngModel)]="currSettings.sectionSettings.showVehicles"
-          (change)="saveSettings()"
-          tabindex="0"
-        />
-        Show Vehicles
-      </div>
-      <div class="col-1"></div>
-      <div class="col-5">
-        <input
-          type="checkbox"
-          class="ms-1"
-          [(ngModel)]="currSettings.sectionSettings.showLifestyle"
-          (change)="saveSettings()"
-          tabindex="0"
-        />
-        Show Lifestyles
-      </div>
-      <div class="col-1"></div>
-      <div class="col-5">
-        <input
-          type="checkbox"
-          class="ms-1"
-          [(ngModel)]="currSettings.sectionSettings.showLifePath"
-          (change)="saveSettings()"
-          tabindex="0"
-        />
-        Show LifePath
-      </div>
-      <div class="col-1"></div>
-      <div class="col-5">
-        <input
-          type="checkbox"
-          class="ms-1"
-          [(ngModel)]="currSettings.sectionSettings.showContacts"
-          (change)="saveSettings()"
-          tabindex="0"
-        />
-        Show Contacts
-      </div>
-      <div class="col-1"></div>
-      <div class="col-5">
-        <input
-          type="checkbox"
-          class="ms-1"
-          [(ngModel)]="currSettings.sectionSettings.showNotes"
-          (change)="saveSettings()"
-          tabindex="0"
-        />
-        Show Notes
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col">
-    <div class="row">
-      <div class="col">
-        <h6>SKILLS</h6>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-1"></div>
-      <div class="col-5">
-        Role Points:
-        <input
-          type="number"
-          class="ms-1 csd-number"
-          [(ngModel)]="currSettings.skillSettings.roleSkillPoints"
-          (change)="saveSettings()"
-          tabindex="0"
-        />
-      </div>
-      <div class="col-5">
-        <input
-          type="checkbox"
-          (change)="saveSettings()"
+        <div class="row">
+          <div class="col">
+            <h6>SECTIONS</h6>
+          </div>
+        </div>
+        <div class="row small">
+          <div class="col-1"></div>
+          <div class="col-5">
+            <input
+              type="checkbox"
+              class="ms-1"
+              [(ngModel)]="currSettings.sectionSettings.showSkills"
+              (change)="saveSettings()"
+              tabindex="0"
+              />
+              Show Skills
+            </div>
+            <div class="col-1"></div>
+            <div class="col-5">
+              <input
+                type="checkbox"
+                class="ms-1"
+                [(ngModel)]="currSettings.sectionSettings.showWeapons"
+                (change)="saveSettings()"
+                tabindex="0"
+                />
+                Show Weapons
+              </div>
+              <div class="col-1"></div>
+              <div class="col-5">
+                <input
+                  type="checkbox"
+                  class="ms-1"
+                  [(ngModel)]="currSettings.sectionSettings.showArmor"
+                  (change)="saveSettings()"
+                  tabindex="0"
+                  />
+                  Show Armor
+                </div>
+                <div class="col-1"></div>
+                <div class="col-5">
+                  <input
+                    type="checkbox"
+                    class="ms-1"
+                    [(ngModel)]="currSettings.sectionSettings.showCybernetics"
+                    (change)="saveSettings()"
+                    tabindex="0"
+                    />
+                    Show Cybernetics
+                  </div>
+                  <div class="col-1"></div>
+                  <div class="col-5">
+                    <input
+                      type="checkbox"
+                      class="ms-1"
+                      [(ngModel)]="currSettings.sectionSettings.showGear"
+                      (change)="saveSettings()"
+                      tabindex="0"
+                      />
+                      Show Gear
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-5">
+                      <input
+                        type="checkbox"
+                        class="ms-1"
+                        [(ngModel)]="currSettings.sectionSettings.showCyberdeck"
+                        (change)="saveSettings()"
+                        tabindex="0"
+                        />
+                        Show Cyberdeck
+                      </div>
+                      <div class="col-1"></div>
+                      <div class="col-5">
+                        <input
+                          type="checkbox"
+                          class="ms-1"
+                          [(ngModel)]="currSettings.sectionSettings.showVehicles"
+                          (change)="saveSettings()"
+                          tabindex="0"
+                          />
+                          Show Vehicles
+                        </div>
+                        <div class="col-1"></div>
+                        <div class="col-5">
+                          <input
+                            type="checkbox"
+                            class="ms-1"
+                            [(ngModel)]="currSettings.sectionSettings.showLifestyle"
+                            (change)="saveSettings()"
+                            tabindex="0"
+                            />
+                            Show Lifestyles
+                          </div>
+                          <div class="col-1"></div>
+                          <div class="col-5">
+                            <input
+                              type="checkbox"
+                              class="ms-1"
+                              [(ngModel)]="currSettings.sectionSettings.showLifePath"
+                              (change)="saveSettings()"
+                              tabindex="0"
+                              />
+                              Show LifePath
+                            </div>
+                            <div class="col-1"></div>
+                            <div class="col-5">
+                              <input
+                                type="checkbox"
+                                class="ms-1"
+                                [(ngModel)]="currSettings.sectionSettings.showContacts"
+                                (change)="saveSettings()"
+                                tabindex="0"
+                                />
+                                Show Contacts
+                              </div>
+                              <div class="col-1"></div>
+                              <div class="col-5">
+                                <input
+                                  type="checkbox"
+                                  class="ms-1"
+                                  [(ngModel)]="currSettings.sectionSettings.showNotes"
+                                  (change)="saveSettings()"
+                                  tabindex="0"
+                                  />
+                                  Show Notes
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col">
+                              <div class="row">
+                                <div class="col">
+                                  <h6>SKILLS</h6>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-1"></div>
+                                <div class="col-5">
+                                  Role Points:
+                                  <input
+                                    type="number"
+                                    class="ms-1 csd-number"
+                                    [(ngModel)]="currSettings.skillSettings.roleSkillPoints"
+                                    (change)="saveSettings()"
+                                    tabindex="0"
+                                    />
+                                  </div>
+                                  <div class="col-5">
+                                    <input
+                                      type="checkbox"
+                                      (change)="saveSettings()"
           [(ngModel)]="
             currSettings.skillSettings.showOnlySkillsWithRanks
           "
-          tabindex="0"
-        /> Show only skills with ranks
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-1"></div>
-      <div class="col-5">
-        <input
-          type="checkbox"
-          [(ngModel)]="currSettings.skillSettings.useStatsForSecondary"
-          (change)="saveSettings()"
-          tabindex="0"
-        />
-        Secondary Skills Points use REF + INT
-        <div *ngIf="!currSettings.skillSettings.useStatsForSecondary">
-          Available Secondary SKills Points:
-          <input
-            type="number"
-            class="ms-1 csd-number"
-            (change)="saveSettings()"
+                                      tabindex="0"
+                                      /> Show only skills with ranks
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-1"></div>
+                                    <div class="col-5">
+                                      <input
+                                        type="checkbox"
+                                        [(ngModel)]="currSettings.skillSettings.useStatsForSecondary"
+                                        (change)="saveSettings()"
+                                        tabindex="0"
+                                        />
+                                        Secondary Skills Points use REF + INT
+                                        @if (!currSettings.skillSettings.useStatsForSecondary) {
+                                          <div>
+                                            Available Secondary SKills Points:
+                                            <input
+                                              type="number"
+                                              class="ms-1 csd-number"
+                                              (change)="saveSettings()"
             [(ngModel)]="
               currSettings.skillSettings.availableSecondarySkillPoints
             "
-            tabindex="0"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col">
-    <div class="row">
-      <div class="col">
-        <h6>LIFEPATH</h6>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-1"></div>
-      <div class="col">
-        Style source:
-        <cs-cp2020-source-selector class="ms-2" [defaultSource]="currSettings.lifePathSource.style" (changeSource)="selectedLifePathSource($event, 'style')"></cs-cp2020-source-selector>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-1"></div>
-      <div class="col-11">
-        Motivation source:
-        <cs-cp2020-source-selector class="ms-2" [defaultSource]="currSettings.lifePathSource.motivation" (changeSource)="selectedLifePathSource($event, 'motivation')"></cs-cp2020-source-selector>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-1"></div>
-      <div class="col">
-        Family source:
-        <cs-cp2020-source-selector class="ms-2" [defaultSource]="currSettings.lifePathSource.family" (changeSource)="selectedLifePathSource($event, 'family')"></cs-cp2020-source-selector>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-1"></div>
-      <div class="col">
-        Life Events source:
-        <cs-cp2020-source-selector class="ms-2" [defaultSource]="currSettings.lifePathSource.lifeEvents" (changeSource)="selectedLifePathSource($event, 'lifeEvents')"></cs-cp2020-source-selector>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-1"></div>
-      <div class="col">
-        Always have an event:
-        <input
-          type="checkbox"
-          [(ngModel)]="currSettings.lifePathEvents"
-          (change)="saveSettings()"
-          tabindex="0"
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-1"></div>
-      <div class="col">
-        Roll for years (leave 0 for random):
-        <input
-          type="number"
-          min="0"
-          class="csd-number"
-          [(ngModel)]="currSettings.lifePathYears"
-          (change)="saveSettings()"
-          tabindex="0"
-        />
-      </div>
-    </div>
-  </div>
-</div>
+                                              tabindex="0"
+                                              />
+                                            </div>
+                                          }
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col">
+                                      <div class="row">
+                                        <div class="col">
+                                          <h6>LIFEPATH</h6>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-1"></div>
+                                        <div class="col">
+                                          Style source:
+                                          <cs-cp2020-source-selector class="ms-2" [defaultSource]="currSettings.lifePathSource.style" (changeSource)="selectedLifePathSource($event, 'style')"></cs-cp2020-source-selector>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-1"></div>
+                                        <div class="col-11">
+                                          Motivation source:
+                                          <cs-cp2020-source-selector class="ms-2" [defaultSource]="currSettings.lifePathSource.motivation" (changeSource)="selectedLifePathSource($event, 'motivation')"></cs-cp2020-source-selector>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-1"></div>
+                                        <div class="col">
+                                          Family source:
+                                          <cs-cp2020-source-selector class="ms-2" [defaultSource]="currSettings.lifePathSource.family" (changeSource)="selectedLifePathSource($event, 'family')"></cs-cp2020-source-selector>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-1"></div>
+                                        <div class="col">
+                                          Life Events source:
+                                          <cs-cp2020-source-selector class="ms-2" [defaultSource]="currSettings.lifePathSource.lifeEvents" (changeSource)="selectedLifePathSource($event, 'lifeEvents')"></cs-cp2020-source-selector>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-1"></div>
+                                        <div class="col">
+                                          Always have an event:
+                                          <input
+                                            type="checkbox"
+                                            [(ngModel)]="currSettings.lifePathEvents"
+                                            (change)="saveSettings()"
+                                            tabindex="0"
+                                            />
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-1"></div>
+                                          <div class="col">
+                                            Roll for years (leave 0 for random):
+                                            <input
+                                              type="number"
+                                              min="0"
+                                              class="csd-number"
+                                              [(ngModel)]="currSettings.lifePathYears"
+                                              (change)="saveSettings()"
+                                              tabindex="0"
+                                              />
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
 
-<div class="row">
-  <div class="col">
-    <div class="row">
-      <div class="col">
-        <h6>CYBERDECK & PROGRAMS</h6>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-1"></div>
-      <div class="col">
-        Use Quick Netrunning Rules :
-        <input
-          type="checkbox"
-          [(ngModel)]="currSettings.cyberdeckSettings.useQNR"
-          (change)="saveSettings()"
-          tabindex="0"
-        />
-        <span class="small">(see MOD section for details)</span>
-      </div>
-    </div>
-  </div>
-</div>
+                                      <div class="row">
+                                        <div class="col">
+                                          <div class="row">
+                                            <div class="col">
+                                              <h6>CYBERDECK & PROGRAMS</h6>
+                                            </div>
+                                          </div>
+                                          <div class="row">
+                                            <div class="col-1"></div>
+                                            <div class="col">
+                                              Use Quick Netrunning Rules :
+                                              <input
+                                                type="checkbox"
+                                                [(ngModel)]="currSettings.cyberdeckSettings.useQNR"
+                                                (change)="saveSettings()"
+                                                tabindex="0"
+                                                />
+                                                <span class="small">(see MOD section for details)</span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>

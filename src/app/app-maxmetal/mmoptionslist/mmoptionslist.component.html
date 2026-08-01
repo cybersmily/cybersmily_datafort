@@ -6,22 +6,24 @@
       <div class="col-2">Spaces</div>
       <div class="col-2">Cost</div>
     </div>
-    <div *ngFor="let opt of optionList.options" class="row">
-      <div class="col-7">
-        {{ opt.count > 1 ? opt.count + " " : "" }}{{ opt.name }}
+    @for (opt of optionList.options; track opt) {
+      <div class="row">
+        <div class="col-7">
+          {{ opt.count > 1 ? opt.count + " " : "" }}{{ opt.name }}
+        </div>
+        <div class="col-2">
+          {{ opt.calculateSpaces(vehicle.maxSpaces) | number: "1.0" }}
+        </div>
+        <div class="col-2">
+          {{ opt.calculateCost(vehicle.baseCost) | number: "1.00" }}eb
+        </div>
+        <div class="col-1">
+          <button class="btn btn-secondary btn-sm" (click)="removeOpt(opt)">
+            X
+          </button>
+        </div>
       </div>
-      <div class="col-2">
-        {{ opt.calculateSpaces(vehicle.maxSpaces) | number: "1.0" }}
-      </div>
-      <div class="col-2">
-        {{ opt.calculateCost(vehicle.baseCost) | number: "1.00" }}eb
-      </div>
-      <div class="col-1">
-        <button class="btn btn-secondary btn-sm" (click)="removeOpt(opt)">
-          X
-        </button>
-      </div>
-    </div>
+    }
     <br />
     <div class="row">
       <div class="col-8">Total:</div>

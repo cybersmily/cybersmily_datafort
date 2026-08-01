@@ -1,30 +1,32 @@
 <div class="csd-input row">
   <div class="col-8 csd-inpu : ''t)  : ''-) label">
-    <span>{{label}}({{min}}</span><span *ngIf="hasMax()">/{{max | number}}</span>):
+    <span>{{label}}({{min}}</span>@if (hasMax()) {
+    <span>/{{max | number}}</span>
+    }):
   </div>
   <div class="col-4">
     <div class="input-group mb-3">
-        <input
-          [(ngModel)]="inputValue"
-          type="text"
-          class="csd-sm-input form-control"
-          [disabled]="true"
-          />
+      <input
+        [(ngModel)]="inputValue"
+        type="text"
+        class="csd-sm-input form-control"
+        [disabled]="true"
+        />
         <div class="input-group-append">
-            <button csLongpress
-              class="btn btn-secondary btn-sm"
-              (onLongPressing)="decrementValue()"
-              [stopInterval]="disableMin"
-              (click)="decrementValue()"
-              [disabled]="disableMin">-</button>
-            <button csLongpress
-              class="btn btn-secondary btn-sm"
-              (onLongPressing)="incrementValue()"
-              [stopInterval]="disableMax"
-              (click)="incrementValue()"
-              [disabled]="disableMax"
-              >+</button>
+          <button csLongpress
+            class="btn btn-secondary btn-sm"
+            (onLongPressing)="decrementValue()"
+            [stopInterval]="disableMin"
+            (click)="decrementValue()"
+          [disabled]="disableMin">-</button>
+          <button csLongpress
+            class="btn btn-secondary btn-sm"
+            (onLongPressing)="incrementValue()"
+            [stopInterval]="disableMax"
+            (click)="incrementValue()"
+            [disabled]="disableMax"
+          >+</button>
         </div>
+      </div>
     </div>
   </div>
-</div>

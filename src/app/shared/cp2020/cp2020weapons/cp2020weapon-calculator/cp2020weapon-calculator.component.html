@@ -1,34 +1,37 @@
 <div class="cmbt-calculator">
-  <div *ngIf="showHeader" class="row chargen-label">
-    <div class="col-12 csd-btn g-0">
-      <h4
-        class="d-inline-block csd-btn ms-1"
-        (click)="isCollapsed = !isCollapsed"
-      >
-        COMBAT CALCULATOR
-        <fa-icon
-          [icon]="isCollapsed ? faChevronRight : faChevronDown"
-          class="csd-icon-btn csd-icon-xl ms-1"
-          title="Toggel section"
-        >
-        </fa-icon>
-      </h4>
+  @if (showHeader) {
+    <div class="row chargen-label">
+      <div class="col-12 csd-btn g-0">
+        <h4
+          class="d-inline-block csd-btn ms-1"
+          (click)="isCollapsed = !isCollapsed"
+          >
+          COMBAT CALCULATOR
+          <fa-icon
+            [icon]="isCollapsed ? faChevronRight : faChevronDown"
+            class="csd-icon-btn csd-icon-xl ms-1"
+            title="Toggel section"
+            >
+          </fa-icon>
+        </h4>
+      </div>
     </div>
-  </div>
+  }
   <div
     [collapse]="isCollapsed && showHeader"
     [ngClass]="{ row: true, 'border border-dark': showHeader }"
-  >
+    >
     <div class="col-12">
-      <div *ngIf="selectedWeapon; else selectWeaponInput" class="row">
-        <div class="col-12">
-          {{selectedWeapon.name}} <fa-icon [icon]="faTimes" class="csd-icon-btn csd-btn" size="xl" tabindex="0" (click)="deselectWeapon()"></fa-icon><br>
-          <span class="cmbt-modifiers">
-            {{ selectedWeapon ? selectedWeapon.showStats() : "" }}
-          </span>
+      @if (selectedWeapon) {
+        <div class="row">
+          <div class="col-12">
+            {{selectedWeapon.name}} <fa-icon [icon]="faTimes" class="csd-icon-btn csd-btn" size="xl" tabindex="0" (click)="deselectWeapon()"></fa-icon><br>
+            <span class="cmbt-modifiers">
+              {{ selectedWeapon ? selectedWeapon.showStats() : "" }}
+            </span>
+          </div>
         </div>
-      </div>
-      <ng-template #selectWeaponInput>
+      } @else {
         <div class="row">
           <div class="col-12">
             Choose Weapon:&nbsp;
@@ -36,413 +39,460 @@
               [(ngModel)]="selectedWeapon"
               class="w-100"
               (change)="changeWeapon()"
-            >
+              >
               <option [ngValue]="undefined" disabled></option>
-              <option *ngFor="let wpn of filteredList" [ngValue]="wpn">
-                {{ wpn.name }}
-              </option>
-              <option *ngFor="let att of physicalAttacks" [ngValue]="att">
-                {{ att.name }}
-              </option>
+              @for (wpn of filteredList; track wpn) {
+                <option [ngValue]="wpn">
+                  {{ wpn.name }}
+                </option>
+              }
+              @for (att of physicalAttacks; track att) {
+                <option [ngValue]="att">
+                  {{ att.name }}
+                </option>
+              }
             </select>
           </div>
         </div>
-      </ng-template>
+      }
     </div>
   </div>
-  <div
-    [collapse]="isCollapsed && showHeader"
-    [ngClass]="{ row: true, 'border border-dark': showHeader }"
-    *ngIf="selectedWeapon"
-  >
-    <div class="col-12">
-      <div class="row small" *ngIf="isMelee">
-        <div class="col-1"></div>
-        <div class="col-11">
-          BOD Dmg Mod: {{ (bodyDamageMod > 0 ? "+" : "") + bodyDamageMod }}
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-1 d-none d-md-inline-block"></div>
-        <div class="col-12 col-md-7 cmbt-section">
-          <span *ngIf="filteredSkills.length > 1; else elseSkill">
-            <select [(ngModel)]="selectedSkill" (change)="changeSkill($event)">
-              <option *ngFor="let sk of filteredSkills" [ngValue]="sk">
-                {{ sk.name }}{{ sk.option ? ": " + sk.option : "" }}
-              </option>
-            </select>
-          </span>
-          <ng-template #elseSkill> {{ selectedSkill.name }} </ng-template
-          >:&nbsp;
-          <span
+  @if (selectedWeapon) {
+    <div
+      [collapse]="isCollapsed && showHeader"
+      [ngClass]="{ row: true, 'border border-dark': showHeader }"
+      >
+      <div class="col-12">
+        @if (isMelee) {
+          <div class="row small">
+            <div class="col-1"></div>
+            <div class="col-11">
+              BOD Dmg Mod: {{ (bodyDamageMod > 0 ? "+" : "") + bodyDamageMod }}
+            </div>
+          </div>
+        }
+        <div class="row">
+          <div class="col-1 d-none d-md-inline-block"></div>
+          <div class="col-12 col-md-7 cmbt-section">
+            @if (filteredSkills.length > 1) {
+              <span>
+                <select [(ngModel)]="selectedSkill" (change)="changeSkill($event)">
+                  @for (sk of filteredSkills; track sk) {
+                    <option [ngValue]="sk">
+                      {{ sk.name }}{{ sk.option ? ": " + sk.option : "" }}
+                    </option>
+                  }
+                </select>
+              </span>
+            } @else {
+              {{ selectedSkill.name }}
+            }
+            :&nbsp;
+            <span
             title="{{ selectedSkill.value }}(Skill) + {{ ref }}(REF) + {{
               selectedWeapon.wa
             }}(wa)"
-          >
-            {{ selectedSkill.value + ref + selectedWeapon.wa }} </span
-          >&nbsp;
-          <span
-            *ngIf="martialArtBonus > 0"
-            title="Martial Art Key Attack Bonus"
-          >
-            + {{ martialArtBonus }}
-          </span>
-          +&nbsp;
-          <fa-icon
-            [icon]="faDice"
-            class="csd-btn csd-dice"
-            (click)="rollToHit()"
-          >
-          </fa-icon
-          >&nbsp;{{ toHitDiceRoll.show(true) }} = {{ totalToHit }}
-        </div>
-        <div class="col-12 col-md-1 text-center">VS.</div>
-        <div class="col-12 col-md-2 text-center">
-          {{ isMelee ? "Opposed Roll" : "DIFF: " + totalDiff }}
-        </div>
-      </div>
-
-      <div class="row small" *ngIf="selectedWeapon.magazines">
-        <div class="col-1 d-none d-md-inline-block"></div>
-        <div class="col-6 col-md-4">
-          Magazines ({{ selectedWeapon.magazines.length }}):
-          <select [(ngModel)]="selectedWeapon.currMagIndex">
-            <option
-              *ngFor="let mag of selectedWeapon.magazines; let i = index"
-              [value]="i"
-            >
-              {{ mag.used }}/{{ mag.capacity }} {{ mag.ammo }} {{ mag.subtype }}
-            </option>
-          </select>
-        </div>
-        <div class="col-5 col-md-7">
-          <span
-            class="wpn-shot csd-btn"
-            *ngFor="let shot of currMagazineShots; let i = index"
-            (click)="selectedWeapon.expendShot(i)"
-            title="{{ i + 1 }}"
-            >{{ shot ? "x" : "" }}</span
-          >
-          <button
-            *ngIf="selectedWeapon.isEmpty"
-            class="csd-btn csd-icon-btn ms-2"
-            (click)="selectedWeapon.reload()"
-            title="Reload"
-          >
-            <fa-icon [icon]="faRedo"></fa-icon>
-          </button>
-        </div>
-      </div>
-
-      <div class="row" *ngIf="toHitResults.length > 0">
-        <div class="col-2">TO-HIT Results:</div>
-        <div class="col-9">
-          <div *ngFor="let msg of toHitResults">{{ msg }}</div>
-        </div>
-      </div>
-
-      <div
-        class="row cmbt-section"
-        *ngIf="isMartialArt && martialArtsBonuses as ma"
-      >
-        <div class="col-1"></div>
-        <div class="col-1">
-          {{ ma.name }}
-        </div>
-        <div class="col">
-          <div class="row">
-            <div class="col">Strike: +{{ ma.strike }}</div>
-            <div class="col">Block: +{{ ma.block }}</div>
-            <div class="col">Choke: +{{ ma.choke }}</div>
-          </div>
-          <div class="row">
-            <div class="col">Punch: +{{ ma.punch }}</div>
-            <div class="col">Dodge: +{{ ma.dodge }}</div>
-            <div class="col">Escape: +{{ ma.escape }}</div>
-          </div>
-          <div class="row">
-            <div class="col">Kick: +{{ ma.kick }}</div>
-            <div class="col">Grapple: +{{ ma.grapple }}</div>
-            <div class="col">Ram: +{{ ma.ram }}</div>
-          </div>
-          <div class="row">
-            <div class="col">Disarm: +{{ ma.disarm }}</div>
-            <div class="col">Throw: +{{ ma.throw }}</div>
-            <div class="col"></div>
-          </div>
-          <div class="row">
-            <div class="col">Sweep: +{{ ma.sweep }}</div>
-            <div class="col">Hold: +{{ ma.hold }}</div>
-            <div class="col"></div>
-          </div>
-        </div>
-        <div class="col-2"></div>
-      </div>
-
-      <div class="row small mb-1" *ngIf="isRanged">
-        <div class="col-1 d-none d-md-inline-block"></div>
-        <div class="col-6 col-md-5 col-lg-2">Range to Target:</div>
-        <div class="col-6 col-md-5 col-lg-3 cmbt-section">
-          <input
-            class="w-100"
-            title="Range to target"
-            [(ngModel)]="rangeToTarget"
-            type="range"
-            min="0"
-            max="{{ weaponRange > 1 ? weaponRange * 2 : 1 }}"
-            (change)="setBracket()"
-            value="1"
-            list="rangeIncrements"
-          />
-          <datalist id="rangeIncrements">
-            <option>{{ selectedWeaponRanges?.pointBlank }}</option>
-            <option>{{ selectedWeaponRanges?.close }}</option>
-            <option>{{ selectedWeaponRanges?.medium }}</option>
-            <option>{{ selectedWeaponRanges?.long }}</option>
-            <option>{{ selectedWeaponRanges?.extreme }}</option>
-          </datalist>
-        </div>
-        <div class="col-7 col-lg-3 text-end">
-          {{ rangeToTarget }}m (
-          <select [ngModel]="rangeBracket" (change)="setRange($event)">
-            <option value="Point Blank">Point Blank</option>
-            <option value="Close">Close</option>
-            <option value="Medium">Medium</option>
-            <option value="Long">Long</option>
-            <option value="Extreme">Extreme</option></select
-          >)
-        </div>
-        <div class="col-5 col-lg-3 text-end">
-          Base DIFF: {{ selectedWeaponRanges.rangeBracket(rangeToTarget).diff }}
-        </div>
-      </div>
-      <div
-        class="row test-sm"
-        *ngIf="selectedWeapon.rof && selectedWeapon.rof > 1"
-      >
-        <div class="col-1 d-none d-md-inline-block"></div>
-        <div class="col-9 col-md-8 cmbt-section">
-          Fire:
-          <select [(ngModel)]="fireMode">
-            <option [ngValue]="2">Single Shot</option>
-            <option [ngValue]="1" *ngIf="selectedWeapon.rof > 2">
-              3 Round Burst
-            </option>
-            <option [ngValue]="3" *ngIf="selectedWeapon.rof > 2">
-              Full Auto
-            </option>
-            <option [ngValue]="4" *ngIf="selectedWeapon.rof > 2">
-              Suppressive Fire
-            </option></select
-          >&nbsp;
-          <select *ngIf="fireMode > 1" [(ngModel)]="shotsFired">
-            <option [ngValue]="0">0</option>
-            <option
-              *ngFor="let shot of [].constructor(fireShots); let i = index"
-              [ngValue]="i + 1"
-            >
-              {{ i + 1 }}
-            </option>
-          </select>
-        </div>
-        <div class="col-3 text-end">{{ fireModeModifier }}</div>
-      </div>
-      <div class="row" (click)="collapseTargetMods = !collapseTargetMods">
-        <div class="col-1 d-none d-md-inline-block"></div>
-        <div class="col">Target Modifiers:
-          <fa-icon [icon]="collapseTargetMods ? faChevronDown : faChevronRight" class="csd-icon-btn"></fa-icon></div>
-        <div class="col-3 text-end">{{ targetActionModifier }}</div>
-      </div>
-      <div class="row" [collapse]="!collapseTargetMods">
-        <div class="col-12">
-      <div class="row cmbt-modifiers">
-        <div class="col-2"></div>
-        <div class="col-5">
-          Target Movement:&nbsp;
-          <select [(ngModel)]="targetMovementModified">
-            <option [ngValue]="0">Moving</option>
-            <option [ngValue]="-4">Immobile</option>
-            <option [ngValue]="3">Moving Ref > 10</option>
-            <option [ngValue]="4">Moving Ref > 12</option>
-            <option [ngValue]="5">Moving Ref > 14</option>
-          </select>
-        </div>
-        <div class="col-5">
-          Target Size:&nbsp;
-          <select [(ngModel)]="targetSize">
-            <option [ngValue]="0"></option>
-            <option [ngValue]="6">Tiny</option>
-            <option [ngValue]="4">Small</option>
-            <option [ngValue]="-4">Large</option>
-          </select>
-        </div>
-      </div>
-      <div class="row cmbt-modifiers">
-        <div class="col-2"></div>
-        <div class="col-10 col-md-5">
-          <input
-            id="turnToFaceTarget"
-            type="checkbox"
-            [(ngModel)]="turnToFaceTarget"
-          />&nbsp;
-          <label for="turnToFaceTarget">Turn To Face (+2) </label>
-        </div>
-        <div class="col-2 d-md-none"></div>
-        <div class="col-10 col-md-5">
-          <input
-            id="targetSilhoutted"
-            type="checkbox"
-            [(ngModel)]="targetSilhoutted"
-          />&nbsp;
-          <label for="targetSilhoutted">Silhoutted (-2) </label>
-        </div>
-        <div class="col-2"></div>
-        <div class="col-10 col-md-5" *ngIf="!isRanged">
-          <input
-            id="targetdodge"
-            type="checkbox"
-            [(ngModel)]="targetDodge"
-          />&nbsp;
-          <label for="targetdodge">Dodging (+2) </label>
-        </div>
-      </div></div>
-    </div>
-      <div class="row" (click)="collapseAttackerMods = !collapseAttackerMods">
-        <div class="col-1 d-none d-md-inline-block"></div>
-        <div class="col">Attacker Modifiers:
-          <fa-icon [icon]="collapseAttackerMods ? faChevronDown : faChevronRight" class="csd-icon-btn"></fa-icon>
-        </div>
-        <div class="col-1 text-end"> {{ attackerActionModifier }}</div>
-      </div>
-      <div class="row" [collapse]="!collapseAttackerMods">
-        <div class="col-12">
-          <div class="row cmbt-modifiers" *ngIf="isRanged">
-            <div class="col-2"></div>
-            <div class="col">
-              Aimed (turns):&nbsp;
-              <select [(ngModel)]="aimedTurns">
-                <option [ngValue]="0">0</option>
-                <option [ngValue]="-1">1</option>
-                <option [ngValue]="-2">2</option>
-                <option [ngValue]="-3">3</option>
-              </select>
+              >
+              {{ selectedSkill.value + ref + selectedWeapon.wa }} </span
+              >&nbsp;
+              @if (martialArtBonus > 0) {
+                <span
+                  title="Martial Art Key Attack Bonus"
+                  >
+                  + {{ martialArtBonus }}
+                </span>
+              }
+              +&nbsp;
+              <fa-icon
+                [icon]="faDice"
+                class="csd-btn csd-dice"
+                (click)="rollToHit()"
+                >
+                </fa-icon
+                >&nbsp;{{ toHitDiceRoll.show(true) }} = {{ totalToHit }}
+              </div>
+              <div class="col-12 col-md-1 text-center">VS.</div>
+              <div class="col-12 col-md-2 text-center">
+                {{ isMelee ? "Opposed Roll" : "DIFF: " + totalDiff }}
+              </div>
             </div>
-          </div>
-          <div class="row cmbt-modifiers">
-            <div class="col-2"></div>
-            <div class="col-10 col-md-5">
-              <input id="fastDraw" type="checkbox" [(ngModel)]="fastDraw" />&nbsp;
-              <label for="fastDraw">Fast draw/Snapshot (+3)</label>
-            </div>
-            <div class="col-2 d-md-none"></div>
-            <div class="col-10 col-md-5">
-              <input id="ambush" type="checkbox" [(ngModel)]="ambush" />&nbsp;
-              <label for="ambush">Ambush (-5) </label>
-            </div>
-          </div>
-          <div class="row cmbt-modifiers">
-            <div class="col-2"></div>
-            <div class="col-10 col-md-5">
-              <input id="aimedBody" type="checkbox" [(ngModel)]="aimedBody" />&nbsp;
-              <label for="aimedBody">Aimed shot at body location (+4)</label>
-            </div>
-            <div class="col-2 d-md-none"></div>
-            <div class="col-10 col-md-5" *ngIf="isRanged">
-              <input id="ricochet" type="checkbox" [(ngModel)]="ricochet" />&nbsp;
-              <label for="ricochet">Ricochet/Indirect fire (+5) </label>
-            </div>
-          </div>
-          <div class="row cmbt-modifiers">
-            <div class="col-2"></div>
-            <div class="col-10 col-md-5">
-              <input id="blind" type="checkbox" [(ngModel)]="blind" />&nbsp;
-              <label for="blind">Blinded by dust/light (+3)</label>
-            </div>
-            <div class="col-2 d-md-none"></div>
-            <div class="col-10 col-md-5">
-              <input
-                id="twoWeapons"
-                type="checkbox"
-                [(ngModel)]="twoWeapons"
-              />&nbsp;
-              <label for="twoWeapons">Using two weapons (+3) </label>
-            </div>
-          </div>
-          <div class="row cmbt-modifiers" *ngIf="isRanged">
-            <div class="col-2"></div>
-            <div class="col-10 col-md-5">
-              <input id="running" type="checkbox" [(ngModel)]="running" />&nbsp;
-              <label for="running">Firing while running (+3)</label>
-            </div>
-            <div class="col-2 d-md-none"></div>
-            <div class="col-10 col-md-5">
-              <input
-                id="fireFromHip"
-                type="checkbox"
-                [(ngModel)]="fireFromHip"
-              />&nbsp;
-              <label for="fireFromHip">Firing shouler arm from the hip (+2) </label>
-            </div>
-          </div>
-          <div class="row" *ngIf="isRanged">
-            <div class="col-1"></div>
-            <div class="col">Sights/Smartweapon:</div>
-            <div class="col-3 text-end">{{ sightSmartModifier }}</div>
-          </div>
-          <div class="row cmbt-modifiers" *ngIf="isRanged">
-            <div class="col-2"></div>
-            <div class="col-10 col-md-5">
-              <input
-                id="smartWeapon"
-                type="checkbox"
-                [(ngModel)]="smartWeapon"
-              />&nbsp; <label for="smartWeapon">Smartweapon/goggles (-2) </label>
-            </div>
-            <div class="col-2 d-md-none"></div>
-            <div class="col-10 col-md-5">
-              <input
-                id="laserSight"
-                type="checkbox"
-                [(ngModel)]="laserSight"
-              />&nbsp;
-              <label for="laserSight">Laser Sight (-1) </label>
-            </div>
-          </div>
-          <div class="row cmbt-modifiers" *ngIf="isRanged">
-            <div class="col-2"></div>
-            <div class="col-10 col-md-5">
-              <input id="teleSight" type="checkbox" [(ngModel)]="teleSight" />&nbsp;
-              <label for="teleSight"
-                >Telescopic Scope ({{
-                  selectedWeaponBracket?.bracket === "Medium"
-                    ? -1
-                    : selectedWeaponBracket?.bracket === "Extreme"
-                    ? -2
-                    : 0
-                }})
-              </label>
-            </div>
-            <div class="col-2 d-md-none"></div>
-            <div class="col-10 col-md-5">
-              <input
-                id="targetScope"
-                *ngIf="smartWeapon"
-                type="checkbox"
-                [(ngModel)]="targetScope"
-              />&nbsp;
-              <label for="targetScope" *ngIf="smartWeapon"
-                >Targeting Scope (-1)
-              </label>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">Other Modifiers:
-          <input type="number" [(ngModel)]="otherToHitModifiers" />
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+            @if (selectedWeapon.magazines) {
+              <div class="row small">
+                <div class="col-1 d-none d-md-inline-block"></div>
+                <div class="col-6 col-md-4">
+                  Magazines ({{ selectedWeapon.magazines.length }}):
+                  <select [(ngModel)]="selectedWeapon.currMagIndex">
+                    @for (mag of selectedWeapon.magazines; track mag; let i = $index) {
+                      <option
+                        [value]="i"
+                        >
+                        {{ mag.used }}/{{ mag.capacity }} {{ mag.ammo }} {{ mag.subtype }}
+                      </option>
+                    }
+                  </select>
+                </div>
+                <div class="col-5 col-md-7">
+                  @for (shot of currMagazineShots; track shot; let i = $index) {
+                    <span
+                      class="wpn-shot csd-btn"
+                      (click)="selectedWeapon.expendShot(i)"
+                      title="{{ i + 1 }}"
+                      >{{ shot ? "x" : "" }}</span
+                      >
+                    }
+                    @if (selectedWeapon.isEmpty) {
+                      <button
+                        class="csd-btn csd-icon-btn ms-2"
+                        (click)="selectedWeapon.reload()"
+                        title="Reload"
+                        >
+                        <fa-icon [icon]="faRedo"></fa-icon>
+                      </button>
+                    }
+                  </div>
+                </div>
+              }
+              @if (toHitResults.length > 0) {
+                <div class="row">
+                  <div class="col-2">TO-HIT Results:</div>
+                  <div class="col-9">
+                    @for (msg of toHitResults; track msg) {
+                      <div>{{ msg }}</div>
+                    }
+                  </div>
+                </div>
+              }
+              @if (isMartialArt && martialArtsBonuses; as ma) {
+                <div
+                  class="row cmbt-section"
+                  >
+                  <div class="col-1"></div>
+                  <div class="col-1">
+                    {{ ma.name }}
+                  </div>
+                  <div class="col">
+                    <div class="row">
+                      <div class="col">Strike: +{{ ma.strike }}</div>
+                      <div class="col">Block: +{{ ma.block }}</div>
+                      <div class="col">Choke: +{{ ma.choke }}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col">Punch: +{{ ma.punch }}</div>
+                      <div class="col">Dodge: +{{ ma.dodge }}</div>
+                      <div class="col">Escape: +{{ ma.escape }}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col">Kick: +{{ ma.kick }}</div>
+                      <div class="col">Grapple: +{{ ma.grapple }}</div>
+                      <div class="col">Ram: +{{ ma.ram }}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col">Disarm: +{{ ma.disarm }}</div>
+                      <div class="col">Throw: +{{ ma.throw }}</div>
+                      <div class="col"></div>
+                    </div>
+                    <div class="row">
+                      <div class="col">Sweep: +{{ ma.sweep }}</div>
+                      <div class="col">Hold: +{{ ma.hold }}</div>
+                      <div class="col"></div>
+                    </div>
+                  </div>
+                  <div class="col-2"></div>
+                </div>
+              }
+              @if (isRanged) {
+                <div class="row small mb-1">
+                  <div class="col-1 d-none d-md-inline-block"></div>
+                  <div class="col-6 col-md-5 col-lg-2">Range to Target:</div>
+                  <div class="col-6 col-md-5 col-lg-3 cmbt-section">
+                    <input
+                      class="w-100"
+                      title="Range to target"
+                      [(ngModel)]="rangeToTarget"
+                      type="range"
+                      min="0"
+                      max="{{ weaponRange > 1 ? weaponRange * 2 : 1 }}"
+                      (change)="setBracket()"
+                      value="1"
+                      list="rangeIncrements"
+                      />
+                      <datalist id="rangeIncrements">
+                        <option>{{ selectedWeaponRanges?.pointBlank }}</option>
+                        <option>{{ selectedWeaponRanges?.close }}</option>
+                        <option>{{ selectedWeaponRanges?.medium }}</option>
+                        <option>{{ selectedWeaponRanges?.long }}</option>
+                        <option>{{ selectedWeaponRanges?.extreme }}</option>
+                      </datalist>
+                    </div>
+                    <div class="col-7 col-lg-3 text-end">
+                      {{ rangeToTarget }}m (
+                      <select [ngModel]="rangeBracket" (change)="setRange($event)">
+                        <option value="Point Blank">Point Blank</option>
+                        <option value="Close">Close</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Long">Long</option>
+                        <option value="Extreme">Extreme</option></select
+                        >)
+                      </div>
+                      <div class="col-5 col-lg-3 text-end">
+                        Base DIFF: {{ selectedWeaponRanges.rangeBracket(rangeToTarget).diff }}
+                      </div>
+                    </div>
+                  }
+                  @if (selectedWeapon.rof && selectedWeapon.rof > 1) {
+                    <div
+                      class="row test-sm"
+                      >
+                      <div class="col-1 d-none d-md-inline-block"></div>
+                      <div class="col-9 col-md-8 cmbt-section">
+                        Fire:
+                        <select [(ngModel)]="fireMode">
+                          <option [ngValue]="2">Single Shot</option>
+                          @if (selectedWeapon.rof > 2) {
+                            <option [ngValue]="1">
+                              3 Round Burst
+                            </option>
+                          }
+                          @if (selectedWeapon.rof > 2) {
+                            <option [ngValue]="3">
+                              Full Auto
+                            </option>
+                          }
+                          @if (selectedWeapon.rof > 2) {
+                            <option [ngValue]="4">
+                              Suppressive Fire
+                            </option>
+                            }</select
+                            >&nbsp;
+                            @if (fireMode > 1) {
+                              <select [(ngModel)]="shotsFired">
+                                <option [ngValue]="0">0</option>
+                                @for (shot of [].constructor(fireShots); track shot; let i = $index) {
+                                  <option
+                                    [ngValue]="i + 1"
+                                    >
+                                    {{ i + 1 }}
+                                  </option>
+                                }
+                              </select>
+                            }
+                          </div>
+                          <div class="col-3 text-end">{{ fireModeModifier }}</div>
+                        </div>
+                      }
+                      <div class="row" (click)="collapseTargetMods = !collapseTargetMods">
+                        <div class="col-1 d-none d-md-inline-block"></div>
+                        <div class="col">Target Modifiers:
+                          <fa-icon [icon]="collapseTargetMods ? faChevronDown : faChevronRight" class="csd-icon-btn"></fa-icon></div>
+                          <div class="col-3 text-end">{{ targetActionModifier }}</div>
+                        </div>
+                        <div class="row" [collapse]="!collapseTargetMods">
+                          <div class="col-12">
+                            <div class="row cmbt-modifiers">
+                              <div class="col-2"></div>
+                              <div class="col-5">
+                                Target Movement:&nbsp;
+                                <select [(ngModel)]="targetMovementModified">
+                                  <option [ngValue]="0">Moving</option>
+                                  <option [ngValue]="-4">Immobile</option>
+                                  <option [ngValue]="3">Moving Ref > 10</option>
+                                  <option [ngValue]="4">Moving Ref > 12</option>
+                                  <option [ngValue]="5">Moving Ref > 14</option>
+                                </select>
+                              </div>
+                              <div class="col-5">
+                                Target Size:&nbsp;
+                                <select [(ngModel)]="targetSize">
+                                  <option [ngValue]="0"></option>
+                                  <option [ngValue]="6">Tiny</option>
+                                  <option [ngValue]="4">Small</option>
+                                  <option [ngValue]="-4">Large</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="row cmbt-modifiers">
+                              <div class="col-2"></div>
+                              <div class="col-10 col-md-5">
+                                <input
+                                  id="turnToFaceTarget"
+                                  type="checkbox"
+                                  [(ngModel)]="turnToFaceTarget"
+                                  />&nbsp;
+                                  <label for="turnToFaceTarget">Turn To Face (+2) </label>
+                                </div>
+                                <div class="col-2 d-md-none"></div>
+                                <div class="col-10 col-md-5">
+                                  <input
+                                    id="targetSilhoutted"
+                                    type="checkbox"
+                                    [(ngModel)]="targetSilhoutted"
+                                    />&nbsp;
+                                    <label for="targetSilhoutted">Silhoutted (-2) </label>
+                                  </div>
+                                  <div class="col-2"></div>
+                                  @if (!isRanged) {
+                                    <div class="col-10 col-md-5">
+                                      <input
+                                        id="targetdodge"
+                                        type="checkbox"
+                                        [(ngModel)]="targetDodge"
+                                        />&nbsp;
+                                        <label for="targetdodge">Dodging (+2) </label>
+                                      </div>
+                                    }
+                                  </div></div>
+                                </div>
+                                <div class="row" (click)="collapseAttackerMods = !collapseAttackerMods">
+                                  <div class="col-1 d-none d-md-inline-block"></div>
+                                  <div class="col">Attacker Modifiers:
+                                    <fa-icon [icon]="collapseAttackerMods ? faChevronDown : faChevronRight" class="csd-icon-btn"></fa-icon>
+                                  </div>
+                                  <div class="col-1 text-end"> {{ attackerActionModifier }}</div>
+                                </div>
+                                <div class="row" [collapse]="!collapseAttackerMods">
+                                  <div class="col-12">
+                                    @if (isRanged) {
+                                      <div class="row cmbt-modifiers">
+                                        <div class="col-2"></div>
+                                        <div class="col">
+                                          Aimed (turns):&nbsp;
+                                          <select [(ngModel)]="aimedTurns">
+                                            <option [ngValue]="0">0</option>
+                                            <option [ngValue]="-1">1</option>
+                                            <option [ngValue]="-2">2</option>
+                                            <option [ngValue]="-3">3</option>
+                                          </select>
+                                        </div>
+                                      </div>
+                                    }
+                                    <div class="row cmbt-modifiers">
+                                      <div class="col-2"></div>
+                                      <div class="col-10 col-md-5">
+                                        <input id="fastDraw" type="checkbox" [(ngModel)]="fastDraw" />&nbsp;
+                                        <label for="fastDraw">Fast draw/Snapshot (+3)</label>
+                                      </div>
+                                      <div class="col-2 d-md-none"></div>
+                                      <div class="col-10 col-md-5">
+                                        <input id="ambush" type="checkbox" [(ngModel)]="ambush" />&nbsp;
+                                        <label for="ambush">Ambush (-5) </label>
+                                      </div>
+                                    </div>
+                                    <div class="row cmbt-modifiers">
+                                      <div class="col-2"></div>
+                                      <div class="col-10 col-md-5">
+                                        <input id="aimedBody" type="checkbox" [(ngModel)]="aimedBody" />&nbsp;
+                                        <label for="aimedBody">Aimed shot at body location (+4)</label>
+                                      </div>
+                                      <div class="col-2 d-md-none"></div>
+                                      @if (isRanged) {
+                                        <div class="col-10 col-md-5">
+                                          <input id="ricochet" type="checkbox" [(ngModel)]="ricochet" />&nbsp;
+                                          <label for="ricochet">Ricochet/Indirect fire (+5) </label>
+                                        </div>
+                                      }
+                                    </div>
+                                    <div class="row cmbt-modifiers">
+                                      <div class="col-2"></div>
+                                      <div class="col-10 col-md-5">
+                                        <input id="blind" type="checkbox" [(ngModel)]="blind" />&nbsp;
+                                        <label for="blind">Blinded by dust/light (+3)</label>
+                                      </div>
+                                      <div class="col-2 d-md-none"></div>
+                                      <div class="col-10 col-md-5">
+                                        <input
+                                          id="twoWeapons"
+                                          type="checkbox"
+                                          [(ngModel)]="twoWeapons"
+                                          />&nbsp;
+                                          <label for="twoWeapons">Using two weapons (+3) </label>
+                                        </div>
+                                      </div>
+                                      @if (isRanged) {
+                                        <div class="row cmbt-modifiers">
+                                          <div class="col-2"></div>
+                                          <div class="col-10 col-md-5">
+                                            <input id="running" type="checkbox" [(ngModel)]="running" />&nbsp;
+                                            <label for="running">Firing while running (+3)</label>
+                                          </div>
+                                          <div class="col-2 d-md-none"></div>
+                                          <div class="col-10 col-md-5">
+                                            <input
+                                              id="fireFromHip"
+                                              type="checkbox"
+                                              [(ngModel)]="fireFromHip"
+                                              />&nbsp;
+                                              <label for="fireFromHip">Firing shouler arm from the hip (+2) </label>
+                                            </div>
+                                          </div>
+                                        }
+                                        @if (isRanged) {
+                                          <div class="row">
+                                            <div class="col-1"></div>
+                                            <div class="col">Sights/Smartweapon:</div>
+                                            <div class="col-3 text-end">{{ sightSmartModifier }}</div>
+                                          </div>
+                                        }
+                                        @if (isRanged) {
+                                          <div class="row cmbt-modifiers">
+                                            <div class="col-2"></div>
+                                            <div class="col-10 col-md-5">
+                                              <input
+                                                id="smartWeapon"
+                                                type="checkbox"
+                                                [(ngModel)]="smartWeapon"
+                                                />&nbsp; <label for="smartWeapon">Smartweapon/goggles (-2) </label>
+                                              </div>
+                                              <div class="col-2 d-md-none"></div>
+                                              <div class="col-10 col-md-5">
+                                                <input
+                                                  id="laserSight"
+                                                  type="checkbox"
+                                                  [(ngModel)]="laserSight"
+                                                  />&nbsp;
+                                                  <label for="laserSight">Laser Sight (-1) </label>
+                                                </div>
+                                              </div>
+                                            }
+                                            @if (isRanged) {
+                                              <div class="row cmbt-modifiers">
+                                                <div class="col-2"></div>
+                                                <div class="col-10 col-md-5">
+                                                  <input id="teleSight" type="checkbox" [(ngModel)]="teleSight" />&nbsp;
+                                                  <label for="teleSight"
+                                                    >Telescopic Scope ({{
+                                                    selectedWeaponBracket?.bracket === "Medium"
+                                                    ? -1
+                                                    : selectedWeaponBracket?.bracket === "Extreme"
+                                                    ? -2
+                                                    : 0
+                                                    }})
+                                                  </label>
+                                                </div>
+                                                <div class="col-2 d-md-none"></div>
+                                                <div class="col-10 col-md-5">
+                                                  @if (smartWeapon) {
+                                                    <input
+                                                      id="targetScope"
+                                                      type="checkbox"
+                                                      [(ngModel)]="targetScope"
+                                                      />
+                                                    }&nbsp;
+                                                    @if (smartWeapon) {
+                                                      <label for="targetScope"
+                                                        >Targeting Scope (-1)
+                                                      </label>
+                                                    }
+                                                  </div>
+                                                </div>
+                                              }
+                                            </div>
+                                          </div>
+                                          <div class="row">
+                                            <div class="col">Other Modifiers:
+                                              <input type="number" [(ngModel)]="otherToHitModifiers" />
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    }
+                                  </div>

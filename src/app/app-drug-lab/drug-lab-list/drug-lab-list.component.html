@@ -2,36 +2,38 @@
 <fa-icon [icon]="faFilePdf" class="float-end csd-icon-xl csd-icon-btn csd-btn" (click)="saveToPDF()"></fa-icon>
 <div>
   <h4>DRUG LIST &nbsp;
-  <fa-icon [icon]="faUndo" class="csd-btn csd-icon-btn" title="Empty list and starting adding new drugs" (click)="reset()" ></fa-icon>
-</h4>
+    <fa-icon [icon]="faUndo" class="csd-btn csd-icon-btn" title="Empty list and starting adding new drugs" (click)="reset()" ></fa-icon>
+  </h4>
 </div>
 <hr/>
 <div class="row">
   <div class="col">
     <accordion>
-      <accordion-group *ngFor="let item of drugList.items; let i = index" class="col-12" >
-        <div accordion-heading>
-          {{item.name}}
-          <fa-icon [icon]="faTrash" class="float-end delete-item csd-icon-btn"  title="Delete" (click)="delete(i)"></fa-icon>
-        </div>
-        <div class="row">
-          <div class="col">Type: {{item.effectList}}</div>
-          <div class="col">Strength: {{item.strength}}</div>
-        </div>
-        <div class="row">
-          <div class="col">Difficulty: {{item.diff}}</div>
-          <div class="col">Cost: {{item.cost}}</div>
-        </div>
-        <div class="row">
-          <div class="col">Duration: {{item.duration}}</div>
-        </div>
-        <div class="row">
-          <div class="col">{{item.description}}</div>
-        </div>
-        <div class="row">
-          <div class="col">Side Effects: {{item.sideEffectList}}</div>
-        </div>
-      </accordion-group>
+      @for (item of drugList.items; track item; let i = $index) {
+        <accordion-group class="col-12" >
+          <div accordion-heading>
+            {{item.name}}
+            <fa-icon [icon]="faTrash" class="float-end delete-item csd-icon-btn"  title="Delete" (click)="delete(i)"></fa-icon>
+          </div>
+          <div class="row">
+            <div class="col">Type: {{item.effectList}}</div>
+            <div class="col">Strength: {{item.strength}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Difficulty: {{item.diff}}</div>
+            <div class="col">Cost: {{item.cost}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Duration: {{item.duration}}</div>
+          </div>
+          <div class="row">
+            <div class="col">{{item.description}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Side Effects: {{item.sideEffectList}}</div>
+          </div>
+        </accordion-group>
+      }
     </accordion>
 
   </div>

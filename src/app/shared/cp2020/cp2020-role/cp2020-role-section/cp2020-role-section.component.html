@@ -4,7 +4,7 @@
       <span class="chargen-label">
         ROLE
         <button #roleEditorElem class="csd-btn csd-icon-btn csd-icon-sm ms-1"
-        (click)="openModal(primaryRoleEditor)" tabindex="0">
+          (click)="openModal(primaryRoleEditor)" tabindex="0">
           <fa-icon [icon]="faPen"></fa-icon>
         </button>
       </span>
@@ -44,17 +44,19 @@
       <div class="col">
         Secondary
         <fa-icon [icon]="faPlus" class="csd-btn csd-icon-btn csd-icon-lg"
-          (click)="addSecondary()" (keyup.enter)="addSecondary()" tabindex="0"></fa-icon>
+        (click)="addSecondary()" (keyup.enter)="addSecondary()" tabindex="0"></fa-icon>
       </div>
     </div>
-    <div  *ngFor="let role of currentSecondary;let i = index" class="row pb-4">
-      <div class="col">
-        <cs-cp2020-role-editor [role]="role" [isIU]="isIU"
-          (updateRole)="onSecondaryChange($event, i)"
-          (deleteRole)="deleteRole($event)"
-          [showDelete]="true">
-        </cs-cp2020-role-editor>
+    @for (role of currentSecondary; track role; let i = $index) {
+      <div  class="row pb-4">
+        <div class="col">
+          <cs-cp2020-role-editor [role]="role" [isIU]="isIU"
+            (updateRole)="onSecondaryChange($event, i)"
+            (deleteRole)="deleteRole($event)"
+            [showDelete]="true">
+          </cs-cp2020-role-editor>
+        </div>
       </div>
-    </div>
+    }
   </div>
 </ng-template>

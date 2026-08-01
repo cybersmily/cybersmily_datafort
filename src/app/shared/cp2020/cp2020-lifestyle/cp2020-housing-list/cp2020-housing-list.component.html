@@ -7,12 +7,13 @@
       <div class="col text-end">Total Cost: {{ totalCost | number }}eb</div>
       <div class="col-1"></div>
     </div>
-    <ng-container
-      *ngFor="let housing of currHousing; let i = index"
-      [ngTemplateOutlet]="cpHousing"
-      [ngTemplateOutletContext]="{ housing: housing, index: i }"
-    >
-    </ng-container>
+    @for (housing of currHousing; track housing; let i = $index) {
+      <ng-container
+        [ngTemplateOutlet]="cpHousing"
+        [ngTemplateOutletContext]="{ housing: housing, index: i }"
+        >
+      </ng-container>
+    }
     <div class="row">
       <div class="col text-center">
         <fa-icon
@@ -30,7 +31,9 @@
   <div class="row ps-1">
     <div class="col">
       {{ housing.name }}
-      <span *ngIf="housing.owns">(owned)</span>
+      @if (housing.owns) {
+        <span>(owned)</span>
+      }
       <fa-icon
         [icon]="faPen"
         class="csd-btn csd-icon-btn ms-1"
@@ -41,7 +44,7 @@
         class="csd-icon-btn csd-btn ms-2"
         title="Delete housing"
         (click)="delete(index)"
-      >
+        >
       </fa-icon>
     </div>
     <div class="col">
@@ -79,193 +82,200 @@
           type="text"
           placeholder="Enter a name..."
           [(ngModel)]="selectedHousing.name"
-        />
-        <fa-icon
-          [icon]="faSave"
-          class="csd-btn csd-icon-btn csd-icon-xl float-end"
-          title="Save housing changes"
-          (click)="saveHousing()"
-        ></fa-icon>
-      </div>
-    </div>
-    <div class="row mt-2">
-      <div class="col-2 col-lg-1">
-        {{ selectedHousing.owns ? "Cost" : "Rent" }}:
-      </div>
-      <div *ngIf="!selectedHousing.owns; else housingCostInput" class="col-3">
-        {{ selectedHousing.cost }}eb/room
-      </div>
-      <ng-template #housingCostInput>
-        <div class="col-3">
-          <input
-            type="number"
-            min="0"
-            [(ngModel)]="selectedHousing.mortgage"
-            class="w-100"
           />
+          <fa-icon
+            [icon]="faSave"
+            class="csd-btn csd-icon-btn csd-icon-xl float-end"
+            title="Save housing changes"
+            (click)="saveHousing()"
+          ></fa-icon>
         </div>
-      </ng-template>
-      <div class="col-7">
-        <input
-          type="checkbox"
-          title="Character owns the proptery or enter a custom cost"
-          [(ngModel)]="selectedHousing.owns"
-        />
-        is owned/custom cost
       </div>
-    </div>
-    <div class="row mt-2">
-      <div class="col-2 col-lg-1">Type:</div>
-      <div class="col-10 col-md-4 col-lg-3">
-        <select [(ngModel)]="selectedHousing.cost">
-          <option [ngValue]="200">Apt./Condo</option>
-          <option [ngValue]="150">House</option>
-        </select>
-      </div>
-      <div class="col-2 col-lg-1">Rooms:</div>
-      <div class="col-10 col-md-4 col-lg-3">
-        <input
-          type="number"
-          min="0"
-          [(ngModel)]="selectedHousing.rooms"
-          class="w-50"
-        />
-      </div>
-      <div class="col-2 col-lg-1">Quality:</div>
-      <div class="col-10 col-lg-3">
-        <select [(ngModel)]="selectedHousing.qualityMod">
-          <option [ngValue]="1">Combat Zone (x1)</option>
-          <option [ngValue]="2">Moderate Zone (x2)</option>
-          <option [ngValue]="4">Corporate Zone (x4)</option>
-          <option [ngValue]="6">Executive Zone (x6)</option>
-        </select>
-      </div>
-    </div>
-    <div class="row mt-2">
-      <div class="col-2">Location:</div>
-      <div class="col">
-        <input
-          type="text"
-          placeholder="Enter location, ex. street/district etc..."
-          [(ngModel)]="selectedHousing.location"
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-2">Description:</div>
-      <div class="col">
-        <textarea
-          [(ngModel)]="selectedHousing.desc"
-          placeholder="Enter a description..."
-          class="w-100"
-        ></textarea>
-      </div>
-    </div>
-    <div class="row mt-2">
-      <div class="col-2 col-lg-1">Utitlies:</div>
-      <div class="col">
-        <div
-          class="row"
-          *ngFor="let u of selectedHousing.utilities; let i = index"
-        >
-          <div class="col-1">
-            <input
-              type="checkbox"
-              [checked]="getUtilitySelected(i)"
-              (change)="toggleUtility($event, i)"
-            />
-          </div>
-          <div class="col-7">
-            {{ u.name }}
-            <button
-              *ngIf="i > 2"
-              class="csd-btn csd-icon-btn csd-icon-sm float-end"
-              (click)="deleteUtility(i)"
-            >
-              <fa-icon [icon]="faTrash"></fa-icon>
-            </button>
-          </div>
-          <div class="col-2">{{ u.cost }}eb</div>
+      <div class="row mt-2">
+        <div class="col-2 col-lg-1">
+          {{ selectedHousing.owns ? "Cost" : "Rent" }}:
         </div>
-        <div class="row">
-          <div class="col-1">
-            <button
-              class="csd-btn csd-icon-btn"
-              title="Add new utility"
-              (click)="addUtility()"
-            >
-              <fa-icon [icon]="faPlus"></fa-icon>
-            </button>
+        @if (!selectedHousing.owns) {
+          <div class="col-3">
+            {{ selectedHousing.cost }}eb/room
           </div>
-          <div class="col-7">
-            <input
-              type="text"
-              [(ngModel)]="newUtility.name"
-              title="Name of the utility"
-              placeholder="Utiltiy name..."
-              class="w-100"
-            />
-          </div>
-          <div class="col-2">
+        } @else {
+          <div class="col-3">
             <input
               type="number"
-              [(ngModel)]="newUtility.cost"
-              title="Cost per month of utility"
-              placeholder="eb per mont"
+              min="0"
+              [(ngModel)]="selectedHousing.mortgage"
               class="w-100"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row mt-2 mb-5">
-      <div class="col-2 col-lg-1">Contents:</div>
-      <div class="col">
-        <div class="row">
-          <div class="col-12 col-md-6">
-            <div class="row" *ngFor="let item of contentColOne; let i = index">
-              <div class="col-12 col-">
-                {{ item }}
-                <fa-icon
-                  [icon]="faTrash"
-                  class="ms-2 csd-btn csd-icon-btn"
-                  title="Add content"
-                  (click)="deleteContent(i)"
-                ></fa-icon>
-              </div>
+              />
             </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="row" *ngFor="let item of contentColTwo; let i = index">
-              <div class="col-12 col-">
-                {{ item }}
-                <fa-icon
-                  [icon]="faTrash"
-                  class="ms-2 csd-btn csd-icon-btn"
-                  title="Add content"
-                  (click)="deleteContent(i + contentColTwoIndex)"
-                ></fa-icon>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col col-md-6 text-center">
+          }
+          <div class="col-7">
             <input
-              type="text"
-              [(ngModel)]="newContent"
-              placeholder="Enter item name..."
-              style="width: 85%"
-            />
-            <fa-icon
-              [icon]="faPlus"
-              class="csd-btn csd-icon-btn ms-2"
-              title="Add content"
-              (click)="addContent()"
-            ></fa-icon>
+              type="checkbox"
+              title="Character owns the proptery or enter a custom cost"
+              [(ngModel)]="selectedHousing.owns"
+              />
+              is owned/custom cost
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</ng-template>
+          <div class="row mt-2">
+            <div class="col-2 col-lg-1">Type:</div>
+            <div class="col-10 col-md-4 col-lg-3">
+              <select [(ngModel)]="selectedHousing.cost">
+                <option [ngValue]="200">Apt./Condo</option>
+                <option [ngValue]="150">House</option>
+              </select>
+            </div>
+            <div class="col-2 col-lg-1">Rooms:</div>
+            <div class="col-10 col-md-4 col-lg-3">
+              <input
+                type="number"
+                min="0"
+                [(ngModel)]="selectedHousing.rooms"
+                class="w-50"
+                />
+              </div>
+              <div class="col-2 col-lg-1">Quality:</div>
+              <div class="col-10 col-lg-3">
+                <select [(ngModel)]="selectedHousing.qualityMod">
+                  <option [ngValue]="1">Combat Zone (x1)</option>
+                  <option [ngValue]="2">Moderate Zone (x2)</option>
+                  <option [ngValue]="4">Corporate Zone (x4)</option>
+                  <option [ngValue]="6">Executive Zone (x6)</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-2">Location:</div>
+              <div class="col">
+                <input
+                  type="text"
+                  placeholder="Enter location, ex. street/district etc..."
+                  [(ngModel)]="selectedHousing.location"
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-2">Description:</div>
+                <div class="col">
+                  <textarea
+                    [(ngModel)]="selectedHousing.desc"
+                    placeholder="Enter a description..."
+                    class="w-100"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-2 col-lg-1">Utitlies:</div>
+                <div class="col">
+                  @for (u of selectedHousing.utilities; track u; let i = $index) {
+                    <div
+                      class="row"
+                      >
+                      <div class="col-1">
+                        <input
+                          type="checkbox"
+                          [checked]="getUtilitySelected(i)"
+                          (change)="toggleUtility($event, i)"
+                          />
+                        </div>
+                        <div class="col-7">
+                          {{ u.name }}
+                          @if (i > 2) {
+                            <button
+                              class="csd-btn csd-icon-btn csd-icon-sm float-end"
+                              (click)="deleteUtility(i)"
+                              >
+                              <fa-icon [icon]="faTrash"></fa-icon>
+                            </button>
+                          }
+                        </div>
+                        <div class="col-2">{{ u.cost }}eb</div>
+                      </div>
+                    }
+                    <div class="row">
+                      <div class="col-1">
+                        <button
+                          class="csd-btn csd-icon-btn"
+                          title="Add new utility"
+                          (click)="addUtility()"
+                          >
+                          <fa-icon [icon]="faPlus"></fa-icon>
+                        </button>
+                      </div>
+                      <div class="col-7">
+                        <input
+                          type="text"
+                          [(ngModel)]="newUtility.name"
+                          title="Name of the utility"
+                          placeholder="Utiltiy name..."
+                          class="w-100"
+                          />
+                        </div>
+                        <div class="col-2">
+                          <input
+                            type="number"
+                            [(ngModel)]="newUtility.cost"
+                            title="Cost per month of utility"
+                            placeholder="eb per mont"
+                            class="w-100"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mt-2 mb-5">
+                      <div class="col-2 col-lg-1">Contents:</div>
+                      <div class="col">
+                        <div class="row">
+                          <div class="col-12 col-md-6">
+                            @for (item of contentColOne; track item; let i = $index) {
+                              <div class="row">
+                                <div class="col-12 col-">
+                                  {{ item }}
+                                  <fa-icon
+                                    [icon]="faTrash"
+                                    class="ms-2 csd-btn csd-icon-btn"
+                                    title="Add content"
+                                    (click)="deleteContent(i)"
+                                  ></fa-icon>
+                                </div>
+                              </div>
+                            }
+                          </div>
+                          <div class="col-12 col-md-6">
+                            @for (item of contentColTwo; track item; let i = $index) {
+                              <div class="row">
+                                <div class="col-12 col-">
+                                  {{ item }}
+                                  <fa-icon
+                                    [icon]="faTrash"
+                                    class="ms-2 csd-btn csd-icon-btn"
+                                    title="Add content"
+                                    (click)="deleteContent(i + contentColTwoIndex)"
+                                  ></fa-icon>
+                                </div>
+                              </div>
+                            }
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col col-md-6 text-center">
+                            <input
+                              type="text"
+                              [(ngModel)]="newContent"
+                              placeholder="Enter item name..."
+                              style="width: 85%"
+                              />
+                              <fa-icon
+                                [icon]="faPlus"
+                                class="csd-btn csd-icon-btn ms-2"
+                                title="Add content"
+                                (click)="addContent()"
+                              ></fa-icon>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-template>
