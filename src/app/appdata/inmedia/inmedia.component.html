@@ -1,11 +1,10 @@
 <div class="container">
   <h2>IN THE MEDIA</h2>
   <div>Listing/reviews/synopsis of all things to inspire your cyberpunk game.</div>
-  <ngx-masonry>
-    <div ngxMasonryItem class="masonry-item">
+  <div>
       <div class="card-block m-1">
         <h4 class="card-title">BOOKS</h4>
-        <div class="card-text csd-rounded csd-box">
+        <div class="card-text csd-rounded csd-box" style="column-count: 2">
           @for (n of books; track n) {
             <div>
               <strong [innerHTML]="n.title"></strong> - <span [innerHTML]="n.description"></span>
@@ -13,11 +12,9 @@
           }
         </div>
       </div>
-    </div>
-    <div ngxMasonryItem class="masonry-item">
       <div class="card-block m-1">
         <h4 class="card-title">MOVIES</h4>
-        <div class="card-text csd-rounded csd-box">
+        <div class="card-text csd-rounded csd-box" style="column-count: 2">
           @for (n of movies; track n) {
             <div>
               <strong [innerHTML]="n.title"></strong> - <span [innerHTML]="n.description"></span>
@@ -25,11 +22,9 @@
           }
         </div>
       </div>
-    </div>
-    <div ngxMasonryItem class="masonry-item">
       <div class="card-block m-1">
         <h4 class="card-title">Anime/Manga</h4>
-        <div class="card-text csd-rounded csd-box">
+        <div class="card-text csd-rounded csd-box" style="column-count: 2">
           @for (n of anime; track n) {
             <div>
               <strong [innerHTML]="n.title"></strong> - <span [innerHTML]="n.description"></span>
@@ -37,11 +32,9 @@
           }
         </div>
       </div>
-    </div>
-    <div ngxMasonryItem class="masonry-item">
       <div class="card-block m-1">
         <h4 class="card-title">TV/Web Series</h4>
-        <div class="card-text csd-rounded csd-box">
+        <div class="card-text csd-rounded csd-box" style="column-count: 2">
           @for (n of series; track n) {
             <div>
               <strong [innerHTML]="n.title"></strong> - <span [innerHTML]="n.description"></span>
@@ -49,8 +42,7 @@
           }
         </div>
       </div>
-    </div>
-  </ngx-masonry>
+  </div>
   <div>
     Here's <a href="http://en.wikipedia.org/wiki/List_of_cyberpunk_works#Print_media">Wikipedia's list</a>. I would disagree on some of their selection (Caprica isn't cyberpunk, it is space opera with cp elements).
   </div>
