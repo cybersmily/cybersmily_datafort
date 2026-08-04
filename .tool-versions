@@ -1,0 +1,4 @@
+kubectl 1.35.5
+helm 3.18.3
+kubeseal 0.36.6
+ruby 3.4.9

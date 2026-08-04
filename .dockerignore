@@ -1,0 +1,14 @@
+.git
+.github
+.vscode
+.idea
+node_modules
+dist
+e2e
+Tests
+*.log
+debug.log
+tslint-to-eslint-config.log
+deploy/helm
+Dockerfile
+.dockerignore

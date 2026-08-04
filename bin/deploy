@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$REPO_ROOT"
+
+if ! command -v helm >/dev/null 2>&1 && command -v mise >/dev/null 2>&1; then
+  eval "$(mise env -s bash)"
+fi
+
+for cmd in helm kubectl git; do
+  command -v "$cmd" >/dev/null 2>&1 || { echo "missing required tool: $cmd" >&2; exit 1; }
+done
+
+NAMESPACE="${NAMESPACE:-cybersmily}"
+RELEASE="${RELEASE:-cybersmily}"
+TAG="${TAG:-$(git rev-parse --short HEAD)}"
+
+echo ">> deploying release '$RELEASE' to namespace '$NAMESPACE' with image tag '$TAG'"
+helm upgrade --install "$RELEASE" deploy/helm/cybersmily \
+  --namespace "$NAMESPACE" --create-namespace \
+  --set image.tag="$TAG"
+
+kubectl -n "$NAMESPACE" rollout status "deploy/$RELEASE" --timeout=2m
+kubectl -n "$NAMESPACE" get ingress

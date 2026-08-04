@@ -53,6 +53,49 @@
         <fa-icon [icon]="faUpload" title="load a character .txt file"></fa-icon>
       </label>
       <fa-icon
+        *ngIf="isDriveConfigured && !driveReadOnly"
+        [icon]="faCloudArrowUp"
+        title="Save the character to Google Drive"
+        class="csd-chargen-btn csd-btn me-2"
+        (click)="saveToDrive()"
+        (keyup.enter)="saveToDrive()"
+        tabindex="0"
+      ></fa-icon>
+      <fa-icon
+        *ngIf="isDriveConfigured && driveFileId"
+        [icon]="faCopy"
+        title="Save as a new Google Drive file"
+        class="csd-chargen-btn csd-btn me-2"
+        (click)="saveAsToDrive()"
+        (keyup.enter)="saveAsToDrive()"
+        tabindex="0"
+      ></fa-icon>
+      <fa-icon
+        *ngIf="isDriveConfigured"
+        [icon]="faCloudArrowDown"
+        title="Open a character from Google Drive"
+        class="csd-chargen-btn csd-btn me-2"
+        (click)="openFromDrive()"
+        (keyup.enter)="openFromDrive()"
+        tabindex="0"
+      ></fa-icon>
+      <fa-icon
+        *ngIf="driveReadOnly"
+        [icon]="faLock"
+        title="This Drive file is view-only. Use 'Save as new' to create your own editable copy."
+        class="csd-chargen-btn csd-btn me-2"
+        tabindex="-1"
+      ></fa-icon>
+      <fa-icon
+        *ngIf="isDriveConfigured && driveFileId"
+        [icon]="linkCopied ? faCheck : faLink"
+        [title]="linkCopied ? 'Link copied!' : 'Copy a shareable link to this character'"
+        class="csd-chargen-btn csd-btn me-2"
+        (click)="copyShareLink()"
+        (keyup.enter)="copyShareLink()"
+        tabindex="0"
+      ></fa-icon>
+      <fa-icon
         [icon]="faFilePdf"
         class="csd-chargen-btn csd-btn me-2"
         (click)="createPDF()"

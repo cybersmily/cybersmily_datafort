@@ -1,0 +1,37 @@
+replicaCount: 1
+
+image:
+  repository: registry.jrbhome.net/cybersmily
+  tag: ""            # defaults to .Chart.AppVersion when empty
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: nginx-external
+  annotations:
+    cert-manager.io/cluster-issuer: ca-issuer
+  host: cybersmily.ext.jrbhome.net
+  tls:
+    enabled: true
+    secretName: cybersmily-ext-tls
+
+resources:
+  limits:
+    cpu: 250m
+    memory: 128Mi
+  requests:
+    cpu: 25m
+    memory: 32Mi
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+podSecurityContext: {}
+securityContext: {}

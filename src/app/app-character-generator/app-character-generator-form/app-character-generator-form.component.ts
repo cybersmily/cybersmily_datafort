@@ -19,10 +19,18 @@ import {
   faUndo,
   faQuestionCircle,
   faCog,
-  faIdBadge
+  faIdBadge,
+  faCloudArrowUp,
+  faCloudArrowDown,
+  faLink,
+  faCheck,
+  faCopy,
+  faLock,
 } from '@fortawesome/free-solid-svg-icons';
+import { GoogleDriveService } from './../../shared/services/google-drive/google-drive.service';
 import { Cp2020PlayerCharacter } from './../../shared/models/cp2020character/cp2020-player-character';
 import { Cp2020CharacterGeneratorService } from './../../shared/services/chargen/cp2020-character-generator.service';
+import { ActivatedRoute } from '@angular/router';
 import {
   Component,
   OnInit,
@@ -51,10 +59,21 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   faQuestionCircle = faQuestionCircle;
   faCog = faCog;
   faIdBadge = faIdBadge;
+  faCloudArrowUp = faCloudArrowUp;
+  faCloudArrowDown = faCloudArrowDown;
+  faLink = faLink;
+  faCheck = faCheck;
+  faCopy = faCopy;
+  faLock = faLock;
+  linkCopied = false;
+  driveReadOnly = false;
 
   sources = new Array<TitleValue>();
   charGenSettings: Cp2020CharGenSettings = new Cp2020CharGenSettings();
   charGenSettingsKey: string = 'CP2020_CharGenSettings';
+  driveFileIdKey: string = 'CP2020_CHAR_GEN_DRIVE_FILE_ID';
+  driveFileId: string | null = null;
+  driveBusy = false;
   baseRef: number = 0;
   baseInt: number = 0;
   notes: string = '';
@@ -94,8 +113,14 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
     private deckmanagerPDFService: Cp2020DeckmanagerPdfSectionService,
     private contactPDFService: Cp2020ContactSectionPdfService,
     private seo: SeoService,
-    private sourceService: SourcesDataService
+    private sourceService: SourcesDataService,
+    private driveService: GoogleDriveService,
+    private route: ActivatedRoute
   ) {}
+
+  get isDriveConfigured(): boolean {
+    return this.driveService.isConfigured();
+  }
 
   ngOnInit() {
     this.seo.updateMeta(
@@ -103,6 +128,14 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
       "2021-11-21 Cybersmily's Datafort Character Generator for Cyberpunk 2020. This app can print to PDF and save/load the character sheet"
     );
     this.loadSettings();
+    this.driveFileId = window.localStorage.getItem(this.driveFileIdKey);
+
+    this.route.queryParamMap.subscribe((params) => {
+      const requestedDriveId = params.get('driveFileId');
+      if (requestedDriveId && this.isDriveConfigured && requestedDriveId !== this.driveFileId) {
+        this.loadDriveFile(requestedDriveId);
+      }
+    });
   }
 
   OnDestroy(): void {
@@ -111,6 +144,9 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
 
   resetCharacter() {
     this.characterService.clearCharacter(this.charGenSettings.isIU);
+    this.driveFileId = null;
+    this.driveReadOnly = false;
+    window.localStorage.removeItem(this.driveFileIdKey);
   }
 
   /**
@@ -166,7 +202,117 @@ export class AppCharacterGeneratorFormComponent implements OnInit {
   loadCharacter($event) {
     this.fileLoader
       .importJSON($event.target.files[0])
-      .subscribe((data) => this.characterService.changeCharacter(data));
+      .subscribe((data) => {
+        this.characterService.changeCharacter(data);
+        this.driveFileId = null;
+        this.driveReadOnly = false;
+        window.localStorage.removeItem(this.driveFileIdKey);
+      });
+  }
+
+  async openFromDrive() {
+    if (this.driveBusy) return;
+    this.driveBusy = true;
+    try {
+      const picked = await this.driveService.pickFile();
+      if (!picked) return;
+      await this.applyDriveFile(picked.fileId);
+    } catch (err: any) {
+      console.error('Drive open failed', err);
+      alert('Could not open from Google Drive:\n' + (err?.message || err));
+    } finally {
+      this.driveBusy = false;
+    }
+  }
+
+  async loadDriveFile(fileId: string) {
+    if (this.driveBusy) return;
+    this.driveBusy = true;
+    try {
+      console.log('[drive] loading file', fileId);
+      await this.applyDriveFile(fileId);
+      console.log('[drive] load complete', fileId);
+    } catch (err: any) {
+      console.error('Drive deep-link load failed', err);
+      alert('Could not load the requested Google Drive file:\n' + (err?.message || err));
+    } finally {
+      this.driveBusy = false;
+    }
+  }
+
+  private async applyDriveFile(fileId: string) {
+    const data = await this.driveService.loadFile(fileId);
+    console.log('[drive] file content loaded', data);
+    let meta: { canEdit: boolean } = { canEdit: true };
+    try {
+      meta = await this.driveService.getFileMeta(fileId);
+      console.log('[drive] meta loaded', meta);
+    } catch (err) {
+      console.warn('[drive] meta fetch failed, defaulting to editable', err);
+    }
+    this.characterService.changeCharacter(data);
+    this.driveFileId = fileId;
+    this.driveReadOnly = !meta.canEdit;
+    window.localStorage.setItem(this.driveFileIdKey, fileId);
+  }
+
+  get shareUrl(): string | null {
+    if (!this.driveFileId) return null;
+    return `${window.location.origin}/apps/chargen?driveFileId=${encodeURIComponent(this.driveFileId)}`;
+  }
+
+  async copyShareLink() {
+    const url = this.shareUrl;
+    if (!url) return;
+    try {
+      await navigator.clipboard.writeText(url);
+      this.linkCopied = true;
+      setTimeout(() => (this.linkCopied = false), 1500);
+    } catch (err) {
+      console.error('Clipboard write failed', err);
+      window.prompt('Copy this share link:', url);
+    }
+  }
+
+  saveToDrive() {
+    this.doDriveSave(this.driveFileId, 'Could not save to Google Drive');
+  }
+
+  saveAsToDrive() {
+    this.doDriveSave(null, 'Could not save a new copy to Google Drive');
+  }
+
+  private doDriveSave(targetFileId: string | null, errorPrefix: string) {
+    if (this.driveBusy) return;
+    this.characterService.character.pipe(first()).subscribe(async (character) => {
+      let filename: string;
+      if (!targetFileId) {
+        const handle = (character.handle || 'character').replace(/\s+/g, '_');
+        const suggested = `CP2020_${handle}.json`;
+        const input = window.prompt('Save as (Drive filename):', suggested);
+        if (input === null) return; // user cancelled
+        filename = input.trim() || suggested;
+        if (!/\.json$/i.test(filename)) filename += '.json';
+      } else {
+        filename = ''; // unused on update — existing name is preserved
+      }
+      this.driveBusy = true;
+      try {
+        const id = await this.driveService.saveFile(
+          targetFileId,
+          filename,
+          JSON.stringify(character)
+        );
+        this.driveFileId = id;
+        this.driveReadOnly = false;
+        window.localStorage.setItem(this.driveFileIdKey, id);
+      } catch (err: any) {
+        console.error('Drive save failed', err);
+        alert(errorPrefix + ':\n' + (err?.message || err));
+      } finally {
+        this.driveBusy = false;
+      }
+    });
   }
 
   loadSettings() {
